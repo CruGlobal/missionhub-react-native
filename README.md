@@ -65,18 +65,3 @@ To build to a local device, check that there is a device connected by running `a
 ## Notes
 
 iOS builds can only be run on a Mac.
-To build a version that does not have the ugly black flash on startup for iOS you will need to add some custom code into a file located under Node-Modules/React-Native-Navigation. We did not want to fork that repository so if you do npm i you will lose your changes. Go to the file called RCCManager.m under iOS. After line 229 insert the following code to allow for a situation where it cannot find the startup screens and to set a custom background color:   
-`  if (splashView == nil)
-  {
-    UIViewController *splashVC = [[UIViewController alloc] init];
-    UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0,
-      0,
-      [[UIScreen mainScreen] applicationFrame].size.width,
-      [[UIScreen mainScreen] applicationFrame].size.height)];
-    [splashVC.view addSubview:baseView];
-    [baseView setBackgroundColor:[UIColor colorWithRed:0.27 green:0.78 blue:0.91 alpha:1.0]];
-
-    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
-    appDelegate.window.rootViewController = splashVC;
-    [appDelegate.window makeKeyAndVisible];
-  }`
