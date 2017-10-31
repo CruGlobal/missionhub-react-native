@@ -1,0 +1,5 @@
+before_script:
+  - yarn
+
+script:
+  - eslint ./src
