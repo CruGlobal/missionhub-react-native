@@ -1,4 +1,4 @@
-# Mission Hub
+# Mission Hub [![Build Status](https://travis-ci.com/CruGlobal/missionhub-react-native.svg?token=qw4zYh6vUTp6WkvVkWCb&branch=master)](https://travis-ci.com/CruGlobal/missionhub-react-native)
 
 Mission Hub description goes here
 
