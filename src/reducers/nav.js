@@ -1,7 +1,7 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { LOGIN, LOGOUT } from '../constants';
-import { LoginRoutes, MainRoutes, MainTabRoutes } from '../AppRoutes';
+import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
+import { LoginRoutes, MainRoutes, FirstTimeRoutes, MainTabRoutes } from '../AppRoutes';
 
 // Not logged in
 const loginState = LoginRoutes.router.getStateForAction(LoginRoutes.router.getActionForPathAndParams('Login'));
@@ -22,6 +22,8 @@ function navReducer(state = initialNavState, action) {
     }
   }
 
+  let useFirstTimeRoutes = true; // TODO fix
+
   let nextState;
   switch (action.type) {
     // If the user is already logged in, use the main router
@@ -40,6 +42,8 @@ function navReducer(state = initialNavState, action) {
     default:
       if (!useLoginRoutes) {
         nextState = MainRoutes.router.getStateForAction(action, state);
+      } else if (useFirstTimeRoutes) {
+        nextState = FirstTimeRoutes.router.getStateForAction(action, state);
       } else {
         nextState = LoginRoutes.router.getStateForAction(action, state);
       }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import {StackNavigator, TabNavigator} from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
 import InteractionsScreen from './containers/InteractionsScreen';
@@ -7,10 +7,13 @@ import HistoryScreen from './containers/HistoryScreen';
 import StepsScreen from './containers/StepsScreen';
 import StepScreen from './containers/StepScreen';
 import ProfileScreen from './containers/ProfileScreen';
+import WelcomeScreen from './containers/WelcomeScreen';
+import SetupScreen from './containers/SetupScreen';
+import GetStartedScreen from './containers/GetStartedScreen';
 
-import { Icon } from './components/common';
+import {Icon} from './components/common';
 
-import theme, { COLORS } from './theme';
+import theme, {COLORS} from './theme';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -25,7 +28,7 @@ import theme, { COLORS } from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon name={name} size={30} style={{ color: tintColor }} />;
+const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}} />;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -61,11 +64,11 @@ export const MainTabRoutes = TabNavigator({
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
-    style: { backgroundColor: theme.primaryColor },
+    style: {backgroundColor: theme.primaryColor},
     activeTintColor: theme.primaryColor,
     inactiveTintColor: COLORS.GREY,
-    labelStyle: { color: theme.primaryColor },
-    tabStyle: { backgroundColor: theme.lightBackgroundColor },
+    labelStyle: {color: theme.primaryColor},
+    tabStyle: {backgroundColor: theme.lightBackgroundColor},
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
@@ -79,9 +82,9 @@ export const MainTabRoutes = TabNavigator({
 });
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: { screen: MainTabRoutes },
-  Profile: { screen: ProfileScreen },
-  Step: { screen: StepScreen },
+  MainTabs: {screen: MainTabRoutes},
+  Profile: {screen: ProfileScreen},
+  Step: {screen: StepScreen},
 }, {
   // paths: {
   //   MainTabs: '',
@@ -94,7 +97,7 @@ export const MainStackRoutes = StackNavigator({
 });
 
 export const LoginRoutes = StackNavigator({
-  Login: { screen: LoginScreen },
+  Login: {screen: LoginScreen},
   // Profile: { screen: ProfileScreen },
 }, {
   // transitionConfig: customAnimationFunc,
@@ -115,6 +118,22 @@ export const LoginRoutes = StackNavigator({
     //     </Text>
     //   );
     // },
+  },
+});
+
+export const FirstTimeRoutes = StackNavigator({
+  Welcome: {screen: WelcomeScreen},
+  Setup: {screen: SetupScreen},
+  Login: {screen: WelcomeScreen}, // TODO remove
+  GetStarted: {screen: GetStartedScreen},
+}, {
+  paths: {
+    Setup: 'Setup',
+    GetStarted: 'GetStarted',
+  },
+  navigationOptions: {
+    // Have each page implement their own header
+    header: null,
   },
 });
 

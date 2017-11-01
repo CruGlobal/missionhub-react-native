@@ -1,9 +1,10 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { LOGIN, LOGOUT } from '../constants';
+import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
 
 const initialAuthState = {
   isLoggedIn: false,
+  isFirstTime: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -21,6 +22,8 @@ function authReducer(state = initialAuthState, action) {
       return { ...state, isLoggedIn: true };
     case LOGOUT:
       return { ...state, isLoggedIn: false };
+    case FIRST_TIME:
+      return { ...state, isFirstTime: true, isLoggedIn: false };
     default:
       return state;
   }
