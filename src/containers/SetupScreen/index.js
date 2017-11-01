@@ -12,15 +12,20 @@ class SetupScreen extends Component {
   state = {
     firstName: '',
     lastName: '',
+    error: false,
   };
 
   saveAndGoToGetStarted() {
-    this.props.dispatch(setFirstAndLastName(this.state.firstName, this.state.lastName));
-    this.props.dispatch(navigatePush('GetStarted'));
+    if (this.state.firstName) {
+      this.props.dispatch(setFirstAndLastName(this.state.firstName, this.state.lastName));
+      this.props.dispatch(navigatePush('GetStarted'));
+    } else {
+      this.setState({error: true});
+    }
   }
 
   render() {
-    const { firstName, lastName} = this.state;
+    const { firstName, lastName, error} = this.state;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -30,6 +35,7 @@ class SetupScreen extends Component {
         <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
           <Flex direction="column">
             <Text i18n="Profile_Label_FirstName" style={styles.label} />
+            {error ? <Text style={{color: 'red'}}>This field is required.</Text> : null }
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.setState({firstName: t})}
