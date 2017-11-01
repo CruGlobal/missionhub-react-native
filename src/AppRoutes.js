@@ -10,6 +10,7 @@ import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen from './containers/WelcomeScreen';
 import SetupScreen from './containers/SetupScreen';
 import GetStartedScreen from './containers/GetStartedScreen';
+import StageScreen from './containers/StageScreen';
 
 import {Icon} from './components/common';
 
@@ -28,7 +29,7 @@ import theme, {COLORS} from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}} />;
+const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}}/>;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -126,10 +127,12 @@ export const FirstTimeRoutes = StackNavigator({
   Setup: {screen: SetupScreen},
   Login: {screen: WelcomeScreen}, // TODO remove
   GetStarted: {screen: GetStartedScreen},
+  Stage: {screen: StageScreen},
 }, {
   paths: {
     Setup: 'Setup',
     GetStarted: 'GetStarted',
+    Stage: 'Stage',
   },
   navigationOptions: {
     // Have each page implement their own header
