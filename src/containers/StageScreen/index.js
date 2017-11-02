@@ -20,14 +20,14 @@ class StageScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Text style={{flex: 1}}></Text>
+        <View style={{flex: 1}}></View>
         <View style={{flex: 2}}>
           <Text style={{color: 'navy', fontSize: 18}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
           <ScrollView horizontal={true}>
             {this.renderStages()}
           </ScrollView>
         </View>
-        <Text style={{flex: 1}}></Text>
+        <View style={{flex: 1}}></View>
       </Flex>
     );
   }
