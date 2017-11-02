@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {navigatePush} from '../../actions/navigation';
 import {View, ScrollView} from 'react-native';
 import {getStages} from '../../actions/stages';
+import {selectStage} from '../../actions/selectStage';
 
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
@@ -10,6 +11,10 @@ import {Flex, Text, Button} from '../../components/common';
 class StageScreen extends Component {
   componentWillMount() {
     this.props.dispatch(getStages());
+  }
+
+  setStage(id) {
+    selectStage(id);
   }
 
   render() {
@@ -35,7 +40,7 @@ class StageScreen extends Component {
           <Text style={{fontSize: 16, color: 'navy'}}>{stage.description}</Text>
           <Button
             style={{backgroundColor: 'navy'}}
-            onPress={() => console.log('stage selected')}
+            onPress={() => this.setStage(stage.id)}
             text="I AM HERE"
           />
         </View>
