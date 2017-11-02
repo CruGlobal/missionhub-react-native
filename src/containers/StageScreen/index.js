@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {navigatePush} from '../../actions/navigation';
 import {View, ScrollView} from 'react-native';
+import {getStages} from '../../actions/stages';
 
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
 
 class StageScreen extends Component {
-  state = {stages: [0, 1, 2, 3, 4]};
+  componentWillMount() {
+    this.props.dispatch(getStages());
+  }
 
   render() {
     return (
@@ -21,21 +24,26 @@ class StageScreen extends Component {
   }
 
   renderStages() {
-    return this.state.stages.map(number =>
-      <View>
-        <Text>This is a stage</Text>
-        <Button
-          onPress={() => console.log('stage selected')}
-          text="I am here"
-        />
-      </View>
-    );
+    if (this.props.stages) {
+      return this.props.stages.map(number =>
+        <View>
+          <Text>This is a stage</Text>
+          <Button
+            onPress={() => console.log('stage selected')}
+            text="I AM HERE"
+          />
+        </View>
+      );
+    }
+
+    return null;
   }
 }
 
-const mapStateToProps = ({profile}, { navigation }) => ({
+const mapStateToProps = ({profile, stages}, { navigation }) => ({
   id: navigation.state.params ? navigation.state.params.id : '',
   firstName: profile.firstName,
+  stages: stages.stages,
 });
 
 export default connect(mapStateToProps)(StageScreen);
