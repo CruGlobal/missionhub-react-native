@@ -125,11 +125,11 @@ export const LoginRoutes = StackNavigator({
 export const FirstTimeRoutes = StackNavigator({
   Welcome: {screen: WelcomeScreen},
   Setup: {screen: SetupScreen},
-  Login: {screen: WelcomeScreen}, // TODO remove
   GetStarted: {screen: GetStartedScreen},
   Stage: {screen: StageScreen},
 }, {
   paths: {
+    Welcome: 'Welcome',
     Setup: 'Setup',
     GetStarted: 'GetStarted',
     Stage: 'Stage',

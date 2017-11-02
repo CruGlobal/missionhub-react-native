@@ -9,6 +9,8 @@ const loginState = LoginRoutes.router.getStateForAction(LoginRoutes.router.getAc
 // Need to recreate the state of a stack nav with a tab nav in it
 const mainState = MainRoutes.router.getStateForAction(MainTabRoutes.router.getActionForPathAndParams('InteractionsTab'));
 
+const firstTimeState = FirstTimeRoutes.router.getStateForAction(FirstTimeRoutes.router.getActionForPathAndParams('Welcome'));
+
 const initialNavState = loginState;
 
 function navReducer(state = initialNavState, action) {
@@ -39,6 +41,8 @@ function navReducer(state = initialNavState, action) {
       return mainState;
     case LOGOUT:
       return loginState;
+    case FIRST_TIME:
+      return firstTimeState;
     default:
       if (!useLoginRoutes) {
         nextState = MainRoutes.router.getStateForAction(action, state);
