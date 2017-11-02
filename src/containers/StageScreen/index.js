@@ -27,8 +27,8 @@ class StageScreen extends Component {
     if (this.props.stages) {
       return this.props.stages.map(stage =>
         <View key={stage.id}>
-          <Text>{stage.attributes.name}</Text>
-          <Text>{stage.attributes.description}</Text>
+          <Text>{stage.name}</Text>
+          <Text>{stage.description}</Text>
           <Button
             onPress={() => console.log('stage selected')}
             text="I AM HERE"
