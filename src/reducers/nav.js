@@ -18,13 +18,15 @@ function navReducer(state = initialNavState, action) {
 
   // Figure out which set of Routes to use when navigating
   let useLoginRoutes = true;
+  let useFirstTimeRoutes = false;
+
   if (action.type.indexOf('Navigation') >= 0) {
     if (state.routes[0].key === 'InteractionsTab' || state.routes[0].routeName === 'MainTabs') {
       useLoginRoutes = false;
+    } else if (state.routes[0].routeName === 'Welcome') {
+      useFirstTimeRoutes = true;
     }
   }
-
-  let useFirstTimeRoutes = true; // TODO fix
 
   let nextState;
   switch (action.type) {
