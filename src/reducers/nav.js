@@ -16,18 +16,6 @@ const initialNavState = loginState;
 function navReducer(state = initialNavState, action) {
   // LOG('action', action, state);
 
-  // Figure out which set of Routes to use when navigating
-  let useLoginRoutes = true;
-  let useFirstTimeRoutes = false;
-
-  if (action.type.indexOf('Navigation') >= 0) {
-    if (state.routes[0].key === 'InteractionsTab' || state.routes[0].routeName === 'MainTabs') {
-      useLoginRoutes = false;
-    } else if (state.routes[0].routeName === 'Welcome') {
-      useFirstTimeRoutes = true;
-    }
-  }
-
   let nextState;
   switch (action.type) {
     // If the user is already logged in, use the main router
@@ -46,10 +34,12 @@ function navReducer(state = initialNavState, action) {
     case FIRST_TIME:
       return firstTimeState;
     default:
-      if (!useLoginRoutes) {
-        nextState = MainRoutes.router.getStateForAction(action, state);
-      } else if (useFirstTimeRoutes) {
-        nextState = FirstTimeRoutes.router.getStateForAction(action, state);
+      if (action.type.indexOf('Navigation') >= 0) {
+        if (state.routes[0].key === 'InteractionsTab' || state.routes[0].routeName === 'MainTabs') {
+          nextState = MainRoutes.router.getStateForAction(action, state);
+        } else if (state.routes[0].routeName === 'Welcome') {
+          nextState = FirstTimeRoutes.router.getStateForAction(action, state);
+        }
       } else {
         nextState = LoginRoutes.router.getStateForAction(action, state);
       }
