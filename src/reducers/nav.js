@@ -39,9 +39,9 @@ function navReducer(state = initialNavState, action) {
           nextState = MainRoutes.router.getStateForAction(action, state);
         } else if (state.routes[0].routeName === 'Welcome') {
           nextState = FirstTimeRoutes.router.getStateForAction(action, state);
+        } else {
+          nextState = LoginRoutes.router.getStateForAction(action, state);
         }
-      } else {
-        nextState = LoginRoutes.router.getStateForAction(action, state);
       }
       break;
   }
