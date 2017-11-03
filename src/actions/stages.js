@@ -9,7 +9,7 @@ export function getStages() {
         const jsonApiStore = new JsonApiDataStore();
         jsonApiStore.sync(result.data);
 
-        return dispatch({type: STAGES, payload: jsonApiStore.findAll('pathway_stage')});
+        return dispatch({type: STAGES, allStages: jsonApiStore.findAll('pathway_stage')});
       })
       .catch(error => console.log('error getting stages: ' + error));
   };

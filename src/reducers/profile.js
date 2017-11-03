@@ -8,7 +8,7 @@ const initialProfileState = {
 function profileReducer(state = initialProfileState, action) {
   switch (action.type) {
     case NAME:
-      return { ...state, firstName: action.payload.firstName, lastName: action.payload.lastName };
+      return { ...state, firstName: action.firstName, lastName: action.lastName };
     default:
       return state;
   }
