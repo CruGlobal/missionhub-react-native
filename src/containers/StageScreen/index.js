@@ -14,7 +14,8 @@ class StageScreen extends Component {
   }
 
   setStage(id) {
-    selectStage(id);
+    this.props.dispatch(selectStage(id));
+    this.props.dispatch(navigatePush('StageSuccess'));
   }
 
   render() {

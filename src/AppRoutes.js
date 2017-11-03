@@ -11,6 +11,7 @@ import WelcomeScreen from './containers/WelcomeScreen';
 import SetupScreen from './containers/SetupScreen';
 import GetStartedScreen from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
+import StageSuccessScreen from './containers/StageSuccessScreen';
 
 import {Icon} from './components/common';
 
@@ -127,12 +128,14 @@ export const FirstTimeRoutes = StackNavigator({
   Setup: {screen: SetupScreen},
   GetStarted: {screen: GetStartedScreen},
   Stage: {screen: StageScreen},
+  StageSuccess: {screen: StageSuccessScreen},
 }, {
   paths: {
     Welcome: 'Welcome',
     Setup: 'Setup',
     GetStarted: 'GetStarted',
     Stage: 'Stage',
+    StageSuccess: 'StageSuccess',
   },
   navigationOptions: {
     // Have each page implement their own header

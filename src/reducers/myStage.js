@@ -1,6 +1,6 @@
 import { SELECT_STAGE } from '../constants';
 
-function myStageReducer(state = 0, action) {
+function myStageReducer(state = null, action) {
   switch (action.type) {
     case SELECT_STAGE:
       return { ...state, stageId: action.stageId };
