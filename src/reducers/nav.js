@@ -1,4 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
+import {getRoutesFromState} from '../utils/nav_helper';
 
 import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
 import { LoginRoutes, MainRoutes, FirstTimeRoutes, MainTabRoutes } from '../AppRoutes';
@@ -35,13 +36,7 @@ function navReducer(state = initialNavState, action) {
       return firstTimeState;
     default:
       if (action.type.indexOf('Navigation') >= 0) {
-        if (state.routes[0].key === 'InteractionsTab' || state.routes[0].routeName === 'MainTabs') {
-          nextState = MainRoutes.router.getStateForAction(action, state);
-        } else if (state.routes[0].routeName === 'Welcome') {
-          nextState = FirstTimeRoutes.router.getStateForAction(action, state);
-        } else {
-          nextState = LoginRoutes.router.getStateForAction(action, state);
-        }
+        nextState = getRoutesFromState(state).router.getStateForAction(action, state);
       }
       break;
   }
