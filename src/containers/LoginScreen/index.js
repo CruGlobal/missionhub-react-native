@@ -9,16 +9,20 @@ import {navigatePush} from '../../actions/navigation';
 class LoginScreen extends Component {
   login() {
     this.props.dispatch(login());
-    this.navigateToWelcome();
+    this.navigateToNext();
   }
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToWelcome();
+    this.navigateToNext();
   }
 
-  navigateToWelcome() {
-    this.props.dispatch(navigatePush('Welcome'));
+  navigateToNext() {
+    if (this.props.stageId) {
+      this.props.dispatch(navigatePush('MainTabs'));
+    } else {
+      this.props.dispatch(navigatePush('Welcome'));
+    }
   }
 
   render() {
@@ -44,4 +48,10 @@ class LoginScreen extends Component {
   }
 }
 
-export default connect()(LoginScreen);
+const mapStateToProps = ({myStageReducer}) => {
+  return {
+    stageId: myStageReducer.stageId,
+  };
+};
+
+export default connect(mapStateToProps)(LoginScreen);
