@@ -13,10 +13,14 @@ class GetStartedScreen extends Component {
         <Text>Hi {this.props.firstName}!</Text>
         <Text>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
         <Text>Let's figure out where you are on your journey.</Text>
-        <Button
-          onPress={() => this.props.dispatch(navigatePush('Stage'))}
-          text="LET'S GET STARTED"
-        />
+
+        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+          <Button
+            onPress={() => this.props.dispatch(navigatePush('Stage'))}
+            text="LET'S GET STARTED"
+            style={{alignItems: 'center'}}
+          />
+        </Flex>
       </Flex>
     );
   }

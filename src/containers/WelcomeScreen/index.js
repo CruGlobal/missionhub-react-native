@@ -19,10 +19,13 @@ class WelcomeScreen extends Component {
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Text style={{fontSize: 48, fontWeight: 'bold'}}>WELCOME!</Text>
         <Text>Growing close to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
-        <Button
-          onPress={() => this.navigateToNext()}
-          text="OK"
-        />
+        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+          <Button
+            onPress={() => this.navigateToNext()}
+            text="OK"
+            style={{alignItems: 'center'}}
+          />
+        </Flex>
       </Flex>
     );
   }
