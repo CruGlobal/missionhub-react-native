@@ -9,7 +9,10 @@ class GetStartedScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+        <Flex style={{position: 'absolute', top: 0, left: 0}}>
+          <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+        </Flex>
+
         <Text>Hi {this.props.firstName}!</Text>
         <Text>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
         <Text>Let's figure out where you are on your journey.</Text>

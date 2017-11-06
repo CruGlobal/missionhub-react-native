@@ -9,7 +9,10 @@ class StageSuccessScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+        <Flex style={{position: 'absolute', top: 0, left: 0}}>
+          <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+        </Flex>
+
         <Text style={{fontSize: 48, fontWeight: 'bold'}}>WOW!</Text>
         <Text>We'd like to offer some things to help you in your spiritual journey.</Text>
         <Button
