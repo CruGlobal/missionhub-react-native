@@ -4,8 +4,23 @@ import { connect } from 'react-redux';
 import { login, firstTime } from '../../actions/auth';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
+import {navigatePush} from '../../actions/navigation';
 
 class LoginScreen extends Component {
+  login() {
+    this.props.dispatch(login());
+    this.navigateToWelcome();
+  }
+
+  tryItNow() {
+    this.props.dispatch(firstTime());
+    this.navigateToWelcome();
+  }
+
+  navigateToWelcome() {
+    this.props.dispatch(navigatePush('Welcome'));
+  }
+
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -17,11 +32,11 @@ class LoginScreen extends Component {
           text="JOIN"
         />
         <Button
-          onPress={() => this.props.dispatch(login())}
+          onPress={() => this.login()}
           text="SIGN IN"
         />
         <Button
-          onPress={() => this.props.dispatch(firstTime())}
+          onPress={() => this.tryItNow()}
           text="TRY IT NOW"
         />
       </Flex>

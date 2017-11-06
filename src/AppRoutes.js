@@ -87,43 +87,7 @@ export const MainStackRoutes = StackNavigator({
   MainTabs: {screen: MainTabRoutes},
   Profile: {screen: ProfileScreen},
   Step: {screen: StepScreen},
-}, {
-  // paths: {
-  //   MainTabs: '',
-  //   Profile: 'profile/:id',
-  // },
-  navigationOptions: {
-    // Have each page implement their own header
-    header: null,
-  },
-});
-
-export const LoginRoutes = StackNavigator({
   Login: {screen: LoginScreen},
-  // Profile: { screen: ProfileScreen },
-}, {
-  // transitionConfig: customAnimationFunc,
-  paths: {
-    Login: 'login',
-  },
-  navigationOptions: {
-    // Have each page implement their own header
-    header: null,
-    // header: ({ navigation }) => {
-    //   const activeRoute = navigation.state.routes[navigation.state.index];
-    //   if (activeRoute.routeName === 'Login') return null;
-    //   LOG('navigation', navigation);
-    //   let text = 'HEADER';
-    //   return (
-    //     <Text style={{ backgroundColor: 'blue', color: 'yellow', height: 50, textAlign: 'center', paddingTop: 20 }}>
-    //       {text}
-    //     </Text>
-    //   );
-    // },
-  },
-});
-
-export const FirstTimeRoutes = StackNavigator({
   Welcome: {screen: WelcomeScreen},
   Setup: {screen: SetupScreen},
   GetStarted: {screen: GetStartedScreen},
@@ -131,6 +95,7 @@ export const FirstTimeRoutes = StackNavigator({
   StageSuccess: {screen: StageSuccessScreen},
 }, {
   paths: {
+    Login: 'Login',
     Welcome: 'Welcome',
     Setup: 'Setup',
     GetStarted: 'GetStarted',
@@ -138,7 +103,6 @@ export const FirstTimeRoutes = StackNavigator({
     StageSuccess: 'StageSuccess',
   },
   navigationOptions: {
-    // Have each page implement their own header
     header: null,
   },
 });

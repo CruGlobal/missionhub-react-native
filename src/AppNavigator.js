@@ -1,13 +1,12 @@
-import 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
-
-import {getJsxRoutesFromState} from './utils/nav_helper';
+import {MainRoutes} from './AppRoutes';
 
 const AppWithNavigationState = ({ dispatch, nav }) => {
   const navigation = addNavigationHelpers({ dispatch, state: nav });
-  return getJsxRoutesFromState(nav, navigation);
+  return <MainRoutes navigation={navigation} />;
 };
 
 AppWithNavigationState.propTypes = {

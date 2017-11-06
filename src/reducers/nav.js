@@ -1,49 +1,19 @@
-import { REHYDRATE } from 'redux-persist/constants';
-import {getRoutesFromState} from '../utils/nav_helper';
+import {REHYDRATE} from 'redux-persist/constants';
+import {MainRoutes} from '../AppRoutes';
 
-import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
-import { LoginRoutes, MainRoutes, FirstTimeRoutes, MainTabRoutes } from '../AppRoutes';
+const initialState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams('Login'));
 
-// Not logged in
-const loginState = LoginRoutes.router.getStateForAction(LoginRoutes.router.getActionForPathAndParams('Login'));
-// Logged in state
-// Need to recreate the state of a stack nav with a tab nav in it
-const mainState = MainRoutes.router.getStateForAction(MainTabRoutes.router.getActionForPathAndParams('InteractionsTab'));
-
-const firstTimeState = FirstTimeRoutes.router.getStateForAction(FirstTimeRoutes.router.getActionForPathAndParams('Welcome'));
-
-const initialNavState = loginState;
-
-function navReducer(state = initialNavState, action) {
-  // LOG('action', action, state);
-
+function navReducer(state = initialState, action) {
   let nextState;
-  switch (action.type) {
-    // If the user is already logged in, use the main router
-    // otherwise the logged in router
-    case REHYDRATE:
-      const incomingAuth = action.payload.auth;
-      if (incomingAuth && incomingAuth.isLoggedIn) {
-        return mainState;
-      }
-      return loginState;
 
-    case LOGIN:
-      return mainState;
-    case LOGOUT:
-      return loginState;
-    case FIRST_TIME:
-      return firstTimeState;
+  switch (action.type) {
+    case REHYDRATE:
+      return state;
     default:
-      if (action.type.indexOf('Navigation') >= 0) {
-        nextState = getRoutesFromState(state).router.getStateForAction(action, state);
-      }
-      break;
+      nextState = MainRoutes.router.getStateForAction(action, state);
   }
 
-  // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 }
-
 
 export default navReducer;
