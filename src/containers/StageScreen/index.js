@@ -28,7 +28,7 @@ class StageScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </View>
         <View style={{flex: 2}}>
-          <Text style={{color: this.color, fontSize: 18}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
+          <Text style={{color: this.color, fontSize: 18, paddingBottom: 25, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
           <ScrollView horizontal={true}>
             {this.renderStages()}
           </ScrollView>
@@ -43,7 +43,7 @@ class StageScreen extends Component {
       return this.props.stages.map(stage =>
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
           <View>
-            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48, color: this.color, textAlign: 'center'}]}>{stage.name}</Text>
+            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: this.color, textAlign: 'center'}]}>{stage.name}</Text>
             <Text style={[projectStyles.primaryTextStyle, {color: 'dimgray', textAlign: 'center'}]}>{stage.description}</Text>
           </View>
 
