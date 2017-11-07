@@ -9,7 +9,7 @@ import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
 
 class StageScreen extends Component {
-  color = 'rgba(0, 45, 6, 1)'
+  color = 'rgba(0, 45, 6, 1)';
 
   componentWillMount() {
     this.props.dispatch(getStages());

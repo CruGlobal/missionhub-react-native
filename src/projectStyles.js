@@ -17,6 +17,6 @@ export default StyleSheet.create({
   primaryTextStyle: {
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
-    color: 'white'
+    color: 'white',
   },
 });
