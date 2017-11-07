@@ -24,7 +24,7 @@ class SetupScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Text>-FIRST THINGS FIRST-</Text>
-        <Text>What's your name?</Text>
+        <Text style={{fontSize: 36, fontFamily: 'AmaticSC-Bold'}}>What's your name?</Text>
 
         <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
           <Flex direction="column">

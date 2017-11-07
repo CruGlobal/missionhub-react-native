@@ -13,7 +13,7 @@ class GetStartedScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </Flex>
 
-        <Text>Hi {this.props.firstName}!</Text>
+        <Text style={{fontSize: 48, fontFamily: 'AmaticSC-Bold'}}>Hi {this.props.firstName}!</Text>
         <Text>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
         <Text>Let's figure out where you are on your journey.</Text>
 
