@@ -42,14 +42,13 @@ class SetupScreen extends Component {
           </Flex>
 
           <Flex direction="column">
-            <Text i18n="Profile_Label_LastName" style={styles.label}/>
+            <Text i18n="Profile_Label_LastName" style={styles.label} />
             <Input
               ref={(c) => this.lastName = c}
               onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
               value={this.props.lastName}
               returnKeyType="next"
-              blurOnSubmit={false}
-              onSubmitEditing={() => this.firstName.focus()}
+              blurOnSubmit={true}
             />
           </Flex>
         </KeyboardAvoidingView>
