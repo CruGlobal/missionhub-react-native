@@ -18,12 +18,12 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Text style={{fontSize: 48, fontFamily: 'AmaticSC-Bold'}}>WELCOME!</Text>
-        <Text style={{fontSize: 16, fontFamily: 'SourceSansPro-Regular', paddingLeft: 40, paddingRight: 40, textAlign: 'center'}}>Growing close to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
+        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>WELCOME!</Text>
+        <Text style={[projectStyles.primaryTextStyle, {paddingLeft: 40, paddingRight: 40, textAlign: 'center'}]}>Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
             onPress={() => this.navigateToNext()}
-            style={{alignItems: 'center'}}
+            style={projectStyles.primaryButtonStyle}
             text="OK"
             buttonTextStyle={projectStyles.primaryButtonTextStyle} />
         </Flex>

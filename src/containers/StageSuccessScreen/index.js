@@ -14,13 +14,17 @@ class StageSuccessScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </Flex>
 
-        <Text style={{fontSize: 48, fontWeight: 'bold'}}>WOW!</Text>
-        <Text>We'd like to offer some things to help you in your spiritual journey.</Text>
-        <Button
-          onPress={() => console.log('go to next screen')}
-          text="OK"
-          buttonTextStyle={projectStyles.primaryButtonTextStyle}
-        />
+        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>WOW!</Text>
+        <Text  style={projectStyles.primaryTextStyle}>We'd like to offer some things to help you in your spiritual journey.</Text>
+
+        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+          <Button
+            onPress={() => console.log('go to next screen')}
+            text="OK"
+            buttonTextStyle={projectStyles.primaryButtonTextStyle}
+            style={projectStyles.primaryButtonStyle}
+          />
+        </Flex>
       </Flex>
     );
   }

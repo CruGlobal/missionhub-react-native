@@ -14,15 +14,15 @@ class GetStartedScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </Flex>
 
-        <Text style={{fontSize: 48, fontFamily: 'AmaticSC-Bold'}}>Hi {this.props.firstName}!</Text>
-        <Text>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
-        <Text>Let's figure out where you are on your journey.</Text>
+        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>Hi {this.props.firstName}!</Text>
+        <Text style={projectStyles.primaryTextStyle}>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
+        <Text style={projectStyles.primaryTextStyle}>Let's figure out where you are on your journey.</Text>
 
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
             onPress={() => this.props.dispatch(navigatePush('Stage'))}
             text="LET'S GET STARTED"
-            style={{alignItems: 'center'}}
+            style={projectStyles.primaryButtonStyle}
             buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
         </Flex>

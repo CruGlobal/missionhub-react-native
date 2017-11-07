@@ -5,6 +5,7 @@ import { login, firstTime } from '../../actions/auth';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import {navigatePush} from '../../actions/navigation';
+import projectStyles from '../../projectStyles';
 
 class LoginScreen extends Component {
   login() {
@@ -29,8 +30,8 @@ class LoginScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Text>MissionHub</Text>
-        <Text>Grow closer to God.</Text>
-        <Text>Help others experience Him.</Text>
+        <Text style={projectStyles.primaryTextStyle}>Grow closer to God.</Text>
+        <Text style={projectStyles.primaryTextStyle}>Help others experience Him.</Text>
         <Button
           onPress={() => console.log('join')}
           text="JOIN"

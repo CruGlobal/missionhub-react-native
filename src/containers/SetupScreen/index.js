@@ -24,8 +24,8 @@ class SetupScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Text>-FIRST THINGS FIRST-</Text>
-        <Text style={{fontSize: 36, fontFamily: 'AmaticSC-Bold'}}>What's your name?</Text>
+        <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-FIRST THINGS FIRST-</Text>
+        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>What's your name?</Text>
 
         <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
           <Flex direction="column">
@@ -40,6 +40,7 @@ class SetupScreen extends Component {
               onSubmitEditing={() => this.lastName.focus()}
             />
           </Flex>
+
           <Flex direction="column">
             <Text i18n="Profile_Label_LastName" style={styles.label}/>
             <Input
@@ -57,7 +58,7 @@ class SetupScreen extends Component {
           <Button
             onPress={() => this.saveAndGoToGetStarted()}
             text="NEXT"
-            style={{alignItems: 'center'}}
+            style={projectStyles.primaryButtonStyle}
             buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
         </Flex>
