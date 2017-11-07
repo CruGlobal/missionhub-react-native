@@ -4,6 +4,7 @@ import {navigatePush, navigateBack} from '../../actions/navigation';
 
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
+import projectStyles from '../../projectStyles';
 
 class StageSuccessScreen extends Component {
   render() {
@@ -18,6 +19,7 @@ class StageSuccessScreen extends Component {
         <Button
           onPress={() => console.log('go to next screen')}
           text="OK"
+          buttonTextStyle={projectStyles.primaryButtonTextStyle}
         />
       </Flex>
     );

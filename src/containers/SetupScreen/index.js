@@ -6,6 +6,7 @@ import {Button, Flex, Text} from '../../components/common';
 import Input from '../../components/Input/index';
 import {navigatePush} from '../../actions/navigation';
 import {firstNameChanged, lastNameChanged} from '../../actions/profile';
+import projectStyles from '../../projectStyles';
 
 class SetupScreen extends Component {
   state = {
@@ -55,8 +56,9 @@ class SetupScreen extends Component {
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
             onPress={() => this.saveAndGoToGetStarted()}
-            text="Next"
+            text="NEXT"
             style={{alignItems: 'center'}}
+            buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
         </Flex>
       </Flex>

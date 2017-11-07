@@ -4,6 +4,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
+import projectStyles from '../../projectStyles';
 
 class GetStartedScreen extends Component {
   render() {
@@ -22,6 +23,7 @@ class GetStartedScreen extends Component {
             onPress={() => this.props.dispatch(navigatePush('Stage'))}
             text="LET'S GET STARTED"
             style={{alignItems: 'center'}}
+            buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
         </Flex>
       </Flex>

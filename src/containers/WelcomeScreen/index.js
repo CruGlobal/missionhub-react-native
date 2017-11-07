@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
+import projectStyles from '../../projectStyles';
 import { Flex, Text, Button } from '../../components/common';
 
 class WelcomeScreen extends Component {
@@ -22,9 +23,9 @@ class WelcomeScreen extends Component {
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
             onPress={() => this.navigateToNext()}
-            style={{alignItems: 'center'}}>
-            <Text style={{fontSize: 18, fontFamily: 'SourceSansPro-Bold'}}>OK</Text>
-          </Button>
+            style={{alignItems: 'center'}}
+            text="OK"
+            buttonTextStyle={projectStyles.primaryButtonTextStyle} />
         </Flex>
       </Flex>
     );
