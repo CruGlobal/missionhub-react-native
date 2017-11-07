@@ -7,6 +7,7 @@ import {selectStage} from '../../actions/selectStage';
 
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
+import projectStyles from '../../projectStyles';
 
 class StageScreen extends Component {
   color = 'rgba(0, 45, 6, 1)';
@@ -41,10 +42,13 @@ class StageScreen extends Component {
     if (this.props.stages) {
       return this.props.stages.map(stage =>
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
-          <Text style={{fontSize: 42, fontWeight: 'bold', color: this.color}}>{stage.name}</Text>
-          <Text style={{fontSize: 16, color: this.color}}>{stage.description}</Text>
+          <View>
+            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48, color: this.color, textAlign: 'center'}]}>{stage.name}</Text>
+            <Text style={[projectStyles.primaryTextStyle, {color: 'dimgray', textAlign: 'center'}]}>{stage.description}</Text>
+          </View>
+
           <Button
-            style={{backgroundColor: this.color}}
+            style={{backgroundColor: this.color, alignItems: 'center'}}
             onPress={() => this.setStage(stage.id)}
             text="I AM HERE"
           />
