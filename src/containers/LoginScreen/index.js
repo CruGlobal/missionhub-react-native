@@ -8,6 +8,12 @@ import {navigatePush} from '../../actions/navigation';
 import projectStyles from '../../projectStyles';
 
 class LoginScreen extends Component {
+  buttonTextStyle = {
+    color: 'white',
+    fontFamily: 'SourceSansPro-Bold',
+    fontSize: 14,
+  };
+
   login() {
     this.props.dispatch(login());
     this.navigateToNext();
@@ -34,15 +40,18 @@ class LoginScreen extends Component {
         <Text style={projectStyles.primaryTextStyle}>Help others experience Him.</Text>
         <Button
           onPress={() => console.log('join')}
-          text="JOIN"
-        />
-        <Button
-          onPress={() => this.login()}
-          text="SIGN IN"
+          text="SIGN IN WITH FACEBOOK"
+          buttonTextStyle={this.buttonTextStyle}
         />
         <Button
           onPress={() => this.tryItNow()}
           text="TRY IT NOW"
+          buttonTextStyle={this.buttonTextStyle}
+        />
+        <Button
+          onPress={() => this.login()}
+          text="SIGN IN"
+          buttonTextStyle={this.buttonTextStyle}
         />
       </Flex>
     );
