@@ -18,13 +18,13 @@ class WelcomeScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Text style={{fontSize: 48, fontFamily: 'AmaticSC-Bold'}}>WELCOME!</Text>
-        <Text style={{fontSize: 16, paddingLeft: 40, paddingRight: 40, textAlign: 'center'}}>Growing close to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
+        <Text style={{fontSize: 16, fontFamily: 'SourceSansPro-Regular', paddingLeft: 40, paddingRight: 40, textAlign: 'center'}}>Growing close to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
             onPress={() => this.navigateToNext()}
-            text="OK"
-            style={{alignItems: 'center'}}
-          />
+            style={{alignItems: 'center'}}>
+            <Text style={{fontSize: 18, fontFamily: 'SourceSansPro-Bold'}}>OK</Text>
+          </Button>
         </Flex>
       </Flex>
     );
