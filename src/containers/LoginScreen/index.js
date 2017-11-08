@@ -7,6 +7,7 @@ import styles from './styles';
 import {Text, Button} from '../../components/common';
 import {navigatePush} from '../../actions/navigation';
 import projectStyles from '../../projectStyles';
+import PillButton from '../../components/PillButton/index';
 
 class LoginScreen extends Component {
   buttonTextStyle = {
@@ -44,14 +45,14 @@ class LoginScreen extends Component {
             <Text style={projectStyles.primaryTextStyle}>Help others experience Him.</Text>
           </View>
           <View>
-            <Button
+            <PillButton
               onPress={() => console.log('join')}
               text="SIGN UP WITH FACEBOOK"
               style={{alignItems: 'center', backgroundColor: '#005A7F', borderWidth: 0}}
               buttonTextStyle={this.buttonTextStyle}
             />
             <View style={{paddingTop: 10}}>
-              <Button
+              <PillButton
                 onPress={() => this.tryItNow()}
                 text="TRY IT NOW"
                 style={{alignItems: 'center', borderColor: '#52C5DC'}}
