@@ -7,6 +7,7 @@ export default StyleSheet.create({
   primaryButtonStyle: {
     alignItems: 'center',
     backgroundColor: 'rgba(32, 77, 86, 1)',
+    minHeight: 50,
   },
 
   primaryHeaderStyle: {

@@ -20,6 +20,7 @@ class GetStartedScreen extends Component {
 
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
+            type="header"
             onPress={() => this.props.dispatch(navigatePush('Stage'))}
             text="LET'S GET STARTED"
             style={projectStyles.primaryButtonStyle}

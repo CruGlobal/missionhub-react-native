@@ -28,6 +28,10 @@ export default StyleSheet.create({
   transparent: {
     backgroundColor: COLORS.TRANSPARENT,
   },
+  header: {
+    backgroundColor: 'black',
+    justifyContent: 'center',
+  },
   textHeader: {
     color: theme.headerTextColor,
   },

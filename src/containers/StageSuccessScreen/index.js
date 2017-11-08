@@ -19,6 +19,7 @@ class StageSuccessScreen extends Component {
 
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
+            type="header"
             onPress={() => console.log('go to next screen')}
             text="OK"
             buttonTextStyle={projectStyles.primaryButtonTextStyle}
