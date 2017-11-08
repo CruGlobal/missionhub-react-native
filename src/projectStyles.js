@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import {PRIMARY_HEADER_COLOR} from './theme';
 
 export default StyleSheet.create({
   primaryButtonTextStyle: {
@@ -6,13 +7,13 @@ export default StyleSheet.create({
   },
   primaryButtonStyle: {
     alignItems: 'center',
-    backgroundColor: 'rgba(32, 77, 86, 1)',
+    backgroundColor: PRIMARY_HEADER_COLOR,
     minHeight: 50,
   },
 
   primaryHeaderStyle: {
     fontFamily: 'AmaticSC-Bold',
-    color: 'rgba(32, 77, 86, 1)',
+    color: PRIMARY_HEADER_COLOR,
   },
 
   primaryTextStyle: {

@@ -8,10 +8,9 @@ import {selectStage} from '../../actions/selectStage';
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
 import projectStyles from '../../projectStyles';
+import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
 
 class StageScreen extends Component {
-  color = 'rgba(0, 45, 6, 1)';
-
   componentWillMount() {
     this.props.dispatch(getStages());
   }
@@ -28,7 +27,7 @@ class StageScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </View>
         <View style={{flex: 2}}>
-          <Text style={{color: this.color, fontSize: 18, paddingBottom: 25, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
+          <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontSize: 18, paddingBottom: 25, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
           <ScrollView horizontal={true}>
             {this.renderStages()}
           </ScrollView>
@@ -43,12 +42,12 @@ class StageScreen extends Component {
       return this.props.stages.map(stage =>
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
           <View>
-            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: this.color, textAlign: 'center'}]}>{stage.name}</Text>
-            <Text style={[projectStyles.primaryTextStyle, {color: 'dimgray', textAlign: 'center'}]}>{stage.description}</Text>
+            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{stage.name}</Text>
+            <Text style={[projectStyles.primaryTextStyle, {color: '#505256', textAlign: 'center'}]}>{stage.description}</Text>
           </View>
 
           <Button
-            style={{backgroundColor: this.color, alignItems: 'center'}}
+            style={{backgroundColor: PRIMARY_BACKGROUND_COLOR, alignItems: 'center'}}
             onPress={() => this.setStage(stage.id)}
             text="I AM HERE"
           />

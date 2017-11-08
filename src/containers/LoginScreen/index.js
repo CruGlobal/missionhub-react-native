@@ -8,6 +8,7 @@ import {Text, Button} from '../../components/common';
 import {navigatePush} from '../../actions/navigation';
 import projectStyles from '../../projectStyles';
 import PillButton from '../../components/PillButton/index';
+import {PRIMARY_HEADER_COLOR} from '../../theme';
 
 class LoginScreen extends Component {
   buttonTextStyle = {
@@ -55,7 +56,7 @@ class LoginScreen extends Component {
               <PillButton
                 onPress={() => this.tryItNow()}
                 text="TRY IT NOW"
-                style={{alignItems: 'center', borderColor: '#52C5DC', minHeight: 30}}
+                style={{alignItems: 'center', borderColor: PRIMARY_HEADER_COLOR, minHeight: 30}}
                 buttonTextStyle={this.buttonTextStyle}
               />
             </View>
