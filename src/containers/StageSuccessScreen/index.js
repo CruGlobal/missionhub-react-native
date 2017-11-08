@@ -11,7 +11,7 @@ class StageSuccessScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex style={{position: 'absolute', top: 0, left: 0}}>
+        <Flex style={{position: 'absolute', top: 0, left: 0, paddingTop: 15}}>
           <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
             <Image source={require('../../../assets/images/back_arrow.png')}/>
           </Button>

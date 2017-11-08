@@ -23,7 +23,7 @@ class StageScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <View style={{flex: 1, alignSelf: 'flex-start'}}>
+        <View style={{flex: 1, alignSelf: 'flex-start', paddingTop: 15}}>
           <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
             <Image source={require('../../../assets/images/back_arrow.png')} />
           </Button>
