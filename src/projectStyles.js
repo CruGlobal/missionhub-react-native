@@ -3,7 +3,7 @@ import {PRIMARY_HEADER_COLOR} from './theme';
 
 export default StyleSheet.create({
   primaryButtonTextStyle: {
-    fontSize: 18, fontFamily: 'SourceSansPro-Bold', color: 'white',
+    fontSize: 18, fontFamily: 'SourceSansPro-Bold', color: 'white', letterSpacing: 2,
   },
   primaryButtonStyle: {
     alignItems: 'center',

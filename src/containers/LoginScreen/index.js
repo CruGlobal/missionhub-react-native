@@ -15,6 +15,7 @@ class LoginScreen extends Component {
     color: 'white',
     fontFamily: 'SourceSansPro-Bold',
     fontSize: 14,
+    letterSpacing: 2,
   };
 
   login() {
