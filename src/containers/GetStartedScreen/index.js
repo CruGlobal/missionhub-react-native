@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { navigatePush, navigateBack } from '../../actions/navigation';
+import {Image} from 'react-native';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
@@ -11,7 +12,9 @@ class GetStartedScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Flex style={{position: 'absolute', top: 0, left: 0}}>
-          <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+          <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
+            <Image source={require('../../../assets/images/back_arrow.png')} />
+          </Button>
         </Flex>
 
         <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>Hi {this.props.firstName}!</Text>

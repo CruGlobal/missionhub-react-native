@@ -24,7 +24,9 @@ class StageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <View style={{flex: 1}}>
-          <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+          <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
+            <Image source={require('../../../assets/images/back_arrow.png')} />
+          </Button>
         </View>
         <View style={{flex: 2}}>
           <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontSize: 18, paddingBottom: 25, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
