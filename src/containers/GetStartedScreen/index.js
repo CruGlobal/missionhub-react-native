@@ -17,7 +17,7 @@ class GetStartedScreen extends Component {
           </Button>
         </Flex>
 
-        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>Hi {this.props.firstName}!</Text>
+        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>hi {this.props.firstName.toLowerCase()}!</Text>
         <Text style={projectStyles.primaryTextStyle}>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.</Text>
         <Text style={projectStyles.primaryTextStyle}>Let's figure out where you are on your journey.</Text>
 

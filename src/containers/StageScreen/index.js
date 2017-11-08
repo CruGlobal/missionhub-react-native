@@ -23,7 +23,7 @@ class StageScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, alignSelf: 'flex-start'}}>
           <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
             <Image source={require('../../../assets/images/back_arrow.png')} />
           </Button>
@@ -45,7 +45,7 @@ class StageScreen extends Component {
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
           <View style={{alignItems: 'center'}}>
             <Image source={require('../../../assets/images/Forgiven.png')} />
-            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{stage.name}</Text>
+            <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{stage.name.toLowerCase()}</Text>
             <Text style={[projectStyles.primaryTextStyle, {color: '#505256', textAlign: 'center'}]}>{stage.description}</Text>
           </View>
 

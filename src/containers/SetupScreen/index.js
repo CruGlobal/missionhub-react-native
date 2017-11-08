@@ -27,8 +27,8 @@ class SetupScreen extends Component {
         <View />
 
         <View style={{alignItems: 'center'}}>
-          <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-FIRST THINGS FIRST-</Text>
-          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>What's your name?</Text>
+          <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-first things first-</Text>
+          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>what's your name?</Text>
         </View>
 
         <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
