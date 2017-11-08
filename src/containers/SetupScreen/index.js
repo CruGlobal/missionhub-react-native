@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {KeyboardAvoidingView} from 'react-native';
+import {KeyboardAvoidingView,  View} from 'react-native';
 import styles from './styles';
-import {Button, Flex, Text} from '../../components/common';
+import {Button, Text} from '../../components/common';
 import Input from '../../components/Input/index';
 import {navigatePush} from '../../actions/navigation';
 import {firstNameChanged, lastNameChanged} from '../../actions/profile';
@@ -23,12 +23,16 @@ class SetupScreen extends Component {
 
   render() {
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-FIRST THINGS FIRST-</Text>
-        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>What's your name?</Text>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <View />
 
-        <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
-          <Flex direction="column">
+        <View style={{alignItems: 'center'}}>
+          <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-FIRST THINGS FIRST-</Text>
+          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>What's your name?</Text>
+        </View>
+
+        <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
+          <View>
             <Text i18n="Profile_Label_FirstName" style={styles.label}/>
             {this.state.error ? <Text style={{color: 'red'}}>This field is required.</Text> : null}
             <Input
@@ -39,9 +43,9 @@ class SetupScreen extends Component {
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
             />
-          </Flex>
+          </View>
 
-          <Flex direction="column">
+          <View style={{paddingTop: 30}}>
             <Text i18n="Profile_Label_LastName" style={styles.label} />
             <Input
               ref={(c) => this.lastName = c}
@@ -50,10 +54,10 @@ class SetupScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={true}
             />
-          </Flex>
-        </KeyboardAvoidingView>
+          </View>
+        </View>
 
-        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+        <View style={{alignItems: 'stretch'}}>
           <Button
             type="header"
             onPress={() => this.saveAndGoToGetStarted()}
@@ -61,8 +65,8 @@ class SetupScreen extends Component {
             style={projectStyles.primaryButtonStyle}
             buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
-        </Flex>
-      </Flex>
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
