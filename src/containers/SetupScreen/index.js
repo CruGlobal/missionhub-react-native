@@ -39,6 +39,7 @@ class SetupScreen extends Component {
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}
               value={this.props.firstName}
+              autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
