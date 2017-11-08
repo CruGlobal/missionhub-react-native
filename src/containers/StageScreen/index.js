@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {navigatePush, navigateBack} from '../../actions/navigation';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, Image} from 'react-native';
 import {getStages} from '../../actions/stages';
 import {selectStage} from '../../actions/selectStage';
 
@@ -41,7 +41,8 @@ class StageScreen extends Component {
     if (this.props.stages) {
       return this.props.stages.map(stage =>
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
-          <View>
+          <View style={{alignItems: 'center'}}>
+            <Image source={require('../../../assets/images/Forgiven.png')} />
             <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{stage.name}</Text>
             <Text style={[projectStyles.primaryTextStyle, {color: '#505256', textAlign: 'center'}]}>{stage.description}</Text>
           </View>
