@@ -14,8 +14,7 @@ class StageSuccessScreen extends Component {
           <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
         </Flex>
 
-        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>WOW!</Text>
-        <Text  style={projectStyles.primaryTextStyle}>We'd like to offer some things to help you in your spiritual journey.</Text>
+        <Text style={[projectStyles.primaryTextStyle, {textAlign: 'center'}]}>{this.props.firstName}, lorem ipsum.{"\n"}We'd like to offer some things to help you in your spiritual journey.</Text>
 
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
           <Button
@@ -31,4 +30,8 @@ class StageSuccessScreen extends Component {
   }
 }
 
-export default connect()(StageSuccessScreen);
+const mapStateToProps = ({profile}) => ({
+  firstName: profile.firstName,
+});
+
+export default connect(mapStateToProps)(StageSuccessScreen);
