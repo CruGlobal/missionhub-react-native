@@ -9,15 +9,9 @@ import {firstNameChanged, lastNameChanged} from '../../actions/profile';
 import projectStyles from '../../projectStyles';
 
 class SetupScreen extends Component {
-  state = {
-    error: false,
-  };
-
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
       this.props.dispatch(navigatePush('GetStarted'));
-    } else {
-      this.setState({error: true});
     }
   }
 
@@ -34,7 +28,6 @@ class SetupScreen extends Component {
         <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
           <View>
             <Text i18n="Profile_Label_FirstName" style={styles.label}/>
-            {this.state.error ? <Text style={{color: 'red', fontWeight: 'bold'}}>This field is required.</Text> : null}
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}

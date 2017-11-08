@@ -18,5 +18,6 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
     letterSpacing: .25,
+    borderBottomColor: PRIMARY_HEADER_COLOR,
   },
 });
