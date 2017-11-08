@@ -48,14 +48,14 @@ class LoginScreen extends Component {
             <PillButton
               onPress={() => console.log('join')}
               text="SIGN UP WITH FACEBOOK"
-              style={{alignItems: 'center', backgroundColor: '#005A7F', borderWidth: 0}}
+              style={{alignItems: 'center', backgroundColor: '#005A7F', borderWidth: 0, minHeight: 30}}
               buttonTextStyle={this.buttonTextStyle}
             />
             <View style={{paddingTop: 10}}>
               <PillButton
                 onPress={() => this.tryItNow()}
                 text="TRY IT NOW"
-                style={{alignItems: 'center', borderColor: '#52C5DC'}}
+                style={{alignItems: 'center', borderColor: '#52C5DC', minHeight: 30}}
                 buttonTextStyle={this.buttonTextStyle}
               />
             </View>
@@ -63,7 +63,7 @@ class LoginScreen extends Component {
         </View>
         <View style={{flex: 1, justifyContent: 'flex-end', alignSelf: 'center'}}>
           <Button
-            style={{alignItems: 'center', borderWidth: 0}}
+            style={{alignItems: 'center', borderWidth: 0, minHeight: 30}}
             onPress={() => this.login()}
             text="SIGN IN"
             buttonTextStyle={this.buttonTextStyle}
