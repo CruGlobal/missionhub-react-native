@@ -47,8 +47,10 @@ class StageScreen extends Component {
           </View>
 
           <Button
-            style={{backgroundColor: PRIMARY_BACKGROUND_COLOR, alignItems: 'center'}}
+            type="header"
+            style={[projectStyles.primaryButtonStyle, {backgroundColor: PRIMARY_BACKGROUND_COLOR}]}
             onPress={() => this.setStage(stage.id)}
+            buttonTextStyle={projectStyles.primaryButtonTextStyle}
             text="I AM HERE"
           />
         </View>
