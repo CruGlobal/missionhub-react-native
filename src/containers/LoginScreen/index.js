@@ -42,7 +42,9 @@ class LoginScreen extends Component {
         <View style={{flex: 1}} />
         <View style={{flex: 4, justifyContent: 'space-between'}}>
           <View style={{alignItems: 'center'}}>
-            <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
+            <View style={{paddingBottom: 20}}>
+              <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
+            </View>
             <Text style={projectStyles.primaryTextStyle}>Grow closer to God.</Text>
             <Text style={projectStyles.primaryTextStyle}>Help others experience Him.</Text>
           </View>

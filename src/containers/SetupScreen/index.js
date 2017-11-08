@@ -34,7 +34,7 @@ class SetupScreen extends Component {
         <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
           <View>
             <Text i18n="Profile_Label_FirstName" style={styles.label}/>
-            {this.state.error ? <Text style={{color: 'red'}}>This field is required.</Text> : null}
+            {this.state.error ? <Text style={{color: 'red', fontWeight: 'bold'}}>This field is required.</Text> : null}
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}
@@ -42,17 +42,22 @@ class SetupScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
+              style={styles.input}
+              placeholder="First Name"
+              placeholderTextColor="white"
             />
           </View>
 
           <View style={{paddingTop: 30}}>
-            <Text i18n="Profile_Label_LastName" style={styles.label} />
             <Input
               ref={(c) => this.lastName = c}
               onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
               value={this.props.lastName}
               returnKeyType="next"
+              placeholder="Last Name"
+              placeholderTextColor="white"
               blurOnSubmit={true}
+              style={styles.input}
             />
           </View>
         </View>
