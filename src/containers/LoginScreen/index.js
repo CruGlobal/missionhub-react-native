@@ -47,22 +47,22 @@ class LoginScreen extends Component {
             <Button
               onPress={() => console.log('join')}
               text="SIGN UP WITH FACEBOOK"
-              style={{alignItems: 'center', backgroundColor: '#005A7F'}}
+              style={{alignItems: 'center', backgroundColor: '#005A7F', borderWidth: 0}}
               buttonTextStyle={this.buttonTextStyle}
             />
             <View style={{paddingTop: 10}}>
               <Button
                 onPress={() => this.tryItNow()}
                 text="TRY IT NOW"
-                style={{alignItems: 'center'}}
+                style={{alignItems: 'center', borderColor: '#52C5DC'}}
                 buttonTextStyle={this.buttonTextStyle}
               />
             </View>
           </View>
         </View>
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <View style={{flex: 1, justifyContent: 'flex-end', alignSelf: 'center'}}>
           <Button
-            style={{alignItems: 'center'}}
+            style={{alignItems: 'center', borderWidth: 0}}
             onPress={() => this.login()}
             text="SIGN IN"
             buttonTextStyle={this.buttonTextStyle}
