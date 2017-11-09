@@ -11,6 +11,9 @@ import projectStyles from '../../projectStyles';
 import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
 
 class StageScreen extends Component {
+  stageWidth = 230;
+  stageMargin = 20;
+
   componentWillMount() {
     this.props.dispatch(getStages());
   }
@@ -30,7 +33,11 @@ class StageScreen extends Component {
         </View>
         <View style={{flex: 4}}>
           <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontFamily: 'SourceSansPro-Regular', fontSize: 18, paddingBottom: 25, paddingLeft: 30, paddingRight: 30, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
-          <ScrollView horizontal={true}>
+          <ScrollView
+            horizontal={true}
+            decelerationRate={0}
+            snapToInterval={this.stageWidth + this.stageMargin * 2}
+            snapToAlignment="center">
             {this.renderStages()}
           </ScrollView>
         </View>
@@ -41,9 +48,8 @@ class StageScreen extends Component {
 
   renderStages() {
     if (this.props.stages) {
-      //TODO make these "snap" while showing the edge of the neighboring stages
       return this.props.stages.map(stage =>
-        <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
+        <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: this.stageWidth, marginLeft: this.stageMargin, marginRight: this.stageMargin}}>
           <View style={{alignItems: 'center', paddingTop: 30, paddingRight: 15, paddingLeft: 15}}>
             <Image source={require('../../../assets/images/Forgiven.png')} />
             <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{stage.name.toLowerCase()}</Text>
