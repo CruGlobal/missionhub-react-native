@@ -41,6 +41,7 @@ class StageScreen extends Component {
 
   renderStages() {
     if (this.props.stages) {
+      //TODO make these "snap" while showing the edge of the neighboring stages
       return this.props.stages.map(stage =>
         <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
           <View style={{alignItems: 'center', paddingTop: 30, paddingRight: 15, paddingLeft: 15}}>
