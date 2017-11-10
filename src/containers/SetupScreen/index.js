@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {KeyboardAvoidingView,  View} from 'react-native';
+import {KeyboardAvoidingView,  View, Keyboard} from 'react-native';
 import styles from './styles';
 import {Button, Text} from '../../components/common';
 import Input from '../../components/Input/index';
@@ -12,6 +12,7 @@ class SetupScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
       this.props.dispatch(navigatePush('GetStarted'));
+      Keyboard.dismiss();
     }
   }
 
