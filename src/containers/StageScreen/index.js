@@ -12,7 +12,7 @@ import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
 
 class StageScreen extends Component {
   stageWidth = 250;
-  stageMargin = 25;
+  stageMargin = 10;
 
   componentWillMount() {
     this.props.dispatch(getStages());
