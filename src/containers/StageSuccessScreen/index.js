@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {navigatePush, navigateBack} from '../../actions/navigation';
+import {navigateBack} from '../../actions/navigation';
 import {Image} from 'react-native';
 
 import styles from './styles';
@@ -13,11 +13,11 @@ class StageSuccessScreen extends Component {
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Flex style={{position: 'absolute', top: 0, left: 0, paddingTop: 15}}>
           <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
-            <Image source={require('../../../assets/images/back_arrow.png')}/>
+            <Image source={require('../../../assets/images/back_arrow.png')} />
           </Button>
         </Flex>
 
-        <Text style={[projectStyles.primaryTextStyle, {textAlign: 'center'}]}>{this.props.firstName}, lorem ipsum.{"\n"}We'd
+        <Text style={[projectStyles.primaryTextStyle, {textAlign: 'center'}]}>{this.props.firstName}, lorem ipsum.{'\n'}We'd
           like to offer some things to help you in your spiritual journey.</Text>
 
         <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>

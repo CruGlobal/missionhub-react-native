@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {navigatePush, navigateBack} from '../../actions/navigation';
-import {View, ScrollView, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import {getStages} from '../../actions/stages';
 import {selectStage} from '../../actions/selectStage';
 

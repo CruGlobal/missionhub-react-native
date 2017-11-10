@@ -27,7 +27,7 @@ class SetupScreen extends Component {
 
         <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
           <View>
-            <Text i18n="Profile_Label_FirstName" style={styles.label}/>
+            <Text i18n="Profile_Label_FirstName" style={styles.label} />
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}

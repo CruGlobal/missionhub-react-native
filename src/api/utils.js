@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import merge from 'lodash/merge';
 // import RNFetchBlob from 'react-native-fetch-blob';
 import CONSTANTS from '../constants';
