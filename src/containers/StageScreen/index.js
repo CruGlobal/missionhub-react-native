@@ -10,11 +10,13 @@ import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
 import projectStyles from '../../projectStyles';
 import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
+import {DEFAULT} from '../../theme';
 
 class StageScreen extends Component {
-  stageWidth = 250;
-  stageHeight = 275;
-  stageMargin = 10;
+  sliderWidth = DEFAULT.FULL_WIDTH - 75;
+  stageWidth = DEFAULT.FULL_WIDTH - 120;
+  stageHeight = DEFAULT.FULL_HEIGHT / 2;
+  stageMargin = DEFAULT.FULL_WIDTH / 64;
 
   componentWillMount() {
     this.props.dispatch(getStages());
@@ -34,14 +36,14 @@ class StageScreen extends Component {
           </Button>
         </View>
         <View style={{flex: 4, alignItems: 'center'}}>
-          <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontFamily: 'SourceSansPro-Regular', fontSize: 18, paddingBottom: 25, paddingLeft: 30, paddingRight: 30, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
+          <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontFamily: 'SourceSansPro-Regular', fontSize: 18, paddingBottom: 25, width: this.stageWidth, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
           {this.props.stages ?
             <Carousel
               data={this.props.stages}
               inactiveSlideOpacity={1}
               inactiveSlideScale={1}
               renderItem={this.renderStage.bind(this)}
-              sliderWidth={300}
+              sliderWidth={this.sliderWidth}
               itemWidth={this.stageWidth + this.stageMargin * 2} /> : null }
         </View>
         <View style={{flex: 1}} />
