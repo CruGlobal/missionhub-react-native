@@ -14,7 +14,8 @@
   "globals": {
     "Promise": true,
     "__DEV__": true,
-    "LOG": true
+    "LOG": true,
+    "APILOG": true
   },
   "rules": {
     "strict": 0,

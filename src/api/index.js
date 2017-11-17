@@ -27,7 +27,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
       }
 
       // Merge the extra data with the access_token
-      const authHeader = q.access_token ? { Authorization: `Bearer ${q.access_token}` } : {};
+      const authHeader = {};
       const extra = merge({}, { headers: authHeader }, routeData.extra);
 
       // Merge some default data from the routes with the data passed in
@@ -35,20 +35,32 @@ lodashForEach(apiRoutes, (routeData, key) => {
       const query = merge({}, routeData.query, q);
 
       // Get the endpoint either from the query, or the routeData
-      const endpoint = query.endpoint || routeData.endpoint;
-      if (query.endpoint) {
-        delete query.endpoint;
+      let endpoint = query.endpoint || routeData.endpoint;
+
+      // Only do this for endpoints that have query parameters
+      if (endpoint.includes('/:')) {
+        // Replace all `:orgId` with the query param
+        Object.keys(query).forEach((k) => {
+          if (query[k] && endpoint.includes(`:${k}`)) {
+            endpoint = endpoint.replace(`:${k}`, query[k]);
+            delete query[k];
+          }
+        });
       }
 
       // Call the request
+      APILOG(`${key} FETCH`, method, endpoint, query, data);
       request(
         method,
         endpoint,
         query,
         method === 'get' ? undefined : data,
         extra,
-      ).then(resolve).catch((err) => {
-        LOG('request err', err);
+      ).then((response) => {
+        APILOG(`${key} SUCCESS`, response);
+        resolve(response);
+      }).catch((err) => {
+        APILOG(`${key} FAIL`, err);
         reject(err);
       });
     })

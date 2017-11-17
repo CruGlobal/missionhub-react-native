@@ -1,11 +1,4 @@
-// import { API_URL, AUTH_URL } from './utils';
-import { AUTH_URL } from './utils';
-import CONSTANTS from '../constants';
-
-const CLIENT = {
-  id: CONSTANTS.CLIENT_ID,
-  secret: CONSTANTS.CLIENT_SECRET,
-};
+import { API_URL } from './utils';
 
 export default {
   // Example
@@ -31,23 +24,11 @@ export default {
   //   (mark the api as a call that will show the loading state)
   //   showApiLoading: true
   // },
-  'OAUTH': {
-    endpoint: AUTH_URL + 'oauth/token',
-    anonymous: true,
-    method: 'post',
-    data: {
-      client: CLIENT,
-      grant_type: 'password',
-      scope: 'messenger',
-    },
-    // mapResults: mapAuth,
+  'GET_STAGES': {
+    endpoint: API_URL + 'pathway_stages/',
+    method: 'get',
   },
-  // 'ME': {
-  //   endpoint: API_URL + 'me',
-  //   anonymous: true,
-  //   method: 'post',
-  //   data: {
-  //     client: CLIENT,
-  //   },
+  // 'TEST': {
+  //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },
 };
