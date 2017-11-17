@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {KeyboardAvoidingView,  View, Keyboard, Platform} from 'react-native';
+import {View, Keyboard} from 'react-native';
 import styles from './styles';
-import {Button, Text} from '../../components/common';
+import {Button, Text, PlatformKeyboardAvoidingView} from '../../components/common';
 import Input from '../../components/Input/index';
 import {navigatePush} from '../../actions/navigation';
 import {firstNameChanged, lastNameChanged} from '../../actions/profile';
@@ -16,15 +16,10 @@ class SetupScreen extends Component {
     }
   }
 
-  getBehavior() {
-    return Platform.OS === 'android' ? undefined : "padding";
-  }
-
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior={this.getBehavior()}>
+      <PlatformKeyboardAvoidingView>
         <View />
-
         <View style={{alignItems: 'center'}}>
           <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-first things first-</Text>
           <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>what's your name?</Text>
@@ -72,7 +67,7 @@ class SetupScreen extends Component {
             buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
         </View>
-      </KeyboardAvoidingView>
+      </PlatformKeyboardAvoidingView>
     );
   }
 }

@@ -10,6 +10,7 @@ import Text from './Text';
 import Touchable from './Touchable';
 import Separator from './Separator';
 import RefreshControl from './RefreshControl';
+import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   Touchable,
   Separator,
   RefreshControl,
+  PlatformKeyboardAvoidingView,
 };
