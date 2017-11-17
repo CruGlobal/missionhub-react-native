@@ -6,19 +6,16 @@ import styles from './styles';
 
 import { Touchable, Text, Icon, Flex } from '../common';
 
-const TYPES = ['transparent', 'header'];
+const TYPES = ['transparent', 'primary', 'secondary'];
 function getTypeStyle(type) {
   if (type === 'transparent') {
     return styles.transparent;
-  } else if (type === 'header') {
-    return styles.header;
-  } else if (type === 'header') {
-    return styles.header;
+  } else if (type === 'primary') {
+    return styles.primary;
+  } else if (type === 'secondary') {
+    return styles.secondary;
   }
   return styles.button;
-}
-function getTextStyle(type) {
-  return type === 'header' ? styles.textHeader : styles.buttonText;
 }
 function getIconStyle(type) {
   return type === 'header' ? styles.iconHeader : styles.icon;
@@ -26,7 +23,7 @@ function getIconStyle(type) {
 
 export default class Button extends Component {
   render() {
-    const { onPress, type, image, text, icon, iconType, children, disabled, style = {}, buttonTextStyle = {}, iconStyle = {}, ...rest } = this.props;
+    const { onPress, type, image, text, icon, iconType, pill, children, disabled, style = {}, buttonTextStyle = {}, iconStyle = {}, ...rest } = this.props;
     let content = children;
     if (!children) {
       let textComp = null;
@@ -34,7 +31,7 @@ export default class Button extends Component {
       let imageComp = null;
       if (text) {
         textComp = (
-          <Text style={[getTextStyle(type), buttonTextStyle]}>
+          <Text style={[styles.buttonText, buttonTextStyle]}>
             {text}
           </Text>
         );
@@ -67,7 +64,7 @@ export default class Button extends Component {
     }
     return (
       <Touchable onPress={disabled ? undefined : onPress} {...rest}>
-        <View style={[getTypeStyle(type), disabled ? styles.disabled : null, style]}>
+        <View style={[getTypeStyle(type), disabled ? styles.disabled : null, style, pill ? styles.pill : null]}>
           {content}
         </View>
       </Touchable>
@@ -82,6 +79,7 @@ Button.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string,
   iconType: PropTypes.string,
+  pill: PropTypes.bool,
   children: PropTypes.element,
   disabled: PropTypes.bool,
   style: PropTypes.oneOfType(styleTypes),

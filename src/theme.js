@@ -32,47 +32,28 @@ export const DEFAULT = {
 };
 
 export const COLORS = {
-  BLUE: '#44c8e8',
+  LIGHT_BLUE: '#66D9F0',
+  BLUE: '#52C5DC',
   PRIMARY_FADE: 'rgba(68, 200, 232, 0.3)',
-  DARK_BLUE: '#186078',
-  OFF_BLUE: '#3295AD',
-  ORANGE: '#f96332',
-  RED: '#ee2f2f',
-  PINK: '#dd4499',
-  GREEN: '#00FF4F',
-  YELLOW: '#FFF462',
-  BLACK: '#1d1d26',
-  DEEP_BLACK: '#000000',
+  DARK_BLUE: '#007398',
   WHITE: '#ffffff',
-  OFF_WHITE: 'rgba(245,245,245,1)',
-  GREY: '#98a6b1',
-  GREY_FADE: 'rgba(152, 166, 177, 0.25)',
-  WHITE_FADE: 'rgba(245, 250, 255, 0.5)',
-  BLACK_FADE: 'rgba(0, 0, 0, 0.7)',
-  DARK_GREY: '#637076',
-  CHARCOAL: '#646464',
-  SILVER: '#dce1e4',
-  LIGHT_GREY: '#bbbbbb',
-  LIGHTEST_GREY: '#ebebeb',
+  GREY: '#505256',
   TRANSPARENT: 'transparent',
   convert: colorConvert,
 };
 
 const PRIMARY = COLORS.DARK_BLUE;
 const SECONDARY = COLORS.BLUE;
-const ACCENT = COLORS.OFF_BLUE;
+const BACKGROUND = COLORS.LIGHT_BLUE;
 
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
   primaryColor: PRIMARY,
   secondaryColor: SECONDARY,
-  accentColor: ACCENT,
-  backgroundColor: PRIMARY,
-  lightBackgroundColor: COLORS.WHITE,
-  darkBackgroundColor: COLORS.BLACK,
-  textColor: COLORS.WHITE,
-  lightText: COLORS.WHITE,
+  white: COLORS.WHITE,
+  backgroundColor: BACKGROUND,
+  textColor: COLORS.GREY,
   darkText: COLORS.CHARCOAL,
   iconColor: COLORS.WHITE,
   transparent: COLORS.transparent,
@@ -83,12 +64,9 @@ export default {
   buttonTextColor: COLORS.WHITE,
   buttonIconColor: COLORS.WHITE,
   separatorColor: SECONDARY,
-  // separatorHeight: StyleSheet.hairlineWidth + (Platform.OS === 'android' ? 0.2 : 0),
   separatorHeight: StyleSheet.hairlineWidth,
-  // header
   headerBackgroundColor: SECONDARY,
   headerTextColor: COLORS.WHITE,
-  // message
-  messageHeaderTextColor: COLORS.GREEN,
-
+  fullWidth: deviceWidth,
+  fullHeight: deviceHeight,
 };
