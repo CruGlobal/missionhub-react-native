@@ -1,22 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {navigatePush, navigateBack} from '../../actions/navigation';
+import {navigatePush} from '../../actions/navigation';
 import {View, Image} from 'react-native';
 import {getStages} from '../../actions/stages';
 import {selectStage} from '../../actions/selectStage';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
-import {Flex, Text, Button} from '../../components/common';
+import {Flex, Text, Button, BackButton} from '../../components/common';
 import projectStyles from '../../projectStyles';
-import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
-import {DEFAULT} from '../../theme';
+import theme from '../../theme';
+
+const sliderWidth = theme.fullWidth;
+const stageWidth = theme.fullWidth - 120;
+const stageMargin = theme.fullWidth / 30;
 
 class StageScreen extends Component {
-  sliderWidth = DEFAULT.FULL_WIDTH - 75;
-  stageWidth = DEFAULT.FULL_WIDTH - 120;
-  stageHeight = DEFAULT.FULL_HEIGHT / 2;
-  stageMargin = DEFAULT.FULL_WIDTH / 64;
+
+  constructor(props) {
+    super(props);
+
+    this.renderStage = this.renderStage.bind(this);
+
+  }
 
   componentWillMount() {
     this.props.dispatch(getStages());
@@ -27,49 +33,49 @@ class StageScreen extends Component {
     this.props.dispatch(navigatePush('StageSuccess'));
   }
 
+  renderStage({item}) {
+    return (
+      <View key={item.id} style={styles.cardWrapper}>
+        <View style={styles.card}>
+          <Image source={require('../../../assets/images/Forgiven.png')} />
+          <Text style={[projectStyles.primaryHeaderStyle, styles.cardHeader]}>{item.name.toLowerCase()}</Text>
+          <Text style={[projectStyles.primaryTextStyle, styles.cardText]}>{item.description}</Text>
+        </View>
+        <Button
+          type="primary"
+          onPress={() => this.setStage(item.id)}
+          text="I AM HERE"
+        />
+      </View>
+    );
+  }
+
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <View style={{flex: 1, alignSelf: 'flex-start', paddingTop: 15}}>
-          <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
-            <Image source={require('../../../assets/images/back_arrow.png')} />
-          </Button>
-        </View>
+        <BackButton />
         <View style={{flex: 4, alignItems: 'center'}}>
-          <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontFamily: 'SourceSansPro-Regular', fontSize: 18, paddingBottom: 25, width: this.stageWidth, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
-          {this.props.stages ?
-            <Carousel
-              data={this.props.stages}
-              inactiveSlideOpacity={1}
-              inactiveSlideScale={1}
-              renderItem={this.renderStage.bind(this)}
-              sliderWidth={this.sliderWidth}
-              itemWidth={this.stageWidth + this.stageMargin * 2} /> : null }
+          <Text style={styles.title}>
+            {this.props.firstName}, which stage best describes where you are on your journey?
+          </Text>
+          {
+            this.props.stages ? (
+              <Carousel
+                data={this.props.stages}
+                inactiveSlideOpacity={1}
+                inactiveSlideScale={1}
+                renderItem={this.renderStage}
+                sliderWidth={sliderWidth + 75}
+                itemWidth={stageWidth + stageMargin * 2}
+              />
+            ) : null
+          }
         </View>
         <View style={{flex: 1}} />
       </Flex>
     );
   }
 
-  renderStage({item}) {
-    return (
-      <View key={item.id} style={{justifyContent: 'space-between', backgroundColor: 'white', height: this.stageHeight, width: this.stageWidth, marginHorizontal: this.stageMargin}}>
-        <View style={{alignItems: 'center', paddingTop: 30, paddingRight: 15, paddingLeft: 15}}>
-          <Image source={require('../../../assets/images/Forgiven.png')} />
-          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{item.name.toLowerCase()}</Text>
-          <Text style={[projectStyles.primaryTextStyle, {color: '#505256', textAlign: 'center'}]}>{item.description}</Text>
-        </View>
-
-        <Button
-          type="header"
-          style={[projectStyles.primaryButtonStyle, {backgroundColor: PRIMARY_BACKGROUND_COLOR}]}
-          onPress={() => this.setStage(item.id)}
-          buttonTextStyle={projectStyles.primaryButtonTextStyle}
-          text="I AM HERE"
-        />
-      </View>
-    );
-  }
 }
 
 const mapStateToProps = ({profile, stages}, { navigation }) => ({
