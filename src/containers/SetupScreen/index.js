@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {KeyboardAvoidingView,  View, Keyboard} from 'react-native';
+import {KeyboardAvoidingView,  View, Keyboard, Platform} from 'react-native';
 import styles from './styles';
 import {Button, Text} from '../../components/common';
 import Input from '../../components/Input/index';
@@ -16,9 +16,13 @@ class SetupScreen extends Component {
     }
   }
 
+  getBehavior() {
+    return Platform.OS === 'android' ? undefined : "padding";
+  }
+
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <KeyboardAvoidingView style={styles.container} behavior={this.getBehavior()}>
         <View />
 
         <View style={{alignItems: 'center'}}>
@@ -40,6 +44,7 @@ class SetupScreen extends Component {
               style={styles.input}
               placeholder="First Name"
               placeholderTextColor="white"
+              underlineColorAndroid="transparent"
             />
           </View>
 
@@ -53,6 +58,7 @@ class SetupScreen extends Component {
               placeholderTextColor="white"
               blurOnSubmit={true}
               style={styles.input}
+              underlineColorAndroid="transparent"
             />
           </View>
         </View>
