@@ -23,6 +23,9 @@ function colorConvert({ color, alpha, lighten, darken, negate, rotate, whiten, b
   return col.rgb().toString();
 }
 
+export const PRIMARY_BACKGROUND_COLOR = '#007398';
+export const PRIMARY_HEADER_COLOR = '#52C5DC';
+
 export const DEFAULT = {
   FULL_WIDTH: deviceWidth,
   FULL_HEIGHT: deviceHeight,

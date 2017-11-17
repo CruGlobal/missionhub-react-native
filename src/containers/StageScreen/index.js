@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {navigatePush, navigateBack} from '../../actions/navigation';
-import {View, ScrollView} from 'react-native';
+import {View, Image} from 'react-native';
 import {getStages} from '../../actions/stages';
 import {selectStage} from '../../actions/selectStage';
 
+import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
+import projectStyles from '../../projectStyles';
+import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
+import {DEFAULT} from '../../theme';
 
 class StageScreen extends Component {
+  sliderWidth = DEFAULT.FULL_WIDTH - 75;
+  stageWidth = DEFAULT.FULL_WIDTH - 120;
+  stageHeight = DEFAULT.FULL_HEIGHT / 2;
+  stageMargin = DEFAULT.FULL_WIDTH / 64;
+
   componentWillMount() {
     this.props.dispatch(getStages());
   }
@@ -21,36 +30,45 @@ class StageScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <View style={{flex: 1}}>
-          <Button text="Back" onPress={() => this.props.dispatch(navigateBack())} />
+        <View style={{flex: 1, alignSelf: 'flex-start', paddingTop: 15}}>
+          <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
+            <Image source={require('../../../assets/images/back_arrow.png')} />
+          </Button>
         </View>
-        <View style={{flex: 2}}>
-          <Text style={{color: 'navy', fontSize: 18}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
-          <ScrollView horizontal={true}>
-            {this.renderStages()}
-          </ScrollView>
+        <View style={{flex: 4, alignItems: 'center'}}>
+          <Text style={{color: PRIMARY_BACKGROUND_COLOR, fontFamily: 'SourceSansPro-Regular', fontSize: 18, paddingBottom: 25, width: this.stageWidth, textAlign: 'center'}}>{this.props.firstName}, which stage best describes where you are on your journey?</Text>
+          {this.props.stages ?
+            <Carousel
+              data={this.props.stages}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={this.renderStage.bind(this)}
+              sliderWidth={this.sliderWidth}
+              itemWidth={this.stageWidth + this.stageMargin * 2} /> : null }
         </View>
-        <View style={{flex: 1}}></View>
+        <View style={{flex: 1}} />
       </Flex>
     );
   }
 
-  renderStages() {
-    if (this.props.stages) {
-      return this.props.stages.map(stage =>
-        <View key={stage.id} style={{justifyContent: 'space-between', backgroundColor: 'white', width: 250, marginLeft: 20, marginRight: 20}}>
-          <Text style={{fontSize: 42, fontWeight: 'bold', color: 'navy'}}>{stage.name}</Text>
-          <Text style={{fontSize: 16, color: 'navy'}}>{stage.description}</Text>
-          <Button
-            style={{backgroundColor: 'navy'}}
-            onPress={() => this.setStage(stage.id)}
-            text="I AM HERE"
-          />
+  renderStage({item}) {
+    return (
+      <View key={item.id} style={{justifyContent: 'space-between', backgroundColor: 'white', height: this.stageHeight, width: this.stageWidth, marginHorizontal: this.stageMargin}}>
+        <View style={{alignItems: 'center', paddingTop: 30, paddingRight: 15, paddingLeft: 15}}>
+          <Image source={require('../../../assets/images/Forgiven.png')} />
+          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 42, color: PRIMARY_BACKGROUND_COLOR, textAlign: 'center'}]}>{item.name.toLowerCase()}</Text>
+          <Text style={[projectStyles.primaryTextStyle, {color: '#505256', textAlign: 'center'}]}>{item.description}</Text>
         </View>
-      );
-    }
 
-    return null;
+        <Button
+          type="header"
+          style={[projectStyles.primaryButtonStyle, {backgroundColor: PRIMARY_BACKGROUND_COLOR}]}
+          onPress={() => this.setStage(item.id)}
+          buttonTextStyle={projectStyles.primaryButtonTextStyle}
+          text="I AM HERE"
+        />
+      </View>
+    );
   }
 }
 

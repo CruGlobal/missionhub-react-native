@@ -30,7 +30,7 @@ import theme, {COLORS} from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}}/>;
+const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}} />;
 
 
 export const MainTabRoutes = TabNavigator({
