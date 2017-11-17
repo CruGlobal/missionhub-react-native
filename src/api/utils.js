@@ -1,41 +1,38 @@
-/* eslint-disable */
-
 import merge from 'lodash/merge';
-// import RNFetchBlob from 'react-native-fetch-blob';
-import CONSTANTS from '../constants';
 
-let baseUrl;
-let authUrl;
-
-
-const API_VERSION = 'v1';
-
-let domain = '';
-if (!CONSTANTS.IS_STAGING) {
-  // setTimeout(() => LOG('POINTING TO PROD'), 1);
-  domain = '';
+// const API_VERSION = 'v1';
+let baseUrl = '';
+if (__DEV__) {
+  baseUrl = 'https://api-stage.missionhub.com';
 } else {
-  // setTimeout(() => LOG('POINTING TO STAGING'), 1);
-  domain = '-stage';
+  baseUrl = 'https://api-stage.missionhub.com';
 }
 
-baseUrl = `https://api${domain}.vokeapp.com/api/messenger/${API_VERSION}`;
-authUrl = `https://auth${domain}.vokeapp.com`;
-
 export const BASE_URL = baseUrl;
-export const API_URL = BASE_URL + '/';
-export const AUTH_URL = authUrl + '/';
-export const SOCKET_URL = `wss://api${domain}.vokeapp.com/`;
-
-// setTimeout(() => LOG('API_URL', API_URL), 1);
+export const API_URL = BASE_URL + '/apis/v4/';
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
 
+const ERROR_CODES = [400, 401, 402, 403, 404, 500];
+export function handleResponse(response) {
+  if (response && ERROR_CODES.includes(response.status)) {
+    // TODO: Determine the right way to get the error response
+    throw new Error(`Status code: ${response.status}`);
+    // json(response).then((response2) => {
+    //   LOG('response2', response2);
+    //   Promise.reject(response2);
+    // });
+  } else {
+    return json(response);
+    // return response;
+  }
+}
+
 export function json(response) {
-  return response.json ? response.json() : response;
+  return response.text().then((t) => t ? JSON.parse(t) : null);
 }
 
 function createUrl(url = '', params) {
@@ -65,31 +62,15 @@ function defaultObject(method, obj = {}, data) {
     newObj.body = obj.stringify === false ? data : JSON.stringify(data);
   }
   delete obj.stringify;
-
+  
   return newObj;
 }
 
-function imageUpload(url, headers, data) {
-  return RNFetchBlob.fetch('PUT', url, {
-    Authorization: headers.Authorization,
-    'Content-Type': 'multipart/form-data',
-  }, [data]).then(json).then((resp) => resp.data).catch((err) => {
-    LOG('fetch blob err', err);
-    return err;
-  });
-}
 
 export default function request(type, url, query, data, extra) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data);
-  // LOG('REQUEST: ', newObject.method, newUrl, newObject); // eslint-disable-line
+  APILOG('REQUEST', newObject.method, newUrl, newObject); // eslint-disable-line
 
-  // If user is trying to make an image upload request, use custom function
-  if (extra.imageUpload) {
-    return imageUpload(newUrl, newObject.headers, data);
-  }
-  return fetch(newUrl, newObject).then(json).catch((err) => {
-    LOG('fetch err', err);
-    return err;
-  });
+  return fetch(newUrl, newObject).then(handleResponse);
 }

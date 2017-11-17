@@ -27,3 +27,19 @@ global.LOG = function() {
     }
   }
 };
+
+global.APILOG = function() {
+  // const args = Array.prototype.slice.call(arguments); // ES5
+  // const args = Array.from(arguments); // ES6
+  if (__DEV__) {
+    const args = Array.from(arguments); // ES6
+    
+    if (console.tron) {
+      console.tron.display({
+        name: 'API Call',
+        value: args,
+        preview: typeof args[0] === 'string' ? args[0] : 'no preview',
+      });
+    }
+  }
+};

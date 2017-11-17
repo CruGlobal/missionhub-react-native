@@ -1,5 +1,5 @@
 {
-	"name": "MissionHub",
+	"name": "missionhub",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -44,7 +44,13 @@
 		"react-test-renderer": "16.0.0-beta.5"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"setupFiles": [
+			"<rootDir>/__mock__/react-native-i18n.js"
+		],
+		"transformIgnorePatterns": [
+			"node_modules/(?!(jest-)?react-native|react-navigation)"
+		]
 	},
 	"rnpm": {
 		"assets": [
