@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from '../constants';
+import { LOGIN, LOGOUT, FIRST_TIME } from '../constants';
 
 export function login() {
   return (dispatch) => {
@@ -9,5 +9,11 @@ export function login() {
 export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
+  };
+}
+
+export function firstTime() {
+  return (dispatch) => {
+    dispatch({ type: FIRST_TIME });
   };
 }
