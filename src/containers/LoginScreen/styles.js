@@ -15,11 +15,17 @@ export default StyleSheet.create({
   },
   facebookButton: {
     backgroundColor: theme.accentColor,
+    width: theme.fullWidth - 70,
+    margin: 8,
+    height: 48,
   },
   tryButton: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
     borderColor: theme.secondaryColor,
+    width: theme.fullWidth - 70,
+    margin: 8,
+    height: 48,
   },
   buttonText: {
     color: theme.white,

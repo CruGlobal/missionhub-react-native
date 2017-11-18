@@ -4,7 +4,7 @@ import {View, Image} from 'react-native';
 
 import {login, firstTime} from '../../actions/auth';
 import styles from './styles';
-import {Text, Button} from '../../components/common';
+import { Text, Button, Flex } from '../../components/common';
 import {navigatePush} from '../../actions/navigation';
 
 class LoginScreen extends Component {
@@ -30,17 +30,17 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{flex: 1}} />
-        <View style={{flex: 4, justifyContent: 'space-between'}}>
-          <View style={{alignItems: 'center'}}>
+      <Flex style={styles.container}>
+        <Flex value={1} />
+        <Flex value={3} align="center" justify="center">
+          <Flex align="center">
             <View style={{paddingBottom: 20}}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
             <Text style={styles.text}>Grow closer to God.</Text>
             <Text style={styles.text}>Help others experience Him.</Text>
-          </View>
-          <View>
+          </Flex>
+          <Flex value={2} align="center" justify="end">
             <Button
               pill={true}
               type="primary"
@@ -49,26 +49,24 @@ class LoginScreen extends Component {
               style={styles.facebookButton}
               buttonTextStyle={styles.buttonText}
             />
-            <View style={{paddingTop: 10}}>
-              <Button
-                pill={true}
-                onPress={() => this.tryItNow()}
-                text="TRY IT NOW"
-                style={styles.tryButton}
-                buttonTextStyle={styles.buttonText}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={{flex: 1, justifyContent: 'center', alignSelf: 'center'}}>
+            <Button
+              pill={true}
+              onPress={() => this.tryItNow()}
+              text="TRY IT NOW"
+              style={styles.tryButton}
+              buttonTextStyle={styles.buttonText}
+            />
+          </Flex>
+        </Flex>
+        <Flex value={0.8} align="center" justify="center">
           <Button
             type="transparent"
             onPress={() => this.login()}
             text="SIGN IN"
             buttonTextStyle={styles.buttonText}
           />
-        </View>
-      </View>
+        </Flex>
+      </Flex>
     );
   }
 }
