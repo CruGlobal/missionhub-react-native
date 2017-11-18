@@ -39,6 +39,7 @@ export const COLORS = {
   ACCENT_BLUE: '#005A7F',
   WHITE: '#ffffff',
   GREY: '#505256',
+  LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   convert: colorConvert,
 };
@@ -66,8 +67,8 @@ export default {
   buttonBorderWidth: 1,
   buttonTextColor: COLORS.WHITE,
   buttonIconColor: COLORS.WHITE,
-  separatorColor: SECONDARY,
-  separatorHeight: StyleSheet.hairlineWidth,
+  separatorColor: COLORS.LIGHT_GREY,
+  separatorHeight: 1,
   headerBackgroundColor: SECONDARY,
   headerTextColor: COLORS.WHITE,
   fullWidth: deviceWidth,
