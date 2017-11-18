@@ -21,6 +21,9 @@ export default StyleSheet.create({
     color: theme.buttonTextColor,
     fontSize: 18,
     textAlign: 'center',
+    fontWeight: '500',
+    letterSpacing: 1.5,
+    backgroundColor: 'rgba(0,0,0,0)',
   },
   icon: {
     color: theme.buttonIconColor,

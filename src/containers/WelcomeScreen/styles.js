@@ -1,9 +1,20 @@
 import { StyleSheet } from 'react-native';
-import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
+import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: PRIMARY_BACKGROUND_COLOR,
+    backgroundColor: theme.primaryColor,
+  },
+  descriptionText: {
+    color: theme.white,
+    textAlign: 'center',
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    fontSize: 16,
+  },
+  headerText: {
+    color: theme.secondaryColor,
+    fontSize: 48,
   },
 });

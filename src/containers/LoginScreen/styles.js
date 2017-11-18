@@ -1,12 +1,30 @@
 import { StyleSheet } from 'react-native';
-import {PRIMARY_BACKGROUND_COLOR} from '../../theme';
+import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: PRIMARY_BACKGROUND_COLOR,
+    backgroundColor: theme.primaryColor,
     paddingLeft: 30,
     paddingRight: 30,
     justifyContent: 'center',
+  },
+  text: {
+    color: theme.white,
+    fontSize: 16,
+  },
+  facebookButton: {
+    backgroundColor: theme.accentColor,
+  },
+  tryButton: {
+    backgroundColor: theme.transparent,
+    borderWidth: 1,
+    borderColor: theme.secondaryColor,
+  },
+  buttonText: {
+    color: theme.white,
+    fontWeight: '500',
+    fontSize: 14,
+    letterSpacing: 1.5,
   },
 });

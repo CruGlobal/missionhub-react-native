@@ -9,13 +9,24 @@ export default class MyText extends Component {
     this._text.setNativeProps(nativeProps);
   }
   render() {
-    const { children, i18n, style, ...rest } = this.props;
+    const { children, i18n, style, type, ...rest } = this.props;
+    let fontFamily;
+
+    if (type === 'header') {
+      fontFamily = {
+        fontFamily: 'AmaticSC-Bold',
+      };
+    } else {
+      fontFamily = {
+        fontFamily: 'SourceSansPro-Regular',
+      };
+    }
     let content = children;
     if (i18n) {
       content = I18n.t(i18n);
     }
     return (
-      <Animatable.Text ref={(c) => this._text = c} {...rest} style={[styles.text, style]}>
+      <Animatable.Text ref={(c) => this._text = c} {...rest} style={[styles.text, fontFamily, style]}>
         {content}
       </Animatable.Text>
     );
@@ -28,6 +39,5 @@ MyText.defaultProps = Text.defaultProps;
 const styles = StyleSheet.create({
   text: {
     color: theme.textColor,
-    fontFamily: 'SourceSansPro-Bold',
   },
 });

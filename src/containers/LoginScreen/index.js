@@ -6,17 +6,8 @@ import {login, firstTime} from '../../actions/auth';
 import styles from './styles';
 import {Text, Button} from '../../components/common';
 import {navigatePush} from '../../actions/navigation';
-import projectStyles from '../../projectStyles';
-import PillButton from '../../components/PillButton/index';
-import {PRIMARY_HEADER_COLOR} from '../../theme';
 
 class LoginScreen extends Component {
-  buttonTextStyle = {
-    color: 'white',
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 14,
-    letterSpacing: 2,
-  };
 
   login() {
     this.props.dispatch(login());
@@ -29,11 +20,12 @@ class LoginScreen extends Component {
   }
 
   navigateToNext() {
-    if (this.props.stageId) {
-      this.props.dispatch(navigatePush('MainTabs'));
-    } else {
-      this.props.dispatch(navigatePush('Welcome'));
-    }
+    // if (this.props.stageId) {
+    //   this.props.dispatch(navigatePush('MainTabs'));
+    // } else {
+    //   this.props.dispatch(navigatePush('Welcome'));
+    // }
+    this.props.dispatch(navigatePush('Welcome'));
   }
 
   render() {
@@ -45,32 +37,35 @@ class LoginScreen extends Component {
             <View style={{paddingBottom: 20}}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
-            <Text style={projectStyles.primaryTextStyle}>Grow closer to God.</Text>
-            <Text style={projectStyles.primaryTextStyle}>Help others experience Him.</Text>
+            <Text style={styles.text}>Grow closer to God.</Text>
+            <Text style={styles.text}>Help others experience Him.</Text>
           </View>
           <View>
-            <PillButton
+            <Button
+              pill={true}
+              type="primary"
               onPress={() => console.log('join')}
               text="SIGN UP WITH FACEBOOK"
-              style={{alignItems: 'center', backgroundColor: '#005A7F', borderWidth: 0, minHeight: 30}}
-              buttonTextStyle={this.buttonTextStyle}
+              style={styles.facebookButton}
+              buttonTextStyle={styles.buttonText}
             />
             <View style={{paddingTop: 10}}>
-              <PillButton
+              <Button
+                pill={true}
                 onPress={() => this.tryItNow()}
                 text="TRY IT NOW"
-                style={{alignItems: 'center', borderColor: PRIMARY_HEADER_COLOR, minHeight: 30}}
-                buttonTextStyle={this.buttonTextStyle}
+                style={styles.tryButton}
+                buttonTextStyle={styles.buttonText}
               />
             </View>
           </View>
         </View>
-        <View style={{flex: 1, justifyContent: 'flex-end', alignSelf: 'center'}}>
+        <View style={{flex: 1, justifyContent: 'center', alignSelf: 'center'}}>
           <Button
-            style={{alignItems: 'center', borderWidth: 0, minHeight: 30}}
+            type="transparent"
             onPress={() => this.login()}
             text="SIGN IN"
-            buttonTextStyle={this.buttonTextStyle}
+            buttonTextStyle={styles.buttonText}
           />
         </View>
       </View>
