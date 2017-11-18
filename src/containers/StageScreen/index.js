@@ -8,7 +8,6 @@ import {selectStage} from '../../actions/selectStage';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import {Flex, Text, Button, BackButton} from '../../components/common';
-import projectStyles from '../../projectStyles';
 import theme from '../../theme';
 
 const sliderWidth = theme.fullWidth;
@@ -38,8 +37,8 @@ class StageScreen extends Component {
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={require('../../../assets/images/Forgiven.png')} />
-          <Text style={[projectStyles.primaryHeaderStyle, styles.cardHeader]}>{item.name.toLowerCase()}</Text>
-          <Text style={[projectStyles.primaryTextStyle, styles.cardText]}>{item.description}</Text>
+          <Text type="header" style={styles.cardHeader}>{item.name.toLowerCase()}</Text>
+          <Text style={styles.cardText}>{item.description}</Text>
         </View>
         <Button
           type="primary"

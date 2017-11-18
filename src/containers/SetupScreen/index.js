@@ -6,7 +6,6 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../componen
 import Input from '../../components/Input/index';
 import {navigatePush} from '../../actions/navigation';
 import {firstNameChanged, lastNameChanged} from '../../actions/profile';
-import projectStyles from '../../projectStyles';
 
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
