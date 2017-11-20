@@ -31,7 +31,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <Flex style={styles.container}>
-        <Flex value={1} />
+        <Flex value={.5} />
         <Flex value={3} align="center" justify="center">
           <Flex align="center">
             <View style={{paddingBottom: 20}}>
