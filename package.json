@@ -11,7 +11,8 @@
 		"android": "react-native run-android",
 		"android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
 		"android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
-		"android:build": "react-native run-android --variant=release"
+		"android:build": "react-native run-android --variant=release",
+		"precommit-msg": "echo 'Pre-commit checks...' && exit 0"
 	},
 	"dependencies": {
 		"axios": "0.17.0",
@@ -42,8 +43,13 @@
 		"eslint-plugin-import": "2.8.0",
 		"eslint-plugin-react": "7.4.0",
 		"jest": "21.2.1",
+		"pre-commit": "^1.2.2",
 		"react-test-renderer": "16.0.0-beta.5"
 	},
+	"pre-commit": [
+		"precommit-msg",
+		"lint"
+	],
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
