@@ -1,4 +1,7 @@
 import moment from 'moment';
+import DeviceInfo from 'react-native-device-info';
+
+export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);

@@ -5,6 +5,7 @@ import theme from '../../theme';
 const common = {
   height: 60,
   justifyContent: 'center',
+  alignItems: 'center',
 };
 
 export default StyleSheet.create({
@@ -15,7 +16,6 @@ export default StyleSheet.create({
     borderRadius: 0,
     margin: 0,
     borderWidth: 0,
-    alignItems: 'center',
     ...common,
   },
   transparent: {

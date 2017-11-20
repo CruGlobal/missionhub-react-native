@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
-import { Flex, Text, Button, BackButton } from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
+import BackButton from '../BackButton';
 
 class GetStartedScreen extends Component {
   render() {
