@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 
@@ -7,7 +8,7 @@ export default class Flex extends Component {
     this._view.setNativeProps(nativeProps);
   }
   render() {
-    const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, ...rest } = this.props;
+    const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, animation, ...rest } = this.props;
     let styleObj = {};
     if (value) styleObj.flex = value;
     if (direction) styleObj.flexDirection = direction;
@@ -33,15 +34,28 @@ export default class Flex extends Component {
       else if (justify === 'around') styleObj.justifyContent = 'space-around';
       else if (justify === 'between') styleObj.justifyContent = 'space-between';
     }
+    // If animation is passed in, use the animatable library, otherwise don't
+    if (animation) {
+      return (
+        <Animatable.View
+          ref={(c) => this._view = c}
+          duration={400}
+          animation={animation}
+          {...rest}
+          style={[style, styleObj]}
+        >
+          {children}
+        </Animatable.View>
+      );
+    }
     return (
-      <Animatable.View
+      <View
         ref={(c) => this._view = c}
-        duration={400}
         {...rest}
         style={[style, styleObj]}
       >
         {children}
-      </Animatable.View>
+      </View>
     );
   }
 }

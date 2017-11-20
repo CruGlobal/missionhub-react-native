@@ -2,6 +2,11 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
+const common = {
+  height: 60,
+  justifyContent: 'center',
+};
+
 export default StyleSheet.create({
   button: {
     backgroundColor: theme.buttonBackgroundColor,
@@ -11,8 +16,18 @@ export default StyleSheet.create({
     margin: 0,
     borderWidth: 0,
     alignItems: 'center',
-    justifyContent: 'center',
-    height: 60,
+    ...common,
+  },
+  transparent: {
+    backgroundColor: theme.transparent,
+  },
+  primary: {
+    backgroundColor: theme.primaryColor,
+    ...common,
+  },
+  secondary: {
+    backgroundColor: theme.secondaryColor,
+    ...common,
   },
   disabled: {
     opacity: 0.6,
@@ -25,28 +40,7 @@ export default StyleSheet.create({
     letterSpacing: 1.5,
     backgroundColor: 'rgba(0,0,0,0)',
   },
-  icon: {
-    color: theme.buttonIconColor,
-    fontSize: 24,
-    paddingRight: 10,
-  },
-  transparent: {
-    backgroundColor: theme.transparent,
-  },
-  primary: {
-    backgroundColor: theme.primaryColor,
-    height: 60,
-    justifyContent: 'center',
-  },
-  secondary: {
-    backgroundColor: theme.secondaryColor,
-    height: 60,
-    justifyContent: 'center',
-  },
   textHeader: {
-    color: theme.headerTextColor,
-  },
-  iconHeader: {
     color: theme.headerTextColor,
   },
   imageStyle: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, TouchableHighlight } from 'react-native';
 
-import { COLORS } from '../../theme';
+import theme from '../../theme';
 
 class TouchableIOS extends Component {
   render() {
@@ -11,7 +11,7 @@ class TouchableIOS extends Component {
       return (
         <TouchableHighlight
           accessibilityTraits="button"
-          underlayColor={COLORS.convert({ color: COLORS.DARK_BLUE, alpha: 0.3 })}
+          underlayColor={theme.convert({ color: theme.primaryColor, alpha: 0.3 })}
           {...rest}
         />
       );

@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"test:snapshot": "jest -u",
 		"ios": "react-native run-ios",
 		"lint": "eslint ./src",
 		"android": "react-native run-android",

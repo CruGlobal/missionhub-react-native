@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders align center correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders alignSelf center correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignSelf": "center",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders animation correctly 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+    }
+  }
+/>
+`;
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {},
+    ]
+  }
+/>
+`;
+
+exports[`renders direction correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flexDirection": "row",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders justify center correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders value correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+/>
+`;

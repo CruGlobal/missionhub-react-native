@@ -12,6 +12,7 @@
     "jest": true
   },
   "globals": {
+    "fetch": true,
     "Promise": true,
     "__DEV__": true,
     "LOG": true,
