@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { navigateBack } from '../../actions/navigation';
 
 import BACK_ICON from '../../../assets/images/back_arrow.png';
-import { Touchable, Flex } from '../common';
+import { Touchable, Flex } from '../../components/common';
 import styles from './styles';
 
 class BackButton extends Component {

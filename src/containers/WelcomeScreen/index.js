@@ -4,7 +4,8 @@ import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
 
 import styles from './styles';
-import { Flex, Text, Button, BackButton } from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
+import BackButton from '../BackButton';
 
 class WelcomeScreen extends Component {
   navigateToNext() {

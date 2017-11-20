@@ -7,7 +7,8 @@ import {selectStage} from '../../actions/selectStage';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
-import {Flex, Text, Button, BackButton} from '../../components/common';
+import {Flex, Text, Button} from '../../components/common';
+import BackButton from '../BackButton';
 import theme from '../../theme';
 
 const sliderWidth = theme.fullWidth;

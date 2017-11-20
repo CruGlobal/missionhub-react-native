@@ -10,7 +10,6 @@ import Text from './Text';
 import Touchable from './Touchable';
 import Separator from './Separator';
 import RefreshControl from './RefreshControl';
-import BackButton from './BackButton';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 
 
@@ -25,6 +24,5 @@ export {
   Touchable,
   Separator,
   RefreshControl,
-  BackButton,
   PlatformKeyboardAvoidingView,
 };
