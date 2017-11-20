@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
-import DeviceInfo from 'react-native-device-info';
+import {isiPhoneX} from '../../utils/common';
 
 const margin = 20;
 
@@ -15,7 +15,7 @@ export default StyleSheet.create({
   },
   icon: {
     margin: margin,
-    marginTop: (DeviceInfo.getModel() === 'iPhone X' ? 50 : margin),
+    marginTop: (isiPhoneX() ? 50 : margin),
   },
   buttonText: {
     color: theme.primaryColor,
