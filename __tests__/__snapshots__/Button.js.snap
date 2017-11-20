@@ -127,6 +127,7 @@ exports[`renders primary correctly 1`] = `
     style={
       Array [
         Object {
+          "alignItems": "center",
           "backgroundColor": "#007398",
           "height": 60,
           "justifyContent": "center",
@@ -169,6 +170,7 @@ exports[`renders secondary correctly 1`] = `
     style={
       Array [
         Object {
+          "alignItems": "center",
           "backgroundColor": "#52C5DC",
           "height": 60,
           "justifyContent": "center",
