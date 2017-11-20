@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  collapsable={undefined}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "#505256",
+      "fontFamily": "SourceSansPro-Regular",
+    }
+  }
+>
+  Mon, Nov 20, 2017 12:00 AM
+</Text>
+`;

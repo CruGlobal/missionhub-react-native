@@ -4,7 +4,7 @@ import { View, Image } from 'react-native';
 
 import styles from './styles';
 
-import { Touchable, Text, Icon, Flex } from '../common';
+import { Touchable, Text, Flex } from '../common';
 
 const TYPES = ['transparent', 'primary', 'secondary'];
 function getTypeStyle(type) {
@@ -17,17 +17,13 @@ function getTypeStyle(type) {
   }
   return styles.button;
 }
-function getIconStyle(type) {
-  return type === 'header' ? styles.iconHeader : styles.icon;
-}
 
 export default class Button extends Component {
   render() {
-    const { onPress, type, image, text, icon, iconType, pill, children, disabled, style = {}, buttonTextStyle = {}, iconStyle = {}, ...rest } = this.props;
+    const { onPress, type, image, text, pill, children, disabled, style = {}, buttonTextStyle = {}, ...rest } = this.props;
     let content = children;
     if (!children) {
       let textComp = null;
-      let iconComp = null;
       let imageComp = null;
       if (text) {
         textComp = (
@@ -36,22 +32,14 @@ export default class Button extends Component {
           </Text>
         );
       }
-      if (icon) {
-        iconComp = (
-          <Icon name={icon} type={iconType ? iconType : null} style={[getIconStyle(type), iconStyle]} />
-        );
-      }
       if (image) {
         imageComp = (
           <Image source={image} style={styles.imageStyle} />
         );
       }
-      if (icon && text || (image && text)) {
+      if (text || (image && text)) {
         content = (
           <Flex direction="row" align="center" justify="start">
-            {
-              icon ? iconComp : null
-            }
             {
               image ? imageComp : null
             }
@@ -59,7 +47,7 @@ export default class Button extends Component {
           </Flex>
         );
       } else {
-        content = textComp || iconComp || imageComp;
+        content = textComp || imageComp;
       }
     }
     return (
@@ -77,13 +65,10 @@ Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   type: PropTypes.oneOf(TYPES),
   text: PropTypes.string,
-  icon: PropTypes.string,
-  iconType: PropTypes.string,
   pill: PropTypes.bool,
   children: PropTypes.element,
   disabled: PropTypes.bool,
   style: PropTypes.oneOfType(styleTypes),
   buttonTextStyle: PropTypes.oneOfType(styleTypes),
-  iconStyle: PropTypes.oneOfType(styleTypes),
   image: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
