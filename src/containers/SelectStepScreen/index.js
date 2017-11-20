@@ -25,7 +25,7 @@ const STEPS= [
 
 class SelectStepScreen extends Component {
   render() {
-    const { id } = this.props;
+    // const { id } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={1} align="center" justify="center" style={styles.headerWrap}>

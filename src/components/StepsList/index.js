@@ -3,7 +3,7 @@ import { FlatList, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import ADD_STEP from '../../../assets/images/addStep.png';
 
-import { Button, Flex, Text, Separator } from '../common';
+import { Flex, Text, Separator } from '../common';
 import styles from './styles';
 
 export default class StepsList extends Component {

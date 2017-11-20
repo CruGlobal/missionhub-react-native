@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 
-import { COLORS } from '../../theme';
+import theme from '../../theme';
 
 class TouchableAndroid extends Component {
   render() {
@@ -20,8 +20,8 @@ class TouchableAndroid extends Component {
     let background;
     // Android > 5.0 support
     if (Platform.Version >= 21) {
-      background = TouchableNativeFeedback.Ripple(COLORS.convert({
-        color: COLORS.GREY,
+      background = TouchableNativeFeedback.Ripple(theme.convert({
+        color: theme.darkText,
         alpha: 0.5,
       }), borderless);
     } else {

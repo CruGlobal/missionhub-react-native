@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import Color from 'color';
 
 import { exists } from './utils/common';
@@ -25,11 +25,6 @@ function colorConvert({ color, alpha, lighten, darken, negate, rotate, whiten, b
 
 export const PRIMARY_BACKGROUND_COLOR = '#007398';
 export const PRIMARY_HEADER_COLOR = '#52C5DC';
-
-export const DEFAULT = {
-  FULL_WIDTH: deviceWidth,
-  FULL_HEIGHT: deviceHeight,
-};
 
 export const COLORS = {
   LIGHT_BLUE: '#66D9F0',
@@ -73,4 +68,5 @@ export default {
   headerTextColor: COLORS.WHITE,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
+  convert: colorConvert,
 };
