@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import {Image} from 'react-native';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
-import { Flex, Text, Button } from '../../components/common';
-import projectStyles from '../../projectStyles';
+import { Flex, Text, Button, BackButton } from '../../components/common';
+import theme from '../../theme';
 
 class GetStartedScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex style={{position: 'absolute', top: 0, left: 0, paddingTop: 15}}>
-          <Button style={{borderWidth: 0}} onPress={() => this.props.dispatch(navigateBack())}>
-            <Image source={require('../../../assets/images/back_arrow.png')} />
-          </Button>
+        <BackButton />
+
+        <Flex align="center" justify="center" value={4} >
+          <Text type="header" style={styles.headerTitle}>hi {this.props.firstName.toLowerCase()}!</Text>
+          <Text style={styles.text}>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.{'\n\n'}Let's figure out where you are on your journey.</Text>
         </Flex>
 
-        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>hi {this.props.firstName.toLowerCase()}!</Text>
-        <Text style={[projectStyles.primaryTextStyle, {textAlign: 'center', paddingTop: 15, paddingLeft: 30, paddingRight: 30}]}>While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.{'\n\n'}Let's figure out where you are on your journey.</Text>
-
-        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+        <Flex value={1} align="stretch" justify="end">
           <Button
-            type="header"
+            type="secondary"
             onPress={() => this.props.dispatch(navigatePush('Stage'))}
             text="LET'S GET STARTED"
-            style={projectStyles.primaryButtonStyle}
-            buttonTextStyle={projectStyles.primaryButtonTextStyle}
+            style={{width: theme.fullWidth}}
           />
         </Flex>
       </Flex>

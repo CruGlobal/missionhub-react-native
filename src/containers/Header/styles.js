@@ -1,11 +1,11 @@
 
 import { StyleSheet } from 'react-native';
-import theme, { COLORS } from '../../theme';
+import theme from '../../theme';
 
 export default StyleSheet.create({
   header: {
     height: 65,
-    backgroundColor: 'darkblue',
+    backgroundColor: theme.primaryColor,
     paddingTop: 20,
     // TODO: Add shadow (ios) and elevation (android)
   },
@@ -25,7 +25,7 @@ export default StyleSheet.create({
   // HeaderIcon styles
   headerIcon: {
     fontSize: 32,
-    backgroundColor: COLORS.TRANSPARENT,
+    backgroundColor: theme.transparent,
     // backgroundColor: COLORS.YELLOW,
     paddingVertical: 5,
     paddingHorizontal: 15,
@@ -39,10 +39,10 @@ export default StyleSheet.create({
   },
   headerTwoLine1: {
     fontSize: 12,
-    color: theme.accentColor,
+    color: theme.white,
   },
   headerTwoLine2: {
     fontSize: 20,
-    color: theme.lightText,
+    color: theme.white,
   },
 });

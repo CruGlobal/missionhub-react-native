@@ -36,8 +36,10 @@ export const COLORS = {
   BLUE: '#52C5DC',
   PRIMARY_FADE: 'rgba(68, 200, 232, 0.3)',
   DARK_BLUE: '#007398',
+  ACCENT_BLUE: '#005A7F',
   WHITE: '#ffffff',
   GREY: '#505256',
+  LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   convert: colorConvert,
 };
@@ -45,12 +47,14 @@ export const COLORS = {
 const PRIMARY = COLORS.DARK_BLUE;
 const SECONDARY = COLORS.BLUE;
 const BACKGROUND = COLORS.LIGHT_BLUE;
+const ACCENT = COLORS.ACCENT_BLUE;
 
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
   primaryColor: PRIMARY,
   secondaryColor: SECONDARY,
+  accentColor: ACCENT,
   white: COLORS.WHITE,
   backgroundColor: BACKGROUND,
   textColor: COLORS.GREY,
@@ -63,8 +67,8 @@ export default {
   buttonBorderWidth: 1,
   buttonTextColor: COLORS.WHITE,
   buttonIconColor: COLORS.WHITE,
-  separatorColor: SECONDARY,
-  separatorHeight: StyleSheet.hairlineWidth,
+  separatorColor: COLORS.LIGHT_GREY,
+  separatorHeight: 1,
   headerBackgroundColor: SECONDARY,
   headerTextColor: COLORS.WHITE,
   fullWidth: deviceWidth,

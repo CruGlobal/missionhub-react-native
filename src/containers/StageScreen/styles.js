@@ -19,6 +19,7 @@ export default StyleSheet.create({
     color: theme.textColor,
     textAlign: 'center',
     padding: 5,
+    fontSize: 16,
   },
   cardHeader: {
     fontSize: 42,

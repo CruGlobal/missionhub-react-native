@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { navigatePush } from '../../actions/navigation';
+import theme from '../../theme';
 
 import styles from './styles';
-import projectStyles from '../../projectStyles';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, BackButton } from '../../components/common';
 
 class WelcomeScreen extends Component {
   navigateToNext() {
@@ -18,15 +18,18 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 48}]}>welcome!</Text>
-        <Text style={[projectStyles.primaryTextStyle, {paddingLeft: 30, paddingRight: 30, textAlign: 'center'}]}>Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
-        <Flex style={{position: 'absolute', bottom: 0, left: 0, right: 0}}>
+        <BackButton />
+        <Flex value={4} align="center" justify="center">
+          <Text type="header" style={styles.headerText}>welcome!</Text>
+          <Text style={styles.descriptionText}>Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
+        </Flex>
+        <Flex value={1} align="stretch" justify="end">
           <Button
-            type="header"
+            type="secondary"
             onPress={() => this.navigateToNext()}
-            style={projectStyles.primaryButtonStyle}
             text="OK"
-            buttonTextStyle={projectStyles.primaryButtonTextStyle} />
+            style={{width: theme.fullWidth}}
+          />
         </Flex>
       </Flex>
     );

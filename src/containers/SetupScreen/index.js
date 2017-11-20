@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, Keyboard} from 'react-native';
 import styles from './styles';
-import {Button, Text, PlatformKeyboardAvoidingView} from '../../components/common';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import {navigatePush} from '../../actions/navigation';
 import {firstNameChanged, lastNameChanged} from '../../actions/profile';
-import projectStyles from '../../projectStyles';
 
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
@@ -19,13 +18,13 @@ class SetupScreen extends Component {
   render() {
     return (
       <PlatformKeyboardAvoidingView>
-        <View />
-        <View style={{alignItems: 'center'}}>
-          <Text style={{fontFamily: 'AmaticSC-Bold', fontSize: 24}}>-first things first-</Text>
-          <Text style={[projectStyles.primaryHeaderStyle, {fontSize: 36}]}>what's your name?</Text>
-        </View>
+        <Flex value={1} />
+        <Flex value={2} style={{alignItems: 'center'}}>
+          <Text type="header" style={styles.header}>-first things first-</Text>
+          <Text type="header" style={styles.headerTwo}>what's your name?</Text>
+        </Flex>
 
-        <View style={{paddingTop: 30, paddingLeft: 30, paddingRight: 30}}>
+        <Flex value={3} style={{padding: 30}}>
           <View>
             <Text i18n="Profile_Label_FirstName" style={styles.label} />
             <Input
@@ -56,17 +55,15 @@ class SetupScreen extends Component {
               underlineColorAndroid="transparent"
             />
           </View>
-        </View>
+        </Flex>
 
-        <View style={{alignItems: 'stretch'}}>
+        <Flex value={1} align="stretch" justify="end">
           <Button
-            type="header"
+            type="secondary"
             onPress={() => this.saveAndGoToGetStarted()}
             text="NEXT"
-            style={projectStyles.primaryButtonStyle}
-            buttonTextStyle={projectStyles.primaryButtonTextStyle}
           />
-        </View>
+        </Flex>
       </PlatformKeyboardAvoidingView>
     );
   }
