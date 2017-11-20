@@ -12,7 +12,7 @@ class BackButton extends Component {
   render() {
     const { ...rest } = this.props;
     return (
-      <Flex value={1} self="start" align="start" justify="center" >
+      <Flex self="start" align="start" justify="center" >
         <Touchable
           {...rest}
           onPress={() => this.props.dispatch(navigateBack())}

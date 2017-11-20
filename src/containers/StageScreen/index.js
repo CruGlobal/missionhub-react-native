@@ -20,7 +20,6 @@ class StageScreen extends Component {
     super(props);
 
     this.renderStage = this.renderStage.bind(this);
-
   }
 
   componentWillMount() {
@@ -53,7 +52,7 @@ class StageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <BackButton />
-        <View style={{flex: 4, alignItems: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center'}}>
           <Text style={styles.title}>
             {this.props.firstName}, which stage best describes where you are on your journey?
           </Text>
@@ -70,7 +69,6 @@ class StageScreen extends Component {
             ) : null
           }
         </View>
-        <View style={{flex: 1}} />
       </Flex>
     );
   }
