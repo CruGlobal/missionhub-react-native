@@ -30,7 +30,7 @@ export default StyleSheet.create({
   cardWrapper: {
     justifyContent: 'space-between',
     backgroundColor: theme.white,
-    height: theme.fullHeight / 2,
+    height: 350,
     width: theme.fullWidth - 120,
     marginHorizontal: theme.fullWidth / 30,
   },

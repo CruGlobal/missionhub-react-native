@@ -7,7 +7,8 @@ import {selectStage} from '../../actions/selectStage';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
-import {Flex, Text, Button, BackButton} from '../../components/common';
+import {Flex, Text, Button} from '../../components/common';
+import BackButton from '../BackButton';
 import theme from '../../theme';
 
 const sliderWidth = theme.fullWidth;
@@ -20,7 +21,6 @@ class StageScreen extends Component {
     super(props);
 
     this.renderStage = this.renderStage.bind(this);
-
   }
 
   componentWillMount() {
@@ -53,7 +53,7 @@ class StageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <BackButton />
-        <View style={{flex: 4, alignItems: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center'}}>
           <Text style={styles.title}>
             {this.props.firstName}, which stage best describes where you are on your journey?
           </Text>
@@ -70,7 +70,6 @@ class StageScreen extends Component {
             ) : null
           }
         </View>
-        <View style={{flex: 1}} />
       </Flex>
     );
   }
