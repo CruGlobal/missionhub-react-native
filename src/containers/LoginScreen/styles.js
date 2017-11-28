@@ -27,6 +27,11 @@ export default StyleSheet.create({
     margin: 8,
     height: 48,
   },
+  // Give this a bigger clickable area
+  signInButton: {
+    padding: 15,
+    paddingHorizontal: 30,
+  },
   buttonText: {
     color: theme.white,
     fontWeight: '500',

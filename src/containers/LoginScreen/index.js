@@ -63,6 +63,7 @@ class LoginScreen extends Component {
             type="transparent"
             onPress={() => this.login()}
             text="SIGN IN"
+            style={styles.signInButton}
             buttonTextStyle={styles.buttonText}
           />
         </Flex>

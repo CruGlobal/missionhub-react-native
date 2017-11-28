@@ -18,6 +18,7 @@ export default StyleSheet.create({
     borderWidth: 0,
     ...common,
   },
+  // Types
   transparent: {
     backgroundColor: theme.transparent,
   },
@@ -39,12 +40,6 @@ export default StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 1.5,
     backgroundColor: 'rgba(0,0,0,0)',
-  },
-  textHeader: {
-    color: theme.headerTextColor,
-  },
-  imageStyle: {
-    // width: 20,
   },
   pill: {
     borderRadius: 50,

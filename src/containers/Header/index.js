@@ -9,7 +9,7 @@ import { Flex, Text, Button } from '../../components/common';
 export const HeaderIcon = ({ ...rest }) => (
   <Button
     type="transparent"
-    iconStyle={styles.headerIcon}
+    style={styles.headerIcon}
     {...rest}
   />
 );
