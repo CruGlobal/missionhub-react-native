@@ -9,26 +9,36 @@ export default class MyText extends Component {
     this._text.setNativeProps(nativeProps);
   }
   render() {
-    const { children, i18n, style, type, ...rest } = this.props;
-    let fontFamily;
+    const { children, i18n, style, type, animation, ...rest } = this.props;
 
-    if (type === 'header') {
-      fontFamily = {
-        fontFamily: 'AmaticSC-Bold',
-      };
-    } else {
-      fontFamily = {
-        fontFamily: 'SourceSansPro-Regular',
-      };
-    }
+    const fontFamily = {
+      fontFamily: type === 'header' ? 'AmaticSC-Bold' : 'SourceSansPro-Regular',
+    };
     let content = children;
     if (i18n) {
       content = I18n.t(i18n);
     }
+    
+    const textStyle = [styles.text, fontFamily, style];
+
+    if (animation) {
+      return (
+        <Animatable.Text
+          ref={(c) => this._text = c}
+          animation={animation}
+          {...rest}
+          style={textStyle}>
+          {content}
+        </Animatable.Text>
+      );
+    }
     return (
-      <Animatable.Text ref={(c) => this._text = c} {...rest} style={[styles.text, fontFamily, style]}>
+      <Text
+        ref={(c) => this._text = c}
+        {...rest}
+        style={textStyle}>
         {content}
-      </Animatable.Text>
+      </Text>
     );
   }
 }
