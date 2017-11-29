@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import { navigateBack } from '../../actions/navigation';
 import StepsList from '../../components/StepsList';
-import theme from '../../theme';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 
-const STEPS= [
+const STEPS = [
   {
     id: 1,
     name: 'step 1',
@@ -22,29 +21,52 @@ const STEPS= [
     id: 3,
     name: 'step 3',
   },
+  {
+    id: 4,
+    name: 'step 4',
+  },
+  {
+    id: 5,
+    name: 'step 5',
+  },
+  {
+    id: 6,
+    name: 'step 6',
+  },
+  {
+    id: 7,
+    name: 'step 7',
+  },
 ];
 
 class SelectStepScreen extends Component {
+  renderTitle() {
+    return (
+      <Flex value={1.5} align="center" justify="start">
+        <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
+        <Text style={styles.headerText}>
+          How do you want to move forward on your spiritual journey?  
+        </Text>
+      </Flex>
+    );
+  }
   render() {
     // const { id } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={1} align="center" justify="center" style={styles.headerWrap}>
           <BackButton />
-          <Flex value={1.5} align="center" justify="start">
-            <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
-            <Text style={styles.headerText}>What do you want to do to help others experience God?</Text>
-          </Flex>
+          {this.renderTitle()}
         </Flex>
         <Flex value={2} >
           <StepsList items={STEPS} />
         </Flex>
-        <Flex style={{top: 0, bottom: 0, right: 0, left: 0}} align="center" justify="end">
+        <Flex align="center" justify="end">
           <Button
             type="secondary"
             onPress={() => this.props.dispatch(navigateBack())}
             text="ADD TO MY STEPS"
-            style={{width: theme.fullWidth}}
+            style={styles.addButton}
           />
         </Flex>
       </Flex>

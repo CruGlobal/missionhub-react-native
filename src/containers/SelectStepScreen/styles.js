@@ -21,4 +21,7 @@ export default StyleSheet.create({
     paddingVertical: 20,
     textAlign: 'center',
   },
+  addButton: {
+    width: theme.fullWidth,
+  },
 });
