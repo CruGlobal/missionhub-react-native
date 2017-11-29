@@ -9,11 +9,26 @@ import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
 import BackButton from '../BackButton';
+import LANDSCAPE from '../../../assets/images/landscape.png';
+import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
+import CURIOUS from '../../../assets/images/curiousIcon.png';
+import FORGIVEN from '../../../assets/images/forgivenIcon.png';
+import GROWING from '../../../assets/images/growingIcon.png';
+import GUIDING from '../../../assets/images/guidingIcon.png';
+
 import theme from '../../theme';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
 const stageMargin = theme.fullWidth / 30;
+
+const stageIcons = [
+  UNINTERESTED,
+  CURIOUS,
+  FORGIVEN,
+  GROWING,
+  GUIDING,
+];
 
 class StageScreen extends Component {
 
@@ -32,11 +47,11 @@ class StageScreen extends Component {
     this.props.dispatch(navigatePush('StageSuccess'));
   }
 
-  renderStage({item}) {
+  renderStage({item, index}) {
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
-          <Image source={require('../../../assets/images/Forgiven.png')} />
+          <Image source={stageIcons[index]} />
           <Text type="header" style={styles.cardHeader}>{item.name.toLowerCase()}</Text>
           <Text style={styles.cardText}>{item.description}</Text>
         </View>
@@ -53,7 +68,8 @@ class StageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <BackButton />
-        <View style={{flex: 1, alignItems: 'center'}}>
+        <Image source={LANDSCAPE} style={styles.footerImage} />
+        <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.firstName}, which stage best describes where you are on your journey?
           </Text>
@@ -69,7 +85,7 @@ class StageScreen extends Component {
               />
             ) : null
           }
-        </View>
+        </Flex>
       </Flex>
     );
   }
