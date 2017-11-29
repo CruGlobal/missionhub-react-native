@@ -1,58 +1,67 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
+import debounce from 'lodash/debounce';
 
 import styles from './styles';
 
-import { Touchable, Text, Flex } from '../common';
+import { Touchable, Text } from '../common';
+import { exists } from '../../utils/common';
 
 const TYPES = ['transparent', 'primary', 'secondary'];
-function getTypeStyle(type) {
-  if (type === 'transparent') {
-    return styles.transparent;
-  } else if (type === 'primary') {
-    return styles.primary;
-  } else if (type === 'secondary') {
-    return styles.secondary;
-  }
-  return styles.button;
-}
+// Return the styles.TYPE if it exists or just the default button style
+const getTypeStyle = (type) => exists(styles[type]) ? styles[type] : styles.button;
 
 export default class Button extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clickedDisabled: false,
+    };
+
+    // Debounce this function so it doesn't get called too quickly in succession
+    this.handlePress = debounce(this.handlePress.bind(this), 25);
+  }
+
+  componentWillUnmount() {
+    // Make sure to clear the timeout when the Button unmounts
+    clearTimeout(this.clickDisableTimeout);
+  }
+  
+  handlePress(...args) {
+    // Prevent the user from being able to click twice
+    this.setState({ clickedDisabled: true });
+    // Re-enable the button after the timeout
+    this.clickDisableTimeout = setTimeout(() => { this.setState({ clickedDisabled: false }); }, 400);
+    // Call the users click function with all the normal click parameters
+    this.props.onPress(...args);
+  }
+
   render() {
-    const { onPress, type, image, text, pill, children, disabled, style = {}, buttonTextStyle = {}, ...rest } = this.props;
+    const { type, text, i18n, pill, children, disabled, style = {}, buttonTextStyle = {}, ...rest } = this.props;
     let content = children;
     if (!children) {
-      let textComp = null;
-      let imageComp = null;
-      if (text) {
-        textComp = (
-          <Text style={[styles.buttonText, buttonTextStyle]}>
-            {text}
-          </Text>
-        );
-      }
-      if (image) {
-        imageComp = (
-          <Image source={image} style={styles.imageStyle} />
-        );
-      }
-      if (text || (image && text)) {
-        content = (
-          <Flex direction="row" align="center" justify="start">
-            {
-              image ? imageComp : null
-            }
-            {textComp}
-          </Flex>
-        );
-      } else {
-        content = textComp || imageComp;
+      // If there are no children passed in, assume text is used for the button
+      const textStyle = [styles.buttonText, buttonTextStyle];
+      if (i18n) {
+        // Add the ability for i18n within the button text
+        content = <Text style={textStyle} i18n={i18n} />;
+      } else if (text) {
+        content = <Text style={textStyle}>{text}</Text>;
       }
     }
+    const isDisabled = disabled || this.state.clickedDisabled;
     return (
-      <Touchable onPress={disabled ? undefined : onPress} {...rest}>
-        <View style={[getTypeStyle(type), disabled ? styles.disabled : null, style, pill ? styles.pill : null]}>
+      <Touchable {...rest} disabled={isDisabled} onPress={this.handlePress}>
+        <View
+          style={[
+            getTypeStyle(type),
+            disabled ? styles.disabled : null,
+            style,
+            pill ? styles.pill : null,
+          ]}>
           {content}
         </View>
       </Touchable>
@@ -70,5 +79,4 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   style: PropTypes.oneOfType(styleTypes),
   buttonTextStyle: PropTypes.oneOfType(styleTypes),
-  image: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
