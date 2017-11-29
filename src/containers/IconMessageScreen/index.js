@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import theme from '../../theme';
 import {connect} from 'react-redux';
 import {navigatePush} from '../../actions/navigation';
+import {Image} from 'react-native';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
@@ -19,13 +20,14 @@ class IconMessageScreen extends Component {
   }
 
   render() {
-    const { mainText, buttonText, nextScreen } = this.props;
+    const { mainText, buttonText, nextScreen, iconPath } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <BackButton />
 
         <Flex align="center" justify="center" value={4}>
+          <Image source={iconPath} />
           <Text style={styles.text}>{mainText}</Text>
         </Flex>
 
