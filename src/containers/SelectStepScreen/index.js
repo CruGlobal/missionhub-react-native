@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import StepsList from '../../components/StepsList';
 import theme from '../../theme';
 
@@ -42,7 +42,7 @@ class SelectStepScreen extends Component {
         <Flex style={{top: 0, bottom: 0, right: 0, left: 0}} align="center" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.props.dispatch(navigateBack())}
+            onPress={() => this.props.dispatch(navigatePush('MainTabs'))}
             text="ADD TO MY STEPS"
             style={{width: theme.fullWidth}}
           />
