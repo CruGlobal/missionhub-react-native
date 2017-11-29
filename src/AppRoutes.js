@@ -11,6 +11,7 @@ import SetupScreen from './containers/SetupScreen';
 import GetStartedScreen from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
 import StageSuccessScreen from './containers/StageSuccessScreen';
+import AddSomeoneScreen from './containers/AddSomeoneScreen';
 
 import {Icon} from './components/common';
 
@@ -84,6 +85,7 @@ export const MainStackRoutes = StackNavigator({
   GetStarted: {screen: GetStartedScreen},
   Stage: {screen: StageScreen},
   StageSuccess: {screen: StageSuccessScreen},
+  AddSomeone: {screen: AddSomeoneScreen},
 }, {
   paths: {
     Login: 'Login',
@@ -92,6 +94,7 @@ export const MainStackRoutes = StackNavigator({
     GetStarted: 'GetStarted',
     Stage: 'Stage',
     StageSuccess: 'StageSuccess',
+    AddSomeone: 'AddSomeone',
   },
   navigationOptions: {
     header: null,
