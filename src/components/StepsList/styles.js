@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   stepName: {
+    flex: 1,
     paddingVertical: 5,
     paddingHorizontal: 15,
     fontSize: 16,

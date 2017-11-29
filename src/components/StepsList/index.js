@@ -19,7 +19,7 @@ export default class StepsList extends Component {
     return (
       <Flex direction="row" align="center" justify="start" value={1}>
         <Image source={ADD_STEP} style={styles.addIcon} />
-        <Text style={styles.stepName}>{item.name}</Text>
+        <Text style={styles.stepName}>{item.body}</Text>
       </Flex>
     );
   }

@@ -21,12 +21,18 @@ export default {
   //   data: {}
   //   (some default query that will merge with the query passed in)
   //   query: {}
-  //   (mark the api as a call that will show the loading state)
-  //   showApiLoading: true
+  //   Don't use jsonDataApiStore
+  //   useJsonDataApiStore: false
   // },
   'GET_STAGES': {
-    endpoint: API_URL + 'pathway_stages/',
+    endpoint: API_URL + 'pathway_stages',
     method: 'get',
+    anonymous: true,
+  },
+  'GET_CHALLENGE_SUGGESTIONS': {
+    endpoint: API_URL + 'challenge_suggestions',
+    method: 'get',
+    anonymous: true,
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-// const API_VERSION = 'v1';
+const API_VERSION = 'v4';
 let baseUrl = '';
 if (__DEV__) {
   baseUrl = 'https://api-stage.missionhub.com';
@@ -9,7 +9,7 @@ if (__DEV__) {
 }
 
 export const BASE_URL = baseUrl;
-export const API_URL = BASE_URL + '/apis/v4/';
+export const API_URL = BASE_URL + `/apis/${API_VERSION}/`;
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',

@@ -5,6 +5,7 @@ import nav from './nav';
 import profile from './profile';
 import stages from './stages';
 import myStageReducer from './myStage';
+import steps from './steps';
 
 export default combineReducers({
   auth,
@@ -12,4 +13,5 @@ export default combineReducers({
   profile,
   stages,
   myStageReducer,
+  steps,
 });

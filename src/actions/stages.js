@@ -1,16 +1,10 @@
-import {STAGES} from '../constants';
-import axios from 'axios';
-import {JsonApiDataStore} from 'jsonapi-datastore';
+import callApi, { REQUESTS } from './api';
 
 export function getStages() {
   return (dispatch) => {
-    axios.get('https://api-stage.missionhub.com/apis/v4/pathway_stages/')
-      .then(result => {
-        const jsonApiStore = new JsonApiDataStore();
-        jsonApiStore.sync(result.data);
 
-        return dispatch({type: STAGES, allStages: jsonApiStore.findAll('pathway_stage')});
-      })
-      .catch(error => console.log('error getting stages: ' + error));
+    return dispatch(callApi(REQUESTS.GET_STAGES)).catch((error) => {
+      LOG('error getting stages', error);
+    });
   };
 }

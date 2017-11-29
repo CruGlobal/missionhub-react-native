@@ -2,44 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { navigateBack } from '../../actions/navigation';
+import { getStepSuggestions } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 
-const STEPS = [
-  {
-    id: 1,
-    name: 'step 1',
-  },
-  {
-    id: 2,
-    name: 'step 2',
-  },
-  {
-    id: 3,
-    name: 'step 3',
-  },
-  {
-    id: 4,
-    name: 'step 4',
-  },
-  {
-    id: 5,
-    name: 'step 5',
-  },
-  {
-    id: 6,
-    name: 'step 6',
-  },
-  {
-    id: 7,
-    name: 'step 7',
-  },
-];
-
 class SelectStepScreen extends Component {
+  componentWillMount() {
+    this.props.dispatch(getStepSuggestions());
+  }
+  
   renderTitle() {
     return (
       <Flex value={1.5} align="center" justify="start">
@@ -58,8 +32,8 @@ class SelectStepScreen extends Component {
           <BackButton />
           {this.renderTitle()}
         </Flex>
-        <Flex value={2} >
-          <StepsList items={STEPS} />
+        <Flex value={2}>
+          <StepsList items={this.props.suggestedForMe} />
         </Flex>
         <Flex align="center" justify="end">
           <Button
@@ -74,7 +48,9 @@ class SelectStepScreen extends Component {
   }
 }
 
-const mapStateToProps = (undefined, { navigation }) => ({
+const mapStateToProps = ({ steps }, { navigation }) => ({
+  suggestedForMe: steps.suggestedForMe,
+  suggestedForOthers: steps.suggestedForOthers,
   id: navigation.state.params ? navigation.state.params.id : '',
 });
 
