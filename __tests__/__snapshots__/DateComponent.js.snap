@@ -4,14 +4,17 @@ exports[`renders correctly 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
-  collapsable={undefined}
-  disabled={false}
   ellipsizeMode="tail"
   style={
-    Object {
-      "color": "#505256",
-      "fontFamily": "SourceSansPro-Regular",
-    }
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      undefined,
+    ]
   }
 >
   Mon, Nov 20, 2017 12:00 AM
