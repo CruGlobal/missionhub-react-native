@@ -12,6 +12,8 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 18,
     paddingBottom: 25,
+    paddingTop: 25,
+    paddingHorizontal: 30,
     width: theme.fullWidth - 100,
     textAlign: 'center',
   },
@@ -30,7 +32,7 @@ export default StyleSheet.create({
   cardWrapper: {
     justifyContent: 'space-between',
     backgroundColor: theme.white,
-    height: 350,
+    height: 320,
     width: theme.fullWidth - 120,
     marginHorizontal: theme.fullWidth / 30,
   },
@@ -39,5 +41,9 @@ export default StyleSheet.create({
     paddingTop: 30,
     paddingRight: 15,
     paddingLeft: 15,
+  },
+  footerImage: {
+    position: 'absolute',
+    bottom: 0,
   },
 });
