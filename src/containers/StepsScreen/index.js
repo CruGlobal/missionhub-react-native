@@ -9,6 +9,8 @@ import styles from './styles';
 import { Flex, Text, Button, IconButton } from '../../components/common';
 import Header from '../Header';
 
+const isCasey = true;
+
 class StepsScreen extends Component {
   render() {
     return (
@@ -18,9 +20,11 @@ class StepsScreen extends Component {
             <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
           }
           right={
-            <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            isCasey ? null : (
+              <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            )
           }
-          title="Steps"
+          title="STEPS OF FAITH"
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
           <Text>Steps</Text>
