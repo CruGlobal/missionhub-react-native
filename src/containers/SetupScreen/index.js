@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {View, Keyboard} from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Keyboard } from 'react-native';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
-import {navigatePush} from '../../actions/navigation';
-import {firstNameChanged, lastNameChanged} from '../../actions/profile';
+import { navigatePush } from '../../actions/navigation';
+import { firstNameChanged, lastNameChanged } from '../../actions/profile';
 
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
@@ -38,7 +38,6 @@ class SetupScreen extends Component {
               style={styles.input}
               placeholder="First Name"
               placeholderTextColor="white"
-              underlineColorAndroid="transparent"
             />
           </View>
 
@@ -52,7 +51,6 @@ class SetupScreen extends Component {
               placeholderTextColor="white"
               blurOnSubmit={true}
               style={styles.input}
-              underlineColorAndroid="transparent"
             />
           </View>
         </Flex>

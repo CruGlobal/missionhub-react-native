@@ -3,6 +3,7 @@ import lodashForEach from 'lodash/forEach';
 import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
+import { isObject } from '../utils/common';
 
 
 
@@ -92,7 +93,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
       API_CALLS[action.name](newQuery, data).then((results) => {
         let actionResults = results || {};
         // If the results have an error object, call this to reject it
-        if (actionResults.error || actionResults.errors) {
+        if (isObject(actionResults) && actionResults.error || actionResults.errors) {
           handleError(actionResults);
           return;
         }

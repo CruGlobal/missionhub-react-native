@@ -8,6 +8,9 @@ export default StyleSheet.create({
     borderBottomColor: theme.accentColor,
     backgroundColor: theme.transparent,
     paddingVertical: 5,
-    color: theme.lightText,
+    color: theme.white,
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 16,
+    letterSpacing: .25,
   },
 });

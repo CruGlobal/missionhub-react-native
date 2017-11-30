@@ -2,49 +2,101 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
+import { getStepSuggestions } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import theme from '../../theme';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 
-const STEPS= [
-  {
-    id: 1,
-    name: 'step 1',
-  },
-  {
-    id: 2,
-    name: 'step 2',
-  },
-  {
-    id: 3,
-    name: 'step 3',
-  },
-];
-
 class SelectStepScreen extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      steps: props.suggestedForMe,
+      addedSteps: [],
+    };
+
+    this.handleSelectStep = this.handleSelectStep.bind(this);
+    this.handleCreateStep = this.handleCreateStep.bind(this);
+    this.saveAllSteps = this.saveAllSteps.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getStepSuggestions());
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.suggestedForMe.length !== this.props.suggestedForMe.length) {
+      const newSteps = [].concat(nextProps.suggestedForMe, this.state.addedSteps);
+      this.setState({ steps: newSteps });
+    }
+  }
+  
+  handleSelectStep(item) {
+    const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
+    this.setState({ steps });
+  }
+
+  handleCreateStep() {
+    this.props.dispatch(navigatePush('AddStep', {
+      onComplete: (newStepText) => {
+        const addedSteps = this.state.addedSteps;
+
+        const newStep = {
+          id: `${addedSteps.length}`,
+          body: newStepText,
+          selected: true,
+        };
+        
+        this.setState({
+          steps: this.state.steps.concat([newStep]),
+          addedSteps: addedSteps.concat([newStep]),
+        });
+      },
+    }));
+  }
+
+  saveAllSteps() {
+    const selectedSteps = this.state.steps.filter((s) => s.selected);
+    LOG('selectedSteps', selectedSteps);
+    // TODO: Save selected steps with some kind of API call,
+    this.props.dispatch(navigatePush('MainTabs'));
+  }
+
+  renderTitle() {
+    return (
+      <Flex value={1.5} align="center" justify="start">
+        <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
+        <Text style={styles.headerText}>
+          How do you want to move forward on your spiritual journey?  
+        </Text>
+      </Flex>
+    );
+  }
+
   render() {
-    // const { id } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={1} align="center" justify="center" style={styles.headerWrap}>
           <BackButton />
-          <Flex value={1.5} align="center" justify="start">
-            <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
-            <Text style={styles.headerText}>What do you want to do to help others experience God?</Text>
-          </Flex>
+          {this.renderTitle()}
         </Flex>
-        <Flex value={2} >
-          <StepsList items={STEPS} />
+        <Flex value={2}>
+          <StepsList
+            items={this.state.steps}
+            onSelectStep={this.handleSelectStep}
+            onCreateStep={this.handleCreateStep}
+          />
         </Flex>
-        <Flex style={{top: 0, bottom: 0, right: 0, left: 0}} align="center" justify="end">
+        <Flex align="center" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.props.dispatch(navigatePush('MainTabs'))}
+            onPress={this.saveAllSteps}
             text="ADD TO MY STEPS"
-            style={{width: theme.fullWidth}}
+            style={styles.addButton}
           />
         </Flex>
       </Flex>
@@ -52,8 +104,10 @@ class SelectStepScreen extends Component {
   }
 }
 
-const mapStateToProps = (undefined, { navigation }) => ({
-  id: navigation.state.params ? navigation.state.params.id : '',
+const mapStateToProps = ({ steps }) => ({
+  // suggestedForMe: steps.suggestedForMe,
+  suggestedForMe: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
+  suggestedForOthers: steps.suggestedForOthers,
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

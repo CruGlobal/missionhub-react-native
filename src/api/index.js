@@ -1,7 +1,10 @@
 import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
+import { JsonApiDataStore } from 'jsonapi-datastore';
+
 import request from './utils';
 import apiRoutes from './routes';
+import { exists } from '../utils/common';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -56,10 +59,17 @@ lodashForEach(apiRoutes, (routeData, key) => {
         query,
         method === 'get' ? undefined : data,
         extra,
-      ).then((response) => {
-        APILOG(`${key} SUCCESS`, response);
-        resolve(response);
+      ).then((jsonResponse) => {
+        APILOG(`${key} SUCCESS`, jsonResponse);
+        if (exists(routeData.useJsonDataApiStore) && !routeData.useJsonDataApiStore) {
+          resolve(jsonResponse);
+        } else {
+          const jsonApiStore = new JsonApiDataStore();
+          jsonApiStore.sync(jsonResponse);
+          resolve(jsonApiStore);
+        }
       }).catch((err) => {
+        LOG('request error or error in logic that handles the request', key, err);
         APILOG(`${key} FAIL`, err);
         reject(err);
       });

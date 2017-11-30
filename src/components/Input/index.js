@@ -22,7 +22,8 @@ export default class Input extends Component {
         autoFocus={false}
         multiline={false}
         selectionColor={theme.primaryColor}
-        underlineColorAndroid={theme.accentColor}
+        underlineColorAndroid={theme.transparent}
+        placeholderTextColor={theme.textColor}
         {...rest}
         style={[styles.input, style]}
       />

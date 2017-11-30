@@ -7,21 +7,18 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  headerWrap: {
-    backgroundColor: theme.primaryColor,
-  },
-  headerTitle: {
+  header: {
     fontSize: 36,
-    color: theme.secondaryColor,
-  },
-  headerText: {
-    fontSize: 16,
     color: theme.white,
-    paddingHorizontal: 50,
-    paddingVertical: 20,
-    textAlign: 'center',
   },
-  addButton: {
+  fieldWrap: {
+    paddingTop: 10,
+    paddingHorizontal: 30,
+  },
+  input: {
+    borderBottomColor: theme.secondaryColor,
+  },
+  createButton: {
     width: theme.fullWidth,
   },
 });
