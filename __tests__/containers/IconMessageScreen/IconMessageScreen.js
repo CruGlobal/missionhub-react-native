@@ -6,7 +6,12 @@ import renderer from 'react-test-renderer';
 import IconMessageScreen from '../../../src/containers/IconMessageScreen/index';
 import { Provider } from 'react-redux';
 
-jest.mock('react-native-device-info');
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+const mockNavigatePush = () => {
+  return 'next';
+};
 
 const store = {
   getState: jest.fn(() => ({
@@ -16,6 +21,13 @@ const store = {
   dispatch: jest.fn(),
   subscribe: jest.fn(),
 };
+
+jest.mock('react-native-device-info');
+jest.mock('../../../src/actions/navigation', () => {
+  return {
+    navigatePush: () => mockNavigatePush(),
+  };
+});
 
 const renderAndTest = (mainText, buttonText, iconPath) => {
   const tree = renderer.create(
@@ -36,4 +48,18 @@ it('renders button text correctly', () => {
 
 it('renders icon correctly', () => {
   renderAndTest(null, null, require('../../../assets/images/footprints.png'));
+});
+
+it('goes to the next screen', () => {
+  Enzyme.configure({ adapter: new Adapter() });
+
+  const wrapper = shallow(
+    <IconMessageScreen />,
+    { context: { store: store } },
+  );
+
+  const button = wrapper.dive().childAt(2).childAt(0);
+  button.simulate('press');
+
+  expect(store.dispatch).toHaveBeenCalledWith(mockNavigatePush());
 });
