@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
+import PropTypes from 'prop-types';
+
 import styles from './styles';
 
 import { navigateBack } from '../../actions/navigation';
@@ -22,7 +24,12 @@ class AddStepScreen extends Component {
 
   saveStep() {
     Keyboard.dismiss();
+    const text = this.state.step.trim();
+    if (!text) {
+      return;
+    }
     // TODO: Save to my steps
+    this.props.onComplete(text);
     this.props.dispatch(navigateBack());
   }
 
@@ -60,4 +67,12 @@ class AddStepScreen extends Component {
   }
 }
 
-export default connect()(AddStepScreen);
+AddStepScreen.propTypes = {
+  onComplete: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (reduxState, { navigation }) => ({
+  onComplete: navigation.state.params.onComplete,
+});
+
+export default connect(mapStateToProps)(AddStepScreen);
