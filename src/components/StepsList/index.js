@@ -3,7 +3,7 @@ import { FlatList, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import ADD_STEP from '../../../assets/images/addStep.png';
 
-import { Flex, Text, Separator } from '../common';
+import { Flex, Text, Separator, Touchable } from '../common';
 import styles from './styles';
 
 export default class StepsList extends Component {
@@ -17,19 +17,23 @@ export default class StepsList extends Component {
 
   renderRow({ item }) {
     return (
-      <Flex direction="row" align="center" justify="start" value={1}>
-        <Image source={ADD_STEP} style={styles.addIcon} />
-        <Text style={styles.stepName}>{item.body}</Text>
-      </Flex>
+      <Touchable onPress={() => this.props.onSelectStep(item)}>
+        <Flex direction="row" align="center" justify="start" value={1}>
+          <Image source={ADD_STEP} style={styles.addIcon} />
+          <Text style={styles.stepName}>{item.body}</Text>
+        </Flex>
+      </Touchable>
     );
   }
 
   renderCreateStep() {
     return (
-      <Flex direction="row" align="center" justify="start" value={1}>
-        <Image source={ADD_STEP} style={styles.addIcon} />
-        <Text style={styles.stepName}>Create your own step...</Text>
-      </Flex>
+      <Touchable onPress={this.props.onCreateStep}>
+        <Flex direction="row" align="center" justify="start" value={1} style={styles.separatorWrap}>
+          <Image source={ADD_STEP} style={styles.addIcon} />
+          <Text style={styles.stepName}>Create your own step...</Text>
+        </Flex>
+      </Touchable>
     );
   }
 
@@ -50,4 +54,6 @@ export default class StepsList extends Component {
 
 StepsList.propTypes = {
   items: PropTypes.array.isRequired,
+  onSelectStep: PropTypes.func.isRequired,
+  onCreateStep: PropTypes.func.isRequired,
 };

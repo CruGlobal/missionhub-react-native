@@ -6,6 +6,7 @@ import InteractionsScreen from './containers/InteractionsScreen';
 import HistoryScreen from './containers/HistoryScreen';
 import StepsScreen from './containers/StepsScreen';
 import SelectStepScreen from './containers/SelectStepScreen';
+import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen from './containers/WelcomeScreen';
 import SetupScreen from './containers/SetupScreen';
@@ -87,6 +88,7 @@ export const MainStackRoutes = StackNavigator({
   MainTabs: {screen: MainTabRoutes},
   Profile: {screen: ProfileScreen},
   Step: {screen: SelectStepScreen},
+  AddStep: {screen: AddStepScreen},
   Login: {screen: LoginScreen},
   Welcome: {screen: WelcomeScreen},
   Setup: {screen: SetupScreen},
