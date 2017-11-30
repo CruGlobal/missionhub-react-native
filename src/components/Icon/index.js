@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Platform } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialIcons';
+import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+import icoMoonConfig from '../../../assets/icoMoonConfig.json';
+import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FAGlyphs from 'react-native-vector-icons/glyphmaps/FontAwesome.json';
 import MaterialGlyphs from 'react-native-vector-icons/glyphmaps/MaterialIcons.json';
@@ -11,8 +14,8 @@ import IoniconsGlyphs from 'react-native-vector-icons/glyphmaps/Ionicons.json';
 import PLATFORM_MAP from './mapping';
 import styles from './styles';
 
-const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons'];
-
+const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons', 'MissionHub'];
+const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 export default class Icon extends Component {
   render() {
     const { name, type, size = 18, style = {} } = this.props;
@@ -30,6 +33,7 @@ export default class Icon extends Component {
     let Tag;
     if (iconType === 'FontAwesome') Tag = FontAwesome;
     else if (iconType === 'Ionicons') Tag = Ionicons;
+    else if (iconType === 'MissionHub') Tag = MissionHub;
     else Tag = Material;
 
     return (
@@ -46,6 +50,7 @@ Icon.propTypes = {
     ...Object.keys(FAGlyphs),
     ...Object.keys(MaterialGlyphs),
     ...Object.keys(IoniconsGlyphs),
+    ...Object.keys(MissionHubIconGlyphs),
   ]).isRequired,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
   type: PropTypes.oneOf(ICON_TYPES),

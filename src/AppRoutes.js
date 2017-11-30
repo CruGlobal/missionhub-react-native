@@ -2,8 +2,6 @@ import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
-import InteractionsScreen from './containers/InteractionsScreen';
-import HistoryScreen from './containers/HistoryScreen';
 import StepsScreen from './containers/StepsScreen';
 import SelectStepScreen from './containers/SelectStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
@@ -15,7 +13,7 @@ import StageSuccessScreen from './containers/StageSuccessScreen';
 
 import {Icon} from './components/common';
 
-import theme, {COLORS} from './theme';
+import theme from './theme';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -30,56 +28,47 @@ import theme, {COLORS} from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon name={name} size={30} style={{color: tintColor}} />;
+const navIcon = (name) => ({tintColor}) => <Icon type="MissionHub" name={name} size={30} style={{color: tintColor}} />;
 
 
 export const MainTabRoutes = TabNavigator({
-  InteractionsTab: {
-    screen: InteractionsScreen,
-    navigationOptions: {
-      tabBarLabel: 'Interactions',
-      tabBarIcon: navIcon('home'),
-    },
-  },
   StepsTab: {
     screen: StepsScreen,
     navigationOptions: {
       tabBarLabel: 'Steps',
-      tabBarIcon: navIcon('home'),
+      tabBarIcon: navIcon('stepsIcon'),
     },
   },
-  HistoryTab: {
-    screen: HistoryScreen,
+  PeopleTab: {
+    screen: StepsScreen,
     navigationOptions: {
-      tabBarLabel: 'History',
-      tabBarIcon: navIcon('home'),
+      tabBarLabel: 'People',
+      tabBarIcon: navIcon('peopleIcon'),
     },
   },
-  ProfileTab: {
-    screen: ProfileScreen,
+  ImpactTab: {
+    screen: StepsScreen,
     navigationOptions: {
-      tabBarLabel: 'Profile',
-      tabBarIcon: navIcon('person'),
+      tabBarLabel: 'Impact',
+      tabBarIcon: navIcon('impactIcon'),
     },
   },
 }, {
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
-    style: {backgroundColor: theme.primaryColor},
+    style: {backgroundColor: theme.white},
     activeTintColor: theme.primaryColor,
-    inactiveTintColor: COLORS.GREY,
-    labelStyle: {color: theme.primaryColor},
+    inactiveTintColor: theme.inactiveColor,
     tabStyle: {backgroundColor: theme.lightBackgroundColor},
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
   lazy: false, // Load all tabs right away
   paths: {
-    InteractionsTab: '/interactions',
     StepsTab: '/steps',
-    HistoryTab: '/history',
-    ProfileTab: '/profile',
+    PeopleTab: '/people',
+    ImpactTab: '/impact',
   },
 });
 
