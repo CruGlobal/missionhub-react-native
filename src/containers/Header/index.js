@@ -18,7 +18,7 @@ class Header extends Component {
   renderLeft() {
     const { left } = this.props;
     return (
-      <Flex align="center" justify="center" style={styles.left}>
+      <Flex value={1} align="start" justify="center" style={styles.left}>
         {left || null}
       </Flex>
     );
@@ -27,7 +27,7 @@ class Header extends Component {
     const { title, title2, center } = this.props;
     if (title && title2) {
       return (
-        <Flex value={1} direction="column" align="center" style={styles.headerTwoLine}>
+        <Flex value={2} direction="column" align="center" style={styles.headerTwoLine}>
           <Text style={styles.headerTwoLine1} numberOfLines={1}>
             {title2}
           </Text>
@@ -39,7 +39,7 @@ class Header extends Component {
     }
     if (title) {
       return (
-        <Flex align="center" justify="center" value={1} style={styles.center}>
+        <Flex value={2} align="center" justify="center" value={1} style={styles.center}>
           <Text style={styles.title} numberOfLines={1}>
             {title}
           </Text>
@@ -55,7 +55,7 @@ class Header extends Component {
   renderRight() {
     const { right } = this.props;
     return (
-      <Flex align="center" justify="center" style={styles.right}>
+      <Flex value={1} align="end" justify="center" style={styles.right}>
         {right || null}
       </Flex>
     );

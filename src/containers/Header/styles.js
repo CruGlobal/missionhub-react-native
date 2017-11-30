@@ -20,7 +20,8 @@ export default StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 14,
+    fontWeight: '500',
   },
   // HeaderIcon styles
   headerIcon: {

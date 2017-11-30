@@ -11,6 +11,7 @@ import Touchable from './Touchable';
 import Separator from './Separator';
 import RefreshControl from './RefreshControl';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
+import IconButton from './IconButton';
 
 
 export {
@@ -25,4 +26,5 @@ export {
   Separator,
   RefreshControl,
   PlatformKeyboardAvoidingView,
+  IconButton,
 };
