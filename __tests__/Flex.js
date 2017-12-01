@@ -4,52 +4,46 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { Flex } from '../src/components/common';
+import {testSnapshot} from '../testUtils';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders align center correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex align="center" />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders justify center correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex justify="center" />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders alignSelf center correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex self="center" />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders value correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex value={1} />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders direction correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex direction="row" />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders animation correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Flex animation="bounce" />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });

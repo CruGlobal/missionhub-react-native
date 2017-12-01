@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import StageScreen from '../../src/containers/StageScreen';
-import {createMockStore} from '../../testUtils';
+import {createMockNavState, createMockStore} from '../../testUtils';
 
 const mockStages = () => {
   return 'mock stages';
@@ -17,22 +17,29 @@ jest.mock('../../src/actions/stages', () => {
   };
 });
 
-const store = createMockStore();
-
-const navigation = {
-  state: {},
+const mockState = {
+  profile: {},
+  stages: {},
 };
 
+const store = createMockStore(mockState);
+
 describe('StageScreen', () => {
+  let tree;
+
   beforeEach(() => {
-    renderer.create(
+    tree = renderer.create(
       <Provider store={store}>
-        <StageScreen navigation={navigation} />
+        <StageScreen navigation={createMockNavState()} />
       </Provider>
     );
   });
 
   it('loads stages when component is mounted', () => {
     expect(store.dispatch).toHaveBeenCalledWith(mockStages());
+  });
+
+  it('renders correctly', () => {
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 });
