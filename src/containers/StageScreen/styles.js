@@ -12,7 +12,7 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 18,
     paddingBottom: 25,
-    paddingTop: 25,
+    paddingTop: 45,
     paddingHorizontal: 30,
     width: theme.fullWidth - 100,
     textAlign: 'center',

@@ -130,7 +130,7 @@ exports[`StageScreen renders correctly 1`] = `
             "fontWeight": "500",
             "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 25,
+            "paddingTop": 45,
             "textAlign": "center",
             "width": 650,
           },
