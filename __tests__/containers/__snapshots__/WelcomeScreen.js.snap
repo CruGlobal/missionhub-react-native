@@ -21,57 +21,6 @@ exports[`renders correctly 1`] = `
       Array [
         Object {},
         Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
-        style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
           "alignItems": "center",
           "flex": 4,
           "justifyContent": "center",
