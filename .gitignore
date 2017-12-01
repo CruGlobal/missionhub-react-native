@@ -54,6 +54,7 @@ buck-out/
 
 .tmp/
 
+coverage/
 
 
 

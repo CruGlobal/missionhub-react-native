@@ -62,7 +62,8 @@
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"
-		]
+		],
+		"collectCoverage": true
 	},
 	"rnpm": {
 		"assets": [
