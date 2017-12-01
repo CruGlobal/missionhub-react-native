@@ -1,11 +1,12 @@
 export const LOGIN = 'app/LOGIN';
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
-export const NAME = 'app/NAME';
 export const STAGES = 'app/STAGES';
 export const SELECT_STAGE = 'app/SELECT_STAGE';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
+export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
+export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
 export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
 export const CREATE_MY_PERSON = 'app/CREATE_MY_PERSON';

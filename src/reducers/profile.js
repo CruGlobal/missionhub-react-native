@@ -1,7 +1,7 @@
-import { NAME } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
 import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
 import { REQUESTS } from '../actions/api';
+import { NAME } from '../constants';
 
 const initialProfileState = {
   firstName: '',

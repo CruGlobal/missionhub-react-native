@@ -7,7 +7,7 @@ import theme from '../../theme';
 class AddSomeoneScreen extends Component {
   render() {
     const message = 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?';
-    let nextScreen = 'MainTabs';
+    let nextScreen = 'SetupPerson';
     // Android doesn't need a primer for notifications the way iOS does
     if (!theme.isAndroid && !this.props.hasAskedPushNotifications) {
       nextScreen = 'NotificationPrimer';
