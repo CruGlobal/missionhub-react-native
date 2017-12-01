@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { FlatList, Image } from 'react-native';
+import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
-// TODO: Remove these and add icons instead of images
-import ADD_STEP from '../../../assets/images/addStep.png';
-import REMOVE_STEP from '../../../assets/images/uninterestedIcon.png';
-
-import { Flex, Text, Separator, Touchable } from '../common';
+import { Flex, Text, Separator, Touchable, Icon } from '../common';
 import styles from './styles';
 
 export default class StepsList extends Component {
@@ -22,7 +18,7 @@ export default class StepsList extends Component {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
-          <Image source={item.selected ? REMOVE_STEP : ADD_STEP} style={styles.addIcon} />
+          <Icon type="MissionHub" name={item.selected ? 'removeStepIcon' : 'addStepIcon'} style={styles.addIcon} />
           <Text style={styles.stepName}>{item.body}</Text>
         </Flex>
       </Touchable>
@@ -34,7 +30,7 @@ export default class StepsList extends Component {
       <Touchable onPress={this.props.onCreateStep}>
         <Flex direction="row" align="center" justify="start" value={1} style={styles.separatorWrap}>
           {/* TODO: Make this an edit icon */}
-          <Image source={ADD_STEP} style={styles.addIcon} />
+          <Icon name="createStepIcon" type="MissionHub" style={styles.addIcon} />
           <Text style={styles.stepName}>Create your own step...</Text>
         </Flex>
       </Touchable>

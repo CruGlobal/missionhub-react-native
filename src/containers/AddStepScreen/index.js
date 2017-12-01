@@ -46,11 +46,13 @@ class AddStepScreen extends Component {
             ref={(c) => this.stepInput = c}
             onChangeText={(t) => this.setState({ step: t })}
             value={this.state.step}
+            multiline={true}
             autoFocus={true}
+            selectionColor="white"
             returnKeyType="done"
             blurOnSubmit={true}
             style={styles.input}
-            placeholder="Invite a friend"
+            placeholder=""
           />
         </Flex>
 

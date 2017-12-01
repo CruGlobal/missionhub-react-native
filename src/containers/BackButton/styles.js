@@ -15,7 +15,7 @@ export default StyleSheet.create({
   },
   icon: {
     margin: margin,
-    marginTop: (isiPhoneX() ? 50 : margin),
+    marginTop: (isiPhoneX() ? 50 : margin + 20),
   },
   buttonText: {
     color: theme.primaryColor,
