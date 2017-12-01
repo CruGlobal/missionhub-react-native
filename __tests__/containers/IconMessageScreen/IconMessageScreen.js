@@ -8,18 +8,12 @@ import { Provider } from 'react-redux';
 
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {createMockStore} from '../../../testUtils';
 
 const mockNextScreen = 'the next screen';
 const mockNavigatePush = 'navigate push';
 
-const store = {
-  getState: jest.fn(() => ({
-    profile: {},
-    stages: {},
-  })),
-  dispatch: jest.fn(),
-  subscribe: jest.fn(),
-};
+const store = createMockStore();
 
 jest.mock('react-native-device-info');
 jest.mock('../../../src/actions/navigation', () => {
@@ -55,7 +49,8 @@ it('goes to the next screen', () => {
   Enzyme.configure({ adapter: new Adapter() });
   const described = shallow(
     <IconMessageScreen nextScreen={mockNextScreen} />,
-    { context: { store: store } });
+    { context: { store: store } }
+  );
   const button = described.dive().childAt(2).childAt(0);
 
   button.simulate('press');

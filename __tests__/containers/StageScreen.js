@@ -4,6 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import StageScreen from '../../src/containers/StageScreen';
+import {createMockStore} from '../../testUtils';
 
 const mockStages = () => {
   return 'mock stages';
@@ -16,14 +17,7 @@ jest.mock('../../src/actions/stages', () => {
   };
 });
 
-const store = {
-  getState: jest.fn(() => ({
-    profile: {},
-    stages: {},
-  })),
-  dispatch: jest.fn(),
-  subscribe: jest.fn(),
-};
+const store = createMockStore();
 
 const navigation = {
   state: {},
