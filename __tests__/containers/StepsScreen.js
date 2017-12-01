@@ -3,11 +3,19 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
-import {createMockStore} from '../../testUtils/index';
+import { createMockStore } from '../../testUtils/index';
 import StepsScreen from '../../src/containers/StepsScreen';
-import {testSnapshot} from '../../testUtils';
+import { testSnapshot } from '../../testUtils';
 
-const store = createMockStore();
+const mockState = {
+  steps: {
+    mine: [],
+    suggestedForMe: [],
+    suggestedForOthers: [],
+  },
+};
+
+const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
