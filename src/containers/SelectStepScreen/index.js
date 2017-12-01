@@ -34,7 +34,7 @@ class SelectStepScreen extends Component {
       this.setState({ steps: newSteps });
     }
   }
-  
+
   handleSelectStep(item) {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
     this.setState({ steps });
@@ -50,7 +50,7 @@ class SelectStepScreen extends Component {
           body: newStepText,
           selected: true,
         };
-        
+
         this.setState({
           steps: this.state.steps.concat([newStep]),
           addedSteps: addedSteps.concat([newStep]),
@@ -63,7 +63,7 @@ class SelectStepScreen extends Component {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
     LOG('selectedSteps', selectedSteps);
     // TODO: Save selected steps with some kind of API call,
-    this.props.dispatch(navigatePush('MainTabs'));
+    this.props.dispatch(navigatePush('AddSomeone'));
   }
 
   renderTitle() {
@@ -71,7 +71,7 @@ class SelectStepScreen extends Component {
       <Flex value={1.5} align="center" justify="start">
         <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
         <Text style={styles.headerText}>
-          How do you want to move forward on your spiritual journey?  
+          How do you want to move forward on your spiritual journey?
         </Text>
       </Flex>
     );
