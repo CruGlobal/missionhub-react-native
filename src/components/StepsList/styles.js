@@ -10,9 +10,9 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   addIcon: {
-    width: 40,
-    height: 40,
+    fontSize: 40,
     margin: 15,
+    color: theme.secondaryColor,
   },
   separatorWrap: {
     borderTopWidth: theme.separatorHeight,

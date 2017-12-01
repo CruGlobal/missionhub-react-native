@@ -1,5 +1,23 @@
 {
   "stepsIcon": true,
   "peopleIcon": true,
-  "impactIcon": true
+  "impactIcon": true,
+  "addContactIcon": true,
+  "addPersonIcon": true,
+  "addStepIcon": true,
+  "backIcon": true,
+  "bellIcon": true,
+  "carrotIcon": true,
+  "checkIcon": true,
+  "createStepIcon": true,
+  "deleteIcon": true,
+  "journeyIcon": true,
+  "menuIcon": true,
+  "missionHubLogo": true,
+  "moreIcon": true,
+  "notesIcon": true,
+  "plusIcon": true,
+  "removeStepIcon": true,
+  "searchIcon": true,
+  "setPathIcon": true
 }
