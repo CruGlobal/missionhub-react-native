@@ -64,6 +64,7 @@
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"
 		],
+		"coverageDirectory": "./coverage/",
 		"collectCoverageFrom": [
 			"src/**/*.js"
 		]

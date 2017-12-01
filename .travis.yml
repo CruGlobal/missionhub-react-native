@@ -4,8 +4,11 @@ node_js:
   - '7'
 
 script:
-  - npm test
+  - npm run test:coverage
   - eslint ./src
 
 notifications:
   email: false
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
