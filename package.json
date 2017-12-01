@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"test:coverage": "jest --coverage",
 		"test:snapshot": "jest -u",
 		"ios": "react-native run-ios",
 		"lint": "eslint ./src",
@@ -40,11 +41,15 @@
 		"babel-eslint": "8.0.1",
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
+		"enzyme": "3.2.0",
+		"enzyme-adapter-react-16": "1.1.0",
 		"eslint": "4.10.0",
 		"eslint-plugin-import": "2.8.0",
 		"eslint-plugin-react": "7.4.0",
 		"jest": "21.2.1",
-		"pre-commit": "^1.2.2",
+		"jest-cli": "21.2.1",
+		"pre-commit": "1.2.2",
+		"react-dom": "16.2.0",
 		"react-test-renderer": "16.0.0-beta.5"
 	},
 	"pre-commit": [
@@ -58,6 +63,9 @@
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"
+		],
+		"collectCoverageFrom": [
+			"src/**/*.js"
 		]
 	},
 	"rnpm": {

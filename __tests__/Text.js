@@ -4,31 +4,28 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { Text } from '../src/components/common';
+import {testSnapshot} from '../testUtils';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Text>Hello</Text>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders style correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Text style={{ color: 'red' }}>Hello</Text>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders animation correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Text animation="bounce">Hello</Text>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
 
 it('renders header font family correctly', () => {
-  const tree = renderer.create(
+  testSnapshot(
     <Text type="header">Hello</Text>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
 });
