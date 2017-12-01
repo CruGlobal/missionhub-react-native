@@ -16,57 +16,6 @@ exports[`StageScreen renders correctly 1`] = `
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "flex-start",
-          "alignSelf": "flex-start",
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
-        style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
-        }
-      />
-    </View>
-  </View>
   <Image
     source={
       Object {
@@ -111,7 +60,7 @@ exports[`StageScreen renders correctly 1`] = `
             "fontWeight": "500",
             "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 25,
+            "paddingTop": 45,
             "textAlign": "center",
             "width": 650,
           },
