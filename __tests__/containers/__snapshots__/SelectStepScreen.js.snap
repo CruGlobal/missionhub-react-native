@@ -62,19 +62,38 @@ exports[`renders correctly 1`] = `
         testID={undefined}
         tvParallaxProperties={undefined}
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/back_arrow.png",
-            }
-          }
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
           style={
-            Object {
-              "margin": 20,
-              "marginTop": 20,
-            }
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Object {
+                  "margin": 20,
+                  "marginTop": 40,
+                },
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
           }
-        />
+        >
+          
+        </Text>
       </View>
     </View>
     <View
@@ -123,6 +142,7 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
+              "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
               "fontSize": 16,
               "paddingHorizontal": 50,
@@ -220,20 +240,39 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/addStep.png",
-                  }
-                }
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
                 style={
-                  Object {
-                    "height": 40,
-                    "margin": 15,
-                    "width": 40,
-                  }
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 40,
+                        "margin": 15,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
                 }
-              />
+              >
+                
+              </Text>
               <Text
                 accessible={true}
                 allowFontScaling={true}
