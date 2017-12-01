@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"test:coverage": "jest --coverage",
 		"test:snapshot": "jest -u",
 		"ios": "react-native run-ios",
 		"lint": "eslint ./src",
@@ -63,8 +64,9 @@
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"
 		],
-		"collectCoverage": true,
-		"collectCoverageFrom" : ["src/**/*.js"]
+		"collectCoverageFrom": [
+			"src/**/*.js"
+		]
 	},
 	"rnpm": {
 		"assets": [
