@@ -8,7 +8,6 @@ import {selectStage} from '../../actions/selectStage';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
-import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscape.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -67,7 +66,6 @@ class StageScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <BackButton />
         <Image source={LANDSCAPE} style={styles.footerImage} />
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>

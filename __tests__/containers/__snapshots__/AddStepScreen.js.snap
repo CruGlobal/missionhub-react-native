@@ -54,19 +54,38 @@ exports[`renders correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
         style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 20,
+                "marginTop": 40,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
         }
-      />
+      >
+        
+      </Text>
     </View>
   </View>
   <View
@@ -121,12 +140,12 @@ exports[`renders correctly 1`] = `
       autoCorrect={false}
       autoFocus={true}
       blurOnSubmit={true}
-      multiline={false}
+      multiline={true}
       onChangeText={[Function]}
-      placeholder="Invite a friend"
+      placeholder=""
       placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="#007398"
+      selectionColor="white"
       style={
         Array [
           Object {

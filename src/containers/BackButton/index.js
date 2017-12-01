@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Keyboard } from 'react-native';
+import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
 
-import BACK_ICON from '../../../assets/images/back_arrow.png';
-import { Touchable, Flex } from '../../components/common';
+import { Touchable, Flex, Icon } from '../../components/common';
 import styles from './styles';
 
 class BackButton extends Component {
@@ -17,11 +16,16 @@ class BackButton extends Component {
         <Touchable
           {...rest}
           onPress={() => {
-            this.props.dispatch(navigateBack());
+            if (this.props.customNavigate === 'backToStages') {
+              this.props.dispatch(navigateBack());
+              this.props.dispatch(navigateBack());
+            } else {
+              this.props.dispatch(navigateBack());
+            }
             Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
           }}
         >
-          <Image source={BACK_ICON} style={styles.icon} />
+          <Icon name="backIcon" type="MissionHub" style={styles.icon} />
         </Touchable>
       </Flex>
     );
@@ -31,6 +35,7 @@ class BackButton extends Component {
 const styleTypes = [PropTypes.array, PropTypes.object, PropTypes.number];
 BackButton.propTypes = {
   filled: PropTypes.bool,
+  customNavigate: PropTypes.string,
   style: PropTypes.oneOfType(styleTypes),
   buttonTextStyle: PropTypes.oneOfType(styleTypes),
 };

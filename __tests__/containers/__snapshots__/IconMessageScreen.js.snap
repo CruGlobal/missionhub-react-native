@@ -52,19 +52,38 @@ exports[`renders button text correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
         style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 20,
+                "marginTop": 40,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
         }
-      />
+      >
+        
+      </Text>
     </View>
   </View>
   <View
@@ -243,19 +262,38 @@ exports[`renders icon correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
         style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 20,
+                "marginTop": 40,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
         }
-      />
+      >
+        
+      </Text>
     </View>
   </View>
   <View
@@ -409,19 +447,38 @@ exports[`renders main text correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/back_arrow.png",
-          }
-        }
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
         style={
-          Object {
-            "margin": 20,
-            "marginTop": 20,
-          }
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 20,
+                "marginTop": 40,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
         }
-      />
+      >
+        
+      </Text>
     </View>
   </View>
   <View
