@@ -20,6 +20,7 @@ export default StyleSheet.create({
     paddingHorizontal: 50,
     paddingVertical: 20,
     textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
   },
   addButton: {
     width: theme.fullWidth,
