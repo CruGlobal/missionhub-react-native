@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
+// import { getStepSuggestions, addSteps } from '../../actions/steps';
 import { getStepSuggestions } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 
@@ -62,6 +63,9 @@ class SelectStepScreen extends Component {
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
     LOG('selectedSteps', selectedSteps);
+    // this.props.dispatch(addSteps()).then((r)=>{
+    //   LOG(r);
+    // });
     // TODO: Save selected steps with some kind of API call,
     this.props.dispatch(navigatePush('AddSomeone'));
   }
