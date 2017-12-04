@@ -17,16 +17,23 @@ exports[`StageScreen renders correctly 1`] = `
   }
 >
   <Image
+    resizeMode="cover"
     source={
       Object {
-        "testUri": "../../../assets/images/landscape.png",
+        "testUri": "../../../assets/images/landscape-full.png",
       }
     }
     style={
-      Object {
-        "bottom": 0,
-        "position": "absolute",
-      }
+      Array [
+        Object {
+          "bottom": -100,
+          "height": 667,
+          "position": "absolute",
+        },
+        Object {
+          "left": -250,
+        },
+      ]
     }
   />
   <View

@@ -9,10 +9,10 @@ export const createMockStore = (state = {}) => {
   };
 };
 
-export const createMockNavState = () => {
+export const createMockNavState = (params = {}) => {
   return {
     state: {
-      params: {},
+      params,
     },
   };
 };

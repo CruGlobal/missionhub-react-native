@@ -14,7 +14,7 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState()} />
+      <AddStepScreen navigation={createMockNavState({ onComplete: () => {} })} />
     </Provider>
   );
 });
