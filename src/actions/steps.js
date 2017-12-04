@@ -8,38 +8,26 @@ export function getStepSuggestions() {
   };
 }
 
-export function addSteps() {
+export function addSteps(steps) {
   return (dispatch) => {
     const query = {};
-    const data = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: 'Steve',
-          last_name: 'Rogers',
-          gender: 'm',
-        },
+    let newSteps = steps.map((s) => ({
+      type: 'accepted_challenge',
+      attributes: {
+        title: s.body,
       },
-      included: [
-        {
-          type: 'accepted_challenge',
-          attributes: {
-            title: 'Invite to the Avengers 1',
-          },
-        },
-        {
-          type: 'accepted_challenge',
-          attributes: {
-            title: 'Invite to the Avengers 2',
-          },
-        },
-        {
-          type: 'accepted_challenge',
-          attributes: {
-            title: 'Invite to the Avengers 3',
-          },
-        },
-      ],
+    }));
+
+    const data = {
+      // data: {
+      //   type: 'person',
+      //   attributes: {
+      //     first_name: 'Steve',
+      //     last_name: 'Rogers',
+      //     gender: 'm',
+      //   },
+      // },
+      included: newSteps,
       include: 'received_challenges',
     };
     // const query = { filters: { locale: 'en' } };
