@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import IconMessageScreen from '../IconMessageScreen/index';
+import IconMessageScreen from './IconMessageScreen/index';
 
 class StageSuccessScreen extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class StageSuccessScreen extends Component {
 
   render() {
     const message = this.props.firstName + ', \n' + 'We\'d like to offer some things to help you in your spiritual journey.';
-    return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" nextScreen="Step" iconPath={require('../../../assets/images/pathFinder.png')} />;
+    return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" nextScreen="Step" iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
 

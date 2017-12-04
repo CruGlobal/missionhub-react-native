@@ -74,7 +74,7 @@ exports[`StageScreen renders correctly 1`] = `
         ]
       }
     >
-      , which stage best describes where you are on your journey?
+      Roger, which stage best describes where you are on your journey?
     </Text>
   </View>
 </View>

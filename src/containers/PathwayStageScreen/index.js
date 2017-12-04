@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {navigatePush} from '../../actions/navigation';
 import {View, Image} from 'react-native';
 import {getStages} from '../../actions/stages';
-import {selectStage} from '../../actions/selectStage';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
@@ -14,6 +13,7 @@ import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
+import PropTypes from 'prop-types';
 
 import theme from '../../theme';
 
@@ -29,8 +29,7 @@ const stageIcons = [
   GUIDING,
 ];
 
-class StageScreen extends Component {
-
+class PathwayStageScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -47,8 +46,8 @@ class StageScreen extends Component {
   }
 
   setStage(id) {
-    this.props.dispatch(selectStage(id)).then(() => {
-      this.props.dispatch(navigatePush('StageSuccess'));
+    this.props.dispatch(this.props.onSelect(id)).then(() => {
+      this.props.dispatch(navigatePush(this.props.nextScreen));
     });
   }
 
@@ -63,7 +62,7 @@ class StageScreen extends Component {
         <Button
           type="primary"
           onPress={() => this.setStage(item.id)}
-          text="I AM HERE"
+          text={this.props.buttonText}
         />
       </View>
     );
@@ -86,7 +85,7 @@ class StageScreen extends Component {
         />
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
-            {this.props.firstName}, which stage best describes where you are on your journey?
+            {this.props.questionText}
           </Text>
           {
             this.props.stages ? (
@@ -109,10 +108,13 @@ class StageScreen extends Component {
 
 }
 
-const mapStateToProps = ({profile, stages}, { navigation }) => ({
-  id: navigation.state.params ? navigation.state.params.id : '',
+PathwayStageScreen.propTypes = {
+  onSelect: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({profile, stages}) => ({
   firstName: profile.firstName,
   stages: stages.stages,
 });
 
-export default connect(mapStateToProps)(StageScreen);
+export default connect(mapStateToProps)(PathwayStageScreen);

@@ -18,7 +18,9 @@ jest.mock('../../src/actions/stages', () => {
 });
 
 const mockState = {
-  profile: {},
+  profile: {
+    firstName: 'Roger',
+  },
   stages: {},
 };
 
