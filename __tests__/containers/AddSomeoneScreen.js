@@ -29,5 +29,5 @@ it('has correct value for next screen', () => {
   Enzyme.configure({ adapter: new Adapter() });
   const described = shallow(<AddSomeoneScreen />, { context: { store: store } });
 
-  expect(described.dive().props().nextScreen).toBe('MainTabs');
+  expect(described.dive().props().nextScreen).toBe('SetupPerson');
 });
