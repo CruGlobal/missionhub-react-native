@@ -5,6 +5,7 @@ import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
 const initialAuthState = {
   isLoggedIn: false,
   isFirstTime: false,
+  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzg1Nzk2LCJleHAiOjE1MTI0MTIwNTJ9.Bd6Ft8GZH147XxLpKZwZXfHbF00CPIeQ3GlaqfuYHe0',
 };
 
 function authReducer(state = initialAuthState, action) {

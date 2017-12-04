@@ -34,6 +34,10 @@ export default {
     method: 'get',
     anonymous: true,
   },
+  'ADD_CHALLENGES': {
+    endpoint: API_URL + 'people/4141545',
+    method: 'put',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },

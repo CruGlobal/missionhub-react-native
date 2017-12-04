@@ -8,7 +8,7 @@ import {selectStage} from '../../actions/selectStage';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import {Flex, Text, Button} from '../../components/common';
-import LANDSCAPE from '../../../assets/images/landscape.png';
+import LANDSCAPE from '../../../assets/images/landscape-full.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
@@ -34,7 +34,12 @@ class StageScreen extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      scrollPosition: 0,
+    };
+
     this.renderStage = this.renderStage.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -63,10 +68,21 @@ class StageScreen extends Component {
     );
   }
 
+  handleScroll(e) {
+    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
+  }
+
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Image source={LANDSCAPE} style={styles.footerImage} />
+        <Image
+          resizeMode="cover"
+          source={LANDSCAPE}
+          style={[
+            styles.footerImage,
+            { left: (this.state.scrollPosition / -2) - 250 },
+          ]}
+        />
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.firstName}, which stage best describes where you are on your journey?
@@ -80,6 +96,8 @@ class StageScreen extends Component {
                 renderItem={this.renderStage}
                 sliderWidth={sliderWidth + 75}
                 itemWidth={stageWidth + stageMargin * 2}
+                onScroll={this.handleScroll}
+                scrollEventThrottle={5}
               />
             ) : null
           }
