@@ -44,6 +44,7 @@ export default StyleSheet.create({
   },
   footerImage: {
     position: 'absolute',
-    bottom: 0,
+    bottom: -100,
+    height: theme.fullHeight / 2,
   },
 });
