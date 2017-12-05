@@ -38,6 +38,12 @@ export default {
     endpoint: API_URL + 'people/4141545',
     method: 'put',
   },
+  'CREATE_MY_PERSON': {
+    endpoint: API_URL + 'auth/client_token',
+    method: 'post',
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },

@@ -5,11 +5,12 @@ import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { navigatePush } from '../../actions/navigation';
-import { firstNameChanged, lastNameChanged } from '../../actions/profile';
+import {createMyPerson, firstNameChanged, lastNameChanged} from '../../actions/profile';
 
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
+      this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName));
       this.props.dispatch(navigatePush('GetStarted'));
       Keyboard.dismiss();
     }
