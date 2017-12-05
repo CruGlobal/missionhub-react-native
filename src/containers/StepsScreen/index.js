@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-// import { logout } from '../../actions/auth';
-// import { navigatePush } from '../../actions/navigation';
 import { setStepReminder, removeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -16,6 +14,7 @@ const isCasey = true;
 
 const MAX_REMINDERS = 3;
 const DROPZONE_HEIGHT = 85;
+const ROW_HEIGHT = 90 + 0.2;
 
 class StepsScreen extends Component {
 
@@ -26,6 +25,7 @@ class StepsScreen extends Component {
       moving: false,
       topHeight: 0,
       scrollOffsetY: 0,
+      offTopItems: 0,
     };
 
     this.handleDropStep = this.handleDropStep.bind(this);
@@ -59,12 +59,18 @@ class StepsScreen extends Component {
   }
 
   handleScroll(e) {
-    this.setState({ scrollOffsetY: e.nativeEvent.contentOffset.y });
-  }
-
-  getTopHeight() {
-    const { topHeight } = this.state;
-    return this.props.reminders.length > 0 ? topHeight + DROPZONE_HEIGHT : topHeight;
+    if (this.state.moving) return;
+    const offsetY = e.nativeEvent.contentOffset.y;
+    const remindersLength = this.props.reminders.length;
+    const extraPadding = remindersLength > 0 && remindersLength < MAX_REMINDERS ? DROPZONE_HEIGHT : 0;
+    let offTopItems = Math.round(((offsetY + 20) / ROW_HEIGHT));
+    if (extraPadding && offTopItems > 3) {
+      offTopItems++;
+    }
+    this.setState({
+      scrollOffsetY: offsetY,
+      offTopItems,
+    });
   }
 
   renderTop() {
@@ -140,7 +146,7 @@ class StepsScreen extends Component {
 
   render() {
     const { mine } = this.props;
-    const { moving } = this.state;
+    const { moving, scrollOffsetY, topHeight, offTopItems } = this.state;
     
     return (
       <View style={{ flex: 1 }}>
@@ -156,29 +162,41 @@ class StepsScreen extends Component {
           title="STEPS OF FAITH"
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          {/* {!moving ? this.renderTop() : null} */}
-          {/* ListHeaderComponent={moving ? this.renderTop() : undefined} */}
           {this.renderTop()}
           <FlatList
+            ref={(c) => this.list = c}
             style={[
               styles.list,
               moving ? {
-                paddingTop: this.state.topHeight,
+                paddingTop: scrollOffsetY <= topHeight ? topHeight : 0,
               } : null,
             ]}
             data={mine}
             keyExtractor={(i) => i.id}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <StepItemDraggable
                 onSelect={this.handleRowSelect}
                 step={item}
-                dropZoneHeight={this.state.topHeight}
+                dropZoneHeight={topHeight}
+                isOffScreen={moving ? index < offTopItems : undefined}
                 onComplete={this.handleDropStep}
-                onToggleMove={(isMoving) => this.setState({ moving: isMoving })}
+                onToggleMove={(isMoving) => {
+                  this.setState({ moving: isMoving }, () => {
+                    if (isMoving) {
+                      // LOG('topHeight, scrollOffsetY, offTopItems', topHeight, scrollOffsetY, offTopItems);
+                      if (scrollOffsetY >= topHeight) {
+                        this.list.scrollToOffset({ offset: topHeight / 3, animated: false });
+                      }
+                    } else {
+                      this.list.scrollToOffset({ offset: scrollOffsetY, animated: false });
+                    }
+                    
+                  });
+                }}
               />
             )}
             bounces={false}
-            scrollEnabled={!this.state.moving}
+            scrollEnabled={!moving}
             onScroll={this.handleScroll}
             scrollEventThrottle={100}
           />

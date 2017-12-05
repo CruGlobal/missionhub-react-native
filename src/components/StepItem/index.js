@@ -12,9 +12,7 @@ export default class StepItem extends Component {
         justify="center"
         style={[
           styles.row,
-          type === 'swipeable' ? styles.swipeable : null,
-          type === 'draggable' ? styles.draggable : null,
-          type === 'dragging' ? styles.dragging : null,
+          type && styles[type] ? styles[type] : null,
         ]}
       >
         <Text style={styles.person}>
@@ -34,5 +32,5 @@ StepItem.propTypes = {
     id: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
   }).isRequired,
-  type: PropTypes.oneOf(['draggable', 'swipeable', 'dragging']),
+  type: PropTypes.oneOf(['draggable', 'swipeable', 'dragging', 'offscreen']),
 };
