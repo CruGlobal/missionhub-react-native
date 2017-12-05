@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#66D9F0",
+        "flex": 1,
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscape-full.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -100,
+          "height": 667,
+          "position": "absolute",
+        },
+        Object {
+          "left": -250,
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          },
+        ]
+      }
+    >
+      Billy, which stage best describes where you are on your journey?
+    </Text>
+  </View>
+</View>
+`;

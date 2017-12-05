@@ -112,8 +112,7 @@ PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({profile, stages}) => ({
-  firstName: profile.firstName,
+const mapStateToProps = ({stages}) => ({
   stages: stages.stages,
 });
 
