@@ -1,8 +1,18 @@
-import { SELECT_STAGE } from '../constants';
+import {REQUESTS} from './api';
+import callApi from './api';
 
 export function selectStage(id) {
-  return {
-    type: SELECT_STAGE,
-    stageId: id,
+  const data = {
+    data: {
+      attributes: {
+        pathway_stage_id: id,
+      },
+    },
+  };
+
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.UPDATE_MY_USER, {}, data)).catch((error) => {
+      LOG('error updating user', error);
+    });
   };
 }

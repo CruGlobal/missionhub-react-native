@@ -8,8 +8,14 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   top: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     width: theme.fullWidth,
     backgroundColor: theme.backgroundColor,
+  },
+  topEmpty: {
     paddingHorizontal: 27,
     paddingVertical: 32,
   },
@@ -29,7 +35,6 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   topItems: {
-    backgroundColor: theme.backgroundColor,
     paddingHorizontal: 25,
     paddingBottom: 25,
   },
@@ -50,8 +55,6 @@ export default StyleSheet.create({
     height: 60,
   },
   list: {
-    flex: 1,
     backgroundColor: theme.transparent,
-    overflow: 'hidden',
   },
 });

@@ -1,5 +1,5 @@
-import { SELECT_STAGE } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
+import {REQUESTS} from '../actions/api';
 
 const initialState = {
   stageId: null,
@@ -16,8 +16,9 @@ function myStageReducer(state = initialState, action) {
         };
       }
       return state;
-    case SELECT_STAGE:
-      return { ...state, stageId: action.stageId };
+    case REQUESTS.UPDATE_MY_USER.SUCCESS:
+      const stageId = action.results.findAll('user')[0].pathway_stage_id;
+      return { ...state, stageId: stageId };
     default:
       return state;
   }

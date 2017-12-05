@@ -26,21 +26,46 @@ class StepsScreen extends Component {
     this.state = {
       moving: false,
       topHeight: 0,
-      scrollOffsetY: 0,
       offTopItems: 0,
     };
 
     this.handleDropStep = this.handleDropStep.bind(this);
-    this.topLayout = this.topLayout.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.setTopHeight = this.setTopHeight.bind(this);
   }
 
   componentWillMount() {
     // this.props.dispatch(getMySteps());
   }
 
+  componentDidMount() {
+    this.setTopHeight();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.reminders.length !== this.props.reminders.length) {
+      this.setTopHeight();
+    }
+  }
+
+  setTopHeight() {
+    let height = 0;
+    const remindersLength = this.props.reminders.length;
+    if (remindersLength) {
+      height += 55;
+      if (this.state.moving && remindersLength < MAX_REMINDERS) {
+        height += DROPZONE_HEIGHT;
+      }
+    } else {
+      height += 250;
+    }
+    height += remindersLength * ROW_HEIGHT;
+    this.setState({ topHeight: height });
+  }
+  
+
   handleRowSelect(step) {
-    LOG('step selected', step);
+    LOG('TODO: Go To People, step selected', step);
   }
 
   handleDropStep(step) {
@@ -58,48 +83,26 @@ class StepsScreen extends Component {
     this.props.dispatch(removeStepReminder(step));
   }
 
-  topLayout(e) {
-    const remindersLength = this.props.reminders.length;
-    const extraPadding = remindersLength > 0 && remindersLength < MAX_REMINDERS ? DROPZONE_HEIGHT : 0;
-    this.setState({ topHeight: e.nativeEvent.layout.height + extraPadding });
-  }
-
   handleScroll(e) {
     if (this.state.moving) return;
     const offsetY = e.nativeEvent.contentOffset.y;
-    const remindersLength = this.props.reminders.length;
-    const extraPadding = remindersLength > 0 && remindersLength < MAX_REMINDERS ? DROPZONE_HEIGHT : 0;
-    let offTopItems = Math.round(((offsetY + 20) / ROW_HEIGHT));
-    if (extraPadding && offTopItems > 3) {
-      offTopItems++;
-    }
-    this.setState({
-      scrollOffsetY: offsetY,
-      offTopItems,
-    });
+    const offTopItems = Math.round(((offsetY + 20) / ROW_HEIGHT));
+    this.setState({ offTopItems });
   }
 
   renderTop() {
     const { reminders } = this.props;
-    const { moving } = this.state;
-    let movingStyle = {};
-    if (moving) {
-      movingStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: this.state.topHeight,
-      };
+    const { moving, topHeight } = this.state;
+    let style = {
+      height: topHeight,
+    };
+    if (!moving) {
+      // Add zIndex while normal scrolling, but remove it when moving an item
+      style.zIndex = 1;
     }
     if (reminders.length > 0) {
       return (
-        <Flex
-          align="center"
-          justify="start"
-          onLayout={moving ? undefined : this.topLayout}
-          removeClippedSubviews={true}
-          style={[styles.topItems, movingStyle]}
+        <Flex align="center" style={[styles.top, styles.topItems, style]}
         >
           <Text style={styles.topTitle}>
             This week
@@ -127,17 +130,8 @@ class StepsScreen extends Component {
       );
     }
     return (
-      <Flex
-        value={1}
-        align="center"
-        justify="center"
-        onLayout={moving ? undefined : this.topLayout}
-        style={[styles.top, movingStyle]}>
-        <Flex
-          align="center"
-          justify="center"
-          value={1}
-          style={styles.topBorder}>
+      <Flex align="center" justify="center" style={[styles.top, styles.topEmpty, style]}>
+        <Flex align="center" justify="center" value={1} style={styles.topBorder}>
           <Icon name="add" size={36} />
           <Text type="header" style={styles.title}>
             Focus your week
@@ -150,10 +144,41 @@ class StepsScreen extends Component {
     );
   }
 
-  render() {
+  renderList() {
     const { mine } = this.props;
-    const { moving, scrollOffsetY, topHeight, offTopItems } = this.state;
-    
+    const { moving, topHeight, offTopItems } = this.state;
+    return (
+      <FlatList
+        ref={(c) => this.list = c}
+        style={[
+          styles.list,
+          { paddingTop: topHeight },
+        ]}
+        contentInset={{ bottom: topHeight }}
+        data={mine}
+        keyExtractor={(i) => i.id}
+        renderItem={({ item, index }) => (
+          <StepItemDraggable
+            onSelect={this.handleRowSelect}
+            step={item}
+            dropZoneHeight={topHeight}
+            isOffScreen={moving ? index < offTopItems : undefined}
+            onComplete={this.handleDropStep}
+            onToggleMove={(isMoving) => {
+              this.setState({ moving: isMoving }, this.setTopHeight);
+            }}
+          />
+        )}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={!moving}
+        onScroll={this.handleScroll}
+        scrollEventThrottle={100}
+      />
+    );
+  }
+
+  render() {    
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -169,43 +194,7 @@ class StepsScreen extends Component {
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
           {this.renderTop()}
-          <FlatList
-            ref={(c) => this.list = c}
-            style={[
-              styles.list,
-              moving ? {
-                paddingTop: scrollOffsetY <= topHeight ? topHeight : 0,
-              } : null,
-            ]}
-            data={mine}
-            keyExtractor={(i) => i.id}
-            renderItem={({ item, index }) => (
-              <StepItemDraggable
-                onSelect={this.handleRowSelect}
-                step={item}
-                dropZoneHeight={topHeight}
-                isOffScreen={moving ? index < offTopItems : undefined}
-                onComplete={this.handleDropStep}
-                onToggleMove={(isMoving) => {
-                  this.setState({ moving: isMoving }, () => {
-                    if (isMoving) {
-                      // LOG('topHeight, scrollOffsetY, offTopItems', topHeight, scrollOffsetY, offTopItems);
-                      if (scrollOffsetY >= topHeight) {
-                        this.list.scrollToOffset({ offset: topHeight / 3, animated: false });
-                      }
-                    } else {
-                      this.list.scrollToOffset({ offset: scrollOffsetY, animated: false });
-                    }
-                    
-                  });
-                }}
-              />
-            )}
-            bounces={false}
-            scrollEnabled={!moving}
-            onScroll={this.handleScroll}
-            scrollEventThrottle={100}
-          />
+          {this.renderList()}
         </Flex>
       </View>
     );
@@ -214,19 +203,6 @@ class StepsScreen extends Component {
 
 const mapStateToProps = ({ steps }) => ({
   mine: steps.mine,
-  // mine: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
-  // mine: [
-  //   { id: '1', body: 'hello 1' },
-  //   { id: '2', body: 'hello 2' },
-  //   { id: '3', body: 'hello 3' },
-  //   { id: '4', body: 'hello 4' },
-  //   { id: '5', body: 'hello 5' },
-  //   { id: '6', body: 'hello 6' },
-  //   { id: '7', body: 'hello 7' },
-  //   { id: '8', body: 'hello 8' },
-  //   { id: '9', body: 'hello 9' },
-  // ],
-  suggestedForOthers: steps.suggestedForOthers,
   reminders: steps.reminders,
 });
 
