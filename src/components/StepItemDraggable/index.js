@@ -6,8 +6,6 @@ import StepItem from '../StepItem';
 import { Touchable } from '../common';
 import theme from '../../theme';
 
-const STEP_HEIGHT = 90;
-
 export default class StepItemDraggable extends Component {
 
   constructor(props) {
@@ -67,7 +65,7 @@ export default class StepItemDraggable extends Component {
 
   isDropArea(gesture) {
     // Calculate the target drop area based on all these factors
-    return gesture.moveY - theme.headerHeight <= this.props.dropZoneHeight - STEP_HEIGHT;
+    return gesture.moveY - theme.headerHeight <= this.props.dropZoneHeight;
   }
 
   renderRow() {

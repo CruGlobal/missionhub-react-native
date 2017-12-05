@@ -169,6 +169,9 @@ class StepsScreen extends Component {
           {this.renderTop()}
           <FlatList
             ref={(c) => this.list = c}
+            ListHeaderComponent={moving ? () => <View style={{
+              height: scrollOffsetY <= topHeight ? 0 : topHeight / 2,
+            }} /> : undefined}
             style={[
               styles.list,
               moving ? {
@@ -188,9 +191,9 @@ class StepsScreen extends Component {
                   this.setState({ moving: isMoving }, () => {
                     if (isMoving) {
                       // LOG('topHeight, scrollOffsetY, offTopItems', topHeight, scrollOffsetY, offTopItems);
-                      if (scrollOffsetY >= topHeight) {
-                        this.list.scrollToOffset({ offset: topHeight / 3, animated: false });
-                      }
+                      //if (scrollOffsetY >= topHeight) {
+                      //  this.list.scrollToOffset({ offset: topHeight / 3, animated: false });
+                      //}
                     } else {
                       this.list.scrollToOffset({ offset: scrollOffsetY, animated: false });
                     }
@@ -211,19 +214,27 @@ class StepsScreen extends Component {
 }
 
 const mapStateToProps = ({ steps }) => ({
-  mine: steps.mine,
+  // mine: steps.mine,
   // mine: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
-  // mine: [
-  //   { id: '1', body: 'hello 1' },
-  //   { id: '2', body: 'hello 2' },
-  //   { id: '3', body: 'hello 3' },
-  //   { id: '4', body: 'hello 4' },
-  //   { id: '5', body: 'hello 5' },
-  //   { id: '6', body: 'hello 6' },
-  //   { id: '7', body: 'hello 7' },
-  //   { id: '8', body: 'hello 8' },
-  //   { id: '9', body: 'hello 9' },
-  // ],
+  mine: [
+    { id: '1', body: 'hello 1' },
+    { id: '2', body: 'hello 2' },
+    { id: '3', body: 'hello 3' },
+    { id: '4', body: 'hello 4' },
+    { id: '5', body: 'hello 5' },
+    { id: '6', body: 'hello 6' },
+    { id: '7', body: 'hello 7' },
+    { id: '8', body: 'hello 8' },
+    { id: '9', body: 'hello 9' },
+    { id: '10', body: 'hello 10' },
+    { id: '11', body: 'hello 11' },
+    { id: '12', body: 'hello 12' },
+    { id: '13', body: 'hello 13' },
+    { id: '14', body: 'hello 14' },
+    { id: '15', body: 'hello 15' },
+    { id: '16', body: 'hello 16' },
+    { id: '17', body: 'hello 17' },
+  ],
   suggestedForOthers: steps.suggestedForOthers,
   reminders: steps.reminders,
 });
