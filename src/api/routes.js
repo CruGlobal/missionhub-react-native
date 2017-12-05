@@ -44,6 +44,10 @@ export default {
     anonymous: true,
     useJsonDataApiStore: false,
   },
+  'UPDATE_MY_USER': {
+    endpoint: API_URL + 'users/me',
+    method: 'put',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },
