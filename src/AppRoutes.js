@@ -3,6 +3,7 @@ import {StackNavigator, TabNavigator} from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
 import StepsScreen from './containers/StepsScreen';
+import PeopleScreen from './containers/PeopleScreen';
 import SelectStepScreen from './containers/SelectStepScreen';
 import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
@@ -42,7 +43,7 @@ export const MainTabRoutes = TabNavigator({
     },
   },
   PeopleTab: {
-    screen: StepsScreen,
+    screen: PeopleScreen,
     navigationOptions: {
       tabBarLabel: 'People',
       tabBarIcon: navIcon('peopleIcon'),

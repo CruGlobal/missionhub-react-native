@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   row: {
-    height: 90,
+    height: theme.itemHeight,
     paddingHorizontal: 24,
     backgroundColor: theme.convert({ color: theme.white, alpha: 0 }),
     width: theme.fullWidth,

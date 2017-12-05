@@ -74,4 +74,5 @@ export default {
 
   isAndroid,
   headerHeight: isAndroid ? 56 : 65,
+  itemHeight: 90,
 };

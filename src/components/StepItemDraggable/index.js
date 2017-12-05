@@ -6,7 +6,7 @@ import StepItem from '../StepItem';
 import { Touchable } from '../common';
 import theme from '../../theme';
 
-const STEP_HEIGHT = 90;
+const STEP_HEIGHT = theme.itemHeight;
 
 export default class StepItemDraggable extends Component {
 

@@ -40,6 +40,9 @@ export default {
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + 'challenges',
   },
+  'GET_PEOPLE_LIST': {
+    endpoint: API_URL + 'people',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },

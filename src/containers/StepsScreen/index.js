@@ -2,19 +2,21 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
+// import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
+import { setStepReminder, removeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton, Touchable } from '../../components/common';
 import StepItemDraggable from '../../components/StepItemDraggable';
 import StepItem from '../../components/StepItem';
 import Header from '../Header';
+import theme from '../../theme';
 
 const isCasey = true;
 
 const MAX_REMINDERS = 3;
 const DROPZONE_HEIGHT = 85;
-const ROW_HEIGHT = 90 + 0.2;
+const ROW_HEIGHT = theme.itemHeight + 0.2;
 
 class StepsScreen extends Component {
 
@@ -34,7 +36,7 @@ class StepsScreen extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(getMySteps());
+    // this.props.dispatch(getMySteps());
   }
 
   handleRowSelect(step) {
@@ -156,7 +158,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
           }
           right={
             isCasey ? null : (
