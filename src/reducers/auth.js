@@ -1,6 +1,7 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
+import {REQUESTS} from '../actions/api';
 
 const initialAuthState = {
   isLoggedIn: false,
@@ -25,6 +26,8 @@ function authReducer(state = initialAuthState, action) {
       return { ...state, isLoggedIn: false };
     case FIRST_TIME:
       return { ...state, isFirstTime: true, isLoggedIn: false };
+    case REQUESTS.CREATE_MY_PERSON.SUCCESS:
+      return { ...state, token: action.results.token, person_id: action.results.token};
     default:
       return state;
   }

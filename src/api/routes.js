@@ -40,6 +40,16 @@ export default {
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + 'challenges',
   },
+  'CREATE_MY_PERSON': {
+    endpoint: API_URL + 'auth/client_token',
+    method: 'post',
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
+  'UPDATE_MY_USER': {
+    endpoint: API_URL + 'users/me',
+    method: 'put',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },
