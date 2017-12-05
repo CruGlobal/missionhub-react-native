@@ -1,7 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
 import { REQUESTS } from '../actions/api';
-import { NAME } from '../constants';
 
 const initialProfileState = {
   firstName: '',
@@ -19,12 +18,6 @@ function profileReducer(state = initialProfileState, action) {
         };
       }
       return state;
-    case NAME:
-      return {
-        ...state,
-        firstName: action.firstName,
-        lastName: action.lastName,
-      };
     case FIRST_NAME_CHANGED:
       return {
         ...state,

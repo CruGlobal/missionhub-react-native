@@ -49,10 +49,6 @@ export default {
   'GET_PEOPLE_LIST': {
     endpoint: API_URL + PEOPLE,
   },
-  'CREATE_PERSON': {
-    endpoint: API_URL + PEOPLE,
-    method: 'post',
-  },
   'CREATE_MY_PERSON': {
     endpoint: API_URL + 'auth/client_token',
     method: 'post',
@@ -64,7 +60,7 @@ export default {
     method: 'put',
   },
   'ADD_NEW_PERSON': {
-    endpoint: API_URL + 'people',
+    endpoint: API_URL + PEOPLE,
     method: 'post',
   },
   'GET_MY_ORGANIZATIONS': {
@@ -75,6 +71,10 @@ export default {
   },
   'GET_GLOBAL_IMPACT': {
     endpoint: API_URL + 'reports/impact',
+  },
+  'CREATE_CONTACT_ASSIGNMENT': {
+    endpoint: API_URL + 'contact_assignments',
+    method: 'post',
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

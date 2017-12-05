@@ -12,6 +12,8 @@ const mockState = {
     personFirstName: 'Billy',
     personLastName: 'Test',
   },
+  auth: {},
+  notifications: {},
   stages: [],
 };
 

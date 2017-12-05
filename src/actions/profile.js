@@ -43,7 +43,7 @@ export function createPerson(firstName, lastName) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_PERSON, {}, data)).catch((error) => {
+    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data)).catch((error) => {
       LOG('error creating person', error);
     });
   };

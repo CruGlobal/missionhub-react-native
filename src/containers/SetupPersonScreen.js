@@ -7,27 +7,19 @@ import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
 import {personFirstNameChanged, personLastNameChanged} from '../actions/person';
 import {createPerson} from '../actions/profile';
-import theme from '../theme';
 
 class SetupPersonScreen extends Component {
-  saveAndGoToGetStarted(nextScreen) {
+  saveAndGoToGetStarted() {
     if (this.props.personFirstName) {
       Keyboard.dismiss();
 
       this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
-        this.props.dispatch(navigatePush(nextScreen));
+        this.props.dispatch(navigatePush('PersonStage'));
       });
     }
   }
 
   render() {
-    let nextScreen = 'MainTabs';
-
-    // Android doesn't need a primer for notifications the way iOS does
-    if (!theme.isAndroid && !this.props.hasAskedPushNotifications) {
-      nextScreen = 'NotificationPrimer';
-    }
-
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
@@ -69,7 +61,7 @@ class SetupPersonScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.saveAndGoToGetStarted(nextScreen)}
+            onPress={() => this.saveAndGoToGetStarted()}
             text="NEXT"
           />
         </Flex>
@@ -78,10 +70,9 @@ class SetupPersonScreen extends Component {
   }
 }
 
-const mapStateToProps = ({personProfile, notifications}) => ({
+const mapStateToProps = ({personProfile}) => ({
   personFirstName: personProfile.personFirstName,
   personLastName: personProfile.personLastName,
-  hasAskedPushNotifications: notifications.hasAsked,
 });
 
 export default connect(mapStateToProps)(SetupPersonScreen);

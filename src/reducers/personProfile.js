@@ -22,9 +22,9 @@ function personProfileReducer(state = initialPersonProfileState, action) {
       return { ...state, personFirstName: action.personFirstName };
     case PERSON_LAST_NAME_CHANGED:
       return { ...state, personLastName: action.personLastName };
-    case REQUESTS.CREATE_PERSON.SUCCESS:
+    case REQUESTS.ADD_NEW_PERSON.SUCCESS:
       const result = action.results.findAll('person')[0];
-      return { ...state, personFirstName: result.first_name, personLastName: result.last_name };
+      return { ...state, id: result.id, personFirstName: result.first_name, personLastName: result.last_name };
     default:
       return state;
   }
