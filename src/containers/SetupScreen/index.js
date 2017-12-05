@@ -10,9 +10,11 @@ import {createMyPerson, firstNameChanged, lastNameChanged} from '../../actions/p
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
-      this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName));
-      this.props.dispatch(navigatePush('GetStarted'));
       Keyboard.dismiss();
+
+      this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName)).then(() => {
+        this.props.dispatch(navigatePush('GetStarted'));
+      });
     }
   }
 
