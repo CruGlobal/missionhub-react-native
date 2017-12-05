@@ -5,9 +5,10 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.white,
   },
   top: {
+    width: theme.fullWidth,
     backgroundColor: theme.backgroundColor,
     paddingHorizontal: 27,
     paddingVertical: 32,
@@ -27,25 +28,30 @@ export default StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  list: {
-    height: 290,
-    backgroundColor: theme.white,
+  topItems: {
+    backgroundColor: theme.backgroundColor,
+    paddingHorizontal: 25,
+    paddingBottom: 25,
   },
-  scrollView: {
-    flex: 1,
-  },
-  row: {
-    paddingHorizontal: 24,
-    paddingVertical: 15,
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
-  },
-  stepPerson: {
-    fontSize: 16,
+  topTitle: {
+    paddingVertical: 5,
     fontWeight: 'bold',
-    color: theme.primaryColor,
-  },
-  stepDescription: {
     fontSize: 14,
+    color: theme.white,
+  },
+  dropZone: {
+    width: theme.fullWidth,
+    paddingHorizontal: 30,
+  },
+  dropZoneBorder: {
+    borderStyle: 'dashed',
+    borderWidth: 2,
+    borderColor: theme.white,
+    height: 60,
+  },
+  list: {
+    flex: 1,
+    backgroundColor: theme.transparent,
+    overflow: 'hidden',
   },
 });

@@ -1,4 +1,6 @@
 import callApi, { REQUESTS } from './api';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -32,5 +34,23 @@ export function addSteps(steps) {
     };
     // const query = { filters: { locale: 'en' } };
     return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data));
+  };
+}
+
+export function setStepReminder(step) {
+  return (dispatch) => {
+    return dispatch({
+      type: ADD_STEP_REMINDER,
+      step,
+    });
+  };
+}
+
+export function removeStepReminder(step) {
+  return (dispatch) => {
+    return dispatch({
+      type: REMOVE_STEP_REMINDER,
+      step,
+    });
   };
 }

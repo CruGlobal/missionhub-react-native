@@ -1,7 +1,8 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import Color from 'color';
 
 import { exists } from './utils/common';
+const isAndroid = Platform.OS === 'android';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -65,10 +66,12 @@ export default {
   buttonIconColor: COLORS.WHITE,
   separatorColor: COLORS.LIGHT_GREY,
   separatorHeight: 1,
-  headerBackgroundColor: SECONDARY,
   headerTextColor: COLORS.WHITE,
   inactiveColor: COLORS.INACTIVE_GREY,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,
+
+  isAndroid,
+  headerHeight: isAndroid ? 56 : 65,
 };

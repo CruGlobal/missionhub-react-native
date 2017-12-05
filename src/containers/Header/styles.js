@@ -4,10 +4,13 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   header: {
-    height: 65,
+    height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
     paddingTop: 20,
     // TODO: Add shadow (ios) and elevation (android)
+  },
+  shadow: {
+    elevation: 4,
   },
   center: {
 

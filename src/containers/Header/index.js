@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 // import { logout } from '../../actions/auth';
 // import { navigatePush } from '../../actions/navigation';
@@ -61,8 +62,15 @@ class Header extends Component {
     );
   }
   render() {
+    const { shadow } = this.props;
     return (
-      <Flex direction="row" style={styles.header}>
+      <Flex
+        direction="row"
+        style={[
+          styles.header,
+          shadow ? styles.shadow : null,
+        ]}
+      >
         {this.renderLeft()}
         {this.renderCenter()}
         {this.renderRight()}
@@ -70,5 +78,18 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  right: PropTypes.element,
+  left: PropTypes.element,
+  center: PropTypes.element,
+  title: PropTypes.string,
+  title2: PropTypes.string,
+  shadow: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  shadow: true,
+};
 
 export default connect()(Header);
