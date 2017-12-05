@@ -16,11 +16,9 @@ export default StyleSheet.create({
   draggable: {
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
-    zIndex: 1,
   },
   dragging: {
     backgroundColor: theme.convert({ color: theme.white, alpha: 0.8 }),
-    zIndex: 10,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,

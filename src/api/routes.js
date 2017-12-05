@@ -31,12 +31,14 @@ export default {
   },
   'GET_CHALLENGE_SUGGESTIONS': {
     endpoint: API_URL + 'challenge_suggestions',
-    method: 'get',
     anonymous: true,
   },
   'ADD_CHALLENGES': {
     endpoint: API_URL + 'people/4141545',
     method: 'put',
+  },
+  'GET_MY_CHALLENGES': {
+    endpoint: API_URL + 'challenges',
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

@@ -55,7 +55,6 @@ export default class StepItemDraggable extends Component {
     } else {
       Animated.spring(this.state.pan, {
         toValue: { x: 0, y: 0 },
-        // friction: 8,
         speed: 16,
       }).start();
     }
@@ -80,13 +79,13 @@ export default class StepItemDraggable extends Component {
     };
     let style = [
       panStyle,
+      { zIndex: longPress ? 100 : 1 },
     ];
     let itemType = 'draggable';
     if (longPress) {
       itemType = 'dragging';
     } else if (isOffScreen) {
       itemType = 'offscreen';
-      // style.opacity = 0;
     }
     return (
       <Animated.View

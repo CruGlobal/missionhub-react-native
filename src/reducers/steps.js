@@ -30,6 +30,12 @@ function stepsReducer(state = initialStagesState, action) {
         suggestedForMe: suggestions.filter((s) => s.self_step),
         suggestedForOthers: suggestions.filter((s) => !s.self_step),
       };
+    case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
+      const mySteps = action.results.findAll('accepted_challenge') || [];
+      return {
+        ...state,
+        mine: mySteps,
+      };
     case ADD_STEP_REMINDER:
       return {
         ...state,

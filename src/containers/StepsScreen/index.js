@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-import { setStepReminder, removeStepReminder } from '../../actions/steps';
+import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton, Touchable } from '../../components/common';
@@ -31,6 +31,10 @@ class StepsScreen extends Component {
     this.handleDropStep = this.handleDropStep.bind(this);
     this.topLayout = this.topLayout.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getMySteps());
   }
 
   handleRowSelect(step) {
@@ -207,19 +211,19 @@ class StepsScreen extends Component {
 }
 
 const mapStateToProps = ({ steps }) => ({
-  // mine: steps.mine,
+  mine: steps.mine,
   // mine: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
-  mine: [
-    { id: '1', body: 'hello 1' },
-    { id: '2', body: 'hello 2' },
-    { id: '3', body: 'hello 3' },
-    { id: '4', body: 'hello 4' },
-    { id: '5', body: 'hello 5' },
-    { id: '6', body: 'hello 6' },
-    { id: '7', body: 'hello 7' },
-    { id: '8', body: 'hello 8' },
-    { id: '9', body: 'hello 9' },
-  ],
+  // mine: [
+  //   { id: '1', body: 'hello 1' },
+  //   { id: '2', body: 'hello 2' },
+  //   { id: '3', body: 'hello 3' },
+  //   { id: '4', body: 'hello 4' },
+  //   { id: '5', body: 'hello 5' },
+  //   { id: '6', body: 'hello 6' },
+  //   { id: '7', body: 'hello 7' },
+  //   { id: '8', body: 'hello 8' },
+  //   { id: '9', body: 'hello 9' },
+  // ],
   suggestedForOthers: steps.suggestedForOthers,
   reminders: steps.reminders,
 });

@@ -10,6 +10,12 @@ export function getStepSuggestions() {
   };
 }
 
+export function getMySteps() {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES));
+  };
+}
+
 export function addSteps(steps) {
   return (dispatch) => {
     const query = {};
