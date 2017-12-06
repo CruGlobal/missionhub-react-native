@@ -8,10 +8,14 @@ import StepsScreen from '../../src/containers/StepsScreen';
 import { testSnapshot } from '../../testUtils';
 
 const mockState = {
+  auth: {
+    personId: '',
+  },
   steps: {
     mine: [],
     suggestedForMe: [],
     suggestedForOthers: [],
+    reminders: [],
   },
 };
 
