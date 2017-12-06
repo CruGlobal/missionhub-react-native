@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
+import { logout } from '../../actions/auth';
 import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -143,7 +144,7 @@ class StepsScreen extends Component {
   }
 
   renderList() {
-    const { mine } = this.props;
+    const { steps, myId } = this.props;
     const { moving, topHeight, offTopItems } = this.state;
     return (
       <FlatList
@@ -153,12 +154,13 @@ class StepsScreen extends Component {
           { paddingTop: topHeight },
         ]}
         contentInset={{ bottom: topHeight }}
-        data={mine}
+        data={steps}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
           <StepItemDraggable
             onSelect={this.handleRowSelect}
             step={item}
+            isMe={item.owner.id === myId}
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}
@@ -181,7 +183,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            <IconButton name="stepsIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
           }
           right={
             isCasey ? null : (
@@ -199,8 +201,9 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ steps }) => ({
-  mine: steps.mine,
+const mapStateToProps = ({ auth, steps }) => ({
+  myId: auth.personId,
+  steps: steps.mine,
   reminders: steps.reminders,
 });
 

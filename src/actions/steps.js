@@ -17,8 +17,10 @@ export function getMySteps() {
 }
 
 export function addSteps(steps) {
-  return (dispatch) => {
-    const query = {};
+  return (dispatch, getState) => {
+    const query = {
+      person_id: getState().auth.personId,
+    };
     let newSteps = steps.map((s) => ({
       type: 'accepted_challenge',
       attributes: {

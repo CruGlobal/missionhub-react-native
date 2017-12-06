@@ -1,5 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 import {REQUESTS} from '../actions/api';
+import { LOGOUT } from '../constants';
 
 const initialState = {
   stageId: null,
@@ -19,6 +20,8 @@ function myStageReducer(state = initialState, action) {
     case REQUESTS.UPDATE_MY_USER.SUCCESS:
       const stageId = action.results.findAll('user')[0].pathway_stage_id;
       return { ...state, stageId: stageId };
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }
