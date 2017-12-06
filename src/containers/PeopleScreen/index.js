@@ -11,7 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
-class PeopleScreen extends Component {
+export class PeopleScreen extends Component {
 
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class PeopleScreen extends Component {
   }
 
   render() {
-    const { people } = this.props;
+    const { people, myId } = this.props;
     
     return (
       <View style={styles.pageContainer}>
@@ -57,6 +57,7 @@ class PeopleScreen extends Component {
         <PeopleList
           sections={false}
           items={people}
+          myId={myId}
           onSelect={this.handleRowSelect}
         />
       </View>
@@ -64,8 +65,19 @@ class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ people, organizations }) => ({
+const mapStateToProps = ({ auth, people, organizations }) => ({
+  myId: auth.personId,
   people: people.all,
+  // people: [
+  //   { id: '1', full_name: 'Bryan Eaton' },    
+  //   { id: '2', full_name: 'Bryan Eaton' },    
+  //   { id: '3', full_name: 'Bryan Eaton' },    
+  //   { id: '4', full_name: 'Bryan Eaton' },    
+  //   { id: '5', full_name: 'Bryan Eaton' },    
+  //   { id: '6', full_name: 'Bryan Eaton' },    
+  //   { id: '7', full_name: 'Bryan Eaton' },    
+  //   { id: '8', full_name: 'Bryan Eaton' },    
+  // ],
   myOrgId: organizations.myOrgId,
 });
 

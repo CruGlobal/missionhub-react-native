@@ -8,7 +8,7 @@ import styles from './styles';
 export default class PeopleList extends Component {
   
   render() {
-    const { items, onSelect } = this.props;
+    const { items, onSelect, myId } = this.props;
     // if (sections) {
     //   let formattedItems = items.reduce((p, n) => {
     //     const orgId = n.organization_id;
@@ -44,6 +44,7 @@ export default class PeopleList extends Component {
         keyExtractor={(i) => i.id}
         renderItem={({ item }) => (
           <PeopleItem
+            isMe={item.id === myId}
             onSelect={onSelect}
             person={item} />
         )}
@@ -55,9 +56,7 @@ export default class PeopleList extends Component {
 
 PeopleList.propTypes = {
   sections: PropTypes.bool,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-  })).isRequired,
+  items: PropTypes.array.isRequired,
+  myId: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
 };

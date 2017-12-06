@@ -9,7 +9,7 @@ export default class StepItem extends Component {
   render() {
     const { step, type, isMe } = this.props;
     const owner = step.owner || {};
-    let ownerName = isMe ? 'Me' : owner.first_name || '';
+    let ownerName = isMe ? 'Me' : owner.full_name || '';
     ownerName = ownerName.toUpperCase();
     return (
       <Flex
