@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 
-// import { getPeopleList } from '../../actions/people';
+import { getPeopleList } from '../../actions/people';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 import { IconButton } from '../../components/common';
@@ -18,11 +19,12 @@ class PeopleScreen extends Component {
   }
 
   componentWillMount() {
-    // this.props.dispatch(getPeopleList());
+    this.props.dispatch(getPeopleList());
   }
 
   handleRowSelect(person) {
-    LOG('person selected', person);
+    // LOG('person selected', person.id);
+    this.props.dispatch(navigatePush('Contact', { person }));
   }
 
   render() {
@@ -32,10 +34,16 @@ class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={()=> LOG('pressed')} />
           }
           right={
-            <IconButton name="addContactIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            <IconButton
+              name="addContactIcon"
+              type="MissionHub"
+              onPress={() => this.props.dispatch(navigatePush('AddContact'))} />
           }
           title="PEOPLE"
         />

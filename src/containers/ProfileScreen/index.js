@@ -56,7 +56,7 @@ class ProfileScreen extends Component {
   }
 }
 
-const mapStateToProps = (undefined, { navigation }) => ({
+const mapStateToProps = (state, { navigation }) => ({
   id: navigation.state.params ? navigation.state.params.id : '',
 });
 

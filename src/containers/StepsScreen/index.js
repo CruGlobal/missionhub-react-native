@@ -3,6 +3,7 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/auth';
+import { navigatePush } from '../../actions/navigation';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -31,6 +32,7 @@ class StepsScreen extends Component {
     };
 
     this.handleDropStep = this.handleDropStep.bind(this);
+    this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.setTopHeight = this.setTopHeight.bind(this);
   }
@@ -65,7 +67,8 @@ class StepsScreen extends Component {
   }
   
   handleRowSelect(step) {
-    LOG('TODO: Go To People, step selected', step.id);
+    // LOG('TODO: Go To People, step selected', step.id);
+    this.props.dispatch(navigatePush('Contact', { person: step.owner }));
   }
 
   handleDropStep(step) {
@@ -173,9 +176,7 @@ class StepsScreen extends Component {
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}
-            onToggleMove={(isMoving) => {
-              this.setState({ moving: isMoving }, this.setTopHeight);
-            }}
+            onToggleMove={(bool) => this.setState({ moving: bool }, this.setTopHeight)}
           />
         )}
         bounces={false}
