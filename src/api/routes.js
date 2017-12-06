@@ -57,6 +57,9 @@ export default {
     endpoint: API_URL + 'users/me',
     method: 'put',
   },
+  'GET_MY_ORGANIZATIONS': {
+    endpoint: API_URL + 'organizations',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },

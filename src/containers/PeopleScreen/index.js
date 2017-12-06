@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { getPeopleList } from '../../actions/people';
+import { getMyOrganizations } from '../../actions/organizations';
 import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
@@ -19,7 +20,13 @@ class PeopleScreen extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(getPeopleList());
+    if (!this.props.myOrgId) {
+      this.props.dispatch(getMyOrganizations()).then(() => {
+        this.props.dispatch(getPeopleList());
+      });
+    } else {
+      this.props.dispatch(getPeopleList());
+    }
   }
 
   handleRowSelect(person) {
@@ -57,18 +64,9 @@ class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = () => ({
-  people: [
-    { id: '1', body: 'hello 1' },
-    { id: '2', body: 'hello 2' },
-    { id: '3', body: 'hello 3' },
-    { id: '4', body: 'hello 4' },
-    { id: '5', body: 'hello 5' },
-    { id: '6', body: 'hello 6' },
-    { id: '7', body: 'hello 7' },
-    { id: '8', body: 'hello 8' },
-    { id: '9', body: 'hello 9' },
-  ],
+const mapStateToProps = ({ people, organizations }) => ({
+  people: people.all,
+  myOrgId: organizations.myOrgId,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

@@ -6,6 +6,8 @@ import profile from './profile';
 import stages from './stages';
 import myStageReducer from './myStage';
 import steps from './steps';
+import organizations from './organizations';
+import people from './people';
 
 export default combineReducers({
   auth,
@@ -14,4 +16,6 @@ export default combineReducers({
   stages,
   myStageReducer,
   steps,
+  organizations,
+  people,
 });

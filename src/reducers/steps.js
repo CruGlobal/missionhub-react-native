@@ -3,14 +3,14 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
 
-const initialStagesState = {
+const initialState = {
   mine: [],
   suggestedForMe: [],
   suggestedForOthers: [],
   reminders: [],
 };
 
-function stepsReducer(state = initialStagesState, action) {
+function stepsReducer(state = initialState, action) {
   switch (action.type) {
     case REHYDRATE:
       var incoming = action.payload.steps;
@@ -47,7 +47,7 @@ function stepsReducer(state = initialStagesState, action) {
         reminders: state.reminders.filter((s) => s.id !== action.step.id),
       };
     case LOGOUT:
-      return initialStagesState;
+      return initialState;
     default:
       return state;
   }

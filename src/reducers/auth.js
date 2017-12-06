@@ -26,6 +26,7 @@ function authReducer(state = initialAuthState, action) {
     case FIRST_TIME:
       return { ...state, isFirstTime: true, isLoggedIn: false };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
+      LOG('action', action.results);
       return {
         ...state,
         isLoggedIn: true,
