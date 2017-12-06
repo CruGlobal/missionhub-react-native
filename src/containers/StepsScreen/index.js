@@ -3,12 +3,13 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/auth';
-import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
+import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton, Touchable } from '../../components/common';
+import { Flex, Text, Icon, IconButton } from '../../components/common';
 import StepItemDraggable from '../../components/StepItemDraggable';
 import StepItem from '../../components/StepItem';
+import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 
 const isCasey = true;
@@ -62,9 +63,8 @@ class StepsScreen extends Component {
     this.setState({ topHeight: height });
   }
   
-
   handleRowSelect(step) {
-    LOG('TODO: Go To People, step selected', step);
+    LOG('TODO: Go To People, step selected', step.id);
   }
 
   handleDropStep(step) {
@@ -76,6 +76,10 @@ class StepsScreen extends Component {
       return;
     }
     this.props.dispatch(setStepReminder(step));
+  }
+
+  handleCompleteReminder(step) {
+    this.props.dispatch(completeStepReminder(step));
   }
 
   handleRemoveReminder(step) {
@@ -108,9 +112,13 @@ class StepsScreen extends Component {
           </Text>
           {
             reminders.map((s) => (
-              <Touchable key={s.id} onPress={() => this.handleRemoveReminder(s)}>
+              <RowSwipeable
+                key={s.id}
+                onDelete={() => this.handleRemoveReminder(s)}
+                onComplete={() => this.handleCompleteReminder(s)}
+              >
                 <StepItem key={s.id} step={s} type="swipeable" />
-              </Touchable>
+              </RowSwipeable>
             ))
           }
           {

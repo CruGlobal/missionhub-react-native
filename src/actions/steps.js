@@ -62,3 +62,9 @@ export function removeStepReminder(step) {
     });
   };
 }
+
+export function completeStepReminder(step) {
+  return () => {
+    LOG('complete step', step.id);
+  };
+}
