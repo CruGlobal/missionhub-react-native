@@ -69,7 +69,7 @@ export default class StepItemDraggable extends Component {
   }
 
   renderRow() {
-    const { onSelect, step, isOffScreen } = this.props;
+    const { onSelect, step, isOffScreen, isMe } = this.props;
     const { longPress } = this.state;
 
     const panStyle = {
@@ -77,7 +77,7 @@ export default class StepItemDraggable extends Component {
     };
     let style = [
       panStyle,
-      { zIndex: longPress ? 100 : 1 },
+      { zIndex: longPress ? 1 : undefined },
     ];
     let itemType = 'draggable';
     if (longPress) {
@@ -93,7 +93,7 @@ export default class StepItemDraggable extends Component {
         <Touchable
           onPress={() => onSelect(step)}
           onLongPress={() => this.setState({ longPress: true })}>
-          <StepItem step={step} type={itemType} />
+          <StepItem step={step} type={itemType} isMe={isMe} />
         </Touchable>
       </Animated.View>
     );
@@ -112,10 +112,7 @@ export default class StepItemDraggable extends Component {
 }
 
 StepItemDraggable.propTypes = {
-  step: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-  }).isRequired,
+  step: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
   dropZoneHeight: PropTypes.number.isRequired,
   isOffScreen: PropTypes.bool,

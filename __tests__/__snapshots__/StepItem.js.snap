@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;
+
+exports[`renders me correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    ME
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;
+
+exports[`renders type draggable correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        Object {
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        },
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;
+
+exports[`renders type dragging correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0.8)",
+          "elevation": 8,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.8,
+          "shadowRadius": 7,
+        },
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;
+
+exports[`renders type offscreen correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        Object {
+          "opacity": 0,
+        },
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;
+
+exports[`renders type swipeable correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "rgba(255, 255, 255, 0)",
+          "height": 90,
+          "paddingHorizontal": 24,
+          "width": 750,
+        },
+        Object {
+          "backgroundColor": "rgb(183, 231, 240)",
+          "marginTop": 1,
+        },
+      ],
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    Test Step
+  </Text>
+</View>
+`;

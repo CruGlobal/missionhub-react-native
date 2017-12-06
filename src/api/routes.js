@@ -34,11 +34,15 @@ export default {
     anonymous: true,
   },
   'ADD_CHALLENGES': {
-    endpoint: API_URL + 'people/4141545',
+    endpoint: API_URL + 'people/:person_id',
     method: 'put',
   },
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + 'challenges',
+  },
+  'CHALLENGE_COMPLETE': {
+    endpoint: API_URL + 'challenges/:challenge_id',
+    method: 'put',
   },
   'GET_PEOPLE_LIST': {
     endpoint: API_URL + 'people',

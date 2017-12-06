@@ -1,5 +1,6 @@
 import callApi, { REQUESTS } from './api';
 import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+import { formatApiDate } from '../utils/common';
 
 
 export function getStepSuggestions() {
@@ -12,13 +13,18 @@ export function getStepSuggestions() {
 
 export function getMySteps() {
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES));
+    const query = {
+      filters: { completed: false },
+    };
+    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, query));
   };
 }
 
 export function addSteps(steps) {
-  return (dispatch) => {
-    const query = {};
+  return (dispatch, getState) => {
+    const query = {
+      person_id: getState().auth.personId,
+    };
     let newSteps = steps.map((s) => ({
       type: 'accepted_challenge',
       attributes: {
@@ -38,7 +44,6 @@ export function addSteps(steps) {
       included: newSteps,
       include: 'received_challenges',
     };
-    // const query = { filters: { locale: 'en' } };
     return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data));
   };
 }
@@ -57,6 +62,25 @@ export function removeStepReminder(step) {
     return dispatch({
       type: REMOVE_STEP_REMINDER,
       step,
+    });
+  };
+}
+
+export function completeStepReminder(step) {
+  return (dispatch) => {
+    const query = { challenge_id: step.id };
+    const data = {
+      data: {
+        type: 'accepted_challenge',
+        attributes: {
+          completed_at: formatApiDate(),
+        },
+      },
+    };
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((r) => {
+      dispatch(getMySteps());
+      dispatch(removeStepReminder(step));
+      return r;
     });
   };
 }

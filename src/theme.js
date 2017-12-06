@@ -38,6 +38,8 @@ export const COLORS = {
   INACTIVE_GREY: '#A0A2A6',
   LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
+  BLUE_GREEN: '#50DCC8',
+  RED: '#FF5532',
   convert: colorConvert,
 };
 
@@ -68,6 +70,8 @@ export default {
   separatorHeight: 1,
   headerTextColor: COLORS.WHITE,
   inactiveColor: COLORS.INACTIVE_GREY,
+  checkBackgroundColor: COLORS.BLUE_GREEN,
+  red: COLORS.RED,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,

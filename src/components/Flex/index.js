@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 
 export default class Flex extends Component {
-  setNativeProps(nativeProps) {
-    this._view.setNativeProps(nativeProps);
-  }
+  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   render() {
     const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, animation, animated, ...rest } = this.props;
     let styleObj = {};

@@ -1,17 +1,19 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {View, Image} from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Image } from 'react-native';
 
-import {login, firstTime} from '../../actions/auth';
+import { firstTime } from '../../actions/auth';
+import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
-import {navigatePush} from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 
 class LoginScreen extends Component {
 
   login() {
-    this.props.dispatch(login());
-    this.navigateToNext();
+    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
+      this.navigateToNext();
+    });
   }
 
   tryItNow() {
@@ -20,11 +22,6 @@ class LoginScreen extends Component {
   }
 
   navigateToNext() {
-    // if (this.props.stageId) {
-    //   this.props.dispatch(navigatePush('MainTabs'));
-    // } else {
-    //   this.props.dispatch(navigatePush('Welcome'));
-    // }
     this.props.dispatch(navigatePush('Welcome'));
   }
 
@@ -72,10 +69,8 @@ class LoginScreen extends Component {
   }
 }
 
-const mapStateToProps = ({myStageReducer}) => {
-  return {
-    stageId: myStageReducer.stageId,
-  };
-};
+const mapStateToProps = ({ myStageReducer }) => ({
+  stageId: myStageReducer.stageId,
+});
 
 export default connect(mapStateToProps)(LoginScreen);

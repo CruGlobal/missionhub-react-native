@@ -1,6 +1,9 @@
 import { REQUESTS } from '../actions/api';
+import { LOGOUT } from '../constants';
 
-const initialStagesState = {};
+const initialStagesState = {
+  stages: [],
+};
 
 function stagesReducer(state = initialStagesState, action) {
   switch (action.type) {
@@ -9,6 +12,8 @@ function stagesReducer(state = initialStagesState, action) {
         ...state,
         stages: action.results.findAll('pathway_stage'),
       };
+    case LOGOUT:
+      return initialStagesState;
     default:
       return state;
   }

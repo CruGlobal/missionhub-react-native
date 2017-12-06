@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-// import { getMySteps, setStepReminder, removeStepReminder } from '../../actions/steps';
-import { setStepReminder, removeStepReminder } from '../../actions/steps';
+import { logout } from '../../actions/auth';
+import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton, Touchable } from '../../components/common';
+import { Flex, Text, Icon, IconButton } from '../../components/common';
 import StepItemDraggable from '../../components/StepItemDraggable';
 import StepItem from '../../components/StepItem';
+import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import theme from '../../theme';
 
@@ -35,7 +36,7 @@ class StepsScreen extends Component {
   }
 
   componentWillMount() {
-    // this.props.dispatch(getMySteps());
+    this.props.dispatch(getMySteps());
   }
 
   componentDidMount() {
@@ -63,9 +64,8 @@ class StepsScreen extends Component {
     this.setState({ topHeight: height });
   }
   
-
   handleRowSelect(step) {
-    LOG('TODO: Go To People, step selected', step);
+    LOG('TODO: Go To People, step selected', step.id);
   }
 
   handleDropStep(step) {
@@ -77,6 +77,10 @@ class StepsScreen extends Component {
       return;
     }
     this.props.dispatch(setStepReminder(step));
+  }
+
+  handleCompleteReminder(step) {
+    this.props.dispatch(completeStepReminder(step));
   }
 
   handleRemoveReminder(step) {
@@ -91,7 +95,7 @@ class StepsScreen extends Component {
   }
 
   renderTop() {
-    const { reminders } = this.props;
+    const { reminders, myId } = this.props;
     const { moving, topHeight } = this.state;
     let style = {
       height: topHeight,
@@ -109,9 +113,13 @@ class StepsScreen extends Component {
           </Text>
           {
             reminders.map((s) => (
-              <Touchable key={s.id} onPress={() => this.handleRemoveReminder(s)}>
-                <StepItem key={s.id} step={s} type="swipeable" />
-              </Touchable>
+              <RowSwipeable
+                key={s.id}
+                onDelete={() => this.handleRemoveReminder(s)}
+                onComplete={() => this.handleCompleteReminder(s)}
+              >
+                <StepItem step={s} type="swipeable" isMe={s.owner ? s.owner.id === myId : false} />
+              </RowSwipeable>
             ))
           }
           {
@@ -145,7 +153,7 @@ class StepsScreen extends Component {
   }
 
   renderList() {
-    const { mine } = this.props;
+    const { steps, myId } = this.props;
     const { moving, topHeight, offTopItems } = this.state;
     return (
       <FlatList
@@ -155,12 +163,13 @@ class StepsScreen extends Component {
           { paddingTop: topHeight },
         ]}
         contentInset={{ bottom: topHeight }}
-        data={mine}
+        data={steps}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
           <StepItemDraggable
             onSelect={this.handleRowSelect}
             step={item}
+            isMe={item.owner ? item.owner.id === myId : false}
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}
@@ -183,7 +192,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
           }
           right={
             isCasey ? null : (
@@ -201,8 +210,9 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ steps }) => ({
-  mine: steps.mine,
+const mapStateToProps = ({ auth, steps }) => ({
+  myId: auth.personId,
+  steps: steps.mine,
   reminders: steps.reminders,
 });
 

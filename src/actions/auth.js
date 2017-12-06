@@ -1,4 +1,5 @@
 import { LOGIN, LOGOUT, FIRST_TIME } from '../constants';
+import { navigateReset } from './navigation';
 
 export function login() {
   return (dispatch) => {
@@ -9,6 +10,7 @@ export function login() {
 export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
+    dispatch(navigateReset('Login'));
   };
 }
 

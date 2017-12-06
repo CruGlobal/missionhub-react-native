@@ -1,7 +1,7 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
 
 const initialStagesState = {
   mine: [],
@@ -34,7 +34,7 @@ function stepsReducer(state = initialStagesState, action) {
       const mySteps = action.results.findAll('accepted_challenge') || [];
       return {
         ...state,
-        mine: mySteps,
+        mine: mySteps.filter((s) => !s._placeHolder),
       };
     case ADD_STEP_REMINDER:
       return {
@@ -46,6 +46,8 @@ function stepsReducer(state = initialStagesState, action) {
         ...state,
         reminders: state.reminders.filter((s) => s.id !== action.step.id),
       };
+    case LOGOUT:
+      return initialStagesState;
     default:
       return state;
   }

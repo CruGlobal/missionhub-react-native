@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   swipeable: {
     marginTop: 1,
-    backgroundColor: theme.convert({ color: theme.white, alpha: 0.5 }),
+    backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
   },
   draggable: {
     borderBottomWidth: theme.separatorHeight,
