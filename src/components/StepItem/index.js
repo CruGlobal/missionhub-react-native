@@ -8,8 +8,9 @@ export default class StepItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   render() {
     const { step, type, isMe } = this.props;
-    let owner = isMe ? 'Me' : step.owner.first_name;
-    owner = owner.toUpperCase();
+    const owner = step.owner || {};
+    let ownerName = isMe ? 'Me' : owner.first_name || '';
+    ownerName = ownerName.toUpperCase();
     return (
       <Flex
         ref={(c) => this._view = c}
@@ -20,7 +21,7 @@ export default class StepItem extends Component {
         ]}
       >
         <Text style={styles.person}>
-          {owner}
+          {ownerName}
         </Text>
         <Text style={styles.description}>
           {step.title}

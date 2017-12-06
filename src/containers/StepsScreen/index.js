@@ -94,7 +94,7 @@ class StepsScreen extends Component {
   }
 
   renderTop() {
-    const { reminders } = this.props;
+    const { reminders, myId } = this.props;
     const { moving, topHeight } = this.state;
     let style = {
       height: topHeight,
@@ -117,7 +117,7 @@ class StepsScreen extends Component {
                 onDelete={() => this.handleRemoveReminder(s)}
                 onComplete={() => this.handleCompleteReminder(s)}
               >
-                <StepItem key={s.id} step={s} type="swipeable" />
+                <StepItem step={s} type="swipeable" isMe={s.owner ? s.owner.id === myId : false} />
               </RowSwipeable>
             ))
           }
@@ -168,7 +168,7 @@ class StepsScreen extends Component {
           <StepItemDraggable
             onSelect={this.handleRowSelect}
             step={item}
-            isMe={item.owner.id === myId}
+            isMe={item.owner ? item.owner.id === myId : false}
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}

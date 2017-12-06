@@ -34,7 +34,7 @@ function stepsReducer(state = initialStagesState, action) {
       const mySteps = action.results.findAll('accepted_challenge') || [];
       return {
         ...state,
-        mine: mySteps,
+        mine: mySteps.filter((s) => !s._placeHolder),
       };
     case ADD_STEP_REMINDER:
       return {

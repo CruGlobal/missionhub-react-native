@@ -14,6 +14,7 @@ export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms);
 
 // Pull dates out of UTC format into a moment object
 export const momentUtc = (time) => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
+export const formatApiDate = (date) => moment(date).utc().format();
 
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 

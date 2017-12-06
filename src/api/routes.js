@@ -40,6 +40,10 @@ export default {
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + 'challenges',
   },
+  'CHALLENGE_COMPLETE': {
+    endpoint: API_URL + 'challenges/:challenge_id',
+    method: 'put',
+  },
   'CREATE_MY_PERSON': {
     endpoint: API_URL + 'auth/client_token',
     method: 'post',
