@@ -11,7 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
-const isCasey = false;
+const isCasey = true;
 
 export class PeopleScreen extends Component {
 

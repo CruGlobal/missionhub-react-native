@@ -18,9 +18,7 @@ exports[`renders correctly 1`] = `
             "height": 65,
             "paddingTop": 20,
           },
-          Object {
-            "elevation": 4,
-          },
+          null,
         ],
         Object {
           "flexDirection": "row",
@@ -229,7 +227,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -253,6 +251,7 @@ exports[`renders correctly 1`] = `
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
     renderItem={[Function]}
+    scrollEnabled={true}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
     style={undefined}
