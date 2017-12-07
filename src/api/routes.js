@@ -64,6 +64,12 @@ export default {
   'GET_MY_ORGANIZATIONS': {
     endpoint: API_URL + 'organizations',
   },
+  'GET_MY_IMPACT': {
+    endpoint: API_URL + 'reports/impact',
+  },
+  'GET_GLOBAL_IMPACT': {
+    endpoint: API_URL + 'reports/impact',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },

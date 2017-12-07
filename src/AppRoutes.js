@@ -16,6 +16,7 @@ import AddSomeoneScreen from './containers/AddSomeoneScreen';
 import ContactScreen from './containers/ContactScreen';
 import AddContactScreen from './containers/AddContactScreen';
 import NotificationPrimerScreen from './containers/NotificationPrimerScreen';
+import ImpactScreen from './containers/ImpactScreen';
 
 import { Icon } from './components/common';
 
@@ -53,14 +54,14 @@ export const MainTabRoutes = TabNavigator({
     },
   },
   ImpactTab: {
-    screen: StepsScreen,
+    screen: ImpactScreen,
     navigationOptions: {
       tabBarLabel: 'Impact',
       tabBarIcon: navIcon('impactIcon'),
     },
   },
 }, {
-  // initialRouteName: 'PeopleTab',
+  // initialRouteName: 'ImpactTab',
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
@@ -95,6 +96,7 @@ export const MainStackRoutes = StackNavigator({
   Contact: {screen: ContactScreen},
   AddContact: {screen: AddContactScreen},
   NotificationPrimer: {screen: NotificationPrimerScreen},
+  Impact: { screen: ImpactScreen},
 }, {
   paths: {
     Login: 'Login',
