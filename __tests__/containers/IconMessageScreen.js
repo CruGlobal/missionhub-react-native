@@ -25,7 +25,7 @@ jest.mock('../../src/actions/navigation', () => {
 const defaultProps = {
   mainText: '',
   buttonText: '',
-  iconPath: '',
+  iconPath: undefined,
   nextScreen: '',
 };
 

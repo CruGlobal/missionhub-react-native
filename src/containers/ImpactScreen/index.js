@@ -11,11 +11,11 @@ import Header from '../Header';
 import { intToStringLocale } from '../../utils/common';
 
 const year = new Date().getFullYear();
-const myImpactStr = ({ steps_count, receivers_count, pathway_moved_count }) =>
+const myImpactStr = ({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }) =>
   `In ${year}, you took ${intToStringLocale(steps_count)} steps of faith with ${intToStringLocale(receivers_count)} people.
 
 ${intToStringLocale(pathway_moved_count)} people reached a new stage on their spiritual journey.`;
-const globalImpactStr = ({ steps_count, receivers_count, pathway_moved_count }) =>
+const globalImpactStr = ({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }) =>
   `In ${year}, users took ${intToStringLocale(steps_count)} steps of faith with ${intToStringLocale(receivers_count)} people.
 
 ${intToStringLocale(pathway_moved_count)} people reached a new stage on their spiritual journey.`;
