@@ -6,6 +6,8 @@ export const STAGES = 'app/STAGES';
 export const SELECT_STAGE = 'app/SELECT_STAGE';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
+export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
+export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
 export const CREATE_MY_PERSON = 'app/CREATE_MY_PERSON';
 
 

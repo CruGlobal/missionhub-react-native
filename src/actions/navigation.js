@@ -17,4 +17,15 @@ export function navigateBack(key = null) {
   };
 }
 
+export function navigateReset(screen) {
+  return (dispatch) => {
+    dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: screen }),
+      ],
+    }));
+  };
+}
+
 // The reset home and reset login are handled by the login/logout auth actions

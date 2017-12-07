@@ -1,5 +1,6 @@
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
+import lodashMerge from 'lodash/merge';
 
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 
@@ -14,8 +15,11 @@ export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms);
 
 // Pull dates out of UTC format into a moment object
 export const momentUtc = (time) => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
+export const formatApiDate = (date) => moment(date).utc().format();
 
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
+
+export const merge = lodashMerge;
 
 // Return true if the object's props are all the same
 export const isEquivalentObject = (a, b) => {

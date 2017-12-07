@@ -4,11 +4,9 @@ import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 
 export default class Flex extends Component {
-  setNativeProps(nativeProps) {
-    this._view.setNativeProps(nativeProps);
-  }
+  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   render() {
-    const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, animation, ...rest } = this.props;
+    const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, animation, animated, ...rest } = this.props;
     let styleObj = {};
     if (value) styleObj.flex = value;
     if (direction) styleObj.flexDirection = direction;
@@ -35,7 +33,7 @@ export default class Flex extends Component {
       else if (justify === 'between') styleObj.justifyContent = 'space-between';
     }
     // If animation is passed in, use the animatable library, otherwise don't
-    if (animation) {
+    if (animation || animated) {
       return (
         <Animatable.View
           ref={(c) => this._view = c}
@@ -70,4 +68,5 @@ Flex.propTypes = {
   align: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
   justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
   self: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
+  animated: PropTypes.bool,
 };

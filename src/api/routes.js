@@ -31,12 +31,21 @@ export default {
   },
   'GET_CHALLENGE_SUGGESTIONS': {
     endpoint: API_URL + 'challenge_suggestions',
-    method: 'get',
     anonymous: true,
   },
   'ADD_CHALLENGES': {
-    endpoint: API_URL + 'people/4141545',
+    endpoint: API_URL + 'people/:person_id',
     method: 'put',
+  },
+  'GET_MY_CHALLENGES': {
+    endpoint: API_URL + 'challenges',
+  },
+  'CHALLENGE_COMPLETE': {
+    endpoint: API_URL + 'challenges/:challenge_id',
+    method: 'put',
+  },
+  'GET_PEOPLE_LIST': {
+    endpoint: API_URL + 'people',
   },
   'CREATE_MY_PERSON': {
     endpoint: API_URL + 'auth/client_token',
@@ -47,6 +56,13 @@ export default {
   'UPDATE_MY_USER': {
     endpoint: API_URL + 'users/me',
     method: 'put',
+  },
+  'ADD_NEW_PERSON': {
+    endpoint: API_URL + 'people',
+    method: 'post',
+  },
+  'GET_MY_ORGANIZATIONS': {
+    endpoint: API_URL + 'organizations',
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

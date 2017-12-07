@@ -17,6 +17,7 @@ import styles from './styles';
 const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons', 'MissionHub'];
 const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 export default class Icon extends Component {
+  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   render() {
     const { name, type, size = 18, style = {} } = this.props;
     // Default style options
@@ -38,6 +39,7 @@ export default class Icon extends Component {
 
     return (
       <Tag
+        ref={(c) => this._view = c}
         name={iconName}
         style={[styles.icon, { fontSize: size }, style]}
       />

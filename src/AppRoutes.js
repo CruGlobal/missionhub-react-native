@@ -1,8 +1,9 @@
 import React from 'react';
-import {StackNavigator, TabNavigator} from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
 import StepsScreen from './containers/StepsScreen';
+import PeopleScreen from './containers/PeopleScreen';
 import SelectStepScreen from './containers/SelectStepScreen';
 import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
@@ -12,8 +13,10 @@ import GetStartedScreen from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
 import StageSuccessScreen from './containers/StageSuccessScreen';
 import AddSomeoneScreen from './containers/AddSomeoneScreen';
+import ContactScreen from './containers/ContactScreen';
+import AddContactScreen from './containers/AddContactScreen';
 
-import {Icon} from './components/common';
+import { Icon } from './components/common';
 
 import theme from './theme';
 
@@ -42,7 +45,7 @@ export const MainTabRoutes = TabNavigator({
     },
   },
   PeopleTab: {
-    screen: StepsScreen,
+    screen: PeopleScreen,
     navigationOptions: {
       tabBarLabel: 'People',
       tabBarIcon: navIcon('peopleIcon'),
@@ -56,6 +59,7 @@ export const MainTabRoutes = TabNavigator({
     },
   },
 }, {
+  // initialRouteName: 'PeopleTab',
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
@@ -66,7 +70,8 @@ export const MainTabRoutes = TabNavigator({
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
-  lazy: false, // Load all tabs right away
+  // lazy: false, // Load all tabs right away
+  lazy: true,
   paths: {
     StepsTab: '/steps',
     PeopleTab: '/people',
@@ -86,6 +91,8 @@ export const MainStackRoutes = StackNavigator({
   Stage: {screen: StageScreen},
   StageSuccess: {screen: StageSuccessScreen},
   AddSomeone: {screen: AddSomeoneScreen},
+  Contact: {screen: ContactScreen},
+  AddContact: {screen: AddContactScreen},
 }, {
   paths: {
     Login: 'Login',
@@ -95,6 +102,7 @@ export const MainStackRoutes = StackNavigator({
     Stage: 'Stage',
     StageSuccess: 'StageSuccess',
     AddSomeone: 'AddSomeone',
+    Contact: 'Contact',
   },
   navigationOptions: {
     header: null,

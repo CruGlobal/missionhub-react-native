@@ -1,12 +1,13 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import {FIRST_TIME, LOGIN, LOGOUT} from '../constants';
-import {REQUESTS} from '../actions/api';
+import { FIRST_TIME, LOGIN, LOGOUT } from '../constants';
+import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
   isLoggedIn: false,
   isFirstTime: false,
-  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzg1Nzk2LCJleHAiOjE1MTI0MTIwNTJ9.Bd6Ft8GZH147XxLpKZwZXfHbF00CPIeQ3GlaqfuYHe0',
+  token: '',
+  personId: '',
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -22,12 +23,18 @@ function authReducer(state = initialAuthState, action) {
       return state;
     case LOGIN:
       return { ...state, isLoggedIn: true };
-    case LOGOUT:
-      return { ...state, isLoggedIn: false };
     case FIRST_TIME:
       return { ...state, isFirstTime: true, isLoggedIn: false };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
-      return { ...state, token: action.results.token, person_id: action.results.token};
+      LOG('action', action.results);
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.results.token,
+        personId: `${action.results.person_id}`,
+      };
+    case LOGOUT:
+      return initialAuthState;
     default:
       return state;
   }

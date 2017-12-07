@@ -15,7 +15,7 @@ import AppWithNavigationState from './AppNavigator';
 class App extends Component {
   state = { store: null };
   
-  componentDidMount() {
+  componentWillMount() {
     getStore((store) => this.setState({ store }));
   }
   
