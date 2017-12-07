@@ -2,6 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
+import { useFirstExists } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -14,8 +15,8 @@ function peopleReducer(state = initialState, action) {
       var incoming = action.payload.people;
       if (incoming) {
         return {
-          all: incoming.all || state.all,
-          allByOrg: incoming.allByOrg || state.allByOrg,
+          all: useFirstExists(incoming.all, state.all),
+          allByOrg: useFirstExists(incoming.allByOrg, state.allByOrg),
         };
       }
       return state;

@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import StageScreen from '../../src/containers/StageScreen';
-import {createMockNavState, createMockStore} from '../../testUtils';
+import { createMockNavState, createMockStore } from '../../testUtils';
 
 const mockStages = () => {
   return 'mock stages';

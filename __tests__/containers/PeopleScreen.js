@@ -8,10 +8,10 @@ import PeopleScreen from '../../src/containers/PeopleScreen';
 import { testSnapshot } from '../../testUtils';
 
 jest.mock('../../src/actions/organizations', () => ({
-  getMyOrganizations: () => {},
+  getMyOrganizations: () => { },
 }));
 jest.mock('../../src/actions/people', () => ({
-  getPeopleList: () => {},
+  getPeopleList: () => { },
 }));
 
 const mockState = {

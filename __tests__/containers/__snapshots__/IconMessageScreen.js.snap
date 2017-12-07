@@ -99,7 +99,7 @@ exports[`renders button text correctly 1`] = `
     }
   >
     <Image
-      source={undefined}
+      source=""
     />
     <Text
       accessible={true}
@@ -121,7 +121,9 @@ exports[`renders button text correctly 1`] = `
           },
         ]
       }
-    />
+    >
+      
+    </Text>
   </View>
   <View
     style={
@@ -335,7 +337,9 @@ exports[`renders icon correctly 1`] = `
           },
         ]
       }
-    />
+    >
+      
+    </Text>
   </View>
   <View
     style={
@@ -494,7 +498,7 @@ exports[`renders main text correctly 1`] = `
     }
   >
     <Image
-      source={undefined}
+      source=""
     />
     <Text
       accessible={true}
