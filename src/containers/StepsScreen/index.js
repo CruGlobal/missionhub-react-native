@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
+import { setupPushNotifications } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -38,6 +39,7 @@ class StepsScreen extends Component {
   }
 
   componentWillMount() {
+    this.props.dispatch(setupPushNotifications());
     this.props.dispatch(getMySteps());
   }
 

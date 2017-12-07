@@ -13,6 +13,7 @@ export const exists = (v) => typeof v !== 'undefined';
 export const clone = (obj) => JSON.parse(JSON.stringify(obj));
 export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
+
 // Pull dates out of UTC format into a moment object
 export const momentUtc = (time) => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
 export const formatApiDate = (date) => moment(date).utc().format();
@@ -20,6 +21,13 @@ export const formatApiDate = (date) => moment(date).utc().format();
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 
 export const merge = lodashMerge;
+
+export const useFirstExists = (...args) => {
+  for (let i = 0; i < args.length; i++) {
+    if (exists(args[i])) return args[i];
+  }
+  return null;
+};
 
 // Return true if the object's props are all the same
 export const isEquivalentObject = (a, b) => {

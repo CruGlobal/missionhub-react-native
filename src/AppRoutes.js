@@ -15,6 +15,7 @@ import StageSuccessScreen from './containers/StageSuccessScreen';
 import AddSomeoneScreen from './containers/AddSomeoneScreen';
 import ContactScreen from './containers/ContactScreen';
 import AddContactScreen from './containers/AddContactScreen';
+import NotificationPrimerScreen from './containers/NotificationPrimerScreen';
 
 import { Icon } from './components/common';
 
@@ -93,6 +94,7 @@ export const MainStackRoutes = StackNavigator({
   AddSomeone: {screen: AddSomeoneScreen},
   Contact: {screen: ContactScreen},
   AddContact: {screen: AddContactScreen},
+  NotificationPrimer: {screen: NotificationPrimerScreen},
 }, {
   paths: {
     Login: 'Login',

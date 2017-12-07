@@ -1,5 +1,6 @@
 import { LOGIN, LOGOUT, FIRST_TIME } from '../constants';
 import { navigateReset } from './navigation';
+import { clearAllScheduledNotifications } from './notifications';
 
 export function login() {
   return (dispatch) => {
@@ -11,6 +12,7 @@ export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
     dispatch(navigateReset('Login'));
+    dispatch(clearAllScheduledNotifications());
   };
 }
 

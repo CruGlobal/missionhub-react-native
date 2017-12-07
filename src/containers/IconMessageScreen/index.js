@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import theme from '../../theme';
-import {connect} from 'react-redux';
-import {navigatePush} from '../../actions/navigation';
-import {Image} from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Image } from 'react-native';
+import PropTypes from 'prop-types';
 
+import { navigatePush } from '../../actions/navigation';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
+import theme from '../../theme';
 
 class IconMessageScreen extends Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class IconMessageScreen extends Component {
     this.handleNext = this.handleNext.bind(this);
   }
 
-  handleNext(nextScreen) {
-    this.props.dispatch(navigatePush(nextScreen));
+  handleNext() {
+    this.props.dispatch(navigatePush(this.props.nextScreen));
   }
 
   render() {
-    const { mainText, buttonText, nextScreen, iconPath } = this.props;
+    const { mainText, buttonText, iconPath } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -34,7 +35,7 @@ class IconMessageScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.handleNext(nextScreen)}
+            onPress={this.handleNext}
             text={buttonText}
             style={{width: theme.fullWidth}}
           />
@@ -43,5 +44,12 @@ class IconMessageScreen extends Component {
     );
   }
 }
+
+IconMessageScreen.propTypes = {
+  nextScreen: PropTypes.string.isRequired,
+  mainText: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  iconPath: PropTypes.any,
+};
 
 export default connect()(IconMessageScreen);

@@ -8,6 +8,7 @@ import myStageReducer from './myStage';
 import steps from './steps';
 import organizations from './organizations';
 import people from './people';
+import notifications from './notifications';
 
 export default combineReducers({
   auth,
@@ -18,4 +19,5 @@ export default combineReducers({
   steps,
   organizations,
   people,
+  notifications,
 });
