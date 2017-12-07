@@ -57,6 +57,10 @@ export default {
     endpoint: API_URL + 'users/me',
     method: 'put',
   },
+  'ADD_NEW_PERSON': {
+    endpoint: API_URL + 'people',
+    method: 'post',
+  },
   'GET_MY_ORGANIZATIONS': {
     endpoint: API_URL + 'organizations',
   },

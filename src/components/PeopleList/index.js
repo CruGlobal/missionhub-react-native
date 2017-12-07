@@ -1,47 +1,49 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
 
+// For Android to work with the Layout Animation
+// See https://facebook.github.io/react-native/docs/layoutanimation.html
+UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+
 import PeopleItem from '../PeopleItem';
+import { Flex, Text, Icon, Touchable } from '../common';
+import { merge } from '../../utils/common';
 import styles from './styles';
 
 export default class PeopleList extends Component {
   
-  render() {
-    const { items, onSelect, myId } = this.props;
-    // if (sections) {
-    //   let formattedItems = items.reduce((p, n) => {
-    //     const orgId = n.organization_id;
-    //     if (p[orgId]) {
-    //       p[orgId].data.push(n);
-    //     } else {
-    //       p[orgId] = { key: orgId, data: [n] };
-    //     }
-    //   }, {});
-    //   formattedItems = Object.keys(formattedItems).map((key) => formattedItems[key]);
-    //   return (
-    //     <SectionList
-    //       style={styles.list}
-    //       sections={formattedItems}
-    //       keyExtractor={(i) => i.id}
-    //       renderItem={({ item }) => (
-    //         <PeopleItem
-    //           onSelect={onSelect}
-    //           person={item} />
-    //       )}
-    //       renderSectionHeader={({ item }) => (
-    //         <PeopleItem
-    //           onSelect={onSelect}
-    //           person={item} />
-    //       )}
-    //     />
-    //   );
-    // }
+  constructor(props) {
+    super(props);
+
+    const items = (props.items || []).map((s) => ({ ...s, expanded: true }));
+    this.state = {
+      items,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.items.length !== this.props.items.length) {
+      const items = merge([], this.state.items, nextProps.items);
+      this.setState({ items });
+    }
+  }
+
+  toggleSection(key) {
+    const items = this.state.items.map((s) => s.key === key ? { ...s, expanded: !s.expanded } : s);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    this.setState({ items });
+  }
+
+  renderList(items) {
+    const { onSelect, myId, sections } = this.props;
+    
     return (
       <FlatList
         style={styles.list}
         data={items}
         keyExtractor={(i) => i.id}
+        scrollEnabled={!sections}
         renderItem={({ item }) => (
           <PeopleItem
             isMe={item.id === myId}
@@ -50,6 +52,51 @@ export default class PeopleList extends Component {
         )}
       />
     );
+  }
+
+  renderSectionHeader(section) {
+    const { onAddContact } = this.props;
+    
+    return (
+      <Flex align="center" direction="row" style={styles.header}>
+        <Text style={styles.title} numberOfLines={1}>
+          {section.key}
+        </Text>
+        <Flex direction="row" justify="end">
+          <Touchable onPress={() => onAddContact(section.key)}>
+            <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
+          </Touchable>
+          <Touchable onPress={() => this.toggleSection(section.key)}>
+            <Icon name="moreIcon" type="MissionHub" size={20} style={styles.icon} />
+          </Touchable>
+        </Flex>
+      </Flex>
+    );
+  }
+  
+  render() {
+    const { sections } = this.props;
+    if (sections) {
+      return (
+        <ScrollView
+          style={styles.sectionWrap}
+          bounces={false}
+          scrollEnabled={true}
+        >
+          {
+            this.state.items.map((section) => (
+              <Flex key={section.key}>
+                {this.renderSectionHeader(section)}
+                {
+                  section.expanded ? this.renderList(section.data) : null
+                }
+              </Flex>
+            ))
+          }
+        </ScrollView>
+      );
+    }
+    return this.renderList(this.props.items);
   }
 
 }

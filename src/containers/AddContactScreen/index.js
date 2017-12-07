@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
+import { addNewContact } from '../../actions/organizations';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
@@ -11,11 +13,19 @@ class ProfileScreen extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      data: {},
+    };
+
     this.savePerson = this.savePerson.bind(this);
   }
 
   savePerson() {
-
+    let saveData = { ...this.state.data };
+    if (this.props.orgId) {
+      saveData.orgId = this.props.orgId;
+    }
+    this.props.dispatch(addNewContact(saveData));
   }
 
   render() {
@@ -31,7 +41,7 @@ class ProfileScreen extends Component {
           shadow={false}
           title="ADD SOMEONE"
         />
-        <AddContactFields />
+        <AddContactFields onUpdateData={(data) => this.setState({ data })} />
 
         <Flex value={1} align="stretch" justify="end">
           <Button
@@ -46,8 +56,12 @@ class ProfileScreen extends Component {
   }
 }
 
+ProfileScreen.propTypes = {
+  orgId: PropTypes.string,
+};
+
 const mapStateToProps = (state, { navigation }) => ({
-  id: navigation.state.params ? navigation.state.params.id : '',
+  ...(navigation.state.params || {}),
 });
 
 export default connect(mapStateToProps)(ProfileScreen);

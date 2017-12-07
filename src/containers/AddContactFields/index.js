@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex, Text, Input } from '../../components/common';
@@ -15,6 +16,12 @@ class AddContactFields extends Component {
     path: null,
   }
 
+  updateField(field, data) {
+    this.setState({ [field]: data }, () => {
+      this.props.onUpdateData(this.state);
+    });
+  }
+
   render() {
     const { firstName, lastName, email, phone } = this.state;
     return (
@@ -23,7 +30,7 @@ class AddContactFields extends Component {
           <Text i18n="Profile_Label_FirstName" style={styles.label} />
           <Input
             ref={(c) => this.firstName = c}
-            onChangeText={(t) => this.setState({ firstName: t })}
+            onChangeText={(t) => this.updateField('firstName', t)}
             value={firstName}
             returnKeyType="next"
             blurOnSubmit={false}
@@ -34,7 +41,7 @@ class AddContactFields extends Component {
           <Text i18n="Profile_Label_LastName" style={styles.label} />
           <Input
             ref={(c) => this.lastName = c}
-            onChangeText={(t) => this.setState({ lastName: t })}
+            onChangeText={(t) => this.updateField('lastName', t)}
             value={lastName}
             returnKeyType="next"
             blurOnSubmit={false}
@@ -45,7 +52,7 @@ class AddContactFields extends Component {
           <Text i18n="Profile_Label_Email" style={styles.label} />
           <Input
             ref={(c) => this.email = c}
-            onChangeText={(t) => this.setState({ email: t })}
+            onChangeText={(t) => this.updateField('email', t)}
             value={email}
             keyboardType="email-address"
             returnKeyType="next"
@@ -57,7 +64,7 @@ class AddContactFields extends Component {
           <Text i18n="Profile_Label_Phone" style={styles.label} />
           <Input
             ref={(c) => this.phone = c}
-            onChangeText={(t) => this.setState({ phone: t })}
+            onChangeText={(t) => this.updateField('phone', t)}
             value={phone}
             keyboardType="phone-pad"
             returnKeyType="done"
@@ -68,5 +75,9 @@ class AddContactFields extends Component {
     );
   }
 }
+
+AddContactFields.propTypes = {
+  onUpdateData: PropTypes.func.isRequired,
+};
 
 export default connect()(AddContactFields);

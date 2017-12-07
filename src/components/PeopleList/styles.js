@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
-    height: theme.itemHeight,
-    paddingHorizontal: 24,
-    backgroundColor: theme.white,
-    width: theme.fullWidth,
-    borderBottomWidth: theme.separatorHeight,
-    borderBottomColor: theme.separatorColor,
+  sectionWrap: {
+    flex: 1,
+    borderTopWidth: 1,
+    borderTopColor: theme.white,
   },
-  name: {
-    fontSize: 16,
+  header: {
+    height: 50,
+    backgroundColor: theme.primaryColor,
+  },
+  title: {
+    flex: 1,
     fontWeight: 'bold',
-    color: theme.primaryColor,
+    color: theme.white,
+    paddingLeft: 20,
   },
-  stage: {
-    fontSize: 14,
+  icon: {
+    padding: 15,
   },
 });
