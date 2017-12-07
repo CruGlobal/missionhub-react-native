@@ -59,7 +59,7 @@ export const MainTabRoutes = TabNavigator({
     },
   },
 }, {
-  initialRouteName: 'PeopleTab',
+  // initialRouteName: 'PeopleTab',
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
