@@ -18,36 +18,44 @@ const store = createMockStore();
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/navigation', () => {
   return {
-    navigatePush: (screen) => {
-      return screen === mockNextScreen ? mockNavigatePush : null;
-    },
+    navigatePush: (screen) => screen === mockNextScreen ? mockNavigatePush : null,
   };
 });
 
-const renderAndTest = (mainText, buttonText, iconPath) => {
+const defaultProps = {
+  mainText: '',
+  buttonText: '',
+  iconPath: '',
+  nextScreen: '',
+};
+
+const renderAndTest = (props = {}) => {
   testSnapshot(
     <Provider store={store}>
-      <IconMessageScreen mainText={mainText} buttonText={buttonText} iconPath={iconPath} />
+      <IconMessageScreen
+        {...defaultProps}
+        {...props}
+      />
     </Provider>
   );
 };
 
 it('renders main text correctly', () => {
-  renderAndTest('Hello, world!');
+  renderAndTest({ mainText: 'Hello, world!' });
 });
 
 it('renders button text correctly', () => {
-  renderAndTest(null, 'Click me');
+  renderAndTest({ buttonText: 'Click me' });
 });
 
 it('renders icon correctly', () => {
-  renderAndTest(null, null, require('../../assets/images/footprints.png'));
+  renderAndTest({ iconPath: require('../../assets/images/footprints.png') });
 });
 
 it('goes to the next screen', () => {
   Enzyme.configure({ adapter: new Adapter() });
   const described = shallow(
-    <IconMessageScreen nextScreen={mockNextScreen} />,
+    <IconMessageScreen {...defaultProps} nextScreen={mockNextScreen} />,
     { context: { store: store } }
   );
   const button = described.dive().childAt(2).childAt(0);

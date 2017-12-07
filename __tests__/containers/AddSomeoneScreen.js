@@ -4,13 +4,16 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import AddSomeoneScreen from '../../src/containers/AddSomeoneScreen/index';
 import { Provider } from 'react-redux';
-import {createMockStore} from '../../testUtils/index';
-import {shallow} from 'enzyme/build/index';
+import { createMockStore } from '../../testUtils/index';
+import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
-import {testSnapshot} from '../../testUtils';
+import { testSnapshot } from '../../testUtils';
 
-const store = createMockStore();
+const mockState = {
+  notifications: { hasAsked: true },
+};
+const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
