@@ -39,6 +39,7 @@ export const COLORS = {
   LIGHT_GREY: '#E6E8EC',
   TRANSPARENT: 'transparent',
   BLUE_GREEN: '#50DCC8',
+  IMPACT_BLUE: '#3EB1C8',
   RED: '#FF5532',
   convert: colorConvert,
 };
@@ -75,6 +76,7 @@ export default {
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,
+  impactBlue: COLORS.IMPACT_BLUE,
 
   isAndroid,
   headerHeight: isAndroid ? 56 : 65,

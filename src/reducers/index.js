@@ -9,6 +9,7 @@ import steps from './steps';
 import organizations from './organizations';
 import people from './people';
 import notifications from './notifications';
+import impact from './impact';
 
 export default combineReducers({
   auth,
@@ -20,4 +21,5 @@ export default combineReducers({
   organizations,
   people,
   notifications,
+  impact,
 });

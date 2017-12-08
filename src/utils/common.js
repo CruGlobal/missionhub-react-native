@@ -19,6 +19,7 @@ export const momentUtc = (time) => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
 export const formatApiDate = (date) => moment(date).utc().format();
 
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
+export const intToStringLocale = (num) => parseInt(num).toLocaleString();
 
 export const merge = lodashMerge;
 

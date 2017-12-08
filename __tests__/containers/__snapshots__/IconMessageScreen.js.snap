@@ -99,7 +99,7 @@ exports[`renders button text correctly 1`] = `
     }
   >
     <Image
-      source=""
+      source={undefined}
     />
     <Text
       accessible={true}
@@ -498,7 +498,7 @@ exports[`renders main text correctly 1`] = `
     }
   >
     <Image
-      source=""
+      source={undefined}
     />
     <Text
       accessible={true}
