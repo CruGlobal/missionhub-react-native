@@ -2,20 +2,20 @@
 
 exports[`renders correctly 1`] = `
 <View
-  flex={1}
   style={
     Array [
       Object {
         "backgroundColor": "#52C5DC",
       },
       Object {
+        "flex": 1,
         "justifyContent": "center",
       },
     ]
   }
 >
   <Image
-    onLoad={undefined}
+    onLoad={[Function]}
     resizeMode="contain"
     source={
       Object {
