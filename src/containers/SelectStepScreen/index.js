@@ -67,7 +67,7 @@ class SelectStepScreen extends Component {
       // LOG(r);
     });
     // TODO: Save selected steps with some kind of API call,
-    this.props.dispatch(navigatePush('AddSomeone'));
+    this.props.dispatch(navigatePush(this.props.nextScreen));
   }
 
   renderTitle() {
@@ -75,7 +75,7 @@ class SelectStepScreen extends Component {
       <Flex value={1.5} align="center" justify="start">
         <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
         <Text style={styles.headerText}>
-          How do you want to move forward on your spiritual journey?
+          {this.props.headerText}
         </Text>
       </Flex>
     );
