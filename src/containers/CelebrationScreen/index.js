@@ -9,10 +9,10 @@ import { navigatePush, navigateReset } from '../../actions/navigation';
 class CelebrationScreen extends Component {
   timeoutId;
 
-  startTimer() {
+  startTimer = () => {
     clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(() => this.navigateToNext(), Platform.OS === 'android' ? 2880 : 3500);
-  }
+    this.timeoutId = setTimeout(() => this.navigateToNext(), Platform.OS === 'android' ? 2880 : 3350);
+  };
 
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
@@ -43,8 +43,8 @@ class CelebrationScreen extends Component {
 
   render() {
     return (
-      <Flex style={styles.container} flex={1} justify="center">
-        <Image source={CelebrationScreen.shuffleGif()} resizeMode="contain" style={styles.gif} onLoad={this.startTimer()} />
+      <Flex style={styles.container} value={1} justify="center">
+        <Image source={CelebrationScreen.shuffleGif()} resizeMode="contain" style={styles.gif} onLoad={this.startTimer} />
       </Flex>
     );
   }
