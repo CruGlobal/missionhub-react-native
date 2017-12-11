@@ -19,6 +19,7 @@ import NotificationPrimerScreen from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen from './containers/SetupPersonScreen';
 import PersonStageScreen from './containers/PersonStageScreen';
+import CelebrationScreen from './containers/CelebrationScreen';
 
 import { Icon } from './components/common';
 
@@ -101,6 +102,7 @@ export const MainStackRoutes = StackNavigator({
   Impact: { screen: ImpactScreen},
   SetupPerson: {screen: SetupPersonScreen},
   PersonStage: {screen: PersonStageScreen},
+  Celebration: {screen: CelebrationScreen},
 }, {
   paths: {
     Login: 'Login',

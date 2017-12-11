@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  flex={1}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={undefined}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/ArrowWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": null,
+        "width": null,
+      }
+    }
+  />
+</View>
+`;
