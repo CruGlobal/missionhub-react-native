@@ -12,7 +12,42 @@ export function selectStage(id) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.UPDATE_MY_USER, {}, data)).catch((error) => {
-      LOG('error updating user', error);
+      LOG('error updating my user', error);
+    });
+  };
+}
+
+export function selectPersonStage(personId, assignedToId, pathwayStageId) {
+  const data = {
+    data: {
+      type: 'contact_assignment',
+      relationships: {
+
+        person: {
+          data: {
+            type: 'person',
+            id: personId,
+          },
+        },
+        assigned_to: {
+          data: {
+            type: 'person',
+            id: assignedToId,
+          },
+        },
+        pathway_stage: {
+          data: {
+            type: 'pathway_stage',
+            id: pathwayStageId,
+          },
+        },
+      },
+    },
+  };
+
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).catch((error) => {
+      LOG('error creating contact assignment', error);
     });
   };
 }

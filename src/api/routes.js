@@ -1,5 +1,7 @@
 import { API_URL } from './utils';
 
+const PEOPLE = 'people/';
+
 export default {
   // Example
   // 'PLANETS': {
@@ -34,7 +36,7 @@ export default {
     anonymous: true,
   },
   'ADD_CHALLENGES': {
-    endpoint: API_URL + 'people/:person_id',
+    endpoint: API_URL + PEOPLE + ':person_id',
     method: 'put',
   },
   'GET_MY_CHALLENGES': {
@@ -45,7 +47,7 @@ export default {
     method: 'put',
   },
   'GET_PEOPLE_LIST': {
-    endpoint: API_URL + 'people',
+    endpoint: API_URL + PEOPLE,
   },
   'CREATE_MY_PERSON': {
     endpoint: API_URL + 'auth/client_token',
@@ -58,7 +60,7 @@ export default {
     method: 'put',
   },
   'ADD_NEW_PERSON': {
-    endpoint: API_URL + 'people',
+    endpoint: API_URL + PEOPLE,
     method: 'post',
   },
   'GET_MY_ORGANIZATIONS': {
@@ -69,6 +71,10 @@ export default {
   },
   'GET_GLOBAL_IMPACT': {
     endpoint: API_URL + 'reports/impact',
+  },
+  'CREATE_CONTACT_ASSIGNMENT': {
+    endpoint: API_URL + 'contact_assignments',
+    method: 'post',
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

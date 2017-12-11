@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StageScreen renders correctly 1`] = `
+exports[`renders correctly 1`] = `
 <View
   style={
     Array [
@@ -74,7 +74,7 @@ exports[`StageScreen renders correctly 1`] = `
         ]
       }
     >
-      Roger, which stage best describes where you are on your journey?
+      Which stage best describes where Billy is on their journey?
     </Text>
   </View>
 </View>

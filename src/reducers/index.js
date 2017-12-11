@@ -3,6 +3,7 @@ import {combineReducers} from 'redux';
 import auth from './auth';
 import nav from './nav';
 import profile from './profile';
+import personProfile from './personProfile';
 import stages from './stages';
 import myStageReducer from './myStage';
 import steps from './steps';
@@ -15,8 +16,9 @@ export default combineReducers({
   auth,
   nav,
   profile,
+  personProfile,
   stages,
-  myStageReducer,
+  myStageReducer, //TODO rename
   steps,
   organizations,
   people,
