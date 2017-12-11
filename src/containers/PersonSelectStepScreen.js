@@ -10,7 +10,7 @@ class PersonSelectStepScreen extends Component {
   }
 
   render() {
-    const text = 'How do you want to help ' + this.props.personFirstName + ' experience God?';
+    const text = 'What will you do to help ' + this.props.personFirstName + ' experience God?';
     let nextScreen = 'MainTabs';
 
     // Android doesn't need a primer for notifications the way iOS does
@@ -19,7 +19,10 @@ class PersonSelectStepScreen extends Component {
     }
 
     return (
-      <SelectStepScreen nextScreen={nextScreen} headerText={text} />
+      <SelectStepScreen
+        useOthersSteps={true}
+        nextScreen={nextScreen}
+        headerText={text} />
     );
   }
 

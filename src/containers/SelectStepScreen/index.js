@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
-// import { getStepSuggestions } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 
 import styles from './styles';
@@ -12,11 +11,17 @@ import BackButton from '../BackButton';
 
 class SelectStepScreen extends Component {
 
+  refreshSteps(newSteps, existingSteps) {
+    if (newSteps.length !== existingSteps.length) {
+      this.setState({steps: [].concat(newSteps, this.state.addedSteps)});
+    }
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
-      steps: props.suggestedForMe,
+      steps: props.useOthersSteps ? props.suggestedForOthers : props.suggestedForMe,
       addedSteps: [],
     };
 
@@ -30,9 +35,10 @@ class SelectStepScreen extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.suggestedForMe.length !== this.props.suggestedForMe.length) {
-      const newSteps = [].concat(nextProps.suggestedForMe, this.state.addedSteps);
-      this.setState({ steps: newSteps });
+    if (this.props.useOthersSteps) {
+      this.refreshSteps(nextProps.suggestedForOthers, this.props.suggestedForOthers);
+    } else {
+      this.refreshSteps(nextProps.suggestedForMe, this.props.suggestedForMe);
     }
   }
 
@@ -108,10 +114,13 @@ class SelectStepScreen extends Component {
   }
 }
 
+const getThree = (arr) => {
+  return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
+};
+
 const mapStateToProps = ({ steps }) => ({
-  // suggestedForMe: steps.suggestedForMe,
-  suggestedForMe: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
-  suggestedForOthers: steps.suggestedForOthers,
+  suggestedForMe: getThree(steps.suggestedForMe),
+  suggestedForOthers: getThree(steps.suggestedForOthers),
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

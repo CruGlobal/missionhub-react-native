@@ -10,7 +10,10 @@ class SelectMyStepScreen extends Component {
 
   render() {
     return (
-      <SelectStepScreen nextScreen="AddSomeone" headerText="How do you want to move forward on your spiritual journey?" />
+      <SelectStepScreen
+        useOthersSteps={false}
+        nextScreen="AddSomeone"
+        headerText="How do you want to move forward on your spiritual journey?" />
     );
   }
 
