@@ -7,7 +7,7 @@ export default StyleSheet.create({
   },
   gif: {
     flex: 1,
-    width: null,
-    height: null,
+    width: theme.fullWidth,
+    height: theme.fullHeight,
   },
 });

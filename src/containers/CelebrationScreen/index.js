@@ -7,12 +7,18 @@ import { Flex } from '../../components/common';
 import { navigatePush, navigateReset } from '../../actions/navigation';
 
 class CelebrationScreen extends Component {
-  timeoutId;
 
-  startTimer = () => {
+  constructor(props) {
+    super(props);
+    this.timeoutId = null;
+
+    this.startTimer = this.startTimer.bind(this);
+  }
+
+  startTimer() {
     clearTimeout(this.timeoutId);
     this.timeoutId = setTimeout(() => this.navigateToNext(), Platform.OS === 'android' ? 2880 : 3350);
-  };
+  }
 
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
