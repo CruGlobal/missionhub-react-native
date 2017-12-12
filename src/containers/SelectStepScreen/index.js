@@ -11,17 +11,11 @@ import BackButton from '../BackButton';
 
 class SelectStepScreen extends Component {
 
-  refreshSteps(newSteps, existingSteps) {
-    if (newSteps.length !== existingSteps.length) {
-      this.setState({steps: [].concat(newSteps, this.state.addedSteps)});
-    }
-  }
-
   constructor(props) {
     super(props);
 
     this.state = {
-      steps: props.useOthersSteps ? props.suggestedForOthers : props.suggestedForMe,
+      steps: props.steps,
       addedSteps: [],
     };
 
@@ -35,10 +29,8 @@ class SelectStepScreen extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.useOthersSteps) {
-      this.refreshSteps(nextProps.suggestedForOthers, this.props.suggestedForOthers);
-    } else {
-      this.refreshSteps(nextProps.suggestedForMe, this.props.suggestedForMe);
+    if (nextProps.steps.length !== this.props.steps.length) {
+      this.setState({steps: [].concat(nextProps.steps, this.state.addedSteps)});
     }
   }
 
@@ -115,14 +107,5 @@ class SelectStepScreen extends Component {
   }
 }
 
-const getThree = (arr) => {
-  return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
-};
 
-const mapStateToProps = ({ steps, personProfile }) => ({
-  suggestedForMe: getThree(steps.suggestedForMe),
-  suggestedForOthers: getThree(steps.suggestedForOthers),
-  personFirstName: personProfile.personFirstName,
-});
-
-export default connect(mapStateToProps)(SelectStepScreen);
+export default connect()(SelectStepScreen);

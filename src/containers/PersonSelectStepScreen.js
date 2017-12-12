@@ -3,10 +3,23 @@ import {connect} from 'react-redux';
 
 import SelectStepScreen from './SelectStepScreen';
 import theme from '../theme';
+import {getStepSuggestions} from '../actions/steps';
+import {getFirstThreeValidItems} from '../utils/common';
 
 class PersonSelectStepScreen extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getStepSuggestions());
+  }
+
+  insertName(steps) {
+    return steps.map(step => {
+      step.body = step.body.replace('<<name>>', this.props.personFirstName);
+      return step;
+    });
   }
 
   render() {
@@ -20,6 +33,7 @@ class PersonSelectStepScreen extends Component {
 
     return (
       <SelectStepScreen
+        steps={this.insertName(this.props.steps)}
         useOthersSteps={true}
         nextScreen={nextScreen}
         headerText={text} />
@@ -28,9 +42,10 @@ class PersonSelectStepScreen extends Component {
 
 }
 
-const mapStateToProps = ({personProfile, notifications}) => ({
+const mapStateToProps = ({ steps, personProfile }) => ({
+  steps: getFirstThreeValidItems(steps.suggestedForOthers),
   personFirstName: personProfile.personFirstName,
-  hasAskedPushNotifications: notifications.hasAsked,
 });
+
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);
