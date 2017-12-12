@@ -31,19 +31,33 @@ function stepsReducer(state = initialState, action) {
         suggestedForOthers: suggestions.filter((s) => !s.self_step),
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      const mySteps = action.results.findAll('accepted_challenge') || [];
+      let mySteps = action.results.findAll('accepted_challenge') || [];
+      mySteps = mySteps.map((s)=> {
+        if (state.reminders.find((r)=> r.id === s.id)) return {...s, reminder: true};
+        return s;
+      });
       return {
         ...state,
         mine: mySteps.filter((s) => !s._placeHolder),
       };
     case ADD_STEP_REMINDER:
+      const newMine = state.mine.map((s)=> {
+        if (s.id === action.step.id) return {...s, reminder: true};
+        return s;
+      });
       return {
         ...state,
+        mine: newMine,
         reminders: [...state.reminders, action.step],
       };
     case REMOVE_STEP_REMINDER:
+      const newRemove = state.mine.map((s)=> {
+        if (s.id === action.step.id) return {...s, reminder: undefined};
+        return s;
+      });
       return {
         ...state,
+        mine: newRemove,
         reminders: state.reminders.filter((s) => s.id !== action.step.id),
       };
     case LOGOUT:

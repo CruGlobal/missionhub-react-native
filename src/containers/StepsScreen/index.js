@@ -58,7 +58,7 @@ class StepsScreen extends Component {
     const remindersLength = this.props.reminders.length;
     if (remindersLength) {
       height += 55;
-      if (this.state.moving && remindersLength < MAX_REMINDERS) {
+      if (remindersLength < MAX_REMINDERS) {
         height += DROPZONE_HEIGHT;
       }
     } else {
@@ -67,7 +67,7 @@ class StepsScreen extends Component {
     height += remindersLength * ROW_HEIGHT;
     this.setState({ topHeight: height });
   }
-  
+
   handleRowSelect(step) {
     // LOG('TODO: Go To People, step selected', step.id);
     this.props.dispatch(navigatePush('Contact', { person: step.owner }));
@@ -128,7 +128,7 @@ class StepsScreen extends Component {
             ))
           }
           {
-            moving && reminders.length < MAX_REMINDERS ? (
+            reminders.length < MAX_REMINDERS ? (
               <Flex
                 align="center"
                 justify="end"
@@ -190,7 +190,7 @@ class StepsScreen extends Component {
     );
   }
 
-  render() {    
+  render() {
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -215,7 +215,7 @@ class StepsScreen extends Component {
 
 const mapStateToProps = ({ auth, steps }) => ({
   myId: auth.personId,
-  steps: steps.mine,
+  steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
 });
 
