@@ -7,6 +7,14 @@ import styles from './styles';
 
 export default class StepsList extends Component {
 
+  insertName(step) {
+    if (this.props.personFirstName) {
+      return step.replace('<<name>>', this.props.personFirstName);
+    } else {
+      return step;
+    }
+  }
+
   constructor(props) {
     super(props);
 
@@ -19,7 +27,7 @@ export default class StepsList extends Component {
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
           <Icon type="MissionHub" name={item.selected ? 'removeStepIcon' : 'addStepIcon'} style={styles.addIcon} />
-          <Text style={styles.stepName}>{item.body}</Text>
+          <Text style={styles.stepName}>{this.insertName(item.body)}</Text>
         </Flex>
       </Touchable>
     );

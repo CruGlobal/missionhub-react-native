@@ -10,6 +10,10 @@ import { testSnapshot } from '../../testUtils';
 const mockState = {
   steps: {
     suggestedForMe: [],
+    suggestedForOthers: [],
+  },
+  personProfile: {
+    personFirstName: 'Roge',
   },
 };
 

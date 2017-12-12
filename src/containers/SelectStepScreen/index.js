@@ -96,6 +96,7 @@ class SelectStepScreen extends Component {
         </Flex>
         <Flex value={2}>
           <StepsList
+            personFirstName={this.props.personFirstName}
             items={this.state.steps}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
@@ -118,9 +119,10 @@ const getThree = (arr) => {
   return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
 };
 
-const mapStateToProps = ({ steps }) => ({
+const mapStateToProps = ({ steps, personProfile }) => ({
   suggestedForMe: getThree(steps.suggestedForMe),
   suggestedForOthers: getThree(steps.suggestedForOthers),
+  personFirstName: personProfile.personFirstName,
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);
