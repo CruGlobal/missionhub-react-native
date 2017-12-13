@@ -61,13 +61,8 @@ class SelectStepScreen extends Component {
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
 
-    this.state.steps.map(step => {
-      step.receiverId = this.props.receiverId;
-      return step;
-    });
-
     LOG('selectedSteps', selectedSteps);
-    this.props.dispatch(addSteps(selectedSteps)).then(()=>{
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
       // LOG(r);
     });
     // TODO: Save selected steps with some kind of API call,

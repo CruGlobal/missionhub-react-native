@@ -20,28 +20,19 @@ export function getMySteps() {
   };
 }
 
-export function addSteps(steps) {
-  return (dispatch, getState) => {
+export function addSteps(steps, receiverId) {
+  return (dispatch) => {
     const query = {
-      person_id: getState().auth.personId,
+      person_id: receiverId,
     };
     let newSteps = steps.map((s) => ({
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
-        receiver_id: s.receiverId,
       },
     }));
 
     const data = {
-      // data: {
-      //   type: 'person',
-      //   attributes: {
-      //     first_name: 'Steve',
-      //     last_name: 'Rogers',
-      //     gender: 'm',
-      //   },
-      // },
       included: newSteps,
       include: 'received_challenges',
     };
