@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 
 import { firstTime } from '../../actions/auth';
-import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -11,18 +10,16 @@ import { navigatePush } from '../../actions/navigation';
 class LoginScreen extends Component {
 
   login() {
-    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
-      this.navigateToNext();
-    });
+    this.navigateToNext('KeyLogin');
   }
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToNext();
+    this.navigateToNext('Welcome');
   }
 
-  navigateToNext() {
-    this.props.dispatch(navigatePush('Welcome'));
+  navigateToNext(nextScreen) {
+    this.props.dispatch(navigatePush(nextScreen));
   }
 
   render() {

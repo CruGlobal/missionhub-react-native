@@ -1,10 +1,21 @@
-import { LOGIN, LOGOUT, FIRST_TIME } from '../constants';
+import { LOGOUT, FIRST_TIME } from '../constants';
 import { navigateReset } from './navigation';
 import { clearAllScheduledNotifications } from './notifications';
+import callApi, {REQUESTS} from './api';
 
-export function login() {
+export function keyLogin(username, password) {
+  const data = {
+    username: username,
+    password: password,
+    grant_type: 'password',
+    client_id: 8480288430352167964, //TODO put somewhere else?
+    scope: 'extended fullticket',
+  };
+
   return (dispatch) => {
-    dispatch({ type: LOGIN });
+    return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data)).catch((error) => {
+      LOG('error logging in', error);
+    });
   };
 }
 

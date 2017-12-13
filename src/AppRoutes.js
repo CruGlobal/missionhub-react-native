@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
+import KeyLoginScreen from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectStepScreen from './containers/SelectStepScreen';
@@ -90,6 +91,7 @@ export const MainStackRoutes = StackNavigator({
   Step: {screen: SelectStepScreen},
   AddStep: {screen: AddStepScreen},
   Login: {screen: LoginScreen},
+  KeyLogin: {screen: KeyLoginScreen},
   Welcome: {screen: WelcomeScreen},
   Setup: {screen: SetupScreen},
   GetStarted: {screen: GetStartedScreen},
@@ -106,6 +108,7 @@ export const MainStackRoutes = StackNavigator({
 }, {
   paths: {
     Login: 'Login',
+    KeyLogin: 'KeyLogin',
     Welcome: 'Welcome',
     Setup: 'Setup',
     GetStarted: 'GetStarted',

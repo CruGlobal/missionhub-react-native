@@ -26,6 +26,15 @@ export default {
   //   Don't use jsonDataApiStore
   //   useJsonDataApiStore: false
   // },
+  'KEY_LOGIN': {
+    endpoint: 'https://stage.thekey.me/cas/api/oauth/token',
+    method: 'post',
+    extra: {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    },
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
   'GET_STAGES': {
     endpoint: API_URL + 'pathway_stages',
     method: 'get',
