@@ -6,7 +6,6 @@ import { Flex, Text, Separator, Touchable, Icon } from '../common';
 import styles from './styles';
 
 export default class StepsList extends Component {
-
   constructor(props) {
     super(props);
 

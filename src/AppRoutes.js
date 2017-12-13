@@ -4,7 +4,8 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import LoginScreen from './containers/LoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectStepScreen from './containers/SelectStepScreen';
+import SelectMyStepScreen from './containers/SelectMyStepScreen';
+import PersonSelectStepScreen from './containers/PersonSelectStepScreen';
 import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen from './containers/WelcomeScreen';
@@ -87,7 +88,8 @@ export const MainTabRoutes = TabNavigator({
 export const MainStackRoutes = StackNavigator({
   MainTabs: {screen: MainTabRoutes},
   Profile: {screen: ProfileScreen},
-  Step: {screen: SelectStepScreen},
+  Step: {screen: SelectMyStepScreen},
+  PersonStep: {screen: PersonSelectStepScreen},
   AddStep: {screen: AddStepScreen},
   Login: {screen: LoginScreen},
   Welcome: {screen: WelcomeScreen},
@@ -115,6 +117,8 @@ export const MainStackRoutes = StackNavigator({
     Contact: 'Contact',
     SetupPerson: 'SetupPerson',
     PersonStage: 'PersonStage',
+    Step: 'Step',
+    PersonStep: 'PersonStep',
   },
   navigationOptions: {
     header: null,

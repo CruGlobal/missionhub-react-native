@@ -151,9 +151,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
-      >
-        How do you want to move forward on your spiritual journey?
-      </Text>
+      />
     </View>
   </View>
   <View
