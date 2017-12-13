@@ -34,6 +34,7 @@ class PersonSelectStepScreen extends Component {
     return (
       <SelectStepScreen
         steps={this.insertName(this.props.steps)}
+        receiverId={this.props.personId}
         useOthersSteps={true}
         nextScreen={nextScreen}
         headerText={text} />
@@ -45,6 +46,7 @@ class PersonSelectStepScreen extends Component {
 const mapStateToProps = ({ steps, personProfile }) => ({
   steps: getFirstThreeValidItems(steps.suggestedForOthers),
   personFirstName: personProfile.personFirstName,
+  personId: personProfile.id,
 });
 
 

@@ -18,6 +18,7 @@ class SelectMyStepScreen extends Component {
     return (
       <SelectStepScreen
         steps={this.props.steps}
+        receiverId={this.props.personId}
         useOthersSteps={false}
         nextScreen="AddSomeone"
         headerText="How do you want to move forward on your spiritual journey?"
@@ -27,8 +28,9 @@ class SelectMyStepScreen extends Component {
 
 }
 
-const mapStateToProps = ({ steps }) => ({
+const mapStateToProps = ({ steps, auth }) => ({
   steps: getFirstThreeValidItems(steps.suggestedForMe),
+  personId: auth.personId,
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);

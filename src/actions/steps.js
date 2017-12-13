@@ -29,6 +29,7 @@ export function addSteps(steps) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
+        receiver_id: s.receiverId,
       },
     }));
 

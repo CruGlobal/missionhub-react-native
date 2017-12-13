@@ -60,6 +60,12 @@ class SelectStepScreen extends Component {
 
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
+
+    this.state.steps.map(step => {
+      step.receiverId = this.props.receiverId;
+      return step;
+    });
+
     LOG('selectedSteps', selectedSteps);
     this.props.dispatch(addSteps(selectedSteps)).then(()=>{
       // LOG(r);
