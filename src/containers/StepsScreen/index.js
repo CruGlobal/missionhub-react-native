@@ -68,7 +68,7 @@ class StepsScreen extends Component {
 
   handleRowSelect(step) {
     // LOG('TODO: Go To People, step selected', step.id);
-    this.props.dispatch(navigatePush('Contact', { person: step.owner }));
+    this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
   }
 
   handleDropStep(step) {
@@ -121,7 +121,7 @@ class StepsScreen extends Component {
                 onDelete={() => this.handleRemoveReminder(s)}
                 onComplete={() => this.handleCompleteReminder(s)}
               >
-                <StepItem step={s} type="swipeable" isMe={s.owner ? s.owner.id === myId : false} />
+                <StepItem step={s} type="swipeable" isMe={s.receiver ? s.receiver.id === myId : false} />
               </RowSwipeable>
             ))
           }
@@ -172,7 +172,7 @@ class StepsScreen extends Component {
           <StepItemDraggable
             onSelect={this.handleRowSelect}
             step={item}
-            isMe={item.owner ? item.owner.id === myId : false}
+            isMe={item.receiver ? item.receiver.id === myId : false}
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}

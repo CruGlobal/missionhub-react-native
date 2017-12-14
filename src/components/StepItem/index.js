@@ -8,8 +8,7 @@ export default class StepItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   render() {
     const { step, type, isMe } = this.props;
-    const owner = step.owner || {};
-    let ownerName = isMe ? 'Me' : owner.full_name || '';
+    let ownerName = isMe ? 'Me' : step.receiver.full_name || '';
     ownerName = ownerName.toUpperCase();
     return (
       <Flex

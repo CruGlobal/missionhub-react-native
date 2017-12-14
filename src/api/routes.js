@@ -42,6 +42,13 @@ export default {
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + 'challenges',
   },
+  'DELETE_CHALLENGE': {
+    endpoint: API_URL + 'challenges/:challenge_id',
+    method: 'delete',
+  },
+  'GET_CHALLENGES_BY_FILTER': {
+    endpoint: API_URL + 'challenges',
+  },
   'CHALLENGE_COMPLETE': {
     endpoint: API_URL + 'challenges/:challenge_id',
     method: 'put',
