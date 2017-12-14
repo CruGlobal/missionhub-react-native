@@ -356,39 +356,73 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                <RCTScrollView
-                  bounces={true}
-                  data={Array []}
-                  disableVirtualization={false}
-                  getItem={[Function]}
-                  getItemCount={[Function]}
-                  horizontal={false}
-                  initialNumToRender={10}
-                  keyExtractor={[Function]}
-                  maxToRenderPerBatch={10}
-                  numColumns={1}
-                  onContentSizeChange={[Function]}
-                  onEndReachedThreshold={2}
-                  onLayout={[Function]}
-                  onMomentumScrollEnd={[Function]}
-                  onScroll={[Function]}
-                  onScrollBeginDrag={[Function]}
-                  onScrollEndDrag={[Function]}
-                  renderItem={[Function]}
-                  scrollEventThrottle={100}
-                  showsVerticalScrollIndicator={false}
-                  stickyHeaderIndices={Array []}
+                <View
                   style={
-                    Object {
-                      "backgroundColor": undefined,
-                    }
+                    Array [
+                      Object {},
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      },
+                    ]
                   }
-                  updateCellsBatchingPeriod={50}
-                  viewabilityConfigCallbackPairs={Array []}
-                  windowSize={21}
                 >
-                  <View />
-                </RCTScrollView>
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../assets/images/footprints.png",
+                      }
+                    }
+                  />
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "AmaticSC-Bold",
+                        },
+                        Object {
+                          "color": "#007398",
+                          "fontSize": 42,
+                          "paddingTop": 10,
+                        },
+                      ]
+                    }
+                  >
+                    STEPS OF FAITH
+                  </Text>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#505256",
+                          "fontSize": 16,
+                          "paddingHorizontal": 70,
+                          "paddingVertical": 10,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Your Steps of Faith with 
+                    Ben
+                     appear here.
+                  </Text>
+                </View>
               </View>
               <View
                 style={

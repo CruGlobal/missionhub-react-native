@@ -20,7 +20,7 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactSteps navigation={createMockNavState()} />
+      <ContactSteps person={{first_name: 'ben', id: 1}} navigation={createMockNavState()} />
     </Provider>
   );
 });
