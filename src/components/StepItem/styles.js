@@ -13,6 +13,13 @@ export default StyleSheet.create({
     marginTop: 1,
     backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
   },
+  listSwipeable: {
+    marginTop: 1,
+    backgroundColor: theme.white,
+    borderBottomWidth: theme.separatorHeight,
+    borderBottomColor: theme.separatorColor,
+    height: 70,
+  },
   draggable: {
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,

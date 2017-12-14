@@ -1,0 +1,41 @@
+import 'react-native';
+import React from 'react';
+
+// Note: test renderer must be required after react-native.
+import SecondaryTabBar from '../src/components/SecondaryTabBar';
+import { testSnapshot } from '../testUtils';
+import { Provider } from 'react-redux';
+import { createMockStore } from '../testUtils/index';
+const mockState = {
+  steps: {
+    mine: [],
+  },
+};
+
+const store = createMockStore(mockState);
+
+const tabArray = [
+  {
+    page: 'steps',
+    iconName: 'stepsIcon',
+    tabLabel: 'My Steps',
+  },
+  {
+    page: 'journey',
+    iconName: 'journeyIcon',
+    tabLabel: 'Our Journey',
+  },
+  {
+    page: 'notes',
+    iconName: 'notesIcon',
+    tabLabel: 'My Notes',
+  },
+];
+
+it('renders correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <SecondaryTabBar tabs={tabArray} />
+    </Provider>
+  );
+});
