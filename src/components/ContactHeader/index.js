@@ -6,19 +6,19 @@ import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 
-const TABS = [
+const CASEY_TABS = [
   {
-    page: 'test',
+    page: 'steps',
     iconName: 'stepsIcon',
     tabLabel: 'My Steps',
   },
   {
-    page: 'test2',
+    page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: 'Our Journey',
   },
   {
-    page: 'test3',
+    page: 'notes',
     iconName: 'notesIcon',
     tabLabel: 'My Notes',
   },
@@ -44,7 +44,7 @@ export default class ContactHeader extends Component {
           buttonTextStyle={styles.stageBtnText}
           onPress={()=>{}}
         />
-        <SecondaryTabBar tabs={TABS} />
+        <SecondaryTabBar tabs={CASEY_TABS} />
       </Flex>
     );
   }
@@ -52,5 +52,4 @@ export default class ContactHeader extends Component {
 
 ContactHeader.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
 };

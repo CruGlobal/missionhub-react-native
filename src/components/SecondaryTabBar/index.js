@@ -2,26 +2,38 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import { Flex, Text } from '../common';
+import { Flex } from '../common';
 // import styles from './styles';
 import CustomTabs from '../CustomTabs';
+import ContactSteps from '../../containers/ContactSteps';
 
 export default class SecondaryTabBar extends Component {
 
   constructor(props) {
     super(props);
-
+    this.renderTabs = this.renderTabs.bind(this);
   }
 
-  renderTabs = (tab) => {
-    return (
-      <Flex key={tab.tabIcon} style={{backgroundColor: 'white'}} value={1}>
-        <Text >{tab.page}</Text>
-        <Text >{tab.page}</Text>
-        <Text >{tab.page}</Text>
-        <Text >{tab.page}</Text>
-      </Flex>
-    );
+  renderTabs(tab) {
+    if (tab.page === 'steps') {
+      return (
+        <Flex key={tab.tabIcon} style={{backgroundColor: 'white'}} value={1}>
+          <ContactSteps />
+        </Flex>
+      );
+    } else if (tab.page === 'journey') {
+      return (
+        <Flex key={tab.tabIcon} style={{backgroundColor: 'white'}} value={1}>
+          <ContactSteps />
+        </Flex>
+      );
+    } else if (tab.page === 'notes') {
+      return (
+        <Flex key={tab.tabIcon} style={{backgroundColor: 'white'}} value={1}>
+          <ContactSteps />
+        </Flex>
+      );
+    }
   }
 
   render() {

@@ -20,9 +20,13 @@ export default class StepItem extends Component {
           type && styles[type] ? styles[type] : null,
         ]}
       >
-        <Text style={styles.person}>
-          {ownerName}
-        </Text>
+        {
+          type === 'listSwipeable' ? null : (
+            <Text style={styles.person}>
+              {ownerName}
+            </Text>
+          )
+        }
         <Text style={styles.description}>
           {step.title}
         </Text>
@@ -46,5 +50,5 @@ StepItem.propTypes = {
     receiver: PropTypes.object.isRequired,
   }).isRequired,
   isMe: PropTypes.bool,
-  type: PropTypes.oneOf(['draggable', 'swipeable', 'dragging', 'offscreen']),
+  type: PropTypes.oneOf(['draggable', 'swipeable', 'listSwipeable', 'dragging', 'offscreen']),
 };
