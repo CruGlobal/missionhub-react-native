@@ -16,6 +16,7 @@
     "Promise": true,
     "__DEV__": true,
     "LOG": true,
+    "WARN": true,
     "APILOG": true
   },
   "rules": {
