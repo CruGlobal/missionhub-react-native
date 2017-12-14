@@ -74,7 +74,6 @@ class ContactSteps extends Component {
 
 const mapStateToProps = ({ steps }) => ({
   steps: steps.mine,
-  reminders: steps.reminders,
 });
 
 export default connect(mapStateToProps)(ContactSteps);
