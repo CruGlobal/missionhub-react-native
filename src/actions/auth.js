@@ -4,13 +4,7 @@ import { clearAllScheduledNotifications } from './notifications';
 import callApi, {REQUESTS} from './api';
 
 export function keyLogin(username, password) {
-  const data = {
-    username: username,
-    password: password,
-    grant_type: 'password',
-    client_id: 8480288430352167964, //TODO put somewhere else?
-    scope: 'extended fullticket',
-  };
+  const data = 'grant_type=password&client_id=8480288430352167964&username=' + username + '&password=' + password;
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data)).catch((error) => {

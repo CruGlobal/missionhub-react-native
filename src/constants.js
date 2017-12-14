@@ -13,6 +13,8 @@ export const PUSH_NOTIFICATION_SHOULD_ASK = 'app/PUSH_NOTIFICATION_SHOULD_ASK';
 export const PUSH_NOTIFICATION_ASKED = 'app/PUSH_NOTIFICATION_ASKED';
 export const PUSH_NOTIFICATION_SET_TOKEN = 'app/PUSH_NOTIFICATION_SET_TOKEN';
 
+export const URL_ENCODED = 'application/x-www-form-urlencoded';
+
 
 export default {
 

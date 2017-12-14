@@ -1,4 +1,5 @@
 import { API_URL } from './utils';
+import {URL_ENCODED} from '../constants';
 
 const PEOPLE = 'people/';
 
@@ -30,7 +31,8 @@ export default {
     endpoint: 'https://stage.thekey.me/cas/api/oauth/token',
     method: 'post',
     extra: {
-      headers: { 'Content-Type': 'multipart/form-data' },
+      stringify: false,
+      headers: { 'Content-Type': URL_ENCODED },
     },
     anonymous: true,
     useJsonDataApiStore: false,
