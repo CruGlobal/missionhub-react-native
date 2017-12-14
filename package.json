@@ -9,25 +9,30 @@
 		"test:snapshot": "jest -u",
 		"ios": "react-native run-ios",
 		"lint": "eslint ./src",
+		"lint:fix": "eslint ./src --fix",
 		"android": "react-native run-android",
 		"android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
 		"android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
 		"android:build": "react-native run-android --variant=release",
-		"precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+		"precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+		"onesky:upload": "babel-node ./bin/oneskyUpload.js",
+		"onesky:download": "babel-node ./bin/oneskyDownload.js"
 	},
 	"dependencies": {
 		"axios": "0.17.0",
+		"babel-plugin-transform-decorators-legacy": "^1.3.4",
 		"color": "2.0.0",
+		"i18next": "^10.2.1",
 		"jsonapi-datastore": "0.4.0-beta",
 		"lodash": "4.17.4",
 		"moment": "2.19.1",
 		"prop-types": "15.6.0",
 		"qs": "^6.5.1",
 		"react": "16.0.0",
+		"react-i18next": "^7.1.1",
 		"react-native": "0.50.4",
 		"react-native-animatable": "1.2.4",
 		"react-native-device-info": "0.12.1",
-		"react-native-i18n": "2.0.9",
 		"react-native-push-notification": "^3.0.2",
 		"react-native-scrollable-tab-view": "^0.8.0",
 		"react-native-snap-carousel": "3.4.0",
@@ -42,9 +47,12 @@
 		"uuid": "3.1.0"
 	},
 	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
 		"babel-eslint": "8.0.1",
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
+		"dotenv": "^4.0.0",
 		"enzyme": "3.2.0",
 		"enzyme-adapter-react-16": "1.1.0",
 		"eslint": "4.10.0",
@@ -52,6 +60,7 @@
 		"eslint-plugin-react": "7.4.0",
 		"jest": "21.2.1",
 		"jest-cli": "21.2.1",
+		"onesky-utils": "^1.2.0",
 		"pre-commit": "1.2.2",
 		"react-dom": "16.2.0",
 		"react-test-renderer": "16.0.0-beta.5"
@@ -63,7 +72,7 @@
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
-			"<rootDir>/__mock__/react-native-i18n.js"
+			"<rootDir>/__mock__/react-native-device-info.js"
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"

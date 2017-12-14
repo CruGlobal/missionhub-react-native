@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import styles from './styles';
 import { Flex, Text, Button, Input } from '../../components/common';
+import {translate} from 'react-i18next';
 
+@translate('profileFields')
 class ProfileFields extends Component {
   state = {
     firstName: '',
@@ -13,7 +15,7 @@ class ProfileFields extends Component {
     phone: '',
     gender: null,
     path: null,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -27,11 +29,12 @@ class ProfileFields extends Component {
   }
 
   render() {
+    const { t } = this.props;
     const { firstName, lastName, email, phone } = this.state;
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
-          <Text i18n="Profile_Label_FirstName" style={styles.label} />
+          <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
           <Input
             ref={(c) => this.firstName = c}
             onChangeText={(t) => this.setState({ firstName: t })}
@@ -42,7 +45,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text i18n="Profile_Label_LastName" style={styles.label} />
+          <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
             ref={(c) => this.lastName = c}
             onChangeText={(t) => this.setState({ lastName: t })}
@@ -53,7 +56,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text i18n="Profile_Label_Email" style={styles.label} />
+          <Text style={styles.label}>{t('profileLabels.email')}</Text>
           <Input
             ref={(c) => this.email = c}
             onChangeText={(t) => this.setState({ email: t })}
@@ -65,7 +68,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text i18n="Profile_Label_Phone" style={styles.label} />
+          <Text style={styles.label}>{t('profileLabels.phone')}</Text>
           <Input
             ref={(c) => this.phone = c}
             onChangeText={(t) => this.setState({ phone: t })}

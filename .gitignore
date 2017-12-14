@@ -63,3 +63,5 @@ coverage/
 **/.gradle/
 **/build/
 android/app/build
+
+.env.local
