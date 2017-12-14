@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
+import {translate} from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { navigatePush } from '../../actions/navigation';
 import {createMyPerson, firstNameChanged, lastNameChanged} from '../../actions/profile';
 
+@translate('setup')
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
@@ -19,6 +21,8 @@ class SetupScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
@@ -29,7 +33,7 @@ class SetupScreen extends Component {
 
         <Flex value={3} style={{padding: 30}}>
           <View>
-            <Text i18n="Profile_Label_FirstName" style={styles.label} />
+            <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}
@@ -39,7 +43,7 @@ class SetupScreen extends Component {
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
               style={styles.input}
-              placeholder="First Name"
+              placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
           </View>
@@ -50,7 +54,7 @@ class SetupScreen extends Component {
               onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
               value={this.props.lastName}
               returnKeyType="next"
-              placeholder="Last Name"
+              placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"
               blurOnSubmit={true}
               style={styles.input}

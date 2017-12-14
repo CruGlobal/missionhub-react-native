@@ -115,7 +115,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Profile_Label_FirstName
+        First Name (Required)
       </Text>
       <TextInput
         allowFontScaling={true}
