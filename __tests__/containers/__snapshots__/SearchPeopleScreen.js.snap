@@ -110,7 +110,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -121,35 +121,63 @@ exports[`renders correctly 1`] = `
           Object {},
           Object {
             "alignItems": "center",
-            "flex": 1,
+            "flex": 5,
             "justifyContent": "center",
           },
         ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        numberOfLines={1}
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "white",
-              "fontSize": 14,
-              "fontWeight": "500",
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flexDirection": "row",
             },
           ]
         }
       >
-        PEOPLE
-      </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          autoFocus={true}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Array [
+              Object {
+                "backgroundColor": undefined,
+                "borderBottomColor": "#005A7F",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingVertical": 5,
+              },
+            ]
+          }
+          underlineColorAndroid={undefined}
+          value=""
+        />
+      </View>
     </View>
     <View
       style={
@@ -233,24 +261,76 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
     </View>
   </View>
-  <RCTScrollView
-    bounces={false}
-    scrollEnabled={true}
+  <View
     style={
-      Object {
-        "borderTopColor": "#ffffff",
-        "borderTopWidth": 1,
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "marginBottom": 40,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
     }
   >
-    <View />
-  </RCTScrollView>
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+      style={undefined}
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 84,
+            "letterSpacing": 2,
+          },
+        ]
+      }
+    >
+      Search
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Search results will appear here.
+    </Text>
+  </View>
 </View>
 `;

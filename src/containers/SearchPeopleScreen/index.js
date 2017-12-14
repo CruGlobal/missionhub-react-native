@@ -16,6 +16,7 @@ export class SearchPeopleScreen extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
       text: '',
       results: [],
