@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT } from '../constants';
+import { FIRST_TIME, LOGIN, LOGOUT, LOGIN_WITH_MINISTRIES } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
@@ -8,6 +8,7 @@ const initialAuthState = {
   isFirstTime: false,
   token: '',
   personId: '',
+  hasMinistries: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -23,6 +24,12 @@ function authReducer(state = initialAuthState, action) {
       return state;
     case LOGIN:
       return { ...state, isLoggedIn: true };
+    case LOGIN_WITH_MINISTRIES:
+      return {
+        ...state,
+        hasMinistries: true,
+        isLoggedIn: true,
+      };
     case FIRST_TIME:
       return { ...state, isFirstTime: true, isLoggedIn: false };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
