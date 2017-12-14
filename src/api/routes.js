@@ -1,7 +1,9 @@
 import { API_URL } from './utils';
 import {URL_ENCODED} from '../constants';
 
+const THE_KEY = 'https://stage.thekey.me/cas/api/oauth/';
 const PEOPLE = 'people/';
+const AUTH = 'auth/';
 
 export default {
   // Example
@@ -28,13 +30,26 @@ export default {
   //   useJsonDataApiStore: false
   // },
   'KEY_LOGIN': {
-    endpoint: 'https://stage.thekey.me/cas/api/oauth/token',
+    endpoint: THE_KEY + 'token',
     method: 'post',
     extra: {
       stringify: false,
       headers: { 'Content-Type': URL_ENCODED },
     },
     anonymous: true,
+    useJsonDataApiStore: false,
+  },
+  'KEY_GET_TICKET': {
+    endpoint: THE_KEY + 'ticket?service=' + API_URL + AUTH + 'thekey',
+    method: 'get',
+    extra: {
+      stringify: false,
+    },
+    useJsonDataApiStore: false,
+  },
+  'TICKET_LOGIN': {
+    endpoint: API_URL + AUTH + 'thekey',
+    method: 'post',
     useJsonDataApiStore: false,
   },
   'GET_STAGES': {

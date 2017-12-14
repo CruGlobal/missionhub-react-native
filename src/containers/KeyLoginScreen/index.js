@@ -61,6 +61,7 @@ class KeyLoginScreen extends Component {
               Password
             </Text>
             <Input
+              secureTextEntry={true}
               ref={(c) => this.password = c}
               onChangeText={(t) => this.passwordChanged(t)}
               value={this.state.password}

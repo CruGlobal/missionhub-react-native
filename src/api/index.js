@@ -35,6 +35,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
       if (!routeData.anonymous) {
         authHeader['Authorization'] = `Bearer ${q.access_token}`;
       }
+      delete q.access_token;
       const extra = merge({}, { headers: authHeader }, routeData.extra);
 
       // Merge some default data from the routes with the data passed in

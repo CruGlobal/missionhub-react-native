@@ -171,6 +171,7 @@ exports[`renders correctly 1`] = `
         placeholder="Password"
         placeholderTextColor="white"
         returnKeyType="next"
+        secureTextEntry={true}
         selectionColor="#007398"
         style={
           Array [
