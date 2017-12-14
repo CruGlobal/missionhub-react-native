@@ -5,6 +5,7 @@ import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import {keyLogin} from '../../actions/auth';
+import {navigatePush} from '../../actions/navigation';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -25,8 +26,10 @@ class KeyLoginScreen extends Component {
   }
 
   login() {
-    Keyboard.dismiss();
-    this.props.dispatch(keyLogin(this.state.username, this.state.password));
+    this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
+      Keyboard.dismiss();
+      this.props.dispatch(navigatePush('GetStarted'));
+    });
   }
 
   render() {
