@@ -6,10 +6,11 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "height": 90,
+          "bottom": 0,
           "marginTop": 1,
           "position": "absolute",
           "right": 0,
+          "top": 0,
           "width": 150,
         },
         Object {

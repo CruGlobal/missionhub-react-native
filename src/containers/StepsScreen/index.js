@@ -15,8 +15,6 @@ import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import theme from '../../theme';
 
-const isCasey = true;
-
 const MAX_REMINDERS = 3;
 const DROPZONE_HEIGHT = 85;
 const ROW_HEIGHT = theme.itemHeight + 0.2;
@@ -198,7 +196,7 @@ class StepsScreen extends Component {
             <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
           }
           right={
-            isCasey ? null : (
+            this.props.isCasey ? null : (
               <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
             )
           }
@@ -214,6 +212,7 @@ class StepsScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, steps }) => ({
+  isCasey: !auth.hasMinistries,
   myId: auth.personId,
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,

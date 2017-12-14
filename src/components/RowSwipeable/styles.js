@@ -7,7 +7,8 @@ export default StyleSheet.create({
     position: 'absolute',
     right: 0,
     marginTop: 1,
-    height: 90,
+    top: 0,
+    bottom: 0,
     width: 150,
   },
   deleteWrap: {
