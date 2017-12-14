@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { getMySteps } from '../../actions/steps';
 
 import styles from './styles';
-import { Flex, Button } from '../../components/common';
+import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
+import NULL from '../../../assets/images/footprints.png';
 
 class ContactSteps extends Component {
 
@@ -15,6 +16,9 @@ class ContactSteps extends Component {
     super(props);
 
     this.renderRow = this.renderRow.bind(this);
+    this.renderNull = this.renderNull.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.handleComplete = this.handleComplete.bind(this);
   }
 
   componentWillMount() {
@@ -24,13 +28,21 @@ class ContactSteps extends Component {
   componentDidMount() {
   }
 
+  handleRemove() {
+    LOG('remove step');
+  }
+
+  handleComplete() {
+    LOG('complete step');
+  }
+
 
   renderRow({item}) {
     return (
       <RowSwipeable
         key={item.id}
-        onDelete={() => this.handleRemoveReminder(item)}
-        onComplete={() => this.handleCompleteReminder(item)}
+        onDelete={() => this.handleRemove(item)}
+        onComplete={() => this.handleComplete(item)}
       >
         <StepItem step={item} type="listSwipeable" />
       </RowSwipeable>
@@ -54,11 +66,24 @@ class ContactSteps extends Component {
     );
   }
 
+  renderNull() {
+    const name = 'Ben';
+    return (
+      <Flex align="center" justify="center">
+        <Image source={NULL} />
+        <Text type="header" style={styles.nullHeader}>STEPS OF FAITH</Text>
+        <Text style={styles.nullText}>Your Steps of Faith with {name} appear here.</Text>
+      </Flex>
+    );
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          {this.renderList()}
+          {
+            this.props.steps.length > 0 ? this.renderList() : this.renderNull()
+          }
         </Flex>
         <Flex justify="end">
           <Button
