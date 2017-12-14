@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
 import styles from './styles';
@@ -36,4 +37,12 @@ export class SearchPeopleFilterRefineScreen extends Component {
   }
 }
 
-export default connect()(SearchPeopleFilterRefineScreen);
+SearchPeopleFilterRefineScreen.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(SearchPeopleFilterRefineScreen);

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigateBack, navigatePush } from '../../actions/navigation';
+import { searchPeople } from '../../actions/people';
 import styles from './styles';
 import { Flex, IconButton, Input, Text } from '../../components/common';
 import Header from '../Header';
+import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 
 export class SearchPeopleScreen extends Component {
@@ -18,13 +20,19 @@ export class SearchPeopleScreen extends Component {
       text: '',
       results: [],
       filters: {},
+      isSearching: false,
     };
 
+    this.handleSelectPerson = this.handleSelectPerson.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleSearch = debounce(this.handleSearch.bind(this), 300);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
+  }
+
+  handleSelectPerson(person) {
+    this.props.dispatch(navigatePush('Contact', { person }));
   }
 
   handleFilter() {
@@ -36,17 +44,30 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleTextChange(t) {
-    this.setState({ text: t });
+    this.setState({ text: t, isSearching: true });
     this.handleSearch(t);
   }
 
   handleSearch(text) {
-    if (!text) return;
+    if (!text) return this.clearSearch();
     LOG('handling search', text);
+
+    this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
+      const people = results.findAll('person') || [];
+      // const people = [
+      //   { id: '1', first_name: 'Ron', last_name: 'Swanson', full_name: 'Ron Swanson', organization: 'Cru at Harvard' },
+      //   { id: '2', first_name: 'Leslie', last_name: 'Knope', full_name: 'Leslie Knope', organization: 'Cru at Harvard' },
+      //   { id: '3', first_name: 'Ben', last_name: 'Wyatt', full_name: 'Ben Wyatt', organization: 'Cru at Harvard' },
+      // ];
+      this.setState({ isSearching: false, results: people });
+    }).catch((err) => {
+      this.setState({ isSearching: false });
+      LOG('error getting search results', err);
+    });
   }
 
   clearSearch() {
-    this.setState({ text: '' });
+    this.setState({ text: '', results: [], isSearching: false });
   }
 
   renderCenter() {
@@ -80,7 +101,25 @@ export class SearchPeopleScreen extends Component {
   }
 
   renderContent() {
-    const { results } = this.state;
+    const { results, text, isSearching } = this.state;
+    if (isSearching && results.length === 0) {
+      return (
+        <Flex align="center" value={1} style={styles.emptyWrap}>
+          <Text style={styles.nullText}>
+            Loading
+          </Text>
+        </Flex>
+      );
+    }
+    if (text && results.length === 0) {
+      return (
+        <Flex align="center" value={1} style={styles.emptyWrap}>
+          <Text style={styles.nullText}>
+            No results
+          </Text>
+        </Flex>
+      );
+    }
     if (results.length === 0) {
       return (
         <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
@@ -95,7 +134,16 @@ export class SearchPeopleScreen extends Component {
       );
     }
     return (
-      <Flex />
+      <FlatList
+        style={styles.list}
+        data={results}
+        keyExtractor={(i) => i.id}
+        renderItem={({ item }) => (
+          <SearchPeopleItem
+            onSelect={this.handleSelectPerson}
+            person={item} />
+        )}
+      />
     );
   }
 

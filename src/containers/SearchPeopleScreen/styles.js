@@ -22,6 +22,9 @@ export default StyleSheet.create({
     paddingHorizontal: 5,
     fontSize: 10,
   },
+  emptyWrap: {
+    paddingTop: 15,
+  },
   nullWrap: {
     marginBottom: 40,
   },

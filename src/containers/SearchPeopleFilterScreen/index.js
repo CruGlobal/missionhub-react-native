@@ -41,4 +41,8 @@ SearchPeopleFilterScreen.propTypes = {
   onFilter: PropTypes.func.isRequired,
 };
 
-export default connect()(SearchPeopleFilterScreen);
+const mapStateToProps = (state, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(SearchPeopleFilterScreen);

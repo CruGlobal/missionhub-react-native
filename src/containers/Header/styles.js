@@ -16,10 +16,10 @@ export default StyleSheet.create({
 
   },
   left: {
-
+    paddingLeft: 5,
   },
   right: {
-
+    paddingRight: 5,
   },
   title: {
     color: 'white',
