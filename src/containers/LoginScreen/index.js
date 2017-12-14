@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 
-import { firstTime } from '../../actions/auth';
+import { firstTime, loginWithMinistries } from '../../actions/auth';
 import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
@@ -10,8 +10,23 @@ import { navigatePush } from '../../actions/navigation';
 
 class LoginScreen extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.login = this.login.bind(this);
+    this.loginMinistries = this.loginMinistries.bind(this);
+    this.tryItNow = this.tryItNow.bind(this);
+  }
+
   login() {
     this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
+      this.navigateToNext();
+    });
+  }
+
+  loginMinistries() {
+    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
+      this.props.dispatch(loginWithMinistries(true));
       this.navigateToNext();
     });
   }
@@ -41,14 +56,14 @@ class LoginScreen extends Component {
             <Button
               pill={true}
               type="primary"
-              onPress={() => console.log('join')}
+              onPress={this.loginMinistries}
               text="SIGN UP WITH FACEBOOK"
               style={styles.facebookButton}
               buttonTextStyle={styles.buttonText}
             />
             <Button
               pill={true}
-              onPress={() => this.tryItNow()}
+              onPress={this.tryItNow}
               text="TRY IT NOW"
               style={styles.tryButton}
               buttonTextStyle={styles.buttonText}
@@ -58,7 +73,7 @@ class LoginScreen extends Component {
         <Flex value={0.8} align="center" justify="center">
           <Button
             type="transparent"
-            onPress={() => this.login()}
+            onPress={this.login}
             text="SIGN IN"
             style={styles.signInButton}
             buttonTextStyle={styles.buttonText}
