@@ -17,19 +17,19 @@ export default class SecondaryTabBar extends Component {
   renderTabs(tab) {
     if (tab.page === 'steps') {
       return (
-        <Flex key={tab.iconName} style={{backgroundColor: 'white'}} value={1}>
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
           <ContactSteps />
         </Flex>
       );
     } else if (tab.page === 'journey') {
       return (
-        <Flex key={tab.iconName} style={{backgroundColor: 'white'}} value={1}>
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
           <ContactSteps />
         </Flex>
       );
     } else if (tab.page === 'notes') {
       return (
-        <Flex key={tab.iconName} style={{backgroundColor: 'white'}} value={1}>
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
           <ContactSteps />
         </Flex>
       );

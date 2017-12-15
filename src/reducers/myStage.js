@@ -1,5 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
-import {REQUESTS} from '../actions/api';
+import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
 
 const initialState = {
