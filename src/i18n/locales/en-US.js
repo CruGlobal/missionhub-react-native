@@ -22,4 +22,29 @@ export default {
     tryNow: 'Try it now',
     signIn: 'Sign In',
   },
+  addContact: {
+    addSomeone: 'Add Someone',
+    done: 'Done',
+  },
+  addStep: {
+    header: 'My Step of Faith',
+    createStep: 'Create Step',
+  },
+  contactSteps: {
+    addStep: 'Add a step of faith',
+  },
+  getStarted: {
+    hi: 'hi',
+    tagline: "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",
+    getStarted: "Let's get started",
+  },
+  history: {
+    header: 'History',
+  },
+  impact: {
+    header: 'Impact',
+    impactSentence: 'In {{year}}, {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
+    you: 'you',
+    users: 'users',
+  },
 };

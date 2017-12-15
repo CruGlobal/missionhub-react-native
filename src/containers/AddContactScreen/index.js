@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
@@ -9,6 +10,7 @@ import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../co
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 
+@translate('addContact')
 class ProfileScreen extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +31,8 @@ class ProfileScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         <Header
@@ -39,7 +43,7 @@ class ProfileScreen extends Component {
               onPress={() => this.props.dispatch(navigateBack())} />
           }
           shadow={false}
-          title="ADD SOMEONE"
+          title={t('addSomeone').toUpperCase()}
         />
         <AddContactFields onUpdateData={(data) => this.setState({ data })} />
 
@@ -47,7 +51,7 @@ class ProfileScreen extends Component {
           <Button
             type="secondary"
             onPress={this.savePerson}
-            text="DONE"
+            text={t('done').toUpperCase()}
             style={styles.button}
           />
         </Flex>
