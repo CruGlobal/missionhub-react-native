@@ -31,8 +31,8 @@ function authReducer(state = initialAuthState, action) {
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
-        token: results.access_token, refreshToken:
-        results.refresh_token,
+        token: results.access_token,
+        refreshToken: results.refresh_token,
       };
     case REQUESTS.TICKET_LOGIN.SUCCESS:
       return {
