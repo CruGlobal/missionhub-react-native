@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { getMySteps } from '../../actions/steps';
 
@@ -9,6 +10,7 @@ import { Flex, Button } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 
+@translate('contactSteps')
 class ContactSteps extends Component {
 
   constructor(props) {
@@ -55,6 +57,7 @@ class ContactSteps extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -64,7 +67,7 @@ class ContactSteps extends Component {
           <Button
             type="secondary"
             onPress={()=>{}}
-            text="ADD A STEP OF FAITH"
+            text={t('addStep').toUpperCase()}
           />
         </Flex>
       </View>
