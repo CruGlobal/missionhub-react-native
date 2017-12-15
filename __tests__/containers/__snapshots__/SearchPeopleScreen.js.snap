@@ -334,3 +334,321 @@ exports[`renders correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders with no results state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    }
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="journeyIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 40,
+      }
+    }
+    value={1}
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 84,
+          "letterSpacing": 2,
+        }
+      }
+      type="header"
+    >
+      Search
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Search results will appear here.
+    </MyText>
+  </Flex>
+</View>
+`;
+
+exports[`renders with results state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    }
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="journeyIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 40,
+      }
+    }
+    value={1}
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 84,
+          "letterSpacing": 2,
+        }
+      }
+      type="header"
+    >
+      Search
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Search results will appear here.
+    </MyText>
+  </Flex>
+</View>
+`;
+
+exports[`renders with searching state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    center={
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    }
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="journeyIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 40,
+      }
+    }
+    value={1}
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 84,
+          "letterSpacing": 2,
+        }
+      }
+      type="header"
+    >
+      Search
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Search results will appear here.
+    </MyText>
+  </Flex>
+</View>
+`;

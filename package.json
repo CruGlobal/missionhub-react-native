@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"test:snapshot": "jest -u",
 		"ios": "react-native run-ios",
@@ -22,14 +23,14 @@
 		"lodash": "4.17.4",
 		"moment": "2.19.1",
 		"prop-types": "15.6.0",
-		"qs": "^6.5.1",
+		"qs": "6.5.1",
 		"react": "16.0.0",
 		"react-native": "0.50.4",
 		"react-native-animatable": "1.2.4",
 		"react-native-device-info": "0.12.1",
 		"react-native-i18n": "2.0.9",
-		"react-native-push-notification": "^3.0.2",
-		"react-native-scrollable-tab-view": "^0.8.0",
+		"react-native-push-notification": "3.0.2",
+		"react-native-scrollable-tab-view": "0.8.0",
 		"react-native-snap-carousel": "3.4.0",
 		"react-native-vector-icons": "4.4.2",
 		"react-navigation": "1.0.0-beta.21",
@@ -47,6 +48,7 @@
 		"babel-preset-react-native": "4.0.0",
 		"enzyme": "3.2.0",
 		"enzyme-adapter-react-16": "1.1.0",
+		"enzyme-to-json": "^3.3.0",
 		"eslint": "4.10.0",
 		"eslint-plugin-import": "2.8.0",
 		"eslint-plugin-react": "7.4.0",
@@ -64,6 +66,9 @@
 		"preset": "react-native",
 		"setupFiles": [
 			"<rootDir>/__mock__/react-native-i18n.js"
+		],
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!(jest-)?react-native|react-navigation)"
