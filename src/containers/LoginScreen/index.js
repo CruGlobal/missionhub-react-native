@@ -50,7 +50,7 @@ class LoginScreen extends Component {
         <Flex value={.5} />
         <Flex value={3} align="center" justify="center">
           <Flex align="center">
-            <View style={{paddingBottom: 20}}>
+            <View style={{ paddingBottom: 20 }}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
             <Text style={styles.text}>{t('tagline1')}</Text>

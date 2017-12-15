@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
-import {translate} from 'react-i18next';
+import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { navigatePush } from '../../actions/navigation';
-import {createMyPerson, firstNameChanged, lastNameChanged} from '../../actions/profile';
+import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/profile';
 
 @translate('setup')
 class SetupScreen extends Component {
@@ -26,12 +26,12 @@ class SetupScreen extends Component {
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
-        <Flex value={2} style={{alignItems: 'center'}}>
+        <Flex value={2} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>-first things first-</Text>
           <Text type="header" style={styles.headerTwo}>what's your name?</Text>
         </Flex>
 
-        <Flex value={3} style={{padding: 30}}>
+        <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
             <Input
@@ -48,7 +48,7 @@ class SetupScreen extends Component {
             />
           </View>
 
-          <View style={{paddingTop: 30}}>
+          <View style={{ paddingTop: 30 }}>
             <Input
               ref={(c) => this.lastName = c}
               onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
@@ -74,7 +74,7 @@ class SetupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({profile}) => ({
+const mapStateToProps = ({ profile }) => ({
   firstName: profile.firstName,
   lastName: profile.lastName,
 });

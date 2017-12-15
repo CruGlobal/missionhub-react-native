@@ -1,4 +1,4 @@
-import {PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED} from '../constants';
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED } from '../constants';
 
 export function personFirstNameChanged(firstName) {
   return {

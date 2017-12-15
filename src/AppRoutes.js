@@ -42,7 +42,7 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon type="MissionHub" name={name} size={30} style={{color: tintColor}} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -72,10 +72,10 @@ export const MainTabRoutes = TabNavigator({
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
-    style: {backgroundColor: theme.white},
+    style: { backgroundColor: theme.white },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
-    tabStyle: {backgroundColor: theme.lightBackgroundColor},
+    tabStyle: { backgroundColor: theme.lightBackgroundColor },
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
@@ -89,28 +89,28 @@ export const MainTabRoutes = TabNavigator({
 });
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: {screen: MainTabRoutes},
-  Profile: {screen: ProfileScreen},
-  Step: {screen: SelectMyStepScreen},
-  PersonStep: {screen: PersonSelectStepScreen},
-  AddStep: {screen: AddStepScreen},
-  Login: {screen: LoginScreen},
-  Welcome: {screen: WelcomeScreen},
-  Setup: {screen: SetupScreen},
-  GetStarted: {screen: GetStartedScreen},
-  Stage: {screen: StageScreen},
-  StageSuccess: {screen: StageSuccessScreen},
-  AddSomeone: {screen: AddSomeoneScreen},
-  Contact: {screen: ContactScreen},
-  AddContact: {screen: AddContactScreen},
-  NotificationPrimer: {screen: NotificationPrimerScreen},
-  Impact: { screen: ImpactScreen},
-  SetupPerson: {screen: SetupPersonScreen},
-  PersonStage: {screen: PersonStageScreen},
-  Celebration: {screen: CelebrationScreen},
-  SearchPeople: { screen: SearchPeopleScreen},
-  SearchPeopleFilter: { screen: SearchPeopleFilterScreen},
-  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen},
+  MainTabs: { screen: MainTabRoutes },
+  Profile: { screen: ProfileScreen },
+  Step: { screen: SelectMyStepScreen },
+  PersonStep: { screen: PersonSelectStepScreen },
+  AddStep: { screen: AddStepScreen },
+  Login: { screen: LoginScreen },
+  Welcome: { screen: WelcomeScreen },
+  Setup: { screen: SetupScreen },
+  GetStarted: { screen: GetStartedScreen },
+  Stage: { screen: StageScreen },
+  StageSuccess: { screen: StageSuccessScreen },
+  AddSomeone: { screen: AddSomeoneScreen },
+  Contact: { screen: ContactScreen },
+  AddContact: { screen: AddContactScreen },
+  NotificationPrimer: { screen: NotificationPrimerScreen },
+  Impact: { screen: ImpactScreen },
+  SetupPerson: { screen: SetupPersonScreen },
+  PersonStage: { screen: PersonStageScreen },
+  Celebration: { screen: CelebrationScreen },
+  SearchPeople: { screen: SearchPeopleScreen },
+  SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
+  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
 }, {
   paths: {
     Login: 'Login',

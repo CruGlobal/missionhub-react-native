@@ -37,7 +37,7 @@ class IconMessageScreen extends Component {
             type="secondary"
             onPress={this.handleNext}
             text={buttonText}
-            style={{width: theme.fullWidth}}
+            style={{ width: theme.fullWidth }}
           />
         </Flex>
       </Flex>

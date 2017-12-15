@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { logout } from '../../actions/auth';
 import { getGlobalImpact, getMyImpact } from '../../actions/impact';
@@ -11,44 +12,47 @@ import Header from '../Header';
 import { intToStringLocale } from '../../utils/common';
 
 const year = new Date().getFullYear();
-const myImpactStr = ({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }) =>
-  `In ${year}, you took ${intToStringLocale(steps_count)} steps of faith with ${intToStringLocale(receivers_count)} people.
 
-${intToStringLocale(pathway_moved_count)} people reached a new stage on their spiritual journey.`;
-const globalImpactStr = ({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }) =>
-  `In ${year}, users took ${intToStringLocale(steps_count)} steps of faith with ${intToStringLocale(receivers_count)} people.
-
-${intToStringLocale(pathway_moved_count)} people reached a new stage on their spiritual journey.`;
-
+@translate('impact')
 class ImpactScreen extends Component {
-  
+
   componentWillMount() {
     this.props.dispatch(getGlobalImpact());
     this.props.dispatch(getMyImpact());
   }
-  
+
+  buildImpactSentence({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }, global = false) {
+    return this.props.t('impactSentence', {
+      year: year,
+      initiator: global ? '$t(users)' : '$t(you)',
+      stepsCount: intToStringLocale(steps_count),
+      receiversCount: intToStringLocale(receivers_count),
+      pathwayMovedCount: intToStringLocale(pathway_moved_count),
+    });
+  }
+
   render() {
-    const { globalImpact, myImpact } = this.props;
+    const { t, globalImpact, myImpact } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
             <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
           }
-          title="IMPACT"
+          title={t('header').toUpperCase()}
         />
         <ScrollView
           bounces={false}
         >
           <Flex style={styles.topSection}>
             <Text style={[styles.text, styles.topText]}>
-              {myImpactStr(myImpact)}
+              {this.buildImpactSentence(myImpact)}
             </Text>
           </Flex>
           <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
           <Flex style={styles.bottomSection}>
             <Text style={[styles.text, styles.bottomText]}>
-              {globalImpactStr(globalImpact)}
+              {this.buildImpactSentence(globalImpact, true)}
             </Text>
           </Flex>
         </ScrollView>

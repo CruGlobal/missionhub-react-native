@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {navigatePush} from '../../actions/navigation';
-import {View, Image} from 'react-native';
-import {getStages} from '../../actions/stages';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { navigatePush } from '../../actions/navigation';
+import { View, Image } from 'react-native';
+import { getStages } from '../../actions/stages';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
-import {Flex, Text, Button} from '../../components/common';
+import { Flex, Text, Button } from '../../components/common';
 import LANDSCAPE from '../../../assets/images/landscape-full.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -51,7 +51,7 @@ class PathwayStageScreen extends Component {
     });
   }
 
-  renderStage({item, index}) {
+  renderStage({ item, index }) {
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
@@ -112,7 +112,7 @@ PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({stages}) => ({
+const mapStateToProps = ({ stages }) => ({
   stages: stages.stages,
 });
 

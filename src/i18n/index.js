@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
 import mapValues from 'lodash/mapValues';
-import {locale} from '../utils/common';
+import { locale } from '../utils/common';
 
 import translations from './locales/translations.json';
 import en_US from './locales/en-US.js';

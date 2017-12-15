@@ -30,7 +30,10 @@
     ],
     "quotes": [
       2,
-      "single"
+      "single",
+      {
+        "avoidEscape": true
+      }
     ],
     "semi": [
       2,
@@ -83,6 +86,10 @@
     ],
     "no-mixed-spaces-and-tabs": [
       "error"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
     ],
     "react/jsx-indent": [
       "error",
