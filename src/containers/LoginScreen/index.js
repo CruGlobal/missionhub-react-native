@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
+import { translate } from 'react-i18next';
 
 import { firstTime, loginWithMinistries } from '../../actions/auth';
 import { createMyPerson } from '../../actions/profile';
@@ -8,6 +9,7 @@ import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 
+@translate('login')
 class LoginScreen extends Component {
 
   constructor(props) {
@@ -41,6 +43,8 @@ class LoginScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Flex style={styles.container}>
         <Flex value={.5} />
@@ -49,22 +53,22 @@ class LoginScreen extends Component {
             <View style={{paddingBottom: 20}}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
-            <Text style={styles.text}>Grow closer to God.</Text>
-            <Text style={styles.text}>Help others experience Him.</Text>
+            <Text style={styles.text}>{t('tagline1')}</Text>
+            <Text style={styles.text}>{t('tagline2')}</Text>
           </Flex>
           <Flex value={2} align="center" justify="end">
             <Button
               pill={true}
               type="primary"
               onPress={this.loginMinistries}
-              text="SIGN UP WITH FACEBOOK"
+              text={t('facebookSignup').toUpperCase()}
               style={styles.facebookButton}
               buttonTextStyle={styles.buttonText}
             />
             <Button
               pill={true}
               onPress={this.tryItNow}
-              text="TRY IT NOW"
+              text={t('tryNow').toUpperCase()}
               style={styles.tryButton}
               buttonTextStyle={styles.buttonText}
             />
@@ -74,7 +78,7 @@ class LoginScreen extends Component {
           <Button
             type="transparent"
             onPress={this.login}
-            text="SIGN IN"
+            text={t('signIn').toUpperCase()}
             style={styles.signInButton}
             buttonTextStyle={styles.buttonText}
           />
