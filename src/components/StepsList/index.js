@@ -28,12 +28,15 @@ export default class StepsList extends Component {
     return (
       <Touchable onPress={this.props.onCreateStep}>
         <Flex direction="row" align="center" justify="start" value={1} style={styles.separatorWrap}>
-          {/* TODO: Make this an edit icon */}
           <Icon name="createStepIcon" type="MissionHub" style={styles.addIcon} />
           <Text style={styles.stepName}>Create your own step...</Text>
         </Flex>
       </Touchable>
     );
+  }
+
+  onScrollToEnd() {
+    setTimeout(() => this.listView.scrollToEnd(), 200);
   }
 
   render() {
