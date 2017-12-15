@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { createMockStore } from '../../testUtils/index';
-import SearchPeopleScreen from '../../src/containers/SearchPeopleScreen';
+import SearchPeopleScreenConnected, { SearchPeopleScreen } from '../../src/containers/SearchPeopleScreen';
 import { testSnapshot } from '../../testUtils';
 
 const store = createMockStore();
@@ -15,7 +15,7 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <SearchPeopleScreen />
+      <SearchPeopleScreenConnected />
     </Provider>
   );
 });
@@ -54,5 +54,5 @@ it('renders with results state', () => {
     { id: '2', full_name: 'Leslie Knope', organization: 'Cru at Harvard' },
     { id: '3', full_name: 'Ben Wyatt', organization: 'Cru at Harvard' },
   ] });
-  expect(screen.dive()).toMatchSnapshot();
+  expect(screen.dive()).toMatchSnapshot();  
 });

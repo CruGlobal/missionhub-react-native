@@ -374,7 +374,18 @@ exports[`renders with no results state 1`] = `
               "paddingVertical": 5,
             }
           }
-          value=""
+          value="test"
+        />
+        <IconButton
+          name="plusIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "fontSize": 10,
+              "paddingHorizontal": 5,
+            }
+          }
+          type="MissionHub"
         />
       </Flex>
     }
@@ -395,36 +406,13 @@ exports[`renders with no results state 1`] = `
   />
   <Flex
     align="center"
-    justify="center"
     style={
       Object {
-        "marginBottom": 40,
+        "paddingTop": 15,
       }
     }
     value={1}
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -435,7 +423,7 @@ exports[`renders with no results state 1`] = `
         }
       }
     >
-      Search results will appear here.
+      No results
     </MyText>
   </Flex>
 </View>
@@ -499,51 +487,38 @@ exports[`renders with results state 1`] = `
       />
     }
   />
-  <Flex
-    align="center"
-    justify="center"
-    style={
-      Object {
-        "marginBottom": 40,
-      }
+  <FlatList
+    data={
+      Array [
+        Object {
+          "full_name": "Ron Swanson",
+          "id": "1",
+          "organization": "Cru at Harvard",
+        },
+        Object {
+          "full_name": "Leslie Knope",
+          "id": "2",
+          "organization": "Cru at Harvard",
+        },
+        Object {
+          "full_name": "Ben Wyatt",
+          "id": "3",
+          "organization": "Cru at Harvard",
+        },
+      ]
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
 </View>
 `;
 
@@ -607,36 +582,13 @@ exports[`renders with searching state 1`] = `
   />
   <Flex
     align="center"
-    justify="center"
     style={
       Object {
-        "marginBottom": 40,
+        "paddingTop": 15,
       }
     }
     value={1}
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -647,7 +599,7 @@ exports[`renders with searching state 1`] = `
         }
       }
     >
-      Search results will appear here.
+      Loading
     </MyText>
   </Flex>
 </View>
