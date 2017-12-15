@@ -3,8 +3,7 @@ const ENABLE_LOGS = false;
 const ENABLE_WARN = false;
 
 function getArgs(a) {
-  const args = Array.from(a); // ES6
-  // Make sure there's not object strings
+  const args = Array.from(a);
   if (args[0] && args[0] == '[object Object]') {
     args[0] = JSON.stringify(args[0]);
   }
@@ -15,8 +14,6 @@ function getArgs(a) {
 }
 
 global.LOG = function() {
-  // const args = Array.prototype.slice.call(arguments); // ES5
-  // const args = Array.from(arguments); // ES6
   if (__DEV__) {
     const args = getArgs(arguments);
     if (ENABLE_LOGS) {
@@ -34,8 +31,6 @@ global.LOG = function() {
 };
 
 global.WARN = function() {
-  // const args = Array.prototype.slice.call(arguments); // ES5
-  // const args = Array.from(arguments); // ES6
   if (__DEV__) {
     const args = getArgs(arguments);
     if (ENABLE_WARN) {
