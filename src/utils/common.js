@@ -7,6 +7,7 @@ export const getFirstThreeValidItems = (arr) => {
 };
 
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
+export const locale = DeviceInfo.getDeviceLocale();
 
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);

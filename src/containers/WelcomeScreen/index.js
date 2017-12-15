@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 
+@translate('welcome')
 class WelcomeScreen extends Component {
   navigateToNext() {
     if (this.props.auth.isLoggedIn) {
@@ -16,11 +18,13 @@ class WelcomeScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Flex value={4} align="center" justify="center">
-          <Text type="header" style={styles.headerText}>welcome!</Text>
-          <Text style={styles.descriptionText}>Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.</Text>
+          <Text type="header" style={styles.headerText}>{t('welcome')}</Text>
+          <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
