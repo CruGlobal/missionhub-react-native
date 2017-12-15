@@ -22,7 +22,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   done() {
-    this.props.dispatch(navigatePush('MainTabs'));
+    this.props.dispatch(navigatePush('Celebration'));
   }
 
   render() {
