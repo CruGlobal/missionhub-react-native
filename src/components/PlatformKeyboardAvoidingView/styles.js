@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {PRIMARY_BACKGROUND_COLOR, PRIMARY_HEADER_COLOR} from '../../theme';
+import { PRIMARY_BACKGROUND_COLOR, PRIMARY_HEADER_COLOR } from '../../theme';
 
 export default StyleSheet.create({
   container: {

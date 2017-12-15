@@ -24,10 +24,10 @@ export default class CustomTabs extends Component {
                 name={tab.iconName}
                 type="MissionHub"
                 size={32}
-                style={{color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)'}}
+                style={{ color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }}
                 ref={(icon) => { this.icons[i] = icon; }}
               />
-              <Text style={[styles.tabText, {color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)'}]}>{tab.tabLabel}</Text>
+              <Text style={[styles.tabText, { color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }]}>{tab.tabLabel}</Text>
             </TouchableOpacity>
           );
         })}

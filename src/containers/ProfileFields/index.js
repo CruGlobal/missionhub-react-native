@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import styles from './styles';
 import { Flex, Text, Button, Input } from '../../components/common';
-import {translate} from 'react-i18next';
+import { translate } from 'react-i18next';
 
 @translate('profileFields')
 class ProfileFields extends Component {

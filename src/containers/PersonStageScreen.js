@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import PathwayStageScreen from './PathwayStageScreen';
-import {selectPersonStage} from '../actions/selectStage';
+import { selectPersonStage } from '../actions/selectStage';
 
 class PersonStageScreen extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class PersonStageScreen extends Component {
 
 }
 
-const mapStateToProps = ({personProfile, auth}) => ({
+const mapStateToProps = ({ personProfile, auth }) => ({
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
   id: auth.personId,

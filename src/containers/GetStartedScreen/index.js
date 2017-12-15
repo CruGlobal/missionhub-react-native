@@ -23,7 +23,7 @@ class GetStartedScreen extends Component {
             type="secondary"
             onPress={() => this.props.dispatch(navigatePush('Stage'))}
             text="LET'S GET STARTED"
-            style={{width: theme.fullWidth}}
+            style={{ width: theme.fullWidth }}
           />
         </Flex>
       </Flex>
@@ -31,7 +31,7 @@ class GetStartedScreen extends Component {
   }
 }
 
-const mapStateToProps = ({profile}, { navigation }) => ({
+const mapStateToProps = ({ profile }, { navigation }) => ({
   id: navigation.state.params ? navigation.state.params.id : '',
   firstName: profile.firstName,
 });

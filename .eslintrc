@@ -83,6 +83,10 @@
     "no-mixed-spaces-and-tabs": [
       "error"
     ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
     "react/jsx-indent": [
       "error",
       2

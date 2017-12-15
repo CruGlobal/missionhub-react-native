@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Platform } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialIcons';
-import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 import icoMoonConfig from '../../../assets/icoMoonConfig.json';
 import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';

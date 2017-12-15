@@ -25,7 +25,7 @@ class ContactSteps extends Component {
   }
 
 
-  renderRow({item}) {
+  renderRow({ item }) {
     return (
       <RowSwipeable
         key={item.id}
