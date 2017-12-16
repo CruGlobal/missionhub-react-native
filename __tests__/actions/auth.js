@@ -28,7 +28,7 @@ callApi.default = jest.fn().mockImplementation(
   }
 );
 
-it('should send request for key ticket', () => {
+it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API', () => {
   const store = mockStore({});
 
   return store.dispatch(keyLogin(username, password))
