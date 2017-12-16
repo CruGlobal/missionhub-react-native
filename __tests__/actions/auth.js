@@ -1,13 +1,15 @@
 import {keyLogin} from '../../src/actions/auth';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import callApi from '../../src/actions/api';
+import * as callApi from '../../src/actions/api';
 
-jest.mock('../../src/actions/api', () => jest.fn().mockImplementation(function() {
-  return dispatch => {
-    return dispatch(() => Promise.resolve({ type: 'success' }));
-  };
-}));
+callApi.default = jest.fn().mockImplementation(
+  function() {
+    return dispatch => {
+      return dispatch(() => Promise.resolve({ type: 'success' }));
+    };
+  }
+);
 
 const username = 'Roger';
 const password = 'secret';
@@ -18,6 +20,6 @@ it('should send request for key ticket', () => {
 
   return store.dispatch(keyLogin(username, password))
     .then(() => {
-      expect(callApi).toHaveBeenCalledTimes(3);
+      expect(callApi.default).toHaveBeenCalledTimes(3);
     });
 });
