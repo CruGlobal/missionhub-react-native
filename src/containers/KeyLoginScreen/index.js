@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Keyboard, View} from 'react-native';
+import { Keyboard, View } from 'react-native';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
-import {keyLogin} from '../../actions/auth';
-import {navigatePush} from '../../actions/navigation';
+import { keyLogin } from '../../actions/auth';
+import { navigatePush } from '../../actions/navigation';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -18,11 +18,11 @@ class KeyLoginScreen extends Component {
   }
 
   usernameChanged(username) {
-    this.setState({ username: username});
+    this.setState({ username: username });
   }
 
   passwordChanged(password) {
-    this.setState({ password: password});
+    this.setState({ password: password });
   }
 
   login() {
@@ -36,11 +36,11 @@ class KeyLoginScreen extends Component {
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
-        <Flex value={2} style={{alignItems: 'center'}}>
+        <Flex value={2} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>please enter username and password</Text>
         </Flex>
 
-        <Flex value={3} style={{padding: 30}}>
+        <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label} >
               Username
@@ -59,7 +59,7 @@ class KeyLoginScreen extends Component {
             />
           </View>
 
-          <View style={{paddingTop: 30}}>
+          <View style={{ paddingTop: 30 }}>
             <Text style={styles.label} >
               Password
             </Text>

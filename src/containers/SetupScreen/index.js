@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
+import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { navigatePush } from '../../actions/navigation';
-import {createMyPerson, firstNameChanged, lastNameChanged} from '../../actions/profile';
+import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/profile';
 
+@translate('setup')
 class SetupScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
@@ -19,17 +21,19 @@ class SetupScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
-        <Flex value={2} style={{alignItems: 'center'}}>
+        <Flex value={2} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>-first things first-</Text>
           <Text type="header" style={styles.headerTwo}>what's your name?</Text>
         </Flex>
 
-        <Flex value={3} style={{padding: 30}}>
+        <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text i18n="Profile_Label_FirstName" style={styles.label} />
+            <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
             <Input
               ref={(c) => this.firstName = c}
               onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}
@@ -39,18 +43,18 @@ class SetupScreen extends Component {
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
               style={styles.input}
-              placeholder="First Name"
+              placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
           </View>
 
-          <View style={{paddingTop: 30}}>
+          <View style={{ paddingTop: 30 }}>
             <Input
               ref={(c) => this.lastName = c}
               onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
               value={this.props.lastName}
               returnKeyType="next"
-              placeholder="Last Name"
+              placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"
               blurOnSubmit={true}
               style={styles.input}
@@ -70,7 +74,7 @@ class SetupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({profile}) => ({
+const mapStateToProps = ({ profile }) => ({
   firstName: profile.firstName,
   lastName: profile.lastName,
 });

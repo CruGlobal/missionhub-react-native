@@ -1,7 +1,7 @@
-import { LOGOUT, FIRST_TIME, THE_KEY_CLIENT_ID } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
 import { navigateReset } from './navigation';
 import { clearAllScheduledNotifications } from './notifications';
-import callApi, {REQUESTS} from './api';
+import callApi, { REQUESTS } from './api';
 
 export function keyLogin(username, password) {
   const data = 'grant_type=password&client_id=' + THE_KEY_CLIENT_ID + '&scope=fullticket%20extended&username=' + username + '&password=' + password;
@@ -39,6 +39,12 @@ function loginWithTicket(ticket) {
       .catch((error) => {
         LOG('error logging in with ticket', error);
       });
+  };
+}
+
+export function loginWithMinistries() {
+  return (dispatch) => {
+    dispatch({ type: LOGIN_WITH_MINISTRIES });
   };
 }
 

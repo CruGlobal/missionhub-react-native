@@ -1,4 +1,4 @@
-import { NavigationActions} from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 import { REHYDRATE } from 'redux-persist/constants';
 import { MainRoutes } from '../AppRoutes';
 

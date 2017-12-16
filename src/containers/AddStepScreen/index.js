@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import styles from './styles';
 
@@ -10,6 +11,7 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../componen
 import Input from '../../components/Input/index';
 import BackButton from '../BackButton';
 
+@translate('addStep')
 class AddStepScreen extends Component {
 
   constructor(props) {
@@ -34,11 +36,13 @@ class AddStepScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1.5} align="center" justify="center">
-          <Text type="header" style={styles.header}>My Step of Faith</Text>
+          <Text type="header" style={styles.header}>{t('header')}</Text>
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
@@ -60,7 +64,7 @@ class AddStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveStep}
-            text="CREATE STEP"
+            text={t('createStep').toUpperCase()}
             style={styles.createButton}
           />
         </Flex>

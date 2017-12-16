@@ -1,5 +1,5 @@
 import { API_URL } from './utils';
-import {URL_ENCODED} from '../constants';
+import { URL_ENCODED } from '../constants';
 
 const THE_KEY = 'https://stage.thekey.me/cas/api/oauth/';
 const PEOPLE = 'people/';

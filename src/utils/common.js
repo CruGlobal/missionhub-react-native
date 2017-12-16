@@ -2,7 +2,12 @@ import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
 import lodashMerge from 'lodash/merge';
 
+export const getFirstThreeValidItems = (arr) => {
+  return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
+};
+
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
+export const locale = DeviceInfo.getDeviceLocale();
 
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);

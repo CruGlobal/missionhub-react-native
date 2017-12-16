@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
-import { Flex, Text, IconButton } from '../../components/common';
+import { Flex, IconButton } from '../../components/common';
+import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
 
 class ContactScreen extends Component {
@@ -16,7 +17,7 @@ class ContactScreen extends Component {
   }
 
   render() {
-    const { person } = this.props; 
+    const { person } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -29,7 +30,7 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <Text>{person.id}</Text>
+          <ContactHeader type="casey" name={person.first_name} />
         </Flex>
       </View>
     );
@@ -39,6 +40,7 @@ class ContactScreen extends Component {
 ContactScreen.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
   }).isRequired,
 };
 

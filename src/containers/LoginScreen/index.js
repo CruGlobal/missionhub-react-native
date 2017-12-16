@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
+import { translate } from 'react-i18next';
 
-import { firstTime } from '../../actions/auth';
+import { firstTime, loginWithMinistries } from '../../actions/auth';
+import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 
+@translate('login')
 class LoginScreen extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.login = this.login.bind(this);
+    this.loginMinistries = this.loginMinistries.bind(this);
+    this.tryItNow = this.tryItNow.bind(this);
+  }
 
   login() {
     this.navigateToNext('KeyLogin');
+  }
+
+  loginMinistries() {
+    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
+      this.props.dispatch(loginWithMinistries(true));
+      this.navigateToNext();
+    });
   }
 
   tryItNow() {
@@ -23,30 +41,32 @@ class LoginScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Flex style={styles.container}>
         <Flex value={.5} />
         <Flex value={3} align="center" justify="center">
           <Flex align="center">
-            <View style={{paddingBottom: 20}}>
+            <View style={{ paddingBottom: 20 }}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
-            <Text style={styles.text}>Grow closer to God.</Text>
-            <Text style={styles.text}>Help others experience Him.</Text>
+            <Text style={styles.text}>{t('tagline1')}</Text>
+            <Text style={styles.text}>{t('tagline2')}</Text>
           </Flex>
           <Flex value={2} align="center" justify="end">
             <Button
               pill={true}
               type="primary"
-              onPress={() => console.log('join')}
-              text="SIGN UP WITH FACEBOOK"
+              onPress={this.loginMinistries}
+              text={t('facebookSignup').toUpperCase()}
               style={styles.facebookButton}
               buttonTextStyle={styles.buttonText}
             />
             <Button
               pill={true}
-              onPress={() => this.tryItNow()}
-              text="TRY IT NOW"
+              onPress={this.tryItNow}
+              text={t('tryNow').toUpperCase()}
               style={styles.tryButton}
               buttonTextStyle={styles.buttonText}
             />
@@ -55,8 +75,8 @@ class LoginScreen extends Component {
         <Flex value={0.8} align="center" justify="center">
           <Button
             type="transparent"
-            onPress={() => this.login()}
-            text="SIGN IN"
+            onPress={this.login}
+            text={t('signIn').toUpperCase()}
             style={styles.signInButton}
             buttonTextStyle={styles.buttonText}
           />

@@ -5,7 +5,8 @@ import LoginScreen from './containers/LoginScreen';
 import KeyLoginScreen from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectStepScreen from './containers/SelectStepScreen';
+import SelectMyStepScreen from './containers/SelectMyStepScreen';
+import PersonSelectStepScreen from './containers/PersonSelectStepScreen';
 import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen from './containers/WelcomeScreen';
@@ -39,7 +40,7 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon type="MissionHub" name={name} size={30} style={{color: tintColor}} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -69,10 +70,10 @@ export const MainTabRoutes = TabNavigator({
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
-    style: {backgroundColor: theme.white},
+    style: { backgroundColor: theme.white },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
-    tabStyle: {backgroundColor: theme.lightBackgroundColor},
+    tabStyle: { backgroundColor: theme.lightBackgroundColor },
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
@@ -86,25 +87,26 @@ export const MainTabRoutes = TabNavigator({
 });
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: {screen: MainTabRoutes},
-  Profile: {screen: ProfileScreen},
-  Step: {screen: SelectStepScreen},
-  AddStep: {screen: AddStepScreen},
-  Login: {screen: LoginScreen},
-  KeyLogin: {screen: KeyLoginScreen},
-  Welcome: {screen: WelcomeScreen},
-  Setup: {screen: SetupScreen},
-  GetStarted: {screen: GetStartedScreen},
-  Stage: {screen: StageScreen},
-  StageSuccess: {screen: StageSuccessScreen},
-  AddSomeone: {screen: AddSomeoneScreen},
-  Contact: {screen: ContactScreen},
-  AddContact: {screen: AddContactScreen},
-  NotificationPrimer: {screen: NotificationPrimerScreen},
-  Impact: { screen: ImpactScreen},
-  SetupPerson: {screen: SetupPersonScreen},
-  PersonStage: {screen: PersonStageScreen},
-  Celebration: {screen: CelebrationScreen},
+  MainTabs: { screen: MainTabRoutes },
+  Profile: { screen: ProfileScreen },
+  Step: { screen: SelectMyStepScreen },
+  PersonStep: { screen: PersonSelectStepScreen },
+  AddStep: { screen: AddStepScreen },
+  Login: { screen: LoginScreen },
+  KeyLogin: { screen: KeyLoginScreen },
+  Welcome: { screen: WelcomeScreen },
+  Setup: { screen: SetupScreen },
+  GetStarted: { screen: GetStartedScreen },
+  Stage: { screen: StageScreen },
+  StageSuccess: { screen: StageSuccessScreen },
+  AddSomeone: { screen: AddSomeoneScreen },
+  Contact: { screen: ContactScreen },
+  AddContact: { screen: AddContactScreen },
+  NotificationPrimer: { screen: NotificationPrimerScreen },
+  Impact: { screen: ImpactScreen },
+  SetupPerson: { screen: SetupPersonScreen },
+  PersonStage: { screen: PersonStageScreen },
+  Celebration: { screen: CelebrationScreen },
 }, {
   paths: {
     Login: 'Login',
@@ -118,6 +120,8 @@ export const MainStackRoutes = StackNavigator({
     Contact: 'Contact',
     SetupPerson: 'SetupPerson',
     PersonStage: 'PersonStage',
+    Step: 'Step',
+    PersonStep: 'PersonStep',
   },
   navigationOptions: {
     header: null,

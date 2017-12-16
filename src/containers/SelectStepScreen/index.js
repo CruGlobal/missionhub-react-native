@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
-// import { getStepSuggestions } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 
 import styles from './styles';
@@ -16,7 +15,7 @@ class SelectStepScreen extends Component {
     super(props);
 
     this.state = {
-      steps: props.suggestedForMe,
+      steps: props.steps,
       addedSteps: [],
     };
 
@@ -30,9 +29,8 @@ class SelectStepScreen extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.suggestedForMe.length !== this.props.suggestedForMe.length) {
-      const newSteps = [].concat(nextProps.suggestedForMe, this.state.addedSteps);
-      this.setState({ steps: newSteps });
+    if (nextProps.steps.length !== this.props.steps.length) {
+      this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
     }
   }
 
@@ -56,18 +54,20 @@ class SelectStepScreen extends Component {
           steps: this.state.steps.concat([newStep]),
           addedSteps: addedSteps.concat([newStep]),
         });
+        this.stepsList.onScrollToEnd();
       },
     }));
   }
 
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
+
     LOG('selectedSteps', selectedSteps);
-    this.props.dispatch(addSteps(selectedSteps)).then(()=>{
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
       // LOG(r);
     });
     // TODO: Save selected steps with some kind of API call,
-    this.props.dispatch(navigatePush('AddSomeone'));
+    this.props.dispatch(navigatePush(this.props.nextScreen));
   }
 
   renderTitle() {
@@ -75,7 +75,7 @@ class SelectStepScreen extends Component {
       <Flex value={1.5} align="center" justify="start">
         <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
         <Text style={styles.headerText}>
-          How do you want to move forward on your spiritual journey?
+          {this.props.headerText}
         </Text>
       </Flex>
     );
@@ -90,6 +90,8 @@ class SelectStepScreen extends Component {
         </Flex>
         <Flex value={2}>
           <StepsList
+            ref={(c) => this.stepsList = c}
+            personFirstName={this.props.personFirstName}
             items={this.state.steps}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
@@ -108,10 +110,5 @@ class SelectStepScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ steps }) => ({
-  // suggestedForMe: steps.suggestedForMe,
-  suggestedForMe: [].concat([steps.suggestedForMe[0], steps.suggestedForMe[1], steps.suggestedForMe[2]]).filter((s) => !!s),
-  suggestedForOthers: steps.suggestedForOthers,
-});
 
-export default connect(mapStateToProps)(SelectStepScreen);
+export default connect()(SelectStepScreen);

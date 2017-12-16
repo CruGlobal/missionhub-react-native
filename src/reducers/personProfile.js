@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
-import {PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED} from '../constants';
-import {REQUESTS} from '../actions/api';
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED } from '../constants';
+import { REQUESTS } from '../actions/api';
 
 const initialPersonProfileState = {
   personFirstName: '',
