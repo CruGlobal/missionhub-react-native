@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, TextInput } from 'react-native';
+import { Image, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Text, Flex, Button } from '../../components/common';
 import styles from './styles';
+import theme from '../../theme';
+import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 
 class ContactNotes extends Component {
 
@@ -11,8 +13,10 @@ class ContactNotes extends Component {
     super(props);
 
     this.state = {
-      text: 'Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! ',
+      text: null,
     };
+
+    this.saveNotes = this.saveNotes.bind(this);
   }
 
   textChanged(text) {
@@ -24,10 +28,14 @@ class ContactNotes extends Component {
   renderNotes() {
     return (
       <TextInput
+        ref={(c) => this.notesInput = c}
         onChangeText={(t) => this.textChanged(t)}
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
+        selectionColor={theme.primaryColor}
+        returnKeyType="done"
+        blurOnSubmit={true}
       />
     );
   }
@@ -48,18 +56,39 @@ class ContactNotes extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <PlatformKeyboardAvoidingView>
         <Flex align="stretch" justify="center" value={1} style={styles.container}>
-          { this.state.text ? this.renderNotes() : this.renderEmpty() }
+          { this.state.text === null ? this.renderEmpty(): this.renderNotes()  }
         </Flex>
         <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveNotes}
-            text="EDIT PRIVATE NOTES"
-          />
+          { this.state.text === null ? this.getAddButton() : this.getEditButton() }
         </Flex>
-      </View>
+      </PlatformKeyboardAvoidingView>
+    );
+  }
+
+  getAddButton() {
+    const onPressFunction = () => {
+      this.setState({ text: '' });
+      this.notesInput.focus();
+    };
+
+    return (
+      <Button
+        type="secondary"
+        onPress={onPressFunction}
+        text="ADD PRIVATE NOTES"
+      />
+    );
+  }
+
+  getEditButton() {
+    return (
+      <Button
+        type="secondary"
+        onPress={this.saveNotes}
+        text="EDIT PRIVATE NOTES"
+      />
     );
   }
 }
