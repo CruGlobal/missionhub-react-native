@@ -22,6 +22,8 @@ class App extends Component {
   }
 
   render() {
+    console.disableYellowBox = true;
+
     if (!this.state.store) {
       return <LoadingScreen />;
     }
