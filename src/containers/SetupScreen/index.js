@@ -42,7 +42,6 @@ class SetupScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.lastName.focus()}
-              style={styles.input}
               placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
@@ -57,7 +56,6 @@ class SetupScreen extends Component {
               placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"
               blurOnSubmit={true}
-              style={styles.input}
             />
           </View>
         </Flex>

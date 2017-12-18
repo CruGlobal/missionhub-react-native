@@ -5,6 +5,7 @@ import { JsonApiDataStore } from 'jsonapi-datastore';
 import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
+import { URL_ENCODED } from '../constants';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -34,10 +35,11 @@ lodashForEach(apiRoutes, (routeData, key) => {
       if (!routeData.anonymous) {
         authHeader['Authorization'] = `Bearer ${q.access_token}`;
       }
+      delete q.access_token;
       const extra = merge({}, { headers: authHeader }, routeData.extra);
 
       // Merge some default data from the routes with the data passed in
-      const data = merge({}, routeData.data, d);
+      const data = isUrlEncoded(routeData) ? d : merge({}, routeData.data, d);
       const query = merge({}, routeData.query, q);
 
       // Get the endpoint either from the query, or the routeData
@@ -83,5 +85,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
     })
   );
 });
+
+const isUrlEncoded = (routeData) => {
+  return routeData.extra && routeData.extra.headers && routeData.extra.headers['Content-Type'] === URL_ENCODED;
+};
+
 
 export default API_CALLS;

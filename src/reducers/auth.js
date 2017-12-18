@@ -7,11 +7,14 @@ const initialAuthState = {
   isLoggedIn: false,
   isFirstTime: false,
   token: '',
+  refreshToken: '',
   personId: '',
   hasMinistries: false,
 };
 
 function authReducer(state = initialAuthState, action) {
+  const results = action.results;
+
   switch (action.type) {
     case REHYDRATE:
       var incoming = action.payload.auth;
@@ -23,22 +26,41 @@ function authReducer(state = initialAuthState, action) {
       }
       return state;
     case LOGIN:
-      return { ...state, isLoggedIn: true };
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
     case LOGIN_WITH_MINISTRIES:
       return {
         ...state,
         hasMinistries: true,
         isLoggedIn: true,
       };
+    case REQUESTS.KEY_LOGIN.SUCCESS:
+      return {
+        ...state,
+        token: results.access_token,
+        refreshToken: results.refresh_token,
+      };
+    case REQUESTS.TICKET_LOGIN.SUCCESS:
+      return {
+        ...state,
+        token: results.token,
+        personId: results.person_id,
+      };
     case FIRST_TIME:
-      return { ...state, isFirstTime: true, isLoggedIn: false };
+      return {
+        ...state,
+        isFirstTime: true,
+        isLoggedIn: false,
+      };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
-      LOG('action', action.results);
+      LOG('action', results);
       return {
         ...state,
         isLoggedIn: true,
-        token: action.results.token,
-        personId: `${action.results.person_id}`,
+        token: results.token,
+        personId: `${results.person_id}`,
       };
     case LOGOUT:
       return initialAuthState;

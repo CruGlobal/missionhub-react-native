@@ -59,28 +59,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      -first things first-
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 36,
-          },
-        ]
-      }
-    >
-      what's your name?
+      please enter username and password
     </Text>
   </View>
   <View
@@ -115,7 +94,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        First Name (Required)
+        Username
       </Text>
       <TextInput
         allowFontScaling={true}
@@ -125,7 +104,7 @@ exports[`renders correctly 1`] = `
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="First Name"
+        placeholder="Username"
         placeholderTextColor="white"
         returnKeyType="next"
         selectionColor="#007398"
@@ -145,7 +124,7 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid={undefined}
-        value={undefined}
+        value=""
       />
     </View>
     <View
@@ -155,6 +134,27 @@ exports[`renders correctly 1`] = `
         }
       }
     >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            },
+          ]
+        }
+      >
+        Password
+      </Text>
       <TextInput
         allowFontScaling={true}
         autoCorrect={false}
@@ -162,9 +162,10 @@ exports[`renders correctly 1`] = `
         blurOnSubmit={true}
         multiline={false}
         onChangeText={[Function]}
-        placeholder="Last Name"
+        placeholder="Password"
         placeholderTextColor="white"
         returnKeyType="next"
+        secureTextEntry={true}
         selectionColor="#007398"
         style={
           Array [
@@ -182,7 +183,7 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid={undefined}
-        value={undefined}
+        value=""
       />
     </View>
   </View>
@@ -263,7 +264,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          NEXT
+          LOGIN
         </Text>
       </View>
     </View>

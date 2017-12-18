@@ -1,10 +1,44 @@
-import { LOGIN, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
 import { navigateReset } from './navigation';
 import { clearAllScheduledNotifications } from './notifications';
+import callApi, { REQUESTS } from './api';
 
-export function login() {
+export function keyLogin(username, password) {
+  const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${username}&password=${password}`;
+
   return (dispatch) => {
-    dispatch({ type: LOGIN });
+    return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data))
+      .then((response) => {
+        return dispatch(getKeyTicket(response.access_token));
+      })
+      .catch((error) => {
+        LOG('error logging in', error);
+      });
+  };
+}
+
+function getKeyTicket() {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}))
+      .then((response) => {
+        return dispatch(loginWithTicket(response.ticket));
+      })
+      .catch((error) => {
+        LOG('error getting ticket', error);
+      });
+  };
+}
+
+function loginWithTicket(ticket) {
+  const data = {
+    code: ticket,
+  };
+
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data))
+      .catch((error) => {
+        LOG('error logging in with ticket', error);
+      });
   };
 }
 

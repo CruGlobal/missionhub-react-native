@@ -38,7 +38,6 @@ class SetupPersonScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.personLastName.focus()}
-              style={styles.input}
               placeholder="First Name"
               placeholderTextColor="white"
             />
@@ -53,7 +52,6 @@ class SetupPersonScreen extends Component {
               placeholder="Last Name (if you want)"
               placeholderTextColor="white"
               blurOnSubmit={true}
-              style={styles.input}
             />
           </View>
         </Flex>

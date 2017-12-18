@@ -55,7 +55,6 @@ class AddStepScreen extends Component {
             selectionColor="white"
             returnKeyType="done"
             blurOnSubmit={true}
-            style={styles.input}
             placeholder=""
           />
         </Flex>

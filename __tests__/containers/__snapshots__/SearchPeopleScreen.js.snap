@@ -157,7 +157,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "backgroundColor": undefined,
-                "borderBottomColor": "#005A7F",
+                "borderBottomColor": "#52C5DC",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
