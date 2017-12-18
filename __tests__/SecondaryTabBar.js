@@ -35,7 +35,7 @@ const tabArray = [
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <SecondaryTabBar tabs={tabArray} />
+      <SecondaryTabBar person={{first_name: 'ben', id: 1}} tabs={tabArray} />
     </Provider>
   );
 });
