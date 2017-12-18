@@ -3,6 +3,7 @@ import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { getStepsByFilter, completeStep, addSteps, deleteStep } from '../../actions/steps';
 
@@ -12,6 +13,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 
+@translate('contactSteps')
 class ContactSteps extends Component {
 
   constructor(props) {
@@ -64,7 +66,7 @@ class ContactSteps extends Component {
   }
 
 
-  renderRow({item}) {
+  renderRow({ item }) {
     return (
       <RowSwipeable
         key={item.id}
@@ -104,6 +106,7 @@ class ContactSteps extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -115,7 +118,7 @@ class ContactSteps extends Component {
           <Button
             type="secondary"
             onPress={this.handleCreateStep}
-            text="ADD A STEP OF FAITH"
+            text={t('addStep').toUpperCase()}
           />
         </Flex>
       </View>

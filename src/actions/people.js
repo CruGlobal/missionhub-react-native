@@ -15,3 +15,16 @@ export function getPeopleList() {
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
 }
+
+export function searchPeople(text, filters = {}) {
+  return (dispatch) => {
+    if (!text) {
+      return Promise.reject('NoText');
+    }
+    const query = {
+      q: text,
+      filters,
+    };
+    return dispatch(callApi(REQUESTS.SEARCH, query));
+  };
+}

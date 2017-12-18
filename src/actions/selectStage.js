@@ -1,4 +1,4 @@
-import {REQUESTS} from './api';
+import { REQUESTS } from './api';
 import callApi from './api';
 
 export function selectStage(id) {

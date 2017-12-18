@@ -11,7 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
-const isCasey = true;
+const isCasey = false;
 
 export class PeopleScreen extends Component {
 
@@ -36,9 +36,9 @@ export class PeopleScreen extends Component {
   handleAddContact(orgId) {
     this.props.dispatch(navigatePush('AddContact', { orgId }));
   }
-
+  
   handleSearch() {
-    LOG('Setup search functionality');
+    this.props.dispatch(navigatePush('SearchPeople'));
   }
 
   handleRowSelect(person) {
@@ -66,7 +66,7 @@ export class PeopleScreen extends Component {
                 onPress={() => this.handleAddContact()} />
             ) : (
               <IconButton
-                name="plusIcon"
+                name="moreIcon"
                 type="MissionHub"
                 onPress={this.handleSearch} />
             )

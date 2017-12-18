@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import IconMessageScreen from './IconMessageScreen/index';
 
 class StageSuccessScreen extends Component {
@@ -13,7 +13,7 @@ class StageSuccessScreen extends Component {
   }
 }
 
-const mapStateToProps = ({profile}) => ({
+const mapStateToProps = ({ profile }) => ({
   firstName: profile.firstName,
 });
 

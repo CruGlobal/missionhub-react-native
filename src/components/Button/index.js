@@ -40,15 +40,12 @@ export default class Button extends Component {
   }
 
   render() {
-    const { type, text, i18n, pill, children, disabled, style = {}, buttonTextStyle = {}, ...rest } = this.props;
+    const { type, text, pill, children, disabled, style = {}, buttonTextStyle = {}, ...rest } = this.props;
     let content = children;
     if (!children) {
       // If there are no children passed in, assume text is used for the button
       const textStyle = [styles.buttonText, buttonTextStyle];
-      if (i18n) {
-        // Add the ability for i18n within the button text
-        content = <Text style={textStyle} i18n={i18n} />;
-      } else if (text) {
+      if (text) {
         content = <Text style={textStyle}>{text}</Text>;
       }
     }

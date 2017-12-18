@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import PathwayStageScreen from './PathwayStageScreen/index';
-import {selectStage} from '../actions/selectStage';
+import { selectStage } from '../actions/selectStage';
 
 class StageScreen extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class StageScreen extends Component {
 
 }
 
-const mapStateToProps = ({profile}) => ({
+const mapStateToProps = ({ profile }) => ({
   firstName: profile.firstName,
 });
 

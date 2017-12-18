@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
-import {isiPhoneX} from '../../utils/common';
+import { isiPhoneX } from '../../utils/common';
 
 const margin = 20;
 

@@ -1,5 +1,5 @@
-import {FIRST_NAME_CHANGED, LAST_NAME_CHANGED} from '../constants';
-import {REQUESTS} from './api';
+import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
+import { REQUESTS } from './api';
 import callApi from './api';
 import uuidv4 from 'uuid/v4';
 
