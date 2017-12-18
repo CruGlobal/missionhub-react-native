@@ -16,7 +16,7 @@ class ContactNotes extends Component {
   }
 
   textChanged(text) {
-    this.setState({text: text});
+    this.setState({ text: text });
   }
 
   saveNotes() {}
