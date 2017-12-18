@@ -110,7 +110,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -148,7 +148,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        PEOPLE
+        Filter
       </Text>
     </View>
     <View
@@ -164,93 +164,7 @@ exports[`renders correctly 1`] = `
           },
         ]
       }
-    >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": undefined,
-              },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
+    />
   </View>
-  <RCTScrollView
-    bounces={false}
-    scrollEnabled={true}
-    style={
-      Object {
-        "borderTopColor": "#ffffff",
-        "borderTopWidth": 1,
-        "flex": 1,
-      }
-    }
-  >
-    <View />
-  </RCTScrollView>
 </View>
 `;

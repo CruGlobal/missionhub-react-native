@@ -20,6 +20,7 @@ const mockState = {
   },
   people: {
     all: [],
+    allByOrg: [],
   },
   organizations: {
     myOrgId: '',

@@ -19,6 +19,7 @@ const DEFAULT_HEADERS = {
 
 const ERROR_CODES = [400, 401, 402, 403, 404, 500, 504];
 export function handleResponse(response) {
+  if (!response) return null;
   if (response && ERROR_CODES.includes(response.status)) {
     // TODO: Determine the right way to get the error response
     throw new Error(`Status code: ${response.status}`);
@@ -65,7 +66,7 @@ function defaultObject(method, obj = {}, data) {
     newObj.body = obj.stringify === false ? data : JSON.stringify(data);
   }
   delete obj.stringify;
-  
+
   return newObj;
 }
 

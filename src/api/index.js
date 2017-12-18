@@ -66,6 +66,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
         extra,
       ).then((jsonResponse) => {
         APILOG(`${key} SUCCESS`, jsonResponse);
+        if (!jsonResponse) {
+          resolve(null);
+          return;
+        }
         if (exists(routeData.useJsonDataApiStore) && !routeData.useJsonDataApiStore) {
           resolve(jsonResponse);
         } else {

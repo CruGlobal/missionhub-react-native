@@ -20,6 +20,15 @@ export function getMySteps() {
   };
 }
 
+export function getStepsByFilter(filters = {}) {
+  return (dispatch) => {
+    const query = {
+      filters,
+    };
+    return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
+  };
+}
+
 export function addSteps(steps, receiverId) {
   return (dispatch) => {
     const query = {
@@ -36,7 +45,10 @@ export function addSteps(steps, receiverId) {
       included: newSteps,
       include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data));
+    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r)=>{
+      dispatch(getMySteps());
+      return r;
+    });
   };
 }
 
@@ -60,6 +72,25 @@ export function removeStepReminder(step) {
 
 export function completeStepReminder(step) {
   return (dispatch) => {
+    return dispatch(challengeCompleteAction(step)).then((r) => {
+      dispatch(getMySteps());
+      dispatch(removeStepReminder(step));
+      return r;
+    });
+  };
+}
+
+export function completeStep(step) {
+  return (dispatch) => {
+    return dispatch(challengeCompleteAction(step)).then((r)=>{
+      dispatch(getMySteps());
+      return r;
+    });
+  };
+}
+
+export function challengeCompleteAction(step) {
+  return (dispatch) => {
     const query = { challenge_id: step.id };
     const data = {
       data: {
@@ -69,9 +100,15 @@ export function completeStepReminder(step) {
         },
       },
     };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((r) => {
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+  };
+}
+
+export function deleteStep(id) {
+  return (dispatch) => {
+    const query = { challenge_id: id };
+    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r)=>{
       dispatch(getMySteps());
-      dispatch(removeStepReminder(step));
       return r;
     });
   };

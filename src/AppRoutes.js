@@ -22,6 +22,9 @@ import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen from './containers/SetupPersonScreen';
 import PersonStageScreen from './containers/PersonStageScreen';
 import CelebrationScreen from './containers/CelebrationScreen';
+import SearchPeopleScreen from './containers/SearchPeopleScreen';
+import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
+import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
 
 import { Icon } from './components/common';
 
@@ -107,6 +110,9 @@ export const MainStackRoutes = StackNavigator({
   SetupPerson: { screen: SetupPersonScreen },
   PersonStage: { screen: PersonStageScreen },
   Celebration: { screen: CelebrationScreen },
+  SearchPeople: { screen: SearchPeopleScreen },
+  SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
+  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
 }, {
   paths: {
     Login: 'Login',

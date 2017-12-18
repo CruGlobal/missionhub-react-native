@@ -30,7 +30,9 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "paddingLeft": 5,
+          },
           Object {
             "alignItems": "flex-start",
             "flex": 1,
@@ -151,7 +153,9 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "paddingRight": 5,
+          },
           Object {
             "alignItems": "flex-end",
             "flex": 1,
