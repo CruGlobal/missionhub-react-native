@@ -7,6 +7,7 @@ const initialAuthState = {
   isLoggedIn: false,
   isFirstTime: false,
   token: '',
+  refreshToken: '',
   personId: '',
   hasMinistries: false,
 };
