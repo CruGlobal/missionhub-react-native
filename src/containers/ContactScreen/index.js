@@ -10,6 +10,9 @@ import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
 
+const CASEY = 'casey';
+const JEAN = 'jean';
+
 class ContactScreen extends Component {
 
   constructor(props) {
@@ -30,7 +33,7 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <ContactHeader type={isCasey ? 'casey' : 'jean'} person={person} />
+          <ContactHeader type={isCasey ? CASEY : JEAN} person={person} />
         </Flex>
       </View>
     );

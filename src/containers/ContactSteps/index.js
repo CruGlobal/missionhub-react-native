@@ -22,7 +22,6 @@ class ContactSteps extends Component {
     };
 
     this.renderRow = this.renderRow.bind(this);
-    this.renderNull = this.renderNull.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
   }
 

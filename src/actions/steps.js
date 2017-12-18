@@ -72,16 +72,7 @@ export function removeStepReminder(step) {
 
 export function completeStepReminder(step) {
   return (dispatch) => {
-    const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: 'accepted_challenge',
-        attributes: {
-          completed_at: formatApiDate(),
-        },
-      },
-    };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((r) => {
+    return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
       dispatch(removeStepReminder(step));
       return r;
@@ -90,6 +81,15 @@ export function completeStepReminder(step) {
 }
 
 export function completeStep(step) {
+  return (dispatch) => {
+    return dispatch(challengeCompleteAction(step)).then((r)=>{
+      dispatch(getMySteps());
+      return r;
+    });
+  };
+}
+
+export function challengeCompleteAction(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     const data = {
@@ -100,10 +100,7 @@ export function completeStep(step) {
         },
       },
     };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((r)=>{
-      dispatch(getMySteps());
-      return r;
-    });
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
   };
 }
 
