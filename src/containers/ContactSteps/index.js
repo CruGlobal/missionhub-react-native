@@ -32,10 +32,10 @@ class ContactSteps extends Component {
   }
 
   getSteps() {
-    this.props.dispatch(getStepsByFilter({completed: false, receiver_ids: this.props.person.id})).then((results) => {
+    this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
       const steps = results.findAll('accepted_challenge') || [];
       let newSteps = steps.filter((s) => !s._placeHolder);
-      this.setState({steps: newSteps});
+      this.setState({ steps: newSteps });
     });
   }
 
