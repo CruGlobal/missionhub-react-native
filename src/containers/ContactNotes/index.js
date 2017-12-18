@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, TextInput } from 'react-native';
+import { Dimensions, Image, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Text, Flex, Button } from '../../components/common';
@@ -14,9 +14,11 @@ class ContactNotes extends Component {
 
     this.state = {
       text: null,
+      viewHeight: undefined,
     };
 
     this.saveNotes = this.saveNotes.bind(this);
+    this.onLayout = this.onLayout.bind(this);
   }
 
   textChanged(text) {
@@ -55,16 +57,29 @@ class ContactNotes extends Component {
   }
 
   render() {
-    return (
-      <PlatformKeyboardAvoidingView>
-        <Flex align="stretch" justify="center" value={1} style={styles.container}>
-          { this.state.text === null ? this.renderEmpty(): this.renderNotes()  }
-        </Flex>
-        <Flex justify="end">
-          { this.state.text === null ? this.getAddButton() : this.getEditButton() }
-        </Flex>
-      </PlatformKeyboardAvoidingView>
-    );
+    if (this.state.viewHeight) {
+      return (
+        <PlatformKeyboardAvoidingView offset={this.state.viewHeight}>
+          <Flex align="stretch" justify="center" value={1} style={styles.container}>
+            { this.state.text === null ? this.renderEmpty() : this.renderNotes() }
+          </Flex>
+          <Flex justify="end">
+            { this.state.text === null ? this.getAddButton() : this.getEditButton() }
+          </Flex>
+        </PlatformKeyboardAvoidingView>
+      );
+    } else {
+      return (
+        <View style={{ flex: 1 }} onLayout={this.onLayout} />
+      );
+    }
+  }
+
+  onLayout(event) {
+    if (!this.state.viewHeight) {
+      const viewHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
+      this.setState({ viewHeight });
+    }
   }
 
   getAddButton() {
