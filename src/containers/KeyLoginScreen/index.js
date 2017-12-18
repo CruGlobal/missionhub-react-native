@@ -15,14 +15,18 @@ class KeyLoginScreen extends Component {
       username: '',
       password: '',
     };
+
+    this.usernameChanged = this.usernameChanged.bind(this);
+    this.passwordChanged = this.passwordChanged.bind(this);
+    this.login = this.login.bind(this);
   }
 
   usernameChanged(username) {
-    this.setState({ username: username });
+    this.setState({ username });
   }
 
   passwordChanged(password) {
-    this.setState({ password: password });
+    this.setState({ password });
   }
 
   login() {
@@ -42,12 +46,12 @@ class KeyLoginScreen extends Component {
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text style={styles.label} >
+            <Text style={styles.label}>
               Username
             </Text>
             <Input
               ref={(c) => this.username = c}
-              onChangeText={(t) => this.usernameChanged(t)}
+              onChangeText={this.usernameChanged}
               value={this.state.username}
               autoFocus={true}
               returnKeyType="next"
@@ -66,7 +70,7 @@ class KeyLoginScreen extends Component {
             <Input
               secureTextEntry={true}
               ref={(c) => this.password = c}
-              onChangeText={(t) => this.passwordChanged(t)}
+              onChangeText={this.passwordChanged}
               value={this.state.password}
               returnKeyType="next"
               placeholder="Password"
@@ -80,7 +84,7 @@ class KeyLoginScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.login()}
+            onPress={this.login}
             text="LOGIN"
           />
         </Flex>
