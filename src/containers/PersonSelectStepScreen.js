@@ -16,7 +16,7 @@ class PersonSelectStepScreen extends Component {
   }
 
   insertName(steps) {
-    return steps.map(step => {
+    return steps.map((step) => {
       step.body = step.body.replace('<<name>>', this.props.personFirstName);
       return step;
     });

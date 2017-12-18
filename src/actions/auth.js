@@ -8,7 +8,7 @@ export function keyLogin(username, password) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data))
-      .then(response => {
+      .then((response) => {
         return dispatch(getKeyTicket(response.access_token));
       })
       .catch((error) => {
@@ -20,7 +20,7 @@ export function keyLogin(username, password) {
 function getKeyTicket() {
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}))
-      .then(response => {
+      .then((response) => {
         return dispatch(loginWithTicket(response.ticket));
       })
       .catch((error) => {
