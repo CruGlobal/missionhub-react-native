@@ -4,7 +4,7 @@ import { clearAllScheduledNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 
 export function keyLogin(username, password) {
-  const data = 'grant_type=password&client_id=' + THE_KEY_CLIENT_ID + '&scope=fullticket%20extended&username=' + username + '&password=' + password;
+  const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${username}&password=${password}`;
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data))
