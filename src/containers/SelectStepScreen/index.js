@@ -30,7 +30,7 @@ class SelectStepScreen extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.steps.length !== this.props.steps.length) {
-      this.setState({steps: [].concat(nextProps.steps, this.state.addedSteps)});
+      this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
     }
   }
 
@@ -54,6 +54,7 @@ class SelectStepScreen extends Component {
           steps: this.state.steps.concat([newStep]),
           addedSteps: addedSteps.concat([newStep]),
         });
+        this.stepsList.onScrollToEnd();
       },
     }));
   }
@@ -89,6 +90,7 @@ class SelectStepScreen extends Component {
         </Flex>
         <Flex value={2}>
           <StepsList
+            ref={(c) => this.stepsList = c}
             personFirstName={this.props.personFirstName}
             items={this.state.steps}
             onSelectStep={this.handleSelectStep}

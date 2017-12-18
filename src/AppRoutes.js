@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
+import KeyLoginScreen from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen from './containers/SelectMyStepScreen';
@@ -21,6 +22,9 @@ import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen from './containers/SetupPersonScreen';
 import PersonStageScreen from './containers/PersonStageScreen';
 import CelebrationScreen from './containers/CelebrationScreen';
+import SearchPeopleScreen from './containers/SearchPeopleScreen';
+import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
+import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
 
 import { Icon } from './components/common';
 
@@ -39,7 +43,7 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({tintColor}) => <Icon type="MissionHub" name={name} size={30} style={{color: tintColor}} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -69,10 +73,10 @@ export const MainTabRoutes = TabNavigator({
   tabBarOptions: {
     showIcon: true,
     showLabel: true,
-    style: {backgroundColor: theme.white},
+    style: { backgroundColor: theme.white },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
-    tabStyle: {backgroundColor: theme.lightBackgroundColor},
+    tabStyle: { backgroundColor: theme.lightBackgroundColor },
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
@@ -86,28 +90,33 @@ export const MainTabRoutes = TabNavigator({
 });
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: {screen: MainTabRoutes},
-  Profile: {screen: ProfileScreen},
-  Step: {screen: SelectMyStepScreen},
-  PersonStep: {screen: PersonSelectStepScreen},
-  AddStep: {screen: AddStepScreen},
-  Login: {screen: LoginScreen},
-  Welcome: {screen: WelcomeScreen},
-  Setup: {screen: SetupScreen},
-  GetStarted: {screen: GetStartedScreen},
-  Stage: {screen: StageScreen},
-  StageSuccess: {screen: StageSuccessScreen},
-  AddSomeone: {screen: AddSomeoneScreen},
-  Contact: {screen: ContactScreen},
-  AddContact: {screen: AddContactScreen},
-  NotificationPrimer: {screen: NotificationPrimerScreen},
-  Impact: { screen: ImpactScreen},
-  SetupPerson: {screen: SetupPersonScreen},
-  PersonStage: {screen: PersonStageScreen},
-  Celebration: {screen: CelebrationScreen},
+  MainTabs: { screen: MainTabRoutes },
+  Profile: { screen: ProfileScreen },
+  Step: { screen: SelectMyStepScreen },
+  PersonStep: { screen: PersonSelectStepScreen },
+  AddStep: { screen: AddStepScreen },
+  Login: { screen: LoginScreen },
+  KeyLogin: { screen: KeyLoginScreen },
+  Welcome: { screen: WelcomeScreen },
+  Setup: { screen: SetupScreen },
+  GetStarted: { screen: GetStartedScreen },
+  Stage: { screen: StageScreen },
+  StageSuccess: { screen: StageSuccessScreen },
+  AddSomeone: { screen: AddSomeoneScreen },
+  Contact: { screen: ContactScreen },
+  AddContact: { screen: AddContactScreen },
+  NotificationPrimer: { screen: NotificationPrimerScreen },
+  Impact: { screen: ImpactScreen },
+  SetupPerson: { screen: SetupPersonScreen },
+  PersonStage: { screen: PersonStageScreen },
+  Celebration: { screen: CelebrationScreen },
+  SearchPeople: { screen: SearchPeopleScreen },
+  SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
+  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
 }, {
   paths: {
     Login: 'Login',
+    KeyLogin: 'KeyLogin',
     Welcome: 'Welcome',
     Setup: 'Setup',
     GetStarted: 'GetStarted',

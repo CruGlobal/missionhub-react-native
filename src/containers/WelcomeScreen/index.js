@@ -32,7 +32,7 @@ class WelcomeScreen extends Component {
             type="secondary"
             onPress={() => this.navigateToNext()}
             text="OK"
-            style={{width: theme.fullWidth}}
+            style={{ width: theme.fullWidth }}
           />
         </Flex>
       </Flex>
@@ -40,7 +40,7 @@ class WelcomeScreen extends Component {
   }
 }
 
-const mapStateToProps = ({auth}) => ({
+const mapStateToProps = ({ auth }) => ({
   auth: auth,
 });
 

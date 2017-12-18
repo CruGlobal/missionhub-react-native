@@ -1,6 +1,10 @@
 import { API_URL } from './utils';
+import { URL_ENCODED } from '../constants';
 
+const THE_KEY = 'https://stage.thekey.me/cas/api/oauth/';
 const PEOPLE = 'people/';
+const AUTH = 'auth/';
+const CHALLENGES = 'challenges';
 
 export default {
   // Example
@@ -26,6 +30,29 @@ export default {
   //   Don't use jsonDataApiStore
   //   useJsonDataApiStore: false
   // },
+  'KEY_LOGIN': {
+    endpoint: THE_KEY + 'token',
+    method: 'post',
+    extra: {
+      stringify: false,
+      headers: { 'Content-Type': URL_ENCODED },
+    },
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
+  'KEY_GET_TICKET': {
+    endpoint: THE_KEY + 'ticket?service=' + API_URL + AUTH + 'thekey',
+    method: 'get',
+    extra: {
+      stringify: false,
+    },
+    useJsonDataApiStore: false,
+  },
+  'TICKET_LOGIN': {
+    endpoint: API_URL + AUTH + 'thekey',
+    method: 'post',
+    useJsonDataApiStore: false,
+  },
   'GET_STAGES': {
     endpoint: API_URL + 'pathway_stages',
     method: 'get',
@@ -40,24 +67,24 @@ export default {
     method: 'put',
   },
   'GET_MY_CHALLENGES': {
-    endpoint: API_URL + 'challenges',
+    endpoint: API_URL + CHALLENGES,
   },
   'DELETE_CHALLENGE': {
-    endpoint: API_URL + 'challenges/:challenge_id',
+    endpoint: API_URL + CHALLENGES + '/:challenge_id',
     method: 'delete',
   },
   'GET_CHALLENGES_BY_FILTER': {
-    endpoint: API_URL + 'challenges',
+    endpoint: API_URL + CHALLENGES,
   },
   'CHALLENGE_COMPLETE': {
-    endpoint: API_URL + 'challenges/:challenge_id',
+    endpoint: API_URL + CHALLENGES + '/:challenge_id',
     method: 'put',
   },
   'GET_PEOPLE_LIST': {
     endpoint: API_URL + PEOPLE,
   },
   'CREATE_MY_PERSON': {
-    endpoint: API_URL + 'auth/client_token',
+    endpoint: API_URL + AUTH + 'client_token',
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
@@ -82,6 +109,9 @@ export default {
   'CREATE_CONTACT_ASSIGNMENT': {
     endpoint: API_URL + 'contact_assignments',
     method: 'post',
+  },
+  'SEARCH': {
+    endpoint: API_URL + 'search',
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',

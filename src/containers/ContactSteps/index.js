@@ -3,6 +3,7 @@ import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { getStepsByFilter, completeStep, addSteps, deleteStep } from '../../actions/steps';
 
@@ -12,6 +13,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 
+@translate('contactSteps')
 class ContactSteps extends Component {
 
   constructor(props) {
@@ -22,7 +24,6 @@ class ContactSteps extends Component {
     };
 
     this.renderRow = this.renderRow.bind(this);
-    this.renderNull = this.renderNull.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
   }
 
@@ -31,10 +32,10 @@ class ContactSteps extends Component {
   }
 
   getSteps() {
-    this.props.dispatch(getStepsByFilter({completed: false, receiver_ids: this.props.person.id})).then((results) => {
+    this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
       const steps = results.findAll('accepted_challenge') || [];
       let newSteps = steps.filter((s) => !s._placeHolder);
-      this.setState({steps: newSteps});
+      this.setState({ steps: newSteps });
     });
   }
 
@@ -65,7 +66,7 @@ class ContactSteps extends Component {
   }
 
 
-  renderRow({item}) {
+  renderRow({ item }) {
     return (
       <RowSwipeable
         key={item.id}
@@ -105,6 +106,7 @@ class ContactSteps extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -116,7 +118,7 @@ class ContactSteps extends Component {
           <Button
             type="secondary"
             onPress={this.handleCreateStep}
-            text="ADD A STEP OF FAITH"
+            text={t('addStep').toUpperCase()}
           />
         </Flex>
       </View>

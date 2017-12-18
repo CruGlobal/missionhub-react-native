@@ -117,7 +117,8 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      hi 
+      hi
+       
       roger
       !
     </Text>
@@ -144,10 +145,8 @@ exports[`renders correctly 1`] = `
       }
     >
       While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
-      
 
-
-      Let's figure out where you are on your journey.
+Let's figure out where you are on your journey.
     </Text>
   </View>
   <View

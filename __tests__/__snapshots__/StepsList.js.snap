@@ -8,10 +8,12 @@ exports[`renders correctly 1`] = `
     Array [
       Object {
         "body": "I feel great",
+        "id": "1",
         "selected": true,
       },
       Object {
         "body": "I feel wonderful",
+        "id": "2",
         "selected": false,
       },
     ]

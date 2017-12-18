@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import SelectStepScreen from './SelectStepScreen';
 import theme from '../theme';
-import {getStepSuggestions} from '../actions/steps';
-import {getFirstThreeValidItems} from '../utils/common';
+import { getStepSuggestions } from '../actions/steps';
+import { getFirstThreeValidItems } from '../utils/common';
 
 class PersonSelectStepScreen extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class PersonSelectStepScreen extends Component {
   }
 
   insertName(steps) {
-    return steps.map(step => {
+    return steps.map((step) => {
       step.body = step.body.replace('<<name>>', this.props.personFirstName);
       return step;
     });

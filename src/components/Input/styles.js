@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   input: {
     borderBottomWidth: 1,
-    borderBottomColor: theme.accentColor,
+    borderBottomColor: theme.secondaryColor,
     backgroundColor: theme.transparent,
     paddingVertical: 5,
     color: theme.white,

@@ -21,9 +21,7 @@ class LoginScreen extends Component {
   }
 
   login() {
-    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
-      this.navigateToNext();
-    });
+    this.navigateToNext('KeyLogin');
   }
 
   loginMinistries() {
@@ -35,11 +33,11 @@ class LoginScreen extends Component {
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToNext();
+    this.navigateToNext('Welcome');
   }
 
-  navigateToNext() {
-    this.props.dispatch(navigatePush('Welcome'));
+  navigateToNext(nextScreen) {
+    this.props.dispatch(navigatePush(nextScreen));
   }
 
   render() {
@@ -50,7 +48,7 @@ class LoginScreen extends Component {
         <Flex value={.5} />
         <Flex value={3} align="center" justify="center">
           <Flex align="center">
-            <View style={{paddingBottom: 20}}>
+            <View style={{ paddingBottom: 20 }}>
               <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
             </View>
             <Text style={styles.text}>{t('tagline1')}</Text>

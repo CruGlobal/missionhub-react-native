@@ -33,7 +33,7 @@ function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       let mySteps = action.results.findAll('accepted_challenge') || [];
       mySteps = mySteps.map((s)=> {
-        if (state.reminders.find((r)=> r.id === s.id)) return {...s, reminder: true};
+        if (state.reminders.find((r)=> r.id === s.id)) return { ...s, reminder: true };
         return s;
       });
       return {
@@ -42,7 +42,7 @@ function stepsReducer(state = initialState, action) {
       };
     case ADD_STEP_REMINDER:
       const newMine = state.mine.map((s)=> {
-        if (s.id === action.step.id) return {...s, reminder: true};
+        if (s.id === action.step.id) return { ...s, reminder: true };
         return s;
       });
       return {
@@ -52,7 +52,7 @@ function stepsReducer(state = initialState, action) {
       };
     case REMOVE_STEP_REMINDER:
       const newRemove = state.mine.map((s)=> {
-        if (s.id === action.step.id) return {...s, reminder: undefined};
+        if (s.id === action.step.id) return { ...s, reminder: undefined };
         return s;
       });
       return {
