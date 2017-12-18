@@ -57,7 +57,6 @@ class KeyLoginScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              style={styles.input}
               placeholder="Username"
               placeholderTextColor="white"
             />
@@ -76,7 +75,6 @@ class KeyLoginScreen extends Component {
               placeholder="Password"
               placeholderTextColor="white"
               blurOnSubmit={true}
-              style={styles.input}
             />
           </View>
         </Flex>

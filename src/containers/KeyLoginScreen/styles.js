@@ -6,13 +6,6 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
     fontSize: 12,
   },
-  input: {
-    color: 'white',
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 16,
-    letterSpacing: .25,
-    borderBottomColor: theme.secondaryColor,
-  },
   header: {
     color: theme.white,
     fontSize: 24,
