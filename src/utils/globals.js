@@ -1,5 +1,5 @@
 
-const ENABLE_LOGS = false;
+const ENABLE_LOGS = true;
 const ENABLE_WARN = false;
 
 function getArgs(a) {
