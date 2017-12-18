@@ -76,6 +76,9 @@ export default {
     endpoint: API_URL + 'contact_assignments',
     method: 'post',
   },
+  'SEARCH': {
+    endpoint: API_URL + 'search',
+  },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
   // },
