@@ -37,7 +37,10 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleFilter() {
-    this.props.dispatch(navigatePush('SearchPeopleFilter', { onFilter: this.handleChangeFilter }));
+    this.props.dispatch(navigatePush('SearchPeopleFilter', {
+      onFilter: this.handleChangeFilter,
+      filters: this.state.filters,
+    }));
   }
 
   handleChangeFilter(filters) {
@@ -51,7 +54,6 @@ export class SearchPeopleScreen extends Component {
 
   handleSearch(text) {
     if (!text) return this.clearSearch();
-    LOG('handling search', text);
 
     this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
       const people = results.findAll('person') || [];
@@ -96,6 +98,38 @@ export class SearchPeopleScreen extends Component {
               onPress={this.clearSearch}
               style={styles.clearIcon} />
           ) : null
+        }
+      </Flex>
+    );
+  }
+
+  removeFilter(key) {
+    let filters = { ...this.state.filters };
+    delete filters[key];
+    this.setState({ filters });
+  }
+
+  renderFilters() {
+    const { filters } = this.state;
+    const keys = Object.keys(filters).filter((k) => filters[k]);
+    if (keys.length === 0) return null;
+
+    return (
+      <Flex direction="column" style={{ padding: 5 }}>
+        {
+          keys.map((k) => (
+            <Flex key={filters[k].id} direction="row" align="center" style={styles.activeFilterRow}>
+              <Text style={styles.activeFilterText}>
+                {filters[k].text}
+              </Text>
+              <IconButton
+                style={styles.activeFilterIcon}
+                name="deleteIcon"
+                type="MissionHub"
+                onPress={() => this.removeFilter(k)}
+              />
+            </Flex>
+          ))
         }
       </Flex>
     );
@@ -166,6 +200,7 @@ export class SearchPeopleScreen extends Component {
           }
           center={this.renderCenter()}
         />
+        {this.renderFilters()}
         {this.renderContent()}
       </View>
     );

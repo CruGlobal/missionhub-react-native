@@ -3,21 +3,63 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { navigateBack } from '../../actions/navigation';
-import styles from './styles';
-import { IconButton } from '../../components/common';
+import { navigateBack, navigatePush } from '../../actions/navigation';
+
 import Header from '../Header';
+import { IconButton } from '../../components/common';
+import FilterItem from '../../components/FilterItem';
+import styles from './styles';
+
+function setSelected(items = [], id) {
+  return items.map((i) => ({
+    ...i,
+    selected: i.id === id,
+    preview: undefined,
+  }));
+}
 
 export class SearchPeopleFilterRefineScreen extends Component {
 
   constructor(props) {
     super(props);
+    let options = [].concat(props.options);
+    const hasSelected = !!options.find((o) => o.selected);
+    if (!options[0] || options[0].id !== 'any') {
+      options.unshift({ id: 'any', text: 'Any', selected: !hasSelected });
+    }
 
-    this.handleSearch = this.handleSearch.bind(this);
+    this.state = {
+      options,
+      selectedDrillDownId: '',
+    };
+
+    this.handleSelect = this.handleSelect.bind(this);
+    this.handleFilterSelect = this.handleFilterSelect.bind(this);
   }
 
-  handleSearch() {
+  handleSelect(item) {
+    if (item.drilldown) {
+      this.setState({ selectedDrillDownId: item.id });
+      this.props.dispatch(navigatePush('SearchPeopleFilterRefine', {
+        onFilter: this.handleFilterSelect,
+        options: item.drilldown,
+      }));
+    } else {
+      const newOptions = setSelected(this.state.options, item.id);
+      this.setState({ options: newOptions });
+      this.props.onFilter(item);
+    }
+  }
 
+  handleFilterSelect(item) {
+    const option = this.state.options.find((o) => o.id === this.state.selectedDrillDownId);
+    const newOptions = this.state.options.map((o) => ({
+      ...o,
+      selected: o.id === option.id,
+      preview: item.text,
+    }));
+    this.setState({ options: newOptions });
+    this.props.onFilter(item);
   }
 
   render() {
@@ -30,8 +72,19 @@ export class SearchPeopleFilterRefineScreen extends Component {
               type="MissionHub"
               onPress={() => this.props.dispatch(navigateBack())} />
           }
-          title="Refine"
+          title={this.props.title || 'Refine'}
         />
+        {
+          this.state.options.map((i) => (
+            <FilterItem
+              key={i.id}
+              item={i}
+              onSelect={this.handleSelect}
+              type={i.drilldown ? 'drilldown' : 'single'}
+              isSelected={i.selected}
+            />
+          ))
+        }
       </View>
     );
   }
@@ -39,6 +92,12 @@ export class SearchPeopleFilterRefineScreen extends Component {
 
 SearchPeopleFilterRefineScreen.propTypes = {
   onFilter: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    text: PropTypes.string,
+    drilldown: PropTypes.array,
+  })).isRequired,
+  title: PropTypes.string,
 };
 
 const mapStateToProps = (state, { navigation }) => ({
