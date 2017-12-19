@@ -9,6 +9,14 @@ export default {
     },
     done: 'DONE',
   },
+  settingsMenu: {
+    about: 'About',
+    help: 'Help',
+    review: 'Write a Review',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    signOut: 'Sign out',
+  },
   welcome: {
     welcome: 'welcome!',
     welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',

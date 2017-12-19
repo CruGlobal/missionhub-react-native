@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import SelectStepScreen from './SelectStepScreen';
-import theme from '../theme';
+import { isAndroid } from '../utils/common';
 import { getStepSuggestions } from '../actions/steps';
 import { getFirstThreeValidItems } from '../utils/common';
 
@@ -27,7 +27,7 @@ class PersonSelectStepScreen extends Component {
     let nextScreen = 'MainTabs';
 
     // Android doesn't need a primer for notifications the way iOS does
-    if (!theme.isAndroid && !this.props.hasAskedPushNotifications) {
+    if (!isAndroid && !this.props.hasAskedPushNotifications) {
       nextScreen = 'NotificationPrimer';
     }
 
