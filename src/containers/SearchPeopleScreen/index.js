@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
+import { translate } from 'react-i18next';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigateBack, navigatePush } from '../../actions/navigation';
@@ -12,6 +13,7 @@ import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 
+@translate('search')
 export class SearchPeopleScreen extends Component {
 
   constructor(props) {
@@ -54,6 +56,9 @@ export class SearchPeopleScreen extends Component {
 
   handleSearch(text) {
     if (!text) return this.clearSearch();
+    if (!this.state.isSearching) {
+      this.setState({ isSearching: true });
+    }
 
     this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
       const people = results.findAll('person') || [];
@@ -72,9 +77,11 @@ export class SearchPeopleScreen extends Component {
     let filters = { ...this.state.filters };
     delete filters[key];
     this.setState({ filters });
+    this.handleSearch(this.state.text);
   }
 
   renderCenter() {
+    const { t } = this.props;
     const { text } = this.state;
     return (
       <Flex direction="row" align="center" style={styles.searchWrap} self="stretch">
@@ -88,7 +95,7 @@ export class SearchPeopleScreen extends Component {
           returnKeyType="done"
           blurOnSubmit={true}
           style={styles.input}
-          placeholder="Search"
+          placeholder={t('inputPlaceholder')}
           placeholderTextColor={theme.white}
         />
         {
@@ -131,12 +138,13 @@ export class SearchPeopleScreen extends Component {
   }
 
   renderContent() {
+    const { t } = this.props;
     const { results, text, isSearching } = this.state;
     if (isSearching && results.length === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>
-            Loading
+            {t('loading')}
           </Text>
         </Flex>
       );
@@ -145,7 +153,7 @@ export class SearchPeopleScreen extends Component {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>
-            No results
+            {t('noResults')}
           </Text>
         </Flex>
       );
@@ -155,10 +163,10 @@ export class SearchPeopleScreen extends Component {
         <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
           <Image source={SEARCH_NULL} style={styles.nullImage} />
           <Text type="header" style={styles.nullHeader}>
-            Search
+            {t('nullHeader')}
           </Text>
           <Text style={styles.nullText}>
-            Search results will appear here.
+            {t('nullDescription')}
           </Text>
         </Flex>
       );

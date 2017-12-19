@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 
@@ -18,14 +19,16 @@ function setSelected(items = [], id) {
   }));
 }
 
+@translate('searchFilterRefine')
 export class SearchPeopleFilterRefineScreen extends Component {
 
   constructor(props) {
     super(props);
+    const t = props.t;
     let options = [].concat(props.options);
     const hasSelected = !!options.find((o) => o && o.selected);
     if (!options[0] || options[0].id !== 'any') {
-      options.unshift({ id: 'any', text: 'Any', selected: !hasSelected });
+      options.unshift({ id: 'any', text: t('any'), selected: !hasSelected });
     }
 
     this.state = {
@@ -63,6 +66,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
   }
 
   render() {
+    const { t, title, dispatch } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -70,9 +74,9 @@ export class SearchPeopleFilterRefineScreen extends Component {
             <IconButton
               name="backIcon"
               type="MissionHub"
-              onPress={() => this.props.dispatch(navigateBack())} />
+              onPress={() => dispatch(navigateBack())} />
           }
-          title={this.props.title || 'Refine'}
+          title={title || t('title')}
         />
         {
           this.state.options.map((i) => (

@@ -41,12 +41,14 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         token: results.access_token,
         refreshToken: results.refresh_token,
+        isLoggedIn: true,
       };
     case REQUESTS.TICKET_LOGIN.SUCCESS:
       return {
         ...state,
         token: results.token,
-        personId: results.person_id,
+        personId: `${results.person_id}`,
+        isLoggedIn: true,
       };
     case FIRST_TIME:
       return {
@@ -55,7 +57,6 @@ function authReducer(state = initialAuthState, action) {
         isLoggedIn: false,
       };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
-      LOG('action', results);
       return {
         ...state,
         isLoggedIn: true,

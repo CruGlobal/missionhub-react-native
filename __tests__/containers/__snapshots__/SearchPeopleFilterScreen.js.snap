@@ -167,12 +167,27 @@ exports[`renders correctly 1`] = `
     />
   </View>
   <RCTScrollView
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     style={
       Object {
         "flex": 1,
       }
     }
   >
+    <RCTRefreshControl />
     <View>
       <View
         accessibilityComponentType={undefined}

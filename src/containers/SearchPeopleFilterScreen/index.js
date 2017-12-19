@@ -2,89 +2,82 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getMyOrganizations } from '../../actions/organizations';
 import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
+import { getMyLabels } from '../../actions/labels';
 
 import Header from '../Header';
-import { IconButton } from '../../components/common';
+import { IconButton, RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
 
-
+@translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
 
   constructor(props) {
     super(props);
+    const { t, organizations, groups, surveys, filters } = props;
 
     const options = [
       {
         id: 'ministry',
-        text: 'Ministry',
-        options: this.props.organizations,
+        text: t('ministry'),
+        options: organizations,
         preview: props.filters.ministry ? props.filters.ministry.text : undefined,
       },
       {
         id: 'labels',
-        text: 'Labels',
-        options: this.props.organizations,
+        text: t('labels'),
+        options: organizations,
         preview: props.filters.labels ? props.filters.labels.text : undefined,
       },
       {
         id: 'groups',
-        text: 'Groups',
-        options: this.props.groups,
+        text: t('groups'),
+        options: groups,
         preview: props.filters.groups ? props.filters.groups.text : undefined,
       },
       {
         id: 'gender',
-        text: 'Gender',
+        text: t('gender'),
         options: [
-          { id: 'm', text: 'Male' },
-          { id: 'f', text: 'Female' },
+          { id: 'm', text: t('male') },
+          { id: 'f', text: t('female') },
         ],
         preview: props.filters.gender ? props.filters.gender.text : undefined,
       },
       { 
         id: 'surveys',
-        text: 'Survey',
-        // options: this.props.surveys,
-        options: [
-          { id: 'survey1', text: 'Survey 1' },
-          { id: 'survey2', text: 'Survey 2' },
-          {
-            id: 'survey3',
-            text: 'Survey 3',
-            drilldown: [
-              { id: 'survey4', text: 'Survey 4' },
-              { id: 'survey5', text: 'Survey 5' },
-            ],
-          },
-        ],
+        text: t('surveys'),
+        options: surveys,
         preview: props.filters.survey ? props.filters.survey.text : undefined,
       },
     ];
     const toggleOptions = [
       {
         id: 'unassigned',
-        text: 'Unassigned',
-        selected: !!props.filters.unassigned,
+        text: t('unassigned'),
+        selected: !!filters.unassigned,
       },
       {
         id: 'archived',
-        text: 'Include Archived Contacts',
-        selected: !!props.filters.archived,
+        text: t('archived'),
+        selected: !!filters.archived,
       },
     ];
     this.state = {
-      filters: props.filters,
+      filters: filters,
       options,
       toggleOptions,
       selectedFilterId: '',
+      refreshing: false,
     };
 
+    this.reloadAll = this.reloadAll.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleDrillDown = this.handleDrillDown.bind(this);
     this.handleSelectFilter = this.handleSelectFilter.bind(this);
@@ -101,6 +94,39 @@ export class SearchPeopleFilterScreen extends Component {
     if (!this.props.surveys.length) {
       this.props.dispatch(getMySurveys());
     }
+    if (!this.props.labels.length) {
+      this.props.dispatch(getMyLabels());
+    }
+  }
+
+  reloadAll() {
+    this.setState({ refreshing: true });
+    Promise.all([
+      this.loadOrgs(),
+      this.loadGroups(),
+      this.loadSurveys(),
+      this.loadLabels(),
+    ]).then(() => {
+      this.setState({ refreshing: false });
+    }).catch(() => {
+      this.setState({ refreshing: false });
+    });
+  }
+
+  loadOrgs() {
+    return this.props.dispatch(getMyOrganizations());
+  }
+
+  loadGroups() {
+    return this.props.dispatch(getMyGroups());
+  }
+
+  loadSurveys() {
+    return this.props.dispatch(getMySurveys());
+  }
+
+  loadLabels() {
+    return this.props.dispatch(getMyLabels());
   }
 
   setFilter(filters = {}) {
@@ -149,6 +175,7 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -158,9 +185,15 @@ export class SearchPeopleFilterScreen extends Component {
               type="MissionHub"
               onPress={() => this.props.dispatch(navigateBack())} />
           }
-          title="Filter"
+          title={t('title')}
         />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView
+          style={{ flex: 1 }}
+          refreshControl={<RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.reloadAll}
+          />}
+        >
           {
             this.state.options.map((o) => (
               <FilterItem
@@ -193,11 +226,12 @@ SearchPeopleFilterScreen.propTypes = {
   filters: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations, groups, surveys }, { navigation }) => ({
+const mapStateToProps = ({ organizations, groups, surveys, labels }, { navigation }) => ({
   ...(navigation.state.params || {}),
   organizations: organizations.all,
   groups: groups.all,
   surveys: surveys.all,
+  labels: labels.all,
 });
 
 export default connect(mapStateToProps)(SearchPeopleFilterScreen);

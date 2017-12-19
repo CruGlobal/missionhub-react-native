@@ -11,6 +11,7 @@ const mockStore = {
   organizations: { all: [] },
   groups: { all: [] },
   surveys: { all: [] },
+  labels: { all: [] },
 };
 
 const store = createMockStore(mockStore);
