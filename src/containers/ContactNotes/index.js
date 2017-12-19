@@ -26,11 +26,13 @@ class ContactNotes extends Component {
   }
 
   textChanged(text) {
-    this.setState({ text: text });
+    this.setState({ text });
   }
 
   saveNotes() {
-    this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+    if (this.state.text) {
+      this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+    }
   }
 
   onButtonPress() {
@@ -48,10 +50,10 @@ class ContactNotes extends Component {
   getButtonText() {
     if (this.state.editing) {
       return 'DONE';
-    } else if (this.state.text === undefined) {
-      return 'ADD PRIVATE NOTES';
-    } else {
+    } else if (this.state.text) {
       return 'EDIT PRIVATE NOTES';
+    } else {
+      return 'ADD PRIVATE NOTES';
     }
   }
 
@@ -67,8 +69,8 @@ class ContactNotes extends Component {
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
-        returnKeyType="done"
-        blurOnSubmit={true}
+        returnKeyType="next"
+        blurOnSubmit={false}
         onFocus={this.onTextInputFocus}
       />
     );
@@ -93,7 +95,7 @@ class ContactNotes extends Component {
       return (
         <PlatformKeyboardAvoidingView offset={this.state.keyboardHeight}>
           <Flex align="stretch" justify="center" value={1} style={styles.container}>
-            { (this.state.text === undefined && !this.state.editing) ? this.renderEmpty() : this.renderNotes() }
+            { (this.state.text || this.state.editing) ?  this.renderNotes() : this.renderEmpty() }
           </Flex>
           <Flex justify="end">
             <Button
