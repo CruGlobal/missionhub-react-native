@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, Image, TextInput, View } from 'react-native';
+import { Dimensions, Image, TextInput, View, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Text, Flex, Button } from '../../components/common';
@@ -14,12 +14,14 @@ class ContactNotes extends Component {
     super(props);
 
     this.state = {
-      text: null,
-      viewHeight: undefined,
+      text: undefined,
+      keyboardHeight: undefined,
+      buttonText: 'ADD PRIVATE NOTES',
     };
 
     this.saveNotes = this.saveNotes.bind(this);
     this.onLayout = this.onLayout.bind(this);
+    this.onButtonPress = this.onButtonPress.bind(this);
   }
 
   textChanged(text) {
@@ -27,7 +29,24 @@ class ContactNotes extends Component {
   }
 
   saveNotes() {
+    console.log('saving');
     this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+  }
+
+  onButtonPress() {
+    if (this.state.text === undefined) {
+      this.setState({ text: '', buttonText: 'DONE' });
+      this.notesInput.focus();
+
+    } else if (this.notesInput.isFocused()) {
+      this.saveNotes();
+      this.setState({ buttonText: 'EDIT PRIVATE NOTES' });
+      Keyboard.dismiss();
+
+    } else {
+      this.notesInput.focus();
+      this.setState({ buttonText: 'DONE' });
+    }
   }
 
   renderNotes() {
@@ -60,14 +79,18 @@ class ContactNotes extends Component {
   }
 
   render() {
-    if (this.state.viewHeight) {
+    if (this.state.keyboardHeight) {
       return (
-        <PlatformKeyboardAvoidingView offset={this.state.viewHeight}>
+        <PlatformKeyboardAvoidingView offset={this.state.keyboardHeight}>
           <Flex align="stretch" justify="center" value={1} style={styles.container}>
-            { this.state.text === null ? this.renderEmpty() : this.renderNotes() }
+            { this.state.text === undefined ? this.renderEmpty() : this.renderNotes() }
           </Flex>
           <Flex justify="end">
-            { this.state.text === null ? this.getAddButton() : this.getEditButton() }
+            <Button
+              type="secondary"
+              onPress={this.onButtonPress}
+              text={this.state.buttonText}
+            />
           </Flex>
         </PlatformKeyboardAvoidingView>
       );
@@ -79,35 +102,10 @@ class ContactNotes extends Component {
   }
 
   onLayout(event) {
-    if (!this.state.viewHeight) {
-      const viewHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
-      this.setState({ viewHeight });
+    if (!this.state.keyboardHeight) {
+      const keyboardHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
+      this.setState({ keyboardHeight });
     }
-  }
-
-  getAddButton() {
-    const onPressFunction = () => {
-      this.setState({ text: '' });
-      this.notesInput.focus();
-    };
-
-    return (
-      <Button
-        type="secondary"
-        onPress={onPressFunction}
-        text="ADD PRIVATE NOTES"
-      />
-    );
-  }
-
-  getEditButton() {
-    return (
-      <Button
-        type="secondary"
-        onPress={this.saveNotes}
-        text="EDIT PRIVATE NOTES"
-      />
-    );
   }
 }
 
