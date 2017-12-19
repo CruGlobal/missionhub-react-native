@@ -40,11 +40,14 @@ export default StyleSheet.create({
   nullText: {
     fontSize: 16,
   },
+  activeFilterWrap: {
+    paddingVertical: 5,
+    paddingHorizontal: 6,
+  },
   activeFilterRow: {
     paddingHorizontal: 12,
     paddingVertical: 5,
-    marginHorizontal: 15,
-    marginVertical: 2,
+    marginTop: 1,
     backgroundColor: theme.grey2,
   },
   activeFilterText: {

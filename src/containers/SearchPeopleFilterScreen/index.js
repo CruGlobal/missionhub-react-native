@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
-// import { getMyOrganizations } from '../../actions/organizations';
-// import { getMyGroups } from '../../actions/groups';
-// import { getMySurveys } from '../../actions/surveys';
+import { getMyOrganizations } from '../../actions/organizations';
+import { getMyGroups } from '../../actions/groups';
+import { getMySurveys } from '../../actions/surveys';
 
 import Header from '../Header';
 import { IconButton } from '../../components/common';
@@ -23,13 +23,13 @@ export class SearchPeopleFilterScreen extends Component {
       {
         id: 'ministry',
         text: 'Ministry',
-        options: this.props.all,
+        options: this.props.organizations,
         preview: props.filters.ministry ? props.filters.ministry.text : undefined,
       },
       {
         id: 'labels',
         text: 'Labels',
-        options: this.props.all,
+        options: this.props.organizations,
         preview: props.filters.labels ? props.filters.labels.text : undefined,
       },
       {
@@ -48,7 +48,7 @@ export class SearchPeopleFilterScreen extends Component {
         preview: props.filters.gender ? props.filters.gender.text : undefined,
       },
       { 
-        id: 'survey',
+        id: 'surveys',
         text: 'Survey',
         // options: this.props.surveys,
         options: [
@@ -91,15 +91,16 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   componentWillMount() {
-    // if (!this.props.organizations) {
-    //   this.props.dispatch(getMyOrganizations());
-    // }
-    // if (!this.props.groups) {
-    //   this.props.dispatch(getMyGroups());
-    // }
-    // if (!this.props.surveys) {
-    //   this.props.dispatch(getMySurveys());
-    // }
+    // If we haven't requested any of this info, or none exists, go ahead and get it
+    if (!this.props.organizations.length) {
+      this.props.dispatch(getMyOrganizations());
+    }
+    if (!this.props.groups.length) {
+      this.props.dispatch(getMyGroups());
+    }
+    if (!this.props.surveys.length) {
+      this.props.dispatch(getMySurveys());
+    }
   }
 
   setFilter(filters = {}) {

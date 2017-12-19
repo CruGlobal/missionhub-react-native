@@ -57,11 +57,6 @@ export class SearchPeopleScreen extends Component {
 
     this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
       const people = results.findAll('person') || [];
-      // const people = [
-      //   { id: '1', first_name: 'Ron', last_name: 'Swanson', full_name: 'Ron Swanson', organization: 'Cru at Harvard' },
-      //   { id: '2', first_name: 'Leslie', last_name: 'Knope', full_name: 'Leslie Knope', organization: 'Cru at Harvard' },
-      //   { id: '3', first_name: 'Ben', last_name: 'Wyatt', full_name: 'Ben Wyatt', organization: 'Cru at Harvard' },
-      // ];
       this.setState({ isSearching: false, results: people });
     }).catch((err) => {
       this.setState({ isSearching: false });
@@ -71,6 +66,12 @@ export class SearchPeopleScreen extends Component {
 
   clearSearch() {
     this.setState({ text: '', results: [], isSearching: false });
+  }
+
+  removeFilter(key) {
+    let filters = { ...this.state.filters };
+    delete filters[key];
+    this.setState({ filters });
   }
 
   renderCenter() {
@@ -103,19 +104,13 @@ export class SearchPeopleScreen extends Component {
     );
   }
 
-  removeFilter(key) {
-    let filters = { ...this.state.filters };
-    delete filters[key];
-    this.setState({ filters });
-  }
-
   renderFilters() {
     const { filters } = this.state;
     const keys = Object.keys(filters).filter((k) => filters[k]);
     if (keys.length === 0) return null;
 
     return (
-      <Flex direction="column" style={{ padding: 5 }}>
+      <Flex direction="column" style={styles.activeFilterWrap}>
         {
           keys.map((k) => (
             <Flex key={filters[k].id} direction="row" align="center" style={styles.activeFilterRow}>
