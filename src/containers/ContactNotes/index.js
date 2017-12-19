@@ -16,6 +16,7 @@ class ContactNotes extends Component {
     this.state = {
       text: undefined,
       keyboardHeight: undefined,
+      editing: false,
       buttonText: 'ADD PRIVATE NOTES',
     };
 
@@ -29,23 +30,28 @@ class ContactNotes extends Component {
   }
 
   saveNotes() {
-    console.log('saving');
     this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
   }
 
   onButtonPress() {
-    if (this.state.text === undefined) {
-      this.setState({ text: '', buttonText: 'DONE' });
-      this.notesInput.focus();
-
-    } else if (this.notesInput.isFocused()) {
+    if (this.state.editing) {
+      this.setState({ editing: false });
       this.saveNotes();
-      this.setState({ buttonText: 'EDIT PRIVATE NOTES' });
       Keyboard.dismiss();
 
     } else {
+      this.setState({ editing: true });
       this.notesInput.focus();
-      this.setState({ buttonText: 'DONE' });
+    }
+  }
+
+  getButtonText() {
+    if (this.state.editing) {
+      return 'DONE';
+    } else if (this.state.text === undefined) {
+      return 'ADD PRIVATE NOTES';
+    } else {
+      return 'EDIT PRIVATE NOTES';
     }
   }
 
@@ -83,13 +89,13 @@ class ContactNotes extends Component {
       return (
         <PlatformKeyboardAvoidingView offset={this.state.keyboardHeight}>
           <Flex align="stretch" justify="center" value={1} style={styles.container}>
-            { this.state.text === undefined ? this.renderEmpty() : this.renderNotes() }
+            { (this.state.text === undefined && !this.state.editing) ? this.renderEmpty() : this.renderNotes() }
           </Flex>
           <Flex justify="end">
             <Button
               type="secondary"
               onPress={this.onButtonPress}
-              text={this.state.buttonText}
+              text={this.getButtonText()}
             />
           </Flex>
         </PlatformKeyboardAvoidingView>
