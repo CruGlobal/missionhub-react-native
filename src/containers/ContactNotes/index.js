@@ -6,6 +6,7 @@ import { Text, Flex, Button } from '../../components/common';
 import styles from './styles';
 import theme from '../../theme';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
+import { saveNotes } from '../../actions/person';
 
 class ContactNotes extends Component {
 
@@ -25,7 +26,9 @@ class ContactNotes extends Component {
     this.setState({ text: text });
   }
 
-  saveNotes() {}
+  saveNotes() {
+    this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+  }
 
   renderNotes() {
     return (
