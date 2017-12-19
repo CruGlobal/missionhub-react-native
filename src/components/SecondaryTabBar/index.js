@@ -43,6 +43,7 @@ export default class SecondaryTabBar extends Component {
     return (
       <Flex value={1} >
         <ScrollableTabView
+          contentProps={{ keyboardShouldPersistTaps: 'handled' }}
           tabBarPosition="top"
           initialPage={0}
           locked={true}
