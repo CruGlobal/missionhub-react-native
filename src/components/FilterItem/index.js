@@ -68,7 +68,9 @@ export default class FilterItem extends Component {
 
 FilterItem.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.string,
     text: PropTypes.string,
+    preview: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['drilldown', 'single', 'switch']).isRequired,

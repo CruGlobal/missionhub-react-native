@@ -32,10 +32,12 @@ const tabArray = [
   },
 ];
 
+jest.mock('NativeAnimatedHelper');
+
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <SecondaryTabBar person={{first_name: 'ben', id: 1}} tabs={tabArray} />
+      <SecondaryTabBar person={{ first_name: 'ben', id: 1 }} tabs={tabArray} />
     </Provider>
   );
 });

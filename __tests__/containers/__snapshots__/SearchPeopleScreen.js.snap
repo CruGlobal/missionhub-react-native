@@ -516,6 +516,12 @@ exports[`renders with results state 1`] = `
     onEndReachedThreshold={2}
     renderItem={[Function]}
     scrollEventThrottle={50}
+    style={
+      Object {
+        "borderTopColor": "#E6E8EC",
+        "borderTopWidth": 1,
+      }
+    }
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />

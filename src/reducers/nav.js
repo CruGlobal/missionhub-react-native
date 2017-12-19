@@ -4,17 +4,10 @@ import { MainRoutes } from '../AppRoutes';
 
 const initialState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams('Login'));
 
-// const loggedInState = MainRoutes.router.getStateForAction(NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'MainTabs' }),
-//   ],
-// }));
 const loggedInState = MainRoutes.router.getStateForAction(NavigationActions.reset({
-  index: 1,
+  index: 0,
   actions: [
     NavigationActions.navigate({ routeName: 'MainTabs' }),
-    NavigationActions.navigate({ routeName: 'SearchPeople' }),
   ],
 }));
 
