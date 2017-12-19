@@ -58,7 +58,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
           newQuery.authUserId = user.id;
         }
       }
-      newQuery.timestamp = new Date().valueOf();
 
       dispatch({
         query: newQuery,

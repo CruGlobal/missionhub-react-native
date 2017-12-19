@@ -24,6 +24,24 @@ const CASEY_TABS = [
   },
 ];
 
+const JEAN_TABS = [
+  {
+    page: 'steps',
+    iconName: 'stepsIcon',
+    tabLabel: 'My Steps',
+  },
+  {
+    page: 'journey',
+    iconName: 'journeyIcon',
+    tabLabel: 'Our Journey',
+  },
+  {
+    page: 'notes',
+    iconName: 'notesIcon',
+    tabLabel: 'My Notes',
+  },
+];
+
 export default class ContactHeader extends Component {
 
   constructor(props) {
@@ -32,11 +50,11 @@ export default class ContactHeader extends Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { person, type } = this.props;
 
     return (
       <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center">
-        <Text style={styles.name}>{name.toUpperCase()}</Text>
+        <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
         <PillButton
           filled={true}
           text="STAGE"
@@ -44,12 +62,13 @@ export default class ContactHeader extends Component {
           buttonTextStyle={styles.stageBtnText}
           onPress={()=>{}}
         />
-        <SecondaryTabBar tabs={CASEY_TABS} />
+        <SecondaryTabBar person={person} tabs={type === 'casey' ? CASEY_TABS : JEAN_TABS} />
       </Flex>
     );
   }
 }
 
 ContactHeader.propTypes = {
-  name: PropTypes.string.isRequired,
+  person: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
 };

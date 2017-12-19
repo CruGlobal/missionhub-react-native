@@ -7,52 +7,17 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  top: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    width: theme.fullWidth,
-    backgroundColor: theme.backgroundColor,
+  nullHeader: {
+    fontSize: 42,
+    color: theme.primaryColor,
+    paddingTop: 10,
   },
-  topEmpty: {
-    paddingHorizontal: 27,
-    paddingVertical: 32,
-  },
-  topBorder: {
-    borderStyle: 'dashed',
-    borderWidth: 2,
-    borderColor: theme.white,
-    padding: 25,
-  },
-  title: {
-    fontSize: 36,
-    color: theme.white,
-    textAlign: 'center',
-  },
-  description: {
+  nullText: {
     fontSize: 16,
+    color: theme.textColor,
+    paddingHorizontal: 70,
     textAlign: 'center',
-  },
-  topItems: {
-    paddingHorizontal: 25,
-    paddingBottom: 25,
-  },
-  topTitle: {
-    paddingVertical: 5,
-    fontWeight: 'bold',
-    fontSize: 14,
-    color: theme.white,
-  },
-  dropZone: {
-    width: theme.fullWidth,
-    paddingHorizontal: 30,
-  },
-  dropZoneBorder: {
-    borderStyle: 'dashed',
-    borderWidth: 2,
-    borderColor: theme.white,
-    height: 60,
+    paddingVertical: 10,
   },
   list: {
     backgroundColor: theme.transparent,

@@ -8,6 +8,8 @@ const initialProfileState = {
 };
 
 function profileReducer(state = initialProfileState, action) {
+  const results = action.results;
+
   switch (action.type) {
     case REHYDRATE:
       const incoming = action.payload.profile;
@@ -31,8 +33,14 @@ function profileReducer(state = initialProfileState, action) {
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {
         ...state,
-        firstName: action.results.first_name,
-        lastName: action.results.last_name,
+        firstName: results.first_name,
+        lastName: results.last_name,
+      };
+    case REQUESTS.TICKET_LOGIN.SUCCESS:
+      return {
+        ...state,
+        firstName: results.first_name,
+        lastName: results.last_name,
       };
     case LOGOUT:
       return initialProfileState;

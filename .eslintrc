@@ -69,6 +69,7 @@
         "afterColon": true
       }
     ],
+    "arrow-parens": 2,
     "react/jsx-no-undef": 2,
     "react/jsx-uses-vars": 2,
     "jsx-quotes": [

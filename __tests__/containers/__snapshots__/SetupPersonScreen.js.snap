@@ -98,7 +98,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "backgroundColor": undefined,
-              "borderBottomColor": "#005A7F",
+              "borderBottomColor": "#52C5DC",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
@@ -106,13 +106,7 @@ exports[`renders correctly 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {
-              "borderBottomColor": "#52C5DC",
-              "color": "white",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-            },
+            Object {},
           ]
         }
         underlineColorAndroid={undefined}
@@ -141,7 +135,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "backgroundColor": undefined,
-              "borderBottomColor": "#005A7F",
+              "borderBottomColor": "#52C5DC",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
@@ -149,13 +143,7 @@ exports[`renders correctly 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {
-              "borderBottomColor": "#52C5DC",
-              "color": "white",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 16,
-              "letterSpacing": 0.25,
-            },
+            Object {},
           ]
         }
         underlineColorAndroid={undefined}

@@ -15,9 +15,6 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingHorizontal: 30,
   },
-  input: {
-    borderBottomColor: theme.secondaryColor,
-  },
   createButton: {
     width: theme.fullWidth,
   },
