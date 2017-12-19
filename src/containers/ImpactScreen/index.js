@@ -3,13 +3,13 @@ import { View, ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { logout } from '../../actions/auth';
 import { getGlobalImpact, getMyImpact } from '../../actions/impact';
 
 import styles from './styles';
 import { Flex, Text, IconButton } from '../../components/common';
 import Header from '../Header';
 import { intToStringLocale } from '../../utils/common';
+import { navigatePush } from '../../actions/navigation';
 
 const year = new Date().getFullYear();
 
@@ -37,7 +37,7 @@ class ImpactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
           }
           title={t('header').toUpperCase()}
         />

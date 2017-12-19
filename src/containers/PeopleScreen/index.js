@@ -53,10 +53,7 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton
-              name="menuIcon"
-              type="MissionHub"
-              onPress={()=> LOG('pressed')} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
           }
           right={
             isCasey ? (
