@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Dimensions, Image, TextInput, View, Keyboard } from 'react-native';
+import { Dimensions, Image, View, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { Text, Flex, Button } from '../../components/common';
+import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
-import theme from '../../theme';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { saveNotes } from '../../actions/person';
 
@@ -23,6 +22,7 @@ class ContactNotes extends Component {
     this.saveNotes = this.saveNotes.bind(this);
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
+    this.onTextInputFocus = this.onTextInputFocus.bind(this);
   }
 
   textChanged(text) {
@@ -55,17 +55,21 @@ class ContactNotes extends Component {
     }
   }
 
+  onTextInputFocus() {
+    this.setState({ editing: true });
+  }
+
   renderNotes() {
     return (
-      <TextInput
+      <Input
         ref={(c) => this.notesInput = c}
         onChangeText={(t) => this.textChanged(t)}
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
-        selectionColor={theme.primaryColor}
         returnKeyType="done"
         blurOnSubmit={true}
+        onFocus={this.onTextInputFocus}
       />
     );
   }
