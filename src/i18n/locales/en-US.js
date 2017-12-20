@@ -4,10 +4,12 @@ export default {
       firstName: 'First Name',
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
       lastName: 'Last Name',
+      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
       phone: 'Phone',
     },
     done: 'DONE',
+    next: 'Next',
   },
   settingsMenu: {
     about: 'About',
