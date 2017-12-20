@@ -40,7 +40,7 @@ class Header extends Component {
     }
     if (title) {
       return (
-        <Flex value={2} align="center" justify="center" value={1} style={styles.center}>
+        <Flex value={4} align="center" justify="center" style={styles.center}>
           <Text style={styles.title} numberOfLines={1}>
             {title}
           </Text>

@@ -1,10 +1,9 @@
-import {createMyPerson} from '../../src/actions/profile';
-import callApi, {REQUESTS} from '../../src/actions/api';
+import { createMyPerson } from '../../src/actions/profile';
 
 jest.mock('../../src/actions/api');
 
 it('sends correct API request', () => {
-  const result = createMyPerson('Roger', 'Goers');
+  createMyPerson('Roger', 'Goers');
 
   //result(jest.fn());
 
