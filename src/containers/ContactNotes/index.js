@@ -7,7 +7,7 @@ import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { saveNotes } from '../../actions/person';
 
-class ContactNotes extends Component {
+export class ContactNotes extends Component {
 
   constructor(props) {
     super(props);

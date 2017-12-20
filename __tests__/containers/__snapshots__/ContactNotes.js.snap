@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders dummy view when keyboard height is not set 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`when keyboard height is set it changes button message to DONE when editing 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  keyboardVerticalOffset={216.5}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Flex
+    align="stretch"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <Input
+      blurOnSubmit={false}
+      multiline={true}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "color": "#505256",
+          "flex": 1,
+          "fontSize": 16,
+          "textAlign": "center",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="DONE"
+      type="secondary"
+    />
+  </Flex>
+</KeyboardAvoidingView>
+`;
+
+exports[`when keyboard height is set it shows icon and prompt by default 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  keyboardVerticalOffset={216.5}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Flex
+    align="stretch"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notesIcon.png",
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          }
+        }
+        type="header"
+      >
+        MY NOTES
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          }
+        }
+      >
+        Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
+      </MyText>
+    </Flex>
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="ADD PRIVATE NOTES"
+      type="secondary"
+    />
+  </Flex>
+</KeyboardAvoidingView>
+`;
+
+exports[`when keyboard height is set it shows notes 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  keyboardVerticalOffset={216.5}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Flex
+    align="stretch"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <Input
+      blurOnSubmit={false}
+      multiline={true}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "color": "#505256",
+          "flex": 1,
+          "fontSize": 16,
+          "textAlign": "center",
+        }
+      }
+      value="Hello, Roge! Here are some notes."
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="EDIT PRIVATE NOTES"
+      type="secondary"
+    />
+  </Flex>
+</KeyboardAvoidingView>
+`;
