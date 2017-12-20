@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 import theme, { COLORS } from '../../theme';
-import { isiPhoneX } from '../../utils/common';
 
 export default StyleSheet.create({
   background: {
     backgroundColor: COLORS.GREY,
-    paddingTop: isiPhoneX() ? 30 : 0,
+    flex: 1,
   },
   buttonContainer: {
     borderBottomWidth: 1,
