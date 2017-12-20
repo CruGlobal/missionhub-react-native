@@ -12,10 +12,6 @@ export class ContactNotes extends Component {
   constructor(props) {
     super(props);
 
-    this.notesInput = {
-      focus: () => ({}),
-    };
-
     this.state = {
       text: undefined,
       keyboardHeight: undefined,

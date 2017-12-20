@@ -1,4 +1,4 @@
-import 'react-native';
+import ReactNative from 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
@@ -45,15 +45,35 @@ describe('when keyboard height is set it', () => {
     expect(screen.dive()).toMatchSnapshot();
   });
 
-  it('changes button message to DONE when editing', () => {
-    screen.setState({ editing: true });
+  describe('editing is set to true', () => {
+    beforeEach(() => {
+      screen.setState({ editing: true });
+    });
 
-    expect(screen.dive()).toMatchSnapshot();
+    it('changes button message to DONE when editing', () => {
+      expect(screen.dive()).toMatchSnapshot();
+    });
+
+    it('sets editing to false when button is pressed', () => {
+      ReactNative.Keyboard.dismiss = jest.fn();
+      jest.spyOn(screen.instance(), 'saveNotes');
+
+      screen.find(Button).simulate('press');
+
+      expect(screen.state('editing')).toBe(false);
+      expect(screen.instance().saveNotes).toHaveBeenCalled();
+      expect(ReactNative.Keyboard.dismiss).toHaveBeenCalled();
+    });
   });
 
   it('sets editing to true when button is pressed', () => {
-    const button = screen.find(Button);
-    button.simulate('press');
+    const mockFocus = jest.fn();
+    Object.defineProperty(screen.instance(), 'notesInput', { value: { focus: mockFocus } });
+
+    screen.find(Button).simulate('press');
+
+    expect(screen.state('editing')).toBe(true);
+    expect(mockFocus).toHaveBeenCalled();
   });
 });
 

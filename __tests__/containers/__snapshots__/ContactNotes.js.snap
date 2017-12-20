@@ -11,7 +11,7 @@ exports[`renders dummy view when keyboard height is not set 1`] = `
 />
 `;
 
-exports[`when keyboard height is set it changes button message to DONE when editing 1`] = `
+exports[`when keyboard height is set it editing is set to true changes button message to DONE when editing 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
   keyboardVerticalOffset={216.5}
