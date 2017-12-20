@@ -13,15 +13,25 @@ export function disableAskPushNotification() {
   };
 }
 
+export function enableAskPushNotification() {
+  return {
+    type: PUSH_NOTIFICATION_SHOULD_ASK,
+    bool: true,
+  };
+}
+
 export function setupPushNotifications() {
   return (dispatch, getState) => {
-    const token = getState().notifications.token;
+    const { token, shouldAsk } = getState().notifications;
+    if (!shouldAsk) return;
 
     // TODO: Remove this when testing notification callback
     // Don't bother getting this stuff if there is already a token
     if (token) {
       return;
     }
+
+    LOG('asking for push notification token');
 
     PushNotification.configure({
       // (optional) Called when Token is generated (iOS and Android)
