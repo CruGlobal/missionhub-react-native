@@ -2,16 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <View
+  onLayout={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "#505256",
-        "paddingTop": 0,
-      },
-      Object {
-        "flex": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "#505256",
+      "flex": 1,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 20,
+    }
   }
 >
   <View

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import SelectStepScreen from './SelectStepScreen';
-import { isAndroid } from '../utils/common';
 import { getStepSuggestions } from '../actions/steps';
-import { getFirstThreeValidItems } from '../utils/common';
+import { isAndroid, getFirstThreeValidItems } from '../utils/common';
 
 class PersonSelectStepScreen extends Component {
   constructor(props) {

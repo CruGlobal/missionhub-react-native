@@ -3,35 +3,35 @@ import { Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
 import { logout } from '../../actions/auth';
 
-@connect()
 @translate('settingsMenu')
-export default class SettingsMenu extends Component {
+export class SettingsMenu extends Component {
   render() {
     const { t } = this.props;
     const menuItems = [
       {
         label: t('about'),
-        action: () => Linking.openURL('https://get.missionhub.com'),
+        action: () => Linking.openURL(LINKS.about),
       },
       {
         label: t('help'),
-        action: () => Linking.openURL('http://help.missionhub.com'),
+        action: () => Linking.openURL(LINKS.help),
       },
       {
         label: t('review'),
-        action: () => Linking.openURL(isAndroid ? 'market://details?id=com.missionhub' : 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8'),
+        action: () => Linking.openURL(isAndroid ? LINKS.playStore : LINKS.appleStore),
       },
       {
         label: t('terms'),
-        action: () => Linking.openURL('https://get.missionhub.com/terms-of-service/'),
+        action: () => Linking.openURL(LINKS.terms),
       },
       {
         label: t('privacy'),
-        action: () => Linking.openURL('https://www.cru.org/us/en/about/privacy.html'),
+        action: () => Linking.openURL(LINKS.privacy),
       },
       {
         label: t('signOut'),
@@ -44,3 +44,5 @@ export default class SettingsMenu extends Component {
     );
   }
 }
+
+export default connect()(SettingsMenu);
