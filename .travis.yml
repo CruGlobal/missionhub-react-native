@@ -9,7 +9,7 @@ notifications:
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-  yarn run oneSky:upload; fi
+  yarn run onesky:upload; fi
 cache:
   yarn: true
 env:
