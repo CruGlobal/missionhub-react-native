@@ -21,6 +21,14 @@ export const THE_KEY_CLIENT_ID = '8480288430352167964';
 export const CASEY = 'casey';
 export const JEAN = 'jean';
 
+export const LINKS = {
+  about: 'https://get.missionhub.com',
+  help: 'http://help.missionhub.com',
+  playStore: 'market://details?id=com.missionhub',
+  appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
+  terms: 'https://get.missionhub.com/terms-of-service/',
+  privacy: 'https://www.cru.org/us/en/about/privacy.html',
+};
 
 export default {
 

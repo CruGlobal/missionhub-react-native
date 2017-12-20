@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-navigation';
 import { BackHandler } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Flex } from '../common';
-import styles from './styles';
-import Button from '../Button';
-import IconButton from '../IconButton';
+import { Flex, Button, IconButton } from '../common';
 import { navigatePush } from '../../actions/navigation';
+import styles from './styles';
 
-@connect()
-export default class SideMenu extends Component {
+export class SideMenu extends Component {
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
   }
@@ -49,3 +46,5 @@ SideMenu.propTypes = {
     })
   ),
 };
+
+export default connect()(SideMenu);
