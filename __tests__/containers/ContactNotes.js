@@ -9,6 +9,7 @@ import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { testSnapshot } from '../../testUtils';
+import Button from '../../src/components/Button';
 
 const store = createMockStore();
 
@@ -48,6 +49,11 @@ describe('when keyboard height is set it', () => {
     screen.setState({ editing: true });
 
     expect(screen.dive()).toMatchSnapshot();
+  });
+
+  it('sets editing to true when button is pressed', () => {
+    const button = screen.find(Button);
+    button.simulate('press');
   });
 });
 
