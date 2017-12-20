@@ -4,15 +4,14 @@ import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
 
 const initialState = {
-  myOrgId: '',
   all: [],
 };
 
-function organizationsReducer(state = initialState, action) {
+function surveysReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
     case REHYDRATE:
-      var incoming = action.payload.organizations;
+      var incoming = action.payload.surveys;
       if (incoming) {
         return {
           ...state,
@@ -20,12 +19,11 @@ function organizationsReducer(state = initialState, action) {
         };
       }
       return state;
-    case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
-      const orgs = results.findAll('organization') || [];
+    case REQUESTS.GET_MY_SURVEYS.SUCCESS:
+      const surveys = results.findAll('survey') || [];
       return {
         ...state,
-        all: orgs,
-        myId: orgs[0] ? orgs[0].id : '',
+        all: surveys,
       };
     case LOGOUT:
       return initialState;
@@ -34,4 +32,4 @@ function organizationsReducer(state = initialState, action) {
   }
 }
 
-export default organizationsReducer;
+export default surveysReducer;

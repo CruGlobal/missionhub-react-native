@@ -100,6 +100,15 @@ export default {
   'GET_MY_ORGANIZATIONS': {
     endpoint: API_URL + 'organizations',
   },
+  'GET_MY_GROUPS': {
+    endpoint: API_URL + 'groups',
+  },
+  'GET_MY_SURVEYS': {
+    endpoint: API_URL + 'surveys',
+  },
+  'GET_MY_LABELS': {
+    endpoint: API_URL + 'labels',
+  },
   'GET_MY_IMPACT': {
     endpoint: API_URL + 'reports/impact',
   },

@@ -13,7 +13,8 @@ export default class SearchPeopleItem extends Component {
       <Touchable highlight={true} onPress={this.handleSelect}>
         <Flex justify="center" style={styles.row}>
           <Text style={styles.name}>
-            {person.full_name}
+            {person.first_name}
+            {person.last_name ? ` ${person.last_name}` : null}
           </Text>
           <Text style={styles.organization}>
             {person.organization}
@@ -22,27 +23,14 @@ export default class SearchPeopleItem extends Component {
       </Touchable>
     );
   }
-
 }
 
 SearchPeopleItem.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    full_name: PropTypes.string.isRequired,
-    first_name: PropTypes.string,
+    first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string,
     gender: PropTypes.string,
-    student_status: PropTypes.string,
-    campus: PropTypes.string,
-    year_in_school: PropTypes.string,
-    major: PropTypes.string,
-    minor: PropTypes.string,
-    birth_date: PropTypes.string,
-    date_became_christian: PropTypes.string,
-    graduation_date: PropTypes.string,
-    picture: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
 };

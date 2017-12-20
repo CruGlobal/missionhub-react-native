@@ -21,10 +21,35 @@ export function searchPeople(text, filters = {}) {
     if (!text) {
       return Promise.reject('NoText');
     }
-    const query = {
+
+    let query = {
       q: text,
-      filters,
+      filters: {},
     };
+    if (filters.ministry) {
+      query.organization_ids = filters.ministry.id;
+    }
+    if (filters.gender) {
+      query.filters.gender = filters.gender.id;
+    }
+    if (filters.archived) {
+      query.filters.archived = true;
+    }
+    if (filters.unassigned) {
+      query.filters.unassigned = true;
+    }
+    if (filters.labels) {
+      query.filters.label_ids = filters.labels.id;
+    }
+    if (filters.groups) {
+      query.filters.group_ids = filters.groups.id;
+    }
+    if (filters.surveys) {
+      query.filters.survey_ids = filters.surveys.id;
+    }
+
+    LOG('query', query);
+
     return dispatch(callApi(REQUESTS.SEARCH, query));
   };
 }

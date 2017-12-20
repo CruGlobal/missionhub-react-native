@@ -11,6 +11,9 @@ import organizations from './organizations';
 import people from './people';
 import notifications from './notifications';
 import impact from './impact';
+import groups from './groups';
+import surveys from './surveys';
+import labels from './labels';
 
 export default combineReducers({
   auth,
@@ -24,4 +27,7 @@ export default combineReducers({
   people,
   notifications,
   impact,
+  groups,
+  surveys,
+  labels,
 });

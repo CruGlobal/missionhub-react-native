@@ -1,5 +1,5 @@
 import auth from '../../src/reducers/auth';
-import {REQUESTS} from '../../src/actions/api';
+import { REQUESTS } from '../../src/actions/api';
 
 const token = 'asdfasndfiosdc';
 const personId = 123456;
@@ -32,7 +32,7 @@ it('returns token and person id after logging in with ticket', () => {
   });
 
   expect(state.token).toBe(token);
-  expect(state.personId).toBe(personId);
+  expect(state.personId).toBe(`${personId}`);
 });
 
 it('returns token, person id, and logged in status after creating person', () => {
