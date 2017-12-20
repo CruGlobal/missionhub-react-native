@@ -1,5 +1,5 @@
 import auth from '../../src/reducers/auth';
-import {REQUESTS} from '../../src/actions/api';
+import { REQUESTS } from '../../src/actions/api';
 
 const token = 'asdfasndfiosdc';
 const personId = 123456;

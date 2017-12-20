@@ -17,7 +17,7 @@ const store = createMockStore(mockState);
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactHeader person={{first_name: 'ben', id: 1}} />
+      <ContactHeader person={{ first_name: 'ben', id: 1 }} />
     </Provider>
   );
 });

@@ -1,5 +1,5 @@
 import profile from '../../src/reducers/profile';
-import {REQUESTS} from '../../src/actions/api';
+import { REQUESTS } from '../../src/actions/api';
 
 const testNameSaved = (type) => {
   const firstName = 'Roger';
