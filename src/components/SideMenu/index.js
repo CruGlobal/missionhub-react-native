@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-navigation';
 import { BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -26,7 +27,7 @@ export default class SideMenu extends Component {
 
   render() {
     return (
-      <Flex value={1} style={styles.background}>
+      <SafeAreaView style={styles.background}>
         <Flex style={styles.buttonContainer}>
           <IconButton style={styles.button} onPress={() => this.props.dispatch(navigatePush('DrawerClose'))} name="close" type="Material" size={20} />
         </Flex>
@@ -35,7 +36,7 @@ export default class SideMenu extends Component {
             <Button style={styles.button} buttonTextStyle={styles.buttonText} text={label.toUpperCase()} onPress={action} />
           </Flex>
         )}
-      </Flex>
+      </SafeAreaView>
     );
   }
 }
