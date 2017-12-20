@@ -32,6 +32,8 @@ const tabArray = [
   },
 ];
 
+jest.mock('NativeAnimatedHelper');
+
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>

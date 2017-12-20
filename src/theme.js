@@ -77,6 +77,8 @@ export default {
   fullHeight: deviceHeight,
   convert: colorConvert,
   impactBlue: COLORS.IMPACT_BLUE,
+  grey1: '#B2B0B2',
+  grey2: '#4E4C4E',
 
   isAndroid,
   headerHeight: isAndroid ? 56 : 65,

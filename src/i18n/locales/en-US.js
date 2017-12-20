@@ -47,4 +47,27 @@ export default {
     you: 'you',
     users: 'users',
   },
+  search: {
+    inputPlaceholder: 'Search',
+    loading: 'Loading',
+    noResults: 'No Results.',
+    nullHeader: 'Search',
+    nullDescription: 'Search results will appear here.',
+  },
+  searchFilter: {
+    title: 'Filter',
+    ministry: 'Ministry',
+    labels: 'Labels',
+    groups: 'Groups',
+    surveys: 'Survey',
+    gender: 'Gender',
+    male: 'Male',
+    female: 'Female',
+    unassigned: 'Unassigned',
+    archived: 'Include Archived Contacts',
+  },
+  searchFilterRefine: {
+    title: 'Refine',
+    any: 'Any',
+  },
 };
