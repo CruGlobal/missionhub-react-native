@@ -4,8 +4,8 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import SetupPersonScreen from '../../src/containers/SetupPersonScreen';
 import { Provider } from 'react-redux';
-import {createMockStore} from '../../testUtils/index';
-import {testSnapshot} from '../../testUtils';
+import { createMockStore } from '../../testUtils/index';
+import { testSnapshot } from '../../testUtils';
 
 const mockState = {
   personProfile: {

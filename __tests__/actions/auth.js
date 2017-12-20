@@ -1,9 +1,9 @@
-import {keyLogin} from '../../src/actions/auth';
+import { keyLogin } from '../../src/actions/auth';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
-import {REQUESTS} from '../../src/actions/api';
+import { REQUESTS } from '../../src/actions/api';
 
 const username = 'Roger';
 const password = 'secret';
@@ -16,7 +16,7 @@ constants.THE_KEY_CLIENT_ID = mockClientId;
 
 callApi.default = jest.fn().mockImplementation(
   function(type) {
-    return dispatch => {
+    return (dispatch) => {
       return dispatch(() => {
         if (type === REQUESTS.KEY_GET_TICKET) {
           return Promise.resolve({ ticket: ticket });
