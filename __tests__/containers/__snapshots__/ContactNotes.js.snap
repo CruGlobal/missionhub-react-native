@@ -11,7 +11,7 @@ exports[`renders dummy view when keyboard height is not set 1`] = `
 />
 `;
 
-exports[`when keyboard height is set it editing is set to true changes button message to DONE when editing 1`] = `
+exports[`when keyboard height is set and editing is set to true button message changes to DONE 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
   keyboardVerticalOffset={216.5}
@@ -63,7 +63,7 @@ exports[`when keyboard height is set it editing is set to true changes button me
 </KeyboardAvoidingView>
 `;
 
-exports[`when keyboard height is set it shows icon and prompt by default 1`] = `
+exports[`when keyboard height is set icon and prompt are shown if no notes 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
   keyboardVerticalOffset={216.5}
@@ -143,7 +143,7 @@ exports[`when keyboard height is set it shows icon and prompt by default 1`] = `
 </KeyboardAvoidingView>
 `;
 
-exports[`when keyboard height is set it shows notes 1`] = `
+exports[`when keyboard height is set notes are shown 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
   keyboardVerticalOffset={216.5}

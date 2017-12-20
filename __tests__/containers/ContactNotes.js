@@ -23,7 +23,7 @@ it('renders dummy view when keyboard height is not set', () => {
   );
 });
 
-describe('when keyboard height is set it', () => {
+describe('when keyboard height is set', () => {
   let screen;
 
   beforeEach(() => {
@@ -35,26 +35,26 @@ describe('when keyboard height is set it', () => {
     screen.setState({ keyboardHeight: 216.5 });
   });
 
-  it('shows icon and prompt by default', () => {
+  it('icon and prompt are shown if no notes', () => {
     expect(screen.dive()).toMatchSnapshot();
   });
 
-  it('shows notes', () => {
+  it('notes are shown', () => {
     screen.setState({ text: 'Hello, Roge! Here are some notes.' });
 
     expect(screen.dive()).toMatchSnapshot();
   });
 
-  describe('editing is set to true', () => {
+  describe('and editing is set to true', () => {
     beforeEach(() => {
       screen.setState({ editing: true });
     });
 
-    it('changes button message to DONE when editing', () => {
+    it('button message changes to DONE', () => {
       expect(screen.dive()).toMatchSnapshot();
     });
 
-    it('sets editing to false when button is pressed', () => {
+    it('editing is set to false when button is pressed', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
       jest.spyOn(screen.instance(), 'saveNotes');
 
@@ -66,7 +66,7 @@ describe('when keyboard height is set it', () => {
     });
   });
 
-  it('sets editing to true when button is pressed', () => {
+  it('editing is set to true when button is pressed', () => {
     const mockFocus = jest.fn();
     Object.defineProperty(screen.instance(), 'notesInput', { value: { focus: mockFocus } });
 
