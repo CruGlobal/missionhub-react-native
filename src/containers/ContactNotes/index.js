@@ -62,6 +62,13 @@ export class ContactNotes extends Component {
     this.setState({ editing: true });
   }
 
+  onLayout(event) {
+    if (!this.state.keyboardHeight) {
+      const keyboardHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
+      this.setState({ keyboardHeight });
+    }
+  }
+
   renderNotes() {
     return (
       <Input
@@ -110,13 +117,6 @@ export class ContactNotes extends Component {
       return (
         <View style={{ flex: 1 }} onLayout={this.onLayout} />
       );
-    }
-  }
-
-  onLayout(event) {
-    if (!this.state.keyboardHeight) {
-      const keyboardHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
-      this.setState({ keyboardHeight });
     }
   }
 }
