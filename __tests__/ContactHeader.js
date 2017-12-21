@@ -6,6 +6,7 @@ import ContactHeader from '../src/components/ContactHeader';
 import { testSnapshot } from '../testUtils';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../testUtils/index';
+import { CASEY } from '../src/constants';
 const mockState = {
   steps: {
     mine: [],
@@ -19,7 +20,7 @@ jest.mock('NativeAnimatedHelper');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactHeader person={{ first_name: 'ben', id: 1 }} type="casey" />
+      <ContactHeader person={{ first_name: 'ben', id: 1 }} type={CASEY} />
     </Provider>
   );
 });
