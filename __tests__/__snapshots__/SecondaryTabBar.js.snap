@@ -305,6 +305,7 @@ exports[`renders correctly 1`] = `
       directionalLockEnabled={true}
       horizontal={true}
       keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps="handled"
       onMomentumScrollBegin={[Function]}
       onMomentumScrollEnd={[Function]}
       onScroll={[Function]}
