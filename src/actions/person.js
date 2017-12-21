@@ -15,9 +15,5 @@ export function personLastNameChanged(lastName) {
 }
 
 export function saveNotes(personId, notes) {
-  return {
-    type: SAVE_NOTES,
-    personId: personId,
-    notes: notes,
-  };
+  return { type: SAVE_NOTES, personId, notes };
 }
