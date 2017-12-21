@@ -23,9 +23,10 @@ export class ContactNotes extends Component {
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextInputFocus = this.onTextInputFocus.bind(this);
+    this.onTextChanged = this.onTextChanged.bind(this);
   }
 
-  textChanged(text) {
+  onTextChanged(text) {
     this.setState({ text });
   }
 
@@ -65,7 +66,7 @@ export class ContactNotes extends Component {
     return (
       <Input
         ref={(c) => this.notesInput = c}
-        onChangeText={(t) => this.textChanged(t)}
+        onChangeText={this.onTextChanged}
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
