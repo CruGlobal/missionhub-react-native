@@ -80,7 +80,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Profile_Label_FirstName
+        First Name or Nickname
       </Text>
       <TextInput
         allowFontScaling={true}

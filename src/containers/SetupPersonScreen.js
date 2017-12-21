@@ -33,7 +33,7 @@ class SetupPersonScreen extends Component {
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
+            <Text style={styles.label}>{t('profileLabels.firstNameNickname')}</Text>
             <Input
               ref={(c) => this.personFirstName = c}
               onChangeText={(t) => this.props.dispatch(personFirstNameChanged(t))}

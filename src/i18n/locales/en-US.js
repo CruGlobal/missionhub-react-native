@@ -3,6 +3,7 @@ export default {
     profileLabels: {
       firstName: 'First Name',
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
+      firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
