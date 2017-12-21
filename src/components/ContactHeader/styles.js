@@ -20,4 +20,9 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 24,
   },
+  contactButton: {
+    fontSize: 40,
+    margin: 15,
+    color: theme.secondaryColor,
+  },
 });
