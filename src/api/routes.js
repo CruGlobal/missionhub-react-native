@@ -31,7 +31,7 @@ export default {
   //   useJsonDataApiStore: false
   // },
   'KEY_LOGIN': {
-    endpoint: THE_KEY + 'token',
+    endpoint: `${THE_KEY}token`,
     method: 'post',
     extra: {
       stringify: false,
@@ -41,7 +41,7 @@ export default {
     useJsonDataApiStore: false,
   },
   'KEY_GET_TICKET': {
-    endpoint: THE_KEY + 'ticket?service=' + API_URL + AUTH + 'thekey',
+    endpoint: `${THE_KEY}ticket?service=${API_URL + AUTH}thekey`,
     method: 'get',
     extra: {
       stringify: false,
@@ -49,48 +49,48 @@ export default {
     useJsonDataApiStore: false,
   },
   'TICKET_LOGIN': {
-    endpoint: API_URL + AUTH + 'thekey',
+    endpoint: `${API_URL + AUTH}thekey`,
     method: 'post',
     useJsonDataApiStore: false,
   },
   'GET_STAGES': {
-    endpoint: API_URL + 'pathway_stages',
+    endpoint: `${API_URL}pathway_stages`,
     method: 'get',
     anonymous: true,
   },
   'GET_CHALLENGE_SUGGESTIONS': {
-    endpoint: API_URL + 'challenge_suggestions',
+    endpoint: `${API_URL}challenge_suggestions`,
     anonymous: true,
   },
   'ADD_CHALLENGES': {
-    endpoint: API_URL + PEOPLE + ':person_id',
+    endpoint: `${API_URL + PEOPLE}:person_id`,
     method: 'put',
   },
   'GET_MY_CHALLENGES': {
     endpoint: API_URL + CHALLENGES,
   },
   'DELETE_CHALLENGE': {
-    endpoint: API_URL + CHALLENGES + '/:challenge_id',
+    endpoint: `${API_URL + CHALLENGES}/:challenge_id`,
     method: 'delete',
   },
   'GET_CHALLENGES_BY_FILTER': {
     endpoint: API_URL + CHALLENGES,
   },
   'CHALLENGE_COMPLETE': {
-    endpoint: API_URL + CHALLENGES + '/:challenge_id',
+    endpoint: `${API_URL + CHALLENGES}/:challenge_id`,
     method: 'put',
   },
   'GET_PEOPLE_LIST': {
     endpoint: API_URL + PEOPLE,
   },
   'CREATE_MY_PERSON': {
-    endpoint: API_URL + AUTH + 'client_token',
+    endpoint: `${API_URL + AUTH}client_token`,
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
   },
   'UPDATE_MY_USER': {
-    endpoint: API_URL + 'users/me',
+    endpoint: `${API_URL}users/me`,
     method: 'put',
   },
   'ADD_NEW_PERSON': {
@@ -98,29 +98,29 @@ export default {
     method: 'post',
   },
   'GET_MY_ORGANIZATIONS': {
-    endpoint: API_URL + 'organizations',
+    endpoint: `${API_URL}organizations`,
   },
   'GET_MY_GROUPS': {
-    endpoint: API_URL + 'groups',
+    endpoint: `${API_URL}groups`,
   },
   'GET_MY_SURVEYS': {
-    endpoint: API_URL + 'surveys',
+    endpoint: `${API_URL}surveys`,
   },
   'GET_MY_LABELS': {
-    endpoint: API_URL + 'labels',
+    endpoint: `${API_URL}labels`,
   },
   'GET_MY_IMPACT': {
-    endpoint: API_URL + 'reports/impact',
+    endpoint: `${API_URL}reports/impact`,
   },
   'GET_GLOBAL_IMPACT': {
-    endpoint: API_URL + 'reports/impact',
+    endpoint: `${API_URL}reports/impact`,
   },
   'CREATE_CONTACT_ASSIGNMENT': {
-    endpoint: API_URL + 'contact_assignments',
+    endpoint: `${API_URL}contact_assignments`,
     method: 'post',
   },
   'SEARCH': {
-    endpoint: API_URL + 'search',
+    endpoint: `${API_URL}search`,
   },
   // 'TEST': {
   //   endpoint: API_URL + 'test/:someQueryParam/all',
