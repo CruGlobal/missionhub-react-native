@@ -7,6 +7,7 @@ export default {
       email: 'Email',
       phone: 'Phone',
     },
+    done: 'DONE',
   },
   welcome: {
     welcome: 'welcome!',
@@ -24,7 +25,6 @@ export default {
   },
   addContact: {
     addSomeone: 'Add Someone',
-    done: 'Done',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -46,6 +46,11 @@ export default {
     impactSentence: 'In {{year}}, {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
     you: 'you',
     users: 'users',
+  },
+  notes: {
+    add: 'ADD PRIVATE NOTES',
+    edit: 'EDIT PRIVATE NOTES',
+    prompt: 'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
   },
   search: {
     inputPlaceholder: 'Search',

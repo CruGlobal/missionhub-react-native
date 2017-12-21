@@ -6,7 +6,9 @@ import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { saveNotes } from '../../actions/person';
+import { translate } from 'react-i18next';
 
+@translate('notes')
 export class ContactNotes extends Component {
 
   constructor(props) {
@@ -48,12 +50,14 @@ export class ContactNotes extends Component {
   }
 
   getButtonText() {
+    const t = this.props.t;
+
     if (this.state.editing) {
-      return 'DONE';
+      return t('done');
     } else if (this.state.text) {
-      return 'EDIT PRIVATE NOTES';
+      return t('edit');
     } else {
-      return 'ADD PRIVATE NOTES';
+      return t('add');
     }
   }
 
@@ -84,8 +88,7 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
-    const text = `Remember important details about ${this.props.person.personFirstName}`
-      + ', like favorite food, hobbies they love or something interesting they said.';
+    const text = this.props.t('prompt', { personFirstName: this.props.person.first_name });
 
     return (
       <Flex align="center" justify="center">
