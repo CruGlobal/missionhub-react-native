@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Dimensions, Image, View, Keyboard } from 'react-native';
+import { Dimensions, View, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { Text, Flex, Button, Input } from '../../components/common';
+import { Text, Flex, Button, Input, Icon } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { saveNotes } from '../../actions/person';
@@ -92,7 +92,7 @@ export class ContactNotes extends Component {
 
     return (
       <Flex align="center" justify="center">
-        <Image source={require('../../../assets/images/notesIcon.png')} />
+        <Icon name="notesIconShadow" type="MissionHub" style={styles.notesIcon} />
         <Text type="header" style={styles.nullHeader}>MY NOTES</Text>
         <Text style={styles.nullText}>{text}</Text>
       </Flex>

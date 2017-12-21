@@ -12,6 +12,10 @@ export default StyleSheet.create({
     color: theme.textColor,
     textAlign: 'center',
   },
+  notesIcon: {
+    fontSize: 96,
+    color: theme.primaryColor,
+  },
   nullHeader: {
     fontSize: 42,
     color: theme.primaryColor,
