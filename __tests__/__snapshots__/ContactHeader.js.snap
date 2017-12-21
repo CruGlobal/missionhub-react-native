@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders casey tabs for casey 1`] = `
+exports[`renders casey 1`] = `
 <View
   style={
     Array [
@@ -672,7 +672,7 @@ exports[`renders casey tabs for casey 1`] = `
 </View>
 `;
 
-exports[`renders jean tabs for jean 1`] = `
+exports[`renders jean 1`] = `
 <View
   style={
     Array [
@@ -1593,7 +1593,7 @@ exports[`renders jean tabs for jean 1`] = `
 </View>
 `;
 
-exports[`renders jean user tabs for jean with a missionhub user as contact 1`] = `
+exports[`renders jean with a missionhub user as contact 1`] = `
 <View
   style={
     Array [

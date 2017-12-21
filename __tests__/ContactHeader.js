@@ -20,15 +20,15 @@ const mockPerson = { first_name: 'ben', id: 1 };
 
 jest.mock('NativeAnimatedHelper');
 
-it('renders casey tabs for casey', () => {
+it('renders casey', () => {
   testContactHeader(mockPerson, CASEY);
 });
 
-it('renders jean tabs for jean', () => {
+it('renders jean', () => {
   testContactHeader(mockPerson, JEAN);
 });
 
-it('renders jean user tabs for jean with a missionhub user as contact', () => {
+it('renders jean with a missionhub user as contact', () => {
   testContactHeader({ ...mockPerson, userId: 123 }, JEAN);
 });
 
