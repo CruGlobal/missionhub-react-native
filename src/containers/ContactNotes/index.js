@@ -77,8 +77,7 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
-    const text = 'Remember important details about '
-      + this.props.person.personFirstName
+    const text = `Remember important details about ${this.props.person.personFirstName}`
       + ', like favorite food, hobbies they love or something interesting they said.';
 
     return (
