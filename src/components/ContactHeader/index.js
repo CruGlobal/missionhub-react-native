@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Flex, Text } from '../common';
+import { Flex, Text, IconButton } from '../common';
 import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
-import { CASEY } from '../../constants';
+import { CASEY, JEAN } from '../../constants';
 
 const CASEY_TABS = [
   {
@@ -64,8 +64,18 @@ export default class ContactHeader extends Component {
     return JEAN_TABS;
   }
 
+  getJeanButtons() {
+    return (
+      <Flex direction="row">
+        <IconButton style={styles.contactButton} name="sendTextIcon" type="MissionHub" onPress={()=> LOG('text')} />
+        <IconButton style={styles.contactButton} name="callIcon" type="MissionHub" onPress={()=> LOG('call')} />
+        { this.props.person.userId ? <IconButton style={styles.contactButton} name="emailIcon" type="MissionHub" onPress={()=> LOG('email')} /> : null }
+      </Flex>
+    );
+  }
+
   render() {
-    const { person } = this.props;
+    const { person, type } = this.props;
 
     return (
       <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center">
@@ -77,6 +87,7 @@ export default class ContactHeader extends Component {
           buttonTextStyle={styles.stageBtnText}
           onPress={()=>{}}
         />
+        { type === JEAN ? this.getJeanButtons() : null }
         <SecondaryTabBar person={person} tabs={this.getTabs()} />
       </Flex>
     );
