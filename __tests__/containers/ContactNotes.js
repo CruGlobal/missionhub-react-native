@@ -29,9 +29,12 @@ describe('when keyboard height is set', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     screen = shallow(
-      <ContactNotes person={{ personFirstName: 'Roger' }} />,
+      <ContactNotes person={{ first_name: 'Roger' }} />,
       { context: { store: store } }
     );
+
+    screen = screen.dive().dive();
+
     screen.setState({ keyboardHeight: 216.5 });
   });
 

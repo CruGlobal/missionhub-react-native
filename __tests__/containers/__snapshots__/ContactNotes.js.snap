@@ -91,12 +91,15 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
       align="center"
       justify="center"
     >
-      <Image
-        source={
+      <Icon
+        name="notesIconShadow"
+        style={
           Object {
-            "testUri": "../../../assets/images/notesIcon.png",
+            "color": "#007398",
+            "fontSize": 96,
           }
         }
+        type="MissionHub"
       />
       <MyText
         accessible={true}
