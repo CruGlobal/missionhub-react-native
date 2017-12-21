@@ -6,7 +6,8 @@ import ContactHeader from '../src/components/ContactHeader';
 import { testSnapshot } from '../testUtils';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../testUtils/index';
-import { CASEY } from '../src/constants';
+import { CASEY, JEAN } from '../src/constants';
+
 const mockState = {
   steps: {
     mine: [],
@@ -15,12 +16,26 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
+const mockPerson = { first_name: 'ben', id: 1 };
+
 jest.mock('NativeAnimatedHelper');
 
-it('renders correctly', () => {
+it('renders casey tabs for casey', () => {
+  testContactHeader(mockPerson, CASEY);
+});
+
+it('renders jean tabs for jean', () => {
+  testContactHeader(mockPerson, JEAN);
+});
+
+it('renders jean user tabs for jean with a missionhub user as contact', () => {
+  testContactHeader({ ...mockPerson, userId: 123 }, JEAN);
+});
+
+const testContactHeader = (person, type) => {
   testSnapshot(
     <Provider store={store}>
-      <ContactHeader person={{ first_name: 'ben', id: 1 }} type={CASEY} />
-    </Provider>
+      <ContactHeader person={person} type={type} />
+    </Provider>,
   );
-});
+};
