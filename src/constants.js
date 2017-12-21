@@ -18,6 +18,9 @@ export const PUSH_NOTIFICATION_SET_TOKEN = 'app/PUSH_NOTIFICATION_SET_TOKEN';
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';
 
+export const CASEY = 'casey';
+export const JEAN = 'jean';
+
 
 export default {
 

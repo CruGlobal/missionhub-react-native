@@ -9,9 +9,7 @@ import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
-
-const CASEY = 'casey';
-const JEAN = 'jean';
+import { CASEY, JEAN } from '../../constants';
 
 class ContactScreen extends Component {
 

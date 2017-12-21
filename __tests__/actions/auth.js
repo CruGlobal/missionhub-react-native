@@ -9,7 +9,7 @@ const username = 'Roger';
 const password = 'secret';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
-const data = 'grant_type=password&client_id=' + mockClientId + '&scope=fullticket%20extended&username=' + username + '&password=' + password;
+const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${username}&password=${password}`;
 const mockStore = configureStore([thunk]);
 
 constants.THE_KEY_CLIENT_ID = mockClientId;

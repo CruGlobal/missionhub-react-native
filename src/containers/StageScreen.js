@@ -10,7 +10,7 @@ class StageScreen extends Component {
   }
 
   render() {
-    const questionText = this.props.firstName + ', which stage best describes where you are on your journey?';
+    const questionText = `${this.props.firstName}, which stage best describes where you are on your journey?`;
 
     return (
       <PathwayStageScreen buttonText="I AM HERE" questionText={questionText} nextScreen="StageSuccess" onSelect={selectStage} />
