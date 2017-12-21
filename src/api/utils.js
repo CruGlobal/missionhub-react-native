@@ -10,7 +10,7 @@ if (__DEV__) {
 }
 
 export const BASE_URL = baseUrl;
-export const API_URL = BASE_URL + `/apis/${API_VERSION}/`;
+export const API_URL = `${BASE_URL}/apis/${API_VERSION}/`;
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',
@@ -38,7 +38,7 @@ export function json(response) {
 }
 
 function createUrl(url = '', params) {
-  let newUrl = url + '';
+  let newUrl = `${url}`;
   if (newUrl[0] === '/') {
     newUrl = newUrl.substr(1);
   }
