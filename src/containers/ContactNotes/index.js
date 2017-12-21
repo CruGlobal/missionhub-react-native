@@ -16,7 +16,6 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
-      buttonText: 'ADD PRIVATE NOTES',
     };
 
     this.saveNotes = this.saveNotes.bind(this);
