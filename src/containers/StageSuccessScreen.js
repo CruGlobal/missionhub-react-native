@@ -8,7 +8,7 @@ class StageSuccessScreen extends Component {
   }
 
   render() {
-    const message = this.props.firstName + ', \n' + 'We\'d like to offer some things to help you in your spiritual journey.';
+    const message = `${this.props.firstName},\nWe'd like to offer some things to help you in your spiritual journey.`;
     return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" nextScreen="Step" iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
