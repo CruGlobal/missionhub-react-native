@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Casey menu correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Delete Contact",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`renders Jean menu correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Attempted Contact",
+      },
+      Object {
+        "action": [Function],
+        "label": "Completed",
+      },
+      Object {
+        "action": [Function],
+        "label": "Contacted",
+      },
+      Object {
+        "action": [Function],
+        "label": "Do Not Contact",
+      },
+      Object {
+        "action": [Function],
+        "label": "Uncontacted",
+      },
+      Object {
+        "action": [Function],
+        "label": "Unassign",
+      },
+    ]
+  }
+/>
+`;
