@@ -17,7 +17,7 @@ export default class FilterItem extends Component {
           <Text style={styles.anyText} numberOfLines={1}>
             {item.preview || 'Any'}
           </Text>
-          <Icon name="menuIcon" type="MissionHub" style={styles.anyIcon} />
+          <Icon name="rightArrowIcon" type="MissionHub" style={styles.anyIcon} />
         </Flex>
       );
     }

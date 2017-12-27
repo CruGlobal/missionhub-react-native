@@ -66,10 +66,20 @@ export default class ContactHeader extends Component {
 
   getJeanButtons() {
     return (
-      <Flex direction="row">
-        <IconButton style={styles.contactButton} name="sendTextIcon" type="MissionHub" onPress={()=> LOG('text')} />
-        <IconButton style={styles.contactButton} name="callIcon" type="MissionHub" onPress={()=> LOG('call')} />
-        { this.props.person.userId ? <IconButton style={styles.contactButton} name="emailIcon" type="MissionHub" onPress={()=> LOG('email')} /> : null }
+      <Flex align="center" justify="center" direction="row">
+        <Flex align="center" justify="center" style={styles.iconWrap}>
+          <IconButton style={styles.contactButton} name="textIcon" type="MissionHub" onPress={()=> LOG('text')} />
+        </Flex>
+        <Flex align="center" justify="center" style={styles.iconWrap}>
+          <IconButton style={styles.contactButton} name="callIcon" type="MissionHub" onPress={()=> LOG('call')} />
+        </Flex>
+        {
+          this.props.person.userId ? (
+            <Flex align="center" justify="center" style={styles.iconWrap}>
+              <IconButton style={styles.contactButton} name="emailIcon" type="MissionHub" onPress={()=> LOG('email')} />
+            </Flex>
+          ) : null
+        }
       </Flex>
     );
   }
