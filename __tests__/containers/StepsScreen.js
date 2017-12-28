@@ -17,6 +17,12 @@ const mockState = {
     suggestedForOthers: [],
     reminders: [],
   },
+  notifications: {
+    token: '',
+    hasAsked: false,
+    shouldAsk: true,
+    showReminder: true,
+  },
 };
 
 const store = createMockStore(mockState);
