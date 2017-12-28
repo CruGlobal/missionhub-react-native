@@ -4,6 +4,7 @@ import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_SET_TOKEN,
+  PUSH_NOTIFICATION_REMINDER,
 } from '../constants';
 
 export function disableAskPushNotification() {
@@ -13,15 +14,32 @@ export function disableAskPushNotification() {
   };
 }
 
+export function enableAskPushNotification() {
+  return {
+    type: PUSH_NOTIFICATION_SHOULD_ASK,
+    bool: true,
+  };
+}
+
+export function noNotificationReminder(showReminder = false) {
+  return {
+    type: PUSH_NOTIFICATION_REMINDER,
+    bool: showReminder,
+  };
+}
+
 export function setupPushNotifications() {
   return (dispatch, getState) => {
-    const token = getState().notifications.token;
+    const { token, shouldAsk } = getState().notifications;
+    if (!shouldAsk) return;
 
     // TODO: Remove this when testing notification callback
     // Don't bother getting this stuff if there is already a token
     if (token) {
       return;
     }
+
+    LOG('asking for push notification token');
 
     PushNotification.configure({
       // (optional) Called when Token is generated (iOS and Android)

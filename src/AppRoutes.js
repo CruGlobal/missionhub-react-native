@@ -25,6 +25,7 @@ import CelebrationScreen from './containers/CelebrationScreen';
 import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
+import NotificationOffScreen from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
 import { Icon } from './components/common';
@@ -113,6 +114,7 @@ export const MainStackRoutes = StackNavigator({
   Contact: { screen: ContactScreen },
   AddContact: { screen: AddContactScreen },
   NotificationPrimer: { screen: NotificationPrimerScreen },
+  NotificationOff: { screen: NotificationOffScreen },
   Impact: { screen: ImpactScreen },
   SetupPerson: { screen: SetupPersonScreen },
   PersonStage: { screen: PersonStageScreen },
