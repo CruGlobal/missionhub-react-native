@@ -600,7 +600,7 @@
 		26844841CFBF45D0854E57CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AE6B88DB1FD203EB00B1B90C /* icomoon.ttf */,
+				AECAC0181FF451A00063D8AE /* icomoon.ttf */,
 				61DE556CDA154426A57159A9 /* Entypo.ttf */,
 				558D776D127C41A297B33FFD /* EvilIcons.ttf */,
 				EAF0B65AF72844C4A2103B73 /* Feather.ttf */,
@@ -1262,7 +1262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE6B88DC1FD203EE00B1B90C /* icomoon.ttf in Resources */,
+				AECAC0191FF451A00063D8AE /* icomoon.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */,

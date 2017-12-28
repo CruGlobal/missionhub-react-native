@@ -261,7 +261,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -387,7 +387,7 @@ exports[`renders with no results state 1`] = `
     }
     right={
       <IconButton
-        name="journeyIcon"
+        name="filterIcon"
         onPress={[Function]}
         type="MissionHub"
       />
@@ -493,7 +493,7 @@ exports[`renders with results state 1`] = `
     }
     right={
       <IconButton
-        name="journeyIcon"
+        name="filterIcon"
         onPress={[Function]}
         type="MissionHub"
       />
@@ -599,7 +599,7 @@ exports[`renders with searching state 1`] = `
     }
     right={
       <IconButton
-        name="journeyIcon"
+        name="filterIcon"
         onPress={[Function]}
         type="MissionHub"
       />

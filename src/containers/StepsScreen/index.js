@@ -196,7 +196,7 @@ class StepsScreen extends Component {
           }
           right={
             this.props.isCasey ? null : (
-              <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+              <IconButton name="searchIcon" type="MissionHub" onPress={()=> this.props.dispatch(navigatePush('SearchPeople'))} />
             )
           }
           title="STEPS OF FAITH"

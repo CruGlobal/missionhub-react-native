@@ -10,11 +10,9 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: theme.textColor,
-    textAlign: 'center',
-  },
-  notesIcon: {
-    fontSize: 96,
-    color: theme.primaryColor,
+    textAlign: 'left',
+    paddingHorizontal: 36,
+    marginTop: 30,
   },
   nullHeader: {
     fontSize: 42,
@@ -24,7 +22,7 @@ export default StyleSheet.create({
   nullText: {
     fontSize: 16,
     color: theme.textColor,
-    paddingHorizontal: 70,
+    paddingHorizontal: 50,
     textAlign: 'center',
     paddingVertical: 10,
   },
