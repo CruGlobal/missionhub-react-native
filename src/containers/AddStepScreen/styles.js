@@ -11,6 +11,12 @@ export default StyleSheet.create({
     fontSize: 36,
     color: theme.white,
   },
+  journeyHeader: {
+    fontSize: 36,
+    color: theme.secondaryColor,
+    paddingHorizontal: 90,
+    textAlign: 'center',
+  },
   fieldWrap: {
     paddingTop: 10,
     paddingHorizontal: 30,

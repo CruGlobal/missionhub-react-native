@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
-// import { navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
-
-// import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
@@ -24,39 +22,27 @@ class ContactJourney extends Component {
     };
 
     this.renderRow = this.renderRow.bind(this);
-    this.handleCreateStep = this.handleCreateStep.bind(this);
+    this.handleCreateInteraction = this.handleCreateInteraction.bind(this);
+    this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
 
   componentWillMount() {
-    // this.getSteps();
+    this.getInteractions();
   }
 
-  // getSteps() {
-  //   this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
-  //     const steps = results.findAll('accepted_challenge') || [];
-  //     let newSteps = steps.filter((s) => !s._placeHolder);
-  //     // this.setState({ steps: newSteps });
-  //   });
-  // }
-  //
-  // handleRemove(step) {
-  //   // this.props.dispatch(deleteStep(step.id)).then(() => {
-  //   //   this.getSteps();
-  //   // });
-  // }
-  //
-  // handleComplete(step) {
-  //   // this.props.dispatch(completeStep(step)).then(() => {
-  //   //   this.getSteps();
-  //   // });
-  // }
+  getInteractions() {
+    //TODO: make api call to get interactions
+  }
 
-  handleCreateStep() {
-    // this.props.dispatch(navigatePush('PersonStep', {
-    //   contactName: this.props.person.first_name,
-    //   contactId: this.props.person.id,
-    //   contact: this.props.person,
-    // }));
+  handleEditInteraction(interaction) {
+    LOG(interaction);
+  }
+
+  handleCreateInteraction() {
+    this.props.dispatch(navigatePush('AddStep', {
+      onComplete: (t) => LOG(t),
+      type: 'journey',
+    }));
   }
 
 
@@ -111,7 +97,7 @@ class ContactJourney extends Component {
         <Flex justify="end">
           <Button
             type="secondary"
-            onPress={this.handleCreateStep}
+            onPress={this.handleCreateInteraction}
             text={t('addJourney').toUpperCase()}
           />
         </Flex>
@@ -119,7 +105,6 @@ class ContactJourney extends Component {
     );
   }
 }
-
 
 ContactJourney.propTypes = {
   person: PropTypes.object,

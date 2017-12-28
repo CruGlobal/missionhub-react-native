@@ -40,6 +40,8 @@ export default {
   addStep: {
     header: 'My Step of Faith',
     createStep: 'Create Step',
+    journeyHeader: 'What did you see God do?',
+    addJourney: 'Add to Our Journey',
   },
   contactSteps: {
     addStep: 'Add a step of faith',

@@ -42,7 +42,7 @@ class AddStepScreen extends Component {
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1.5} align="center" justify="center">
-          <Text type="header" style={styles.header}>{t('header')}</Text>
+          <Text type="header" style={this.props.type ? styles.journeyHeader : styles.header}>{this.props.type && this.props.type === 'journey' ? t('journeyHeader') : t('header')}</Text>
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
@@ -63,7 +63,7 @@ class AddStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveStep}
-            text={t('createStep').toUpperCase()}
+            text={this.props.type && this.props.type === 'journey' ? t('addJourney').toUpperCase() :  t('createStep').toUpperCase()}
             style={styles.createButton}
           />
         </Flex>
@@ -78,6 +78,7 @@ AddStepScreen.propTypes = {
 
 const mapStateToProps = (reduxState, { navigation }) => ({
   onComplete: navigation.state.params.onComplete,
+  type: navigation.state.params.type,
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
