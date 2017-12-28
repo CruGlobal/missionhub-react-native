@@ -46,7 +46,7 @@
 		8B6F8C0332CB4ECF95DC0435 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C6B5FE4728C4428BAD7570A /* Octicons.ttf */; };
 		937F2BAC1FD9928100915D3A /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937F2B8C1FD9926C00915D3A /* libRCTPushNotification.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		AE6B88DC1FD203EE00B1B90C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE6B88DB1FD203EB00B1B90C /* icomoon.ttf */; };
+		AE98B2281FF574B1000005AE /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE98B1FF1FF574B1000005AE /* icomoon.ttf */; };
 		AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */; };
 		B0AF4F7D6EE545DC84578A2D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E3AB1863744567AF7DFDC0 /* Ionicons.ttf */; };
 		B86EC7CFA28449329597D55A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D00F0A76ED1B4F7FBF6D7E5A /* SimpleLineIcons.ttf */; };
@@ -413,7 +413,7 @@
 		965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Regular.ttf"; path = "../assets/fonts/SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		9D187EB258FE492F8D271BD4 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		AE6B88DB1FD203EB00B1B90C /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		AE98B1FF1FF574B1000005AE /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../android/app/src/main/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
 		AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B048DADB75B348AA996754FA /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		C23C5D26FAD84794B4657E73 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AmaticSC-Bold.ttf"; path = "../assets/fonts/AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
@@ -600,7 +600,7 @@
 		26844841CFBF45D0854E57CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AECAC0181FF451A00063D8AE /* icomoon.ttf */,
+				AE98B1FF1FF574B1000005AE /* icomoon.ttf */,
 				61DE556CDA154426A57159A9 /* Entypo.ttf */,
 				558D776D127C41A297B33FFD /* EvilIcons.ttf */,
 				EAF0B65AF72844C4A2103B73 /* Feather.ttf */,
@@ -1262,10 +1262,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECAC0191FF451A00063D8AE /* icomoon.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */,
+				AE98B2281FF574B1000005AE /* icomoon.ttf in Resources */,
 				7D3BD3260324477BA89E88A6 /* EvilIcons.ttf in Resources */,
 				EEAFB6FB1835460B90F49437 /* Feather.ttf in Resources */,
 				09D9321F34FF4077A802150D /* FontAwesome.ttf in Resources */,
