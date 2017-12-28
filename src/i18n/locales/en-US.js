@@ -44,6 +44,11 @@ export default {
   contactSteps: {
     addStep: 'Add a step of faith',
   },
+  contactJourney: {
+    addJourney: 'Add to Our Journey',
+    ourJourney: 'Our Journey',
+    journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
+  },
   getStarted: {
     hi: 'hi',
     tagline: "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",

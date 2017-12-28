@@ -7,6 +7,7 @@ import { Flex } from '../common';
 import CustomTabs from '../CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';
+import ContactJourney from '../../containers/ContactJourney';
 
 export default class SecondaryTabBar extends Component {
 
@@ -25,7 +26,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'journey') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactSteps person={this.props.person} />
+          <ContactJourney person={this.props.person} />
         </Flex>
       );
     } else if (tab.page === 'notes') {
