@@ -17,6 +17,7 @@ class SelectStepScreen extends Component {
     this.state = {
       steps: props.steps,
       addedSteps: [],
+      contact: null,
     };
 
     this.handleSelectStep = this.handleSelectStep.bind(this);
@@ -40,6 +41,9 @@ class SelectStepScreen extends Component {
   }
 
   handleCreateStep() {
+    if (this.props.contact) {
+      this.setState({ contact: this.props.contact });
+    }
     this.props.dispatch(navigatePush('AddStep', {
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
@@ -67,7 +71,11 @@ class SelectStepScreen extends Component {
       // LOG(r);
     });
     // TODO: Save selected steps with some kind of API call,
-    this.props.dispatch(navigatePush(this.props.nextScreen));
+    if (this.state.contact || this.props.contact) {
+      this.props.dispatch(navigatePush('Contact', { person: this.props.contact ? this.props.contact : this.state.contact }));
+    } else {
+      this.props.dispatch(navigatePush(this.props.nextScreen));
+    }
   }
 
   renderTitle() {
@@ -85,7 +93,7 @@ class SelectStepScreen extends Component {
     return (
       <Flex style={styles.container}>
         <Flex value={1} align="center" justify="center" style={styles.headerWrap}>
-          <BackButton customNavigate="backToStages" />
+          <BackButton customNavigate={this.props.contact || this.state.contact ? undefined : 'backToStages'} />
           {this.renderTitle()}
         </Flex>
         <Flex value={2}>

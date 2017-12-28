@@ -86,7 +86,7 @@ exports[`renders correctly 1`] = `
         }
       >
         Your Steps of Faith with 
-        Ben
+        ben
          appear here.
       </Text>
     </View>

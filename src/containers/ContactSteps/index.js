@@ -5,7 +5,7 @@ import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getStepsByFilter, completeStep, addSteps, deleteStep } from '../../actions/steps';
+import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
@@ -52,16 +52,10 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.dispatch(navigatePush('AddStep', {
-      onComplete: (newStepText) => {
-        let newStep = {
-          id: 1,
-          body: newStepText,
-        };
-        this.props.dispatch(addSteps([newStep], this.props.person.id)).then(()=> {
-          this.getSteps();
-        });
-      },
+    this.props.dispatch(navigatePush('PersonStep', {
+      contactName: this.props.person.first_name,
+      contactId: this.props.person.id,
+      contact: this.props.person,
     }));
   }
 
@@ -95,7 +89,7 @@ class ContactSteps extends Component {
   }
 
   renderNull() {
-    const name = 'Ben';
+    const name = this.props.person.first_name;
     return (
       <Flex align="center" justify="center">
         <Image source={NULL} />
