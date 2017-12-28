@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import styles from './styles';
-import { Flex, Button, Text } from '../../components/common';
-import StepItem from '../../components/StepItem';
+import { Flex, Button, Separator, Text } from '../../components/common';
+import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 
@@ -16,10 +16,6 @@ class ContactJourney extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      interactions: [],
-    };
 
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateInteraction = this.handleCreateInteraction.bind(this);
@@ -47,29 +43,33 @@ class ContactJourney extends Component {
 
 
   renderRow({ item }) {
-    return (
-      <RowSwipeable
-        key={item.id}
-        onDelete={() => this.handleRemove(item)}
-        onComplete={() => this.handleComplete(item)}
-      >
-        <StepItem step={item} type="listSwipeable" />
-      </RowSwipeable>
-    );
+    const { isCasey } = this.props;
+    if (isCasey) {
+      return (
+        <RowSwipeable
+          key={item.id}
+          onEdit={() => this.handleEditInteraction(item)}
+        >
+          <JourneyItem item={item} type="step" />
+        </RowSwipeable>
+      );
+    }
+    return <JourneyItem item={item} type="step" />;
   }
 
   renderList() {
-    const { interactions } = this.state;
+    const { journey } = this.props;
     return (
       <FlatList
         ref={(c) => this.list = c}
         style={styles.list}
-        data={interactions}
+        data={journey}
         keyExtractor={(i) => i.id}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={100}
+        ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
       />
     );
   }
@@ -86,12 +86,12 @@ class ContactJourney extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, journey } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
           {
-            this.state.interactions.length > 0 ? this.renderList() : this.renderNull()
+            journey.length > 0 ? this.renderList() : this.renderNull()
           }
         </Flex>
         <Flex justify="end">
@@ -110,4 +110,17 @@ ContactJourney.propTypes = {
   person: PropTypes.object,
 };
 
-export default connect()(ContactJourney);
+const mapStateToProps = ({ auth }) => ({
+  journey: [
+    { id: '1', text: 'You are cool\nCheck it out\n\nNew lines all over', completed_at: '2017-12-28T16:21:02Z' },
+    { id: '2', text: 'Step 2 fjldsja fkldjs alkf jdsalkf jdaskl fjdsa jfdklsaj flkdsaj flkdsaj fldksaj fldksaj fdlkasf jdlksa fjhldsal dksajfkl dsa jflkdhsalfk dasf jdsaklfj dkslafj dlsakfjkdlasfjlsdak kjlfd', completed_at: '2017-12-28T16:21:02Z' },
+    { id: '3', text: 'Step 3', completed_at: '2017-12-28T16:21:02Z' },
+    { id: '4', text: 'Step 4', completed_at: '2017-12-28T16:21:02Z' },
+    { id: '5', text: 'Step 5', completed_at: '2017-12-28T16:21:02Z' },
+    { id: '6', text: 'Step 6', completed_at: '2017-12-28T16:21:02Z' },
+  ],
+  // journey: [],
+  isCasey: !auth.hasMinistries,
+});
+
+export default connect(mapStateToProps)(ContactJourney);

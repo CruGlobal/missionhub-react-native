@@ -21,5 +21,7 @@ export default StyleSheet.create({
   },
   list: {
     backgroundColor: theme.transparent,
+    borderBottomColor: theme.separatorColor,
+    borderBottomWidth: theme.separatorHeight,
   },
 });

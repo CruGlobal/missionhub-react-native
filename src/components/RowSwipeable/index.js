@@ -5,11 +5,19 @@ import PropTypes from 'prop-types';
 import { Flex, Touchable, Icon } from '../common';
 import styles from './styles';
 
-const OPEN_DISTANCE = -150;
+const OPTION_WIDTH = 75;
 export default class RowSwipeable extends Component {
 
   constructor(props) {
     super(props);
+
+    let numOptions = 0;
+    if (props.onDelete) numOptions++;
+    if (props.onComplete) numOptions++;
+    if (props.onEdit) numOptions++;
+
+    this.numOptions = numOptions;
+    this.openDistance = numOptions * -1 * OPTION_WIDTH;
 
     this.translateX = new Animated.Value(0);
     this.isScrollingRight = false;
@@ -55,7 +63,7 @@ export default class RowSwipeable extends Component {
   }
 
   snapBack(e, gesture) {
-    if (!this.isScrollingRight && (gesture.dx <= OPEN_DISTANCE || (this.isOpen && gesture.dx < 0))) {
+    if (!this.isScrollingRight && (gesture.dx <= this.openDistance || (this.isOpen && gesture.dx < 0))) {
       this.open();
     } else {
       this.close();
@@ -65,7 +73,7 @@ export default class RowSwipeable extends Component {
   open() {
     this.initialTranslateXValue = null;
     this.isOpen = true;
-    this.move(OPEN_DISTANCE);
+    this.move(this.openDistance);
     DeviceEventEmitter.emit('RowSwipeable_open', this);
   }
 
@@ -79,6 +87,41 @@ export default class RowSwipeable extends Component {
     Animated.spring(this.translateX, { toValue, speed: 16 }).start();
   }
 
+  renderOptions() {
+    const { onDelete, onComplete, onEdit } = this.props;
+    return (
+      <Flex
+        direction="row"
+        justify="end"
+        style={[
+          styles.optionsWrap,
+          { width: this.numOptions * OPTION_WIDTH },
+        ]}>
+        {
+          onDelete ? (
+            <Touchable style={styles.deleteWrap} onPress={onDelete}>
+              <Icon name="deleteIcon" type="MissionHub" size={26} />
+            </Touchable>
+          ) : null
+        }
+        {
+          onComplete ? (
+            <Touchable style={styles.completeWrap} onPress={onComplete}>
+              <Icon name="checkIcon" type="MissionHub" size={26} />
+            </Touchable>
+          ) : null
+        }
+        {
+          onEdit ? (
+            <Touchable style={styles.editWrap} onPress={onEdit}>
+              <Icon name="createStepIcon" type="MissionHub" size={30} />
+            </Touchable>
+          ) : null
+        }
+      </Flex>
+    );
+  }
+
   render() {
     const { children } = this.props;
 
@@ -87,14 +130,7 @@ export default class RowSwipeable extends Component {
     };
     return (
       <View>
-        <Flex direction="row" justify="end" style={styles.optionsWrap}>
-          <Touchable style={styles.deleteWrap} onPress={this.props.onDelete}>
-            <Icon name="deleteIcon" type="MissionHub" size={26} />
-          </Touchable>
-          <Touchable style={styles.completeWrap} onPress={this.props.onComplete}>
-            <Icon name="checkIcon" type="MissionHub" size={26} />
-          </Touchable>
-        </Flex>
+        {this.renderOptions()}
         <Animated.View {...this.panResponder.panHandlers} style={panStyle}>
           {children}
         </Animated.View>
@@ -105,4 +141,7 @@ export default class RowSwipeable extends Component {
 
 RowSwipeable.propTypes = {
   children: PropTypes.element.isRequired,
+  onComplete: PropTypes.func,
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func,
 };
