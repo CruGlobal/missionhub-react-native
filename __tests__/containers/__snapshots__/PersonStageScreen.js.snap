@@ -17,21 +17,21 @@ exports[`renders correctly 1`] = `
   }
 >
   <Image
-    resizeMode="cover"
+    resizeMode="contain"
     source={
       Object {
-        "testUri": "../../../assets/images/landscape-full.png",
+        "testUri": "../../../assets/images/landscape.png",
       }
     }
     style={
       Array [
         Object {
-          "bottom": -100,
-          "height": 667,
+          "bottom": -20,
+          "height": 175,
           "position": "absolute",
         },
         Object {
-          "left": -250,
+          "left": -0,
         },
       ]
     }
