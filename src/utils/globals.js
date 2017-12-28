@@ -19,7 +19,7 @@ global.LOG = function() {
     if (ENABLE_LOGS) {
       console.log.apply(console, args);
     }
-    
+
     if (console.tron) {
       console.tron.display({
         name: 'Console',
@@ -36,7 +36,7 @@ global.WARN = function() {
     if (ENABLE_WARN) {
       console.warn.apply(console, args);
     }
-    
+
     if (console.tron) {
       console.tron.display({
         name: 'Console WARN',
@@ -51,7 +51,7 @@ global.WARN = function() {
 global.APILOG = function() {
   if (__DEV__) {
     const args = getArgs(arguments);
-    
+
     if (console.tron) {
       console.tron.display({
         name: 'API Call',
