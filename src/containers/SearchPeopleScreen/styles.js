@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
   clearIcon: {
     paddingHorizontal: 5,
-    fontSize: 10,
+    fontSize: 16,
   },
   list: {
     borderTopWidth: theme.separatorHeight,

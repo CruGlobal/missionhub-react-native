@@ -18,5 +18,19 @@
   "plusIcon": true,
   "removeStepIcon": true,
   "searchIcon": true,
-  "setPathIcon": true
+  "setPathIcon": true,
+  "actionsIcon": true,
+  "addContactIcon": true,
+  "callIcon": true,
+  "decisionIcon": true,
+  "discipleshipConversationIcon": true,
+  "emailIcon": true,
+  "upArrowIcon": true,
+  "gospelIcon": true,
+  "spiritIcon": true,
+  "spiritualConversationsIcon": true,
+  "filterIcon": true,
+  "rightArrowIcon": true,
+  "cancelIcon": true,
+  "textIcon": true
 }

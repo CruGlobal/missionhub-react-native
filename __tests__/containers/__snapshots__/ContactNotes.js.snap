@@ -46,7 +46,9 @@ exports[`when keyboard height is set and editing is set to true button message c
           "color": "#505256",
           "flex": 1,
           "fontSize": 16,
-          "textAlign": "center",
+          "marginTop": 30,
+          "paddingHorizontal": 36,
+          "textAlign": "left",
         }
       }
     />
@@ -91,15 +93,12 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
       align="center"
       justify="center"
     >
-      <Icon
-        name="notesIconShadow"
-        style={
+      <Image
+        source={
           Object {
-            "color": "#007398",
-            "fontSize": 96,
+            "testUri": "../../../assets/images/myNotes.png",
           }
         }
-        type="MissionHub"
       />
       <MyText
         accessible={true}
@@ -124,7 +123,7 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 50,
             "paddingVertical": 10,
             "textAlign": "center",
           }
@@ -181,7 +180,9 @@ exports[`when keyboard height is set notes are shown 1`] = `
           "color": "#505256",
           "flex": 1,
           "fontSize": 16,
-          "textAlign": "center",
+          "marginTop": 30,
+          "paddingHorizontal": 36,
+          "textAlign": "left",
         }
       }
       value="Hello, Roge! Here are some notes."

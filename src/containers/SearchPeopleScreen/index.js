@@ -18,7 +18,7 @@ export class SearchPeopleScreen extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       text: '',
       results: [],
@@ -101,7 +101,7 @@ export class SearchPeopleScreen extends Component {
         {
           this.state.text ? (
             <IconButton
-              name="plusIcon"
+              name="cancelIcon"
               type="MissionHub"
               onPress={this.clearSearch}
               style={styles.clearIcon} />
@@ -197,7 +197,7 @@ export class SearchPeopleScreen extends Component {
           }
           right={
             <IconButton
-              name="journeyIcon"
+              name="filterIcon"
               type="MissionHub"
               onPress={this.handleFilter} />
           }

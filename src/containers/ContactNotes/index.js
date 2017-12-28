@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Dimensions, View, Keyboard } from 'react-native';
+import { Dimensions, View, Keyboard, Image } from 'react-native';
 import { connect } from 'react-redux';
 
-import { Text, Flex, Button, Input, Icon } from '../../components/common';
+import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { saveNotes } from '../../actions/person';
 import { translate } from 'react-i18next';
+import NOTES from '../../../assets/images/myNotes.png';
 
 @translate('notes')
 export class ContactNotes extends Component {
@@ -92,7 +93,7 @@ export class ContactNotes extends Component {
 
     return (
       <Flex align="center" justify="center">
-        <Icon name="notesIconShadow" type="MissionHub" style={styles.notesIcon} />
+        <Image source={NOTES} />
         <Text type="header" style={styles.nullHeader}>MY NOTES</Text>
         <Text style={styles.nullText}>{text}</Text>
       </Flex>
