@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
+import { translate } from 'react-i18next';
 
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { disableAskPushNotification } from '../../actions/notifications';
 
+@translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
 
   constructor(props) {
@@ -26,6 +28,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={.2} />
@@ -33,7 +36,7 @@ class NotificationPrimerScreen extends Component {
           <Flex align="center">
             <Image source={require('../../../assets/images/notificationPrimer.png')} />
             <Text style={styles.text}>
-              MissionHub will send you reminders to help you take your steps.
+              {t('description')}
             </Text>
           </Flex>
           <Flex value={.7} align="center" justify="center">
@@ -41,14 +44,14 @@ class NotificationPrimerScreen extends Component {
               pill={true}
               type="primary"
               onPress={this.done}
-              text="ALLOW NOTIFICATIONS"
+              text={t('allow').toUpperCase()}
               style={styles.allowButton}
               buttonTextStyle={styles.buttonText}
             />
             <Button
               pill={true}
               onPress={this.notNow}
-              text="NOT NOW"
+              text={t('notNow').toUpperCase()}
               style={styles.notNowButton}
               buttonTextStyle={styles.buttonText}
             />

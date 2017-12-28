@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
-import { setupPushNotifications } from '../../actions/notifications';
+import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -27,6 +27,7 @@ class StepsScreen extends Component {
       moving: false,
       topHeight: 0,
       offTopItems: 0,
+      addedReminder: props.reminders.length > 0,
     };
 
     this.handleDropStep = this.handleDropStep.bind(this);
@@ -66,7 +67,6 @@ class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    // LOG('TODO: Go To People, step selected', step.id);
     this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
   }
 
@@ -79,6 +79,7 @@ class StepsScreen extends Component {
       return;
     }
     this.props.dispatch(setStepReminder(step));
+    this.reminderAdded();
   }
 
   handleCompleteReminder(step) {
@@ -94,6 +95,23 @@ class StepsScreen extends Component {
     const offsetY = e.nativeEvent.contentOffset.y;
     const offTopItems = Math.round(((offsetY + 20) / ROW_HEIGHT));
     this.setState({ offTopItems });
+  }
+
+  reminderAdded() {
+    if (!this.state.addedReminder) {
+      this.setState({ addedReminder: true });
+      if (this.props.areNotificationsOff && this.props.showNotificationReminder) {
+        this.props.dispatch(navigatePush('NotificationOff', {
+          onClose: (shouldAsk) => {
+            if (shouldAsk) {
+              this.props.dispatch(setupPushNotifications());
+            } else {
+              this.props.dispatch(noNotificationReminder());
+            }
+          },
+        }));
+      }
+    }
   }
 
   renderTop() {
@@ -210,11 +228,13 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, steps }) => ({
+const mapStateToProps = ({ auth, steps, notifications }) => ({
   isCasey: !auth.hasMinistries,
   myId: auth.personId,
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
+  areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
+  showNotificationReminder: notifications.showReminder,
 });
 
 export default connect(mapStateToProps)(StepsScreen);

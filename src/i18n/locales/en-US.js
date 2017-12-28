@@ -93,4 +93,15 @@ export default {
     title: 'Refine',
     any: 'Any',
   },
+  notificationPrimer: {
+    description: 'MissionHub will send you reminders to help you take your steps.',
+    allow: 'Allow Notifications',
+    notNow: 'Not Now',
+  },
+  notificationOff: {
+    description: 'Notifications are off. MissionHub won\'t be able to send you reminders to help you take your steps.',
+    allow: 'Allow Notifications',
+    settings: 'Go To Settings',
+    noReminders: 'I Don\'t Want Reminders',
+  },
 };
