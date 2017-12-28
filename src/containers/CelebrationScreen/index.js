@@ -4,7 +4,7 @@ import { Image, Platform } from 'react-native';
 
 import styles from './styles';
 import { Flex } from '../../components/common';
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import { navigateReset } from '../../actions/navigation';
 
 class CelebrationScreen extends Component {
 
@@ -25,9 +25,7 @@ class CelebrationScreen extends Component {
   }
 
   navigateToNext() {
-    this.props.resetNav ?
-      this.props.dispatch(navigateReset(this.props.nextScreen || 'MainTabs')) :
-      this.props.dispatch(navigatePush(this.props.nextScreen || 'MainTabs'));
+    this.props.dispatch(navigateReset(this.props.nextScreen || 'MainTabs'));
   }
 
   static shuffleGif() {

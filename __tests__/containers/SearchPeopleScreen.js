@@ -28,7 +28,7 @@ it('renders with searching state', () => {
   );
 
   screen.setState({ isSearching: true });
-  expect(screen.dive()).toMatchSnapshot();
+  expect(screen.dive().dive()).toMatchSnapshot();
 });
 
 it('renders with no results state', () => {
@@ -39,7 +39,7 @@ it('renders with no results state', () => {
   );
 
   screen.setState({ text: 'test' });
-  expect(screen.dive()).toMatchSnapshot();
+  expect(screen.dive().dive()).toMatchSnapshot();
 });
 
 it('renders with results state', () => {
@@ -54,5 +54,5 @@ it('renders with results state', () => {
     { id: '2', full_name: 'Leslie Knope', organization: 'Cru at Harvard' },
     { id: '3', full_name: 'Ben Wyatt', organization: 'Cru at Harvard' },
   ] });
-  expect(screen.dive()).toMatchSnapshot();  
+  expect(screen.dive().dive()).toMatchSnapshot();
 });

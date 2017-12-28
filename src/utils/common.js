@@ -1,11 +1,12 @@
 import moment from 'moment';
+import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodashMerge from 'lodash/merge';
 
 export const getFirstThreeValidItems = (arr) => {
   return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
 };
-
+export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
 

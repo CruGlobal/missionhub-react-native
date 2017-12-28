@@ -6,6 +6,7 @@ import { Flex } from '../common';
 // import styles from './styles';
 import CustomTabs from '../CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
+import ContactNotes from '../../containers/ContactNotes';
 
 export default class SecondaryTabBar extends Component {
 
@@ -30,7 +31,19 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'notes') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactSteps person={this.props.person} />
+          <ContactNotes person={this.props.person} />
+        </Flex>
+      );
+    } else if (tab.page === 'actions') {
+      return (
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
+          <ContactNotes person={this.props.person} />
+        </Flex>
+      );
+    } else if (tab.page === 'impact') {
+      return (
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
+          <ContactNotes person={this.props.person} />
         </Flex>
       );
     }
@@ -42,6 +55,7 @@ export default class SecondaryTabBar extends Component {
     return (
       <Flex value={1} >
         <ScrollableTabView
+          contentProps={{ keyboardShouldPersistTaps: 'handled' }}
           tabBarPosition="top"
           initialPage={0}
           locked={true}

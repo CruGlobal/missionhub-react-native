@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-import { logout } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
@@ -211,11 +210,11 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(logout())} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
           }
           right={
             this.props.isCasey ? null : (
-              <IconButton name="stepsIcon" type="MissionHub" onPress={()=> LOG('pressed')} />
+              <IconButton name="searchIcon" type="MissionHub" onPress={()=> this.props.dispatch(navigatePush('SearchPeople'))} />
             )
           }
           title="STEPS OF FAITH"

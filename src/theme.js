@@ -1,8 +1,7 @@
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions } from 'react-native';
 import Color from 'color';
 
-import { exists } from './utils/common';
-const isAndroid = Platform.OS === 'android';
+import { exists, isAndroid } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -82,7 +81,6 @@ export default {
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
 
-  isAndroid,
   headerHeight: isAndroid ? 56 : 65,
   itemHeight: 90,
 };

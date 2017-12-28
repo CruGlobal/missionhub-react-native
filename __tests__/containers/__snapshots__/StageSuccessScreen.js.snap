@@ -126,7 +126,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      undefined, 
+      undefined,
 We'd like to offer some things to help you in your spiritual journey.
     </Text>
   </View>

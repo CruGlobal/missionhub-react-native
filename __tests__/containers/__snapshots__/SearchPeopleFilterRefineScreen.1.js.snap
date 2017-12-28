@@ -263,7 +263,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -671,7 +671,7 @@ exports[`renders title correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>

@@ -3,15 +3,13 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { navigateBack } from '../../actions/navigation';
+import { navigateReset } from '../../actions/navigation';
 
 import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
-
-const CASEY = 'casey';
-const JEAN = 'jean';
+import { CASEY, JEAN } from '../../constants';
 
 class ContactScreen extends Component {
 
@@ -25,7 +23,7 @@ class ContactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateBack())} />
+            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateReset('MainTabs'))} />
           }
           right={
             <IconButton name="moreIcon" type="MissionHub" onPress={()=> LOG('more')} />

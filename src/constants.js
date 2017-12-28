@@ -6,6 +6,7 @@ export const STAGES = 'app/STAGES';
 export const SELECT_STAGE = 'app/SELECT_STAGE';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
+export const SAVE_NOTES = 'app/SAVE_NOTES';
 export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
@@ -18,6 +19,17 @@ export const PUSH_NOTIFICATION_REMINDER = 'app/PUSH_NOTIFICATION_REMINDER';
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';
 
+export const CASEY = 'casey';
+export const JEAN = 'jean';
+
+export const LINKS = {
+  about: 'https://get.missionhub.com',
+  help: 'http://help.missionhub.com',
+  playStore: 'market://details?id=com.missionhub',
+  appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
+  terms: 'https://get.missionhub.com/terms-of-service/',
+  privacy: 'https://www.cru.org/us/en/about/privacy.html',
+};
 
 export default {
 

@@ -5,10 +5,10 @@ import React from 'react';
 import IconMessageScreen from '../../src/containers/IconMessageScreen/index';
 import { Provider } from 'react-redux';
 
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {createMockStore} from '../../testUtils/index';
-import {testSnapshot} from '../../testUtils';
+import { createMockStore } from '../../testUtils/index';
+import { testSnapshot } from '../../testUtils';
 
 const mockNextScreen = 'the next screen';
 const mockNavigatePush = 'navigate push';

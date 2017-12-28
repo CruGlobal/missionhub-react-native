@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
+import { translate } from 'react-i18next';
 import styles from './SetupScreen/styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../components/common';
 import Input from '../components/Input/index';
@@ -8,6 +9,7 @@ import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/person';
 import { createPerson } from '../actions/profile';
 
+@translate('setupPerson')
 class SetupPersonScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.personFirstName) {
@@ -20,6 +22,8 @@ class SetupPersonScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+    
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
@@ -29,7 +33,7 @@ class SetupPersonScreen extends Component {
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text i18n="Profile_Label_FirstName" style={styles.label} />
+            <Text style={styles.label}>{t('profileLabels.firstNameNickname')}</Text>
             <Input
               ref={(c) => this.personFirstName = c}
               onChangeText={(t) => this.props.dispatch(personFirstNameChanged(t))}
@@ -38,7 +42,7 @@ class SetupPersonScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.personLastName.focus()}
-              placeholder="First Name"
+              placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
           </View>
@@ -49,7 +53,7 @@ class SetupPersonScreen extends Component {
               onChangeText={(t) => this.props.dispatch(personLastNameChanged(t))}
               value={this.props.personLastName}
               returnKeyType="next"
-              placeholder="Last Name (if you want)"
+              placeholder={t('profileLabels.lastNameOptional')}
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
@@ -60,7 +64,7 @@ class SetupPersonScreen extends Component {
           <Button
             type="secondary"
             onPress={() => this.saveAndGoToGetStarted()}
-            text="NEXT"
+            text={t('next').toUpperCase()}
           />
         </Flex>
       </PlatformKeyboardAvoidingView>

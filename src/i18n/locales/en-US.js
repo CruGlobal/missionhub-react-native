@@ -3,10 +3,22 @@ export default {
     profileLabels: {
       firstName: 'First Name',
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
+      firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
+      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
       phone: 'Phone',
     },
+    done: 'DONE',
+    next: 'Next',
+  },
+  settingsMenu: {
+    about: 'About',
+    help: 'Help',
+    review: 'Write a Review',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    signOut: 'Sign out',
   },
   welcome: {
     welcome: 'welcome!',
@@ -24,7 +36,6 @@ export default {
   },
   addContact: {
     addSomeone: 'Add Someone',
-    done: 'Done',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -46,6 +57,11 @@ export default {
     impactSentence: 'In {{year}}, {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
     you: 'you',
     users: 'users',
+  },
+  notes: {
+    add: 'ADD PRIVATE NOTES',
+    edit: 'EDIT PRIVATE NOTES',
+    prompt: 'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
   },
   search: {
     inputPlaceholder: 'Search',

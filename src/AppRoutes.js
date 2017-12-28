@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
 import KeyLoginScreen from './containers/KeyLoginScreen';
@@ -27,6 +27,7 @@ import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
 import NotificationOffScreen from './containers/NotificationOffScreen';
 
+import SettingsMenu from './components/SettingsMenu';
 import { Icon } from './components/common';
 
 import theme from './theme';
@@ -91,7 +92,13 @@ export const MainTabRoutes = TabNavigator({
 });
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: { screen: MainTabRoutes },
+  MainTabs: {
+    screen: DrawerNavigator({
+      Main: { screen: MainTabRoutes },
+    }, {
+      contentComponent: SettingsMenu,
+    }),
+  },
   Profile: { screen: ProfileScreen },
   Step: { screen: SelectMyStepScreen },
   PersonStep: { screen: PersonSelectStepScreen },

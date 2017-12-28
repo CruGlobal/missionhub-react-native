@@ -10,7 +10,7 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const questionText = 'Which stage best describes where ' + this.props.personFirstName + ' is on their journey?';
+    const questionText = `Which stage best describes where ${this.props.personFirstName} is on their journey?`;
 
     return (
       <PathwayStageScreen
