@@ -40,9 +40,16 @@ export default {
   addStep: {
     header: 'My Step of Faith',
     createStep: 'Create Step',
+    journeyHeader: 'What did you see God do?',
+    addJourney: 'Add to Our Journey',
   },
   contactSteps: {
     addStep: 'Add a step of faith',
+  },
+  contactJourney: {
+    addJourney: 'Add to Our Journey',
+    ourJourney: 'Our Journey',
+    journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
   getStarted: {
     hi: 'hi',
