@@ -4,6 +4,7 @@ import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_SET_TOKEN,
+  PUSH_NOTIFICATION_REMINDER,
 } from '../constants';
 
 export function disableAskPushNotification() {
@@ -17,6 +18,13 @@ export function enableAskPushNotification() {
   return {
     type: PUSH_NOTIFICATION_SHOULD_ASK,
     bool: true,
+  };
+}
+
+export function noNotificationReminder(showReminder = false) {
+  return {
+    type: PUSH_NOTIFICATION_REMINDER,
+    bool: showReminder,
   };
 }
 

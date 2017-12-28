@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
-import { setupPushNotifications } from '../../actions/notifications';
+import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -44,9 +44,6 @@ class StepsScreen extends Component {
 
   componentDidMount() {
     this.setTopHeight();
-    
-    // Testing
-    this.reminderAdded();
   }
 
   componentDidUpdate(prevProps) {
@@ -71,7 +68,6 @@ class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    // LOG('TODO: Go To People, step selected', step.id);
     this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
   }
 
@@ -103,30 +99,20 @@ class StepsScreen extends Component {
   }
 
   reminderAdded() {
-    // if (!this.state.addedReminder) {
-    //   this.setState({ addedReminder: true });
-    //   if (this.props.areNotificationsOff) {
-    //     this.props.dispatch(navigatePush('NotificationOff', {
-    //       onClose: (shouldAsk) => {
-    //         if (shouldAsk) {
-    //           LOG('asking notifications');
-    //           // this.props.dispatch(setupPushNotifications());
-    //         } else {
-    //           // TODO: Set a variable to not show the reminder screen again
-    //         }
-    //       },
-    //     }));
-    //   }
-    // }
-    this.props.dispatch(navigatePush('NotificationOff', {
-      onClose: (shouldAsk) => {
-        if (shouldAsk) {
-          this.props.dispatch(setupPushNotifications());
-        } else {
-          // TODO: Set a variable to not show the reminder screen again
-        }
-      },
-    }));
+    if (!this.state.addedReminder) {
+      this.setState({ addedReminder: true });
+      if (this.props.areNotificationsOff && this.props.showNotificationReminder) {
+        this.props.dispatch(navigatePush('NotificationOff', {
+          onClose: (shouldAsk) => {
+            if (shouldAsk) {
+              this.props.dispatch(setupPushNotifications());
+            } else {
+              this.props.dispatch(noNotificationReminder());
+            }
+          },
+        }));
+      }
+    }
   }
 
   renderTop() {
@@ -249,6 +235,7 @@ const mapStateToProps = ({ auth, steps, notifications }) => ({
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
+  showNotificationReminder: notifications.showReminder,
 });
 
 export default connect(mapStateToProps)(StepsScreen);
