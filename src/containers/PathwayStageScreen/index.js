@@ -7,7 +7,7 @@ import { getStages } from '../../actions/stages';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
-import LANDSCAPE from '../../../assets/images/landscape-full.png';
+import LANDSCAPE from '../../../assets/images/landscape.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
@@ -76,11 +76,11 @@ class PathwayStageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image
-          resizeMode="cover"
+          resizeMode="contain"
           source={LANDSCAPE}
           style={[
             styles.footerImage,
-            { left: (this.state.scrollPosition / -2) - 250 },
+            { left: (this.state.scrollPosition / -1) },
           ]}
         />
         <Flex value={1} align="center" justify="center">
