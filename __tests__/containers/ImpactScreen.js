@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
 import { testSnapshot } from '../../testUtils';
+import MockDate from 'mockdate';
 
 const store = createMockStore({
   impact: {
@@ -16,10 +17,20 @@ const store = createMockStore({
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <ImpactScreen />
-    </Provider>
-  );
+describe('Impact Screen', () => {
+  beforeEach(() => {
+    MockDate.set('2017-08-20');
+  });
+
+  afterEach(() => {
+    MockDate.reset();
+  });
+
+  it('renders correctly', () => {
+    testSnapshot(
+      <Provider store={store}>
+        <ImpactScreen />
+      </Provider>
+    );
+  });
 });
