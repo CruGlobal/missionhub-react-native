@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Connect(SelectStepScreen)
+  headerText="How do you want to move forward on your spiritual journey?"
+  nextScreen="AddSomeone"
+  receiverId={1234}
+  steps={
+    Array [
+      Object {
+        "id": 1,
+      },
+      Object {
+        "id": 2,
+      },
+      Object {
+        "id": 3,
+      },
+    ]
+  }
+  useOthersSteps={false}
+/>
+`;
