@@ -93,7 +93,7 @@ exports[`renders correctly 1`] = `
         placeholder="First Name"
         placeholderTextColor="white"
         returnKeyType="next"
-        selectionColor="#007398"
+        selectionColor="#005A7F"
         style={
           Array [
             Object {
@@ -109,7 +109,7 @@ exports[`renders correctly 1`] = `
             Object {},
           ]
         }
-        underlineColorAndroid={undefined}
+        underlineColorAndroid="rgba(0,0,0,0)"
         value=""
       />
     </View>
@@ -130,7 +130,7 @@ exports[`renders correctly 1`] = `
         placeholder="Last Name (if you want)"
         placeholderTextColor="white"
         returnKeyType="next"
-        selectionColor="#007398"
+        selectionColor="#005A7F"
         style={
           Array [
             Object {
@@ -146,7 +146,7 @@ exports[`renders correctly 1`] = `
             Object {},
           ]
         }
-        underlineColorAndroid={undefined}
+        underlineColorAndroid="rgba(0,0,0,0)"
         value=""
       />
     </View>

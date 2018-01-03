@@ -213,6 +213,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "borderColor": "#ffffff",
+              "borderRadius": 3,
               "borderStyle": "dashed",
               "borderWidth": 2,
               "padding": 25,
