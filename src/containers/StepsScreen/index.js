@@ -11,6 +11,7 @@ import { Flex, Text, Icon, IconButton } from '../../components/common';
 import StepItemDraggable from '../../components/StepItemDraggable';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
+import { isAndroid } from '../../utils/common';
 import Header from '../Header';
 import theme from '../../theme';
 
@@ -182,7 +183,7 @@ class StepsScreen extends Component {
           styles.list,
           { paddingTop: topHeight },
         ]}
-        contentInset={{ bottom: topHeight }}
+        contentInset={{ bottom: isAndroid ? undefined : topHeight }}
         data={steps}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
@@ -196,6 +197,7 @@ class StepsScreen extends Component {
             onToggleMove={(bool) => this.setState({ moving: bool }, this.setTopHeight)}
           />
         )}
+        removeClippedSubviews={true}
         bounces={false}
         showsVerticalScrollIndicator={false}
         scrollEnabled={!moving}

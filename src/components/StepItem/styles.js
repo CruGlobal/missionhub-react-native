@@ -23,17 +23,22 @@ export default StyleSheet.create({
   draggable: {
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
+    paddingVertical: 15,
   },
   dragging: {
-    backgroundColor: theme.convert({ color: theme.white, alpha: 0.8 }),
+    zIndex: 10,
+    paddingVertical: 15,
+    // backgroundColor: theme.convert({ color: theme.white, alpha: 0.8 }),
+    backgroundColor: theme.convert({ color: theme.black, alpha: 0.6 }),
+    // backgroundColor: 'orange',
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,
     shadowRadius: 7,
-    elevation: 8,
   },
   offscreen: {
     opacity: 0,
+    overflow: 'hidden',
   },
   person: {
     fontSize: 16,

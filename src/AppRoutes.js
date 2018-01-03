@@ -90,7 +90,11 @@ export const MainTabRoutes = TabNavigator({
     labelStyle: labelStyle(),
     indicatorStyle: { backgroundColor: 'transparent' } ,
     upperCaseLabel: false,
+
+    // Android
+    scrollEnabled: false,
   },
+  swipeEnabled: false,
   tabBarPosition: 'bottom',
   animationEnabled: false,
   // lazy: false, // Load all tabs right away

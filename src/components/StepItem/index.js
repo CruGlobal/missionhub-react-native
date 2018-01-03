@@ -28,6 +28,8 @@ export default class StepItem extends Component {
         }
         <Text style={styles.description}>
           {step.title}
+          {step.title}
+          {step.title}
         </Text>
       </Flex>
     );

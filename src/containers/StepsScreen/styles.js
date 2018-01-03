@@ -1,5 +1,6 @@
 
 import { StyleSheet } from 'react-native';
+import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 export default StyleSheet.create({
@@ -56,6 +57,8 @@ export default StyleSheet.create({
     height: 60,
   },
   list: {
+    overflow: 'scroll',
     backgroundColor: theme.transparent,
+    paddingBottom: isAndroid ? 50 : undefined,
   },
 });
