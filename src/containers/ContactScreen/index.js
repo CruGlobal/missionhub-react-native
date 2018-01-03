@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { navigatePush, navigateReset } from '../../actions/navigation';
+import { getUserDetails } from '../../actions/people';
+import { getStages } from '../../actions/stages';
 
 import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
@@ -15,6 +17,49 @@ class ContactScreen extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      contactStage: {},
+    };
+
+    this.handleChangeStage = this.handleChangeStage.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.person.id) {
+      this.props.dispatch(getUserDetails(this.props.person.id)).then((results) => {
+        const contact = results.findAll('contact_assignment') || [];
+        if (contact[0].pathway_stage_id) {
+          if (this.props.stages.length > 0) {
+            const contactStage = this.props.stages.find((s)=> s.id == contact[0].pathway_stage_id);
+            this.setState({ contactStage });
+          } else {
+            this.props.dispatch(getStages()).then((r) => {
+              const stageResults = r.findAll('pathway_stage') || [];
+              const contactStage = stageResults.find((s)=> s.id == contact[0].pathway_stage_id);
+              this.setState({ contactStage });
+            });
+          }
+        }
+      });
+    }
+  }
+
+  handleChangeStage() {
+    if (this.props.person.id === this.props.myId) {
+      this.props.dispatch(navigatePush('Stage', {
+        onComplete: (stage) => this.setState({ contactStage: stage }),
+        currentStage: this.state.contactStage && this.state.contactStage.id ? this.state.contactStage.id : null,
+        contactId: this.props.person.id,
+      }));
+    } else {
+      this.props.dispatch(navigatePush('PersonStage', {
+        onComplete: (stage) => this.setState({ contactStage: stage }),
+        currentStage: this.state.contactStage && this.state.contactStage.id ? this.state.contactStage.id : null,
+        name: this.props.person.first_name,
+        contactId: this.props.person.id,
+      }));
+    }
   }
 
   render() {
@@ -31,7 +76,7 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <ContactHeader type={isCasey ? CASEY : JEAN} person={person} />
+          <ContactHeader onChangeStage={this.handleChangeStage} type={isCasey ? CASEY : JEAN} person={person} stage={this.state.contactStage} />
         </Flex>
       </View>
     );
@@ -46,9 +91,11 @@ ContactScreen.propTypes = {
 };
 
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
+const mapStateToProps = ({ auth, stages }, { navigation }) => ({
   ...(navigation.state.params || {}),
   isCasey: !auth.hasMinistries,
+  stages: stages.stages,
+  myId: auth.personId,
 });
 
 export default connect(mapStateToProps)(ContactScreen);
