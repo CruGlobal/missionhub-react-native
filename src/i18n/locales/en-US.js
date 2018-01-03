@@ -104,4 +104,14 @@ export default {
     settings: 'Go To Settings',
     noReminders: 'I Don\'t Want Reminders',
   },
+  contactSideMenu: {
+    edit: 'Edit',
+    delete: 'Delete Contact',
+    attemptedContact: 'Attempted Contact',
+    completed: 'Completed',
+    contacted: 'Contacted',
+    doNotContact: 'Do Not Contact',
+    uncontacted: 'Uncontacted',
+    unassign: 'Unassign',
+  },
 };

@@ -23,12 +23,13 @@ export class SideMenu extends Component {
   };
 
   render() {
+    const { menuItems } = this.props;
     return (
       <SafeAreaView style={styles.background}>
         <Flex style={styles.buttonContainer}>
           <IconButton style={styles.button} onPress={() => this.props.dispatch(navigatePush('DrawerClose'))} name="close" type="Material" size={20} />
         </Flex>
-        {this.props.menuItems.map(({ label, action }, index) =>
+        {menuItems.map(({ label, action }, index) =>
           <Flex key={index} style={styles.buttonContainer}>
             <Button style={styles.button} buttonTextStyle={styles.buttonText} text={label.toUpperCase()} onPress={action} />
           </Flex>

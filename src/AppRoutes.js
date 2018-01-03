@@ -29,6 +29,7 @@ import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefin
 import NotificationOffScreen from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
+import ContactSideMenu from './components/ContactSideMenu';
 import { Icon } from './components/common';
 
 import theme from './theme';
@@ -122,7 +123,14 @@ export const MainStackRoutes = StackNavigator({
   Stage: { screen: StageScreen },
   StageSuccess: { screen: StageSuccessScreen },
   AddSomeone: { screen: AddSomeoneScreen },
-  Contact: { screen: ContactScreen },
+  Contact: {
+    screen: DrawerNavigator({
+      Main: { screen: ContactScreen },
+    }, {
+      contentComponent: ContactSideMenu,
+      drawerPosition: 'right',
+    }),
+  },
   AddContact: { screen: AddContactScreen },
   NotificationPrimer: { screen: NotificationPrimerScreen },
   NotificationOff: { screen: NotificationOffScreen },
