@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
@@ -46,8 +47,15 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={24} style={{ color: tintColor }} />;
 
+function labelStyle() {
+  if (Platform.OS === 'android') {
+    return { marginTop: 5, marginBottom: -5 };
+  } else {
+    return {};
+  }
+}
 
 export const MainTabRoutes = TabNavigator({
   StepsTab: {
@@ -80,6 +88,9 @@ export const MainTabRoutes = TabNavigator({
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
     tabStyle: { backgroundColor: theme.lightBackgroundColor },
+    labelStyle: labelStyle(),
+    indicatorStyle: { backgroundColor: 'transparent' } ,
+    upperCaseLabel: false,
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,
