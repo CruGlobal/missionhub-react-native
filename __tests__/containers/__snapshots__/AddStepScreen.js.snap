@@ -161,7 +161,7 @@ exports[`renders correctly 1`] = `
           Object {},
         ]
       }
-      underlineColorAndroid={undefined}
+      underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
   </View>

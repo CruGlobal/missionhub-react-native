@@ -70,7 +70,6 @@ class SelectStepScreen extends Component {
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
       // LOG(r);
     });
-    // TODO: Save selected steps with some kind of API call,
     if (this.state.contact || this.props.contact) {
       this.props.dispatch(navigatePush('Contact', { person: this.props.contact ? this.props.contact : this.state.contact }));
     } else {
