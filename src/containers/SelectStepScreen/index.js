@@ -92,7 +92,7 @@ class SelectStepScreen extends Component {
   render() {
     return (
       <Flex style={styles.container}>
-        <Flex value={1} align="center" justify="center" style={styles.headerWrap}>
+        <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
           <BackButton customNavigate={this.props.contact || this.state.contact ? undefined : 'backToStages'} />
           {this.renderTitle()}
         </Flex>

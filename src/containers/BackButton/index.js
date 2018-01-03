@@ -15,6 +15,7 @@ class BackButton extends Component {
       <Flex self="start" align="start" justify="center" >
         <Touchable
           {...rest}
+          isAndroidOpacity={true}
           onPress={() => {
             if (this.props.customNavigate === 'backToStages') {
               this.props.dispatch(navigateBack());

@@ -45,7 +45,7 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={24} style={{ color: tintColor }} />;
 
 
 export const MainTabRoutes = TabNavigator({
@@ -79,6 +79,8 @@ export const MainTabRoutes = TabNavigator({
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
     tabStyle: { backgroundColor: theme.lightBackgroundColor },
+    labelStyle: { marginTop: 5, marginBottom: -5 },
+    indicatorStyle: { backgroundColor: 'transparent' } ,
   },
   tabBarPosition: 'bottom',
   animationEnabled: false,

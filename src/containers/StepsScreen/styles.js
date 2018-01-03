@@ -22,6 +22,7 @@ export default StyleSheet.create({
   topBorder: {
     borderStyle: 'dashed',
     borderWidth: 2,
+    borderRadius: 3,
     borderColor: theme.white,
     padding: 25,
   },
