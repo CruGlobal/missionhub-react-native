@@ -18,7 +18,7 @@ class LoginScreen extends Component {
     'cru.mcid': null,
     'cru.screenname': this.constructor.name,
     'cru.previousscreenname': null,
-    'cru.appname': 'Mission Hub App)',
+    'cru.appname': 'Mission Hub App',
     'cru.loggedinstatus': false,
     'cru.ssoguid': null,
     'cru.grmasterpersonid': null,
