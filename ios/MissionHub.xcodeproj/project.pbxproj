@@ -55,6 +55,10 @@
 		E601B83451D245D796326489 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E70A604B1FC941E193868924 /* MaterialIcons.ttf */; };
 		EEAFB6FB1835460B90F49437 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAF0B65AF72844C4A2103B73 /* Feather.ttf */; };
 		EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05632B7B95D04A408E9EEE6D /* SourceSansPro-Bold.ttf */; };
+		FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */; };
+		FA45FFED1FFE7DFD00153E56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */; };
+		FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */; };
+		FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */; };
 		FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */; };
 		FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DE556CDA154426A57159A9 /* Entypo.ttf */; };
 /* End PBXBuildFile section */
@@ -421,6 +425,11 @@
 		E70A604B1FC941E193868924 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		E80D5B98085649BA9AAB3B5C /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		EAF0B65AF72844C4A2103B73 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		FA45FFBE1FFE7D9600153E56 /* ADBMobile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
+		FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ADBMobileConfig.json; sourceTree = "<group>"; };
+		FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdobeMobileLibrary.a; sourceTree = "<group>"; };
+		FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +445,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */,
+				FA45FFEF1FFE7E0900153E56 /* libsqlite3.0.tbd in Frameworks */,
+				FA45FFED1FFE7DFD00153E56 /* SystemConfiguration.framework in Frameworks */,
 				937F2BAC1FD9928100915D3A /* libRCTPushNotification.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -563,6 +575,7 @@
 		13B07FAE1A68108700A75B9A /* MissionHub */ = {
 			isa = PBXGroup;
 			children = (
+				FA45FFBC1FFE7D9600153E56 /* AdobeMobileLibrary */,
 				937F2BAD1FD9930100915D3A /* MissionHub.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -708,6 +721,8 @@
 		937F2BAB1FD9928100915D3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */,
+				FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -747,6 +762,16 @@
 				47477A10AE794608A93392FF /* libRNDeviceInfo-tvOS.a */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		FA45FFBC1FFE7D9600153E56 /* AdobeMobileLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FA45FFBE1FFE7D9600153E56 /* ADBMobile.h */,
+				FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */,
+				FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */,
+			);
+			path = AdobeMobileLibrary;
 			sourceTree = "<group>";
 		};
 		FA6DA72A1FC3296000EF9F0D /* Products */ = {
@@ -1280,6 +1305,7 @@
 				D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */,
 				EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */,
 				FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */,
+				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,6 +1501,10 @@
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1504,6 +1534,10 @@
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdobeMobileLibrary",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
