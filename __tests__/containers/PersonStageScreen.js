@@ -3,9 +3,8 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
 import PersonStageScreen from '../../src/containers/PersonStageScreen';
-import { testSnapshot } from '../../testUtils';
+import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
 
 const mockState = {
   personProfile: {
@@ -24,7 +23,15 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PersonStageScreen />
+      <PersonStageScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          name: 'Test',
+          contactId: '123',
+          currentStage: '2',
+          contactAssignmentId: '333',
+        })}
+      />
     </Provider>
   );
 });

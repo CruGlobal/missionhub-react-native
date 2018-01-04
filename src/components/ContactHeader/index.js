@@ -49,7 +49,6 @@ export default class ContactHeader extends Component {
 
   constructor(props) {
     super(props);
-
   }
 
   getTabs() {
@@ -85,17 +84,16 @@ export default class ContactHeader extends Component {
   }
 
   render() {
-    const { person, type } = this.props;
-
+    const { person, type, stage } = this.props;
     return (
       <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center">
         <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
         <PillButton
           filled={true}
-          text="STAGE"
+          text={stage && stage.name ? stage.name.toUpperCase() : 'SELECT STAGE'}
           style={styles.stageBtn}
           buttonTextStyle={styles.stageBtnText}
-          onPress={()=>{}}
+          onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
         <SecondaryTabBar person={person} tabs={this.getTabs()} />
@@ -107,4 +105,6 @@ export default class ContactHeader extends Component {
 ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
+  stage: PropTypes.object,
+  onChangeStage: PropTypes.func.isRequired,
 };
