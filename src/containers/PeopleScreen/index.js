@@ -11,8 +11,6 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
-const isCasey = false;
-
 export class PeopleScreen extends Component {
 
   constructor(props) {
@@ -26,15 +24,22 @@ export class PeopleScreen extends Component {
   componentWillMount() {
     if (!this.props.myOrgId) {
       this.props.dispatch(getMyOrganizations()).then(() => {
-        this.props.dispatch(getPeopleList());
+        this.getPeople();
       });
     } else {
-      this.props.dispatch(getPeopleList());
+      this.getPeople();
     }
   }
 
+  getPeople() {
+    this.props.dispatch(getPeopleList());
+  }
+
   handleAddContact(orgId) {
-    this.props.dispatch(navigatePush('AddContact', { orgId }));
+    this.props.dispatch(navigatePush('AddContact', {
+      orgId,
+      onComplete: () => this.getPeople(),
+    }));
   }
   
   handleSearch() {
@@ -47,7 +52,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { people, myId, sectionPeople } = this.props;
+    const { people, myId, sectionPeople, isCasey } = this.props;
     
     return (
       <View style={styles.pageContainer}>
@@ -84,6 +89,7 @@ export class PeopleScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, people, organizations }) => ({
+  isCasey: !auth.hasMinistries,
   myId: auth.personId,
   people: people.all,
   sectionPeople: people.allByOrg,

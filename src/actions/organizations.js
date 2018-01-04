@@ -30,10 +30,10 @@ export function addNewContact(data) {
         },
       });
       // TODO: Don't know when we need this
-      included.push({
-        type: 'organizational_permission',
-        attributes: { organization_id: data.orgId },
-      });
+      // included.push({
+      //   type: 'organizational_permission',
+      //   attributes: { organization_id: data.orgId },
+      // });
     }
     if (data.email) {
       included.push({
@@ -56,6 +56,7 @@ export function addNewContact(data) {
         attributes: {
           first_name: data.firstName,
           last_name: data.lastName || undefined,
+          gender: data.gender || undefined,
         },
       },
       included,

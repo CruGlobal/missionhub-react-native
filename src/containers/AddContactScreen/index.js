@@ -20,6 +20,11 @@ class ProfileScreen extends Component {
     };
 
     this.savePerson = this.savePerson.bind(this);
+    this.handleUpdateData = this.handleUpdateData.bind(this);
+  }
+
+  handleUpdateData(data) {
+    this.setState({ data });
   }
 
   savePerson() {
@@ -27,7 +32,12 @@ class ProfileScreen extends Component {
     if (this.props.orgId) {
       saveData.orgId = this.props.orgId;
     }
-    this.props.dispatch(addNewContact(saveData));
+    this.props.dispatch(addNewContact(saveData)).then((results) => {
+      if (this.props.onComplete) {
+        this.props.onComplete(results);
+      }
+      this.props.dispatch(navigateBack());
+    });
   }
 
   render() {
@@ -45,7 +55,7 @@ class ProfileScreen extends Component {
           shadow={false}
           title={t('addSomeone').toUpperCase()}
         />
-        <AddContactFields onUpdateData={(data) => this.setState({ data })} />
+        <AddContactFields onUpdateData={this.handleUpdateData} />
 
         <Flex value={1} align="stretch" justify="end">
           <Button
@@ -62,6 +72,7 @@ class ProfileScreen extends Component {
 
 ProfileScreen.propTypes = {
   orgId: PropTypes.string,
+  onComplete: PropTypes.func,
 };
 
 const mapStateToProps = (state, { navigation }) => ({
