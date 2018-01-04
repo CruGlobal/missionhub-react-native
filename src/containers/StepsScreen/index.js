@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ListView } from 'react-native';
 import { connect } from 'react-redux';
 
 import { navigatePush } from '../../actions/navigation';
@@ -23,14 +23,17 @@ class StepsScreen extends Component {
 
   constructor(props) {
     super(props);
-
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 || (r1.id === 'empty' && r2.id === 'empty') });
     this.state = {
+      ds: ds.cloneWithRows([{ id: 'empty' }].concat(props.steps)),
+      // ds: ds.cloneWithRows(props.steps),
       moving: false,
       topHeight: 0,
       offTopItems: 0,
       addedReminder: props.reminders.length > 0,
     };
 
+    this.handleToggleMove = this.handleToggleMove.bind(this);
     this.handleDropStep = this.handleDropStep.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
@@ -42,10 +45,27 @@ class StepsScreen extends Component {
     this.props.dispatch(getMySteps());
   }
 
+  componentWillReceiveProps(nextProps) {
+    // Only use the dataSource for the ListView on Android
+    if (isAndroid && nextProps.steps.length !== this.props.steps.length) {
+      WARN('updating rows');
+      this.setState({ ds: this.state.ds.cloneWithRows([{ id: 'empty' }].concat(nextProps.steps)) });
+      // this.setState({ ds: this.state.ds.cloneWithRows(nextProps.steps) });
+    }
+  }
+
   componentDidMount() {
     this.setTopHeight();
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    // if (nextState.moving && !this.state.moving) {
+    //   this.setState({ ds: this.state.ds.cloneWithRows([{ id: 'empty' }].concat(nextProps.steps)) });
+    // } else if (!nextState.moving && this.state.moving) {
+    //   this.setState({ ds: this.state.ds.cloneWithRows(this.props.steps) });
+    // }
+  }
+  
   componentDidUpdate(prevProps) {
     if (prevProps.reminders.length !== this.props.reminders.length) {
       this.setTopHeight();
@@ -67,11 +87,16 @@ class StepsScreen extends Component {
     this.setState({ topHeight: height });
   }
 
+  handleToggleMove(bool) {
+    this.setState({ moving: bool }, this.setTopHeight);
+  }
+
   handleRowSelect(step) {
     this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
   }
 
   handleDropStep(step) {
+    this.setState({ moving: false });
     const doesExist = !!this.props.reminders.find((s) => s.id === step.id);
     if (doesExist) {
       return;
@@ -176,6 +201,45 @@ class StepsScreen extends Component {
   renderList() {
     const { steps, myId } = this.props;
     const { moving, topHeight, offTopItems } = this.state;
+    if (isAndroid) {
+      return (
+        <ListView
+          ref={(c) => this.list = c}
+          style={[
+            styles.list,
+            {
+              // paddingTop: !moving ? topHeight : 0,
+              paddingTop: 0,
+            },
+          ]}
+          dataSource={this.state.ds}
+          renderRow={(item) => {
+            if (item.id === 'empty') {
+              return <View key="empty" style={{ flex: 1, height: topHeight }} />;
+            }
+            return (
+              <StepItemDraggable
+                onSelect={this.handleRowSelect}
+                step={item}
+                isMe={item.receiver ? item.receiver.id === myId : false}
+                dropZoneHeight={topHeight}
+                isOffScreen={undefined}
+                onComplete={this.handleDropStep}
+                onToggleMove={this.handleToggleMove}
+              />
+            );
+          }
+          }
+          enableEmptySections={true}
+          initialListSize={100}
+          pageSize={100}
+          showsVerticalScrollIndicator={false}
+          scrollEnabled={!moving}
+          onScroll={this.handleScroll}
+          scrollEventThrottle={100}
+        />
+      );
+    }
     return (
       <FlatList
         ref={(c) => this.list = c}
@@ -183,8 +247,8 @@ class StepsScreen extends Component {
           styles.list,
           { paddingTop: topHeight },
         ]}
-        contentInset={{ bottom: isAndroid ? undefined : topHeight }}
         data={steps}
+        contentInset={{ bottom: topHeight }}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
           <StepItemDraggable
@@ -194,7 +258,7 @@ class StepsScreen extends Component {
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}
-            onToggleMove={(bool) => this.setState({ moving: bool }, this.setTopHeight)}
+            onToggleMove={this.handleToggleMove}
           />
         )}
         removeClippedSubviews={true}

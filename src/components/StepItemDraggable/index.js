@@ -21,7 +21,6 @@ export default class StepItemDraggable extends Component {
 
     this.toggleMove = debounce(this.toggleMove.bind(this), 500);
     this.snapBack = this.snapBack.bind(this);
-    this.stopMove = this.stopMove.bind(this);
     this.handleLongPress = this.handleLongPress.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -31,19 +30,15 @@ export default class StepItemDraggable extends Component {
     this.state.pan.addListener((value) => this._val = value);
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => this.state.longPress,
+      onMoveShouldSetPanResponder: () => isAndroid ? this.state.longPress : true,
       onMoveShouldSetPanResponderCapture: () => this.state.longPress,
       onPanResponderGrant: () => {
-        // if (this.state.longPress) {
-        //   this.state.pan.setOffset({ x: 0, y: this._val.y });
-        //   this.state.pan.setValue({ x: 0, y: 0 });
-        // }
         this.state.pan.setOffset({ x: 0, y: this._val.y });
         this.state.pan.setValue({ x: 0, y: 0 });
         this.toggleMove(true);
       },
       onPanResponderMove: (...args) => {
-        if (!this.state.longPress) {
+        if (isAndroid && !this.state.longPress) {
           return Animated.event([null, { dx: 0, dy: 0 }])(...args);
         }
         return Animated.event([null, { dx: 0, dy: this.state.pan.y }])(...args);
@@ -59,7 +54,6 @@ export default class StepItemDraggable extends Component {
 
   snapBack(e, gesture) {
     this.toggleMove(false);
-    this.setState({ longPress: false });
 
     // Check if it's within the target drop area
     if (this.isDropArea(gesture)) {
@@ -77,11 +71,6 @@ export default class StepItemDraggable extends Component {
     }
   }
 
-  stopMove() {
-    this.setState({ isMoving: false, longPress: false });
-    this.props.onToggleMove(false);
-  }
-
   toggleMove(isMoving) {
     this.setState({ isMoving, longPress: isMoving });
     this.props.onToggleMove(isMoving);
@@ -93,8 +82,8 @@ export default class StepItemDraggable extends Component {
   }
 
   handleLongPress() {
-    WARN('longpress');
-    this.setState({ longPress: true });
+    // WARN('longpress');
+    this.toggleMove(true);
   }
 
   handleSelect() {
@@ -111,12 +100,14 @@ export default class StepItemDraggable extends Component {
     let style = [
       panStyle,
       { zIndex: longPress ? 10 : undefined },
-      // longPress ? {
-      //   position: 'absolute',
-      //   top: this._val.y,
-      //   left: 0,
-      //   right: 0,
-      // } : {},
+      longPress ? {
+        // position: 'absolute',
+        // top: this._val.y,
+        // left: 0,
+        // right: 0,
+        // height: 500,
+        // paddingTop: -500,
+      } : {},
     ];
     let itemType = 'draggable';
     if (longPress) {
@@ -131,9 +122,9 @@ export default class StepItemDraggable extends Component {
         style={style}
       >
         <Touchable
+          delayLongPress={isAndroid ? 500 : undefined}
           onPress={this.handleSelect}
-          delayLongPress={isAndroid ? 1400 : undefined}
-          onPressOut={this.stopMove}
+          style={{}}
           onLongPress={this.handleLongPress}>
           <StepItem step={step} type={itemType} isMe={isMe} />
         </Touchable>
