@@ -11,8 +11,6 @@ import Header from '../Header';
 import { intToStringLocale } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 
-const year = new Date().getFullYear();
-
 @translate('impact')
 class ImpactScreen extends Component {
 
@@ -23,7 +21,7 @@ class ImpactScreen extends Component {
 
   buildImpactSentence({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }, global = false) {
     return this.props.t('impactSentence', {
-      year: year,
+      year: new Date().getFullYear(),
       initiator: global ? '$t(users)' : '$t(you)',
       stepsCount: intToStringLocale(steps_count),
       receiversCount: intToStringLocale(receivers_count),

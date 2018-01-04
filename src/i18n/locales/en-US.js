@@ -111,4 +111,14 @@ export default {
     holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
     reminderTitle: 'This week',
   },
+  contactSideMenu: {
+    edit: 'Edit',
+    delete: 'Delete Contact',
+    attemptedContact: 'Attempted Contact',
+    completed: 'Completed',
+    contacted: 'Contacted',
+    doNotContact: 'Do Not Contact',
+    uncontacted: 'Uncontacted',
+    unassign: 'Unassign',
+  },
 };

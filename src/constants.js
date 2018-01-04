@@ -28,7 +28,6 @@ export const LINKS = {
   playStore: 'market://details?id=com.missionhub',
   appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
   terms: 'https://get.missionhub.com/terms-of-service/',
-  privacy: 'https://www.cru.org/us/en/about/privacy.html',
 };
 
 export default {

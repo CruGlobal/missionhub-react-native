@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Impact Screen renders correctly 1`] = `
 <View
   style={
     Object {
@@ -205,7 +205,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          In 2018, you took 0 steps of faith with 0 people.
+          In 2017, you took 0 steps of faith with 0 people.
 
 0 people reached a new stage on their spiritual journey.
         </Text>
@@ -258,7 +258,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          In 2018, users took 0 steps of faith with 0 people.
+          In 2017, users took 0 steps of faith with 0 people.
 
 0 people reached a new stage on their spiritual journey.
         </Text>

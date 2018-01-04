@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { navigatePush } from '../../actions/navigation';
 import { View, Image } from 'react-native';
 import { getStages } from '../../actions/stages';
 
@@ -45,10 +44,8 @@ class PathwayStageScreen extends Component {
     this.props.dispatch(getStages());
   }
 
-  setStage(id) {
-    this.props.dispatch(this.props.onSelect(id)).then(() => {
-      this.props.dispatch(navigatePush(this.props.nextScreen));
-    });
+  setStage(stage) {
+    this.props.onSelect(stage);
   }
 
   renderStage({ item, index }) {
@@ -61,7 +58,7 @@ class PathwayStageScreen extends Component {
         </View>
         <Button
           type="primary"
-          onPress={() => this.setStage(item.id)}
+          onPress={() => this.setStage(item)}
           text={this.props.buttonText}
         />
       </View>

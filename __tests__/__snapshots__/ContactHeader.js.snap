@@ -91,7 +91,7 @@ exports[`renders casey 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -134,7 +134,7 @@ exports[`renders casey 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>
@@ -765,7 +765,7 @@ exports[`renders jean 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -808,7 +808,7 @@ exports[`renders jean 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>
@@ -1735,7 +1735,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -1778,7 +1778,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>

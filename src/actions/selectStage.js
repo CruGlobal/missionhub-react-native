@@ -17,12 +17,31 @@ export function selectStage(id) {
   };
 }
 
+export function updateUserStage(contactAssignmentId, stageId) {
+  const data = {
+    data: {
+      type: 'contact_assignment',
+      attributes: {
+        pathway_stage_id: stageId,
+      },
+    },
+  };
+  const query = {
+    contactAssignmentId,
+  };
+
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).catch((error) => {
+      LOG('error updating the user', error);
+    });
+  };
+}
+
 export function selectPersonStage(personId, assignedToId, pathwayStageId) {
   const data = {
     data: {
       type: 'contact_assignment',
       relationships: {
-
         person: {
           data: {
             type: 'person',
