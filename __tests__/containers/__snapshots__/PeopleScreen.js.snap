@@ -18,9 +18,7 @@ exports[`renders correctly 1`] = `
             "height": 65,
             "paddingTop": 20,
           },
-          Object {
-            "elevation": 4,
-          },
+          null,
         ],
         Object {
           "flexDirection": "row",
@@ -233,22 +231,37 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
     </View>
   </View>
   <RCTScrollView
-    bounces={false}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    renderItem={[Function]}
     scrollEnabled={true}
-    style={
-      Object {
-        "borderTopColor": "#ffffff",
-        "borderTopWidth": 1,
-        "flex": 1,
-      }
-    }
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={undefined}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
   >
     <View />
   </RCTScrollView>
