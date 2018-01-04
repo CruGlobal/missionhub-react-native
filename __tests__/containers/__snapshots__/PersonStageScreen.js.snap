@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      Which stage best describes where Billy is on their journey?
+      Which stage best describes where Test is on their journey?
     </Text>
   </View>
 </View>

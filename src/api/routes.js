@@ -96,6 +96,10 @@ export default {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
+  'UPDATE_USER': {
+    endpoint: `${PEOPLE_URL}:userId`,
+    method: 'put',
+  },
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',
@@ -124,6 +128,10 @@ export default {
   'CREATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
+  },
+  'UPDATE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'put',
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,

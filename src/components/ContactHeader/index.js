@@ -106,4 +106,5 @@ ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
+  onChangeStage: PropTypes.func.isRequired,
 };

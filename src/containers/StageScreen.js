@@ -37,7 +37,7 @@ class StageScreen extends Component {
 StageScreen.propTypes = {
   onComplete: PropTypes.func,
   contactId: PropTypes.string,
-  currentStage: PropTypes.number,
+  currentStage: PropTypes.string,
 };
 
 const mapStateToProps = ({ profile }, { navigation } ) => ({

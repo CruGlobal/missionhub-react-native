@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PathwayStageScreen from './PathwayStageScreen';
-import { selectPersonStage } from '../actions/selectStage';
+import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigatePush, navigateBack } from '../actions/navigation';
 
 class PersonStageScreen extends Component {
@@ -14,14 +14,16 @@ class PersonStageScreen extends Component {
   }
 
   handleSelectStage(stage) {
-    this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-      if (this.props.onComplete) {
+    if (this.props.onComplete) {
+      this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
         this.props.onComplete(stage);
         this.props.dispatch(navigateBack());
-      } else {
+      });
+    } else {
+      this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush('PersonStep'));
-      }
-    });
+      });
+    }
   }
 
   render() {
@@ -42,7 +44,8 @@ PersonStageScreen.propTypes = {
   onComplete: PropTypes.func,
   name: PropTypes.string,
   contactId: PropTypes.string,
-  currentStage: PropTypes.number,
+  currentStage: PropTypes.string,
+  contactAssignmentId: PropTypes.string,
 };
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({

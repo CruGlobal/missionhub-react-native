@@ -20,15 +20,23 @@ class ContactScreen extends Component {
 
     this.state = {
       contactStage: {},
+      contactAssignmentId: null,
     };
 
     this.handleChangeStage = this.handleChangeStage.bind(this);
   }
 
   componentDidMount() {
+    let contact;
+
     if (this.props.person.id) {
       this.props.dispatch(getUserDetails(this.props.person.id)).then((results) => {
-        const contact = results.findAll('contact_assignment') || [];
+        if (this.props.person.id === this.props.myId) {
+          contact = results.findAll('user') || [];
+        } else {
+          contact = results.findAll('contact_assignment') || [];
+          this.setState({ contactAssignmentId: contact[0].id });
+        }
         if (contact[0].pathway_stage_id) {
           if (this.props.stages.length > 0) {
             const contactStage = this.props.stages.find((s)=> s.id == contact[0].pathway_stage_id);
@@ -58,6 +66,7 @@ class ContactScreen extends Component {
         currentStage: this.state.contactStage && this.state.contactStage.id ? this.state.contactStage.id : null,
         name: this.props.person.first_name,
         contactId: this.props.person.id,
+        contactAssignmentId: this.state.contactAssignmentId,
       }));
     }
   }
