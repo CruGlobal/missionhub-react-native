@@ -3,6 +3,7 @@ package com.missionhub;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.moduleomniture.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new OmniturePackage(),
             new ReactNativePushNotificationPackage(),
             new RNDeviceInfo(),
             new VectorIconsPackage()
