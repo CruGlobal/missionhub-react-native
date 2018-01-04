@@ -8,7 +8,7 @@ import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import RNOmniture from 'react-native-omniture';
+import * as RNOmniture from 'react-native-omniture';
 
 @translate('login')
 class LoginScreen extends Component {
