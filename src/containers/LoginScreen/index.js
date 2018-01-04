@@ -8,9 +8,22 @@ import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
+import RNOmniture from 'react-native-omniture';
 
 @translate('login')
 class LoginScreen extends Component {
+
+  contextObject = {
+    'PageName': 'Login',
+    'cru.mcid': null,
+    'cru.screenname': 'Login',
+    'cru.previousscreenname': null,
+    'cru.appname': 'Mission Hub App)',
+    'cru.loggedinstatus': false,
+    'cru.ssoguid': null,
+    'cru.grmasterpersonid': null,
+    'cru.facebookid': null,
+  };
 
   constructor(props) {
     super(props);
@@ -21,7 +34,7 @@ class LoginScreen extends Component {
   }
 
   login() {
-    this.navigateToNext('KeyLogin');
+    this.navigateToNext('Login');
   }
 
   loginMinistries() {
@@ -41,6 +54,8 @@ class LoginScreen extends Component {
   }
 
   render() {
+    RNOmniture.trackState('Login Screen', this.contextObject);
+
     const { t } = this.props;
 
     return (
