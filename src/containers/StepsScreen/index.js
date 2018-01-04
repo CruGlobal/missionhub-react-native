@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, FlatList, ListView } from 'react-native';
+import { View, FlatList, ToastAndroid } from 'react-native';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
@@ -19,14 +20,12 @@ const MAX_REMINDERS = 3;
 const DROPZONE_HEIGHT = 85;
 const ROW_HEIGHT = theme.itemHeight + 0.2;
 
+@translate('stepsTab')
 class StepsScreen extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 || (r1.id === 'empty' && r2.id === 'empty') });
     this.state = {
-      ds: ds.cloneWithRows([{ id: 'empty' }].concat(props.steps)),
-      // ds: ds.cloneWithRows(props.steps),
       moving: false,
       topHeight: 0,
       offTopItems: 0,
@@ -45,25 +44,8 @@ class StepsScreen extends Component {
     this.props.dispatch(getMySteps());
   }
 
-  componentWillReceiveProps(nextProps) {
-    // Only use the dataSource for the ListView on Android
-    if (isAndroid && nextProps.steps.length !== this.props.steps.length) {
-      WARN('updating rows');
-      this.setState({ ds: this.state.ds.cloneWithRows([{ id: 'empty' }].concat(nextProps.steps)) });
-      // this.setState({ ds: this.state.ds.cloneWithRows(nextProps.steps) });
-    }
-  }
-
   componentDidMount() {
     this.setTopHeight();
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // if (nextState.moving && !this.state.moving) {
-    //   this.setState({ ds: this.state.ds.cloneWithRows([{ id: 'empty' }].concat(nextProps.steps)) });
-    // } else if (!nextState.moving && this.state.moving) {
-    //   this.setState({ ds: this.state.ds.cloneWithRows(this.props.steps) });
-    // }
   }
   
   componentDidUpdate(prevProps) {
@@ -87,7 +69,13 @@ class StepsScreen extends Component {
     this.setState({ topHeight: height });
   }
 
-  handleToggleMove(bool) {
+  handleToggleMove(step, bool) {
+    if (isAndroid) {
+      if (bool) {
+        this.handleDropStep(step);
+      }
+      return;
+    }
     this.setState({ moving: bool }, this.setTopHeight);
   }
 
@@ -104,6 +92,11 @@ class StepsScreen extends Component {
     if (this.props.reminders.length >= MAX_REMINDERS) {
       return;
     }
+    
+    if (isAndroid) {
+      ToastAndroid.show('✔ Reminder Added', ToastAndroid.SHORT);
+    }
+    
     this.props.dispatch(setStepReminder(step));
     this.reminderAdded();
   }
@@ -141,9 +134,10 @@ class StepsScreen extends Component {
   }
 
   renderTop() {
-    const { reminders, myId } = this.props;
+    const { reminders, myId, t } = this.props;
     const { moving, topHeight } = this.state;
     let style = {
+      // height: isAndroid ? undefined : topHeight,
       height: topHeight,
     };
     if (!moving) {
@@ -155,7 +149,7 @@ class StepsScreen extends Component {
         <Flex align="center" style={[styles.top, styles.topItems, style]}
         >
           <Text style={styles.topTitle}>
-            This week
+            {t('reminderTitle').toUpperCase()}
           </Text>
           {
             reminders.map((s) => (
@@ -186,12 +180,14 @@ class StepsScreen extends Component {
     return (
       <Flex align="center" justify="center" style={[styles.top, styles.topEmpty, style]}>
         <Flex align="center" justify="center" value={1} style={styles.topBorder}>
-          <Icon name="add" size={36} />
+          <Icon name="bellIcon" type="MissionHub" size={36} />
           <Text type="header" style={styles.title}>
-            Focus your week
+            {t('dragTitle').toUpperCase()}
           </Text>
           <Text style={styles.description}>
-            Drag and drop up to 3 steps here and get friendly reminders.
+            {
+              isAndroid ? t('holdDescription') : t('dragDescription')
+            }
           </Text>
         </Flex>
       </Flex>
@@ -201,54 +197,15 @@ class StepsScreen extends Component {
   renderList() {
     const { steps, myId } = this.props;
     const { moving, topHeight, offTopItems } = this.state;
-    if (isAndroid) {
-      return (
-        <ListView
-          ref={(c) => this.list = c}
-          style={[
-            styles.list,
-            {
-              // paddingTop: !moving ? topHeight : 0,
-              paddingTop: 0,
-            },
-          ]}
-          dataSource={this.state.ds}
-          renderRow={(item) => {
-            if (item.id === 'empty') {
-              return <View key="empty" style={{ flex: 1, height: topHeight }} />;
-            }
-            return (
-              <StepItemDraggable
-                onSelect={this.handleRowSelect}
-                step={item}
-                isMe={item.receiver ? item.receiver.id === myId : false}
-                dropZoneHeight={topHeight}
-                isOffScreen={undefined}
-                onComplete={this.handleDropStep}
-                onToggleMove={this.handleToggleMove}
-              />
-            );
-          }
-          }
-          enableEmptySections={true}
-          initialListSize={100}
-          pageSize={100}
-          showsVerticalScrollIndicator={false}
-          scrollEnabled={!moving}
-          onScroll={this.handleScroll}
-          scrollEventThrottle={100}
-        />
-      );
-    }
     return (
       <FlatList
         ref={(c) => this.list = c}
         style={[
           styles.list,
-          { paddingTop: topHeight },
+          { paddingTop: isAndroid ? 0 : topHeight },
         ]}
         data={steps}
-        contentInset={{ bottom: topHeight }}
+        contentInset={{ bottom: isAndroid ? 0 : topHeight }}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
           <StepItemDraggable
@@ -258,7 +215,7 @@ class StepsScreen extends Component {
             dropZoneHeight={topHeight}
             isOffScreen={moving ? index < offTopItems : undefined}
             onComplete={this.handleDropStep}
-            onToggleMove={this.handleToggleMove}
+            onToggleMove={(bool) => this.handleToggleMove(item, bool)}
           />
         )}
         removeClippedSubviews={true}
@@ -272,18 +229,19 @@ class StepsScreen extends Component {
   }
 
   render() {
+    const { t, dispatch, isCasey } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush('DrawerOpen'))} />
           }
           right={
-            this.props.isCasey ? null : (
-              <IconButton name="searchIcon" type="MissionHub" onPress={()=> this.props.dispatch(navigatePush('SearchPeople'))} />
+            isCasey ? null : (
+              <IconButton name="searchIcon" type="MissionHub" onPress={()=> dispatch(navigatePush('SearchPeople'))} />
             )
           }
-          title="STEPS OF FAITH"
+          title={t('title').toUpperCase()}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
           {this.renderTop()}

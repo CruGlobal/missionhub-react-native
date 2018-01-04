@@ -9,10 +9,12 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   top: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    ...(isAndroid ? {} : {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+    }),
     width: theme.fullWidth,
     backgroundColor: theme.backgroundColor,
   },
@@ -53,6 +55,7 @@ export default StyleSheet.create({
   dropZoneBorder: {
     borderStyle: 'dashed',
     borderWidth: 2,
+    borderRadius: 3,
     borderColor: theme.white,
     height: 60,
   },

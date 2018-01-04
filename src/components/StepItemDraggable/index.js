@@ -26,30 +26,23 @@ export default class StepItemDraggable extends Component {
   }
 
   componentWillMount() {
-    this._val = { x: 0, y: 0 };
-    this.state.pan.addListener((value) => this._val = value);
-    this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => isAndroid ? this.state.longPress : true,
-      onMoveShouldSetPanResponderCapture: () => this.state.longPress,
-      onPanResponderGrant: () => {
-        this.state.pan.setOffset({ x: 0, y: this._val.y });
-        this.state.pan.setValue({ x: 0, y: 0 });
-        this.toggleMove(true);
-      },
-      onPanResponderMove: (...args) => {
-        if (isAndroid && !this.state.longPress) {
-          return Animated.event([null, { dx: 0, dy: 0 }])(...args);
-        }
-        return Animated.event([null, { dx: 0, dy: this.state.pan.y }])(...args);
-      },
-      // onPanResponderMove: Animated.event([null, { dx: 0, dy: this.state.pan.y }]),
-      onPanResponderTerminationRequest: () => true,
-      onPanResponderReject: (...args) => this.snapBack(...args),
-      onPanResponderRelease: (...args) => this.snapBack(...args),
-      onPanResponderTerminate: (...args) => this.snapBack(...args),
-      onShouldBlockNativeResponder: () => false,
-    });
+    if (!isAndroid) {
+      this._val = { x: 0, y: 0 };
+      this.state.pan.addListener((value) => this._val = value);
+      this.panResponder = PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onMoveShouldSetPanResponderCapture: () => this.state.longPress,
+        onPanResponderGrant: () => {
+          this.state.pan.setOffset({ x: 0, y: this._val.y });
+          this.state.pan.setValue({ x: 0, y: 0 });
+          this.toggleMove(true);
+        },
+        onPanResponderMove: Animated.event([null, { dx: 0, dy: this.state.pan.y }]),
+        onPanResponderTerminationRequest: () => true,
+        onPanResponderReject: (...args) => this.snapBack(...args),
+        onPanResponderRelease: (...args) => this.snapBack(...args),
+      });
+    }
   }
 
   snapBack(e, gesture) {
@@ -82,7 +75,6 @@ export default class StepItemDraggable extends Component {
   }
 
   handleLongPress() {
-    // WARN('longpress');
     this.toggleMove(true);
   }
 
@@ -90,7 +82,7 @@ export default class StepItemDraggable extends Component {
     this.props.onSelect(this.props.step);
   }
 
-  renderRow() {
+  render() {
     const { step, isOffScreen, isMe } = this.props;
     const { longPress } = this.state;
 
@@ -100,14 +92,6 @@ export default class StepItemDraggable extends Component {
     let style = [
       panStyle,
       { zIndex: longPress ? 10 : undefined },
-      longPress ? {
-        // position: 'absolute',
-        // top: this._val.y,
-        // left: 0,
-        // right: 0,
-        // height: 500,
-        // paddingTop: -500,
-      } : {},
     ];
     let itemType = 'draggable';
     if (longPress) {
@@ -115,32 +99,20 @@ export default class StepItemDraggable extends Component {
     } else if (isOffScreen) {
       itemType = 'offscreen';
     }
-    // itemType = 'dragging';
     return (
       <Animated.View
-        {...this.panResponder.panHandlers}
+        {...(this.panResponder ? this.panResponder.panHandlers : {})}
         style={style}
       >
         <Touchable
-          delayLongPress={isAndroid ? 500 : undefined}
           onPress={this.handleSelect}
           style={{}}
+          onPressOut={this.handlePressOut}
           onLongPress={this.handleLongPress}>
           <StepItem step={step} type={itemType} isMe={isMe} />
         </Touchable>
       </Animated.View>
     );
-  }
-
-  render() {
-    // if (this.state.isMoving) {
-    //   return (
-    //     <View style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: 'orange', zIndex: 500 }}>
-    //       {this.renderRow()}
-    //     </View>
-    //   );
-    // }
-    return this.renderRow();
   }
 }
 
