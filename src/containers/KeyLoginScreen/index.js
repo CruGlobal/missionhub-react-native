@@ -6,6 +6,7 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../componen
 import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
+import BackButton from '../BackButton';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -39,8 +40,8 @@ class KeyLoginScreen extends Component {
   render() {
     return (
       <PlatformKeyboardAvoidingView>
-        <Flex value={1} />
-        <Flex value={2} style={{ alignItems: 'center' }}>
+        <BackButton />
+        <Flex value={1} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>please enter username and password</Text>
         </Flex>
 
