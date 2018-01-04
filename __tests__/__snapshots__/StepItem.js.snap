@@ -208,7 +208,7 @@ exports[`renders type dragging correctly 1`] = `
         },
         Object {
           "backgroundColor": "rgba(255, 255, 255, 0.8)",
-          "elevation": 8,
+          "elevation": 4,
           "shadowColor": "black",
           "shadowOffset": Object {
             "height": 0,

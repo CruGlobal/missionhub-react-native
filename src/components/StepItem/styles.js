@@ -1,6 +1,5 @@
 
 import { StyleSheet } from 'react-native';
-import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 export default StyleSheet.create({
@@ -26,7 +25,7 @@ export default StyleSheet.create({
     borderBottomColor: theme.separatorColor,
   },
   dragging: {
-    backgroundColor: isAndroid ? theme.white : theme.convert({ color: theme.white, alpha: 0.8 }),
+    backgroundColor: theme.convert({ color: theme.white, alpha: 0.8 }),
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,
