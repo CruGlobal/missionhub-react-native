@@ -14,9 +14,9 @@ import RNOmniture from 'react-native-omniture';
 class LoginScreen extends Component {
 
   contextObject = {
-    'PageName': 'Login',
+    'PageName': this.constructor.name,
     'cru.mcid': null,
-    'cru.screenname': 'Login',
+    'cru.screenname': this.constructor.name,
     'cru.previousscreenname': null,
     'cru.appname': 'Mission Hub App)',
     'cru.loggedinstatus': false,
@@ -54,7 +54,7 @@ class LoginScreen extends Component {
   }
 
   render() {
-    RNOmniture.trackState('Login Screen', this.contextObject);
+    RNOmniture.trackState(this.constructor.name, this.contextObject);
 
     const { t } = this.props;
 
