@@ -869,7 +869,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
@@ -965,7 +965,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
@@ -1061,7 +1061,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
@@ -1941,7 +1941,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
@@ -2037,7 +2037,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
@@ -2133,7 +2133,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,

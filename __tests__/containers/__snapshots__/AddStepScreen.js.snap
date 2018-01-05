@@ -149,7 +149,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": undefined,
+            "backgroundColor": "transparent",
             "borderBottomColor": "#52C5DC",
             "borderBottomWidth": 1,
             "color": "#ffffff",
