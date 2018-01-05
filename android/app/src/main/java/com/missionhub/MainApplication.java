@@ -3,7 +3,7 @@ package com.missionhub;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.moduleomniture.OmniturePackage;
+import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.oblador.vectoricons.VectorIconsPackage;
