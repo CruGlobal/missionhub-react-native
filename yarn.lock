@@ -4329,9 +4329,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-"react-native-omniture@github:vivekparekh8/react-native-omniture":
+"react-native-omniture@github:dsgoers/react-native-omniture":
   version "0.0.1"
-  resolved "https://codeload.github.com/vivekparekh8/react-native-omniture/tar.gz/560aa228f5177a9690f3ddd5cf9cefedfa76bdb4"
+  resolved "https://codeload.github.com/dsgoers/react-native-omniture/tar.gz/560aa228f5177a9690f3ddd5cf9cefedfa76bdb4"
 
 react-native-push-notification@3.0.2:
   version "3.0.2"
