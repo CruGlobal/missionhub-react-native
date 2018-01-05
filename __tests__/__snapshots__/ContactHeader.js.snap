@@ -1061,7 +1061,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               Object {
                 "opacity": 0.6,
