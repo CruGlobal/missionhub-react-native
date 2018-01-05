@@ -213,7 +213,7 @@ exports[`renders transparent correctly 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": undefined,
+          "backgroundColor": "transparent",
         },
         null,
         Object {},

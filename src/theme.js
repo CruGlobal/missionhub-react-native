@@ -61,7 +61,7 @@ export default {
   textColor: COLORS.GREY,
   darkText: COLORS.CHARCOAL,
   iconColor: COLORS.WHITE,
-  transparent: COLORS.transparent,
+  transparent: COLORS.TRANSPARENT,
   statusBarColor: colorConvert({ color: SECONDARY, darken: 0.3, hex: true }),
   buttonBackgroundColor: COLORS.TRANSPARENT,
   buttonBorderColor: COLORS.WHITE,

@@ -869,7 +869,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -962,7 +962,7 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -1839,7 +1839,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -1932,7 +1932,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -2025,7 +2025,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},

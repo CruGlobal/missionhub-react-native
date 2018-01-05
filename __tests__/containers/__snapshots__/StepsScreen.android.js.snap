@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Impact Screen renders correctly 1`] = `
+exports[`renders android correctly 1`] = `
 <View
   style={
     Object {
@@ -14,7 +14,7 @@ exports[`Impact Screen renders correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#007398",
-            "height": 65,
+            "height": 56,
             "paddingTop": 20,
           },
           Object {
@@ -147,7 +147,7 @@ exports[`Impact Screen renders correctly 1`] = `
           ]
         }
       >
-        IMPACT
+        STEPS OF FAITH
       </Text>
     </View>
     <View
@@ -165,76 +165,114 @@ exports[`Impact Screen renders correctly 1`] = `
       }
     />
   </View>
-  <RCTScrollView
-    bounces={false}
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "flex": 1,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <View>
+    <View
+      style={
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#66D9F0",
+              "width": 750,
+            },
+            Object {
+              "paddingHorizontal": 27,
+              "paddingVertical": 32,
+            },
+            Object {
+              "height": 250,
+              "zIndex": 1,
+            },
+          ],
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
       <View
         style={
           Array [
             Object {
-              "backgroundColor": "#52C5DC",
-              "paddingBottom": 10,
-              "paddingLeft": 50,
-              "paddingTop": 30,
+              "borderColor": "#ffffff",
+              "borderRadius": 3,
+              "borderStyle": "dashed",
+              "borderWidth": 2,
+              "padding": 25,
             },
-            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
           ]
         }
       >
         <Text
           accessible={true}
-          allowFontScaling={true}
+          allowFontScaling={false}
           ellipsizeMode="tail"
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": undefined,
+                "fontSize": 12,
               },
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 28,
-                  "width": 200,
+                },
+                Object {
+                  "fontSize": 36,
                 },
                 Object {},
               ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
             ]
           }
         >
-          In 2017, you took 0 steps of faith with 0 people.
-
-0 people reached a new stage on their spiritual journey.
+          
         </Text>
-      </View>
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/impactBackground.png",
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "AmaticSC-Bold",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 36,
+                "textAlign": "center",
+              },
+            ]
           }
-        }
-        style={
-          Object {
-            "backgroundColor": "#52C5DC",
-            "width": 750,
-          }
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#3EB1C8",
-              "paddingBottom": 40,
-              "paddingLeft": 50,
-            },
-            Object {},
-          ]
-        }
-      >
+        >
+          FOCUS YOUR WEEK
+        </Text>
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -247,23 +285,64 @@ exports[`Impact Screen renders correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 28,
-                  "width": 200,
-                },
-                undefined,
-              ],
+              Object {
+                "fontSize": 16,
+                "textAlign": "center",
+              },
             ]
           }
         >
-          In 2017, users took 0 steps of faith with 0 people.
-
-0 people reached a new stage on their spiritual journey.
+          Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.
         </Text>
       </View>
     </View>
-  </RCTScrollView>
+    <RCTScrollView
+      bounces={false}
+      contentInset={
+        Object {
+          "bottom": 0,
+        }
+      }
+      data={Array []}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={true}
+      renderItem={[Function]}
+      scrollEnabled={true}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "overflow": "scroll",
+            "paddingBottom": 50,
+          },
+          Object {
+            "paddingTop": 0,
+          },
+        ]
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
 </View>
 `;

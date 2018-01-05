@@ -6,7 +6,7 @@ export default StyleSheet.create({
   row: {
     height: theme.itemHeight,
     paddingHorizontal: 24,
-    backgroundColor: theme.convert({ color: theme.white, alpha: 0 }),
+    backgroundColor: theme.transparent,
     width: theme.fullWidth,
   },
   swipeable: {

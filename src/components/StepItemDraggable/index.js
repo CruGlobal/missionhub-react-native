@@ -15,7 +15,6 @@ export default class StepItemDraggable extends Component {
 
     this.state = {
       longPress: false,
-      isMoving: false,
       pan: new Animated.ValueXY(),
     };
 
@@ -65,7 +64,7 @@ export default class StepItemDraggable extends Component {
   }
 
   toggleMove(isMoving) {
-    this.setState({ isMoving, longPress: isMoving });
+    this.setState({ longPress: isMoving });
     this.props.onToggleMove(isMoving);
   }
 
@@ -107,7 +106,6 @@ export default class StepItemDraggable extends Component {
         <Touchable
           onPress={this.handleSelect}
           style={{}}
-          onPressOut={this.handlePressOut}
           onLongPress={this.handleLongPress}>
           <StepItem step={step} type={itemType} isMe={isMe} />
         </Touchable>
