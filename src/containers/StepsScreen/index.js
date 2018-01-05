@@ -69,14 +69,14 @@ class StepsScreen extends Component {
     this.setState({ topHeight: height });
   }
 
-  handleToggleMove(step, bool) {
+  handleToggleMove(step, isMoving) {
     if (isAndroid) {
-      if (bool) {
+      if (isMoving) {
         this.handleDropStep(step);
       }
       return;
     }
-    this.setState({ moving: bool }, this.setTopHeight);
+    this.setState({ moving: isMoving }, this.setTopHeight);
   }
 
   handleRowSelect(step) {
