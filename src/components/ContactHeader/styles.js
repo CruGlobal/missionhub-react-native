@@ -25,6 +25,11 @@ export default StyleSheet.create({
     fontSize: 24,
     color: theme.secondaryColor,
   },
+  contactButtonDisabled: {
+    fontSize: 24,
+    color: theme.secondaryColor,
+    opacity: 0.5,
+  },
   iconWrap: {
     backgroundColor: theme.accentColor,
     width: 48,
