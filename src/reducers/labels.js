@@ -20,7 +20,7 @@ function labelsReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_MY_LABELS.SUCCESS:
-      const labels = results.findAll('label') || [];
+      const labels = (results.findAll('label') || []).map((l) => ({ text: l.name, ...l }));
       return {
         ...state,
         all: labels,
