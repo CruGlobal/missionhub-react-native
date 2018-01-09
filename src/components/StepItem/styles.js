@@ -6,7 +6,7 @@ export default StyleSheet.create({
   row: {
     height: theme.itemHeight,
     paddingHorizontal: 24,
-    backgroundColor: theme.convert({ color: theme.white, alpha: 0 }),
+    backgroundColor: theme.transparent,
     width: theme.fullWidth,
   },
   swipeable: {
@@ -30,7 +30,7 @@ export default StyleSheet.create({
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,
     shadowRadius: 7,
-    elevation: 8,
+    elevation: 4,
   },
   offscreen: {
     opacity: 0,

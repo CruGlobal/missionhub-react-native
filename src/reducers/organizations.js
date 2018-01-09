@@ -21,7 +21,7 @@ function organizationsReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
-      const orgs = results.findAll('organization') || [];
+      const orgs = (results.findAll('organization') || []).map((o) => ({ text: o.name, ...o }));
       return {
         ...state,
         all: orgs,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -78,17 +78,20 @@ export class SearchPeopleFilterRefineScreen extends Component {
           }
           title={title || t('title')}
         />
-        {
-          this.state.options.map((i) => (
+        <FlatList
+          style={styles.list}
+          data={this.state.options}
+          keyExtractor={(i) => i.id}
+          initialNumToRender={15}
+          renderItem={({ item }) => (
             <FilterItem
-              key={i.id}
-              item={i}
+              item={item}
               onSelect={this.handleSelect}
-              type={i.drilldown ? 'drilldown' : 'single'}
-              isSelected={i.selected}
+              type={item.drilldown ? 'drilldown' : 'single'}
+              isSelected={item.selected}
             />
-          ))
-        }
+          )}
+        />
       </View>
     );
   }

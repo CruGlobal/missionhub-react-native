@@ -91,6 +91,7 @@ export default {
     gender: 'Gender',
     male: 'Male',
     female: 'Female',
+    other: 'Other',
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
   },
@@ -108,6 +109,13 @@ export default {
     allow: 'Allow Notifications',
     settings: 'Go To Settings',
     noReminders: 'I Don\'t Want Reminders',
+  },
+  stepsTab: {
+    title: 'Steps of Faith',
+    dragTitle: 'Focus your week',
+    dragDescription: 'Drag and drop up to 3 steps here and get handcrafted reminders.',
+    holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
+    reminderTitle: 'This week',
   },
   contactSideMenu: {
     edit: 'Edit',

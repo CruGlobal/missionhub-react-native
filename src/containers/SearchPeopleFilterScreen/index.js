@@ -14,31 +14,32 @@ import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
+import { isString } from '../../utils/common';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
 
   constructor(props) {
     super(props);
-    const { t, organizations, groups, surveys, filters } = props;
+    const { t, filters } = props;
 
     const options = [
       {
         id: 'ministry',
         text: t('ministry'),
-        options: organizations,
+        options: 'organizations',
         preview: props.filters.ministry ? props.filters.ministry.text : undefined,
       },
       {
         id: 'labels',
         text: t('labels'),
-        options: organizations,
+        options: 'labels',
         preview: props.filters.labels ? props.filters.labels.text : undefined,
       },
       {
         id: 'groups',
         text: t('groups'),
-        options: groups,
+        options: 'groups',
         preview: props.filters.groups ? props.filters.groups.text : undefined,
       },
       {
@@ -47,14 +48,15 @@ export class SearchPeopleFilterScreen extends Component {
         options: [
           { id: 'm', text: t('male') },
           { id: 'f', text: t('female') },
+          { id: 'o', text: t('other') },
         ],
         preview: props.filters.gender ? props.filters.gender.text : undefined,
       },
       { 
         id: 'surveys',
         text: t('surveys'),
-        options: surveys,
-        preview: props.filters.survey ? props.filters.survey.text : undefined,
+        options: 'surveys',
+        preview: props.filters.surveys ? props.filters.surveys.text : undefined,
       },
     ];
     const toggleOptions = [
@@ -135,10 +137,12 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   handleDrillDown(item) {
+    // Pull the options from the props that were not loaded when this was initialized
+    const options = isString(item.options) && this.props[item.options] ? this.props[item.options] : item.options;
     this.props.dispatch(navigatePush('SearchPeopleFilterRefine', {
       onFilter: this.handleSelectFilter,
       title: item.text,
-      options: item.options,
+      options,
       filters: this.state.filters,
     }));
     this.setState({ selectedFilterId: item.id });

@@ -1,9 +1,10 @@
 import 'react-native';
 import renderer from 'react-test-renderer';
-import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { connect } from 'react-redux';
+// Need to import for all translation screens to work properly
+import '../src/i18n';
 
 Enzyme.configure({ adapter: new Adapter() });
 
