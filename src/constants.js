@@ -30,6 +30,8 @@ export const LINKS = {
   terms: 'https://get.missionhub.com/terms-of-service/',
 };
 
+export const MARKETING_CLOUD_ID_CHANGED = 'app/MARKETING_CLOUD_ID_CHANGED';
+
 export default {
 
 };

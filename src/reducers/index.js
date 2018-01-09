@@ -14,6 +14,7 @@ import impact from './impact';
 import groups from './groups';
 import surveys from './surveys';
 import labels from './labels';
+import analytics from './analytics';
 
 export default combineReducers({
   auth,
@@ -30,4 +31,5 @@ export default combineReducers({
   groups,
   surveys,
   labels,
+  analytics,
 });

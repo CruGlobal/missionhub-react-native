@@ -11,7 +11,9 @@ import LoadingScreen from './containers/LoadingScreen';
 
 import getStore from './store';
 
+import * as RNOmniture from 'react-native-omniture';
 import AppWithNavigationState from './AppNavigator';
+import { setMarketingCloudId } from './actions/analytics';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
@@ -25,6 +27,11 @@ class App extends Component {
     if (!this.state.store) {
       return <LoadingScreen />;
     }
+
+    RNOmniture.loadMarketingCloudId((result) => {
+      this.state.store.dispatch(setMarketingCloudId(result));
+    });
+
     return (
       <Provider store={this.state.store}>
         <I18nextProvider i18n={ i18n }>
