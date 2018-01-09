@@ -114,7 +114,8 @@ export default {
     endpoint: `${API_URL}surveys`,
   },
   'GET_MY_LABELS': {
-    endpoint: `${API_URL}labels`,
+    endpoint: `${API_URL}organizations`,
+    query: { include: 'labels' },
   },
   'GET_MY_IMPACT': {
     endpoint: IMPACT_URL,

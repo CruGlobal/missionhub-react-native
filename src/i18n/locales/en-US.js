@@ -86,6 +86,7 @@ export default {
     gender: 'Gender',
     male: 'Male',
     female: 'Female',
+    other: 'Other',
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
   },

@@ -20,7 +20,7 @@ function groupsReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_MY_GROUPS.SUCCESS:
-      const groups = results.findAll('group') || [];
+      const groups = (results.findAll('group') || []).map((g) => ({ text: g.name, ...g }));
       return {
         ...state,
         all: groups,
