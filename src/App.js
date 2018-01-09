@@ -13,7 +13,8 @@ import getStore from './store';
 
 import * as RNOmniture from 'react-native-omniture';
 import AppWithNavigationState from './AppNavigator';
-import { setMarketingCloudId } from './actions/analytics';
+import { updateAnalyticsContext } from './actions/analytics';
+import { ANALYTICS } from './constants';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
@@ -29,7 +30,10 @@ class App extends Component {
     }
 
     RNOmniture.loadMarketingCloudId((result) => {
-      this.state.store.dispatch(setMarketingCloudId(result));
+      const analyticsContext = this.state.store.getState().analytics;
+      analyticsContext[ANALYTICS.MCID] = result;
+
+      this.state.store.dispatch(updateAnalyticsContext(analyticsContext));
     });
 
     return (

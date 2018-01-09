@@ -1,10 +1,29 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { MARKETING_CLOUD_ID_CHANGED } from '../constants';
+import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS } from '../constants';
 
-const initialAnalyticsState = {
-  mcId: '',
-};
+const initialAnalyticsState = buildInitialState();
+
+function buildInitialState() {
+  const state = {};
+  state[ANALYTICS.MCID] = '';
+  state[ANALYTICS.SCREENNAME] = '';
+  state[ANALYTICS.PREVIOUS_SCREENAME] = '';
+  state[ANALYTICS.SITE_SECTION] = '';
+  state[ANALYTICS.SITE_SUBSECTION] = '';
+  state[ANALYTICS.SITE_SUB_SECTION_3] = '';
+  state[ANALYTICS.SITE_SUB_SECTION_4] = '';
+  state[ANALYTICS.CONTENT_AUDIENCE_TARGET] = '';
+  state[ANALYTICS.CONTENT_TOPIC] = '';
+  state[ANALYTICS.LOGGED_IN_STATUS] = '';
+  state[ANALYTICS.SSO_GUID] = '';
+  state['cru.appname'] = 'MissionHub App';
+  state[ANALYTICS.GR_MASTER_PERSON_ID] = '';
+  state[ANALYTICS.FACEBOOK_ID] = '';
+  state[ANALYTICS.CONTENT_LANGUAGE] = '';
+
+  return state;
+}
 
 function analyticsReducer(state = initialAnalyticsState, action) {
   switch (action.type) {
@@ -18,10 +37,10 @@ function analyticsReducer(state = initialAnalyticsState, action) {
         };
       }
       return state;
-    case MARKETING_CLOUD_ID_CHANGED:
+    case ANALYTICS_CONTEXT_CHANGED:
       return {
         ...state,
-        mcId: action.mcId,
+        ...action.analyticsContext,
       };
     default:
       return state;

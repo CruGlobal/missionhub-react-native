@@ -1,9 +1,8 @@
-import { MARKETING_CLOUD_ID_CHANGED } from '../constants';
+import { ANALYTICS_CONTEXT_CHANGED } from '../constants';
 
-export function setMarketingCloudId(mcId) {
+export function updateAnalyticsContext(analyticsContext) {
   return {
-    type: MARKETING_CLOUD_ID_CHANGED,
-    mcId: mcId,
+    type: ANALYTICS_CONTEXT_CHANGED,
+    analyticsContext: analyticsContext,
   };
 }
-
