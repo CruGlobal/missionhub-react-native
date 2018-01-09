@@ -2,15 +2,12 @@ import callApi, { REQUESTS } from './api';
 
 
 export function getPeopleList() {
-  return (dispatch, getState) => {
-    const orgId = getState().organizations.myOrgId;
-    if (!orgId) {
-      LOG('Could not get users organization id');
-      return Promise.reject('NoOrganization');
-    }
+  return (dispatch) => {
     const query = {
-      organization_id: orgId,
-      // filters: {}
+      filters: {
+        assigned_tos: 'me',
+      },
+      includes: 'reverse_contact_assignments',
     };
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };

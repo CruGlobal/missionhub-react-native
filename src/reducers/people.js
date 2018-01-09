@@ -22,19 +22,19 @@ function peopleReducer(state = initialState, action) {
       return state;
     case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
       const people = action.results.findAll('person') || [];
-      let peopleByOrg = people.reduce((p, n) => {
-        const orgId = n.organization_id;
-        if (p[orgId]) {
-          p[orgId].data.push(n);
-        } else {
-          p[orgId] = { key: orgId, data: [n] };
-        }
-      }, {});
-      peopleByOrg = Object.keys(peopleByOrg).map((key) => peopleByOrg[key]);
+      // let peopleByOrg = people.reduce((p, n) => {
+      //   const orgId = n.organization_id;
+      //   if (p[orgId]) {
+      //     p[orgId].data.push(n);
+      //   } else {
+      //     p[orgId] = { key: orgId, data: [n] };
+      //   }
+      // }, {});
+      // peopleByOrg = Object.keys(peopleByOrg).map((key) => peopleByOrg[key]);
       return {
         ...state,
         all: people,
-        allByOrg: peopleByOrg,
+        // allByOrg: peopleByOrg,
       };
     case LOGOUT:
       return initialState;

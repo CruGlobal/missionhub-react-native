@@ -16,9 +16,14 @@ export class PeopleScreen extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      refreshing: false,
+    };
+
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddContact = this.handleAddContact.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
   }
 
   componentWillMount() {
@@ -32,13 +37,13 @@ export class PeopleScreen extends Component {
   }
 
   getPeople() {
-    this.props.dispatch(getPeopleList());
+    return this.props.dispatch(getPeopleList());
   }
 
   handleAddContact(orgId) {
     this.props.dispatch(navigatePush('AddContact', {
       orgId,
-      onComplete: () => this.getPeople(),
+      onComplete: this.getPeople,
     }));
   }
   
@@ -47,13 +52,20 @@ export class PeopleScreen extends Component {
   }
 
   handleRowSelect(person) {
-    // LOG('person selected', person.id);
     this.props.dispatch(navigatePush('Contact', { person }));
+  }
+
+  handleRefresh() {
+    this.setState({ refreshing: true });
+    this.getPeople().then(() => {
+      this.setState({ refreshing: false });
+    }).catch(() => {
+      this.setState({ refreshing: false });
+    });
   }
 
   render() {
     const { people, myId, sectionPeople, isCasey } = this.props;
-    
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -82,6 +94,8 @@ export class PeopleScreen extends Component {
           myId={myId}
           onSelect={this.handleRowSelect}
           onAddContact={this.handleAddContact}
+          onRefresh={this.handleRefresh}
+          refreshing={this.state.refreshing}
         />
       </View>
     );

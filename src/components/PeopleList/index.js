@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 
 import PeopleItem from '../PeopleItem';
-import { Flex, Text, Icon, Touchable } from '../common';
+import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
 import styles from './styles';
 
@@ -36,7 +36,7 @@ export default class PeopleList extends Component {
   }
 
   renderList(items) {
-    const { onSelect, myId, sections } = this.props;
+    const { onSelect, myId, sections, refreshing, onRefresh } = this.props;
     
     return (
       <FlatList
@@ -50,6 +50,10 @@ export default class PeopleList extends Component {
             onSelect={onSelect}
             person={item} />
         )}
+        refreshControl={!sections ? <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        /> : undefined}
       />
     );
   }
@@ -75,13 +79,17 @@ export default class PeopleList extends Component {
   }
   
   render() {
-    const { sections } = this.props;
+    const { items, sections, refreshing, onRefresh } = this.props;
     if (sections) {
       return (
         <ScrollView
           style={styles.sectionWrap}
           bounces={false}
           scrollEnabled={true}
+          refreshControl={<RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />}
         >
           {
             this.state.items.map((section) => (
@@ -96,7 +104,7 @@ export default class PeopleList extends Component {
         </ScrollView>
       );
     }
-    return this.renderList(this.props.items);
+    return this.renderList(items);
   }
 
 }
