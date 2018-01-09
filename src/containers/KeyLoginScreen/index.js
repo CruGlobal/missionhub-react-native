@@ -7,6 +7,8 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import BackButton from '../BackButton';
+import { ANALYTICS } from '../../constants';
+import * as RNOmniture from 'react-native-omniture';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -33,6 +35,8 @@ class KeyLoginScreen extends Component {
   login() {
     this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
       Keyboard.dismiss();
+
+      RNOmniture.syncMarketingCloudId(this.props.mcId);
       this.props.dispatch(navigatePush('GetStarted'));
     });
   }
@@ -92,4 +96,8 @@ class KeyLoginScreen extends Component {
   }
 }
 
-export default connect()(KeyLoginScreen);
+const mapStateToProps = ({ analytics }) => ({
+  mcId: analytics[ANALYTICS.MCID],
+});
+
+export default connect(mapStateToProps)(KeyLoginScreen);

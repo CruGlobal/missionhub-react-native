@@ -8,6 +8,7 @@ import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { testSnapshot } from '../../testUtils';
 
 const mockState = {
+  analytics: {},
 };
 
 const store = createMockStore(mockState);
