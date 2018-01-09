@@ -9,7 +9,7 @@ export default StyleSheet.create({
   stageBtn: {
     backgroundColor: theme.accentColor,
     margin: 10,
-    marginBottom: 0,
+    marginBottom: 5,
     height: 36,
   },
   stageBtnText: {
@@ -24,6 +24,11 @@ export default StyleSheet.create({
   contactButton: {
     fontSize: 24,
     color: theme.secondaryColor,
+  },
+  contactButtonDisabled: {
+    fontSize: 24,
+    color: theme.secondaryColor,
+    opacity: 0.5,
   },
   iconWrap: {
     backgroundColor: theme.accentColor,

@@ -238,7 +238,7 @@ exports[`renders correctly 1`] = `
               },
               null,
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
                 "borderColor": "#52C5DC",
                 "borderWidth": 1,
                 "height": 48,
@@ -328,7 +328,7 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": undefined,
+              "backgroundColor": "transparent",
             },
             null,
             Object {
