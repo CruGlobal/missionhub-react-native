@@ -4,7 +4,7 @@ import { ActivityIndicator } from 'react-native';
 import styles from './styles';
 import { Flex } from '../../components/common';
 
-class LoginScreen extends Component {
+class LoadingScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -17,4 +17,4 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+export default LoadingScreen;
