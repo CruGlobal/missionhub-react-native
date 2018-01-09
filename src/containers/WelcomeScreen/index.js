@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { navigatePush } from '../../actions/navigation';
@@ -6,9 +6,10 @@ import theme from '../../theme';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
+import BaseScreen from '../../components/BaseScreen';
 
 @translate('welcome')
-class WelcomeScreen extends Component {
+class WelcomeScreen extends BaseScreen {
   navigateToNext() {
     if (this.props.auth.isLoggedIn) {
       this.props.dispatch(navigatePush('GetStarted'));

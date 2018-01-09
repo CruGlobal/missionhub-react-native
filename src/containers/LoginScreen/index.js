@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
@@ -8,23 +8,10 @@ import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import * as RNOmniture from 'react-native-omniture';
+import BaseScreen from '../../components/BaseScreen';
 
 @translate('login')
-class LoginScreen extends Component {
-
-  contextObject = {
-    'PageName': this.constructor.name,
-    'cru.mcid': null,
-    'cru.screenname': this.constructor.name,
-    'cru.previousscreenname': null,
-    'cru.appname': 'Mission Hub App',
-    'cru.loggedinstatus': false,
-    'cru.ssoguid': null,
-    'cru.grmasterpersonid': null,
-    'cru.facebookid': null,
-  };
-
+class LoginScreen extends BaseScreen {
   constructor(props) {
     super(props);
 
@@ -34,7 +21,7 @@ class LoginScreen extends Component {
   }
 
   login() {
-    this.navigateToNext('Login');
+    this.navigateToNext('KeyLogin');
   }
 
   loginMinistries() {
@@ -54,8 +41,6 @@ class LoginScreen extends Component {
   }
 
   render() {
-    RNOmniture.trackState(this.constructor.name, this.contextObject);
-
     const { t } = this.props;
 
     return (

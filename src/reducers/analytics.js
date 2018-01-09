@@ -6,9 +6,10 @@ const initialAnalyticsState = buildInitialState();
 
 function buildInitialState() {
   const state = {};
+  state[ANALYTICS.PAGE_NAME] = '';
   state[ANALYTICS.MCID] = '';
   state[ANALYTICS.SCREENNAME] = '';
-  state[ANALYTICS.PREVIOUS_SCREENAME] = '';
+  state[ANALYTICS.PREVIOUS_SCREENNAME] = '';
   state[ANALYTICS.SITE_SECTION] = '';
   state[ANALYTICS.SITE_SUBSECTION] = '';
   state[ANALYTICS.SITE_SUB_SECTION_3] = '';
