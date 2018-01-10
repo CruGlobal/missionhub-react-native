@@ -3,29 +3,24 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS } from '../constants';
 import { REQUESTS } from '../actions/api';
 
-const initialAnalyticsState = buildInitialState();
-
-function buildInitialState() {
-  const state = {};
-  state[ANALYTICS.PAGE_NAME] = '';
-  state[ANALYTICS.MCID] = '';
-  state[ANALYTICS.SCREENNAME] = '';
-  state[ANALYTICS.PREVIOUS_SCREENNAME] = '';
-  state[ANALYTICS.SITE_SECTION] = '';
-  state[ANALYTICS.SITE_SUBSECTION] = '';
-  state[ANALYTICS.SITE_SUB_SECTION_3] = '';
-  state[ANALYTICS.SITE_SUB_SECTION_4] = '';
-  state[ANALYTICS.CONTENT_AUDIENCE_TARGET] = '';
-  state[ANALYTICS.CONTENT_TOPIC] = '';
-  state[ANALYTICS.LOGGED_IN_STATUS] = 'false';
-  state[ANALYTICS.SSO_GUID] = '';
-  state['cru.appname'] = 'MissionHub App';
-  state[ANALYTICS.GR_MASTER_PERSON_ID] = '';
-  state[ANALYTICS.FACEBOOK_ID] = '';
-  state[ANALYTICS.CONTENT_LANGUAGE] = '';
-
-  return state;
-}
+const initialAnalyticsState = {
+  [ANALYTICS.PAGE_NAME]: '',
+  [ANALYTICS.MCID]: '',
+  [ANALYTICS.SCREENNAME]: '',
+  [ANALYTICS.PREVIOUS_SCREENNAME]: '',
+  [ANALYTICS.SITE_SECTION]: '',
+  [ANALYTICS.SITE_SUBSECTION]: '',
+  [ANALYTICS.SITE_SUB_SECTION_3]: '',
+  [ANALYTICS.SITE_SUB_SECTION_4]: '',
+  [ANALYTICS.CONTENT_AUDIENCE_TARGET]: '',
+  [ANALYTICS.CONTENT_TOPIC]: '',
+  [ANALYTICS.LOGGED_IN_STATUS]: false,
+  [ANALYTICS.SSO_GUID]: '',
+  ['cru.appname']: 'MissionHub App',
+  [ANALYTICS.GR_MASTER_PERSON_ID]: '',
+  [ANALYTICS.FACEBOOK_ID]: '',
+  [ANALYTICS.CONTENT_LANGUAGE]: '',
+};
 
 function analyticsReducer(state = initialAnalyticsState, action) {
   switch (action.type) {
