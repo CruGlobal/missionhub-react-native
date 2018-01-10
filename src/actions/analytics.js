@@ -20,5 +20,16 @@ export function trackState(screenName) {
 
     return dispatch(updateAnalyticsContext(context));
   };
+}
 
+export function updateLoggedInStatus(status) {
+  return (dispatch, getState) => {
+
+    const context = getState().analytics;
+    context[ANALYTICS.LOGGED_IN_STATUS] = status;
+
+    RNOmniture.syncMarketingCloudId(context[ANALYTICS.MCID]);
+
+    return dispatch(updateAnalyticsContext(context));
+  };
 }
