@@ -16,7 +16,7 @@ export function trackState(screenName) {
     context[ANALYTICS.SCREENNAME] = screenName;
     context[ANALYTICS.PAGE_NAME] = screenName;
 
-    RNOmniture.trackState(this.constructor.name, context);
+    RNOmniture.trackState(screenName, context);
 
     return dispatch(updateAnalyticsContext(context));
   };
