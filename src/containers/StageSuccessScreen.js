@@ -10,7 +10,7 @@ class StageSuccessScreen extends Component {
   }
 
   getMessage() {
-    let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : '';
+    let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : 'We are glad you are here, <<user>>!';
     followUpText = followUpText.replace('<<user>>', this.props.firstName ? this.props.firstName : 'Friend');
     return followUpText;
   }
