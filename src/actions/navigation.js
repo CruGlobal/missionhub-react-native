@@ -17,12 +17,15 @@ export function navigateBack(key = null) {
   };
 }
 
-export function navigateReset(screen) {
+export function navigateReset(screen, props = {}) {
   return (dispatch) => {
     dispatch(NavigationActions.reset({
       index: 0,
       actions: [
-        NavigationActions.navigate({ routeName: screen }),
+        NavigationActions.navigate({
+          routeName: screen,
+          params: props,
+        }),
       ],
     }));
   };

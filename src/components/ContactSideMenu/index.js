@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import SideMenu from '../../components/SideMenu';
+import { navigatePush } from '../../actions/navigation';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
   render() {
-    const { t, isCasey, isJean } = this.props;
+    const { t, isCasey, isJean, person } = this.props;
 
     const menuItems = [
       {
         label: t('edit'),
-        action: () => LOG('edit pressed'),
+        action: () => this.props.dispatch(navigatePush('SetupPerson', { person })),
       },
       isCasey ? {
         label: t('delete'),

@@ -11,6 +11,7 @@ export default {
     },
     done: 'DONE',
     next: 'Next',
+    save: 'Save',
   },
   settingsMenu: {
     about: 'About',
@@ -121,5 +122,8 @@ export default {
     doNotContact: 'Do Not Contact',
     uncontacted: 'Uncontacted',
     unassign: 'Unassign',
+  },
+  setupPerson: {
+    editTitle: 'Edit Person',
   },
 };
