@@ -91,7 +91,8 @@ export function peopleSectionsWithOrg(people) {
       if (orgSections[o.id]) {
         orgSections[o.id].organization = o;
       } else {
-        orgSections[o.id] = { organization: o, people: [] };
+        // Do this if we want to show empty organizations
+        // orgSections[o.id] = { organization: o, people: [] };
       }
     });
     const sections = Object.keys(orgSections)
