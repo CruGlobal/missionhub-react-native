@@ -29,8 +29,8 @@ class ProfileScreen extends Component {
 
   savePerson() {
     let saveData = { ...this.state.data };
-    if (this.props.orgId) {
-      saveData.orgId = this.props.orgId;
+    if (this.props.organization) {
+      saveData.orgId = this.props.organization.id;
     }
     this.props.dispatch(addNewContact(saveData)).then((results) => {
       if (this.props.onComplete) {
@@ -41,7 +41,8 @@ class ProfileScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, organization } = this.props;
+    const orgName = organization ? organization.name : undefined;
 
     return (
       <PlatformKeyboardAvoidingView>
@@ -53,7 +54,7 @@ class ProfileScreen extends Component {
               onPress={() => this.props.dispatch(navigateBack())} />
           }
           shadow={false}
-          title={t('addSomeone').toUpperCase()}
+          title={orgName ? t('addToOrg', { orgName }) : t('addSomeone').toUpperCase()}
         />
         <AddContactFields onUpdateData={this.handleUpdateData} />
 
@@ -71,7 +72,7 @@ class ProfileScreen extends Component {
 }
 
 ProfileScreen.propTypes = {
-  orgId: PropTypes.string,
+  organization: PropTypes.object,
   onComplete: PropTypes.func,
 };
 

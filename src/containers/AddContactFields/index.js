@@ -74,13 +74,13 @@ class AddContactFields extends Component {
           <Text style={styles.genderText}>{t('profileLabels.gender')}:</Text>
           <RadioButton
             style={styles.radioButton}
-            onSelect={() => this.setState({ gender: 'M' })}
+            onSelect={() => this.updateField('gender', 'M')}
             checked={gender === 'M'}
             label={t('gender.male')}
           />
           <RadioButton
             style={styles.radioButton}
-            onSelect={() => this.setState({ gender: 'F' })}
+            onSelect={() => this.updateField('gender', 'F')}
             checked={gender === 'F'}
             label={t('gender.female')}
           />

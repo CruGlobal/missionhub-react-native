@@ -7,9 +7,6 @@ import { createMockStore } from '../../testUtils/index';
 import PeopleScreen from '../../src/containers/PeopleScreen';
 import { testSnapshot } from '../../testUtils';
 
-jest.mock('../../src/actions/organizations', () => ({
-  getMyOrganizations: () => { },
-}));
 jest.mock('../../src/actions/people', () => ({
   getPeopleList: () => { },
 }));
@@ -17,6 +14,9 @@ jest.mock('../../src/actions/people', () => ({
 const mockState = {
   auth: {
     personId: '',
+    user: {
+      id: '1',
+    },
   },
   people: {
     all: [],
@@ -24,6 +24,9 @@ const mockState = {
   },
   organizations: {
     myOrgId: '',
+  },
+  stages: {
+    stagesObj: {},
   },
 };
 

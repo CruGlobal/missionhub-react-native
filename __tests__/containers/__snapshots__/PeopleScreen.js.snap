@@ -238,7 +238,13 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <RCTScrollView
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "id": "1",
+        },
+      ]
+    }
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -254,6 +260,20 @@ exports[`renders correctly 1`] = `
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     renderItem={[Function]}
     scrollEnabled={true}
     scrollEventThrottle={50}
@@ -263,7 +283,120 @@ exports[`renders correctly 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View />
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits="button"
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 24,
+                  "paddingVertical": 15,
+                  "width": 750,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                    },
+                  ]
+                }
+              >
+                ME
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 14,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
   </RCTScrollView>
 </View>
 `;

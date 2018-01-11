@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { getPeopleList } from '../../actions/people';
-import { getMyOrganizations } from '../../actions/organizations';
 import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
@@ -27,23 +26,17 @@ export class PeopleScreen extends Component {
   }
 
   componentWillMount() {
-    if (!this.props.myOrgId) {
-      this.props.dispatch(getMyOrganizations()).then(() => {
-        this.getPeople();
-      });
-    } else {
-      this.getPeople();
-    }
+    this.getPeople();
   }
 
   getPeople() {
     return this.props.dispatch(getPeopleList());
   }
 
-  handleAddContact(orgId) {
+  handleAddContact(org) {
     this.props.dispatch(navigatePush('AddContact', {
-      orgId,
-      onComplete: this.getPeople,
+      organization: org && org.id ? org : undefined,
+      onComplete: () => this.getPeople(),
     }));
   }
   
@@ -65,7 +58,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { people, myId, sectionPeople, isCasey } = this.props;
+    const { people, sectionPeople, isCasey } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -91,7 +84,6 @@ export class PeopleScreen extends Component {
         <PeopleList
           sections={!isCasey}
           items={isCasey ? people : sectionPeople}
-          myId={myId}
           onSelect={this.handleRowSelect}
           onAddContact={this.handleAddContact}
           onRefresh={this.handleRefresh}
@@ -104,68 +96,9 @@ export class PeopleScreen extends Component {
 
 const mapStateToProps = ({ auth, people, organizations }) => ({
   isCasey: !auth.hasMinistries,
-  myId: auth.personId,
-  people: people.all,
+  people: [auth.user].concat(people.all),
   sectionPeople: people.allByOrg,
-  // people: [
-  //   { id: '1', full_name: 'Bryan Eaton' },
-  //   { id: '2', full_name: 'Bryan Eaton' },
-  //   { id: '3', full_name: 'Bryan Eaton' },
-  //   { id: '4', full_name: 'Bryan Eaton' },
-  //   { id: '5', full_name: 'Bryan Eaton' },
-  //   { id: '6', full_name: 'Bryan Eaton' },
-  //   { id: '7', full_name: 'Bryan Eaton' },
-  //   { id: '8', full_name: 'Bryan Eaton' },
-  // ],
-  // sectionPeople: [
-  //   {
-  //     key: '123',
-  //     data: [
-  //       { id: '1', full_name: 'Bryan Eaton' },
-  //       { id: '2', full_name: 'Bryan Eaton' },
-  //       { id: '3', full_name: 'Bryan Eaton' },
-  //       { id: '4', full_name: 'Bryan Eaton' },
-  //       { id: '11', full_name: 'Bryan Eaton' },
-  //       { id: '21', full_name: 'Bryan Eaton' },
-  //       { id: '31', full_name: 'Bryan Eaton' },
-  //       { id: '12', full_name: 'Bryan Eaton' },
-  //       { id: '22', full_name: 'Bryan Eaton' },
-  //       { id: '32', full_name: 'Bryan Eaton' },
-  //       { id: '13', full_name: 'Bryan Eaton' },
-  //       { id: '23', full_name: 'Bryan Eaton' },
-  //       { id: '33', full_name: 'Bryan Eaton' },
-  //       { id: '14', full_name: 'Bryan Eaton' },
-  //       { id: '24', full_name: 'Bryan Eaton' },
-  //       { id: '34', full_name: 'Bryan Eaton' },
-  //     ],
-  //   },
-  //   {
-  //     key: '456',
-  //     data: [
-  //       { id: '5', full_name: 'Bryan Eaton' },
-  //       { id: '6', full_name: 'Bryan Eaton' },
-  //       { id: '7', full_name: 'Bryan Eaton' },
-  //       { id: '8', full_name: 'Bryan Eaton' },
-  //     ],
-  //   },
-  //   {
-  //     key: '789',
-  //     data: [
-  //       { id: '5', full_name: 'Bryan Eaton' },
-  //       { id: '6', full_name: 'Bryan Eaton' },
-  //       { id: '7', full_name: 'Bryan Eaton' },
-  //       { id: '8', full_name: 'Bryan Eaton' },
-  //       { id: '15', full_name: 'Bryan Eaton' },
-  //       { id: '16', full_name: 'Bryan Eaton' },
-  //       { id: '17', full_name: 'Bryan Eaton' },
-  //       { id: '18', full_name: 'Bryan Eaton' },
-  //       { id: '25', full_name: 'Bryan Eaton' },
-  //       { id: '26', full_name: 'Bryan Eaton' },
-  //       { id: '27', full_name: 'Bryan Eaton' },
-  //       { id: '28', full_name: 'Bryan Eaton' },
-  //     ],
-  //   },
-  // ],
+  me: auth.user,
   myOrgId: organizations.myOrgId,
 });
 

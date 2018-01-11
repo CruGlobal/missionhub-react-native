@@ -12,30 +12,36 @@ export function getMyOrganizations() {
   };
 }
 
+export function getOrganizations(filters = {}) {
+  return (dispatch) => {
+    const query = {
+      limit: 100,
+      filters,
+    };
+    return dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, query)).catch((error) => {
+      LOG('error getting orgs', error);
+    });
+  };
+}
+
 export function addNewContact(data) {
   return (dispatch, getState) => {
-    const personId = getState().auth.personId;
+    const myId = getState().auth.personId;
     if (!data || !data.firstName) {
       return Promise.reject('InvalidData', data);
     }
     let included = [];
+    included.push({
+      type: 'contact_assignment',
+      attributes: {
+        assigned_to_id: myId,
+      },
+    });
     if (data.orgId) {
       included.push({
-        type: 'contact_assignment',
-        attributes: {
-          organization_id: data.orgId,
-          person_id: personId,
-          
-          // TODO: Figure out when to use this instead
-          // assigned_to_id: 297,
-          // pathway_stage_id: 2,
-        },
+        type: 'organizational_permission',
+        attributes: { organization_id: data.orgId },
       });
-      // TODO: Don't know when we need this
-      // included.push({
-      //   type: 'organizational_permission',
-      //   attributes: { organization_id: data.orgId },
-      // });
     }
     if (data.email) {
       included.push({
@@ -63,11 +69,9 @@ export function addNewContact(data) {
       },
       included,
     };
-    LOG('add contact data', bodyData);
-    return Promise.resolve(bodyData);
-    // const query = {};
-    // return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData)).catch((error) => {
-    //   LOG('error adding new person', error);
-    // });
+    const query = {};
+    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData)).catch((error) => {
+      LOG('error adding new person', error);
+    });
   };
 }

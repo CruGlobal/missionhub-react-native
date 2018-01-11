@@ -56,9 +56,11 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
   },
+  'GET_ME': {
+    endpoint: `${PEOPLE_URL}me`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
-    method: 'get',
     anonymous: true,
   },
   'GET_CHALLENGE_SUGGESTIONS': {
@@ -105,6 +107,9 @@ export default {
     method: 'post',
   },
   'GET_MY_ORGANIZATIONS': {
+    endpoint: `${API_URL}organizations`,
+  },
+  'GET_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,
   },
   'GET_MY_GROUPS': {

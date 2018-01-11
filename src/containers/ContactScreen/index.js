@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getUserDetails } from '../../actions/people';
 import { getStages } from '../../actions/stages';
 
@@ -77,7 +77,7 @@ class ContactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateReset('MainTabs'))} />
+            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateBack())} />
           }
           right={
             <IconButton name="moreIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />

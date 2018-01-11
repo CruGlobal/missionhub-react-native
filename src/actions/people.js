@@ -1,15 +1,110 @@
+import lodash from 'lodash';
+
 import callApi, { REQUESTS } from './api';
+import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
+import { getOrganizations } from './organizations';
+
+export function getMe() {
+  return (dispatch) => {
+    const query = {
+    };
+    return dispatch(callApi(REQUESTS.GET_ME, query));
+  };
+}
+
+
 
 
 export function getPeopleList() {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const query = {
       filters: {
         assigned_tos: 'me',
       },
-      includes: 'reverse_contact_assignments',
+      includes: 'organizational_permission,organization',
     };
-    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query)).then((results) => {
+
+      const isCasey = !getState().auth.hasMinistries;
+      if (isCasey) {
+        return results;
+      }
+
+      const people = (results.findAll('person') || []).filter((p) => !p._placeHolder);
+
+      // Get the orgIds that the 
+      let orgIds = people.reduce((p, n) => {
+        const orgs = n.organizational_permissions;
+        orgs.forEach((o) => p[o.organization_id] = true);
+        return p;
+      }, {});
+      orgIds = Object.keys(orgIds);
+      const existingOrgIds = getState().organizations.all.map((o) => o.id);
+
+      // Check if we already have all the org ids in the existing orgs array
+      const allExist = lodash.every(orgIds, (o) => existingOrgIds.indexOf(o) >= 0);
+      
+      if (allExist || orgIds.length === 0) {
+        // LOG('all orgs already exist or there are no people, no need to query');
+        dispatch(peopleSectionsWithOrg(people));
+        return results;
+      }
+
+      const orgFilters = { ids: orgIds.join(',') };
+      dispatch(getOrganizations(orgFilters)).then((orgResults) => {
+        dispatch(peopleSectionsWithOrg(people));
+        return orgResults;
+      });
+
+      return results;
+    });
+  };
+}
+
+export function peopleSectionsWithOrg(people) {
+  return (dispatch, getState) => {
+    const me = getState().auth.user;
+    // Give an object like this
+    /*
+      {
+        [orgId]: { people: [person1Obj, person2Obj] }
+        [orgId2]: { people: [person3Obj, person4Obj] }
+      }
+    */
+    const orgSections = people.reduce((p, n) => {
+      const orgs = n.organizational_permissions;
+      if (!orgs.length) {
+        p.personal.people.push(n);
+      }
+      orgs.forEach((o) => {
+        const orgId = o.organization_id;
+        if (p[orgId]) { p[orgId].people.push(n); }
+        else { p[orgId] = { people: [n] }; }
+      });
+      return p;
+    }, {
+      'personal': { organization: {}, people: [me] },
+    });
+
+    const myOrgs = getState().organizations.all;
+    myOrgs.forEach((o) => {
+      if (orgSections[o.id]) {
+        orgSections[o.id].organization = o;
+      } else {
+        orgSections[o.id] = { organization: o, people: [] };
+      }
+    });
+    const sections = Object.keys(orgSections)
+      .map((key) => orgSections[key])
+      .sort((a, b) => {
+        if (!a.organization.id) return -1;
+        const aLength = a.people ? a.people.length : 0;
+        const bLength = b.people ? b.people.length : 0;
+        if (aLength > bLength) return -1;
+        if (aLength < bLength) return 1;
+        return 0;
+      });
+    dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, sections });
   };
 }
 
@@ -44,8 +139,6 @@ export function searchPeople(text, filters = {}) {
     if (filters.surveys) {
       query.filters.survey_ids = filters.surveys.id;
     }
-
-    LOG('query', query);
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
   };

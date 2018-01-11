@@ -3,8 +3,9 @@ import { View, FlatList, ToastAndroid } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
-import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
+import { noNotificationReminder, setupPushNotifications } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder } from '../../actions/steps';
 
 import styles from './styles';
@@ -40,7 +41,7 @@ class StepsScreen extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(setupPushNotifications());
+    this.props.dispatch(loadHome());
     this.props.dispatch(getMySteps());
   }
 

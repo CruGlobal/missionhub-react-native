@@ -40,7 +40,8 @@ export default {
     signIn: 'Sign In',
   },
   addContact: {
-    addSomeone: 'Add Someone',
+    addSomeone: 'ADD SOMEONE',
+    addToOrg: 'ADD SOMEONE to {{orgName}}',
   },
   addStep: {
     header: 'My Step of Faith',
