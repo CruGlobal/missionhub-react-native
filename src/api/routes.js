@@ -109,6 +109,10 @@ export default {
     endpoint: `${PEOPLE_URL}:userId`,
     method: 'put',
   },
+  'DELETE_USER': {
+    endpoint: `${PEOPLE_URL}:userId`,
+    method: 'delete',
+  },
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',

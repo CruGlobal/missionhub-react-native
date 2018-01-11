@@ -10,7 +10,7 @@ exports[`renders Casey menu correctly 1`] = `
       },
       Object {
         "action": [Function],
-        "label": "Delete Contact",
+        "label": "Delete Person",
       },
     ]
   }
