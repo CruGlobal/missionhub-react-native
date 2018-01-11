@@ -49,3 +49,11 @@ export function createPerson(firstName, lastName) {
   };
 }
 
+export function deletePerson(id) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.DELETE_USER, { userId: id })).catch((error) => {
+      LOG('error deleting person', error);
+    });
+  };
+}
+

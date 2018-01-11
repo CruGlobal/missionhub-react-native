@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import SideMenu from '../../components/SideMenu';
+import { deletePerson } from '../../actions/profile';
+import { navigateBack } from '../../actions/navigation';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
   render() {
-    const { t, isJean } = this.props;
+    const { t, isJean, person } = this.props;
 
     const menuItems = [
       {
@@ -16,7 +19,28 @@ export class ContactSideMenu extends Component {
       },
       !isJean ? {
         label: t('delete'),
-        action: () => LOG('delete pressed'),
+        action: () => {
+          Alert.alert(
+            t('deleteQuestion', { name: person.first_name }),
+            t('deleteSentence'),
+            [
+              {
+                text: t('cancel'),
+                style: 'cancel',
+              },
+              {
+                text: t('delete'),
+                style: 'destructive',
+                onPress: () => {
+                  this.props.dispatch(deletePerson(person.id)).then(() => {
+                    this.props.dispatch(navigateBack());
+                    this.props.dispatch(navigateBack());
+                  });
+                },
+              },
+            ],
+          );
+        },
       } : null,
       isJean ? {
         label: t('attemptedContact'),
