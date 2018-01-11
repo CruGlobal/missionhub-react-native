@@ -12,13 +12,16 @@ export function trackState(screenName) {
   return (dispatch, getState) => {
 
     const context = getState().analytics;
-    context[ANALYTICS.PREVIOUS_SCREENNAME] = context[ANALYTICS.SCREENNAME];
-    context[ANALYTICS.SCREENNAME] = screenName;
-    context[ANALYTICS.PAGE_NAME] = screenName;
+    const updatedContext = {
+      ...context,
+      [ANALYTICS.PREVIOUS_SCREENNAME]: context[ANALYTICS.SCREENNAME],
+      [ANALYTICS.SCREENNAME]: screenName,
+      [ANALYTICS.PAGE_NAME]: screenName,
+    };
 
-    RNOmniture.trackState(screenName, context);
+    RNOmniture.trackState(screenName, updatedContext);
 
-    return dispatch(updateAnalyticsContext(context));
+    return dispatch(updateAnalyticsContext(updatedContext));
   };
 }
 
@@ -26,10 +29,12 @@ export function updateLoggedInStatus(status) {
   return (dispatch, getState) => {
 
     const context = getState().analytics;
-    context[ANALYTICS.LOGGED_IN_STATUS] = status;
+    const updatedContext = {
+      ...context,
+      [ANALYTICS.LOGGED_IN_STATUS]: status,
+    };
 
-    RNOmniture.syncMarketingCloudId(context[ANALYTICS.MCID]);
-
-    return dispatch(updateAnalyticsContext(context));
+    RNOmniture.syncMarketingCloudId(updatedContext[ANALYTICS.MCID]);
+    return dispatch(updateAnalyticsContext(updatedContext));
   };
 }

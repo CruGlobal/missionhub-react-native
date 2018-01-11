@@ -29,7 +29,7 @@ describe('updateAnalyticsContext', () => {
   it('should create action', () => {
     const result = updateAnalyticsContext(context);
 
-    expect(result.analyticsContext).toBe(context);
+    expect(result.analyticsContext).toEqual(context);
     expect(result.type).toBe(ANALYTICS_CONTEXT_CHANGED);
   });
 });
@@ -37,6 +37,13 @@ describe('updateAnalyticsContext', () => {
 describe('trackState', () => {
   let store;
   const newScreenName = 'testScreen2';
+
+  const expectedUpdatedContext = {
+    [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
+    [ANALYTICS.SCREENNAME]: newScreenName,
+    [ANALYTICS.PAGE_NAME]: newScreenName,
+    [ANALYTICS.MCID]: mcId,
+  };
 
   beforeEach(() => {
     store = mockStore({
@@ -47,15 +54,17 @@ describe('trackState', () => {
   });
 
   it('should track state', () => {
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(newScreenName, context);
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(newScreenName, expect.anything());
+  });
+
+  it('should send updated analytics context', () => {
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(expect.anything(), expectedUpdatedContext);
   });
 
   it('should update analytics context', () => {
     const action = store.getActions()[0];
     expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext[ANALYTICS.PREVIOUS_SCREENNAME]).toBe(screenName);
-    expect(action.analyticsContext[ANALYTICS.SCREENNAME]).toBe(newScreenName);
-    expect(action.analyticsContext[ANALYTICS.PAGE_NAME]).toBe(newScreenName);
+    expect(action.analyticsContext).toEqual(expectedUpdatedContext);
   });
 });
 
@@ -78,6 +87,6 @@ describe('updateLoggedInStatus', () => {
   it('should update analytics context', () => {
     const action = store.getActions()[0];
     expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext[ANALYTICS.LOGGED_IN_STATUS]).toBe(status);
+    expect(action.analyticsContext[ANALYTICS.LOGGED_IN_STATUS]).toEqual(status);
   });
 });

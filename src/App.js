@@ -15,25 +15,55 @@ import * as RNOmniture from 'react-native-omniture';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { ANALYTICS } from './constants';
+import { AppState } from 'react-native';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
-  state = { store: null };
+  state = {
+    store: null,
+    appState: AppState.currentState,
+  };
 
   componentWillMount() {
     getStore((store) => this.setState({ store }));
   }
 
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleAppStateChange.bind(this));
+  }
+
+  handleAppStateChange(nextAppState) {
+    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+      this.collectLifecycleData();
+    }
+
+    this.setState({ appState: nextAppState });
+  }
+
+  getAnalyticsObj() {
+    return this.state.store.getState().analytics;
+  }
+
+  collectLifecycleData(analyticsContext) {
+    RNOmniture.collectLifecycleData(analyticsContext);
+  }
+
   render() {
+    console.log(this.state.appState);
     if (!this.state.store) {
       return <LoadingScreen />;
     }
 
-    RNOmniture.loadMarketingCloudId((result) => {
-      const analyticsContext = this.state.store.getState().analytics;
-      analyticsContext[ANALYTICS.MCID] = result;
+    const analyticsContext = this.getAnalyticsObj();
+    this.collectLifecycleData(analyticsContext);
 
-      this.state.store.dispatch(updateAnalyticsContext(analyticsContext));
+    RNOmniture.loadMarketingCloudId((result) => {
+      const updatedContext = { [ANALYTICS.MCID]: result };
+      this.state.store.dispatch(updateAnalyticsContext(updatedContext));
     });
 
     return (
