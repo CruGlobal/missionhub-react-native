@@ -12,10 +12,18 @@ export function getMe() {
   };
 }
 
-
-
-
 export function getPeopleList() {
+  return (dispatch) => {
+    const query = {
+      filters: {
+        assigned_tos: 'me',
+      },
+    };
+    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+  };
+}
+
+export function getPeopleWithOrgSections() {
   return (dispatch, getState) => {
     const query = {
       filters: {

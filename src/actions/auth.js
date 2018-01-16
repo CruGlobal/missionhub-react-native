@@ -38,6 +38,9 @@ function loginWithTicket(ticket) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data))
+      .then(() => {
+        return dispatch(getMe());
+      })
       .catch((error) => {
         LOG('error logging in with ticket', error);
       });
