@@ -28,3 +28,13 @@ it('renders correctly', () => {
     </Provider>
   );
 });
+
+it('renders correctly with default state', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <StageSuccessScreen
+        navigation={createMockNavState()}
+      />
+    </Provider>
+  );
+});
