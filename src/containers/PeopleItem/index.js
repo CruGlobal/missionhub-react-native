@@ -29,7 +29,7 @@ export class PeopleItem extends Component {
     let personStage = '';
     let isUncontacted = true;
     const orgPermissions = newPerson.organizational_permissions;
-    const contactAssignment = newPerson.reverse_contact_assignments;
+    const contactAssignments = newPerson.reverse_contact_assignments;
     if (isMe) {
       personStage = me.stage ? me.stage.name : '';
       status = '';
@@ -41,11 +41,11 @@ export class PeopleItem extends Component {
           isUncontacted = false;
         }
       }
-      if (contactAssignment && contactAssignment[0]) {
-        if (contactAssignment[0].assigned_to.id === me.id
-          && contactAssignment[0].pathway_stage_id
-          && stagesObj[`${contactAssignment[0].pathway_stage_id}`]) {
-          personStage = stagesObj[`${contactAssignment[0].pathway_stage_id}`].name;
+      if (contactAssignments && contactAssignments[0]) {
+        if (contactAssignments[0].assigned_to.id === me.id
+          && contactAssignments[0].pathway_stage_id
+          && stagesObj[`${contactAssignments[0].pathway_stage_id}`]) {
+          personStage = stagesObj[`${contactAssignments[0].pathway_stage_id}`].name;
         }
       }
     }

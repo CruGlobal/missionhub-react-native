@@ -23,20 +23,19 @@ export default class PeopleList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.sections || nextProps.items.length !== this.props.items.length) {
-      if (nextProps.sections) {
-        const items = nextProps.items.map((i, index) => {
-          if (this.state.items[index] && this.state.items[index].id === i.id) {
-            return { ...this.state.items[index], ...i };
-          }
-          return { ...i, expanded: true };
-        });
-        this.setState({ items });
-        this.forceUpdate();
-      } else {
-        const items = merge([], this.state.items, nextProps.items);
-        this.setState({ items });
-      }
+    if (nextProps.sections) {
+      // Format section items merging in the existing expanded state.
+      const items = nextProps.items.map((i, index) => {
+        if (this.state.items[index] && this.state.items[index].id === i.id) {
+          return { ...this.state.items[index], ...i };
+        }
+        return { ...i, expanded: true };
+      });
+      this.setState({ items });
+      this.forceUpdate();
+    } else if (nextProps.items.length !== this.props.items.length) {
+      const items = merge([], this.state.items, nextProps.items);
+      this.setState({ items });
     }
   }
 

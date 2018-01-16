@@ -31,14 +31,12 @@ export function getPeopleList() {
       }
 
       const people = (results.findAll('person') || []).filter((p) => !p._placeHolder);
+      
+      // Get the orgIds that from the request to compare with the ones we have already
+      const orgIds = (results.findAll('organization') || [])
+        .filter((p) => !p._placeHolder)
+        .map((o) => o.id);
 
-      // Get the orgIds that the 
-      let orgIds = people.reduce((p, n) => {
-        const orgs = n.organizational_permissions;
-        orgs.forEach((o) => p[o.organization_id] = true);
-        return p;
-      }, {});
-      orgIds = Object.keys(orgIds);
       const existingOrgIds = getState().organizations.all.map((o) => o.id);
 
       // Check if we already have all the org ids in the existing orgs array
@@ -61,10 +59,11 @@ export function getPeopleList() {
   };
 }
 
-export function peopleSectionsWithOrg(people) {
+function peopleSectionsWithOrg(people) {
   return (dispatch, getState) => {
     const me = getState().auth.user;
-    // Give an object like this
+    
+    // Use reduce to get an object like this
     /*
       {
         [orgId]: { people: [person1Obj, person2Obj] }
