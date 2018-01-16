@@ -19,7 +19,7 @@ class StageScreen extends Component {
         this.props.onComplete(stage);
         this.props.dispatch(navigateBack());
       } else {
-        this.props.dispatch(navigatePush('StageSuccess'));
+        this.props.dispatch(navigatePush('StageSuccess', { selectedStage: stage }));
       }
     });
   }
