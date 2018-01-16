@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import IconMessageScreen from './IconMessageScreen/index';
 
@@ -7,13 +9,25 @@ class StageSuccessScreen extends Component {
     super(props);
   }
 
+  getMessage() {
+    let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : 'We are glad you are here, <<user>>!';
+    followUpText = followUpText.replace('<<user>>', this.props.firstName ? this.props.firstName : 'Friend');
+    return followUpText;
+  }
+
   render() {
-    const message = `${this.props.firstName},\nWe'd like to offer some things to help you in your spiritual journey.`;
+    const message = this.getMessage();
     return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" nextScreen="Step" iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
 
-const mapStateToProps = ({ profile }) => ({
+StageSuccessScreen.propTypes = {
+  selectedStage: PropTypes.object.isRequired,
+};
+
+
+const mapStateToProps = ({ profile }, { navigation }) => ({
+  ...(navigation.state.params || {}),
   firstName: profile.firstName,
 });
 
