@@ -44,22 +44,16 @@ class App extends Component {
     this.setState({ appState: nextAppState });
   }
 
-  getAnalyticsObj() {
-    return this.state.store.getState().analytics;
-  }
-
-  collectLifecycleData(analyticsContext) {
-    RNOmniture.collectLifecycleData(analyticsContext);
+  collectLifecycleData() {
+    RNOmniture.collectLifecycleData(this.state.store.getState().analytics);
   }
 
   render() {
-    console.log(this.state.appState);
     if (!this.state.store) {
       return <LoadingScreen />;
     }
 
-    const analyticsContext = this.getAnalyticsObj();
-    this.collectLifecycleData(analyticsContext);
+    this.collectLifecycleData();
 
     RNOmniture.loadMarketingCloudId((result) => {
       const updatedContext = { [ANALYTICS.MCID]: result };
