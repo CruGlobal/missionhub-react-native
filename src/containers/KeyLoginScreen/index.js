@@ -37,9 +37,7 @@ class KeyLoginScreen extends Component {
 
       if (response.findAll('user')[0].pathway_stage_id) {
         this.props.dispatch(getPeopleList()).then((response) => {
-          const found = this.hasPersonWithStageSelected(response);
-
-          if (found) {
+          if (this.hasPersonWithStageSelected(response)) {
             this.props.dispatch(navigatePush('MainTabs'));
           } else {
             this.props.dispatch(navigatePush('AddSomeone'));
