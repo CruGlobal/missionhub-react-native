@@ -29,7 +29,22 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.initializeAnalytics();
     AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+  }
+
+  initializeAnalytics() { //TODO add tests
+    if (this.state && this.state.store) {
+      this.collectLifecycleData();
+
+      RNOmniture.loadMarketingCloudId((result) => {
+        const updatedContext = { [ANALYTICS.MCID]: result };
+        this.state.store.dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
+    else {
+      setTimeout(this.initializeAnalytics.bind(this), 50);
+    }
   }
 
   componentWillUnmount() {
@@ -52,13 +67,6 @@ class App extends Component {
     if (!this.state.store) {
       return <LoadingScreen />;
     }
-
-    this.collectLifecycleData();
-
-    RNOmniture.loadMarketingCloudId((result) => {
-      const updatedContext = { [ANALYTICS.MCID]: result };
-      this.state.store.dispatch(updateAnalyticsContext(updatedContext));
-    });
 
     return (
       <Provider store={this.state.store}>
