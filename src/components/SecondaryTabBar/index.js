@@ -54,7 +54,7 @@ export default class SecondaryTabBar extends Component {
     const { tabs } = this.props;
 
     return (
-      <Flex value={1} >
+      <Flex value={1} self="stretch" >
         <ScrollableTabView
           contentProps={{ keyboardShouldPersistTaps: 'handled' }}
           tabBarPosition="top"
