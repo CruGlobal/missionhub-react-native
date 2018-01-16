@@ -17,8 +17,6 @@ public class MainActivity extends ReactActivity {
     @Override
     public void onResume() {
         super.onResume();
-
-        Config.collectLifecycleData(this);
     }
 
     @Override
