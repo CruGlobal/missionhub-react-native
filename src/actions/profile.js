@@ -49,10 +49,10 @@ export function createPerson(firstName, lastName) {
   };
 }
 
-export function deletePerson(id) {
+export function deleteContactAssignment(id) {
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.DELETE_USER, { userId: id })).catch((error) => {
-      LOG('error deleting person', error);
+    return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id })).catch((error) => {
+      LOG('error deleting contact assignment', error);
     });
   };
 }

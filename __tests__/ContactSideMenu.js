@@ -6,20 +6,18 @@ import { createMockStore } from '../testUtils/index';
 import ContactSideMenu from '../src/components/ContactSideMenu';
 import { createMockNavState, testSnapshotShallow } from '../testUtils';
 
-it('renders Casey menu correctly', () => {
-  const store = createMockStore({ auth: { isJean: false } });
+const store = createMockStore();
 
+it('renders Casey menu correctly', () => {
   testSnapshotShallow(
-    <ContactSideMenu navigation={createMockNavState()} />,
-    store
+    <ContactSideMenu navigation={createMockNavState()} screenProps={{ isJean: false }} />,
+    store,
   );
 });
 
 it('renders Jean menu correctly', () => {
-  const store = createMockStore({ auth: { isJean: true } });
-
   testSnapshotShallow(
-    <ContactSideMenu navigation={createMockNavState()} />,
-    store
+    <ContactSideMenu navigation={createMockNavState()} screenProps={{ isJean: true }} />,
+    store,
   );
 });
