@@ -33,7 +33,6 @@ const ME_TABS = [
     iconName: 'journeyIcon',
     tabLabel: 'My Journey',
   },
-  CASEY_TABS[2],
 ];
 
 const JEAN_TABS = [
