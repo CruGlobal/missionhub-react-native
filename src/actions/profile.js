@@ -49,3 +49,21 @@ export function createPerson(firstName, lastName) {
   };
 }
 
+export function editPersonName(id, firstName, lastName) {
+  const data = {
+    data: {
+      type: 'person',
+      attributes: {
+        first_name: firstName,
+        last_name: lastName,
+      },
+    },
+  };
+
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.UPDATE_USER, { userId: id }, data)).catch((error) => {
+      LOG('error editing person name', error);
+    });
+  };
+}
+
