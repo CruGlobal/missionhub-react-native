@@ -72,7 +72,7 @@ class ContactScreen extends Component {
   }
 
   render() {
-    const { person, isCasey } = this.props;
+    const { person, isCasey, myId } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -85,7 +85,7 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <ContactHeader onChangeStage={this.handleChangeStage} type={isCasey ? CASEY : JEAN} person={person} stage={this.state.contactStage} />
+          <ContactHeader onChangeStage={this.handleChangeStage} type={isCasey ? CASEY : JEAN} isMe={myId === person.id ? true : false} person={person} stage={this.state.contactStage} />
         </Flex>
       </View>
     );

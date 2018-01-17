@@ -26,6 +26,16 @@ const CASEY_TABS = [
   },
 ];
 
+const ME_TABS = [
+  CASEY_TABS[0],
+  {
+    page: 'journey',
+    iconName: 'journeyIcon',
+    tabLabel: 'My Journey',
+  },
+  CASEY_TABS[2],
+];
+
 const JEAN_TABS = [
   CASEY_TABS[0],
   {
@@ -53,9 +63,11 @@ export default class ContactHeader extends Component {
   }
 
   getTabs() {
-    const { person, type } = this.props;
+    const { person, type, isMe } = this.props;
 
-    if (type === CASEY) {
+    if (isMe) {
+      return ME_TABS;
+    } else if (type === CASEY) {
       return CASEY_TABS;
     } else if (person.userId) {
       return JEAN_TABS_MH_USER;
@@ -136,4 +148,5 @@ ContactHeader.propTypes = {
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,
+  isMe: PropTypes.bool.isRequired,
 };
