@@ -13,17 +13,17 @@ class KeyLoginScreen extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
 
-    this.usernameChanged = this.usernameChanged.bind(this);
+    this.emailChanged = this.emailChanged.bind(this);
     this.passwordChanged = this.passwordChanged.bind(this);
     this.login = this.login.bind(this);
   }
 
-  usernameChanged(username) {
-    this.setState({ username });
+  emailChanged(email) {
+    this.setState({ email });
   }
 
   passwordChanged(password) {
@@ -31,7 +31,7 @@ class KeyLoginScreen extends Component {
   }
 
   login() {
-    this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
+    this.props.dispatch(keyLogin(this.state.email, this.state.password)).then(() => {
       Keyboard.dismiss();
       this.props.dispatch(navigatePush('GetStarted'));
     });
@@ -42,23 +42,23 @@ class KeyLoginScreen extends Component {
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>please enter username and password</Text>
+          <Text type="header" style={styles.header}>please enter email and password</Text>
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              Username
+              Email
             </Text>
             <Input
-              ref={(c) => this.username = c}
-              onChangeText={this.usernameChanged}
-              value={this.state.username}
+              ref={(c) => this.email = c}
+              onChangeText={this.emailChanged}
+              value={this.state.email}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              placeholder="Username"
+              placeholder="Email"
               placeholderTextColor="white"
             />
           </View>
