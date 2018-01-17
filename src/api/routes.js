@@ -109,10 +109,6 @@ export default {
     endpoint: `${PEOPLE_URL}:userId`,
     method: 'put',
   },
-  'DELETE_USER': {
-    endpoint: `${PEOPLE_URL}:userId`,
-    method: 'delete',
-  },
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',
@@ -155,6 +151,10 @@ export default {
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
+  },
+  'DELETE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'delete',
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,

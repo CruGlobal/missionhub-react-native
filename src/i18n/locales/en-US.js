@@ -139,6 +139,8 @@ export default {
     delete: 'Delete Person',
     deleteQuestion: 'Delete {{name}}?',
     deleteSentence: 'Are you sure you want to delete this person?',
+    unassignQuestion: 'Unassign {{name}}?',
+    unassignSentence: 'Are you sure you want to unassign this person?',
     attemptedContact: 'Attempted Contact',
     completed: 'Completed',
     contacted: 'Contacted',
