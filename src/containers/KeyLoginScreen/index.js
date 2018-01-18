@@ -33,6 +33,7 @@ class KeyLoginScreen extends Component {
   login() {
     this.props.dispatch(keyLogin(this.state.email, this.state.password)).then(() => {
       Keyboard.dismiss();
+
       this.props.dispatch(navigatePush('GetStarted'));
     });
   }

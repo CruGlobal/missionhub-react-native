@@ -4,6 +4,7 @@ import { getMe } from './people';
 import { getStages } from './stages';
 import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
+import { updateLoggedInStatus } from './analytics';
 
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
@@ -38,6 +39,9 @@ function loginWithTicket(ticket) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data))
+      .then(() => {
+        return dispatch(updateLoggedInStatus(true));
+      })
       .catch((error) => {
         LOG('error logging in with ticket', error);
       });

@@ -1,6 +1,7 @@
 package com.missionhub;
 
 import com.facebook.react.ReactActivity;
+import com.adobe.mobile.Config;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +12,17 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "MissionHub";
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Config.pauseCollectingLifecycleData();
     }
 }
