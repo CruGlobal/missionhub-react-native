@@ -24,13 +24,19 @@ class App extends Component {
     appState: AppState.currentState,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.handleAppStateChange = this.handleAppStateChange.bind(this);
+  }
+
   componentWillMount() {
     getStore((store) => this.setState({ store }));
   }
 
   componentDidMount() {
     this.initializeAnalytics();
-    AppState.addEventListener('change', this.handleAppStateChange.bind(this));
+    AppState.addEventListener('change', this.handleAppStateChange);
   }
 
   initializeAnalytics() { //TODO add tests
@@ -48,7 +54,7 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleAppStateChange.bind(this));
+    AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
   handleAppStateChange(nextAppState) {
