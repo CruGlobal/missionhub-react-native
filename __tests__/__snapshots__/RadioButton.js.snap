@@ -6,7 +6,7 @@ exports[`renders correctly 1`] = `
   accessibilityLabel={undefined}
   accessibilityTraits="button"
   accessible={true}
-  hasTVPreferredFocus={undefined}
+  collapsable={undefined}
   hitSlop={undefined}
   isTVSelectable={true}
   nativeID={undefined}
@@ -18,12 +18,9 @@ exports[`renders correctly 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      undefined,
-    ]
+    Object {
+      "opacity": 1,
+    }
   }
   testID={undefined}
   tvParallaxProperties={undefined}
@@ -31,20 +28,50 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
-          "borderBottomWidth": 1,
-          "height": 90,
-          "paddingHorizontal": 24,
-          "width": 750,
-        },
-        Object {
-          "justifyContent": "center",
+          "alignItems": "center",
+          "flexDirection": "row",
         },
       ]
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "padding": 2,
+          },
+          Object {
+            "borderColor": "#52C5DC",
+          },
+          Object {
+            "borderRadius": 12.5,
+            "height": 25,
+            "width": 25,
+          },
+        ]
+      }
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 100,
+            "flex": 1,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0.3,
+              },
+            ],
+          }
+        }
+      />
+    </View>
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -57,47 +84,30 @@ exports[`renders correctly 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "marginLeft": 5,
+            },
+            undefined,
+          ],
         ]
       }
     >
-      JOHN DOE
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
-      }
-    >
-      123
+      Test label
     </Text>
   </View>
 </View>
 `;
 
-exports[`renders me correctly 1`] = `
+exports[`renders not checked correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
   accessibilityTraits="button"
   accessible={true}
-  hasTVPreferredFocus={undefined}
+  collapsable={undefined}
   hitSlop={undefined}
   isTVSelectable={true}
   nativeID={undefined}
@@ -109,12 +119,9 @@ exports[`renders me correctly 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      undefined,
-    ]
+    Object {
+      "opacity": 1,
+    }
   }
   testID={undefined}
   tvParallaxProperties={undefined}
@@ -122,20 +129,31 @@ exports[`renders me correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#E6E8EC",
-          "borderBottomWidth": 1,
-          "height": 90,
-          "paddingHorizontal": 24,
-          "width": 750,
-        },
-        Object {
-          "justifyContent": "center",
+          "alignItems": "center",
+          "flexDirection": "row",
         },
       ]
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "borderColor": "#52C5DC",
+            "borderWidth": 1,
+            "padding": 2,
+          },
+          null,
+          Object {
+            "borderRadius": 12.5,
+            "height": 25,
+            "width": 25,
+          },
+        ]
+      }
+    />
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -148,35 +166,18 @@ exports[`renders me correctly 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "marginLeft": 5,
+            },
+            undefined,
+          ],
         ]
       }
     >
-      ME
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
-      }
-    >
-      123
+      Test label
     </Text>
   </View>
 </View>

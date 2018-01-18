@@ -115,7 +115,7 @@ export default class ContactHeader extends Component {
   render() {
     const { person, type, stage } = this.props;
     return (
-      <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center">
+      <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center" self="stretch">
         <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
         <PillButton
           filled={true}

@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   row: {
-    height: theme.itemHeight,
+    paddingVertical: 15,
     paddingHorizontal: 24,
     backgroundColor: theme.white,
     width: theme.fullWidth,
@@ -18,5 +18,13 @@ export default StyleSheet.create({
   },
   stage: {
     fontSize: 14,
+    color: theme.inactiveColor,
+  },
+  uncontacted: {
+    color: theme.red,
+  },
+  uncontactedIcon: {
+    fontSize: 24,
+    color: theme.red,
   },
 });
