@@ -15,8 +15,6 @@ const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const mockStore = configureStore([thunk]);
 
-//TODO: improve this file
-
 constants.THE_KEY_CLIENT_ID = mockClientId;
 
 callApi.default = jest.fn().mockImplementation(
@@ -39,6 +37,7 @@ analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
 const peopleAction = { type: 'people' };
 people.getMe = jest.fn().mockReturnValue(peopleAction);
 
+//TODO: try to re-write this with fewer expectations
 it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
   const store = mockStore({});
 
