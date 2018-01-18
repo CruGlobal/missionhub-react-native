@@ -7,7 +7,6 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import BackButton from '../BackButton';
-import { ANALYTICS } from '../../constants';
 import { updateLoggedInStatus } from '../../actions/analytics';
 
 class KeyLoginScreen extends Component {
@@ -96,8 +95,4 @@ class KeyLoginScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ analytics }) => ({
-  mcId: analytics[ANALYTICS.MCID],
-});
-
-export default connect(mapStateToProps)(KeyLoginScreen);
+export default connect()(KeyLoginScreen);
