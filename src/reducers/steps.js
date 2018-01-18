@@ -2,6 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+import { findAllNonPlaceHolders } from '../utils/common';
 
 const initialState = {
   mine: [],
@@ -31,14 +32,14 @@ function stepsReducer(state = initialState, action) {
         suggestedForOthers: suggestions.filter((s) => !s.self_step),
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      let mySteps = action.results.findAll('accepted_challenge') || [];
+      let mySteps = findAllNonPlaceHolders(action.results, 'accepted_challenge');
       mySteps = mySteps.map((s)=> {
         if (state.reminders.find((r)=> r.id === s.id)) return { ...s, reminder: true };
         return s;
       });
       return {
         ...state,
-        mine: mySteps.filter((s) => !s._placeHolder),
+        mine: mySteps,
       };
     case ADD_STEP_REMINDER:
       const newMine = state.mine.map((s)=> {

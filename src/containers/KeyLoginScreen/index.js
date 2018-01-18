@@ -8,6 +8,7 @@ import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import BackButton from '../BackButton';
 import { getPeopleList } from '../../actions/people';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class KeyLoginScreen extends Component {
   }
 
   hasPersonWithStageSelected(jsonApiResponse) {
-    const people = (jsonApiResponse.findAll('person') || []).filter((p) => !p._placeHolder); //TODO move to common
+    const people = findAllNonPlaceHolders(jsonApiResponse, 'person');
 
     return !!people.find((person) => {
       return !!person.reverse_contact_assignments[0].pathway_stage_id;
