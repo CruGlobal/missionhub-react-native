@@ -53,10 +53,7 @@ class KeyLoginScreen extends Component {
 
   hasPersonWithStageSelected(jsonApiResponse) {
     const people = findAllNonPlaceHolders(jsonApiResponse, 'person');
-
-    return !!people.find((person) => {
-      return !!person.reverse_contact_assignments[0].pathway_stage_id;
-    });
+    return people.some((person) => person.reverse_contact_assignments[0].pathway_stage_id);
   }
 
   render() {
