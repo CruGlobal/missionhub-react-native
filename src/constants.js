@@ -31,6 +31,26 @@ export const LINKS = {
   terms: 'https://get.missionhub.com/terms-of-service/',
 };
 
+export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+
+export const ANALYTICS = {
+  PAGE_NAME: 'PageName',
+  MCID: 'cru.mcid',
+  SCREENNAME: 'cru.screenname',
+  PREVIOUS_SCREENNAME: 'cru.previousscreenname',
+  SITE_SECTION: 'cru.sitesection',
+  SITE_SUBSECTION: 'cru.sitesubsection',
+  SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
+  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
+  CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
+  CONTENT_TOPIC: 'cru.contenttopic',
+  LOGGED_IN_STATUS: 'cru.loggedinstatus',
+  SSO_GUID: 'cru.ssoguid',
+  GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
+  FACEBOOK_ID: 'cru.facebookid',
+  CONTENT_LANGUAGE: 'cru.contentlanguage',
+};
+
 export default {
 
 };
