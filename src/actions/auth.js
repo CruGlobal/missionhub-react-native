@@ -1,6 +1,8 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
 import { navigateReset } from './navigation';
-import { clearAllScheduledNotifications } from './notifications';
+import { getMe } from './people';
+import { getStages } from './stages';
+import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 
 export function keyLogin(email, password) {
@@ -61,3 +63,13 @@ export function firstTime() {
     dispatch({ type: FIRST_TIME });
   };
 }
+
+export function loadHome() {
+  return (dispatch) => {
+    // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
+    dispatch(setupPushNotifications());
+    dispatch(getMe());
+    dispatch(getStages());
+  };
+}
+

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import lodashMerge from 'lodash/merge';
+import lodash from 'lodash';
 
 export const getFirstThreeValidItems = (arr) => {
   return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
@@ -27,7 +27,8 @@ export const formatApiDate = (date) => moment(date).utc().format();
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 export const intToStringLocale = (num) => parseInt(num).toLocaleString();
 
-export const merge = lodashMerge;
+export const merge = lodash.merge;
+export const capitalize = lodash.capitalize;
 
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {
