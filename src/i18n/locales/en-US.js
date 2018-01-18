@@ -9,6 +9,11 @@ export default {
       email: 'Email',
       phone: 'Phone',
     },
+    swipe: {
+      remove: 'Remove',
+      complete: 'Complete',
+      edit: 'Edit',
+    },
     done: 'DONE',
     next: 'Next',
   },
@@ -106,11 +111,13 @@ export default {
     noReminders: 'I Don\'t Want Reminders',
   },
   stepsTab: {
+    nullHeader: 'STEPS OF FAITH',
+    nullWithReminders: 'Choose a person in People view and add some new steps.',
+    nullNoReminders: 'You don\'t have any steps of faith.\nChoose a person in People view and add some new steps.',
     title: 'Steps of Faith',
-    dragTitle: 'Focus your week',
-    dragDescription: 'Drag and drop up to 3 steps here and get handcrafted reminders.',
+    reminderTitle: 'Focus your week',
+    reminderDescription: 'Star up to 3 steps and get weekly, handcrafted reminders.',
     holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
-    reminderTitle: 'This week',
   },
   contactSideMenu: {
     edit: 'Edit',

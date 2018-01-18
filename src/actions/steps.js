@@ -104,9 +104,9 @@ export function challengeCompleteAction(step) {
   };
 }
 
-export function deleteStep(id) {
+export function deleteStep(step) {
   return (dispatch) => {
-    const query = { challenge_id: id };
+    const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r)=>{
       dispatch(getMySteps());
       return r;
