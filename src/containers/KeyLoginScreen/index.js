@@ -7,7 +7,6 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import BackButton from '../BackButton';
-import { updateLoggedInStatus } from '../../actions/analytics';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -35,7 +34,6 @@ class KeyLoginScreen extends Component {
     this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
       Keyboard.dismiss();
 
-      this.props.dispatch(updateLoggedInStatus(true));
       this.props.dispatch(navigatePush('GetStarted'));
     });
   }

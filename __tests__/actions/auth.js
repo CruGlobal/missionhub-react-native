@@ -4,6 +4,8 @@ import thunk from 'redux-thunk';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
+import * as analytics from '../../src/actions/analytics';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 
 const username = 'Roger';
 const password = 'secret';
@@ -27,6 +29,8 @@ callApi.default = jest.fn().mockImplementation(
     };
   }
 );
+
+analytics.updateLoggedInStatus = jest.fn().mockReturnValue({ type: ANALYTICS_CONTEXT_CHANGED });
 
 it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API', () => {
   const store = mockStore({});

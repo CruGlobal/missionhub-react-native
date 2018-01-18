@@ -2,6 +2,7 @@ import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '..
 import { navigateReset } from './navigation';
 import { clearAllScheduledNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
+import { updateLoggedInStatus } from './analytics';
 
 export function keyLogin(username, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${username}&password=${password}`;
@@ -36,6 +37,9 @@ function loginWithTicket(ticket) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data))
+      .then(() => {
+        return dispatch(updateLoggedInStatus(true));
+      })
       .catch((error) => {
         LOG('error logging in with ticket', error);
       });
