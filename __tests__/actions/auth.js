@@ -5,11 +5,11 @@ import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
-const username = 'Roger';
+const email = 'Roger';
 const password = 'secret';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
-const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${username}&password=${password}`;
+const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const mockStore = configureStore([thunk]);
 
 constants.THE_KEY_CLIENT_ID = mockClientId;
@@ -31,7 +31,7 @@ callApi.default = jest.fn().mockImplementation(
 it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API', () => {
   const store = mockStore({});
 
-  return store.dispatch(keyLogin(username, password))
+  return store.dispatch(keyLogin(email, password))
     .then(() => {
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});

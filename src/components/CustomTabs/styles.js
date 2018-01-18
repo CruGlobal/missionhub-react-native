@@ -7,10 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10,
+    paddingBottom: 0,
   },
   tabs: {
-    height: 45,
+    height: 50,
     flexDirection: 'row',
     marginVertical: 10,
   },
