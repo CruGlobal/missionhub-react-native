@@ -22,9 +22,6 @@ const mockState = {
     all: [],
     allByOrg: [],
   },
-  organizations: {
-    myOrgId: '',
-  },
   stages: {
     stagesObj: {},
   },

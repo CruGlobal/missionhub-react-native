@@ -94,12 +94,11 @@ export class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, people, organizations }) => ({
+const mapStateToProps = ({ auth, people }) => ({
   isCasey: !auth.hasMinistries,
   people: [auth.user].concat(people.all),
   sectionPeople: people.allByOrg,
   me: auth.user,
-  myOrgId: organizations.myOrgId,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

@@ -5,7 +5,6 @@ import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
 
 const initialState = {
-  myOrgId: '',
   all: [],
 };
 
@@ -26,7 +25,6 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: myOrgs,
-        myOrgId: myOrgs[0] ? myOrgs[0].id : '',
       };
     case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
       const orgs = (results.findAll('organization') || []).map((o) => ({ text: o.name, ...o }));
@@ -35,13 +33,6 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: allOrgs,
-      };
-    case REQUESTS.GET_ME.SUCCESS:
-      const user = (results.findAll('person') || [])[0] || {};
-      const myPrimaryOrgId = user.user ? user.user.primary_organization_id : null;
-      return {
-        ...state,
-        myOrgId: myPrimaryOrgId || state.myId,
       };
     case LOGOUT:
       return initialState;
