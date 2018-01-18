@@ -30,9 +30,10 @@ callApi.default = jest.fn().mockImplementation(
   }
 );
 
-analytics.updateLoggedInStatus = jest.fn().mockReturnValue({ type: ANALYTICS_CONTEXT_CHANGED });
+const action = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
+analytics.updateLoggedInStatus = jest.fn().mockReturnValue(action);
 
-it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API', () => {
+it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
   const store = mockStore({});
 
   return store.dispatch(keyLogin(username, password))
@@ -40,5 +41,7 @@ it('should login to the key, then get a key ticket, then send the key ticket to 
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+
+      expect(store.getActions()[0]).toBe(action);
     });
 });
