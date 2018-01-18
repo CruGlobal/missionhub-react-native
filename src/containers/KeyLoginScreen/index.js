@@ -32,7 +32,7 @@ class KeyLoginScreen extends Component {
   }
 
   login() {
-    this.props.dispatch(keyLogin(this.state.username, this.state.password)).then((response) => {
+    this.props.dispatch(keyLogin(this.state.email, this.state.password)).then((response) => {
       Keyboard.dismiss();
 
       if (response.findAll('user')[0].pathway_stage_id) {
