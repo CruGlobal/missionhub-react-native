@@ -7,9 +7,7 @@ import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getMe() {
   return (dispatch) => {
-    const query = {
-    };
-    return dispatch(callApi(REQUESTS.GET_ME, query));
+    return dispatch(callApi(REQUESTS.GET_ME));
   };
 }
 
