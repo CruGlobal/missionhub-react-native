@@ -52,7 +52,7 @@ describe('get people with org sections', () => {
     filters: {
       assigned_tos: 'me',
     },
-    includes: 'organizational_permission,organization',
+    includes: 'organizational_permissions',
   };
 
   const mockApiReturnValue = (dispatch) => {

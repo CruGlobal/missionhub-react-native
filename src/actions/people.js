@@ -28,7 +28,7 @@ export function getPeopleWithOrgSections() {
       filters: {
         assigned_tos: 'me',
       },
-      includes: 'organizational_permission,organization',
+      includes: 'organizational_permissions',
     };
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query)).then((results) => {
 
