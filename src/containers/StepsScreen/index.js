@@ -254,7 +254,7 @@ class StepsScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, steps, notifications }) => ({
-  isCasey: !auth.hasMinistries,
+  isCasey: !auth.isJean,
   myId: auth.personId,
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,

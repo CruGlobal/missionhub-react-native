@@ -32,15 +32,14 @@ export function getPeopleWithOrgSections() {
     };
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query)).then((results) => {
 
-      const isCasey = !getState().auth.hasMinistries;
-      if (isCasey) {
+      if (!getState().auth.isJean) {
         return results;
       }
 
       const people = findAllNonPlaceHolders(results, 'person');
       
       // Get the orgIds that from the request to compare with the ones we have already
-      const orgIds = findAllNonPlaceHolders(results, 'organization')
+      const orgIds = results.findAll('organization')
         .map((o) => o.id);
 
       const existingOrgIds = getState().organizations.all.map((o) => o.id);

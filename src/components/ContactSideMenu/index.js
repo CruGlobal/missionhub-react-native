@@ -52,8 +52,8 @@ export class ContactSideMenu extends Component {
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  isCasey: !auth.hasMinistries,
-  isJean: auth.hasMinistries,
+  isCasey: !auth.isJean,
+  isJean: auth.isJean,
 });
 
 export default connect(mapStateToProps)(ContactSideMenu);

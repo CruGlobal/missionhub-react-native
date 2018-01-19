@@ -75,7 +75,7 @@ describe('get people with org sections', () => {
 
   it('should get people with org sections', () => {
     store = configureStore([thunk])(
-      { auth: { hasMinistries: false } }
+      { auth: { isJean: false } }
     );
 
     return store.dispatch(getPeopleWithOrgSections()).then((result) => {
