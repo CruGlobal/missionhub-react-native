@@ -3,6 +3,7 @@ import lodash from 'lodash';
 import callApi, { REQUESTS } from './api';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
 import { getOrganizations } from './organizations';
+import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getMe() {
   return (dispatch) => {
@@ -12,10 +13,18 @@ export function getMe() {
   };
 }
 
-
-
-
 export function getPeopleList() {
+  return (dispatch) => {
+    const query = {
+      filters: {
+        assigned_tos: 'me',
+      },
+    };
+    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+  };
+}
+
+export function getPeopleWithOrgSections() {
   return (dispatch, getState) => {
     const query = {
       filters: {
@@ -30,11 +39,10 @@ export function getPeopleList() {
         return results;
       }
 
-      const people = (results.findAll('person') || []).filter((p) => !p._placeHolder);
+      const people = findAllNonPlaceHolders(results, 'person');
       
       // Get the orgIds that from the request to compare with the ones we have already
-      const orgIds = (results.findAll('organization') || [])
-        .filter((p) => !p._placeHolder)
+      const orgIds = findAllNonPlaceHolders(results, 'organization')
         .map((o) => o.id);
 
       const existingOrgIds = getState().organizations.all.map((o) => o.id);

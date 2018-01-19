@@ -2,7 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, PEOPLE_WITH_ORG_SECTIONS } from '../constants';
-import { useFirstExists } from '../utils/common';
+import { findAllNonPlaceHolders, useFirstExists } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -21,7 +21,7 @@ function peopleReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
-      const people = (action.results.findAll('person') || []).filter((p) => !p._placeHolder);
+      const people = findAllNonPlaceHolders(action.results, 'person');
       return {
         ...state,
         all: people,
