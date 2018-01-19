@@ -5,6 +5,7 @@ import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
+import * as people from '../../src/actions/people';
 import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 
 const email = 'Roger';
@@ -27,12 +28,16 @@ callApi.default = jest.fn().mockImplementation(
         }
       });
     };
-  }
+  },
 );
 
-const action = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
-analytics.updateLoggedInStatus = jest.fn().mockReturnValue(action);
+const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
+analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
 
+const peopleAction = { type: 'people' };
+people.getMe = jest.fn().mockReturnValue(peopleAction);
+
+//TODO: try to re-write this with fewer expectations
 it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
   const store = mockStore({});
 
@@ -42,6 +47,7 @@ it('should login to the key, then get a key ticket, then send the key ticket to 
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
 
-      expect(store.getActions()[0]).toBe(action);
+      expect(store.getActions()[0]).toBe(loggedInAction);
+      expect(store.getActions()[1]).toBe(peopleAction);
     });
 });
