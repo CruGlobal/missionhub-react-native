@@ -49,6 +49,17 @@ class KeyLoginScreen extends Component {
       } else {
         this.props.dispatch(navigatePush('GetStarted'));
       }
+    }).catch((error) => {
+      let errorMessage = 'There was a problem signing in.';
+
+      if (error['thekey_authn_error'] === 'invalid_credentials') {
+        errorMessage = 'Your Email or Password is Incorrect';
+
+      } else if (error['thekey_authn_error'] === 'account not verified') {
+        errorMessage = 'Verify your account via Email';
+      }
+
+      this.setState({ errorMessage });
     });
   }
 

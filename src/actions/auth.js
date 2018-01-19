@@ -16,6 +16,7 @@ export function keyLogin(email, password) {
       })
       .catch((error) => {
         LOG('error logging in', error);
+        return Promise.reject(error);
       });
   };
 }
@@ -28,6 +29,7 @@ function getKeyTicket() {
       })
       .catch((error) => {
         LOG('error getting ticket', error);
+        return Promise.reject(error);
       });
   };
 }
@@ -46,6 +48,7 @@ function loginWithTicket(ticket) {
       })
       .catch((error) => {
         LOG('error logging in with ticket', error);
+        return Promise.reject(error);
       });
   };
 }

@@ -21,12 +21,8 @@ const ERROR_CODES = [400, 401, 402, 403, 404, 500, 504];
 export function handleResponse(response) {
   if (!response) return null;
   if (response && ERROR_CODES.includes(response.status)) {
-    // TODO: Determine the right way to get the error response
-    throw new Error(`Status code: ${response.status}`);
-    // json(response).then((response2) => {
-    //   LOG('response2', response2);
-    //   Promise.reject(response2);
-    // });
+    return response.json().then((jsonResponse) => Promise.reject(jsonResponse));
+
   } else {
     return json(response);
     // return response;
