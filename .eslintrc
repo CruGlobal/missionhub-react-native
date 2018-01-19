@@ -44,6 +44,7 @@
       2,
       "always-multiline"
     ],
+    "no-multi-spaces": 2,
     "space-before-function-paren": [
       2,
       "never"
