@@ -1,12 +1,13 @@
 import auth from '../../src/reducers/auth';
 import { REQUESTS } from '../../src/actions/api';
+import { JsonApiDataStore } from 'jsonapi-datastore';
 
 const token = 'asdfasndfiosdc';
 const personId = 123456;
 
 const callAuth = (type, results) => {
   return auth(
-    {},
+    { user: {} },
     {
       type: type,
       results: results,
@@ -46,4 +47,24 @@ it('returns token, person id, and logged in status after creating person', () =>
   expect(state.isLoggedIn).toBe(true);
   expect(state.token).toBe(token);
   expect(state.personId).toBe(`${personId}`);
+});
+
+it('sets isJean after loading me', () => {
+  const jsonApiStore = new JsonApiDataStore();
+  jsonApiStore.sync({
+    data: {
+      type: 'person',
+      relationships: {
+        organizational_permissions: {
+          data: [
+            { id: 1, type: 'organizational_permission' },
+          ],
+        },
+      },
+    },
+  });
+
+  const state = callAuth(REQUESTS.GET_ME.SUCCESS, jsonApiStore);
+
+  expect(state.isJean).toBe(true);
 });

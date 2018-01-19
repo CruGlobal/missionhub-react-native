@@ -75,7 +75,6 @@ function authReducer(state = initialAuthState, action) {
         user,
         isJean: results.findAll('person')[0].organizational_permissions.length > 0,
       };
-
     case REQUESTS.GET_STAGES.SUCCESS:
       // Add the matching 'stage' object to the user object
       const stages = results.findAll('pathway_stage') || [];
