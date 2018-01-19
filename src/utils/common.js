@@ -20,7 +20,7 @@ export const clone = (obj) => JSON.parse(JSON.stringify(obj));
 export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
-  (jsonApiResponse.findAll(type) || [])
+  jsonApiResponse.findAll(type)
     .filter((element) => !element._placeHolder);
 
 // Pull dates out of UTC format into a moment object
