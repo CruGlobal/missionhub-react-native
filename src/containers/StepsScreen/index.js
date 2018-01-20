@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { View, Image, ScrollView, FlatList, ToastAndroid } from 'react-native';
+import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
-import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
+import { setupPushNotifications, noNotificationReminder, toast } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
-import { isAndroid } from '../../utils/common';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 
@@ -47,9 +46,7 @@ class StepsScreen extends Component {
       return;
     }
     
-    if (isAndroid) {
-      ToastAndroid.show('✔ Reminder Added', ToastAndroid.SHORT);
-    }
+    this.props.dispatch(toast('✔ Reminder Added'));
     
     this.props.dispatch(setStepReminder(step));
     this.reminderAdded();
@@ -185,7 +182,6 @@ class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {/* <Flex align="center" justify="center" value={1} style={styles.container}> */}
         <ScrollView style={styles.container}>
           {this.renderTop()}
           {this.renderList()}

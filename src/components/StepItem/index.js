@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import styles from './styles';
+import theme from '../../theme';
 
 class StepItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
@@ -17,17 +18,20 @@ class StepItem extends Component {
     ownerName = ownerName.toUpperCase();
     return (
       <Touchable
-        activeOpacity={1}
         highlight={type !== 'reminder'}
-        onPress={this.handleSelect}>
+        style={type && styles[type] ? styles[type] : undefined}
+        onPress={this.handleSelect}
+        activeOpacity={1}
+        underlayColor={theme.convert({
+          color: theme.secondaryColor,
+          lighten: 0.5,
+        })}
+      >
         <Flex
           ref={(c) => this._view = c}
           align="center"
           direction="row"
-          style={[
-            styles.row,
-            type && styles[type] ? styles[type] : null,
-          ]}
+          style={styles.row}
         >
           <Flex value={1} justify="center" direction="column">
             {
@@ -44,7 +48,13 @@ class StepItem extends Component {
           {
             onAction ? (
               <Touchable onPress={this.handleAction}>
-                <Icon name="searchIcon" type="MissionHub" style={styles.icon} />
+                <Icon
+                  name="searchIcon"
+                  type="MissionHub"
+                  style={[
+                    styles.icon,
+                    type === 'reminder' ? styles.iconReminder : undefined,
+                  ]} />
               </Touchable>
             ) : null
           }

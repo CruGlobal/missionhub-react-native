@@ -4,10 +4,9 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   row: {
-    paddingVertical: 15,
+    paddingVertical: 16,
     paddingLeft: 24,
     paddingRight: 13,
-    backgroundColor: theme.transparent,
     width: theme.fullWidth,
     marginTop: 1,
   },
@@ -32,6 +31,9 @@ export default StyleSheet.create({
   },
   icon: {
     padding: 10,
+    color: theme.secondaryColor,
+  },
+  iconReminder: {
     color: theme.primaryColor,
   },
 });
