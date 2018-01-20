@@ -56,6 +56,12 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
   },
+  'FACEBOOK_LOGIN': {
+    endpoint: `${AUTH_URL}facebook`,
+    method: 'post',
+    useJsonDataApiStore: false,
+    anonymous: true,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
     method: 'get',
