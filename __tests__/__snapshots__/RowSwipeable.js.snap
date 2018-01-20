@@ -48,35 +48,69 @@ exports[`renders correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
+            Object {},
             Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 26,
-              },
-              Object {},
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
+              "alignItems": "center",
+              "flexDirection": "column",
+              "justifyContent": "center",
             },
           ]
         }
       >
-        
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+              },
+            ]
+          }
+        >
+          Remove
+        </Text>
+      </View>
     </View>
     <View
       accessibilityComponentType={undefined}
@@ -97,7 +131,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#50DCC8",
+          "backgroundColor": "#007398",
           "flex": 1,
           "justifyContent": "center",
           "opacity": 1,
@@ -106,35 +140,69 @@ exports[`renders correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
+            Object {},
             Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 26,
-              },
-              Object {},
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
+              "alignItems": "center",
+              "flexDirection": "column",
+              "justifyContent": "center",
             },
           ]
         }
       >
-        
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+              },
+            ]
+          }
+        >
+          Complete
+        </Text>
+      </View>
     </View>
   </View>
   <View
