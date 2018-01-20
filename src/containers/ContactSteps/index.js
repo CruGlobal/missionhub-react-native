@@ -12,6 +12,7 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -33,9 +34,9 @@ class ContactSteps extends Component {
 
   getSteps() {
     this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
-      const steps = results.findAll('accepted_challenge') || [];
-      let newSteps = steps.filter((s) => !s._placeHolder);
-      this.setState({ steps: newSteps });
+      const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
+
+      this.setState({ steps });
     });
   }
 

@@ -3,6 +3,7 @@ import { View, Image, ScrollView, FlatList, ToastAndroid } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { setupPushNotifications, noNotificationReminder } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
@@ -32,7 +33,7 @@ class StepsScreen extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(setupPushNotifications());
+    this.props.dispatch(loadHome());
     this.props.dispatch(getMySteps());
   }
 
@@ -103,7 +104,7 @@ class StepsScreen extends Component {
                   step={s}
                   type="reminder"
                   onSelect={this.handleRowSelect}
-                  onAction={this.handleRemoveReminder}  />
+                  onAction={this.handleRemoveReminder} />
               </RowSwipeable>
             ))
           }

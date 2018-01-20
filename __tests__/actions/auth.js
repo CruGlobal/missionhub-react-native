@@ -4,6 +4,9 @@ import thunk from 'redux-thunk';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
+import * as analytics from '../../src/actions/analytics';
+import * as people from '../../src/actions/people';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 
 const email = 'Roger';
 const password = 'secret';
@@ -25,10 +28,17 @@ callApi.default = jest.fn().mockImplementation(
         }
       });
     };
-  }
+  },
 );
 
-it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API', () => {
+const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
+analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
+
+const peopleAction = { type: 'people' };
+people.getMe = jest.fn().mockReturnValue(peopleAction);
+
+//TODO: try to re-write this with fewer expectations
+it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
   const store = mockStore({});
 
   return store.dispatch(keyLogin(email, password))
@@ -36,5 +46,8 @@ it('should login to the key, then get a key ticket, then send the key ticket to 
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
       expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+
+      expect(store.getActions()[0]).toBe(loggedInAction);
+      expect(store.getActions()[1]).toBe(peopleAction);
     });
 });

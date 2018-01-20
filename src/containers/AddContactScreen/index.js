@@ -20,18 +20,29 @@ class ProfileScreen extends Component {
     };
 
     this.savePerson = this.savePerson.bind(this);
+    this.handleUpdateData = this.handleUpdateData.bind(this);
+  }
+
+  handleUpdateData(data) {
+    this.setState({ data });
   }
 
   savePerson() {
     let saveData = { ...this.state.data };
-    if (this.props.orgId) {
-      saveData.orgId = this.props.orgId;
+    if (this.props.organization) {
+      saveData.orgId = this.props.organization.id;
     }
-    this.props.dispatch(addNewContact(saveData));
+    this.props.dispatch(addNewContact(saveData)).then((results) => {
+      if (this.props.onComplete) {
+        this.props.onComplete(results);
+      }
+      this.props.dispatch(navigateBack());
+    });
   }
 
   render() {
-    const { t } = this.props;
+    const { t, organization } = this.props;
+    const orgName = organization ? organization.name : undefined;
 
     return (
       <PlatformKeyboardAvoidingView>
@@ -43,9 +54,9 @@ class ProfileScreen extends Component {
               onPress={() => this.props.dispatch(navigateBack())} />
           }
           shadow={false}
-          title={t('addSomeone').toUpperCase()}
+          title={orgName ? t('addToOrg', { orgName }) : t('addSomeone').toUpperCase()}
         />
-        <AddContactFields onUpdateData={(data) => this.setState({ data })} />
+        <AddContactFields onUpdateData={this.handleUpdateData} />
 
         <Flex value={1} align="stretch" justify="end">
           <Button
@@ -61,7 +72,8 @@ class ProfileScreen extends Component {
 }
 
 ProfileScreen.propTypes = {
-  orgId: PropTypes.string,
+  organization: PropTypes.object,
+  onComplete: PropTypes.func,
 };
 
 const mapStateToProps = (state, { navigation }) => ({

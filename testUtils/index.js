@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 export const createMockStore = (state = {}) => {
   return {
     getState: jest.fn(() => (state)),
-    dispatch: jest.fn(() => Promise.resolve()),
+    dispatch: jest.fn((response) => Promise.resolve(response)),
     subscribe: jest.fn(),
   };
 };

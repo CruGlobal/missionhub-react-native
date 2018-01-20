@@ -8,6 +8,11 @@ export default {
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
       phone: 'Phone',
+      gender: 'Gender',
+    },
+    gender: {
+      male: 'Male',
+      female: 'Female',
     },
     swipe: {
       remove: 'Remove',
@@ -40,7 +45,8 @@ export default {
     signIn: 'Sign In',
   },
   addContact: {
-    addSomeone: 'Add Someone',
+    addSomeone: 'ADD SOMEONE',
+    addToOrg: 'ADD SOMEONE to {{orgName}}',
   },
   addStep: {
     header: 'My Step of Faith',

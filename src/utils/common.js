@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import lodashMerge from 'lodash/merge';
+import lodash from 'lodash';
 
 export const getFirstThreeValidItems = (arr) => {
   return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
@@ -19,6 +19,9 @@ export const exists = (v) => typeof v !== 'undefined';
 export const clone = (obj) => JSON.parse(JSON.stringify(obj));
 export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
+export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
+  jsonApiResponse.findAll(type)
+    .filter((element) => !element._placeHolder);
 
 // Pull dates out of UTC format into a moment object
 export const momentUtc = (time) => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
@@ -27,7 +30,8 @@ export const formatApiDate = (date) => moment(date).utc().format();
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 export const intToStringLocale = (num) => parseInt(num).toLocaleString();
 
-export const merge = lodashMerge;
+export const merge = lodash.merge;
+export const capitalize = lodash.capitalize;
 
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {

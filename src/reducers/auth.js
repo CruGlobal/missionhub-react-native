@@ -10,6 +10,7 @@ const initialAuthState = {
   refreshToken: '',
   personId: '',
   hasMinistries: false,
+  user: {},
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -62,6 +63,33 @@ function authReducer(state = initialAuthState, action) {
         isLoggedIn: true,
         token: results.token,
         personId: `${results.person_id}`,
+      };
+    case REQUESTS.GET_ME.SUCCESS:
+      let user = (results.findAll('person') || [])[0] || {};
+      // Add the stage if we're getting the same user again
+      if (state.user.stage && state.user.id === user.id) {
+        user.stage = state.user.stage;
+      }
+      return {
+        ...state,
+        personId: `${user.id}`,
+        user,
+        // hasMinistries: true,
+      };
+
+    case REQUESTS.GET_STAGES.SUCCESS:
+      // Add the matching 'stage' object to the user object
+      const stages = results.findAll('pathway_stage') || [];
+      let userWithStage = { ...state.user };
+      if (userWithStage.user && userWithStage.user.pathway_stage_id) {
+        const myStage = stages.find((s) => `${s.id}` === `${userWithStage.user.pathway_stage_id}`);
+        if (myStage) {
+          userWithStage.stage = myStage;
+        }
+      }
+      return {
+        ...state,
+        user: userWithStage,
       };
     case LOGOUT:
       return initialAuthState;

@@ -1771,7 +1771,7 @@ enzyme-adapter-utils@^1.1.0:
     object.assign "^4.0.4"
     prop-types "^15.5.10"
 
-enzyme-to-json@^3.3.0:
+enzyme-to-json@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.0.tgz#553e23a09ffb4b0cf09287e2edf9c6539fddaa84"
   dependencies:
@@ -3608,7 +3608,7 @@ mitt@^1.1.2:
   dependencies:
     minimist "0.0.8"
 
-mockdate@^2.0.2:
+mockdate@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-2.0.2.tgz#5ae0c0eaf8fe23e009cd01f9889b42c4f634af12"
 
@@ -4328,6 +4328,10 @@ react-native-drawer-layout@1.3.2:
   resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
+
+"react-native-omniture@github:dsgoers/react-native-omniture#953316a4453d1c5be7543fdff60f99d1d40be1d5":
+  version "0.0.1"
+  resolved "https://codeload.github.com/dsgoers/react-native-omniture/tar.gz/953316a4453d1c5be7543fdff60f99d1d40be1d5"
 
 react-native-push-notification@3.0.2:
   version "3.0.2"
