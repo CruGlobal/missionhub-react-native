@@ -2903,6 +2903,17 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               tabLabel={undefined}
             />
           </View>
+          <View
+            style={
+              Object {
+                "width": 750,
+              }
+            }
+          >
+            <View
+              tabLabel={undefined}
+            />
+          </View>
         </View>
       </RCTScrollView>
     </View>

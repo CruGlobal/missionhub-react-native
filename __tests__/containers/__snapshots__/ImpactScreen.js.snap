@@ -167,6 +167,11 @@ exports[`Impact Screen renders correctly 1`] = `
   </View>
   <RCTScrollView
     bounces={false}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
     <View>
       <View

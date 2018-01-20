@@ -51,6 +51,18 @@ export const ANALYTICS = {
   CONTENT_LANGUAGE: 'cru.contentlanguage',
 };
 
+export const INTERACTION_TYPES = {
+  MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
+  MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
+  // MHInteractionTypeNote: { id: 1, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation' },
+  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel' },
+  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision' },
+  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit' },
+  // MHInteractionTypeGraduatingOnMission: { id: 6, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation' },
+};
+
 export default {
 
 };
