@@ -34,7 +34,7 @@ class ImpactScreen extends Component {
   render() {
     const { t } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: 'black' }}>
+      <View style={{ flex: 1 }}>
         <Header
           left={
             <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />

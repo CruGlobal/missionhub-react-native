@@ -4,7 +4,6 @@ exports[`Impact Screen renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "black",
       "flex": 1,
     }
   }
