@@ -8,6 +8,16 @@ export default {
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
       phone: 'Phone',
+      gender: 'Gender',
+    },
+    gender: {
+      male: 'Male',
+      female: 'Female',
+    },
+    swipe: {
+      remove: 'Remove',
+      complete: 'Complete',
+      edit: 'Edit',
     },
     done: 'DONE',
     next: 'Next',
@@ -35,7 +45,8 @@ export default {
     signIn: 'Sign In',
   },
   addContact: {
-    addSomeone: 'Add Someone',
+    addSomeone: 'ADD SOMEONE',
+    addToOrg: 'ADD SOMEONE to {{orgName}}',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -64,6 +75,13 @@ export default {
     impactSentence: 'In {{year}}, {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
     you: 'you',
     users: 'users',
+    interactionSpiritualConversation: 'Spiritual Conversations',
+    interactionGospel: 'Gospel Presentations',
+    interactionDecision: 'Personal Decisions',
+    interactionSpirit: 'Holy Spirit Presentations',
+    interactionDiscipleshipConversation: 'Discipleship Conversations',
+    interactionAssignedContacts: 'Assigned Contacts',
+    interactionUncontacted: 'Uncontacted',
   },
   notes: {
     add: 'ADD PRIVATE NOTES',
@@ -106,11 +124,13 @@ export default {
     noReminders: 'I Don\'t Want Reminders',
   },
   stepsTab: {
+    nullHeader: 'STEPS OF FAITH',
+    nullWithReminders: 'Choose a person in People view and add some new steps.',
+    nullNoReminders: 'You don\'t have any steps of faith.\nChoose a person in People view and add some new steps.',
     title: 'Steps of Faith',
-    dragTitle: 'Focus your week',
-    dragDescription: 'Drag and drop up to 3 steps here and get handcrafted reminders.',
+    reminderTitle: 'Focus your week',
+    reminderDescription: 'Star up to three steps and get weekly handcrafted reminders.',
     holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
-    reminderTitle: 'This week',
   },
   contactSideMenu: {
     edit: 'Edit',

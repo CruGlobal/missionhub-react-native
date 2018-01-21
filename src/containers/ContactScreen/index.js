@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { navigatePush, navigateReset } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getUserDetails } from '../../actions/people';
 import { getStages } from '../../actions/stages';
 
@@ -72,12 +72,12 @@ class ContactScreen extends Component {
   }
 
   render() {
-    const { person, isCasey } = this.props;
+    const { person, isCasey, myId } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateReset('MainTabs'))} />
+            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateBack())} />
           }
           right={
             <IconButton name="moreIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
@@ -85,7 +85,7 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <ContactHeader onChangeStage={this.handleChangeStage} type={isCasey ? CASEY : JEAN} person={person} stage={this.state.contactStage} />
+          <ContactHeader onChangeStage={this.handleChangeStage} type={isCasey ? CASEY : JEAN} isMe={myId === person.id ? true : false} person={person} stage={this.state.contactStage} />
         </Flex>
       </View>
     );

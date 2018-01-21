@@ -63,7 +63,7 @@ class AddStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveStep}
-            text={this.props.type && this.props.type === 'journey' ? t('addJourney').toUpperCase() :  t('createStep').toUpperCase()}
+            text={this.props.type && this.props.type === 'journey' ? t('addJourney').toUpperCase() : t('createStep').toUpperCase()}
             style={styles.createButton}
           />
         </Flex>

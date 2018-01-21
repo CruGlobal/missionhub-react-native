@@ -7,23 +7,25 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import BackButton from '../BackButton';
+import { getPeopleList } from '../../actions/people';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
 
-    this.usernameChanged = this.usernameChanged.bind(this);
+    this.emailChanged = this.emailChanged.bind(this);
     this.passwordChanged = this.passwordChanged.bind(this);
     this.login = this.login.bind(this);
   }
 
-  usernameChanged(username) {
-    this.setState({ username });
+  emailChanged(email) {
+    this.setState({ email });
   }
 
   passwordChanged(password) {
@@ -31,10 +33,27 @@ class KeyLoginScreen extends Component {
   }
 
   login() {
-    this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
+    this.props.dispatch(keyLogin(this.state.email, this.state.password)).then((response) => {
       Keyboard.dismiss();
-      this.props.dispatch(navigatePush('GetStarted'));
+
+      if (response.findAll('user')[0].pathway_stage_id) {
+        this.props.dispatch(getPeopleList()).then((response) => {
+          if (this.hasPersonWithStageSelected(response)) {
+            this.props.dispatch(navigatePush('MainTabs'));
+          } else {
+            this.props.dispatch(navigatePush('AddSomeone'));
+          }
+        });
+
+      } else {
+        this.props.dispatch(navigatePush('GetStarted'));
+      }
     });
+  }
+
+  hasPersonWithStageSelected(jsonApiResponse) {
+    const people = findAllNonPlaceHolders(jsonApiResponse, 'person');
+    return people.some((person) => person.reverse_contact_assignments[0].pathway_stage_id);
   }
 
   render() {
@@ -42,23 +61,23 @@ class KeyLoginScreen extends Component {
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>please enter username and password</Text>
+          <Text type="header" style={styles.header}>please enter email and password</Text>
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              Username
+              Email
             </Text>
             <Input
-              ref={(c) => this.username = c}
-              onChangeText={this.usernameChanged}
-              value={this.state.username}
+              ref={(c) => this.email = c}
+              onChangeText={this.emailChanged}
+              value={this.state.email}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              placeholder="Username"
+              placeholder="Email"
               placeholderTextColor="white"
             />
           </View>

@@ -1,6 +1,8 @@
 rootProject.name = 'MissionHub'
 include ':react-native-fbsdk'
 project(':react-native-fbsdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fbsdk/android')
+include ':react-native-omniture'
+project(':react-native-omniture').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-omniture/android')
 include ':react-native-push-notification'
 project(':react-native-push-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-push-notification/android')
 include ':react-native-device-info'

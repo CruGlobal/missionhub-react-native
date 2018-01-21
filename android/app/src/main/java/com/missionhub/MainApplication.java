@@ -7,6 +7,7 @@ import android.content.Context;
 
 import com.facebook.react.ReactApplication;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -42,6 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new FBSDKPackage(mCallbackManager),
+            new OmniturePackage(),
             new ReactNativePushNotificationPackage(),
             new RNDeviceInfo(),
             new VectorIconsPackage()

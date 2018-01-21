@@ -105,7 +105,7 @@ export class ContactNotes extends Component {
       return (
         <PlatformKeyboardAvoidingView offset={this.state.keyboardHeight}>
           <Flex align="stretch" justify="center" value={1} style={styles.container}>
-            { (this.state.text || this.state.editing) ?  this.renderNotes() : this.renderEmpty() }
+            { (this.state.text || this.state.editing) ? this.renderNotes() : this.renderEmpty() }
           </Flex>
           <Flex justify="end">
             <Button

@@ -1,8 +1,8 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT } from '../constants';
-import { useFirstExists } from '../utils/common';
+import { LOGOUT, PEOPLE_WITH_ORG_SECTIONS } from '../constants';
+import { findAllNonPlaceHolders, useFirstExists } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -21,23 +21,18 @@ function peopleReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
-      const people = action.results.findAll('person') || [];
-      let peopleByOrg = people.reduce((p, n) => {
-        const orgId = n.organization_id;
-        if (p[orgId]) {
-          p[orgId].data.push(n);
-        } else {
-          p[orgId] = { key: orgId, data: [n] };
-        }
-      }, {});
-      peopleByOrg = Object.keys(peopleByOrg).map((key) => peopleByOrg[key]);
+      const people = findAllNonPlaceHolders(action.results, 'person');
       return {
         ...state,
         all: people,
-        allByOrg: peopleByOrg,
       };
     case LOGOUT:
       return initialState;
+    case PEOPLE_WITH_ORG_SECTIONS:
+      return {
+        ...state,
+        allByOrg: action.sections,
+      };
     default:
       return state;
   }

@@ -165,184 +165,54 @@ exports[`renders android correctly 1`] = `
       }
     />
   </View>
-  <View
+  <RCTScrollView
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "flex": 1,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Array [
-            Object {
-              "backgroundColor": "#66D9F0",
-              "width": 750,
-            },
-            Object {
-              "paddingHorizontal": 27,
-              "paddingVertical": 32,
-            },
-            Object {
-              "height": 250,
-              "zIndex": 1,
-            },
-          ],
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
+    <View>
+      <RCTScrollView
+        bounces={false}
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={true}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
         style={
           Array [
             Object {
-              "borderColor": "#ffffff",
-              "borderRadius": 3,
-              "borderStyle": "dashed",
-              "borderWidth": 2,
-              "padding": 25,
-            },
-            Object {
-              "alignItems": "center",
-              "flex": 1,
-              "justifyContent": "center",
+              "backgroundColor": "transparent",
+              "overflow": "scroll",
+              "paddingBottom": 50,
             },
           ]
         }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 36,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "AmaticSC-Bold",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 36,
-                "textAlign": "center",
-              },
-            ]
-          }
-        >
-          FOCUS YOUR WEEK
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "textAlign": "center",
-              },
-            ]
-          }
-        >
-          Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.
-        </Text>
-      </View>
+        <View />
+      </RCTScrollView>
     </View>
-    <RCTScrollView
-      bounces={false}
-      contentInset={
-        Object {
-          "bottom": 0,
-        }
-      }
-      data={Array []}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      removeClippedSubviews={true}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={100}
-      showsVerticalScrollIndicator={false}
-      stickyHeaderIndices={Array []}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "overflow": "scroll",
-            "paddingBottom": 50,
-          },
-          Object {
-            "paddingTop": 0,
-          },
-        ]
-      }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View />
-    </RCTScrollView>
-  </View>
+  </RCTScrollView>
 </View>
 `;

@@ -5,6 +5,7 @@ const THE_KEY_URL = 'https://stage.thekey.me/cas/api/oauth/';
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
+const REPORTS_URL = `${API_URL}reports/people`;
 
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
@@ -61,10 +62,11 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
     anonymous: true,
+  'GET_ME': {
+    endpoint: `${PEOPLE_URL}me`,
   },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
-    method: 'get',
     anonymous: true,
   },
   'GET_CHALLENGE_SUGGESTIONS': {
@@ -113,6 +115,9 @@ export default {
   'GET_MY_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,
   },
+  'GET_ORGANIZATIONS': {
+    endpoint: `${API_URL}organizations`,
+  },
   'GET_MY_GROUPS': {
     endpoint: `${API_URL}groups`,
   },
@@ -126,8 +131,14 @@ export default {
   'GET_MY_IMPACT': {
     endpoint: IMPACT_URL,
   },
+  'GET_IMPACT_BY_ID': {
+    endpoint: IMPACT_URL,
+  },
   'GET_GLOBAL_IMPACT': {
     endpoint: IMPACT_URL,
+  },
+  'GET_USER_IMPACT': {
+    endpoint: REPORTS_URL,
   },
   'GET_USER_DETAILS': {
     endpoint: `${PEOPLE_URL}:userId`,

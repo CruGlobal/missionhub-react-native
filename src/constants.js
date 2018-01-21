@@ -15,6 +15,7 @@ export const PUSH_NOTIFICATION_SHOULD_ASK = 'app/PUSH_NOTIFICATION_SHOULD_ASK';
 export const PUSH_NOTIFICATION_ASKED = 'app/PUSH_NOTIFICATION_ASKED';
 export const PUSH_NOTIFICATION_SET_TOKEN = 'app/PUSH_NOTIFICATION_SET_TOKEN';
 export const PUSH_NOTIFICATION_REMINDER = 'app/PUSH_NOTIFICATION_REMINDER';
+export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';
@@ -28,6 +29,38 @@ export const LINKS = {
   playStore: 'market://details?id=com.missionhub',
   appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
   terms: 'https://get.missionhub.com/terms-of-service/',
+};
+
+export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+
+export const ANALYTICS = {
+  PAGE_NAME: 'PageName',
+  MCID: 'cru.mcid',
+  SCREENNAME: 'cru.screenname',
+  PREVIOUS_SCREENNAME: 'cru.previousscreenname',
+  SITE_SECTION: 'cru.sitesection',
+  SITE_SUBSECTION: 'cru.sitesubsection',
+  SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
+  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
+  CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
+  CONTENT_TOPIC: 'cru.contenttopic',
+  LOGGED_IN_STATUS: 'cru.loggedinstatus',
+  SSO_GUID: 'cru.ssoguid',
+  GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
+  FACEBOOK_ID: 'cru.facebookid',
+  CONTENT_LANGUAGE: 'cru.contentlanguage',
+};
+
+export const INTERACTION_TYPES = {
+  MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
+  MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
+  // MHInteractionTypeNote: { id: 1, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation' },
+  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel' },
+  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision' },
+  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit' },
+  // MHInteractionTypeGraduatingOnMission: { id: 6, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation' },
 };
 
 export default {

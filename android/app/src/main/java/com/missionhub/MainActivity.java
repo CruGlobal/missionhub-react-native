@@ -2,6 +2,7 @@ package com.missionhub;
 
 import android.content.Intent;
 import com.facebook.react.ReactActivity;
+import com.adobe.mobile.Config;
 
 public class MainActivity extends ReactActivity {
 
@@ -19,4 +20,14 @@ public class MainActivity extends ReactActivity {
        super.onActivityResult(requestCode, resultCode, data);
        MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
    }
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Config.pauseCollectingLifecycleData();
+    }
 }

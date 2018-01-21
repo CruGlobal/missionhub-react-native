@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { View, Animated, PanResponder, DeviceEventEmitter } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
-import { Flex, Touchable, Icon } from '../common';
+import { Flex, Touchable, Icon, Text } from '../common';
 import styles from './styles';
 
 const OPEN_DISTANCE = -150;
-export default class RowSwipeable extends Component {
+@translate()
+class RowSwipeable extends Component {
 
   constructor(props) {
     super(props);
@@ -80,7 +82,7 @@ export default class RowSwipeable extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, t } = this.props;
 
     const panStyle = {
       transform: [{ translateX: this.translateX }],
@@ -89,10 +91,16 @@ export default class RowSwipeable extends Component {
       <View>
         <Flex direction="row" justify="end" style={styles.optionsWrap}>
           <Touchable style={styles.deleteWrap} onPress={this.props.onDelete}>
-            <Icon name="deleteIcon" type="MissionHub" size={26} />
+            <Flex direction="column" align="center" justify="center">
+              <Icon name="deleteIcon" type="MissionHub" size={26} />
+              <Text style={styles.text}>{t('swipe.remove')}</Text>
+            </Flex>
           </Touchable>
           <Touchable style={styles.completeWrap} onPress={this.props.onComplete}>
-            <Icon name="checkIcon" type="MissionHub" size={26} />
+            <Flex direction="column" align="center" justify="center">
+              <Icon name="checkIcon" type="MissionHub" size={26} />
+              <Text style={styles.text}>{t('swipe.complete')}</Text>
+            </Flex>
           </Touchable>
         </Flex>
         <Animated.View {...this.panResponder.panHandlers} style={panStyle}>
@@ -106,3 +114,5 @@ export default class RowSwipeable extends Component {
 RowSwipeable.propTypes = {
   children: PropTypes.element.isRequired,
 };
+
+export default RowSwipeable;

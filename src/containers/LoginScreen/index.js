@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
@@ -9,6 +9,7 @@ import { createMyPerson } from '../../actions/profile';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
+import BaseScreen from '../../components/BaseScreen';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -16,8 +17,7 @@ const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
 const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
 @translate('login')
-class LoginScreen extends Component {
-
+class LoginScreen extends BaseScreen {
   constructor(props) {
     super(props);
 

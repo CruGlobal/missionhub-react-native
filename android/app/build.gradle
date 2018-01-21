@@ -141,6 +141,7 @@ android {
 
 dependencies {
     compile project(':react-native-fbsdk')
+    compile project(':react-native-omniture')
     compile project(':react-native-push-notification')
     compile project(':react-native-device-info')
     compile project(':react-native-vector-icons')
