@@ -232,6 +232,8 @@ exports[`renders type action correctly 1`] = `
       },
       Object {
         "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
       },
     ]
   }
@@ -481,6 +483,8 @@ exports[`renders type reminder correctly 1`] = `
   style={
     Object {
       "backgroundColor": "rgb(183, 231, 240)",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
       "opacity": 1,
     }
   }
@@ -587,6 +591,8 @@ exports[`renders type swipeable correctly 1`] = `
       },
       Object {
         "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
       },
     ]
   }

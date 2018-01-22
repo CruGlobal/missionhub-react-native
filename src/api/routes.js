@@ -57,6 +57,12 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
   },
+  'FACEBOOK_LOGIN': {
+    endpoint: `${AUTH_URL}facebook`,
+    method: 'post',
+    useJsonDataApiStore: false,
+    anonymous: true,
+  },
   'GET_ME': {
     endpoint: `${PEOPLE_URL}me`,
   },

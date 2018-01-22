@@ -82,9 +82,8 @@ class StepsScreen extends Component {
   }
 
   renderTop() {
-    const { steps, reminders, t } = this.props;
+    const { reminders, t } = this.props;
 
-    if (steps.length === 0) return null;
 
     if (reminders.length > 0) {
       return (

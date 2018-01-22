@@ -42,6 +42,12 @@ function profileReducer(state = initialProfileState, action) {
         firstName: results.first_name,
         lastName: results.last_name,
       };
+    case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
+      return {
+        ...state,
+        firstName: results.first_name,
+        lastName: results.last_name,
+      };
     case LOGOUT:
       return initialProfileState;
     default:

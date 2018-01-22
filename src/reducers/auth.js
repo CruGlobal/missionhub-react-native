@@ -51,6 +51,13 @@ function authReducer(state = initialAuthState, action) {
         personId: `${results.person_id}`,
         isLoggedIn: true,
       };
+    case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
+      return {
+        ...state,
+        token: results.token,
+        personId: `${results.person_id}`,
+        isLoggedIn: true,
+      };
     case FIRST_TIME:
       return {
         ...state,
