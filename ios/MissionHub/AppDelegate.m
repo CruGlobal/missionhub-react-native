@@ -12,7 +12,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 // PushNotificationIOS
 #import <React/RCTPushNotificationManager.h>
 
@@ -24,6 +25,8 @@
 {
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
+  [Fabric with:@[[Crashlytics class]]];
+
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];

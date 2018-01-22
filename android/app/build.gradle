@@ -78,6 +78,20 @@ project.ext.react = [
 
 apply from: "../../node_modules/react-native/react.gradle"
 
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        // The Fabric Gradle plugin uses an open ended version to react
+        // quickly to Android tooling updates
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'io.fabric'
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -140,6 +154,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fabric')
     compile project(':react-native-fbsdk')
     compile project(':react-native-omniture')
     compile project(':react-native-push-notification')
