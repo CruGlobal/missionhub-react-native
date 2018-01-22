@@ -34,8 +34,13 @@ callApi.default = jest.fn().mockImplementation(
 const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
 analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
 
-const peopleAction = { type: 'people' };
+const users = [ { pathway_stage_id: 5 } ];
+const peopleAction = { type: 'people', findAll: () => users };
 people.getMe = jest.fn().mockReturnValue(peopleAction);
+
+const peopleList = [ { reverse_contact_assignments: [ { pathway_stage_id: 1 }] }];
+const peopleListAction = { type: 'people list', findAll: () => peopleList };
+people.getPeopleList = jest.fn().mockReturnValue(peopleListAction);
 
 //TODO: try to re-write this with fewer expectations
 it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
