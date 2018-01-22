@@ -10,4 +10,14 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 24,
   },
+  errorBar: {
+    backgroundColor: '#FF5532',
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorMessage: {
+    color: theme.white,
+    fontSize: 16,
+  },
 });

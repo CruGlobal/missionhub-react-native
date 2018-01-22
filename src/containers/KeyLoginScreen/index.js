@@ -17,6 +17,7 @@ class KeyLoginScreen extends Component {
     this.state = {
       email: '',
       password: '',
+      errorMessage: '',
     };
 
     this.emailChanged = this.emailChanged.bind(this);
@@ -32,23 +33,37 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
-  login() {
-    this.props.dispatch(keyLogin(this.state.email, this.state.password)).then((response) => {
+  async login() {
+    this.setState({ errorMessage: '' });
+
+    try {
+      const keyLoginResult = await this.props.dispatch(keyLogin(this.state.email, this.state.password));
       Keyboard.dismiss();
 
-      if (response.findAll('user')[0].pathway_stage_id) {
-        this.props.dispatch(getPeopleList()).then((response) => {
-          if (this.hasPersonWithStageSelected(response)) {
-            this.props.dispatch(navigatePush('MainTabs'));
-          } else {
-            this.props.dispatch(navigatePush('AddSomeone'));
-          }
-        });
+      let nextScreen = 'GetStarted';
+      if (keyLoginResult.findAll('user')[0].pathway_stage_id) {
+        const getPeopleListResult = await this.props.dispatch(getPeopleList());
 
-      } else {
-        this.props.dispatch(navigatePush('GetStarted'));
+        if (this.hasPersonWithStageSelected(getPeopleListResult)) {
+          nextScreen = 'MainTabs';
+        } else {
+          nextScreen = 'AddSomeone';
+        }
       }
-    });
+
+      this.props.dispatch(navigatePush(nextScreen));
+    } catch (error) {
+      let errorMessage = 'There was a problem signing in.';
+
+      if (error['thekey_authn_error'] === 'invalid_credentials') {
+        errorMessage = 'Your Email or Password is Incorrect';
+
+      } else if (error['thekey_authn_error'] === 'email_unverified') {
+        errorMessage = 'Verify your account via Email';
+      }
+
+      this.setState({ errorMessage });
+    }
   }
 
   hasPersonWithStageSelected(jsonApiResponse) {
@@ -56,9 +71,19 @@ class KeyLoginScreen extends Component {
     return people.some((person) => person.reverse_contact_assignments[0].pathway_stage_id);
   }
 
+  renderErrorMessage() {
+    return (
+      <View style={styles.errorBar}>
+        <Text style={styles.errorMessage}>{this.state.errorMessage}</Text>
+      </View>
+    );
+  }
+
   render() {
     return (
       <PlatformKeyboardAvoidingView>
+        {this.state.errorMessage ? this.renderErrorMessage() : null }
+
         <BackButton />
         <Flex value={1} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>please enter email and password</Text>
