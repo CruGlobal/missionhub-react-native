@@ -32,7 +32,17 @@ const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
+it('renders correctly as Casey', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleScreen />
+    </Provider>
+  );
+});
+
+it('renders correctly as Jean', () => {
+  store.getState().auth.isJean = true;
+
   testSnapshot(
     <Provider store={store}>
       <PeopleScreen />
