@@ -10,6 +10,7 @@ import { testSnapshot } from '../../testUtils';
 const mockState = {
   auth: {
     personId: '',
+    isJean: false,
   },
   steps: {
     mine: [],
@@ -29,7 +30,17 @@ const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
+it('renders correctly as Casey', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <StepsScreen />
+    </Provider>
+  );
+});
+
+it('renders correctly as Jean', () => {
+  store.getState().auth.isJean = true;
+
   testSnapshot(
     <Provider store={store}>
       <StepsScreen />

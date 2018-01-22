@@ -158,6 +158,7 @@ exports[`renders correctly 1`] = `
       </Text>
       <TextInput
         allowFontScaling={true}
+        autoCapitalize="none"
         autoCorrect={false}
         autoFocus={true}
         blurOnSubmit={false}

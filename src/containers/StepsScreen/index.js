@@ -167,7 +167,7 @@ class StepsScreen extends Component {
   }
 
   render() {
-    const { t, dispatch, isCasey } = this.props;
+    const { t, dispatch, isJean } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -175,9 +175,9 @@ class StepsScreen extends Component {
             <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush('DrawerOpen'))} />
           }
           right={
-            isCasey ? null : (
+            isJean ? (
               <IconButton name="searchIcon" type="MissionHub" onPress={()=> dispatch(navigatePush('SearchPeople'))} />
-            )
+            ) : null
           }
           title={t('title').toUpperCase()}
         />
@@ -191,7 +191,7 @@ class StepsScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, steps, notifications }) => ({
-  isCasey: !auth.hasMinistries,
+  isJean: auth.isJean,
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
