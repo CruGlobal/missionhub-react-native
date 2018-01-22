@@ -12,9 +12,13 @@ export default StyleSheet.create({
   },
   swipeable: {
     backgroundColor: theme.white,
+    borderBottomWidth: theme.separatorHeight,
+    borderBottomColor: theme.separatorColor,
   },
   reminder: {
     backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
+    borderBottomWidth: theme.separatorHeight,
+    borderBottomColor: theme.separatorColor,
   },
   contact: {
     backgroundColor: theme.white,
