@@ -34,6 +34,8 @@ class KeyLoginScreen extends Component {
   }
 
   login() {
+    this.setState({ errorMessage: '' });
+
     this.props.dispatch(keyLogin(this.state.email, this.state.password)).then((response) => {
       Keyboard.dismiss();
 
@@ -55,7 +57,7 @@ class KeyLoginScreen extends Component {
       if (error['thekey_authn_error'] === 'invalid_credentials') {
         errorMessage = 'Your Email or Password is Incorrect';
 
-      } else if (error['thekey_authn_error'] === 'account not verified') {
+      } else if (error['thekey_authn_error'] === 'email_unverified') {
         errorMessage = 'Verify your account via Email';
       }
 
