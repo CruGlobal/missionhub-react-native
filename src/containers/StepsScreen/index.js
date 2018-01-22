@@ -45,9 +45,9 @@ class StepsScreen extends Component {
     if (this.props.reminders.length >= MAX_REMINDERS) {
       return;
     }
-    
+
     this.props.dispatch(toast('✔ Reminder Added'));
-    
+
     this.props.dispatch(setStepReminder(step));
     this.reminderAdded();
   }
@@ -55,7 +55,7 @@ class StepsScreen extends Component {
   handleRemoveReminder(step) {
     this.props.dispatch(removeStepReminder(step));
   }
-  
+
   handleCompleteReminder(step) {
     this.props.dispatch(completeStepReminder(step));
   }
@@ -110,7 +110,7 @@ class StepsScreen extends Component {
     }
     return (
       <Flex align="center" justify="center" style={[styles.top, styles.topEmpty]}>
-        <Icon name="bellIcon" type="MissionHub" size={36} />
+        <Icon name="starGroupIcon" type="MissionHub" size={45} />
         <Text type="header" style={styles.title}>
           {t('reminderTitle').toUpperCase()}
         </Text>
