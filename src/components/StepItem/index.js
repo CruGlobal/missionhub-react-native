@@ -49,7 +49,7 @@ class StepItem extends Component {
             onAction ? (
               <Touchable onPress={this.handleAction}>
                 <Icon
-                  name="searchIcon"
+                  name="starIcon"
                   type="MissionHub"
                   style={[
                     styles.icon,

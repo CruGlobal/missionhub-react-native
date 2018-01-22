@@ -31,6 +31,7 @@ export default StyleSheet.create({
   },
   icon: {
     padding: 10,
+    fontSize: 35,
     color: theme.secondaryColor,
   },
   iconReminder: {

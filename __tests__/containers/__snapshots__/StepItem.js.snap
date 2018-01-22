@@ -354,6 +354,7 @@ exports[`renders type action correctly 1`] = `
               Array [
                 Object {
                   "color": "#52C5DC",
+                  "fontSize": 35,
                   "padding": 10,
                 },
                 undefined,
@@ -367,7 +368,7 @@ exports[`renders type action correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
