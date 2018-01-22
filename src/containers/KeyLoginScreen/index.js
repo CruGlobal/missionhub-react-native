@@ -70,6 +70,7 @@ class KeyLoginScreen extends Component {
               Email
             </Text>
             <Input
+              autoCapitalize="none"
               ref={(c) => this.email = c}
               onChangeText={this.emailChanged}
               value={this.state.email}

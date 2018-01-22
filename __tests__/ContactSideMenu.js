@@ -7,7 +7,7 @@ import ContactSideMenu from '../src/components/ContactSideMenu';
 import { createMockNavState, testSnapshotShallow } from '../testUtils';
 
 it('renders Casey menu correctly', () => {
-  const store = createMockStore({ auth: { hasMinistries: false } });
+  const store = createMockStore({ auth: { isJean: false } });
 
   testSnapshotShallow(
     <ContactSideMenu navigation={createMockNavState()} />,
@@ -16,7 +16,7 @@ it('renders Casey menu correctly', () => {
 });
 
 it('renders Jean menu correctly', () => {
-  const store = createMockStore({ auth: { hasMinistries: true } });
+  const store = createMockStore({ auth: { isJean: true } });
 
   testSnapshotShallow(
     <ContactSideMenu navigation={createMockNavState()} />,

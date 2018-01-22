@@ -9,8 +9,8 @@ const initialAuthState = {
   token: '',
   refreshToken: '',
   personId: '',
-  hasMinistries: false,
   user: {},
+  isJean: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -34,7 +34,6 @@ function authReducer(state = initialAuthState, action) {
     case LOGIN_WITH_MINISTRIES:
       return {
         ...state,
-        hasMinistries: true,
         isLoggedIn: true,
       };
     case REQUESTS.KEY_LOGIN.SUCCESS:
@@ -81,9 +80,8 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         personId: `${user.id}`,
         user,
-        // hasMinistries: true,
+        isJean: results.findAll('person')[0].organizational_permissions.length > 0,
       };
-
     case REQUESTS.GET_STAGES.SUCCESS:
       // Add the matching 'stage' object to the user object
       const stages = results.findAll('pathway_stage') || [];
