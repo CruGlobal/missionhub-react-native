@@ -37,6 +37,7 @@
 		"react-native": "0.50.4",
 		"react-native-animatable": "1.2.4",
 		"react-native-device-info": "0.12.1",
+		"react-native-fabric": "^0.5.1",
 		"react-native-fbsdk": "^0.7.0",
 		"react-native-omniture": "github:dsgoers/react-native-omniture#953316a4453d1c5be7543fdff60f99d1d40be1d5",
 		"react-native-push-notification": "3.0.2",
