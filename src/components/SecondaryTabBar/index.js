@@ -8,6 +8,7 @@ import CustomTabs from '../CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';
 import ContactJourney from '../../containers/ContactJourney';
+import ImpactView from '../../containers/ImpactView';
 
 export default class SecondaryTabBar extends Component {
 
@@ -41,10 +42,10 @@ export default class SecondaryTabBar extends Component {
           <ContactNotes person={this.props.person} />
         </Flex>
       );
-    } else if (tab.page === 'impact') {
+    } else if (tab.page === 'userImpact') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} />
+          <ImpactView user={this.props.person} isContactScreen={true} />
         </Flex>
       );
     }

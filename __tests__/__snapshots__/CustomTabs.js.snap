@@ -70,7 +70,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}
@@ -156,7 +156,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}
@@ -242,7 +242,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}
@@ -344,7 +344,7 @@ exports[`renders tab 0 correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}
@@ -430,7 +430,7 @@ exports[`renders tab 0 correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}
@@ -516,7 +516,7 @@ exports[`renders tab 0 correctly 1`] = `
         ]
       }
     >
-      
+      
     </Text>
     <Text
       accessible={true}

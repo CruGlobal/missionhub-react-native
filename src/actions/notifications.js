@@ -1,3 +1,4 @@
+import { ToastAndroid } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 
 import {
@@ -6,6 +7,8 @@ import {
   PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
 } from '../constants';
+import { isAndroid } from '../utils/common';
+
 
 export function disableAskPushNotification() {
   return {
@@ -133,5 +136,14 @@ export function scheduleNotification(date, data) {
 export function clearAllScheduledNotifications() {
   return () => {
     PushNotification.cancelAllLocalNotifications();
+  };
+}
+
+export function toast(text, duration) {
+  return () => {
+    if (isAndroid) {
+      const toastDuration = duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
+      ToastAndroid.show(text, toastDuration);
+    }
   };
 }
