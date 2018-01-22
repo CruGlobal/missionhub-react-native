@@ -16,6 +16,24 @@ export function keyLogin(email, password) {
   };
 }
 
+
+export function facebookLoginAction(accessToken) {
+  // LOG('access token for fb', accessToken);
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
+      fb_access_token: accessToken,
+    })).then((results) => {
+      LOG(results);
+      // dispatch(loginAction(results.access_token, results));
+      // dispatch(messagesAction());
+      // Do something with the results
+      return results;
+    }).catch((error) => {
+      LOG('error logging in', error);
+    });
+  };
+}
+
 function getKeyTicket() {
   return async(dispatch) => {
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
@@ -56,4 +74,3 @@ export function loadHome() {
     dispatch(getStages());
   };
 }
-

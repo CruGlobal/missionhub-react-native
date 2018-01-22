@@ -1,5 +1,6 @@
 package com.missionhub;
 
+import android.content.Intent;
 import com.facebook.react.ReactActivity;
 import com.adobe.mobile.Config;
 
@@ -15,6 +16,10 @@ public class MainActivity extends ReactActivity {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+       super.onActivityResult(requestCode, resultCode, data);
+       MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
+   }
     public void onResume() {
         super.onResume();
     }

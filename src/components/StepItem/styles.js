@@ -4,36 +4,26 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   row: {
-    height: theme.itemHeight,
-    paddingHorizontal: 24,
-    backgroundColor: theme.transparent,
+    paddingVertical: 16,
+    paddingLeft: 24,
+    paddingRight: 13,
     width: theme.fullWidth,
+    marginTop: 1,
   },
   swipeable: {
-    marginTop: 1,
-    backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
-  },
-  listSwipeable: {
-    marginTop: 1,
     backgroundColor: theme.white,
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
-    height: 70,
   },
-  draggable: {
+  reminder: {
+    backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
-  dragging: {
-    backgroundColor: theme.convert({ color: theme.white, alpha: 0.8 }),
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 7,
-    elevation: 4,
-  },
-  offscreen: {
-    opacity: 0,
+  contact: {
+    backgroundColor: theme.white,
+    borderBottomWidth: theme.separatorHeight,
+    borderBottomColor: theme.separatorColor,
   },
   person: {
     fontSize: 16,
@@ -42,5 +32,13 @@ export default StyleSheet.create({
   },
   description: {
     fontSize: 14,
+  },
+  icon: {
+    padding: 10,
+    fontSize: 35,
+    color: theme.secondaryColor,
+  },
+  iconReminder: {
+    color: theme.primaryColor,
   },
 });

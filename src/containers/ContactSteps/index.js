@@ -68,7 +68,7 @@ class ContactSteps extends Component {
         onDelete={() => this.handleRemove(item)}
         onComplete={() => this.handleComplete(item)}
       >
-        <StepItem step={item} type="listSwipeable" />
+        <StepItem step={item} type="contact" />
       </RowSwipeable>
     );
   }

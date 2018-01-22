@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-// import { AppRegistry } from 'react-native';
+import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
+import * as RNOmniture from 'react-native-omniture';
+
 import i18n from './i18n';
 
 import './utils/reactotron'; // This needs to be before the store
@@ -11,11 +13,9 @@ import LoadingScreen from './containers/LoadingScreen';
 
 import getStore from './store';
 
-import * as RNOmniture from 'react-native-omniture';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { ANALYTICS } from './constants';
-import { AppState } from 'react-native';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
