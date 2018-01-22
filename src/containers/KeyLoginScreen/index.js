@@ -33,25 +33,26 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
-  login() {
+  async login() {
     this.setState({ errorMessage: '' });
 
-    this.props.dispatch(keyLogin(this.state.email, this.state.password)).then((response) => {
+    try {
+      const keyLoginResult = await this.props.dispatch(keyLogin(this.state.email, this.state.password));
       Keyboard.dismiss();
 
-      if (response.findAll('user')[0].pathway_stage_id) {
-        this.props.dispatch(getPeopleList()).then((response) => {
-          if (this.hasPersonWithStageSelected(response)) {
-            this.props.dispatch(navigatePush('MainTabs'));
-          } else {
-            this.props.dispatch(navigatePush('AddSomeone'));
-          }
-        });
+      let nextScreen = 'GetStarted';
+      if (keyLoginResult.findAll('user')[0].pathway_stage_id) {
+        const getPeopleListResult = await this.props.dispatch(getPeopleList());
 
-      } else {
-        this.props.dispatch(navigatePush('GetStarted'));
+        if (this.hasPersonWithStageSelected(getPeopleListResult)) {
+          nextScreen = 'MainTabs';
+        } else {
+          nextScreen = 'AddSomeone';
+        }
       }
-    }).catch((error) => {
+
+      this.props.dispatch(navigatePush(nextScreen));
+    } catch (error) {
       let errorMessage = 'There was a problem signing in.';
 
       if (error['thekey_authn_error'] === 'invalid_credentials') {
@@ -62,7 +63,7 @@ class KeyLoginScreen extends Component {
       }
 
       this.setState({ errorMessage });
-    });
+    }
   }
 
   hasPersonWithStageSelected(jsonApiResponse) {

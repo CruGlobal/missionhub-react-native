@@ -9,47 +9,22 @@ import { updateLoggedInStatus } from './analytics';
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
 
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data))
-      .then((response) => {
-        return dispatch(getKeyTicket(response.access_token));
-      })
-      .catch((error) => {
-        LOG('error logging in', error);
-        return Promise.reject(error);
-      });
+  return async(dispatch) => {
+    await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
+
+    return dispatch(getKeyTicket());
   };
 }
 
 function getKeyTicket() {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}))
-      .then((response) => {
-        return dispatch(loginWithTicket(response.ticket));
-      })
-      .catch((error) => {
-        LOG('error getting ticket', error);
-        return Promise.reject(error);
-      });
-  };
-}
+  return async(dispatch) => {
+    const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
 
-function loginWithTicket(ticket) {
-  const data = {
-    code: ticket,
-  };
+    const data = { code: keyTicketResult.ticket };
+    await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
 
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data))
-      .then(() => {
-        dispatch(updateLoggedInStatus(true));
-
-        return dispatch(getMe());
-      })
-      .catch((error) => {
-        LOG('error logging in with ticket', error);
-        return Promise.reject(error);
-      });
+    dispatch(updateLoggedInStatus(true));
+    return dispatch(getMe());
   };
 }
 
