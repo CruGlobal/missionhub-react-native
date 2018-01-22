@@ -62,6 +62,7 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
     anonymous: true,
+  },
   'GET_ME': {
     endpoint: `${PEOPLE_URL}me`,
   },
