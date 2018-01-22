@@ -1,4 +1,4 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
 import { getStages } from './stages';
@@ -43,12 +43,6 @@ function getKeyTicket() {
 
     dispatch(updateLoggedInStatus(true));
     return dispatch(getMe());
-  };
-}
-
-export function loginWithMinistries() {
-  return (dispatch) => {
-    dispatch({ type: LOGIN_WITH_MINISTRIES });
   };
 }
 
