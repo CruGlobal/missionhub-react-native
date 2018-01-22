@@ -7,14 +7,14 @@ import SideMenu from '../../components/SideMenu';
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
   render() {
-    const { t, isCasey, isJean } = this.props;
+    const { t, isJean } = this.props;
 
     const menuItems = [
       {
         label: t('edit'),
         action: () => LOG('edit pressed'),
       },
-      isCasey ? {
+      !isJean ? {
         label: t('delete'),
         action: () => LOG('delete pressed'),
       } : null,
@@ -52,8 +52,7 @@ export class ContactSideMenu extends Component {
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  isCasey: !auth.hasMinistries,
-  isJean: auth.hasMinistries,
+  isJean: auth.isJean,
 });
 
 export default connect(mapStateToProps)(ContactSideMenu);

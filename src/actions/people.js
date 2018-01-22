@@ -7,9 +7,7 @@ import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getMe() {
   return (dispatch) => {
-    const query = {
-    };
-    return dispatch(callApi(REQUESTS.GET_ME, query));
+    return dispatch(callApi(REQUESTS.GET_ME));
   };
 }
 
@@ -30,19 +28,18 @@ export function getPeopleWithOrgSections() {
       filters: {
         assigned_tos: 'me',
       },
-      includes: 'organizational_permission,organization',
+      includes: 'organizational_permissions',
     };
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query)).then((results) => {
 
-      const isCasey = !getState().auth.hasMinistries;
-      if (isCasey) {
+      if (!getState().auth.isJean) {
         return results;
       }
 
       const people = findAllNonPlaceHolders(results, 'person');
       
       // Get the orgIds that from the request to compare with the ones we have already
-      const orgIds = findAllNonPlaceHolders(results, 'organization')
+      const orgIds = results.findAll('organization')
         .map((o) => o.id);
 
       const existingOrgIds = getState().organizations.all.map((o) => o.id);
