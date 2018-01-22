@@ -5,6 +5,7 @@ import android.app.Application;
 import android.support.multidex.MultiDex;
 import android.content.Context;
 
+import com.crashlytics.android.Crashlytics;
 import com.facebook.react.ReactApplication;
 import com.smixx.fabric.FabricPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -22,6 +23,7 @@ import com.facebook.CallbackManager;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.FacebookSdk;
 
+import io.fabric.sdk.android.Fabric;
 import java.util.Arrays;
 import java.util.List;
 
@@ -66,6 +68,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    Fabric.with(this, new Crashlytics());
 
     FacebookSdk.sdkInitialize(this);
 
