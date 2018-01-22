@@ -4,20 +4,30 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import { createMockStore } from '../testUtils/index';
 import ContactSideMenu from '../src/components/ContactSideMenu';
-import { createMockNavState, testSnapshotShallow } from '../testUtils';
-
-const store = createMockStore();
+import { testSnapshotShallow } from '../testUtils';
 
 it('renders Casey menu correctly', () => {
   testSnapshotShallow(
-    <ContactSideMenu navigation={createMockNavState()} screenProps={{ isJean: false }} />,
-    store,
+    <ContactSideMenu />,
+    createMockStore({
+      profile: {
+        visiblePersonInfo: {
+          isJean: false,
+        },
+      },
+    }),
   );
 });
 
 it('renders Jean menu correctly', () => {
   testSnapshotShallow(
-    <ContactSideMenu navigation={createMockNavState()} screenProps={{ isJean: true }} />,
-    store,
+    <ContactSideMenu />,
+    createMockStore({
+      profile: {
+        visiblePersonInfo: {
+          isJean: true,
+        },
+      },
+    }),
   );
 });

@@ -6,6 +6,7 @@ import { translate } from 'react-i18next';
 import SideMenu from '../../components/SideMenu';
 import { navigateBack } from '../../actions/navigation';
 import { deleteContactAssignment } from '../../actions/profile';
+import { deleteStep } from '../../actions/steps';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
@@ -13,7 +14,7 @@ export class ContactSideMenu extends Component {
   unassignAction(deleteMode = false) {
     return () => {
       const { t, dispatch } = this.props;
-      const { person, contactAssignmentId } = this.props.screenProps;
+      const { person, contactAssignmentId } = this.props.visiblePersonInfo;
       Alert.alert(
         t(deleteMode ? 'deleteQuestion' : 'unassignQuestion', { name: person.first_name }),
         t(deleteMode ? 'deleteSentence' : 'unassignSentence'),
@@ -27,8 +28,13 @@ export class ContactSideMenu extends Component {
             style: 'destructive',
             onPress: async() => {
               await dispatch(deleteContactAssignment(contactAssignmentId));
+              if (deleteMode) {
+                for (const challenge of person.received_challenges) {
+                  await dispatch(deleteStep(challenge.id));
+                }
+                dispatch(navigateBack());
+              }
               dispatch(navigateBack());
-              deleteMode && dispatch(navigateBack());
             },
           },
         ],
@@ -38,7 +44,7 @@ export class ContactSideMenu extends Component {
 
   render() {
     const { t } = this.props;
-    const { isJean, personIsCurrentUser } = this.props.screenProps;
+    const { isJean, personIsCurrentUser } = this.props.visiblePersonInfo;
 
     const isCaseyNotMe = !isJean && !personIsCurrentUser;
     const isJeanNotMe = isJean && !personIsCurrentUser;
@@ -84,4 +90,10 @@ export class ContactSideMenu extends Component {
   }
 }
 
-export default connect()(ContactSideMenu);
+const mapStateToProps = ({ profile }) => {
+  return {
+    visiblePersonInfo: profile.visiblePersonInfo,
+  };
+};
+
+export default connect(mapStateToProps)(ContactSideMenu);
