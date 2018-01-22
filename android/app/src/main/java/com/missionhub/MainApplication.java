@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 import android.content.Context;
 
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
 import com.smixx.fabric.FabricPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -68,7 +69,12 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    Fabric.with(this, new Crashlytics());
+
+    if (BuildConfig.DEBUG) {
+      Fabric.with(this, new Crashlytics.Builder().core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build()).build());
+    } else {
+      Fabric.with(this, new Crashlytics());
+    }
 
     FacebookSdk.sdkInitialize(this);
 
