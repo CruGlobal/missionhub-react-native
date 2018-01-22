@@ -39,7 +39,7 @@ export class PeopleScreen extends Component {
       onComplete: () => this.getPeople(),
     }));
   }
-  
+
   handleSearch() {
     this.props.dispatch(navigatePush('SearchPeople'));
   }
@@ -58,7 +58,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { people, sectionPeople, isCasey } = this.props;
+    const { people, sectionPeople, isJean } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -66,24 +66,24 @@ export class PeopleScreen extends Component {
             <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
           }
           right={
-            isCasey ? (
-              <IconButton
-                name="plusIcon"
-                type="MissionHub"
-                onPress={() => this.handleAddContact()} />
-            ) : (
+            isJean ? (
               <IconButton
                 name="searchIcon"
                 type="MissionHub"
                 onPress={this.handleSearch} />
+            ) : (
+              <IconButton
+                name="plusIcon"
+                type="MissionHub"
+                onPress={() => this.handleAddContact()} />
             )
           }
           title="PEOPLE"
-          shadow={!isCasey}
+          shadow={isJean}
         />
         <PeopleList
-          sections={!isCasey}
-          items={isCasey ? people : sectionPeople}
+          sections={isJean}
+          items={isJean ? sectionPeople : people }
           onSelect={this.handleRowSelect}
           onAddContact={this.handleAddContact}
           onRefresh={this.handleRefresh}
@@ -95,7 +95,7 @@ export class PeopleScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, people }) => ({
-  isCasey: !auth.isJean,
+  isJean: auth.isJean,
   people: [auth.user].concat(people.all),
   sectionPeople: people.allByOrg,
   me: auth.user,

@@ -17,6 +17,7 @@ const mockState = {
     user: {
       id: '1',
     },
+    isJean: false,
   },
   people: {
     all: [],
