@@ -40,15 +40,24 @@ beforeEach(() => {
 
 describe('facebook login', () => {
   global.LOG = jest.fn();
+
   const expectedData = { fb_access_token: fbAccessToken };
+  const expectedType = 'fb success' ;
 
   beforeEach(() => {
-    callApi.default = jest.fn().mockReturnValue(() => Promise.resolve());
+    const mockFn = (dispatch) => {
+      dispatch({ type: expectedType });
+      return dispatch(() => Promise.resolve());
+    };
+
+    callApi.default = jest.fn().mockImplementation((type, query, data) => {
+      return type === REQUESTS.FACEBOOK_LOGIN && JSON.stringify(data) === JSON.stringify(expectedData) ? mockFn : null;
+    });
   });
 
   it('should log in to Facebook', () => {
     return store.dispatch(auth.facebookLoginAction(fbAccessToken)).then(() => {
-      expect(callApi.default).toHaveBeenCalledWith(REQUESTS.FACEBOOK_LOGIN, {}, expectedData);
+      expect(store.getActions()[0].type).toBe(expectedType);
     });
   });
 });
