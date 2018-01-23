@@ -16,6 +16,9 @@ const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const mockStore = configureStore([thunk]);
 
+const user = { pathway_stage_id: null };
+const peopleAction = { findAll: () => [ user ] };
+
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;
 
@@ -31,13 +34,17 @@ const mockImplementation = (implementation) => {
 
 beforeEach(() => {
   store = mockStore({});
+
+  people.getMe = mockImplementation(() => peopleAction);
 });
 
 describe('facebook login', () => {
   global.LOG = jest.fn();
   const expectedData = { fb_access_token: fbAccessToken };
 
-  callApi.default = jest.fn();
+  beforeEach(() => {
+    callApi.default = jest.fn().mockReturnValue(() => Promise.resolve());
+  });
 
   it('should log in to Facebook', () => {
     return store.dispatch(auth.facebookLoginAction(fbAccessToken)).then(() => {
@@ -47,16 +54,20 @@ describe('facebook login', () => {
 });
 
 describe('key login', () => {
-  callApi.default = mockImplementation((type) => {
-    if (type === REQUESTS.KEY_GET_TICKET) {
-      return Promise.resolve({ ticket: ticket });
-    } else {
-      return Promise.resolve({});
-    }
+  const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
+
+  beforeEach(() => {
+    callApi.default = mockImplementation((type) => {
+      if (type === REQUESTS.KEY_GET_TICKET) {
+        return Promise.resolve({ ticket: ticket });
+      } else {
+        return Promise.resolve({});
+      }
+    });
+
+    analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
   });
 
-  const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
-  analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
 
   it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
     return store.dispatch(auth.keyLogin(email, password))
@@ -71,16 +82,14 @@ describe('key login', () => {
 });
 
 describe('onSuccessfulLogin', () => {
-  const user = { pathway_stage_id: null };
   const person = { pathway_stage_id: null };
-
-  const peopleAction = { findAll: () => [ user ] };
-  people.getMe = mockImplementation(() => peopleAction);
-
   const peopleListAction = { findAll: () => [ { reverse_contact_assignments: [ person ] }] };
-  people.getPeopleList = mockImplementation(() => peopleListAction);
 
-  navigation.navigatePush = (screen) => ({ type: screen });
+  beforeEach(() => {
+    people.getPeopleList = mockImplementation(() => peopleListAction);
+
+    navigation.navigatePush = (screen) => ({ type: screen });
+  });
 
   it('should navigate to Get Started', async() => {
     user.pathway_stage_id = null;
