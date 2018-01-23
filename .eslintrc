@@ -105,8 +105,7 @@
     ],
     "import/no-unresolved": 2,
     "import/named": 2,
-    "import/default": 2,
-    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
+    "import/default": 2
   },
   "settings": {
     "import/resolver": {

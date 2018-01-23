@@ -32,7 +32,7 @@ export class ContactSideMenu extends Component {
                 for (const challenge of person.received_challenges) {
                   await dispatch(deleteStep(challenge.id));
                 }
-                dispatch(navigateBack());
+                dispatch(navigateBack()); // Navigate back twice (out of side menu and out of contact) since we deleted the person
               }
               dispatch(navigateBack());
             },

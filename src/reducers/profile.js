@@ -51,18 +51,16 @@ function profileReducer(state = initialProfileState, action) {
     case LOGOUT:
       return initialProfileState;
     case SET_VISIBLE_PERSON_INFO:
-      const { type: _, ...visiblePersonInfo } = action;
       return {
         ...state,
-        visiblePersonInfo,
+        visiblePersonInfo: action.data,
       };
     case UPDATE_VISIBLE_PERSON_INFO:
-      const { type: _2, ...updatedVisiblePersonInfo } = action;
       return {
         ...state,
         visiblePersonInfo: {
           ...state.visiblePersonInfo,
-          ...updatedVisiblePersonInfo,
+          ...action.data,
         },
       };
     default:
