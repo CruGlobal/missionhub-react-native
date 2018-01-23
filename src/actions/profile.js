@@ -52,14 +52,14 @@ export function createPerson(firstName, lastName) {
 export function setVisiblePersonInfo(info) {
   return {
     type: SET_VISIBLE_PERSON_INFO,
-    ...info,
+    data: info,
   };
 }
 
 export function updateVisiblePersonInfo(info) {
   return {
     type: UPDATE_VISIBLE_PERSON_INFO,
-    ...info,
+    data: info,
   };
 }
 
