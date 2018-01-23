@@ -100,27 +100,14 @@ exports[`renders correctly 1`] = `
       ]
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-          },
-        ]
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
       }
-    >
-      please enter email and password
-    </Text>
+      style={undefined}
+    />
   </View>
   <View
     style={

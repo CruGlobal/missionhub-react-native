@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View } from 'react-native';
+import { Keyboard, View, Image } from 'react-native';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import BackButton from '../BackButton';
+import LOGO from '../../../assets/images/missionHubLogoWords.png';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class KeyLoginScreen extends Component {
 
         <BackButton />
         <Flex value={1} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>please enter email and password</Text>
+          <Image source={LOGO} style={styles.logo} />
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
