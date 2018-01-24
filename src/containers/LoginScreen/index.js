@@ -4,8 +4,7 @@ import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 
-import { firstTime, loginWithMinistries, facebookLoginAction } from '../../actions/auth';
-import { createMyPerson } from '../../actions/profile';
+import { firstTime, facebookLoginAction } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -22,20 +21,12 @@ class LoginScreen extends BaseScreen {
     super(props);
 
     this.login = this.login.bind(this);
-    this.loginMinistries = this.loginMinistries.bind(this);
     this.tryItNow = this.tryItNow.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
   }
 
   login() {
     this.navigateToNext('KeyLogin');
-  }
-
-  loginMinistries() {
-    this.props.dispatch(createMyPerson('Test', 'User1')).then(() => {
-      this.props.dispatch(loginWithMinistries(true));
-      this.navigateToNext();
-    });
   }
 
   tryItNow() {
@@ -75,9 +66,7 @@ class LoginScreen extends BaseScreen {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken)).then(() => {
-            this.props.dispatch(navigatePush('GetStarted'));
-          }).catch((e) => {
+          this.props.dispatch(facebookLoginAction(accessToken)).catch((e) => {
             LOG('err', e);
           });
         });

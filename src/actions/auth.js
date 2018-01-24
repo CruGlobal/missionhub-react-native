@@ -1,10 +1,24 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, LOGIN_WITH_MINISTRIES } from '../constants';
-import { navigateReset } from './navigation';
-import { getMe } from './people';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
+import { navigatePush, navigateReset } from './navigation';
+import { getMe, getPeopleList } from './people';
 import { getStages } from './stages';
 import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateLoggedInStatus } from './analytics';
+import { findAllNonPlaceHolders } from '../utils/common';
+
+export function facebookLoginAction(accessToken) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
+      fb_access_token: accessToken,
+    })).then((results) => {
+      LOG(results);
+      return dispatch(onSuccessfulLogin());
+    }).catch((error) => {
+      LOG('error logging in', error);
+    });
+  };
+}
 
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
@@ -16,24 +30,6 @@ export function keyLogin(email, password) {
   };
 }
 
-
-export function facebookLoginAction(accessToken) {
-  // LOG('access token for fb', accessToken);
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
-      fb_access_token: accessToken,
-    })).then((results) => {
-      LOG(results);
-      // dispatch(loginAction(results.access_token, results));
-      // dispatch(messagesAction());
-      // Do something with the results
-      return results;
-    }).catch((error) => {
-      LOG('error logging in', error);
-    });
-  };
-}
-
 function getKeyTicket() {
   return async(dispatch) => {
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
@@ -42,14 +38,32 @@ function getKeyTicket() {
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
 
     dispatch(updateLoggedInStatus(true));
-    return dispatch(getMe());
+    return dispatch(onSuccessfulLogin());
   };
 }
 
-export function loginWithMinistries() {
-  return (dispatch) => {
-    dispatch({ type: LOGIN_WITH_MINISTRIES });
+export function onSuccessfulLogin() {
+  return async(dispatch) => {
+    const getMeResult = await dispatch(getMe());
+
+    let nextScreen = 'GetStarted';
+    if (getMeResult.findAll('user')[0].pathway_stage_id) {
+      const getPeopleListResult = await dispatch(getPeopleList());
+
+      if (hasPersonWithStageSelected(getPeopleListResult)) {
+        nextScreen = 'MainTabs';
+      } else {
+        nextScreen = 'AddSomeone';
+      }
+    }
+
+    return dispatch(navigatePush(nextScreen));
   };
+}
+
+function hasPersonWithStageSelected(jsonApiResponse) {
+  const people = findAllNonPlaceHolders(jsonApiResponse, 'person');
+  return people.some((person) => person.reverse_contact_assignments[0].pathway_stage_id);
 }
 
 export function logout() {
