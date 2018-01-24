@@ -9,6 +9,10 @@ import { URL_ENCODED } from '../constants';
 import { Alert } from 'react-native';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
+export const invalidCredentialsMessage = 'Your Email or Password is Incorrect'; //TODO: move these somewhere?
+export const verifyEmailMessage = 'Verify your account via Email';
+export const unexpectedErrorMessage = 'There was an unexpected error.';
+export const baseErrorMessage = 'Please email apps@cru.org if the issue persists.';
 
 // Setup API call
 let API_CALLS = {};
@@ -82,10 +86,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
         LOG('request error or error in logic that handles the request', key, err);
 
         if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
-          return reject({ user_error: 'Your Email or Password is Incorrect' });
+          return reject({ user_error: invalidCredentialsMessage });
 
         } else if (err['thekey_authn_error'] === 'email_unverified') {
-          return reject({ user_error: 'Verify your account via Email' });
+          return reject({ user_error: verifyEmailMessage });
 
         } else {
           showAlert(routeData);
@@ -99,8 +103,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
 });
 
 const showAlert = (routeData) => {
-  const baseErrorMessage = 'Please email apps@cru.org if the issue persists.';
-  let errorMessage = `There was an unexpected error. ${baseErrorMessage}`;
+  let errorMessage = `${unexpectedErrorMessage} ${baseErrorMessage}`;
 
   if (routeData.errorMessage) {
     errorMessage = `${routeData.errorMessage } ${baseErrorMessage}`;
