@@ -3,6 +3,7 @@ import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { setupPushNotifications, noNotificationReminder, toast } from '../../actions/notifications';
@@ -26,6 +27,8 @@ class StepsScreen extends Component {
       addedReminder: props.reminders.length > 0,
     };
 
+    this.completeStepBump = this.completeStepBump.bind(this);
+    this.completeReminderBump = this.completeReminderBump.bind(this);
     this.handleSetReminder = this.handleSetReminder.bind(this);
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
@@ -36,6 +39,13 @@ class StepsScreen extends Component {
     this.props.dispatch(getMySteps());
   }
 
+  completeStepBump() {
+    this.props.dispatch(removeSwipeStepsHome());
+  }
+
+  completeReminderBump() {
+    this.props.dispatch(removeSwipeStepsReminder());
+  }
 
   handleRowSelect(step) {
     this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
@@ -82,7 +92,7 @@ class StepsScreen extends Component {
   }
 
   renderTop() {
-    const { reminders, t } = this.props;
+    const { reminders, t, showStepReminderBump } = this.props;
 
 
     if (reminders.length > 0) {
@@ -90,9 +100,11 @@ class StepsScreen extends Component {
         <Flex align="center" style={[styles.top, styles.topItems]}
         >
           {
-            reminders.map((s) => (
+            reminders.map((s, index) => (
               <RowSwipeable
                 key={s.id}
+                bump={showStepReminderBump && index === 0}
+                onBumpComplete={showStepReminderBump && index === 0 ? this.completeReminderBump : undefined}
                 onDelete={() => this.handleDeleteReminder(s)}
                 onComplete={() => this.handleCompleteReminder(s)}
               >
@@ -121,7 +133,7 @@ class StepsScreen extends Component {
   }
 
   renderList() {
-    const { steps, reminders, t } = this.props;
+    const { steps, reminders, t, showStepBump } = this.props;
     if (!steps.length === 0) {
       const hasReminders = reminders.length > 0;
       return (
@@ -146,8 +158,10 @@ class StepsScreen extends Component {
         ]}
         data={steps}
         keyExtractor={(i) => i.id}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <RowSwipeable
+            bump={showStepBump && index === 0}
+            onBumpComplete={showStepBump && index === 0 ? this.completeStepBump : undefined}
             key={item.id}
             onDelete={() => this.handleDeleteReminder(item)}
             onComplete={() => this.handleCompleteReminder(item)}
@@ -190,12 +204,14 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, steps, notifications }) => ({
+const mapStateToProps = ({ auth, steps, notifications, swipe }) => ({
   isJean: auth.isJean,
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
   showNotificationReminder: notifications.showReminder,
+  showStepBump: swipe.stepsHome,
+  showStepReminderBump: swipe.stepsReminder,
 });
 
 export default connect(mapStateToProps)(StepsScreen);
