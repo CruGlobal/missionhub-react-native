@@ -6,6 +6,7 @@ import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
+import { Alert } from 'react-native';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -79,12 +80,34 @@ lodashForEach(apiRoutes, (routeData, key) => {
         }
       }).catch((err) => {
         LOG('request error or error in logic that handles the request', key, err);
-        APILOG(`${key} FAIL`, err);
-        reject(err);
+
+        if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
+          return reject({ user_error: 'Your Email or Password is Incorrect' });
+
+        } else if (err['thekey_authn_error'] === 'email_unverified') {
+          return reject({ user_error: 'Verify your account via Email' });
+
+        } else {
+          showAlert(routeData);
+
+          APILOG(`${key} FAIL`, err);
+          return reject(err);
+        }
       });
     })
   );
 });
+
+const showAlert = (routeData) => {
+  const baseErrorMessage = 'There was an unexpected error. Please email apps@cru.org if the issue persists.';
+  let errorMessage = `There was an error with your request. ${baseErrorMessage}`;
+
+  if (routeData.errorMessage) {
+    errorMessage = `${routeData.errorMessage } ${baseErrorMessage}`;
+  }
+
+  Alert.alert('Error', errorMessage);
+};
 
 const isUrlEncoded = (routeData) => {
   return routeData.extra && routeData.extra.headers && routeData.extra.headers['Content-Type'] === URL_ENCODED;

@@ -39,17 +39,11 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      console.log(error);
-      let errorMessage = 'There was a problem signing in.';
+      const errorMessage = error.user_error;
 
-      if (error['thekey_authn_error'] === 'invalid_credentials') {
-        errorMessage = 'Your Email or Password is Incorrect';
-
-      } else if (error['thekey_authn_error'] === 'email_unverified') {
-        errorMessage = 'Verify your account via Email';
+      if (errorMessage) {
+        this.setState({ errorMessage });
       }
-
-      this.setState({ errorMessage });
     }
   }
 

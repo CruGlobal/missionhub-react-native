@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { REQUESTS } from './api';
 import callApi from './api';
 
