@@ -25,9 +25,7 @@ export function createMyPerson(firstName, lastName) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data)).catch((error) => {
-      LOG('error creating my person', error);
-    });
+    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
   };
 }
 
@@ -43,9 +41,7 @@ export function createPerson(firstName, lastName) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data)).catch((error) => {
-      LOG('error creating person', error);
-    });
+    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
   };
 }
 
