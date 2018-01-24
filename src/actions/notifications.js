@@ -1,5 +1,9 @@
 import { ToastAndroid } from 'react-native';
 import PushNotification from 'react-native-push-notification';
+import DeviceInfo from 'react-native-device-info';
+
+import { REQUESTS } from './api';
+import callApi from './api';
 
 import {
   PUSH_NOTIFICATION_ASKED,
@@ -47,7 +51,10 @@ export function setupPushNotifications() {
     PushNotification.configure({
       // (optional) Called when Token is generated (iOS and Android)
       onRegister(token) {
-        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: token.token });
+        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: token.token }).then(()=> {
+          //make api call to register token with user
+          dispatch(registerPushDevice(token.token));
+        });
       },
       // (required) Called when a remote or local notification is opened or received
       onNotification(notification) {
@@ -80,13 +87,29 @@ export function setupPushNotifications() {
       */
       requestPermissions: true,
     });
-    
+
     if (!getState().notifications.hasAskedPushNotification) {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
   };
 }
 
+
+export function registerPushDevice(token) {
+  return (dispatch) => {
+    const type = DeviceInfo.getManufacturer();
+    const data ={
+      type: 'push_notification_device_token',
+      attributes: {
+        token,
+        platform: type === 'Apple' ? 'APNS' : 'GCM',
+      },
+    };
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data)).catch((error) => {
+      LOG('error setting push token', error);
+    });
+  };
+}
 
 export function handleNotifications(state, notification) {
   return () => {
