@@ -7,6 +7,7 @@ import { Flex, Touchable, Icon, Text } from '../common';
 import styles from './styles';
 
 const OPEN_DISTANCE = -150;
+
 @translate()
 class RowSwipeable extends Component {
 
@@ -51,6 +52,26 @@ class RowSwipeable extends Component {
       this.close();
     });
   }
+  
+  componentDidMount() {
+    if (this.props.bump) {
+      Animated.timing(this.translateX, {
+        duration: 300,
+        toValue: -50,
+        delay: 600,
+      }).start(() => {
+        Animated.timing(this.translateX, {
+          duration: 300,
+          toValue: 0,
+          delay: 1200,
+        }).start(() => {
+          if (this.props.onBumpComplete) {
+            this.props.onBumpComplete();
+          }
+        });
+      });
+    }
+  }
 
   componentWillUnmount() {
     this.openListener.remove();
@@ -93,13 +114,17 @@ class RowSwipeable extends Component {
           <Touchable style={styles.deleteWrap} onPress={this.props.onDelete}>
             <Flex direction="column" align="center" justify="center">
               <Icon name="deleteIcon" type="MissionHub" size={26} />
-              <Text style={styles.text}>{t('swipe.remove')}</Text>
+              <Text style={styles.text}>
+                {t('swipe.remove')}
+              </Text>
             </Flex>
           </Touchable>
           <Touchable style={styles.completeWrap} onPress={this.props.onComplete}>
             <Flex direction="column" align="center" justify="center">
               <Icon name="checkIcon" type="MissionHub" size={26} />
-              <Text style={styles.text}>{t('swipe.complete')}</Text>
+              <Text style={styles.text}>
+                {t('swipe.complete')}
+              </Text>
             </Flex>
           </Touchable>
         </Flex>
@@ -113,6 +138,10 @@ class RowSwipeable extends Component {
 
 RowSwipeable.propTypes = {
   children: PropTypes.element.isRequired,
+  bump: PropTypes.bool,
+  onBumpComplete: PropTypes.func,
+  onDelete: PropTypes.func,
+  onComplete: PropTypes.func,
 };
 
 export default RowSwipeable;
