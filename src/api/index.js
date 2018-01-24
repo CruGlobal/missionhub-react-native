@@ -99,8 +99,8 @@ lodashForEach(apiRoutes, (routeData, key) => {
 });
 
 const showAlert = (routeData) => {
-  const baseErrorMessage = 'There was an unexpected error. Please email apps@cru.org if the issue persists.';
-  let errorMessage = `There was an error with your request. ${baseErrorMessage}`;
+  const baseErrorMessage = 'Please email apps@cru.org if the issue persists.';
+  let errorMessage = `There was an unexpected error. ${baseErrorMessage}`;
 
   if (routeData.errorMessage) {
     errorMessage = `${routeData.errorMessage } ${baseErrorMessage}`;
