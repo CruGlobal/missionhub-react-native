@@ -91,11 +91,13 @@ class ContactSteps extends Component {
 
   renderNull() {
     const name = this.props.person.first_name;
+    const { t } = this.props;
+
     return (
       <Flex align="center" justify="center">
         <Image source={NULL} />
-        <Text type="header" style={styles.nullHeader}>STEPS OF FAITH</Text>
-        <Text style={styles.nullText}>Your Steps of Faith with {name} appear here.</Text>
+        <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
+        <Text style={styles.nullText}>{t('stepNull', { name })}</Text>
       </Flex>
     );
   }

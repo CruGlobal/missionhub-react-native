@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import SelectStepScreen from './SelectStepScreen';
 import { getStepSuggestions } from '../actions/steps';
 import { isAndroid, getFirstThreeValidItems } from '../utils/common';
 
+@translate('selectStep')
 class PersonSelectStepScreen extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,9 @@ class PersonSelectStepScreen extends Component {
   }
 
   render() {
-    const text = `What will you do to help ${this.props.contactName ? this.props.contactName : this.props.personFirstName} experience God?`;
+    const { t } = this.props;
+
+    const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
     let nextScreen = 'MainTabs';
 
     // Android doesn't need a primer for notifications the way iOS does
@@ -37,7 +41,7 @@ class PersonSelectStepScreen extends Component {
         receiverId={this.props.contactId ? this.props.contactId : this.props.personId}
         useOthersSteps={true}
         nextScreen={this.props.contact ? null : nextScreen}
-        headerText={text}
+        headerText={t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
       />
     );

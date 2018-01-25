@@ -19,8 +19,14 @@ export default {
       complete: 'Complete',
       edit: 'Edit',
     },
+    followup_status: {
+      uncontacted: 'Uncontacted',
+    },
     done: 'DONE',
     next: 'Next',
+    ok: 'Ok',
+    logout: 'Logout',
+    me: 'Me',
   },
   settingsMenu: {
     about: 'About',
@@ -30,12 +36,21 @@ export default {
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
   },
+  keyLogin: {
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+    login: 'Login',
+    errorDefault: 'There was a problem signing in.',
+    errorIncorrect: 'Your Email or Password is Incorrect',
+    errorVerify: 'Verify your account via Email',
+  },
   welcome: {
     welcome: 'welcome!',
     welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
   interactions: {
     title: 'Hi!',
+    profileTab: 'Go To Profile',
   },
   login: {
     tagline1: 'Grow closer to God.',
@@ -47,6 +62,7 @@ export default {
   addContact: {
     addSomeone: 'ADD SOMEONE',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    message: 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -54,7 +70,25 @@ export default {
     journeyHeader: 'What did you see God do?',
     addJourney: 'Add to Our Journey',
   },
+  selectStep: {
+    meHeader: 'How do you want to move forward on your spiritual journey?',
+    personHeader: 'What will you do to help {{name}} experience God?',
+    addStep: 'ADD TO MY STEPS',
+  },
+  selectStage: {
+    meQuestion: '{{name}}, which stage best describes where you are on your journey?',
+    personQuestion: 'Which stage best describes where {{name}} is on their journey?',
+    iAmHere: 'I AM HERE',
+    here: 'HERE',
+  },
+  stageSuccess: {
+    backupMessage: 'We are glad you are here, <<user>>!',
+    friend: 'Friend',
+    chooseSteps: 'CHOOSE MY STEPS',
+  },
   contactSteps: {
+    header: 'STEPS OF FAITH',
+    stepNull: 'Your Steps of Faith with {{name}} appear here.',
     addStep: 'Add a step of faith',
   },
   contactJourney: {
@@ -141,5 +175,16 @@ export default {
     doNotContact: 'Do Not Contact',
     uncontacted: 'Uncontacted',
     unassign: 'Unassign',
+  },
+  people: {
+    header: 'PEOPLE',
+  },
+  profileScreen: {
+    goToMain: 'Go To Main Tab',
+    goBack: 'Go Back 1 Tab',
+  },
+  setup: {
+    firstThing: '-first things first-',
+    namePrompt: 'what\'s your name?',
   },
 };

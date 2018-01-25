@@ -27,8 +27,8 @@ class SetupScreen extends Component {
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
         <Flex value={2} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>-first things first-</Text>
-          <Text type="header" style={styles.headerTwo}>what's your name?</Text>
+          <Text type="header" style={styles.header}>{t('firstThing')}</Text>
+          <Text type="header" style={styles.headerTwo}>{t('namePrompt')}</Text>
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
@@ -64,7 +64,7 @@ class SetupScreen extends Component {
           <Button
             type="secondary"
             onPress={() => this.saveAndGoToGetStarted()}
-            text="NEXT"
+            text={t('next').toUpperCase()}
           />
         </Flex>
       </PlatformKeyboardAvoidingView>

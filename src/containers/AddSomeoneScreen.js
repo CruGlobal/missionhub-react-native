@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import IconMessageScreen from './IconMessageScreen';
 
+@translate('addContact')
 class AddSomeoneScreen extends Component {
   render() {
-    const message = 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?';
-
+    const { t } = this.props;
+    
     return (
       <IconMessageScreen
-        mainText={message}
-        buttonText="ADD SOMEONE"
+        mainText={t('message')}
+        buttonText={t('addSomeone').toUpperCase()}
         nextScreen="SetupPerson"
         iconPath={require('../../assets/images/add_someone.png')}
       />

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigatePush, navigateBack } from '../actions/navigation';
 
+@translate('selectStage')
 class PersonStageScreen extends Component {
   constructor(props) {
     super(props);
@@ -27,12 +29,13 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const questionText = `Which stage best describes where ${this.props.name || this.props.personFirstName} is on their journey?`;
+    const { t } = this.props;
+    const name = this.props.name || this.props.personFirstName;
 
     return (
       <PathwayStageScreen
-        buttonText="HERE"
-        questionText={questionText}
+        buttonText={t('here').toUpperCase()}
+        questionText={t('personQuestion', name)}
         onSelect={this.handleSelectStage} />
     );
   }

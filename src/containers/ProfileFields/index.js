@@ -6,7 +6,7 @@ import styles from './styles';
 import { Flex, Text, Button, Input } from '../../components/common';
 import { translate } from 'react-i18next';
 
-@translate('profileFields')
+@translate('profileLabels')
 class ProfileFields extends Component {
   state = {
     firstName: '',
@@ -34,7 +34,7 @@ class ProfileFields extends Component {
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
+          <Text style={styles.label}>{t('firstNameRequired')}</Text>
           <Input
             ref={(c) => this.firstName = c}
             onChangeText={(t) => this.setState({ firstName: t })}
@@ -45,7 +45,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
+          <Text style={styles.label}>{t('lastName')}</Text>
           <Input
             ref={(c) => this.lastName = c}
             onChangeText={(t) => this.setState({ lastName: t })}
@@ -56,7 +56,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.email')}</Text>
+          <Text style={styles.label}>{t('email')}</Text>
           <Input
             ref={(c) => this.email = c}
             onChangeText={(t) => this.setState({ email: t })}
@@ -68,7 +68,7 @@ class ProfileFields extends Component {
           />
         </Flex>
         <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.phone')}</Text>
+          <Text style={styles.label}>{t('phone')}</Text>
           <Input
             ref={(c) => this.phone = c}
             onChangeText={(t) => this.setState({ phone: t })}

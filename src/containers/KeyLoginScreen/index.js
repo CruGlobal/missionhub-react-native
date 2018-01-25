@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View, Image } from 'react-native';
+import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
@@ -11,6 +12,7 @@ import { getPeopleList } from '../../actions/people';
 import { findAllNonPlaceHolders } from '../../utils/common';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 
+@translate('keyLogin')
 class KeyLoginScreen extends Component {
   constructor(props) {
     super(props);
@@ -54,13 +56,15 @@ class KeyLoginScreen extends Component {
 
       this.props.dispatch(navigatePush(nextScreen));
     } catch (error) {
-      let errorMessage = 'There was a problem signing in.';
+      const { t } = this.props;
+
+      let errorMessage = t('errorDefault');
 
       if (error['thekey_authn_error'] === 'invalid_credentials') {
-        errorMessage = 'Your Email or Password is Incorrect';
+        errorMessage = t('errorIncorrect');
 
       } else if (error['thekey_authn_error'] === 'email_unverified') {
-        errorMessage = 'Verify your account via Email';
+        errorMessage = t('errorVerify');
       }
 
       this.setState({ errorMessage });
@@ -81,6 +85,8 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
@@ -93,7 +99,7 @@ class KeyLoginScreen extends Component {
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              Email
+              {t('emailLabel')}
             </Text>
             <Input
               autoCapitalize="none"
@@ -104,14 +110,14 @@ class KeyLoginScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              placeholder="Email"
+              placeholder={t('emailLabel')}
               placeholderTextColor="white"
             />
           </View>
 
           <View style={{ paddingTop: 30 }}>
             <Text style={styles.label} >
-              Password
+              {t('passwordLabel')}
             </Text>
             <Input
               secureTextEntry={true}
@@ -119,7 +125,7 @@ class KeyLoginScreen extends Component {
               onChangeText={this.passwordChanged}
               value={this.state.password}
               returnKeyType="next"
-              placeholder="Password"
+              placeholder={t('passwordLabel')}
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
@@ -130,7 +136,7 @@ class KeyLoginScreen extends Component {
           <Button
             type="secondary"
             onPress={this.login}
-            text="LOGIN"
+            text={t('login')}
           />
         </Flex>
       </PlatformKeyboardAvoidingView>

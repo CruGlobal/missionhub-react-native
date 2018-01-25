@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
 import { getFirstThreeValidItems } from '../utils/common';
 
+@translate('selectSteps')
 class SelectMyStepScreen extends Component {
   constructor(props) {
     super(props);
@@ -15,13 +17,15 @@ class SelectMyStepScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <SelectStepScreen
         steps={this.props.steps}
         receiverId={this.props.personId}
         useOthersSteps={false}
         nextScreen="AddSomeone"
-        headerText="How do you want to move forward on your spiritual journey?"
+        headerText={t('meHeader')}
       />
     );
   }
