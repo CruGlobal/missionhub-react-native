@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { View, Animated, PanResponder, DeviceEventEmitter } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
-import { Flex, Touchable, Icon } from '../common';
+import { Flex, Touchable, Icon, Text } from '../common';
 import styles from './styles';
 
 const OPTION_WIDTH = 75;
-export default class RowSwipeable extends Component {
+
+@translate()
+class RowSwipeable extends Component {
 
   constructor(props) {
     super(props);
@@ -57,6 +60,26 @@ export default class RowSwipeable extends Component {
       this.close();
     });
   }
+  
+  componentDidMount() {
+    if (this.props.bump) {
+      Animated.timing(this.translateX, {
+        duration: 300,
+        toValue: -50,
+        delay: 600,
+      }).start(() => {
+        Animated.timing(this.translateX, {
+          duration: 300,
+          toValue: 0,
+          delay: 1200,
+        }).start(() => {
+          if (this.props.onBumpComplete) {
+            this.props.onBumpComplete();
+          }
+        });
+      });
+    }
+  }
 
   componentWillUnmount() {
     this.openListener.remove();
@@ -88,7 +111,7 @@ export default class RowSwipeable extends Component {
   }
 
   renderOptions() {
-    const { onDelete, onComplete, onEdit } = this.props;
+    const { t, onDelete, onComplete, onEdit } = this.props;
     return (
       <Flex
         direction="row"
@@ -100,21 +123,36 @@ export default class RowSwipeable extends Component {
         {
           onDelete ? (
             <Touchable style={styles.deleteWrap} onPress={onDelete}>
-              <Icon name="deleteIcon" type="MissionHub" size={26} />
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="deleteIcon" type="MissionHub" size={26} />
+                <Text style={styles.text}>
+                  {t('swipe.remove')}
+                </Text>
+              </Flex>
             </Touchable>
           ) : null
         }
         {
           onComplete ? (
             <Touchable style={styles.completeWrap} onPress={onComplete}>
-              <Icon name="checkIcon" type="MissionHub" size={26} />
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="checkIcon" type="MissionHub" size={26} />
+                <Text style={styles.text}>
+                  {t('swipe.complete')}
+                </Text>
+              </Flex>
             </Touchable>
           ) : null
         }
         {
           onEdit ? (
             <Touchable style={styles.editWrap} onPress={onEdit}>
-              <Icon name="createStepIcon" type="MissionHub" size={30} />
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="createStepIcon" type="MissionHub" size={30} />
+                <Text style={styles.text}>
+                  {t('swipe.edit')}
+                </Text>
+              </Flex>
             </Touchable>
           ) : null
         }
@@ -144,4 +182,8 @@ RowSwipeable.propTypes = {
   onComplete: PropTypes.func,
   onDelete: PropTypes.func,
   onEdit: PropTypes.func,
+  bump: PropTypes.bool,
+  onBumpComplete: PropTypes.func,
 };
+
+export default RowSwipeable;

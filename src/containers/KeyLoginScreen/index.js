@@ -1,63 +1,91 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View } from 'react-native';
+import { Keyboard, View, Image } from 'react-native';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
-import { navigatePush } from '../../actions/navigation';
+import BackButton from '../BackButton';
+import LOGO from '../../../assets/images/missionHubLogoWords.png';
 
 class KeyLoginScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
+      errorMessage: '',
     };
 
-    this.usernameChanged = this.usernameChanged.bind(this);
+    this.emailChanged = this.emailChanged.bind(this);
     this.passwordChanged = this.passwordChanged.bind(this);
     this.login = this.login.bind(this);
   }
 
-  usernameChanged(username) {
-    this.setState({ username });
+  emailChanged(email) {
+    this.setState({ email });
   }
 
   passwordChanged(password) {
     this.setState({ password });
   }
 
-  login() {
-    this.props.dispatch(keyLogin(this.state.username, this.state.password)).then(() => {
+  async login() {
+    this.setState({ errorMessage: '' });
+
+    try {
+      await this.props.dispatch(keyLogin(this.state.email, this.state.password));
       Keyboard.dismiss();
-      this.props.dispatch(navigatePush('GetStarted'));
-    });
+
+    } catch (error) {
+      console.log(error);
+      let errorMessage = 'There was a problem signing in.';
+
+      if (error['thekey_authn_error'] === 'invalid_credentials') {
+        errorMessage = 'Your Email or Password is Incorrect';
+
+      } else if (error['thekey_authn_error'] === 'email_unverified') {
+        errorMessage = 'Verify your account via Email';
+      }
+
+      this.setState({ errorMessage });
+    }
+  }
+
+  renderErrorMessage() {
+    return (
+      <View style={styles.errorBar}>
+        <Text style={styles.errorMessage}>{this.state.errorMessage}</Text>
+      </View>
+    );
   }
 
   render() {
     return (
       <PlatformKeyboardAvoidingView>
-        <Flex value={1} />
-        <Flex value={2} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>please enter username and password</Text>
+        {this.state.errorMessage ? this.renderErrorMessage() : null }
+
+        <BackButton />
+        <Flex value={1} style={{ alignItems: 'center' }}>
+          <Image source={LOGO} style={styles.logo} />
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              Username
+              Email
             </Text>
             <Input
-              ref={(c) => this.username = c}
-              onChangeText={this.usernameChanged}
-              value={this.state.username}
+              autoCapitalize="none"
+              ref={(c) => this.email = c}
+              onChangeText={this.emailChanged}
+              value={this.state.email}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              placeholder="Username"
+              placeholder="Email"
               placeholderTextColor="white"
             />
           </View>

@@ -70,7 +70,6 @@ class SelectStepScreen extends Component {
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
       // LOG(r);
     });
-    // TODO: Save selected steps with some kind of API call,
     if (this.state.contact || this.props.contact) {
       this.props.dispatch(navigatePush('Contact', { person: this.props.contact ? this.props.contact : this.state.contact }));
     } else {
@@ -92,7 +91,7 @@ class SelectStepScreen extends Component {
   render() {
     return (
       <Flex style={styles.container}>
-        <Flex value={1} align="center" justify="center" style={styles.headerWrap}>
+        <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
           <BackButton customNavigate={this.props.contact || this.state.contact ? undefined : 'backToStages'} />
           {this.renderTitle()}
         </Flex>

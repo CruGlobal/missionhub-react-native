@@ -32,5 +32,7 @@
   "filterIcon": true,
   "rightArrowIcon": true,
   "cancelIcon": true,
-  "textIcon": true
+  "textIcon": true,
+  "starIcon": true,
+  "starGroupIcon": true
 }

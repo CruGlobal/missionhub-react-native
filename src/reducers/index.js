@@ -14,20 +14,24 @@ import impact from './impact';
 import groups from './groups';
 import surveys from './surveys';
 import labels from './labels';
+import analytics from './analytics';
+import swipe from './swipe';
 
 export default combineReducers({
+  analytics,
   auth,
-  nav,
-  profile,
-  personProfile,
-  stages,
+  groups,
+  impact,
+  labels,
   myStageReducer, //TODO rename
-  steps,
+  nav,
+  notifications,
   organizations,
   people,
-  notifications,
-  impact,
-  groups,
+  personProfile,
+  profile,
+  stages,
+  steps,
   surveys,
-  labels,
+  swipe,
 });

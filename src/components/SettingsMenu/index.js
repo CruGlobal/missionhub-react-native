@@ -30,10 +30,6 @@ export class SettingsMenu extends Component {
         action: () => Linking.openURL(LINKS.terms),
       },
       {
-        label: t('privacy'),
-        action: () => Linking.openURL(LINKS.privacy),
-      },
-      {
         label: t('signOut'),
         action: () => this.props.dispatch(logout()),
       },

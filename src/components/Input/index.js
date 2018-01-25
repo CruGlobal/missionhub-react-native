@@ -14,15 +14,15 @@ export default class Input extends Component {
 
   render() {
     const { style = {}, ...rest } = this.props;
-    
+
     return (
       <TextInput
         ref={(c) => this.input = c}
         autoCorrect={false}
         autoFocus={false}
         multiline={false}
-        selectionColor={theme.primaryColor}
-        underlineColorAndroid={theme.transparent}
+        selectionColor={theme.accentColor}
+        underlineColorAndroid="rgba(0,0,0,0)"
         placeholderTextColor={theme.textColor}
         {...rest}
         style={[styles.input, style]}

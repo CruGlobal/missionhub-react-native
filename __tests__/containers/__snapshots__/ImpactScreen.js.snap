@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Impact Screen renders correctly 1`] = `
 <View
   style={
     Object {
@@ -69,7 +69,7 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -109,7 +109,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -167,6 +167,11 @@ exports[`renders correctly 1`] = `
   </View>
   <RCTScrollView
     bounces={false}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
     <View>
       <View

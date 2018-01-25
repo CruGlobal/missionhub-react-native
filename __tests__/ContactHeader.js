@@ -12,6 +12,9 @@ const mockState = {
   steps: {
     mine: [],
   },
+  swipe: {
+    stepsContact: true,
+  },
 };
 
 const store = createMockStore(mockState);
@@ -35,7 +38,7 @@ it('renders jean with a missionhub user as contact', () => {
 const testContactHeader = (person, type) => {
   testSnapshot(
     <Provider store={store}>
-      <ContactHeader person={person} type={type} />
+      <ContactHeader person={person} type={type} onChangeStage={() => {}} />
     </Provider>,
   );
 };

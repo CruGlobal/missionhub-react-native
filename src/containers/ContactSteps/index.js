@@ -5,6 +5,7 @@ import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { removeSwipeStepsContact } from '../../actions/swipe';
 import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
@@ -12,6 +13,7 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -23,6 +25,7 @@ class ContactSteps extends Component {
       steps: [],
     };
 
+    this.bumpComplete = this.bumpComplete.bind(this);
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
   }
@@ -31,11 +34,15 @@ class ContactSteps extends Component {
     this.getSteps();
   }
 
+  bumpComplete() {
+    this.props.dispatch(removeSwipeStepsContact());
+  }
+
   getSteps() {
     this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
-      const steps = results.findAll('accepted_challenge') || [];
-      let newSteps = steps.filter((s) => !s._placeHolder);
-      this.setState({ steps: newSteps });
+      const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
+
+      this.setState({ steps });
     });
   }
 
@@ -59,15 +66,17 @@ class ContactSteps extends Component {
     }));
   }
 
-
-  renderRow({ item }) {
+  renderRow({ item, index }) {
+    const { showBump } = this.props;
     return (
       <RowSwipeable
         key={item.id}
+        bump={showBump && index === 0}
+        onBumpComplete={this.bumpComplete}
         onDelete={() => this.handleRemove(item)}
         onComplete={() => this.handleComplete(item)}
       >
-        <StepItem step={item} type="listSwipeable" />
+        <StepItem step={item} type="contact" />
       </RowSwipeable>
     );
   }
@@ -125,4 +134,8 @@ ContactSteps.propTypes = {
   person: PropTypes.object,
 };
 
-export default connect()(ContactSteps);
+const mapStateToProps = ({ swipe }) => ({
+  showBump: swipe.stepsContact,
+});
+
+export default connect(mapStateToProps)(ContactSteps);

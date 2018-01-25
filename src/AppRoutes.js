@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
 import LoginScreen from './containers/LoginScreen';
@@ -28,6 +29,7 @@ import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefin
 import NotificationOffScreen from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
+import ContactSideMenu from './components/ContactSideMenu';
 import { Icon } from './components/common';
 
 import theme from './theme';
@@ -45,8 +47,15 @@ import theme from './theme';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={30} style={{ color: tintColor }} />;
+const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={24} style={{ color: tintColor }} />;
 
+function labelStyle() {
+  if (Platform.OS === 'android') {
+    return { marginTop: 5, marginBottom: -5 };
+  } else {
+    return {};
+  }
+}
 
 export const MainTabRoutes = TabNavigator({
   StepsTab: {
@@ -79,7 +88,14 @@ export const MainTabRoutes = TabNavigator({
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
     tabStyle: { backgroundColor: theme.lightBackgroundColor },
+    labelStyle: labelStyle(),
+    indicatorStyle: { backgroundColor: 'transparent' } ,
+    upperCaseLabel: false,
+
+    // Android
+    scrollEnabled: false,
   },
+  swipeEnabled: false,
   tabBarPosition: 'bottom',
   animationEnabled: false,
   // lazy: false, // Load all tabs right away
@@ -111,7 +127,17 @@ export const MainStackRoutes = StackNavigator({
   Stage: { screen: StageScreen },
   StageSuccess: { screen: StageSuccessScreen },
   AddSomeone: { screen: AddSomeoneScreen },
-  Contact: { screen: ContactScreen },
+  Contact: {
+    screen: DrawerNavigator(
+      {
+        Main: { screen: ContactScreen },
+      },
+      {
+        contentComponent: ContactSideMenu,
+        drawerPosition: 'right',
+      }
+    ),
+  },
   AddContact: { screen: AddContactScreen },
   NotificationPrimer: { screen: NotificationPrimerScreen },
   NotificationOff: { screen: NotificationOffScreen },

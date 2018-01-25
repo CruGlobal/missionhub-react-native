@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly as Casey 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <ContactHeader
+      isMe={true}
+      onChangeStage={[Function]}
+      person={Object {}}
+      type="casey"
+    />
+  </Flex>
+</View>
+`;
+
+exports[`renders correctly as Jean 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+  />
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <ContactHeader
+      isMe={true}
+      onChangeStage={[Function]}
+      person={Object {}}
+      type="jean"
+    />
+  </Flex>
+</View>
+`;

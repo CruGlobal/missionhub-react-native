@@ -3,7 +3,9 @@ import callApi from './api';
 
 export function getMyGroups() {
   return (dispatch) => {
-    const query = {};
+    const query = {
+      limit: 100,
+    };
     return dispatch(callApi(REQUESTS.GET_MY_GROUPS, query)).catch((error) => {
       LOG('error getting groups', error);
     });

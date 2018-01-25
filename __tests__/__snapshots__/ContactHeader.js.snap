@@ -9,6 +9,7 @@ exports[`renders casey 1`] = `
       },
       Object {
         "alignItems": "center",
+        "alignSelf": "stretch",
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
@@ -91,7 +92,7 @@ exports[`renders casey 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -134,7 +135,7 @@ exports[`renders casey 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>
@@ -143,6 +144,7 @@ exports[`renders casey 1`] = `
       Array [
         Object {},
         Object {
+          "alignSelf": "stretch",
           "flex": 1,
         },
       ]
@@ -164,7 +166,7 @@ exports[`renders casey 1`] = `
           Array [
             Object {
               "flexDirection": "row",
-              "height": 45,
+              "height": 50,
               "marginVertical": 10,
             },
             undefined,
@@ -193,7 +195,7 @@ exports[`renders casey 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -228,7 +230,7 @@ exports[`renders casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -279,7 +281,7 @@ exports[`renders casey 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -314,7 +316,7 @@ exports[`renders casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -365,7 +367,7 @@ exports[`renders casey 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -400,7 +402,7 @@ exports[`renders casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -683,6 +685,7 @@ exports[`renders jean 1`] = `
       },
       Object {
         "alignItems": "center",
+        "alignSelf": "stretch",
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
@@ -765,7 +768,7 @@ exports[`renders jean 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -808,7 +811,7 @@ exports[`renders jean 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>
@@ -869,9 +872,11 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
-              null,
+              Object {
+                "opacity": 0.6,
+              },
               Object {},
               null,
             ]
@@ -901,6 +906,7 @@ exports[`renders jean 1`] = `
                     Object {
                       "color": "#52C5DC",
                       "fontSize": 24,
+                      "opacity": 0.5,
                     },
                   ],
                 ],
@@ -912,7 +918,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -962,9 +968,11 @@ exports[`renders jean 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
-              null,
+              Object {
+                "opacity": 0.6,
+              },
               Object {},
               null,
             ]
@@ -994,6 +1002,7 @@ exports[`renders jean 1`] = `
                     Object {
                       "color": "#52C5DC",
                       "fontSize": 24,
+                      "opacity": 0.5,
                     },
                   ],
                 ],
@@ -1010,12 +1019,109 @@ exports[`renders jean 1`] = `
         </View>
       </View>
     </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 25,
+            "height": 48,
+            "margin": 10,
+            "width": 48,
+          },
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "opacity": 0.6,
+              },
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 24,
+                      "opacity": 0.5,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
   </View>
   <View
     style={
       Array [
         Object {},
         Object {
+          "alignSelf": "stretch",
           "flex": 1,
         },
       ]
@@ -1037,7 +1143,7 @@ exports[`renders jean 1`] = `
           Array [
             Object {
               "flexDirection": "row",
-              "height": 45,
+              "height": 50,
               "marginVertical": 10,
             },
             undefined,
@@ -1066,7 +1172,7 @@ exports[`renders jean 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -1101,7 +1207,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1152,7 +1258,7 @@ exports[`renders jean 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -1238,7 +1344,7 @@ exports[`renders jean 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -1273,7 +1379,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1324,7 +1430,7 @@ exports[`renders jean 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -1359,7 +1465,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1653,6 +1759,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
       },
       Object {
         "alignItems": "center",
+        "alignSelf": "stretch",
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
@@ -1735,7 +1842,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "backgroundColor": "#005A7F",
               "height": 36,
               "margin": 10,
-              "marginBottom": 0,
+              "marginBottom": 5,
             },
           ],
           null,
@@ -1778,7 +1885,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           ]
         }
       >
-        STAGE
+        SELECT STAGE
       </Text>
     </View>
   </View>
@@ -1839,9 +1946,11 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
-              null,
+              Object {
+                "opacity": 0.6,
+              },
               Object {},
               null,
             ]
@@ -1871,6 +1980,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                     Object {
                       "color": "#52C5DC",
                       "fontSize": 24,
+                      "opacity": 0.5,
                     },
                   ],
                 ],
@@ -1882,7 +1992,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -1932,9 +2042,11 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
-              null,
+              Object {
+                "opacity": 0.6,
+              },
               Object {},
               null,
             ]
@@ -1964,6 +2076,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                     Object {
                       "color": "#52C5DC",
                       "fontSize": 24,
+                      "opacity": 0.5,
                     },
                   ],
                 ],
@@ -2025,9 +2138,11 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
-              null,
+              Object {
+                "opacity": 0.6,
+              },
               Object {},
               null,
             ]
@@ -2057,6 +2172,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                     Object {
                       "color": "#52C5DC",
                       "fontSize": 24,
+                      "opacity": 0.5,
                     },
                   ],
                 ],
@@ -2068,7 +2184,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -2079,6 +2195,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
       Array [
         Object {},
         Object {
+          "alignSelf": "stretch",
           "flex": 1,
         },
       ]
@@ -2100,7 +2217,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           Array [
             Object {
               "flexDirection": "row",
-              "height": 45,
+              "height": 50,
               "marginVertical": 10,
             },
             undefined,
@@ -2129,7 +2246,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -2164,7 +2281,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2215,7 +2332,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -2301,7 +2418,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -2336,7 +2453,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2387,7 +2504,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -2422,7 +2539,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2473,7 +2590,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "flex": 1,
               "justifyContent": "center",
               "opacity": 1,
-              "paddingBottom": 10,
+              "paddingBottom": 0,
             }
           }
           testID={undefined}
@@ -2508,7 +2625,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2752,6 +2869,17 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                 </View>
               </View>
             </View>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 750,
+              }
+            }
+          >
+            <View
+              tabLabel={undefined}
+            />
           </View>
           <View
             style={

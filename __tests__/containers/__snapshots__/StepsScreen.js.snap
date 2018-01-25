@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly as Casey 1`] = `
 <View
   style={
     Object {
@@ -69,7 +69,7 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "transparent",
               },
               null,
               Object {},
@@ -109,7 +109,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -165,61 +165,30 @@ exports[`renders correctly 1`] = `
       }
     />
   </View>
-  <View
+  <RCTScrollView
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "flex": 1,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Array [
-            Object {
-              "backgroundColor": "#66D9F0",
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-              "width": 750,
-            },
-            Object {
-              "paddingHorizontal": 27,
-              "paddingVertical": 32,
-            },
-            Object {
-              "height": 250,
-              "zIndex": 1,
-            },
-          ],
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
+    <View>
       <View
         style={
           Array [
-            Object {
-              "borderColor": "#ffffff",
-              "borderStyle": "dashed",
-              "borderWidth": 2,
-              "padding": 25,
-            },
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+              Object {
+                "paddingHorizontal": 27,
+                "paddingVertical": 32,
+              },
+            ],
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -240,19 +209,19 @@ exports[`renders correctly 1`] = `
                   "color": "#ffffff",
                 },
                 Object {
-                  "fontSize": 36,
+                  "fontSize": 45,
                 },
                 Object {},
               ],
               Object {
-                "fontFamily": "Material Icons",
+                "fontFamily": "icomoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -274,7 +243,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          Focus your week
+          FOCUS YOUR WEEK
         </Text>
         <Text
           accessible={true}
@@ -295,54 +264,431 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          Drag and drop up to 3 steps here and get friendly reminders.
+          Star up to three steps and get weekly handcrafted reminders.
         </Text>
       </View>
-    </View>
-    <RCTScrollView
-      bounces={false}
-      contentInset={
-        Object {
-          "bottom": 250,
+      <RCTScrollView
+        bounces={false}
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={true}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "scroll",
+              "paddingBottom": undefined,
+            },
+          ]
         }
-      }
-      data={Array []}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={100}
-      showsVerticalScrollIndicator={false}
-      stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly as Jean 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "height": 65,
+            "paddingTop": 20,
+          },
+          Object {
+            "elevation": 4,
+          },
+        ],
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
       style={
         Array [
           Object {
-            "backgroundColor": undefined,
+            "paddingLeft": 5,
           },
           Object {
-            "paddingTop": 250,
+            "alignItems": "flex-start",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <View />
-    </RCTScrollView>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "white",
+              "fontSize": 14,
+              "fontWeight": "500",
+            },
+          ]
+        }
+      >
+        STEPS OF FAITH
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
   </View>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#66D9F0",
+                "width": 750,
+              },
+              Object {
+                "paddingHorizontal": 27,
+                "paddingVertical": 32,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 45,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "AmaticSC-Bold",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 36,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          FOCUS YOUR WEEK
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Star up to three steps and get weekly handcrafted reminders.
+        </Text>
+      </View>
+      <RCTScrollView
+        bounces={false}
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={true}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "overflow": "scroll",
+              "paddingBottom": undefined,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
 </View>
 `;

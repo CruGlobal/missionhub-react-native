@@ -7,23 +7,24 @@ import { createMockStore } from '../../testUtils/index';
 import PeopleScreen from '../../src/containers/PeopleScreen';
 import { testSnapshot } from '../../testUtils';
 
-jest.mock('../../src/actions/organizations', () => ({
-  getMyOrganizations: () => { },
-}));
 jest.mock('../../src/actions/people', () => ({
-  getPeopleList: () => { },
+  getPeopleWithOrgSections: () => { },
 }));
 
 const mockState = {
   auth: {
     personId: '',
+    user: {
+      id: '1',
+    },
+    isJean: false,
   },
   people: {
     all: [],
     allByOrg: [],
   },
-  organizations: {
-    myOrgId: '',
+  stages: {
+    stagesObj: {},
   },
 };
 
@@ -31,7 +32,17 @@ const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
+it('renders correctly as Casey', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleScreen />
+    </Provider>
+  );
+});
+
+it('renders correctly as Jean', () => {
+  store.getState().auth.isJean = true;
+
   testSnapshot(
     <Provider store={store}>
       <PeopleScreen />

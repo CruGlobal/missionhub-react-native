@@ -5,6 +5,7 @@ const THE_KEY_URL = 'https://stage.thekey.me/cas/api/oauth/';
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
+const REPORTS_URL = `${API_URL}reports/people`;
 
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
@@ -56,9 +57,17 @@ export default {
     method: 'post',
     useJsonDataApiStore: false,
   },
+  'FACEBOOK_LOGIN': {
+    endpoint: `${AUTH_URL}facebook`,
+    method: 'post',
+    useJsonDataApiStore: false,
+    anonymous: true,
+  },
+  'GET_ME': {
+    endpoint: `${PEOPLE_URL}me`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
-    method: 'get',
     anonymous: true,
   },
   'GET_CHALLENGE_SUGGESTIONS': {
@@ -96,11 +105,18 @@ export default {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
+  'UPDATE_USER': {
+    endpoint: `${PEOPLE_URL}:userId`,
+    method: 'put',
+  },
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',
   },
   'GET_MY_ORGANIZATIONS': {
+    endpoint: `${API_URL}organizations`,
+  },
+  'GET_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,
   },
   'GET_MY_GROUPS': {
@@ -110,17 +126,35 @@ export default {
     endpoint: `${API_URL}surveys`,
   },
   'GET_MY_LABELS': {
-    endpoint: `${API_URL}labels`,
+    endpoint: `${API_URL}organizations`,
+    query: { include: 'labels' },
   },
   'GET_MY_IMPACT': {
+    endpoint: IMPACT_URL,
+  },
+  'GET_IMPACT_BY_ID': {
     endpoint: IMPACT_URL,
   },
   'GET_GLOBAL_IMPACT': {
     endpoint: IMPACT_URL,
   },
+  'GET_USER_IMPACT': {
+    endpoint: REPORTS_URL,
+  },
+  'GET_USER_DETAILS': {
+    endpoint: `${PEOPLE_URL}:userId`,
+  },
   'CREATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
+  },
+  'UPDATE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'put',
+  },
+  'DELETE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'delete',
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,

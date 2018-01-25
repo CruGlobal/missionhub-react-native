@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 
-import PeopleItem from '../PeopleItem';
-import { Flex, Text, Icon, Touchable } from '../common';
+import PeopleItem from '../../containers/PeopleItem';
+import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
 import styles from './styles';
 
@@ -23,20 +23,30 @@ export default class PeopleList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.items.length !== this.props.items.length) {
+    if (nextProps.sections) {
+      // Format section items merging in the existing expanded state.
+      const items = nextProps.items.map((i, index) => {
+        if (this.state.items[index] && this.state.items[index].id === i.id) {
+          return { ...this.state.items[index], ...i };
+        }
+        return { ...i, expanded: true };
+      });
+      this.setState({ items });
+      this.forceUpdate();
+    } else if (nextProps.items.length !== this.props.items.length) {
       const items = merge([], this.state.items, nextProps.items);
       this.setState({ items });
     }
   }
 
-  toggleSection(key) {
-    const items = this.state.items.map((s) => s.key === key ? { ...s, expanded: !s.expanded } : s);
+  toggleSection(id) {
+    const items = this.state.items.map((s) => s.organization && s.organization.id === id ? { ...s, expanded: !s.expanded } : s);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });
   }
 
   renderList(items) {
-    const { onSelect, myId, sections } = this.props;
+    const { onSelect, sections, refreshing, onRefresh } = this.props;
     
     return (
       <FlatList
@@ -46,28 +56,38 @@ export default class PeopleList extends Component {
         scrollEnabled={!sections}
         renderItem={({ item }) => (
           <PeopleItem
-            isMe={item.id === myId}
             onSelect={onSelect}
             person={item} />
         )}
+        refreshControl={!sections ? <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        /> : undefined}
       />
     );
   }
 
   renderSectionHeader(section) {
     const { onAddContact } = this.props;
-    
+    const org = section.organization || {};
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
-          {section.key}
+          {org.name || 'Personal Ministry'}
         </Text>
         <Flex direction="row" justify="end">
-          <Touchable onPress={() => onAddContact(section.key)}>
+          <Touchable onPress={() => onAddContact(org)}>
             <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
           </Touchable>
-          <Touchable onPress={() => this.toggleSection(section.key)}>
-            <Icon name="moreIcon" type="MissionHub" size={20} style={styles.icon} />
+          <Touchable onPress={() => this.toggleSection(org.id)}>
+            <Icon
+              name="upArrowIcon"
+              type="MissionHub"
+              size={20}
+              style={[
+                styles.icon,
+                section.expanded ? styles.downArrow : null,
+              ]} />
           </Touchable>
         </Flex>
       </Flex>
@@ -75,20 +95,24 @@ export default class PeopleList extends Component {
   }
   
   render() {
-    const { sections } = this.props;
+    const { items, sections, refreshing, onRefresh } = this.props;
     if (sections) {
       return (
         <ScrollView
           style={styles.sectionWrap}
-          bounces={false}
+          bounces={true}
           scrollEnabled={true}
+          refreshControl={<RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />}
         >
           {
             this.state.items.map((section) => (
-              <Flex key={section.key}>
+              <Flex key={section.organization ? section.organization.id || 'personal' : 'personal'}>
                 {this.renderSectionHeader(section)}
                 {
-                  section.expanded ? this.renderList(section.data) : null
+                  section.expanded ? this.renderList(section.people) : null
                 }
               </Flex>
             ))
@@ -96,14 +120,15 @@ export default class PeopleList extends Component {
         </ScrollView>
       );
     }
-    return this.renderList(this.props.items);
+    return this.renderList(items);
   }
 
 }
 
 PeopleList.propTypes = {
-  sections: PropTypes.bool,
   items: PropTypes.array.isRequired,
-  myId: PropTypes.string.isRequired,
+  sections: PropTypes.bool,
   onSelect: PropTypes.func.isRequired,
+  refreshing: PropTypes.bool,
+  onRefresh: PropTypes.func,
 };

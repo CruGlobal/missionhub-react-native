@@ -149,7 +149,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": undefined,
+            "backgroundColor": "transparent",
             "borderBottomColor": "#52C5DC",
             "borderBottomWidth": 1,
             "color": "#ffffff",
@@ -161,7 +161,7 @@ exports[`renders correctly 1`] = `
           Object {},
         ]
       }
-      underlineColorAndroid={undefined}
+      underlineColorAndroid="rgba(0,0,0,0)"
       value=""
     />
   </View>

@@ -1,5 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
-import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
+import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialProfileState = {
@@ -42,8 +42,27 @@ function profileReducer(state = initialProfileState, action) {
         firstName: results.first_name,
         lastName: results.last_name,
       };
+    case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
+      return {
+        ...state,
+        firstName: results.first_name,
+        lastName: results.last_name,
+      };
     case LOGOUT:
       return initialProfileState;
+    case SET_VISIBLE_PERSON_INFO:
+      return {
+        ...state,
+        visiblePersonInfo: action.data,
+      };
+    case UPDATE_VISIBLE_PERSON_INFO:
+      return {
+        ...state,
+        visiblePersonInfo: {
+          ...state.visiblePersonInfo,
+          ...action.data,
+        },
+      };
     default:
       return state;
   }

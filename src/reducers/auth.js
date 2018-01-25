@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT, LOGIN_WITH_MINISTRIES } from '../constants';
+import { FIRST_TIME, LOGIN, LOGOUT } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
@@ -9,7 +9,8 @@ const initialAuthState = {
   token: '',
   refreshToken: '',
   personId: '',
-  hasMinistries: false,
+  user: {},
+  isJean: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -30,12 +31,6 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         isLoggedIn: true,
       };
-    case LOGIN_WITH_MINISTRIES:
-      return {
-        ...state,
-        hasMinistries: true,
-        isLoggedIn: true,
-      };
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
@@ -44,6 +39,13 @@ function authReducer(state = initialAuthState, action) {
         isLoggedIn: true,
       };
     case REQUESTS.TICKET_LOGIN.SUCCESS:
+      return {
+        ...state,
+        token: results.token,
+        personId: `${results.person_id}`,
+        isLoggedIn: true,
+      };
+    case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
       return {
         ...state,
         token: results.token,
@@ -62,6 +64,32 @@ function authReducer(state = initialAuthState, action) {
         isLoggedIn: true,
         token: results.token,
         personId: `${results.person_id}`,
+      };
+    case REQUESTS.GET_ME.SUCCESS:
+      let user = (results.findAll('person') || [])[0] || {};
+      // Add the stage if we're getting the same user again
+      if (state.user.stage && state.user.id === user.id) {
+        user.stage = state.user.stage;
+      }
+      return {
+        ...state,
+        personId: `${user.id}`,
+        user,
+        isJean: results.findAll('person')[0].organizational_permissions.length > 0,
+      };
+    case REQUESTS.GET_STAGES.SUCCESS:
+      // Add the matching 'stage' object to the user object
+      const stages = results.findAll('pathway_stage') || [];
+      let userWithStage = { ...state.user };
+      if (userWithStage.user && userWithStage.user.pathway_stage_id) {
+        const myStage = stages.find((s) => `${s.id}` === `${userWithStage.user.pathway_stage_id}`);
+        if (myStage) {
+          userWithStage.stage = myStage;
+        }
+      }
+      return {
+        ...state,
+        user: userWithStage,
       };
     case LOGOUT:
       return initialAuthState;

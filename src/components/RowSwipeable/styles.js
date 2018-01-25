@@ -20,7 +20,11 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.checkBackgroundColor,
+    backgroundColor: theme.primaryColor,
+  },
+  text: {
+    fontSize: 13,
+    color: theme.white,
   },
   editWrap: {
     flex: 1,

@@ -1,10 +1,10 @@
+import lodash from 'lodash';
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
 
 const initialState = {
-  myOrgId: '',
   all: [],
 };
 
@@ -21,11 +21,18 @@ function organizationsReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
-      const orgs = results.findAll('organization') || [];
+      const myOrgs = (results.findAll('organization') || []).map((o) => ({ text: o.name, ...o }));
       return {
         ...state,
-        all: orgs,
-        myId: orgs[0] ? orgs[0].id : '',
+        all: myOrgs,
+      };
+    case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
+      const orgs = (results.findAll('organization') || []).map((o) => ({ text: o.name, ...o }));
+      const allOrgs = lodash.uniqBy([].concat(state.all, orgs), 'id');
+
+      return {
+        ...state,
+        all: allOrgs,
       };
     case LOGOUT:
       return initialState;

@@ -6,6 +6,7 @@ exports[`renders correctly 1`] = `
     Array [
       Object {},
       Object {
+        "alignSelf": "stretch",
         "flex": 1,
       },
     ]
@@ -27,7 +28,7 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "flexDirection": "row",
-            "height": 45,
+            "height": 50,
             "marginVertical": 10,
           },
           undefined,
@@ -56,7 +57,7 @@ exports[`renders correctly 1`] = `
             "flex": 1,
             "justifyContent": "center",
             "opacity": 1,
-            "paddingBottom": 10,
+            "paddingBottom": 0,
           }
         }
         testID={undefined}
@@ -91,7 +92,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -142,7 +143,7 @@ exports[`renders correctly 1`] = `
             "flex": 1,
             "justifyContent": "center",
             "opacity": 1,
-            "paddingBottom": 10,
+            "paddingBottom": 0,
           }
         }
         testID={undefined}
@@ -177,7 +178,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -228,7 +229,7 @@ exports[`renders correctly 1`] = `
             "flex": 1,
             "justifyContent": "center",
             "opacity": 1,
-            "paddingBottom": 10,
+            "paddingBottom": 0,
           }
         }
         testID={undefined}
@@ -263,7 +264,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

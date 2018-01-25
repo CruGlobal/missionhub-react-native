@@ -135,7 +135,7 @@ exports[`renders drilldown item correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
