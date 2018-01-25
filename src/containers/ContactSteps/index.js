@@ -41,9 +41,10 @@ class ContactSteps extends Component {
   }
 
   getSteps() {
-    this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
+    return this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
       const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
       this.setState({ steps });
+      return results;
     });
   }
 
@@ -60,7 +61,9 @@ class ContactSteps extends Component {
   }
 
   handleSaveNewSteps() {
-    this.getSteps();
+    this.getSteps().then(() => {
+      this.list.scrollToEnd();
+    });
     this.props.dispatch(navigateBack());
   }
 
@@ -69,7 +72,7 @@ class ContactSteps extends Component {
       contactName: this.props.person.first_name,
       contactId: this.props.person.id,
       contact: this.props.person,
-      onComplete: this.handleSaveNewSteps,
+      onSaveNewSteps: this.handleSaveNewSteps,
     }));
   }
 

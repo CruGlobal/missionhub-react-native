@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
@@ -68,11 +69,7 @@ class SelectStepScreen extends Component {
 
     LOG('selectedSteps', selectedSteps);
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
-      if (this.props.onComplete) {
-        this.props.onComplete();
-      } else {
-        this.props.dispatch(navigatePush(this.props.nextScreen));
-      }
+      this.props.onComplete();
     });
   }
 
@@ -115,6 +112,10 @@ class SelectStepScreen extends Component {
     );
   }
 }
+
+PropTypes.SelectStepScreen = {
+  onComplete: PropTypes.func.isRequired,
+};
 
 
 export default connect()(SelectStepScreen);
