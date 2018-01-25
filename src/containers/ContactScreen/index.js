@@ -127,8 +127,8 @@ const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
   stages: stages.stages,
   myId: auth.personId,
   personIsCurrentUser: navigation.state.params.person.id === auth.personId,
-  contactAssignmentId: profile.visiblePersonInfo ? profile.visiblePersonInfo.contactAssignmentId : '',
-  contactStage: profile.visiblePersonInfo ? profile.visiblePersonInfo.contactStage : {},
+  contactAssignmentId: profile.visiblePersonInfo ? profile.visiblePersonInfo.contactAssignmentId : null,
+  contactStage: profile.visiblePersonInfo ? profile.visiblePersonInfo.contactStage : null,
 });
 
 export default connect(mapStateToProps)(ContactScreen);
