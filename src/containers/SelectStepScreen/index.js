@@ -68,13 +68,12 @@ class SelectStepScreen extends Component {
 
     LOG('selectedSteps', selectedSteps);
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
-      // LOG(r);
+      if (this.props.onComplete) {
+        this.props.onComplete();
+      } else {
+        this.props.dispatch(navigatePush(this.props.nextScreen));
+      }
     });
-    if (this.state.contact || this.props.contact) {
-      this.props.dispatch(navigatePush('Contact', { person: this.props.contact ? this.props.contact : this.state.contact }));
-    } else {
-      this.props.dispatch(navigatePush(this.props.nextScreen));
-    }
   }
 
   renderTitle() {

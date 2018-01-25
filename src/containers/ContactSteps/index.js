@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -26,6 +26,8 @@ class ContactSteps extends Component {
 
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
+    this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
+    this.getSteps = this.getSteps.bind(this);
   }
 
   componentWillMount() {
@@ -35,7 +37,6 @@ class ContactSteps extends Component {
   getSteps() {
     this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
       const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
-
       this.setState({ steps });
     });
   }
@@ -52,11 +53,17 @@ class ContactSteps extends Component {
     });
   }
 
+  handleSaveNewSteps() {
+    this.getSteps();
+    this.props.dispatch(navigateBack());
+  }
+
   handleCreateStep() {
     this.props.dispatch(navigatePush('PersonStep', {
       contactName: this.props.person.first_name,
       contactId: this.props.person.id,
       contact: this.props.person,
+      onComplete: this.handleSaveNewSteps,
     }));
   }
 
@@ -84,7 +91,6 @@ class ContactSteps extends Component {
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
-        scrollEventThrottle={100}
       />
     );
   }

@@ -39,6 +39,7 @@ class PersonSelectStepScreen extends Component {
         nextScreen={this.props.contact ? null : nextScreen}
         headerText={text}
         contact={this.props.contact ? this.props.contact : null}
+        onComplete={this.props.onComplete}
       />
     );
   }
