@@ -6,7 +6,7 @@ import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
 import { getFirstThreeValidItems } from '../utils/common';
 
-@translate('selectSteps')
+@translate('selectStep')
 class SelectMyStepScreen extends Component {
   constructor(props) {
     super(props);

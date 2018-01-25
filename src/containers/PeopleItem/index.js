@@ -64,7 +64,7 @@ export class PeopleItem extends Component {
             <Text style={[styles.stage, isUncontacted ? styles.uncontacted : null]}>
               {personStage}
               {personStage && status ? '  >  ' : null}
-              {t(`followup_status.${status.toLowerCase()}`)}
+              {t(status ? `followup_status.${status.toLowerCase()}` : null)}
             </Text>
           </Flex>
           {

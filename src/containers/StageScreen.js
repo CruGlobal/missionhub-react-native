@@ -33,7 +33,7 @@ class StageScreen extends Component {
     return (
       <PathwayStageScreen
         buttonText={t('iAmHere').toUpperCase()}
-        questionText={t('meQuestion', name)}
+        questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
       />
     );
