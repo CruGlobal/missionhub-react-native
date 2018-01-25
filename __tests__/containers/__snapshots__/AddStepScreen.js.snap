@@ -145,7 +145,7 @@ exports[`renders correctly 1`] = `
       placeholder=""
       placeholderTextColor="#505256"
       returnKeyType="done"
-      selectionColor="white"
+      selectionColor="#ffffff"
       style={
         Array [
           Object {

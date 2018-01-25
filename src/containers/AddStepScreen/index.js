@@ -10,6 +10,7 @@ import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import BackButton from '../BackButton';
+import theme from '../../theme';
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -36,13 +37,15 @@ class AddStepScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, type } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1.5} align="center" justify="center">
-          <Text type="header" style={this.props.type ? styles.journeyHeader : styles.header}>{this.props.type && this.props.type === 'journey' ? t('journeyHeader') : t('header')}</Text>
+          <Text type="header" style={type ? styles.journeyHeader : styles.header}>
+            {type && type === 'journey' ? t('journeyHeader') : t('header')}
+          </Text>
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
@@ -52,7 +55,7 @@ class AddStepScreen extends Component {
             value={this.state.step}
             multiline={true}
             autoFocus={true}
-            selectionColor="white"
+            selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
@@ -63,7 +66,7 @@ class AddStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveStep}
-            text={this.props.type && this.props.type === 'journey' ? t('addJourney').toUpperCase() : t('createStep').toUpperCase()}
+            text={type && type === 'journey' ? t('addJourney').toUpperCase() : t('createStep').toUpperCase()}
             style={styles.createButton}
           />
         </Flex>

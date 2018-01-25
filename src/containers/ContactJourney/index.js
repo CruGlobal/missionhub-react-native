@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import styles from './styles';
+// import { clearJourney, getJourney } from '../../actions/journey';
+import { clearJourney } from '../../actions/journey';
 import { Flex, Button, Separator, Text } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
@@ -18,6 +20,7 @@ class ContactJourney extends Component {
     super(props);
 
     this.renderRow = this.renderRow.bind(this);
+    this.handleAddStep = this.handleAddStep.bind(this);
     this.handleCreateInteraction = this.handleCreateInteraction.bind(this);
     this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
@@ -26,21 +29,30 @@ class ContactJourney extends Component {
     this.getInteractions();
   }
 
+  componentWillUnmount() {
+    this.props.dispatch(clearJourney());
+  }
+
   getInteractions() {
     //TODO: make api call to get interactions
+    // this.props.dispatch(getJourney());
   }
 
   handleEditInteraction(interaction) {
     LOG(interaction);
   }
 
+  handleAddStep(text) {
+    // TODO: Add a comment to the journey
+    LOG('add a comment', text);
+  }
+
   handleCreateInteraction() {
     this.props.dispatch(navigatePush('AddStep', {
-      onComplete: (t) => LOG(t),
+      onComplete: this.handleAddStep,
       type: 'journey',
     }));
   }
-
 
   renderRow({ item }) {
     const { isCasey } = this.props;
@@ -50,11 +62,11 @@ class ContactJourney extends Component {
           key={item.id}
           onEdit={() => this.handleEditInteraction(item)}
         >
-          <JourneyItem item={item} type="step" />
+          <JourneyItem item={item} type={item.type} />
         </RowSwipeable>
       );
     }
-    return <JourneyItem item={item} type="step" />;
+    return <JourneyItem item={item} type={item.type} />;
   }
 
   renderList() {
@@ -112,15 +124,15 @@ ContactJourney.propTypes = {
 
 const mapStateToProps = ({ auth }) => ({
   journey: [
-    { id: '1', text: 'You are cool\nCheck it out\n\nNew lines all over', completed_at: '2017-12-28T16:21:02Z' },
-    { id: '2', text: 'Step 2 fjldsja fkldjs alkf jdsalkf jdaskl fjdsa jfdklsaj flkdsaj flkdsaj fldksaj fldksaj fdlkasf jdlksa fjhldsal dksajfkl dsa jflkdhsalfk dasf jdsaklfj dkslafj dlsakfjkdlasfjlsdak kjlfd', completed_at: '2017-12-28T16:21:02Z' },
-    { id: '3', text: 'Step 3', completed_at: '2017-12-28T16:21:02Z' },
-    { id: '4', text: 'Step 4', completed_at: '2017-12-28T16:21:02Z' },
-    { id: '5', text: 'Step 5', completed_at: '2017-12-28T16:21:02Z' },
-    { id: '6', text: 'Step 6', completed_at: '2017-12-28T16:21:02Z' },
+    { type: 'step', title: 'Growing Step of Faith', id: '1', text: 'You are cool\nCheck it out\n\nNew lines all over', completed_at: '2018-01-25T16:21:02Z' },
+    { type: 'stage', title: 'Stage', id: '2', text: 'Step 2 fjldsja fkldjs alkf', completed_at: '2018-01-25T16:21:02Z' },
+    { type: 'comment', id: '3', text: 'Step 3', completed_at: '2018-01-25T16:21:02Z' },
+    { type: 'survey', title: 'Survey 2017', id: '4', text: 'Step 4', completed_at: '2018-01-25T16:21:02Z' },
+    { type: 'comment', title: 'Comment', id: '5', text: 'Step 5', completed_at: '2018-01-25T16:21:02Z' },
+    { type: 'step', id: '6', text: 'Step 6', completed_at: '2018-01-25T16:21:02Z' },
   ],
   // journey: [],
-  isCasey: !auth.hasMinistries,
+  isCasey: !auth.isJean,
 });
 
 export default connect(mapStateToProps)(ContactJourney);

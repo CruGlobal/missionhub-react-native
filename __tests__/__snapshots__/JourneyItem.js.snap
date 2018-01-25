@@ -7,7 +7,7 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "backgroundColor": "#ffffff",
-          "paddingHorizontal": 24,
+          "paddingRight": 24,
           "paddingVertical": 19,
           "width": 750,
         },
@@ -38,8 +38,10 @@ exports[`renders correctly 1`] = `
             "fontSize": 32,
           },
           Object {
+            "alignSelf": "center",
             "color": "#52C5DC",
-            "paddingRight": 15,
+            "textAlign": "center",
+            "width": 75,
           },
         ],
         Object {
@@ -50,7 +52,7 @@ exports[`renders correctly 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={

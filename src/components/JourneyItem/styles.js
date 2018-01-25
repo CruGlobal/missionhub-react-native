@@ -5,13 +5,15 @@ import theme from '../../theme';
 export default StyleSheet.create({
   row: {
     paddingVertical: 19,
-    paddingHorizontal: 24,
+    paddingRight: 24,
     backgroundColor: theme.white,
     width: theme.fullWidth,
   },
   icon: {
+    width: 75,
+    textAlign: 'center',
+    alignSelf: 'center',
     color: theme.secondaryColor,
-    paddingRight: 15,
   },
   textWrap: {
     borderLeftColor: theme.separatorColor,
@@ -22,6 +24,10 @@ export default StyleSheet.create({
   date: {
     color: theme.inactiveColor,
     fontSize: 10,
+  },
+  title: {
+    color: theme.secondaryColor,
+    fontSize: 16,
   },
   text: {
     fontSize: 14,

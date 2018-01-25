@@ -150,11 +150,12 @@ export function searchPeople(text, filters = {}) {
 }
 
 
-export function getUserDetails(id) {
+export function getUserDetails(id, query = {}) {
   return (dispatch) => {
-    const query = {
+    const newQuery = {
       userId: id,
+      ...query,
     };
-    return dispatch(callApi(REQUESTS.GET_USER_DETAILS, query));
+    return dispatch(callApi(REQUESTS.GET_USER_DETAILS, newQuery));
   };
 }
