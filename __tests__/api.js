@@ -1,11 +1,10 @@
-import API_CALLS, {
-  baseErrorMessage, invalidCredentialsMessage, unexpectedErrorMessage,
-  verifyEmailMessage,
-} from '../src/api';
+import API_CALLS from '../src/api';
 import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
 import ReactNative from 'react-native';
+import locale from '../src/i18n/locales/en-US';
 
+const { invalidCredentialsMessage, unexpectedErrorMessage, verifyEmailMessage, baseErrorMessage } = locale.login;
 let serverResponse = {};
 
 beforeEach(() => {

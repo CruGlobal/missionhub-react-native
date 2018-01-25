@@ -8,11 +8,10 @@ import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
 import { Alert } from 'react-native';
 
+import locale from '../i18n/locales/en-US';
+const { invalidCredentialsMessage, unexpectedErrorMessage, verifyEmailMessage, baseErrorMessage } = locale.login;
+
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
-export const invalidCredentialsMessage = 'Your Email or Password is Incorrect'; //TODO: move these somewhere?
-export const verifyEmailMessage = 'Verify your account via Email';
-export const unexpectedErrorMessage = 'There was an unexpected error.';
-export const baseErrorMessage = 'Please email apps@cru.org if the issue persists.';
 
 // Setup API call
 let API_CALLS = {};
