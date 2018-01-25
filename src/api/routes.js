@@ -153,6 +153,10 @@ export default {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
   },
+  'DELETE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'delete',
+  },
   'SEARCH': {
     endpoint: `${API_URL}search`,
   },
