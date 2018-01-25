@@ -5,6 +5,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { removeSwipeStepsContact } from '../../actions/swipe';
 import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
@@ -24,6 +25,7 @@ class ContactSteps extends Component {
       steps: [],
     };
 
+    this.bumpComplete = this.bumpComplete.bind(this);
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
@@ -32,6 +34,10 @@ class ContactSteps extends Component {
 
   componentWillMount() {
     this.getSteps();
+  }
+
+  bumpComplete() {
+    this.props.dispatch(removeSwipeStepsContact());
   }
 
   getSteps() {
@@ -67,11 +73,13 @@ class ContactSteps extends Component {
     }));
   }
 
-
-  renderRow({ item }) {
+  renderRow({ item, index }) {
+    const { showBump } = this.props;
     return (
       <RowSwipeable
         key={item.id}
+        bump={showBump && index === 0}
+        onBumpComplete={this.bumpComplete}
         onDelete={() => this.handleRemove(item)}
         onComplete={() => this.handleComplete(item)}
       >
@@ -132,4 +140,8 @@ ContactSteps.propTypes = {
   person: PropTypes.object,
 };
 
-export default connect()(ContactSteps);
+const mapStateToProps = ({ swipe }) => ({
+  showBump: swipe.stepsContact,
+});
+
+export default connect(mapStateToProps)(ContactSteps);

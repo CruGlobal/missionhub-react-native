@@ -1,4 +1,4 @@
-import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
+import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO } from '../constants';
 import { REQUESTS } from './api';
 import callApi from './api';
 import uuidv4 from 'uuid/v4';
@@ -45,6 +45,28 @@ export function createPerson(firstName, lastName) {
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data)).catch((error) => {
       LOG('error creating person', error);
+    });
+  };
+}
+
+export function setVisiblePersonInfo(info) {
+  return {
+    type: SET_VISIBLE_PERSON_INFO,
+    data: info,
+  };
+}
+
+export function updateVisiblePersonInfo(info) {
+  return {
+    type: UPDATE_VISIBLE_PERSON_INFO,
+    data: info,
+  };
+}
+
+export function deleteContactAssignment(id) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id })).catch((error) => {
+      LOG('error deleting contact assignment', error);
     });
   };
 }

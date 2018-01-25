@@ -40,7 +40,6 @@ exports[`renders correctly as Casey 1`] = `
       isMe={true}
       onChangeStage={[Function]}
       person={Object {}}
-      stage={Object {}}
       type="casey"
     />
   </Flex>
@@ -87,7 +86,6 @@ exports[`renders correctly as Jean 1`] = `
       isMe={true}
       onChangeStage={[Function]}
       person={Object {}}
-      stage={Object {}}
       type="jean"
     />
   </Flex>
