@@ -66,6 +66,9 @@ export default {
   'GET_ME': {
     endpoint: `${PEOPLE_URL}me`,
   },
+  'GET_PERSON': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
     anonymous: true,

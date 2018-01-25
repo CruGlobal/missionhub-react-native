@@ -11,6 +11,12 @@ export function getMe() {
   };
 }
 
+export function getPerson(id) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
+  };
+}
+
 export function getPeopleList() {
   return (dispatch) => {
     const query = {
