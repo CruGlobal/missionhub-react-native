@@ -1,13 +1,12 @@
-import * as auth from '../../src/actions/auth';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
-import * as people from '../../src/actions/people';
+import * as login from '../../src/actions/login';
 import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
-import * as navigation from '../../src/actions/navigation';
+import { facebookLoginAction, keyLogin } from '../../src/actions/auth';
 
 const email = 'Roger';
 const password = 'secret';
@@ -15,9 +14,6 @@ const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const mockStore = configureStore([thunk]);
-
-const user = { pathway_stage_id: null };
-const peopleAction = { findAll: () => [ user ] };
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;
@@ -32,10 +28,12 @@ const mockImplementation = (implementation) => {
   });
 };
 
+const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
+
 beforeEach(() => {
   store = mockStore({});
 
-  people.getMe = mockImplementation(() => peopleAction);
+  login.onSuccessfulLogin = jest.fn().mockReturnValue(onSuccessfulLoginResult);
 });
 
 describe('facebook login', () => {
@@ -56,8 +54,9 @@ describe('facebook login', () => {
   });
 
   it('should log in to Facebook', () => {
-    return store.dispatch(auth.facebookLoginAction(fbAccessToken)).then(() => {
+    return store.dispatch(facebookLoginAction(fbAccessToken)).then(() => {
       expect(store.getActions()[0].type).toBe(expectedType);
+      expect(store.getActions()[1]).toBe(onSuccessfulLoginResult);
     });
   });
 });
@@ -79,52 +78,14 @@ describe('key login', () => {
 
 
   it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
-    return store.dispatch(auth.keyLogin(email, password))
+    return store.dispatch(keyLogin(email, password))
       .then(() => {
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
 
         expect(store.getActions()[0]).toBe(loggedInAction);
+        expect(store.getActions()[1]).toBe(onSuccessfulLoginResult);
       });
-  });
-});
-
-describe('onSuccessfulLogin', () => {
-  const person = { pathway_stage_id: null };
-  const peopleListAction = { findAll: () => [ { reverse_contact_assignments: [ person ] }] };
-
-  beforeEach(() => {
-    people.getPeopleList = mockImplementation(() => peopleListAction);
-
-    navigation.navigatePush = (screen) => ({ type: screen });
-  });
-
-  it('should navigate to Get Started', async() => {
-    user.pathway_stage_id = null;
-    const store = mockStore({});
-
-    await store.dispatch(auth.onSuccessfulLogin());
-
-    expect(store.getActions()).toEqual([{ type: 'GetStarted' }]);
-  });
-
-  it('should navigate to Add Someone', async() => {
-    user.pathway_stage_id = 4;
-    const store = mockStore({});
-
-    await store.dispatch(auth.onSuccessfulLogin());
-
-    expect(store.getActions()).toEqual([{ type: 'AddSomeone' }]);
-  });
-
-  it('should navigate to Main Tabs', async() => {
-    user.pathway_stage_id = 5;
-    person.pathway_stage_id = 2;
-    const store = mockStore({});
-
-    await store.dispatch(auth.onSuccessfulLogin());
-
-    expect(store.getActions()).toEqual([{ type: 'MainTabs' }]);
   });
 });

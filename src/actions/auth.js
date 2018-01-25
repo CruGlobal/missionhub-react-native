@@ -1,10 +1,11 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
-import { navigatePush, navigateReset } from './navigation';
-import { getMe, getPerson } from './people';
+import { navigateReset } from './navigation';
+import { getMe } from './people';
 import { getStages } from './stages';
 import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateLoggedInStatus } from './analytics';
+import { onSuccessfulLogin } from './login';
 
 export function facebookLoginAction(accessToken) {
   return (dispatch) => {
@@ -39,29 +40,6 @@ function getKeyTicket() {
     dispatch(updateLoggedInStatus(true));
     return dispatch(onSuccessfulLogin());
   };
-}
-
-export function onSuccessfulLogin() {
-  return async(dispatch, getState) => {
-    const personId = getState().auth.personId;
-    const getMeResult = await dispatch(getPerson(personId));
-
-    let nextScreen = 'GetStarted';
-    if (getMeResult.findAll('user')[0].pathway_stage_id) {
-
-      if (hasPersonWithStageSelected(getMeResult.find('person', personId))) {
-        nextScreen = 'MainTabs';
-      } else {
-        nextScreen = 'AddSomeone';
-      }
-    }
-
-    return dispatch(navigatePush(nextScreen));
-  };
-}
-
-function hasPersonWithStageSelected(person) {
-  return person.contact_assignments.some((contact) => contact.pathway_stage_id);
 }
 
 export function logout() {
