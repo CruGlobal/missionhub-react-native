@@ -7,7 +7,9 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+import { translate } from 'react-i18next';
 
+@translate('keyLogin')
 class KeyLoginScreen extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,7 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      const errorMessage = error.user_error;
+      const errorMessage = this.props.t(error.user_error);
 
       if (errorMessage) {
         this.setState({ errorMessage });

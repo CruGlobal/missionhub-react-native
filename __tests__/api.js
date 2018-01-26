@@ -1,10 +1,9 @@
-import API_CALLS from '../src/api';
+import API_CALLS, { baseErrorMessage, unexpectedErrorMessage } from '../src/api';
 import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
 import ReactNative from 'react-native';
-import locale from '../src/i18n/locales/en-US';
 
-const { invalidCredentialsMessage, unexpectedErrorMessage, verifyEmailMessage, baseErrorMessage } = locale.login;
+const invalidCredentialsMessage = 'invalidCredentialsMessage';
 let serverResponse = {};
 
 beforeEach(() => {
@@ -37,7 +36,7 @@ describe('call api', () => {
 
   it('should return email/password message when TheKey returns invalid credentials', () => {
     return callMethod({ ['thekey_authn_error']: 'email_unverified' }, (error) => {
-      expect(error).toEqual({ user_error: verifyEmailMessage });
+      expect(error).toEqual({ user_error: 'verifyEmailMessage' });
     });
   });
 

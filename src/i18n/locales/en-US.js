@@ -45,10 +45,10 @@ export default {
     facebookSignup: 'Sign up with Facebook',
     tryNow: 'Try it now',
     signIn: 'Sign In',
+  },
+  keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',
     verifyEmailMessage: 'Verify your account via Email',
-    unexpectedErrorMessage: 'There was an unexpected error.',
-    baseErrorMessage: 'Please email apps@cru.org if the issue persists.',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',

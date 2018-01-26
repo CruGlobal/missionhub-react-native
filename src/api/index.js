@@ -8,8 +8,8 @@ import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
 import { Alert } from 'react-native';
 
-import locale from '../i18n/locales/en-US';
-const { invalidCredentialsMessage, unexpectedErrorMessage, verifyEmailMessage, baseErrorMessage } = locale.login;
+export const unexpectedErrorMessage= 'There was an unexpected error.';
+export const baseErrorMessage= 'Please email apps@cru.org if the issue persists.';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -85,10 +85,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
         LOG('request error or error in logic that handles the request', key, err);
 
         if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
-          return reject({ user_error: invalidCredentialsMessage });
+          return reject({ user_error: 'invalidCredentialsMessage' });
 
         } else if (err['thekey_authn_error'] === 'email_unverified') {
-          return reject({ user_error: verifyEmailMessage });
+          return reject({ user_error: 'verifyEmailMessage' });
 
         } else {
           showAlert(routeData);
