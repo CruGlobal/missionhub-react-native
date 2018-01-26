@@ -22,11 +22,7 @@ class PersonSelectStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    if (this.props.onSaveNewSteps) {
-      this.props.onSaveNewSteps();
-    } else {
-      this.props.onComplete();
-    }
+    this.props.onSaveNewSteps();
   }
 
   render() {
@@ -52,7 +48,6 @@ PersonSelectStepScreen.propTypes = {
   contactId: PropTypes.string,
   contact: PropTypes.object,
   onSaveNewSteps: PropTypes.func,
-  onComplete: PropTypes.func,
 };
 
 const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({

@@ -31,7 +31,7 @@ class PersonStageScreen extends Component {
       });
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-        this.props.dispatch(navigatePush('PersonStep', { onComplete: this.handleNavigate }));
+        this.props.dispatch(navigatePush('PersonStep', { onSaveNewSteps: this.handleNavigate }));
       });
     }
   }
