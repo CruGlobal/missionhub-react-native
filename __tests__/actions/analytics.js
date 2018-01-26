@@ -1,5 +1,5 @@
 import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
-import { trackState, updateAnalyticsContext, updateLoggedInStatus } from '../../src/actions/analytics';
+import { trackAction, trackState, updateAnalyticsContext, updateLoggedInStatus } from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
@@ -7,6 +7,7 @@ import * as RNOmniture from 'react-native-omniture';
 jest.mock('react-native-omniture', () => {
   return {
     trackState: jest.fn(),
+    trackAction: jest.fn(),
     syncMarketingCloudId: jest.fn(),
   };
 });
@@ -17,12 +18,17 @@ let context = {
   [ANALYTICS.SCREENNAME]: screenName,
 };
 const mockStore = configureStore([thunk]);
+let store;
 
 beforeEach(() => {
   context = {
     [ANALYTICS.SCREENNAME]: screenName,
     [ANALYTICS.MCID]: mcId,
   };
+
+  store = mockStore({
+    analytics: context,
+  });
 });
 
 describe('updateAnalyticsContext', () => {
@@ -34,8 +40,18 @@ describe('updateAnalyticsContext', () => {
   });
 });
 
+describe('trackAction', () => {
+  it('should track action', () => {
+    const action = 'test action';
+    const data = { 'property': 'action data' };
+
+    store.dispatch(trackAction(action, data));
+
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(action, data);
+  });
+});
+
 describe('trackState', () => {
-  let store;
   const newScreenName = 'testScreen2';
 
   const expectedUpdatedContext = {
@@ -45,13 +61,7 @@ describe('trackState', () => {
     [ANALYTICS.MCID]: mcId,
   };
 
-  beforeEach(() => {
-    store = mockStore({
-      analytics: context,
-    });
-
-    store.dispatch(trackState(newScreenName));
-  });
+  beforeEach(() => store.dispatch(trackState(newScreenName)));
 
   it('should track state', () => {
     expect(RNOmniture.trackState).toHaveBeenCalledWith(newScreenName, expect.anything());
@@ -69,16 +79,9 @@ describe('trackState', () => {
 });
 
 describe('updateLoggedInStatus', () => {
-  let store;
   const status = true;
 
-  beforeEach(() => {
-    store = mockStore({
-      analytics: context,
-    });
-
-    store.dispatch(updateLoggedInStatus(status));
-  });
+  beforeEach(() => store.dispatch(updateLoggedInStatus(status)));
 
   it('should sync marketing cloud id', () => {
     expect(RNOmniture.syncMarketingCloudId).toHaveBeenCalledWith(mcId);

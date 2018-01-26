@@ -8,6 +8,11 @@ export function updateAnalyticsContext(analyticsContext) {
   };
 }
 
+export function trackAction(action, data) {
+  //todo should this include the analytics context?
+  return () => RNOmniture.trackAction(action, data);
+}
+
 export function trackState(screenName) {
   return (dispatch, getState) => {
 
