@@ -144,9 +144,6 @@ export default {
   'GET_USER_IMPACT': {
     endpoint: REPORTS_URL,
   },
-  'GET_USER_DETAILS': {
-    endpoint: `${PEOPLE_URL}:userId`,
-  },
   'CREATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
