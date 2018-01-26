@@ -11,6 +11,12 @@ export function getMe() {
   };
 }
 
+export function getPerson(id) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
+  };
+}
+
 export function getPeopleList() {
   return (dispatch) => {
     const query = {
@@ -146,15 +152,5 @@ export function searchPeople(text, filters = {}) {
     }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
-  };
-}
-
-
-export function getUserDetails(id) {
-  return (dispatch) => {
-    const query = {
-      userId: id,
-    };
-    return dispatch(callApi(REQUESTS.GET_USER_DETAILS, query));
   };
 }

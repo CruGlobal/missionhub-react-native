@@ -11,7 +11,7 @@ import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
 import { CASEY, JEAN } from '../../constants';
-import { getUserDetails } from '../../actions/people';
+import { getPerson } from '../../actions/people';
 import { getStages } from '../../actions/stages';
 
 class ContactScreen extends Component {
@@ -33,7 +33,7 @@ class ContactScreen extends Component {
   async getAssignmentAndStage(personId, currentUserId, personIsCurrentUser, stages) {
     const { dispatch } = this.props;
     if (personId) {
-      const results = await dispatch(getUserDetails(personId));
+      const results = await dispatch(getPerson(personId));
       const { contactAssignmentId, pathwayStageId } = personIsCurrentUser ?
         getPathwayStageIdFromUser(results) :
         getAssignmentWithPathwayStageId(results);
