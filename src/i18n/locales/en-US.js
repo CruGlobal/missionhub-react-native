@@ -38,6 +38,13 @@ export default {
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
   },
+  login: {
+    tagline1: 'Grow closer to God.',
+    tagline2: 'Help others experience Him.',
+    facebookSignup: 'Sign up with Facebook',
+    tryNow: 'Try it now',
+    signIn: 'Sign In',
+  },
   keyLogin: {
     emailLabel: 'Email',
     passwordLabel: 'Password',
@@ -50,16 +57,13 @@ export default {
     welcome: 'welcome!',
     welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
+  setup: {
+    firstThing: '-first things first-',
+    namePrompt: 'what\'s your name?',
+  },
   interactions: {
     title: 'Hi!',
     profileTab: 'Go To Profile',
-  },
-  login: {
-    tagline1: 'Grow closer to God.',
-    tagline2: 'Help others experience Him.',
-    facebookSignup: 'Sign up with Facebook',
-    tryNow: 'Try it now',
-    signIn: 'Sign In',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -196,9 +200,5 @@ export default {
   profileScreen: {
     goToMain: 'Go To Main Tab',
     goBack: 'Go Back 1 Tab',
-  },
-  setup: {
-    firstThing: '-first things first-',
-    namePrompt: 'what\'s your name?',
   },
 };
