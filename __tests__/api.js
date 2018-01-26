@@ -1,9 +1,11 @@
-import API_CALLS, { baseErrorMessage, unexpectedErrorMessage } from '../src/api';
+import API_CALLS from '../src/api';
 import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
 import ReactNative from 'react-native';
+import locale from '../src/i18n/locales/en-US';
 
-const invalidCredentialsMessage = 'invalidCredentialsMessage';
+const { invalidCredentialsMessage, verifyEmailMessage } = locale.keyLogin;
+const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
 let serverResponse = {};
 
 beforeEach(() => {
@@ -36,7 +38,7 @@ describe('call api', () => {
 
   it('should return email/password message when TheKey returns invalid credentials', () => {
     return callMethod({ ['thekey_authn_error']: 'email_unverified' }, (error) => {
-      expect(error).toEqual({ user_error: 'verifyEmailMessage' });
+      expect(error).toEqual({ user_error: verifyEmailMessage });
     });
   });
 
@@ -51,7 +53,7 @@ describe('call api', () => {
 
     it('should show generic error message if request does not have it', () => {
       return callMethod({ error: 'test' }, () => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith('Error', `${unexpectedErrorMessage} ${baseErrorMessage}`);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`);
       });
     });
 
@@ -59,7 +61,7 @@ describe('call api', () => {
       serverResponse = { error: 'test' };
 
       return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith('Error', `${REQUESTS.ADD_NEW_PERSON.errorMessage} ${baseErrorMessage}`);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`);
       });
     });
   });

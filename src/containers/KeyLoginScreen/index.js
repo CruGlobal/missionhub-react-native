@@ -41,7 +41,7 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      const errorMessage = this.props.t(error.user_error);
+      const errorMessage = error.user_error;
 
       if (errorMessage) {
         this.setState({ errorMessage });

@@ -112,7 +112,6 @@ export default {
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',
-    errorMessage: 'There was an error adding a new person.',
   },
   'GET_MY_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,
