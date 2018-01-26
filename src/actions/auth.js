@@ -14,8 +14,6 @@ export function facebookLoginAction(accessToken) {
     })).then((results) => {
       LOG(results);
       return dispatch(onSuccessfulLogin());
-    }).catch((error) => {
-      LOG('error logging in', error);
     });
   };
 }
