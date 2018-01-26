@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { navigatePush } from '../actions/navigation';
 import SelectStepScreen from './SelectStepScreen';
 import { getStepSuggestions } from '../actions/steps';
-import { isAndroid, getFirstThreeValidItems } from '../utils/common';
+import { getFirstThreeValidItems } from '../utils/common';
 
 class PersonSelectStepScreen extends Component {
   constructor(props) {
@@ -26,12 +25,7 @@ class PersonSelectStepScreen extends Component {
     if (this.props.onSaveNewSteps) {
       this.props.onSaveNewSteps();
     } else {
-      let nextScreen = 'MainTabs';
-      // Android doesn't need a primer for notifications the way iOS does
-      if (!isAndroid && !this.props.hasAskedPushNotifications) {
-        nextScreen = 'NotificationPrimer';
-      }
-      this.props.dispatch(navigatePush(nextScreen));
+      this.props.onComplete();
     }
   }
 
@@ -58,6 +52,7 @@ PersonSelectStepScreen.propTypes = {
   contactId: PropTypes.string,
   contact: PropTypes.object,
   onSaveNewSteps: PropTypes.func,
+  onComplete: PropTypes.func,
 };
 
 const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
