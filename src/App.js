@@ -43,14 +43,20 @@ class App extends Component {
     if (this.state && this.state.store) {
       this.collectLifecycleData();
 
+      this.dispatchAnalyticsContextUpdate({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language });
+
       RNOmniture.loadMarketingCloudId((result) => {
         const updatedContext = { [ANALYTICS.MCID]: result };
-        this.state.store.dispatch(updateAnalyticsContext(updatedContext));
+        this.dispatchAnalyticsContextUpdate(updatedContext);
       });
     }
     else {
       setTimeout(this.initializeAnalytics.bind(this), 50);
     }
+  }
+
+  dispatchAnalyticsContextUpdate(context) {
+    this.state.store.dispatch(updateAnalyticsContext(context));
   }
 
   componentWillUnmount() {
