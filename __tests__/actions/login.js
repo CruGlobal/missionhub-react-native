@@ -3,8 +3,10 @@ import * as navigation from '../../src/actions/navigation';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { onSuccessfulLogin } from '../../src/actions/login';
+import { mockFnWithParams } from '../../testUtils';
 
 const mockStore = configureStore([thunk]);
+const personId = 593348;
 let store;
 let user;
 let myContact;
@@ -12,15 +14,17 @@ let myPerson;
 
 describe('onSuccessfulLogin', () => {
   beforeEach(() => {
-    store = mockStore({ auth: { personId: 5 } });
+    store = mockStore({ auth: { personId: personId } });
 
     user = {};
     myContact = {};
-    myPerson = { pathway_stage_id: null, contact_assignments: [myContact] };
+    myPerson = { contact_assignments: [myContact] };
 
-    people.getPerson = () => {
-      return () => Promise.resolve({ findAll: () => [user], find: () => myPerson });
-    };
+    const getPersonResult = { };
+    mockFnWithParams(getPersonResult, 'findAll', [user], 'user');
+    mockFnWithParams(getPersonResult, 'find', myPerson, 'person', personId);
+
+    mockFnWithParams(people, 'getPerson', () => Promise.resolve(getPersonResult), personId);
     navigation.navigatePush = (screen) => ({ type: screen });
   });
 

@@ -7,6 +7,7 @@ import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
 import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 import { facebookLoginAction, keyLogin } from '../../src/actions/auth';
+import { mockFnWithParams } from '../../testUtils';
 
 const email = 'Roger';
 const password = 'secret';
@@ -33,7 +34,7 @@ const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 beforeEach(() => {
   store = mockStore({});
 
-  login.onSuccessfulLogin = jest.fn().mockReturnValue(onSuccessfulLoginResult);
+  mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
 
 describe('facebook login', () => {
@@ -48,9 +49,7 @@ describe('facebook login', () => {
       return dispatch(() => Promise.resolve());
     };
 
-    callApi.default = jest.fn().mockImplementation((type, query, data) => {
-      return type === REQUESTS.FACEBOOK_LOGIN && JSON.stringify(data) === JSON.stringify(expectedData) ? mockFn : null;
-    });
+    mockFnWithParams(callApi, 'default', mockFn, REQUESTS.FACEBOOK_LOGIN, {}, expectedData);
   });
 
   it('should log in to Facebook', () => {
@@ -73,7 +72,7 @@ describe('key login', () => {
       }
     });
 
-    analytics.updateLoggedInStatus = jest.fn().mockReturnValue(loggedInAction);
+    mockFnWithParams(analytics, 'updateLoggedInStatus', loggedInAction, true);
   });
 
 

@@ -38,3 +38,9 @@ export const testSnapshotShallow = (component, store) => {
   // Render contents of component
   expect(renderedComponent.dive()).toMatchSnapshot();
 };
+
+export const mockFnWithParams = (obj, method, expectedReturn, ...expectedParams) => {
+  return obj[method] = jest.fn().mockImplementation(
+    (...actualParams) => JSON.stringify(expectedParams) === JSON.stringify(actualParams) ? expectedReturn : undefined
+  );
+};
