@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Linking } from 'react-native';
+import i18next from 'i18next';
 
 import { Flex, Text, IconButton } from '../common';
 import styles from './styles';
@@ -12,17 +13,17 @@ const CASEY_TABS = [
   {
     page: 'steps',
     iconName: 'stepsIcon',
-    tabLabel: 'My Steps',
+    tabLabel: i18next.t('contactHeader:mySteps'),
   },
   {
     page: 'journey',
     iconName: 'journeyIcon',
-    tabLabel: 'Our Journey',
+    tabLabel: i18next.t('contactHeader:ourJourney'),
   },
   {
     page: 'notes',
     iconName: 'notesIcon',
-    tabLabel: 'My Notes',
+    tabLabel: i18next.t('contactHeader:myNotes'),
   },
 ];
 
@@ -31,7 +32,7 @@ const ME_TABS = [
   {
     page: 'journey',
     iconName: 'journeyIcon',
-    tabLabel: 'My Journey',
+    tabLabel: i18next.t('contactHeader:myJourney'),
   },
 ];
 
@@ -40,7 +41,7 @@ const JEAN_TABS = [
   {
     page: 'actions',
     iconName: 'actionsIcon',
-    tabLabel: 'My Actions',
+    tabLabel: i18next.t('contactHeader:myActions'),
   },
   CASEY_TABS[1],
   CASEY_TABS[2],
@@ -51,7 +52,7 @@ const JEAN_TABS_MH_USER = [
   {
     page: 'userImpact',
     iconName: 'impactIcon',
-    tabLabel: 'Impact',
+    tabLabel: i18next.t('contactHeader:impact'),
   },
 ];
 
@@ -130,7 +131,7 @@ export default class ContactHeader extends Component {
         <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
         <PillButton
           filled={true}
-          text={stage && stage.name ? stage.name.toUpperCase() : 'SELECT STAGE'}
+          text={stage && stage.name ? stage.name.toUpperCase() : i18next.t('ContactHeader:selectStage')}
           style={styles.stageBtn}
           buttonTextStyle={styles.stageBtnText}
           onPress={this.props.onChangeStage}

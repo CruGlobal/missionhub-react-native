@@ -11,7 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
-@translate('people')
+@translate('peopleScreen')
 export class PeopleScreen extends Component {
 
   constructor(props) {

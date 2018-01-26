@@ -27,6 +27,8 @@ export default {
     ok: 'Ok',
     logout: 'Logout',
     me: 'Me',
+    loading: 'Loading',
+    save: 'Save',
   },
   settingsMenu: {
     about: 'About',
@@ -74,6 +76,7 @@ export default {
     meHeader: 'How do you want to move forward on your spiritual journey?',
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
+    createStep: 'Create your own step...',
   },
   selectStage: {
     meQuestion: '{{name}}, which stage best describes where you are on your journey?',
@@ -85,6 +88,15 @@ export default {
     backupMessage: 'We are glad you are here, <<user>>!',
     friend: 'Friend',
     chooseSteps: 'CHOOSE MY STEPS',
+  },
+  contactHeader: {
+    mySteps: 'My Steps',
+    ourJourney: 'Our Journey',
+    myNotes: 'My Notes',
+    myJourney: 'My Journey',
+    myActions: 'My Actions',
+    impact: 'Impact',
+    selectStage: 'SELECT STAGE',
   },
   contactSteps: {
     header: 'STEPS OF FAITH',
@@ -176,8 +188,10 @@ export default {
     uncontacted: 'Uncontacted',
     unassign: 'Unassign',
   },
-  people: {
+  peopleScreen: {
     header: 'PEOPLE',
+    personalMinistry: 'Personal Ministry',
+    personal: 'personal',
   },
   profileScreen: {
     goToMain: 'Go To Main Tab',
