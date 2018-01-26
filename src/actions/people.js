@@ -89,11 +89,11 @@ function peopleSectionsWithOrg(people) {
       orgs.forEach((o) => {
         const orgId = o.organization_id;
         if (p[orgId]) { p[orgId].people.push(n); }
-        else { p[orgId] = { people: [n] }; }
+        else { p[orgId] = { people: [ n ] }; }
       });
       return p;
     }, {
-      'personal': { organization: {}, people: [me] },
+      'personal': { organization: {}, people: [ me ] },
     });
 
     const myOrgs = getState().organizations.all;

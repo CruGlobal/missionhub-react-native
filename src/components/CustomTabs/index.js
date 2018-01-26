@@ -16,7 +16,7 @@ export default class CustomTabs extends Component {
 
   render() {
     return (
-      <View style={[styles.tabs, this.props.style]}>
+      <View style={[ styles.tabs, this.props.style ]}>
         {this.props.tabArray.map((tab, i) => {
           return (
             <TouchableOpacity key={tab.iconName} onPress={() => this.props.goToPage(i)} style={styles.tab}>
@@ -27,7 +27,7 @@ export default class CustomTabs extends Component {
                 style={{ color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }}
                 ref={(icon) => { this.icons[i] = icon; }}
               />
-              <Text style={[styles.tabText, { color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }]}>{tab.tabLabel}</Text>
+              <Text style={[ styles.tabText, { color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' } ]}>{tab.tabLabel}</Text>
             </TouchableOpacity>
           );
         })}

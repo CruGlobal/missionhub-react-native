@@ -14,7 +14,7 @@ export default class IconButton extends Component {
         type="transparent"
         {...rest}
       >
-        <Icon name={name} type={type} style={[styles.iconWrap, style]} {...rest} />
+        <Icon name={name} type={type} style={[ styles.iconWrap, style ]} {...rest} />
       </Button>
     );
   }
@@ -23,5 +23,5 @@ export default class IconButton extends Component {
 IconButton.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
 };

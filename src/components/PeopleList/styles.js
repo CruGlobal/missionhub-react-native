@@ -23,9 +23,9 @@ export default StyleSheet.create({
   },
   icon2: {
     padding: 15,
-    transform: [{ rotate: '270deg' }],
+    transform: [ { rotate: '270deg' } ],
   },
   downArrow: {
-    transform: [{ rotate: '90deg' }],
+    transform: [ { rotate: '90deg' } ],
   },
 });

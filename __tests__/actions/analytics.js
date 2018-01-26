@@ -16,7 +16,7 @@ const mcId = '7892387873247893297847894978497823';
 let context = {
   [ANALYTICS.SCREENNAME]: screenName,
 };
-const mockStore = configureStore([thunk]);
+const mockStore = configureStore([ thunk ]);
 
 beforeEach(() => {
   context = {

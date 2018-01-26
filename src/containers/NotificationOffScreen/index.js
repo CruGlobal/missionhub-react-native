@@ -74,7 +74,7 @@ class NotificationOffScreen extends Component {
             onPress={this.goToSettings}
             text={t('settings').toUpperCase()}
             style={styles.allowButton}
-            buttonTextStyle={[styles.buttonText, styles.allowButtonText]}
+            buttonTextStyle={[ styles.buttonText, styles.allowButtonText ]}
           />
           <Button
             pill={true}

@@ -14,7 +14,7 @@ const password = 'secret';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
-const mockStore = configureStore([thunk]);
+const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;

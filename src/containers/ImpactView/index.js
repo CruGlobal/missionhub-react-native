@@ -150,7 +150,7 @@ class ImpactView extends Component {
         bounces={false}
       >
         <Flex style={styles.topSection}>
-          <Text style={[styles.text, styles.topText]}>
+          <Text style={[ styles.text, styles.topText ]}>
             {this.buildImpactSentence(isContactScreen && this.state.userImpact ? this.state.userImpact : impact)}
           </Text>
         </Flex>
@@ -158,7 +158,7 @@ class ImpactView extends Component {
         <Flex style={isContactScreen ? styles.interactsionSection : styles.bottomSection}>
           {
             isContactScreen ? this.renderContactReport() : (
-              <Text style={[styles.text, styles.bottomText]}>
+              <Text style={[ styles.text, styles.bottomText ]}>
                 {this.buildImpactSentence(globalImpact, true)}
               </Text>
             )

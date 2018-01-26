@@ -16,7 +16,7 @@ if (__DEV__) {
 
 // Setup enhancers and middleware
 const enhancers = [];
-const middleware = [thunk];
+const middleware = [ thunk ];
 
 const composedEnhancers = compose(
   applyMiddleware(...middleware),
@@ -40,7 +40,7 @@ export default function getStore(onCompletion) {
     {},
     composedEnhancers,
   );
-  persistStore(store, { storage: AsyncStorage, transforms: [myTransform] }, () => {
+  persistStore(store, { storage: AsyncStorage, transforms: [ myTransform ] }, () => {
     onCompletion(store);
     // setTimeout(() => onCompletion(store), 1500);
   });

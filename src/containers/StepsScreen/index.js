@@ -97,7 +97,7 @@ class StepsScreen extends Component {
 
     if (reminders.length > 0) {
       return (
-        <Flex align="center" style={[styles.top, styles.topItems]}
+        <Flex align="center" style={[ styles.top, styles.topItems ]}
         >
           {
             reminders.map((s, index) => (
@@ -120,7 +120,7 @@ class StepsScreen extends Component {
       );
     }
     return (
-      <Flex align="center" justify="center" style={[styles.top, styles.topEmpty]}>
+      <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
         <Icon name="starGroupIcon" type="MissionHub" size={45} />
         <Text type="header" style={styles.title}>
           {t('reminderTitle').toUpperCase()}

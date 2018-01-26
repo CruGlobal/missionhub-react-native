@@ -25,7 +25,7 @@ export default class Input extends Component {
         underlineColorAndroid="rgba(0,0,0,0)"
         placeholderTextColor={theme.textColor}
         {...rest}
-        style={[styles.input, style]}
+        style={[ styles.input, style ]}
       />
     );
   }
@@ -33,5 +33,5 @@ export default class Input extends Component {
 
 Input.propTypes = {
   onChangeText: PropTypes.func.isRequired,
-  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
+  style: PropTypes.oneOfType([ PropTypes.array, PropTypes.object, PropTypes.number ]),
 };

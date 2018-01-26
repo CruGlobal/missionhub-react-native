@@ -73,6 +73,6 @@ FilterItem.propTypes = {
     preview: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['drilldown', 'single', 'switch']).isRequired,
+  type: PropTypes.oneOf([ 'drilldown', 'single', 'switch' ]).isRequired,
   isSelected: PropTypes.bool,
 };
