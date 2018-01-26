@@ -21,7 +21,11 @@ export default StyleSheet.create({
   icon: {
     padding: 15,
   },
+  icon2: {
+    padding: 15,
+    transform: [{ rotate: '270deg' }],
+  },
   downArrow: {
-    transform: [{ rotateX: '180deg' }],
+    transform: [{ rotate: '90deg' }],
   },
 });

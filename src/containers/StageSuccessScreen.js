@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
+
+import { navigatePush } from '../actions/navigation';
 import IconMessageScreen from './IconMessageScreen/index';
 
 class StageSuccessScreen extends Component {
   constructor(props) {
     super(props);
+  }
+
+  handleNavigate = () => {
+    this.props.dispatch(navigatePush('Step'));
   }
 
   getMessage() {
@@ -17,7 +22,7 @@ class StageSuccessScreen extends Component {
 
   render() {
     const message = this.getMessage();
-    return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" nextScreen="Step" iconPath={require('../../assets/images/pathFinder.png')} />;
+    return <IconMessageScreen mainText={message} buttonText="CHOOSE MY STEPS" onComplete={this.handleNavigate} iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
 

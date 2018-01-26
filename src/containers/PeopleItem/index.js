@@ -15,7 +15,7 @@ export class PeopleItem extends Component {
       dispatch(getStages());
     }
   }
-  
+
   handleSelect = () => { this.props.onSelect(this.props.person); }
 
   render() {
@@ -28,6 +28,7 @@ export class PeopleItem extends Component {
     let status = 'Uncontacted';
     let personStage = '';
     let isUncontacted = true;
+
     const orgPermissions = newPerson.organizational_permissions;
     const contactAssignments = newPerson.reverse_contact_assignments;
     if (isMe) {
@@ -64,7 +65,7 @@ export class PeopleItem extends Component {
             </Text>
           </Flex>
           {
-            isUncontacted ? (
+            !personStage ? (
               <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
             ) : null
           }

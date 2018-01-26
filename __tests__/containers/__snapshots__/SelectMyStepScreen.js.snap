@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <Connect(SelectStepScreen)
   headerText="How do you want to move forward on your spiritual journey?"
-  nextScreen="AddSomeone"
+  onComplete={[Function]}
   receiverId={1234}
   steps={
     Array [
