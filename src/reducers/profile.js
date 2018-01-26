@@ -5,6 +5,7 @@ import { REQUESTS } from '../actions/api';
 const initialProfileState = {
   firstName: '',
   lastName: '',
+  visiblePersonInfo: {},
 };
 
 function profileReducer(state = initialProfileState, action) {

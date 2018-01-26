@@ -92,7 +92,7 @@ export class ContactSideMenu extends Component {
 
 const mapStateToProps = ({ profile }) => {
   return {
-    visiblePersonInfo: profile.visiblePersonInfo,
+    visiblePersonInfo: profile.visiblePersonInfo || {},
   };
 };
 
