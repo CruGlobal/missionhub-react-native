@@ -5,9 +5,9 @@ import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
-import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 import { facebookLoginAction, keyLogin } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
+import { ANALYTICS } from '../../src/constants';
 
 const email = 'Roger';
 const password = 'secret';
@@ -40,29 +40,32 @@ beforeEach(() => {
 describe('facebook login', () => {
   global.LOG = jest.fn();
 
-  const expectedData = { fb_access_token: fbAccessToken };
-  const expectedType = 'fb success' ;
+  const facebookId = 48347272923;
+
+  const expectedApiData = { fb_access_token: fbAccessToken };
+  const expectedApiResult = { type: 'fb success' };
+
+  const expectedAnalyticsResult = { 'type': 'fb id changed' };
 
   beforeEach(() => {
     const mockFn = (dispatch) => {
-      dispatch({ type: expectedType });
+      dispatch(expectedApiResult);
       return dispatch(() => Promise.resolve());
     };
 
-    mockFnWithParams(callApi, 'default', mockFn, REQUESTS.FACEBOOK_LOGIN, {}, expectedData);
+    mockFnWithParams(callApi, 'default', mockFn, REQUESTS.FACEBOOK_LOGIN, {}, expectedApiData);
+
+    mockFnWithParams(analytics, 'updateAnalyticsContext',expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: 48347272923 });
   });
 
-  it('should log in to Facebook', () => {
-    return store.dispatch(facebookLoginAction(fbAccessToken)).then(() => {
-      expect(store.getActions()[0].type).toBe(expectedType);
-      expect(store.getActions()[1]).toBe(onSuccessfulLoginResult);
+  it('should log in to Facebook, update analytics context, and then handle result', () => {
+    return store.dispatch(facebookLoginAction(fbAccessToken, facebookId)).then(() => {
+      expect(store.getActions()).toEqual([expectedApiResult, expectedAnalyticsResult, onSuccessfulLoginResult]);
     });
   });
 });
 
 describe('key login', () => {
-  const loggedInAction = { type: ANALYTICS_CONTEXT_CHANGED, loggedInStatus: true };
-
   beforeEach(() => {
     callApi.default = mockImplementation((type) => {
       if (type === REQUESTS.KEY_GET_TICKET) {
@@ -71,20 +74,17 @@ describe('key login', () => {
         return Promise.resolve({});
       }
     });
-
-    mockFnWithParams(analytics, 'updateLoggedInStatus', loggedInAction, true);
   });
 
 
-  it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then update logged-in status', () => {
+  it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
     return store.dispatch(keyLogin(email, password))
       .then(() => {
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
 
-        expect(store.getActions()[0]).toBe(loggedInAction);
-        expect(store.getActions()[1]).toBe(onSuccessfulLoginResult);
+        expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
       });
   });
 });

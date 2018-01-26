@@ -1,18 +1,20 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
 import { getStages } from './stages';
 import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
-import { updateLoggedInStatus } from './analytics';
+import { updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 
-export function facebookLoginAction(accessToken) {
+export function facebookLoginAction(accessToken, id) {
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
       fb_access_token: accessToken,
     })).then((results) => {
       LOG(results);
+      dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
+
       return dispatch(onSuccessfulLogin());
     }).catch((error) => {
       LOG('error logging in', error);
@@ -37,7 +39,6 @@ function getKeyTicket() {
     const data = { code: keyTicketResult.ticket };
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
 
-    dispatch(updateLoggedInStatus(true));
     return dispatch(onSuccessfulLogin());
   };
 }

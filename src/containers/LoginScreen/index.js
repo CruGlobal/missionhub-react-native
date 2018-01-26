@@ -66,7 +66,8 @@ class LoginScreen extends BaseScreen {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken)).catch((e) => {
+
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id)).catch((e) => {
             LOG('err', e);
           });
         });

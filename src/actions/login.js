@@ -1,8 +1,11 @@
 import { getPerson } from './people';
 import { navigatePush } from './navigation';
+import { updateLoggedInStatus } from './analytics';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
+    dispatch(updateLoggedInStatus(true));
+
     const personId = getState().auth.personId;
     const getMeResult = await dispatch(getPerson(personId));
 
