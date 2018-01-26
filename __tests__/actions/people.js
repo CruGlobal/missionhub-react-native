@@ -5,14 +5,11 @@ import { REQUESTS } from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { JsonApiDataStore } from 'jsonapi-datastore';
+import { mockFnWithParams } from '../../testUtils';
 
 let store;
 
-const mockApi = (result, expectedRequestObj, expectedQuery) => {
-  api.default = jest.fn().mockImplementation((requestObj, query) =>
-    requestObj === expectedRequestObj && JSON.stringify(query) === JSON.stringify(expectedQuery) ? result : null
-  );
-};
+const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
 
 beforeEach(() => store = configureStore([thunk])());
 

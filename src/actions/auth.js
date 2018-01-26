@@ -1,11 +1,11 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
-import { navigatePush, navigateReset } from './navigation';
-import { getMe, getPeopleList } from './people';
+import { navigateReset } from './navigation';
+import { getMe } from './people';
 import { getStages } from './stages';
 import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateLoggedInStatus } from './analytics';
-import { findAllNonPlaceHolders } from '../utils/common';
+import { onSuccessfulLogin } from './login';
 
 export function facebookLoginAction(accessToken) {
   return (dispatch) => {
@@ -38,30 +38,6 @@ function getKeyTicket() {
     dispatch(updateLoggedInStatus(true));
     return dispatch(onSuccessfulLogin());
   };
-}
-
-export function onSuccessfulLogin() {
-  return async(dispatch) => {
-    const getMeResult = await dispatch(getMe());
-
-    let nextScreen = 'GetStarted';
-    if (getMeResult.findAll('user')[0].pathway_stage_id) {
-      const getPeopleListResult = await dispatch(getPeopleList());
-
-      if (hasPersonWithStageSelected(getPeopleListResult)) {
-        nextScreen = 'MainTabs';
-      } else {
-        nextScreen = 'AddSomeone';
-      }
-    }
-
-    return dispatch(navigatePush(nextScreen));
-  };
-}
-
-function hasPersonWithStageSelected(jsonApiResponse) {
-  const people = findAllNonPlaceHolders(jsonApiResponse, 'person');
-  return people.some((person) => person.reverse_contact_assignments[0].pathway_stage_id);
 }
 
 export function logout() {
