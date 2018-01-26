@@ -6,6 +6,9 @@ import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
+import { Alert } from 'react-native';
+
+import i18n from '../i18n';
 
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
@@ -79,12 +82,34 @@ lodashForEach(apiRoutes, (routeData, key) => {
         }
       }).catch((err) => {
         LOG('request error or error in logic that handles the request', key, err);
-        APILOG(`${key} FAIL`, err);
-        reject(err);
+
+        if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
+          return reject({ user_error: i18n.t('keyLogin:invalidCredentialsMessage') });
+
+        } else if (err['thekey_authn_error'] === 'email_unverified') {
+          return reject({ user_error: i18n.t('keyLogin:verifyEmailMessage') });
+
+        } else {
+          showAlert(routeData, key);
+
+          APILOG(`${key} FAIL`, err);
+          return reject(err);
+        }
       });
     })
   );
 });
+
+const showAlert = (routeData, key) => {
+  let errorMessage = `${i18n.t('error:unexpectedErrorMessage')} ${i18n.t('error:baseErrorMessage')}`;
+
+  const customErrorKey = `error:${key}`;
+  if (i18n.exists(customErrorKey)) {
+    errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
+  }
+
+  Alert.alert(i18n.t('error:error'), errorMessage);
+};
 
 const isUrlEncoded = (routeData) => {
   return routeData.extra && routeData.extra.headers && routeData.extra.headers['Content-Type'] === URL_ENCODED;

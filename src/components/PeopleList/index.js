@@ -12,7 +12,7 @@ import { merge } from '../../utils/common';
 import styles from './styles';
 
 export default class PeopleList extends Component {
-  
+
   constructor(props) {
     super(props);
 
@@ -47,7 +47,7 @@ export default class PeopleList extends Component {
 
   renderList(items) {
     const { onSelect, sections, refreshing, onRefresh } = this.props;
-    
+
     return (
       <FlatList
         style={styles.list}
@@ -81,11 +81,11 @@ export default class PeopleList extends Component {
           </Touchable>
           <Touchable onPress={() => this.toggleSection(org.id)}>
             <Icon
-              name="upArrowIcon"
+              name="rightArrowIcon"
               type="MissionHub"
               size={20}
               style={[
-                styles.icon,
+                styles.icon2,
                 section.expanded ? styles.downArrow : null,
               ]} />
           </Touchable>
@@ -93,7 +93,7 @@ export default class PeopleList extends Component {
       </Flex>
     );
   }
-  
+
   render() {
     const { items, sections, refreshing, onRefresh } = this.props;
     if (sections) {

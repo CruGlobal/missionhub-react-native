@@ -16,8 +16,6 @@ export function facebookLoginAction(accessToken, id) {
       dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
 
       return dispatch(onSuccessfulLogin());
-    }).catch((error) => {
-      LOG('error logging in', error);
     });
   };
 }

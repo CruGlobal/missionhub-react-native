@@ -66,10 +66,7 @@ class LoginScreen extends BaseScreen {
             return;
           }
           LOG('facebook me', meResult);
-
-          this.props.dispatch(facebookLoginAction(accessToken, meResult.id)).catch((e) => {
-            LOG('err', e);
-          });
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();
