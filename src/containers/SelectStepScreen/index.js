@@ -9,6 +9,7 @@ import StepsList from '../../components/StepsList';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
+import { trackAction } from '../../actions/analytics';
 
 class SelectStepScreen extends Component {
 
@@ -68,9 +69,18 @@ class SelectStepScreen extends Component {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
 
     LOG('selectedSteps', selectedSteps);
-    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
-      this.props.onComplete();
-    });
+
+    selectedSteps.forEach((step) => this.props.dispatch(trackAction('cru.stepoffaithdetail',
+      {
+        ['Step ID']: step.id,
+        ['Stage']: step.pathway_stage.id,
+        ['Challenge Type']: step.challenge_type,
+        ['Self Step']: step.self_step ? 'Y' : 'N',
+        ['Locale']: step.locale,
+      })));
+
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId))
+      .then(() => this.props.onComplete());
   }
 
   renderTitle() {

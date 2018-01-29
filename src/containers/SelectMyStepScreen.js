@@ -16,7 +16,7 @@ class SelectMyStepScreen extends Component {
 
   handleNavigate = () => {
     this.props.dispatch(navigatePush('AddSomeone'));
-  }
+  };
 
   render() {
     return (
