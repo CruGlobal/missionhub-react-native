@@ -32,7 +32,7 @@ export default {
       curious: {
         label: 'Curious',
         description: 'Open to spiritual conversations or seeking to know who Jesus is.',
-        followup: '{{name}}, we\'re glad to be a part of your journey. We hope the following steps will help you to know more about Jesus.',
+        followup: '{{name}}, we\'re glad to be part of your journey. We hope the following steps will help you know more about Jesus.',
       },
       forgiven: {
         label: 'Forgiven',
