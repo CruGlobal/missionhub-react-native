@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
-import { translate } from 'react-i18next';
 import { getStages } from '../../actions/stages';
 
 import Carousel from 'react-native-snap-carousel';
@@ -29,7 +28,6 @@ const stageIcons = [
   GUIDING,
 ];
 
-@translate()
 class PathwayStageScreen extends Component {
   constructor(props) {
     super(props);
@@ -51,14 +49,12 @@ class PathwayStageScreen extends Component {
   }
 
   renderStage({ item, index }) {
-    const { t } = this.props;
-
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
-          <Text type="header" style={styles.cardHeader}>{t(`stages.${item.name.toLowerCase()}.label`).toLowerCase()}</Text>
-          <Text style={styles.cardText}>{t(`stages.${item.name.toLowerCase()}.description`)}</Text>
+          <Text type="header" style={styles.cardHeader}>{item.name.toLowerCase()}</Text>
+          <Text style={styles.cardText}>{item.description}</Text>
         </View>
         <Button
           type="primary"

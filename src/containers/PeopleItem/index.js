@@ -62,7 +62,7 @@ export class PeopleItem extends Component {
               {personName}
             </Text>
             <Text style={[styles.stage, isUncontacted ? styles.uncontacted : null]}>
-              {t(personStage ? `stages.${personStage.toLowerCase()}.label` : null)}
+              {personStage}
               {personStage && status ? '  >  ' : null}
               {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
             </Text>
