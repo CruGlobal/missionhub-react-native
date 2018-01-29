@@ -14,9 +14,7 @@ class StepItem extends Component {
   handleSelect = () => { this.props.onSelect && this.props.onSelect(this.props.step); }
 
   render() {
-    const { t } = this.props;
-
-    const { step, type, myId, onAction } = this.props;
+    const { step, type, myId, onAction, t } = this.props;
     const isMe = step.receiver && step.receiver.id === myId ;
     let ownerName = isMe ? t('me') : step.receiver.full_name || '';
     ownerName = ownerName.toUpperCase();

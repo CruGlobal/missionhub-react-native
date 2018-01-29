@@ -33,7 +33,7 @@ class ProfileScreen extends Component {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.container}
         >
-          <Text>Profile {id}</Text>
+          <Text>{t('profileID', id)}</Text>
           <ProfileFields />
           <Flex style={{ marginTop: 50 }} />
           <Button

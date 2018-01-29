@@ -12,10 +12,12 @@ class StageSuccessScreen extends Component {
   }
 
   getMessage() {
-    const { t } = this.props;
+    const { t, selectedStage } = this.props;
 
-    let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : t('backupMessage');
-    followUpText = followUpText.replace('<<user>>', this.props.firstName ? this.props.firstName : t('friend'));
+    let followUpText = t(`stages.${selectedStage.name.toLowerCase()}.followup`);
+
+    //let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : t('backupMessage');
+    //followUpText = followUpText.replace('<<user>>', this.props.firstName ? this.props.firstName : t('friend'));
     return followUpText;
   }
 
