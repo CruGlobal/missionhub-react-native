@@ -95,6 +95,10 @@
       "error",
       "always"
     ],
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
     "react/jsx-indent": [
       "error",
       2

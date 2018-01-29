@@ -58,7 +58,7 @@ export class PeopleItem extends Component {
             <Text style={styles.name}>
               {personName}
             </Text>
-            <Text style={[styles.stage, isUncontacted ? styles.uncontacted : null]}>
+            <Text style={[ styles.stage, isUncontacted ? styles.uncontacted : null ]}>
               {personStage}
               {personStage && status ? '  >  ' : null}
               {status}

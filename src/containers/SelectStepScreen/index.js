@@ -56,8 +56,8 @@ class SelectStepScreen extends Component {
         };
 
         this.setState({
-          steps: this.state.steps.concat([newStep]),
-          addedSteps: addedSteps.concat([newStep]),
+          steps: this.state.steps.concat([ newStep ]),
+          addedSteps: addedSteps.concat([ newStep ]),
         });
         this.stepsList.onScrollToEnd();
       },

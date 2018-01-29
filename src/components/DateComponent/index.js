@@ -23,7 +23,7 @@ export default class DateComponent extends Component {
 }
 
 DateComponent.propTypes = {
-  date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]).isRequired,
+  date: PropTypes.oneOfType([ PropTypes.string, PropTypes.instanceOf(Date) ]).isRequired,
   format: PropTypes.string,
 };
 

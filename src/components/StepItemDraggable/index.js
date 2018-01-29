@@ -36,7 +36,7 @@ export default class StepItemDraggable extends Component {
           this.state.pan.setValue({ x: 0, y: 0 });
           this.toggleMove(true);
         },
-        onPanResponderMove: Animated.event([null, { dx: 0, dy: this.state.pan.y }]),
+        onPanResponderMove: Animated.event([ null, { dx: 0, dy: this.state.pan.y } ]),
         onPanResponderTerminationRequest: () => true,
         onPanResponderReject: (...args) => this.snapBack(...args),
         onPanResponderRelease: (...args) => this.snapBack(...args),

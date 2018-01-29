@@ -4,7 +4,7 @@ import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 
 export const getFirstThreeValidItems = (arr) => {
-  return [].concat([arr[0], arr[1], arr[2]]).filter(Boolean);
+  return [].concat([ arr[0], arr[1], arr[2] ]).filter(Boolean);
 };
 export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';

@@ -8,7 +8,7 @@ import SelectMyStepScreen from '../../src/containers/SelectMyStepScreen';
 
 const mockStore = {
   steps: {
-    suggestedForMe: [ { id: 1 }, { id: 2 }, { id: 3 }],
+    suggestedForMe: [ { id: 1 }, { id: 2 }, { id: 3 } ],
   },
   auth: {
     personId: 1234,

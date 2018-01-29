@@ -24,7 +24,7 @@ export default i18n
     resources: { ...mapValues(translations, 'translation'), ...{ 'en-US': en_US } },
 
     // have a common namespace used around the full app
-    ns: ['common'],
+    ns: [ 'common' ],
     defaultNS: 'common',
     fallbackNS: 'common',
 

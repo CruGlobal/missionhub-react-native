@@ -8,7 +8,7 @@ it('saves people array', () => {
     {
       type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
       results: {
-        findAll: () => [{ id: '1' }, { id: '2' }],
+        findAll: () => [ { id: '1' }, { id: '2' } ],
       },
     }
   );
@@ -23,8 +23,8 @@ it('saves people by org array', () => {
     {
       type: PEOPLE_WITH_ORG_SECTIONS,
       sections: [
-        { organization: { id: '1' }, people: [{ id: '1' }] },
-        { organization: { id: '2' }, people: [{ id: '1' }, { id: '1' }] },
+        { organization: { id: '1' }, people: [ { id: '1' } ] },
+        { organization: { id: '2' }, people: [ { id: '1' }, { id: '1' } ] },
       ],
     }
   );

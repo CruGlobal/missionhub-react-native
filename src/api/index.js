@@ -10,7 +10,7 @@ import { Alert } from 'react-native';
 
 import i18n from '../i18n';
 
-const VALID_METHODS = ['get', 'put', 'post', 'delete'];
+const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
 
 // Setup API call
 let API_CALLS = {};

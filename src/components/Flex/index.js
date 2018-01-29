@@ -40,7 +40,7 @@ export default class Flex extends Component {
           duration={400}
           animation={animation}
           {...rest}
-          style={[style, styleObj]}
+          style={[ style, styleObj ]}
         >
           {children}
         </Animatable.View>
@@ -50,7 +50,7 @@ export default class Flex extends Component {
       <View
         ref={(c) => this._view = c}
         {...rest}
-        style={[style, styleObj]}
+        style={[ style, styleObj ]}
       >
         {children}
       </View>
@@ -60,13 +60,13 @@ export default class Flex extends Component {
 
 Flex.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
   value: PropTypes.number,
   grow: PropTypes.number,
-  direction: PropTypes.oneOf(['row', 'column']),
-  wrap: PropTypes.oneOf(['wrap', 'wrap-reverse', 'nowrap']),
-  align: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-  justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
-  self: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
+  direction: PropTypes.oneOf([ 'row', 'column' ]),
+  wrap: PropTypes.oneOf([ 'wrap', 'wrap-reverse', 'nowrap' ]),
+  align: PropTypes.oneOf([ 'start', 'center', 'end', 'stretch' ]),
+  justify: PropTypes.oneOf([ 'start', 'center', 'end', 'around', 'between' ]),
+  self: PropTypes.oneOf([ 'start', 'center', 'end', 'stretch' ]),
   animated: PropTypes.bool,
 };
