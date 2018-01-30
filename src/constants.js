@@ -62,7 +62,7 @@ export const ANALYTICS = {
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
-  // MHInteractionTypeNote: { id: 1, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true },
   MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation' },
   MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel' },
   MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision' },

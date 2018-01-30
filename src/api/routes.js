@@ -156,6 +156,10 @@ export default {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'delete',
   },
+  'ADD_NEW_COMMENT': {
+    endpoint: `${API_URL}interactions`,
+    method: 'post',
+  },
   'SEARCH': {
     endpoint: `${API_URL}search`,
   },

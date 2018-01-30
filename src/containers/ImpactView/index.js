@@ -69,7 +69,7 @@ class ImpactView extends Component {
     this.props.dispatch(getUserImpact(this.props.user.id, this.state.period)).then((r) => {
       const report = r.findAll('person_report')[0];
       const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).map((key)=>{
+      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key)=>{
         let num = 0;
         if (INTERACTION_TYPES[key].requestFieldName) {
           num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;

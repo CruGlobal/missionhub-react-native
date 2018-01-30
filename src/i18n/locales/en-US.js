@@ -60,9 +60,22 @@ export default {
     addStep: 'Add a step of faith',
   },
   contactJourney: {
-    addJourney: 'Add to Our Journey',
+    loading: 'Loading Journey Items',
+    addComment: 'Add a Comment',
     ourJourney: 'Our Journey',
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
+  },
+  journeyItem: {
+    stepTitle: 'Growing Step of Faith',
+    stageTitle: 'Growing',
+    interactionNote: 'Comment',
+    interactionSpiritualConversation: 'Spiritual Conversations',
+    interactionGospel: 'Gospel Presentations',
+    interactionDecision: 'Personal Decisions',
+    interactionSpirit: 'Holy Spirit Presentations',
+    interactionDiscipleshipConversation: 'Discipleship Conversations',
+    interactionAssignedContacts: 'Assigned Contacts',
+    interactionUncontacted: 'Uncontacted',
   },
   getStarted: {
     hi: 'hi',

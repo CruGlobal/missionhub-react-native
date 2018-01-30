@@ -6,18 +6,23 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import styles from './styles';
-// import { clearJourney, getJourney } from '../../actions/journey';
-import { clearJourney } from '../../actions/journey';
+import { getJourney } from '../../actions/journey';
 import { Flex, Button, Separator, Text } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
+import { addNewComment } from '../../actions/interactions';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      isLoading: true,
+      journey: [],
+    };
 
     this.renderRow = this.renderRow.bind(this);
     this.handleAddStep = this.handleAddStep.bind(this);
@@ -29,13 +34,27 @@ class ContactJourney extends Component {
     this.getInteractions();
   }
 
-  componentWillUnmount() {
-    this.props.dispatch(clearJourney());
+  getInteractions() {
+    const orgIdExists = !!this.getOrganization();
+    const isPersonal = !this.props.isCasey && orgIdExists;
+    
+    this.props.dispatch(getJourney(this.props.person.id, isPersonal)).then((items) => {
+      LOG('journey items', items);
+      this.setState({
+        journey: items,
+        isLoading: false,
+      });
+    }).catch(() => {
+      this.setState({ isLoading: false });
+    });
   }
 
-  getInteractions() {
-    //TODO: make api call to get interactions
-    // this.props.dispatch(getJourney());
+  getOrganization() {
+    const { person } = this.props;
+    if (person.organizational_permissions && person.organizational_permissions.length > 0) {
+      return person.organizational_permissions[0].id;
+    }
+    return undefined;
   }
 
   handleEditInteraction(interaction) {
@@ -43,8 +62,13 @@ class ContactJourney extends Component {
   }
 
   handleAddStep(text) {
-    // TODO: Add a comment to the journey
-    LOG('add a comment', text);
+    const { person } = this.props;
+    const orgId = this.getOrganization();
+
+    this.props.dispatch(addNewComment(person.id, text, orgId)).then(() => {
+      // Add new comment to journey
+      this.getInteractions();
+    });
   }
 
   handleCreateInteraction() {
@@ -70,7 +94,7 @@ class ContactJourney extends Component {
   }
 
   renderList() {
-    const { journey } = this.props;
+    const { journey } = this.state;
     return (
       <FlatList
         ref={(c) => this.list = c}
@@ -97,20 +121,34 @@ class ContactJourney extends Component {
     );
   }
 
+  renderLoading() {
+    const { t } = this.props;
+    return (
+      <Flex align="center" justify="center">
+        <Text type="header" style={styles.nullText}>{t('loading')}</Text>
+      </Flex>
+    );
+  }
+
+  renderContent() {
+    const { journey, isLoading } = this.state;
+    if (isLoading) return this.renderLoading();
+    if (journey.length === 0) this.renderNull();
+    return this.renderList();
+  }
+
   render() {
-    const { t, journey } = this.props;
+    const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          {
-            journey.length > 0 ? this.renderList() : this.renderNull()
-          }
+          {this.renderContent()}
         </Flex>
         <Flex justify="end">
           <Button
             type="secondary"
             onPress={this.handleCreateInteraction}
-            text={t('addJourney').toUpperCase()}
+            text={t('addComment').toUpperCase()}
           />
         </Flex>
       </View>
@@ -119,19 +157,10 @@ class ContactJourney extends Component {
 }
 
 ContactJourney.propTypes = {
-  person: PropTypes.object,
+  person: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ auth }) => ({
-  journey: [
-    { type: 'step', title: 'Growing Step of Faith', id: '1', text: 'You are cool\nCheck it out\n\nNew lines all over', completed_at: '2018-01-25T16:21:02Z' },
-    { type: 'stage', title: 'Stage', id: '2', text: 'Step 2 fjldsja fkldjs alkf', completed_at: '2018-01-25T16:21:02Z' },
-    { type: 'comment', id: '3', text: 'Step 3', completed_at: '2018-01-25T16:21:02Z' },
-    { type: 'survey', title: 'Survey 2017', id: '4', text: 'Step 4', completed_at: '2018-01-25T16:21:02Z' },
-    { type: 'comment', title: 'Comment', id: '5', text: 'Step 5', completed_at: '2018-01-25T16:21:02Z' },
-    { type: 'step', id: '6', text: 'Step 6', completed_at: '2018-01-25T16:21:02Z' },
-  ],
-  // journey: [],
   isCasey: !auth.isJean,
 });
 
