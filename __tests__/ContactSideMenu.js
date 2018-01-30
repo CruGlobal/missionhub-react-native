@@ -10,6 +10,8 @@ it('renders Casey menu correctly', () => {
   testSnapshotShallow(
     <ContactSideMenu />,
     createMockStore({
+      auth: { personId: 1 },
+      stages: { stages: [] },
       profile: {
         visiblePersonInfo: {
           isJean: false,
@@ -23,6 +25,8 @@ it('renders Jean menu correctly', () => {
   testSnapshotShallow(
     <ContactSideMenu />,
     createMockStore({
+      auth: { personId: 1 },
+      stages: { stages: [] },
       profile: {
         visiblePersonInfo: {
           isJean: true,

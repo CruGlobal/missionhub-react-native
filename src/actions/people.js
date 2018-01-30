@@ -13,6 +13,16 @@ export function getPerson(id) {
   };
 }
 
+export function getPersonDetails(id) {
+  return (dispatch) => {
+    const query = {
+      person_id: id,
+      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
+    };
+    return dispatch(callApi(REQUESTS.GET_PERSON, query));
+  };
+}
+
 export function getMyPeople() {
   return async(dispatch, getState) => {
     const peopleQuery = {
