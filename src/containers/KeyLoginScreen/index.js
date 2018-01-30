@@ -136,7 +136,7 @@ class KeyLoginScreen extends Component {
           <Button
             type="secondary"
             onPress={this.login}
-            text={t('login')}
+            text={t('login').toUpperCase()}
           />
         </Flex>
       </PlatformKeyboardAvoidingView>

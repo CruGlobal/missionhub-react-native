@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Linking } from 'react-native';
-import i18next from 'i18next';
+import i18next from '../../i18n';
 
 import { Flex, Text, IconButton } from '../common';
 import styles from './styles';
@@ -131,7 +131,7 @@ export default class ContactHeader extends Component {
         <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
         <PillButton
           filled={true}
-          text={stage && stage.name ? stage.name.toUpperCase() : i18next.t('ContactHeader:selectStage')}
+          text={stage && stage.name ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
           style={styles.stageBtn}
           buttonTextStyle={styles.stageBtnText}
           onPress={this.props.onChangeStage}

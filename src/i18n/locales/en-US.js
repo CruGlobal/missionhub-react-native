@@ -79,7 +79,7 @@ export default {
   keyLogin: {
     emailLabel: 'Email',
     passwordLabel: 'Password',
-    login: 'Login',
+    login: 'LOGIN',
     errorDefault: 'There was a problem signing in.',
     errorIncorrect: 'Your Email or Password is Incorrect',
     errorVerify: 'Verify your account via Email',
