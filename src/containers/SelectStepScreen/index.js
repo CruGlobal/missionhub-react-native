@@ -10,6 +10,7 @@ import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import { trackAction } from '../../actions/analytics';
+import { ADD_STEP_SCREEN } from '../AddStepScreen';
 
 class SelectStepScreen extends Component {
 
@@ -46,7 +47,7 @@ class SelectStepScreen extends Component {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
     }
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
 

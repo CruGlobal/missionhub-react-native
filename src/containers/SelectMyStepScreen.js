@@ -38,3 +38,4 @@ const mapStateToProps = ({ steps, auth }) => ({
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);
+export const SELECT_MY_STEP_SCREEN = 'nav/SELECT_MY_STEP';

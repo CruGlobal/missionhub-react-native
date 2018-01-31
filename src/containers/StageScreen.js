@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import PathwayStageScreen from './PathwayStageScreen/index';
 import { selectStage } from '../actions/selectStage';
+import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 
 class StageScreen extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class StageScreen extends Component {
         this.props.onComplete(stage);
         this.props.dispatch(navigateBack());
       } else {
-        this.props.dispatch(navigatePush('StageSuccess', { selectedStage: stage }));
+        this.props.dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
       }
     });
   }

@@ -6,15 +6,15 @@ import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectMyStepScreen from './containers/SelectMyStepScreen';
+import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen from './containers/PersonSelectStepScreen';
-import AddStepScreen from './containers/AddStepScreen';
+import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
-import StageSuccessScreen from './containers/StageSuccessScreen';
+import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen from './containers/AddSomeoneScreen';
 import ContactScreen from './containers/ContactScreen';
 import AddContactScreen from './containers/AddContactScreen';
@@ -113,6 +113,9 @@ export const screens = {
   [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'mh : onboarding : welcome' },
   [SETUP_SCREEN]: { screen: SetupScreen, name: 'mh : onboarding : name' },
   [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'mh : onboarding : get started' },
+  [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'mh : onboarding : self : choose my steps' },
+  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'mh : onboarding : self : steps' },
+  [ADD_STEP_SCREEN]: { screen: AddStepScreen, name: 'mh : onboarding : self : steps : create' },
 };
 
 export const MainStackRoutes = StackNavigator({
@@ -125,11 +128,8 @@ export const MainStackRoutes = StackNavigator({
   },
   ...screens,
   Profile: { screen: ProfileScreen },
-  Step: { screen: SelectMyStepScreen },
   PersonStep: { screen: PersonSelectStepScreen },
-  AddStep: { screen: AddStepScreen },
   Stage: { screen: StageScreen },
-  StageSuccess: { screen: StageSuccessScreen },
   AddSomeone: { screen: AddSomeoneScreen },
   Contact: {
     screen: DrawerNavigator(
