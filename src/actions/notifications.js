@@ -37,12 +37,12 @@ export function noNotificationReminder(showReminder = false) {
 
 export function setupPushNotifications() {
   return (dispatch, getState) => {
-    const { token, shouldAsk } = getState().notifications;
+    const { token, shouldAsk, isRegistered } = getState().notifications;
     if (!shouldAsk) return;
-
+    console.warn(token, isRegistered);
     // TODO: Remove this when testing notification callback
     // Don't bother getting this stuff if there is already a token
-    if (token) {
+    if (token && isRegistered) {
       return;
     }
 
@@ -51,10 +51,9 @@ export function setupPushNotifications() {
     PushNotification.configure({
       // (optional) Called when Token is generated (iOS and Android)
       onRegister(token) {
-        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: token.token }).then(()=> {
-          //make api call to register token with user
-          dispatch(registerPushDevice(token.token));
-        });
+        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: token.token });
+        //make api call to register token with user
+        dispatch(registerPushDevice(token.token));
       },
       // (required) Called when a remote or local notification is opened or received
       onNotification(notification) {
@@ -99,14 +98,17 @@ export function registerPushDevice(token) {
   return (dispatch) => {
     const type = DeviceInfo.getManufacturer();
     const data ={
-      type: 'push_notification_device_token',
-      attributes: {
-        token,
-        platform: type === 'Apple' ? 'APNS' : 'GCM',
+      data: {
+        type: 'push_notification_device_token',
+        attributes: {
+          token,
+          platform: type === 'Apple' ? 'APNS' : 'GCM',
+        },
       },
     };
-    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data)).catch((error) => {
-      LOG('error setting push token', error);
+
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data)).then((r)=>WARN('results',r)).catch((error) => {
+      WARN('error setting push token', error);
     });
   };
 }
