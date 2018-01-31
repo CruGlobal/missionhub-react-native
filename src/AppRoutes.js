@@ -158,7 +158,6 @@ export const MainStackRoutes = StackNavigator({
     ),
   },
   AddContact: { screen: AddContactScreen },
-  Impact: { screen: ImpactScreen },
   PersonStage: { screen: PersonStageScreen },
   Celebration: { screen: CelebrationScreen },
   SearchPeople: { screen: SearchPeopleScreen },
