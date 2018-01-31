@@ -11,7 +11,7 @@ import { Flex, Button, Separator, Text } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
-import { addNewComment } from '../../actions/interactions';
+import { addNewComment, editComment } from '../../actions/interactions';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -22,10 +22,13 @@ class ContactJourney extends Component {
     this.state = {
       isLoading: true,
       journey: [],
+      editingInteraction: null,
+      isPersonalMinistry: false,
     };
 
     this.renderRow = this.renderRow.bind(this);
-    this.handleAddStep = this.handleAddStep.bind(this);
+    this.handleAddComment = this.handleAddComment.bind(this);
+    this.handleEditComment = this.handleEditComment.bind(this);
     this.handleCreateInteraction = this.handleCreateInteraction.bind(this);
     this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
@@ -33,12 +36,15 @@ class ContactJourney extends Component {
   componentWillMount() {
     this.getInteractions();
   }
-
-  getInteractions() {
+  
+  componentDidMount() {
     const orgIdExists = !!this.getOrganization();
     const isPersonal = !this.props.isCasey && !orgIdExists;
-    
-    this.props.dispatch(getJourney(this.props.person.id, isPersonal)).then((items) => {
+    this.setState({ isPersonalMinistry: isPersonal });
+  }
+
+  getInteractions() {
+    this.props.dispatch(getJourney(this.props.person.id, this.state.isPersonalMinistry)).then((items) => {
       this.setState({
         journey: items,
         isLoading: false,
@@ -57,10 +63,25 @@ class ContactJourney extends Component {
   }
 
   handleEditInteraction(interaction) {
-    LOG(interaction);
+    this.setState({ editingInteraction: interaction });
+    this.props.dispatch(navigatePush('AddStep', {
+      onComplete: this.handleEditComment,
+      type: 'editJourney',
+      isEdit: true,
+      text: interaction.text,
+    }));
   }
 
-  handleAddStep(text) {
+  handleEditComment(text) {
+    const { editingInteraction } = this.state;
+    this.props.dispatch(editComment(editingInteraction, text)).then(() => {
+      // Refresh the journey list after editing a comment
+      this.getInteractions();
+      this.setState({ editingInteraction: null });
+    });
+  }
+
+  handleAddComment(text) {
     const { person, dispatch } = this.props;
     const orgId = this.getOrganization();
 
@@ -72,7 +93,7 @@ class ContactJourney extends Component {
 
   handleCreateInteraction() {
     this.props.dispatch(navigatePush('AddStep', {
-      onComplete: this.handleAddStep,
+      onComplete: this.handleAddComment,
       type: 'journey',
     }));
   }
@@ -80,7 +101,7 @@ class ContactJourney extends Component {
   renderRow({ item }) {
     const { isCasey } = this.props;
     let content = <JourneyItem item={item} type={item.type} />;
-    if (isCasey) {
+    if (item.type === 'interaction' && (isCasey || this.state.isPersonalMinistry)) {
       return (
         <RowSwipeable
           key={item.id}

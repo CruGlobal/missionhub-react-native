@@ -10,10 +10,30 @@ const mockStep = {
   id: '123',
   text: 'Test Journey',
   completed_at: date,
+  created_at: date,
+  interaction_type_id: 1,
 };
 
-it('renders correctly', () => {
+it('renders step correctly', () => {
   testSnapshot(
     <JourneyItem item={mockStep} type="step" />
+  );
+});
+
+it('renders stage correctly', () => {
+  testSnapshot(
+    <JourneyItem item={mockStep} type="stage" />
+  );
+});
+
+it('renders survey correctly', () => {
+  testSnapshot(
+    <JourneyItem item={mockStep} type="survey" />
+  );
+});
+
+it('renders interaction correctly', () => {
+  testSnapshot(
+    <JourneyItem item={mockStep} type="interaction" />
   );
 });

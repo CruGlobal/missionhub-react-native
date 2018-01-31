@@ -48,3 +48,25 @@ export function addNewComment(personId, comment, organizationId) {
     return dispatch(callApi(REQUESTS.ADD_NEW_COMMENT, query, bodyData));
   };
 }
+
+export function editComment(interaction, comment) {
+  return (dispatch) => {
+    if (!interaction || !comment) {
+      return Promise.reject('InvalidDataEditComment');
+    }
+    
+    const bodyData = {
+      data: {
+        type: 'interaction',
+        attributes: {
+          comment: comment,
+        },
+      },
+      included: [],
+    };
+    const query = {
+      interactionId: interaction.id,
+    };
+    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData));
+  };
+}

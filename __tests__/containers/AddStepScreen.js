@@ -18,3 +18,27 @@ it('renders correctly', () => {
     </Provider>
   );
 });
+
+it('renders journey correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'journey',
+      })} />
+    </Provider>
+  );
+});
+
+it('renders edit journey correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'editJourney',
+        isEdit: true,
+        text: 'Comment',
+      })} />
+    </Provider>
+  );
+});

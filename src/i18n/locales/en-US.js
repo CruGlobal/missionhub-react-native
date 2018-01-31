@@ -54,7 +54,9 @@ export default {
     header: 'My Step of Faith',
     createStep: 'Create Step',
     journeyHeader: 'What did you see God do?',
+    editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
+    editJourneyButton: 'Save',
   },
   contactSteps: {
     addStep: 'Add a step of faith',

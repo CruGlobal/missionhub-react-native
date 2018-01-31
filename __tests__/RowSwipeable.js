@@ -13,3 +13,19 @@ it('renders correctly', () => {
     </RowSwipeable>
   );
 });
+
+it('renders remove/complete actions correctly', () => {
+  testSnapshot(
+    <RowSwipeable onComplete={() => {}} onDelete={() => {}}>
+      <View />
+    </RowSwipeable>
+  );
+});
+
+it('renders edit action correctly', () => {
+  testSnapshot(
+    <RowSwipeable onEdit={() => {}}>
+      <View />
+    </RowSwipeable>
+  );
+});
