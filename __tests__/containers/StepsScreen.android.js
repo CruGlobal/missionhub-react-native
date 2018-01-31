@@ -35,6 +35,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/utils/common', () => ({
   exists: (v) => typeof v !== 'undefined',
   isAndroid: true,
+  isiPhoneX: jest.fn(),
 }));
 
 it('renders android correctly', () => {
