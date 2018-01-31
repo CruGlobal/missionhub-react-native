@@ -24,11 +24,11 @@ export function getJourney(personId, personal = false) {
     }));
 
     // Get the interactions
-    const peopleQuery = {
+    const personQuery = {
       // include: 'pathway_progression_audits,surveys.name,interactions.comment,answer_sheets.surveys',
       include: 'pathway_progression_audits,interactions.comment',
     };
-    const person = await dispatch(getUserDetails(personId, peopleQuery));
+    const person = await dispatch(getUserDetails(personId, personQuery));
     journeyInteractions = findAllNonPlaceHolders(person, 'contact_assignment')
       .concat(findAllNonPlaceHolders(person, 'interaction'));
 

@@ -162,6 +162,6 @@ export function getUserDetails(id, query = {}) {
       userId: id,
       ...query,
     };
-    return dispatch(callApi(REQUESTS.GET_USER_DETAILS, newQuery));
+    return dispatch(callApi(REQUESTS.GET_PERSON, newQuery));
   };
 }
