@@ -6,14 +6,11 @@ import { findAllNonPlaceHolders } from '../utils/common';
 export function getJourney(personId, personal = false) {
   return async(dispatch, getState) => {
     // const { personId: myId, isJean } = getState().auth.personId;
-    const { isJean } = getState().auth.personId;
+    const { isJean } = getState().auth;
 
     let journeySteps = [];
     let journeyInteractions = [];
-    // let journeySteps = [];
-    // let journeySteps = [];
-    // let journeySteps = [];
-
+    let journeySurveys = [];
 
     // Get the steps
     const stepsFilter = {
@@ -28,24 +25,13 @@ export function getJourney(personId, personal = false) {
     }));
 
     // Get the interactions
-    let peopleQuery = {};
-    if (isJean && !personal) {
-      peopleQuery = {
-        include: 'pathway_progression_audits,surveys.name,interactions.comment,answer_sheets.surveys',
-      };
-    } else {
-      // For Casey and jean's personal ministry, show the same things
-      peopleQuery = {
-        include: 'pathway_progression_audits,interactions.comment',
-      };
-    }
+    const peopleQuery = {
+      // include: 'pathway_progression_audits,surveys.name,interactions.comment,answer_sheets.surveys',
+      include: 'pathway_progression_audits,interactions.comment',
+    };
     const person = await dispatch(getUserDetails(personId, peopleQuery));
-    journeyInteractions = (findAllNonPlaceHolders(person, 'answer_sheet'))
-      .concat(findAllNonPlaceHolders(person, 'accepted_challenge'))
-      .concat(findAllNonPlaceHolders(person, 'reverse_contact_assignment'))
-      .concat(findAllNonPlaceHolders(person, 'interaction'))
-      .concat(findAllNonPlaceHolders(person, 'comments'))
-      .concat(findAllNonPlaceHolders(person, 'answer_sheet'));
+    journeyInteractions = findAllNonPlaceHolders(person, 'contact_assignment')
+      .concat(findAllNonPlaceHolders(person, 'interaction'));
 
     journeyInteractions = journeyInteractions.map((j) => {
       let text = '';
@@ -61,12 +47,17 @@ export function getJourney(personId, personal = false) {
       };
     });
 
-    // TODO: Make a request to get the full surveys
+    // TODO: Make a request to get the full surveys for {personId} if jean
+    if (isJean && !personal) {
+      LOG('Need to get surveys for user');
+    }
+
 
     // Combine all and then update the store
     let journeyItems = [].concat(
       journeySteps,
       journeyInteractions,
+      journeySurveys,
     );
     // TODO: Sort by created date
 

@@ -36,10 +36,9 @@ class ContactJourney extends Component {
 
   getInteractions() {
     const orgIdExists = !!this.getOrganization();
-    const isPersonal = !this.props.isCasey && orgIdExists;
+    const isPersonal = !this.props.isCasey && !orgIdExists;
     
     this.props.dispatch(getJourney(this.props.person.id, isPersonal)).then((items) => {
-      LOG('journey items', items);
       this.setState({
         journey: items,
         isLoading: false,
@@ -52,7 +51,7 @@ class ContactJourney extends Component {
   getOrganization() {
     const { person } = this.props;
     if (person.organizational_permissions && person.organizational_permissions.length > 0) {
-      return person.organizational_permissions[0].id;
+      return person.organizational_permissions[0].organization_id;
     }
     return undefined;
   }
@@ -62,10 +61,10 @@ class ContactJourney extends Component {
   }
 
   handleAddStep(text) {
-    const { person } = this.props;
+    const { person, dispatch } = this.props;
     const orgId = this.getOrganization();
 
-    this.props.dispatch(addNewComment(person.id, text, orgId)).then(() => {
+    dispatch(addNewComment(person.id, text, orgId)).then(() => {
       // Add new comment to journey
       this.getInteractions();
     });
@@ -80,17 +79,18 @@ class ContactJourney extends Component {
 
   renderRow({ item }) {
     const { isCasey } = this.props;
+    let content = <JourneyItem item={item} type={item.type} />;
     if (isCasey) {
       return (
         <RowSwipeable
           key={item.id}
           onEdit={() => this.handleEditInteraction(item)}
         >
-          <JourneyItem item={item} type={item.type} />
+          {content}
         </RowSwipeable>
       );
     }
-    return <JourneyItem item={item} type={item.type} />;
+    return content;
   }
 
   renderList() {
@@ -133,7 +133,7 @@ class ContactJourney extends Component {
   renderContent() {
     const { journey, isLoading } = this.state;
     if (isLoading) return this.renderLoading();
-    if (journey.length === 0) this.renderNull();
+    if (journey.length === 0) return this.renderNull();
     return this.renderList();
   }
 

@@ -16,8 +16,6 @@ export default class JourneyItem extends Component {
     let date;
     if (type === 'step') {
       date = item.completed_at;
-    // } else if (type === 'survey') {
-    //   date = item.title;
     } else {
       date = item.created_at;
     }
@@ -53,6 +51,9 @@ export default class JourneyItem extends Component {
     let text;
     if (type === 'step') {
       text = item.title;
+    } else if (type === 'survey') {
+      // TODO: We will have a custom view for the survey
+      text = item.text;
     } else {
       text = item.text;
     }
@@ -72,14 +73,12 @@ export default class JourneyItem extends Component {
     } else if (type === 'stage') {
       iconType = 'journeyIcon';
     } else if (type === 'survey') {
-      // TODO: Get correct icon
-      iconType = 'notesIcon';
+      iconType = 'surveyIcon';
     } else if (type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
         iconType = interaction.iconName;
       }
-      // TODO: Figure out if there is a default icon
     }
 
     if (!iconType) return null;
