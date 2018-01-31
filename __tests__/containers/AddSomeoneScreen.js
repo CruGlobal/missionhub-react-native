@@ -8,7 +8,7 @@ import { createMockStore } from '../../testUtils/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
-import { testSnapshot } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 
 const mockState = {
   notifications: { hasAsked: true },
@@ -18,7 +18,7 @@ const store = createMockStore(mockState);
 jest.mock('react-native-device-info');
 
 it('renders correctly', () => {
-  testSnapshot(
+  testSnapshotShallow(
     <Provider store={store}>
       <AddSomeoneScreen />
     </Provider>
