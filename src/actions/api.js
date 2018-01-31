@@ -29,7 +29,7 @@ lodashForEach(apiRoutes, (data, key) => {
 });
 export { REQUESTS };
 
-const METHODS_WITH_DATA = ['put', 'post', 'delete'];
+const METHODS_WITH_DATA = [ 'put', 'post', 'delete' ];
 
 export default function callApi(requestObject, query = {}, data = {}) {
   return (dispatch, getState) => (

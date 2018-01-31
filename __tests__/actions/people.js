@@ -11,7 +11,7 @@ let store;
 
 const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
 
-beforeEach(() => store = configureStore([thunk])());
+beforeEach(() => store = configureStore([ thunk ])());
 
 describe('get me', () => {
   const action = { type: 'got me' };
@@ -71,7 +71,7 @@ describe('get people with org sections', () => {
   });
 
   it('should get people with org sections', () => {
-    store = configureStore([thunk])(
+    store = configureStore([ thunk ])(
       { auth: { isJean: false } }
     );
 

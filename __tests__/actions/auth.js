@@ -14,7 +14,7 @@ const password = 'secret';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
-const mockStore = configureStore([thunk]);
+const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;
@@ -60,7 +60,7 @@ describe('facebook login', () => {
 
   it('should log in to Facebook, update analytics context, and then handle result', () => {
     return store.dispatch(facebookLoginAction(fbAccessToken, facebookId)).then(() => {
-      expect(store.getActions()).toEqual([expectedApiResult, expectedAnalyticsResult, onSuccessfulLoginResult]);
+      expect(store.getActions()).toEqual([ expectedApiResult, expectedAnalyticsResult, onSuccessfulLoginResult ]);
     });
   });
 });
@@ -84,7 +84,7 @@ describe('key login', () => {
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
         expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
 
-        expect(store.getActions()).toEqual([onSuccessfulLoginResult]);
+        expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
       });
   });
 });

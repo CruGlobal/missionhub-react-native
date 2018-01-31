@@ -14,7 +14,7 @@ import IoniconsGlyphs from 'react-native-vector-icons/glyphmaps/Ionicons.json';
 import PLATFORM_MAP from './mapping';
 import styles from './styles';
 
-const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons', 'MissionHub'];
+const ICON_TYPES = [ 'Material', 'FontAwesome', 'Ionicons', 'MissionHub' ];
 const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 export default class Icon extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
@@ -41,7 +41,7 @@ export default class Icon extends Component {
       <Tag
         ref={(c) => this._view = c}
         name={iconName}
-        style={[styles.icon, { fontSize: size }, style]}
+        style={[ styles.icon, { fontSize: size }, style ]}
       />
     );
   }
@@ -54,7 +54,7 @@ Icon.propTypes = {
     ...Object.keys(IoniconsGlyphs),
     ...Object.keys(MissionHubIconGlyphs),
   ]).isRequired,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
   type: PropTypes.oneOf(ICON_TYPES),
   size: PropTypes.number,
 };

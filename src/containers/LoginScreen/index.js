@@ -15,7 +15,7 @@ import { WELCOME_SCREEN } from '../WelcomeScreen';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
-const FACEBOOK_SCOPE = ['public_profile', 'email'];
+const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 @translate('login')
 class LoginScreen extends Component {
