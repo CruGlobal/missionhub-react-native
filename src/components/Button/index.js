@@ -8,7 +8,7 @@ import styles from './styles';
 import { Touchable, Text } from '../common';
 import { exists } from '../../utils/common';
 
-const TYPES = ['transparent', 'primary', 'secondary'];
+const TYPES = [ 'transparent', 'primary', 'secondary' ];
 // Return the styles.TYPE if it exists or just the default button style
 const getTypeStyle = (type) => exists(styles[type]) ? styles[type] : styles.button;
 
@@ -44,7 +44,7 @@ export default class Button extends Component {
     let content = children;
     if (!children) {
       // If there are no children passed in, assume text is used for the button
-      const textStyle = [styles.buttonText, buttonTextStyle];
+      const textStyle = [ styles.buttonText, buttonTextStyle ];
       if (text) {
         content = <Text style={textStyle}>{text}</Text>;
       }
@@ -66,7 +66,7 @@ export default class Button extends Component {
   }
 }
 
-const styleTypes = [PropTypes.array, PropTypes.object, PropTypes.number];
+const styleTypes = [ PropTypes.array, PropTypes.object, PropTypes.number ];
 Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   type: PropTypes.oneOf(TYPES),

@@ -7,7 +7,9 @@ import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+import { translate } from 'react-i18next';
 
+@translate('keyLogin')
 class KeyLoginScreen extends Component {
   constructor(props) {
     super(props);
@@ -39,17 +41,11 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      console.log(error);
-      let errorMessage = 'There was a problem signing in.';
+      const errorMessage = error.user_error;
 
-      if (error['thekey_authn_error'] === 'invalid_credentials') {
-        errorMessage = 'Your Email or Password is Incorrect';
-
-      } else if (error['thekey_authn_error'] === 'email_unverified') {
-        errorMessage = 'Verify your account via Email';
+      if (errorMessage) {
+        this.setState({ errorMessage });
       }
-
-      this.setState({ errorMessage });
     }
   }
 

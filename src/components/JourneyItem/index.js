@@ -129,5 +129,5 @@ JourneyItem.propTypes = {
     title: PropTypes.string,
     completed_at: PropTypes.date,
   }).isRequired,
-  type: PropTypes.oneOf(['step', 'stage', 'survey', 'interaction' ]),
+  type: PropTypes.oneOf([ 'step', 'stage', 'survey', 'interaction' ]),
 };

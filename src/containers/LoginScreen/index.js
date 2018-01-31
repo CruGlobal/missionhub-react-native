@@ -13,7 +13,7 @@ import BaseScreen from '../../components/BaseScreen';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
-const FACEBOOK_SCOPE = ['public_profile', 'email'];
+const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 @translate('login')
 class LoginScreen extends BaseScreen {
@@ -66,9 +66,7 @@ class LoginScreen extends BaseScreen {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken)).catch((e) => {
-            LOG('err', e);
-          });
+          this.props.dispatch(facebookLoginAction(accessToken));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();

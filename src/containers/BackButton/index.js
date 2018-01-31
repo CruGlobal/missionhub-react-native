@@ -33,7 +33,7 @@ class BackButton extends Component {
   }
 }
 
-const styleTypes = [PropTypes.array, PropTypes.object, PropTypes.number];
+const styleTypes = [ PropTypes.array, PropTypes.object, PropTypes.number ];
 BackButton.propTypes = {
   filled: PropTypes.bool,
   customNavigate: PropTypes.string,

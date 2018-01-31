@@ -15,7 +15,7 @@ export default class MyText extends Component {
     };
     let content = children;
     
-    const textStyle = [styles.text, fontFamily, style];
+    const textStyle = [ styles.text, fontFamily, style ];
 
     if (animation) {
       return (

@@ -178,7 +178,7 @@ class RowSwipeable extends Component {
     const { children } = this.props;
 
     const panStyle = {
-      transform: [{ translateX: this.translateX }],
+      transform: [ { translateX: this.translateX } ],
     };
     return (
       <View>

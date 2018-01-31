@@ -33,7 +33,7 @@ export default class RadioButton extends Component {
               ) : null
             }
           </View>
-          <Text style={[styles.label, labelTextStyle]}>{label}</Text>
+          <Text style={[ styles.label, labelTextStyle ]}>{label}</Text>
         </Flex>
       </Touchable>
     );
@@ -45,8 +45,8 @@ RadioButton.propTypes = {
   checked: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
   size: PropTypes.number,
-  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-  labelTextStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
+  style: PropTypes.oneOfType([ PropTypes.array, PropTypes.object, PropTypes.number ]),
+  labelTextStyle: PropTypes.oneOfType([ PropTypes.array, PropTypes.object, PropTypes.number ]),
 };
 
 RadioButton.defaultProps = {

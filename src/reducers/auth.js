@@ -2,6 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 import { FIRST_TIME, LOGIN, LOGOUT } from '../constants';
 import { REQUESTS } from '../actions/api';
+import { findAllNonPlaceHolders } from '../utils/common';
 
 const initialAuthState = {
   isLoggedIn: false,
@@ -66,16 +67,19 @@ function authReducer(state = initialAuthState, action) {
         personId: `${results.person_id}`,
       };
     case REQUESTS.GET_ME.SUCCESS:
-      let user = (results.findAll('person') || [])[0] || {};
+      const person = findAllNonPlaceHolders(results, 'person')[0];
+
+      let user = person || {};
       // Add the stage if we're getting the same user again
       if (state.user.stage && state.user.id === user.id) {
         user.stage = state.user.stage;
       }
+
       return {
         ...state,
         personId: `${user.id}`,
         user,
-        isJean: results.findAll('person')[0].organizational_permissions.length > 0,
+        isJean: person.organizational_permissions.length > 0,
       };
     case REQUESTS.GET_STAGES.SUCCESS:
       // Add the matching 'stage' object to the user object

@@ -5,12 +5,22 @@ import PropTypes from 'prop-types';
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigatePush, navigateBack } from '../actions/navigation';
+import { isAndroid } from '../utils/common';
 
 class PersonStageScreen extends Component {
   constructor(props) {
     super(props);
 
     this.handleSelectStage = this.handleSelectStage.bind(this);
+  }
+
+  handleNavigate = () => {
+    let nextScreen = 'MainTabs';
+    // Android doesn't need a primer for notifications the way iOS does
+    if (!isAndroid && !this.props.hasAskedPushNotifications) {
+      nextScreen = 'NotificationPrimer';
+    }
+    this.props.dispatch(navigatePush(nextScreen));
   }
 
   handleSelectStage(stage) {
@@ -21,7 +31,7 @@ class PersonStageScreen extends Component {
       });
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-        this.props.dispatch(navigatePush('PersonStep'));
+        this.props.dispatch(navigatePush('PersonStep', { onSaveNewSteps: this.handleNavigate }));
       });
     }
   }

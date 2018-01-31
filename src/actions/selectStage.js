@@ -11,9 +11,7 @@ export function selectStage(id) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.UPDATE_MY_USER, {}, data)).catch((error) => {
-      LOG('error updating my user', error);
-    });
+    return dispatch(callApi(REQUESTS.UPDATE_MY_USER, {}, data));
   };
 }
 
@@ -31,9 +29,7 @@ export function updateUserStage(contactAssignmentId, stageId) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).catch((error) => {
-      LOG('error updating the user', error);
-    });
+    return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data));
   };
 }
 
@@ -65,8 +61,6 @@ export function selectPersonStage(personId, assignedToId, pathwayStageId) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).catch((error) => {
-      LOG('error creating contact assignment', error);
-    });
+    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data));
   };
 }

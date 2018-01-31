@@ -103,7 +103,7 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['journey', 'editJourney']),
+  type: PropTypes.oneOf([ 'journey', 'editJourney' ]),
   isEdit: PropTypes.bool,
   text: PropTypes.string,
 };
