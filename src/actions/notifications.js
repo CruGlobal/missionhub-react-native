@@ -39,7 +39,6 @@ export function setupPushNotifications() {
   return (dispatch, getState) => {
     const { token, shouldAsk, isRegistered } = getState().notifications;
     if (!shouldAsk) return;
-    console.warn(token, isRegistered);
     // TODO: Remove this when testing notification callback
     // Don't bother getting this stuff if there is already a token
     if (token && isRegistered) {
@@ -107,7 +106,7 @@ export function registerPushDevice(token) {
       },
     };
 
-    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data)).then((r)=>WARN('results',r)).catch((error) => {
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data)).catch((error) => {
       WARN('error setting push token', error);
     });
   };
