@@ -82,7 +82,7 @@ StepItem.propTypes = {
   }).isRequired,
   onSelect: PropTypes.func,
   onAction: PropTypes.func,
-  type: PropTypes.oneOf(['swipeable', 'contact', 'reminder']),
+  type: PropTypes.oneOf([ 'swipeable', 'contact', 'reminder' ]),
 };
 
 const mapStateToProps = ({ auth }) => ({

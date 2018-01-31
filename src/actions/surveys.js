@@ -6,8 +6,6 @@ export function getMySurveys() {
     const query = {
       limit: 100,
     };
-    return dispatch(callApi(REQUESTS.GET_MY_SURVEYS, query)).catch((error) => {
-      LOG('error getting surveys', error);
-    });
+    return dispatch(callApi(REQUESTS.GET_MY_SURVEYS, query));
   };
 }

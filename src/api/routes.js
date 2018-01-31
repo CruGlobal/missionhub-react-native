@@ -66,6 +66,9 @@ export default {
   'GET_ME': {
     endpoint: `${PEOPLE_URL}me`,
   },
+  'GET_PERSON': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
     anonymous: true,
@@ -141,9 +144,6 @@ export default {
   'GET_USER_IMPACT': {
     endpoint: REPORTS_URL,
   },
-  'GET_USER_DETAILS': {
-    endpoint: `${PEOPLE_URL}:userId`,
-  },
   'CREATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
@@ -151,6 +151,10 @@ export default {
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
+  },
+  'DELETE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    method: 'delete',
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,

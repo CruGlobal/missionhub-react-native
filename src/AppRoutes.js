@@ -129,12 +129,15 @@ export const MainStackRoutes = StackNavigator({
   StageSuccess: { screen: StageSuccessScreen },
   AddSomeone: { screen: AddSomeoneScreen },
   Contact: {
-    screen: DrawerNavigator({
-      Main: { screen: ContactScreen },
-    }, {
-      contentComponent: ContactSideMenu,
-      drawerPosition: 'right',
-    }),
+    screen: DrawerNavigator(
+      {
+        Main: { screen: ContactScreen },
+      },
+      {
+        contentComponent: ContactSideMenu,
+        drawerPosition: 'right',
+      }
+    ),
   },
   AddContact: { screen: AddContactScreen },
   NotificationPrimer: { screen: NotificationPrimerScreen },

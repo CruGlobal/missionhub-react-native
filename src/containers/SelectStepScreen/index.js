@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
@@ -57,8 +58,8 @@ class SelectStepScreen extends Component {
         };
 
         this.setState({
-          steps: this.state.steps.concat([newStep]),
-          addedSteps: addedSteps.concat([newStep]),
+          steps: this.state.steps.concat([ newStep ]),
+          addedSteps: addedSteps.concat([ newStep ]),
         });
         this.stepsList.onScrollToEnd();
       },
@@ -70,13 +71,8 @@ class SelectStepScreen extends Component {
 
     LOG('selectedSteps', selectedSteps);
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
-      // LOG(r);
+      this.props.onComplete();
     });
-    if (this.state.contact || this.props.contact) {
-      this.props.dispatch(navigatePush('Contact', { person: this.props.contact ? this.props.contact : this.state.contact }));
-    } else {
-      this.props.dispatch(navigatePush(this.props.nextScreen));
-    }
   }
 
   renderTitle() {
@@ -122,6 +118,10 @@ class SelectStepScreen extends Component {
     );
   }
 }
+
+PropTypes.SelectStepScreen = {
+  onComplete: PropTypes.func.isRequired,
+};
 
 
 export default connect()(SelectStepScreen);

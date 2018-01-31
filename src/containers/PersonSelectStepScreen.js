@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 import SelectStepScreen from './SelectStepScreen';
 import { getStepSuggestions } from '../actions/steps';
-import { isAndroid, getFirstThreeValidItems } from '../utils/common';
+import { getFirstThreeValidItems } from '../utils/common';
 
 @translate('selectStep')
 class PersonSelectStepScreen extends Component {
@@ -24,30 +24,34 @@ class PersonSelectStepScreen extends Component {
     });
   }
 
+  handleNavigate = () => {
+    this.props.onSaveNewSteps();
+  }
+
   render() {
-    const { t } = this.props;
-
     const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
-    let nextScreen = 'MainTabs';
-
-    // Android doesn't need a primer for notifications the way iOS does
-    if (!isAndroid && !this.props.hasAskedPushNotifications) {
-      nextScreen = 'NotificationPrimer';
-    }
 
     return (
       <SelectStepScreen
         steps={this.insertName(this.props.steps)}
         receiverId={this.props.contactId ? this.props.contactId : this.props.personId}
         useOthersSteps={true}
-        nextScreen={this.props.contact ? null : nextScreen}
-        headerText={t('personHeader', { name })}
+        headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
+        onComplete={this.handleNavigate}
       />
     );
   }
 
 }
+
+
+PersonSelectStepScreen.propTypes = {
+  contactName: PropTypes.string,
+  contactId: PropTypes.string,
+  contact: PropTypes.object,
+  onSaveNewSteps: PropTypes.func,
+};
 
 const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
   ...(navigation.state.params || {}),
@@ -55,13 +59,6 @@ const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
 });
-
-
-PersonSelectStepScreen.propTypes = {
-  contactName: PropTypes.string,
-  contactId: PropTypes.string,
-  contact: PropTypes.object,
-};
 
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);

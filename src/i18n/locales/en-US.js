@@ -60,6 +60,14 @@ export default {
     me: 'Me',
     loading: 'Loading',
     save: 'Save',
+    delete: 'Delete',
+    cancel: 'Cancel',
+  },
+  error: {
+    error: 'Error',
+    unexpectedErrorMessage: 'There was an unexpected error.',
+    baseErrorMessage: 'Please email apps@cru.org if the issue persists.',
+    ADD_NEW_PERSON: 'There was an error adding a new person.',
   },
   settingsMenu: {
     about: 'About',
@@ -77,6 +85,8 @@ export default {
     signIn: 'Sign In',
   },
   keyLogin: {
+    invalidCredentialsMessage: 'Your Email or Password is Incorrect',
+    verifyEmailMessage: 'Verify your account via Email',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     login: 'LOGIN',
@@ -95,6 +105,7 @@ export default {
   interactions: {
     title: 'Hi!',
     profileTab: 'Go To Profile',
+
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -217,7 +228,11 @@ export default {
   },
   contactSideMenu: {
     edit: 'Edit',
-    delete: 'Delete Contact',
+    delete: 'Delete Person',
+    deleteQuestion: 'Delete {{name}}?',
+    deleteSentence: 'Are you sure you want to delete this person?',
+    unassignQuestion: 'Unassign {{name}}?',
+    unassignSentence: 'Are you sure you want to unassign this person?',
     attemptedContact: 'Attempted Contact',
     completed: 'Completed',
     contacted: 'Contacted',

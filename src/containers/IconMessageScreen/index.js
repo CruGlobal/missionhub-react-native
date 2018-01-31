@@ -3,23 +3,12 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../../actions/navigation';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import theme from '../../theme';
 
 class IconMessageScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleNext = this.handleNext.bind(this);
-  }
-
-  handleNext() {
-    this.props.dispatch(navigatePush(this.props.nextScreen));
-  }
-
   render() {
     const { mainText, buttonText, iconPath } = this.props;
 
@@ -35,7 +24,7 @@ class IconMessageScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={this.handleNext}
+            onPress={this.props.onComplete}
             text={buttonText}
             style={{ width: theme.fullWidth }}
           />
@@ -46,7 +35,7 @@ class IconMessageScreen extends Component {
 }
 
 IconMessageScreen.propTypes = {
-  nextScreen: PropTypes.string.isRequired,
+  onComplete: PropTypes.func.isRequired,
   mainText: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   iconPath: PropTypes.any,

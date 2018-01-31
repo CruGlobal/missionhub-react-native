@@ -98,7 +98,7 @@ export class PeopleScreen extends Component {
 
 const mapStateToProps = ({ auth, people }) => ({
   isJean: auth.isJean,
-  people: [auth.user].concat(people.all),
+  people: [ auth.user ].concat(people.all),
   sectionPeople: people.allByOrg,
   me: auth.user,
 });

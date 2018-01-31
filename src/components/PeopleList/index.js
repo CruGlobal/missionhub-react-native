@@ -83,11 +83,11 @@ export default class PeopleList extends Component {
           </Touchable>
           <Touchable onPress={() => this.toggleSection(org.id)}>
             <Icon
-              name="upArrowIcon"
+              name="rightArrowIcon"
               type="MissionHub"
               size={20}
               style={[
-                styles.icon,
+                styles.icon2,
                 section.expanded ? styles.downArrow : null,
               ]} />
           </Touchable>

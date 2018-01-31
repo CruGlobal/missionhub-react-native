@@ -11,6 +11,12 @@ export function getMe() {
   };
 }
 
+export function getPerson(id) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
+  };
+}
+
 export function getPeopleList() {
   return (dispatch) => {
     const query = {
@@ -83,11 +89,11 @@ function peopleSectionsWithOrg(people) {
       orgs.forEach((o) => {
         const orgId = o.organization_id;
         if (p[orgId]) { p[orgId].people.push(n); }
-        else { p[orgId] = { people: [n] }; }
+        else { p[orgId] = { people: [ n ] }; }
       });
       return p;
     }, {
-      'personal': { organization: {}, people: [me] },
+      'personal': { organization: {}, people: [ me ] },
     });
 
     const myOrgs = getState().organizations.all;
@@ -146,15 +152,5 @@ export function searchPeople(text, filters = {}) {
     }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
-  };
-}
-
-
-export function getUserDetails(id) {
-  return (dispatch) => {
-    const query = {
-      userId: id,
-    };
-    return dispatch(callApi(REQUESTS.GET_USER_DETAILS, query));
   };
 }
