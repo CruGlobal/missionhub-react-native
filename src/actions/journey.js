@@ -18,7 +18,6 @@ export function getJourney(personId, personal = false) {
       receiver_ids: personId,
     };
     const steps = await dispatch(getStepsByFilter(stepsFilter));
-    LOG('steps', steps);
     journeySteps = findAllNonPlaceHolders(steps, 'accepted_challenge').map((s) => ({
       ...s,
       type: 'step',
