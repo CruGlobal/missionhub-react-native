@@ -21,6 +21,14 @@ export default {
     },
     done: 'DONE',
     next: 'Next',
+    delete: 'Delete',
+    cancel: 'Cancel',
+  },
+  error: {
+    error: 'Error',
+    unexpectedErrorMessage: 'There was an unexpected error.',
+    baseErrorMessage: 'Please email apps@cru.org if the issue persists.',
+    ADD_NEW_PERSON: 'There was an error adding a new person.',
   },
   settingsMenu: {
     about: 'About',
@@ -43,6 +51,10 @@ export default {
     facebookSignup: 'Sign up with Facebook',
     tryNow: 'Try it now',
     signIn: 'Sign In',
+  },
+  keyLogin: {
+    invalidCredentialsMessage: 'Your Email or Password is Incorrect',
+    verifyEmailMessage: 'Verify your account via Email',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -134,7 +146,11 @@ export default {
   },
   contactSideMenu: {
     edit: 'Edit',
-    delete: 'Delete Contact',
+    delete: 'Delete Person',
+    deleteQuestion: 'Delete {{name}}?',
+    deleteSentence: 'Are you sure you want to delete this person?',
+    unassignQuestion: 'Unassign {{name}}?',
+    unassignSentence: 'Are you sure you want to unassign this person?',
     attemptedContact: 'Attempted Contact',
     completed: 'Completed',
     contacted: 'Contacted',

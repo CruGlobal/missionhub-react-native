@@ -6,8 +6,6 @@ export function getMyGroups() {
     const query = {
       limit: 100,
     };
-    return dispatch(callApi(REQUESTS.GET_MY_GROUPS, query)).catch((error) => {
-      LOG('error getting groups', error);
-    });
+    return dispatch(callApi(REQUESTS.GET_MY_GROUPS, query));
   };
 }

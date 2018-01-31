@@ -23,6 +23,10 @@ const mockState = {
     shouldAsk: true,
     showReminder: true,
   },
+  swipe: {
+    stepsHome: true,
+    stepsReminder: true,
+  },
 };
 
 const store = createMockStore(mockState);

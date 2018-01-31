@@ -12,6 +12,7 @@ jest.mock('react-native-device-info');
 const mockState = {
   auth: { isJean: false },
   stages: [],
+  profile: { visiblePersonInfo: {} },
 };
 
 const store = createMockStore(mockState);

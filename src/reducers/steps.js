@@ -49,7 +49,7 @@ function stepsReducer(state = initialState, action) {
       return {
         ...state,
         mine: newMine,
-        reminders: [...state.reminders, action.step],
+        reminders: [ ...state.reminders, action.step ],
       };
     case REMOVE_STEP_REMINDER:
       const newRemove = state.mine.map((s)=> {

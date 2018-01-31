@@ -12,6 +12,6 @@ export default class MyRefreshControl extends Component {
 MyRefreshControl.propTypes = { ...RefreshControl.propTypes };
 MyRefreshControl.defaultProps = {
   progressBackgroundColor: theme.primaryColor, // Android only
-  colors: [theme.white, theme.secondaryColor], // Android only
+  colors: [ theme.white, theme.secondaryColor ], // Android only
   tintColor: theme.primaryColor, // iOS only
 };

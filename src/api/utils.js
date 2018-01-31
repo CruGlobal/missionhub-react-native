@@ -17,7 +17,7 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-const ERROR_CODES = [400, 401, 402, 403, 404, 500, 504];
+const ERROR_CODES = [ 400, 401, 402, 403, 404, 500, 504 ];
 export function handleResponse(response) {
   if (!response) return null;
   if (response && ERROR_CODES.includes(response.status)) {
@@ -70,7 +70,7 @@ function defaultObject(method, obj = {}, data) {
 export default function request(type, url, query, data, extra) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data);
-  APILOG('REQUEST', newObject.method, newUrl, newObject); // eslint-disable-line
+  APILOG('REQUEST', newObject.method, newUrl, newObject);
 
   return fetch(newUrl, newObject).then(handleResponse);
 }

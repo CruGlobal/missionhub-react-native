@@ -6,9 +6,7 @@ export function getMyOrganizations() {
     const query = {
       limit: 100,
     };
-    return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, query)).catch((error) => {
-      LOG('error getting orgs', error);
-    });
+    return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, query));
   };
 }
 
@@ -18,9 +16,7 @@ export function getOrganizations(filters = {}) {
       limit: 100,
       filters,
     };
-    return dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, query)).catch((error) => {
-      LOG('error getting orgs', error);
-    });
+    return dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, query));
   };
 }
 
@@ -70,8 +66,6 @@ export function addNewContact(data) {
       included,
     };
     const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData)).catch((error) => {
-      LOG('error adding new person', error);
-    });
+    return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData));
   };
 }

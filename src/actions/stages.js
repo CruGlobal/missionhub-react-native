@@ -30,8 +30,6 @@ export function getStageById(id) {
         } else {
           reject('NoMatchingStage');
         }
-      }).catch((error) => {
-        reject(error);
       });
     });
 
