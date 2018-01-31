@@ -1,5 +1,5 @@
 import { trackState } from '../actions/analytics';
-import { screens } from '../AppRoutes';
+import { trackableScreens } from '../AppRoutes';
 import { ANALYTICS } from '../constants';
 
 export default function tracking({ dispatch, getState }) {
@@ -7,7 +7,7 @@ export default function tracking({ dispatch, getState }) {
     const returnValue = next(action);
 
     if (action.type === 'Navigation/NAVIGATE') {
-      const route = screens[action.routeName];
+      const route = trackableScreens[action.routeName];
 
       if (route) {
         dispatch(trackState(route.name));

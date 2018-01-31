@@ -58,13 +58,14 @@ function labelStyle() {
   }
 }
 
-export const MainTabRoutes = TabNavigator({
+const tabs = {
   StepsTab: {
     screen: StepsScreen,
     navigationOptions: {
       tabBarLabel: 'Steps',
       tabBarIcon: navIcon('stepsIcon'),
     },
+    name: 'mh : steps',
   },
   PeopleTab: {
     screen: PeopleScreen,
@@ -72,6 +73,7 @@ export const MainTabRoutes = TabNavigator({
       tabBarLabel: 'People',
       tabBarIcon: navIcon('peopleIcon'),
     },
+    name: 'mh : people',
   },
   ImpactTab: {
     screen: ImpactScreen,
@@ -79,36 +81,40 @@ export const MainTabRoutes = TabNavigator({
       tabBarLabel: 'Impact',
       tabBarIcon: navIcon('impactIcon'),
     },
+    name: 'mh : impact',
   },
-}, {
-  // initialRouteName: 'ImpactTab',
-  tabBarOptions: {
-    showIcon: true,
-    showLabel: true,
-    style: { backgroundColor: theme.white },
-    activeTintColor: theme.primaryColor,
-    inactiveTintColor: theme.inactiveColor,
-    tabStyle: { backgroundColor: theme.lightBackgroundColor },
-    labelStyle: labelStyle(),
-    indicatorStyle: { backgroundColor: 'transparent' } ,
-    upperCaseLabel: false,
+};
 
-    // Android
-    scrollEnabled: false,
-  },
-  swipeEnabled: false,
-  tabBarPosition: 'bottom',
-  animationEnabled: false,
-  // lazy: false, // Load all tabs right away
-  lazy: true,
-  paths: {
-    StepsTab: '/steps',
-    PeopleTab: '/people',
-    ImpactTab: '/impact',
-  },
-});
+export const MainTabRoutes = TabNavigator(
+  tabs, {
+    // initialRouteName: 'ImpactTab',
+    tabBarOptions: {
+      showIcon: true,
+      showLabel: true,
+      style: { backgroundColor: theme.white },
+      activeTintColor: theme.primaryColor,
+      inactiveTintColor: theme.inactiveColor,
+      tabStyle: { backgroundColor: theme.lightBackgroundColor },
+      labelStyle: labelStyle(),
+      indicatorStyle: { backgroundColor: 'transparent' } ,
+      upperCaseLabel: false,
 
-export const screens = {
+      // Android
+      scrollEnabled: false,
+    },
+    swipeEnabled: false,
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    // lazy: false, // Load all tabs right away
+    lazy: true,
+    paths: {
+      StepsTab: '/steps',
+      PeopleTab: '/people',
+      ImpactTab: '/impact',
+    },
+  });
+
+const screens = {
   [LOGIN_SCREEN]: { screen: LoginScreen, name: 'mh : auth' },
   [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, name: 'mh : auth : sign in' },
   [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'mh : onboarding : welcome' },
@@ -122,6 +128,11 @@ export const screens = {
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, name: 'mh : onboarding : add person : steps' },
   [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'mh : menu : notifications : permissions' },
   [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'mh : menu : notifications : off' },
+};
+
+export const trackableScreens = {
+  ...screens,
+  ...tabs,
 };
 
 export const MainStackRoutes = StackNavigator({
