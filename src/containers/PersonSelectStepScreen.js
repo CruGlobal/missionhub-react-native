@@ -59,3 +59,4 @@ const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
 
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);
+export const PERSON_SELECT_STEP_SCREEN = 'nav/PERSON_SELECT_STEP';

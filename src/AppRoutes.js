@@ -7,7 +7,7 @@ import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN } from './containers/SelectMyStepScreen';
-import PersonSelectStepScreen from './containers/PersonSelectStepScreen';
+import PersonSelectStepScreen, { PERSON_SELECT_STEP_SCREEN } from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
@@ -15,24 +15,25 @@ import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
-import AddSomeoneScreen from './containers/AddSomeoneScreen';
+import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen from './containers/ContactScreen';
 import AddContactScreen from './containers/AddContactScreen';
-import NotificationPrimerScreen from './containers/NotificationPrimerScreen';
+import NotificationPrimerScreen, { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
-import SetupPersonScreen from './containers/SetupPersonScreen';
+import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
 import PersonStageScreen from './containers/PersonStageScreen';
 import CelebrationScreen from './containers/CelebrationScreen';
 import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
-import NotificationOffScreen from './containers/NotificationOffScreen';
+import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Icon } from './components/common';
 
 import theme from './theme';
+import { MAIN_TABS } from './constants';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -116,10 +117,15 @@ export const screens = {
   [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'mh : onboarding : self : choose my steps' },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'mh : onboarding : self : steps' },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen, name: 'mh : onboarding : self : steps : create' },
+  [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'mh : onboarding : add person' },
+  [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'mh : onboarding : add person : name' },
+  [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, name: 'mh : onboarding : add person : steps' },
+  [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'mh : menu : notifications : permissions' },
+  [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'mh : menu : notifications : off' },
 };
 
 export const MainStackRoutes = StackNavigator({
-  MainTabs: {
+  [MAIN_TABS]: {
     screen: DrawerNavigator({
       Main: { screen: MainTabRoutes },
     }, {
@@ -128,9 +134,7 @@ export const MainStackRoutes = StackNavigator({
   },
   ...screens,
   Profile: { screen: ProfileScreen },
-  PersonStep: { screen: PersonSelectStepScreen },
   Stage: { screen: StageScreen },
-  AddSomeone: { screen: AddSomeoneScreen },
   Contact: {
     screen: DrawerNavigator(
       {
@@ -143,10 +147,7 @@ export const MainStackRoutes = StackNavigator({
     ),
   },
   AddContact: { screen: AddContactScreen },
-  NotificationPrimer: { screen: NotificationPrimerScreen },
-  NotificationOff: { screen: NotificationOffScreen },
   Impact: { screen: ImpactScreen },
-  SetupPerson: { screen: SetupPersonScreen },
   PersonStage: { screen: PersonStageScreen },
   Celebration: { screen: CelebrationScreen },
   SearchPeople: { screen: SearchPeopleScreen },

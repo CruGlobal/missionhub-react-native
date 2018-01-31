@@ -98,3 +98,4 @@ const mapStateToProps = (state, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(NotificationOffScreen);
+export const NOTIFICATION_OFF_SCREEN = 'nav/NOTIFICATION_OFF';

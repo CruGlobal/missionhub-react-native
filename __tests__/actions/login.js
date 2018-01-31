@@ -5,6 +5,9 @@ import thunk from 'redux-thunk';
 import { onSuccessfulLogin } from '../../src/actions/login';
 import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
+import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
+import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
+import { MAIN_TABS } from '../../src/constants';
 
 const mockStore = configureStore([ thunk ]);
 const personId = 593348;
@@ -38,7 +41,7 @@ describe('onSuccessfulLogin', () => {
 
     await store.dispatch(onSuccessfulLogin());
 
-    expect(store.getActions()).toEqual([ updateStatusResult, { type: 'GetStarted' } ]);
+    expect(store.getActions()).toEqual([ updateStatusResult, { type: GET_STARTED_SCREEN } ]);
   });
 
   it('should navigate to Add Someone', async() => {
@@ -46,7 +49,7 @@ describe('onSuccessfulLogin', () => {
 
     await store.dispatch(onSuccessfulLogin());
 
-    expect(store.getActions()).toEqual([ updateStatusResult, { type: 'AddSomeone' } ]);
+    expect(store.getActions()).toEqual([ updateStatusResult, { type: ADD_SOMEONE_SCREEN } ]);
   });
 
   it('should navigate to Main Tabs', async() => {
@@ -55,6 +58,6 @@ describe('onSuccessfulLogin', () => {
 
     await store.dispatch(onSuccessfulLogin());
 
-    expect(store.getActions()).toEqual([ updateStatusResult, { type: 'MainTabs' } ]);
+    expect(store.getActions()).toEqual([ updateStatusResult, { type: MAIN_TABS } ]);
   });
 });

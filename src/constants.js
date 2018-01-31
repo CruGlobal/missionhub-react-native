@@ -22,6 +22,7 @@ export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const SET_VISIBLE_PERSON_INFO = 'app/SET_VISIBLE_PERSON_INFO';
 export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
 
+export const MAIN_TABS = 'nav/MAIN_TABS';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';

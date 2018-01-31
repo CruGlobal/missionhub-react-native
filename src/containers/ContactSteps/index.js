@@ -14,6 +14,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import { findAllNonPlaceHolders } from '../../utils/common';
+import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -68,7 +69,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.dispatch(navigatePush('PersonStep', {
+    this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
       contactName: this.props.person.first_name,
       contactId: this.props.person.id,
       contact: this.props.person,

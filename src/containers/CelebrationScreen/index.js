@@ -5,6 +5,7 @@ import { Image, Platform } from 'react-native';
 import styles from './styles';
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
+import { MAIN_TABS } from '../../constants';
 
 class CelebrationScreen extends Component {
 
@@ -25,7 +26,7 @@ class CelebrationScreen extends Component {
   }
 
   navigateToNext() {
-    this.props.dispatch(navigateReset(this.props.nextScreen || 'MainTabs'));
+    this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
   }
 
   static shuffleGif() {

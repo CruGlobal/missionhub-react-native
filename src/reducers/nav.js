@@ -2,13 +2,14 @@ import { NavigationActions } from 'react-navigation';
 import { REHYDRATE } from 'redux-persist/constants';
 import { MainRoutes } from '../AppRoutes';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { MAIN_TABS } from '../constants';
 
 const initialState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN));
 
 const loggedInState = MainRoutes.router.getStateForAction(NavigationActions.reset({
   index: 0,
   actions: [
-    NavigationActions.navigate({ routeName: 'MainTabs' }),
+    NavigationActions.navigate({ routeName: MAIN_TABS }),
   ],
 }));
 

@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { navigatePush } from '../actions/navigation';
 
 import IconMessageScreen from './IconMessageScreen';
+import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 
 class AddSomeoneScreen extends Component {
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('SetupPerson'));
+    this.props.dispatch(navigatePush(SETUP_PERSON_SCREEN));
   }
 
   render() {
@@ -24,3 +25,4 @@ class AddSomeoneScreen extends Component {
 }
 
 export default connect()(AddSomeoneScreen);
+export const ADD_SOMEONE_SCREEN = 'nav/ADD_SOMEONE';

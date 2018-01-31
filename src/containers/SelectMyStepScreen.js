@@ -4,6 +4,7 @@ import { navigatePush } from '../actions/navigation';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
 import { getFirstThreeValidItems } from '../utils/common';
+import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 class SelectMyStepScreen extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('AddSomeone'));
+    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
   };
 
   render() {

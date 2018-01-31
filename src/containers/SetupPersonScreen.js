@@ -78,3 +78,4 @@ const mapStateToProps = ({ personProfile }) => ({
 });
 
 export default connect(mapStateToProps)(SetupPersonScreen);
+export const SETUP_PERSON_SCREEN = 'nav/SETUP_PERSON';

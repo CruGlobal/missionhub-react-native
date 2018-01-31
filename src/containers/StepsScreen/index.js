@@ -15,6 +15,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
+import { NOTIFICATION_OFF_SCREEN } from '../NotificationOffScreen';
 
 const MAX_REMINDERS = 3;
 
@@ -78,7 +79,7 @@ class StepsScreen extends Component {
     if (!this.state.addedReminder) {
       this.setState({ addedReminder: true });
       if (this.props.areNotificationsOff && this.props.showNotificationReminder) {
-        this.props.dispatch(navigatePush('NotificationOff', {
+        this.props.dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
           onClose: (shouldAsk) => {
             if (shouldAsk) {
               this.props.dispatch(setupPushNotifications());
