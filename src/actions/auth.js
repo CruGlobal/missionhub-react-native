@@ -6,6 +6,7 @@ import { clearAllScheduledNotifications, setupPushNotifications } from './notifi
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
+import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export function facebookLoginAction(accessToken, id) {
   return (dispatch) => {
@@ -44,7 +45,7 @@ function getKeyTicket() {
 export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
-    dispatch(navigateReset('Login'));
+    dispatch(navigateReset(LOGIN_SCREEN));
     dispatch(clearAllScheduledNotifications());
   };
 }

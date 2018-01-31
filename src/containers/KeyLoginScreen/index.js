@@ -116,3 +116,4 @@ class KeyLoginScreen extends Component {
 }
 
 export default connect()(KeyLoginScreen);
+export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';

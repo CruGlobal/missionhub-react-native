@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
@@ -8,7 +8,9 @@ import { firstTime, facebookLoginAction } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import BaseScreen from '../../components/BaseScreen';
+import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
+import { trackState } from '../../actions/analytics';
+import { WELCOME_SCREEN } from '../WelcomeScreen';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -16,7 +18,7 @@ const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
 const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
 @translate('login')
-class LoginScreen extends BaseScreen {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -25,13 +27,17 @@ class LoginScreen extends BaseScreen {
     this.facebookLogin = this.facebookLogin.bind(this);
   }
 
+  componentDidMount() {
+    this.props.dispatch(trackState('login')); //todo?
+  }
+
   login() {
-    this.navigateToNext('KeyLogin');
+    this.navigateToNext(KEY_LOGIN_SCREEN);
   }
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToNext('Welcome');
+    this.navigateToNext(WELCOME_SCREEN);
   }
 
   navigateToNext(nextScreen) {
@@ -130,3 +136,4 @@ const mapStateToProps = ({ myStageReducer }) => ({
 });
 
 export default connect(mapStateToProps)(LoginScreen);
+export const LOGIN_SCREEN = 'nav/LOGIN';

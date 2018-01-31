@@ -2,17 +2,17 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
-import LoginScreen from './containers/LoginScreen';
-import KeyLoginScreen from './containers/KeyLoginScreen';
+import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
+import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen from './containers/PersonSelectStepScreen';
 import AddStepScreen from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
-import WelcomeScreen from './containers/WelcomeScreen';
-import SetupScreen from './containers/SetupScreen';
-import GetStartedScreen from './containers/GetStartedScreen';
+import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
+import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
+import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
 import StageScreen from './containers/StageScreen';
 import StageSuccessScreen from './containers/StageSuccessScreen';
 import AddSomeoneScreen from './containers/AddSomeoneScreen';
@@ -107,6 +107,14 @@ export const MainTabRoutes = TabNavigator({
   },
 });
 
+export const screens = {
+  [LOGIN_SCREEN]: { screen: LoginScreen, name: 'mh : auth' },
+  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, name: 'mh : auth : sign in' },
+  [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'mh : onboarding : welcome' },
+  [SETUP_SCREEN]: { screen: SetupScreen, name: 'mh : onboarding : name' },
+  [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'mh : onboarding : get started' },
+};
+
 export const MainStackRoutes = StackNavigator({
   MainTabs: {
     screen: DrawerNavigator({
@@ -115,15 +123,11 @@ export const MainStackRoutes = StackNavigator({
       contentComponent: SettingsMenu,
     }),
   },
+  ...screens,
   Profile: { screen: ProfileScreen },
   Step: { screen: SelectMyStepScreen },
   PersonStep: { screen: PersonSelectStepScreen },
   AddStep: { screen: AddStepScreen },
-  Login: { screen: LoginScreen },
-  KeyLogin: { screen: KeyLoginScreen },
-  Welcome: { screen: WelcomeScreen },
-  Setup: { screen: SetupScreen },
-  GetStarted: { screen: GetStartedScreen },
   Stage: { screen: StageScreen },
   StageSuccess: { screen: StageSuccessScreen },
   AddSomeone: { screen: AddSomeoneScreen },
@@ -149,21 +153,6 @@ export const MainStackRoutes = StackNavigator({
   SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
   SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
 }, {
-  paths: {
-    Login: 'Login',
-    KeyLogin: 'KeyLogin',
-    Welcome: 'Welcome',
-    Setup: 'Setup',
-    GetStarted: 'GetStarted',
-    Stage: 'Stage',
-    StageSuccess: 'StageSuccess',
-    AddSomeone: 'AddSomeone',
-    Contact: 'Contact',
-    SetupPerson: 'SetupPerson',
-    PersonStage: 'PersonStage',
-    Step: 'Step',
-    PersonStep: 'PersonStep',
-  },
   navigationOptions: {
     header: null,
   },

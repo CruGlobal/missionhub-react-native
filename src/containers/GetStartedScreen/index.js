@@ -41,3 +41,4 @@ const mapStateToProps = ({ profile }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);
+export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
