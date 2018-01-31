@@ -159,7 +159,7 @@ export function searchPeople(text, filters = {}) {
 export function getUserDetails(id, query = {}) {
   return (dispatch) => {
     const newQuery = {
-      userId: id,
+      person_id: id,
       ...query,
     };
     return dispatch(callApi(REQUESTS.GET_PERSON, newQuery));

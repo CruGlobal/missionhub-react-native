@@ -1,4 +1,4 @@
-import { getMe, getPeopleList, getPeopleWithOrgSections } from '../../src/actions/people';
+import { getMe, getPeopleList, getPeopleWithOrgSections, getUserDetails } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -78,5 +78,22 @@ describe('get people with org sections', () => {
     return store.dispatch(getPeopleWithOrgSections()).then((result) => {
       expect(result).toBe(jsonApiStore);
     });
+  });
+});
+
+
+describe('get user', () => {
+  const userId = 1;
+  const expectedQuery = {
+    person_id: userId,
+  };
+  const action = { type: 'got user' };
+
+  beforeEach(() => mockApi(action, REQUESTS.GET_PERSON, expectedQuery));
+
+  it('should get me', () => {
+    store.dispatch(getUserDetails(userId));
+
+    expect(store.getActions()[0]).toBe(action);
   });
 });
