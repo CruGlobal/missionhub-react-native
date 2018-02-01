@@ -1,8 +1,5 @@
-import lodash from 'lodash';
-
 import callApi, { REQUESTS } from './api';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
-import { getOrganizations } from './organizations';
 import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getMe() {
@@ -28,94 +25,66 @@ export function getPeopleList() {
   };
 }
 
-export function getPeopleWithOrgSections() {
+export function getMyPeople() {
   return (dispatch, getState) => {
-    const query = {
+    const peopleQuery = {
       filters: {
         assigned_tos: 'me',
       },
-      includes: 'organizational_permissions',
+      include: 'reverse_contact_assignments,organizational_permissions',
     };
-    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query)).then((results) => {
 
-      if (!getState().auth.isJean) {
-        return results;
+    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery)).then((pResults) => {
+      const myPeople = findAllNonPlaceHolders(pResults, 'person'); //todo do this by looking at something other than placeholder
+
+      const personalPeople = myPeople.filter((person) => person.organizational_permissions.length === 0);
+      const personalOrg = { people: personalPeople };
+
+      if (getState().auth.isJean) {
+        return dispatch(getMinistryPeople(myPeople, personalOrg));
+      } else {
+        return [ personalOrg ];
       }
-
-      const people = findAllNonPlaceHolders(results, 'person');
-      
-      // Get the orgIds that from the request to compare with the ones we have already
-      const orgIds = results.findAll('organization')
-        .map((o) => o.id);
-
-      const existingOrgIds = getState().organizations.all.map((o) => o.id);
-
-      // Check if we already have all the org ids in the existing orgs array
-      const allExist = lodash.every(orgIds, (o) => existingOrgIds.indexOf(o) >= 0);
-      
-      if (allExist || orgIds.length === 0) {
-        // LOG('all orgs already exist or there are no people, no need to query');
-        dispatch(peopleSectionsWithOrg(people));
-        return results;
-      }
-
-      const orgFilters = { ids: orgIds.join(',') };
-      dispatch(getOrganizations(orgFilters)).then((orgResults) => {
-        dispatch(peopleSectionsWithOrg(people));
-        return orgResults;
-      });
-
-      return results;
     });
   };
 }
 
-function peopleSectionsWithOrg(people) {
-  return (dispatch, getState) => {
-    const me = getState().auth.user;
-    
-    // Use reduce to get an object like this
-    /*
-      {
-        [orgId]: { people: [person1Obj, person2Obj] }
-        [orgId2]: { people: [person3Obj, person4Obj] }
-      }
-    */
-    const orgSections = people.reduce((p, n) => {
-      const orgs = n.organizational_permissions;
-      if (!orgs.length) {
-        p.personal.people.push(n);
-      }
-      orgs.forEach((o) => {
-        const orgId = o.organization_id;
-        if (p[orgId]) { p[orgId].people.push(n); }
-        else { p[orgId] = { people: [ n ] }; }
-      });
-      return p;
-    }, {
-      'personal': { organization: {}, people: [ me ] },
-    });
+function getMinistryPeople(myPeople, personalOrg) {
+  const orgQuery = {
+    filters: {
+      assigned_tos: 'me',
+    },
+    include: '',
+  };
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery)).then((oResults) => {
+      const ministryOrgs = oResults.findAll('organization');
+      const ministryPeople = myPeople.filter((person) => person.organizational_permissions.length > 0);
 
-    const myOrgs = getState().organizations.all;
-    myOrgs.forEach((o) => {
-      if (orgSections[o.id]) {
-        orgSections[o.id].organization = o;
-      } else {
-        // Do this if we want to show empty organizations
-        // orgSections[o.id] = { organization: o, people: [] };
-      }
-    });
-    const sections = Object.keys(orgSections)
-      .map((key) => orgSections[key])
-      .sort((a, b) => {
-        if (!a.organization.id) return -1;
-        const aLength = a.people ? a.people.length : 0;
-        const bLength = b.people ? b.people.length : 0;
-        if (aLength > bLength) return -1;
-        if (aLength < bLength) return 1;
-        return 0;
+      ministryOrgs.forEach((org) => org.people = []);
+
+      ministryPeople.forEach((person) => {
+        person.reverse_contact_assignments.forEach((ca) => {
+          const org = ministryOrgs.find((o) => {
+            const foundOrg = ca.organization;
+
+            if (foundOrg) {
+              const foundOrgPerm = person.organizational_permissions.find((op) => op.organization_id === foundOrg.id);
+
+              return o.id === foundOrg.id && foundOrgPerm;
+            }
+            return false;
+          });
+          if (org) {
+            org.people.push(person);
+          }
+        });
       });
-    dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, sections });
+
+      const myOrgs = [ personalOrg, ...ministryOrgs ];
+      dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
+      return myOrgs;
+    });
   };
 }
 

@@ -69,9 +69,8 @@ export default class PeopleList extends Component {
     );
   }
 
-  renderSectionHeader(section) {
+  renderSectionHeader(org) {
     const { onAddContact, t } = this.props;
-    const org = section.organization || {};
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
@@ -88,7 +87,7 @@ export default class PeopleList extends Component {
               size={20}
               style={[
                 styles.icon2,
-                section.expanded ? styles.downArrow : null,
+                org.expanded ? styles.downArrow : null,
               ]} />
           </Touchable>
         </Flex>
@@ -110,11 +109,11 @@ export default class PeopleList extends Component {
           />}
         >
           {
-            this.state.items.map((section) => (
-              <Flex key={section.organization ? section.organization.id || t('personal') : t('personal')}>
-                {this.renderSectionHeader(section)}
+            this.state.items.map((org) => (
+              <Flex key={org ? org.id : t('personal')}>
+                {this.renderSectionHeader(org)}
                 {
-                  section.expanded ? this.renderList(section.people) : null
+                  org.expanded ? this.renderList(org.people) : null
                 }
               </Flex>
             ))
