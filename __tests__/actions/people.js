@@ -5,6 +5,7 @@ import { REQUESTS } from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
+import { PEOPLE_WITH_ORG_SECTIONS } from '../../src/constants';
 
 const mockStore = configureStore([ thunk ]);
 let store;
@@ -100,10 +101,15 @@ describe('getMyPeople', () => {
         }
       });
 
-      return store.dispatch(getMyPeople()).then((result) => {
-        expect(result).toEqual([
-          { people: [ personThree ] },
-          { id: organizationOneId, people: [ personOne ] },
+      return store.dispatch(getMyPeople()).then(() => {
+        expect(store.getActions()).toEqual([
+          {
+            type: PEOPLE_WITH_ORG_SECTIONS,
+            myOrgs: [
+              { people: [ personThree ] },
+              { id: organizationOneId, people: [ personOne ] },
+            ],
+          },
         ]);
       });
     });

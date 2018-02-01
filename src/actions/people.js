@@ -81,9 +81,7 @@ function getMinistryPeople(myPeople, personalOrg) {
         });
       });
 
-      const myOrgs = [ personalOrg, ...ministryOrgs ];
-      dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
-      return myOrgs;
+      return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs: [ personalOrg, ...ministryOrgs ] });
     });
   };
 }
