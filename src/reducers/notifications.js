@@ -1,4 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
+import { REQUESTS } from '../actions/api';
 
 import {
   LOGOUT,
@@ -14,6 +15,7 @@ const initialAuthState = {
   hasAsked: false,
   shouldAsk: true,
   showReminder: true,
+  isRegistered: false,
 };
 
 function notificationReducer(state = initialAuthState, action) {
@@ -27,6 +29,7 @@ function notificationReducer(state = initialAuthState, action) {
           hasAsked: useFirstExists(incoming.hasAsked, state.hasAsked),
           shouldAsk: useFirstExists(incoming.shouldAsk, state.shouldAsk),
           showReminder: useFirstExists(incoming.showReminder, state.showReminder),
+          isRegistered: useFirstExists(incoming.isRegistered, state.isRegistered),
         };
       }
       return state;
@@ -49,6 +52,11 @@ function notificationReducer(state = initialAuthState, action) {
       return {
         ...state,
         token: action.token,
+      };
+    case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
+      return {
+        ...state,
+        isRegistered: true,
       };
     case LOGOUT:
       return initialAuthState;
