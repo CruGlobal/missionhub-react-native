@@ -1,10 +1,9 @@
-import { getMe, getPeopleList, getPeopleWithOrgSections } from '../../src/actions/people';
+import { getMe, getMyPeople, getPeopleList } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { JsonApiDataStore } from 'jsonapi-datastore';
 import { mockFnWithParams } from '../../testUtils';
 
 let store;
@@ -42,41 +41,42 @@ describe('get people list', () => {
   });
 });
 
-describe('get people with org sections', () => {
-  const jsonApiStore = new JsonApiDataStore();
+describe('getMyPeople', () => {
+  const person = { organizational_permissions: [] };
+  const apiResult = { findAll: () => [ person ] };
 
   const expectedQuery = {
     filters: {
       assigned_tos: 'me',
     },
-    includes: 'organizational_permissions',
+    include: 'reverse_contact_assignments,organizational_permissions',
   };
 
   const mockApiReturnValue = (dispatch) => {
-    return dispatch(() => Promise.resolve(jsonApiStore));
+    return dispatch(() => Promise.resolve(apiResult));
   };
 
   beforeEach(() => {
-    jsonApiStore.sync(
-      {
-        data: [
-          {
-            type: 'person',
-          },
-        ],
-      }
-    );
-
     mockApi(mockApiReturnValue, REQUESTS.GET_PEOPLE_LIST, expectedQuery);
   });
 
-  it('should get people with org sections', () => {
-    store = configureStore([ thunk ])(
-      { auth: { isJean: false } }
-    );
+  describe('as Casey', () => {
+    it('should return one org with people', () => {
+      store = configureStore([ thunk ])(
+        { auth: { isJean: false } }
+      );
 
-    return store.dispatch(getPeopleWithOrgSections()).then((result) => {
-      expect(result).toBe(jsonApiStore);
+      return store.dispatch(getMyPeople()).then((result) => {
+        console.log(result);
+        expect(result).toEqual([ { people: [ person ] } ]);
+      });
     });
   });
+
+  describe('as Jean', () => {
+    it('should return all orgs with assigned people', () => {
+
+    });
+  });
+
 });
