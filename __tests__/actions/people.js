@@ -6,16 +6,23 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
 
+const mockStore = configureStore([ thunk ]);
 let store;
 
 const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
-
-beforeEach(() => store = configureStore([ thunk ])());
+const mockApiReturnValue = (result) => {
+  return (dispatch) => {
+    return dispatch(() => Promise.resolve(result));
+  };
+};
 
 describe('get me', () => {
   const action = { type: 'got me' };
 
-  beforeEach(() => mockApi(action, REQUESTS.GET_ME));
+  beforeEach(() => {
+    store = mockStore();
+    mockApi(action, REQUESTS.GET_ME);
+  });
 
   it('should get me', () => {
     store.dispatch(getMe());
@@ -25,14 +32,13 @@ describe('get me', () => {
 });
 
 describe('get people list', () => {
-  const expectedQuery = {
-    filters: {
-      assigned_tos: 'me',
-    },
-  };
+  const expectedQuery = { filters: { assigned_tos: 'me' } };
   const action = { type: 'got people' };
 
-  beforeEach(() => mockApi(action, REQUESTS.GET_PEOPLE_LIST, expectedQuery));
+  beforeEach(() => {
+    store = mockStore();
+    mockApi(action, REQUESTS.GET_PEOPLE_LIST, expectedQuery);
+  });
 
   it('should get people list', () => {
     store.dispatch(getPeopleList());
@@ -42,41 +48,64 @@ describe('get people list', () => {
 });
 
 describe('getMyPeople', () => {
-  const person = { organizational_permissions: [] };
-  const apiResult = { findAll: () => [ person ] };
-
-  const expectedQuery = {
-    filters: {
-      assigned_tos: 'me',
-    },
+  const peopleListQuery = {
+    filters: { assigned_tos: 'me' },
     include: 'reverse_contact_assignments,organizational_permissions',
   };
 
-  const mockApiReturnValue = (dispatch) => {
-    return dispatch(() => Promise.resolve(apiResult));
-  };
-
-  beforeEach(() => {
-    mockApi(mockApiReturnValue, REQUESTS.GET_PEOPLE_LIST, expectedQuery);
-  });
-
   describe('as Casey', () => {
+    const peopleList = [ { id: 123, organizational_permissions: [] } ];
+
     it('should return one org with people', () => {
-      store = configureStore([ thunk ])(
-        { auth: { isJean: false } }
-      );
+      mockApi(mockApiReturnValue({ findAll: () => peopleList }), REQUESTS.GET_PEOPLE_LIST, peopleListQuery);
+      store = mockStore({ auth: { isJean: false } });
 
       return store.dispatch(getMyPeople()).then((result) => {
-        console.log(result);
-        expect(result).toEqual([ { people: [ person ] } ]);
+        expect(result).toEqual([ { people: peopleList } ]);
       });
     });
   });
 
   describe('as Jean', () => {
-    it('should return all orgs with assigned people', () => {
+    const organizationOneId = 101;
+    const organizationList = [ { id: organizationOneId } ];
+    const personOne = {
+      id: 7777,
+      organizational_permissions: [ { organization_id: organizationOneId } ],
+      reverse_contact_assignments: [ { organization: { id: 103 } }, { organization: { id: organizationOneId } } ],
+    };
+    const personTwo = {
+      id: 8888,
+      organizational_permissions: [ { organization_id: 102 } ],
+      reverse_contact_assignments: [ { organization: { id: organizationOneId } } ],
+    };
+    const personThree = {
+      id: 9999,
+      organizational_permissions: [],
+    };
 
+    const organizationQuery = {
+      filters: { assigned_tos: 'me' },
+      include: '',
+    };
+
+    it('should return all orgs with assigned people', () => {
+      store = mockStore({ auth: { isJean: true } });
+      api.default = jest.fn().mockImplementation((request, query) => {
+        if (request === REQUESTS.GET_PEOPLE_LIST && JSON.stringify(query) === JSON.stringify(peopleListQuery)) {
+          return mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree ] });
+
+        } else if (request === REQUESTS.GET_MY_ORGANIZATIONS && JSON.stringify(query) === JSON.stringify(organizationQuery)) {
+          return mockApiReturnValue({ findAll: () => organizationList });
+        }
+      });
+
+      return store.dispatch(getMyPeople()).then((result) => {
+        expect(result).toEqual([
+          { people: [ personThree ] },
+          { id: organizationOneId, people: [ personOne ] },
+        ]);
+      });
     });
   });
-
 });
