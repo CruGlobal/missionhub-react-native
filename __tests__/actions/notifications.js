@@ -20,6 +20,7 @@ jest.mock('react-native-push-notification', () => {
   return {
     configure: jest.fn((params) => {
       params.onRegister({ token: '123' });
+      params.onNotification({ foreground: true, userInteraction: false });
     }),
   };
 });
@@ -79,6 +80,17 @@ describe('set push token', () => {
         shouldAsk: false,
         token: null,
         isRegistered: false,
+      },
+    });
+    store.dispatch(setupPushNotifications());
+
+    expect(PushNotification.configure).toHaveBeenCalledTimes(0);
+  });
+  it('should not call configure with isRegistered true and token exists', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: '123',
+        isRegistered: true,
       },
     });
     store.dispatch(setupPushNotifications());

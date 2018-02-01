@@ -4,6 +4,7 @@ import {
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
+  LOGOUT,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -43,4 +44,25 @@ it('updates set token', () => {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
   });
   expect(state.isRegistered).toBe(true);
+});
+
+it('resets state on logout', () => {
+  let expectedState = {
+    token: '',
+    hasAsked: false,
+    shouldAsk: true,
+    showReminder: true,
+    isRegistered: false,
+  };
+  const state = notifications({}, {
+    type: LOGOUT,
+  });
+  expect(state).toEqual(expectedState);
+});
+
+it('resets state on logout', () => {
+  const state = notifications({}, {
+    type: null,
+  });
+  expect(state).toEqual({});
 });
