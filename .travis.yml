@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '8'
 script:
-- yarn run test:coverage
+- yarn run test:coverage -- --maxWorkers=4
 - yarn run lint
 notifications:
   email: false
