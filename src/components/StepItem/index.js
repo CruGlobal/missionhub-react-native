@@ -11,8 +11,31 @@ class StepItem extends Component {
   handleAction = () => { this.props.onAction && this.props.onAction(this.props.step); }
   handleSelect = () => { this.props.onSelect && this.props.onSelect(this.props.step); }
 
+  renderIcon() {
+    const { type, onAction, hideAction } = this.props;
+    if (!onAction) return null;
+    return (
+      <Touchable onPress={this.handleAction}>
+        <Flex
+          ref={(c) => this.action = c}
+          align="center"
+          justify="center"
+          animation={hideAction ? 'fadeOutRight' : 'fadeInRight'}>
+          <Icon
+            name="starIcon"
+            type="MissionHub"
+            style={[
+              styles.icon,
+              type === 'reminder' ? styles.iconReminder : undefined,
+              hideAction ? styles.hideIcon : undefined,
+            ]} />
+        </Flex>
+      </Touchable>
+    );
+  }
+
   render() {
-    const { step, type, myId, onAction } = this.props;
+    const { step, type, myId } = this.props;
     const isMe = step.receiver && step.receiver.id === myId ;
     let ownerName = isMe ? 'Me' : step.receiver.full_name || '';
     ownerName = ownerName.toUpperCase();
@@ -45,19 +68,7 @@ class StepItem extends Component {
               {step.title}
             </Text>
           </Flex>
-          {
-            onAction ? (
-              <Touchable onPress={this.handleAction}>
-                <Icon
-                  name="starIcon"
-                  type="MissionHub"
-                  style={[
-                    styles.icon,
-                    type === 'reminder' ? styles.iconReminder : undefined,
-                  ]} />
-              </Touchable>
-            ) : null
-          }
+          {this.renderIcon()}
         </Flex>
       </Touchable>
     );
