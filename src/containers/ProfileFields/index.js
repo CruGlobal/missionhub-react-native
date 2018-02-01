@@ -6,7 +6,7 @@ import styles from './styles';
 import { Flex, Text, Button, Input } from '../../components/common';
 import { translate } from 'react-i18next';
 
-@translate('profileFields')
+@translate()
 class ProfileFields extends Component {
   state = {
     firstName: '',
@@ -81,7 +81,7 @@ class ProfileFields extends Component {
         <Flex align="center" justify="center" style={{ marginTop: 25 }}>
           <Button
             onPress={this.handleSave}
-            text="Save"
+            text={t('save').toUpperCase()}
           />
         </Flex>
       </KeyboardAvoidingView>

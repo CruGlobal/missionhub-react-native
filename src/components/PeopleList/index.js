@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
@@ -11,6 +12,7 @@ import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
 import styles from './styles';
 
+@translate('peopleScreen')
 export default class PeopleList extends Component {
 
   constructor(props) {
@@ -68,12 +70,12 @@ export default class PeopleList extends Component {
   }
 
   renderSectionHeader(section) {
-    const { onAddContact } = this.props;
+    const { onAddContact, t } = this.props;
     const org = section.organization || {};
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
-          {org.name || 'Personal Ministry'}
+          {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end">
           <Touchable onPress={() => onAddContact(org)}>
@@ -95,7 +97,7 @@ export default class PeopleList extends Component {
   }
 
   render() {
-    const { items, sections, refreshing, onRefresh } = this.props;
+    const { items, sections, refreshing, onRefresh, t } = this.props;
     if (sections) {
       return (
         <ScrollView
@@ -109,7 +111,7 @@ export default class PeopleList extends Component {
         >
           {
             this.state.items.map((section) => (
-              <Flex key={section.organization ? section.organization.id || 'personal' : 'personal'}>
+              <Flex key={section.organization ? section.organization.id || t('personal') : t('personal')}>
                 {this.renderSectionHeader(section)}
                 {
                   section.expanded ? this.renderList(section.people) : null

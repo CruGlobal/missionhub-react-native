@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import i18next from 'i18next';
 
 import LoginScreen from './containers/LoginScreen';
 import KeyLoginScreen from './containers/KeyLoginScreen';
@@ -61,21 +62,21 @@ export const MainTabRoutes = TabNavigator({
   StepsTab: {
     screen: StepsScreen,
     navigationOptions: {
-      tabBarLabel: 'Steps',
+      tabBarLabel: i18next.t('appRoutes:steps'),
       tabBarIcon: navIcon('stepsIcon'),
     },
   },
   PeopleTab: {
     screen: PeopleScreen,
     navigationOptions: {
-      tabBarLabel: 'People',
+      tabBarLabel: i18next.t('appRoutes:people'),
       tabBarIcon: navIcon('peopleIcon'),
     },
   },
   ImpactTab: {
     screen: ImpactScreen,
     navigationOptions: {
-      tabBarLabel: 'Impact',
+      tabBarLabel: i18next.t('appRoutes:impact'),
       tabBarIcon: navIcon('impactIcon'),
     },
   },

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
@@ -10,6 +11,7 @@ import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 
+@translate('selectStep')
 class SelectStepScreen extends Component {
 
   constructor(props) {
@@ -74,9 +76,11 @@ class SelectStepScreen extends Component {
   }
 
   renderTitle() {
+    const { t } = this.props;
+
     return (
       <Flex value={1.5} align="center" justify="start">
-        <Text type="header" style={styles.headerTitle}>Steps of Faith</Text>
+        <Text type="header" style={styles.headerTitle}>{t('stepsOfFaith')}</Text>
         <Text style={styles.headerText}>
           {this.props.headerText}
         </Text>
@@ -85,6 +89,8 @@ class SelectStepScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Flex style={styles.container}>
         <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
@@ -104,7 +110,7 @@ class SelectStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveAllSteps}
-            text="ADD TO MY STEPS"
+            text={t('addStep').toUpperCase()}
             style={styles.addButton}
           />
         </Flex>

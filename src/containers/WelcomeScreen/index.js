@@ -32,7 +32,7 @@ class WelcomeScreen extends BaseScreen {
           <Button
             type="secondary"
             onPress={() => this.navigateToNext()}
-            text="OK"
+            text={t('ok').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />
         </Flex>
