@@ -3,21 +3,16 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import AddSomeoneScreen from '../../src/containers/AddSomeoneScreen';
-import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
-import { testSnapshot } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 
-const mockState = {
-  notifications: { hasAsked: true },
-};
-const store = createMockStore(mockState);
+const store = createMockStore();
 
 jest.mock('react-native-device-info');
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddSomeoneScreen />
-    </Provider>
+  testSnapshotShallow(
+    <AddSomeoneScreen />,
+    store
   );
 });

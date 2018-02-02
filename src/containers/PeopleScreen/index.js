@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { getPeopleWithOrgSections } from '../../actions/people';
 import { navigatePush } from '../../actions/navigation';
@@ -10,6 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 
+@translate('peopleScreen')
 export class PeopleScreen extends Component {
 
   constructor(props) {
@@ -58,7 +60,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { people, sectionPeople, isJean } = this.props;
+    const { people, sectionPeople, isJean, t } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -78,7 +80,7 @@ export class PeopleScreen extends Component {
                 onPress={() => this.handleAddContact()} />
             )
           }
-          title="PEOPLE"
+          title={t('header').toUpperCase()}
           shadow={isJean}
         />
         <PeopleList
