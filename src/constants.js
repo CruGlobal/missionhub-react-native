@@ -21,6 +21,8 @@ export const SWIPE_REMINDER_STEPS_REMINDER = 'app/SWIPE_REMINDER_STEPS_REMINDER'
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const SET_VISIBLE_PERSON_INFO = 'app/SET_VISIBLE_PERSON_INFO';
 export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
+export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
+export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
@@ -60,7 +62,7 @@ export const ANALYTICS = {
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
-  // MHInteractionTypeNote: { id: 1, iconName: '', translationKey: 'interactionNote' },
+  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true },
   MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation' },
   MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel' },
   MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision' },

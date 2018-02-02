@@ -154,3 +154,14 @@ export function searchPeople(text, filters = {}) {
     return dispatch(callApi(REQUESTS.SEARCH, query));
   };
 }
+
+
+export function getUserDetails(id, query = {}) {
+  return (dispatch) => {
+    const newQuery = {
+      person_id: id,
+      ...query,
+    };
+    return dispatch(callApi(REQUESTS.GET_PERSON, newQuery));
+  };
+}

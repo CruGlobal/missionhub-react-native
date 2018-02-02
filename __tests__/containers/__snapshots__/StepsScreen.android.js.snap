@@ -109,7 +109,7 @@ exports[`renders android correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -221,7 +221,7 @@ exports[`renders android correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

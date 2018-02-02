@@ -116,7 +116,9 @@ export default {
     header: 'My Step of Faith',
     createStep: 'Create Step',
     journeyHeader: 'What did you see God do?',
+    editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
+    editJourneyButton: 'Save',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
@@ -151,9 +153,22 @@ export default {
     addStep: 'Add a step of faith',
   },
   contactJourney: {
-    addJourney: 'Add to Our Journey',
+    loading: 'Loading Journey Items',
+    addComment: 'Add a Comment',
     ourJourney: 'Our Journey',
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
+  },
+  journeyItem: {
+    stepTitle: 'Growing Step of Faith',
+    stageTitle: 'Growing',
+    interactionNote: 'Comment',
+    interactionSpiritualConversation: 'Spiritual Conversations',
+    interactionGospel: 'Gospel Presentations',
+    interactionDecision: 'Personal Decisions',
+    interactionSpirit: 'Holy Spirit Presentations',
+    interactionDiscipleshipConversation: 'Discipleship Conversations',
+    interactionAssignedContacts: 'Assigned Contacts',
+    interactionUncontacted: 'Uncontacted',
   },
   getStarted: {
     hi: 'hi {{name}}!',
