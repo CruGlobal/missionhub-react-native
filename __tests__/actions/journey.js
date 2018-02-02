@@ -7,9 +7,24 @@ let store;
 
 beforeEach(() => store = configureStore([ thunk ])());
 
+
+
+const steps = [ { id: 100 } ];
+const people = [ { id: 1 } ];
+
+const mockStepsResult = { findAll: () => steps };
+const mockPeopleResult = { findAll: () => people };
+
+const mockSteps = jest.fn(() => Promise.resolve(mockStepsResult));
+jest.mock('../../src/actions/steps', () => ({
+  getStepsByFilter: () => mockSteps,
+}));
+const mockPeople = jest.fn(() => Promise.resolve(mockPeopleResult));
+jest.mock('../../src/actions/people', () => ({
+  getUserDetails: () => mockPeople,
+}));
+
 describe('get journey', () => {
-  const result = [ { id: 100 } ];
-  const result2 = [ { id: 1 } ];
 
   it('should get persons journey', () => {
     store = configureStore([ thunk ])({
@@ -17,7 +32,7 @@ describe('get journey', () => {
     });
     
     store.dispatch(getJourney(1)).then((finalResult) => {
-      expect(finalResult).toBe([].concat(result, result2));
+      expect(finalResult).toBe([].concat(steps, people));
     });
   });
 
@@ -27,7 +42,7 @@ describe('get journey', () => {
     });
     
     store.dispatch(getJourney(1, true)).then((finalResult) => {
-      expect(finalResult).toBe([].concat(result, result2));
+      expect(finalResult).toBe([].concat(steps, people));
     });
   });
 });
