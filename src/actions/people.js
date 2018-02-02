@@ -31,7 +31,10 @@ export function getMyPeople() {
       filters: {
         assigned_tos: 'me',
       },
-      include: 'reverse_contact_assignments,organizational_permissions',
+      page: {
+        limit: 1000,
+      },
+      include: 'reverse_contact_assignments,organizational_permissions,people',
     };
 
     return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery)).then((pResults) => {
@@ -56,7 +59,7 @@ function getMinistryPeople(myPeople, personalOrg) {
     },
     include: '',
   };
-  return (dispatch) => {
+  return (dispatch, getState) => {
     return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery)).then((oResults) => {
       const ministryOrgs = oResults.findAll('organization');
       const ministryPeople = myPeople.filter((person) => person.organizational_permissions.length > 0);
@@ -71,7 +74,7 @@ function getMinistryPeople(myPeople, personalOrg) {
             if (foundOrg) {
               const foundOrgPerm = person.organizational_permissions.find((op) => op.organization_id === foundOrg.id);
 
-              return o.id === foundOrg.id && foundOrgPerm;
+              return o.id === foundOrg.id && foundOrgPerm && ca.assigned_to.id === getState().auth.personId;
             }
             return false;
           });

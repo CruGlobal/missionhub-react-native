@@ -51,7 +51,8 @@ describe('get people list', () => {
 describe('getMyPeople', () => {
   const peopleListQuery = {
     filters: { assigned_tos: 'me' },
-    include: 'reverse_contact_assignments,organizational_permissions',
+    page: { limit: 1000 },
+    include: 'reverse_contact_assignments,organizational_permissions,people',
   };
 
   describe('as Casey', () => {
@@ -68,21 +69,28 @@ describe('getMyPeople', () => {
   });
 
   describe('as Jean', () => {
+    const myId = 23;
     const organizationOneId = 101;
-    const organizationList = [ { id: organizationOneId } ];
+    const organizationTwoId = 111;
+    const organizationList = [ { id: organizationOneId }, { id: organizationTwoId } ];
     const personOne = {
       id: 7777,
       organizational_permissions: [ { organization_id: organizationOneId } ],
-      reverse_contact_assignments: [ { organization: { id: 103 } }, { organization: { id: organizationOneId } } ],
+      reverse_contact_assignments: [ { organization: { id: 103 }, assigned_to: { id: myId } }, { organization: { id: organizationOneId },assigned_to: { id: myId } } ],
     };
     const personTwo = {
       id: 8888,
       organizational_permissions: [ { organization_id: 102 } ],
-      reverse_contact_assignments: [ { organization: { id: organizationOneId } } ],
+      reverse_contact_assignments: [ { organization: { id: organizationOneId }, assigned_to: { id: myId } } ],
     };
     const personThree = {
       id: 9999,
       organizational_permissions: [],
+    };
+    const personFour = {
+      id: 10000,
+      organizational_permissions: [ { organization_id: organizationTwoId } ],
+      reverse_contact_assignments: [ { organization: { id: organizationTwoId }, assigned_to: { id: myId } }, { organization: { id: organizationTwoId }, assigned_to: { id: 24 } } ],
     };
 
     const organizationQuery = {
@@ -91,10 +99,10 @@ describe('getMyPeople', () => {
     };
 
     it('should return all orgs with assigned people', () => {
-      store = mockStore({ auth: { isJean: true } });
+      store = mockStore({ auth: { isJean: true, personId: myId } });
       api.default = jest.fn().mockImplementation((request, query) => {
         if (request === REQUESTS.GET_PEOPLE_LIST && JSON.stringify(query) === JSON.stringify(peopleListQuery)) {
-          return mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree ] });
+          return mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree, personFour ] });
 
         } else if (request === REQUESTS.GET_MY_ORGANIZATIONS && JSON.stringify(query) === JSON.stringify(organizationQuery)) {
           return mockApiReturnValue({ findAll: () => organizationList });
@@ -108,6 +116,7 @@ describe('getMyPeople', () => {
             myOrgs: [
               { people: [ personThree ], id: 'personal' },
               { id: organizationOneId, people: [ personOne ] },
+              { id: organizationTwoId, people: [ personFour ] },
             ],
           },
         ]);
