@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
@@ -10,6 +11,7 @@ import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { MAIN_TABS } from '../constants';
 
+@translate('selectStage')
 class PersonStageScreen extends Component {
   constructor(props) {
     super(props);
@@ -40,12 +42,13 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const questionText = `Which stage best describes where ${this.props.name || this.props.personFirstName} is on their journey?`;
+    const { t } = this.props;
+    const name = this.props.name || this.props.personFirstName;
 
     return (
       <PathwayStageScreen
-        buttonText="HERE"
-        questionText={questionText}
+        buttonText={t('here').toUpperCase()}
+        questionText={t('personQuestion', { name })}
         onSelect={this.handleSelectStage} />
     );
   }

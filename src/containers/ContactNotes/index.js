@@ -89,12 +89,13 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
-    const text = this.props.t('prompt', { personFirstName: this.props.person.first_name });
+    const { t } = this.props;
+    const text = t('prompt', { personFirstName: this.props.person.first_name });
 
     return (
       <Flex align="center" justify="center">
         <Image source={NOTES} />
-        <Text type="header" style={styles.nullHeader}>MY NOTES</Text>
+        <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
         <Text style={styles.nullText}>{text}</Text>
       </Flex>
     );

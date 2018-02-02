@@ -11,14 +11,15 @@ import BackButton from '../BackButton';
 @translate('getStarted')
 class GetStartedScreen extends Component {
   render() {
-    const { t } = this.props;
+    const { t, firstName } = this.props;
+    const name = firstName.toLowerCase();
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <BackButton />
 
         <Flex align="center" justify="center" value={4} >
-          <Text type="header" style={styles.headerTitle}>{t('hi')} {this.props.firstName.toLowerCase()}!</Text>
+          <Text type="header" style={styles.headerTitle}>{t('hi', { name })}</Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
 

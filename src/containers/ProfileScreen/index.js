@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { logout } from '../../actions/auth';
 import { navigatePush, navigateBack } from '../../actions/navigation';
@@ -10,9 +11,10 @@ import { Flex, Text, Button } from '../../components/common';
 import Header, { HeaderIcon } from '../Header';
 import ProfileFields from '../ProfileFields';
 
+@translate('profileScreen')
 class ProfileScreen extends Component {
   render() {
-    const { id } = this.props;
+    const { id, t } = this.props;
     return (
       <View style={styles.containerWrap}>
         <Header
@@ -31,22 +33,22 @@ class ProfileScreen extends Component {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.container}
         >
-          <Text>Profile {id}</Text>
+          <Text>{t('profileID', { id })}</Text>
           <ProfileFields />
           <Flex style={{ marginTop: 50 }} />
           <Button
             onPress={() => this.props.dispatch(logout())}
-            text="Logout"
+            text={t('logout')}
           />
           <Button
             onPress={() => this.props.dispatch(navigatePush('InteractionsTab'))}
-            text="Go To Main Tab"
+            text={t('goToMain')}
           />
           {
             id ? (
               <Button
                 onPress={() => this.props.dispatch(navigateBack())}
-                text="Go Back 1 page"
+                text={t('goBack')}
               />
             ) : null
           }

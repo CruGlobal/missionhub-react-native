@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View, Image } from 'react-native';
+import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin } from '../../actions/auth';
 import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { translate } from 'react-i18next';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -58,6 +58,8 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
@@ -70,7 +72,7 @@ class KeyLoginScreen extends Component {
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              Email
+              {t('emailLabel')}
             </Text>
             <Input
               autoCapitalize="none"
@@ -81,14 +83,14 @@ class KeyLoginScreen extends Component {
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
-              placeholder="Email"
+              placeholder={t('emailLabel')}
               placeholderTextColor="white"
             />
           </View>
 
           <View style={{ paddingTop: 30 }}>
             <Text style={styles.label} >
-              Password
+              {t('passwordLabel')}
             </Text>
             <Input
               secureTextEntry={true}
@@ -96,7 +98,7 @@ class KeyLoginScreen extends Component {
               onChangeText={this.passwordChanged}
               value={this.state.password}
               returnKeyType="next"
-              placeholder="Password"
+              placeholder={t('passwordLabel')}
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
@@ -107,7 +109,7 @@ class KeyLoginScreen extends Component {
           <Button
             type="secondary"
             onPress={this.login}
-            text="LOGIN"
+            text={t('login').toUpperCase()}
           />
         </Flex>
       </PlatformKeyboardAvoidingView>

@@ -148,6 +148,10 @@ export default {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
   },
+  'SET_PUSH_TOKEN': {
+    endpoint: `${API_URL}push_notification_device_tokens`,
+    method: 'post',
+  },
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',

@@ -9,7 +9,7 @@ import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/person';
 import { createPerson } from '../actions/profile';
 
-@translate('setupPerson')
+@translate()
 class SetupPersonScreen extends Component {
   saveAndGoToGetStarted() {
     if (this.props.personFirstName) {
@@ -23,7 +23,7 @@ class SetupPersonScreen extends Component {
 
   render() {
     const { t } = this.props;
-    
+
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />

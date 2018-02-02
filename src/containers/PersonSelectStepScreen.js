@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
+
 import SelectStepScreen from './SelectStepScreen';
 import { getStepSuggestions } from '../actions/steps';
 import { getFirstThreeValidItems } from '../utils/common';
 
+@translate('selectStep')
 class PersonSelectStepScreen extends Component {
   constructor(props) {
     super(props);
@@ -26,14 +29,14 @@ class PersonSelectStepScreen extends Component {
   }
 
   render() {
-    const text = `What will you do to help ${this.props.contactName ? this.props.contactName : this.props.personFirstName} experience God?`;
+    const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
 
     return (
       <SelectStepScreen
         steps={this.insertName(this.props.steps)}
         receiverId={this.props.contactId ? this.props.contactId : this.props.personId}
         useOthersSteps={true}
-        headerText={text}
+        headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
         onComplete={this.handleNavigate}
       />
