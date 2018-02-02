@@ -42,7 +42,7 @@ export default class PeopleList extends Component {
   }
 
   toggleSection(id) {
-    const items = this.state.items.map((s) => s.organization && s.organization.id === id ? { ...s, expanded: !s.expanded } : s);
+    const items = this.state.items.map((org) => org.id === id ? { ...org, expanded: !org.expanded } : org);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });
   }
@@ -69,9 +69,8 @@ export default class PeopleList extends Component {
     );
   }
 
-  renderSectionHeader(section) {
+  renderSectionHeader(org) {
     const { onAddContact, t } = this.props;
-    const org = section.organization || {};
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
@@ -88,7 +87,7 @@ export default class PeopleList extends Component {
               size={20}
               style={[
                 styles.icon2,
-                section.expanded ? styles.downArrow : null,
+                org.expanded ? styles.downArrow : null,
               ]} />
           </Touchable>
         </Flex>
@@ -97,7 +96,7 @@ export default class PeopleList extends Component {
   }
 
   render() {
-    const { items, sections, refreshing, onRefresh, t } = this.props;
+    const { items, sections, refreshing, onRefresh } = this.props;
     if (sections) {
       return (
         <ScrollView
@@ -110,11 +109,11 @@ export default class PeopleList extends Component {
           />}
         >
           {
-            this.state.items.map((section) => (
-              <Flex key={section.organization ? section.organization.id || t('personal') : t('personal')}>
-                {this.renderSectionHeader(section)}
+            this.state.items.map((org) => (
+              <Flex key={org.id}>
+                {this.renderSectionHeader(org)}
                 {
-                  section.expanded ? this.renderList(section.people) : null
+                  org.expanded ? this.renderList(org.people) : null
                 }
               </Flex>
             ))

@@ -31,7 +31,7 @@ function peopleReducer(state = initialState, action) {
     case PEOPLE_WITH_ORG_SECTIONS:
       return {
         ...state,
-        allByOrg: action.sections,
+        allByOrg: action.myOrgs,
       };
     default:
       return state;
