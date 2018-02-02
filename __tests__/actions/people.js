@@ -1,4 +1,4 @@
-import { getMe, getPeopleList, getPeopleWithOrgSections, getUserDetails } from '../../src/actions/people';
+import { searchPeople, getMe, getPeopleList, getPeopleWithOrgSections, getUserDetails } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -93,6 +93,23 @@ describe('get user', () => {
 
   it('should get me', () => {
     store.dispatch(getUserDetails(userId));
+
+    expect(store.getActions()[0]).toBe(action);
+  });
+});
+
+describe('search', () => {
+  const text = 'test';
+  const expectedQuery = {
+    q: text,
+    filters: { },
+  };
+  const action = { type: 'ran search' };
+
+  beforeEach(() => mockApi(action, REQUESTS.SEARCH, expectedQuery));
+
+  it('should search', () => {
+    store.dispatch(searchPeople(text));
 
     expect(store.getActions()[0]).toBe(action);
   });

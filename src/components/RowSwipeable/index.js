@@ -35,12 +35,7 @@ class RowSwipeable extends Component {
 
   componentWillMount() {
     this.panResponder = PanResponder.create({
-      onMoveShouldSetPanResponderCapture: (e, { dx }) => {
-        if (!this.isOpen) {
-          return dx < (-1 * OPEN_MOVE_THRESHOLD);
-        }
-        return Math.abs(dx) > OPEN_MOVE_THRESHOLD;
-      },
+      onMoveShouldSetPanResponderCapture: (...args) => this.checkShouldMove(...args),
       onPanResponderGrant: () => {
         // this.state.pan.setOffset({ x: this._val.x, y: 0 });
         // this.state.pan.setValue({ x: 0, y: 0 });
@@ -90,6 +85,13 @@ class RowSwipeable extends Component {
 
   componentWillUnmount() {
     this.openListener.remove();
+  }
+
+  checkShouldMove(e, { dx }) {
+    if (!this.isOpen) {
+      return dx < (-1 * OPEN_MOVE_THRESHOLD);
+    }
+    return Math.abs(dx) > OPEN_MOVE_THRESHOLD;
   }
 
   snapBack(e, gesture) {
