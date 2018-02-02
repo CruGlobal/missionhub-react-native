@@ -1,4 +1,4 @@
-import { searchPeople, getMe, getMyPeople, getPeopleList, getUserDetails } from '../../src/actions/people';
+import { searchPeople, getMe, getMyPeople, getUserDetails } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -29,22 +29,6 @@ describe('get me', () => {
 
   it('should get me', () => {
     store.dispatch(getMe());
-
-    expect(store.getActions()[0]).toBe(action);
-  });
-});
-
-describe('get people list', () => {
-  const expectedQuery = { filters: { assigned_tos: 'me' } };
-  const action = { type: 'got people' };
-
-  beforeEach(() => {
-    store = mockStore();
-    mockApi(action, REQUESTS.GET_PEOPLE_LIST, expectedQuery);
-  });
-
-  it('should get people list', () => {
-    store.dispatch(getPeopleList());
 
     expect(store.getActions()[0]).toBe(action);
   });
