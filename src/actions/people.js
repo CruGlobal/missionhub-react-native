@@ -1,6 +1,5 @@
 import callApi, { REQUESTS } from './api';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
-import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getMe() {
   return (dispatch) => {
@@ -26,7 +25,7 @@ export function getPeopleList() {
 }
 
 export function getMyPeople() {
-  return (dispatch, getState) => {
+  return async(dispatch, getState) => {
     const peopleQuery = {
       filters: {
         assigned_tos: 'me',
@@ -37,55 +36,46 @@ export function getMyPeople() {
       include: 'reverse_contact_assignments,organizational_permissions,people',
     };
 
-    return dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery)).then((pResults) => {
-      const myPeople = findAllNonPlaceHolders(pResults, 'person'); //todo do this by looking at something other than placeholder
+    const peopleResults = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery));
+    const people = peopleResults.findAll('person');
 
-      const personalPeople = myPeople.filter((person) => person.organizational_permissions.length === 0);
-      const personalOrg = { people: personalPeople, id: 'personal' };
+    let myOrgs = [ { people: [], id: 'personal' } ];
+    const state = getState().auth;
 
-      if (getState().auth.isJean) {
-        return dispatch(getMinistryPeople(myPeople, personalOrg));
-      } else {
-        return [ personalOrg ];
+    if (state.isJean) {
+      const orgQuery = {
+        filters: {
+          assigned_tos: 'me',
+        },
+        include: '',
+      };
+
+      const ministryOrgs = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
+      myOrgs = myOrgs.concat(ministryOrgs.findAll('organization'));
+    }
+
+    people.forEach((person) => {
+      if (!person._placeHolder) {
+
+        if (person.organizational_permissions.length === 0) {
+          myOrgs[0].people.push(person);
+
+        } else {
+          person.reverse_contact_assignments.forEach((contact_assignment) => {
+
+            if (contact_assignment.assigned_to.id === state.personId) {
+              const foundOrg = myOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
+
+              if (foundOrg && person.organizational_permissions.some((org_p) => org_p.organization_id === foundOrg.id)) {
+                foundOrg.people ? foundOrg.people.push(person) : foundOrg.people = [ person ];
+              }
+            }
+          });
+        }
       }
     });
-  };
-}
 
-function getMinistryPeople(myPeople, personalOrg) {
-  const orgQuery = {
-    filters: {
-      assigned_tos: 'me',
-    },
-    include: '',
-  };
-  return (dispatch, getState) => {
-    return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery)).then((oResults) => {
-      const ministryOrgs = oResults.findAll('organization');
-      const ministryPeople = myPeople.filter((person) => person.organizational_permissions.length > 0);
-
-      ministryOrgs.forEach((org) => org.people = []);
-
-      ministryPeople.forEach((person) => {
-        person.reverse_contact_assignments.forEach((ca) => {
-          const org = ministryOrgs.find((o) => {
-            const foundOrg = ca.organization;
-
-            if (foundOrg) {
-              const foundOrgPerm = person.organizational_permissions.find((op) => op.organization_id === foundOrg.id);
-
-              return o.id === foundOrg.id && foundOrgPerm && ca.assigned_to.id === getState().auth.personId;
-            }
-            return false;
-          });
-          if (org) {
-            org.people.push(person);
-          }
-        });
-      });
-
-      return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs: [ personalOrg, ...ministryOrgs ] });
-    });
+    return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
   };
 }
 

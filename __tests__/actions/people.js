@@ -17,6 +17,8 @@ const mockApiReturnValue = (result) => {
   };
 };
 
+const myId = 23;
+
 describe('get me', () => {
   const action = { type: 'got me' };
 
@@ -56,20 +58,22 @@ describe('getMyPeople', () => {
   };
 
   describe('as Casey', () => {
-    const peopleList = [ { id: 123, organizational_permissions: [] } ];
+    const peopleList = [ { id: 123, organizational_permissions: [], reverse_contact_assignments: [ { assigned_to: { id: myId } } ] } ];
 
     it('should return one org with people', () => {
       mockApi(mockApiReturnValue({ findAll: () => peopleList }), REQUESTS.GET_PEOPLE_LIST, peopleListQuery);
-      store = mockStore({ auth: { isJean: false } });
+      store = mockStore({ auth: { isJean: false, personId: myId } });
 
-      return store.dispatch(getMyPeople()).then((result) => {
-        expect(result).toEqual([ { people: peopleList, id: 'personal' } ]);
+      return store.dispatch(getMyPeople()).then(() => {
+        expect(store.getActions()).toEqual([ {
+          type: PEOPLE_WITH_ORG_SECTIONS,
+          myOrgs: [ { people: peopleList, id: 'personal' } ],
+        } ]);
       });
     });
   });
 
   describe('as Jean', () => {
-    const myId = 23;
     const organizationOneId = 101;
     const organizationTwoId = 111;
     const organizationList = [ { id: organizationOneId }, { id: organizationTwoId } ];
@@ -86,6 +90,7 @@ describe('getMyPeople', () => {
     const personThree = {
       id: 9999,
       organizational_permissions: [],
+      reverse_contact_assignments: [ { assigned_to: { id: myId } } ],
     };
     const personFour = {
       id: 10000,
