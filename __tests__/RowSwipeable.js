@@ -1,4 +1,4 @@
-import 'react-native';
+import { Animated } from 'react-native';
 import React from 'react';
 import { View } from 'react-native';
 import Enzyme, { shallow } from 'enzyme';
@@ -8,6 +8,12 @@ import Adapter from 'enzyme-adapter-react-16';
 // Note: test renderer must be required after react-native.
 import RowSwipeable from '../src/components/RowSwipeable';
 import { testSnapshot } from '../testUtils';
+
+const mockStart = jest.fn();
+beforeEach(() => {
+  Animated.timing = jest.fn(() => ({ start: mockStart }));
+  Animated.spring = jest.fn(() => ({ start: mockStart }));
+});
 
 it('renders correctly', () => {
   testSnapshot(
@@ -28,6 +34,14 @@ it('renders remove/complete actions correctly', () => {
 it('renders edit action correctly', () => {
   testSnapshot(
     <RowSwipeable onEdit={() => {}}>
+      <View />
+    </RowSwipeable>
+  );
+});
+
+it('renders edit bump correctly', () => {
+  testSnapshot(
+    <RowSwipeable bump={true} onBumpComplete={() => {}}>
       <View />
     </RowSwipeable>
   );
@@ -86,6 +100,18 @@ describe('swipe gestures', () => {
   it('checks should not move', () => {
     swipeComponent.isOpen = false;
     const result = swipeComponent.checkShouldMove(undefined, { dx: 20 });
+    expect(result).toBe(false);
+  });
+  
+  it('checks should move while open', () => {
+    swipeComponent.isOpen = true;
+    const result = swipeComponent.checkShouldMove(undefined, { dx: 20 });
+    expect(result).toBe(true);
+  });
+  
+  it('checks should not move while open', () => {
+    swipeComponent.isOpen = true;
+    const result = swipeComponent.checkShouldMove(undefined, { dx: 1 });
     expect(result).toBe(false);
   });
   
