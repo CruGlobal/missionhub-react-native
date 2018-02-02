@@ -1,4 +1,4 @@
-import { getMe, getMyPeople, getPeopleList } from '../../src/actions/people';
+import { searchPeople, getMe, getMyPeople, getPeopleList, getUserDetails } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -127,5 +127,44 @@ describe('getMyPeople', () => {
         ]);
       });
     });
+  });
+});
+
+describe('get user', () => {
+  const userId = 1;
+  const expectedQuery = {
+    person_id: userId,
+  };
+  const action = { type: 'got user' };
+
+  beforeEach(() => {
+    store = mockStore();
+    mockApi(action, REQUESTS.GET_PERSON, expectedQuery);
+  });
+
+  it('should get me', () => {
+    store.dispatch(getUserDetails(userId));
+
+    expect(store.getActions()[0]).toBe(action);
+  });
+});
+
+describe('search', () => {
+  const text = 'test';
+  const expectedQuery = {
+    q: text,
+    filters: { },
+  };
+  const action = { type: 'ran search' };
+
+  beforeEach(() => {
+    store = mockStore();
+    mockApi(action, REQUESTS.SEARCH, expectedQuery);
+  });
+
+  it('should search', () => {
+    store.dispatch(searchPeople(text));
+
+    expect(store.getActions()[0]).toBe(action);
   });
 });

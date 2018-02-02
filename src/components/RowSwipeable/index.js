@@ -6,7 +6,9 @@ import { translate } from 'react-i18next';
 import { Flex, Touchable, Icon, Text } from '../common';
 import styles from './styles';
 
-const OPEN_DISTANCE = -150;
+const OPTION_WIDTH = 75;
+// Distance the gesture must travel before initiating the swipe action
+const OPEN_MOVE_THRESHOLD = 15;
 
 @translate()
 class RowSwipeable extends Component {
@@ -14,18 +16,26 @@ class RowSwipeable extends Component {
   constructor(props) {
     super(props);
 
+    let numOptions = 0;
+    if (props.onDelete) numOptions++;
+    if (props.onComplete) numOptions++;
+    if (props.onEdit) numOptions++;
+
+    this.numOptions = numOptions;
+    this.openDistance = numOptions * -1 * OPTION_WIDTH;
+
     this.translateX = new Animated.Value(0);
     this.isScrollingRight = false;
     this.initialTranslateXValue = null;
     this.isOpen = false;
 
     this.snapBack = this.snapBack.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentWillMount() {
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponderCapture: (...args) => this.checkShouldMove(...args),
       onPanResponderGrant: () => {
         // this.state.pan.setOffset({ x: this._val.x, y: 0 });
         // this.state.pan.setValue({ x: 0, y: 0 });
@@ -55,15 +65,15 @@ class RowSwipeable extends Component {
   
   componentDidMount() {
     if (this.props.bump) {
-      Animated.timing(this.translateX, {
-        duration: 300,
-        toValue: -50,
-        delay: 600,
+      Animated.spring(this.translateX, {
+        bounciness: 24,
+        toValue: ((this.numOptions - 1) * OPTION_WIDTH + (OPTION_WIDTH * 0.9)) * -1,
+        delay: 800,
       }).start(() => {
         Animated.timing(this.translateX, {
-          duration: 300,
+          duration: 800,
           toValue: 0,
-          delay: 1200,
+          delay: 2500,
         }).start(() => {
           if (this.props.onBumpComplete) {
             this.props.onBumpComplete();
@@ -77,8 +87,15 @@ class RowSwipeable extends Component {
     this.openListener.remove();
   }
 
+  checkShouldMove(e, { dx }) {
+    if (!this.isOpen) {
+      return dx < (-1 * OPEN_MOVE_THRESHOLD);
+    }
+    return Math.abs(dx) > OPEN_MOVE_THRESHOLD;
+  }
+
   snapBack(e, gesture) {
-    if (!this.isScrollingRight && (gesture.dx <= OPEN_DISTANCE || (this.isOpen && gesture.dx < 0))) {
+    if (!this.isScrollingRight && (gesture.dx <= this.openDistance || (this.isOpen && gesture.dx < 0))) {
       this.open();
     } else {
       this.close();
@@ -88,7 +105,7 @@ class RowSwipeable extends Component {
   open() {
     this.initialTranslateXValue = null;
     this.isOpen = true;
-    this.move(OPEN_DISTANCE);
+    this.move(this.openDistance);
     DeviceEventEmitter.emit('RowSwipeable_open', this);
   }
 
@@ -102,32 +119,72 @@ class RowSwipeable extends Component {
     Animated.spring(this.translateX, { toValue, speed: 16 }).start();
   }
 
+  handleSelect(callback) {
+    return () => {
+      this.close();
+      callback();
+    };
+  }
+
+  renderOptions() {
+    const { t, onDelete, onComplete, onEdit } = this.props;
+    return (
+      <Flex
+        direction="row"
+        justify="end"
+        style={[
+          styles.optionsWrap,
+          { width: this.numOptions * OPTION_WIDTH },
+        ]}>
+        {
+          onDelete ? (
+            <Touchable style={styles.deleteWrap} onPress={this.handleSelect(onDelete)}>
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="deleteIcon" type="MissionHub" size={26} />
+                <Text style={styles.text}>
+                  {t('swipe.remove')}
+                </Text>
+              </Flex>
+            </Touchable>
+          ) : null
+        }
+        {
+          onComplete ? (
+            <Touchable style={styles.completeWrap} onPress={this.handleSelect(onComplete)}>
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="checkIcon" type="MissionHub" size={26} />
+                <Text style={styles.text}>
+                  {t('swipe.complete')}
+                </Text>
+              </Flex>
+            </Touchable>
+          ) : null
+        }
+        {
+          onEdit ? (
+            <Touchable style={styles.editWrap} onPress={this.handleSelect(onEdit)}>
+              <Flex direction="column" align="center" justify="center">
+                <Icon name="createStepIcon" type="MissionHub" size={30} />
+                <Text style={styles.text}>
+                  {t('swipe.edit')}
+                </Text>
+              </Flex>
+            </Touchable>
+          ) : null
+        }
+      </Flex>
+    );
+  }
+
   render() {
-    const { children, t } = this.props;
+    const { children } = this.props;
 
     const panStyle = {
       transform: [ { translateX: this.translateX } ],
     };
     return (
       <View>
-        <Flex direction="row" justify="end" style={styles.optionsWrap}>
-          <Touchable style={styles.deleteWrap} onPress={this.props.onDelete}>
-            <Flex direction="column" align="center" justify="center">
-              <Icon name="deleteIcon" type="MissionHub" size={26} />
-              <Text style={styles.text}>
-                {t('swipe.remove')}
-              </Text>
-            </Flex>
-          </Touchable>
-          <Touchable style={styles.completeWrap} onPress={this.props.onComplete}>
-            <Flex direction="column" align="center" justify="center">
-              <Icon name="checkIcon" type="MissionHub" size={26} />
-              <Text style={styles.text}>
-                {t('swipe.complete')}
-              </Text>
-            </Flex>
-          </Touchable>
-        </Flex>
+        {this.renderOptions()}
         <Animated.View {...this.panResponder.panHandlers} style={panStyle}>
           {children}
         </Animated.View>
@@ -138,10 +195,11 @@ class RowSwipeable extends Component {
 
 RowSwipeable.propTypes = {
   children: PropTypes.element.isRequired,
+  onComplete: PropTypes.func,
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func,
   bump: PropTypes.bool,
   onBumpComplete: PropTypes.func,
-  onDelete: PropTypes.func,
-  onComplete: PropTypes.func,
 };
 
 export default RowSwipeable;

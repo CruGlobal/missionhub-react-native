@@ -109,7 +109,7 @@ exports[`renders correctly as Casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -221,7 +221,7 @@ exports[`renders correctly as Casey 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -419,7 +419,7 @@ exports[`renders correctly as Jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -542,7 +542,7 @@ exports[`renders correctly as Jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -604,7 +604,7 @@ exports[`renders correctly as Jean 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

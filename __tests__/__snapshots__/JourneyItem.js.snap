@@ -1,0 +1,522 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders interaction correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "paddingRight": 24,
+          "paddingVertical": 19,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 32,
+          },
+          Object {
+            "alignSelf": "center",
+            "color": "#52C5DC",
+            "textAlign": "center",
+            "width": 75,
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#E6E8EC",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Comment
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Journey
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders stage correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "paddingRight": 24,
+          "paddingVertical": 19,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 32,
+          },
+          Object {
+            "alignSelf": "center",
+            "color": "#52C5DC",
+            "textAlign": "center",
+            "width": 75,
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#E6E8EC",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Growing
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Journey
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders step correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "paddingRight": 24,
+          "paddingVertical": 19,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 32,
+          },
+          Object {
+            "alignSelf": "center",
+            "color": "#52C5DC",
+            "textAlign": "center",
+            "width": 75,
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#E6E8EC",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Growing Step of Faith
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders survey correctly 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "paddingRight": 24,
+          "paddingVertical": 19,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 32,
+          },
+          Object {
+            "alignSelf": "center",
+            "color": "#52C5DC",
+            "textAlign": "center",
+            "width": 75,
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#E6E8EC",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Journey
+    </Text>
+  </View>
+</View>
+`;
