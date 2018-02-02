@@ -36,6 +36,7 @@ class StageScreen extends Component {
         buttonText={t('iAmHere').toUpperCase()}
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
+        section="onboarding : self"
       />
     );
   }
