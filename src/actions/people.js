@@ -38,7 +38,7 @@ export function getMyPeople() {
       const myPeople = findAllNonPlaceHolders(pResults, 'person'); //todo do this by looking at something other than placeholder
 
       const personalPeople = myPeople.filter((person) => person.organizational_permissions.length === 0);
-      const personalOrg = { people: personalPeople };
+      const personalOrg = { people: personalPeople, id: 'personal' };
 
       if (getState().auth.isJean) {
         return dispatch(getMinistryPeople(myPeople, personalOrg));

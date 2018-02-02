@@ -62,7 +62,7 @@ describe('getMyPeople', () => {
       store = mockStore({ auth: { isJean: false } });
 
       return store.dispatch(getMyPeople()).then((result) => {
-        expect(result).toEqual([ { people: peopleList } ]);
+        expect(result).toEqual([ { people: peopleList, id: 'personal' } ]);
       });
     });
   });
@@ -106,7 +106,7 @@ describe('getMyPeople', () => {
           {
             type: PEOPLE_WITH_ORG_SECTIONS,
             myOrgs: [
-              { people: [ personThree ] },
+              { people: [ personThree ], id: 'personal' },
               { id: organizationOneId, people: [ personOne ] },
             ],
           },

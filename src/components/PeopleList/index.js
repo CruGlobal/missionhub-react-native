@@ -96,7 +96,7 @@ export default class PeopleList extends Component {
   }
 
   render() {
-    const { items, sections, refreshing, onRefresh, t } = this.props;
+    const { items, sections, refreshing, onRefresh } = this.props;
     if (sections) {
       return (
         <ScrollView
@@ -110,7 +110,7 @@ export default class PeopleList extends Component {
         >
           {
             this.state.items.map((org) => (
-              <Flex key={org ? org.id : t('personal')}>
+              <Flex key={org.id}>
                 {this.renderSectionHeader(org)}
                 {
                   org.expanded ? this.renderList(org.people) : null
