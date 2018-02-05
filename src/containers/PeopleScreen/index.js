@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { getPeopleWithOrgSections } from '../../actions/people';
+import { getMyPeople } from '../../actions/people';
 import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
@@ -33,7 +33,7 @@ export class PeopleScreen extends Component {
   }
 
   getPeople() {
-    return this.props.dispatch(getPeopleWithOrgSections());
+    return this.props.dispatch(getMyPeople());
   }
 
   handleAddContact(org) {

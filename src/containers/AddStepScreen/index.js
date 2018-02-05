@@ -10,6 +10,7 @@ import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import BackButton from '../BackButton';
+import theme from '../../theme';
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -18,7 +19,7 @@ class AddStepScreen extends Component {
     super(props);
 
     this.state = {
-      step: '',
+      step: props.isEdit ? props.text : '',
     };
 
     this.saveStep = this.saveStep.bind(this);
@@ -30,19 +31,47 @@ class AddStepScreen extends Component {
     if (!text) {
       return;
     }
-    // TODO: Save to my steps
     this.props.onComplete(text);
     this.props.dispatch(navigateBack());
   }
 
-  render() {
-    const { t } = this.props;
+  getButtonText() {
+    const { t, type } = this.props;
+    let text;
+    if (type === 'journey') {
+      text = t('addJourney');
+    } else if (type === 'editJourney') {
+      text = t('editJourneyButton');
+    } else {
+      text = t('createStep');
+    }
+    return text.toUpperCase();
+  }
 
+  renderTitle() {
+    const { t, type } = this.props;
+    let text = t('header');
+    let style = styles.header;
+    if (type === 'journey') {
+      style = styles.journeyHeader;
+      text = t('journeyHeader');
+    } else if (type === 'editJourney') {
+      style = styles.journeyHeader;
+      text = t('editJourneyHeader');
+    }
+    return (
+      <Text type="header" style={style}>
+        {text}
+      </Text>
+    );
+  }
+
+  render() {
     return (
       <PlatformKeyboardAvoidingView>
         <BackButton />
         <Flex value={1.5} align="center" justify="center">
-          <Text type="header" style={this.props.type ? styles.journeyHeader : styles.header}>{this.props.type && this.props.type === 'journey' ? t('journeyHeader') : t('header')}</Text>
+          {this.renderTitle()}
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
@@ -52,7 +81,7 @@ class AddStepScreen extends Component {
             value={this.state.step}
             multiline={true}
             autoFocus={true}
-            selectionColor="white"
+            selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
@@ -63,7 +92,7 @@ class AddStepScreen extends Component {
           <Button
             type="secondary"
             onPress={this.saveStep}
-            text={this.props.type && this.props.type === 'journey' ? t('addJourney').toUpperCase() : t('createStep').toUpperCase()}
+            text={this.getButtonText()}
             style={styles.createButton}
           />
         </Flex>
@@ -74,11 +103,13 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
+  type: PropTypes.oneOf([ 'journey', 'editJourney' ]),
+  isEdit: PropTypes.bool,
+  text: PropTypes.string,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({
-  onComplete: navigation.state.params.onComplete,
-  type: navigation.state.params.type,
+  ...(navigation.state.params || {}),
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
