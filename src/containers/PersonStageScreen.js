@@ -10,6 +10,7 @@ import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { MAIN_TABS } from '../constants';
+import { trackState } from '../actions/analytics';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -36,7 +37,10 @@ class PersonStageScreen extends Component {
       });
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-        this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, { onSaveNewSteps: this.handleNavigate }));
+        this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          onSaveNewSteps: this.handleNavigate, createStepScreenname: 'mh : onboarding : add person : steps : create',
+        }));
+        this.props.dispatch(trackState('mh : onboarding : add person : steps : add'));
       });
     }
   }

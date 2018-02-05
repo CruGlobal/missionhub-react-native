@@ -10,6 +10,7 @@ import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
+import { CONTACT_SCREEN } from '../ContactScreen';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -47,7 +48,7 @@ export class PeopleScreen extends Component {
   }
 
   handleRowSelect(person) {
-    this.props.dispatch(navigatePush('Contact', { person }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person }));
   }
 
   handleRefresh() {

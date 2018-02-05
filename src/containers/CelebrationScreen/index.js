@@ -56,3 +56,4 @@ class CelebrationScreen extends Component {
 }
 
 export default connect()(CelebrationScreen);
+export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import { Text, Icon } from '../common';
 import styles from './styles';
+import { trackState } from '../../actions/analytics';
 
 export default class CustomTabs extends Component {
   constructor(props) {
@@ -14,12 +15,20 @@ export default class CustomTabs extends Component {
     this.icons = [];
   }
 
+  goToTab(i, tab) {
+    this.props.goToPage(i);
+
+    if (i !== this.props.activeTab) {
+      this.props.dispatch(trackState(tab.screenName));
+    }
+  }
+
   render() {
     return (
       <View style={[ styles.tabs, this.props.style ]}>
         {this.props.tabArray.map((tab, i) => {
           return (
-            <TouchableOpacity key={tab.iconName} onPress={() => this.props.goToPage(i)} style={styles.tab}>
+            <TouchableOpacity key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
               <Icon
                 name={tab.iconName}
                 type="MissionHub"

@@ -110,7 +110,14 @@ class ContactScreen extends Component {
           shadow={false}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
-          <ContactHeader onChangeStage={this.handleChangeStage} type={isJean ? JEAN : CASEY} isMe={personIsCurrentUser} person={person} stage={contactStage} />
+          <ContactHeader
+            onChangeStage={this.handleChangeStage}
+            type={isJean ? JEAN : CASEY}
+            isMe={personIsCurrentUser}
+            person={person}
+            stage={contactStage}
+            dispatch={this.props.dispatch}
+          />
         </Flex>
       </View>
     );
@@ -136,3 +143,4 @@ const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(ContactScreen);
+export const CONTACT_SCREEN = 'nav/CONTACT';

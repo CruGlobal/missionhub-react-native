@@ -10,6 +10,8 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
+import { ADD_STEP_SCREEN } from '../AddStepScreen';
+import { trackState } from '../../actions/analytics';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -39,10 +41,12 @@ class ContactJourney extends Component {
   }
 
   handleCreateInteraction() {
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: (t) => LOG(t),
       type: 'journey',
     }));
+
+    this.props.dispatch(trackState('mh : people : person : journey : edit')); //todo do for self
   }
 
 

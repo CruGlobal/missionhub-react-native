@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <Connect(Translate(SelectStepScreen))
+  createStepScreenname="mh : onboarding : self : steps : create"
   headerText="How do you want to move forward on your spiritual journey?"
   onComplete={[Function]}
   receiverId={1234}

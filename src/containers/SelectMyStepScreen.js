@@ -31,6 +31,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
+        createStepScreenname="mh : onboarding : self : steps : create"
       />
     );
   }

@@ -16,6 +16,7 @@ import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { NOTIFICATION_OFF_SCREEN } from '../NotificationOffScreen';
+import { CONTACT_SCREEN } from '../ContactScreen';
 
 const MAX_REMINDERS = 3;
 
@@ -49,7 +50,7 @@ class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person: step.receiver }));
   }
 
   handleSetReminder(step) {

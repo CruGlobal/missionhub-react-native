@@ -9,21 +9,25 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { CASEY, JEAN } from '../../constants';
 
+export const MY_STEPS = 'mh : people : person : steps : steps'; //TODO set for self
 const CASEY_TABS = [
   {
     page: 'steps',
     iconName: 'stepsIcon',
     tabLabel: i18next.t('contactHeader:mySteps'),
+    screenName: MY_STEPS,
   },
   {
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: i18next.t('contactHeader:ourJourney'),
+    screenName: 'mh : people : person : journey : journey',
   },
   {
     page: 'notes',
     iconName: 'notesIcon',
     tabLabel: i18next.t('contactHeader:myNotes'),
+    screenName: 'mh : people : person : notes : notes',
   },
 ];
 
@@ -33,6 +37,7 @@ const ME_TABS = [
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: i18next.t('contactHeader:myJourney'),
+    screenName: 'mh : people : self : journey : journey',
   },
 ];
 
@@ -42,6 +47,7 @@ const JEAN_TABS = [
     page: 'actions',
     iconName: 'actionsIcon',
     tabLabel: i18next.t('contactHeader:myActions'),
+    screenName: 'mh : people : person : actions : actions',
   },
   CASEY_TABS[1],
   CASEY_TABS[2],
@@ -53,6 +59,7 @@ const JEAN_TABS_MH_USER = [
     page: 'userImpact',
     iconName: 'impactIcon',
     tabLabel: i18next.t('contactHeader:impact'),
+    screenName: 'mh : people : person : impact : impact',
   },
 ];
 
@@ -137,7 +144,7 @@ export default class ContactHeader extends Component {
           onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar person={person} tabs={this.getTabs()} />
+        <SecondaryTabBar person={person} tabs={this.getTabs()} dispatch={this.props.dispatch} />
       </Flex>
     );
   }

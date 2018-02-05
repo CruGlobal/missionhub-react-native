@@ -7,6 +7,7 @@ import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { disableAskPushNotification } from '../../actions/notifications';
+import { CELEBRATION_SCREEN } from '../CelebrationScreen';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
@@ -24,7 +25,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   done() {
-    this.props.dispatch(navigatePush('Celebration'));
+    this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
   }
 
   render() {

@@ -17,13 +17,13 @@ import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScr
 import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
-import ContactScreen from './containers/ContactScreen';
+import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
 import AddContactScreen from './containers/AddContactScreen';
 import NotificationPrimerScreen, { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
 import PersonStageScreen, { PERSON_STAGE_SCREEN } from './containers/PersonStageScreen';
-import CelebrationScreen from './containers/CelebrationScreen';
+import CelebrationScreen, { CELEBRATION_SCREEN } from './containers/CelebrationScreen';
 import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
@@ -35,6 +35,7 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
+import { MY_STEPS } from './components/ContactHeader';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -59,6 +60,7 @@ function labelStyle() {
   }
 }
 
+const stepsTab = 'mh : steps';
 const tabs = {
   StepsTab: {
     screen: StepsScreen,
@@ -66,7 +68,7 @@ const tabs = {
       tabBarLabel: i18next.t('appRoutes:steps'),
       tabBarIcon: navIcon('stepsIcon'),
     },
-    name: 'mh : steps',
+    name: stepsTab,
   },
   PeopleTab: {
     screen: PeopleScreen,
@@ -122,32 +124,21 @@ const screens = {
   [SETUP_SCREEN]: { screen: SetupScreen, name: 'mh : onboarding : name' },
   [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'mh : onboarding : get started' },
   [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'mh : onboarding : self : choose my steps' },
-  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'mh : onboarding : self : steps' },
-  [ADD_STEP_SCREEN]: { screen: AddStepScreen, name: 'mh : onboarding : self : steps : create' },
+  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'mh : onboarding : self : steps : add' },
   [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'mh : onboarding : add person' },
   [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'mh : onboarding : add person : name' },
-  [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, name: 'mh : onboarding : add person : steps' },
   [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'mh : menu : notifications : permissions' },
   [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'mh : menu : notifications : off' },
-};
-
-export const trackableScreens = {
-  ...screens,
-  ...tabs,
-};
-
-export const MainStackRoutes = StackNavigator({
+  [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'mh : onboarding : complete' },
   [MAIN_TABS]: {
     screen: DrawerNavigator({
       Main: { screen: MainTabRoutes },
     }, {
       contentComponent: SettingsMenu,
     }),
+    name: stepsTab,
   },
-  ...screens,
-  Profile: { screen: ProfileScreen },
-  [STAGE_SCREEN]: { screen: StageScreen },
-  Contact: {
+  [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {
         Main: { screen: ContactScreen },
@@ -157,10 +148,23 @@ export const MainStackRoutes = StackNavigator({
         drawerPosition: 'right',
       }
     ),
+    name: MY_STEPS,
   },
+};
+
+export const trackableScreens = {
+  ...screens,
+  ...tabs,
+};
+
+export const MainStackRoutes = StackNavigator({
+  ...screens,
+  Profile: { screen: ProfileScreen },
+  [STAGE_SCREEN]: { screen: StageScreen },
+  [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen },
+  [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   AddContact: { screen: AddContactScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen },
-  Celebration: { screen: CelebrationScreen },
   SearchPeople: { screen: SearchPeopleScreen },
   SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
   SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },

@@ -61,7 +61,7 @@ export default class SecondaryTabBar extends Component {
           tabBarPosition="top"
           initialPage={0}
           locked={true}
-          renderTabBar={() => <CustomTabs tabArray={tabs} />}
+          renderTabBar={() => <CustomTabs tabArray={tabs} dispatch={this.props.dispatch} />}
         >
           {
             tabs.map(this.renderTabs)

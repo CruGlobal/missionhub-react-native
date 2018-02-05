@@ -10,7 +10,7 @@ import StepsList from '../../components/StepsList';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
-import { trackAction } from '../../actions/analytics';
+import { trackAction, trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 
 @translate('selectStep')
@@ -66,6 +66,8 @@ class SelectStepScreen extends Component {
         this.stepsList.onScrollToEnd();
       },
     }));
+
+    this.props.dispatch(trackState(this.props.createStepScreenname));
   }
 
   saveAllSteps() {
@@ -134,6 +136,7 @@ class SelectStepScreen extends Component {
 
 SelectStepScreen.PropTypes = {
   onComplete: PropTypes.func.isRequired,
+  createStepScreenname: PropTypes.string.isRequired,
 };
 
 

@@ -14,6 +14,7 @@ const mockState = {
   swipe: {
     stepsContact: true,
   },
+  auth: {},
 };
 
 const store = createMockStore(mockState);
