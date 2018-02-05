@@ -132,7 +132,7 @@ class SelectStepScreen extends Component {
   }
 }
 
-PropTypes.SelectStepScreen = {
+SelectStepScreen.PropTypes = {
   onComplete: PropTypes.func.isRequired,
 };
 
