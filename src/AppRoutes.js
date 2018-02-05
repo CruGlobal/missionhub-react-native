@@ -131,13 +131,14 @@ export const MainStackRoutes = StackNavigator({
   Contact: {
     screen: DrawerNavigator(
       {
-        Main: { screen: ContactScreen, navigationOptions: { gesturesEnabled: true } },
+        Main: { screen: ContactScreen },
       },
       {
         contentComponent: ContactSideMenu,
         drawerPosition: 'right',
       }
     ),
+    navigationOptions: { gesturesEnabled: true },
   },
   AddContact: { screen: AddContactScreen },
   NotificationPrimer: { screen: NotificationPrimerScreen },
