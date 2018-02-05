@@ -19,8 +19,47 @@ export default {
       complete: 'Complete',
       edit: 'Edit',
     },
+    followupStatus: {
+      uncontacted: 'Uncontacted',
+      contacted: 'Contacted',
+    },
+    stages: {
+      uninterested: {
+        label: 'Uninterested',
+        description: 'Content with beliefs and not interested in Jesus.',
+        followup: 'We\'re glad you\'re still here, {{name}}. We hope the following steps will help you on your spiritual journey.',
+      },
+      curious: {
+        label: 'Curious',
+        description: 'Open to spiritual conversations or seeking to know who Jesus is.',
+        followup: '{{name}}, we\'re glad to be part of your journey. We hope the following steps will help you know more about Jesus.',
+      },
+      forgiven: {
+        label: 'Forgiven',
+        description: 'Believes in Jesus as Savior, but not growing spiritually.',
+        followup: 'We\'re so glad you\'re here, {{name}}. We\'d like to offer some steps to help you grow spiritually.',
+      },
+      growing: {
+        label: 'Growing',
+        description: 'Learning to follow Jesus as a way of life.',
+        followup: 'We\'re so excited you\'re following Jesus, {{name}}! We\'d like to offer some steps to help you grow closer to God and help others experience Him.',
+      },
+      guiding: {
+        label: 'Guiding',
+        description: 'Committed to helping others know and follow Jesus.',
+        followup: 'Awesome! We hope MissionHub helps you serve those God has placed in your life.',
+      },
+    },
+    steps: {
+
+    },
     done: 'DONE',
     next: 'Next',
+    ok: 'Ok',
+    logout: 'Logout',
+    me: 'Me',
+    loading: 'Loading',
+    save: 'Save',
     delete: 'Delete',
     cancel: 'Cancel',
   },
@@ -38,13 +77,6 @@ export default {
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
   },
-  welcome: {
-    welcome: 'welcome!',
-    welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
-  },
-  interactions: {
-    title: 'Hi!',
-  },
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
@@ -55,27 +87,91 @@ export default {
   keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',
     verifyEmailMessage: 'Verify your account via Email',
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+    login: 'LOGIN',
+    errorDefault: 'There was a problem signing in.',
+    errorIncorrect: 'Your Email or Password is Incorrect',
+    errorVerify: 'Verify your account via Email',
+  },
+  welcome: {
+    welcome: 'welcome!',
+    welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
+  },
+  setup: {
+    firstThing: '-first things first-',
+    namePrompt: 'what\'s your name?',
+  },
+  interactions: {
+    title: 'Hi!',
+    profileTab: 'Go To Profile',
+
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    message: 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
   },
   addStep: {
     header: 'My Step of Faith',
     createStep: 'Create Step',
     journeyHeader: 'What did you see God do?',
+    editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
+    editJourneyButton: 'Save',
+  },
+  selectStep: {
+    meHeader: 'How do you want to move forward on your spiritual journey?',
+    personHeader: 'What will you do to help {{name}} experience God?',
+    addStep: 'ADD TO MY STEPS',
+    createStep: 'Create your own step...',
+    stepsOfFaith: 'Steps of Faith',
+  },
+  selectStage: {
+    meQuestion: '{{name}}, which stage best describes where you are on your journey?',
+    personQuestion: 'Which stage best describes where {{name}} is on their journey?',
+    iAmHere: 'I AM HERE',
+    here: 'HERE',
+  },
+  stageSuccess: {
+    backupMessage: 'We are glad you are here, <<user>>!',
+    friend: 'Friend',
+    chooseSteps: 'CHOOSE MY STEPS',
+  },
+  contactHeader: {
+    mySteps: 'My Steps',
+    ourJourney: 'Our Journey',
+    myNotes: 'My Notes',
+    myJourney: 'My Journey',
+    myActions: 'My Actions',
+    impact: 'Impact',
+    selectStage: 'SELECT STAGE',
   },
   contactSteps: {
+    header: 'STEPS OF FAITH',
+    stepNull: 'Your Steps of Faith with {{name}} appear here.',
     addStep: 'Add a step of faith',
   },
   contactJourney: {
-    addJourney: 'Add to Our Journey',
+    loading: 'Loading Journey Items',
+    addComment: 'Add a Comment',
     ourJourney: 'Our Journey',
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
+  journeyItem: {
+    stepTitle: 'Growing Step of Faith',
+    stageTitle: 'Growing',
+    interactionNote: 'Comment',
+    interactionSpiritualConversation: 'Spiritual Conversations',
+    interactionGospel: 'Gospel Presentations',
+    interactionDecision: 'Personal Decisions',
+    interactionSpirit: 'Holy Spirit Presentations',
+    interactionDiscipleshipConversation: 'Discipleship Conversations',
+    interactionAssignedContacts: 'Assigned Contacts',
+    interactionUncontacted: 'Uncontacted',
+  },
   getStarted: {
-    hi: 'hi',
+    hi: 'hi {{name}}!',
     tagline: "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",
     getStarted: "Let's get started",
   },
@@ -96,6 +192,7 @@ export default {
     interactionUncontacted: 'Uncontacted',
   },
   notes: {
+    header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',
     edit: 'EDIT PRIVATE NOTES',
     prompt: 'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
@@ -157,5 +254,20 @@ export default {
     doNotContact: 'Do Not Contact',
     uncontacted: 'Uncontacted',
     unassign: 'Unassign',
+  },
+  peopleScreen: {
+    header: 'PEOPLE',
+    personalMinistry: 'Personal Ministry',
+    personal: 'personal',
+  },
+  profileScreen: {
+    goToMain: 'Go To Main Tab',
+    goBack: 'Go Back 1 Tab',
+    profileID: 'Profile {{id}}',
+  },
+  appRoutes: {
+    steps: 'Steps',
+    people: 'People',
+    impact: 'Impact',
   },
 };

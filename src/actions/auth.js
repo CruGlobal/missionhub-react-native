@@ -2,7 +2,7 @@ import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
 import { getStages } from './stages';
-import { clearAllScheduledNotifications, setupPushNotifications } from './notifications';
+import { setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateLoggedInStatus } from './analytics';
 import { onSuccessfulLogin } from './login';
@@ -44,7 +44,6 @@ export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
     dispatch(navigateReset('Login'));
-    dispatch(clearAllScheduledNotifications());
   };
 }
 

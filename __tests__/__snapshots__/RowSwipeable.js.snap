@@ -5,14 +5,270 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Array [
+          Object {
+            "bottom": 0,
+            "marginTop": 1,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "width": 0,
+          },
+        ],
         Object {
-          "bottom": 0,
-          "marginTop": 1,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "width": 150,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
         },
+      ]
+    }
+  />
+  <View
+    collapsable={undefined}
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      Object {
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View />
+  </View>
+</View>
+`;
+
+exports[`renders edit action correctly 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "bottom": 0,
+            "marginTop": 1,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "width": 75,
+          },
+        ],
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#A0A2A6",
+          "flex": 1,
+          "justifyContent": "center",
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "column",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 30,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+              },
+            ]
+          }
+        >
+          Edit
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    collapsable={undefined}
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      Object {
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View />
+  </View>
+</View>
+`;
+
+exports[`renders edit bump correctly 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "bottom": 0,
+            "marginTop": 1,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "width": 0,
+          },
+        ],
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  />
+  <View
+    collapsable={undefined}
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      Object {
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View />
+  </View>
+</View>
+`;
+
+exports[`renders remove/complete actions correctly 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "bottom": 0,
+            "marginTop": 1,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "width": 150,
+          },
+        ],
         Object {
           "flexDirection": "row",
           "justifyContent": "flex-end",
@@ -87,7 +343,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

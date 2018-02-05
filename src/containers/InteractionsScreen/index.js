@@ -33,11 +33,11 @@ class InteractionsScreen extends Component {
           <Text>{t('title')}</Text>
           <Button
             onPress={() => this.props.dispatch(logout())}
-            text="Logout"
+            text={t('logout')}
           />
           <Button
             onPress={() => this.props.dispatch(navigatePush('ProfileTab'))}
-            text="Go To Profile"
+            text={t('profileTab')}
           />
         </Flex>
       </View>

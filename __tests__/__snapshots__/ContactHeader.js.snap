@@ -230,7 +230,7 @@ exports[`renders casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -402,7 +402,7 @@ exports[`renders casey 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -558,9 +558,7 @@ exports[`renders casey 1`] = `
                         ]
                       }
                     >
-                      Your Steps of Faith with 
-                      ben
-                       appear here.
+                      Your Steps of Faith with ben appear here.
                     </Text>
                   </View>
                 </View>
@@ -918,7 +916,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -1110,7 +1108,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -1207,7 +1205,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1465,7 +1463,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -1621,9 +1619,7 @@ exports[`renders jean 1`] = `
                         ]
                       }
                     >
-                      Your Steps of Faith with 
-                      ben
-                       appear here.
+                      Your Steps of Faith with ben appear here.
                     </Text>
                   </View>
                 </View>
@@ -1992,7 +1988,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -2184,7 +2180,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -2281,7 +2277,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2539,7 +2535,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
@@ -2781,9 +2777,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                         ]
                       }
                     >
-                      Your Steps of Faith with 
-                      ben
-                       appear here.
+                      Your Steps of Faith with ben appear here.
                     </Text>
                   </View>
                 </View>

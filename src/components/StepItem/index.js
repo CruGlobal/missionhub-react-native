@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import styles from './styles';
 import theme from '../../theme';
 
+@translate()
 class StepItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   handleAction = () => { this.props.onAction && this.props.onAction(this.props.step); }
@@ -35,9 +37,9 @@ class StepItem extends Component {
   }
 
   render() {
-    const { step, type, myId } = this.props;
+    const { step, type, myId, t } = this.props;
     const isMe = step.receiver && step.receiver.id === myId ;
-    let ownerName = isMe ? 'Me' : step.receiver.full_name || '';
+    let ownerName = isMe ? t('me') : step.receiver.full_name || '';
     ownerName = ownerName.toUpperCase();
     return (
       <Touchable

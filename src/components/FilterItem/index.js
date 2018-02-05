@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
 import styles from './styles';
 import theme from '../../theme';
 
+@translate('searchFilterRefine')
 export default class FilterItem extends Component {
   handleSelect = () => { this.props.onSelect(this.props.item); }
   renderRight() {
-    const { item, type, isSelected } = this.props;
+    const { item, type, isSelected, t } = this.props;
 
     if (type === 'drilldown') {
       return (
         <Flex direction="row" align="center">
           <Text style={styles.anyText} numberOfLines={1}>
-            {item.preview || 'Any'}
+            {item.preview || t('any')}
           </Text>
           <Icon name="rightArrowIcon" type="MissionHub" style={styles.anyIcon} />
         </Flex>

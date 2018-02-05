@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ScrollView, LayoutAnimation, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
@@ -11,6 +12,7 @@ import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
 import styles from './styles';
 
+@translate('peopleScreen')
 export default class PeopleList extends Component {
 
   constructor(props) {
@@ -40,7 +42,7 @@ export default class PeopleList extends Component {
   }
 
   toggleSection(id) {
-    const items = this.state.items.map((s) => s.organization && s.organization.id === id ? { ...s, expanded: !s.expanded } : s);
+    const items = this.state.items.map((org) => org.id === id ? { ...org, expanded: !org.expanded } : org);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });
   }
@@ -67,13 +69,12 @@ export default class PeopleList extends Component {
     );
   }
 
-  renderSectionHeader(section) {
-    const { onAddContact } = this.props;
-    const org = section.organization || {};
+  renderSectionHeader(org) {
+    const { onAddContact, t } = this.props;
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
-          {org.name || 'Personal Ministry'}
+          {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end">
           <Touchable onPress={() => onAddContact(org)}>
@@ -86,7 +87,7 @@ export default class PeopleList extends Component {
               size={20}
               style={[
                 styles.icon2,
-                section.expanded ? styles.downArrow : null,
+                org.expanded ? styles.downArrow : null,
               ]} />
           </Touchable>
         </Flex>
@@ -108,11 +109,11 @@ export default class PeopleList extends Component {
           />}
         >
           {
-            this.state.items.map((section) => (
-              <Flex key={section.organization ? section.organization.id || 'personal' : 'personal'}>
-                {this.renderSectionHeader(section)}
+            this.state.items.map((org) => (
+              <Flex key={org.id}>
+                {this.renderSectionHeader(org)}
                 {
-                  section.expanded ? this.renderList(section.people) : null
+                  org.expanded ? this.renderList(org.people) : null
                 }
               </Flex>
             ))

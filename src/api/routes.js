@@ -148,6 +148,10 @@ export default {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
   },
+  'SET_PUSH_TOKEN': {
+    endpoint: `${API_URL}push_notification_device_tokens`,
+    method: 'post',
+  },
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
@@ -155,6 +159,14 @@ export default {
   'DELETE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'delete',
+  },
+  'ADD_NEW_COMMENT': {
+    endpoint: `${API_URL}interactions`,
+    method: 'post',
+  },
+  'EDIT_COMMENT': {
+    endpoint: `${API_URL}interactions/:interactionId`,
+    method: 'put',
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,

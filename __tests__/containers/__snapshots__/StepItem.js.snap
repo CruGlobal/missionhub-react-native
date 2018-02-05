@@ -370,7 +370,7 @@ exports[`renders type action correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>

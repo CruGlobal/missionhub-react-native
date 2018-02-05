@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import styles from './styles';
 import { getStages } from '../../actions/stages';
 import { capitalize } from '../../utils/common';
 
+@translate()
 export class PeopleItem extends Component {
 
   componentDidMount() {
@@ -19,10 +21,12 @@ export class PeopleItem extends Component {
   handleSelect = () => { this.props.onSelect(this.props.person); }
 
   render() {
+    const { t } = this.props;
+
     const { person, me, stagesObj } = this.props;
     const isMe = person.id === me.id;
     const newPerson = isMe ? me : person;
-    let personName = isMe ? 'Me' : newPerson.full_name || '';
+    let personName = isMe ? t('me') : newPerson.full_name || '';
     personName = personName.toUpperCase();
 
     let status = 'Uncontacted';
@@ -61,7 +65,7 @@ export class PeopleItem extends Component {
             <Text style={[ styles.stage, isUncontacted ? styles.uncontacted : null ]}>
               {personStage}
               {personStage && status ? '  >  ' : null}
-              {status}
+              {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
             </Text>
           </Flex>
           {
