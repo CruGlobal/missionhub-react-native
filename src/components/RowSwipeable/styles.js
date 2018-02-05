@@ -9,7 +9,6 @@ export default StyleSheet.create({
     marginTop: 1,
     top: 0,
     bottom: 0,
-    width: 150,
   },
   deleteWrap: {
     flex: 1,
@@ -26,5 +25,11 @@ export default StyleSheet.create({
   text: {
     fontSize: 13,
     color: theme.white,
+  },
+  editWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.inactiveColor,
   },
 });
