@@ -9,22 +9,35 @@ import theme from '../../theme';
 
 @translate()
 class StepItem extends Component {
+  state = { hovering: false };
+
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+  onHover = () => this.setState({ hovering: true });
+  onBlur = () => this.setState({ hovering: false });
   handleAction = () => { this.props.onAction && this.props.onAction(this.props.step); }
   handleSelect = () => { this.props.onSelect && this.props.onSelect(this.props.step); }
 
   renderIcon() {
     const { type, onAction, hideAction } = this.props;
+    const { hovering } = this.state;
     if (!onAction) return null;
+    let iconName = 'starIcon';
+    if (hovering || type === 'reminder') {
+      iconName = 'starIconFilled';
+    }
     return (
-      <Touchable onPress={this.handleAction}>
+      <Touchable
+        onPress={this.handleAction}
+        onPressIn={this.onHover}
+        onPressOut={this.onBlur}
+      >
         <Flex
           ref={(c) => this.action = c}
           align="center"
           justify="center"
           animation={hideAction ? 'fadeOutRight' : 'fadeInRight'}>
           <Icon
-            name="starIcon"
+            name={iconName}
             type="MissionHub"
             style={[
               styles.icon,
