@@ -116,10 +116,10 @@ export const MainStackRoutes = StackNavigator({
       contentComponent: SettingsMenu,
     }),
   },
-  Profile: { screen: ProfileScreen },
+  Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   Step: { screen: SelectMyStepScreen },
-  PersonStep: { screen: PersonSelectStepScreen },
-  AddStep: { screen: AddStepScreen },
+  PersonStep: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
+  AddStep: { screen: AddStepScreen, navigationOptions: { gesturesEnabled: true } },
   Login: { screen: LoginScreen },
   KeyLogin: { screen: KeyLoginScreen },
   Welcome: { screen: WelcomeScreen },
@@ -131,7 +131,7 @@ export const MainStackRoutes = StackNavigator({
   Contact: {
     screen: DrawerNavigator(
       {
-        Main: { screen: ContactScreen },
+        Main: { screen: ContactScreen, navigationOptions: { gesturesEnabled: true } },
       },
       {
         contentComponent: ContactSideMenu,
@@ -144,11 +144,11 @@ export const MainStackRoutes = StackNavigator({
   NotificationOff: { screen: NotificationOffScreen },
   Impact: { screen: ImpactScreen },
   SetupPerson: { screen: SetupPersonScreen },
-  PersonStage: { screen: PersonStageScreen },
+  PersonStage: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
   Celebration: { screen: CelebrationScreen },
-  SearchPeople: { screen: SearchPeopleScreen },
-  SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
-  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
+  SearchPeople: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true } },
+  SearchPeopleFilter: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true } },
+  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
 }, {
   paths: {
     Login: 'Login',
@@ -167,6 +167,7 @@ export const MainStackRoutes = StackNavigator({
   },
   navigationOptions: {
     header: null,
+    gesturesEnabled: false,
   },
 });
 
