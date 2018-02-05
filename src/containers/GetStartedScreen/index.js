@@ -7,6 +7,7 @@ import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import BackButton from '../BackButton';
+import { STAGE_SCREEN } from '../StageScreen';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
@@ -26,7 +27,9 @@ class GetStartedScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.props.dispatch(navigatePush('Stage'))}
+            onPress={() => this.props.dispatch(navigatePush(STAGE_SCREEN, {
+              section: 'onboarding : self',
+            }))}
             text={t('getStarted').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />

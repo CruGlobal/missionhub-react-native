@@ -49,7 +49,9 @@ class PersonStageScreen extends Component {
       <PathwayStageScreen
         buttonText={t('here').toUpperCase()}
         questionText={t('personQuestion', { name })}
-        onSelect={this.handleSelectStage} />
+        onSelect={this.handleSelectStage}
+        section={this.props.section}
+      />
     );
   }
 
@@ -72,3 +74,4 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(PersonStageScreen);
+export const PERSON_STAGE_SCREEN = 'nav/PERSON_STAGE';

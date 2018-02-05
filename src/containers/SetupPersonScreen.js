@@ -8,6 +8,7 @@ import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/person';
 import { createPerson } from '../actions/profile';
+import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 
 @translate()
 class SetupPersonScreen extends Component {
@@ -16,7 +17,9 @@ class SetupPersonScreen extends Component {
       Keyboard.dismiss();
 
       this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
-        this.props.dispatch(navigatePush('PersonStage'));
+        this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+          section: 'onboarding : add person',
+        }));
       });
     }
   }

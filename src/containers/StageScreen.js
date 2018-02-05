@@ -36,7 +36,7 @@ class StageScreen extends Component {
         buttonText={t('iAmHere').toUpperCase()}
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
-        section="onboarding : self"
+        section={this.props.section}
       />
     );
   }
@@ -55,3 +55,4 @@ const mapStateToProps = ({ profile }, { navigation } ) => ({
 });
 
 export default connect(mapStateToProps)(StageScreen);
+export const STAGE_SCREEN = 'nav/STAGE';

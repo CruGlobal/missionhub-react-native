@@ -13,6 +13,8 @@ import Header from '../Header';
 import { CASEY, JEAN } from '../../constants';
 import { getPerson } from '../../actions/people';
 import { getStages } from '../../actions/stages';
+import { STAGE_SCREEN } from '../StageScreen';
+import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 
 class ContactScreen extends Component {
 
@@ -76,18 +78,20 @@ class ContactScreen extends Component {
   handleChangeStage() {
     const { dispatch, personIsCurrentUser, person, contactAssignmentId, contactStage } = this.props;
     if (personIsCurrentUser) {
-      dispatch(navigatePush('Stage', {
+      dispatch(navigatePush(STAGE_SCREEN, {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
         currentStage: contactStage && contactStage.id || null,
         contactId: person.id,
+        section: 'people : self',
       }));
     } else {
-      dispatch(navigatePush('PersonStage', {
+      dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
         currentStage: contactStage && contactStage.id || null,
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,
+        section: 'people : person',
       }));
     }
   }

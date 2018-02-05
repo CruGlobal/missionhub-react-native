@@ -14,7 +14,7 @@ import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
-import StageScreen from './containers/StageScreen';
+import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen from './containers/ContactScreen';
@@ -22,7 +22,7 @@ import AddContactScreen from './containers/AddContactScreen';
 import NotificationPrimerScreen, { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
-import PersonStageScreen from './containers/PersonStageScreen';
+import PersonStageScreen, { PERSON_STAGE_SCREEN } from './containers/PersonStageScreen';
 import CelebrationScreen from './containers/CelebrationScreen';
 import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
@@ -146,7 +146,7 @@ export const MainStackRoutes = StackNavigator({
   },
   ...screens,
   Profile: { screen: ProfileScreen },
-  Stage: { screen: StageScreen },
+  [STAGE_SCREEN]: { screen: StageScreen },
   Contact: {
     screen: DrawerNavigator(
       {
@@ -159,7 +159,7 @@ export const MainStackRoutes = StackNavigator({
     ),
   },
   AddContact: { screen: AddContactScreen },
-  PersonStage: { screen: PersonStageScreen },
+  [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen },
   Celebration: { screen: CelebrationScreen },
   SearchPeople: { screen: SearchPeopleScreen },
   SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
