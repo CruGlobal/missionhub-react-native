@@ -46,7 +46,9 @@ class PersonStageScreen extends Component {
       <PathwayStageScreen
         buttonText={t('here').toUpperCase()}
         questionText={t('personQuestion', { name })}
-        onSelect={this.handleSelectStage} />
+        onSelect={this.handleSelectStage}
+        enableButton
+      />
     );
   }
 

@@ -86,7 +86,7 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex value={1.5} align="center" justify="start">
+      <Flex value={1.5} align="center" justify="center">
         <Text type="header" style={styles.headerTitle}>{t('stepsOfFaith')}</Text>
         <Text style={styles.headerText}>
           {this.props.headerText}
