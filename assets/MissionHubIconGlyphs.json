@@ -34,5 +34,6 @@
   "cancelIcon": true,
   "textIcon": true,
   "starIcon": true,
-  "starGroupIcon": true
+  "starGroupIcon": true,
+  "facebookIcon": true
 }
