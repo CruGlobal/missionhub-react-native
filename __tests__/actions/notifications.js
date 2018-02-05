@@ -16,14 +16,13 @@ import { mockFnWithParams } from '../../testUtils';
 let store;
 const token = '123';
 
-jest.mock('react-native-push-notification', () => {
-  return {
-    configure: jest.fn((params) => {
-      params.onRegister({ token: '123' });
-      params.onNotification({ foreground: true, userInteraction: false });
-    }),
-  };
-});
+jest.mock('react-native-push-notification', () => ({
+  configure: jest.fn((params) => {
+    params.onRegister({ token: '123' });
+    params.onNotification({ foreground: true, userInteraction: false });
+  }),
+  requestPermissions: jest.fn(() => Promise.resolve()),
+}));
 
 
 beforeEach(() => store = configureStore([ thunk ])());
@@ -112,6 +111,11 @@ describe('set push token', () => {
     store.dispatch(setupPushNotifications());
 
     expect(store.getActions()[2]).toEqual({ type: PUSH_NOTIFICATION_ASKED });
+  });
+  it('should call request permissions', () => {
+    store.dispatch(setupPushNotifications());
+
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(1);
   });
 });
 
