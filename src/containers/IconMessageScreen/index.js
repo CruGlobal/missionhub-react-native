@@ -10,11 +10,11 @@ import theme from '../../theme';
 
 class IconMessageScreen extends Component {
   render() {
-    const { mainText, buttonText, iconPath } = this.props;
+    const { mainText, buttonText, iconPath, enableButton } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <BackButton />
+        {enableButton ? (<BackButton />) : null}
 
         <Flex align="center" justify="center" value={4}>
           <Image source={iconPath} />
