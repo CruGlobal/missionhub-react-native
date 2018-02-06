@@ -108,6 +108,10 @@ export default {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
+  'UPDATE_TIMEZONE': {
+    endpoint: `${API_URL}users/me`,
+    method: 'put',
+  },
   'UPDATE_USER': {
     endpoint: `${PEOPLE_URL}:userId`,
     method: 'put',
