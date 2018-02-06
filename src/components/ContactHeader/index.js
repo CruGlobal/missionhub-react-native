@@ -9,13 +9,14 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { CASEY, JEAN } from '../../constants';
 
-export const MY_STEPS = 'mh : people : person : steps : steps'; //TODO set for self
+export const PERSON_STEPS = 'mh : people : person : steps : steps';
+export const SELF_STEPS = 'mh : people : self : steps : steps';
 const CASEY_TABS = [
   {
     page: 'steps',
     iconName: 'stepsIcon',
     tabLabel: i18next.t('contactHeader:mySteps'),
-    screenName: MY_STEPS,
+    screenName: PERSON_STEPS,
   },
   {
     page: 'journey',
@@ -32,7 +33,12 @@ const CASEY_TABS = [
 ];
 
 const ME_TABS = [
-  CASEY_TABS[0],
+  {
+    page: 'steps',
+    iconName: 'stepsIcon',
+    tabLabel: i18next.t('contactHeader:mySteps'),
+    screenName: SELF_STEPS,
+  },
   {
     page: 'journey',
     iconName: 'journeyIcon',

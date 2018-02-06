@@ -1,16 +1,24 @@
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { ANALYTICS } from '../constants';
+import { CONTACT_SCREEN } from '../containers/ContactScreen';
+import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
     const returnValue = next(action);
 
     if (action.type === 'Navigation/NAVIGATE') {
-      const route = trackableScreens[action.routeName];
+      const routeName = action.routeName;
+      const route = trackableScreens[routeName];
 
       if (route) {
-        dispatch(trackState(route.name));
+        if (routeName === CONTACT_SCREEN) {
+          dispatch(trackContactScreen(action, getState));
+
+        } else {
+          dispatch(trackState(route.name));
+        }
       }
 
     } else if (action.type === 'Navigation/BACK') {
@@ -23,4 +31,12 @@ export default function tracking({ dispatch, getState }) {
 
     return returnValue;
   };
+}
+
+function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
+  if (action.params.person.id === getState().auth.personId) {
+    return trackState(SELF_STEPS);
+  }
+
+  return trackState(PERSON_STEPS);
 }

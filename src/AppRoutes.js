@@ -35,7 +35,6 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
-import { MY_STEPS } from './components/ContactHeader';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -136,7 +135,7 @@ const screens = {
     }, {
       contentComponent: SettingsMenu,
     }),
-    name: stepsTab,
+    name: stepsTab, //stepsTab is shown when MainTabs first opens
   },
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
@@ -148,7 +147,6 @@ const screens = {
         drawerPosition: 'right',
       }
     ),
-    name: MY_STEPS,
   },
 };
 
