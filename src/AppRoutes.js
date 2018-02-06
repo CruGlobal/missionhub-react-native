@@ -121,7 +121,7 @@ export const MainStackRoutes = StackNavigator({
   PersonStep: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   AddStep: { screen: AddStepScreen },
   Login: { screen: LoginScreen },
-  KeyLogin: { screen: KeyLoginScreen },
+  KeyLogin: { screen: KeyLoginScreen, navigationOptions: { gesturesEnabled: true } },
   Welcome: { screen: WelcomeScreen },
   Setup: { screen: SetupScreen },
   GetStarted: { screen: GetStartedScreen },
