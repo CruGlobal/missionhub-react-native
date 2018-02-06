@@ -4,7 +4,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.primaryColor,
     justifyContent: 'center',
   },
   text: {
@@ -12,21 +12,15 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   buttonWrapper: {
-    backgroundColor: '#3EB1C8',
+    backgroundColor: theme.primaryColor,
     paddingHorizontal: 30,
   },
   facebookButton: {
-    backgroundColor: theme.accentColor,
+    backgroundColor: theme.secondaryColor,
     margin: 8,
     height: 48,
     alignItems: 'flex-start',
-  },
-  getStarted: {
-    backgroundColor: theme.accentColor,
-    alignItems: 'center',
-    height: 48,
     width: theme.fullWidth - 80,
-    marginVertical: 20,
   },
   icon: {
     marginRight: 10,
@@ -34,8 +28,9 @@ export default StyleSheet.create({
   tryButton: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
-    borderColor: theme.primaryColor,
+    borderColor: theme.secondaryColor,
     margin: 8,
+    width: theme.fullWidth - 80,
     height: 48,
   },
   // Give this a bigger clickable area
@@ -56,13 +51,22 @@ export default StyleSheet.create({
     fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
+    marginBottom: 20,
   },
-  terms: {
+  termsText: {
     color: theme.white,
     fontSize: 12,
     textAlign: 'center',
     marginTop: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 3,
+  },
+  termsTextLink: {
+    color: theme.white,
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 10,
+    paddingHorizontal: 3,
+    textDecorationLine: 'underline',
   },
   onboardText: {
     color: theme.secondaryColor,
@@ -88,10 +92,11 @@ export default StyleSheet.create({
   },
   signInText: {
     fontSize: 14,
-    color: theme.accentColor,
+    color: theme.secondaryColor,
     fontWeight: '500',
     paddingTop: 2,
     letterSpacing: 1.5,
     marginRight: 10,
+    marginBottom: 20,
   },
 });

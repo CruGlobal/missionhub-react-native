@@ -20,4 +20,22 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 16,
   },
+  facebookButton: {
+    backgroundColor: theme.transparent,
+    borderWidth: 1,
+    borderColor: theme.secondaryColor,
+    margin: 8,
+    width: theme.fullWidth - 80,
+    height: 48,
+  },
+  buttonText: {
+    color: theme.white,
+    fontWeight: '500',
+    fontSize: 14,
+    paddingTop: 2,
+    letterSpacing: 1.5,
+  },
+  icon: {
+    marginRight: 10,
+  },
 });
