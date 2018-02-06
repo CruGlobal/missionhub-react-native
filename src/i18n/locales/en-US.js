@@ -238,7 +238,8 @@ export default {
     notNow: 'Not Now',
   },
   notificationOff: {
-    description: 'Notifications are off. MissionHub won\'t be able to send you reminders to help you take your steps.',
+    title: 'Notifications are off',
+    description: 'To receive reminders to take steps of faith, please turn notifications on.',
     allow: 'Allow Notifications',
     settings: 'Go To Settings',
     noReminders: 'I Don\'t Want Reminders',

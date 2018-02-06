@@ -59,11 +59,14 @@ class NotificationOffScreen extends Component {
             {t('allow')}
           </Text>
           <Switch
-            value={false}
+            value={true}
             disabled={true}
             tintColor={theme.white}
           />
         </Flex>
+        <Text type="header" style={styles.title}>
+          {t('title')}
+        </Text>
         <Text style={styles.text}>
           {t('description')}
         </Text>
