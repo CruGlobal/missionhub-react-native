@@ -20,21 +20,6 @@ const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;
 
 constants.THE_KEY_CLIENT_ID = mockClientId;
-//
-// const getMe = jest.fn();
-// const getStages = jest.fn();
-// const updateTimezone = jest.fn();
-// const setupPushNotifications = jest.fn();
-//
-// jest.mock('../../src/actions/notifications', () => ({
-//   setupPushNotifications: jest.fn(),
-// }));
-// jest.mock('../../src/actions/people', () => ({
-//   getMe: jest.fn(),
-// }));
-// jest.mock('../../src/actions/stages', () => ({
-//   getStages: jest.fn(),
-// }));
 
 const mockImplementation = (implementation) => {
   return jest.fn().mockImplementation((type) => {
@@ -104,24 +89,6 @@ describe('key login', () => {
   });
 });
 
-// describe('start up action', () => {
-//
-//
-//   beforeEach(() => {
-//     store = configureStore([ thunk ])();
-//   });
-//
-//   it('should setup push notifications, get me, get stages, and update the timezone ', () => {
-//
-//
-//     store.dispatch(loadHome());
-//
-//     expect(setupPushNotifications).toHaveBeenCalledTimes(1);
-//     expect(getMe).toHaveBeenCalledTimes(1);
-//     expect(updateTimezone).toHaveBeenCalledTimes(1);
-//     expect(getStages).toHaveBeenCalledTimes(1);
-//   });
-// });
 
 describe('update time zone', () => {
 
