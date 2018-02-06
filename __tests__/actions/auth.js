@@ -8,6 +8,7 @@ import * as login from '../../src/actions/login';
 import { ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
 import { facebookLoginAction, keyLogin, updateTimezone } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
+import MockDate from 'mockdate';
 
 const email = 'Roger';
 const password = 'secret';
@@ -100,6 +101,8 @@ describe('update time zone', () => {
       },
     });
   });
+
+  MockDate.set('2018-02-06', 300);
 
   let tzData = {
     data: {
