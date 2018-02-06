@@ -68,3 +68,19 @@ it('sets isJean after loading me', () => {
 
   expect(state.isJean).toBe(true);
 });
+
+it('sets user time zone', () => {
+  const jsonApiStore = new JsonApiDataStore();
+  jsonApiStore.sync({
+    data: {
+      type: 'user',
+      attributes: {
+        timezone: '-5',
+      },
+    },
+  });
+
+  const state = callAuth(REQUESTS.UPDATE_TIMEZONE.SUCCESS, jsonApiStore);
+
+  expect(state.timezone).toBe('-5');
+});

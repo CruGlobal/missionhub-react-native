@@ -53,11 +53,29 @@ export function firstTime() {
   };
 }
 
+export function updateTimezone() {
+  return (dispatch, getState) => {
+    const currentTime = getState().auth.timezone;
+    const timezone = new Date().getTimezoneOffset()/60*-1;
+    if (currentTime !== `${timezone}`) {
+      const data = {
+        data: {
+          attributes: {
+            timezone: `${timezone}`,
+          },
+        },
+      };
+      return dispatch(callApi(REQUESTS.UPDATE_TIMEZONE, {}, data));
+    } else return;
+  };
+}
+
 export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(setupPushNotifications());
     dispatch(getMe());
     dispatch(getStages());
+    dispatch(updateTimezone());
   };
 }
