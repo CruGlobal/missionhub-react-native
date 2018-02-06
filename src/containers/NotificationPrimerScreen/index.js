@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
-import { setupPushNotifications, enableAskPushNotification } from '../../actions/notifications';
-import { disableAskPushNotification } from '../../actions/notifications';
+import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
@@ -25,7 +24,6 @@ class NotificationPrimerScreen extends Component {
   }
   
   allow() {
-    // this.props.dispatch(navigatePush('Celebration'));
     this.props.dispatch(enableAskPushNotification());
     this.props.dispatch(setupPushNotifications()).then(() => {
       this.props.onComplete();
