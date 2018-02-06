@@ -119,7 +119,7 @@ export const MainStackRoutes = StackNavigator({
   Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   Step: { screen: SelectMyStepScreen },
   PersonStep: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
-  AddStep: { screen: AddStepScreen, navigationOptions: { gesturesEnabled: true } },
+  AddStep: { screen: AddStepScreen },
   Login: { screen: LoginScreen },
   KeyLogin: { screen: KeyLoginScreen },
   Welcome: { screen: WelcomeScreen },
