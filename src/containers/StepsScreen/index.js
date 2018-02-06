@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
-import { setupPushNotifications, noNotificationReminder, toast } from '../../actions/notifications';
+import { showReminderScreen, toast } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
@@ -58,8 +58,11 @@ class StepsScreen extends Component {
 
     this.props.dispatch(toast('✔ Reminder Added'));
 
+    const showPushReminder = this.props.reminders.length === 0;
     this.props.dispatch(setStepReminder(step));
-    this.reminderAdded();
+    if (showPushReminder) {
+      this.props.dispatch(showReminderScreen());
+    }
   }
 
   handleRemoveReminder(step) {
@@ -72,23 +75,6 @@ class StepsScreen extends Component {
 
   handleDeleteReminder(step) {
     this.props.dispatch(deleteStep(step));
-  }
-
-  reminderAdded() {
-    if (!this.state.addedReminder) {
-      this.setState({ addedReminder: true });
-      if (this.props.areNotificationsOff && this.props.showNotificationReminder) {
-        this.props.dispatch(navigatePush('NotificationOff', {
-          onClose: (shouldAsk) => {
-            if (shouldAsk) {
-              this.props.dispatch(setupPushNotifications());
-            } else {
-              this.props.dispatch(noNotificationReminder());
-            }
-          },
-        }));
-      }
-    }
   }
 
   renderTop() {

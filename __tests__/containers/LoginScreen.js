@@ -14,6 +14,7 @@ const mockState = {
 const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
+jest.mock('react-native-snap-carousel');
 
 it('renders correctly', () => {
   testSnapshot(

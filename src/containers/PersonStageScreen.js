@@ -17,12 +17,16 @@ class PersonStageScreen extends Component {
   }
 
   handleNavigate = () => {
-    let nextScreen = 'MainTabs';
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
-      nextScreen = 'NotificationPrimer';
+      this.props.dispatch(navigatePush('NotificationPrimer', {
+        onComplete: () => {
+          this.props.dispatch(navigatePush('Celebration'));
+        },
+      }));
+    } else {
+      this.props.dispatch(navigatePush('MainTabs'));
     }
-    this.props.dispatch(navigatePush(nextScreen));
   }
 
   handleSelectStage(stage) {

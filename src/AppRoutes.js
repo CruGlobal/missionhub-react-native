@@ -28,6 +28,7 @@ import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
 import NotificationOffScreen from './containers/NotificationOffScreen';
+import LoginOptionsScreen from './containers/LoginOptionsScreen';
 
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
@@ -121,6 +122,7 @@ export const MainStackRoutes = StackNavigator({
   PersonStep: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   AddStep: { screen: AddStepScreen },
   Login: { screen: LoginScreen },
+  LoginOptions: { screen: LoginOptionsScreen },
   KeyLogin: { screen: KeyLoginScreen, navigationOptions: { gesturesEnabled: true } },
   Welcome: { screen: WelcomeScreen },
   Setup: { screen: SetupScreen },
