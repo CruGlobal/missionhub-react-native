@@ -10,10 +10,16 @@ import IconMessageScreen from './IconMessageScreen/index';
 class StageSuccessScreen extends Component {
   constructor(props) {
     super(props);
+
+    this.handleNavigateToStep = this.handleNavigateToStep.bind(this);
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('Step'));
+    this.props.dispatch(navigatePush('AddSomeone'));
+  }
+
+  handleNavigateToStep() {
+    this.props.dispatch(navigatePush('Step', { onSaveNewSteps: this.handleNavigate }));
   }
 
   getMessage() {
@@ -27,7 +33,7 @@ class StageSuccessScreen extends Component {
   render() {
     const { t } = this.props;
     const message = this.getMessage();
-    return <IconMessageScreen mainText={message} buttonText={t('chooseSteps').toUpperCase()} onComplete={this.handleNavigate} iconPath={require('../../assets/images/pathFinder.png')} />;
+    return <IconMessageScreen mainText={message} buttonText={t('chooseSteps').toUpperCase()} onComplete={this.handleNavigateToStep} iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
 

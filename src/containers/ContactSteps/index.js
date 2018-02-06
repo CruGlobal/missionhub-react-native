@@ -68,12 +68,18 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.dispatch(navigatePush('PersonStep', {
-      contactName: this.props.person.first_name,
-      contactId: this.props.person.id,
-      contact: this.props.person,
-      onSaveNewSteps: this.handleSaveNewSteps,
-    }));
+    if (this.props.isMe) {
+      this.props.dispatch(navigatePush('Step', {
+        onSaveNewSteps: this.handleSaveNewSteps,
+      }));
+    } else {
+      this.props.dispatch(navigatePush('PersonStep', {
+        contactName: this.props.person.first_name,
+        contactId: this.props.person.id,
+        contact: this.props.person,
+        onSaveNewSteps: this.handleSaveNewSteps,
+      }));
+    }
   }
 
   renderRow({ item, index }) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { navigatePush } from '../actions/navigation';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
 import { getFirstThreeValidItems } from '../utils/common';
@@ -17,7 +16,8 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('AddSomeone'));
+    console.log(this.props.onSaveNewSteps);
+    this.props.onSaveNewSteps();
   }
 
   render() {
