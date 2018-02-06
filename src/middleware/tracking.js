@@ -1,6 +1,5 @@
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
-import { ANALYTICS } from '../constants';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 
@@ -22,8 +21,8 @@ export default function tracking({ dispatch, getState }) {
       }
 
     } else if (action.type === 'Navigation/BACK') {
-      const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
-      dispatch(trackState(screen));
+      // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
+      // dispatch(trackState(screen));
 
     } else if (action.type === 'Navigation/RESET') {
       //todo handle
