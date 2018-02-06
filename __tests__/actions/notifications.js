@@ -10,7 +10,7 @@ import {
 } from '../../src/constants';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder } from '../../src/actions/notifications';
+import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
 
 let store;
@@ -113,9 +113,10 @@ describe('set push token', () => {
     expect(store.getActions()[2]).toEqual({ type: PUSH_NOTIFICATION_ASKED });
   });
   it('should call request permissions', () => {
+    PushNotification.configure = jest.fn();
     store.dispatch(setupPushNotifications());
 
-    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(1);
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(4);
   });
 });
 
@@ -136,5 +137,40 @@ describe('actions called', () => {
 
     expect(store.getActions()[0]).toEqual({ type: PUSH_NOTIFICATION_REMINDER, bool: true });
     expect(store.getActions()[1]).toEqual({ type: PUSH_NOTIFICATION_REMINDER, bool: false });
+  });
+  it('should call showReminderScreen and show notification off screen', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: true,
+      },
+    });
+    PushNotification.checkPermissions = jest.fn((cb) => cb(true));
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].routeName).toEqual('NotificationOff');
+  });
+  it('should call showReminderScreen and show notification primer screen', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: false,
+      },
+    });
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].routeName).toEqual('NotificationPrimer');
+  });
+  it('should call showReminderScreen and show nothing', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        showReminder: false,
+      },
+    });
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions().length).toEqual(0);
   });
 });

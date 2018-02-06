@@ -38,7 +38,7 @@ export function noNotificationReminder(showReminder = false) {
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { hasAsked, shouldAsk, token, showReminder } = getState().notifications;
+    const { hasAsked, token, showReminder } = getState().notifications;
     
     if (token || !showReminder) return;
     if (hasAsked) {
@@ -60,12 +60,10 @@ export function showReminderScreen() {
       });
       return;
     }
-    if (!shouldAsk) {
-      // Show allow/not allow page
-      dispatch(navigatePush('NotificationPrimer', {
-        onComplete: () => dispatch(navigateBack()),
-      }));
-    }
+    // If none of the other cases hit, show allow/not allow page
+    dispatch(navigatePush('NotificationPrimer', {
+      onComplete: () => dispatch(navigateBack()),
+    }));
   };
 }
 
