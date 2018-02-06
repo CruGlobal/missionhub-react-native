@@ -48,7 +48,7 @@ export default class PeopleList extends Component {
   }
 
   renderList(items) {
-    const { onSelect, sections, refreshing, onRefresh } = this.props;
+    const { onSelect, onAction, sections, refreshing, onRefresh } = this.props;
 
     return (
       <FlatList
@@ -59,6 +59,7 @@ export default class PeopleList extends Component {
         renderItem={({ item }) => (
           <PeopleItem
             onSelect={onSelect}
+            onAction={onAction}
             person={item} />
         )}
         refreshControl={!sections ? <RefreshControl

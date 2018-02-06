@@ -19,11 +19,10 @@ export class PeopleItem extends Component {
   }
 
   handleSelect = () => { this.props.onSelect(this.props.person); }
+  handleAction = () => { this.props.onAction && this.props.onAction(this.props.person); }
 
   render() {
-    const { t } = this.props;
-
-    const { person, me, stagesObj } = this.props;
+    const { person, me, stagesObj, onAction, t } = this.props;
     const isMe = person.id === me.id;
     const newPerson = isMe ? me : person;
     let personName = isMe ? t('me') : newPerson.full_name || '';
@@ -69,8 +68,10 @@ export class PeopleItem extends Component {
             </Text>
           </Flex>
           {
-            !personStage ? (
-              <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
+            !personStage && onAction ? (
+              <Touchable onPress={this.handleAction}>
+                <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
+              </Touchable>
             ) : null
           }
         </Flex>
@@ -100,6 +101,7 @@ PeopleItem.propTypes = {
     updated_at: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
+  onAction: PropTypes.func,
 };
 
 const mapStateToProps = ({ auth, stages }) => ({

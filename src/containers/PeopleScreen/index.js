@@ -24,6 +24,7 @@ export class PeopleScreen extends Component {
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddContact = this.handleAddContact.bind(this);
+    this.handleAction = this.handleAction.bind(this);
     this.handleRefresh = this.handleRefresh.bind(this);
   }
 
@@ -48,6 +49,28 @@ export class PeopleScreen extends Component {
 
   handleRowSelect(person) {
     this.props.dispatch(navigatePush('Contact', { person }));
+  }
+
+  handleAction(person) {
+    LOG('action selected', person);
+    // const { dispatch, personIsCurrentUser, person, contactAssignmentId, contactStage } = this.props;
+    // if (personIsCurrentUser) {
+    //   dispatch(navigatePush('Stage', {
+    //     onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+    //     currentStage: contactStage && contactStage.id || null,
+    //     contactId: person.id,
+    //   }));
+    // } else {
+    //   dispatch(navigatePush('PersonStage', {
+    //     onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+    //     currentStage: contactStage && contactStage.id || null,
+    //     name: person.first_name,
+    //     contactId: person.id,
+    //     contactAssignmentId: contactAssignmentId,
+    //   }));
+    // }
+
+    // this.props.dispatch(navigatePush('Contact', { person }));
   }
 
   handleRefresh() {
@@ -87,6 +110,7 @@ export class PeopleScreen extends Component {
           sections={isJean}
           items={isJean ? sectionPeople : people }
           onSelect={this.handleRowSelect}
+          onAction={this.handleAction}
           onAddContact={this.handleAddContact}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
