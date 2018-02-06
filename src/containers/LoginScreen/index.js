@@ -2,123 +2,140 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
-import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
-import { firstTime, facebookLoginAction } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import BaseScreen from '../../components/BaseScreen';
+import theme from '../../theme';
+import ONBOARDING_1 from '../../../assets/images/onboarding1.png';
+import ONBOARDING_2 from '../../../assets/images/onboarding2.png';
+import ONBOARDING_3 from '../../../assets/images/onboarding3.png';
 
+const sliderWidth = theme.fullWidth;
 
-const FACEBOOK_VERSION = 'v2.8';
-const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
-const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
+const ONBOARDING = [
+  {
+    id: 1,
+    name: 'handcraft your faith journey',
+    description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
+    image: ONBOARDING_1,
+  },
+  {
+    id: 2,
+    name: 'take your relationships deeper',
+    description: 'MissionHub helps you grow closer to God by helping others experience Him.',
+    image: ONBOARDING_2,
+  },
+  {
+    id: 3,
+    name: 'record your journey with God',
+    description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
+    image: ONBOARDING_3,
+  },
+];
 
 @translate('login')
 class LoginScreen extends BaseScreen {
   constructor(props) {
     super(props);
 
+    this.state = {
+      activeSlide: 0,
+    };
+
+    this.renderOnboarding = this.renderOnboarding.bind(this);
+    this.getStarted = this.getStarted.bind(this);
     this.login = this.login.bind(this);
-    this.tryItNow = this.tryItNow.bind(this);
-    this.facebookLogin = this.facebookLogin.bind(this);
   }
 
   login() {
     this.navigateToNext('KeyLogin');
   }
 
-  tryItNow() {
-    this.props.dispatch(firstTime());
-    this.navigateToNext('Welcome');
+  getStarted() {
+    this.navigateToNext('LoginOptions');
   }
 
   navigateToNext(nextScreen) {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
-  facebookLogin() {
-    LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
-      LOG('Facebook login result', result);
-      if (result.isCancelled) {
-        return;
-      }
-      AccessToken.getCurrentAccessToken().then((data) => {
-        if (!data.accessToken) {
-          LOG('facebook access token doesnt exist');
-          return;
-        }
-        const accessToken = data.accessToken.toString();
-        const getMeConfig = {
-          version: FACEBOOK_VERSION,
-          accessToken,
-          parameters: {
-            fields: {
-              string: FACEBOOK_FIELDS,
-            },
-          },
-        };
-        // Create a graph request asking for user information with a callback to handle the response.
-        const infoRequest = new GraphRequest('/me', getMeConfig, (err, meResult) => {
-          if (err) {
-            LOG('error getting facebook user', err);
-            return;
-          }
-          LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken));
-        });
-        // Start the graph request.
-        new GraphRequestManager().addRequest(infoRequest).start();
-      });
-    }, (err) => {
-      LOG('err', err);
-      LoginManager.logOut();
-    }).catch(() => {
-      LOG('facebook login manager catch');
-    });
+  renderOnboarding({ item }) {
+    return (
+      <View key={item.id} style={styles.onboardWrap}>
+        <Flex direction="column">
+          <Flex value={1.5} justify="center">
+            <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
+            <Text style={styles.onboardText}>{item.description}</Text>
+          </Flex>
+          <Flex value={1} align="start" justify="end">
+            <Image source={item.image} style={styles.onboardImage} />
+          </Flex>
+        </Flex>
+      </View>
+    );
   }
 
   render() {
-    const { t } = this.props;
 
     return (
       <Flex style={styles.container}>
-        <Flex value={.5} />
         <Flex value={3} align="center" justify="center">
-          <Flex align="center">
-            <View style={{ paddingBottom: 20 }}>
-              <Image source={require('../../../assets/images/missionhub_logo_circle.png')} />
-            </View>
-            <Text style={styles.text}>{t('tagline1')}</Text>
-            <Text style={styles.text}>{t('tagline2')}</Text>
-          </Flex>
-          <Flex value={2} align="center" justify="end">
-            <Button
-              pill={true}
-              type="primary"
-              onPress={this.facebookLogin}
-              text={t('facebookSignup').toUpperCase()}
-              style={styles.facebookButton}
-              buttonTextStyle={styles.buttonText}
+          <Flex value={4} align="center">
+            <Pagination
+              dotsLength={3}
+              activeDotIndex={this.state.activeSlide}
+              containerStyle={{ marginTop: 30 }}
+              dotStyle={{
+                width: 10,
+                height: 10,
+                borderRadius: 5,
+                marginHorizontal: 0,
+                backgroundColor: theme.primaryColor,
+              }}
+              inactiveDotStyle={{
+                width: 10,
+                height: 10,
+                borderRadius: 5,
+                marginHorizontal: 0,
+                backgroundColor: theme.secondaryColor,
+              }}
+              inactiveDotOpacity={0.4}
+              inactiveDotScale={0.8}
             />
-            <Button
-              pill={true}
-              onPress={this.tryItNow}
-              text={t('tryNow').toUpperCase()}
-              style={styles.tryButton}
-              buttonTextStyle={styles.buttonText}
+            <Carousel
+              data={ONBOARDING}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={this.renderOnboarding}
+              sliderWidth={sliderWidth}
+              itemWidth={sliderWidth}
+              scrollEventThrottle={5}
+              onSnapToItem={(index) => this.setState({ activeSlide: index }) }
             />
           </Flex>
-        </Flex>
-        <Flex value={0.8} align="center" justify="center">
-          <Button
-            type="transparent"
-            onPress={this.login}
-            text={t('signIn').toUpperCase()}
-            style={styles.signInButton}
-            buttonTextStyle={styles.buttonText}
-          />
+          <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
+            <Flex direction="column" self="stretch" align="center">
+              <Button
+                pill={true}
+                text="GET STARTED"
+                onPress={this.getStarted}
+                style={styles.getStarted}
+                buttonTextStyle={styles.buttonText}
+              />
+              <Flex direction="row">
+                <Text style={styles.signInText}>ALREADY A MEMBER?</Text>
+                <Button
+                  text="SIGN IN"
+                  type="transparent"
+                  onPress={this.login}
+                  buttonTextStyle={styles.signInBtnText}
+                />
+              </Flex>
+            </Flex>
+          </Flex>
         </Flex>
       </Flex>
     );

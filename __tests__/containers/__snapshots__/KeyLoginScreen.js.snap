@@ -147,7 +147,7 @@ exports[`renders correctly 1`] = `
         allowFontScaling={true}
         autoCapitalize="none"
         autoCorrect={false}
-        autoFocus={true}
+        autoFocus={false}
         blurOnSubmit={false}
         multiline={false}
         onChangeText={[Function]}
@@ -178,7 +178,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "paddingTop": 30,
+          "paddingVertical": 30,
         }
       }
     >
@@ -234,19 +234,6 @@ exports[`renders correctly 1`] = `
         value=""
       />
     </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "stretch",
-          "flex": 1,
-          "justifyContent": "flex-end",
-        },
-      ]
-    }
-  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -276,44 +263,96 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
               "height": 60,
               "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
             null,
-            Object {},
-            null,
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            },
+            Object {
+              "borderRadius": 50,
+            },
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
+              Object {},
               Object {
-                "color": "#505256",
+                "flexDirection": "row",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
             ]
           }
         >
-          LOGIN
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 21,
+                  },
+                  Object {
+                    "marginRight": 10,
+                  },
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                },
+              ]
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </Text>
+        </View>
       </View>
     </View>
   </View>
