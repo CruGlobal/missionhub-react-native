@@ -25,6 +25,7 @@ export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 
 export const MAIN_TABS = 'nav/MAIN_TABS';
+export const DRAWER_OPEN = 'DrawerOpen';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';

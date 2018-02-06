@@ -17,6 +17,7 @@ import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { NOTIFICATION_OFF_SCREEN } from '../NotificationOffScreen';
 import { CONTACT_SCREEN } from '../ContactScreen';
+import { DRAWER_OPEN } from '../../constants';
 
 const MAX_REMINDERS = 3;
 
@@ -188,7 +189,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush(DRAWER_OPEN))} />
           }
           right={
             isJean ? (

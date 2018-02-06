@@ -137,17 +137,6 @@ const screens = {
     }),
     name: stepsTab, //stepsTab is shown when MainTabs first opens
   },
-  [CONTACT_SCREEN]: {
-    screen: DrawerNavigator(
-      {
-        Main: { screen: ContactScreen },
-      },
-      {
-        contentComponent: ContactSideMenu,
-        drawerPosition: 'right',
-      }
-    ),
-  },
 };
 
 export const trackableScreens = {
@@ -166,6 +155,17 @@ export const MainStackRoutes = StackNavigator({
   SearchPeople: { screen: SearchPeopleScreen },
   SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
   SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
+  [CONTACT_SCREEN]: {
+    screen: DrawerNavigator(
+      {
+        Main: { screen: ContactScreen },
+      },
+      {
+        contentComponent: ContactSideMenu,
+        drawerPosition: 'right',
+      }
+    ),
+  },
 }, {
   navigationOptions: {
     header: null,

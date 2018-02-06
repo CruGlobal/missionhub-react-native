@@ -10,7 +10,7 @@ import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
-import { CASEY, JEAN } from '../../constants';
+import { CASEY, DRAWER_OPEN, JEAN } from '../../constants';
 import { getPerson } from '../../actions/people';
 import { getStages } from '../../actions/stages';
 import { STAGE_SCREEN } from '../StageScreen';
@@ -102,10 +102,18 @@ class ContactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="backIcon" type="MissionHub" onPress={() => this.props.dispatch(navigateBack())} />
+            <IconButton
+              name="backIcon"
+              type="MissionHub"
+              onPress={() => this.props.dispatch(navigateBack())}
+            />
           }
           right={
-            <IconButton name="moreIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton
+              name="moreIcon"
+              type="MissionHub"
+              onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN, { isCurrentUser: personIsCurrentUser }))}
+            />
           }
           shadow={false}
         />

@@ -11,6 +11,7 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 import { CONTACT_SCREEN } from '../ContactScreen';
+import { DRAWER_OPEN } from '../../constants';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -66,7 +67,7 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN))} />
           }
           right={
             isJean ? (

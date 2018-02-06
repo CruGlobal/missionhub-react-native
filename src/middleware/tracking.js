@@ -2,6 +2,7 @@ import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
+import { DRAWER_OPEN } from '../constants';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -12,12 +13,13 @@ export default function tracking({ dispatch, getState }) {
       const route = trackableScreens[routeName];
 
       if (route) {
-        if (routeName === CONTACT_SCREEN) {
-          dispatch(trackContactScreen(action, getState));
+        dispatch(trackState(route.name));
 
-        } else {
-          dispatch(trackState(route.name));
-        }
+      } else if (routeName === CONTACT_SCREEN) {
+        dispatch(trackContactScreen(action, getState));
+
+      } else if (routeName === DRAWER_OPEN && action.params.isCurrentUser !== undefined) {
+        dispatch(trackContactMenu(action.params.isCurrentUser));
       }
 
     } else if (action.type === 'Navigation/BACK') {
@@ -38,4 +40,8 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
   }
 
   return trackState(PERSON_STEPS);
+}
+
+function trackContactMenu(isCurrentUser) {
+  return isCurrentUser ? trackState('mh : people : self : menu : menu') : trackState('mh : people : person : menu : menu');
 }
