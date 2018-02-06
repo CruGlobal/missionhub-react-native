@@ -114,7 +114,6 @@ describe('update time zone', () => {
 
   it('should update timezone ', () => {
     store.dispatch(updateTimezone());
-    console.log(store.getActions());
     expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
   });
 });
