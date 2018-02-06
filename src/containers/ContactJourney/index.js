@@ -14,6 +14,7 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
 import { addNewComment, editComment } from '../../actions/interactions';
+import { getAnalyticsSubsection } from '../../utils/common';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -99,7 +100,7 @@ class ContactJourney extends Component {
       type: 'journey',
     }));
 
-    this.props.dispatch(trackState('mh : people : person : journey : edit')); //todo do for self
+    this.props.dispatch(trackState(`mh : people : ${getAnalyticsSubsection(this.props.person.id, this.props.myId)} : journey : edit`));
   }
 
   renderRow({ item }) {
@@ -187,6 +188,7 @@ ContactJourney.propTypes = {
 
 const mapStateToProps = ({ auth }) => ({
   isCasey: !auth.isJean,
+  myId: auth.personId,
 });
 
 export default connect(mapStateToProps)(ContactJourney);

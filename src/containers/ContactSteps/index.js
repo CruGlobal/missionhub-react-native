@@ -13,7 +13,7 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { findAllNonPlaceHolders } from '../../utils/common';
+import { findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { trackState } from '../../actions/analytics';
 
@@ -71,7 +71,7 @@ class ContactSteps extends Component {
 
   handleCreateStep() {
     const { person } = this.props;
-    const subsection = person.id === this.props.myId ? 'self' : 'person';
+    const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
       contactName: person.first_name,

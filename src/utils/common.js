@@ -10,6 +10,8 @@ export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
 
+export const getAnalyticsSubsection = (personId, myId) => personId === myId ? 'self' : 'person';
+
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);
 export const isObject = (obj) => typeof obj === 'object' && !isArray(obj);
