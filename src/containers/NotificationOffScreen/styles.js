@@ -5,14 +5,21 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
-    paddingHorizontal: 60,
+    paddingHorizontal: 40,
     paddingTop: 125,
   },
+  title: {
+    color: theme.secondaryColor,
+    fontSize: 32,
+    textAlign: 'center',
+    paddingTop: 50,
+    paddingBottom: 10,
+  },
   text: {
-    color: theme.black,
+    color: theme.white,
     fontSize: 16,
     textAlign: 'center',
-    paddingVertical: 50,
+    paddingBottom: 50,
   },
   allowRow: {
     padding: 8,
@@ -23,7 +30,7 @@ export default StyleSheet.create({
   },
   allowText: {
     flex: 1,
-    color: theme.black,
+    color: theme.white,
     fontSize: 16,
   },
   allowButton: {
@@ -41,7 +48,7 @@ export default StyleSheet.create({
     height: 48,
   },
   buttonText: {
-    color: theme.black,
+    color: theme.white,
     fontWeight: '500',
     fontSize: 14,
     letterSpacing: 1.5,

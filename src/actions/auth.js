@@ -2,7 +2,6 @@ import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
 import { getStages } from './stages';
-import { setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateLoggedInStatus } from './analytics';
 import { onSuccessfulLogin } from './login';
@@ -73,7 +72,6 @@ export function updateTimezone() {
 export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
-    dispatch(setupPushNotifications());
     dispatch(getMe());
     dispatch(getStages());
     dispatch(updateTimezone());

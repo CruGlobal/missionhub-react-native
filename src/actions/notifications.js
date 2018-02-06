@@ -4,6 +4,7 @@ import DeviceInfo from 'react-native-device-info';
 
 import { REQUESTS } from './api';
 import callApi from './api';
+import { navigatePush, navigateBack } from './navigation';
 
 import {
   PUSH_NOTIFICATION_ASKED,
@@ -35,14 +36,45 @@ export function noNotificationReminder(showReminder = false) {
   };
 }
 
+export function showReminderScreen() {
+  return (dispatch, getState) => {
+    const { hasAsked, token, showReminder } = getState().notifications;
+    
+    if (token || !showReminder) return;
+    if (hasAsked) {
+      PushNotification.checkPermissions((permission) => {
+        const hasAllowedPermission = permission && permission.alert;
+        if (!hasAllowedPermission) {
+          dispatch(navigatePush('NotificationOff', {
+            onClose: (askUser) => {
+              if (askUser) {
+                dispatch(enableAskPushNotification());
+                dispatch(setupPushNotifications());
+              } else {
+                dispatch(noNotificationReminder());
+              }
+              dispatch(navigateBack());
+            },
+          }));
+        }
+      });
+      return;
+    }
+    // If none of the other cases hit, show allow/not allow page
+    dispatch(navigatePush('NotificationPrimer', {
+      onComplete: () => dispatch(navigateBack()),
+    }));
+  };
+}
+
 export function setupPushNotifications() {
   return (dispatch, getState) => {
     const { token, shouldAsk, isRegistered } = getState().notifications;
-    if (!shouldAsk) return;
+    if (!shouldAsk) return Promise.reject();
     // TODO: Remove this when testing notification callback
     // Don't bother getting this stuff if there is already a token
     if (token && isRegistered) {
-      return;
+      return Promise.reject();
     }
 
     // LOG('asking for push notification token');
@@ -83,12 +115,17 @@ export function setupPushNotifications() {
       * - Specified if permissions (ios) and token (android and ios) will requested or not,
       * - if not, you must call PushNotificationsHandler.requestPermissions() later
       */
-      requestPermissions: true,
+      requestPermissions: false,
     });
 
     if (!getState().notifications.hasAskedPushNotification) {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
+    
+    return PushNotification.requestPermissions((p) => {
+      LOG('permission resolved to', p);
+      return p;
+    });
   };
 }
 
