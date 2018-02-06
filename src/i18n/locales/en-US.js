@@ -80,9 +80,19 @@ export default {
   login: {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
+    signIn: 'Sign In',
+    member: 'Already a Member?',
+  },
+  loginOptions: {
     facebookSignup: 'Sign up with Facebook',
     tryNow: 'Try it now',
+    emailSignUp: 'Sign up with Email',
     signIn: 'Sign In',
+    terms: 'By creating your MissionHub account you agree to our',
+    member: 'Already a Member?',
+    tos: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    and: 'and',
   },
   keyLogin: {
     invalidCredentialsMessage: 'Your Email or Password is Incorrect',
@@ -93,6 +103,7 @@ export default {
     errorDefault: 'There was a problem signing in.',
     errorIncorrect: 'Your Email or Password is Incorrect',
     errorVerify: 'Verify your account via Email',
+    facebookLogin: 'Log In With Facebook',
   },
   welcome: {
     welcome: 'welcome!',

@@ -11,6 +11,7 @@ export default class Input extends Component {
   focus() { this.input.focus(); }
   blur() { this.input.blur(); }
   clear() { this.input.clear(); }
+  isFocused() { return this.input.isFocused(); }
 
   render() {
     const { style = {}, ...rest } = this.props;
