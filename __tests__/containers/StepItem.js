@@ -2,9 +2,8 @@ import 'react-native';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Provider } from 'react-redux';
 
-import { createMockStore, testSnapshot } from '../../testUtils';
+import { createMockStore, testSnapshotShallow } from '../../testUtils';
 import StepItem from '../../src/components/StepItem';
 
 const date = '2017-12-06T14:24:52Z';
@@ -34,53 +33,47 @@ jest.mock('react-native-device-info');
 
 
 it('renders me correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={mockStep} />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={mockStep} />,
+    store,
   );
 });
 
 it('renders not me correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={{
-        ...mockStep,
-        id: '2',
-      }} />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={{
+      ...mockStep,
+      id: '2',
+    }} />,
+    store,
   );
 });
 
 it('renders type swipeable correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={mockStep} type="swipeable" />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={mockStep} type="swipeable" />,
+    store,
   );
 });
 
 it('renders type contact correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={mockStep} type="contact" />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={mockStep} type="contact" />,
+    store,
   );
 });
 
 it('renders type reminder correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={mockStep} type="reminder" />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={mockStep} type="reminder" />,
+    store,
   );
 });
 
 it('renders type action correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepItem step={mockStep} type="swipeable" onAction={() => {}} />
-    </Provider>
+  testSnapshotShallow(
+    <StepItem step={mockStep} type="swipeable" onAction={() => {}} />,
+    store,
   );
 });
 

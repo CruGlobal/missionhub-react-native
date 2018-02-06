@@ -176,6 +176,20 @@ exports[`renders android correctly 1`] = `
         },
       ]
     }
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     style={
       Object {
         "backgroundColor": "#52C5DC",
@@ -183,6 +197,7 @@ exports[`renders android correctly 1`] = `
       }
     }
   >
+    <RCTRefreshControl />
     <View>
       <View
         style={

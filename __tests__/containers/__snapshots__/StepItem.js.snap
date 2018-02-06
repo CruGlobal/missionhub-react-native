@@ -13639,699 +13639,373 @@ Choose a person in People view and add some new steps.",
 `;
 
 exports[`renders me correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      undefined,
-    ]
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
         }
-      >
-        
-      </Text>
-      <Text
+      />
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Test Step
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
 `;
 
 exports[`renders not me correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      undefined,
-    ]
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
         }
-      >
-        
-      </Text>
-      <Text
+      />
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Test Step
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
 `;
 
 exports[`renders type action correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
         }
-      >
-        
-      </Text>
-      <Text
+      />
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
-        }
-      >
-        Test Step
-      </Text>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        collapsable={undefined}
-        style={
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "opacity": 0,
-            "transform": Array [
-              Object {
-                "translateX": 100,
-              },
-            ],
+            "fontSize": 14,
           }
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+        Test Step
+      </MyText>
+    </Flex>
+    <TouchableIOS
+      onPress={[Function]}
+      onPressIn={[Function]}
+      onPressOut={[Function]}
+    >
+      <Flex
+        align="center"
+        animation="fadeInRight"
+        justify="center"
+      >
+        <Icon
+          name="starIcon"
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "color": "#52C5DC",
+                "fontSize": 35,
+                "padding": 10,
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 35,
-                    "padding": 10,
-                  },
-                  undefined,
-                  undefined,
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
+              undefined,
             ]
           }
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
+          type="MissionHub"
+        />
+      </Flex>
+    </TouchableIOS>
+  </Flex>
+</TouchableIOS>
 `;
 
 exports[`renders type contact correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Test Step
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
 `;
 
 exports[`renders type reminder correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={false}
+  onPress={[Function]}
   style={
     Object {
       "backgroundColor": "rgb(183, 231, 240)",
       "borderBottomColor": "#E6E8EC",
       "borderBottomWidth": 1,
-      "opacity": 1,
     }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
         }
-      >
-        
-      </Text>
-      <Text
+      />
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Test Step
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
 `;
 
 exports[`renders type swipeable correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits="button"
-  accessible={true}
-  hasTVPreferredFocus={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
+<TouchableIOS
+  activeOpacity={1}
+  highlight={true}
+  onPress={[Function]}
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+    }
   }
-  testID={undefined}
-  tvParallaxProperties={undefined}
+  underlayColor="rgb(208, 239, 245)"
 >
-  <View
+  <Flex
+    align="center"
+    direction="row"
     style={
-      Array [
-        Object {
-          "marginTop": 1,
-          "minHeight": 80,
-          "paddingLeft": 24,
-          "paddingRight": 13,
-          "paddingVertical": 16,
-          "width": 750,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        },
-      ]
+      Object {
+        "marginTop": 1,
+        "minHeight": 80,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
     }
   >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "justifyContent": "center",
-          },
-        ]
-      }
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
         }
-      >
-        
-      </Text>
-      <Text
+      />
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Test Step
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
 `;

@@ -10,7 +10,7 @@ import { showReminderScreen, toast } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton } from '../../components/common';
+import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
@@ -24,6 +24,7 @@ class StepsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      refreshing: false,
       addedReminder: props.reminders.length > 0,
     };
 
@@ -32,11 +33,16 @@ class StepsScreen extends Component {
     this.handleSetReminder = this.handleSetReminder.bind(this);
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
   }
 
   componentWillMount() {
     this.props.dispatch(loadHome());
-    this.props.dispatch(getMySteps());
+    this.getSteps();
+  }
+
+  getSteps() {
+    return this.props.dispatch(getMySteps());
   }
 
   completeStepBump() {
@@ -75,6 +81,15 @@ class StepsScreen extends Component {
 
   handleDeleteReminder(step) {
     this.props.dispatch(deleteStep(step));
+  }
+
+  handleRefresh() {
+    this.setState({ refreshing: true });
+    this.getSteps().then(() => {
+      this.setState({ refreshing: false });
+    }).catch(() => {
+      this.setState({ refreshing: false });
+    });
   }
 
   renderTop() {
@@ -190,6 +205,10 @@ class StepsScreen extends Component {
         />
         <ScrollView
           style={styles.container}
+          refreshControl={<RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.handleRefresh}
+          />}
           contentContainerStyle={[
             styles.contentContainer,
             {

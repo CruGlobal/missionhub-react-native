@@ -20,7 +20,11 @@ class StepItem extends Component {
   renderIcon() {
     const { type, onAction, hideAction } = this.props;
     const { hovering } = this.state;
-    if (!onAction) return null;
+    
+    if (!onAction) {
+      return null;
+    }
+
     let iconName = 'starIcon';
     if (hovering || type === 'reminder') {
       iconName = 'starIconFilled';
@@ -42,7 +46,6 @@ class StepItem extends Component {
             style={[
               styles.icon,
               type === 'reminder' ? styles.iconReminder : undefined,
-              hideAction ? styles.hideIcon : undefined,
             ]} />
         </Flex>
       </Touchable>
