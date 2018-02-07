@@ -77,7 +77,7 @@ class PathwayStageScreen extends Component {
           source={LANDSCAPE}
           style={[
             styles.footerImage,
-            { left: (this.state.scrollPosition / -1) },
+            { left: (this.state.scrollPosition / -1) - 50 },
           ]}
         />
         <Flex value={1} align="center" justify="center">

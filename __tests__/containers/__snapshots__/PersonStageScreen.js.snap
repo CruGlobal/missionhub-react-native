@@ -27,11 +27,12 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "bottom": -20,
-          "height": 175,
+          "height": 340.875,
           "position": "absolute",
+          "width": 3375,
         },
         Object {
-          "left": -0,
+          "left": -50,
         },
       ]
     }
