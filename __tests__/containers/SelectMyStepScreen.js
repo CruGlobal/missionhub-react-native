@@ -17,12 +17,26 @@ const store = createMockStore({
 });
 
 
-it('renders correctly', () => {
+it('renders correctly with button', () => {
   testSnapshot(
     <Provider store={store}>
       <SelectMyStepScreen
         navigation={createMockNavState({
           onSaveNewSteps: jest.fn(),
+          enableButton: true,
+        })}
+      />
+    </Provider>
+  );
+});
+
+it('renders correctly without button', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <SelectMyStepScreen
+        navigation={createMockNavState({
+          onSaveNewSteps: jest.fn(),
+          enableButton: false,
         })}
       />
     </Provider>

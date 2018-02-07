@@ -19,7 +19,7 @@ class StageSuccessScreen extends Component {
   }
 
   handleNavigateToStep() {
-    this.props.dispatch(navigatePush('Step', { onSaveNewSteps: this.handleNavigate }));
+    this.props.dispatch(navigatePush('Step', { onSaveNewSteps: this.handleNavigate, enableButton: false }));
   }
 
   getMessage() {

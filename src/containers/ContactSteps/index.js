@@ -71,6 +71,7 @@ class ContactSteps extends Component {
     if (this.props.isMe) {
       this.props.dispatch(navigatePush('Step', {
         onSaveNewSteps: this.handleSaveNewSteps,
+        enableButton: true,
       }));
     } else {
       this.props.dispatch(navigatePush('PersonStep', {

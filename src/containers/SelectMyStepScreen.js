@@ -20,7 +20,7 @@ class SelectMyStepScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, enableButton } = this.props;
 
     return (
       <SelectStepScreen
@@ -29,6 +29,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
+        enableButton={enableButton}
       />
     );
   }
