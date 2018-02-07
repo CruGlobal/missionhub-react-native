@@ -88,6 +88,7 @@ describe('trackState', () => {
     const screenNameWithSubsection = `${section} : ${subsection} : screen`;
     expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsection);
     expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsection);
+    expectedUpdatedContext[ANALYTICS.SITE_SECTION] = section;
     expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
 
     store.dispatch(trackState(screenNameWithSubsection));
@@ -100,6 +101,7 @@ describe('trackState', () => {
     const screenNameWithSubsectionAndLevel3 = `${section} : ${subsection} : ${sectionLevel3} : screen`;
     expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
     expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
+    expectedUpdatedContext[ANALYTICS.SITE_SECTION] = section;
     expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
     expectedUpdatedContext[ANALYTICS.SITE_SUB_SECTION_3] = sectionLevel3;
 
