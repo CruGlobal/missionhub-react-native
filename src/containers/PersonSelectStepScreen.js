@@ -39,6 +39,7 @@ class PersonSelectStepScreen extends Component {
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
         onComplete={this.handleNavigate}
+        enableButton
       />
     );
   }
