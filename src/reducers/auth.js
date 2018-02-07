@@ -12,6 +12,7 @@ const initialAuthState = {
   personId: '',
   user: {},
   isJean: false,
+  timezone: '',
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -65,6 +66,12 @@ function authReducer(state = initialAuthState, action) {
         isLoggedIn: true,
         token: results.token,
         personId: `${results.person_id}`,
+      };
+    case REQUESTS.UPDATE_TIMEZONE.SUCCESS:
+      const userTime = findAllNonPlaceHolders(results, 'user')[0];
+      return {
+        ...state,
+        timezone: userTime.timezone,
       };
     case REQUESTS.GET_ME.SUCCESS:
       const person = findAllNonPlaceHolders(results, 'person')[0];

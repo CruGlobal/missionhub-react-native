@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View, Image } from 'react-native';
 import { translate } from 'react-i18next';
+import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 import styles from './styles';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
 import Input from '../../components/Input/index';
-import { keyLogin } from '../../actions/auth';
+import { keyLogin, facebookLoginAction } from '../../actions/auth';
 import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+
+
+const FACEBOOK_VERSION = 'v2.8';
+const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
+const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -23,6 +29,7 @@ class KeyLoginScreen extends Component {
     this.emailChanged = this.emailChanged.bind(this);
     this.passwordChanged = this.passwordChanged.bind(this);
     this.login = this.login.bind(this);
+    this.facebookLogin = this.facebookLogin.bind(this);
   }
 
   emailChanged(email) {
@@ -47,6 +54,47 @@ class KeyLoginScreen extends Component {
         this.setState({ errorMessage });
       }
     }
+  }
+
+  facebookLogin() {
+    LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
+      LOG('Facebook login result', result);
+      if (result.isCancelled) {
+        return;
+      }
+      AccessToken.getCurrentAccessToken().then((data) => {
+        if (!data.accessToken) {
+          LOG('facebook access token doesnt exist');
+          return;
+        }
+        const accessToken = data.accessToken.toString();
+        const getMeConfig = {
+          version: FACEBOOK_VERSION,
+          accessToken,
+          parameters: {
+            fields: {
+              string: FACEBOOK_FIELDS,
+            },
+          },
+        };
+        // Create a graph request asking for user information with a callback to handle the response.
+        const infoRequest = new GraphRequest('/me', getMeConfig, (err, meResult) => {
+          if (err) {
+            LOG('error getting facebook user', err);
+            return;
+          }
+          LOG('facebook me', meResult);
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
+        });
+        // Start the graph request.
+        new GraphRequestManager().addRequest(infoRequest).start();
+      });
+    }, (err) => {
+      LOG('err', err);
+      LoginManager.logOut();
+    }).catch(() => {
+      LOG('facebook login manager catch');
+    });
   }
 
   renderErrorMessage() {
@@ -79,7 +127,6 @@ class KeyLoginScreen extends Component {
               ref={(c) => this.email = c}
               onChangeText={this.emailChanged}
               value={this.state.email}
-              autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
@@ -88,7 +135,7 @@ class KeyLoginScreen extends Component {
             />
           </View>
 
-          <View style={{ paddingTop: 30 }}>
+          <View style={{ paddingVertical: 30 }}>
             <Text style={styles.label} >
               {t('passwordLabel')}
             </Text>
@@ -103,15 +150,35 @@ class KeyLoginScreen extends Component {
               blurOnSubmit={true}
             />
           </View>
+          {
+            !this.state.email && !this.state.password ? (
+              <Button
+                pill={true}
+                onPress={this.facebookLogin}
+                style={styles.facebookButton}
+                buttonTextStyle={styles.buttonText}
+              >
+                <Flex direction="row">
+                  <Icon name="facebookIcon" size={21} type="MissionHub" style={styles.icon} />
+                  <Text style={styles.buttonText}>{t('facebookLogin').toUpperCase()}</Text>
+                </Flex>
+              </Button>
+            ) : null
+          }
         </Flex>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.login}
-            text={t('login').toUpperCase()}
-          />
-        </Flex>
+        {
+          !this.state.email && !this.state.password ? null : (
+            <Flex value={1} align="stretch" justify="end">
+              <Button
+                type="secondary"
+                onPress={this.login}
+                text={t('login').toUpperCase()}
+              />
+            </Flex>
+          )
+        }
+
       </PlatformKeyboardAvoidingView>
     );
   }

@@ -2,7 +2,6 @@ import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
 import { getStages } from './stages';
-import { setupPushNotifications } from './notifications';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
@@ -55,11 +54,28 @@ export function firstTime() {
   };
 }
 
+export function updateTimezone() {
+  return (dispatch, getState) => {
+    const currentTime = getState().auth.timezone;
+    const timezone = new Date().getTimezoneOffset()/60*-1;
+    if (currentTime !== `${timezone}`) {
+      const data = {
+        data: {
+          attributes: {
+            timezone: `${timezone}`,
+          },
+        },
+      };
+      return dispatch(callApi(REQUESTS.UPDATE_TIMEZONE, {}, data));
+    }
+  };
+}
+
 export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
-    dispatch(setupPushNotifications());
     dispatch(getMe());
     dispatch(getStages());
+    dispatch(updateTimezone());
   };
 }

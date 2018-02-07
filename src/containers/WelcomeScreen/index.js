@@ -7,12 +7,13 @@ import theme from '../../theme';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import { SETUP_SCREEN } from '../SetupScreen';
+import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 
 @translate('welcome')
 class WelcomeScreen extends Component {
   navigateToNext() {
     if (this.props.auth.isLoggedIn) {
-      this.props.dispatch(navigatePush('GetStarted'));
+      this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
     } else {
       this.props.dispatch(navigatePush(SETUP_SCREEN));
     }

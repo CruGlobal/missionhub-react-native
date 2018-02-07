@@ -27,6 +27,7 @@ import CelebrationScreen, { CELEBRATION_SCREEN } from './containers/CelebrationS
 import SearchPeopleScreen from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
+import LoginOptionsScreen from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
@@ -151,6 +152,7 @@ export const MainStackRoutes = StackNavigator({
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   AddContact: { screen: AddContactScreen },
+  LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen },
   SearchPeople: { screen: SearchPeopleScreen },
   SearchPeopleFilter: { screen: SearchPeopleFilterScreen },

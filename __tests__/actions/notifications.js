@@ -10,20 +10,21 @@ import {
 } from '../../src/constants';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder } from '../../src/actions/notifications';
+import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
+import * as navigation from '../../src/actions/navigation';
+import * as notifications from '../../src/actions/notifications';
 
 let store;
 const token = '123';
 
-jest.mock('react-native-push-notification', () => {
-  return {
-    configure: jest.fn((params) => {
-      params.onRegister({ token: '123' });
-      params.onNotification({ foreground: true, userInteraction: false });
-    }),
-  };
-});
+jest.mock('react-native-push-notification', () => ({
+  configure: jest.fn((params) => {
+    params.onRegister({ token: '123' });
+    params.onNotification({ foreground: true, userInteraction: false });
+  }),
+  requestPermissions: jest.fn(() => Promise.resolve()),
+}));
 
 
 beforeEach(() => store = configureStore([ thunk ])());
@@ -113,6 +114,12 @@ describe('set push token', () => {
 
     expect(store.getActions()[2]).toEqual({ type: PUSH_NOTIFICATION_ASKED });
   });
+  it('should call request permissions', () => {
+    PushNotification.configure = jest.fn();
+    store.dispatch(setupPushNotifications());
+
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(4);
+  });
 });
 
 describe('actions called', () => {
@@ -132,5 +139,75 @@ describe('actions called', () => {
 
     expect(store.getActions()[0]).toEqual({ type: PUSH_NOTIFICATION_REMINDER, bool: true });
     expect(store.getActions()[1]).toEqual({ type: PUSH_NOTIFICATION_REMINDER, bool: false });
+  });
+  it('should call showReminderScreen and show notification off screen', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: true,
+      },
+    });
+    PushNotification.checkPermissions = jest.fn((cb) => cb(true));
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].routeName).toEqual('NotificationOff');
+  });
+  it('should call showReminderScreen and show notification primer screen', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: false,
+      },
+    });
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].routeName).toEqual('NotificationPrimer');
+  });
+  it('should call showReminderScreen and show nothing', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        showReminder: false,
+      },
+    });
+    store.dispatch(showReminderScreen());
+    
+    expect(store.getActions().length).toEqual(0);
+  });
+  it('should call showReminderScreen and show notification off screen onClose', () => {
+
+    navigation.navigatePush = (screen, params) => () => params.onClose(true);
+    notifications.setupPushNotifications = jest.fn();
+
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: true,
+        shouldAsk: true,
+      },
+    });
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].type).toEqual(PUSH_NOTIFICATION_SHOULD_ASK);
+    expect(store.getActions()[0].bool).toEqual(true);
+    
+    expect(store.getActions()[1].type).toEqual(PUSH_NOTIFICATION_ASKED);
+    expect(store.getActions()[2].type).toEqual('Navigation/BACK');
+  });
+  it('should call showReminderScreen and show notification primer screen onComplete', () => {
+    navigation.navigatePush = (screen, params) => () => params.onComplete(true);
+    
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: null,
+        showReminder: true,
+        hasAsked: false,
+      },
+    });
+    store.dispatch(showReminderScreen());
+
+    expect(store.getActions()[0].type).toEqual('Navigation/BACK');
   });
 });

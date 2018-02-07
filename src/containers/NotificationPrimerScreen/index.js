@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
-import { disableAskPushNotification } from '../../actions/notifications';
-import { CELEBRATION_SCREEN } from '../CelebrationScreen';
+import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
@@ -15,17 +14,22 @@ class NotificationPrimerScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.done = this.done.bind(this);
+    this.allow = this.allow.bind(this);
     this.notNow = this.notNow.bind(this);
   }
 
   notNow() {
     this.props.dispatch(disableAskPushNotification());
-    this.done();
+    this.props.onComplete();
   }
 
-  done() {
-    this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
+  allow() {
+    this.props.dispatch(enableAskPushNotification());
+    this.props.dispatch(setupPushNotifications()).then(() => {
+      this.props.onComplete();
+    }).catch(() => {
+      this.props.onComplete();
+    });
   }
 
   render() {
@@ -44,7 +48,7 @@ class NotificationPrimerScreen extends Component {
             <Button
               pill={true}
               type="primary"
-              onPress={this.done}
+              onPress={this.allow}
               text={t('allow').toUpperCase()}
               style={styles.allowButton}
               buttonTextStyle={styles.buttonText}
@@ -63,5 +67,13 @@ class NotificationPrimerScreen extends Component {
   }
 }
 
-export default connect()(NotificationPrimerScreen);
+NotificationPrimerScreen.propTypes = {
+  onComplete: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(NotificationPrimerScreen);
 export const NOTIFICATION_PRIMER_SCREEN = 'nav/NOTIFICATION_PRIMER';

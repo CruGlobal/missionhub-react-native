@@ -12,6 +12,12 @@ export default StyleSheet.create({
     marginBottom: 5,
     height: 36,
   },
+  noStage: {
+    backgroundColor: '#FF5532',
+    margin: 10,
+    marginBottom: 5,
+    height: 36,
+  },
   stageBtnText: {
     color: theme.white,
     fontSize: 14,

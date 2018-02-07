@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
+import LoginOptionsScreen from '../../src/containers/LoginOptionsScreen';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import Enzyme, { shallow } from 'enzyme/build/index';
 import { createMockStore, testSnapshot } from '../../testUtils';
@@ -11,10 +11,10 @@ import * as auth from '../../src/actions/auth';
 
 let store;
 
-jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
   facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
+  firstTime: jest.fn(),
 }));
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
@@ -36,38 +36,40 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen />
+      <LoginOptionsScreen />
     </Provider>
   );
 });
 
 describe('a login button is clicked', () => {
   let screen;
-  const loginResult = { type: 'test' };
-
 
   beforeEach(() => {
     screen = shallow(
-      <KeyLoginScreen />,
+      <LoginOptionsScreen />,
       { context: { store: store } }
     );
+    screen = screen.dive().dive().dive().instance();
   });
 
-  it('facebook login is called', () => {
-    let click = () => screen.dive().dive().dive().find('Button').simulate('press');
 
-    click();
+  it('login to be called', async() => {
+    screen.login();
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+  });
 
+  it('try it now to be called', async() => {
+    screen.tryItNow();
+    expect(store.dispatch).toHaveBeenCalledTimes(2);
+  });
+
+  it('navigate next to be called', async() => {
+    screen.navigateToNext();
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+  });
+
+  it('facebook login to not be called', async() => {
+    screen.facebookLogin();
     expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
-  });
-
-  it('key login is called', async() => {
-    let click = () => screen.find('Button').simulate('press');
-    screen = screen.dive().dive().dive();
-    screen.setState({ email: 'klasjflk@lkjasdf.com' });
-
-    await click();
-
-    expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
   });
 });

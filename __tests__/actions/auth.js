@@ -5,8 +5,9 @@ import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
-import { facebookLoginAction, keyLogin } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, updateTimezone } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
+import MockDate from 'mockdate';
 import { ANALYTICS } from '../../src/constants';
 
 const email = 'Roger';
@@ -86,5 +87,31 @@ describe('key login', () => {
 
         expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
       });
+  });
+});
+
+
+describe('update time zone', () => {
+  beforeEach(() => {
+    store = configureStore([ thunk ])({
+      auth: {
+        timezone: '',
+      },
+    });
+  });
+
+  MockDate.set('2018-02-06', 300);
+
+  let tzData = {
+    data: {
+      attributes: {
+        timezone: '-5',
+      },
+    },
+  };
+
+  it('should update timezone ', () => {
+    store.dispatch(updateTimezone());
+    expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
   });
 });

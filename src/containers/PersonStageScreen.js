@@ -11,6 +11,7 @@ import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { MAIN_TABS } from '../constants';
 import { trackState } from '../actions/analytics';
+import { CELEBRATION_SCREEN } from './CelebrationScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -21,12 +22,16 @@ class PersonStageScreen extends Component {
   }
 
   handleNavigate = () => {
-    let nextScreen = MAIN_TABS;
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
-      nextScreen = NOTIFICATION_PRIMER_SCREEN;
+      this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+        onComplete: () => {
+          this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
+        },
+      }));
+    } else {
+      this.props.dispatch(navigatePush(MAIN_TABS));
     }
-    this.props.dispatch(navigatePush(nextScreen));
   }
 
   handleSelectStage(stage) {
