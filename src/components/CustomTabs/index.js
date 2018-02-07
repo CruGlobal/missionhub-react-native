@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import { View, TouchableOpacity, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Text, Icon } from '../common';
@@ -14,12 +11,17 @@ export default class CustomTabs extends Component {
     this.icons = [];
   }
 
+  goToTab(i) {
+    Keyboard.dismiss();
+    this.props.goToPage(i);
+  }
+
   render() {
     return (
       <View style={[ styles.tabs, this.props.style ]}>
         {this.props.tabArray.map((tab, i) => {
           return (
-            <TouchableOpacity key={tab.iconName} onPress={() => this.props.goToPage(i)} style={styles.tab}>
+            <TouchableOpacity key={tab.iconName} onPress={() => this.goToTab(i)} style={styles.tab}>
               <Icon
                 name={tab.iconName}
                 type="MissionHub"
