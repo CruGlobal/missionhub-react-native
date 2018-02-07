@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { navigatePush } from '../actions/navigation';
 
-
 import IconMessageScreen from './IconMessageScreen';
 
 @translate('addContact')
