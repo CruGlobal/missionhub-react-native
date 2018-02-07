@@ -166,27 +166,45 @@ exports[`renders correctly as Casey 1`] = `
     />
   </View>
   <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#52C5DC",
         "flex": 1,
       }
     }
   >
+    <RCTRefreshControl />
     <View>
       <View
         style={
           Array [
-            Array [
-              Object {
-                "backgroundColor": "#66D9F0",
-                "width": 750,
-              },
-              Object {
-                "paddingHorizontal": 27,
-                "paddingVertical": 32,
-              },
-            ],
+            Object {
+              "paddingTop": 50,
+            },
             Object {
               "alignItems": "center",
               "justifyContent": "center",
@@ -194,35 +212,13 @@ exports[`renders correctly as Casey 1`] = `
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 45,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
           }
-        >
-          
-        </Text>
+        />
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -236,14 +232,14 @@ exports[`renders correctly as Casey 1`] = `
                 "fontFamily": "AmaticSC-Bold",
               },
               Object {
-                "color": "#ffffff",
-                "fontSize": 36,
-                "textAlign": "center",
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
               },
             ]
           }
         >
-          FOCUS YOUR WEEK
+          STEPS OF FAITH
         </Text>
         <Text
           accessible={true}
@@ -258,53 +254,19 @@ exports[`renders correctly as Casey 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
+                "color": "#505256",
                 "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Star up to three steps and get weekly handcrafted reminders.
+          You don't have any steps of faith.
+Choose a person in People view and add some new steps.
         </Text>
       </View>
-      <RCTScrollView
-        bounces={false}
-        data={Array []}
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={true}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View />
-      </RCTScrollView>
     </View>
   </RCTScrollView>
 </View>
@@ -549,27 +511,45 @@ exports[`renders correctly as Jean 1`] = `
     </View>
   </View>
   <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#52C5DC",
         "flex": 1,
       }
     }
   >
+    <RCTRefreshControl />
     <View>
       <View
         style={
           Array [
-            Array [
-              Object {
-                "backgroundColor": "#66D9F0",
-                "width": 750,
-              },
-              Object {
-                "paddingHorizontal": 27,
-                "paddingVertical": 32,
-              },
-            ],
+            Object {
+              "paddingTop": 50,
+            },
             Object {
               "alignItems": "center",
               "justifyContent": "center",
@@ -577,35 +557,13 @@ exports[`renders correctly as Jean 1`] = `
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 45,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
           }
-        >
-          
-        </Text>
+        />
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -619,14 +577,14 @@ exports[`renders correctly as Jean 1`] = `
                 "fontFamily": "AmaticSC-Bold",
               },
               Object {
-                "color": "#ffffff",
-                "fontSize": 36,
-                "textAlign": "center",
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 10,
               },
             ]
           }
         >
-          FOCUS YOUR WEEK
+          STEPS OF FAITH
         </Text>
         <Text
           accessible={true}
@@ -641,53 +599,19 @@ exports[`renders correctly as Jean 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
+                "color": "#505256",
                 "fontSize": 16,
+                "paddingHorizontal": 70,
+                "paddingVertical": 10,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Star up to three steps and get weekly handcrafted reminders.
+          You don't have any steps of faith.
+Choose a person in People view and add some new steps.
         </Text>
       </View>
-      <RCTScrollView
-        bounces={false}
-        data={Array []}
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={true}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "overflow": "scroll",
-              "paddingBottom": undefined,
-            },
-          ]
-        }
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View />
-      </RCTScrollView>
     </View>
   </RCTScrollView>
 </View>

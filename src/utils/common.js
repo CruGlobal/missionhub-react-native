@@ -19,6 +19,15 @@ export const exists = (v) => typeof v !== 'undefined';
 export const clone = (obj) => JSON.parse(JSON.stringify(obj));
 export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
+export const refresh = (obj, method) => {
+  obj.setState({ refreshing: true });
+  method().then(() => {
+    obj.setState({ refreshing: false });
+  }).catch(() => {
+    obj.setState({ refreshing: false });
+  });
+};
+
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type)
     .filter((element) => !element._placeHolder);

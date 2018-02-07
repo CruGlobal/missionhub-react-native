@@ -9,6 +9,7 @@ export default StyleSheet.create({
     paddingRight: 13,
     width: theme.fullWidth,
     marginTop: 1,
+    minHeight: 80,
   },
   swipeable: {
     backgroundColor: theme.white,

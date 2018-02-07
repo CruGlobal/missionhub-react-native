@@ -10,11 +10,12 @@ import { showReminderScreen, toast } from '../../actions/notifications';
 import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton } from '../../components/common';
+import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
+import { refresh } from '../../utils/common';
 
 const MAX_REMINDERS = 3;
 
@@ -24,19 +25,26 @@ class StepsScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      refreshing: false,
       addedReminder: props.reminders.length > 0,
     };
 
+    this.getSteps = this.getSteps.bind(this);
     this.completeStepBump = this.completeStepBump.bind(this);
     this.completeReminderBump = this.completeReminderBump.bind(this);
     this.handleSetReminder = this.handleSetReminder.bind(this);
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
   }
 
   componentWillMount() {
     this.props.dispatch(loadHome());
-    this.props.dispatch(getMySteps());
+    this.getSteps();
+  }
+
+  getSteps() {
+    return this.props.dispatch(getMySteps());
   }
 
   completeStepBump() {
@@ -77,9 +85,15 @@ class StepsScreen extends Component {
     this.props.dispatch(deleteStep(step));
   }
 
-  renderTop() {
-    const { reminders, t, showStepReminderBump } = this.props;
+  handleRefresh() {
+    refresh(this, this.getSteps);
+  }
 
+  renderTop() {
+    const { reminders, steps, t, showStepReminderBump } = this.props;
+
+    if (reminders.length === 0 && steps.length === 0) return null;
+    // if (true) return null;
 
     if (reminders.length > 0) {
       return (
@@ -120,7 +134,7 @@ class StepsScreen extends Component {
 
   renderList() {
     const { steps, reminders, t, showStepBump } = this.props;
-    if (!steps.length === 0) {
+    if (steps.length === 0) {
       const hasReminders = reminders.length > 0;
       return (
         <Flex align="center" justify="center" style={{ paddingTop: 50 }}>
@@ -136,6 +150,9 @@ class StepsScreen extends Component {
         </Flex>
       );
     }
+    
+    const hideStars = reminders.length === MAX_REMINDERS;
+
     return (
       <FlatList
         ref={(c) => this.list = c}
@@ -143,6 +160,7 @@ class StepsScreen extends Component {
           styles.list,
         ]}
         data={steps}
+        extraData={{ hideStars }}
         keyExtractor={(i) => i.id}
         renderItem={({ item, index }) => (
           <RowSwipeable
@@ -155,6 +173,7 @@ class StepsScreen extends Component {
             <StepItem
               step={item}
               type="swipeable"
+              hideAction={hideStars}
               onSelect={this.handleRowSelect}
               onAction={this.handleSetReminder} />
           </RowSwipeable>
@@ -167,7 +186,7 @@ class StepsScreen extends Component {
   }
 
   render() {
-    const { t, dispatch, isJean } = this.props;
+    const { steps, t, dispatch, isJean } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -181,7 +200,19 @@ class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        <ScrollView style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          refreshControl={<RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.handleRefresh}
+          />}
+          contentContainerStyle={[
+            styles.contentContainer,
+            {
+              // Flex the white background to the bottom when there's only a few steps
+              // Don't do it all the time because it causes the top to be static
+              flex: steps.length < 5 ? 1 : undefined,
+            } ]}>
           {this.renderTop()}
           {this.renderList()}
         </ScrollView>
