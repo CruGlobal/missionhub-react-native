@@ -16,7 +16,6 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    console.log(this.props.onSaveNewSteps);
     this.props.onSaveNewSteps();
   }
 
@@ -36,7 +35,8 @@ class SelectMyStepScreen extends Component {
 
 }
 
-const mapStateToProps = ({ steps, auth }) => ({
+const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
+  ...(navigation.state.params || {}),
   steps: getFirstThreeValidItems(steps.suggestedForMe),
   personId: auth.personId,
 });

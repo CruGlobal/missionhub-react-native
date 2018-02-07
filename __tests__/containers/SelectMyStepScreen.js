@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import { createMockStore } from '../../testUtils/index';
 import SelectMyStepScreen from '../../src/containers/SelectMyStepScreen';
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
 
 jest.mock('react-native-device-info');
 
@@ -18,8 +18,13 @@ const store = createMockStore({
 
 
 it('renders correctly', () => {
-  testSnapshotShallow(
-    <SelectMyStepScreen />,
-    store
+  testSnapshot(
+    <Provider store={store}>
+      <SelectMyStepScreen
+        navigation={createMockNavState({
+          onSaveNewSteps: jest.fn(),
+        })}
+      />
+    </Provider>
   );
 });
