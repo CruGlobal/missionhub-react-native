@@ -75,11 +75,18 @@ class SelectStepScreen extends Component {
     });
   }
 
+  renderBackButton() {
+    const { enableButton, contact } = this.props;
+    return enableButton ?
+      (<BackButton customNavigate={contact || this.state.contact ? undefined : 'backToStages'} />)
+      : null;
+  }
+
   renderTitle() {
     const { t } = this.props;
 
     return (
-      <Flex value={1.5} align="center" justify="start">
+      <Flex value={1.5} align="center" justify="center">
         <Text type="header" style={styles.headerTitle}>{t('stepsOfFaith')}</Text>
         <Text style={styles.headerText}>
           {this.props.headerText}
@@ -94,7 +101,7 @@ class SelectStepScreen extends Component {
     return (
       <Flex style={styles.container}>
         <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
-          <BackButton customNavigate={this.props.contact || this.state.contact ? undefined : 'backToStages'} />
+          {this.renderBackButton()}
           {this.renderTitle()}
         </Flex>
         <Flex value={2}>
