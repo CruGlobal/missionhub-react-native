@@ -5,17 +5,14 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
-import BackButton from '../BackButton';
 import theme from '../../theme';
 
 class IconMessageScreen extends Component {
   render() {
-    const { mainText, buttonText, iconPath, enableButton } = this.props;
+    const { mainText, buttonText, iconPath } = this.props;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        {enableButton ? (<BackButton />) : null}
-
         <Flex align="center" justify="center" value={4}>
           <Image source={iconPath} />
           <Text style={styles.text}>{mainText}</Text>

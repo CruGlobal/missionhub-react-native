@@ -16,7 +16,7 @@ class SetupPersonScreen extends Component {
       Keyboard.dismiss();
 
       this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
-        this.props.dispatch(navigatePush('PersonStage'));
+        this.props.dispatch(navigatePush('PersonStage', { enableButton: true }));
       });
     }
   }

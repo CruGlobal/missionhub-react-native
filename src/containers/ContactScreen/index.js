@@ -80,6 +80,7 @@ class ContactScreen extends Component {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
         currentStage: contactStage && contactStage.id || null,
         contactId: person.id,
+        enableButton: true,
       }));
     } else {
       dispatch(navigatePush('PersonStage', {
@@ -88,6 +89,7 @@ class ContactScreen extends Component {
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,
+        enableButton: true,
       }));
     }
   }
