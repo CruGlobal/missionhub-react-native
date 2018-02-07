@@ -33,7 +33,6 @@ it('renders correctly', () => {
           contactId: '123',
           contact: {},
           onSaveNewSteps: jest.fn(),
-          enableButton: true,
         })}
       />
     </Provider>
