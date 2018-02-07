@@ -37,9 +37,9 @@ exports[`when keyboard height is set and editing is set to true button message c
   >
     <Input
       blurOnSubmit={false}
+      editable={true}
       multiline={true}
       onChangeText={[Function]}
-      onFocus={[Function]}
       returnKeyType="next"
       style={
         Object {
@@ -171,9 +171,9 @@ exports[`when keyboard height is set notes are shown 1`] = `
   >
     <Input
       blurOnSubmit={false}
+      editable={false}
       multiline={true}
       onChangeText={[Function]}
-      onFocus={[Function]}
       returnKeyType="next"
       style={
         Object {
