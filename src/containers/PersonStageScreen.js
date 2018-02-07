@@ -43,7 +43,7 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const { t, enableButton } = this.props;
+    const { t } = this.props;
     const name = this.props.name || this.props.personFirstName;
 
     return (
@@ -51,7 +51,7 @@ class PersonStageScreen extends Component {
         buttonText={t('here').toUpperCase()}
         questionText={t('personQuestion', { name })}
         onSelect={this.handleSelectStage}
-        enableButton={enableButton}
+        enableButton
       />
     );
   }

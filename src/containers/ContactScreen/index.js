@@ -89,7 +89,6 @@ class ContactScreen extends Component {
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,
-        enableButton: true,
       }));
     }
   }

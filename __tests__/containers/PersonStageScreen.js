@@ -23,7 +23,7 @@ let store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
-it('renders correctly with back button', () => {
+it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PersonStageScreen
@@ -39,25 +39,6 @@ it('renders correctly with back button', () => {
     </Provider>
   );
 });
-
-
-it('renders correctly without back button', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <PersonStageScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          name: 'Test',
-          contactId: '123',
-          currentStage: '2',
-          contactAssignmentId: '333',
-          enableButton: false,
-        })}
-      />
-    </Provider>
-  );
-});
-
 
 describe('person stage screen methods', () => {
   let component;
