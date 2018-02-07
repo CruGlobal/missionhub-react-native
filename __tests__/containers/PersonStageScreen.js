@@ -33,12 +33,12 @@ it('renders correctly', () => {
           contactId: '123',
           currentStage: '2',
           contactAssignmentId: '333',
+          enableButton: true,
         })}
       />
     </Provider>
   );
 });
-
 
 describe('person stage screen methods', () => {
   let component;

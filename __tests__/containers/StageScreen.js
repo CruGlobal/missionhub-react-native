@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import StageScreen from '../../src/containers/StageScreen';
-import { createMockNavState, createMockStore } from '../../testUtils';
+import { createMockNavState, createMockStore, testSnapshot } from '../../testUtils';
 
 const mockStages = () => {
   return 'mock stages';
@@ -26,13 +26,30 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
+it('StageScreen renders correctly with back button', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <StageScreen
+        navigation={createMockNavState({
+          enableButton: true,
+        })}
+      />
+    </Provider>
+  );
+});
+
+
+
+
 describe('StageScreen', () => {
   let tree;
 
   beforeEach(() => {
     tree = renderer.create(
       <Provider store={store}>
-        <StageScreen navigation={createMockNavState()} />
+        <StageScreen navigation={createMockNavState({
+          enableButton: false,
+        })} />
       </Provider>
     );
   });
@@ -41,7 +58,7 @@ describe('StageScreen', () => {
     expect(store.dispatch).toHaveBeenCalledWith(mockStages());
   });
 
-  it('renders correctly', () => {
+  it('renders correctly without back button', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });
