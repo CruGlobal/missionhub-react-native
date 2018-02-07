@@ -60,7 +60,7 @@ function labelStyle() {
   }
 }
 
-const stepsTab = 'mh : steps';
+const stepsTab = 'steps : steps';
 const tabs = {
   StepsTab: {
     screen: StepsScreen,
@@ -76,7 +76,7 @@ const tabs = {
       tabBarLabel: i18next.t('appRoutes:people'),
       tabBarIcon: navIcon('peopleIcon'),
     },
-    name: 'mh : people',
+    name: 'people : people',
   },
   ImpactTab: {
     screen: ImpactScreen,
@@ -84,7 +84,7 @@ const tabs = {
       tabBarLabel: i18next.t('appRoutes:impact'),
       tabBarIcon: navIcon('impactIcon'),
     },
-    name: 'mh : impact',
+    name: 'impact : impact',
   },
 };
 
@@ -118,18 +118,18 @@ export const MainTabRoutes = TabNavigator(
   });
 
 const screens = {
-  [LOGIN_SCREEN]: { screen: LoginScreen, name: 'mh : auth' },
-  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, name: 'mh : auth : sign in' },
-  [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'mh : onboarding : welcome' },
-  [SETUP_SCREEN]: { screen: SetupScreen, name: 'mh : onboarding : name' },
-  [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'mh : onboarding : get started' },
-  [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'mh : onboarding : self : choose my steps' },
-  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'mh : onboarding : self : steps : add' },
-  [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'mh : onboarding : add person' },
-  [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'mh : onboarding : add person : name' },
-  [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'mh : menu : notifications : permissions' },
-  [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'mh : menu : notifications : off' },
-  [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'mh : onboarding : complete' },
+  [LOGIN_SCREEN]: { screen: LoginScreen, name: 'auth : auth' },
+  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, name: 'auth : sign in' },
+  [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'onboarding : welcome' },
+  [SETUP_SCREEN]: { screen: SetupScreen, name: 'onboarding : name' },
+  [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'onboarding : get started' },
+  [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'onboarding : self : choose my steps' },
+  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'onboarding : self : steps : add' },
+  [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'onboarding : add person : add person' },
+  [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'onboarding : add person : name' },
+  [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'menu : notifications : permissions' },
+  [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'menu : notifications : off' },
+  [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'onboarding : complete' },
   [MAIN_TABS]: {
     screen: DrawerNavigator({
       Main: { screen: MainTabRoutes },

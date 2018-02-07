@@ -78,11 +78,11 @@ class ContactSteps extends Component {
       contactId: person.id,
       contact: person,
       onSaveNewSteps: this.handleSaveNewSteps,
-      createStepScreenname: `mh : people : ${subsection} : steps : create`,
+      createStepScreenname: `people : ${subsection} : steps : create`,
     }));
 
 
-    this.props.dispatch(trackState(`mh : people : ${subsection} : steps : add`));
+    this.props.dispatch(trackState(`people : ${subsection} : steps : add`));
   }
 
   renderRow({ item, index }) {

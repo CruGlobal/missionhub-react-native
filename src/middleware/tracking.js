@@ -43,5 +43,5 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState('mh : people : self : menu : menu') : trackState('mh : people : person : menu : menu');
+  return isCurrentUser ? trackState('people : self : menu : menu') : trackState('people : person : menu : menu');
 }

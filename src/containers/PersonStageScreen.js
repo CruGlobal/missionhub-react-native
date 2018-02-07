@@ -43,9 +43,9 @@ class PersonStageScreen extends Component {
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          onSaveNewSteps: this.handleNavigate, createStepScreenname: 'mh : onboarding : add person : steps : create',
+          onSaveNewSteps: this.handleNavigate, createStepScreenname: 'onboarding : add person : steps : create',
         }));
-        this.props.dispatch(trackState('mh : onboarding : add person : steps : add'));
+        this.props.dispatch(trackState('onboarding : add person : steps : add'));
       });
     }
   }

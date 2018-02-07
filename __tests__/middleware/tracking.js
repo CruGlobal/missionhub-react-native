@@ -9,7 +9,7 @@ const mockStore = configureStore([ tracking ]);
 let store;
 
 const routeName = 'test route';
-const analyticsName = 'mh : test : middleware';
+const analyticsName = 'test : middleware';
 const navigate = { type: 'Navigation/NAVIGATE', routeName: routeName };
 
 const back = { type: 'Navigation/BACK' };

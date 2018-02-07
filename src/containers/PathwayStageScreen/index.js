@@ -60,7 +60,7 @@ class PathwayStageScreen extends Component {
   }
 
   trackStageState(number) {
-    this.props.dispatch(trackState(`mh : ${this.props.section} : stage : ${number}`));
+    this.props.dispatch(trackState(`${this.props.section} : stage : ${number}`));
   }
 
   renderStage({ item, index }) {

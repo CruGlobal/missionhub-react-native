@@ -20,6 +20,8 @@ let context = {
 const mockStore = configureStore([ thunk ]);
 let store;
 
+const nameWithPrefix = (name) => `mh : ${name}`;
+
 beforeEach(() => {
   context = {
     [ANALYTICS.SCREENNAME]: screenName,
@@ -54,7 +56,7 @@ describe('trackAction', () => {
 describe('trackState', () => {
   const section = 'section';
   const subsection = 'subsection';
-  const screenNameWithSection = `mh : ${section} : screen`;
+  const screenNameWithSection = `${section} : screen`;
 
   let expectedUpdatedContext;
 
@@ -63,8 +65,8 @@ describe('trackState', () => {
 
     expectedUpdatedContext = {
       [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
-      [ANALYTICS.SCREENNAME]: screenNameWithSection,
-      [ANALYTICS.PAGE_NAME]: screenNameWithSection,
+      [ANALYTICS.SCREENNAME]: nameWithPrefix(screenNameWithSection),
+      [ANALYTICS.PAGE_NAME]: nameWithPrefix(screenNameWithSection),
       [ANALYTICS.SITE_SECTION]: section,
       [ANALYTICS.MCID]: mcId,
     };
@@ -73,7 +75,7 @@ describe('trackState', () => {
   it('should track state', () => {
     store.dispatch(trackState(screenNameWithSection));
 
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(screenNameWithSection, expect.anything());
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(nameWithPrefix(screenNameWithSection), expect.anything());
   });
 
   it('should send updated analytics context with site section', () => {
@@ -83,9 +85,9 @@ describe('trackState', () => {
   });
 
   it('should send updated analytics context with site section and subsection', () => {
-    const screenNameWithSubsection = `mh : ${section} : ${subsection} : screen`;
-    expectedUpdatedContext[ANALYTICS.SCREENNAME] = screenNameWithSubsection;
-    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = screenNameWithSubsection;
+    const screenNameWithSubsection = `${section} : ${subsection} : screen`;
+    expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsection);
+    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsection);
     expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
 
     store.dispatch(trackState(screenNameWithSubsection));
@@ -95,9 +97,9 @@ describe('trackState', () => {
 
   it('should send updated analytics context with site section, subsection, and subsection level 3', () => {
     const sectionLevel3 = 'section level 3';
-    const screenNameWithSubsectionAndLevel3 = `mh : ${section} : ${subsection} : ${sectionLevel3} : screen`;
-    expectedUpdatedContext[ANALYTICS.SCREENNAME] = screenNameWithSubsectionAndLevel3;
-    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = screenNameWithSubsectionAndLevel3;
+    const screenNameWithSubsectionAndLevel3 = `${section} : ${subsection} : ${sectionLevel3} : screen`;
+    expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
+    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
     expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
     expectedUpdatedContext[ANALYTICS.SITE_SUB_SECTION_3] = sectionLevel3;
 

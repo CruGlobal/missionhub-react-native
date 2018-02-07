@@ -15,6 +15,7 @@ export function trackAction(action, data) {
 export function trackState(screenName) {
   return (dispatch, getState) => {
 
+    screenName = `mh : ${screenName}`;
     const updatedContext = buildUpdatedContext(screenName, getState().analytics);
 
     RNOmniture.trackState(screenName, updatedContext);
