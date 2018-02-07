@@ -15,6 +15,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
+import { refresh } from '../../utils/common';
 
 const MAX_REMINDERS = 3;
 
@@ -28,6 +29,7 @@ class StepsScreen extends Component {
       addedReminder: props.reminders.length > 0,
     };
 
+    this.getSteps = this.getSteps.bind(this);
     this.completeStepBump = this.completeStepBump.bind(this);
     this.completeReminderBump = this.completeReminderBump.bind(this);
     this.handleSetReminder = this.handleSetReminder.bind(this);
@@ -84,12 +86,7 @@ class StepsScreen extends Component {
   }
 
   handleRefresh() {
-    this.setState({ refreshing: true });
-    this.getSteps().then(() => {
-      this.setState({ refreshing: false });
-    }).catch(() => {
-      this.setState({ refreshing: false });
-    });
+    refresh(this, this.getSteps);
   }
 
   renderTop() {
