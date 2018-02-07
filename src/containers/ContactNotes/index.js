@@ -27,21 +27,29 @@ export class ContactNotes extends Component {
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    if (!props.isActiveTab) {
+      this.saveNotes();
+    }
+  }
+
   onTextChanged(text) {
     this.setState({ text });
   }
 
   saveNotes() {
-    if (this.state.text) {
+    Keyboard.dismiss();
+
+    if (this.state.editing) {
       this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
     }
+
+    this.setState({ editing: false });
   }
 
   onButtonPress() {
     if (this.state.editing) {
-      this.setState({ editing: false });
       this.saveNotes();
-      Keyboard.dismiss();
 
     } else {
       this.setState({ editing: true });

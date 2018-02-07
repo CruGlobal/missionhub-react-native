@@ -14,8 +14,15 @@ export default class SecondaryTabBar extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = { notesAreActive: false };
+
     this.renderTabs = this.renderTabs.bind(this);
   }
+
+  onChangeTab = (activeTab) => {
+    this.setState({ notesAreActive: activeTab === 'notes' });
+  };
 
   renderTabs(tab) {
     if (tab.page === 'steps') {
@@ -33,7 +40,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'notes') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} />
+          <ContactNotes person={this.props.person} isActiveTab={this.state.notesAreActive} />
         </Flex>
       );
     } else if (tab.page === 'actions') {
@@ -61,7 +68,7 @@ export default class SecondaryTabBar extends Component {
           tabBarPosition="top"
           initialPage={0}
           locked={true}
-          renderTabBar={() => <CustomTabs tabArray={tabs} />}
+          renderTabBar={() => <CustomTabs tabArray={tabs} onChangeTab={this.onChangeTab} />}
         >
           {
             tabs.map(this.renderTabs)

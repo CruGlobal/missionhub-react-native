@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Keyboard } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Text, Icon } from '../common';
@@ -12,7 +12,8 @@ export default class CustomTabs extends Component {
   }
 
   goToTab(i) {
-    Keyboard.dismiss();
+    this.props.onChangeTab(this.props.tabArray[i].page);
+
     this.props.goToPage(i);
   }
 

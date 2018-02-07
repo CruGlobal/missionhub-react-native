@@ -29,7 +29,7 @@ describe('when keyboard height is set', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     screen = shallow(
-      <ContactNotes person={{ first_name: 'Roger' }} />,
+      <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
       { context: { store: store } }
     );
 
