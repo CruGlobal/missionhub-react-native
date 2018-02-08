@@ -12,6 +12,7 @@ import { testSnapshot } from '../../testUtils';
 import Button from '../../src/components/Button';
 
 const store = createMockStore();
+let shallowScreen;
 
 jest.mock('react-native-device-info');
 
@@ -23,60 +24,67 @@ it('renders dummy view when keyboard height is not set', () => {
   );
 });
 
+beforeEach(() => {
+  Enzyme.configure({ adapter: new Adapter() });
+  shallowScreen = shallow(
+    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
+    { context: { store: store } }
+  );
+
+  shallowScreen = shallowScreen.dive().dive();
+
+  shallowScreen.setState({ keyboardHeight: 216.5 });
+});
+
 describe('when keyboard height is set', () => {
-  let screen;
-
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    screen = shallow(
-      <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
-      { context: { store: store } }
-    );
-
-    screen = screen.dive().dive();
-
-    screen.setState({ keyboardHeight: 216.5 });
-  });
-
   it('icon and prompt are shown if no notes', () => {
-    expect(screen.dive()).toMatchSnapshot();
+    expect(shallowScreen.dive()).toMatchSnapshot();
   });
 
   it('notes are shown', () => {
-    screen.setState({ text: 'Hello, Roge! Here are some notes.' });
+    shallowScreen.setState({ text: 'Hello, Roge! Here are some notes.' });
 
-    expect(screen.dive()).toMatchSnapshot();
+    expect(shallowScreen.dive()).toMatchSnapshot();
   });
 
   describe('and editing is set to true', () => {
     beforeEach(() => {
-      screen.setState({ editing: true });
+      shallowScreen.setState({ editing: true });
     });
 
     it('button message changes to DONE', () => {
-      expect(screen.dive()).toMatchSnapshot();
+      expect(shallowScreen.dive()).toMatchSnapshot();
     });
 
     it('editing is set to false when button is pressed', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
-      jest.spyOn(screen.instance(), 'saveNotes');
+      jest.spyOn(shallowScreen.instance(), 'saveNotes');
 
-      screen.find(Button).simulate('press');
+      shallowScreen.find(Button).simulate('press');
 
-      expect(screen.state('editing')).toBe(false);
-      expect(screen.instance().saveNotes).toHaveBeenCalled();
+      expect(shallowScreen.state('editing')).toBe(false);
+      expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
       expect(ReactNative.Keyboard.dismiss).toHaveBeenCalled();
     });
   });
 
   it('editing is set to true when button is pressed', () => {
     const mockFocus = jest.fn();
-    Object.defineProperty(screen.instance(), 'notesInput', { value: { focus: mockFocus } });
+    Object.defineProperty(shallowScreen.instance(), 'notesInput', { value: { focus: mockFocus } });
 
-    screen.find(Button).simulate('press');
+    shallowScreen.find(Button).simulate('press');
 
-    expect(screen.state('editing')).toBe(true);
+    expect(shallowScreen.state('editing')).toBe(true);
     expect(mockFocus).toHaveBeenCalled();
   });
 });
 
+describe('componentWillReceiveProps', () => {
+  it('should save notes when navigating away', () => {
+    jest.spyOn(shallowScreen.instance(), 'saveNotes');
+
+    shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
+
+    expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
+  });
+});
