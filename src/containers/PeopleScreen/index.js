@@ -14,6 +14,7 @@ import { refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { DRAWER_OPEN } from '../../constants';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { SEARCH_PEOPLE_SCREEN } from '../SearchPeopleScreen';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -48,7 +49,7 @@ export class PeopleScreen extends Component {
   }
 
   handleSearch() {
-    this.props.dispatch(navigatePush('SearchPeople'));
+    this.props.dispatch(navigatePush(SEARCH_PEOPLE_SCREEN));
   }
 
   handleRowSelect(person) {

@@ -18,6 +18,7 @@ import NULL from '../../../assets/images/footprints.png';
 import { refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { DRAWER_OPEN } from '../../constants';
+import { SEARCH_PEOPLE_SCREEN } from '../SearchPeopleScreen';
 
 const MAX_REMINDERS = 3;
 
@@ -197,7 +198,7 @@ class StepsScreen extends Component {
           }
           right={
             isJean ? (
-              <IconButton name="searchIcon" type="MissionHub" onPress={()=> dispatch(navigatePush('SearchPeople'))} />
+              <IconButton name="searchIcon" type="MissionHub" onPress={()=> dispatch(navigatePush(SEARCH_PEOPLE_SCREEN))} />
             ) : null
           }
           title={t('title').toUpperCase()}

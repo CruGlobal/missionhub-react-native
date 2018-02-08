@@ -212,3 +212,4 @@ export class SearchPeopleScreen extends Component {
 }
 
 export default connect()(SearchPeopleScreen);
+export const SEARCH_PEOPLE_SCREEN = 'nav/SEARCH_PEOPLE';
