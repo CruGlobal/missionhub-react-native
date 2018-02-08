@@ -3,6 +3,7 @@ import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD } from '../constants';
+import { REHYDRATE } from 'redux-persist/constants';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -33,6 +34,8 @@ export default function tracking({ dispatch, getState }) {
 
     } else if (action.type === 'Navigation/RESET') {
       //todo handle
+    } else if (action.type === REHYDRATE) {
+      //todo grab route from top of nav stack
     }
 
     return returnValue;
