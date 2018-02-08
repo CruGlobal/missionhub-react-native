@@ -42,7 +42,7 @@ it('navigates to my steps', () => {
     />,
     { context: { store } },
   );
-  component = screen.dive().instance();
+  component = screen.dive().dive().dive().instance();
 
   navigation.navigatePush = jest.fn();
   component.handleCreateStep();
@@ -65,6 +65,6 @@ it('navigates to person steps', () => {
 
   navigation.navigatePush = jest.fn();
   component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledTimes(0);
+  expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
 });
 
