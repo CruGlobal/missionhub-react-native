@@ -13,7 +13,9 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { findAllNonPlaceHolders } from '../../utils/common';
+import { findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
+import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
+import { trackState } from '../../actions/analytics';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -68,12 +70,19 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.dispatch(navigatePush('PersonStep', {
-      contactName: this.props.person.first_name,
-      contactId: this.props.person.id,
-      contact: this.props.person,
+    const { person } = this.props;
+    const subsection = getAnalyticsSubsection(person.id, this.props.myId);
+
+    this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+      contactName: person.first_name,
+      contactId: person.id,
+      contact: person,
       onSaveNewSteps: this.handleSaveNewSteps,
+      createStepScreenname: `people : ${subsection} : steps : create`,
     }));
+
+
+    this.props.dispatch(trackState(`people : ${subsection} : steps : add`));
   }
 
   renderRow({ item, index }) {
@@ -145,8 +154,9 @@ ContactSteps.propTypes = {
   person: PropTypes.object,
 };
 
-const mapStateToProps = ({ swipe }) => ({
+const mapStateToProps = ({ swipe, auth }) => ({
   showBump: swipe.stepsContact,
+  myId: auth.personId,
 });
 
 export default connect(mapStateToProps)(ContactSteps);

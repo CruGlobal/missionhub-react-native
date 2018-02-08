@@ -39,6 +39,7 @@ class PersonSelectStepScreen extends Component {
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
         onComplete={this.handleNavigate}
+        createStepScreenname={this.props.createStepScreenname}
         enableButton
       />
     );
@@ -50,6 +51,7 @@ class PersonSelectStepScreen extends Component {
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,
+  createStepScreenname: PropTypes.string.isRequired,
   contact: PropTypes.object,
   onSaveNewSteps: PropTypes.func,
 };
@@ -63,3 +65,4 @@ const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
 
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);
+export const PERSON_SELECT_STEP_SCREEN = 'nav/PERSON_SELECT_STEP';

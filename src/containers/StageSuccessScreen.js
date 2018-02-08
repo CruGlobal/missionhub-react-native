@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { navigatePush } from '../actions/navigation';
 import IconMessageScreen from './IconMessageScreen/index';
+import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
@@ -13,7 +14,7 @@ class StageSuccessScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('Step'));
+    this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN));
   }
 
   getMessage() {
@@ -42,3 +43,4 @@ const mapStateToProps = ({ profile }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(StageSuccessScreen);
+export const STAGE_SUCCESS_SCREEN = 'nav/STAGE_SUCCESS';

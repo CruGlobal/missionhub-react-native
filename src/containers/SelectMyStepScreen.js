@@ -5,6 +5,7 @@ import { navigatePush } from '../actions/navigation';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
 import { getFirstThreeValidItems } from '../utils/common';
+import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('selectStep')
 class SelectMyStepScreen extends Component {
@@ -17,8 +18,8 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush('AddSomeone'));
-  }
+    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+  };
 
   render() {
     const { t } = this.props;
@@ -30,6 +31,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
+        createStepScreenname="onboarding : self : steps : create"
       />
     );
   }
@@ -42,3 +44,4 @@ const mapStateToProps = ({ steps, auth }) => ({
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);
+export const SELECT_MY_STEP_SCREEN = 'nav/SELECT_MY_STEP';

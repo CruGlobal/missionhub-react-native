@@ -4,14 +4,24 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { Text, Icon } from '../common';
+import { Text, Icon } from '../../components/common';
 import styles from './styles';
+import { trackState } from '../../actions/analytics';
 
-export default class CustomTabs extends Component {
+class CustomTabs extends Component {
   constructor(props) {
     super(props);
     this.icons = [];
+  }
+
+  goToTab(i, tab) {
+    this.props.goToPage(i);
+
+    if (i !== this.props.activeTab) {
+      this.props.dispatch(trackState(tab.screenName));
+    }
   }
 
   render() {
@@ -19,7 +29,7 @@ export default class CustomTabs extends Component {
       <View style={[ styles.tabs, this.props.style ]}>
         {this.props.tabArray.map((tab, i) => {
           return (
-            <TouchableOpacity key={tab.iconName} onPress={() => this.props.goToPage(i)} style={styles.tab}>
+            <TouchableOpacity key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
               <Icon
                 name={tab.iconName}
                 type="MissionHub"
@@ -41,3 +51,4 @@ CustomTabs.propTypes = {
   activeTab: PropTypes.number,
   goToPage: PropTypes.func,
 };
+export default connect()(CustomTabs);
