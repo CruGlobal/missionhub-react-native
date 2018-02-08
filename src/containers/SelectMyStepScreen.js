@@ -30,6 +30,7 @@ class SelectMyStepScreen extends Component {
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
         enableButton={enableButton}
+        createStepScreenname="onboarding : self : steps : create"
       />
     );
   }
@@ -43,3 +44,4 @@ const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);
+export const SELECT_MY_STEP_SCREEN = 'nav/SELECT_MY_STEP';

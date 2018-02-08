@@ -7,6 +7,7 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../componen
 import Input from '../../components/Input/index';
 import { navigatePush } from '../../actions/navigation';
 import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/profile';
+import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 
 @translate('setup')
 class SetupScreen extends Component {
@@ -15,7 +16,7 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
 
       this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName)).then(() => {
-        this.props.dispatch(navigatePush('GetStarted'));
+        this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
       });
     }
   }
@@ -78,3 +79,4 @@ const mapStateToProps = ({ profile }) => ({
 });
 
 export default connect(mapStateToProps)(SetupScreen);
+export const SETUP_SCREEN = 'nav/SETUP';

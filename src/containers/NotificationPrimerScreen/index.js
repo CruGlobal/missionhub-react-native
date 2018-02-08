@@ -22,7 +22,7 @@ class NotificationPrimerScreen extends Component {
     this.props.dispatch(disableAskPushNotification());
     this.props.onComplete();
   }
-  
+
   allow() {
     this.props.dispatch(enableAskPushNotification());
     this.props.dispatch(setupPushNotifications()).then(() => {
@@ -76,3 +76,4 @@ const mapStateToProps = (reduxState, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(NotificationPrimerScreen);
+export const NOTIFICATION_PRIMER_SCREEN = 'nav/NOTIFICATION_PRIMER';

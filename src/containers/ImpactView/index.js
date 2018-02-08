@@ -169,7 +169,7 @@ class ImpactView extends Component {
   }
 }
 
-ImpactView.PropTypes = {
+ImpactView.propTypes = {
   isContactScreen: PropTypes.bool,
   user: PropTypes.object,
 };

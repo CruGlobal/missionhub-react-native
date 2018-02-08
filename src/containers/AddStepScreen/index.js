@@ -111,3 +111,4 @@ const mapStateToProps = (reduxState, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
+export const ADD_STEP_SCREEN = 'nav/ADD_STEP';

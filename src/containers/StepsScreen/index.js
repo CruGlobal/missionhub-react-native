@@ -16,6 +16,8 @@ import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { refresh } from '../../utils/common';
+import { CONTACT_SCREEN } from '../ContactScreen';
+import { DRAWER_OPEN } from '../../constants';
 
 const MAX_REMINDERS = 3;
 
@@ -56,7 +58,7 @@ class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(navigatePush('Contact', { person: step.receiver }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person: step.receiver }));
   }
 
   handleSetReminder(step) {
@@ -150,7 +152,7 @@ class StepsScreen extends Component {
         </Flex>
       );
     }
-    
+
     const hideStars = reminders.length === MAX_REMINDERS;
 
     return (
@@ -191,7 +193,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush(DRAWER_OPEN))} />
           }
           right={
             isJean ? (
