@@ -24,9 +24,9 @@ import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
 import PersonStageScreen, { PERSON_STAGE_SCREEN } from './containers/PersonStageScreen';
 import CelebrationScreen, { CELEBRATION_SCREEN } from './containers/CelebrationScreen';
-import SearchPeopleScreen, { SEARCH_PEOPLE_SCREEN } from './containers/SearchPeopleScreen';
-import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
-import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
+import SearchPeopleScreen, { SEARCH_SCREEN } from './containers/SearchPeopleScreen';
+import SearchPeopleFilterScreen, { SEARCH_FILTER_SCREEN } from './containers/SearchPeopleFilterScreen';
+import SearchPeopleFilterRefineScreen, { SEARCH_REFINE_SCREEN } from './containers/SearchPeopleFilterRefineScreen';
 import LoginOptionsScreen from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 
@@ -131,7 +131,8 @@ const screens = {
   [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'menu : notifications : permissions' },
   [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'menu : notifications : off' },
   [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'onboarding : complete' },
-  [SEARCH_PEOPLE_SCREEN]: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : search' },
+  [SEARCH_SCREEN]: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : search' },
+  [SEARCH_FILTER_SCREEN]: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : refine : refine' },
   [MAIN_TABS]: {
     screen: DrawerNavigator({
       Main: { screen: MainTabRoutes },
@@ -155,8 +156,8 @@ export const MainStackRoutes = StackNavigator({
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
-  SearchPeopleFilter: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true } },
-  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
+  [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
+
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {

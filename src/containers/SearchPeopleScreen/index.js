@@ -13,6 +13,7 @@ import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { CONTACT_SCREEN } from '../ContactScreen';
+import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -40,7 +41,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleFilter() {
-    this.props.dispatch(navigatePush('SearchPeopleFilter', {
+    this.props.dispatch(navigatePush(SEARCH_FILTER_SCREEN, {
       onFilter: this.handleChangeFilter,
       filters: this.state.filters,
     }));
@@ -212,4 +213,4 @@ export class SearchPeopleScreen extends Component {
 }
 
 export default connect()(SearchPeopleScreen);
-export const SEARCH_PEOPLE_SCREEN = 'nav/SEARCH_PEOPLE';
+export const SEARCH_SCREEN = 'nav/SEARCH';
