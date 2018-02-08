@@ -48,7 +48,7 @@ class ImpactScreen extends Component {
   }
 }
 
-ImpactScreen.PropTypes = {
+ImpactScreen.propTypes = {
   isContactScreen: PropTypes.bool,
 };
 
