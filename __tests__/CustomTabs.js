@@ -2,12 +2,16 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import CustomTabs from '../src/components/CustomTabs';
+import CustomTabs from '../src/containers/CustomTabs';
+import { createMockStore, testSnapshot } from '../testUtils';
+import { Provider } from 'react-redux';
+
 import { testSnapshot } from '../testUtils';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 
+const store = createMockStore();
 const tabArray = [
   {
     page: 'steps',
@@ -30,13 +34,17 @@ Enzyme.configure({ adapter: new Adapter() });
 
 it('renders correctly', () => {
   testSnapshot(
-    <CustomTabs tabArray={tabArray} activeTab={1} goToPage={()=>{}} />
+    <Provider store={store}>
+      <CustomTabs tabArray={tabArray} activeTab={1} goToPage={()=>{}} />
+    </Provider>
   );
 });
 
 it('renders tab 0 correctly', () => {
   testSnapshot(
-    <CustomTabs tabArray={tabArray} activeTab={0} goToPage={()=>{}} />
+    <Provider store={store}>
+      <CustomTabs tabArray={tabArray} activeTab={0} goToPage={()=>{}} />
+    </Provider>
   );
 });
 

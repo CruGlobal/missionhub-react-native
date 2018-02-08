@@ -6,6 +6,7 @@ import { navigatePush } from '../../actions/navigation';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
+import { STAGE_SCREEN } from '../StageScreen';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
@@ -23,7 +24,10 @@ class GetStartedScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.props.dispatch(navigatePush('Stage', { enableButton: false }))}
+            onPress={() => this.props.dispatch(navigatePush(STAGE_SCREEN, {
+              section: 'onboarding : self',
+              enableButton: false,
+            }))}
             text={t('getStarted').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />
@@ -39,3 +43,4 @@ const mapStateToProps = ({ profile }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);
+export const GET_STARTED_SCREEN = 'nav/GET_STARTED';
