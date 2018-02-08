@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import * as navigation from '../../src/actions/navigation';
+import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
+import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 
 const mockState = {
   steps: {
@@ -47,7 +49,7 @@ it('navigates to my steps', () => {
 
   navigation.navigatePush = jest.fn();
   component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  expect(navigation.navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, expect.anything());
 });
 
 
@@ -66,6 +68,6 @@ it('navigates to person steps', () => {
 
   navigation.navigatePush = jest.fn();
   component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  expect(navigation.navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
 });
 
