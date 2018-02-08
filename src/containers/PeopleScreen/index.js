@@ -10,9 +10,8 @@ import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
-import { refresh } from '../../utils/common';
+import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
-import { DRAWER_OPEN } from '../../constants';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 
@@ -66,7 +65,7 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(openMainMenu())} />
           }
           right={
             isJean ? (

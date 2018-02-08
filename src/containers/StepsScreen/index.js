@@ -15,9 +15,8 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
-import { refresh } from '../../utils/common';
+import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
-import { DRAWER_OPEN } from '../../constants';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 
 const MAX_REMINDERS = 3;
@@ -194,7 +193,7 @@ class StepsScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(navigatePush(DRAWER_OPEN))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
           }
           right={
             isJean ? (

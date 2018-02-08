@@ -2,7 +2,7 @@ import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
-import { DRAWER_OPEN } from '../constants';
+import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -18,8 +18,13 @@ export default function tracking({ dispatch, getState }) {
       } else if (routeName === CONTACT_SCREEN) {
         dispatch(trackContactScreen(action, getState));
 
-      } else if (routeName === DRAWER_OPEN && action.params.isCurrentUser !== undefined) {
-        dispatch(trackContactMenu(action.params.isCurrentUser));
+      } else if (routeName === DRAWER_OPEN) {
+        if (action.params.drawer === CONTACT_MENU_DRAWER) {
+          dispatch(trackContactMenu(action.params.isCurrentUser));
+
+        } else if (action.params.drawer === MAIN_MENU_DRAWER) {
+          dispatch(trackState('menu : menu'));
+        }
       }
 
     } else if (action.type === 'Navigation/BACK') {
