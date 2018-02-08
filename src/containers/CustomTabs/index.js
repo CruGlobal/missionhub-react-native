@@ -4,12 +4,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { Text, Icon } from '../common';
+import { Text, Icon } from '../../components/common';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
 
-export default class CustomTabs extends Component {
+class CustomTabs extends Component {
   constructor(props) {
     super(props);
     this.icons = [];
@@ -50,3 +51,4 @@ CustomTabs.propTypes = {
   activeTab: PropTypes.number,
   goToPage: PropTypes.func,
 };
+export default connect()(CustomTabs);

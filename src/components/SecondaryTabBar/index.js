@@ -4,7 +4,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import { Flex } from '../common';
 // import styles from './styles';
-import CustomTabs from '../CustomTabs';
+import CustomTabs from '../../containers/CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';
 import ContactJourney from '../../containers/ContactJourney';
@@ -61,7 +61,7 @@ export default class SecondaryTabBar extends Component {
           tabBarPosition="top"
           initialPage={0}
           locked={true}
-          renderTabBar={() => <CustomTabs tabArray={tabs} dispatch={this.props.dispatch} />}
+          renderTabBar={() => <CustomTabs tabArray={tabs} />}
         >
           {
             tabs.map(this.renderTabs)

@@ -152,7 +152,7 @@ export default class ContactHeader extends Component {
           onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar person={person} tabs={this.getTabs()} dispatch={this.props.dispatch} />
+        <SecondaryTabBar person={person} tabs={this.getTabs()} />
       </Flex>
     );
   }

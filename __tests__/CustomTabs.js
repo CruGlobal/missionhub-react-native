@@ -2,8 +2,11 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import CustomTabs from '../src/components/CustomTabs';
-import { testSnapshot } from '../testUtils';
+import CustomTabs from '../src/containers/CustomTabs';
+import { createMockStore, testSnapshot } from '../testUtils';
+import { Provider } from 'react-redux';
+
+const store = createMockStore();
 
 const tabArray = [
   {
@@ -25,12 +28,16 @@ const tabArray = [
 
 it('renders correctly', () => {
   testSnapshot(
-    <CustomTabs tabArray={tabArray} activeTab={1} goToPage={()=>{}} />
+    <Provider store={store}>
+      <CustomTabs tabArray={tabArray} activeTab={1} goToPage={()=>{}} />
+    </Provider>
   );
 });
 
 it('renders tab 0 correctly', () => {
   testSnapshot(
-    <CustomTabs tabArray={tabArray} activeTab={0} goToPage={()=>{}} />
+    <Provider store={store}>
+      <CustomTabs tabArray={tabArray} activeTab={0} goToPage={()=>{}} />
+    </Provider>
   );
 });
