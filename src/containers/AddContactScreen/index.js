@@ -11,7 +11,7 @@ import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 
 @translate('addContact')
-class ProfileScreen extends Component {
+class AddContactScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -71,7 +71,7 @@ class ProfileScreen extends Component {
   }
 }
 
-ProfileScreen.propTypes = {
+AddContactScreen.propTypes = {
   organization: PropTypes.object,
   onComplete: PropTypes.func,
 };
@@ -80,4 +80,4 @@ const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(ProfileScreen);
+export default connect(mapStateToProps)(AddContactScreen);
