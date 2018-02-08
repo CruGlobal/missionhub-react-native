@@ -81,3 +81,4 @@ const mapStateToProps = (state, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(AddContactScreen);
+export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';

@@ -18,7 +18,7 @@ import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
-import AddContactScreen from './containers/AddContactScreen';
+import AddContactScreen, { ADD_CONTACT_SCREEN } from './containers/AddContactScreen';
 import NotificationPrimerScreen, { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
@@ -126,6 +126,7 @@ const screens = {
   [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'onboarding : self : choose my steps' },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'onboarding : self : steps : add' },
   [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'onboarding : add person : add person' },
+  [ADD_CONTACT_SCREEN]: { screen: AddContactScreen, name: 'onboarding : people : add person' },
   [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'onboarding : add person : name' },
   [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'menu : notifications : permissions' },
   [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'menu : notifications : off' },
@@ -151,7 +152,6 @@ export const MainStackRoutes = StackNavigator({
   [STAGE_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
-  AddContact: { screen: AddContactScreen },
   LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
   SearchPeople: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true } },

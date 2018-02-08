@@ -13,6 +13,7 @@ import Header from '../Header';
 import { refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { DRAWER_OPEN } from '../../constants';
+import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -40,7 +41,7 @@ export class PeopleScreen extends Component {
   }
 
   handleAddContact(org) {
-    this.props.dispatch(navigatePush('AddContact', {
+    this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
       organization: org && org.id ? org : undefined,
       onComplete: () => this.getPeople(),
     }));
