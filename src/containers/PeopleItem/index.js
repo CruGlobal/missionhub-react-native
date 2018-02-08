@@ -22,7 +22,7 @@ export class PeopleItem extends Component {
   handleAction = () => { this.props.onAction && this.props.onAction(this.props.person); }
 
   render() {
-    const { person, me, stagesObj, onAction, t } = this.props;
+    const { isJean, person, me, stagesObj, onAction, t, isPersonal } = this.props;
     const isMe = person.id === me.id;
     const newPerson = isMe ? me : person;
     let personName = isMe ? t('me') : newPerson.full_name || '';
@@ -53,6 +53,10 @@ export class PeopleItem extends Component {
         }
       }
     }
+    if (!isJean || isPersonal) {
+      status = '';
+      isUncontacted = false;
+    }
 
     return (
       <Touchable highlight={true} onPress={this.handleSelect}>
@@ -61,14 +65,20 @@ export class PeopleItem extends Component {
             <Text style={styles.name}>
               {personName}
             </Text>
-            <Text style={[ styles.stage, isUncontacted ? styles.uncontacted : null ]}>
-              {personStage}
-              {personStage && status ? '  >  ' : null}
-              {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
-            </Text>
+            <Flex direction="row" align="center">
+              <Text style={styles.stage}>
+                {personStage}
+              </Text>
+              <Text style={styles.stage}>
+                {personStage && status ? '  >  ' : null}
+              </Text>
+              <Text style={[ styles.stage, isUncontacted ? styles.uncontacted : null ]}>
+                {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
+              </Text>
+            </Flex>
           </Flex>
           {
-            !personStage && onAction ? (
+            !isPersonal && !personStage && onAction ? (
               <Touchable onPress={this.handleAction}>
                 <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
               </Touchable>
@@ -102,9 +112,11 @@ PeopleItem.propTypes = {
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
   onAction: PropTypes.func,
+  isPersonal: PropTypes.bool,
 };
 
 const mapStateToProps = ({ auth, stages }) => ({
+  isJean: auth.isJean,
   me: auth.user,
   stagesObj: stages.stagesObj,
 });
