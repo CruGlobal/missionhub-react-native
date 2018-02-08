@@ -10,6 +10,7 @@ import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
+import { refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { DRAWER_OPEN } from '../../constants';
 
@@ -23,6 +24,7 @@ export class PeopleScreen extends Component {
       refreshing: false,
     };
 
+    this.getPeople = this.getPeople.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddContact = this.handleAddContact.bind(this);
@@ -53,12 +55,7 @@ export class PeopleScreen extends Component {
   }
 
   handleRefresh() {
-    this.setState({ refreshing: true });
-    this.getPeople().then(() => {
-      this.setState({ refreshing: false });
-    }).catch(() => {
-      this.setState({ refreshing: false });
-    });
+    refresh(this, this.getPeople);
   }
 
   render() {

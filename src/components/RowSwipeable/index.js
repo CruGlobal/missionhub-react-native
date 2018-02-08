@@ -66,14 +66,14 @@ class RowSwipeable extends Component {
   componentDidMount() {
     if (this.props.bump) {
       Animated.spring(this.translateX, {
-        bounciness: 24,
+        friction: 7,
         toValue: ((this.numOptions - 1) * OPTION_WIDTH + (OPTION_WIDTH * 0.9)) * -1,
         delay: 800,
       }).start(() => {
         Animated.timing(this.translateX, {
           duration: 800,
           toValue: 0,
-          delay: 2500,
+          delay: 2400,
         }).start(() => {
           if (this.props.onBumpComplete) {
             this.props.onBumpComplete();

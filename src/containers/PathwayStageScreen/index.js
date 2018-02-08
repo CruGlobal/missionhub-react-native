@@ -6,6 +6,7 @@ import { getStages } from '../../actions/stages';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
+import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscape.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -91,6 +92,7 @@ class PathwayStageScreen extends Component {
             { left: (this.state.scrollPosition / -1) },
           ]}
         />
+        {this.props.enableButton ? (<BackButton />) : null}
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.questionText}

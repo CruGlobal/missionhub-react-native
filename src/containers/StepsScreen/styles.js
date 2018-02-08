@@ -6,6 +6,9 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.secondaryColor,
+  },
+  contentContainer: {
     backgroundColor: theme.white,
   },
   top: {
@@ -29,7 +32,7 @@ export default StyleSheet.create({
   },
   list: {
     overflow: 'scroll',
-    backgroundColor: theme.transparent,
+    backgroundColor: theme.white,
     paddingBottom: isAndroid ? 50 : undefined,
   },
   nullHeader: {

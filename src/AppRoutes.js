@@ -119,7 +119,7 @@ export const MainTabRoutes = TabNavigator(
 
 const screens = {
   [LOGIN_SCREEN]: { screen: LoginScreen, name: 'auth : auth' },
-  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, name: 'auth : sign in' },
+  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, navigationOptions: { gesturesEnabled: true }, name: 'auth : sign in' },
   [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'onboarding : welcome' },
   [SETUP_SCREEN]: { screen: SetupScreen, name: 'onboarding : name' },
   [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'onboarding : get started' },
@@ -147,16 +147,16 @@ export const trackableScreens = {
 
 export const MainStackRoutes = StackNavigator({
   ...screens,
-  Profile: { screen: ProfileScreen },
+  Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_SCREEN]: { screen: StageScreen },
-  [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen },
+  [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   AddContact: { screen: AddContactScreen },
   LoginOptions: { screen: LoginOptionsScreen },
-  [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen },
-  SearchPeople: { screen: SearchPeopleScreen },
-  SearchPeopleFilter: { screen: SearchPeopleFilterScreen },
-  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen },
+  [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
+  SearchPeople: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true } },
+  SearchPeopleFilter: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true } },
+  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {
@@ -167,10 +167,12 @@ export const MainStackRoutes = StackNavigator({
         drawerPosition: 'right',
       }
     ),
+    navigationOptions: { gesturesEnabled: true },
   },
 }, {
   navigationOptions: {
     header: null,
+    gesturesEnabled: false,
   },
 });
 
