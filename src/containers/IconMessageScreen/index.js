@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
-import BackButton from '../BackButton';
 import theme from '../../theme';
 
 class IconMessageScreen extends Component {
@@ -14,8 +13,6 @@ class IconMessageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <BackButton />
-
         <Flex align="center" justify="center" value={4}>
           <Image source={iconPath} />
           <Text style={styles.text}>{mainText}</Text>

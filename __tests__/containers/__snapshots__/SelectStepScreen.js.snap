@@ -31,79 +31,9 @@ exports[`renders correctly 1`] = `
         Array [
           Object {},
           Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Object {
-                  "margin": 20,
-                  "marginTop": 40,
-                },
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
             "alignItems": "center",
             "flex": 1.5,
-            "justifyContent": "flex-start",
+            "justifyContent": "center",
           },
         ]
       }
