@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
 import { navigatePush } from '../../actions/navigation';
+import { getStagesIfNotExists } from '../../actions/stages';
 
 import styles from './styles';
 import { IconButton } from '../../components/common';
@@ -34,6 +35,8 @@ export class PeopleScreen extends Component {
 
   componentWillMount() {
     this.getPeople();
+
+    this.props.dispatch(getStagesIfNotExists());
   }
 
   getPeople() {
@@ -96,11 +99,12 @@ export class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, people }) => ({
+const mapStateToProps = ({ auth, people, stages }) => ({
   isJean: auth.isJean,
   people: [ auth.user ].concat(people.all),
   sectionPeople: people.allByOrg,
   me: auth.user,
+  stagesExist: !!stages.stagesObj,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

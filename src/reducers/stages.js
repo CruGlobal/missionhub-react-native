@@ -5,7 +5,7 @@ import { LOGOUT } from '../constants';
 
 const initialStagesState = {
   stages: [],
-  stagesObj: {},
+  stagesObj: null,
 };
 
 function stagesReducer(state = initialStagesState, action) {
