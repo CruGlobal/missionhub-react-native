@@ -7,44 +7,53 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
+    let newAction;
     const returnValue = next(action);
+    const actionType = action.type;
 
-    if (action.type === NAVIGATE_FORWARD) {
+    if (actionType === NAVIGATE_FORWARD) {
       const routeName = action.routeName;
       const route = trackableScreens[routeName];
 
       if (route) {
-        dispatch(trackState(route.name));
+        newAction = trackState(route.name);
 
       } else if (routeName === CONTACT_SCREEN) {
-        dispatch(trackContactScreen(action, getState));
+        newAction = trackContactScreen(action, getState);
 
       } else if (routeName === DRAWER_OPEN) {
-        if (action.params.drawer === CONTACT_MENU_DRAWER) {
-          dispatch(trackContactMenu(action.params.isCurrentUser));
+        const actionParams = action.params;
 
-        } else if (action.params.drawer === MAIN_MENU_DRAWER) {
-          dispatch(trackState('menu : menu'));
+        if (actionParams.drawer === CONTACT_MENU_DRAWER) {
+          newAction = trackContactMenu(actionParams.isCurrentUser);
+
+        } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
+          newAction = trackState('menu : menu');
         }
       }
 
-    } else if (action.type === 'Navigation/BACK') {
+    } else if (actionType === 'Navigation/BACK') {
       // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
       // dispatch(trackState(screen));
 
-    } else if (action.type === NAVIGATE_RESET) {
-      const routeName = action.actions[0].routeName;
-      dispatch(trackState(trackableScreens[routeName].name));
+    } else if (actionType === NAVIGATE_RESET) {
+      newAction = trackRoute(action.actions[0]);
 
-    } else if (action.type === REHYDRATE) {
+    } else if (actionType === REHYDRATE) {
       const savedRoutes = action.payload.nav.routes;
-      const routeName = savedRoutes[savedRoutes.length - 1].routeName;
 
-      dispatch(trackState(trackableScreens[routeName].name));
+      newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
     }
 
+    newAction && dispatch(newAction);
     return returnValue;
   };
+}
+
+function trackRoute(route) {
+  const routeName = route.routeName;
+
+  return trackState(trackableScreens[routeName].name);
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
