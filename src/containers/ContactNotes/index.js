@@ -24,8 +24,13 @@ export class ContactNotes extends Component {
     this.saveNotes = this.saveNotes.bind(this);
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
-    this.onTextInputFocus = this.onTextInputFocus.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    if (!props.isActiveTab) {
+      this.saveNotes();
+    }
   }
 
   onTextChanged(text) {
@@ -33,16 +38,18 @@ export class ContactNotes extends Component {
   }
 
   saveNotes() {
-    if (this.state.text) {
+    Keyboard.dismiss();
+
+    if (this.state.editing) {
       this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
     }
+
+    this.setState({ editing: false });
   }
 
   onButtonPress() {
     if (this.state.editing) {
-      this.setState({ editing: false });
       this.saveNotes();
-      Keyboard.dismiss();
 
     } else {
       this.setState({ editing: true });
@@ -62,10 +69,6 @@ export class ContactNotes extends Component {
     }
   }
 
-  onTextInputFocus() {
-    this.setState({ editing: true });
-  }
-
   onLayout(event) {
     if (!this.state.keyboardHeight) {
       const keyboardHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
@@ -78,12 +81,12 @@ export class ContactNotes extends Component {
       <Input
         ref={(c) => this.notesInput = c}
         onChangeText={this.onTextChanged}
+        editable={this.state.editing}
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
         returnKeyType="next"
         blurOnSubmit={false}
-        onFocus={this.onTextInputFocus}
       />
     );
   }
