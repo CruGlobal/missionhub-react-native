@@ -1,8 +1,17 @@
 import callApi, { REQUESTS } from './api';
 
+export function getStagesIfNotExists() {
+  return (dispatch, getState) => {
+    const stagesExist = !!getState().stages.stagesObj;
+    if (stagesExist) {
+      return Promise.resolve();
+    }
+    return dispatch(getStages());
+  };
+}
+
 export function getStages() {
   return (dispatch) => {
-
     return dispatch(callApi(REQUESTS.GET_STAGES));
   };
 }

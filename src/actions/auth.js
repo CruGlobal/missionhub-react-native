@@ -1,7 +1,7 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
-import { getStages } from './stages';
+import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
@@ -75,7 +75,7 @@ export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
-    dispatch(getStages());
+    dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
   };
 }

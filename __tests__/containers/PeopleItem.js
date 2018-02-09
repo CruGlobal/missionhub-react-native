@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { createMockStore, testSnapshot } from '../../testUtils';
 import PeopleItem from '../../src/containers/PeopleItem';
 
-jest.mock('../../src/actions/stages', () => ({
-  getStages: () => { },
+jest.mock('../../src/actions/people', () => ({
+  getMyPeople: () => () => 'test',
 }));
 
 const mockState = {
@@ -46,7 +46,7 @@ const mockPerson = {
   created_at: '2017-12-05T15:13:10Z',
   updated_at: '2017-12-05T15:13:10Z',
   organizational_permissions: [
-    { followup_status: 'uncontacted' },
+    { organization_id: '1', followup_status: 'uncontacted' },
   ],
   reverse_contact_assignments: [
     { assigned_to: { id: '1' }, pathway_stage_id: '1' },
@@ -58,6 +58,22 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PeopleItem onSelect={() => {}} person={mockPerson} />
+    </Provider>
+  );
+});
+
+it('renders personal user correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem onSelect={() => {}} person={mockPerson} organization={{ id: 'personal' }} />
+    </Provider>
+  );
+});
+
+it('renders org user correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem onSelect={() => {}} person={mockPerson} organization={{ id: '1' }} />
     </Provider>
   );
 });

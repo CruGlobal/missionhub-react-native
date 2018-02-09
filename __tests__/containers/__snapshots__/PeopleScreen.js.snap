@@ -368,64 +368,83 @@ exports[`renders correctly as Casey 1`] = `
               >
                 ME
               </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              <View
                 style={
                   Array [
+                    Object {},
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "row",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
                     Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
                       Object {
                         "color": "#A0A2A6",
                         "fontSize": 14,
                       },
-                      null,
-                    ],
-                  ]
-                }
-              >
-                
-                
-              </Text>
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#A0A2A6",
+                          "fontSize": 14,
+                        },
+                        null,
+                      ],
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
             </View>
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Object {
-                      "color": "#FF5532",
-                      "fontSize": 24,
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
           </View>
         </View>
       </View>
