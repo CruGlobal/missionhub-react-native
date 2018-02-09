@@ -45,6 +45,18 @@ it('renders edit journey correctly', () => {
   );
 });
 
+it('renders step note correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'stepNote',
+        text: 'Comment',
+      })} />
+    </Provider>
+  );
+});
+
 
 describe('add step methods', () => {
   let component;

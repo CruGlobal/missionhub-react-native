@@ -1,6 +1,9 @@
 import callApi, { REQUESTS } from './api';
 import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
 import { formatApiDate } from '../utils/common';
+import { navigatePush } from './navigation';
+import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
+import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 
 
 export function getStepSuggestions() {
@@ -100,7 +103,26 @@ export function challengeCompleteAction(step) {
         },
       },
     };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results)=> {
+      dispatch(navigatePush(ADD_STEP_SCREEN, {
+        onComplete: (text) => {
+          if (text) {
+            const noteData = {
+              data: {
+                type: 'accepted_challenge',
+                attributes: {
+                  note: text,
+                },
+              },
+            };
+            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
+          }
+          dispatch(navigatePush(CELEBRATION_SCREEN));
+        },
+        type: 'stepNote',
+      }));
+      return results;
+    });
   };
 }
 
