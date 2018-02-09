@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
-import { getStages } from '../../actions/stages';
+import { getStagesIfNotExists } from '../../actions/stages';
 
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
@@ -42,7 +42,7 @@ class PathwayStageScreen extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(getStages());
+    this.props.dispatch(getStagesIfNotExists());
   }
 
   setStage(stage) {

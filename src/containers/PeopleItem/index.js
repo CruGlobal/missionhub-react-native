@@ -5,58 +5,76 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import styles from './styles';
-import { getStages } from '../../actions/stages';
-import { capitalize } from '../../utils/common';
+import { navigatePush } from '../../actions/navigation';
+import { getMyPeople } from '../../actions/people';
+
+const HIDE_ORG_PERMISSION_IDS = [ 1, 4 ];
 
 @translate()
 export class PeopleItem extends Component {
 
-  componentDidMount() {
-    const { person, me, dispatch } = this.props;
-    if (person.id === me.id && !me.stage) {
-      dispatch(getStages());
-    }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isMe: props.person.id === props.me.id,
+      isPersonal: props.organization && props.organization.id === 'personal',
+    };
   }
 
   handleSelect = () => { this.props.onSelect(this.props.person); }
-  handleAction = () => { this.props.onAction && this.props.onAction(this.props.person); }
+
+  handleChangeStage = () => {
+    const { me, dispatch, person } = this.props;
+
+    const contactAssignment = person.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
+    const contactAssignmentId = contactAssignment && contactAssignment.id;
+    
+    dispatch(navigatePush('PersonStage', {
+      onComplete: () => this.props.dispatch(getMyPeople()),
+      currentStage: null,
+      name: person.first_name,
+      contactId: person.id,
+      contactAssignmentId: contactAssignmentId,
+    }));
+  }
 
   render() {
-    const { isJean, person, me, stagesObj, onAction, t, isPersonal } = this.props;
-    const isMe = person.id === me.id;
+    const { person, me, t, stagesObj, organization, isJean } = this.props;
+    const { isPersonal, isMe } = this.state;
     const newPerson = isMe ? me : person;
     let personName = isMe ? t('me') : newPerson.full_name || '';
     personName = personName.toUpperCase();
 
-    let status = 'Uncontacted';
-    let personStage = '';
-    let isUncontacted = true;
+    let stage = null;
 
-    const orgPermissions = newPerson.organizational_permissions;
-    const contactAssignments = newPerson.reverse_contact_assignments;
+    const contactAssignments = person.reverse_contact_assignments;
     if (isMe) {
-      personStage = me.stage ? me.stage.name : '';
-      status = '';
-      isUncontacted = false;
-    } else {
-      if (orgPermissions && orgPermissions[0] && orgPermissions[0].followup_status) {
-        status = capitalize(orgPermissions[0].followup_status);
-        if (status !== 'Uncontacted') {
-          isUncontacted = false;
-        }
+      stage = me.stage;
+    } else if (stagesObj) {
+      const contactAssignment = contactAssignments.find((a) => a.assigned_to.id === me.id);
+      if (contactAssignment && contactAssignment.pathway_stage_id && stagesObj[`${contactAssignment.pathway_stage_id}`]) {
+        stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
       }
-      if (contactAssignments && contactAssignments[0]) {
-        if (contactAssignments[0].assigned_to.id === me.id
-          && contactAssignments[0].pathway_stage_id
-          && stagesObj[`${contactAssignments[0].pathway_stage_id}`]) {
-          personStage = stagesObj[`${contactAssignments[0].pathway_stage_id}`].name;
+    }
+
+    let status = 'uncontacted';
+
+    const orgPermissions = person.organizational_permissions;
+    if (isMe || !isJean || isPersonal) {
+      status = '';
+    } else if (organization && organization.id) {
+      const personOrgPermissions = orgPermissions.find((o) => o.organization_id === organization.id);
+      if (personOrgPermissions && personOrgPermissions.followup_status) {
+        if (HIDE_ORG_PERMISSION_IDS.includes(personOrgPermissions.permission_id)) {
+          status = '';
+        } else {
+          status = personOrgPermissions.followup_status;
         }
       }
     }
-    if (!isJean || isPersonal) {
-      status = '';
-      isUncontacted = false;
-    }
+
+    let isUncontacted = status === 'uncontacted';
 
     return (
       <Touchable highlight={true} onPress={this.handleSelect}>
@@ -67,10 +85,10 @@ export class PeopleItem extends Component {
             </Text>
             <Flex direction="row" align="center">
               <Text style={styles.stage}>
-                {personStage}
+                {stage ? stage.name : ''}
               </Text>
               <Text style={styles.stage}>
-                {personStage && status ? '  >  ' : null}
+                {stage && status ? '  >  ' : null}
               </Text>
               <Text style={[ styles.stage, isUncontacted ? styles.uncontacted : null ]}>
                 {t(status ? `followupStatus.${status.toLowerCase()}` : null)}
@@ -78,8 +96,8 @@ export class PeopleItem extends Component {
             </Flex>
           </Flex>
           {
-            !isPersonal && !personStage && onAction ? (
-              <Touchable onPress={this.handleAction}>
+            !isPersonal && !stage && !isMe ? (
+              <Touchable onPress={this.handleChangeStage}>
                 <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
               </Touchable>
             ) : null
@@ -111,8 +129,7 @@ PeopleItem.propTypes = {
     updated_at: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
-  onAction: PropTypes.func,
-  isPersonal: PropTypes.bool,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ auth, stages }) => ({

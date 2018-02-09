@@ -48,8 +48,8 @@ export default class PeopleList extends Component {
   }
 
   renderList(items, organization) {
-    const { onSelect, onAction, sections, refreshing, onRefresh } = this.props;
-    const isPersonal = organization && organization.id === 'personal';
+    const { onSelect, sections, refreshing, onRefresh } = this.props;
+    
     return (
       <FlatList
         style={styles.list}
@@ -59,9 +59,8 @@ export default class PeopleList extends Component {
         renderItem={({ item }) => (
           <PeopleItem
             onSelect={onSelect}
-            onAction={onAction}
             person={item}
-            isPersonal={isPersonal} />
+            organization={organization} />
         )}
         refreshControl={!sections ? <RefreshControl
           refreshing={refreshing}
@@ -79,7 +78,7 @@ export default class PeopleList extends Component {
           {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end" align="center">
-          <Touchable onPress={() => onAddContact(org)}>
+          <Touchable onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
             <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
           </Touchable>
           <Touchable onPress={() => this.toggleSection(org.id)}>
