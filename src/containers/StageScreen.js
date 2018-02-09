@@ -57,3 +57,4 @@ const mapStateToProps = ({ profile }, { navigation } ) => ({
 
 export default connect(mapStateToProps)(StageScreen);
 export const STAGE_SCREEN = 'nav/STAGE';
+export const STAGE_ONBOARDING_SCREEN = 'nav/STAGE_ONBOARDING';
