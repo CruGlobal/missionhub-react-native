@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -18,6 +15,8 @@ class CustomTabs extends Component {
 
   goToTab(i, tab) {
     this.props.goToPage(i);
+
+    this.props.onChangeTab(tab.page);
 
     if (i !== this.props.activeTab) {
       this.props.dispatch(trackState(tab.screenName));
