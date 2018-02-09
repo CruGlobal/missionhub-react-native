@@ -10,6 +10,8 @@ import StepsList from '../../components/StepsList';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
+import { trackAction, trackState } from '../../actions/analytics';
+import { ADD_STEP_SCREEN } from '../AddStepScreen';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -47,7 +49,7 @@ class SelectStepScreen extends Component {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
     }
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
 
@@ -64,15 +66,28 @@ class SelectStepScreen extends Component {
         this.stepsList.onScrollToEnd();
       },
     }));
+
+    this.props.dispatch(trackState(this.props.createStepScreenname));
   }
 
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
 
     LOG('selectedSteps', selectedSteps);
-    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId)).then(()=>{
-      this.props.onComplete();
-    });
+
+    selectedSteps.forEach((step) => this.props.dispatch(trackAction('cru.stepoffaithdetail',
+      {
+        'Step ID': step.id,
+        'Stage': step.pathway_stage.id,
+        'Challenge Type': step.challenge_type,
+        'Self Step': step.self_step ? 'Y' : 'N',
+        'Locale': step.locale,
+      })));
+
+    this.props.dispatch(trackAction('cru.stepoffaithadded', { 'steps': selectedSteps.length }));
+
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId))
+      .then(() => this.props.onComplete());
   }
 
   renderBackButton() {
@@ -126,8 +141,9 @@ class SelectStepScreen extends Component {
   }
 }
 
-PropTypes.SelectStepScreen = {
+SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
+  createStepScreenname: PropTypes.string.isRequired,
 };
 
 

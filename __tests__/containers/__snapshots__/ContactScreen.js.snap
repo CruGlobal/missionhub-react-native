@@ -37,6 +37,7 @@ exports[`renders correctly as Casey 1`] = `
     value={1}
   >
     <ContactHeader
+      dispatch={[Function]}
       isMe={true}
       onChangeStage={[Function]}
       person={Object {}}
@@ -83,6 +84,7 @@ exports[`renders correctly as Jean 1`] = `
     value={1}
   >
     <ContactHeader
+      dispatch={[Function]}
       isMe={true}
       onChangeStage={[Function]}
       person={Object {}}

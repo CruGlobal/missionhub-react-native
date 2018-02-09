@@ -12,6 +12,7 @@ import Header from '../Header';
 import ImpactView from '../ImpactView';
 import { intToStringLocale } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
+import { DRAWER_OPEN } from '../../constants';
 
 @translate('impact')
 class ImpactScreen extends Component {
@@ -37,7 +38,7 @@ class ImpactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN))} />
           }
           title={t('header').toUpperCase()}
         />
@@ -47,7 +48,7 @@ class ImpactScreen extends Component {
   }
 }
 
-ImpactScreen.PropTypes = {
+ImpactScreen.propTypes = {
   isContactScreen: PropTypes.bool,
 };
 

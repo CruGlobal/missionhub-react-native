@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
@@ -7,11 +7,11 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import BaseScreen from '../../components/BaseScreen';
 import theme from '../../theme';
 import ONBOARDING_1 from '../../../assets/images/onboarding1.png';
 import ONBOARDING_2 from '../../../assets/images/onboarding2.png';
 import ONBOARDING_3 from '../../../assets/images/onboarding3.png';
+import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 
 const sliderWidth = theme.fullWidth;
 
@@ -37,7 +37,7 @@ const ONBOARDING = [
 ];
 
 @translate('login')
-class LoginScreen extends BaseScreen {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -50,8 +50,12 @@ class LoginScreen extends BaseScreen {
     this.login = this.login.bind(this);
   }
 
+  componentDidMount() {
+    //this.props.dispatch(trackState('login')); //todo?
+  }
+
   login() {
-    this.navigateToNext('KeyLogin');
+    this.navigateToNext(KEY_LOGIN_SCREEN);
   }
 
   getStarted() {
@@ -147,3 +151,4 @@ const mapStateToProps = ({ myStageReducer }) => ({
 });
 
 export default connect(mapStateToProps)(LoginScreen);
+export const LOGIN_SCREEN = 'nav/LOGIN';

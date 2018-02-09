@@ -7,6 +7,11 @@ import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigatePush, navigateBack } from '../actions/navigation';
 import { isAndroid } from '../utils/common';
+import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
+import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
+import { MAIN_TABS } from '../constants';
+import { trackState } from '../actions/analytics';
+import { CELEBRATION_SCREEN } from './CelebrationScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -19,13 +24,13 @@ class PersonStageScreen extends Component {
   handleNavigate = () => {
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
-      this.props.dispatch(navigatePush('NotificationPrimer', {
+      this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
         onComplete: () => {
-          this.props.dispatch(navigatePush('Celebration'));
+          this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
         },
       }));
     } else {
-      this.props.dispatch(navigatePush('MainTabs'));
+      this.props.dispatch(navigatePush(MAIN_TABS));
     }
   }
 
@@ -37,7 +42,10 @@ class PersonStageScreen extends Component {
       });
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-        this.props.dispatch(navigatePush('PersonStep', { onSaveNewSteps: this.handleNavigate }));
+        this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          onSaveNewSteps: this.handleNavigate, createStepScreenname: 'onboarding : add person : steps : create',
+        }));
+        this.props.dispatch(trackState('onboarding : add person : steps : add'));
       });
     }
   }
@@ -51,6 +59,7 @@ class PersonStageScreen extends Component {
         buttonText={t('here').toUpperCase()}
         questionText={t('personQuestion', { name })}
         onSelect={this.handleSelectStage}
+        section={this.props.section}
         enableButton
       />
     );
@@ -75,3 +84,4 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(PersonStageScreen);
+export const PERSON_STAGE_SCREEN = 'nav/PERSON_STAGE';
