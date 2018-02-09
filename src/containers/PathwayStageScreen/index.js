@@ -70,6 +70,14 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
+    let leftMargin;
+
+    if (this.state.scrollPosition < 0) {
+      leftMargin = -30;
+    } else {
+      leftMargin = (this.state.scrollPosition / -1) -30;
+    }
+
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image
@@ -77,7 +85,7 @@ class PathwayStageScreen extends Component {
           source={LANDSCAPE}
           style={[
             styles.footerImage,
-            { left: (this.state.scrollPosition / -1) - 50 },
+            { left: leftMargin },
           ]}
         />
         <Flex value={1} align="center" justify="center">
