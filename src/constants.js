@@ -24,6 +24,7 @@ export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
 export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 
+export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';

@@ -2,13 +2,13 @@ import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
-import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
+import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD } from '../constants';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
     const returnValue = next(action);
 
-    if (action.type === 'Navigation/NAVIGATE') {
+    if (action.type === NAVIGATE_FORWARD) {
       const routeName = action.routeName;
       const route = trackableScreens[routeName];
 
