@@ -10,6 +10,8 @@ export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
 
+export const getAnalyticsSubsection = (personId, myId) => personId === myId ? 'self' : 'person';
+
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);
 export const isObject = (obj) => typeof obj === 'object' && !isArray(obj);
@@ -18,6 +20,15 @@ export const isString = (str) => typeof str === 'string';
 export const exists = (v) => typeof v !== 'undefined';
 export const clone = (obj) => JSON.parse(JSON.stringify(obj));
 export const delay = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+
+export const refresh = (obj, method) => {
+  obj.setState({ refreshing: true });
+  method().then(() => {
+    obj.setState({ refreshing: false });
+  }).catch(() => {
+    obj.setState({ refreshing: false });
+  });
+};
 
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type)

@@ -9,7 +9,6 @@ import styles from './styles';
 import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
-import BackButton from '../BackButton';
 import theme from '../../theme';
 
 @translate('addStep')
@@ -69,7 +68,6 @@ class AddStepScreen extends Component {
   render() {
     return (
       <PlatformKeyboardAvoidingView>
-        <BackButton />
         <Flex value={1.5} align="center" justify="center">
           {this.renderTitle()}
         </Flex>
@@ -113,3 +111,4 @@ const mapStateToProps = (reduxState, { navigation }) => ({
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
+export const ADD_STEP_SCREEN = 'nav/ADD_STEP';

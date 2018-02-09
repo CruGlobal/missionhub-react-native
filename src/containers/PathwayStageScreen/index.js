@@ -6,6 +6,7 @@ import { getStages } from '../../actions/stages';
 import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
+import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscape.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -15,6 +16,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import PropTypes from 'prop-types';
 
 import theme from '../../theme';
+import { trackState } from '../../actions/analytics';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
@@ -38,14 +40,28 @@ class PathwayStageScreen extends Component {
 
     this.renderStage = this.renderStage.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleSnapToItem = this.handleSnapToItem.bind(this);
   }
 
   componentWillMount() {
     this.props.dispatch(getStages());
+    this.trackStageState(1);
   }
 
   setStage(stage) {
     this.props.onSelect(stage);
+  }
+
+  handleScroll(e) {
+    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
+  }
+
+  handleSnapToItem(index) {
+    this.trackStageState(index + 1);
+  }
+
+  trackStageState(number) {
+    this.props.dispatch(trackState(`${this.props.section} : stage : ${number}`));
   }
 
   renderStage({ item, index }) {
@@ -63,10 +79,6 @@ class PathwayStageScreen extends Component {
         />
       </View>
     );
-  }
-
-  handleScroll(e) {
-    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
   }
 
   render() {
@@ -88,6 +100,7 @@ class PathwayStageScreen extends Component {
             { left: leftMargin },
           ]}
         />
+        {this.props.enableButton ? (<BackButton />) : null}
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.questionText}
@@ -103,6 +116,7 @@ class PathwayStageScreen extends Component {
                 itemWidth={stageWidth + stageMargin * 2}
                 onScroll={this.handleScroll}
                 scrollEventThrottle={5}
+                onSnapToItem={this.handleSnapToItem}
               />
             ) : null
           }
@@ -115,6 +129,7 @@ class PathwayStageScreen extends Component {
 
 PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
+  section: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ stages }) => ({

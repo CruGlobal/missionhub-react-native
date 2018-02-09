@@ -84,7 +84,7 @@ class KeyLoginScreen extends Component {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken));
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();
@@ -185,3 +185,4 @@ class KeyLoginScreen extends Component {
 }
 
 export default connect()(KeyLoginScreen);
+export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';

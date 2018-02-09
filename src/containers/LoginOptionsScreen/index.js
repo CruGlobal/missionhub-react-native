@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
@@ -8,16 +8,17 @@ import { firstTime, facebookLoginAction } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import BaseScreen from '../../components/BaseScreen';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
+import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
+import { WELCOME_SCREEN } from '../WelcomeScreen';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
 const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 @translate('loginOptions')
-class LoginScreen extends BaseScreen {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -31,12 +32,12 @@ class LoginScreen extends BaseScreen {
   }
 
   login() {
-    this.navigateToNext('KeyLogin');
+    this.navigateToNext(KEY_LOGIN_SCREEN);
   }
 
   tryItNow() {
     this.props.dispatch(firstTime());
-    this.navigateToNext('Welcome');
+    this.navigateToNext(WELCOME_SCREEN);
   }
 
   navigateToNext(nextScreen) {
@@ -71,7 +72,7 @@ class LoginScreen extends BaseScreen {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken));
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();

@@ -10,6 +10,9 @@ import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
+import { refresh } from '../../utils/common';
+import { CONTACT_SCREEN } from '../ContactScreen';
+import { DRAWER_OPEN } from '../../constants';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -21,6 +24,7 @@ export class PeopleScreen extends Component {
       refreshing: false,
     };
 
+    this.getPeople = this.getPeople.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddContact = this.handleAddContact.bind(this);
@@ -47,16 +51,11 @@ export class PeopleScreen extends Component {
   }
 
   handleRowSelect(person) {
-    this.props.dispatch(navigatePush('Contact', { person }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person }));
   }
 
   handleRefresh() {
-    this.setState({ refreshing: true });
-    this.getPeople().then(() => {
-      this.setState({ refreshing: false });
-    }).catch(() => {
-      this.setState({ refreshing: false });
-    });
+    refresh(this, this.getPeople);
   }
 
   render() {
@@ -65,7 +64,7 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush('DrawerOpen'))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN))} />
           }
           right={
             isJean ? (

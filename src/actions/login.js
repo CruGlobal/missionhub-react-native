@@ -1,18 +1,24 @@
 import { getPerson } from './people';
 import { navigatePush } from './navigation';
+import { updateLoggedInStatus } from './analytics';
+import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
+import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
+import { MAIN_TABS } from '../constants';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
+    dispatch(updateLoggedInStatus(true));
+
     const personId = getState().auth.personId;
     const getMeResult = await dispatch(getPerson(personId));
 
-    let nextScreen = 'GetStarted';
+    let nextScreen = GET_STARTED_SCREEN;
     if (getMeResult.findAll('user')[0].pathway_stage_id) {
 
       if (hasPersonWithStageSelected(getMeResult.find('person', personId))) {
-        nextScreen = 'MainTabs';
+        nextScreen = MAIN_TABS;
       } else {
-        nextScreen = 'AddSomeone';
+        nextScreen = ADD_SOMEONE_SCREEN;
       }
     }
 

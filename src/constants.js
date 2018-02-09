@@ -24,6 +24,8 @@ export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
 export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 
+export const MAIN_TABS = 'nav/MAIN_TABS';
+export const DRAWER_OPEN = 'DrawerOpen';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';
@@ -49,7 +51,6 @@ export const ANALYTICS = {
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
   SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
-  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
   CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
   CONTENT_TOPIC: 'cru.contenttopic',
   LOGGED_IN_STATUS: 'cru.loggedinstatus',

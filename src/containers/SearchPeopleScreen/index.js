@@ -12,6 +12,7 @@ import { Flex, IconButton, Input, Text } from '../../components/common';
 import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
+import { CONTACT_SCREEN } from '../ContactScreen';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -35,7 +36,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleSelectPerson(person) {
-    this.props.dispatch(navigatePush('Contact', { person }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person }));
   }
 
   handleFilter() {

@@ -55,17 +55,17 @@ describe('a login button is clicked', () => {
 
   it('login to be called', async() => {
     screen.login();
-    expect(store.dispatch).toHaveBeenCalledTimes(2);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
   it('try it now to be called', async() => {
     screen.tryItNow();
-    expect(store.dispatch).toHaveBeenCalledTimes(3);
+    expect(store.dispatch).toHaveBeenCalledTimes(2);
   });
 
   it('navigate next to be called', async() => {
     screen.navigateToNext();
-    expect(store.dispatch).toHaveBeenCalledTimes(2);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
   it('facebook login to not be called', async() => {

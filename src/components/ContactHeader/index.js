@@ -9,30 +9,41 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { CASEY, JEAN } from '../../constants';
 
+export const PERSON_STEPS = 'people : person : steps : steps';
+export const SELF_STEPS = 'people : self : steps : steps';
 const CASEY_TABS = [
   {
     page: 'steps',
     iconName: 'stepsIcon',
     tabLabel: i18next.t('contactHeader:mySteps'),
+    screenName: PERSON_STEPS,
   },
   {
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: i18next.t('contactHeader:ourJourney'),
+    screenName: 'people : person : journey : journey',
   },
   {
     page: 'notes',
     iconName: 'notesIcon',
     tabLabel: i18next.t('contactHeader:myNotes'),
+    screenName: 'people : person : notes : notes',
   },
 ];
 
 const ME_TABS = [
-  CASEY_TABS[0],
+  {
+    page: 'steps',
+    iconName: 'stepsIcon',
+    tabLabel: i18next.t('contactHeader:mySteps'),
+    screenName: SELF_STEPS,
+  },
   {
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: i18next.t('contactHeader:myJourney'),
+    screenName: 'people : self : journey : journey',
   },
 ];
 
@@ -42,6 +53,7 @@ const JEAN_TABS = [
     page: 'actions',
     iconName: 'actionsIcon',
     tabLabel: i18next.t('contactHeader:myActions'),
+    screenName: 'people : person : actions : actions',
   },
   CASEY_TABS[1],
   CASEY_TABS[2],
@@ -53,6 +65,7 @@ const JEAN_TABS_MH_USER = [
     page: 'userImpact',
     iconName: 'impactIcon',
     tabLabel: i18next.t('contactHeader:impact'),
+    screenName: 'people : person : impact : impact',
   },
 ];
 

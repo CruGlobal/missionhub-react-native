@@ -11,7 +11,10 @@ import { Flex, Button, Separator, Text } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
+import { ADD_STEP_SCREEN } from '../AddStepScreen';
+import { trackState } from '../../actions/analytics';
 import { addNewComment, editComment } from '../../actions/interactions';
+import { getAnalyticsSubsection } from '../../utils/common';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -36,7 +39,7 @@ class ContactJourney extends Component {
   componentWillMount() {
     this.getInteractions();
   }
-  
+
   componentDidMount() {
     const orgIdExists = !!this.getOrganization();
     const isPersonal = !this.props.isCasey && !orgIdExists;
@@ -92,10 +95,12 @@ class ContactJourney extends Component {
   }
 
   handleCreateInteraction() {
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleAddComment,
       type: 'journey',
     }));
+
+    this.props.dispatch(trackState(`people : ${getAnalyticsSubsection(this.props.person.id, this.props.myId)} : journey : edit`));
   }
 
   renderRow({ item }) {
@@ -183,6 +188,7 @@ ContactJourney.propTypes = {
 
 const mapStateToProps = ({ auth }) => ({
   isCasey: !auth.isJean,
+  myId: auth.personId,
 });
 
 export default connect(mapStateToProps)(ContactJourney);

@@ -6,6 +6,7 @@ import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen/index';
 import { selectStage } from '../actions/selectStage';
+import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 
 @translate('selectStage')
 class StageScreen extends Component {
@@ -21,13 +22,13 @@ class StageScreen extends Component {
         this.props.onComplete(stage);
         this.props.dispatch(navigateBack());
       } else {
-        this.props.dispatch(navigatePush('StageSuccess', { selectedStage: stage }));
+        this.props.dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
       }
     });
   }
 
   render() {
-    const { t } = this.props;
+    const { t, enableButton } = this.props;
     const name = this.props.firstName;
 
     return (
@@ -35,6 +36,8 @@ class StageScreen extends Component {
         buttonText={t('iAmHere').toUpperCase()}
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
+        section={this.props.section}
+        enableButton={enableButton}
       />
     );
   }
@@ -53,3 +56,4 @@ const mapStateToProps = ({ profile }, { navigation } ) => ({
 });
 
 export default connect(mapStateToProps)(StageScreen);
+export const STAGE_SCREEN = 'nav/STAGE';

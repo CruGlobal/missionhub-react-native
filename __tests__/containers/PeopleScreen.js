@@ -16,6 +16,7 @@ const mockState = {
     personId: '',
     user: {
       id: '1',
+      full_name: 'Me',
     },
     isJean: false,
   },

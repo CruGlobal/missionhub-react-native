@@ -241,6 +241,7 @@ exports[`renders correctly as Casey 1`] = `
     data={
       Array [
         Object {
+          "full_name": "Me",
           "id": "1",
         },
       ]

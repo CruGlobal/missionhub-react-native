@@ -5,6 +5,7 @@ import { persistStore, createTransform } from 'redux-persist';
 import jsan from 'jsan';
 
 import reducers from './reducers';
+import tracking from './middleware/tracking';
 
 let myCreateStore = createStore;
 
@@ -16,7 +17,7 @@ if (__DEV__) {
 
 // Setup enhancers and middleware
 const enhancers = [];
-const middleware = [ thunk ];
+const middleware = [ thunk, tracking ];
 
 const composedEnhancers = compose(
   applyMiddleware(...middleware),
