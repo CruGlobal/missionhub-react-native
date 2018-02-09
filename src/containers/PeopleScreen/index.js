@@ -5,14 +5,16 @@ import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
 import { navigatePush } from '../../actions/navigation';
+import { getStagesIfNotExists } from '../../actions/stages';
 
 import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
-import { refresh } from '../../utils/common';
+import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
-import { DRAWER_OPEN } from '../../constants';
+import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -33,6 +35,8 @@ export class PeopleScreen extends Component {
 
   componentWillMount() {
     this.getPeople();
+
+    this.props.dispatch(getStagesIfNotExists());
   }
 
   getPeople() {
@@ -40,14 +44,14 @@ export class PeopleScreen extends Component {
   }
 
   handleAddContact(org) {
-    this.props.dispatch(navigatePush('AddContact', {
+    this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
       organization: org && org.id ? org : undefined,
       onComplete: () => this.getPeople(),
     }));
   }
 
   handleSearch() {
-    this.props.dispatch(navigatePush('SearchPeople'));
+    this.props.dispatch(navigatePush(SEARCH_SCREEN));
   }
 
   handleRowSelect(person) {
@@ -64,7 +68,7 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN))} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(openMainMenu())} />
           }
           right={
             isJean ? (
@@ -95,11 +99,12 @@ export class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, people }) => ({
+const mapStateToProps = ({ auth, people, stages }) => ({
   isJean: auth.isJean,
   people: [ auth.user ].concat(people.all),
   sectionPeople: people.allByOrg,
   me: auth.user,
+  stagesExist: !!stages.stagesObj,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

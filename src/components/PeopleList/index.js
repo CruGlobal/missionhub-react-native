@@ -47,9 +47,9 @@ export default class PeopleList extends Component {
     this.setState({ items });
   }
 
-  renderList(items) {
+  renderList(items, organization) {
     const { onSelect, sections, refreshing, onRefresh } = this.props;
-
+    
     return (
       <FlatList
         style={styles.list}
@@ -59,7 +59,8 @@ export default class PeopleList extends Component {
         renderItem={({ item }) => (
           <PeopleItem
             onSelect={onSelect}
-            person={item} />
+            person={item}
+            organization={organization} />
         )}
         refreshControl={!sections ? <RefreshControl
           refreshing={refreshing}
@@ -76,18 +77,17 @@ export default class PeopleList extends Component {
         <Text style={styles.title} numberOfLines={1}>
           {org.name || t('personalMinistry')}
         </Text>
-        <Flex direction="row" justify="end">
-          <Touchable onPress={() => onAddContact(org)}>
+        <Flex direction="row" justify="end" align="center">
+          <Touchable onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
             <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
           </Touchable>
           <Touchable onPress={() => this.toggleSection(org.id)}>
             <Icon
-              name="rightArrowIcon"
+              name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
               type="MissionHub"
-              size={20}
+              size={15}
               style={[
-                styles.icon2,
-                org.expanded ? styles.downArrow : null,
+                styles.icon,
               ]} />
           </Touchable>
         </Flex>
@@ -113,7 +113,7 @@ export default class PeopleList extends Component {
               <Flex key={org.id}>
                 {this.renderSectionHeader(org)}
                 {
-                  org.expanded ? this.renderList(org.people) : null
+                  org.expanded ? this.renderList(org.people, org) : null
                 }
               </Flex>
             ))

@@ -18,15 +18,15 @@ import StageScreen, { STAGE_SCREEN, STAGE_ONBOARDING_SCREEN } from './containers
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
-import AddContactScreen from './containers/AddContactScreen';
+import AddContactScreen, { ADD_CONTACT_SCREEN } from './containers/AddContactScreen';
 import NotificationPrimerScreen, { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen';
 import ImpactScreen from './containers/ImpactScreen';
 import SetupPersonScreen, { SETUP_PERSON_SCREEN } from './containers/SetupPersonScreen';
 import PersonStageScreen, { PERSON_STAGE_SCREEN } from './containers/PersonStageScreen';
 import CelebrationScreen, { CELEBRATION_SCREEN } from './containers/CelebrationScreen';
-import SearchPeopleScreen from './containers/SearchPeopleScreen';
-import SearchPeopleFilterScreen from './containers/SearchPeopleFilterScreen';
-import SearchPeopleFilterRefineScreen from './containers/SearchPeopleFilterRefineScreen';
+import SearchPeopleScreen, { SEARCH_SCREEN } from './containers/SearchPeopleScreen';
+import SearchPeopleFilterScreen, { SEARCH_FILTER_SCREEN } from './containers/SearchPeopleFilterScreen';
+import SearchPeopleFilterRefineScreen, { SEARCH_REFINE_SCREEN } from './containers/SearchPeopleFilterRefineScreen';
 import LoginOptionsScreen from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 
@@ -126,10 +126,13 @@ const screens = {
   [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'onboarding : self : choose my steps' },
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: { screen: SelectMyStepScreen, name: 'onboarding : self : steps : add' },
   [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'onboarding : add person : add person' },
+  [ADD_CONTACT_SCREEN]: { screen: AddContactScreen, name: 'onboarding : people : add person' },
   [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'onboarding : add person : name' },
   [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'menu : notifications : permissions' },
   [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'menu : notifications : off' },
   [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'onboarding : complete' },
+  [SEARCH_SCREEN]: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : search' },
+  [SEARCH_FILTER_SCREEN]: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : refine : refine' },
   [MAIN_TABS]: {
     screen: DrawerNavigator({
       Main: { screen: MainTabRoutes },
@@ -152,13 +155,10 @@ export const MainStackRoutes = StackNavigator({
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
-  AddContact: { screen: AddContactScreen },
   LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_SCREEN]: { screen: StageScreen, navigationOptions: { gesturesEnabled: true } },
-  SearchPeople: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true } },
-  SearchPeopleFilter: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true } },
-  SearchPeopleFilterRefine: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
+  [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {

@@ -31,6 +31,7 @@ export function addNewContact(data) {
       type: 'contact_assignment',
       attributes: {
         assigned_to_id: myId,
+        organization_id: data.orgId || undefined,
       },
     });
     if (data.orgId) {

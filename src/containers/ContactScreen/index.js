@@ -10,7 +10,7 @@ import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
-import { CASEY, DRAWER_OPEN, JEAN } from '../../constants';
+import { CASEY, CONTACT_MENU_DRAWER, DRAWER_OPEN, JEAN } from '../../constants';
 import { getPerson } from '../../actions/people';
 import { getStages } from '../../actions/stages';
 import { STAGE_SCREEN } from '../StageScreen';
@@ -113,7 +113,7 @@ class ContactScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN, { isCurrentUser: personIsCurrentUser }))}
+              onPress={() => this.props.dispatch(navigatePush(DRAWER_OPEN, { drawer: CONTACT_MENU_DRAWER, isCurrentUser: personIsCurrentUser }))}
             />
           }
           shadow={false}

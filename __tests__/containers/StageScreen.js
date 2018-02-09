@@ -14,6 +14,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/stages', () => {
   return {
     getStages: () => mockStages(),
+    getStagesIfNotExists: () => mockStages(),
   };
 });
 
