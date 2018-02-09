@@ -34,8 +34,12 @@ export default function tracking({ dispatch, getState }) {
 
     } else if (action.type === 'Navigation/RESET') {
       //todo handle
+
     } else if (action.type === REHYDRATE) {
-      //todo grab route from top of nav stack
+      const savedRoutes = action.payload.nav.routes;
+      const routeName = savedRoutes[savedRoutes.length - 1].routeName;
+
+      dispatch(trackState(trackableScreens[routeName].name));
     }
 
     return returnValue;

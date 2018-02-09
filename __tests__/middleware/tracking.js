@@ -6,6 +6,7 @@ import * as analytics from '../../src/actions/analytics';
 import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
+import { REHYDRATE } from 'redux-persist/constants';
 
 const mockStore = configureStore([ tracking ]);
 let store;
@@ -80,6 +81,17 @@ describe('navigate forward', () => {
         test('people : self : menu : menu');
       });
     });
+  });
+});
+
+describe('rehydrate', () => {
+  it('tracks most recent screen', () => {
+    store = mockStore();
+    const screenName = 'test : rehydrate';
+    navigationAction = { type: REHYDRATE, payload: { nav: { routes: [ {}, { routeName: routeName } ] } } };
+    trackableScreens[routeName] = { name: screenName };
+
+    test(screenName);
   });
 });
 
