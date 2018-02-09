@@ -4,6 +4,8 @@ import tracking from '../../src/middleware/tracking';
 import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { trackableScreens } from '../../src/AppRoutes';
+import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
+import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
 
 const mockStore = configureStore([ tracking ]);
 let store;
@@ -32,15 +34,38 @@ describe('navigate forward', () => {
     expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
   });
 
-  describe('drawers', () => {
+  describe('to contact screen', () => {
+    it('tracks person steps', () => {
+      store = mockStore({ auth: { personId: 2 } });
+      navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
+      mockFnWithParams(analytics, 'trackState', trackStateResult, PERSON_STEPS);
+
+      store.dispatch(navigationAction);
+
+      expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+    });
+
+
+    it('tracks self steps', () => {
+      const id = 3;
+      store = mockStore({ auth: { personId: id } });
+      navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
+      mockFnWithParams(analytics, 'trackState', trackStateResult, SELF_STEPS);
+
+      store.dispatch(navigationAction);
+
+      expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+    });
+  });
+
+  describe('to drawer', () => {
     beforeEach(() => {
       navigationAction = { type: NAVIGATE_FORWARD, routeName: DRAWER_OPEN, params: { drawer: MAIN_MENU_DRAWER } };
     });
 
     it('tracks main menu drawer', () => {
-      screenName = 'menu : menu';
       navigationAction.params = { drawer: MAIN_MENU_DRAWER };
-      mockFnWithParams(analytics, 'trackState', trackStateResult, screenName);
+      mockFnWithParams(analytics, 'trackState', trackStateResult, 'menu : menu');
 
       store.dispatch(navigationAction);
 
@@ -49,9 +74,8 @@ describe('navigate forward', () => {
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
-        screenName = 'people : person : menu : menu';
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: false };
-        mockFnWithParams(analytics, 'trackState', trackStateResult, screenName);
+        mockFnWithParams(analytics, 'trackState', trackStateResult, 'people : person : menu : menu');
 
         store.dispatch(navigationAction);
 
@@ -59,9 +83,8 @@ describe('navigate forward', () => {
       });
 
       it('tracks person menu', () => {
-        screenName = 'people : self : menu : menu';
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: true };
-        mockFnWithParams(analytics, 'trackState', trackStateResult, screenName);
+        mockFnWithParams(analytics, 'trackState', trackStateResult, 'people : self : menu : menu');
 
         store.dispatch(navigationAction);
 
