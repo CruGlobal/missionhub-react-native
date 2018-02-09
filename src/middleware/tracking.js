@@ -2,7 +2,7 @@ import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
-import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD } from '../constants';
+import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
 
 export default function tracking({ dispatch, getState }) {
@@ -32,8 +32,9 @@ export default function tracking({ dispatch, getState }) {
       // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
       // dispatch(trackState(screen));
 
-    } else if (action.type === 'Navigation/RESET') {
-      //todo handle
+    } else if (action.type === NAVIGATE_RESET) {
+      const routeName = action.actions[0].routeName;
+      dispatch(trackState(trackableScreens[routeName].name));
 
     } else if (action.type === REHYDRATE) {
       const savedRoutes = action.payload.nav.routes;

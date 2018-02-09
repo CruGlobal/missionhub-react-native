@@ -1,5 +1,8 @@
 import configureStore from 'redux-mock-store';
-import { ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD } from '../../src/constants';
+import {
+  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
+  NAVIGATE_RESET,
+} from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
 import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
@@ -81,6 +84,17 @@ describe('navigate forward', () => {
         test('people : self : menu : menu');
       });
     });
+  });
+});
+
+describe('navigate reset', () => {
+  it('tracks screen', () => {
+    store = mockStore();
+    const screenName = 'test : reset';
+    navigationAction = { type: NAVIGATE_RESET, actions: [ { routeName: routeName } ] };
+    trackableScreens[routeName] = { name: screenName };
+
+    test(screenName);
   });
 });
 
