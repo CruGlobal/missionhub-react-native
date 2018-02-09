@@ -18,7 +18,7 @@ const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
 const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 @translate('loginOptions')
-class LoginScreen extends Component {
+class LoginOptionsScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -161,4 +161,4 @@ class LoginScreen extends Component {
   }
 }
 
-export default connect()(LoginScreen);
+export default connect()(LoginOptionsScreen);

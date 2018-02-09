@@ -24,8 +24,11 @@ export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
 export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 
+export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
+export const MAIN_MENU_DRAWER = 'nav/drawer/main';
+export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = '8480288430352167964';
