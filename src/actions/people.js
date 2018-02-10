@@ -14,12 +14,12 @@ export function getPerson(id) {
 }
 
 export function getPersonDetails(id) {
-  return (dispatch) => {
+  return async(dispatch) => {
     const query = {
       person_id: id,
       include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
     };
-    return dispatch(callApi(REQUESTS.GET_PERSON, query));
+    return await dispatch(callApi(REQUESTS.GET_PERSON, query));
   };
 }
 

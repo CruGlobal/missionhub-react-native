@@ -63,7 +63,7 @@ export function updateVisiblePersonInfo(info) {
 
 export function fetchVisiblePersonInfo(personId, currentUserId, personIsCurrentUser, stages) {
   return async(dispatch) => {
-    dispatch(updateVisiblePersonInfo(await getPersonWithAssignmentAndStage(personId, currentUserId, personIsCurrentUser, stages)));
+    return await dispatch(updateVisiblePersonInfo(await getPersonWithAssignmentAndStage(personId, currentUserId, personIsCurrentUser, stages)));
 
     async function getPersonWithAssignmentAndStage(personId, currentUserId, personIsCurrentUser, stages) {
       if (personId) {
@@ -113,31 +113,33 @@ export function fetchVisiblePersonInfo(personId, currentUserId, personIsCurrentU
 export function updatePerson(data) {
   return (dispatch) => {
     if (!data || !data.firstName) {
-      return Promise.reject('InvalidData', data);
+      return dispatch({ type: 'UPDATE_PERSON_FAIL', error: 'InvalidData', data });
     }
     const bodyData = {
       data: {
         type: 'person',
         attributes: {
           first_name: data.firstName,
-          last_name: data.lastName || undefined,
-          gender: data.gender || undefined,
+          ...data.lastName ? { last_name: data.lastName } : {},
+          ...data.gender ? { gender: data.gender } : {},
         },
       },
-      included: [
-        ...data.email ? [ {
-          id: data.emailId,
-          type: 'email',
-          attributes: { email: data.email },
-        } ] : [],
-        ...data.phone ? [ {
-          id: data.phoneId,
-          type: 'phone_number',
-          attributes: {
-            number: data.phone,
-          },
-        } ] : [],
-      ],
+      ...data.email || data.phone ? {
+        included: [
+          ...data.email ? [ {
+            id: data.emailId,
+            type: 'email',
+            attributes: { email: data.email },
+          } ]: [],
+          ...data.phone ? [ {
+            id: data.phoneId,
+            type: 'phone_number',
+            attributes: {
+              number: data.phone,
+            },
+          } ] : [],
+        ],
+      } : {},
     };
     const query = {
       personId: data.id,
@@ -148,9 +150,7 @@ export function updatePerson(data) {
 
 export function deleteContactAssignment(id) {
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id })).catch((error) => {
-      LOG('error deleting contact assignment', error);
-    });
+    return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
   };
 }
 

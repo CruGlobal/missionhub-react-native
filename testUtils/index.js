@@ -24,7 +24,7 @@ export const testSnapshot = (data) => {
   expect(renderer.create(data)).toMatchSnapshot();
 };
 
-export const testSnapshotShallow = (component, store) => {
+export const renderShallow = (component, store) => {
   let renderedComponent = shallow(
     component,
     { context: { store: store } }
@@ -36,7 +36,14 @@ export const testSnapshotShallow = (component, store) => {
   }
 
   // Render contents of component
-  expect(renderedComponent.dive()).toMatchSnapshot();
+  renderedComponent = renderedComponent.dive();
+  return renderedComponent;
+};
+
+export const testSnapshotShallow = (component, store) => {
+  const renderedComponent = renderShallow(component, store);
+  expect(renderedComponent).toMatchSnapshot();
+  return renderedComponent;
 };
 
 export const mockFnWithParams = (obj, method, expectedReturn, ...expectedParams) => {
