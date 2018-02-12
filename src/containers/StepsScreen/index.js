@@ -207,6 +207,7 @@ class StepsScreen extends Component {
           refreshControl={<RefreshControl
             refreshing={this.state.refreshing}
             onRefresh={this.handleRefresh}
+            style={styles.refresh}
           />}
           contentContainerStyle={[
             styles.contentContainer,
@@ -214,7 +215,9 @@ class StepsScreen extends Component {
               // Flex the white background to the bottom when there's only a few steps
               // Don't do it all the time because it causes the top to be static
               flex: steps.length < 5 ? 1 : undefined,
-            } ]}>
+            },
+          ]}
+        >
           {this.renderTop()}
           {this.renderList()}
         </ScrollView>

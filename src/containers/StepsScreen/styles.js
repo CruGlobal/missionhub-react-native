@@ -6,7 +6,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.secondaryColor,
+    backgroundColor: theme.white,
   },
   contentContainer: {
     backgroundColor: theme.white,
@@ -46,5 +46,8 @@ export default StyleSheet.create({
     paddingHorizontal: 70,
     textAlign: 'center',
     paddingVertical: 10,
+  },
+  refresh: {
+    backgroundColor: theme.backgroundColor,
   },
 });
