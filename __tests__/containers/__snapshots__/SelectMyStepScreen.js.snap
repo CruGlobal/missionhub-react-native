@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <Connect(Translate(SelectStepScreen))
-  createStepScreenname={
+  createStepTracking={
     Object {
       "level3": "create",
       "name": "onboarding : self : steps : create",

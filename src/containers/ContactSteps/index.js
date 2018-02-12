@@ -78,7 +78,7 @@ class ContactSteps extends Component {
       contactId: person.id,
       contact: person,
       onSaveNewSteps: this.handleSaveNewSteps,
-      createStepScreenname: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
+      createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
     }));
 
     const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');

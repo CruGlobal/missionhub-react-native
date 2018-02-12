@@ -31,7 +31,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepScreenname={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
+        createStepTracking={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
       />
     );
   }
