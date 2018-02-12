@@ -112,13 +112,13 @@ export default {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
-  'UPDATE_USER': {
-    endpoint: `${PEOPLE_URL}:userId`,
-    method: 'put',
-  },
   'ADD_NEW_PERSON': {
     endpoint: PEOPLE_URL,
     method: 'post',
+  },
+  'UPDATE_PERSON': {
+    endpoint: `${PEOPLE_URL}:personId`,
+    method: 'put',
   },
   'GET_MY_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,

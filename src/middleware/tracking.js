@@ -10,40 +10,43 @@ export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
     let newAction;
     const returnValue = next(action);
-    const actionType = action.type;
 
-    if (actionType === NAVIGATE_FORWARD) {
-      const routeName = action.routeName;
-      const trackedRoute = trackableScreens[routeName];
+    switch (action.type) {
+      case NAVIGATE_FORWARD:
+        const routeName = action.routeName;
+        const trackedRoute = trackableScreens[routeName];
 
-      if (trackedRoute) {
-        newAction = trackState(trackedRoute.tracking);
+        if (trackedRoute) {
+          newAction = trackState(trackedRoute.tracking);
 
-      } else if (routeName === CONTACT_SCREEN) {
-        newAction = trackContactScreen(action, getState);
+        } else if (routeName === CONTACT_SCREEN) {
+          newAction = trackContactScreen(action, getState);
 
-      } else if (routeName === DRAWER_OPEN) {
-        const actionParams = action.params;
+        } else if (routeName === DRAWER_OPEN) {
+          const actionParams = action.params;
 
-        if (actionParams.drawer === CONTACT_MENU_DRAWER) {
-          newAction = trackContactMenu(actionParams.isCurrentUser);
+          if (actionParams.drawer === CONTACT_MENU_DRAWER) {
+            newAction = trackContactMenu(actionParams.isCurrentUser);
 
-        } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-          newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
+          } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
+            newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
+          }
         }
-      }
+        break;
 
-    } else if (actionType === 'Navigation/BACK') {
-      // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
-      // dispatch(trackState(screen));
+      case 'Navigation/BACK':
+        // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
+        // dispatch(trackState(screen));
+        break;
 
-    } else if (actionType === NAVIGATE_RESET) {
-      newAction = trackRoute(action.actions[0]);
+      case NAVIGATE_RESET:
+        newAction = trackRoute(action.actions[0]);
+        break;
 
-    } else if (actionType === REHYDRATE) {
-      const savedRoutes = action.payload.nav.routes;
-
-      newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
+      case REHYDRATE:
+        const savedRoutes = action.payload.nav.routes;
+        newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
+        break;
     }
 
     newAction && dispatch(newAction);

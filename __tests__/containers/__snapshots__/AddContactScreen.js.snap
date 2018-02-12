@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<PlatformKeyboardAvoidingView>
+  <Connect(Header)
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="ADD SOMEONE"
+  />
+  <Connect(Translate(AddContactFields))
+    onUpdateData={[Function]}
+  />
+  <Flex
+    align="stretch"
+    justify="end"
+    value={1}
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="DONE"
+      type="secondary"
+    />
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
