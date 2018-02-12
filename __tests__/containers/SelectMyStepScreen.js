@@ -23,7 +23,7 @@ it('renders correctly with button', () => {
       <SelectMyStepScreen
         navigation={createMockNavState({
           onSaveNewSteps: jest.fn(),
-          enableButton: true,
+          enableBackButton: true,
         })}
       />
     </Provider>
@@ -36,7 +36,7 @@ it('renders correctly without button', () => {
       <SelectMyStepScreen
         navigation={createMockNavState({
           onSaveNewSteps: jest.fn(),
-          enableButton: false,
+          enableBackButton: false,
         })}
       />
     </Provider>

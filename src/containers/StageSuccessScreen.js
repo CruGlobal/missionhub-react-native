@@ -21,7 +21,7 @@ class StageSuccessScreen extends Component {
   }
 
   handleNavigateToStep() {
-    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onSaveNewSteps: this.handleNavigate, enableButton: false }));
+    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
   }
 
   getMessage() {

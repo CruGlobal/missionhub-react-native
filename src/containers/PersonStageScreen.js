@@ -60,7 +60,7 @@ class PersonStageScreen extends Component {
         questionText={t('personQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
-        enableButton
+        enableBackButton
       />
     );
   }

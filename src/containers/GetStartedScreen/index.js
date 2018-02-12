@@ -26,7 +26,7 @@ class GetStartedScreen extends Component {
             type="secondary"
             onPress={() => this.props.dispatch(navigatePush(STAGE_ONBOARDING_SCREEN, {
               section: 'onboarding : self',
-              enableButton: false,
+              enableBackButton: false,
             }))}
             text={t('getStarted').toUpperCase()}
             style={{ width: theme.fullWidth }}

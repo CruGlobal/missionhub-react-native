@@ -20,7 +20,7 @@ class SelectMyStepScreen extends Component {
   }
 
   render() {
-    const { t, enableButton } = this.props;
+    const { t, enableBackButton } = this.props;
 
     return (
       <SelectStepScreen
@@ -29,7 +29,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        enableButton={enableButton}
+        enableBackButton={enableBackButton}
         createStepScreenname="onboarding : self : steps : create"
       />
     );

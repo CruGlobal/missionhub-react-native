@@ -40,7 +40,7 @@ class PersonSelectStepScreen extends Component {
         contact={this.props.contact ? this.props.contact : null}
         onComplete={this.handleNavigate}
         createStepScreenname={this.props.createStepScreenname}
-        enableButton
+        enableBackButton
       />
     );
   }

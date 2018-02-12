@@ -28,7 +28,7 @@ class StageScreen extends Component {
   }
 
   render() {
-    const { t, enableButton } = this.props;
+    const { t, enableBackButton } = this.props;
     const name = this.props.firstName;
 
     return (
@@ -37,7 +37,7 @@ class StageScreen extends Component {
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
-        enableButton={enableButton}
+        enableBackButton={enableBackButton}
       />
     );
   }
