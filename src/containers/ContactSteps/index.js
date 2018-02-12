@@ -81,8 +81,8 @@ class ContactSteps extends Component {
       createStepScreenname: `people : ${subsection} : steps : create`,
     }));
 
-
-    this.props.dispatch(trackState(`people : ${subsection} : steps : add`));
+    const trackingObj = { name: `people : ${subsection} : steps : add` };
+    this.props.dispatch(trackState(trackingObj));
   }
 
   renderRow({ item, index }) {

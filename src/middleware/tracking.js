@@ -13,10 +13,10 @@ export default function tracking({ dispatch, getState }) {
 
     if (actionType === NAVIGATE_FORWARD) {
       const routeName = action.routeName;
-      const route = trackableScreens[routeName];
+      const trackedRoute = trackableScreens[routeName];
 
-      if (route) {
-        newAction = trackState(route.tracking.name);
+      if (trackedRoute) {
+        newAction = trackState(trackedRoute.tracking);
 
       } else if (routeName === CONTACT_SCREEN) {
         newAction = trackContactScreen(action, getState);
@@ -28,7 +28,7 @@ export default function tracking({ dispatch, getState }) {
           newAction = trackContactMenu(actionParams.isCurrentUser);
 
         } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-          newAction = trackState('menu : menu');
+          newAction = trackState({ name: 'menu : menu' });
         }
       }
 
@@ -51,9 +51,10 @@ export default function tracking({ dispatch, getState }) {
 }
 
 function trackRoute(route) {
-  const routeName = route.routeName;
-
-  return trackState(trackableScreens[routeName].tracking.name);
+  const trackedRoute = trackableScreens[route.routeName];
+  if (trackedRoute) {
+    return trackState(trackedRoute.tracking);
+  }
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
@@ -65,5 +66,5 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState('people : self : menu : menu') : trackState('people : person : menu : menu');
+  return isCurrentUser ? trackState({ name: 'people : self : menu : menu' }) : trackState({ name: 'people : person : menu : menu' });
 }

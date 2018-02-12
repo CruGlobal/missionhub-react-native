@@ -149,7 +149,8 @@ export class SearchPeopleFilterScreen extends Component {
     }));
     this.setState({ selectedFilterId: item.id });
 
-    this.props.dispatch(trackState(`mh : search : refine : ${item.id }`));
+    const trackingObj = { name: `mh : search : refine : ${item.id }` };
+    this.props.dispatch(trackState(trackingObj));
   }
 
   handleToggle(item) {

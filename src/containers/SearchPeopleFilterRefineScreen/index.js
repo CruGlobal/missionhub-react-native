@@ -49,7 +49,8 @@ export class SearchPeopleFilterRefineScreen extends Component {
         options: item.drilldown,
       }));
 
-      this.props.dispatch(trackState(`mh : search : refine : ${item.id }`));
+      const trackingObj = { name: `mh : search : refine : ${item.id }` };
+      this.props.dispatch(trackState(trackingObj));
 
     } else {
       const newOptions = setSelected(this.state.options, item.id);

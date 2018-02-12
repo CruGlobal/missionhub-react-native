@@ -67,7 +67,7 @@ class SelectStepScreen extends Component {
       },
     }));
 
-    this.props.dispatch(trackState(this.props.createStepScreenname));
+    this.props.dispatch(trackState({ name: this.props.createStepScreenname }));
   }
 
   saveAllSteps() {

@@ -100,7 +100,8 @@ class ContactJourney extends Component {
       type: 'journey',
     }));
 
-    this.props.dispatch(trackState(`people : ${getAnalyticsSubsection(this.props.person.id, this.props.myId)} : journey : edit`));
+    const trackingObj = { name: `people : ${getAnalyticsSubsection(this.props.person.id, this.props.myId)} : journey : edit` };
+    this.props.dispatch(trackState(trackingObj));
   }
 
   renderRow({ item }) {
