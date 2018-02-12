@@ -16,7 +16,7 @@ export default function tracking({ dispatch, getState }) {
       const route = trackableScreens[routeName];
 
       if (route) {
-        newAction = trackState(route.name);
+        newAction = trackState(route.tracking.name);
 
       } else if (routeName === CONTACT_SCREEN) {
         newAction = trackContactScreen(action, getState);
@@ -53,7 +53,7 @@ export default function tracking({ dispatch, getState }) {
 function trackRoute(route) {
   const routeName = route.routeName;
 
-  return trackState(trackableScreens[routeName].name);
+  return trackState(trackableScreens[routeName].tracking.name);
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
