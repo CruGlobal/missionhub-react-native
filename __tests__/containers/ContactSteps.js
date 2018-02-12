@@ -88,6 +88,3 @@ describe('Navigation to steps screen', () => {
   });
 });
 
-
-
-

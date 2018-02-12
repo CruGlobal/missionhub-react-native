@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import SideMenu from '../../components/SideMenu';
-import { navigateBack } from '../../actions/navigation';
-import { deleteContactAssignment } from '../../actions/profile';
+import { navigatePush, navigateBack } from '../../actions/navigation';
+import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
+import { deleteContactAssignment, fetchVisiblePersonInfo } from '../../actions/profile';
 import { deleteStep } from '../../actions/steps';
 
 @translate('contactSideMenu')
@@ -43,8 +44,8 @@ export class ContactSideMenu extends Component {
   }
 
   render() {
-    const { t } = this.props;
-    const { isJean, personIsCurrentUser } = this.props.visiblePersonInfo;
+    const { t, dispatch, myId, stages } = this.props;
+    const { isJean, personIsCurrentUser, person } = this.props.visiblePersonInfo;
 
     const isCaseyNotMe = !isJean && !personIsCurrentUser;
     const isJeanNotMe = isJean && !personIsCurrentUser;
@@ -52,7 +53,7 @@ export class ContactSideMenu extends Component {
     const menuItems = [
       {
         label: t('edit'),
-        action: () => LOG('edit pressed'),
+        action: () => this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, { person, isJean, onComplete: () => dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages)) })),
       },
       isCaseyNotMe ? {
         label: t('delete'),
@@ -90,10 +91,10 @@ export class ContactSideMenu extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => {
-  return {
-    visiblePersonInfo: profile.visiblePersonInfo || {},
-  };
-};
+const mapStateToProps = ({ profile, auth, stages }) => ({
+  myId: auth.personId,
+  stages: stages.stages,
+  visiblePersonInfo: profile.visiblePersonInfo || {},
+});
 
 export default connect(mapStateToProps)(ContactSideMenu);

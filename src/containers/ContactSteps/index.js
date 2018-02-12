@@ -77,7 +77,7 @@ class ContactSteps extends Component {
     if (isMe) {
       this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
         onSaveNewSteps: this.handleSaveNewSteps,
-        enableButton: true,
+        enableBackButton: true,
       }));
     } else {
       this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
