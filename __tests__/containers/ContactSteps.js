@@ -18,7 +18,14 @@ const mockState = {
   swipe: {
     stepsContact: true,
   },
-  auth: {},
+  auth: {
+    personId: 123,
+  },
+};
+
+const mockPerson = {
+  first_name: 'ben',
+  id: 1,
 };
 
 const store = createMockStore(mockState);
@@ -28,35 +35,59 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactSteps person={{ first_name: 'ben', id: 1 }} navigation={createMockNavState()} />
+      <ContactSteps isMe={false} person={mockPerson} navigation={createMockNavState()} />
     </Provider>
   );
 });
 
 
-let component;
-Enzyme.configure({ adapter: new Adapter() });
-
-const testNavigation = (isCurrentUser, nextScreen) => {
-  const screen = shallow(
-    <ContactSteps
-      isMe={isCurrentUser}
-      person={{ first_name: 'ben', id: 1 }}
-      navigation={createMockNavState()}
-    />,
-    { context: { store } },
-  );
-  component = screen.dive().dive().dive().instance();
-
+describe('Navigation to steps screen', () => {
+  Enzyme.configure({ adapter: new Adapter() });
   navigation.navigatePush = jest.fn();
-  component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledWith(nextScreen, expect.anything());
-};
+  const onSaveNewSteps = jest.fn();
 
-it('navigates to my steps', testNavigation(true, SELECT_MY_STEP_SCREEN));
+  const createComponent = (isCurrentUser) => {
+    const screen = shallow(
+      <ContactSteps
+        isMe={isCurrentUser}
+        person={mockPerson}
+        navigation={createMockNavState()}
+      />,
+      { context: { store } },
+    );
 
+    let component = screen.dive().dive().dive().instance();
+    component.handleSaveNewSteps = onSaveNewSteps;
+    return component;
+  };
 
-it('navigates to person steps', testNavigation(false, PERSON_SELECT_STEP_SCREEN));
+  it('navigates to my steps', () => {
+    let component = createComponent(true);
+
+    component.handleCreateStep();
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      SELECT_MY_STEP_SCREEN,
+      { onSaveNewSteps, enableButton: true }
+    );
+  });
+
+  it('navigates to person steps', () => {
+    let component = createComponent(false);
+
+    component.handleCreateStep();
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      PERSON_SELECT_STEP_SCREEN,
+      { contactName: mockPerson.first_name,
+        contactId: mockPerson.id,
+        contact: mockPerson,
+        onSaveNewSteps,
+        createStepScreenname: 'people : person : steps : create',
+      },
+    );
+  });
+});
+
 
 
 
