@@ -1,9 +1,7 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
-import { createMockStore, testSnapshotShallow } from '../../testUtils';
+import { createMockStore, renderShallow, testSnapshotShallow } from '../../testUtils';
 import StepItem from '../../src/components/StepItem';
 
 const date = '2017-12-06T14:24:52Z';
@@ -78,11 +76,10 @@ it('renders type action correctly', () => {
 });
 
 it('renders hover for step', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
+  const component = renderShallow(
     <StepItem step={mockStep} type="swipeable" onAction={() => { }} />,
-    { context: { store } },
+    store
   );
-  screen.setState({ hovering: true });
-  expect(screen.dive()).toMatchSnapshot();
+  component.setState({ hovering: true });
+  expect(component).toMatchSnapshot();
 });

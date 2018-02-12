@@ -19,6 +19,26 @@ class AddContactFields extends Component {
     path: null,
   };
 
+  componentDidMount() {
+    const { person, isJean } = this.props;
+    const email = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || {};
+    const phone = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || {};
+    if (person) {
+      this.setState({
+        id: person.id,
+        firstName: person.first_name,
+        lastName: person.last_name,
+        ...isJean ? {
+          emailId: email.id,
+          email: email.email,
+          phoneId: phone.id,
+          phone: phone.number,
+          gender: person.gender,
+        } : {},
+      });
+    }
+  }
+
   updateField(field, data) {
     this.setState({ [field]: data }, () => {
       this.props.onUpdateData(this.state);
@@ -26,7 +46,7 @@ class AddContactFields extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, isJean } = this.props;
     const { firstName, lastName, email, phone, gender } = this.state;
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
@@ -56,54 +76,57 @@ class AddContactFields extends Component {
             onSubmitEditing={() => this.email.focus()}
           />
         </Flex>
-        <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.email')}</Text>
-          <Input
-            ref={(c) => this.email = c}
-            onChangeText={(t) => this.updateField('email', t)}
-            value={email}
-            placeholder={t('profileLabels.email')}
-            placeholderTextColor={theme.white}
-            keyboardType="email-address"
-            returnKeyType="next"
-            blurOnSubmit={false}
-            onSubmitEditing={() => this.phone.focus()}
-          />
-        </Flex>
-        <Flex direction="row" align="center" style={styles.genderRow}>
-          <Text style={styles.genderText}>{t('profileLabels.gender')}:</Text>
-          <RadioButton
-            style={styles.radioButton}
-            onSelect={() => this.updateField('gender', 'M')}
-            checked={gender === 'M'}
-            label={t('gender.male')}
-          />
-          <RadioButton
-            style={styles.radioButton}
-            onSelect={() => this.updateField('gender', 'F')}
-            checked={gender === 'F'}
-            label={t('gender.female')}
-          />
-        </Flex>
-        <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.phone')}</Text>
-          <Input
-            ref={(c) => this.phone = c}
-            onChangeText={(t) => this.updateField('phone', t)}
-            value={phone}
-            placeholder={t('profileLabels.phone')}
-            placeholderTextColor={theme.white}
-            keyboardType="phone-pad"
-            returnKeyType="done"
-            blurOnSubmit={true}
-          />
-        </Flex>
+        {isJean ? [
+          <Flex direction="column" key="email">
+            <Text style={styles.label}>{t('profileLabels.email')}</Text>
+            <Input
+              ref={(c) => this.email = c}
+              onChangeText={(t) => this.updateField('email', t)}
+              value={email}
+              placeholder={t('profileLabels.email')}
+              placeholderTextColor={theme.white}
+              keyboardType="email-address"
+              returnKeyType="next"
+              blurOnSubmit={false}
+              onSubmitEditing={() => this.phone.focus()}
+            />
+          </Flex>,
+          <Flex direction="row" align="center" style={styles.genderRow} key="gender">
+            <Text style={styles.genderText}>{t('profileLabels.gender')}:</Text>
+            <RadioButton
+              style={styles.radioButton}
+              onSelect={() => this.updateField('gender', 'Male')}
+              checked={gender === 'Male'}
+              label={t('gender.male')}
+            />
+            <RadioButton
+              style={styles.radioButton}
+              onSelect={() => this.updateField('gender', 'Female')}
+              checked={gender === 'Female'}
+              label={t('gender.female')}
+            />
+          </Flex>,
+          <Flex direction="column" key="phone">
+            <Text style={styles.label}>{t('profileLabels.phone')}</Text>
+            <Input
+              ref={(c) => this.phone = c}
+              onChangeText={(t) => this.updateField('phone', t)}
+              value={phone}
+              placeholder={t('profileLabels.phone')}
+              placeholderTextColor={theme.white}
+              keyboardType="phone-pad"
+              returnKeyType="done"
+              blurOnSubmit={true}
+            />
+          </Flex>,
+        ] : []}
       </KeyboardAvoidingView>
     );
   }
 }
 
 AddContactFields.propTypes = {
+  person: PropTypes.object,
   onUpdateData: PropTypes.func.isRequired,
 };
 
