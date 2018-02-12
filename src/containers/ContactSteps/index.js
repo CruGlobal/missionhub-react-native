@@ -13,7 +13,7 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
+import { buildTrackingObj, findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { trackState } from '../../actions/analytics';
 
@@ -78,10 +78,10 @@ class ContactSteps extends Component {
       contactId: person.id,
       contact: person,
       onSaveNewSteps: this.handleSaveNewSteps,
-      createStepScreenname: `people : ${subsection} : steps : create`,
+      createStepScreenname: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
     }));
 
-    const trackingObj = { name: `people : ${subsection} : steps : add` };
+    const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');
     this.props.dispatch(trackState(trackingObj));
   }
 

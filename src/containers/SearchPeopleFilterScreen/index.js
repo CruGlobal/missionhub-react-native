@@ -14,7 +14,7 @@ import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
-import { isString } from '../../utils/common';
+import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
 import { trackState } from '../../actions/analytics';
 
@@ -149,7 +149,7 @@ export class SearchPeopleFilterScreen extends Component {
     }));
     this.setState({ selectedFilterId: item.id });
 
-    const trackingObj = { name: `mh : search : refine : ${item.id }` };
+    const trackingObj = buildTrackingObj(`search : refine : ${item.id }`, 'search', 'refine', item.id);
     this.props.dispatch(trackState(trackingObj));
   }
 

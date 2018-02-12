@@ -10,6 +10,7 @@ import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
 import { REHYDRATE } from 'redux-persist/constants';
+import { buildTrackingObj } from '../../src/utils/common';
 
 const mockStore = configureStore([ tracking ]);
 let store;
@@ -68,20 +69,20 @@ describe('navigate forward', () => {
     it('tracks main menu drawer', () => {
       navigationAction.params = { drawer: MAIN_MENU_DRAWER };
 
-      test({ name: 'menu : menu' });
+      test(buildTrackingObj('menu : menu', 'menu'));
     });
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: false };
 
-        test({ name: 'people : person : menu : menu' });
+        test(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
       });
 
       it('tracks person menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: true };
 
-        test({ name: 'people : self : menu : menu' });
+        test(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'));
       });
     });
   });

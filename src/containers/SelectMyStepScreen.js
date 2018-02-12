@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../actions/navigation';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
-import { getFirstThreeValidItems } from '../utils/common';
+import { buildTrackingObj, getFirstThreeValidItems } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('selectStep')
@@ -31,7 +31,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepScreenname="onboarding : self : steps : create"
+        createStepScreenname={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
       />
     );
   }

@@ -13,6 +13,8 @@ export function trackAction(action, data) {
 }
 
 export function trackState(trackingObj) {
+  console.log(trackingObj);
+
   return (dispatch, getState) => {
 
     trackingObj.name = `mh : ${trackingObj.name}`;

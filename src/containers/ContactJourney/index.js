@@ -14,7 +14,7 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
 import { addNewComment, editComment } from '../../actions/interactions';
-import { getAnalyticsSubsection } from '../../utils/common';
+import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -100,7 +100,8 @@ class ContactJourney extends Component {
       type: 'journey',
     }));
 
-    const trackingObj = { name: `people : ${getAnalyticsSubsection(this.props.person.id, this.props.myId)} : journey : edit` };
+    const subsection = getAnalyticsSubsection(this.props.person.id, this.props.myId);
+    const trackingObj = buildTrackingObj(`people : ${subsection} : journey : edit`, 'people', subsection, 'journey');
     this.props.dispatch(trackState(trackingObj));
   }
 

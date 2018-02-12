@@ -37,6 +37,7 @@ class StageScreen extends Component {
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
+        subsection={this.props.subsection}
         enableButton={enableButton}
       />
     );

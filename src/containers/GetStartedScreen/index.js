@@ -25,7 +25,8 @@ class GetStartedScreen extends Component {
           <Button
             type="secondary"
             onPress={() => this.props.dispatch(navigatePush(STAGE_SCREEN, {
-              section: 'onboarding : self',
+              section: 'onboarding',
+              subsection: 'self',
               enableButton: false,
             }))}
             text={t('getStarted').toUpperCase()}

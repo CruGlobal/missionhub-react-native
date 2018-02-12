@@ -18,7 +18,8 @@ class SetupPersonScreen extends Component {
 
       this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
         this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-          section: 'onboarding : add person',
+          section: 'onboarding',
+          subsection: 'add person',
         }));
       });
     }

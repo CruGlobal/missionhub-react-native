@@ -36,6 +36,7 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
+import { buildTrackingObj } from './utils/common';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -60,32 +61,40 @@ function labelStyle() {
   }
 }
 
-const stepsTab = { name: 'steps : steps' };
+const buildTrackedScreen = (screen, tracking, navOptions) => {
+  return {
+    screen: screen,
+    tracking: tracking,
+    navigationOptions: navOptions,
+  };
+};
+
+const stepsTab = buildTrackingObj('steps : steps', 'steps');
 const tabs = {
-  StepsTab: {
-    screen: StepsScreen,
-    navigationOptions: {
+  StepsTab: buildTrackedScreen(
+    StepsScreen,
+    stepsTab,
+    {
       tabBarLabel: i18next.t('appRoutes:steps'),
       tabBarIcon: navIcon('stepsIcon'),
     },
-    tracking: stepsTab,
-  },
-  PeopleTab: {
-    screen: PeopleScreen,
-    navigationOptions: {
+  ),
+  PeopleTab: buildTrackedScreen(
+    PeopleScreen,
+    buildTrackingObj('people : people', 'people'),
+    {
       tabBarLabel: i18next.t('appRoutes:people'),
       tabBarIcon: navIcon('peopleIcon'),
-    },
-    tracking: { name: 'people : people' },
-  },
-  ImpactTab: {
-    screen: ImpactScreen,
-    navigationOptions: {
+    }
+  ),
+  ImpactTab: buildTrackedScreen(
+    ImpactScreen,
+    buildTrackingObj('impact : impact', 'impact'),
+    {
       tabBarLabel: i18next.t('appRoutes:impact'),
       tabBarIcon: navIcon('impactIcon'),
     },
-    tracking: { name: 'impact : impact' },
-  },
+  ),
 };
 
 export const MainTabRoutes = TabNavigator(
@@ -118,29 +127,29 @@ export const MainTabRoutes = TabNavigator(
   });
 
 const screens = {
-  [LOGIN_SCREEN]: { screen: LoginScreen, tracking: { name: 'auth : auth' } },
-  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, navigationOptions: { gesturesEnabled: true }, tracking: { name: 'auth : sign in' } },
-  [WELCOME_SCREEN]: { screen: WelcomeScreen, tracking: { name: 'onboarding : welcome' } },
-  [SETUP_SCREEN]: { screen: SetupScreen, tracking: { name: 'onboarding : name' } },
-  [GET_STARTED_SCREEN]: { screen: GetStartedScreen, tracking: { name: 'onboarding : get started' } },
-  [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen,tracking: { name: 'onboarding : self : choose my steps' } },
-  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, tracking: { name: 'onboarding : self : steps : add' } },
-  [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, tracking: { name: 'onboarding : add person : add person' } },
-  [ADD_CONTACT_SCREEN]: { screen: AddContactScreen, tracking: { name: 'onboarding : people : add person' } },
-  [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, tracking: { name: 'onboarding : add person : name' } },
-  [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, tracking: { name: 'menu : notifications : permissions' } },
-  [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, tracking: { name: 'menu : notifications : off' } },
-  [CELEBRATION_SCREEN]: { screen: CelebrationScreen, tracking: { name: 'onboarding : complete' } },
-  [SEARCH_SCREEN]: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true }, tracking: { name: 'mh : search : search' } },
-  [SEARCH_FILTER_SCREEN]: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true }, tracking: { name: 'mh : search : refine : refine' } },
-  [MAIN_TABS]: {
-    screen: DrawerNavigator({
+  [LOGIN_SCREEN]: buildTrackedScreen(LoginScreen, buildTrackingObj('auth : auth', 'auth')),
+  [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
+  [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
+  [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
+  [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
+  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person : add person', 'onboarding', 'add person')),
+  [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('onboarding : people : add person', 'onboarding', 'people', 'add person')),
+  [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
+  [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
+  [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
+  [CELEBRATION_SCREEN]: buildTrackedScreen(CelebrationScreen, buildTrackingObj('onboarding : complete', 'onboarding')),
+  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search : search', 'search') , { gesturesEnabled: true }),
+  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine : refine', 'search', 'refine'), { gesturesEnabled: true }),
+  [MAIN_TABS]: buildTrackedScreen(
+    DrawerNavigator({
       Main: { screen: MainTabRoutes },
     }, {
       contentComponent: SettingsMenu,
     }),
-    tracking: stepsTab, //stepsTab is shown when MainTabs first opens
-  },
+    stepsTab, //stepsTab is shown when MainTabs first opens
+  ),
 };
 
 export const trackableScreens = {

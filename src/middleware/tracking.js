@@ -4,6 +4,7 @@ import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
+import { buildTrackingObj } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -28,7 +29,7 @@ export default function tracking({ dispatch, getState }) {
           newAction = trackContactMenu(actionParams.isCurrentUser);
 
         } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-          newAction = trackState({ name: 'menu : menu' });
+          newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
         }
       }
 
@@ -66,5 +67,6 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState({ name: 'people : self : menu : menu' }) : trackState({ name: 'people : person : menu : menu' });
+  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'))
+    : trackState(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
 }
