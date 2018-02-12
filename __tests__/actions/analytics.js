@@ -55,32 +55,40 @@ describe('trackAction', () => {
 
 describe('trackState', () => {
   const newScreenName = 'screen 2';
+  const section = 'section';
+  const subsection = 'subsection';
+  const level3 = 'level 3';
   let expectedUpdatedContext;
+
+  let trackingObj;
 
   beforeEach(() => {
     expectedUpdatedContext = {
       [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
       [ANALYTICS.SCREENNAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.PAGE_NAME]: nameWithPrefix(newScreenName),
-      [ANALYTICS.SITE_SECTION]: undefined,
-      [ANALYTICS.SITE_SUBSECTION]: undefined,
-      [ANALYTICS.SITE_SUB_SECTION_3]: undefined,
+      [ANALYTICS.SITE_SECTION]: section,
+      [ANALYTICS.SITE_SUBSECTION]: subsection,
+      [ANALYTICS.SITE_SUB_SECTION_3]: level3,
       [ANALYTICS.MCID]: mcId,
     };
+
+    trackingObj = { name: newScreenName, section: section, subsection: subsection, level3: level3 };
   });
 
   it('should track state', () => {
-    store.dispatch(trackState({ name: newScreenName }));
+    store.dispatch(trackState(trackingObj));
 
     expect(RNOmniture.trackState).toHaveBeenCalledWith(nameWithPrefix(newScreenName), expectedUpdatedContext);
   });
 
   it('should update analytics context', () => {
-    store.dispatch(trackState({ name: newScreenName }));
+    store.dispatch(trackState(trackingObj));
 
-    const action = store.getActions()[0];
-    expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext).toEqual(expectedUpdatedContext);
+    expect(store.getActions()).toEqual([ {
+      type: ANALYTICS_CONTEXT_CHANGED,
+      analyticsContext: expectedUpdatedContext,
+    } ]);
   });
 });
 
