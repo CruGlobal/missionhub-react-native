@@ -95,7 +95,7 @@ exports[`renders correctly as Casey 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 10,
+                      "margin": 8,
                     },
                     Object {},
                   ],
@@ -218,7 +218,7 @@ exports[`renders correctly as Casey 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 10,
+                      "margin": 8,
                     },
                     Object {},
                   ],
@@ -550,7 +550,7 @@ exports[`renders correctly as Jean 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 10,
+                      "margin": 8,
                     },
                     Object {},
                   ],
@@ -673,7 +673,7 @@ exports[`renders correctly as Jean 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 10,
+                      "margin": 8,
                     },
                     Object {},
                   ],
