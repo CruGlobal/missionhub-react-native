@@ -68,7 +68,7 @@ describe('Navigation to steps screen', () => {
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
-      { onSaveNewSteps, enableButton: true }
+      { onSaveNewSteps, enableBackButton: true }
     );
   });
 
