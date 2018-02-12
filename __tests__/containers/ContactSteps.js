@@ -34,12 +34,13 @@ it('renders correctly', () => {
 });
 
 
-it('navigates to my steps', () => {
-  let component;
-  Enzyme.configure({ adapter: new Adapter() });
+let component;
+Enzyme.configure({ adapter: new Adapter() });
+
+const testNavigation = (isCurrentUser, nextScreen) => {
   const screen = shallow(
     <ContactSteps
-      isMe={true}
+      isMe={isCurrentUser}
       person={{ first_name: 'ben', id: 1 }}
       navigation={createMockNavState()}
     />,
@@ -49,25 +50,13 @@ it('navigates to my steps', () => {
 
   navigation.navigatePush = jest.fn();
   component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, expect.anything());
-});
+  expect(navigation.navigatePush).toHaveBeenCalledWith(nextScreen, expect.anything());
+};
+
+it('navigates to my steps', testNavigation(true, SELECT_MY_STEP_SCREEN));
 
 
-it('navigates to person steps', () => {
-  let component;
-  Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <ContactSteps
-      isMe={false}
-      person={{ first_name: 'ben', id: 1 }}
-      navigation={createMockNavState()}
-    />,
-    { context: { store } },
-  );
-  component = screen.dive().dive().dive().instance();
+it('navigates to person steps', testNavigation(false, PERSON_SELECT_STEP_SCREEN));
 
-  navigation.navigatePush = jest.fn();
-  component.handleCreateStep();
-  expect(navigation.navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
-});
+
 
