@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { setVisiblePersonInfo, updateVisiblePersonInfo } from '../../actions/profile';
+import { setVisiblePersonInfo, fetchVisiblePersonInfo, updateVisiblePersonInfo } from '../../actions/profile';
 
 import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
 import { CASEY, CONTACT_MENU_DRAWER, DRAWER_OPEN, JEAN } from '../../constants';
-import { getPerson } from '../../actions/people';
-import { getStages } from '../../actions/stages';
 import { STAGE_SCREEN } from '../StageScreen';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 
@@ -26,54 +24,10 @@ class ContactScreen extends Component {
 
   async componentDidMount() {
     // Shares visiblePersonInfo with ContactSideMenu Drawer
-    const { person, personIsCurrentUser, isCasey, isJean, stages, myId } = this.props;
-    this.props.dispatch(setVisiblePersonInfo({ person, personIsCurrentUser, isCasey, isJean, stages }));
-    const { contactAssignmentId, contactStage } = await this.getAssignmentAndStage(person.id, myId, personIsCurrentUser, stages);
-    this.props.dispatch(updateVisiblePersonInfo({ contactAssignmentId, contactStage }));
+    const { person, personIsCurrentUser, isJean, stages, myId } = this.props;
+    this.props.dispatch(setVisiblePersonInfo({ person, personIsCurrentUser, isJean, stages }));
+    this.props.dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages));
   }
-
-  async getAssignmentAndStage(personId, currentUserId, personIsCurrentUser, stages) {
-    const { dispatch } = this.props;
-    if (personId) {
-      const results = await dispatch(getPerson(personId));
-      const { contactAssignmentId, pathwayStageId } = personIsCurrentUser ?
-        getPathwayStageIdFromUser(results) :
-        getAssignmentWithPathwayStageId(results);
-
-      const contactStage = await getContactStage(pathwayStageId);
-      return {
-        contactAssignmentId,
-        contactStage,
-      };
-    }
-
-    function getPathwayStageIdFromUser(results) {
-      const user = results.findAll('user')[0];
-      return {
-        contactAssignmentId: null,
-        pathwayStageId: user && user.pathway_stage_id,
-      };
-    }
-
-    function getAssignmentWithPathwayStageId(results) {
-      const assignment = results.findAll('contact_assignment')
-        .find((assignment) => assignment.assigned_to.id === currentUserId);
-      return {
-        contactAssignmentId: assignment && assignment.id,
-        pathwayStageId: assignment && assignment.pathway_stage_id,
-      };
-    }
-
-    async function getContactStage(pathwayStageId) {
-      if (pathwayStageId) {
-        const stageResults = stages.length > 0 ?
-          stages :
-          (await dispatch(getStages())).findAll('pathway_stage');
-        return stageResults.find((s) => s.id === pathwayStageId.toString());
-      }
-    }
-  }
-
 
   handleChangeStage() {
     const { dispatch, personIsCurrentUser, person, contactAssignmentId, contactStage } = this.props;
@@ -83,7 +37,7 @@ class ContactScreen extends Component {
         currentStage: contactStage && contactStage.id || null,
         contactId: person.id,
         section: 'people : self',
-        enableButton: true,
+        enableBackButton: true,
       }));
     } else {
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
@@ -143,6 +97,7 @@ ContactScreen.propTypes = {
 
 const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
   ...(navigation.state.params || {}),
+  person: profile.visiblePersonInfo.person || navigation.state.params.person,
   isJean: auth.isJean,
   stages: stages.stages,
   myId: auth.personId,

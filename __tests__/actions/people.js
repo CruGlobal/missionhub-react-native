@@ -1,4 +1,4 @@
-import { searchPeople, getMe, getMyPeople, getUserDetails } from '../../src/actions/people';
+import { searchPeople, getMe, getMyPeople, getUserDetails, getPersonDetails } from '../../src/actions/people';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -31,6 +31,16 @@ describe('get me', () => {
     store.dispatch(getMe());
 
     expect(store.getActions()[0]).toBe(action);
+  });
+});
+
+describe('getPersonDetails', () => {
+  it('should get a person\'s details', () => {
+    mockApi({}, REQUESTS.GET_PERSON, {
+      person_id: 1,
+      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
+    });
+    store.dispatch(getPersonDetails(1));
   });
 });
 

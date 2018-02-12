@@ -138,7 +138,7 @@ export default class ContactHeader extends Component {
   }
 
   render() {
-    const { person, type, stage } = this.props;
+    const { person, type, stage, isMe } = this.props;
     const hasStage = stage && stage.name;
 
     return (
@@ -152,7 +152,7 @@ export default class ContactHeader extends Component {
           onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar person={person} tabs={this.getTabs()} />
+        <SecondaryTabBar isMe={isMe} person={person} tabs={this.getTabs()} />
       </Flex>
     );
   }

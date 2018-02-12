@@ -32,7 +32,7 @@ it('StageScreen renders correctly with back button', () => {
     <Provider store={store}>
       <StageScreen
         navigation={createMockNavState({
-          enableButton: true,
+          enableBackButton: true,
         })}
       />
     </Provider>
@@ -49,7 +49,7 @@ describe('StageScreen', () => {
     tree = renderer.create(
       <Provider store={store}>
         <StageScreen navigation={createMockNavState({
-          enableButton: false,
+          enableBackButton: false,
         })} />
       </Provider>
     );

@@ -5,16 +5,23 @@ import { connect } from 'react-redux';
 
 import { navigatePush } from '../actions/navigation';
 import IconMessageScreen from './IconMessageScreen/index';
-import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
+import { SELECT_MY_STEP_ONBOARDING_SCREEN } from './SelectMyStepScreen';
+import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
   constructor(props) {
     super(props);
+
+    this.handleNavigateToStep = this.handleNavigateToStep.bind(this);
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN));
+    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+  }
+
+  handleNavigateToStep() {
+    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
   }
 
   getMessage() {
@@ -28,7 +35,7 @@ class StageSuccessScreen extends Component {
   render() {
     const { t } = this.props;
     const message = this.getMessage();
-    return <IconMessageScreen mainText={message} buttonText={t('chooseSteps').toUpperCase()} onComplete={this.handleNavigate} iconPath={require('../../assets/images/pathFinder.png')} />;
+    return <IconMessageScreen mainText={message} buttonText={t('chooseSteps').toUpperCase()} onComplete={this.handleNavigateToStep} iconPath={require('../../assets/images/pathFinder.png')} />;
   }
 }
 
