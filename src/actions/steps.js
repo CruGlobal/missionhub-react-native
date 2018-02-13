@@ -1,10 +1,12 @@
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
 import { formatApiDate } from '../utils/common';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-
+import { STAGE_SCREEN } from '../containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { getPerson } from './people';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -93,7 +95,8 @@ export function completeStep(step) {
 }
 
 export function challengeCompleteAction(step) {
-  return (dispatch) => {
+  LOG(step);
+  return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = {
       data: {
@@ -104,6 +107,7 @@ export function challengeCompleteAction(step) {
       },
     };
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results)=> {
+      dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
         onComplete: (text) => {
           if (text) {
@@ -117,7 +121,48 @@ export function challengeCompleteAction(step) {
             };
             dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
           }
-          dispatch(navigatePush(CELEBRATION_SCREEN));
+          dispatch(navigatePush(CELEBRATION_SCREEN, { onComplete: () => {
+            const count = getState().steps.userStepCount[step.receiverId];
+            const me = getState().auth.personId;
+            const isMe = isMe === step.receiver.id;
+            const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
+
+
+            if (count % 3 === 0) {
+              dispatch(getPerson(step.receiver.id)).then((results2) => {
+                const assignment = results2.findAll('contact_assignment')
+                  .find((assignment) => assignment.assigned_to.id === me);
+                const stageProps = isMe ? {
+                  contactId: me,
+                  pathwayStageId: assignment && assignment.pathway_stage_id,
+                  section: 'people : self',
+                  enableButton: true,
+                  onComplete: () => {
+                    dispatch(navigateBack());
+                    dispatch(navigateBack());
+                    dispatch(navigateBack());
+                  },
+                } : {
+                  name: step.receiver.first_name,
+                  contactId: step.receiver.id,
+                  contactAssignmentId: assignment && assignment.id,
+                  pathwayStageId: assignment && assignment.pathway_stage_id,
+                  section: 'people : person',
+                  onComplete: () => {
+                    dispatch(navigateBack());
+                    dispatch(navigateBack());
+                    dispatch(navigateBack());
+                  },
+                };
+
+                dispatch(navigatePush(nextStageScreen, stageProps));
+              });
+            } else {
+              dispatch(navigateBack());
+              dispatch(navigateBack());
+            }
+          },
+          }));
         },
         type: 'stepNote',
       }));

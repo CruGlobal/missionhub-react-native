@@ -26,7 +26,11 @@ class CelebrationScreen extends Component {
   }
 
   navigateToNext() {
-    this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+    if (this.props.onComplete) {
+      this.props.onComplete();
+    } else {
+      this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+    }
   }
 
   static shuffleGif() {

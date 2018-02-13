@@ -1,7 +1,7 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
+import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
 import { findAllNonPlaceHolders } from '../utils/common';
 
 const initialState = {
@@ -9,6 +9,7 @@ const initialState = {
   suggestedForMe: [],
   suggestedForOthers: [],
   reminders: [],
+  userStepCount: {},
 };
 
 function stepsReducer(state = initialState, action) {
@@ -60,6 +61,12 @@ function stepsReducer(state = initialState, action) {
         ...state,
         mine: newRemove,
         reminders: state.reminders.filter((s) => s.id !== action.step.id),
+      };
+    case COMPLETED_STEP_COUNT:
+      console.log(state);
+      return {
+        ...state,
+        userStepCount: { ...state.userStepCount, [action.userId]: state.userStepCount[action.userId] ? state.userStepCount[action.userID] + 1 : 1 },
       };
     case LOGOUT:
       return initialState;
