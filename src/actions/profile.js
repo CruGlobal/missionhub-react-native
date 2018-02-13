@@ -148,6 +148,24 @@ export function updatePerson(data) {
   };
 }
 
+export function updateFollowupStatus(personId, orgPermissionId, status) {
+  return (dispatch) => {
+    const data = {
+      data: {
+        type: 'person',
+      },
+      included: [ {
+        id: orgPermissionId,
+        type: 'organizational_permission',
+        attributes: {
+          followup_status: status,
+        },
+      } ],
+    };
+    return dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId }, data));
+  };
+}
+
 export function deleteContactAssignment(id) {
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
