@@ -20,7 +20,7 @@ beforeEach(() => {
 describe('contactSideMenu Casey', () => {
   it('renders menu correctly', () => {
     const component = testSnapshotShallow(
-      <ContactSideMenu />,
+      <ContactSideMenu navigation={createMockNavState()} />,
       createMockStore({
         auth: { personId: 1 },
         stages: { stages: [ 'placeholder stage' ] },
@@ -44,7 +44,7 @@ describe('contactSideMenu Casey', () => {
 describe('contactSideMenu Jean', () => {
   it('renders menu correctly when missing org permission', () => {
     const component = testSnapshotShallow(
-      <ContactSideMenu />,
+      <ContactSideMenu navigation={createMockNavState()} />,
       createMockStore({
         auth: { personId: 1 },
         stages: { stages: [ 'placeholder stage' ] },
