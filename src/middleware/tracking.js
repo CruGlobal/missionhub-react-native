@@ -51,7 +51,7 @@ export default function tracking({ dispatch, getState }) {
           newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
 
         } else {
-          newAction = trackState(trackableScreens[LOGIN_SCREEN].name); //app is loaded for the very first time
+          newAction = trackState(trackableScreens[LOGIN_SCREEN]); //app is loaded for the very first time
         }
 
         break;
