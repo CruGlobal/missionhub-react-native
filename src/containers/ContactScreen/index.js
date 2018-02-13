@@ -99,7 +99,7 @@ ContactScreen.propTypes = {
 
 const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  person: profile.visiblePersonInfo.person || navigation.state.params.person,
+  person: navigation.state.params.person || profile.visiblePersonInfo.person,
   isJean: auth.isJean,
   stages: stages.stages,
   myId: auth.personId,

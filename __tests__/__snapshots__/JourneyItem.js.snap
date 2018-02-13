@@ -39,7 +39,7 @@ exports[`renders interaction correctly 1`] = `
           },
           Object {
             "alignSelf": "center",
-            "color": "#52C5DC",
+            "color": "#007398",
             "textAlign": "center",
             "width": 75,
           },
@@ -104,7 +104,7 @@ exports[`renders interaction correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "color": "#52C5DC",
+            "color": "#007398",
             "fontSize": 16,
           },
         ]
@@ -175,7 +175,7 @@ exports[`renders stage correctly 1`] = `
           },
           Object {
             "alignSelf": "center",
-            "color": "#52C5DC",
+            "color": "#007398",
             "textAlign": "center",
             "width": 75,
           },
@@ -240,7 +240,7 @@ exports[`renders stage correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "color": "#52C5DC",
+            "color": "#007398",
             "fontSize": 16,
           },
         ]
@@ -311,7 +311,7 @@ exports[`renders step correctly 1`] = `
           },
           Object {
             "alignSelf": "center",
-            "color": "#52C5DC",
+            "color": "#007398",
             "textAlign": "center",
             "width": 75,
           },
@@ -376,7 +376,7 @@ exports[`renders step correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "color": "#52C5DC",
+            "color": "#007398",
             "fontSize": 16,
           },
         ]
@@ -445,7 +445,7 @@ exports[`renders survey correctly 1`] = `
           },
           Object {
             "alignSelf": "center",
-            "color": "#52C5DC",
+            "color": "#007398",
             "textAlign": "center",
             "width": 75,
           },
@@ -510,13 +510,173 @@ exports[`renders survey correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "fontSize": 14,
+            "color": "#007398",
+            "fontSize": 16,
           },
         ]
       }
     >
-      Test Journey
+      Survey Test
     </Text>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 1
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 1
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 2
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 2
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 3
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 3
+      </Text>
+    </View>
   </View>
 </View>
 `;

@@ -12,15 +12,9 @@ const interactionsArr = Object.keys(INTERACTION_TYPES).map((key) => INTERACTION_
 export default class JourneyItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
   renderDate() {
-    const { item, type } = this.props;
-    let date;
-    if (type === 'step') {
-      date = item.completed_at;
-    } else {
-      date = item.created_at;
-    }
+    const { item } = this.props;
 
-    return <DateComponent date={date} style={styles.date} format="LL" />;
+    return <DateComponent date={item.date} style={styles.date} format="LL" />;
   }
   renderTitle() {
     const { t, item, type } = this.props;
@@ -29,8 +23,8 @@ export default class JourneyItem extends Component {
       title = t('stepTitle');
     } else if (type === 'stage') {
       title = t('stageTitle');
-    } else if (type === 'survey') {
-      title = item.title;
+    } else if (type === 'survey' && item.survey) {
+      title = item.survey.title;
     } else if (type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
@@ -94,6 +88,7 @@ export default class JourneyItem extends Component {
   }
 
   renderContent() {
+    if (this.props.type === 'survey') return this.renderSurvey();
     return (
       <Flex value={1} direction="column" style={styles.textWrap}>
         {this.renderDate()}
@@ -102,6 +97,25 @@ export default class JourneyItem extends Component {
       </Flex>
     );
   }
+
+  renderSurvey() {
+    const { answers } = this.props.item;
+    return (
+      <Flex value={1} direction="column" style={styles.textWrap}>
+        {this.renderDate()}
+        {this.renderTitle()}
+        {
+          answers.map((a) => (
+            <Flex direction="column" key={a.id}>
+              <Text style={styles.question}>{a.question.label}</Text>
+              <Text style={styles.text}>{a.value}</Text>
+            </Flex>
+          ))
+        }
+      </Flex>
+    );
+  }
+
   render() {
     const { type } = this.props;
     return (
