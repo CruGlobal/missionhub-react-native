@@ -100,6 +100,7 @@ class PathwayStageScreen extends Component {
           {
             this.props.stages ? (
               <Carousel
+                firstItem={this.props.firstItem || 0}
                 data={this.props.stages}
                 inactiveSlideOpacity={1}
                 inactiveSlideScale={1}
@@ -122,6 +123,7 @@ class PathwayStageScreen extends Component {
 PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
   section: PropTypes.string.isRequired,
+  firstItem: PropTypes.number,
 };
 
 const mapStateToProps = ({ stages }) => ({

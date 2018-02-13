@@ -135,7 +135,6 @@ export function challengeCompleteAction(step) {
                   .find((assignment) => assignment.assigned_to.id === me);
                 const stageProps = isMe ? {
                   contactId: me,
-                  pathwayStageId: assignment && assignment.pathway_stage_id,
                   section: 'people : self',
                   enableButton: true,
                   onComplete: () => {
@@ -143,11 +142,12 @@ export function challengeCompleteAction(step) {
                     dispatch(navigateBack());
                     dispatch(navigateBack());
                   },
+                  firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
                 } : {
                   name: step.receiver.first_name,
                   contactId: step.receiver.id,
                   contactAssignmentId: assignment && assignment.id,
-                  pathwayStageId: assignment && assignment.pathway_stage_id,
+                  firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
                   section: 'people : person',
                   onComplete: () => {
                     dispatch(navigateBack());

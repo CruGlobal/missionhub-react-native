@@ -38,6 +38,7 @@ class StageScreen extends Component {
         onSelect={this.handleSelectStage}
         section={this.props.section}
         enableButton={enableButton}
+        firstItem={this.props.firstItem || undefined}
       />
     );
   }

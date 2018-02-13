@@ -61,6 +61,7 @@ class PersonStageScreen extends Component {
         onSelect={this.handleSelectStage}
         section={this.props.section}
         enableButton
+        firstItem={this.props.firstItem || undefined}
       />
     );
   }
