@@ -59,5 +59,10 @@ class CelebrationScreen extends Component {
   }
 }
 
-export default connect()(CelebrationScreen);
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+
+export default connect(mapStateToProps)(CelebrationScreen);
 export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

@@ -63,10 +63,10 @@ function stepsReducer(state = initialState, action) {
         reminders: state.reminders.filter((s) => s.id !== action.step.id),
       };
     case COMPLETED_STEP_COUNT:
-      console.log(state);
+      const currentCount = state.userStepCount[action.userId] || 0;
       return {
         ...state,
-        userStepCount: { ...state.userStepCount, [action.userId]: state.userStepCount[action.userId] ? state.userStepCount[action.userID] + 1 : 1 },
+        userStepCount: { ...state.userStepCount, [action.userId]: currentCount + 1 },
       };
     case LOGOUT:
       return initialState;

@@ -123,6 +123,7 @@ export function challengeCompleteAction(step) {
           }
           dispatch(navigatePush(CELEBRATION_SCREEN, { onComplete: () => {
             const count = getState().steps.userStepCount[step.receiverId];
+            LOG(count);
             const me = getState().auth.personId;
             const isMe = isMe === step.receiver.id;
             const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
