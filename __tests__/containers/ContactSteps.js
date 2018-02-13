@@ -10,6 +10,7 @@ import Adapter from 'enzyme-adapter-react-16/build/index';
 import * as navigation from '../../src/actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
+import { buildTrackingObj } from '../../src/utils/common';
 
 const mockState = {
   steps: {
@@ -82,7 +83,7 @@ describe('Navigation to steps screen', () => {
         contactId: mockPerson.id,
         contact: mockPerson,
         onSaveNewSteps,
-        createStepScreenname: 'people : person : steps : create',
+        createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
       },
     );
   });

@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 
 import theme from '../../theme';
 import { trackState } from '../../actions/analytics';
+import { buildTrackingObj } from '../../utils/common';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
@@ -61,7 +62,11 @@ class PathwayStageScreen extends Component {
   }
 
   trackStageState(number) {
-    this.props.dispatch(trackState(`${this.props.section} : stage : ${number}`));
+    const trackingObj = buildTrackingObj(`${this.props.section} : ${this.props.subsection} : stage : ${number}`,
+      this.props.section,
+      this.props.subsection,
+      'stage');
+    this.props.dispatch(trackState(trackingObj));
   }
 
   renderStage({ item, index }) {
@@ -130,6 +135,7 @@ class PathwayStageScreen extends Component {
 PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
   section: PropTypes.string.isRequired,
+  subsection: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ stages }) => ({

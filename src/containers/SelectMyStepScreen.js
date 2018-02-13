@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
-import { getFirstThreeValidItems } from '../utils/common';
+import { buildTrackingObj, getFirstThreeValidItems } from '../utils/common';
 
 @translate('selectStep')
 class SelectMyStepScreen extends Component {
@@ -29,8 +29,8 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
+        createStepTracking={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
         enableBackButton={enableBackButton}
-        createStepScreenname="onboarding : self : steps : create"
       />
     );
   }

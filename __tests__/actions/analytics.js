@@ -12,7 +12,7 @@ jest.mock('react-native-omniture', () => {
   };
 });
 
-const screenName = 'mh : section : screen';
+const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
 let context = {
   [ANALYTICS.SCREENNAME]: screenName,
@@ -54,68 +54,41 @@ describe('trackAction', () => {
 });
 
 describe('trackState', () => {
+  const newScreenName = 'screen 2';
   const section = 'section';
   const subsection = 'subsection';
-  const screenNameWithSection = `${section} : screen`;
-
+  const level3 = 'level 3';
   let expectedUpdatedContext;
 
-  beforeEach(() => {
-    store.dispatch(trackState(screenNameWithSection));
+  let trackingObj;
 
+  beforeEach(() => {
     expectedUpdatedContext = {
       [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
-      [ANALYTICS.SCREENNAME]: nameWithPrefix(screenNameWithSection),
-      [ANALYTICS.PAGE_NAME]: nameWithPrefix(screenNameWithSection),
+      [ANALYTICS.SCREENNAME]: nameWithPrefix(newScreenName),
+      [ANALYTICS.PAGE_NAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.SITE_SECTION]: section,
+      [ANALYTICS.SITE_SUBSECTION]: subsection,
+      [ANALYTICS.SITE_SUB_SECTION_3]: level3,
       [ANALYTICS.MCID]: mcId,
     };
+
+    trackingObj = { name: newScreenName, section: section, subsection: subsection, level3: level3 };
   });
 
   it('should track state', () => {
-    store.dispatch(trackState(screenNameWithSection));
+    store.dispatch(trackState(trackingObj));
 
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(nameWithPrefix(screenNameWithSection), expect.anything());
-  });
-
-  it('should send updated analytics context with site section', () => {
-    store.dispatch(trackState(screenNameWithSection));
-
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(expect.anything(), expectedUpdatedContext);
-  });
-
-  it('should send updated analytics context with site section and subsection', () => {
-    const screenNameWithSubsection = `${section} : ${subsection} : screen`;
-    expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsection);
-    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsection);
-    expectedUpdatedContext[ANALYTICS.SITE_SECTION] = section;
-    expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
-
-    store.dispatch(trackState(screenNameWithSubsection));
-
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(expect.anything(), expectedUpdatedContext);
-  });
-
-  it('should send updated analytics context with site section, subsection, and subsection level 3', () => {
-    const sectionLevel3 = 'section level 3';
-    const screenNameWithSubsectionAndLevel3 = `${section} : ${subsection} : ${sectionLevel3} : screen`;
-    expectedUpdatedContext[ANALYTICS.SCREENNAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
-    expectedUpdatedContext[ANALYTICS.PAGE_NAME] = nameWithPrefix(screenNameWithSubsectionAndLevel3);
-    expectedUpdatedContext[ANALYTICS.SITE_SECTION] = section;
-    expectedUpdatedContext[ANALYTICS.SITE_SUBSECTION] = subsection;
-    expectedUpdatedContext[ANALYTICS.SITE_SUB_SECTION_3] = sectionLevel3;
-
-    store.dispatch(trackState(screenNameWithSubsectionAndLevel3));
-
-    expect(RNOmniture.trackState).toHaveBeenCalledWith(expect.anything(), expectedUpdatedContext);
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(nameWithPrefix(newScreenName), expectedUpdatedContext);
   });
 
   it('should update analytics context', () => {
-    store.dispatch(trackState(screenNameWithSection));
+    store.dispatch(trackState(trackingObj));
 
-    const action = store.getActions()[0];
-    expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext).toEqual(expectedUpdatedContext);
+    expect(store.getActions()).toEqual([ {
+      type: ANALYTICS_CONTEXT_CHANGED,
+      analyticsContext: expectedUpdatedContext,
+    } ]);
   });
 });
 
