@@ -7,14 +7,14 @@ import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN } from './containers/SelectMyStepScreen';
+import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN, SELECT_MY_STEP_ONBOARDING_SCREEN } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, { PERSON_SELECT_STEP_SCREEN } from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
-import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
+import StageScreen, { STAGE_SCREEN, STAGE_ONBOARDING_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
@@ -134,6 +134,7 @@ const screens = {
   [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person : add person', 'onboarding', 'add person')),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('onboarding : people : add person', 'onboarding', 'people', 'add person')),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
@@ -160,13 +161,14 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
-  [STAGE_SCREEN]: { screen: StageScreen },
+  [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
+  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
+  [STAGE_SCREEN]: { screen: StageScreen, navigationOptions: { gesturesEnabled: true } },
   [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
-
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {

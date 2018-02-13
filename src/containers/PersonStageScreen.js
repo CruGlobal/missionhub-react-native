@@ -64,7 +64,7 @@ class PersonStageScreen extends Component {
         onSelect={this.handleSelectStage}
         section={this.props.section}
         subsection={this.props.subsection}
-        enableButton
+        enableBackButton
       />
     );
   }

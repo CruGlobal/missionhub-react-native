@@ -38,7 +38,7 @@ class ContactScreen extends Component {
         contactId: person.id,
         section: 'people',
         subsection: 'self',
-        enableButton: true,
+        enableBackButton: true,
       }));
     } else {
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {

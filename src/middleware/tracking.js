@@ -5,6 +5,7 @@ import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
 import { buildTrackingObj } from '../utils/common';
+import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -44,8 +45,15 @@ export default function tracking({ dispatch, getState }) {
         break;
 
       case REHYDRATE:
-        const savedRoutes = action.payload.nav.routes;
-        newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
+        const nav = action.payload.nav;
+        if (nav) {
+          const savedRoutes = nav.routes;
+          newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
+
+        } else {
+          newAction = trackState(trackableScreens[LOGIN_SCREEN].name); //app is loaded for the very first time
+        }
+
         break;
     }
 
