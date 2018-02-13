@@ -36,6 +36,7 @@ jest.mock('../../src/utils/common', () => ({
   exists: (v) => typeof v !== 'undefined',
   isAndroid: true,
   isiPhoneX: jest.fn(),
+  buildTrackingObj: jest.fn(),
 }));
 
 it('renders android correctly', () => {
