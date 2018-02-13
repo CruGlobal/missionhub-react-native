@@ -21,20 +21,23 @@ export function getJourney(personId, personal = false) {
     journeySteps = findAllNonPlaceHolders(steps, 'accepted_challenge').map((s) => ({
       ...s,
       type: 'step',
+      date: s.completed_at,
     }));
 
     // Get the interactions
     const personQuery = {
-      // include: 'pathway_progression_audits,surveys.name,interactions.comment,answer_sheets.surveys',
-      include: 'pathway_progression_audits,interactions.comment',
+      // include: 'pathway_progression_audit,interactions.comment',
+      include: 'pathway_progression_audit,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
     const person = await dispatch(getUserDetails(personId, personQuery));
     journeyInteractions = findAllNonPlaceHolders(person, 'contact_assignment')
-      .concat(findAllNonPlaceHolders(person, 'interaction'));
+      .concat(findAllNonPlaceHolders(person, 'interaction'))
+      .concat(findAllNonPlaceHolders(person, 'pathway_progression_audit'));
 
     journeyInteractions = journeyInteractions.map((j) => {
       let text = '';
       let type = 'interaction';
+      let date = j.created_at;
       if (j.comment) {
         // type = 'comment';
         text = j.comment;
@@ -43,12 +46,21 @@ export function getJourney(personId, personal = false) {
         ...j,
         text,
         type,
+        date,
       };
     });
-
+    
+    
+    
     // TODO: Make a request to get the full surveys for {personId} if jean
     if (isJean && !personal) {
-      LOG('Need to get surveys for user');
+      journeySurveys = findAllNonPlaceHolders(person, 'answer_sheet').map((s) => {
+        return {
+          ...s,
+          type: 'survey',
+          date: s.created_at,
+        };
+      });
     }
 
 
@@ -58,6 +70,16 @@ export function getJourney(personId, personal = false) {
       journeyInteractions,
       journeySurveys,
     );
+    journeyItems.sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      if (aDate > bDate) {
+        return -1;
+      } else if (aDate < bDate) {
+        return 1;
+      }
+      return 0;
+    });
     // TODO: Sort by created date
 
     return journeyItems;

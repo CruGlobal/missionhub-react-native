@@ -36,7 +36,8 @@ class ContactScreen extends Component {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
         currentStage: contactStage && contactStage.id || null,
         contactId: person.id,
-        section: 'people : self',
+        section: 'people',
+        subsection: 'self',
         enableBackButton: true,
       }));
     } else {
@@ -46,7 +47,8 @@ class ContactScreen extends Component {
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,
-        section: 'people : person',
+        section: 'people',
+        subsection: 'person',
       }));
     }
   }
@@ -97,7 +99,7 @@ ContactScreen.propTypes = {
 
 const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  person: profile.visiblePersonInfo.person || navigation.state.params.person,
+  person: navigation.state.params.person || profile.visiblePersonInfo.person,
   isJean: auth.isJean,
   stages: stages.stages,
   myId: auth.personId,

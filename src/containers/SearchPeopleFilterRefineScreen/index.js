@@ -11,6 +11,7 @@ import { IconButton } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
+import { buildTrackingObj } from '../../utils/common';
 
 function setSelected(items = [], id) {
   return items.map((i) => ({
@@ -49,7 +50,8 @@ export class SearchPeopleFilterRefineScreen extends Component {
         options: item.drilldown,
       }));
 
-      this.props.dispatch(trackState(`mh : search : refine : ${item.id }`));
+      const trackingObj = buildTrackingObj(`mh : search : refine : ${item.id }`, 'search', 'refine', item.id);
+      this.props.dispatch(trackState(trackingObj));
 
     } else {
       const newOptions = setSelected(this.state.options, item.id);

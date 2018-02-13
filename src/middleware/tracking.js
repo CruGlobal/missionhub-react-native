@@ -4,6 +4,7 @@ import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
+import { buildTrackingObj } from '../utils/common';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export default function tracking({ dispatch, getState }) {
@@ -14,10 +15,10 @@ export default function tracking({ dispatch, getState }) {
     switch (action.type) {
       case NAVIGATE_FORWARD:
         const routeName = action.routeName;
-        const route = trackableScreens[routeName];
+        const trackedRoute = trackableScreens[routeName];
 
-        if (route) {
-          newAction = trackState(route.name);
+        if (trackedRoute) {
+          newAction = trackState(trackedRoute.tracking);
 
         } else if (routeName === CONTACT_SCREEN) {
           newAction = trackContactScreen(action, getState);
@@ -29,7 +30,7 @@ export default function tracking({ dispatch, getState }) {
             newAction = trackContactMenu(actionParams.isCurrentUser);
 
           } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-            newAction = trackState('menu : menu');
+            newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
           }
         }
         break;
@@ -50,7 +51,7 @@ export default function tracking({ dispatch, getState }) {
           newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
 
         } else {
-          newAction = trackState(trackableScreens[LOGIN_SCREEN].name); //app is loaded for the very first time
+          newAction = trackState(trackableScreens[LOGIN_SCREEN]); //app is loaded for the very first time
         }
 
         break;
@@ -62,9 +63,10 @@ export default function tracking({ dispatch, getState }) {
 }
 
 function trackRoute(route) {
-  const routeName = route.routeName;
-
-  return trackState(trackableScreens[routeName].name);
+  const trackedRoute = trackableScreens[route.routeName];
+  if (trackedRoute) {
+    return trackState(trackedRoute.tracking);
+  }
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
@@ -76,5 +78,6 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState('people : self : menu : menu') : trackState('people : person : menu : menu');
+  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'))
+    : trackState(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
 }

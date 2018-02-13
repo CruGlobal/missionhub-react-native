@@ -19,7 +19,7 @@ class CustomTabs extends Component {
     this.props.onChangeTab(tab.page);
 
     if (i !== this.props.activeTab) {
-      this.props.dispatch(trackState(tab.screenName));
+      this.props.dispatch(trackState(tab.tracking));
     }
   }
 

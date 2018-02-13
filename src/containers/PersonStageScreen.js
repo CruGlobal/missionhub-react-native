@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigatePush, navigateBack } from '../actions/navigation';
-import { isAndroid } from '../utils/common';
+import { buildTrackingObj, isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { MAIN_TABS } from '../constants';
@@ -43,9 +43,12 @@ class PersonStageScreen extends Component {
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          onSaveNewSteps: this.handleNavigate, createStepScreenname: 'onboarding : add person : steps : create',
+          onSaveNewSteps: this.handleNavigate,
+          createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'add person', 'steps'),
         }));
-        this.props.dispatch(trackState('onboarding : add person : steps : add'));
+
+        const trackingObj = buildTrackingObj('onboarding : add person : steps : add', 'onboarding', 'add person', 'steps');
+        this.props.dispatch(trackState(trackingObj));
       });
     }
   }
@@ -60,6 +63,7 @@ class PersonStageScreen extends Component {
         questionText={t('personQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
+        subsection={this.props.subsection}
         enableBackButton
       />
     );
