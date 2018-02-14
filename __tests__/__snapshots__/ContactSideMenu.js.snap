@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders Casey menu correctly 1`] = `
+exports[`contactSideMenu Casey renders menu correctly 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -17,7 +17,24 @@ exports[`renders Casey menu correctly 1`] = `
 />
 `;
 
-exports[`renders Jean menu correctly 1`] = `
+exports[`contactSideMenu Jean renders menu correctly when missing org permission 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Unassign",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`contactSideMenu Jean renders menu correctly with org permission 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -28,22 +45,27 @@ exports[`renders Jean menu correctly 1`] = `
       Object {
         "action": [Function],
         "label": "Attempted Contact",
+        "selected": false,
       },
       Object {
         "action": [Function],
         "label": "Completed",
+        "selected": false,
       },
       Object {
         "action": [Function],
         "label": "Contacted",
+        "selected": false,
       },
       Object {
         "action": [Function],
         "label": "Do Not Contact",
+        "selected": false,
       },
       Object {
         "action": [Function],
         "label": "Uncontacted",
+        "selected": true,
       },
       Object {
         "action": [Function],

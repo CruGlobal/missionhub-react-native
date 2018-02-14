@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
-import { deleteContactAssignment, fetchVisiblePersonInfo } from '../../actions/profile';
+import { deleteContactAssignment, fetchVisiblePersonInfo, updateFollowupStatus } from '../../actions/profile';
 import { deleteStep } from '../../actions/steps';
 
 @translate('contactSideMenu')
@@ -44,11 +44,15 @@ export class ContactSideMenu extends Component {
   }
 
   render() {
-    const { t, dispatch, myId, stages } = this.props;
+    const { t, dispatch, myId, stages, organization } = this.props;
     const { isJean, personIsCurrentUser, person } = this.props.visiblePersonInfo;
 
     const isCaseyNotMe = !isJean && !personIsCurrentUser;
     const isJeanNotMe = isJean && !personIsCurrentUser;
+
+    const orgPermission = organization && person.organizational_permissions && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id);
+
+    const canEditFollowupStatus = isJeanNotMe && orgPermission;
 
     const menuItems = [
       {
@@ -59,25 +63,30 @@ export class ContactSideMenu extends Component {
         label: t('delete'),
         action: this.unassignAction(true),
       } : null,
-      isJeanNotMe ? {
+      canEditFollowupStatus ? {
         label: t('attemptedContact'),
-        action: () => LOG('attemptedContact pressed'),
+        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'attempted_contact')),
+        selected: orgPermission.followup_status === 'attempted_contact',
       } : null,
-      isJeanNotMe ? {
+      canEditFollowupStatus ? {
         label: t('completed'),
-        action: () => LOG('completed pressed'),
+        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'completed')),
+        selected: orgPermission.followup_status === 'completed',
       } : null,
-      isJeanNotMe ? {
+      canEditFollowupStatus ? {
         label: t('contacted'),
-        action: () => LOG('contacted pressed'),
+        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'contacted')),
+        selected: orgPermission.followup_status === 'contacted',
       } : null,
-      isJeanNotMe ? {
+      canEditFollowupStatus ? {
         label: t('doNotContact'),
-        action: () => LOG('doNotContact pressed'),
+        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'do_not_contact')),
+        selected: orgPermission.followup_status === 'do_not_contact',
       } : null,
-      isJeanNotMe ? {
+      canEditFollowupStatus ? {
         label: t('uncontacted'),
-        action: () => LOG('uncontacted pressed'),
+        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'uncontacted')),
+        selected: orgPermission.followup_status === 'uncontacted',
       } : null,
       isJeanNotMe ? {
         label: t('unassign'),
@@ -91,7 +100,8 @@ export class ContactSideMenu extends Component {
   }
 }
 
-const mapStateToProps = ({ profile, auth, stages }) => ({
+const mapStateToProps = ({ profile, auth, stages }, { navigation }) => ({
+  ...(navigation.state.params || {}),
   myId: auth.personId,
   stages: stages.stages,
   visiblePersonInfo: profile.visiblePersonInfo || {},

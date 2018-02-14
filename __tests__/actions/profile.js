@@ -1,4 +1,15 @@
-import { firstNameChanged, lastNameChanged, createMyPerson, createPerson, setVisiblePersonInfo, updateVisiblePersonInfo, fetchVisiblePersonInfo, updatePerson, deleteContactAssignment } from '../../src/actions/profile';
+import {
+  firstNameChanged,
+  lastNameChanged,
+  createMyPerson,
+  createPerson,
+  setVisiblePersonInfo,
+  updateVisiblePersonInfo,
+  fetchVisiblePersonInfo,
+  updatePerson,
+  updateFollowupStatus,
+  deleteContactAssignment,
+} from '../../src/actions/profile';
 import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import callApi from '../../src/actions/api';
@@ -303,6 +314,29 @@ describe('updatePerson', () => {
         },
       ],
     });
+  });
+});
+
+describe('updateFollowupStatus', () => {
+  it('should send the correct API request', () => {
+    updateFollowupStatus(1, 2, 'uncontacted')(dispatch);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON,
+      {
+        personId: 1,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [ {
+          id: 2,
+          type: 'organizational_permission',
+          attributes: {
+            followup_status: 'uncontacted',
+          },
+        } ],
+      });
+    expect(dispatch).toHaveBeenCalled();
   });
 });
 
