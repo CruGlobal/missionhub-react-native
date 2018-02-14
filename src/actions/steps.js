@@ -132,6 +132,7 @@ export function challengeCompleteAction(step) {
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
           const subsection = isMe ? 'self' : 'person';
+          const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
 
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
@@ -147,7 +148,6 @@ export function challengeCompleteAction(step) {
                     },
                   }));
 
-                  const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
                   dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
@@ -170,7 +170,6 @@ export function challengeCompleteAction(step) {
               },
             }));
 
-            const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
             dispatch(trackState(trackingObj));
           }
         },
