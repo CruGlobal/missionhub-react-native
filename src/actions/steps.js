@@ -121,49 +121,49 @@ export function challengeCompleteAction(step) {
             };
             dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
           }
-          dispatch(navigatePush(CELEBRATION_SCREEN, { onComplete: () => {
-            const count = getState().steps.userStepCount[step.receiverId];
-            LOG(count);
-            const me = getState().auth.personId;
-            const isMe = isMe === step.receiver.id;
-            const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
+
+          const count = getState().steps.userStepCount[step.receiverId];
+          const myId = getState().auth.personId;
+          const isMe = isMe === step.receiver.id;
+
+          const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
 
 
-            if (count % 3 === 0) {
-              dispatch(getPerson(step.receiver.id)).then((results2) => {
-                const assignment = results2.findAll('contact_assignment')
-                  .find((assignment) => assignment.assigned_to.id === me);
-                const stageProps = isMe ? {
-                  contactId: me,
-                  section: 'people : self',
-                  enableButton: true,
-                  onComplete: () => {
-                    dispatch(navigateBack());
-                    dispatch(navigateBack());
-                    dispatch(navigateBack());
-                  },
-                  firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
-                } : {
-                  name: step.receiver.first_name,
-                  contactId: step.receiver.id,
-                  contactAssignmentId: assignment && assignment.id,
-                  firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
-                  section: 'people : person',
-                  onComplete: () => {
-                    dispatch(navigateBack());
-                    dispatch(navigateBack());
-                    dispatch(navigateBack());
-                  },
-                };
-
-                dispatch(navigatePush(nextStageScreen, stageProps));
-              });
-            } else {
-              dispatch(navigateBack());
-              dispatch(navigateBack());
-            }
-          },
-          }));
+          if (count % 3 === 0) {
+            dispatch(getPerson(step.receiver.id)).then((results2) => {
+              const assignment = results2.findAll('contact_assignment')
+                .find((assignment) => assignment.assigned_to.id === myId);
+              let stageProps = {
+                section: 'people',
+                subsection: isMe ? 'self' : 'person',
+                onComplete: () => {
+                  dispatch(navigatePush(CELEBRATION_SCREEN, {
+                    onComplete: () => {
+                      dispatch(navigateBack());
+                      dispatch(navigateBack());
+                      dispatch(navigateBack());
+                    },
+                  }));
+                },
+                contactId: isMe ? myId : step.receiver.id,
+                firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
+                enableBackButton: false,
+              };
+              if (!isMe) {
+                stageProps.contactAssignmentId = assignment && assignment.id;
+                stageProps.name = step.receiver.first_name;
+              }
+            
+              dispatch(navigatePush(nextStageScreen, stageProps));
+            });
+          } else {
+            dispatch(navigatePush(CELEBRATION_SCREEN, {
+              onComplete: () => {
+                dispatch(navigateBack());
+                dispatch(navigateBack());
+              },
+            }));
+          }
         },
         type: 'stepNote',
       }));
