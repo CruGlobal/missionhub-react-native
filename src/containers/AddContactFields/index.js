@@ -21,6 +21,10 @@ class AddContactFields extends Component {
 
   componentDidMount() {
     const { person, isJean } = this.props;
+    // If person exists, then we are in edit mode
+    if (!person) {
+      return;
+    }
     const email = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || {};
     const phone = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || {};
     if (person) {

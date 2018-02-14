@@ -6,7 +6,13 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.secondaryColor,
+
+  },
+  backgroundTop: {
+    backgroundColor: theme.backgroundColor,
+  },
+  backgroundBottom: {
+    backgroundColor: theme.white,
   },
   contentContainer: {
     backgroundColor: theme.white,

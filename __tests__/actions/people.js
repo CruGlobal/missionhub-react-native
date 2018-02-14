@@ -17,7 +17,12 @@ const mockApiReturnValue = (result) => {
   };
 };
 
+
 const myId = 23;
+const mockUser = {
+  id: myId,
+  name: 'Test User',
+};
 
 describe('get me', () => {
   const action = { type: 'got me' };
@@ -98,7 +103,7 @@ describe('getMyPeople', () => {
     };
 
     it('should return all orgs with assigned people', () => {
-      store = mockStore({ auth: { isJean: true, personId: myId } });
+      store = mockStore({ auth: { isJean: true, personId: myId, user: mockUser } });
       api.default = jest.fn().mockImplementation((request, query) => {
         if (request === REQUESTS.GET_PEOPLE_LIST && JSON.stringify(query) === JSON.stringify(peopleListQuery)) {
           return mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree, personFour ] });
@@ -113,7 +118,7 @@ describe('getMyPeople', () => {
           {
             type: PEOPLE_WITH_ORG_SECTIONS,
             myOrgs: [
-              { people: [ personThree ], id: 'personal' },
+              { people: [ mockUser, personThree ], id: 'personal' },
               { id: organizationOneId, people: [ personOne ] },
               { id: organizationTwoId, people: [ personFour ] },
             ],

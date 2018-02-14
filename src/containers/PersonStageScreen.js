@@ -64,19 +64,19 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
-    const name = this.props.name || this.props.personFirstName;
+    const { t, name, personFirstName, enableBackButton, section, subsection, questionText, firstItem } = this.props;
+    const personName = name || personFirstName;
 
     return (
       <PathwayStageScreen
         buttonText={t('here').toUpperCase()}
         activeButtonText={t('stillHere').toUpperCase()}
-        questionText={this.props.questionText || t('personQuestion', { name })}
+        questionText={questionText || t('personQuestion', { name: personName })}
         onSelect={this.handleSelectStage}
-        section={this.props.section}
-        firstItem={this.props.firstItem || undefined}
-        subsection={this.props.subsection}
-        enableBackButton={this.props.enableBackButton}
+        firstItem={firstItem}
+        section={section}
+        subsection={subsection}
+        enableBackButton={enableBackButton}
       />
     );
   }
@@ -93,6 +93,9 @@ PersonStageScreen.propTypes = {
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,
+};
+PersonStageScreen.defaultProps = {
+  enableBackButton: true,
 };
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
