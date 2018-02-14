@@ -24,4 +24,13 @@ export default StyleSheet.create({
   createButton: {
     width: theme.fullWidth,
   },
+  skipBtn: {
+    paddingTop: 30,
+    paddingRight: 30,
+  },
+  skipBtnText: {
+    fontSize: 14,
+    color: theme.white,
+    fontWeight: 'bold',
+  },
 });

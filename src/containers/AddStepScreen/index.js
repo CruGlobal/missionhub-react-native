@@ -22,6 +22,7 @@ class AddStepScreen extends Component {
     };
 
     this.saveStep = this.saveStep.bind(this);
+    this.skip = this.skip.bind(this);
   }
 
   saveStep() {
@@ -31,13 +32,20 @@ class AddStepScreen extends Component {
       return;
     }
     this.props.onComplete(text);
-    this.props.dispatch(navigateBack());
+    if (this.props.type !== 'stepNote') {
+      this.props.dispatch(navigateBack());
+    }
+  }
+
+  skip() {
+    Keyboard.dismiss();
+    this.props.onComplete(null);
   }
 
   getButtonText() {
     const { t, type } = this.props;
     let text;
-    if (type === 'journey') {
+    if (type === 'journey' || type === 'stepNote') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
@@ -51,7 +59,7 @@ class AddStepScreen extends Component {
     const { t, type } = this.props;
     let text = t('header');
     let style = styles.header;
-    if (type === 'journey') {
+    if (type === 'journey' || type === 'stepNote') {
       style = styles.journeyHeader;
       text = t('journeyHeader');
     } else if (type === 'editJourney') {
@@ -66,8 +74,23 @@ class AddStepScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView>
+        {
+          this.props.type === 'stepNote' ? (
+            <Flex align="end" justify="center">
+              <Button
+                type="transparent"
+                onPress={this.skip}
+                text={t('skip')}
+                style={styles.skipBtn}
+                buttonTextStyle={styles.skipBtnText}
+              />
+            </Flex>
+          ) : null
+        }
         <Flex value={1.5} align="center" justify="center">
           {this.renderTitle()}
         </Flex>
@@ -101,7 +124,7 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney' ]),
+  type: PropTypes.oneOf([ 'journey', 'editJourney', 'stepNote' ]),
   isEdit: PropTypes.bool,
   text: PropTypes.string,
 };
