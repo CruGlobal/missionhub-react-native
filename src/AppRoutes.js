@@ -148,6 +148,7 @@ const screens = {
       Main: { screen: MainTabRoutes },
     }, {
       contentComponent: SettingsMenu,
+      navigationOptions: { drawerLockMode: 'locked-closed' },
     }),
     stepsTab, //stepsTab is shown when MainTabs first opens
   ),
@@ -178,6 +179,7 @@ export const MainStackRoutes = StackNavigator({
       {
         contentComponent: ContactSideMenu,
         drawerPosition: 'right',
+        navigationOptions: { drawerLockMode: 'locked-closed' },
       }
     ),
     navigationOptions: { gesturesEnabled: true },
