@@ -13,7 +13,6 @@ export function navigatePush(screen, props = {}) {
 
 export function navigateBack(times, backParams) {
   return (dispatch) => {
-    // LOG('getState', getState().nav);
     if (times && times > 1) {
       dispatch(NavigationActions.pop({ n: times, immediate: true }));
     } else {

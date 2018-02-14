@@ -1,6 +1,6 @@
 
 const ENABLE_LOGS = true;
-const ENABLE_WARN = true;
+const ENABLE_WARN = false;
 
 function getArgs(a, stringify = false) {
   const args = Array.from(a);

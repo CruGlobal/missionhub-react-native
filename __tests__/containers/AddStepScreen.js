@@ -82,6 +82,29 @@ describe('add step methods', () => {
   });
 });
 
+describe('add step methods for stepNote', () => {
+  let component;
+  const mockComplete = jest.fn();
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: mockComplete,
+        type: 'stepNote',
+        text: 'Comment',
+      })} />,
+      { context: { store } },
+    );
+
+    component = screen.dive().dive().dive().instance();
+  });
+
+  it('runs skip', () => {
+    component.skip();
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+});
+
 describe('add step methods without edit', () => {
   let component;
   const mockComplete = jest.fn();
