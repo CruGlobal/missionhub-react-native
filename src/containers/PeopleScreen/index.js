@@ -46,6 +46,7 @@ export class PeopleScreen extends Component {
   handleAddContact(org) {
     this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
       organization: org && org.id ? org : undefined,
+      isJean: this.props.isJean,
       onComplete: () => this.getPeople(),
     }));
   }
