@@ -4,18 +4,22 @@ import { createMockStore, createMockNavState, renderShallow, testSnapshotShallow
 import AddContactScreen from '../../src/containers/AddContactScreen';
 import { addNewContact } from '../../src/actions/organizations';
 import { updatePerson } from '../../src/actions/profile';
+const mockAddNewContact = { type: 'add new contact', findAll: () => [] };
 jest.mock('../../src/actions/organizations', () => ({
-  addNewContact: jest.fn(() => 'addNewContact response'),
+  addNewContact: jest.fn(() => mockAddNewContact),
 }));
+const mockUpdatePerson = { type: 'update person', findAll: () => [] };
 jest.mock('../../src/actions/profile', () => ({
-  updatePerson: jest.fn(() => 'updatePerson response'),
+  updatePerson: jest.fn(() => mockUpdatePerson),
 }));
 import { navigateBack } from '../../src/actions/navigation';
 jest.mock('../../src/actions/navigation');
 
 jest.mock('react-native-device-info');
 
-const store = createMockStore();
+const store = createMockStore({
+  auth: { user: {} },
+});
 
 it('renders correctly', () => {
   testSnapshotShallow(
@@ -37,6 +41,29 @@ describe('handleUpdateData', () => {
   });
 });
 
+describe('complete', () => {
+  it('should run the onComplete and navigateBack', () => {
+    const mockComplete = jest.fn();
+    const component = renderShallow(
+      <AddContactScreen navigation={createMockNavState({
+        onComplete: mockComplete,
+      })} />,
+      store
+    ).instance();
+    component.complete();
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(navigateBack).toHaveBeenCalled();
+  });
+  it('should run navigateBack', () => {
+    const component = renderShallow(
+      <AddContactScreen navigation={createMockNavState()} />,
+      store
+    ).instance();
+    component.complete();
+    expect(navigateBack).toHaveBeenCalled();
+  });
+});
+
 describe('savePerson', () => {
   it('should add a new person', async() => {
     const component = renderShallow(
@@ -51,7 +78,7 @@ describe('savePerson', () => {
     });
     await componentInstance.savePerson();
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname' });
-    expect(store.dispatch).toHaveBeenCalledWith('addNewContact response');
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
     expect(navigateBack).toHaveBeenCalled();
   });
   it('should add a new person with an org', async() => {
@@ -67,7 +94,7 @@ describe('savePerson', () => {
     });
     await componentInstance.savePerson();
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname', orgId: 2 });
-    expect(store.dispatch).toHaveBeenCalledWith('addNewContact response');
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
     expect(navigateBack).toHaveBeenCalled();
   });
   it('should add a new person with a callback', async() => {
@@ -84,8 +111,8 @@ describe('savePerson', () => {
     });
     await componentInstance.savePerson();
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname' });
-    expect(store.dispatch).toHaveBeenCalledWith('addNewContact response');
-    expect(onCompleteMock).toHaveBeenCalledWith('addNewContact response');
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
+    expect(onCompleteMock).toHaveBeenCalledTimes(1);
     expect(navigateBack).toHaveBeenCalled();
   });
   it('should add a new person with a callback', async() => {
@@ -106,7 +133,7 @@ describe('savePerson', () => {
     });
     await componentInstance.savePerson();
     expect(updatePerson).toHaveBeenCalledWith({ first_name: 'Fname' });
-    expect(store.dispatch).toHaveBeenCalledWith('updatePerson response');
+    expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
     expect(navigateBack).toHaveBeenCalled();
   });
 });
