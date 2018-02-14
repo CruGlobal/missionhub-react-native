@@ -59,17 +59,41 @@ it('renders correctly as Jean', () => {
 describe('Background color changes with scrolling', () => {
   Enzyme.configure({ adapter: new Adapter() });
 
-  const screen = shallow(
-    <StepsScreen />,
-    { context: { store } },
-  );
+  const createComponent = () => {
+    const screen = shallow(
+      <StepsScreen />,
+      { context: { store } },
+    );
+    return screen.dive().dive().dive();
+  };
 
-  let component = screen.dive().dive().dive();
+  const getBackgroundColor = (component) => {
+    return component.find(ScrollView).props().style.find((element) => {
+      return element.backgroundColor;
+    }).backgroundColor;
+  };
 
-  it('Background is white', () => {
-    const color = component.find(ScrollView).props().styles.find('backgroundColor');
 
-    expect(color).toBe(theme.white);
+  it('Starts with white background', () => {
+    let component = createComponent();
+    expect(getBackgroundColor(component)).toBe(theme.white);
   });
+
+  it('Background is blue when overscrolling up', () => {
+    let component = createComponent();
+    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.update();
+    expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
+  });
+
+  it('Background is white when scrolling back down', () => {
+    let component = createComponent();
+    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.update();
+    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: 1 } } });
+    component.update();
+    expect(getBackgroundColor(component)).toBe(theme.white);
+  });
+
 });
 
