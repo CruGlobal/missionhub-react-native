@@ -1093,11 +1093,16 @@ exports[`renders jean 1`] = `
                     Object {
                       "margin": 10,
                     },
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                      "opacity": 0.5,
-                    },
+                    Array [
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 24,
+                        "opacity": 0.5,
+                      },
+                      Object {
+                        "fontSize": 20,
+                      },
+                    ],
                   ],
                 ],
                 Object {
@@ -2165,11 +2170,16 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                     Object {
                       "margin": 10,
                     },
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                      "opacity": 0.5,
-                    },
+                    Array [
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 24,
+                        "opacity": 0.5,
+                      },
+                      Object {
+                        "fontSize": 20,
+                      },
+                    ],
                   ],
                 ],
                 Object {
