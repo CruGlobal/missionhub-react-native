@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 import callApi, { REQUESTS } from './api';
 import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
 import { formatApiDate } from '../utils/common';
@@ -122,9 +124,9 @@ export function challengeCompleteAction(step) {
             dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
           }
 
-          const count = getState().steps.userStepCount[step.receiverId];
+          const count = getState().steps.userStepCount[step.receiver.id];
           const myId = getState().auth.personId;
-          const isMe = isMe === step.receiver.id;
+          const isMe = myId === `${step.receiver.id}`;
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
 
@@ -139,15 +141,15 @@ export function challengeCompleteAction(step) {
                 onComplete: () => {
                   dispatch(navigatePush(CELEBRATION_SCREEN, {
                     onComplete: () => {
-                      dispatch(navigateBack());
-                      dispatch(navigateBack());
-                      dispatch(navigateBack());
+                      dispatch(navigateBack(3));
                     },
                   }));
                 },
                 contactId: isMe ? myId : step.receiver.id,
                 firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
                 enableBackButton: false,
+                noNav: true,
+                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', step.receiver.first_name),
               };
               if (!isMe) {
                 stageProps.contactAssignmentId = assignment && assignment.id;
@@ -159,8 +161,7 @@ export function challengeCompleteAction(step) {
           } else {
             dispatch(navigatePush(CELEBRATION_SCREEN, {
               onComplete: () => {
-                dispatch(navigateBack());
-                dispatch(navigateBack());
+                dispatch(navigateBack(2));
               },
             }));
           }

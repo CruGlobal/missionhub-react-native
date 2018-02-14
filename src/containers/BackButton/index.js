@@ -18,8 +18,7 @@ class BackButton extends Component {
           isAndroidOpacity={true}
           onPress={() => {
             if (this.props.customNavigate === 'backToStages') {
-              this.props.dispatch(navigateBack());
-              this.props.dispatch(navigateBack());
+              this.props.dispatch(navigateBack(2));
             } else {
               this.props.dispatch(navigateBack());
             }

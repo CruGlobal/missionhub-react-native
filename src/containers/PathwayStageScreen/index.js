@@ -49,8 +49,8 @@ class PathwayStageScreen extends Component {
     this.trackStageState(1);
   }
 
-  setStage(stage) {
-    this.props.onSelect(stage);
+  setStage(stage, isAlreadySelected) {
+    this.props.onSelect(stage, isAlreadySelected);
   }
 
   handleScroll(e) {
@@ -70,6 +70,8 @@ class PathwayStageScreen extends Component {
   }
 
   renderStage({ item, index }) {
+    const { firstItem, activeButtonText, buttonText } = this.props;
+    const isActive = firstItem && firstItem === index;
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
@@ -79,8 +81,8 @@ class PathwayStageScreen extends Component {
         </View>
         <Button
           type="primary"
-          onPress={() => this.setStage(item)}
-          text={this.props.buttonText}
+          onPress={() => this.setStage(item, isActive)}
+          text={isActive && activeButtonText ? activeButtonText : buttonText}
         />
       </View>
     );
@@ -139,6 +141,7 @@ PathwayStageScreen.propTypes = {
   subsection: PropTypes.string.isRequired,
   questionText: PropTypes.string,
   buttonText: PropTypes.string,
+  activeButtonText: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
 };

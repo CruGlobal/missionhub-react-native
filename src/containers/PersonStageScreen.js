@@ -34,12 +34,22 @@ class PersonStageScreen extends Component {
     }
   }
 
-  handleSelectStage(stage) {
+  complete(stage) {
+    this.props.onComplete(stage);
+    if (!this.props.noNav) {
+      this.props.dispatch(navigateBack());
+    }
+  }
+
+  handleSelectStage(stage, isAlreadySelected) {
     if (this.props.onComplete) {
-      this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
-        this.props.onComplete(stage);
-        this.props.dispatch(navigateBack());
-      });
+      if (isAlreadySelected) {
+        this.complete(stage);
+      } else {
+        this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
+          this.complete(stage);
+        });
+      }
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
@@ -60,7 +70,8 @@ class PersonStageScreen extends Component {
     return (
       <PathwayStageScreen
         buttonText={t('here').toUpperCase()}
-        questionText={t('personQuestion', { name })}
+        activeButtonText={t('stillHere').toUpperCase()}
+        questionText={this.props.questionText || t('personQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
         firstItem={this.props.firstItem || undefined}
@@ -81,6 +92,7 @@ PersonStageScreen.propTypes = {
   contactAssignmentId: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
+  noNav: PropTypes.bool,
 };
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({

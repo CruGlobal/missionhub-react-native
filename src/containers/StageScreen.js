@@ -16,29 +16,40 @@ class StageScreen extends Component {
     this.handleSelectStage = this.handleSelectStage.bind(this);
   }
 
-  handleSelectStage(stage) {
-    this.props.dispatch(selectStage(stage.id)).then(() => {
-      if (this.props.onComplete) {
-        this.props.onComplete(stage);
+  complete(stage) {
+    if (this.props.onComplete) {
+      this.props.onComplete(stage);
+      if (!this.props.noNav) {
         this.props.dispatch(navigateBack());
-      } else {
-        this.props.dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
       }
-    });
+    } else {
+      this.props.dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
+    }
+  }
+
+  handleSelectStage(stage, isAlreadySelected) {
+    if (isAlreadySelected) {
+      this.complete(stage);
+    } else {
+      this.props.dispatch(selectStage(stage.id)).then(() => {
+        this.complete(stage);
+      });
+    }
   }
 
   render() {
-    const { t, enableBackButton } = this.props;
-    const name = this.props.firstName;
+    const { t, enableBackButton, firstName, firstItem, questionText, section, subsection } = this.props;
+    const name = firstName;
 
     return (
       <PathwayStageScreen
         buttonText={t('iAmHere').toUpperCase()}
-        questionText={t('meQuestion', { name })}
+        activeButtonText={t('stillHere').toUpperCase()}
+        questionText={questionText || t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
-        section={this.props.section}
-        firstItem={this.props.firstItem}
-        subsection={this.props.subsection}
+        section={section}
+        firstItem={firstItem}
+        subsection={subsection}
         enableBackButton={enableBackButton}
       />
     );
@@ -49,7 +60,12 @@ class StageScreen extends Component {
 StageScreen.propTypes = {
   onComplete: PropTypes.func,
   contactId: PropTypes.string,
-  currentStage: PropTypes.string,
+  questionText: PropTypes.string,
+  firstItem: PropTypes.number,
+  section: PropTypes.string,
+  subsection: PropTypes.string,
+  enableBackButton: PropTypes.bool,
+  noNav: PropTypes.bool,
 };
 
 const mapStateToProps = ({ profile }, { navigation } ) => ({

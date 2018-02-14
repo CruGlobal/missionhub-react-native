@@ -11,9 +11,15 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(key = null) {
+export function navigateBack(times, backParams) {
   return (dispatch) => {
-    dispatch(NavigationActions.back({ key }));
+    // LOG('getState', getState().nav);
+    if (times && times > 1) {
+      dispatch(NavigationActions.pop({ n: times, immediate: true }));
+    } else {
+      // backParams can contain { key: string, immediate: bool }
+      dispatch(NavigationActions.back(backParams));
+    }
   };
 }
 
