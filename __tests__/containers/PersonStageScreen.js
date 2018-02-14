@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import PersonStageScreen from '../../src/containers/PersonStageScreen';
 import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
+import * as selectStage from '../../src/actions/selectStage';
 
 const mockState = {
   personProfile: {
@@ -17,6 +18,10 @@ const mockState = {
   auth: {},
   notifications: {},
   stages: [],
+};
+
+const mockStage = {
+  id: 1,
 };
 
 let store = createMockStore(mockState);
@@ -34,6 +39,8 @@ it('renders correctly', () => {
           currentStage: '2',
           contactAssignmentId: '333',
           enableBackButton: true,
+          section: 'section',
+          subsection: 'subsection',
         })}
       />
     </Provider>
@@ -53,6 +60,8 @@ describe('person stage screen methods', () => {
           contactId: '123',
           currentStage: '2',
           contactAssignmentId: '333',
+          section: 'section',
+          subsection: 'subsection',
         })}
       />,
       { context: { store } },
@@ -67,6 +76,45 @@ describe('person stage screen methods', () => {
 
     component.handleNavigate();
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs select stage', () => {
+    
+    selectStage.updateUserStage = jest.fn();
+
+    component.handleSelectStage(mockStage, false);
+    expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('person stage screen methods', () => {
+  let component;
+  const mockComplete = jest.fn();
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <PersonStageScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          name: 'Test',
+          contactId: '123',
+          currentStage: '2',
+          contactAssignmentId: '333',
+          noNav: true,
+          section: 'section',
+          subsection: 'subsection',
+        })}
+      />,
+      { context: { store } },
+    );
+
+    component = screen.dive().dive().dive().instance();
+  });
+
+  it('runs select stage with active', () => {
+    
+    component.handleSelectStage(mockStage, true);
+    expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
 

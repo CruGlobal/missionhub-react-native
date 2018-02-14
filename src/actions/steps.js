@@ -97,7 +97,6 @@ export function completeStep(step) {
 }
 
 export function challengeCompleteAction(step) {
-  LOG(step);
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = {
@@ -108,9 +107,10 @@ export function challengeCompleteAction(step) {
         },
       },
     };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results)=> {
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
+        type: 'stepNote',
         onComplete: (text) => {
           if (text) {
             const noteData = {
@@ -166,7 +166,6 @@ export function challengeCompleteAction(step) {
             }));
           }
         },
-        type: 'stepNote',
       }));
       return results;
     });
