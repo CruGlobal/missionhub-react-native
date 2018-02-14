@@ -2,7 +2,7 @@ import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import { completeStep } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
-import { mockFnWithParams, mockFnWithParamsMultipleReturns } from '../../testUtils';
+import { mockFnWithParams, mockFnWithParamsMultiple } from '../../testUtils';
 import * as common from '../../src/utils/common';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
