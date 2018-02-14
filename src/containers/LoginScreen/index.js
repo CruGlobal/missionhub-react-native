@@ -50,10 +50,6 @@ class LoginScreen extends Component {
     this.login = this.login.bind(this);
   }
 
-  componentDidMount() {
-    //this.props.dispatch(trackState('login')); //todo?
-  }
-
   login() {
     this.navigateToNext(KEY_LOGIN_SCREEN);
   }

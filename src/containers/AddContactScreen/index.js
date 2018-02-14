@@ -5,13 +5,14 @@ import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
+import { updatePerson } from '../../actions/profile';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 
 @translate('addContact')
-class ProfileScreen extends Component {
+class AddContactScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -27,21 +28,20 @@ class ProfileScreen extends Component {
     this.setState({ data });
   }
 
-  savePerson() {
+  async savePerson() {
     let saveData = { ...this.state.data };
     if (this.props.organization) {
       saveData.orgId = this.props.organization.id;
     }
-    this.props.dispatch(addNewContact(saveData)).then((results) => {
-      if (this.props.onComplete) {
-        this.props.onComplete(results);
-      }
-      this.props.dispatch(navigateBack());
-    });
+    const results = await this.props.dispatch(this.props.person ? updatePerson(saveData) : addNewContact(saveData));
+    if (this.props.onComplete) {
+      this.props.onComplete(results);
+    }
+    this.props.dispatch(navigateBack());
   }
 
   render() {
-    const { t, organization } = this.props;
+    const { t, organization, person, isJean } = this.props;
     const orgName = organization ? organization.name : undefined;
 
     return (
@@ -54,9 +54,9 @@ class ProfileScreen extends Component {
               onPress={() => this.props.dispatch(navigateBack())} />
           }
           shadow={false}
-          title={orgName ? t('addToOrg', { orgName }) : t('addSomeone').toUpperCase()}
+          title={person ? t('editPerson').toUpperCase() : orgName ? t('addToOrg', { orgName }) : t('addSomeone').toUpperCase()}
         />
-        <AddContactFields onUpdateData={this.handleUpdateData} />
+        <AddContactFields person={person} isJean={isJean} onUpdateData={this.handleUpdateData} />
 
         <Flex value={1} align="stretch" justify="end">
           <Button
@@ -71,7 +71,8 @@ class ProfileScreen extends Component {
   }
 }
 
-ProfileScreen.propTypes = {
+AddContactScreen.propTypes = {
+  person: PropTypes.object,
   organization: PropTypes.object,
   onComplete: PropTypes.func,
 };
@@ -80,4 +81,5 @@ const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(ProfileScreen);
+export default connect(mapStateToProps)(AddContactScreen);
+export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';

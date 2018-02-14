@@ -14,7 +14,9 @@ import Header from '../Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
-import { isString } from '../../utils/common';
+import { buildTrackingObj, isString } from '../../utils/common';
+import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
+import { trackState } from '../../actions/analytics';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
@@ -52,7 +54,7 @@ export class SearchPeopleFilterScreen extends Component {
         ],
         preview: props.filters.gender ? props.filters.gender.text : undefined,
       },
-      { 
+      {
         id: 'surveys',
         text: t('surveys'),
         options: 'surveys',
@@ -139,13 +141,16 @@ export class SearchPeopleFilterScreen extends Component {
   handleDrillDown(item) {
     // Pull the options from the props that were not loaded when this was initialized
     const options = isString(item.options) && this.props[item.options] ? this.props[item.options] : item.options;
-    this.props.dispatch(navigatePush('SearchPeopleFilterRefine', {
+    this.props.dispatch(navigatePush(SEARCH_REFINE_SCREEN, {
       onFilter: this.handleSelectFilter,
       title: item.text,
       options,
       filters: this.state.filters,
     }));
     this.setState({ selectedFilterId: item.id });
+
+    const trackingObj = buildTrackingObj(`search : refine : ${item.id }`, 'search', 'refine', item.id);
+    this.props.dispatch(trackState(trackingObj));
   }
 
   handleToggle(item) {
@@ -239,3 +244,4 @@ const mapStateToProps = ({ organizations, groups, surveys, labels }, { navigatio
 });
 
 export default connect(mapStateToProps)(SearchPeopleFilterScreen);
+export const SEARCH_FILTER_SCREEN = 'nav/SEARCH_FILTER';

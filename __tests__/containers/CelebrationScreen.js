@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
+import { createMockStore, createMockNavState } from '../../testUtils/index';
 import CelebrationScreen from '../../src/containers/CelebrationScreen';
 import { testSnapshot } from '../../testUtils';
 
@@ -18,7 +18,7 @@ global.Math = mockMath;
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <CelebrationScreen />
+      <CelebrationScreen navigation={createMockNavState()} />
     </Provider>
   );
 });

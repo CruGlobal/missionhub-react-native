@@ -12,6 +12,7 @@ const mockStep = {
   completed_at: date,
   created_at: date,
   interaction_type_id: 1,
+  date,
 };
 
 it('renders step correctly', () => {
@@ -28,7 +29,15 @@ it('renders stage correctly', () => {
 
 it('renders survey correctly', () => {
   testSnapshot(
-    <JourneyItem item={mockStep} type="survey" />
+    <JourneyItem item={{
+      ...mockStep,
+      survey: { title: 'Survey Test' },
+      answers: [
+        { id: '1', question: { label: 'Question 1' }, value: 'Answer 1' },
+        { id: '2', question: { label: 'Question 2' }, value: 'Answer 2' },
+        { id: '3', question: { label: 'Question 3' }, value: 'Answer 3' },
+      ],
+    }} type="survey" />
   );
 });
 

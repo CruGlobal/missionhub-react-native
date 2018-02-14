@@ -14,6 +14,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/stages', () => {
   return {
     getStages: () => mockStages(),
+    getStagesIfNotExists: () => mockStages(),
   };
 });
 
@@ -31,7 +32,7 @@ it('StageScreen renders correctly with back button', () => {
     <Provider store={store}>
       <StageScreen
         navigation={createMockNavState({
-          enableButton: true,
+          enableBackButton: true,
         })}
       />
     </Provider>
@@ -48,7 +49,7 @@ describe('StageScreen', () => {
     tree = renderer.create(
       <Provider store={store}>
         <StageScreen navigation={createMockNavState({
-          enableButton: false,
+          enableBackButton: false,
         })} />
       </Provider>
     );

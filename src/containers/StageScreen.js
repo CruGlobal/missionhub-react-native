@@ -4,7 +4,7 @@ import { navigatePush, navigateBack } from '../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import PathwayStageScreen from './PathwayStageScreen/index';
+import PathwayStageScreen from './PathwayStageScreen';
 import { selectStage } from '../actions/selectStage';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 
@@ -28,7 +28,7 @@ class StageScreen extends Component {
   }
 
   render() {
-    const { t, enableButton } = this.props;
+    const { t, enableBackButton } = this.props;
     const name = this.props.firstName;
 
     return (
@@ -37,8 +37,9 @@ class StageScreen extends Component {
         questionText={t('meQuestion', { name })}
         onSelect={this.handleSelectStage}
         section={this.props.section}
-        enableButton={enableButton}
-        firstItem={this.props.firstItem || undefined}
+        firstItem={this.props.firstItem}
+        subsection={this.props.subsection}
+        enableBackButton={enableBackButton}
       />
     );
   }
@@ -58,3 +59,4 @@ const mapStateToProps = ({ profile }, { navigation } ) => ({
 
 export default connect(mapStateToProps)(StageScreen);
 export const STAGE_SCREEN = 'nav/STAGE';
+export const STAGE_ONBOARDING_SCREEN = 'nav/STAGE_ONBOARDING';

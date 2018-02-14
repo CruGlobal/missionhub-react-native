@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 
 import theme from '../../theme';
 import { trackState } from '../../actions/analytics';
+import { buildTrackingObj } from '../../utils/common';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
@@ -61,7 +62,11 @@ class PathwayStageScreen extends Component {
   }
 
   trackStageState(number) {
-    this.props.dispatch(trackState(`${this.props.section} : stage : ${number}`));
+    const trackingObj = buildTrackingObj(`${this.props.section} : ${this.props.subsection} : stage : ${number}`,
+      this.props.section,
+      this.props.subsection,
+      'stage');
+    this.props.dispatch(trackState(trackingObj));
   }
 
   renderStage({ item, index }) {
@@ -82,6 +87,14 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
+    let leftMargin;
+
+    if (this.state.scrollPosition < 0) {
+      leftMargin = -30;
+    } else {
+      leftMargin = (this.state.scrollPosition / -1) -30;
+    }
+
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image
@@ -89,10 +102,10 @@ class PathwayStageScreen extends Component {
           source={LANDSCAPE}
           style={[
             styles.footerImage,
-            { left: (this.state.scrollPosition / -1) },
+            { left: leftMargin },
           ]}
         />
-        {this.props.enableButton ? (<BackButton />) : null}
+        {this.props.enableBackButton ? (<BackButton />) : null}
         <Flex value={1} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.questionText}
@@ -123,7 +136,11 @@ class PathwayStageScreen extends Component {
 PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
   section: PropTypes.string.isRequired,
+  subsection: PropTypes.string.isRequired,
+  questionText: PropTypes.string,
+  buttonText: PropTypes.string,
   firstItem: PropTypes.number,
+  enableBackButton: PropTypes.bool,
 };
 
 const mapStateToProps = ({ stages }) => ({

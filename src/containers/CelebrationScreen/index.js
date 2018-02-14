@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Platform } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex } from '../../components/common';
@@ -58,6 +59,10 @@ class CelebrationScreen extends Component {
     );
   }
 }
+
+CelebrationScreen.propTypes = {
+  onComplete: PropTypes.func,
+};
 
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),

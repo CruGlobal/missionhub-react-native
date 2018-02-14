@@ -120,6 +120,7 @@ export default {
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
+    editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     message: 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
   },

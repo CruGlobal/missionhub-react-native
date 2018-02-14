@@ -8,6 +8,7 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"test:snapshot": "jest -u",
+		"test:changes": "jest -o",
 		"test:w": "npm run test:watch",
 		"test:c": "npm run test:coverage",
 		"test:s": "npm run test:snapshot",

@@ -2,6 +2,8 @@ import moment from 'moment';
 import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
+import { navigatePush } from '../actions/navigation';
+import { DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
 
 export const getFirstThreeValidItems = (arr) => {
   return [].concat([ arr[0], arr[1], arr[2] ]).filter(Boolean);
@@ -11,6 +13,15 @@ export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
 
 export const getAnalyticsSubsection = (personId, myId) => personId === myId ? 'self' : 'person';
+export const openMainMenu = () => navigatePush(DRAWER_OPEN, { drawer: MAIN_MENU_DRAWER });
+export const buildTrackingObj = (name, section, subsection, level3) => {
+  return {
+    name: name,
+    section: section,
+    subsection: subsection,
+    level3: level3,
+  };
+};
 
 export const isFunction = (fn) => typeof fn === 'function';
 export const isArray = (arr) => Array.isArray(arr);
