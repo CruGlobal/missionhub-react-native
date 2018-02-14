@@ -12,6 +12,9 @@ import ONBOARDING_1 from '../../../assets/images/onboarding1.png';
 import ONBOARDING_2 from '../../../assets/images/onboarding2.png';
 import ONBOARDING_3 from '../../../assets/images/onboarding3.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
+import { trackState } from '../../actions/analytics';
+import { buildTrackingObj } from '../../utils/common';
+import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
 
 const sliderWidth = theme.fullWidth;
 
@@ -48,6 +51,11 @@ class LoginScreen extends Component {
     this.renderOnboarding = this.renderOnboarding.bind(this);
     this.getStarted = this.getStarted.bind(this);
     this.login = this.login.bind(this);
+    this.handleSnapToItem = this.handleSnapToItem.bind(this);
+  }
+
+  componentWillMount() {
+    this.trackSplashState(1);
   }
 
   login() {
@@ -55,11 +63,21 @@ class LoginScreen extends Component {
   }
 
   getStarted() {
-    this.navigateToNext('LoginOptions');
+    this.navigateToNext(LOGIN_OPTIONS_SCREEN);
   }
 
   navigateToNext(nextScreen) {
     this.props.dispatch(navigatePush(nextScreen));
+  }
+
+  handleSnapToItem(index) {
+    this.setState({ activeSlide: index });
+
+    this.trackSplashState(index + 1);
+  }
+
+  trackSplashState(index) {
+    this.props.dispatch(trackState(buildTrackingObj(`splash : ${index}`, 'splash')));
   }
 
   renderOnboarding({ item }) {
@@ -113,7 +131,7 @@ class LoginScreen extends Component {
               sliderWidth={sliderWidth}
               itemWidth={sliderWidth}
               scrollEventThrottle={5}
-              onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+              onSnapToItem={this.handleSnapToItem}
             />
           </Flex>
           <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
