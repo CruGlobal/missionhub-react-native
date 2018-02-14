@@ -29,6 +29,7 @@ class StepsScreen extends Component {
     this.state = {
       refreshing: false,
       addedReminder: props.reminders.length > 0,
+      overscrollUp: false,
     };
 
     this.getSteps = this.getSteps.bind(this);
@@ -38,6 +39,7 @@ class StepsScreen extends Component {
     this.handleRemoveReminder = this.handleRemoveReminder.bind(this);
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleRefresh = this.handleRefresh.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -90,6 +92,20 @@ class StepsScreen extends Component {
   handleRefresh() {
     refresh(this, this.getSteps);
   }
+
+  handleScroll(event) {
+    const position = event.nativeEvent.contentOffset.y;
+    const overscrollUp = this.state.overscrollUp;
+    if (position < 0 && !overscrollUp) this.setState({ overscrollUp: true });
+    else if (position >=0 && overscrollUp) this.setState({ overscrollUp: false });
+  }
+
+  handleBackgroundColor() {
+    if (this.state.overscrollUp) return styles.backgroundTop;
+    return styles.backgroundBottom;
+  }
+
+
 
   renderTop() {
     const { reminders, steps, t, showStepReminderBump } = this.props;
@@ -203,18 +219,22 @@ class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         <ScrollView
-          style={styles.container}
+          style={[ styles.container, this.handleBackgroundColor() ]}
           refreshControl={<RefreshControl
             refreshing={this.state.refreshing}
             onRefresh={this.handleRefresh}
           />}
+          onScroll={this.handleScroll}
+          scrollEventThrottle={16}
           contentContainerStyle={[
             styles.contentContainer,
             {
               // Flex the white background to the bottom when there's only a few steps
               // Don't do it all the time because it causes the top to be static
               flex: steps.length < 5 ? 1 : undefined,
-            } ]}>
+            },
+          ]}
+        >
           {this.renderTop()}
           {this.renderList()}
         </ScrollView>
