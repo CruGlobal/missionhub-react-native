@@ -162,3 +162,4 @@ class LoginOptionsScreen extends Component {
 }
 
 export default connect()(LoginOptionsScreen);
+export const LOGIN_OPTIONS_SCREEN = 'nav/LOGIN_OPTIONS';
