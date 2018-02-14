@@ -27,7 +27,7 @@ import CelebrationScreen, { CELEBRATION_SCREEN } from './containers/CelebrationS
 import SearchPeopleScreen, { SEARCH_SCREEN } from './containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen, { SEARCH_FILTER_SCREEN } from './containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen, { SEARCH_REFINE_SCREEN } from './containers/SearchPeopleFilterRefineScreen';
-import LoginOptionsScreen from './containers/LoginOptionsScreen';
+import LoginOptionsScreen, { LOGIN_OPTIONS_SCREEN } from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 
 import SettingsMenu from './components/SettingsMenu';
@@ -127,7 +127,7 @@ export const MainTabRoutes = TabNavigator(
   });
 
 const screens = {
-  [LOGIN_SCREEN]: buildTrackedScreen(LoginScreen, buildTrackingObj('auth : auth', 'auth')),
+  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth : auth', 'auth')),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
   [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
@@ -147,6 +147,7 @@ const screens = {
       Main: { screen: MainTabRoutes },
     }, {
       contentComponent: SettingsMenu,
+      navigationOptions: { drawerLockMode: 'locked-closed' },
     }),
     stepsTab, //stepsTab is shown when MainTabs first opens
   ),
@@ -159,13 +160,14 @@ export const trackableScreens = {
 
 export const MainStackRoutes = StackNavigator({
   ...screens,
+  [LOGIN_SCREEN]: { screen: LoginScreen },
   Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
   [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
-  LoginOptions: { screen: LoginOptionsScreen },
+
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_SCREEN]: { screen: StageScreen, navigationOptions: { gesturesEnabled: true } },
   [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
@@ -177,6 +179,7 @@ export const MainStackRoutes = StackNavigator({
       {
         contentComponent: ContactSideMenu,
         drawerPosition: 'right',
+        navigationOptions: { drawerLockMode: 'locked-closed' },
       }
     ),
     navigationOptions: { gesturesEnabled: true },

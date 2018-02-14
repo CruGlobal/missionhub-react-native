@@ -5,7 +5,7 @@ import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
-import { facebookLoginAction, keyLogin, updateTimezone } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS } from '../../src/constants';
@@ -15,6 +15,7 @@ const password = 'secret';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
+const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
@@ -33,7 +34,7 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({});
+  store = mockStore({ auth: { refreshToken: refreshToken } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -66,7 +67,7 @@ describe('facebook login', () => {
   });
 });
 
-describe('key login', () => {
+describe('the key', () => {
   beforeEach(() => {
     callApi.default = mockImplementation((type) => {
       if (type === REQUESTS.KEY_GET_TICKET) {
@@ -77,23 +78,36 @@ describe('key login', () => {
     });
   });
 
+  describe('key refresh token', () => {
+    it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
+      const refreshData = `grant_type=refresh_token&refresh_token=${refreshToken}`;
 
-  it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
-    return store.dispatch(keyLogin(email, password))
-      .then(() => {
-        expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
-        expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
-        expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+      return store.dispatch(refreshAuth())
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_REFRESH_TOKEN, {}, refreshData);
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+        });
+    });
+  });
 
-        expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
-      });
+  describe('key login', () => {
+    it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
+      return store.dispatch(keyLogin(email, password))
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+
+          expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
+        });
+    });
   });
 });
 
-
 describe('update time zone', () => {
   beforeEach(() => {
-    store = configureStore([ thunk ])({
+    store = mockStore({
       auth: {
         timezone: '',
       },
