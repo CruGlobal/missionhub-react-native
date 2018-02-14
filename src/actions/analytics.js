@@ -27,7 +27,6 @@ export function trackState(trackingObj) {
 function buildUpdatedContext(trackingObj, context) {
   return {
     ...context,
-    [ANALYTICS.PREVIOUS_SCREENNAME]: context[ANALYTICS.SCREENNAME],
     [ANALYTICS.SCREENNAME]: trackingObj.name,
     [ANALYTICS.PAGE_NAME]: trackingObj.name,
     [ANALYTICS.SITE_SECTION]: trackingObj.section,
