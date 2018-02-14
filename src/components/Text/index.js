@@ -9,11 +9,12 @@ export default class MyText extends Component {
   }
   render() {
     const { children, style, type, animation, ...rest } = this.props;
+    const isHeader = type === 'header';
 
     const fontFamily = {
-      fontFamily: type === 'header' ? 'AmaticSC-Bold' : 'SourceSansPro-Regular',
+      fontFamily: isHeader ? 'AmaticSC-Bold' : 'SourceSansPro-Regular',
     };
-    let content = children;
+    const content = isHeader ? children.toLowerCase() : children;
     
     const textStyle = [ styles.text, fontFamily, style ];
 
