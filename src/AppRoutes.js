@@ -140,7 +140,6 @@ const screens = {
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
-  [CELEBRATION_SCREEN]: buildTrackedScreen(CelebrationScreen, buildTrackingObj('onboarding : complete', 'onboarding')),
   [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search : search', 'search') , { gesturesEnabled: true }),
   [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine : refine', 'search', 'refine'), { gesturesEnabled: true }),
   [MAIN_TABS]: buildTrackedScreen(
@@ -166,6 +165,7 @@ export const MainStackRoutes = StackNavigator({
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
+  [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
 
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },

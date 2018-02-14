@@ -8,6 +8,7 @@ import AddStepScreen from '../../src/containers/AddStepScreen/index';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import { createMockNavState, testSnapshot } from '../../testUtils';
+import { STEP_NOTE } from '../../src/constants';
 
 const store = createMockStore();
 
@@ -50,7 +51,7 @@ it('renders step note correctly', () => {
     <Provider store={store}>
       <AddStepScreen navigation={createMockNavState({
         onComplete: () => {},
-        type: 'stepNote',
+        type: STEP_NOTE,
         text: 'Comment',
       })} />
     </Provider>
@@ -90,7 +91,7 @@ describe('add step methods for stepNote', () => {
     const screen = shallow(
       <AddStepScreen navigation={createMockNavState({
         onComplete: mockComplete,
-        type: 'stepNote',
+        type: STEP_NOTE,
         text: 'Comment',
       })} />,
       { context: { store } },
