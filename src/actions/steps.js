@@ -1,7 +1,14 @@
-import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER } from '../constants';
-import { formatApiDate } from '../utils/common';
+import i18next from 'i18next';
 
+import callApi, { REQUESTS } from './api';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
+import { formatApiDate } from '../utils/common';
+import { navigatePush, navigateBack } from './navigation';
+import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
+import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
+import { STAGE_SCREEN } from '../containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { getPerson } from './people';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -90,7 +97,7 @@ export function completeStep(step) {
 }
 
 export function challengeCompleteAction(step) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = {
       data: {
@@ -100,7 +107,68 @@ export function challengeCompleteAction(step) {
         },
       },
     };
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
+      dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+      dispatch(navigatePush(ADD_STEP_SCREEN, {
+        type: 'stepNote',
+        onComplete: (text) => {
+          if (text) {
+            const noteData = {
+              data: {
+                type: 'accepted_challenge',
+                attributes: {
+                  note: text,
+                },
+              },
+            };
+            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
+          }
+
+          const count = getState().steps.userStepCount[step.receiver.id];
+          const myId = getState().auth.personId;
+          const isMe = myId === `${step.receiver.id}`;
+
+          const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
+
+
+          if (count % 3 === 0) {
+            dispatch(getPerson(step.receiver.id)).then((results2) => {
+              const assignment = results2.findAll('contact_assignment')
+                .find((assignment) => assignment.assigned_to.id === myId);
+              let stageProps = {
+                section: 'people',
+                subsection: isMe ? 'self' : 'person',
+                onComplete: () => {
+                  dispatch(navigatePush(CELEBRATION_SCREEN, {
+                    onComplete: () => {
+                      dispatch(navigateBack(3));
+                    },
+                  }));
+                },
+                contactId: isMe ? myId : step.receiver.id,
+                firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
+                enableBackButton: false,
+                noNav: true,
+                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', step.receiver.first_name),
+              };
+              if (!isMe) {
+                stageProps.contactAssignmentId = assignment && assignment.id;
+                stageProps.name = step.receiver.first_name;
+              }
+            
+              dispatch(navigatePush(nextStageScreen, stageProps));
+            });
+          } else {
+            dispatch(navigatePush(CELEBRATION_SCREEN, {
+              onComplete: () => {
+                dispatch(navigateBack(2));
+              },
+            }));
+          }
+        },
+      }));
+      return results;
+    });
   };
 }
 

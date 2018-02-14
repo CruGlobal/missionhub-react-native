@@ -132,7 +132,7 @@ export default class ContactHeader extends Component {
           <IconButton disabled={!numberExists} style={numberExists ? styles.contactButton : styles.contactButtonDisabled} name="callIcon" type="MissionHub" onPress={() => this.openUrl(phoneNumberUrl)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!emailExists} style={emailExists ? styles.contactButton : styles.contactButtonDisabled} name="emailIcon" type="MissionHub" onPress={() => this.openUrl(emailUrl)} />
+          <IconButton disabled={!emailExists} style={[ emailExists ? styles.contactButton : styles.contactButtonDisabled, styles.emailButton ]} name="emailIcon" type="MissionHub" onPress={() => this.openUrl(emailUrl)} />
         </Flex>
       </Flex>
     );

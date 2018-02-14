@@ -36,6 +36,9 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
     opacity: 0.5,
   },
+  emailButton: {
+    fontSize: 20,
+  },
   iconWrap: {
     backgroundColor: theme.accentColor,
     width: 48,
