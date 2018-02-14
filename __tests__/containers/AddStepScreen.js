@@ -45,6 +45,18 @@ it('renders edit journey correctly', () => {
   );
 });
 
+it('renders step note correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'stepNote',
+        text: 'Comment',
+      })} />
+    </Provider>
+  );
+});
+
 
 describe('add step methods', () => {
   let component;
@@ -66,6 +78,29 @@ describe('add step methods', () => {
 
   it('saves a step', () => {
     component.saveStep();
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('add step methods for stepNote', () => {
+  let component;
+  const mockComplete = jest.fn();
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: mockComplete,
+        type: 'stepNote',
+        text: 'Comment',
+      })} />,
+      { context: { store } },
+    );
+
+    component = screen.dive().dive().dive().instance();
+  });
+
+  it('runs skip', () => {
+    component.skip();
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });

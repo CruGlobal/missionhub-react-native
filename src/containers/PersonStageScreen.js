@@ -34,12 +34,22 @@ class PersonStageScreen extends Component {
     }
   }
 
-  handleSelectStage(stage) {
+  complete(stage) {
+    this.props.onComplete(stage);
+    if (!this.props.noNav) {
+      this.props.dispatch(navigateBack());
+    }
+  }
+
+  handleSelectStage(stage, isAlreadySelected) {
     if (this.props.onComplete) {
-      this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
-        this.props.onComplete(stage);
-        this.props.dispatch(navigateBack());
-      });
+      if (isAlreadySelected) {
+        this.complete(stage);
+      } else {
+        this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
+          this.complete(stage);
+        });
+      }
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
@@ -54,14 +64,16 @@ class PersonStageScreen extends Component {
   }
 
   render() {
-    const { t, name, personFirstName, enableBackButton, section, subsection } = this.props;
+    const { t, name, personFirstName, enableBackButton, section, subsection, questionText, firstItem } = this.props;
     const personName = name || personFirstName;
 
     return (
       <PathwayStageScreen
         buttonText={t('here').toUpperCase()}
-        questionText={t('personQuestion', { name: personName })}
+        activeButtonText={t('stillHere').toUpperCase()}
+        questionText={questionText || t('personQuestion', { name: personName })}
         onSelect={this.handleSelectStage}
+        firstItem={firstItem}
         section={section}
         subsection={subsection}
         enableBackButton={enableBackButton}
@@ -78,6 +90,9 @@ PersonStageScreen.propTypes = {
   contactId: PropTypes.string,
   currentStage: PropTypes.string,
   contactAssignmentId: PropTypes.string,
+  firstItem: PropTypes.number,
+  enableBackButton: PropTypes.bool,
+  noNav: PropTypes.bool,
 };
 PersonStageScreen.defaultProps = {
   enableBackButton: true,

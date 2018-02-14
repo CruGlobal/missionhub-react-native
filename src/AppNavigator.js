@@ -5,6 +5,10 @@ import { BackHandler } from 'react-native';
 import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 import { MainRoutes } from './AppRoutes';
 
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
+
+const addListener = createReduxBoundAddListener('root');
+
 class AppWithNavigationState extends React.Component {
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
@@ -25,7 +29,7 @@ class AppWithNavigationState extends React.Component {
 
   render() {
     const { dispatch, nav } = this.props;
-    const navigation = addNavigationHelpers({ dispatch, state: nav });
+    const navigation = addNavigationHelpers({ dispatch, state: nav, addListener });
     return <MainRoutes navigation={navigation} />;
   }
 }
