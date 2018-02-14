@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Platform } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex } from '../../components/common';
@@ -26,7 +27,11 @@ class CelebrationScreen extends Component {
   }
 
   navigateToNext() {
-    this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+    if (this.props.onComplete) {
+      this.props.onComplete();
+    } else {
+      this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+    }
   }
 
   static shuffleGif() {
@@ -55,5 +60,14 @@ class CelebrationScreen extends Component {
   }
 }
 
-export default connect()(CelebrationScreen);
+CelebrationScreen.propTypes = {
+  onComplete: PropTypes.func,
+};
+
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+
+export default connect(mapStateToProps)(CelebrationScreen);
 export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

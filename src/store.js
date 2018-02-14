@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, createTransform } from 'redux-persist';
 import jsan from 'jsan';
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 
 import reducers from './reducers';
 import tracking from './middleware/tracking';
@@ -14,10 +15,14 @@ if (__DEV__) {
   const Reactotron = require('reactotron-react-native').default;
   myCreateStore = Reactotron.createStore;
 }
+const navMiddleware = createReactNavigationReduxMiddleware(
+  'root',
+  (state) => state.nav,
+);
 
 // Setup enhancers and middleware
 const enhancers = [];
-const middleware = [ thunk, tracking ];
+const middleware = [ thunk, tracking, navMiddleware ];
 
 const composedEnhancers = compose(
   applyMiddleware(...middleware),
