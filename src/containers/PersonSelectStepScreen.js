@@ -39,8 +39,8 @@ class PersonSelectStepScreen extends Component {
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
         onComplete={this.handleNavigate}
-        createStepScreenname={this.props.createStepScreenname}
-        enableButton
+        createStepTracking={this.props.createStepTracking}
+        enableBackButton
       />
     );
   }
@@ -51,7 +51,7 @@ class PersonSelectStepScreen extends Component {
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,
-  createStepScreenname: PropTypes.string.isRequired,
+  createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
   onSaveNewSteps: PropTypes.func,
 };

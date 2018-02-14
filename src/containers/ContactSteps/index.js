@@ -13,8 +13,9 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
+import { buildTrackingObj, findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
+import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import { trackState } from '../../actions/analytics';
 
 @translate('contactSteps')
@@ -70,19 +71,25 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { person } = this.props;
+    const { person, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
-    this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-      contactName: person.first_name,
-      contactId: person.id,
-      contact: person,
-      onSaveNewSteps: this.handleSaveNewSteps,
-      createStepScreenname: `people : ${subsection} : steps : create`,
-    }));
+    if (isMe) {
+      this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
+        onSaveNewSteps: this.handleSaveNewSteps,
+        enableBackButton: true,
+      }));
+    } else {
+      this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        contactName: person.first_name,
+        contactId: person.id,
+        contact: person,
+        onSaveNewSteps: this.handleSaveNewSteps,
+        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
+    }
 
-
-    this.props.dispatch(trackState(`people : ${subsection} : steps : add`));
+    const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');
+    this.props.dispatch(trackState(trackingObj));
   }
 
   renderRow({ item, index }) {

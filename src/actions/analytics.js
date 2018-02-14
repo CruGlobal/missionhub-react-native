@@ -12,38 +12,28 @@ export function trackAction(action, data) {
   return () => RNOmniture.trackAction(action, data);
 }
 
-export function trackState(screenName) {
+export function trackState(trackingObj) {
   return (dispatch, getState) => {
 
-    screenName = `mh : ${screenName}`;
-    const updatedContext = buildUpdatedContext(screenName, getState().analytics);
+    trackingObj.name = `mh : ${trackingObj.name}`;
+    const updatedContext = buildUpdatedContext(trackingObj, getState().analytics);
 
-    RNOmniture.trackState(screenName, updatedContext);
+    RNOmniture.trackState(trackingObj.name, updatedContext);
 
     return dispatch(updateAnalyticsContext(updatedContext));
   };
 }
 
-function buildUpdatedContext(screenName, context) {
-  const updatedContext = {
+function buildUpdatedContext(trackingObj, context) {
+  return {
     ...context,
     [ANALYTICS.PREVIOUS_SCREENNAME]: context[ANALYTICS.SCREENNAME],
-    [ANALYTICS.SCREENNAME]: screenName,
-    [ANALYTICS.PAGE_NAME]: screenName,
+    [ANALYTICS.SCREENNAME]: trackingObj.name,
+    [ANALYTICS.PAGE_NAME]: trackingObj.name,
+    [ANALYTICS.SITE_SECTION]: trackingObj.section,
+    [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
+    [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
   };
-
-  const namesArray = screenName.split(':');
-  updatedContext[ANALYTICS.SITE_SECTION] = namesArray[1].trim();
-
-  if (namesArray.length >= 4) {
-    updatedContext[ANALYTICS.SITE_SUBSECTION] = namesArray[2].trim();
-
-    if (namesArray.length === 5) {
-      updatedContext[ANALYTICS.SITE_SUB_SECTION_3] = namesArray[3].trim();
-    }
-  }
-
-  return updatedContext;
 }
 
 export function updateLoggedInStatus(status) {

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { navigatePush } from '../actions/navigation';
 import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
-import { getFirstThreeValidItems } from '../utils/common';
-import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
+import { buildTrackingObj, getFirstThreeValidItems } from '../utils/common';
 
 @translate('selectStep')
 class SelectMyStepScreen extends Component {
@@ -18,11 +16,11 @@ class SelectMyStepScreen extends Component {
   }
 
   handleNavigate = () => {
-    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-  };
+    this.props.onSaveNewSteps();
+  }
 
   render() {
-    const { t } = this.props;
+    const { t, enableBackButton } = this.props;
 
     return (
       <SelectStepScreen
@@ -31,17 +29,20 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepScreenname="onboarding : self : steps : create"
+        createStepTracking={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
+        enableBackButton={enableBackButton}
       />
     );
   }
 
 }
 
-const mapStateToProps = ({ steps, auth }) => ({
+const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
+  ...(navigation.state.params || {}),
   steps: getFirstThreeValidItems(steps.suggestedForMe),
   personId: auth.personId,
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);
 export const SELECT_MY_STEP_SCREEN = 'nav/SELECT_MY_STEP';
+export const SELECT_MY_STEP_ONBOARDING_SCREEN = 'nav/SELECT_MY_STEP_ONBOARDING';

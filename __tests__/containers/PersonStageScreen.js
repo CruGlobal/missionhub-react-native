@@ -33,7 +33,7 @@ it('renders correctly', () => {
           contactId: '123',
           currentStage: '2',
           contactAssignmentId: '333',
-          enableButton: true,
+          enableBackButton: true,
         })}
       />
     </Provider>

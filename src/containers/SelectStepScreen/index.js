@@ -67,7 +67,7 @@ class SelectStepScreen extends Component {
       },
     }));
 
-    this.props.dispatch(trackState(this.props.createStepScreenname));
+    this.props.dispatch(trackState(this.props.createStepTracking));
   }
 
   saveAllSteps() {
@@ -91,8 +91,8 @@ class SelectStepScreen extends Component {
   }
 
   renderBackButton() {
-    const { enableButton, contact } = this.props;
-    return enableButton ?
+    const { enableBackButton, contact } = this.props;
+    return enableBackButton ?
       (<BackButton customNavigate={contact || this.state.contact ? undefined : 'backToStages'} />)
       : null;
   }
@@ -143,7 +143,7 @@ class SelectStepScreen extends Component {
 
 SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  createStepScreenname: PropTypes.string.isRequired,
+  createStepTracking: PropTypes.object.isRequired,
 };
 
 

@@ -13,7 +13,7 @@ export default StyleSheet.create({
     width: 75,
     textAlign: 'center',
     alignSelf: 'center',
-    color: theme.secondaryColor,
+    color: theme.primaryColor,
   },
   textWrap: {
     borderLeftColor: theme.separatorColor,
@@ -26,10 +26,15 @@ export default StyleSheet.create({
     fontSize: 10,
   },
   title: {
-    color: theme.secondaryColor,
+    color: theme.primaryColor,
     fontSize: 16,
   },
   text: {
+    fontSize: 14,
+  },
+  question: {
+    marginTop: 8,
+    color: theme.inactiveColor,
     fontSize: 14,
   },
 });

@@ -1,11 +1,16 @@
 import configureStore from 'redux-mock-store';
-import { ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD } from '../../src/constants';
+import {
+  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
+  NAVIGATE_RESET,
+} from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
 import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
+import { REHYDRATE } from 'redux-persist/constants';
+import { buildTrackingObj } from '../../src/utils/common';
 
 const mockStore = configureStore([ tracking ]);
 let store;
@@ -31,11 +36,11 @@ describe('navigate forward', () => {
   });
 
   it('tracks screenname when navigating', () => {
-    const screenName = 'test : forward';
+    const tracking = { name: 'test : forward' };
     navigationAction = { type: NAVIGATE_FORWARD, routeName: routeName };
-    trackableScreens[routeName] = { name: screenName };
+    trackableScreens[routeName] = { tracking: tracking };
 
-    test(screenName);
+    test(tracking);
   });
 
   describe('to contact screen', () => {
@@ -64,22 +69,44 @@ describe('navigate forward', () => {
     it('tracks main menu drawer', () => {
       navigationAction.params = { drawer: MAIN_MENU_DRAWER };
 
-      test('menu : menu');
+      test(buildTrackingObj('menu : menu', 'menu'));
     });
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: false };
 
-        test('people : person : menu : menu');
+        test(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
       });
 
       it('tracks person menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: true };
 
-        test('people : self : menu : menu');
+        test(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'));
       });
     });
+  });
+});
+
+describe('navigate reset', () => {
+  it('tracks screen', () => {
+    store = mockStore();
+    const tracking = { name: 'test : reset' };
+    navigationAction = { type: NAVIGATE_RESET, actions: [ { routeName: routeName } ] };
+    trackableScreens[routeName] = { tracking: tracking };
+
+    test(tracking);
+  });
+});
+
+describe('rehydrate', () => {
+  it('tracks most recent screen', () => {
+    store = mockStore();
+    const tracking = { name: 'test : rehydrate' };
+    navigationAction = { type: REHYDRATE, payload: { nav: { routes: [ {}, { routeName: routeName } ] } } };
+    trackableScreens[routeName] = { tracking: tracking };
+
+    test(tracking);
   });
 });
 

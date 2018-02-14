@@ -7,14 +7,14 @@ import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN } from './containers/SelectMyStepScreen';
+import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN, SELECT_MY_STEP_ONBOARDING_SCREEN } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, { PERSON_SELECT_STEP_SCREEN } from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
-import StageScreen, { STAGE_SCREEN } from './containers/StageScreen';
+import StageScreen, { STAGE_SCREEN, STAGE_ONBOARDING_SCREEN } from './containers/StageScreen';
 import StageSuccessScreen, { STAGE_SUCCESS_SCREEN } from './containers/StageSuccessScreen';
 import AddSomeoneScreen, { ADD_SOMEONE_SCREEN } from './containers/AddSomeoneScreen';
 import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
@@ -36,6 +36,7 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
+import { buildTrackingObj } from './utils/common';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -60,32 +61,40 @@ function labelStyle() {
   }
 }
 
-const stepsTab = 'steps : steps';
+const buildTrackedScreen = (screen, tracking, navOptions) => {
+  return {
+    screen: screen,
+    tracking: tracking,
+    navigationOptions: navOptions,
+  };
+};
+
+const stepsTab = buildTrackingObj('steps : steps', 'steps');
 const tabs = {
-  StepsTab: {
-    screen: StepsScreen,
-    navigationOptions: {
+  StepsTab: buildTrackedScreen(
+    StepsScreen,
+    stepsTab,
+    {
       tabBarLabel: i18next.t('appRoutes:steps'),
       tabBarIcon: navIcon('stepsIcon'),
     },
-    name: stepsTab,
-  },
-  PeopleTab: {
-    screen: PeopleScreen,
-    navigationOptions: {
+  ),
+  PeopleTab: buildTrackedScreen(
+    PeopleScreen,
+    buildTrackingObj('people : people', 'people'),
+    {
       tabBarLabel: i18next.t('appRoutes:people'),
       tabBarIcon: navIcon('peopleIcon'),
-    },
-    name: 'people : people',
-  },
-  ImpactTab: {
-    screen: ImpactScreen,
-    navigationOptions: {
+    }
+  ),
+  ImpactTab: buildTrackedScreen(
+    ImpactScreen,
+    buildTrackingObj('impact : impact', 'impact'),
+    {
       tabBarLabel: i18next.t('appRoutes:impact'),
       tabBarIcon: navIcon('impactIcon'),
     },
-    name: 'impact : impact',
-  },
+  ),
 };
 
 export const MainTabRoutes = TabNavigator(
@@ -118,29 +127,30 @@ export const MainTabRoutes = TabNavigator(
   });
 
 const screens = {
-  [LOGIN_SCREEN]: { screen: LoginScreen, name: 'auth : auth' },
-  [KEY_LOGIN_SCREEN]: { screen: KeyLoginScreen, navigationOptions: { gesturesEnabled: true }, name: 'auth : sign in' },
-  [WELCOME_SCREEN]: { screen: WelcomeScreen, name: 'onboarding : welcome' },
-  [SETUP_SCREEN]: { screen: SetupScreen, name: 'onboarding : name' },
-  [GET_STARTED_SCREEN]: { screen: GetStartedScreen, name: 'onboarding : get started' },
-  [STAGE_SUCCESS_SCREEN]: { screen: StageSuccessScreen, name: 'onboarding : self : choose my steps' },
-  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, name: 'onboarding : self : steps : add' },
-  [ADD_SOMEONE_SCREEN]: { screen: AddSomeoneScreen, name: 'onboarding : add person : add person' },
-  [ADD_CONTACT_SCREEN]: { screen: AddContactScreen, name: 'onboarding : people : add person' },
-  [SETUP_PERSON_SCREEN]: { screen: SetupPersonScreen, name: 'onboarding : add person : name' },
-  [NOTIFICATION_PRIMER_SCREEN]: { screen: NotificationPrimerScreen, name: 'menu : notifications : permissions' },
-  [NOTIFICATION_OFF_SCREEN]: { screen: NotificationOffScreen, name: 'menu : notifications : off' },
-  [CELEBRATION_SCREEN]: { screen: CelebrationScreen, name: 'onboarding : complete' },
-  [SEARCH_SCREEN]: { screen: SearchPeopleScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : search' },
-  [SEARCH_FILTER_SCREEN]: { screen: SearchPeopleFilterScreen, navigationOptions: { gesturesEnabled: true }, name: 'mh : search : refine : refine' },
-  [MAIN_TABS]: {
-    screen: DrawerNavigator({
+  [LOGIN_SCREEN]: buildTrackedScreen(LoginScreen, buildTrackingObj('auth : auth', 'auth')),
+  [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
+  [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
+  [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
+  [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
+  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person : add person', 'onboarding', 'add person')),
+  [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('onboarding : people : add person', 'onboarding', 'people', 'add person')),
+  [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
+  [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
+  [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
+  [CELEBRATION_SCREEN]: buildTrackedScreen(CelebrationScreen, buildTrackingObj('onboarding : complete', 'onboarding')),
+  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search : search', 'search') , { gesturesEnabled: true }),
+  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine : refine', 'search', 'refine'), { gesturesEnabled: true }),
+  [MAIN_TABS]: buildTrackedScreen(
+    DrawerNavigator({
       Main: { screen: MainTabRoutes },
     }, {
       contentComponent: SettingsMenu,
     }),
-    name: stepsTab, //stepsTab is shown when MainTabs first opens
-  },
+    stepsTab, //stepsTab is shown when MainTabs first opens
+  ),
 };
 
 export const trackableScreens = {
@@ -151,13 +161,14 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
-  [STAGE_SCREEN]: { screen: StageScreen },
+  [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
+  [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   LoginOptions: { screen: LoginOptionsScreen },
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
+  [STAGE_SCREEN]: { screen: StageScreen, navigationOptions: { gesturesEnabled: true } },
   [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
-
   [CONTACT_SCREEN]: {
     screen: DrawerNavigator(
       {
