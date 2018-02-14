@@ -25,7 +25,7 @@ export class ContactSideMenu extends Component {
             style: 'cancel',
           },
           {
-            text: t('delete'),
+            text: t(deleteMode ? 'delete' : 'unassignButton'),
             style: 'destructive',
             onPress: async() => {
               await dispatch(deleteContactAssignment(contactAssignmentId));
