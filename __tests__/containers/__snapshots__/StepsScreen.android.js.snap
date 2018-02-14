@@ -176,6 +176,7 @@ exports[`renders android correctly 1`] = `
         },
       ]
     }
+    onScroll={[Function]}
     refreshControl={
       <MyRefreshControl
         colors={
@@ -190,11 +191,16 @@ exports[`renders android correctly 1`] = `
         tintColor="#007398"
       />
     }
+    scrollEventThrottle={16}
     style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+      ]
     }
   >
     <RCTRefreshControl />
