@@ -29,8 +29,8 @@ export class SideMenu extends Component {
         <Flex style={styles.buttonContainer}>
           <IconButton style={styles.button} onPress={() => this.props.dispatch(navigatePush('DrawerClose'))} name="close" type="Material" size={20} />
         </Flex>
-        {menuItems.map(({ label, action }, index) =>
-          <Flex key={index} style={styles.buttonContainer}>
+        {menuItems.map(({ label, action, selected }, index) =>
+          <Flex key={index} style={[ styles.buttonContainer, selected && styles.buttonContainerSelected ]}>
             <Button style={styles.button} buttonTextStyle={styles.buttonText} text={label.toUpperCase()} onPress={action} />
           </Flex>
         )}

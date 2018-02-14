@@ -20,7 +20,7 @@ function authReducer(state = initialAuthState, action) {
 
   switch (action.type) {
     case REHYDRATE:
-      var incoming = action.payload.auth;
+      const incoming = action.payload.auth;
       if (incoming) {
         return {
           ...state,
