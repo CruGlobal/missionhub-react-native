@@ -131,7 +131,7 @@ export function challengeCompleteAction(step) {
           const isMe = myId === `${step.receiver.id}`;
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-
+          const subsection = isMe ? 'self' : 'person';
 
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
@@ -139,13 +139,16 @@ export function challengeCompleteAction(step) {
                 .find((assignment) => assignment.assigned_to.id === myId);
               let stageProps = {
                 section: 'people',
-                subsection: isMe ? 'self' : 'person',
+                subsection: subsection,
                 onComplete: () => {
                   dispatch(navigatePush(CELEBRATION_SCREEN, {
                     onComplete: () => {
                       dispatch(navigateBack(3));
                     },
                   }));
+
+                  const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
+                  dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
                 firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
@@ -166,6 +169,9 @@ export function challengeCompleteAction(step) {
                 dispatch(navigateBack(2));
               },
             }));
+
+            const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
+            dispatch(trackState(trackingObj));
           }
         },
       }));
