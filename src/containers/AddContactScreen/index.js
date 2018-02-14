@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigateBack } from '../../actions/navigation';
+import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
+import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
 import { updatePerson } from '../../actions/profile';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 @translate('addContact')
 class AddContactScreen extends Component {
@@ -28,16 +30,42 @@ class AddContactScreen extends Component {
     this.setState({ data });
   }
 
-  async savePerson() {
-    let saveData = { ...this.state.data };
-    if (this.props.organization) {
-      saveData.orgId = this.props.organization.id;
-    }
-    const results = await this.props.dispatch(this.props.person ? updatePerson(saveData) : addNewContact(saveData));
+  complete(addedResults) {
     if (this.props.onComplete) {
-      this.props.onComplete(results);
+      this.props.onComplete(addedResults);
     }
     this.props.dispatch(navigateBack());
+  }
+
+  async savePerson() {
+    const { me, organization, dispatch, person } = this.props;
+    let saveData = { ...this.state.data };
+    if (organization) {
+      saveData.orgId = organization.id;
+    }
+    const isEdit = person;
+    const results = await dispatch(isEdit ? updatePerson(saveData) : addNewContact(saveData));
+    const newPerson = findAllNonPlaceHolders(results, 'person')[0];
+    if (isEdit || !newPerson) {
+      this.complete(results);
+    } else {
+      // If adding a new person, select a stage for them, then run all the onComplete functionality
+      const contactAssignment = newPerson.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
+      const contactAssignmentId = contactAssignment && contactAssignment.id;
+      dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+        onComplete: () => {
+          this.complete(results);
+        },
+        enableBackButton: false,
+        currentStage: null,
+        name: newPerson.first_name,
+        contactId: newPerson.id,
+        contactAssignmentId: contactAssignmentId,
+        section: 'people',
+        subsection: 'person',
+      }));
+
+    }
   }
 
   render() {
@@ -77,8 +105,9 @@ AddContactScreen.propTypes = {
   onComplete: PropTypes.func,
 };
 
-const mapStateToProps = (state, { navigation }) => ({
+const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
+  me: auth.user,
 });
 
 export default connect(mapStateToProps)(AddContactScreen);

@@ -22,7 +22,7 @@ export class PeopleItem extends Component {
     };
   }
 
-  handleSelect = () => { this.props.onSelect(this.props.person); }
+  handleSelect = () => { this.props.onSelect(this.props.person, this.props.organization); }
 
   handleChangeStage = () => {
     const { me, dispatch, person } = this.props;

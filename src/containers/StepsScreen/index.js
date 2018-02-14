@@ -60,7 +60,7 @@ class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person: step.receiver }));
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person: step.receiver, organization: step.organization }));
   }
 
   handleSetReminder(step) {
