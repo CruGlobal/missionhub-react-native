@@ -5,7 +5,7 @@ import { JsonApiDataStore } from 'jsonapi-datastore';
 import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
-import { URL_ENCODED } from '../constants';
+import { EXPIRED_ACCESS_TOKEN, URL_ENCODED } from '../constants';
 import { Alert } from 'react-native';
 
 import i18n from '../i18n';
@@ -88,6 +88,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
 
         } else if (err['thekey_authn_error'] === 'email_unverified') {
           return reject({ user_error: i18n.t('keyLogin:verifyEmailMessage') });
+
+        } else if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
+          //todo would be nice not to have this here and in actions/api.js
+          return reject(err);
 
         } else {
           showAlert(routeData, key);

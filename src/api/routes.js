@@ -10,6 +10,17 @@ const REPORTS_URL = `${API_URL}reports/people`;
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
 
+const KEY_TOKEN = {
+  endpoint: `${THE_KEY_URL}token`,
+  method: 'post',
+  extra: {
+    stringify: false,
+    headers: { 'Content-Type': URL_ENCODED },
+  },
+  anonymous: true,
+  useJsonDataApiStore: false,
+};
+
 export default {
   // Example
   // 'PLANETS': {
@@ -34,16 +45,8 @@ export default {
   //   Don't use jsonDataApiStore
   //   useJsonDataApiStore: false
   // },
-  'KEY_LOGIN': {
-    endpoint: `${THE_KEY_URL}token`,
-    method: 'post',
-    extra: {
-      stringify: false,
-      headers: { 'Content-Type': URL_ENCODED },
-    },
-    anonymous: true,
-    useJsonDataApiStore: false,
-  },
+  'KEY_LOGIN': KEY_TOKEN,
+  'KEY_REFRESH_TOKEN': KEY_TOKEN,
   'KEY_GET_TICKET': {
     endpoint: `${THE_KEY_URL}ticket?service=${AUTH_URL}thekey`,
     method: 'get',

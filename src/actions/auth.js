@@ -20,13 +20,23 @@ export function facebookLoginAction(accessToken, id) {
   };
 }
 
+export function refreshAuth() {
+  return async(dispatch, getState) => {
+    const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
+
+    await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
+    dispatch(getKeyTicket());
+  };
+}
+
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
 
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
+    await dispatch(getKeyTicket());
 
-    return dispatch(getKeyTicket());
+    return dispatch(onSuccessfulLogin());
   };
 }
 
@@ -36,8 +46,6 @@ function getKeyTicket() {
 
     const data = { code: keyTicketResult.ticket };
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
-
-    return dispatch(onSuccessfulLogin());
   };
 }
 
