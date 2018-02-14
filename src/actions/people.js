@@ -48,13 +48,15 @@ export function getMyPeople() {
         },
         include: '',
       };
+      // Always include Me as the first item in the personal ministry
+      myOrgs[0].people.push(state.user);
 
       const ministryOrgs = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
       myOrgs = myOrgs.concat(ministryOrgs.findAll('organization'));
     }
 
     people.forEach((person) => {
-      if (!person._placeHolder) {
+      if (!person._placeHolder && `${person.id}` !== `${state.personId}`) {
 
         if (person.organizational_permissions.length === 0) {
           myOrgs[0].people.push(person);

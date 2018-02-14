@@ -22,6 +22,9 @@ export default {
     followupStatus: {
       uncontacted: 'Uncontacted',
       contacted: 'Contacted',
+      attempted_contact: 'Attempted Contact',
+      do_not_contact: 'Do Not Contact',
+      completed: 'Completed',
     },
     stages: {
       uninterested: {
