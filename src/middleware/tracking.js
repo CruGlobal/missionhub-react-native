@@ -2,10 +2,12 @@ import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
-import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
+import {
+  CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, MAIN_TABS, NAVIGATE_FORWARD,
+  NAVIGATE_RESET,
+} from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
-import { buildTrackingObj } from '../utils/common';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { buildTrackingObj, isLoggedIn } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -45,13 +47,9 @@ export default function tracking({ dispatch, getState }) {
         break;
 
       case REHYDRATE:
-        const nav = action.payload.nav;
-        if (nav) {
-          const savedRoutes = nav.routes;
-          newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
-
-        } else {
-          newAction = trackState(trackableScreens[LOGIN_SCREEN]); //app is loaded for the very first time
+        const authState = action.payload.auth;
+        if (authState && isLoggedIn(authState)) {
+          newAction = trackState(trackableScreens[MAIN_TABS].tracking); //todo refactor
         }
 
         break;

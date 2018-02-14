@@ -22,8 +22,8 @@ const back = { type: 'Navigation/BACK' };
 
 const trackStateResult = { type: 'tracked state' };
 
-const test = (expectedScreenname) => {
-  mockFnWithParams(analytics, 'trackState', trackStateResult, expectedScreenname);
+const test = (expectedTrackingObj) => {
+  mockFnWithParams(analytics, 'trackState', trackStateResult, expectedTrackingObj);
 
   store.dispatch(navigationAction);
 
@@ -100,13 +100,20 @@ describe('navigate reset', () => {
 });
 
 describe('rehydrate', () => {
-  it('tracks most recent screen', () => {
+  it('tracks main tabs if logged in', () => {
     store = mockStore();
-    const tracking = { name: 'test : rehydrate' };
-    navigationAction = { type: REHYDRATE, payload: { nav: { routes: [ {}, { routeName: routeName } ] } } };
-    trackableScreens[routeName] = { tracking: tracking };
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: true } } };
 
-    test(tracking);
+    test(buildTrackingObj('steps : steps', 'steps'));
+  });
+
+  it('does nothing if not logged in', () => {
+    store = mockStore();
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: false } } };
+
+    store.dispatch(navigationAction);
+
+    expect(store.getActions()).toEqual([ navigationAction ]);
   });
 });
 
