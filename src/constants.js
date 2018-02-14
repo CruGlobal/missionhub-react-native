@@ -25,6 +25,8 @@ export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 
+export const STEP_NOTE = 'stepNote';
+
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
 export const MAIN_TABS = 'nav/MAIN_TABS';

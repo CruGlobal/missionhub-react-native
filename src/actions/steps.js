@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE } from '../constants';
 import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
@@ -97,7 +97,7 @@ export function completeStep(step) {
   };
 }
 
-export function challengeCompleteAction(step) {
+function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = {
@@ -113,7 +113,7 @@ export function challengeCompleteAction(step) {
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
-        type: 'stepNote',
+        type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
             const noteData = {

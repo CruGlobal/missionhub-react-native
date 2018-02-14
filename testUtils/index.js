@@ -51,3 +51,13 @@ export const mockFnWithParams = (obj, method, expectedReturn, ...expectedParams)
     (...actualParams) => JSON.stringify(expectedParams) === JSON.stringify(actualParams) ? expectedReturn : undefined
   );
 };
+
+export const mockFnWithParamsMultiple = (obj, method, ...mockValuesList) => {
+  return obj[method] = jest.fn().mockImplementation(
+    (...actualParams) => {
+
+      const mock = mockValuesList.find((mockValue) => JSON.stringify(mockValue.expectedParams) === JSON.stringify(actualParams));
+      return mock ? mock.expectedReturn : undefined;
+    }
+  );
+};

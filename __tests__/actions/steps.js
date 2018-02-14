@@ -1,41 +1,35 @@
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { challengeCompleteAction } from '../../src/actions/steps';
-import { mockFnWithParams, createMockStore } from '../../testUtils';
+import { completeStep } from '../../src/actions/steps';
+import * as analytics from '../../src/actions/analytics';
+import { mockFnWithParams, mockFnWithParamsMultipleReturns } from '../../testUtils';
 import * as common from '../../src/utils/common';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { buildTrackingObj } from '../../src/utils/common';
+import { COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE } from '../../src/constants';
+import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 
+const mockStore = configureStore([ thunk ]);
 let store;
-
-const mockStep = {
-  id: 1,
-  receiver: {
-    id: 10,
-  },
-};
-
-const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
-const mockApiReturnValue = (result) => {
-  return (dispatch) => {
-    return dispatch(() => Promise.resolve(result));
-  };
-};
 
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
-describe('actions called', () => {
-  beforeEach(() => store = createMockStore({
-    auth: {
-      personId: '10',
-    },
-    steps: {
-      userStepCount: {
-        [10]: 1,
-      },
-    },
-  }));
+describe('complete challenge', () => {
+  const personId = 2123;
+  const receiverId = 983547;
 
-  const query = { challenge_id: 1 };
+  const stepId = 34556;
+  const step = {
+    id: stepId,
+    receiver: { id: receiverId },
+  };
+
+  const challengeCompleteQuery = { challenge_id: stepId };
+  const stepsQuery = {
+    filters: { completed: false },
+  };
   const data = {
     data: {
       type: 'accepted_challenge',
@@ -45,12 +39,34 @@ describe('actions called', () => {
     },
   };
 
-  mockApi(mockApiReturnValue({ findAll: () => [] }), REQUESTS.CHALLENGE_COMPLETE, query, data);
-  
+  const trackStateResult = { type: 'tracked state' };
 
-  it('should call challengeCompleteAction', () => {
-    store.dispatch(challengeCompleteAction(mockStep));
+  beforeEach(() => {
+    store = mockStore({
+      auth: { personId: personId },
+      steps: { userStepCount: { [receiverId]: 2 } },
+    });
 
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    mockFnWithParams(analytics,
+      'trackState',
+      trackStateResult,
+      buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
+
+    mockFnWithParamsMultiple(api,
+      'default',
+      { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.GET_MY_CHALLENGES, stepsQuery ] },
+      { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data ] });
+  });
+
+  it('completes step', () => {
+    return store.dispatch(completeStep(step)).then(() => {
+      expect(store.getActions()).toEqual([
+        { type: COMPLETED_STEP_COUNT, userId: receiverId },
+        { type: NAVIGATE_FORWARD,
+          routeName: ADD_STEP_SCREEN,
+          params: { type: STEP_NOTE, onComplete: expect.anything() } },
+        trackStateResult,
+      ]);
+    });
   });
 });
