@@ -2,13 +2,14 @@ import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
 import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
-import { formatApiDate } from '../utils/common';
+import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
+import { trackState } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -107,6 +108,8 @@ export function challengeCompleteAction(step) {
         },
       },
     };
+    const myId = getState().auth.personId;
+
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
@@ -125,7 +128,6 @@ export function challengeCompleteAction(step) {
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
-          const myId = getState().auth.personId;
           const isMe = myId === `${step.receiver.id}`;
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
@@ -155,7 +157,7 @@ export function challengeCompleteAction(step) {
                 stageProps.contactAssignmentId = assignment && assignment.id;
                 stageProps.name = step.receiver.first_name;
               }
-            
+
               dispatch(navigatePush(nextStageScreen, stageProps));
             });
           } else {
@@ -167,6 +169,11 @@ export function challengeCompleteAction(step) {
           }
         },
       }));
+
+      const subsection = getAnalyticsSubsection( step.receiver.id, myId );
+      const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
+      dispatch(trackState(trackingObj));
+
       return results;
     });
   };
