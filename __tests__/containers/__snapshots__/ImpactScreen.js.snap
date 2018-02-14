@@ -96,7 +96,7 @@ exports[`Impact Screen renders correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {},
                   ],

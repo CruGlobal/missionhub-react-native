@@ -97,7 +97,7 @@ exports[`renders correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {},
                   ],
@@ -580,7 +580,7 @@ exports[`renders title correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {},
                   ],

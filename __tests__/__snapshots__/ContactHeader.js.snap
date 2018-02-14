@@ -899,7 +899,7 @@ exports[`renders jean 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {
                       "color": "#52C5DC",
@@ -995,7 +995,7 @@ exports[`renders jean 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {
                       "color": "#52C5DC",
@@ -1091,13 +1091,18 @@ exports[`renders jean 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                      "opacity": 0.5,
-                    },
+                    Array [
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 24,
+                        "opacity": 0.5,
+                      },
+                      Object {
+                        "fontSize": 20,
+                      },
+                    ],
                   ],
                 ],
                 Object {
@@ -1971,7 +1976,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {
                       "color": "#52C5DC",
@@ -2067,7 +2072,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {
                       "color": "#52C5DC",
@@ -2163,13 +2168,18 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 24,
-                      "opacity": 0.5,
-                    },
+                    Array [
+                      Object {
+                        "color": "#52C5DC",
+                        "fontSize": 24,
+                        "opacity": 0.5,
+                      },
+                      Object {
+                        "fontSize": 20,
+                      },
+                    ],
                   ],
                 ],
                 Object {

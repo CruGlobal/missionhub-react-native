@@ -96,7 +96,7 @@ exports[`renders android correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "margin": 8,
+                      "margin": 10,
                     },
                     Object {},
                   ],
