@@ -89,6 +89,12 @@ describe('trackState', () => {
       analyticsContext: expectedUpdatedContext,
     } ]);
   });
+
+  it('should not update screenname of parameter', () => {
+    store.dispatch(trackState(trackingObj));
+
+    expect(trackingObj.name).toEqual(newScreenName);
+  });
 });
 
 describe('updateLoggedInStatus', () => {

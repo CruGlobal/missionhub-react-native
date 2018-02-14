@@ -14,11 +14,11 @@ export function trackAction(action, data) {
 
 export function trackState(trackingObj) {
   return (dispatch, getState) => {
+    const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
-    trackingObj.name = `mh : ${trackingObj.name}`;
-    const updatedContext = buildUpdatedContext(trackingObj, getState().analytics);
+    const updatedContext = buildUpdatedContext(newTrackingObj, getState().analytics);
 
-    RNOmniture.trackState(trackingObj.name, updatedContext);
+    RNOmniture.trackState(newTrackingObj.name, updatedContext);
 
     return dispatch(updateAnalyticsContext(updatedContext));
   };
