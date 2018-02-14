@@ -26,6 +26,16 @@ it('returns access token and refresh token after successful key login', () => {
   expect(state.refreshToken).toBe(refreshToken);
 });
 
+it('returns new access token after using refresh token', () => {
+  const newAccessToken = 'asdsdfncncoppoop';
+
+  const state = callAuth(REQUESTS.KEY_REFRESH_TOKEN.SUCCESS, {
+    access_token: newAccessToken,
+  });
+
+  expect(state.token).toBe(newAccessToken);
+});
+
 it('returns token and person id after logging in with ticket', () => {
   const state = callAuth(REQUESTS.TICKET_LOGIN.SUCCESS, {
     token: token,

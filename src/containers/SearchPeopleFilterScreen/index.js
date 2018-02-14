@@ -149,7 +149,7 @@ export class SearchPeopleFilterScreen extends Component {
     }));
     this.setState({ selectedFilterId: item.id });
 
-    const trackingObj = buildTrackingObj(`search : refine : ${item.id }`, 'search', 'refine', item.id);
+    const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
     this.props.dispatch(trackState(trackingObj));
   }
 

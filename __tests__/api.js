@@ -3,6 +3,7 @@ import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
 import ReactNative from 'react-native';
 import locale from '../src/i18n/locales/en-US';
+import { EXPIRED_ACCESS_TOKEN } from '../src/constants';
 
 const { invalidCredentialsMessage, verifyEmailMessage } = locale.keyLogin;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
@@ -62,6 +63,14 @@ describe('call api', () => {
 
       return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
         expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`);
+      });
+    });
+
+    it('should not show alert for expired access token', () => {
+      serverResponse = { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] };
+
+      return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
+        expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(0);
       });
     });
   });
