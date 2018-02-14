@@ -50,7 +50,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
         options: item.drilldown,
       }));
 
-      const trackingObj = buildTrackingObj(`mh : search : refine : ${item.id }`, 'search', 'refine', item.id);
+      const trackingObj = buildTrackingObj(`search : refine : ${item.id }`, 'search', 'refine', item.id);
       this.props.dispatch(trackState(trackingObj));
 
     } else {
