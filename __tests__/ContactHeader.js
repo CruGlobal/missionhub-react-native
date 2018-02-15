@@ -39,7 +39,7 @@ it('renders jean with a missionhub user as contact', () => {
 const testContactHeader = (person, type) => {
   testSnapshot(
     <Provider store={store}>
-      <ContactHeader person={person} type={type} onChangeStage={() => {}} />
+      <ContactHeader isMe={false} person={person} type={type} onChangeStage={() => {}} />
     </Provider>,
   );
 };

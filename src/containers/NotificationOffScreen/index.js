@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, Linking, Switch } from 'react-native';
+import { Linking, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { enableAskPushNotification } from '../../actions/notifications';
+import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 @translate('notificationOff')
@@ -30,7 +31,7 @@ class NotificationOffScreen extends Component {
   }
 
   goToSettings() {
-    if (Platform.OS === 'ios') {
+    if (!isAndroid) {
       const APP_SETTINGS_URL = 'app-settings:';
       Linking.canOpenURL(APP_SETTINGS_URL).then((isSupported) => {
         if (isSupported) {

@@ -13,6 +13,7 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 16,
     textAlign: 'center',
+    lineHeight: 24,
   },
   allowButton: {
     backgroundColor: theme.secondaryColor,

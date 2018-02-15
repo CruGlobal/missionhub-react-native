@@ -10,18 +10,23 @@ import ContactNotes from '../../containers/ContactNotes';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
 
+import { isAndroid } from '../../utils/common';
+
 export default class SecondaryTabBar extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { notesAreActive: false };
+    this.state = { page: 0, notesAreActive: false };
 
     this.renderTabs = this.renderTabs.bind(this);
   }
 
-  onChangeTab = (activeTab) => {
-    this.setState({ notesAreActive: activeTab === 'notes' });
+  onChangeTab = (index, activeTab) => {
+    this.setState({
+      page: index,
+      notesAreActive: activeTab === 'notes',
+    });
   };
 
   renderTabs(tab) {
@@ -67,7 +72,9 @@ export default class SecondaryTabBar extends Component {
           contentProps={{ keyboardShouldPersistTaps: 'handled' }}
           tabBarPosition="top"
           initialPage={0}
+          page={isAndroid ? this.state.page : undefined}
           locked={true}
+          prerenderingSiblingsNumber={1}
           renderTabBar={() => <CustomTabs tabArray={tabs} onChangeTab={this.onChangeTab} />}
         >
           {

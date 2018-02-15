@@ -9,7 +9,7 @@ jest.mock('react-native-device-info');
 
 const store = createMockStore({
   steps: {
-    suggestedForMe: [ { id: 1 }, { id: 2 }, { id: 3 } ],
+    suggestedForMe: [ { id: '1', body: 'test' }, { id: '2', body: 'test' }, { id: '3', body: 'test' } ],
   },
   auth: {
     personId: 1234,

@@ -27,6 +27,7 @@ class PersonStageScreen extends Component {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
         onComplete: () => {
           this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
+          this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
         },
       }));
     } else {

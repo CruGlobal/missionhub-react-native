@@ -7,6 +7,7 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
+import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 
 const HIDE_ORG_PERMISSION_IDS = [ 1, 4 ];
 
@@ -30,12 +31,14 @@ export class PeopleItem extends Component {
     const contactAssignment = person.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
     const contactAssignmentId = contactAssignment && contactAssignment.id;
     
-    dispatch(navigatePush('PersonStage', {
+    dispatch(navigatePush(PERSON_STAGE_SCREEN, {
       onComplete: () => this.props.dispatch(getMyPeople()),
       currentStage: null,
       name: person.first_name,
       contactId: person.id,
       contactAssignmentId: contactAssignmentId,
+      section: 'people',
+      subsection: 'person',
     }));
   }
 
@@ -97,7 +100,7 @@ export class PeopleItem extends Component {
           </Flex>
           {
             !isPersonal && !stage && !isMe ? (
-              <Touchable onPress={this.handleChangeStage}>
+              <Touchable isAndroidOpacity={true} onPress={this.handleChangeStage}>
                 <Icon name="journeyIcon" type="MissionHub" style={styles.uncontactedIcon} />
               </Touchable>
             ) : null
