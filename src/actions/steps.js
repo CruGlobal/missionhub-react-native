@@ -137,7 +137,13 @@ function challengeCompleteAction(step) {
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
               const assignment = results2.findAll('contact_assignment')
-                .find((assignment) => assignment.assigned_to.id === myId);
+                .find((assignment) => `${assignment.assigned_to.id}` === myId);
+
+              const stages = getState().stages.stages;
+              const pathwayStageId = assignment && assignment.pathway_stage_id;
+              let firstItemIndex = stages.findIndex((s) => `${s.id}` === `${pathwayStageId}`);
+              firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
+
               let stageProps = {
                 section: 'people',
                 subsection: subsection,
@@ -151,10 +157,10 @@ function challengeCompleteAction(step) {
                   dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
-                firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
+                firstItem: firstItemIndex,
                 enableBackButton: false,
                 noNav: true,
-                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', step.receiver.first_name),
+                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', { name: step.receiver.first_name }),
               };
               if (!isMe) {
                 stageProps.contactAssignmentId = assignment && assignment.id;

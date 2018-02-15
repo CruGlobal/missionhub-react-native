@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import i18next from 'i18next';
 
@@ -36,7 +35,7 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
-import { buildTrackingObj } from './utils/common';
+import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -51,10 +50,17 @@ import { buildTrackingObj } from './utils/common';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={24} style={{ color: tintColor }} />;
+const navIcon = (name) => ({ tintColor }) => (
+  <Icon
+    type="MissionHub"
+    name={name}
+    size={isAndroid ? 22 : 24}
+    style={{ color: tintColor }}
+  />
+);
 
 function labelStyle() {
-  if (Platform.OS === 'android') {
+  if (isAndroid) {
     return { marginTop: 5, marginBottom: -5 };
   } else {
     return {};
@@ -148,6 +154,7 @@ const screens = {
     }, {
       contentComponent: SettingsMenu,
       navigationOptions: { drawerLockMode: 'locked-closed' },
+      backBehavior: 'none', // We're handling it on our own
     }),
     stepsTab, //stepsTab is shown when MainTabs first opens
   ),
@@ -180,9 +187,10 @@ export const MainStackRoutes = StackNavigator({
         contentComponent: ContactSideMenu,
         drawerPosition: 'right',
         navigationOptions: { drawerLockMode: 'locked-closed' },
+        backBehavior: 'none', // We're handling it on our own
       }
     ),
-    navigationOptions: { gesturesEnabled: true },
+    navigationOptions: { gesturesEnabled: isAndroid ? false : true },
   },
 }, {
   navigationOptions: {

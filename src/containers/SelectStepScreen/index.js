@@ -63,7 +63,9 @@ class SelectStepScreen extends Component {
           steps: this.state.steps.concat([ newStep ]),
           addedSteps: addedSteps.concat([ newStep ]),
         });
-        this.stepsList.onScrollToEnd();
+        if (this.stepsList && this.stepsList.onScrollToEnd) {
+          this.stepsList.onScrollToEnd();
+        }
       },
     }));
 
@@ -73,12 +75,10 @@ class SelectStepScreen extends Component {
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
 
-    LOG('selectedSteps', selectedSteps);
-
     selectedSteps.forEach((step) => this.props.dispatch(trackAction('cru.stepoffaithdetail',
       {
         'Step ID': step.id,
-        'Stage': step.pathway_stage.id,
+        'Stage': step.pathway_stage ? step.pathway_stage.id : undefined,
         'Challenge Type': step.challenge_type,
         'Self Step': step.self_step ? 'Y' : 'N',
         'Locale': step.locale,
@@ -116,8 +116,8 @@ class SelectStepScreen extends Component {
     return (
       <Flex style={styles.container}>
         <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
-          {this.renderBackButton()}
           {this.renderTitle()}
+          {this.renderBackButton()}
         </Flex>
         <Flex value={2}>
           <StepsList
@@ -144,6 +144,7 @@ class SelectStepScreen extends Component {
 SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
+  contact: PropTypes.object,
 };
 
 

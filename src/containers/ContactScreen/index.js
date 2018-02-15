@@ -30,11 +30,13 @@ class ContactScreen extends Component {
   }
 
   handleChangeStage() {
-    const { dispatch, personIsCurrentUser, person, contactAssignmentId, contactStage } = this.props;
+    const { dispatch, personIsCurrentUser, person, contactAssignmentId, contactStage, stages } = this.props;
+    let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
+    firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
     if (personIsCurrentUser) {
       dispatch(navigatePush(STAGE_SCREEN, {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
-        currentStage: contactStage && contactStage.id || null,
+        firstItem: firstItemIndex,
         contactId: person.id,
         section: 'people',
         subsection: 'self',
@@ -43,7 +45,7 @@ class ContactScreen extends Component {
     } else {
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
-        currentStage: contactStage && contactStage.id || null,
+        firstItem: firstItemIndex,
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,

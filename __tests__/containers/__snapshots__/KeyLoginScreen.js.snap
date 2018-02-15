@@ -21,7 +21,11 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
-        Object {},
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 5,
+        },
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
@@ -72,8 +76,8 @@ exports[`renders correctly 1`] = `
                 "fontSize": 18,
               },
               Object {
-                "margin": 20,
-                "marginTop": 40,
+                "margin": 25,
+                "marginTop": 45,
               },
             ],
             Object {

@@ -10,17 +10,17 @@ import styles from './styles';
 
 class BackButton extends Component {
   render() {
-    const { ...rest } = this.props;
+    const { dispatch, customNavigate, ...rest } = this.props;
     return (
-      <Flex self="start" align="start" justify="center" >
+      <Flex self="start" align="start" justify="center" style={styles.absoluteTopLeft}>
         <Touchable
           {...rest}
           isAndroidOpacity={true}
           onPress={() => {
-            if (this.props.customNavigate === 'backToStages') {
-              this.props.dispatch(navigateBack(2));
+            if (customNavigate === 'backToStages') {
+              dispatch(navigateBack(2));
             } else {
-              this.props.dispatch(navigateBack());
+              dispatch(navigateBack());
             }
             Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
           }}
@@ -32,12 +32,8 @@ class BackButton extends Component {
   }
 }
 
-const styleTypes = [ PropTypes.array, PropTypes.object, PropTypes.number ];
 BackButton.propTypes = {
-  filled: PropTypes.bool,
   customNavigate: PropTypes.string,
-  style: PropTypes.oneOfType(styleTypes),
-  buttonTextStyle: PropTypes.oneOfType(styleTypes),
 };
 
 export default connect()(BackButton);

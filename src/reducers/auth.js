@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT } from '../constants';
+import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { findAllNonPlaceHolders } from '../utils/common';
 
@@ -95,8 +95,9 @@ function authReducer(state = initialAuthState, action) {
         isJean: person.organizational_permissions.length > 0,
       };
     case REQUESTS.GET_STAGES.SUCCESS:
+    case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = results.findAll('pathway_stage') || [];
+      const stages = (results ? results.findAll('pathway_stage') : action.stages) || [];
       let userWithStage = { ...state.user };
       if (userWithStage.user && userWithStage.user.pathway_stage_id) {
         const myStage = stages.find((s) => `${s.id}` === `${userWithStage.user.pathway_stage_id}`);
