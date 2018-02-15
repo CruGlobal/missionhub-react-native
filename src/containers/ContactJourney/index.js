@@ -59,7 +59,7 @@ class ContactJourney extends Component {
 
   getOrganization() {
     const { person } = this.props;
-    if (person.organizational_permissions && person.organizational_permissions.length > 0) {
+    if (person && person.organizational_permissions && person.organizational_permissions.length > 0) {
       return person.organizational_permissions[0].organization_id;
     }
     return undefined;

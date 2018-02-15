@@ -177,15 +177,15 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "body": "Ron 1",
-            "id": 1,
+            "id": "1",
           },
           Object {
             "body": "Ron 2",
-            "id": 2,
+            "id": "2",
           },
           Object {
             "body": "Ron 3",
-            "id": 3,
+            "id": "3",
           },
         ]
       }

@@ -128,7 +128,7 @@ class PathwayStageScreen extends Component {
             ) : null
           }
         </Flex>
-        {this.props.enableBackButton ? <BackButton /> : null}
+        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     );
   }

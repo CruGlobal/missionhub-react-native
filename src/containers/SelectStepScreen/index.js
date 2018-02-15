@@ -93,7 +93,7 @@ class SelectStepScreen extends Component {
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
     return enableBackButton ?
-      (<BackButton customNavigate={contact || this.state.contact ? undefined : 'backToStages'} />)
+      (<BackButton customNavigate={contact || this.state.contact ? undefined : 'backToStages'} absolute={true} />)
       : null;
   }
 

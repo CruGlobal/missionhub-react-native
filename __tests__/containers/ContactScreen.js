@@ -19,7 +19,7 @@ const store = createMockStore(mockState);
 
 const buildScreen = () => (
   shallow(
-    <ContactScreen navigation={createMockNavState({ person: {} })} />,
+    <ContactScreen navigation={createMockNavState({ person: { id: 'test', first_name: 'Tester' } })} />,
     { context: { store: store } }
   )
 );

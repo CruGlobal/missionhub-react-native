@@ -21,11 +21,7 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 5,
-        },
+        Object {},
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
@@ -95,22 +91,23 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
           "alignItems": "center",
-        },
-        Object {
           "flex": 1,
+          "justifyContent": "center",
         },
       ]
     }
   >
     <Image
+      resizeMode="contain"
       source={
         Object {
           "testUri": "../../../assets/images/missionHubLogoWords.png",
         }
       }
-      style={undefined}
+      style={Object {}}
     />
   </View>
   <View

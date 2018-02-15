@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Text, Icon } from '../../components/common';
+import { Text, Icon, Touchable } from '../../components/common';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
 
@@ -27,7 +27,7 @@ class CustomTabs extends Component {
       <View style={[ styles.tabs, style ]}>
         {tabArray.map((tab, i) => {
           return (
-            <TouchableOpacity key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
+            <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
               <Icon
                 name={tab.iconName}
                 type="MissionHub"
@@ -37,7 +37,7 @@ class CustomTabs extends Component {
               <Text style={[ styles.tabText, { color: activeTab === i ? ACTIVE_COLOR : INACTIVE_COLOR } ]}>
                 {tab.tabLabel}
               </Text>
-            </TouchableOpacity>
+            </Touchable>
           );
         })}
       </View>

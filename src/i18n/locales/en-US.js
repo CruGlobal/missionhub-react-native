@@ -84,6 +84,7 @@ export default {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
     signIn: 'Sign In',
+    getStarted: 'Get Started',
     member: 'Already a Member?',
   },
   loginOptions: {

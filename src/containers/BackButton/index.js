@@ -10,9 +10,9 @@ import styles from './styles';
 
 class BackButton extends Component {
   render() {
-    const { dispatch, customNavigate, ...rest } = this.props;
+    const { dispatch, customNavigate, absolute, ...rest } = this.props;
     return (
-      <Flex self="start" align="start" justify="center" style={styles.absoluteTopLeft}>
+      <Flex self="start" align="start" justify="center" style={absolute ? styles.absoluteTopLeft : undefined}>
         <Touchable
           {...rest}
           isAndroidOpacity={true}
@@ -34,6 +34,7 @@ class BackButton extends Component {
 
 BackButton.propTypes = {
   customNavigate: PropTypes.string,
+  absolute: PropTypes.bool,
 };
 
 export default connect()(BackButton);

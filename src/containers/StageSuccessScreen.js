@@ -40,7 +40,7 @@ class StageSuccessScreen extends Component {
 }
 
 StageSuccessScreen.propTypes = {
-  selectedStage: PropTypes.object.isRequired,
+  selectedStage: PropTypes.object,
 };
 
 

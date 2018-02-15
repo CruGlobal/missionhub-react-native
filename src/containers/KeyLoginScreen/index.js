@@ -113,8 +113,8 @@ class KeyLoginScreen extends Component {
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
         <BackButton />
-        <Flex value={1} style={{ alignItems: 'center' }}>
-          <Image source={LOGO} style={styles.logo} />
+        <Flex value={1} align="center" justify="center">
+          <Image source={LOGO} style={styles.logo} resizeMode="contain" />
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>

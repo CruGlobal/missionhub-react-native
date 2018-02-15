@@ -176,13 +176,16 @@ exports[`renders correctly with button 1`] = `
       data={
         Array [
           Object {
-            "id": 1,
+            "body": "test",
+            "id": "1",
           },
           Object {
-            "id": 2,
+            "body": "test",
+            "id": "2",
           },
           Object {
-            "id": 3,
+            "body": "test",
+            "id": "3",
           },
         ]
       }
@@ -304,7 +307,9 @@ exports[`renders correctly with button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
           <View
@@ -413,7 +418,9 @@ exports[`renders correctly with button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
           <View
@@ -522,7 +529,9 @@ exports[`renders correctly with button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
         </View>
@@ -822,13 +831,16 @@ exports[`renders correctly without button 1`] = `
       data={
         Array [
           Object {
-            "id": 1,
+            "body": "test",
+            "id": "1",
           },
           Object {
-            "id": 2,
+            "body": "test",
+            "id": "2",
           },
           Object {
-            "id": 3,
+            "body": "test",
+            "id": "3",
           },
         ]
       }
@@ -950,7 +962,9 @@ exports[`renders correctly without button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
           <View
@@ -1059,7 +1073,9 @@ exports[`renders correctly without button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
           <View
@@ -1168,7 +1184,9 @@ exports[`renders correctly without button 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                test
+              </Text>
             </View>
           </View>
         </View>
