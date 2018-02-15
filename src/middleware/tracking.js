@@ -1,11 +1,8 @@
 import { trackState } from '../actions/analytics';
-import { trackableScreens } from '../AppRoutes';
+import { MAIN_TABS_SCREEN, trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
-import {
-  CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, MAIN_TABS, NAVIGATE_FORWARD,
-  NAVIGATE_RESET,
-} from '../constants';
+import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
 import { buildTrackingObj, isLoggedIn } from '../utils/common';
 
@@ -49,7 +46,7 @@ export default function tracking({ dispatch, getState }) {
       case REHYDRATE:
         const authState = action.payload.auth;
         if (authState && isLoggedIn(authState)) {
-          newAction = trackState(trackableScreens[MAIN_TABS].tracking); //todo refactor
+          newAction = trackState(MAIN_TABS_SCREEN.tracking);
         }
 
         break;
