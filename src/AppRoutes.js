@@ -69,7 +69,7 @@ const buildTrackedScreen = (screen, tracking, navOptions) => {
   };
 };
 
-const stepsTab = buildTrackingObj('steps : steps', 'steps');
+const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
   StepsTab: buildTrackedScreen(
     StepsScreen,
@@ -81,7 +81,7 @@ const tabs = {
   ),
   PeopleTab: buildTrackedScreen(
     PeopleScreen,
-    buildTrackingObj('people : people', 'people'),
+    buildTrackingObj('people', 'people'),
     {
       tabBarLabel: i18next.t('appRoutes:people'),
       tabBarIcon: navIcon('peopleIcon'),
@@ -89,7 +89,7 @@ const tabs = {
   ),
   ImpactTab: buildTrackedScreen(
     ImpactScreen,
-    buildTrackingObj('impact : impact', 'impact'),
+    buildTrackingObj('impact', 'impact'),
     {
       tabBarLabel: i18next.t('appRoutes:impact'),
       tabBarIcon: navIcon('impactIcon'),
@@ -127,7 +127,7 @@ export const MainTabRoutes = TabNavigator(
   });
 
 const screens = {
-  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth : auth', 'auth')),
+  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth', 'auth')),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
   [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
@@ -135,13 +135,13 @@ const screens = {
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
-  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person : add person', 'onboarding', 'add person')),
+  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person', 'onboarding', 'add person')),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('onboarding : people : add person', 'onboarding', 'people', 'add person')),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
-  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search : search', 'search') , { gesturesEnabled: true }),
-  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine : refine', 'search', 'refine'), { gesturesEnabled: true }),
+  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search', 'search') , { gesturesEnabled: true }),
+  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine', 'search', 'refine'), { gesturesEnabled: true }),
   [MAIN_TABS]: buildTrackedScreen(
     DrawerNavigator({
       Main: { screen: MainTabRoutes },
@@ -167,7 +167,6 @@ export const MainStackRoutes = StackNavigator({
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
   [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
-
   [PERSON_STAGE_SCREEN]: { screen: PersonStageScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_SCREEN]: { screen: StageScreen, navigationOptions: { gesturesEnabled: true } },
   [SEARCH_REFINE_SCREEN]: { screen: SearchPeopleFilterRefineScreen, navigationOptions: { gesturesEnabled: true } },
