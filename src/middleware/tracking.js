@@ -1,11 +1,10 @@
 import { trackState } from '../actions/analytics';
-import { trackableScreens } from '../AppRoutes';
+import { MAIN_TABS_SCREEN, trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
-import { buildTrackingObj } from '../utils/common';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { buildTrackingObj, isLoggedIn } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -30,7 +29,7 @@ export default function tracking({ dispatch, getState }) {
             newAction = trackContactMenu(actionParams.isCurrentUser);
 
           } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-            newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
+            newAction = trackState(buildTrackingObj('menu', 'menu'));
           }
         }
         break;
@@ -45,13 +44,9 @@ export default function tracking({ dispatch, getState }) {
         break;
 
       case REHYDRATE:
-        const nav = action.payload.nav;
-        if (nav) {
-          const savedRoutes = nav.routes;
-          newAction = trackRoute(savedRoutes[savedRoutes.length - 1]);
-
-        } else {
-          newAction = trackState(trackableScreens[LOGIN_SCREEN]); //app is loaded for the very first time
+        const authState = action.payload.auth;
+        if (authState && isLoggedIn(authState)) {
+          newAction = trackState(MAIN_TABS_SCREEN.tracking);
         }
 
         break;
@@ -78,6 +73,6 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'))
-    : trackState(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
+  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu', 'people', 'self', 'menu'))
+    : trackState(buildTrackingObj('people : person : menu', 'people', 'person', 'menu'));
 }

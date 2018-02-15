@@ -1,13 +1,12 @@
 import React from 'react';
 import AddContactFields from '../../src/containers/AddContactFields';
-import { createMockStore } from '../../testUtils/index';
-import { testSnapshotShallow } from '../../testUtils';
+import { createMockStore, testSnapshotShallow } from '../../testUtils';
 
 const store = createMockStore();
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
-    <AddContactFields person={{
+    <AddContactFields onUpdateData={() => {}} person={{
       email_addresses: [],
       phone_numbers: [],
     }} />,
@@ -17,7 +16,7 @@ it('renders casey view correctly', () => {
 
 it('renders jean view correctly', () => {
   testSnapshotShallow(
-    <AddContactFields isJean={true} person={{
+    <AddContactFields onUpdateData={() => {}} isJean={true} person={{
       email_addresses: [],
       phone_numbers: [],
     }} />,

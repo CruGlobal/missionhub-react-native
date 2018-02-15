@@ -54,6 +54,6 @@ it('goes to tab when clicked', () => {
 
   shallowScreen.dive().childAt(1).simulate('press');
 
-  expect(onChangeTab).toHaveBeenCalledWith(tabArray[1].page);
+  expect(onChangeTab).toHaveBeenCalledWith(1, tabArray[1].page);
   expect(goToPage).toHaveBeenCalledWith(1);
 });

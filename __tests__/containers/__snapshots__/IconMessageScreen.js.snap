@@ -46,6 +46,7 @@ exports[`renders button text correctly 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "padding": 30,
             "textAlign": "center",
           },
@@ -192,6 +193,7 @@ exports[`renders icon correctly 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "padding": 30,
             "textAlign": "center",
           },
@@ -305,6 +307,7 @@ exports[`renders main text correctly 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "padding": 30,
             "textAlign": "center",
           },

@@ -97,6 +97,7 @@ class LoginScreen extends Component {
   }
 
   render() {
+    const { t } = this.props;
 
     return (
       <Flex style={styles.container}>
@@ -138,17 +139,18 @@ class LoginScreen extends Component {
             <Flex direction="column" self="stretch" align="center">
               <Button
                 pill={true}
-                text="GET STARTED"
+                text={t('getStarted').toUpperCase()}
                 onPress={this.getStarted}
                 style={styles.getStarted}
                 buttonTextStyle={styles.buttonText}
               />
-              <Flex direction="row">
+              <Flex direction="row" align="center">
                 <Text style={styles.signInText}>ALREADY A MEMBER?</Text>
                 <Button
-                  text="SIGN IN"
+                  text={t('signIn').toUpperCase()}
                   type="transparent"
                   onPress={this.login}
+                  style={styles.signInButton}
                   buttonTextStyle={styles.signInBtnText}
                 />
               </Flex>

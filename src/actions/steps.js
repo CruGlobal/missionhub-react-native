@@ -1,14 +1,15 @@
 import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
-import { formatApiDate } from '../utils/common';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE } from '../constants';
+import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
+import { trackState } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -96,7 +97,7 @@ export function completeStep(step) {
   };
 }
 
-export function challengeCompleteAction(step) {
+function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = {
@@ -107,10 +108,12 @@ export function challengeCompleteAction(step) {
         },
       },
     };
+    const myId = getState().auth.personId;
+
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
-        type: 'stepNote',
+        type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
             const noteData = {
@@ -125,37 +128,45 @@ export function challengeCompleteAction(step) {
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
-          const myId = getState().auth.personId;
           const isMe = myId === `${step.receiver.id}`;
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-
+          const subsection = isMe ? 'self' : 'person';
+          const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
 
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
               const assignment = results2.findAll('contact_assignment')
-                .find((assignment) => assignment.assigned_to.id === myId);
+                .find((assignment) => `${assignment.assigned_to.id}` === myId);
+
+              const stages = getState().stages.stages;
+              const pathwayStageId = assignment && assignment.pathway_stage_id;
+              let firstItemIndex = stages.findIndex((s) => `${s.id}` === `${pathwayStageId}`);
+              firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
+
               let stageProps = {
                 section: 'people',
-                subsection: isMe ? 'self' : 'person',
+                subsection: subsection,
                 onComplete: () => {
                   dispatch(navigatePush(CELEBRATION_SCREEN, {
                     onComplete: () => {
                       dispatch(navigateBack(3));
                     },
                   }));
+
+                  dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
-                firstItem: assignment && assignment.pathway_stage_id ? assignment.pathway_stage_id - 1 : undefined,
+                firstItem: firstItemIndex,
                 enableBackButton: false,
                 noNav: true,
-                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', step.receiver.first_name),
+                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', { name: step.receiver.first_name }),
               };
               if (!isMe) {
                 stageProps.contactAssignmentId = assignment && assignment.id;
                 stageProps.name = step.receiver.first_name;
               }
-            
+
               dispatch(navigatePush(nextStageScreen, stageProps));
             });
           } else {
@@ -164,9 +175,16 @@ export function challengeCompleteAction(step) {
                 dispatch(navigateBack(2));
               },
             }));
+
+            dispatch(trackState(trackingObj));
           }
         },
       }));
+
+      const subsection = getAnalyticsSubsection( step.receiver.id, myId );
+      const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
+      dispatch(trackState(trackingObj));
+
       return results;
     });
   };

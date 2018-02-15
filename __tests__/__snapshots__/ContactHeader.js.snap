@@ -176,7 +176,7 @@ exports[`renders casey 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -262,7 +262,7 @@ exports[`renders casey 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -348,7 +348,7 @@ exports[`renders casey 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -534,7 +534,7 @@ exports[`renders casey 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}
@@ -653,8 +653,158 @@ exports[`renders casey 1`] = `
             }
           >
             <View
-              tabLabel={undefined}
-            />
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "flex": 1,
+                      },
+                      Object {
+                        "alignItems": "center",
+                        "flex": 1,
+                        "justifyContent": "center",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "color": "#505256",
+                          },
+                          Object {
+                            "fontFamily": "AmaticSC-Bold",
+                          },
+                          Object {
+                            "color": "#505256",
+                            "fontSize": 16,
+                            "paddingHorizontal": 70,
+                            "paddingVertical": 10,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                    >
+                      loading journey items
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "justifyContent": "flex-end",
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits="button"
+                    accessible={true}
+                    collapsable={undefined}
+                    hitSlop={undefined}
+                    isTVSelectable={true}
+                    nativeID={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                    testID={undefined}
+                    tvParallaxProperties={undefined}
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#52C5DC",
+                            "height": 60,
+                            "justifyContent": "center",
+                          },
+                          null,
+                          Object {},
+                          null,
+                        ]
+                      }
+                    >
+                      <Text
+                        accessible={true}
+                        allowFontScaling={true}
+                        ellipsizeMode="tail"
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "rgba(0,0,0,0)",
+                                "color": "#ffffff",
+                                "fontSize": 18,
+                                "fontWeight": "500",
+                                "letterSpacing": 1.5,
+                                "textAlign": "center",
+                              },
+                              Object {},
+                            ],
+                          ]
+                        }
+                      >
+                        ADD A COMMENT
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
           </View>
           <View
             style={
@@ -1156,7 +1306,7 @@ exports[`renders jean 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -1242,7 +1392,7 @@ exports[`renders jean 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -1328,7 +1478,7 @@ exports[`renders jean 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -1414,7 +1564,7 @@ exports[`renders jean 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -1600,7 +1750,7 @@ exports[`renders jean 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}
@@ -1719,8 +1869,26 @@ exports[`renders jean 1`] = `
             }
           >
             <View
-              tabLabel={undefined}
-            />
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                onLayout={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </View>
           </View>
           <View
             style={
@@ -2233,7 +2401,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -2319,7 +2487,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -2405,7 +2573,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -2491,7 +2659,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -2577,7 +2745,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
         <View
           accessibilityComponentType={undefined}
           accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
+          accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
           hitSlop={undefined}
@@ -2763,7 +2931,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}
@@ -2882,8 +3050,26 @@ exports[`renders jean with a missionhub user as contact 1`] = `
             }
           >
             <View
-              tabLabel={undefined}
-            />
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                onLayout={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </View>
           </View>
           <View
             style={

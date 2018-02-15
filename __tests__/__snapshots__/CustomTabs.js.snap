@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}
@@ -102,7 +102,7 @@ exports[`renders correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}
@@ -188,7 +188,7 @@ exports[`renders correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}
@@ -290,7 +290,7 @@ exports[`renders tab 0 correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}
@@ -376,7 +376,7 @@ exports[`renders tab 0 correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}
@@ -462,7 +462,7 @@ exports[`renders tab 0 correctly 1`] = `
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+    accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
     hitSlop={undefined}

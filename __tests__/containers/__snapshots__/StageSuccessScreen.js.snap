@@ -50,6 +50,7 @@ exports[`renders correctly 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "padding": 30,
             "textAlign": "center",
           },
@@ -196,6 +197,7 @@ exports[`renders correctly with default state 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "padding": 30,
             "textAlign": "center",
           },

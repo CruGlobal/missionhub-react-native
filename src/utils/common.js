@@ -41,6 +41,8 @@ export const refresh = (obj, method) => {
   });
 };
 
+export const isLoggedIn = (authState) => authState.token && authState.isLoggedIn;
+
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type)
     .filter((element) => !element._placeHolder);

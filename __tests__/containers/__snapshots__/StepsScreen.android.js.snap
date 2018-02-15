@@ -15,7 +15,7 @@ exports[`renders android correctly 1`] = `
           Object {
             "backgroundColor": "#007398",
             "height": 56,
-            "paddingTop": 20,
+            "paddingTop": 0,
           },
           Object {
             "elevation": 4,
@@ -245,7 +245,7 @@ exports[`renders android correctly 1`] = `
             ]
           }
         >
-          STEPS OF FAITH
+          steps of faith
         </Text>
         <Text
           accessible={true}

@@ -40,8 +40,8 @@ export default StyleSheet.create({
   },
   // Give this a bigger clickable area
   signInButton: {
-    padding: 15,
-    paddingHorizontal: 30,
+    padding: 2,
+    paddingHorizontal: 15,
   },
   buttonText: {
     color: theme.white,
@@ -92,6 +92,5 @@ export default StyleSheet.create({
     fontWeight: '500',
     paddingTop: 2,
     letterSpacing: 1.5,
-    marginRight: 10,
   },
 });
