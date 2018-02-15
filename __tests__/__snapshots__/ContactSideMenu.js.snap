@@ -34,6 +34,48 @@ exports[`contactSideMenu Jean renders menu correctly when missing org permission
 />
 `;
 
+exports[`contactSideMenu Jean renders menu correctly with no contact assignment 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Attempted Contact",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Completed",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Contacted",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Do Not Contact",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Uncontacted",
+        "selected": true,
+      },
+      Object {
+        "action": [Function],
+        "label": "Assign",
+      },
+    ]
+  }
+/>
+`;
+
 exports[`contactSideMenu Jean renders menu correctly with org permission 1`] = `
 <Connect(SideMenu)
   menuItems={

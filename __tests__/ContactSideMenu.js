@@ -30,6 +30,11 @@ describe('contactSideMenu Casey', () => {
             person: {
               id: 2,
               first_name: 'Test Fname',
+              reverse_contact_assignments: [ {
+                assigned_to: {
+                  id: 1,
+                },
+              } ],
             },
             personIsCurrentUser: false,
           },
@@ -54,6 +59,11 @@ describe('contactSideMenu Jean', () => {
             person: {
               id: 2,
               first_name: 'Test Fname',
+              reverse_contact_assignments: [ {
+                assigned_to: {
+                  id: 1,
+                },
+              } ],
             },
             personIsCurrentUser: false,
           },
@@ -80,6 +90,45 @@ describe('contactSideMenu Jean', () => {
             person: {
               id: 2,
               first_name: 'Test Fname',
+              reverse_contact_assignments: [ {
+                assigned_to: {
+                  id: 1,
+                },
+              } ],
+              organizational_permissions: [
+                {
+                  id: 1,
+                  organization_id: 5,
+                  followup_status: 'uncontacted',
+                },
+              ],
+            },
+            personIsCurrentUser: false,
+          },
+        },
+      }),
+    );
+
+    testEditClick(component, true);
+  });
+
+  it('renders menu correctly with no contact assignment', () => {
+    const component = testSnapshotShallow(
+      <ContactSideMenu navigation={createMockNavState({
+        organization: {
+          id: 5,
+        },
+      })} />,
+      createMockStore({
+        auth: { personId: 1 },
+        stages: { stages: [ 'placeholder stage' ] },
+        profile: {
+          visiblePersonInfo: {
+            isJean: true,
+            person: {
+              id: 2,
+              first_name: 'Test Fname',
+              reverse_contact_assignments: [],
               organizational_permissions: [
                 {
                   id: 1,
@@ -112,6 +161,11 @@ describe('contactSideMenu Jean', () => {
             person: {
               id: 2,
               first_name: 'Test Fname',
+              reverse_contact_assignments: [ {
+                assigned_to: {
+                  id: 1,
+                },
+              } ],
               organizational_permissions: [
                 {
                   id: 1,

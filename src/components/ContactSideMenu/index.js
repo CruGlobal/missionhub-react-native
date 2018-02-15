@@ -6,16 +6,16 @@ import { translate } from 'react-i18next';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
-import { deleteContactAssignment, fetchVisiblePersonInfo, updateFollowupStatus } from '../../actions/profile';
+import { createContactAssignment, deleteContactAssignment, fetchVisiblePersonInfo, updateFollowupStatus } from '../../actions/profile';
 import { deleteStep } from '../../actions/steps';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
 
-  unassignAction(deleteMode = false) {
+  unassignAction(contactAssignmentId, deleteMode = false) {
     return () => {
       const { t, dispatch } = this.props;
-      const { person, contactAssignmentId } = this.props.visiblePersonInfo;
+      const { person } = this.props.visiblePersonInfo;
       Alert.alert(
         t(deleteMode ? 'deleteQuestion' : 'unassignQuestion', { name: person.first_name }),
         t(deleteMode ? 'deleteSentence' : 'unassignSentence'),
@@ -51,6 +51,7 @@ export class ContactSideMenu extends Component {
     const isJeanNotMe = isJean && !personIsCurrentUser;
 
     const orgPermission = organization && person.organizational_permissions && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id);
+    const contactAssignment = person.reverse_contact_assignments && person.reverse_contact_assignments.find((assignment) => assignment.assigned_to && assignment.assigned_to.id === myId);
 
     const canEditFollowupStatus = isJeanNotMe && orgPermission;
 
@@ -59,9 +60,9 @@ export class ContactSideMenu extends Component {
         label: t('edit'),
         action: () => this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, { person, isJean, onComplete: () => dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages)) })),
       },
-      isCaseyNotMe ? {
+      isCaseyNotMe && contactAssignment ? {
         label: t('delete'),
-        action: this.unassignAction(true),
+        action: this.unassignAction(contactAssignment.id, true),
       } : null,
       canEditFollowupStatus ? {
         label: t('attemptedContact'),
@@ -88,9 +89,13 @@ export class ContactSideMenu extends Component {
         action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'uncontacted')),
         selected: orgPermission.followup_status === 'uncontacted',
       } : null,
-      isJeanNotMe ? {
+      isJeanNotMe && !contactAssignment ? {
+        label: t('assign'),
+        action: () => dispatch(createContactAssignment(organization.id, myId, person.id)),
+      } : null,
+      isJeanNotMe && contactAssignment ? {
         label: t('unassign'),
-        action: this.unassignAction(),
+        action: this.unassignAction(contactAssignment.id),
       } : null,
     ].filter(Boolean);
 

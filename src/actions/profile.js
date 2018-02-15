@@ -166,9 +166,37 @@ export function updateFollowupStatus(personId, orgPermissionId, status) {
   };
 }
 
+export function createContactAssignment(organizationId, personAssignedToId, personReceiverId) {
+  return (dispatch) => {
+    const data = {
+      type: 'contact_assignment',
+      relationships: {
+        organization: {
+          data: {
+            type: 'organization',
+            id: organizationId,
+          },
+        },
+        assigned_to: {
+          data: {
+            type: 'person',
+            id: personAssignedToId,
+          },
+        },
+        person: {
+          data: {
+            type: 'person',
+            id: personReceiverId,
+          },
+        },
+      },
+    };
+    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data));
+  };
+}
+
 export function deleteContactAssignment(id) {
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
   };
 }
-
