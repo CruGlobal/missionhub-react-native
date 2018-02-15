@@ -17,11 +17,11 @@ export function trackState(trackingObj) {
     if (!trackingObj) {
       return;
     }
+    const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
-    trackingObj.name = `mh : ${trackingObj.name}`;
-    const updatedContext = buildUpdatedContext(trackingObj, getState().analytics);
+    const updatedContext = buildUpdatedContext(newTrackingObj, getState().analytics);
 
-    RNOmniture.trackState(trackingObj.name, updatedContext);
+    RNOmniture.trackState(newTrackingObj.name, updatedContext);
 
     return dispatch(updateAnalyticsContext(updatedContext));
   };
@@ -30,7 +30,6 @@ export function trackState(trackingObj) {
 function buildUpdatedContext(trackingObj, context) {
   return {
     ...context,
-    [ANALYTICS.PREVIOUS_SCREENNAME]: context[ANALYTICS.SCREENNAME],
     [ANALYTICS.SCREENNAME]: trackingObj.name,
     [ANALYTICS.PAGE_NAME]: trackingObj.name,
     [ANALYTICS.SITE_SECTION]: trackingObj.section,

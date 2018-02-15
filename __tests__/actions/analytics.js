@@ -64,7 +64,6 @@ describe('trackState', () => {
 
   beforeEach(() => {
     expectedUpdatedContext = {
-      [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
       [ANALYTICS.SCREENNAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.PAGE_NAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.SITE_SECTION]: section,
@@ -89,6 +88,12 @@ describe('trackState', () => {
       type: ANALYTICS_CONTEXT_CHANGED,
       analyticsContext: expectedUpdatedContext,
     } ]);
+  });
+
+  it('should not update screenname of parameter', () => {
+    store.dispatch(trackState(trackingObj));
+
+    expect(trackingObj.name).toEqual(newScreenName);
   });
 });
 
