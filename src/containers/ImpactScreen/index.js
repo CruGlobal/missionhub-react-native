@@ -20,9 +20,10 @@ class ImpactScreen extends Component {
     this.props.dispatch(getMyImpact());
   }
 
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }, global = false) {
+  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
     return this.props.t('impactSentence', {
       year: new Date().getFullYear(),
+      numInitiators: global ? intToStringLocale(step_owners_count) : '',
       initiator: global ? '$t(users)' : '$t(you)',
       stepsCount: intToStringLocale(steps_count),
       receiversCount: intToStringLocale(receivers_count),
