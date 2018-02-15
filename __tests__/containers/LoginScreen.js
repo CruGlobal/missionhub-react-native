@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import LoginScreen from '../../src/containers/LoginScreen';
 import { testSnapshot } from '../../testUtils';
+import * as analytics from '../../src/actions/analytics';
+import renderer from 'react-test-renderer';
 
 const mockState = {
   myStageReducer: {},
@@ -20,6 +22,18 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <LoginScreen />
-    </Provider>
+    </Provider>,
   );
+});
+
+it('tracks state on launch', () => {
+  analytics.trackState = jest.fn();
+
+  renderer.create(
+    <Provider store={store}>
+      <LoginScreen />
+    </Provider>,
+  );
+
+  expect(analytics.trackState).toHaveBeenCalled();
 });
