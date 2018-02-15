@@ -126,6 +126,16 @@ export const MainTabRoutes = TabNavigator(
     },
   });
 
+export const MAIN_TABS_SCREEN = buildTrackedScreen(
+  DrawerNavigator({
+    Main: { screen: MainTabRoutes },
+  }, {
+    contentComponent: SettingsMenu,
+    navigationOptions: { drawerLockMode: 'locked-closed' },
+  }),
+  stepsTab, //stepsTab is shown when MainTabs first opens
+);
+
 const screens = {
   [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth', 'auth')),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
@@ -142,15 +152,7 @@ const screens = {
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
   [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search', 'search') , { gesturesEnabled: true }),
   [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine', 'search', 'refine'), { gesturesEnabled: true }),
-  [MAIN_TABS]: buildTrackedScreen(
-    DrawerNavigator({
-      Main: { screen: MainTabRoutes },
-    }, {
-      contentComponent: SettingsMenu,
-      navigationOptions: { drawerLockMode: 'locked-closed' },
-    }),
-    stepsTab, //stepsTab is shown when MainTabs first opens
-  ),
+  [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
 export const trackableScreens = {
