@@ -534,7 +534,7 @@ exports[`renders casey 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}
@@ -719,7 +719,7 @@ exports[`renders casey 1`] = `
                         ]
                       }
                     >
-                      Loading Journey Items
+                      loading journey items
                     </Text>
                   </View>
                 </View>
@@ -1750,7 +1750,7 @@ exports[`renders jean 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}
@@ -2931,7 +2931,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                         ]
                       }
                     >
-                      STEPS OF FAITH
+                      steps of faith
                     </Text>
                     <Text
                       accessible={true}

@@ -57,7 +57,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Steps of Faith
+        steps of faith
       </Text>
       <Text
         accessible={true}
@@ -75,6 +75,7 @@ exports[`renders correctly 1`] = `
               "backgroundColor": "rgba(0,0,0,0)",
               "color": "#ffffff",
               "fontSize": 16,
+              "lineHeight": 24,
               "paddingHorizontal": 50,
               "paddingVertical": 20,
               "textAlign": "center",

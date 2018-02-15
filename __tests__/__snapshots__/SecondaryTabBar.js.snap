@@ -396,7 +396,7 @@ exports[`renders correctly 1`] = `
                       ]
                     }
                   >
-                    STEPS OF FAITH
+                    steps of faith
                   </Text>
                   <Text
                     accessible={true}
@@ -581,7 +581,7 @@ exports[`renders correctly 1`] = `
                       ]
                     }
                   >
-                    Loading Journey Items
+                    loading journey items
                   </Text>
                 </View>
               </View>

@@ -1,4 +1,4 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
+import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN } from '../../src/constants';
 import { trackAction, trackState, updateAnalyticsContext, updateLoggedInStatus } from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -104,7 +104,7 @@ describe('trackState', () => {
 });
 
 describe('updateLoggedInStatus', () => {
-  const status = true;
+  const status = LOGGED_IN;
 
   beforeEach(() => store.dispatch(updateLoggedInStatus(status)));
 
