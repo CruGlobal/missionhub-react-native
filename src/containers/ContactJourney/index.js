@@ -67,7 +67,7 @@ class ContactJourney extends Component {
 
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleEditComment,
       type: 'editJourney',
       isEdit: true,

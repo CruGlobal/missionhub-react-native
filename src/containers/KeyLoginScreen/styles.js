@@ -3,8 +3,6 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   logo: {
-    // marginTop: 50,
-    // height: 100,
   },
   label: {
     color: theme.secondaryColor,

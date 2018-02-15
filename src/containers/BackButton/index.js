@@ -8,7 +8,7 @@ import { navigateBack } from '../../actions/navigation';
 import { Touchable, Flex, Icon } from '../../components/common';
 import styles from './styles';
 
-class BackButton extends Component {
+export class BackButton extends Component {
   render() {
     const { dispatch, customNavigate, absolute, ...rest } = this.props;
     return (

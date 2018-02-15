@@ -33,6 +33,12 @@ beforeEach(() => {
   });
 });
 
+it('should not track state', () => {
+  store.dispatch(trackState());
+
+  expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
+});
+
 describe('updateAnalyticsContext', () => {
   it('should create action', () => {
     const result = updateAnalyticsContext(context);

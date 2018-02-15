@@ -9,7 +9,6 @@ import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN, SELECT_MY_STEP_ONBOARDING_SCREEN } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, { PERSON_SELECT_STEP_SCREEN } from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
-import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
@@ -170,7 +169,6 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   [LOGIN_SCREEN]: { screen: LoginScreen },
-  Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },

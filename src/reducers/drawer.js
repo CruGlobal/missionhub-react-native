@@ -10,11 +10,12 @@ const initialState = {
 };
 
 function drawerReducer(state = initialState, action) {
-  switch (action.routeName) {
-    case DRAWER_OPEN:
-      return { ...state, isOpen: true };
-    case DRAWER_CLOSE:
-      return { ...state, isOpen: false };
+  if (action.routeName === DRAWER_OPEN) {
+    return { ...state, isOpen: true };
+  } else if (action.routeName === DRAWER_CLOSE) {
+    return { ...state, isOpen: false };
+  }
+  switch (action.type) {
     case LOGOUT:
       return initialState;
     default:
