@@ -38,8 +38,8 @@ export function getMyPeople() {
     const peopleResults = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery));
     const people = peopleResults.findAll('person');
 
-    const personalOrg = { people: [], id: 'personal' };
-    let ministryOrgs;
+    const myOrgs = [ { people: [], id: 'personal' } ];
+    const ministryOrgs = [];
     const state = getState().auth;
 
     if (state.isJean) {
@@ -50,17 +50,17 @@ export function getMyPeople() {
         include: '',
       };
       // Always include Me as the first item in the personal ministry
-      personalOrg.people.push(state.user);
+      myOrgs[0].people.push(state.user);
 
       const orgsResult = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
-      ministryOrgs = orgsResult.findAll('organization');
+      ministryOrgs.push(...orgsResult.findAll('organization'));
     }
 
     people.forEach((person) => {
       if (!person._placeHolder && `${person.id}` !== `${state.personId}`) {
 
         if (person.organizational_permissions.length === 0) {
-          personalOrg.people.push(person);
+          myOrgs[0].people.push(person);
 
         } else {
           person.reverse_contact_assignments.forEach((contact_assignment) => {
@@ -77,10 +77,9 @@ export function getMyPeople() {
       }
     });
 
-    let myOrgs = [ personalOrg ];
-    if (state.isJean) {
-      myOrgs = myOrgs.concat(ministryOrgs.filter((org) => org.people));
-    }
+    const nonBlankMinistryOrgs = ministryOrgs.filter((org) => org.people);
+    myOrgs.push(...nonBlankMinistryOrgs);
+
     return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
   };
 }
