@@ -9,6 +9,11 @@ export default class SearchPeopleItem extends Component {
   render() {
     const { person } = this.props;
 
+    let orgName;
+    if (person && person.organizational_permissions && person.organizational_permissions[0] && person.organizational_permissions[0].organization) {
+      orgName = person.organizational_permissions[0].organization.name;
+    }
+
     return (
       <Touchable highlight={true} onPress={this.handleSelect}>
         <Flex justify="center" style={styles.row}>
@@ -17,7 +22,7 @@ export default class SearchPeopleItem extends Component {
             {person.last_name ? ` ${person.last_name}` : null}
           </Text>
           <Text style={styles.organization}>
-            {person.organization}
+            {orgName}
           </Text>
         </Flex>
       </Touchable>
