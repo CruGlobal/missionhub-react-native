@@ -69,20 +69,20 @@ describe('navigate forward', () => {
     it('tracks main menu drawer', () => {
       navigationAction.params = { drawer: MAIN_MENU_DRAWER };
 
-      test(buildTrackingObj('menu : menu', 'menu'));
+      test(buildTrackingObj('menu', 'menu'));
     });
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: false };
 
-        test(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
+        test(buildTrackingObj('people : person : menu', 'people', 'person', 'menu'));
       });
 
       it('tracks person menu', () => {
         navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: true };
 
-        test(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'));
+        test(buildTrackingObj('people : self : menu', 'people', 'self', 'menu'));
       });
     });
   });
@@ -104,7 +104,7 @@ describe('rehydrate', () => {
     store = mockStore();
     navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: true } } };
 
-    test(buildTrackingObj('steps : steps', 'steps'));
+    test(buildTrackingObj('steps', 'steps'));
   });
 
   it('does nothing if not logged in', () => {

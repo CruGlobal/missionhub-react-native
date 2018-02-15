@@ -29,7 +29,7 @@ export default function tracking({ dispatch, getState }) {
             newAction = trackContactMenu(actionParams.isCurrentUser);
 
           } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-            newAction = trackState(buildTrackingObj('menu : menu', 'menu'));
+            newAction = trackState(buildTrackingObj('menu', 'menu'));
           }
         }
         break;
@@ -73,6 +73,6 @@ function trackContactScreen(action, getState) { //steps tab is shown when Contac
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu : menu', 'people', 'self', 'menu'))
-    : trackState(buildTrackingObj('people : person : menu : menu', 'people', 'person', 'menu'));
+  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu', 'people', 'self', 'menu'))
+    : trackState(buildTrackingObj('people : person : menu', 'people', 'person', 'menu'));
 }
