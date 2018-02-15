@@ -75,7 +75,7 @@ describe('getMyPeople', () => {
   describe('as Jean', () => {
     const organizationOneId = 101;
     const organizationTwoId = 111;
-    const organizationList = [ { id: organizationOneId }, { id: organizationTwoId } ];
+    const organizationList = [ { id: organizationOneId }, { id: organizationTwoId }, { id: 104 } ];
     const personOne = {
       id: 7777,
       organizational_permissions: [ { organization_id: organizationOneId } ],

@@ -38,7 +38,8 @@ export function getMyPeople() {
     const peopleResults = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery));
     const people = peopleResults.findAll('person');
 
-    let myOrgs = [ { people: [], id: 'personal' } ];
+    const personalOrg = { people: [], id: 'personal' };
+    let ministryOrgs;
     const state = getState().auth;
 
     if (state.isJean) {
@@ -49,23 +50,23 @@ export function getMyPeople() {
         include: '',
       };
       // Always include Me as the first item in the personal ministry
-      myOrgs[0].people.push(state.user);
+      personalOrg.people.push(state.user);
 
-      const ministryOrgs = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
-      myOrgs = myOrgs.concat(ministryOrgs.findAll('organization'));
+      const orgsResult = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
+      ministryOrgs = orgsResult.findAll('organization');
     }
 
     people.forEach((person) => {
       if (!person._placeHolder && `${person.id}` !== `${state.personId}`) {
 
         if (person.organizational_permissions.length === 0) {
-          myOrgs[0].people.push(person);
+          personalOrg.people.push(person);
 
         } else {
           person.reverse_contact_assignments.forEach((contact_assignment) => {
 
             if (contact_assignment.assigned_to.id === state.personId) {
-              const foundOrg = myOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
+              const foundOrg = ministryOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
 
               if (foundOrg && person.organizational_permissions.some((org_p) => org_p.organization_id === foundOrg.id)) {
                 foundOrg.people ? foundOrg.people.push(person) : foundOrg.people = [ person ];
@@ -76,6 +77,10 @@ export function getMyPeople() {
       }
     });
 
+    let myOrgs = [ personalOrg ];
+    if (state.isJean) {
+      myOrgs = myOrgs.concat(ministryOrgs.filter((org) => org.people));
+    }
     return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
   };
 }
