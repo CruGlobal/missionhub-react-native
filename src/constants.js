@@ -68,6 +68,8 @@ export const ANALYTICS = {
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
 };
+export const LOGGED_IN = 'logged in';
+export const NOT_LOGGED_IN = 'not logged in';
 
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },

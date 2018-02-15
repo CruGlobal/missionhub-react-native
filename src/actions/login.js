@@ -3,11 +3,11 @@ import { navigatePush } from './navigation';
 import { updateLoggedInStatus } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import { MAIN_TABS } from '../constants';
+import { LOGGED_IN, MAIN_TABS } from '../constants';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
-    dispatch(updateLoggedInStatus(true));
+    dispatch(updateLoggedInStatus(LOGGED_IN));
 
     const personId = getState().auth.personId;
     const getMeResult = await dispatch(getPerson(personId));
