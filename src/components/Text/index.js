@@ -14,7 +14,7 @@ export default class MyText extends Component {
     const fontFamily = {
       fontFamily: isHeader ? 'AmaticSC-Bold' : 'SourceSansPro-Regular',
     };
-    const content = isHeader ? children.toLowerCase() : children;
+    const content = isHeader && typeof children === 'string' ? children.toLowerCase() : children;
     
     const textStyle = [ styles.text, fontFamily, style ];
 
