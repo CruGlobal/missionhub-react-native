@@ -114,7 +114,7 @@ class KeyLoginScreen extends Component {
 
         <BackButton />
         <Flex value={1} align="center" justify="center">
-          <Image source={LOGO} style={styles.logo} resizeMode="contain" />
+          <Image source={LOGO} resizeMode="contain" />
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>

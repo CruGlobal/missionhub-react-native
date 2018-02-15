@@ -6,9 +6,7 @@ import { connect } from 'react-redux';
 import { Text, Icon, Touchable } from '../../components/common';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
-
-const ACTIVE_COLOR = 'rgba(255,255,255,1)';
-const INACTIVE_COLOR = 'rgba(255,255,255,0.4)';
+import theme from '../../theme';
 
 class CustomTabs extends Component {
   goToTab(i, tab) {
@@ -32,9 +30,9 @@ class CustomTabs extends Component {
                 name={tab.iconName}
                 type="MissionHub"
                 size={32}
-                style={{ color: activeTab === i ? ACTIVE_COLOR : INACTIVE_COLOR }}
+                style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
               />
-              <Text style={[ styles.tabText, { color: activeTab === i ? ACTIVE_COLOR : INACTIVE_COLOR } ]}>
+              <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
                 {tab.tabLabel}
               </Text>
             </Touchable>

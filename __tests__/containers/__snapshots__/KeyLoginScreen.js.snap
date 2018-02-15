@@ -107,7 +107,6 @@ exports[`renders correctly 1`] = `
           "testUri": "../../../assets/images/missionHubLogoWords.png",
         }
       }
-      style={Object {}}
     />
   </View>
   <View
