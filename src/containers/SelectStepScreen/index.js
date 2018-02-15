@@ -63,6 +63,7 @@ class SelectStepScreen extends Component {
           steps: this.state.steps.concat([ newStep ]),
           addedSteps: addedSteps.concat([ newStep ]),
         });
+        console.log(this.stepsList);
         this.stepsList.onScrollToEnd();
       },
     }));
@@ -124,6 +125,7 @@ class SelectStepScreen extends Component {
             ref={(c) => this.stepsList = c}
             personFirstName={this.props.personFirstName}
             items={this.state.steps}
+            createStepText={t('createStep')}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
           />
