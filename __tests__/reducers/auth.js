@@ -106,7 +106,6 @@ it('updates a users stage', () => {
       ],
     });
 
-  console.log('state', state);
 
   expect(state.user.stage.id).toBe(2);
 });

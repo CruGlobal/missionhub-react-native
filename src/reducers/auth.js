@@ -100,9 +100,7 @@ function authReducer(state = initialAuthState, action) {
       const stages = (results ? results.findAll('pathway_stage') : action.stages) || [];
       let userWithStage = { ...state.user };
       if (userWithStage.user && userWithStage.user.pathway_stage_id) {
-        console.log('in here');
         const myStage = stages.find((s) => `${s.id}` === `${userWithStage.user.pathway_stage_id}`);
-        console.log('found stage', myStage);
         if (myStage) {
           userWithStage.stage = myStage;
         }
