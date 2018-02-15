@@ -47,7 +47,14 @@ export const testSnapshotShallow = (component, store) => {
 };
 
 export const mockFnWithParams = (obj, method, expectedReturn, ...expectedParams) => {
+  return mockFnWithParamsMultiple(obj, method, { expectedReturn: expectedReturn, expectedParams: expectedParams });
+};
+
+export const mockFnWithParamsMultiple = (obj, method, ...mockValuesList) => {
   return obj[method] = jest.fn().mockImplementation(
-    (...actualParams) => JSON.stringify(expectedParams) === JSON.stringify(actualParams) ? expectedReturn : undefined
+    (...actualParams) => {
+      const mock = mockValuesList.find((mockValue) => JSON.stringify(mockValue.expectedParams) === JSON.stringify(actualParams));
+      return mock ? mock.expectedReturn : undefined;
+    }
   );
 };

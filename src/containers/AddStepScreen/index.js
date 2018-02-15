@@ -10,6 +10,7 @@ import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
 import Input from '../../components/Input/index';
 import theme from '../../theme';
+import { STEP_NOTE } from '../../constants';
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -32,7 +33,7 @@ class AddStepScreen extends Component {
       return;
     }
     this.props.onComplete(text);
-    if (this.props.type !== 'stepNote') {
+    if (this.props.type !== STEP_NOTE) {
       this.props.dispatch(navigateBack());
     }
   }
@@ -45,7 +46,7 @@ class AddStepScreen extends Component {
   getButtonText() {
     const { t, type } = this.props;
     let text;
-    if (type === 'journey' || type === 'stepNote') {
+    if (type === 'journey' || type === STEP_NOTE) {
       text = t('addJourney');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
@@ -59,7 +60,7 @@ class AddStepScreen extends Component {
     const { t, type } = this.props;
     let text = t('header');
     let style = styles.header;
-    if (type === 'journey' || type === 'stepNote') {
+    if (type === 'journey' || type === STEP_NOTE) {
       style = styles.journeyHeader;
       text = t('journeyHeader');
     } else if (type === 'editJourney') {
@@ -79,7 +80,7 @@ class AddStepScreen extends Component {
     return (
       <PlatformKeyboardAvoidingView>
         {
-          this.props.type === 'stepNote' ? (
+          this.props.type === STEP_NOTE ? (
             <Flex align="end" justify="center">
               <Button
                 type="transparent"
@@ -124,7 +125,7 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney', 'stepNote' ]),
+  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE ]),
   isEdit: PropTypes.bool,
   text: PropTypes.string,
 };
