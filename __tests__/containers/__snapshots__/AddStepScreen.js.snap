@@ -49,7 +49,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      My Step of Faith
+      my step of faith
     </Text>
   </View>
   <View
@@ -233,7 +233,7 @@ exports[`renders edit journey correctly 1`] = `
         ]
       }
     >
-      Edit your comment
+      edit your comment
     </Text>
   </View>
   <View
@@ -417,7 +417,7 @@ exports[`renders journey correctly 1`] = `
         ]
       }
     >
-      What did you see God do?
+      what did you see god do?
     </Text>
   </View>
   <View
@@ -686,7 +686,7 @@ exports[`renders step note correctly 1`] = `
         ]
       }
     >
-      What did you see God do?
+      what did you see god do?
     </Text>
   </View>
   <View

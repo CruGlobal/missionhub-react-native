@@ -60,7 +60,7 @@ exports[`renders header font family correctly 1`] = `
     ]
   }
 >
-  Hello
+  hello
 </Text>
 `;
 

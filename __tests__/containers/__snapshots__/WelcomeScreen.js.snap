@@ -64,6 +64,7 @@ exports[`renders correctly 1`] = `
           Object {
             "color": "#ffffff",
             "fontSize": 16,
+            "lineHeight": 24,
             "paddingHorizontal": 30,
             "paddingVertical": 10,
             "textAlign": "center",

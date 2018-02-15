@@ -245,7 +245,7 @@ exports[`renders correctly as Casey 1`] = `
             ]
           }
         >
-          STEPS OF FAITH
+          steps of faith
         </Text>
         <Text
           accessible={true}
@@ -596,7 +596,7 @@ exports[`renders correctly as Jean 1`] = `
             ]
           }
         >
-          STEPS OF FAITH
+          steps of faith
         </Text>
         <Text
           accessible={true}
