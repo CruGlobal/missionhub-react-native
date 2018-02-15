@@ -50,7 +50,7 @@ export class ContactSideMenu extends Component {
     const isCaseyNotMe = !isJean && !personIsCurrentUser;
     const isJeanNotMe = isJean && !personIsCurrentUser;
 
-    const orgPermission = organization && person.organizational_permissions && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id);
+    const orgPermission = organization && person && person.organizational_permissions && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id);
 
     const canEditFollowupStatus = isJeanNotMe && orgPermission;
 

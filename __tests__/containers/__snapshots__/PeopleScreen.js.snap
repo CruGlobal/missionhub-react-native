@@ -18,7 +18,9 @@ exports[`renders correctly as Casey 1`] = `
             "height": 65,
             "paddingTop": 20,
           },
-          null,
+          Object {
+            "elevation": 4,
+          },
         ],
         Object {
           "flexDirection": "row",
@@ -471,9 +473,7 @@ exports[`renders correctly as Jean 1`] = `
             "height": 65,
             "paddingTop": 20,
           },
-          Object {
-            "elevation": 4,
-          },
+          null,
         ],
         Object {
           "flexDirection": "row",

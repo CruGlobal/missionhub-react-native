@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`back button absolute renders with absolute 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "left": 5,
+        "position": "absolute",
+        "top": 5,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "flex-start",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <TouchableIOS
+    isAndroidOpacity={true}
+    onPress={[Function]}
+  >
+    <Icon
+      name="backIcon"
+      style={
+        Object {
+          "margin": 25,
+          "marginTop": 45,
+        }
+      }
+      type="MissionHub"
+    />
+  </TouchableIOS>
+</View>
+`;
+
+exports[`back button renders normally 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "flex-start",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <TouchableIOS
+    isAndroidOpacity={true}
+    onPress={[Function]}
+  >
+    <Icon
+      name="backIcon"
+      style={
+        Object {
+          "margin": 25,
+          "marginTop": 45,
+        }
+      }
+      type="MissionHub"
+    />
+  </TouchableIOS>
+</View>
+`;

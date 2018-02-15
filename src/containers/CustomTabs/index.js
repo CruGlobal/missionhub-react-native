@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Text, Icon } from '../../components/common';
+import { Text, Icon, Touchable } from '../../components/common';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
+import theme from '../../theme';
 
 class CustomTabs extends Component {
-  constructor(props) {
-    super(props);
-    this.icons = [];
-  }
-
   goToTab(i, tab) {
     this.props.goToPage(i);
 
-    this.props.onChangeTab(tab.page);
+    this.props.onChangeTab(i, tab.page);
 
     if (i !== this.props.activeTab) {
       this.props.dispatch(trackState(tab.tracking));
@@ -24,20 +20,22 @@ class CustomTabs extends Component {
   }
 
   render() {
+    const { activeTab, tabArray, style } = this.props;
     return (
-      <View style={[ styles.tabs, this.props.style ]}>
-        {this.props.tabArray.map((tab, i) => {
+      <View style={[ styles.tabs, style ]}>
+        {tabArray.map((tab, i) => {
           return (
-            <TouchableOpacity key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
+            <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
               <Icon
                 name={tab.iconName}
                 type="MissionHub"
                 size={32}
-                style={{ color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }}
-                ref={(icon) => { this.icons[i] = icon; }}
+                style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
               />
-              <Text style={[ styles.tabText, { color: this.props.activeTab === i ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' } ]}>{tab.tabLabel}</Text>
-            </TouchableOpacity>
+              <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
+                {tab.tabLabel}
+              </Text>
+            </Touchable>
           );
         })}
       </View>
@@ -49,5 +47,6 @@ CustomTabs.propTypes = {
   tabArray: PropTypes.array.isRequired,
   activeTab: PropTypes.number,
   goToPage: PropTypes.func,
+  onChangeTab: PropTypes.func,
 };
 export default connect()(CustomTabs);

@@ -85,7 +85,7 @@ export class PeopleScreen extends Component {
             )
           }
           title={t('header').toUpperCase()}
-          shadow={isJean}
+          shadow={!isJean}
         />
         <PeopleList
           sections={isJean}
@@ -102,7 +102,7 @@ export class PeopleScreen extends Component {
 
 const mapStateToProps = ({ auth, people, stages }) => ({
   isJean: auth.isJean,
-  people: [ auth.user ].concat(people.all),
+  people: auth.user && auth.user.id ? [ auth.user ].concat(people.all) : people.all,
   sectionPeople: people.allByOrg,
   me: auth.user,
   stagesExist: !!stages.stagesObj,

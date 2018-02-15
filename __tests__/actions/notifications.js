@@ -12,6 +12,8 @@ import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
+import { NOTIFICATION_OFF_SCREEN } from '../../src/containers/NotificationOffScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
 import * as navigation from '../../src/actions/navigation';
 import * as notifications from '../../src/actions/notifications';
 
@@ -151,7 +153,7 @@ describe('actions called', () => {
     PushNotification.checkPermissions = jest.fn((cb) => cb(true));
     store.dispatch(showReminderScreen());
 
-    expect(store.getActions()[0].routeName).toEqual('NotificationOff');
+    expect(store.getActions()[0].routeName).toEqual(NOTIFICATION_OFF_SCREEN);
   });
   it('should call showReminderScreen and show notification primer screen', () => {
     store = configureStore([ thunk ])({
@@ -163,7 +165,7 @@ describe('actions called', () => {
     });
     store.dispatch(showReminderScreen());
 
-    expect(store.getActions()[0].routeName).toEqual('NotificationPrimer');
+    expect(store.getActions()[0].routeName).toEqual(NOTIFICATION_PRIMER_SCREEN);
   });
   it('should call showReminderScreen and show nothing', () => {
     store = configureStore([ thunk ])({

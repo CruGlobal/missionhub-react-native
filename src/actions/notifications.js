@@ -13,6 +13,8 @@ import {
   PUSH_NOTIFICATION_REMINDER,
 } from '../constants';
 import { isAndroid } from '../utils/common';
+import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 
 
 export function disableAskPushNotification() {
@@ -45,7 +47,7 @@ export function showReminderScreen() {
       PushNotification.checkPermissions((permission) => {
         const hasAllowedPermission = permission && permission.alert;
         if (!hasAllowedPermission) {
-          dispatch(navigatePush('NotificationOff', {
+          dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
             onClose: (askUser) => {
               if (askUser) {
                 dispatch(enableAskPushNotification());
@@ -61,7 +63,7 @@ export function showReminderScreen() {
       return;
     }
     // If none of the other cases hit, show allow/not allow page
-    dispatch(navigatePush('NotificationPrimer', {
+    dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
       onComplete: () => dispatch(navigateBack()),
     }));
   };
