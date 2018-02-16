@@ -178,4 +178,12 @@ export default {
   'SEARCH': {
     endpoint: `${API_URL}search`,
   },
+  'ADD_PERSON_NOTES': {
+    endpoint: `${API_URL}person_notes`,
+    method: 'post',
+  },
+  'UPDATE_PERSON_NOTES': {
+    endpoint: `${API_URL}person_notes/7`,
+    method: 'put',
+  },
 };

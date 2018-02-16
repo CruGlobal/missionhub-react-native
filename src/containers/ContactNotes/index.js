@@ -19,6 +19,7 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
+      firstSave: true,
     };
 
     this.saveNotes = this.saveNotes.bind(this);
@@ -41,7 +42,7 @@ export class ContactNotes extends Component {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+      this.props.dispatch(saveNotes(this.props.person.id, this.state.text, this.state.firstSave));
     }
 
     this.setState({ editing: false });
@@ -50,9 +51,8 @@ export class ContactNotes extends Component {
   onButtonPress() {
     if (this.state.editing) {
       this.saveNotes();
-
     } else {
-      this.setState({ editing: true });
+      this.setState({ editing: true, firstSave: !this.state.text });
       this.notesInput.focus();
     }
   }
