@@ -26,10 +26,17 @@ class PersonSelectStepScreen extends Component {
   render() {
     const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
 
+    //todo clean this up
     let contextualizedSteps = [];
-    const assignment = this.props.contact.reverse_contact_assignments.find((assignment) => (assignment.assigned_to.id === this.props.myId));
-    if (assignment.pathway_stage_id) {
-      contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[assignment.pathway_stage_id]);
+    if (this.props.contactStage) {
+      contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[this.props.contactStage.id]);
+
+    } else if (this.props.contact.reverse_contact_assignments) {
+      const assignment = this.props.contact.reverse_contact_assignments.find((a) => (a.assigned_to && a.assigned_to.id === this.props.myId));
+
+      if (assignment) {
+        contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[assignment.pathway_stage_id]);
+      }
     } else {
       //todo redirect to stage screen
     }

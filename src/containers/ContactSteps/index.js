@@ -71,7 +71,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { person, isMe } = this.props;
+    const { person, isMe, contactStage } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
@@ -84,6 +84,7 @@ class ContactSteps extends Component {
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
+        contactStage: contactStage, //todo using this makes us need to wait until stage is loaded to add a step
         onSaveNewSteps: this.handleSaveNewSteps,
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
