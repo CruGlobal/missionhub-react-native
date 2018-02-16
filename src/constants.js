@@ -25,6 +25,7 @@ export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
+export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 
 export const STEP_NOTE = 'stepNote';
 
