@@ -90,8 +90,15 @@ export function searchPeople(text, filters = {}) {
       return Promise.reject('NoText');
     }
 
+    // https://api-stage.missionhub.com/apis/v4/search?q=Ultr&fields[person]=first_name,picture&include=organizational_permissions.organization&fields[organization]=name
+
     let query = {
       q: text,
+      fields: {
+        person: 'first_name,last_name',
+        organization: 'name',
+      },
+      include: 'organizational_permissions.organization',
       filters: {},
     };
     if (filters.ministry) {

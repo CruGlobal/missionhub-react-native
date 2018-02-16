@@ -140,6 +140,7 @@ class SelectStepScreen extends Component {
             ref={(c) => this.stepsList = c}
             personFirstName={this.props.personFirstName}
             items={this.state.steps}
+            createStepText={t('createStep')}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
           />
