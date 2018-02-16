@@ -30,7 +30,7 @@ describe('Navigation', () => {
 
   const createComponent = () => {
     const screen = shallow(
-      <SelectStepScreen />,
+      <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />,
       { context: { store } },
     );
 

@@ -35,9 +35,7 @@ class SelectStepScreen extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.steps.length !== this.props.steps.length) {
-      this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
-    }
+    this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
   }
 
   handleSelectStep(item) {
