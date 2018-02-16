@@ -12,6 +12,6 @@ const items = [
 
 it('renders correctly', () => {
   testSnapshot(
-    <StepsList items={items} onSelectStep={() => {}} onCreateStep={() => {}} />
+    <StepsList items={items} createStepText={'Create your own step...'} onSelectStep={() => {}} onCreateStep={() => {}} />
   );
 });
