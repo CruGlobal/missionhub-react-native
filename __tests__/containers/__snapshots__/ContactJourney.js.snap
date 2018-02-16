@@ -80,7 +80,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Loading Journey Items
+        loading journey items
       </Text>
     </View>
   </View>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Platform } from 'react-native';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
+import { isAndroid } from '../../utils/common';
 
 class CelebrationScreen extends Component {
 
@@ -19,7 +20,7 @@ class CelebrationScreen extends Component {
 
   startTimer() {
     clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(() => this.navigateToNext(), Platform.OS === 'android' ? 2880 : 3350);
+    this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
   }
 
   componentWillUnmount() {

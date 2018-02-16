@@ -59,7 +59,7 @@ class ContactJourney extends Component {
 
   getOrganization() {
     const { person } = this.props;
-    if (person.organizational_permissions && person.organizational_permissions.length > 0) {
+    if (person && person.organizational_permissions && person.organizational_permissions.length > 0) {
       return person.organizational_permissions[0].organization_id;
     }
     return undefined;
@@ -67,7 +67,7 @@ class ContactJourney extends Component {
 
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
-    this.props.dispatch(navigatePush('AddStep', {
+    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleEditComment,
       type: 'editJourney',
       isEdit: true,
@@ -141,7 +141,7 @@ class ContactJourney extends Component {
   renderNull() {
     const { t } = this.props;
     return (
-      <Flex align="center" justify="center">
+      <Flex align="center" justify="center" value={1}>
         <Image source={NULL} />
         <Text type="header" style={styles.nullHeader}>{t('ourJourney').toUpperCase()}</Text>
         <Text style={styles.nullText}>{t('journeyNull')}</Text>

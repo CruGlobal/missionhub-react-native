@@ -16,10 +16,12 @@ import surveys from './surveys';
 import labels from './labels';
 import analytics from './analytics';
 import swipe from './swipe';
+import drawer from './drawer';
 
 export default combineReducers({
   analytics,
   auth,
+  drawer,
   groups,
   impact,
   labels,

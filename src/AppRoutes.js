@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import i18next from 'i18next';
 
@@ -10,7 +9,6 @@ import PeopleScreen from './containers/PeopleScreen';
 import SelectMyStepScreen, { SELECT_MY_STEP_SCREEN, SELECT_MY_STEP_ONBOARDING_SCREEN } from './containers/SelectMyStepScreen';
 import PersonSelectStepScreen, { PERSON_SELECT_STEP_SCREEN } from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
-import ProfileScreen from './containers/ProfileScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, { GET_STARTED_SCREEN } from './containers/GetStartedScreen';
@@ -36,7 +34,7 @@ import { Icon } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
-import { buildTrackingObj } from './utils/common';
+import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -51,10 +49,17 @@ import { buildTrackingObj } from './utils/common';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => <Icon type="MissionHub" name={name} size={24} style={{ color: tintColor }} />;
+const navIcon = (name) => ({ tintColor }) => (
+  <Icon
+    type="MissionHub"
+    name={name}
+    size={isAndroid ? 22 : 24}
+    style={{ color: tintColor }}
+  />
+);
 
 function labelStyle() {
-  if (Platform.OS === 'android') {
+  if (isAndroid) {
     return { marginTop: 5, marginBottom: -5 };
   } else {
     return {};
@@ -132,6 +137,7 @@ export const MAIN_TABS_SCREEN = buildTrackedScreen(
   }, {
     contentComponent: SettingsMenu,
     navigationOptions: { drawerLockMode: 'locked-closed' },
+    backBehavior: 'none', // We're handling it on our own
   }),
   stepsTab, //stepsTab is shown when MainTabs first opens
 );
@@ -163,7 +169,6 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   [LOGIN_SCREEN]: { screen: LoginScreen },
-  Profile: { screen: ProfileScreen, navigationOptions: { gesturesEnabled: true } },
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
@@ -181,9 +186,10 @@ export const MainStackRoutes = StackNavigator({
         contentComponent: ContactSideMenu,
         drawerPosition: 'right',
         navigationOptions: { drawerLockMode: 'locked-closed' },
+        backBehavior: 'none', // We're handling it on our own
       }
     ),
-    navigationOptions: { gesturesEnabled: true },
+    navigationOptions: { gesturesEnabled: isAndroid ? false : true },
   },
 }, {
   navigationOptions: {

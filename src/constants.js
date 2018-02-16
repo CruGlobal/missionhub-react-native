@@ -24,6 +24,7 @@ export const UPDATE_VISIBLE_PERSON_INFO = 'app/UPDATE_VISIBLE_PERSON_INFO';
 export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
+export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 
 export const STEP_NOTE = 'stepNote';
 
@@ -31,6 +32,7 @@ export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
+export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 
@@ -68,6 +70,8 @@ export const ANALYTICS = {
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
 };
+export const LOGGED_IN = 'logged in';
+export const NOT_LOGGED_IN = 'not logged in';
 
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },

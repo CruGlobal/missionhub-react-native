@@ -72,7 +72,9 @@ class App extends Component {
   }
 
   collectLifecycleData() {
-    RNOmniture.collectLifecycleData(this.state.store.getState().analytics);
+    if (this.state.store) {
+      RNOmniture.collectLifecycleData(this.state.store.getState().analytics);
+    }
   }
 
   render() {

@@ -81,6 +81,9 @@ export default {
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
 
+  contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
+  contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
+
   headerHeight: isAndroid ? 56 : 65,
   itemHeight: 90,
 };

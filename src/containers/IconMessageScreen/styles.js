@@ -11,5 +11,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     padding: 30,
     color: theme.white,
+    lineHeight: 24,
   },
 });

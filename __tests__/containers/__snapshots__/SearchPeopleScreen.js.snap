@@ -309,7 +309,7 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      Search
+      search
     </Text>
     <Text
       accessible={true}

@@ -14,6 +14,9 @@ export function trackAction(action, data) {
 
 export function trackState(trackingObj) {
   return (dispatch, getState) => {
+    if (!trackingObj) {
+      return;
+    }
     const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
     const updatedContext = buildUpdatedContext(newTrackingObj, getState().analytics);

@@ -1,13 +1,13 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
+import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   header: {
     height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
-    paddingTop: 20,
-    // TODO: Add shadow (ios) and elevation (android)
+    paddingTop: isAndroid ? 0 : 20,
   },
   shadow: {
     elevation: 4,
@@ -30,7 +30,6 @@ export default StyleSheet.create({
   headerIcon: {
     fontSize: 32,
     backgroundColor: theme.transparent,
-    // backgroundColor: COLORS.YELLOW,
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 5,
