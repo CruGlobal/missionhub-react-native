@@ -1,41 +1,53 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
 import PersonSelectStepScreen from '../../src/containers/PersonSelectStepScreen';
-import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
+import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
 
+const myId = 14312;
+let personStageId;
 const mockState = {
   steps: {
-    suggestedForOthers: [
-      { id: '1', body: '<<name>> 1' },
-      { id: '2', body: '<<name>> 2' },
-      { id: '3', body: '<<name>> 3' },
-    ],
+    suggestedForOthers: {
+      1: [ { id: '1', body: '<<name>> test step 1' } ],
+      2: [ { id: '2', body: '<<name>> test step 2' } ],
+      3: [ { id: '3', body: '<<name>> test step 3' } ],
+    },
   },
-  personProfile: {
-    personFirstName: 'Bill',
-    id: 1234,
-  },
+  personProfile: {},
+  auth: { personId: myId },
 };
 
 let store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <PersonSelectStepScreen
-        navigation={createMockNavState({
-          contactName: 'Ron',
-          contactId: '123',
-          contact: {},
-          onSaveNewSteps: jest.fn(),
-          createStepTracking: {},
-        })}
-      />
-    </Provider>
+const test = () => {
+  testSnapshotShallow(
+    <PersonSelectStepScreen
+      navigation={createMockNavState({
+        contactName: 'Ron',
+        contactId: '123',
+        contact: {
+          reverse_contact_assignments: [ { assigned_to: { id: myId }, pathway_stage_id: personStageId } ],
+        },
+        onSaveNewSteps: jest.fn(),
+        createStepTracking: {},
+      })}
+    />,
+    store,
   );
+};
+
+it('renders steps if person has stage set', () => {
+  personStageId = 2;
+
+  test();
+});
+
+it('sends empty array of steps if person does not have stage set', () => {
+  personStageId = null;
+
+  test();
 });
