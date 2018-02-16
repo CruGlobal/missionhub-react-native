@@ -9,6 +9,9 @@ export default StyleSheet.create({
   image: {
     backgroundColor: theme.secondaryColor,
     width: theme.fullWidth,
+    // Android was cutting off the top part of the clouds in the image.
+    // Take the image scale and multiple it by the width to get the height
+    height: (205 / 375) * theme.fullWidth,
   },
   text: {
     fontSize: 28,

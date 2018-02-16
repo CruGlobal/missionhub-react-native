@@ -7,20 +7,25 @@ import { navigatePush } from '../actions/navigation';
 import IconMessageScreen from './IconMessageScreen/index';
 import { SELECT_MY_STEP_ONBOARDING_SCREEN } from './SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
+import { disableBack } from '../utils/common';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
-  constructor(props) {
-    super(props);
+  
+  componentDidMount() {
+    disableBack.add();
+  }
 
-    this.handleNavigateToStep = this.handleNavigateToStep.bind(this);
+  componentWillUnmount() {
+    disableBack.remove();
   }
 
   handleNavigate = () => {
     this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
   }
 
-  handleNavigateToStep() {
+  handleNavigateToStep = () => {
+    disableBack.remove();
     this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
   }
 

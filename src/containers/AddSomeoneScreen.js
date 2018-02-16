@@ -6,10 +6,21 @@ import { navigatePush } from '../actions/navigation';
 
 import IconMessageScreen from './IconMessageScreen';
 import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
+import { disableBack } from '../utils/common';
 
 @translate('addContact')
 class AddSomeoneScreen extends Component {
+
+  componentDidMount() {
+    disableBack.add();
+  }
+
+  componentWillUnmount() {
+    disableBack.remove();
+  }
+
   handleNavigate = () => {
+    disableBack.remove();
     this.props.dispatch(navigatePush(SETUP_PERSON_SCREEN));
     Keyboard.dismiss();
   }

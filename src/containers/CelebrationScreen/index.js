@@ -7,7 +7,7 @@ import styles from './styles';
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
-import { isAndroid } from '../../utils/common';
+import { isAndroid, disableBack } from '../../utils/common';
 
 class CelebrationScreen extends Component {
 
@@ -21,13 +21,16 @@ class CelebrationScreen extends Component {
   startTimer() {
     clearTimeout(this.timeoutId);
     this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
+    disableBack.add();
   }
 
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
+    disableBack.remove();
   }
 
   navigateToNext() {
+    disableBack.remove();
     if (this.props.onComplete) {
       this.props.onComplete();
     } else {

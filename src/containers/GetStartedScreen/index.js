@@ -7,9 +7,27 @@ import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
+import { disableBack } from '../../utils/common';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
+  componentDidMount() {
+    disableBack.add();
+  }
+
+  componentWillUnmount() {
+    disableBack.remove();
+  }
+
+  navigateNext = () => {
+    disableBack.remove();
+    this.props.dispatch(navigatePush(STAGE_ONBOARDING_SCREEN, {
+      section: 'onboarding',
+      subsection: 'self',
+      enableBackButton: false,
+    }));
+  }
+
   render() {
     const { t, firstName } = this.props;
     const name = firstName.toLowerCase();
@@ -24,11 +42,7 @@ class GetStartedScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.props.dispatch(navigatePush(STAGE_ONBOARDING_SCREEN, {
-              section: 'onboarding',
-              subsection: 'self',
-              enableBackButton: false,
-            }))}
+            onPress={this.navigateNext}
             text={t('getStarted').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />

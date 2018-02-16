@@ -9,14 +9,27 @@ import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/person';
 import { createPerson } from '../actions/profile';
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
+import { disableBack } from '../utils/common';
 
 @translate()
 class SetupPersonScreen extends Component {
+
+  componentDidMount() {
+    disableBack.add();
+  }
+
+  componentWillUnmount() {
+    disableBack.remove();
+    this.props.dispatch(personFirstNameChanged(''));
+    this.props.dispatch(personLastNameChanged(''));
+  }
+  
   saveAndGoToGetStarted() {
     if (this.props.personFirstName) {
       Keyboard.dismiss();
 
       this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
+        disableBack.remove();
         this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
           section: 'onboarding',
           subsection: 'add person',
