@@ -52,3 +52,10 @@ export function saveNotes(personId, notes, firstSave) {
     return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, query, bodyData));
   };
 }
+
+export function getNotes(id) {
+  return (dispatch) => {
+    const query = { person_id: id, include: 'person_notes' };
+    return dispatch(callApi(REQUESTS.GET_PERSON_NOTES, query));
+  };
+}

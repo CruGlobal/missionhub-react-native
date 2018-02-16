@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
-import { saveNotes } from '../../actions/person';
+import { saveNotes, getNotes } from '../../actions/person';
 import { translate } from 'react-i18next';
 import NOTES from '../../../assets/images/myNotes.png';
 
@@ -26,6 +26,11 @@ export class ContactNotes extends Component {
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
+  }
+
+  componentWillMount() {
+    const personNotes = this.props.dispatch(getNotes(this.props.person.id));
+    console.log(personNotes);
   }
 
   componentWillReceiveProps(props) {

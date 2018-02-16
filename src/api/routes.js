@@ -186,4 +186,7 @@ export default {
     endpoint: `${API_URL}person_notes/7`,
     method: 'put',
   },
+  'GET_PERSON_NOTES': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
 };
