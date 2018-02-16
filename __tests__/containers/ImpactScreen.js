@@ -10,8 +10,17 @@ import MockDate from 'mockdate';
 
 const store = createMockStore({
   impact: {
-    mine: {},
-    global: {},
+    mine: {
+      steps_count: 5,
+      receivers_count: 2,
+      pathway_moved_count: 1,
+    },
+    global: {
+      steps_count: 155,
+      receivers_count: 52,
+      step_owners_count: 32,
+      pathway_moved_count: 46,
+    },
   },
 });
 

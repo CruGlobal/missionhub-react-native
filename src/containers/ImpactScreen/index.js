@@ -10,7 +10,7 @@ import { getGlobalImpact, getMyImpact } from '../../actions/impact';
 import { IconButton } from '../../components/common';
 import Header from '../Header';
 import ImpactView from '../ImpactView';
-import { intToStringLocale, openMainMenu } from '../../utils/common';
+import { openMainMenu } from '../../utils/common';
 
 @translate('impact')
 class ImpactScreen extends Component {
@@ -18,16 +18,6 @@ class ImpactScreen extends Component {
   componentWillMount() {
     this.props.dispatch(getGlobalImpact());
     this.props.dispatch(getMyImpact());
-  }
-
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, pathway_moved_count = 0 }, global = false) {
-    return this.props.t('impactSentence', {
-      year: new Date().getFullYear(),
-      initiator: global ? '$t(users)' : '$t(you)',
-      stepsCount: intToStringLocale(steps_count),
-      receiversCount: intToStringLocale(receivers_count),
-      pathwayMovedCount: intToStringLocale(pathway_moved_count),
-    });
   }
 
   render() {
