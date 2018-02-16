@@ -29,6 +29,7 @@ describe('complete challenge', () => {
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
     filters: { completed: false },
+    include: 'receiver.reverse_contact_assignments',
   };
   const data = {
     data: {
