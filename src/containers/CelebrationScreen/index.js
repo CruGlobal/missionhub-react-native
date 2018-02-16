@@ -18,15 +18,18 @@ class CelebrationScreen extends Component {
     this.startTimer = this.startTimer.bind(this);
   }
 
-  startTimer() {
-    clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
+  componentDidMount() {
     disableBack.add();
   }
 
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
     disableBack.remove();
+  }
+
+  startTimer() {
+    clearTimeout(this.timeoutId);
+    this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
   }
 
   navigateToNext() {
