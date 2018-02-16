@@ -154,7 +154,12 @@ describe('search', () => {
   const text = 'test';
   const expectedQuery = {
     q: text,
-    filters: { },
+    fields: {
+      person: 'first_name,last_name',
+      organization: 'name',
+    },
+    include: 'organizational_permissions.organization',
+    filters: {},
   };
   const action = { type: 'ran search' };
 
