@@ -86,7 +86,7 @@ class SelectStepScreen extends Component {
 
     this.props.dispatch(trackAction('cru.stepoffaithadded', { 'steps': selectedSteps.length }));
 
-    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId))
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());
   }
 
@@ -146,6 +146,7 @@ SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
+  organization: PropTypes.object,
 };
 
 

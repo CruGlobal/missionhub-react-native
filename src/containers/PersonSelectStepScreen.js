@@ -38,6 +38,7 @@ class PersonSelectStepScreen extends Component {
         useOthersSteps={true}
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
+        organization={this.props.organization}
         onComplete={this.handleNavigate}
         createStepTracking={this.props.createStepTracking}
         enableBackButton
@@ -53,6 +54,7 @@ PersonSelectStepScreen.propTypes = {
   contactId: PropTypes.string,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
+  organization: PropTypes.object,
   onSaveNewSteps: PropTypes.func,
 };
 
