@@ -56,7 +56,7 @@ class ContactScreen extends Component {
   }
 
   render() {
-    const { person, isJean, contactStage, personIsCurrentUser } = this.props;
+    const { person, organization, isJean, contactStage, personIsCurrentUser } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -82,6 +82,7 @@ class ContactScreen extends Component {
             type={isJean ? JEAN : CASEY}
             isMe={personIsCurrentUser}
             person={person}
+            organization={organization}
             stage={contactStage}
             dispatch={this.props.dispatch}
           />
@@ -96,6 +97,7 @@ ContactScreen.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
   }).isRequired,
+  organization: PropTypes.object,
 };
 
 
