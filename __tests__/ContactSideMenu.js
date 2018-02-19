@@ -1,4 +1,5 @@
 import 'react-native';
+import { Alert } from 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
@@ -38,6 +39,30 @@ describe('contactSideMenu Casey', () => {
     );
 
     testEditClick(component, false);
+  });
+});
+
+describe('contactSideMenu  Jean unassign', () => {
+  it('renders unassign correctly', () => {
+    const component = testSnapshotShallow(
+      <ContactSideMenu navigation={createMockNavState()} />,
+      createMockStore({
+        auth: { personId: 1 },
+        stages: { stages: [ 'placeholder stage' ] },
+        profile: {
+          visiblePersonInfo: {
+            isJean: true,
+            person: {
+              id: 2,
+              first_name: 'Test Fname',
+            },
+            personIsCurrentUser: false,
+          },
+        },
+      }),
+    );
+
+    testUnassignClick(component);
   });
 });
 
@@ -152,9 +177,15 @@ function testEditClick(component, isJean) {
   expect(fetchVisiblePersonInfo).toHaveBeenCalledWith(2, 1, false, [ 'placeholder stage' ]);
 }
 
+function testUnassignClick(component) {
+  const props = component.props();
+  Alert.alert = jest.fn();
+  props.menuItems.filter((item) => item.label === 'Unassign')[0].action();
+  expect(Alert.alert).toHaveBeenCalledTimes(1);
+}
+
 function testFollowupStatusClick(component, label, personId, orgPermissionId, serverValue) {
   const props = component.props();
   props.menuItems.filter((item) => item.label === label)[0].action();
   expect(updateFollowupStatus).toHaveBeenCalledWith(personId, orgPermissionId, serverValue);
 }
-
