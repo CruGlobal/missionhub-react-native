@@ -8,6 +8,7 @@ import android.content.Context;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNDefaultPreferencePackage;
 import com.smixx.fabric.FabricPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
@@ -46,6 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNDefaultPreferencePackage(),
             new FabricPackage(),
             new FBSDKPackage(mCallbackManager),
             new OmniturePackage(),
