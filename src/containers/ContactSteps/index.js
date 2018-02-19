@@ -71,7 +71,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { person, isMe } = this.props;
+    const { person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
@@ -84,6 +84,7 @@ class ContactSteps extends Component {
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
+        organization,
         onSaveNewSteps: this.handleSaveNewSteps,
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
@@ -159,6 +160,7 @@ class ContactSteps extends Component {
 
 ContactSteps.propTypes = {
   person: PropTypes.object,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ swipe, auth }) => ({
