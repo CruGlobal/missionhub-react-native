@@ -42,6 +42,11 @@ export function showReminderScreen() {
   return (dispatch, getState) => {
     const { hasAsked, token, showReminder } = getState().notifications;
     
+    // Android does not need to ask for notification permissions
+    if (isAndroid) {
+      return dispatch(setupPushNotifications());
+    }
+    
     if (token || !showReminder) return;
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
@@ -124,7 +129,7 @@ export function setupPushNotifications() {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
     
-    return PushNotification.requestPermissions((p) => {
+    return PushNotification.requestPermissions().then((p) => {
       LOG('permission resolved to', p);
       return p;
     });

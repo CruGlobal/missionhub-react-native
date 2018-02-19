@@ -12,6 +12,7 @@ import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import { trackAction, trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
+import { disableBack } from '../../utils/common';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -38,6 +39,18 @@ class SelectStepScreen extends Component {
     this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
   }
 
+  componentDidMount() {
+    if (!this.props.enableBackButton) {
+      disableBack.add();
+    }
+  }
+
+  componentWillUnmount() {
+    if (!this.props.enableBackButton) {
+      disableBack.remove();
+    }
+  }
+
   handleSelectStep(item) {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
     this.setState({ steps });
@@ -46,6 +59,9 @@ class SelectStepScreen extends Component {
   handleCreateStep() {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
+    }
+    if (!this.props.enableBackButton) {
+      disableBack.remove();
     }
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: (newStepText) => {
@@ -84,7 +100,7 @@ class SelectStepScreen extends Component {
 
     this.props.dispatch(trackAction('cru.stepoffaithadded', { 'steps': selectedSteps.length }));
 
-    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId))
+    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());
   }
 
@@ -144,6 +160,8 @@ SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
+  enableBackButton: PropTypes.bool,
+  organization: PropTypes.object,
 };
 
 

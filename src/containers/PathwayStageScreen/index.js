@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Image } from 'react-native';
+import { View, Image, Keyboard } from 'react-native';
 import { getStages } from '../../actions/stages';
 
 import Carousel from 'react-native-snap-carousel';
@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 
 import theme from '../../theme';
 import { trackState } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
+import { buildTrackingObj, disableBack } from '../../utils/common';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
@@ -47,9 +47,25 @@ class PathwayStageScreen extends Component {
   componentWillMount() {
     this.props.dispatch(getStages());
     this.trackStageState(1);
+    Keyboard.dismiss();
+  }
+
+  componentDidMount() {
+    if (!this.props.enableBackButton) {
+      disableBack.add();
+    }
+  }
+
+  componentWillUnmount() {
+    if (!this.props.enableBackButton) {
+      disableBack.remove();
+    }
   }
 
   setStage(stage, isAlreadySelected) {
+    if (!this.props.enableBackButton) {
+      disableBack.remove();
+    }
     this.props.onSelect(stage, isAlreadySelected);
   }
 

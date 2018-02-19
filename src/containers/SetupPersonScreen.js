@@ -9,13 +9,19 @@ import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged, resetPerson } from '../actions/person';
 import { createPerson, updateOnboardingPerson } from '../actions/profile';
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
+import { disableBack } from '../utils/common';
 
 @translate()
 class SetupPersonScreen extends Component {
 
   state = { personId: null };
 
+  componentDidMount() {
+    disableBack.add();
+  }
+
   componentWillUnmount() {
+    disableBack.remove();
     // make sure to remove the person after this page gets unmounted
     this.props.dispatch(resetPerson());
   }

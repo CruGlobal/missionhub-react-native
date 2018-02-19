@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 // Note: test renderer must be required after react-native.
 import { createMockStore, testSnapshot } from '../../testUtils';
 import PathwayStageScreen from '../../src/containers/PathwayStageScreen';
+import * as common from '../../src/utils/common';
 
 const store = createMockStore({
   stages: [
@@ -68,5 +69,28 @@ describe('pathway stage screen methods', () => {
   it('runs onSelect', () => {
     component.setStage({}, false);
     expect(mockSelect).toHaveBeenCalledTimes(1);
+  });
+});
+
+
+describe('pathway stage screen methods without back', () => {
+  let component;
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <PathwayStageScreen
+        {...mockProps}
+        enableBackButton={false}
+      />,
+      { context: { store } },
+    );
+
+    component = screen.dive().instance();
+  });
+
+  it('unmounts', () => {
+    common.disableBack = { remove: jest.fn() };
+    component.componentWillUnmount();
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });

@@ -7,10 +7,11 @@ import { translate } from 'react-i18next';
 import styles from './styles';
 
 import { navigateBack } from '../../actions/navigation';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
-import Input from '../../components/Input/index';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE } from '../../constants';
+import { disableBack } from '../../utils/common';
+import { BackButton } from '../BackButton';
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -26,12 +27,28 @@ class AddStepScreen extends Component {
     this.skip = this.skip.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.type === STEP_NOTE) {
+      disableBack.add();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.type === STEP_NOTE) {
+      disableBack.remove();
+    }
+  }
+
   saveStep() {
     Keyboard.dismiss();
     const text = this.state.step.trim();
     if (!text) {
       return;
     }
+    if (this.props.type === STEP_NOTE) {
+      disableBack.remove();
+    }
+    
     this.props.onComplete(text);
     if (this.props.type !== STEP_NOTE) {
       this.props.dispatch(navigateBack());
@@ -75,12 +92,12 @@ class AddStepScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, type } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         {
-          this.props.type === STEP_NOTE ? (
+          type === STEP_NOTE ? (
             <Flex align="end" justify="center">
               <Button
                 type="transparent"
@@ -118,6 +135,7 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
+        {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
       </PlatformKeyboardAvoidingView>
     );
   }
