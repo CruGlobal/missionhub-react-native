@@ -55,6 +55,7 @@ class PersonStageScreen extends Component {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
+          contactStage: stage,
           createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'add person', 'steps'),
         }));
 
