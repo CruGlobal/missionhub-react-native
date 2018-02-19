@@ -3,9 +3,8 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
-import { renderShallow, testSnapshot } from '../../testUtils';
+import { renderShallow, testSnapshot, createMockStore } from '../../testUtils';
 import Enzyme, { shallow } from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import * as navigation from '../../src/actions/navigation';
