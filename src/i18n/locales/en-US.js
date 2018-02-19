@@ -260,6 +260,7 @@ export default {
   contactSideMenu: {
     edit: 'Edit',
     delete: 'Delete Person',
+    unassignButton: 'Unassign Person',
     deleteQuestion: 'Delete {{name}}?',
     deleteSentence: 'Are you sure you want to delete this person?',
     unassignQuestion: 'Unassign {{name}}?',
