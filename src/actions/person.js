@@ -54,8 +54,15 @@ export function saveNotes(personId, notes, firstSave) {
 }
 
 export function getNotes(id) {
-  return (dispatch) => {
+  return async(dispatch) => {
+    const results = await dispatch(getPersonWithNotes(id));
+    return results.find('person', id).person_notes;
+  };
+}
+
+export function getPersonWithNotes(id) {
+  return async(dispatch) => {
     const query = { person_id: id, include: 'person_notes' };
-    return dispatch(callApi(REQUESTS.GET_PERSON_NOTES, query));
+    return await dispatch(callApi(REQUESTS.GET_PERSON_NOTES, query));
   };
 }

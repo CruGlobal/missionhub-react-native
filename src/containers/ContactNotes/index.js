@@ -28,9 +28,9 @@ export class ContactNotes extends Component {
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
-  componentWillMount() {
-    const personNotes = this.props.dispatch(getNotes(this.props.person.id));
-    console.log(personNotes);
+  async componentDidMount() {
+    const personNotes = await this.props.dispatch(getNotes(this.props.person.id));
+    if (personNotes.length > 0) this.setState({ text: personNotes[0] });
   }
 
   componentWillReceiveProps(props) {
