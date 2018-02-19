@@ -1,4 +1,4 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../../src/constants';
+import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN } from '../../src/constants';
 import { trackAction, trackState, updateAnalyticsContext, updateLoggedInStatus } from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -33,6 +33,12 @@ beforeEach(() => {
   });
 });
 
+it('should not track state', () => {
+  store.dispatch(trackState());
+
+  expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
+});
+
 describe('updateAnalyticsContext', () => {
   it('should create action', () => {
     const result = updateAnalyticsContext(context);
@@ -64,7 +70,6 @@ describe('trackState', () => {
 
   beforeEach(() => {
     expectedUpdatedContext = {
-      [ANALYTICS.PREVIOUS_SCREENNAME]: screenName,
       [ANALYTICS.SCREENNAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.PAGE_NAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.SITE_SECTION]: section,
@@ -90,10 +95,16 @@ describe('trackState', () => {
       analyticsContext: expectedUpdatedContext,
     } ]);
   });
+
+  it('should not update screenname of parameter', () => {
+    store.dispatch(trackState(trackingObj));
+
+    expect(trackingObj.name).toEqual(newScreenName);
+  });
 });
 
 describe('updateLoggedInStatus', () => {
-  const status = true;
+  const status = LOGGED_IN;
 
   beforeEach(() => store.dispatch(updateLoggedInStatus(status)));
 

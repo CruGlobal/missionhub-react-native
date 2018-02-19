@@ -1,6 +1,7 @@
 import auth from '../../src/reducers/auth';
 import { REQUESTS } from '../../src/actions/api';
 import { JsonApiDataStore } from 'jsonapi-datastore';
+import { UPDATE_STAGES } from '../../src/constants';
 
 const token = 'asdfasndfiosdc';
 const personId = 123456;
@@ -93,4 +94,18 @@ it('sets user time zone', () => {
   const state = callAuth(REQUESTS.UPDATE_TIMEZONE.SUCCESS, jsonApiStore);
 
   expect(state.timezone).toBe('-5');
+});
+
+it('updates a users stage', () => {
+  const state = auth(
+    { user: { user: { pathway_stage_id: 2 } } },
+    {
+      type: UPDATE_STAGES,
+      stages: [
+        { id: 2 },
+      ],
+    });
+
+
+  expect(state.user.stage.id).toBe(2);
 });

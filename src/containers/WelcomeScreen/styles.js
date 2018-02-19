@@ -12,6 +12,7 @@ export default StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 10,
     fontSize: 16,
+    lineHeight: 24,
   },
   headerText: {
     color: theme.secondaryColor,

@@ -4,7 +4,7 @@ import { REQUESTS } from '../../src/actions/api';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { mockFnWithParams } from '../../testUtils';
+import { mockFnWithParams, mockFnWithParamsMultiple } from '../../testUtils';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../../src/constants';
 
 const mockStore = configureStore([ thunk ]);
@@ -75,7 +75,7 @@ describe('getMyPeople', () => {
   describe('as Jean', () => {
     const organizationOneId = 101;
     const organizationTwoId = 111;
-    const organizationList = [ { id: organizationOneId }, { id: organizationTwoId } ];
+    const organizationList = [ { id: organizationOneId }, { id: organizationTwoId }, { id: 104 } ];
     const personOne = {
       id: 7777,
       organizational_permissions: [ { organization_id: organizationOneId } ],
@@ -104,14 +104,16 @@ describe('getMyPeople', () => {
 
     it('should return all orgs with assigned people', () => {
       store = mockStore({ auth: { isJean: true, personId: myId, user: mockUser } });
-      api.default = jest.fn().mockImplementation((request, query) => {
-        if (request === REQUESTS.GET_PEOPLE_LIST && JSON.stringify(query) === JSON.stringify(peopleListQuery)) {
-          return mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree, personFour ] });
-
-        } else if (request === REQUESTS.GET_MY_ORGANIZATIONS && JSON.stringify(query) === JSON.stringify(organizationQuery)) {
-          return mockApiReturnValue({ findAll: () => organizationList });
-        }
-      });
+      mockFnWithParamsMultiple(api,
+        'default',
+        {
+          expectedReturn: mockApiReturnValue({ findAll: () => [ personOne, personTwo, personThree, personFour ] }),
+          expectedParams: [ REQUESTS.GET_PEOPLE_LIST, peopleListQuery ],
+        },
+        {
+          expectedReturn: mockApiReturnValue({ findAll: () => organizationList }),
+          expectedParams: [ REQUESTS.GET_MY_ORGANIZATIONS, organizationQuery ],
+        });
 
       return store.dispatch(getMyPeople()).then(() => {
         expect(store.getActions()).toEqual([
@@ -152,7 +154,12 @@ describe('search', () => {
   const text = 'test';
   const expectedQuery = {
     q: text,
-    filters: { },
+    fields: {
+      person: 'first_name,last_name',
+      organization: 'name',
+    },
+    include: 'organizational_permissions.organization',
+    filters: {},
   };
   const action = { type: 'ran search' };
 

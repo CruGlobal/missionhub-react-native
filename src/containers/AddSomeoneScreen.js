@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { navigatePush } from '../actions/navigation';
@@ -10,6 +11,7 @@ import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 class AddSomeoneScreen extends Component {
   handleNavigate = () => {
     this.props.dispatch(navigatePush(SETUP_PERSON_SCREEN));
+    Keyboard.dismiss();
   }
 
   render() {

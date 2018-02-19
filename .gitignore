@@ -71,3 +71,7 @@ android/app/bin/
 **/.settings/
 **/.project
 **/.classpath
+
+# Include the test keystore so that others can build the app
+# The app will need to be resigned with the REAL keystore when released
+!mh-test.keystore

@@ -20,12 +20,13 @@ class SelectMyStepScreen extends Component {
   }
 
   render() {
-    const { t, enableBackButton } = this.props;
+    const { t, enableBackButton, me, steps, personId } = this.props;
 
     return (
       <SelectStepScreen
-        steps={this.props.steps}
-        receiverId={this.props.personId}
+        steps={steps}
+        receiverId={personId}
+        contact={me}
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
@@ -39,6 +40,7 @@ class SelectMyStepScreen extends Component {
 
 const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
   ...(navigation.state.params || {}),
+  me: auth.user,
   steps: getFirstThreeValidItems(steps.suggestedForMe),
   personId: auth.personId,
 });

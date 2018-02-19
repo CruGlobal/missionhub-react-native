@@ -210,9 +210,9 @@ exports[`Impact Screen renders correctly 1`] = `
             ]
           }
         >
-          In 2017, you took 0 steps of faith with 0 people.
+          In 2017,  you took 5 steps of faith with 2 people.
 
-0 people reached a new stage on their spiritual journey.
+1 people reached a new stage on their spiritual journey.
         </Text>
       </View>
       <Image
@@ -263,9 +263,9 @@ exports[`Impact Screen renders correctly 1`] = `
             ]
           }
         >
-          In 2017, users took 0 steps of faith with 0 people.
+          In 2017, 32 users took 155 steps of faith with 52 people.
 
-0 people reached a new stage on their spiritual journey.
+46 people reached a new stage on their spiritual journey.
         </Text>
       </View>
     </View>

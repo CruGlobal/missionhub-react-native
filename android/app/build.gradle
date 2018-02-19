@@ -107,6 +107,10 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+// Get the properties file to read the keystore
+def props = new Properties()
+props.load(new FileInputStream(rootProject.file("mh-test.properties")))
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -115,14 +119,24 @@ android {
         applicationId "com.missionhub"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        
+        versionName project.version
+        versionCode grgit.log(includes:['HEAD']).size()
+        
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
 
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            keyAlias props['keyAlias']
+            keyPassword props['keyAliasPassword']
+            storeFile rootProject.file(props['keyStore'])
+            storePassword props['keyStorePassword']
+        }
     }
     splits {
         abi {
@@ -136,6 +150,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

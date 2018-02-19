@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import { KeyboardAvoidingView } from 'react-native';
 
 import styles from './styles';
+import { isAndroid } from '../../utils/common';
 
 export default class PlatformKeyboardAvoidingView extends Component {
   render() {
@@ -13,6 +14,6 @@ export default class PlatformKeyboardAvoidingView extends Component {
   }
 
   getBehavior() {
-    return Platform.OS === 'android' ? undefined : 'padding';
+    return isAndroid ? undefined : 'padding';
   }
 }

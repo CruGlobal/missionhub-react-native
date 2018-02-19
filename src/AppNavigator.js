@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BackHandler } from 'react-native';
-import { addNavigationHelpers, NavigationActions } from 'react-navigation';
-import { MainRoutes } from './AppRoutes';
-
+import { addNavigationHelpers } from 'react-navigation';
 import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
+
+import { MainRoutes } from './AppRoutes';
+import { navigateBack } from './actions/navigation';
+
 
 const addListener = createReduxBoundAddListener('root');
 
@@ -23,7 +25,7 @@ class AppWithNavigationState extends React.Component {
     if (nav.index === 0) {
       return false;
     }
-    dispatch(NavigationActions.back());
+    dispatch(navigateBack());
     return true;
   };
 

@@ -9,9 +9,9 @@ import { testSnapshot, createMockNavState, createMockStore } from '../../testUti
 const mockState = {
   steps: {
     suggestedForOthers: [
-      { id: 1, body: '<<name>> 1' },
-      { id: 2, body: '<<name>> 2' },
-      { id: 3, body: '<<name>> 3' },
+      { id: '1', body: '<<name>> 1' },
+      { id: '2', body: '<<name>> 2' },
+      { id: '3', body: '<<name>> 3' },
     ],
   },
   personProfile: {
@@ -33,6 +33,7 @@ it('renders correctly', () => {
           contactId: '123',
           contact: {},
           onSaveNewSteps: jest.fn(),
+          createStepTracking: {},
         })}
       />
     </Provider>

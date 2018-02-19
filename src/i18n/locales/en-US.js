@@ -84,6 +84,7 @@ export default {
     tagline1: 'Grow closer to God.',
     tagline2: 'Help others experience Him.',
     signIn: 'Sign In',
+    getStarted: 'Get Started',
     member: 'Already a Member?',
   },
   loginOptions: {
@@ -115,11 +116,6 @@ export default {
   setup: {
     firstThing: '-first things first-',
     namePrompt: 'what\'s your name?',
-  },
-  interactions: {
-    title: 'Hi!',
-    profileTab: 'Go To Profile',
-
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -199,7 +195,7 @@ export default {
   },
   impact: {
     header: 'Impact',
-    impactSentence: 'In {{year}}, {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
+    impactSentence: 'In {{year}}, {{numInitiators}} {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.\n\n{{pathwayMovedCount}} people reached a new stage on their spiritual journey.',
     you: 'you',
     users: 'users',
     interactionSpiritualConversation: 'Spiritual Conversations',
@@ -280,11 +276,6 @@ export default {
     header: 'PEOPLE',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
-  },
-  profileScreen: {
-    goToMain: 'Go To Main Tab',
-    goBack: 'Go Back 1 Tab',
-    profileID: 'Profile {{id}}',
   },
   appRoutes: {
     steps: 'Steps',

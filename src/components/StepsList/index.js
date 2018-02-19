@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 
 import { Flex, Text, Separator, Touchable, Icon } from '../common';
 import styles from './styles';
 
-@translate('selectStep')
 export default class StepsList extends Component {
   constructor(props) {
     super(props);
@@ -27,12 +25,11 @@ export default class StepsList extends Component {
   }
 
   renderCreateStep() {
-    const { t } = this.props;
     return (
       <Touchable onPress={this.props.onCreateStep}>
         <Flex direction="row" align="center" justify="start" value={1} style={styles.separatorWrap}>
           <Icon name="createStepIcon" type="MissionHub" style={styles.addIcon} />
-          <Text style={styles.stepName}>{t('createStep')}</Text>
+          <Text style={styles.stepName}>{this.props.createStepText}</Text>
         </Flex>
       </Touchable>
     );

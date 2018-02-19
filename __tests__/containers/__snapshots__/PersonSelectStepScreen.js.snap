@@ -31,6 +31,70 @@ exports[`renders correctly 1`] = `
         Array [
           Object {},
           Object {
+            "alignItems": "center",
+            "flex": 1.5,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "AmaticSC-Bold",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 36,
+            },
+          ]
+        }
+      >
+        steps of faith
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "paddingHorizontal": 50,
+              "paddingVertical": 20,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        What will you do to help Ron experience God?
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "left": 5,
+            "position": "absolute",
+            "top": 5,
+          },
+          Object {
             "alignItems": "flex-start",
             "alignSelf": "flex-start",
             "justifyContent": "center",
@@ -80,8 +144,8 @@ exports[`renders correctly 1`] = `
                   "fontSize": 18,
                 },
                 Object {
-                  "margin": 20,
-                  "marginTop": 40,
+                  "margin": 25,
+                  "marginTop": 45,
                 },
               ],
               Object {
@@ -95,65 +159,6 @@ exports[`renders correctly 1`] = `
           
         </Text>
       </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1.5,
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 36,
-            },
-          ]
-        }
-      >
-        Steps of Faith
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 16,
-              "paddingHorizontal": 50,
-              "paddingVertical": 20,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        What will you do to help Ron experience God?
-      </Text>
     </View>
   </View>
   <View
@@ -173,15 +178,15 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "body": "Ron 1",
-            "id": 1,
+            "id": "1",
           },
           Object {
             "body": "Ron 2",
-            "id": 2,
+            "id": "2",
           },
           Object {
             "body": "Ron 3",
-            "id": 3,
+            "id": "3",
           },
         ]
       }

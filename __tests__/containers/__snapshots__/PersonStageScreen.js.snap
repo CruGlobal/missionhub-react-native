@@ -42,6 +42,51 @@ exports[`renders correctly 1`] = `
       Array [
         Object {},
         Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 18,
+            "fontWeight": "500",
+            "paddingBottom": 25,
+            "paddingHorizontal": 30,
+            "paddingTop": 45,
+            "textAlign": "center",
+            "width": 650,
+          },
+        ]
+      }
+    >
+      Which stage best describes where Test is on their journey?
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 5,
+        },
+        Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
           "justifyContent": "center",
@@ -91,8 +136,8 @@ exports[`renders correctly 1`] = `
                 "fontSize": 18,
               },
               Object {
-                "margin": 20,
-                "marginTop": 40,
+                "margin": 25,
+                "marginTop": 45,
               },
             ],
             Object {
@@ -106,47 +151,6 @@ exports[`renders correctly 1`] = `
         
       </Text>
     </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    >
-      Which stage best describes where Test is on their journey?
-    </Text>
   </View>
 </View>
 `;
