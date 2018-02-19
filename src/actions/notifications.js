@@ -124,7 +124,7 @@ export function setupPushNotifications() {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
     
-    return PushNotification.requestPermissions((p) => {
+    return PushNotification.requestPermissions().then((p) => {
       LOG('permission resolved to', p);
       return p;
     });
