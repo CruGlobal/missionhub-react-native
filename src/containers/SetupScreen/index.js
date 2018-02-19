@@ -2,20 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
+
 import styles from './styles';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
-import Input from '../../components/Input/index';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/profile';
 import { GET_STARTED_SCREEN } from '../GetStartedScreen';
+import { disableBack } from '../../utils/common';
 
 @translate('setup')
 class SetupScreen extends Component {
+  componentDidMount() {
+    disableBack.add();
+  }
+
+  componentWillUnmount() {
+    disableBack.remove();
+  }
+
   saveAndGoToGetStarted() {
     if (this.props.firstName) {
       Keyboard.dismiss();
 
       this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName)).then(() => {
+        disableBack.remove();
         this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
       });
     }

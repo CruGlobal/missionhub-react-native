@@ -224,6 +224,7 @@ exports[`Impact Screen renders correctly 1`] = `
         style={
           Object {
             "backgroundColor": "#52C5DC",
+            "height": 410,
             "width": 750,
           }
         }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -101,6 +101,7 @@ export class SearchPeopleFilterScreen extends Component {
     if (!this.props.labels.length) {
       this.props.dispatch(getMyLabels());
     }
+    Keyboard.dismiss();
   }
 
   reloadAll() {
