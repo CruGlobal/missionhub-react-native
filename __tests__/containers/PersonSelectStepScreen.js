@@ -6,6 +6,7 @@ import PersonSelectStepScreen from '../../src/containers/PersonSelectStepScreen'
 import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
 
 const myId = 14312;
+const contactId = '123';
 let personStageId;
 const mockState = {
   steps: {
@@ -28,10 +29,9 @@ const test = () => {
     <PersonSelectStepScreen
       navigation={createMockNavState({
         contactName: 'Ron',
-        contactId: '123',
-        contact: {
-          reverse_contact_assignments: [ { assigned_to: { id: myId }, pathway_stage_id: personStageId } ],
-        },
+        contactId: contactId,
+        contactStage: { id: personStageId },
+        contact: { id: contactId },
         onSaveNewSteps: jest.fn(),
         createStepTracking: {},
       })}

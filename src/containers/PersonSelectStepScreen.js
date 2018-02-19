@@ -31,12 +31,6 @@ class PersonSelectStepScreen extends Component {
     if (this.props.contactStage) {
       contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[this.props.contactStage.id]);
 
-    } else if (this.props.contact.reverse_contact_assignments) {
-      const assignment = this.props.contact.reverse_contact_assignments.find((a) => (a.assigned_to && a.assigned_to.id === this.props.myId));
-
-      if (assignment) {
-        contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[assignment.pathway_stage_id]);
-      }
     } else {
       //todo redirect to stage screen
     }
@@ -65,13 +59,13 @@ PersonSelectStepScreen.propTypes = {
   onSaveNewSteps: PropTypes.func,
 };
 
-const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => {
-  return { ...(navigation.state.params || {}),
-    myId: auth.personId,
-    suggestedForOthers: steps.suggestedForOthers,
-    personFirstName: personProfile.personFirstName,
-    personId: personProfile.id };
-};
+const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
+  ...(navigation.state.params || {}),
+  myId: auth.personId,
+  suggestedForOthers: steps.suggestedForOthers,
+  personFirstName: personProfile.personFirstName,
+  personId: personProfile.id,
+});
 
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);

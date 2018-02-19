@@ -4,14 +4,7 @@ exports[`renders steps if person has stage set 1`] = `
 <Connect(Translate(SelectStepScreen))
   contact={
     Object {
-      "reverse_contact_assignments": Array [
-        Object {
-          "assigned_to": Object {
-            "id": 14312,
-          },
-          "pathway_stage_id": 2,
-        },
-      ],
+      "id": "123",
     }
   }
   createStepTracking={Object {}}
@@ -35,14 +28,7 @@ exports[`sends empty array of steps if person does not have stage set 1`] = `
 <Connect(Translate(SelectStepScreen))
   contact={
     Object {
-      "reverse_contact_assignments": Array [
-        Object {
-          "assigned_to": Object {
-            "id": 14312,
-          },
-          "pathway_stage_id": null,
-        },
-      ],
+      "id": "123",
     }
   }
   createStepTracking={Object {}}

@@ -23,7 +23,6 @@ export function getMySteps() {
   return (dispatch) => {
     const query = {
       filters: { completed: false },
-      include: 'receiver.reverse_contact_assignments',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, query));
   };
@@ -33,7 +32,6 @@ export function getStepsByFilter(filters = {}) {
   return (dispatch) => {
     const query = {
       filters,
-      include: 'receiver.reverse_contact_assignments',
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
   };
