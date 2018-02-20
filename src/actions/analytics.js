@@ -1,10 +1,17 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
 import * as RNOmniture from 'react-native-omniture';
 
 export function updateAnalyticsContext(analyticsContext) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
     analyticsContext: analyticsContext,
+  };
+}
+
+export function trackSearchFilter(label) {
+  return (dispatch) => {
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, {}));
+    dispatch(trackAction(ACTIONS.SEARCH_FILTER, { label: label }));
   };
 }
 

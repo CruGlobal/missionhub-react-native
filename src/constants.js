@@ -81,6 +81,9 @@ export const ACTIONS = {
   EMAIL_ENGAGED: 'cru.emailiconengaged',
   CALL_ENGAGED: 'cru.calliconengaged',
   TEXT_ENGAGED: 'cru.texticonengaged',
+  SEARCH_CLICKED: 'cru.searchbuttonclicked',
+  FILTER_ENGAGED: 'cru.searchfilterengaged',
+  SEARCH_FILTER: 'cru.searchfilter',
 };
 
 export const INTERACTION_TYPES = {
