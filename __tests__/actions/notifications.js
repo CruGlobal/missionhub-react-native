@@ -10,7 +10,7 @@ import {
 } from '../../src/constants';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { setupPushNotifications, registerPushDevice, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
+import { setupPushNotifications, registerPushDevice, shouldRunSetUpPushNotifications, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
 import { NOTIFICATION_OFF_SCREEN } from '../../src/containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
@@ -174,7 +174,7 @@ describe('actions called', () => {
       },
     });
     store.dispatch(showReminderScreen());
-    
+
     expect(store.getActions().length).toEqual(0);
   });
   it('should call showReminderScreen and show notification off screen onClose', () => {
@@ -194,13 +194,13 @@ describe('actions called', () => {
 
     expect(store.getActions()[0].type).toEqual(PUSH_NOTIFICATION_SHOULD_ASK);
     expect(store.getActions()[0].bool).toEqual(true);
-    
+
     expect(store.getActions()[1].type).toEqual(PUSH_NOTIFICATION_ASKED);
     expect(store.getActions()[2].type).toEqual('Navigation/BACK');
   });
   it('should call showReminderScreen and show notification primer screen onComplete', () => {
     navigation.navigatePush = (screen, params) => () => params.onComplete(true);
-    
+
     store = configureStore([ thunk ])({
       notifications: {
         token: null,
@@ -211,5 +211,19 @@ describe('actions called', () => {
     store.dispatch(showReminderScreen());
 
     expect(store.getActions()[0].type).toEqual('Navigation/BACK');
+  });
+});
+
+describe('should set up', () => {
+  it('shouldRunSetUpPushNotifications', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: '123',
+      },
+    });
+    PushNotification.checkPermissions = jest.fn((cb) => cb({ alert: false }));
+    notifications.setupPushNotifications = jest.fn();
+    store.dispatch(shouldRunSetUpPushNotifications());
+    expect(notifications.setupPushNotifications).toHaveBeenCalledTimes(0);
   });
 });

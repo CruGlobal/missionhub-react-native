@@ -16,6 +16,7 @@ const initialAuthState = {
   shouldAsk: true,
   showReminder: true,
   isRegistered: false,
+  pushDeviceId: '',
 };
 
 function notificationReducer(state = initialAuthState, action) {
@@ -54,9 +55,11 @@ function notificationReducer(state = initialAuthState, action) {
         token: action.token,
       };
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
+      const deviceToken = action.results.findAll('push_notification_device_token')[0] || {};
       return {
         ...state,
         isRegistered: true,
+        pushDeviceId: deviceToken.id,
       };
     case LOGOUT:
       return initialAuthState;
