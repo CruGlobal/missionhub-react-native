@@ -20,13 +20,12 @@ const initialState = {
   },
 };
 
-function getPagination(state, action, steps) {
+export function getPagination(state, action, steps) {
   const totalSteps = steps.length;
   const offset = action.query.page && action.query.page.offset ? action.query.page.offset : 0;
   const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
   const total = action.meta ? action.meta.total || 0 : 0;
   const hasNextPage = total > (offset + totalSteps);
-  LOG('page', pageNum, hasNextPage);
 
   return {
     ...state.pagination,
