@@ -20,6 +20,9 @@ const mockState = {
     suggestedForMe: [],
     suggestedForOthers: [],
     reminders: [],
+    pagination: {
+      hasNextPage: false,
+    },
   },
   notifications: {
     token: '',
@@ -81,7 +84,13 @@ describe('Background color changes with scrolling', () => {
 
   it('Background is blue when overscrolling up', () => {
     let component = createComponent();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: -1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
     expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
   });

@@ -3,6 +3,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
 import { findAllNonPlaceHolders } from '../utils/common';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
   mine: [],
@@ -10,7 +11,26 @@ const initialState = {
   suggestedForOthers: [],
   reminders: [],
   userStepCount: {},
+  pagination: {
+    hasNextPage: true,
+    page: 1,
+  },
 };
+
+function getPagination(state, action, steps) {
+  const totalSteps = steps.length;
+  const offset = action.query.page && action.query.page.offset ? action.query.page.offset : 0;
+  const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
+  const total = action.meta ? action.meta.total || 0 : 0;
+  const hasNextPage = total > (offset + totalSteps);
+  LOG('page', pageNum, hasNextPage);
+
+  return {
+    ...state.pagination,
+    page: pageNum,
+    hasNextPage,
+  };
+}
 
 function stepsReducer(state = initialState, action) {
   switch (action.type) {
@@ -38,9 +58,14 @@ function stepsReducer(state = initialState, action) {
         if (state.reminders.find((r)=> r.id === s.id)) return { ...s, reminder: true };
         return s;
       });
+      // If we're doing paging, concat the old steps with the new ones
+      if (action.query.page && action.query.page.offset > 0) {
+        mySteps = state.mine.concat(mySteps);
+      }
       return {
         ...state,
         mine: mySteps,
+        pagination: getPagination(state, action, mySteps),
       };
     case ADD_STEP_REMINDER:
       const newMine = state.mine.map((s)=> {
