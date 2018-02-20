@@ -4,17 +4,12 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import SelectStepScreen from './SelectStepScreen';
-import { getStepSuggestions } from '../actions/steps';
-import { getFirstThreeValidItems } from '../utils/common';
+import { getFourRandomItems } from '../utils/common';
 
 @translate('selectStep')
 class PersonSelectStepScreen extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-    this.props.dispatch(getStepSuggestions());
   }
 
   insertName(steps) {
@@ -26,14 +21,22 @@ class PersonSelectStepScreen extends Component {
 
   handleNavigate = () => {
     this.props.onSaveNewSteps();
-  }
+  };
 
   render() {
     const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
 
+    let contextualizedSteps = [];
+    if (this.props.contactStage) {
+      contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[this.props.contactStage.id]);
+
+    } else {
+      //todo redirect to stage screen
+    }
+
     return (
       <SelectStepScreen
-        steps={this.insertName(this.props.steps)}
+        steps={this.insertName(contextualizedSteps)}
         receiverId={this.props.contactId ? this.props.contactId : this.props.personId}
         useOthersSteps={true}
         headerText={this.props.t('personHeader', { name })}
@@ -48,7 +51,6 @@ class PersonSelectStepScreen extends Component {
 
 }
 
-
 PersonSelectStepScreen.propTypes = {
   contactName: PropTypes.string,
   contactId: PropTypes.string,
@@ -58,9 +60,10 @@ PersonSelectStepScreen.propTypes = {
   onSaveNewSteps: PropTypes.func,
 };
 
-const mapStateToProps = ({ steps, personProfile }, { navigation } ) => ({
+const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  steps: getFirstThreeValidItems(steps.suggestedForOthers),
+  myId: auth.personId,
+  suggestedForOthers: steps.suggestedForOthers,
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
 });

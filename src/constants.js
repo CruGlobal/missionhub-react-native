@@ -27,6 +27,7 @@ export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
+export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 
 export const STEP_NOTE = 'stepNote';
 
@@ -55,6 +56,8 @@ export const LINKS = {
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+
+export const ORG_PERMISSIONS = [ 1, 4 ];
 
 export const ANALYTICS = {
   PAGE_NAME: 'PageName',

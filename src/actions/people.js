@@ -65,7 +65,7 @@ export function getMyPeople() {
         } else {
           person.reverse_contact_assignments.forEach((contact_assignment) => {
 
-            if (contact_assignment.assigned_to.id === state.personId) {
+            if (contact_assignment && contact_assignment.assigned_to && contact_assignment.assigned_to.id === state.personId) {
               const foundOrg = ministryOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
 
               if (foundOrg && person.organizational_permissions.some((org_p) => org_p.organization_id === foundOrg.id)) {
