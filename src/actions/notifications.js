@@ -41,12 +41,12 @@ export function noNotificationReminder(showReminder = false) {
 export function showReminderScreen() {
   return (dispatch, getState) => {
     const { hasAsked, token, showReminder } = getState().notifications;
-    
+
     // Android does not need to ask for notification permissions
     if (isAndroid) {
       return dispatch(setupPushNotifications());
     }
-    
+
     if (token || !showReminder) return;
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
@@ -78,23 +78,18 @@ export function setupPushNotifications() {
   return (dispatch, getState) => {
     const { token, shouldAsk, isRegistered } = getState().notifications;
     if (!shouldAsk) return Promise.reject();
-    // TODO: Remove this when testing notification callback
-    // Don't bother getting this stuff if there is already a token
-    if (token && isRegistered) {
-      return Promise.reject();
-    }
-
-    // LOG('asking for push notification token');
 
     PushNotification.configure({
-      // (optional) Called when Token is generated (iOS and Android)
-      onRegister(token) {
-        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: token.token });
+      onRegister(t) {
+        if (token && isRegistered) {
+          return;
+        }
+        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: t.token });
         //make api call to register token with user
-        dispatch(registerPushDevice(token.token));
+        dispatch(registerPushDevice(t.token));
       },
-      // (required) Called when a remote or local notification is opened or received
       onNotification(notification) {
+        console.warn('here', notification);
         let state;
         if (notification && notification.foreground && !notification.userInteraction) {
           state = 'foreground';
@@ -128,7 +123,7 @@ export function setupPushNotifications() {
     if (!getState().notifications.hasAskedPushNotification) {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
-    
+
     return PushNotification.requestPermissions().then((p) => {
       LOG('permission resolved to', p);
       return p;
@@ -156,7 +151,7 @@ export function registerPushDevice(token) {
 
 export function handleNotifications(state, notification) {
   return () => {
-    console.log('Notification state', state, notification);
+    console.warn('Notification state', state, notification);
   };
 }
 

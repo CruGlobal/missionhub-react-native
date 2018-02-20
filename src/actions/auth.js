@@ -1,6 +1,7 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
+import { setupPushNotifications } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
@@ -85,5 +86,6 @@ export function loadHome() {
     dispatch(getMe());
     dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
+    dispatch(setupPushNotifications());
   };
 }
