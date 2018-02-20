@@ -5,7 +5,8 @@ import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
-import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone } from '../../src/actions/auth';
+import * as auth from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone, codeLogin } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS } from '../../src/constants';
@@ -101,6 +102,26 @@ describe('the key', () => {
 
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
         });
+    });
+  });
+});
+
+describe('code login', () => {
+
+  beforeEach(() => {
+    login.onSuccessfulLogin = jest.fn();
+    auth.firstTime = jest.fn();
+  });
+
+  it('should run the code login and then on success', () => {
+    store.dispatch(codeLogin('123')).then(() => {
+      expect(login.onSuccessfulLogin).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('should run the code login and then first time', () => {
+    store.dispatch(codeLogin('123')).then(() => {
+      expect(auth.firstTime).toHaveBeenCalledTimes(1);
     });
   });
 });

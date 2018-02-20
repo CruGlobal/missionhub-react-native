@@ -49,6 +49,17 @@ function getKeyTicket() {
   };
 }
 
+export function codeLogin(code) {
+  return (dispatch) => {
+    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code }))
+      .then(() => {
+        // Make sure this is set to FIRST_TIME so we know we're in the tryItNow flow
+        dispatch(firstTime());
+        return dispatch(onSuccessfulLogin());
+      });
+  };
+}
+
 export function logout() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
