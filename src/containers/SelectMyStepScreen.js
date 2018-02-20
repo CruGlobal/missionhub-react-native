@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { getStepSuggestions } from '../actions/steps';
 import SelectStepScreen from './SelectStepScreen';
-import { buildTrackingObj, getFirstThreeValidItems } from '../utils/common';
+import { buildTrackingObj, getFourRandomItems } from '../utils/common';
 
 @translate('selectStep')
 class SelectMyStepScreen extends Component {
@@ -11,16 +10,19 @@ class SelectMyStepScreen extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.dispatch(getStepSuggestions());
-  }
-
   handleNavigate = () => {
     this.props.onSaveNewSteps();
-  }
+  };
 
   render() {
-    const { t, enableBackButton, me, steps, personId } = this.props;
+    const { t, enableBackButton, me, suggestedForMe, personId, myStageId } = this.props;
+
+    let steps = [];
+    if (myStageId) {
+      steps = getFourRandomItems(suggestedForMe[myStageId]);
+    } else {
+      //todo redirect to stage screen
+    }
 
     return (
       <SelectStepScreen
@@ -38,10 +40,11 @@ class SelectMyStepScreen extends Component {
 
 }
 
-const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
+const mapStateToProps = ({ steps, auth, myStageReducer }, { navigation } ) => ({
   ...(navigation.state.params || {}),
   me: auth.user,
-  steps: getFirstThreeValidItems(steps.suggestedForMe),
+  myStageId: myStageReducer.stageId,
+  suggestedForMe: steps.suggestedForMe,
   personId: auth.personId,
 });
 
