@@ -96,6 +96,9 @@ export const ACTIONS = {
   STAGE_SELECTED: 'cru.stageselected',
   STEP_DETAIL: 'cru.stepoffaithdetail',
   STEPS_ADDED: 'cru.stepoffaithadded',
+  ALLOW: 'cru.notificationsallowed',
+  NOT_NOW: 'cru.notificationsnotallowed',
+  NO_REMINDERS: 'cru.notoreminders',
 };
 
 export const INTERACTION_TYPES = {
