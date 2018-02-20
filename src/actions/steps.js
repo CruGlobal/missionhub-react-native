@@ -23,7 +23,7 @@ export function getStepSuggestions() {
 export function getMySteps(query = {}) {
   return (dispatch) => {
     const queryObj = {
-      sort: '-created',
+      order: '-created_at',
       ...query,
       filters: {
         ...(query.filters || {}),

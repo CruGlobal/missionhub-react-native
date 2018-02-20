@@ -35,7 +35,7 @@ describe('get step suggestions', () => {
 
 describe('get steps page', () => {
   const stepsPageQuery = {
-    sort: '-created',
+    order: '-created',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
   };
@@ -65,7 +65,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
-    sort: '-created',
+    order: '-created',
     filters: { completed: false },
   };
   const data = {
