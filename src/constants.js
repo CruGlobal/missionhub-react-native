@@ -27,6 +27,7 @@ export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
+export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 
 export const STEP_NOTE = 'stepNote';
 
@@ -76,6 +77,17 @@ export const ANALYTICS = {
 };
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
+
+export const ACTIONS = {
+  PERSON_ADDED: 'cru.personadded',
+  STATUS_CHANGED: 'cru.contactstatuschanged',
+  EMAIL_ENGAGED: 'cru.emailiconengaged',
+  CALL_ENGAGED: 'cru.calliconengaged',
+  TEXT_ENGAGED: 'cru.texticonengaged',
+  SEARCH_CLICKED: 'cru.searchbuttonclicked',
+  FILTER_ENGAGED: 'cru.searchfilterengaged',
+  SEARCH_FILTER: 'cru.searchfilter',
+};
 
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
