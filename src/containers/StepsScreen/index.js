@@ -2,23 +2,30 @@ import React, { Component } from 'react';
 import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import debounce from 'lodash/debounce';
 
 import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { showReminderScreen, toast } from '../../actions/notifications';
-import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep } from '../../actions/steps';
+import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep, getMyStepsNextPage } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
+import FooterLoading from '../../components/FooterLoading';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 
 const MAX_REMINDERS = 3;
+
+function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
+  const paddingToBottom = 20;
+  return layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+}
 
 @translate('stepsTab')
 class StepsScreen extends Component {
@@ -29,6 +36,7 @@ class StepsScreen extends Component {
       refreshing: false,
       addedReminder: props.reminders.length > 0,
       overscrollUp: false,
+      paging: false,
     };
 
     this.getSteps = this.getSteps.bind(this);
@@ -39,6 +47,7 @@ class StepsScreen extends Component {
     this.handleRowSelect = this.handleRowSelect.bind(this);
     this.handleRefresh = this.handleRefresh.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
   componentWillMount() {
@@ -92,11 +101,15 @@ class StepsScreen extends Component {
     refresh(this, this.getSteps);
   }
 
-  handleScroll(event) {
-    const position = event.nativeEvent.contentOffset.y;
+  handleScroll({ nativeEvent }) {
+    const position = nativeEvent.contentOffset.y;
     const overscrollUp = this.state.overscrollUp;
     if (position < 0 && !overscrollUp) this.setState({ overscrollUp: true });
-    else if (position >=0 && overscrollUp) this.setState({ overscrollUp: false });
+    else if (position >= 0 && overscrollUp) this.setState({ overscrollUp: false });
+
+    if (isCloseToBottom(nativeEvent)) {
+      this.handleNextPage();
+    }
   }
 
   handleBackgroundColor() {
@@ -104,13 +117,23 @@ class StepsScreen extends Component {
     return styles.backgroundBottom;
   }
 
-
+  handleNextPage() {
+    if (this.state.paging || !this.props.hasMoreSteps) {
+      return;
+    }
+    this.setState({ paging: true });
+    this.props.dispatch(getMyStepsNextPage()).then(() => {
+      // Put a slight delay on stopping the paging so that the new items can populate in the list
+      setTimeout(() => this.setState({ paging: false }), 500);
+    }).catch(() => {
+      setTimeout(() => this.setState({ paging: false }), 500);
+    });
+  }
 
   renderTop() {
     const { reminders, steps, t, showStepReminderBump } = this.props;
 
     if (reminders.length === 0 && steps.length === 0) return null;
-    // if (true) return null;
 
     if (reminders.length > 0) {
       return (
@@ -150,7 +173,7 @@ class StepsScreen extends Component {
   }
 
   renderList() {
-    const { steps, reminders, t, showStepBump } = this.props;
+    const { steps, reminders, t, showStepBump, hasMoreSteps } = this.props;
     if (steps.length === 0) {
       const hasReminders = reminders.length > 0;
       return (
@@ -175,6 +198,7 @@ class StepsScreen extends Component {
         ref={(c) => this.list = c}
         style={[
           styles.list,
+          { paddingBottom: hasMoreSteps ? 40 : undefined },
         ]}
         data={steps}
         extraData={{ hideStars }}
@@ -198,6 +222,8 @@ class StepsScreen extends Component {
         removeClippedSubviews={true}
         bounces={false}
         showsVerticalScrollIndicator={false}
+        initialNumToRender={10}
+        ListFooterComponent={this.state.paging ? <FooterLoading /> : null}
       />
     );
   }
@@ -244,6 +270,7 @@ const mapStateToProps = ({ steps, notifications, swipe }) => ({
   showNotificationReminder: notifications.showReminder,
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,
+  hasMoreSteps: steps.pagination.hasNextPage,
 });
 
 export default connect(mapStateToProps)(StepsScreen);

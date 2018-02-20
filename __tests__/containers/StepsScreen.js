@@ -20,6 +20,9 @@ const mockState = {
     suggestedForMe: [],
     suggestedForOthers: [],
     reminders: [],
+    pagination: {
+      hasNextPage: false,
+    },
   },
   notifications: {
     token: '',
@@ -81,18 +84,53 @@ describe('Background color changes with scrolling', () => {
 
   it('Background is blue when overscrolling up', () => {
     let component = createComponent();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: -1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
     expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
   });
 
   it('Background is white when scrolling back down', () => {
     let component = createComponent();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: -1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: 1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: 1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
     expect(getBackgroundColor(component)).toBe(theme.white);
+  });
+
+  it('runs handle next', () => {
+    store.dispatch = jest.fn(() => Promise.resolve());
+    let component = createComponent();
+    component.instance().handleNextPage();
+
+    expect(component.state('paging')).toBe(false);
+  });
+
+  it('does not runs handle next', () => {
+    store.dispatch = jest.fn(() => Promise.resolve());
+    let component = createComponent();
+    component.setState({ paging: true });
+    component.instance().handleNextPage();
+
+    expect(component.state('paging')).toBe(true);
   });
 
 });

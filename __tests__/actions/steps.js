@@ -1,6 +1,6 @@
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { completeStep, getStepSuggestions } from '../../src/actions/steps';
+import { completeStep, getStepSuggestions, getMyStepsNextPage } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams, mockFnWithParamsMultiple } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -33,6 +33,26 @@ describe('get step suggestions', () => {
   });
 });
 
+describe('get steps page', () => {
+  const stepsPageQuery = {
+    order: '-created_at',
+    page: { limit: 25, offset: 25 },
+    filters: { completed: false },
+  };
+  const apiResult = { type: 'done' };
+
+  it('should filter with page', () => {
+    store = mockStore({
+      steps: { pagination: { page: 1, hasNextPage: true } },
+    });
+    mockFnWithParams(api, 'default', apiResult, REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
+
+    store.dispatch(getMyStepsNextPage());
+
+    expect(store.getActions()[0]).toEqual(apiResult);
+  });
+});
+
 describe('complete challenge', () => {
   const personId = 2123;
   const receiverId = 983547;
@@ -45,6 +65,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
+    order: '-created_at',
     filters: { completed: false },
   };
   const data = {

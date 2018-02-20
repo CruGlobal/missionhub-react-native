@@ -101,6 +101,8 @@ export const INTERACTION_TYPES = {
   MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation' },
 };
 
+export const DEFAULT_PAGE_LIMIT = 25;
+
 export default {
 
 };
