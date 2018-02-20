@@ -1,14 +1,17 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT } from '../constants';
+import {
+  LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT,
+  FILTERED_CHALLENGES,
+} from '../constants';
 import { findAllNonPlaceHolders } from '../utils/common';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
   mine: [],
-  suggestedForMe: [],
-  suggestedForOthers: [],
+  suggestedForMe: {},
+  suggestedForOthers: {},
   reminders: [],
   userStepCount: {},
   pagination: {
@@ -43,14 +46,11 @@ function stepsReducer(state = initialState, action) {
         };
       }
       return state;
-    case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
-      // TODO: Filter this correctly
-      const suggestions = action.results.findAll('challenge_suggestion') || [];
+    case FILTERED_CHALLENGES:
       return {
         ...state,
-        // suggestedForMe: action.results.findAll('pathway_stage'),
-        suggestedForMe: suggestions.filter((s) => s.self_step),
-        suggestedForOthers: suggestions.filter((s) => !s.self_step),
+        suggestedForMe: action.suggestedForMe,
+        suggestedForOthers: action.suggestedForOthers,
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       let mySteps = findAllNonPlaceHolders(action.results, 'accepted_challenge');

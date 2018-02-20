@@ -6,13 +6,15 @@ import styles from './SetupScreen/styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../components/common';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
-import { personFirstNameChanged, personLastNameChanged } from '../actions/person';
-import { createPerson } from '../actions/profile';
+import { personFirstNameChanged, personLastNameChanged, resetPerson } from '../actions/person';
+import { createPerson, updateOnboardingPerson } from '../actions/profile';
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import { disableBack } from '../utils/common';
 
 @translate()
 class SetupPersonScreen extends Component {
+
+  state = { personId: null };
 
   componentDidMount() {
     disableBack.add();
@@ -20,31 +22,48 @@ class SetupPersonScreen extends Component {
 
   componentWillUnmount() {
     disableBack.remove();
-    this.props.dispatch(personFirstNameChanged(''));
-    this.props.dispatch(personLastNameChanged(''));
+    // make sure to remove the person after this page gets unmounted
+    this.props.dispatch(resetPerson());
   }
   
-  saveAndGoToGetStarted() {
-    if (this.props.personFirstName) {
+  navigate = () => {
+    this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'add person',
+    }));
+  }
+
+  saveAndGoToGetStarted = () => {
+    const { dispatch, personFirstName, personLastName } = this.props;
+    if (personFirstName) {
       Keyboard.dismiss();
 
-      this.props.dispatch(createPerson(this.props.personFirstName, this.props.personLastName)).then(() => {
-        disableBack.remove();
-        this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-          section: 'onboarding',
-          subsection: 'add person',
-        }));
-      });
+      if (this.state.personId) {
+        const data = {
+          id: this.state.personId,
+          firstName: personFirstName,
+          lastName: personLastName,
+        };
+        dispatch(updateOnboardingPerson(data)).then(this.navigate);
+      } else {
+        dispatch(createPerson(personFirstName, personLastName)).then((r) => {
+          const person = r.findAll('person')[0];
+          if (person && person.id) {
+            this.setState({ personId: person.id });
+          }
+          this.navigate();
+        });
+      }
     }
   }
 
   render() {
-    const { t } = this.props;
+    const { t, personFirstName, personLastName, dispatch } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
-        <Flex value={2} style={{ alignItems: 'center' }}>
+        <Flex value={2} align="center">
           <Image source={require('../../assets/images/add_someone.png')} />
         </Flex>
 
@@ -53,8 +72,8 @@ class SetupPersonScreen extends Component {
             <Text style={styles.label}>{t('profileLabels.firstNameNickname')}</Text>
             <Input
               ref={(c) => this.personFirstName = c}
-              onChangeText={(t) => this.props.dispatch(personFirstNameChanged(t))}
-              value={this.props.personFirstName}
+              onChangeText={(t) => dispatch(personFirstNameChanged(t))}
+              value={personFirstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
@@ -67,8 +86,8 @@ class SetupPersonScreen extends Component {
           <View style={{ paddingTop: 30 }}>
             <Input
               ref={(c) => this.personLastName = c}
-              onChangeText={(t) => this.props.dispatch(personLastNameChanged(t))}
-              value={this.props.personLastName}
+              onChangeText={(t) => dispatch(personLastNameChanged(t))}
+              value={personLastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastNameOptional')}
               placeholderTextColor="white"
@@ -80,7 +99,7 @@ class SetupPersonScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.saveAndGoToGetStarted()}
+            onPress={this.saveAndGoToGetStarted}
             text={t('next').toUpperCase()}
           />
         </Flex>

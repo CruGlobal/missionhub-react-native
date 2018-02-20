@@ -5,9 +5,27 @@ import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
 import { DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
 
-export const getFirstThreeValidItems = (arr) => {
-  return [].concat([ arr[0], arr[1], arr[2] ]).filter(Boolean);
+export const getFourRandomItems = (arr) => {
+  if (!arr) {
+    return [];
+  }
+
+  const items = [];
+  const numItems = arr.length >= 4 ? 4 : arr.length;
+
+  let x = 0;
+  while (x < numItems) {
+    const item = arr[Math.floor(Math.random() * arr.length)];
+
+    if (!items.includes(item)) {
+      items.push(item);
+      x++;
+    }
+  }
+
+  return items;
 };
+
 export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
