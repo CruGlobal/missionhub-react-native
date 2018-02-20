@@ -17,7 +17,6 @@ import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
-import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 
 const MAX_REMINDERS = 3;
 
@@ -204,17 +203,12 @@ class StepsScreen extends Component {
   }
 
   render() {
-    const { steps, t, dispatch, isJean } = this.props;
+    const { steps, t, dispatch } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
             <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
-          }
-          right={
-            isJean ? (
-              <IconButton name="searchIcon" type="MissionHub" onPress={()=> dispatch(navigatePush(SEARCH_SCREEN))} />
-            ) : null
           }
           title={t('title').toUpperCase()}
         />
@@ -243,8 +237,7 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, steps, notifications, swipe }) => ({
-  isJean: auth.isJean,
+const mapStateToProps = ({ steps, notifications, swipe }) => ({
   steps: steps.mine.filter((s)=> !s.reminder),
   reminders: steps.reminders,
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
