@@ -9,6 +9,7 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
+import { ORG_PERMISSIONS } from '../../constants';
 
 export const PERSON_STEPS = buildTrackingObj('people : person : steps', 'people', 'person', 'steps');
 export const SELF_STEPS = buildTrackingObj('people : self : steps', 'people', 'self', 'steps');
@@ -77,13 +78,15 @@ export default class ContactHeader extends Component {
   }
 
   getTabs() {
-    const { person, type, isMe } = this.props;
+    const { person, type, isMe, organization } = this.props;
+    const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
+    const isMhubUser = personOrgPermissions && ORG_PERMISSIONS.includes(personOrgPermissions.permission_id);
 
     if (isMe) {
       return ME_TABS;
     } else if (type === CASEY) {
       return CASEY_TABS;
-    } else if (person.userId) {
+    } else if (isMhubUser) {
       return JEAN_TABS_MH_USER;
     }
 
@@ -165,4 +168,5 @@ ContactHeader.propTypes = {
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,
   isMe: PropTypes.bool.isRequired,
+  organization: PropTypes.object,
 };

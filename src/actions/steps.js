@@ -137,7 +137,7 @@ function challengeCompleteAction(step) {
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
               const assignment = results2.findAll('contact_assignment')
-                .find((assignment) => `${assignment.assigned_to.id}` === myId);
+                .find((a) => a && a.assigned_to ? `${a.assigned_to.id}` === myId : false);
 
               const stages = getState().stages.stages;
               const pathwayStageId = assignment && assignment.pathway_stage_id;

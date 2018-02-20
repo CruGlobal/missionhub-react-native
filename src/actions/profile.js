@@ -91,7 +91,7 @@ export function fetchVisiblePersonInfo(personId, currentUserId, personIsCurrentU
 
       function getAssignmentWithPathwayStageId(results) {
         const assignment = results.findAll('contact_assignment')
-          .find((assignment) => assignment.assigned_to.id === currentUserId);
+          .find((a) => a && a.assigned_to ? a.assigned_to.id === currentUserId : false);
         return {
           contactAssignmentId: assignment && assignment.id,
           pathwayStageId: assignment && assignment.pathway_stage_id,
@@ -171,4 +171,3 @@ export function deleteContactAssignment(id) {
     return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
   };
 }
-
