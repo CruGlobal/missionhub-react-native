@@ -74,6 +74,20 @@ export function showReminderScreen() {
   };
 }
 
+export function shouldRunSetUpPushNotifications() {
+  return (dispatch) => {
+    if (isAndroid) {
+      return dispatch(setupPushNotifications());
+    }
+    PushNotification.checkPermissions((permission) => {
+      const hasAllowedPermission = permission && permission.alert;
+      if (hasAllowedPermission) {
+        dispatch(setupPushNotifications());
+      }
+    });
+  };
+}
+
 export function setupPushNotifications() {
   return (dispatch, getState) => {
     const { token, shouldAsk, isRegistered } = getState().notifications;
