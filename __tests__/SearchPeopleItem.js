@@ -1,5 +1,7 @@
 import 'react-native';
 import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 // Note: test renderer must be required after react-native.
 import SearchPeopleItem from '../src/components/SearchPeopleItem';
@@ -44,3 +46,21 @@ it('renders unassign correctly', () => {
 function testItemClick() {
   expect(onSelect).toHaveBeenCalledTimes(0);
 }
+
+describe('test handleSelect', () => {
+  let component;
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <SearchPeopleItem person={{ ...mockPerson, last_name: 'Test Last' }} onSelect={onSelect} />,
+    );
+
+    component = screen.instance();
+  });
+
+  it('runs onSelect', () => {
+    component.handleSelect();
+    expect(onSelect).toHaveBeenCalledTimes(1);
+  });
+
+});
