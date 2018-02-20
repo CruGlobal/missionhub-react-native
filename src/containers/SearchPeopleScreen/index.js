@@ -36,8 +36,8 @@ export class SearchPeopleScreen extends Component {
     this.clearSearch = this.clearSearch.bind(this);
   }
 
-  handleSelectPerson(person) {
-    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person }));
+  handleSelectPerson(person, organization) {
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
   }
 
   handleFilter() {
