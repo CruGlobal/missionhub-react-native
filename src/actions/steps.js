@@ -13,8 +13,8 @@ import { trackState } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
-    const query = {};
-    // const query = { filters: { locale: 'en' } };
+    const query = { filters: { locale: i18next.language } };
+
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
   };
 }

@@ -18,8 +18,9 @@ function myStageReducer(state = initialState, action) {
       }
       return state;
     case REQUESTS.UPDATE_MY_USER.SUCCESS:
-      const stageId = action.results.findAll('user')[0].pathway_stage_id;
-      return { ...state, stageId: stageId };
+      return { ...state, stageId: action.results.findAll('user')[0].pathway_stage_id };
+    case REQUESTS.GET_ME.SUCCESS:
+      return { ...state, stageId: action.results.findAll('user')[0].pathway_stage_id };
     case LOGOUT:
       return initialState;
     default:
