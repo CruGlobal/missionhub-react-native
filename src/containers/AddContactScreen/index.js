@@ -12,6 +12,7 @@ import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../co
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { findAllNonPlaceHolders } from '../../utils/common';
+import { trackAction } from '../../actions/analytics';
 
 @translate('addContact')
 class AddContactScreen extends Component {
@@ -65,6 +66,7 @@ class AddContactScreen extends Component {
         subsection: 'person',
       }));
 
+      this.props.dispatch(trackAction('cru.personadded', null));
     }
   }
 
