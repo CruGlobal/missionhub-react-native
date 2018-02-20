@@ -16,6 +16,9 @@ const mockState = {
     suggestedForMe: [],
     suggestedForOthers: [],
     reminders: [],
+    pagination: {
+      hasNextPage: false,
+    },
   },
   notifications: {
     token: '',
