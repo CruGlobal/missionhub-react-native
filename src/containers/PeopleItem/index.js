@@ -7,9 +7,8 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
+import { ORG_PERMISSIONS } from '../../constants';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-
-const HIDE_ORG_PERMISSION_IDS = [ 1, 4 ];
 
 @translate()
 export class PeopleItem extends Component {
@@ -30,7 +29,7 @@ export class PeopleItem extends Component {
 
     const contactAssignment = person.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
     const contactAssignmentId = contactAssignment && contactAssignment.id;
-    
+
     dispatch(navigatePush(PERSON_STAGE_SCREEN, {
       onComplete: () => this.props.dispatch(getMyPeople()),
       currentStage: null,
@@ -68,11 +67,11 @@ export class PeopleItem extends Component {
       status = '';
     } else if (organization && organization.id) {
       const personOrgPermissions = orgPermissions.find((o) => o.organization_id === organization.id);
-      if (personOrgPermissions && personOrgPermissions.followup_status) {
-        if (HIDE_ORG_PERMISSION_IDS.includes(personOrgPermissions.permission_id)) {
+      if (personOrgPermissions) {
+        if (ORG_PERMISSIONS.includes(personOrgPermissions.permission_id)) {
           status = '';
         } else {
-          status = personOrgPermissions.followup_status;
+          status = personOrgPermissions.followup_status || '';
         }
       }
     }
