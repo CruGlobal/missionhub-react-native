@@ -78,6 +78,9 @@ export const NOT_LOGGED_IN = 'not logged in';
 export const ACTIONS = {
   PERSON_ADDED: 'cru.personadded',
   STATUS_CHANGED: 'cru.contactstatuschanged',
+  EMAIL_ENGAGED: 'cru.emailiconengaged',
+  CALL_ENGAGED: 'cru.calliconengaged',
+  TEXT_ENGAGED: 'cru.texticonengaged',
 };
 
 export const INTERACTION_TYPES = {

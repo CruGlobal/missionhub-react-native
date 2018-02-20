@@ -7,8 +7,10 @@ import { Flex, Text, IconButton } from '../common';
 import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
-import { CASEY, JEAN } from '../../constants';
+import { ACTIONS, CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
+import { trackAction } from '../../actions/analytics';
+import { connect } from 'react-redux';
 
 export const PERSON_STEPS = buildTrackingObj('people : person : steps', 'people', 'person', 'steps');
 export const SELF_STEPS = buildTrackingObj('people : self : steps', 'people', 'self', 'steps');
@@ -70,7 +72,7 @@ const JEAN_TABS_MH_USER = [
   },
 ];
 
-export default class ContactHeader extends Component {
+class ContactHeader extends Component {
 
   constructor(props) {
     super(props);
@@ -90,16 +92,19 @@ export default class ContactHeader extends Component {
     return JEAN_TABS;
   }
 
-  openUrl(url) {
+  openUrl(url, action) {
     Linking.canOpenURL(url).then((supported) => {
       if (!supported) {
         WARN('Can\'t handle url: ', url);
       } else {
         Linking.openURL(url)
+          .then(() => {
+            this.props.dispatch(trackAction(action, {}));
+          })
           .catch((err) => {
             if (url.includes('telprompt')) {
-            // telprompt was cancelled and Linking openURL method sees this as an error
-            // it is not a true error so ignore it to prevent apps crashing
+              // telprompt was cancelled and Linking openURL method sees this as an error
+              // it is not a true error so ignore it to prevent apps crashing
             } else {
               WARN('openURL error', err);
             }
@@ -126,13 +131,21 @@ export default class ContactHeader extends Component {
     return (
       <Flex align="center" justify="center" direction="row">
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!numberExists} style={numberExists ? styles.contactButton : styles.contactButtonDisabled} name="textIcon" type="MissionHub" onPress={()=> this.openUrl(smsNumberUrl)} />
+          <IconButton disabled={!numberExists}
+            style={numberExists ? styles.contactButton : styles.contactButtonDisabled}
+            name="textIcon" type="MissionHub"
+            onPress={()=> this.openUrl(smsNumberUrl, ACTIONS.TEXT_ENGAGED)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!numberExists} style={numberExists ? styles.contactButton : styles.contactButtonDisabled} name="callIcon" type="MissionHub" onPress={() => this.openUrl(phoneNumberUrl)} />
+          <IconButton disabled={!numberExists}
+            style={numberExists ? styles.contactButton : styles.contactButtonDisabled}
+            name="callIcon" type="MissionHub"
+            onPress={() => this.openUrl(phoneNumberUrl, ACTIONS.CALL_ENGAGED)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!emailExists} style={[ emailExists ? styles.contactButton : styles.contactButtonDisabled, styles.emailButton ]} name="emailIcon" type="MissionHub" onPress={() => this.openUrl(emailUrl)} />
+          <IconButton disabled={!emailExists} style={[ emailExists ? styles.contactButton : styles.contactButtonDisabled, styles.emailButton ]}
+            name="emailIcon" type="MissionHub"
+            onPress={() => this.openUrl(emailUrl, ACTIONS.EMAIL_ENGAGED)} />
         </Flex>
       </Flex>
     );
@@ -167,3 +180,5 @@ ContactHeader.propTypes = {
   onChangeStage: PropTypes.func.isRequired,
   isMe: PropTypes.bool.isRequired,
 };
+
+export default connect()(ContactHeader);
