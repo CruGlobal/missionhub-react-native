@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { Platform } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
@@ -71,6 +71,13 @@ export const formatApiDate = (date) => moment(date).utc().format();
 
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 export const intToStringLocale = (num) => parseInt(num).toLocaleString();
+
+// Disable the android back button
+const disableBackPress = () => true;
+export const disableBack = {
+  add: () => BackHandler.addEventListener('hardwareBackPress', disableBackPress),
+  remove: () => BackHandler.removeEventListener('hardwareBackPress', disableBackPress),
+};
 
 export const merge = lodash.merge;
 export const capitalize = lodash.capitalize;
