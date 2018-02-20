@@ -89,6 +89,7 @@ export const ACTIONS = {
   SEARCH_FILTER: 'cru.searchfilter',
   USER_ERROR: 'cru.usersigninerror',
   SYSTEM_ERROR: 'cru.systemsigninerror',
+  ONBOARDING_STARTED: 'cru.onboardingstarted',
 };
 
 export const INTERACTION_TYPES = {
