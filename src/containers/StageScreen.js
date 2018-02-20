@@ -51,6 +51,7 @@ class StageScreen extends Component {
         firstItem={firstItem}
         subsection={subsection}
         enableBackButton={enableBackButton}
+        isSelf
       />
     );
   }

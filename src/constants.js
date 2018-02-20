@@ -90,6 +90,9 @@ export const ACTIONS = {
   USER_ERROR: 'cru.usersigninerror',
   SYSTEM_ERROR: 'cru.systemsigninerror',
   ONBOARDING_STARTED: 'cru.onboardingstarted',
+  SELF_STAGE_SELECTED: 'cru.selfselectedstage',
+  PERSON_STAGE_SELECTED: 'cru.personselectedstage',
+  STAGE_SELECTED: 'cru.stageselected',
 };
 
 export const INTERACTION_TYPES = {

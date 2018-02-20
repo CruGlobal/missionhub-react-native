@@ -16,8 +16,9 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import PropTypes from 'prop-types';
 
 import theme from '../../theme';
-import { trackState } from '../../actions/analytics';
+import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
+import { ACTIONS } from '../../constants';
 
 const sliderWidth = theme.fullWidth;
 const stageWidth = theme.fullWidth - 120;
@@ -62,11 +63,14 @@ class PathwayStageScreen extends Component {
     }
   }
 
-  setStage(stage, isAlreadySelected) {
+  setStage(stage, isAlreadySelected, index) {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
     this.props.onSelect(stage, isAlreadySelected);
+
+    const action = this.props.isSelf ? ACTIONS.SELF_STAGE_SELECTED : ACTIONS.PERSON_STAGE_SELECTED;
+    this.props.dispatch(trackAction(action, { [ACTIONS.STAGE_SELECTED]: index + 1 }));
   }
 
   handleScroll(e) {
@@ -97,7 +101,7 @@ class PathwayStageScreen extends Component {
         </View>
         <Button
           type="primary"
-          onPress={() => this.setStage(item, isActive)}
+          onPress={() => this.setStage(item, isActive, index)}
           text={isActive && activeButtonText ? activeButtonText : buttonText}
         />
       </View>
@@ -160,6 +164,7 @@ PathwayStageScreen.propTypes = {
   activeButtonText: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
+  isSelf: PropTypes.bool,
 };
 
 const mapStateToProps = ({ stages }) => ({
