@@ -37,7 +37,7 @@ export function getStepsByFilter(filters = {}) {
   };
 }
 
-export function addSteps(steps, receiverId) {
+export function addSteps(steps, receiverId, organization) {
   return (dispatch) => {
     const query = {
       person_id: receiverId,
@@ -46,6 +46,7 @@ export function addSteps(steps, receiverId) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
+        organization_id: organization && organization.id,
       },
     }));
 

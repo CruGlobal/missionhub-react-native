@@ -1,4 +1,4 @@
-import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, SAVE_NOTES } from '../constants';
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, SAVE_NOTES, RESET_ONBOARDING_PERSON } from '../constants';
 
 export function personFirstNameChanged(firstName) {
   return {
@@ -16,4 +16,8 @@ export function personLastNameChanged(lastName) {
 
 export function saveNotes(personId, notes) {
   return { type: SAVE_NOTES, personId, notes };
+}
+
+export function resetPerson() {
+  return { type: RESET_ONBOARDING_PERSON };
 }

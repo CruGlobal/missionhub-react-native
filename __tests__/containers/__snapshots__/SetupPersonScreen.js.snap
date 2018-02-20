@@ -31,10 +31,9 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Object {},
         Object {
           "alignItems": "center",
-        },
-        Object {
           "flex": 2,
         },
       ]
