@@ -78,6 +78,17 @@ export const ANALYTICS = {
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 
+export const ACTIONS = {
+  PERSON_ADDED: 'cru.personadded',
+  STATUS_CHANGED: 'cru.contactstatuschanged',
+  EMAIL_ENGAGED: 'cru.emailiconengaged',
+  CALL_ENGAGED: 'cru.calliconengaged',
+  TEXT_ENGAGED: 'cru.texticonengaged',
+  SEARCH_CLICKED: 'cru.searchbuttonclicked',
+  FILTER_ENGAGED: 'cru.searchfilterengaged',
+  SEARCH_FILTER: 'cru.searchfilter',
+};
+
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },

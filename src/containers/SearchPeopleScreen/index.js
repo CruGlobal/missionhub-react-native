@@ -14,6 +14,8 @@ import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -45,6 +47,8 @@ export class SearchPeopleScreen extends Component {
       onFilter: this.handleChangeFilter,
       filters: this.state.filters,
     }));
+
+    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
   }
 
   handleChangeFilter(filters) {
