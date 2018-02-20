@@ -1,11 +1,12 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
-import { navigateReset } from './navigation';
+import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './people';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 
 export function facebookLoginAction(accessToken, id) {
   return (dispatch) => {
@@ -56,11 +57,24 @@ export function logout() {
   };
 }
 
+export function upgradeAccount() {
+  return (dispatch) => {
+    dispatch({ type: LOGOUT });
+    dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
+  };
+}
+
 export function firstTime() {
   return (dispatch) => {
     dispatch({ type: FIRST_TIME });
   };
 }
+
+// export function mergeAccount() {
+//   return (dispatch) => {
+//     return dispatch(callApi(REQUESTS.PROMOTE_ACCOUNT, {}, data))
+//   };
+// }
 
 export function updateTimezone() {
   return (dispatch, getState) => {

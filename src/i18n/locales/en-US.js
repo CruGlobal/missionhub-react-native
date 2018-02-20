@@ -79,6 +79,7 @@ export default {
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
+    signUp: 'Upgrade Account',
   },
   login: {
     tagline1: 'Grow closer to God.',
