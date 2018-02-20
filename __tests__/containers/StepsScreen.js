@@ -116,5 +116,22 @@ describe('Background color changes with scrolling', () => {
     expect(getBackgroundColor(component)).toBe(theme.white);
   });
 
+  it('runs handle next', () => {
+    store.dispatch = jest.fn(() => Promise.resolve());
+    let component = createComponent();
+    component.instance().handleNextPage();
+
+    expect(component.state('paging')).toBe(false);
+  });
+
+  it('does not runs handle next', () => {
+    store.dispatch = jest.fn(() => Promise.resolve());
+    let component = createComponent();
+    component.setState({ paging: true });
+    component.instance().handleNextPage();
+
+    expect(component.state('paging')).toBe(true);
+  });
+
 });
 
