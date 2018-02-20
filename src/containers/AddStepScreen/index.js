@@ -11,7 +11,7 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../c
 import theme from '../../theme';
 import { STEP_NOTE } from '../../constants';
 import { disableBack } from '../../utils/common';
-import { BackButton } from '../BackButton';
+import BackButton from '../BackButton';
 
 @translate('addStep')
 class AddStepScreen extends Component {
