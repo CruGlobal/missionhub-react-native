@@ -13,6 +13,7 @@ import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { findAllNonPlaceHolders } from '../../utils/common';
 import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('addContact')
 class AddContactScreen extends Component {
@@ -66,7 +67,7 @@ class AddContactScreen extends Component {
         subsection: 'person',
       }));
 
-      this.props.dispatch(trackAction('cru.personadded', null));
+      this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED, null));
     }
   }
 

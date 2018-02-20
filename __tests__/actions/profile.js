@@ -10,11 +10,15 @@ import {
   updateFollowupStatus,
   deleteContactAssignment,
 } from '../../src/actions/profile';
-import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO } from '../../src/constants';
+import {
+  ACTIONS, FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO,
+  UPDATE_VISIBLE_PERSON_INFO,
+} from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import callApi from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import * as analytics from '../../src/actions/analytics';
 jest.mock('../../src/actions/api');
 
 const mockStore = configureStore([ thunk ]);
@@ -337,6 +341,14 @@ describe('updateFollowupStatus', () => {
         } ],
       });
     expect(dispatch).toHaveBeenCalled();
+  });
+
+  it('should track action', async() => {
+    analytics.trackAction = jest.fn();
+
+    await updateFollowupStatus(1, 2, 'uncontacted')(dispatch);
+
+    expect(analytics.trackAction).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED, {});
   });
 });
 
