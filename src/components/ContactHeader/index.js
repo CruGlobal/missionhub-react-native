@@ -99,7 +99,7 @@ class ContactHeader extends Component {
       } else {
         Linking.openURL(url)
           .then(() => {
-            this.props.dispatch(trackAction(action, {}));
+            this.props.dispatch(trackAction(action));
           })
           .catch((err) => {
             if (url.includes('telprompt')) {

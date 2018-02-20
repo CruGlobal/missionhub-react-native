@@ -177,7 +177,7 @@ export function updateFollowupStatus(personId, orgPermissionId, status) {
     };
 
     const result = await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId }, data));
-    dispatch(trackAction(ACTIONS.STATUS_CHANGED, {}));
+    dispatch(trackAction(ACTIONS.STATUS_CHANGED));
     return result;
   };
 }

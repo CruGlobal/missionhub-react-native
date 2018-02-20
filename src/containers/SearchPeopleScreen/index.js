@@ -48,7 +48,7 @@ export class SearchPeopleScreen extends Component {
       filters: this.state.filters,
     }));
 
-    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED, {}));
+    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
   }
 
   handleChangeFilter(filters) {

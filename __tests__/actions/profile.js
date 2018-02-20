@@ -348,7 +348,7 @@ describe('updateFollowupStatus', () => {
 
     await updateFollowupStatus(1, 2, 'uncontacted')(dispatch);
 
-    expect(analytics.trackAction).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED, {});
+    expect(analytics.trackAction).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED);
   });
 });
 

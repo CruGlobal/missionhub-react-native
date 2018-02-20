@@ -10,12 +10,13 @@ export function updateAnalyticsContext(analyticsContext) {
 
 export function trackSearchFilter(label) {
   return (dispatch) => {
-    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, {}));
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
     dispatch(trackAction(ACTIONS.SEARCH_FILTER, { label: label }));
   };
 }
 
-export function trackAction(action, data) {
+export function trackAction(action, data = {}) {
+  console.log(data);
   return () => RNOmniture.trackAction(action, data);
 }
 

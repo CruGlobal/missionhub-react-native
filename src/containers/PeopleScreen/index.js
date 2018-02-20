@@ -55,7 +55,7 @@ export class PeopleScreen extends Component {
 
   handleSearch() {
     this.props.dispatch(navigatePush(SEARCH_SCREEN));
-    this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED, {}));
+    this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED));
   }
 
   handleRowSelect(person, organization) {
