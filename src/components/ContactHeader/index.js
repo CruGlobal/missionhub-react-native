@@ -169,5 +169,4 @@ ContactHeader.propTypes = {
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,
   isMe: PropTypes.bool.isRequired,
-  organization: PropTypes.object,
 };
