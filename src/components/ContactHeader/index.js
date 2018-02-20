@@ -113,17 +113,17 @@ export default class ContactHeader extends Component {
 
   getJeanButtons() {
     const { person } = this.props;
-    const numberExists = person.phone_numbers && person.phone_numbers[0];
-    const emailExists = person.email_addresses && person.email_addresses[0];
+    const emailExists = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null;
+    const numberExists = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || null;
     let phoneNumberUrl;
     let smsNumberUrl;
     let emailUrl;
     if (numberExists) {
-      phoneNumberUrl = `tel:${person.phone_numbers[0]}`;
-      smsNumberUrl =`sms:${person.phone_numbers[0]}`;
+      phoneNumberUrl = `tel:${numberExists.number}`;
+      smsNumberUrl =`sms:${numberExists.number}`;
     }
     if (emailExists) {
-      emailUrl = `mailto:${person.email_addresses[0]}`;
+      emailUrl = `mailto:${emailExists.email}`;
     }
 
     return (
