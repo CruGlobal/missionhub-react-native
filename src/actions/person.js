@@ -16,10 +16,11 @@ export function personLastNameChanged(lastName) {
   };
 }
 
-export function saveNotes(personId, notes, firstSave) {
+export function savePersonNotes(personId, notes, noteId) {
   return (dispatch, getState) => {
     const myId = getState().auth.personId;
     if (!personId || !notes) {
+      console.log('invalid');
       return Promise.reject('InvalidData', personId, notes);
     }
 
@@ -46,17 +47,19 @@ export function saveNotes(personId, notes, firstSave) {
       },
     };
 
-    const query = {};
-
-    if (firstSave) return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, query, bodyData));
-    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, query, bodyData));
+    console.log('ready to send');
+    if (!noteId) return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
+    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, { myId }, bodyData));
   };
 }
 
-export function getNotes(id) {
-  return async(dispatch) => {
-    const results = await dispatch(getPersonWithNotes(id));
-    return results.find('person', id).person_notes;
+export function getPersonNotes(personId) {
+  return async(dispatch, getState) => {
+    const myId = getState().auth.personId;
+    const results = await dispatch(getPersonWithNotes(personId));
+    const note = results.find('person', personId).person_notes.find('person_note', myId);
+    return { note };
+    //should return note text and note id
   };
 }
 

@@ -179,11 +179,11 @@ export default {
     endpoint: `${API_URL}search`,
   },
   'ADD_PERSON_NOTES': {
-    endpoint: `${API_URL}person_notes`,
+    endpoint: `${API_URL}person_notes/`,
     method: 'post',
   },
   'UPDATE_PERSON_NOTES': {
-    endpoint: `${API_URL}person_notes/7`,
+    endpoint: `${API_URL}person_notes/:myId`,
     method: 'put',
   },
   'GET_PERSON_NOTES': {

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
-import { saveNotes, getNotes } from '../../actions/person';
+import { savePersonNotes, getPersonNotes } from '../../actions/person';
 import { translate } from 'react-i18next';
 import NOTES from '../../../assets/images/myNotes.png';
 
@@ -19,7 +19,7 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
-      firstSave: true,
+      noteId: undefined,
     };
 
     this.saveNotes = this.saveNotes.bind(this);
@@ -28,9 +28,8 @@ export class ContactNotes extends Component {
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
-  async componentDidMount() {
-    const personNotes = await this.props.dispatch(getNotes(this.props.person.id));
-    if (personNotes.length > 0) this.setState({ text: personNotes[0] });
+  async componentWillMount() {
+    this.getNotes();
   }
 
   componentWillReceiveProps(props) {
@@ -43,11 +42,22 @@ export class ContactNotes extends Component {
     this.setState({ text });
   }
 
+  getNotes() {
+    return this.props.dispatch(getPersonNotes(this.props.person.id)).then((results) => {
+      console.log(results);
+      this.setState({
+        text: results ? results.note : undefined,
+        noteId: results ? results.id : undefined,
+      });
+      return results;
+    });
+  }
+
   saveNotes() {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(saveNotes(this.props.person.id, this.state.text, this.state.firstSave));
+      this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.state.noteId));
     }
 
     this.setState({ editing: false });
@@ -57,7 +67,7 @@ export class ContactNotes extends Component {
     if (this.state.editing) {
       this.saveNotes();
     } else {
-      this.setState({ editing: true, firstSave: !this.state.text });
+      this.setState({ editing: true });
       this.notesInput.focus();
     }
   }
