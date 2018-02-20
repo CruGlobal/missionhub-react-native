@@ -20,7 +20,7 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
-const mockPerson = { first_name: 'ben', id: 1 };
+const mockPerson = { first_name: 'ben', id: 1, email_addresses: [], phone_numbers: [] };
 
 jest.mock('NativeAnimatedHelper');
 
