@@ -149,6 +149,16 @@ export function registerPushDevice(token) {
   };
 }
 
+export function deletePushToken(deviceId) {
+  return (dispatch) => {
+    const query ={
+      deviceId,
+    };
+
+    return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
+  };
+}
+
 export function handleNotifications(state, notification) {
   return () => {
     console.warn('Notification state', state, notification);
