@@ -84,7 +84,7 @@ export default class ContactHeader extends Component {
 
     if (isMe) {
       return ME_TABS;
-    } else if (type === CASEY) {
+    } else if (type === CASEY || !organization || (organization && organization.id === 'personal')) {
       return CASEY_TABS;
     } else if (isMhubUser) {
       return JEAN_TABS_MH_USER;
