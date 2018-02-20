@@ -9,7 +9,7 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
-import { trackState } from './analytics';
+import { trackState, trackStepsAdded } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -54,8 +54,10 @@ export function addSteps(steps, receiverId, organization) {
       included: newSteps,
       include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r)=>{
+    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r) => {
       dispatch(getMySteps());
+      dispatch(trackStepsAdded(steps));
+
       return r;
     });
   };

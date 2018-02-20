@@ -10,7 +10,7 @@ import StepsList from '../../components/StepsList';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
-import { trackAction, trackState } from '../../actions/analytics';
+import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 
@@ -88,17 +88,6 @@ class SelectStepScreen extends Component {
 
   saveAllSteps() {
     const selectedSteps = this.state.steps.filter((s) => s.selected);
-
-    selectedSteps.forEach((step) => this.props.dispatch(trackAction('cru.stepoffaithdetail',
-      {
-        'Step ID': step.id,
-        'Stage': step.pathway_stage ? step.pathway_stage.id : undefined,
-        'Challenge Type': step.challenge_type,
-        'Self Step': step.self_step ? 'Y' : 'N',
-        'Locale': step.locale,
-      })));
-
-    this.props.dispatch(trackAction('cru.stepoffaithadded', { 'steps': selectedSteps.length }));
 
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());

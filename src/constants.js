@@ -93,6 +93,8 @@ export const ACTIONS = {
   SELF_STAGE_SELECTED: 'cru.selfselectedstage',
   PERSON_STAGE_SELECTED: 'cru.personselectedstage',
   STAGE_SELECTED: 'cru.stageselected',
+  STEP_DETAIL: 'cru.stepoffaithdetail',
+  STEPS_ADDED: 'cru.stepoffaithadded',
 };
 
 export const INTERACTION_TYPES = {

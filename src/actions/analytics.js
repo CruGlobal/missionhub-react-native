@@ -8,6 +8,21 @@ export function updateAnalyticsContext(analyticsContext) {
   };
 }
 
+export function trackStepsAdded(steps) {
+  return (dispatch) => {
+    steps.forEach((step) => dispatch(trackAction(ACTIONS.STEP_DETAIL,
+      {
+        'Step ID': step.id,
+        'Stage': step.pathway_stage ? step.pathway_stage.id : undefined,
+        'Challenge Type': step.challenge_type,
+        'Self Step': step.self_step ? 'Y' : 'N',
+        'Locale': step.locale,
+      })));
+
+    dispatch(trackAction(ACTIONS.STEPS_ADDED, { 'steps': steps.length }));
+  };
+}
+
 export function trackSearchFilter(label) {
   return (dispatch) => {
     dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
