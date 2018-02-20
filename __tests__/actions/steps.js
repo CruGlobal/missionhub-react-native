@@ -45,8 +45,8 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
-    filters: { completed: false },
     sort: '-created',
+    filters: { completed: false },
   };
   const data = {
     data: {

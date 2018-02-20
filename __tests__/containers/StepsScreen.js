@@ -97,9 +97,21 @@ describe('Background color changes with scrolling', () => {
 
   it('Background is white when scrolling back down', () => {
     let component = createComponent();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: -1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: -1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
-    component.instance().handleScroll({ nativeEvent: { contentOffset: { y: 1 } } });
+    component.instance().handleScroll({
+      nativeEvent: {
+        contentOffset: { y: 1 },
+        layoutMeasurement: { height: 200 },
+        contentSize: { height: 400 },
+      },
+    });
     component.update();
     expect(getBackgroundColor(component)).toBe(theme.white);
   });
