@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import SearchPeopleItem from '../src/components/SearchPeopleItem';
-import { testSnapshot } from '../testUtils';
+import { testSnapshot, testSnapshotShallow } from '../testUtils';
 
 const mockPerson = {
   id: '123',
@@ -31,3 +31,16 @@ it('renders no org correctly', () => {
     <SearchPeopleItem person={{ ...mockPerson, organizational_permissions: [] }} onSelect={onSelect} />
   );
 });
+
+it('renders unassign correctly', () => {
+  const component = testSnapshotShallow(
+    <SearchPeopleItem person={{ ...mockPerson, last_name: 'Test Last' }} onSelect={onSelect} />,
+  );
+
+  testItemClick(component);
+});
+
+
+function testItemClick() {
+  expect(onSelect).toHaveBeenCalledTimes(0);
+}
