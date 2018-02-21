@@ -1,11 +1,12 @@
 import { addNewComment, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
+import * as analytics from '../../src/actions/analytics';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
-import { INTERACTION_TYPES } from '../../src/constants';
+import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 
 let store;
 
@@ -21,7 +22,14 @@ const orgId = 2;
 const interactionId = 3;
 
 describe('add comment', () => {
-  const action = { type: 'added comment' };
+  const addCommentResult = { type: 'added comment' };
+  const action = (dispatch) => {
+    dispatch(addCommentResult);
+    return Promise.resolve();
+  };
+
+  const trackActionResult = { type: 'tracked action' };
+
   const expectedQuery = {};
   const expectedBody = {
     data: {
@@ -50,17 +58,26 @@ describe('add comment', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => {
+    mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.COMMENT_ADDED);
+  });
 
-  it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment));
+  it('should add a new comment', async() => {
+    await store.dispatch(addNewComment(personId, comment));
 
-    expect(store.getActions()[0]).toBe(action);
+    expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
   });
 });
 
 describe('add comment with org', () => {
-  const action = { type: 'added comment' };
+  const addCommentResult = { type: 'added comment' };
+  const action = (dispatch) => {
+    dispatch(addCommentResult);
+    return Promise.resolve();
+  };
+  const trackActionResult = { type: 'tracked action' };
+
   const expectedQuery = {};
   const expectedBody = {
     data: {
@@ -95,12 +112,15 @@ describe('add comment with org', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => {
+    mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.COMMENT_ADDED);
+  });
 
-  it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment, orgId));
+  it('should add a new comment', async() => {
+    await store.dispatch(addNewComment(personId, comment, orgId));
 
-    expect(store.getActions()[0]).toBe(action);
+    expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
   });
 });
 

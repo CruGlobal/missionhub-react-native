@@ -103,6 +103,7 @@ export const ACTIONS = {
   STEP_DEPRIORITIZED: 'cru.stepdeprioritized',
   STEP_REMOVED: 'cru.stepremoved',
   STEP_COMPLETED: 'cru.stepcompleted',
+  COMMENT_ADDED: 'cru.commentadded',
 };
 
 export const INTERACTION_TYPES = {

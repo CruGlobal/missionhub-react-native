@@ -149,7 +149,7 @@ function challengeCompleteAction(step) {
                 },
               },
             };
-            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
+            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
