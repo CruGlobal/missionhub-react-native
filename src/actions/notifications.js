@@ -138,6 +138,11 @@ export function setupPushNotifications() {
       dispatch({ type: PUSH_NOTIFICATION_ASKED });
     }
 
+    if (isAndroid) {
+      PushNotification.requestPermissions();
+      return Promise.resolve();
+    }
+
     return PushNotification.requestPermissions().then((p) => {
       LOG('permission resolved to', p);
       return p;
