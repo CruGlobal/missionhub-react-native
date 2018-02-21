@@ -17,9 +17,8 @@ export function personLastNameChanged(lastName) {
 
 export function savePersonNotes(personId, notes, noteId) {
   return (dispatch, getState) => {
-    const myId = getState().auth.personId;
+    const myId = getState().auth.user.user.id;
     if (!personId || !notes) {
-      console.log('invalid');
       return Promise.reject('InvalidData', personId, notes);
     }
 
@@ -29,29 +28,26 @@ export function savePersonNotes(personId, notes, noteId) {
         attributes: {
           content: notes,
         },
-      },
-      relationships: {
-        person: {
-          data: {
-            type: 'person',
-            id: personId,
+        relationships: {
+          person: {
+            data: {
+              type: 'person',
+              id: personId,
+            },
           },
-        },
-      },
-      user: {
-        data: {
-          type: 'user',
-          id: myId,
+          user: {
+            data: {
+              type: 'user',
+              id: myId,
+            },
+          },
         },
       },
     };
 
-    console.log('ready to send, ', bodyData);
     if (!noteId) {
-      console.log('add person note');
       return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
     }
-    console.log('update person note');
     return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, { noteId }, bodyData));
   };
 }
@@ -59,7 +55,6 @@ export function savePersonNotes(personId, notes, noteId) {
 export function getPersonNotes(personId, noteId) {
   return async(dispatch) => {
     const results = await dispatch(getPersonWithNotes(personId));
-    console.log(results);
     return results.find('person_note', noteId);
   };
 }

@@ -45,7 +45,6 @@ export class ContactNotes extends Component {
     const { noteId, person } = this.props;
     if (noteId) {
       return this.props.dispatch(getPersonNotes(person.id, noteId)).then((results) => {
-        console.log(results);
         this.setState({ text: results ? results.content : undefined });
       });
     }
