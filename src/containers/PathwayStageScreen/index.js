@@ -47,7 +47,7 @@ class PathwayStageScreen extends Component {
 
   componentWillMount() {
     this.props.dispatch(getStages());
-    this.trackStageState(1);
+    this.trackStageState(1); //todo this should be updated to get the id of the first stage
     Keyboard.dismiss();
   }
 
@@ -63,14 +63,14 @@ class PathwayStageScreen extends Component {
     }
   }
 
-  setStage(stage, isAlreadySelected, index) {
+  setStage(stage, isAlreadySelected) {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
     this.props.onSelect(stage, isAlreadySelected);
 
     const action = this.props.isSelf ? ACTIONS.SELF_STAGE_SELECTED : ACTIONS.PERSON_STAGE_SELECTED;
-    this.props.dispatch(trackAction(action, { [ACTIONS.STAGE_SELECTED]: index + 1 }));
+    this.props.dispatch(trackAction(action, { [ACTIONS.STAGE_SELECTED]: stage.id }));
   }
 
   handleScroll(e) {
@@ -78,7 +78,7 @@ class PathwayStageScreen extends Component {
   }
 
   handleSnapToItem(index) {
-    this.trackStageState(index + 1);
+    this.trackStageState(this.props.stages[index].id);
   }
 
   trackStageState(number) {
