@@ -106,6 +106,13 @@ export const ACTIONS = {
   STEP_COMPLETED: 'cru.stepcompleted',
   COMMENT_ADDED: 'cru.commentadded',
   JOURNEY_EDITED: 'cru.journeyedit',
+  STEP_FIELDS: {
+    ID: 'Step ID',
+    STAGE: 'Stage',
+    TYPE: 'Challenge Type',
+    SELF: 'Self Step',
+    LOCALE: 'Locale',
+  },
 };
 
 export const CUSTOM_STEP_TYPE = 'user created step';

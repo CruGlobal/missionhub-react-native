@@ -12,11 +12,11 @@ export function trackStepsAdded(steps) {
   return (dispatch) => {
     steps.forEach((step) => {
       dispatch(trackAction(ACTIONS.STEP_DETAIL, {
-        'Step ID': step.id,
-        'Stage': step.pathway_stage ? step.pathway_stage.id : undefined,
-        'Challenge Type': step.challenge_type,
-        'Self Step': step.self_step ? 'Y' : 'N',
-        'Locale': step.locale,
+        [ACTIONS.STEP_FIELDS.ID]: step.challenge_type === CUSTOM_STEP_TYPE ? undefined : step.id,
+        [ACTIONS.STEP_FIELDS.STAGE]: step.challenge_type === CUSTOM_STEP_TYPE ? undefined : step.pathway_stage.id,
+        [ACTIONS.STEP_FIELDS.TYPE]: step.challenge_type,
+        [ACTIONS.STEP_FIELDS.SELF]: step.self_step ? 'Y' : 'N',
+        [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
       }));
 
       if (step.challenge_type === CUSTOM_STEP_TYPE) {
