@@ -16,6 +16,7 @@ import { NOTIFICATION_OFF_SCREEN } from '../../src/containers/NotificationOffScr
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
 import * as navigation from '../../src/actions/navigation';
 import * as notifications from '../../src/actions/notifications';
+import * as common from '../../src/utils/common';
 
 let store;
 const token = '123';
@@ -122,9 +123,19 @@ describe('set push token', () => {
 
     expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(4);
   });
+  it('should call request permissions for android', () => {
+    common.isAndroid = true;
+    PushNotification.configure = jest.fn();
+    store.dispatch(setupPushNotifications());
+
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(5);
+  });
 });
 
 describe('actions called', () => {
+  beforeEach(() => {
+    common.isAndroid = false;    
+  });
   it('should call disableAskPushNotification', () => {
     store.dispatch(disableAskPushNotification());
 
