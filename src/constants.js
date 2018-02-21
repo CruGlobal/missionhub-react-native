@@ -99,6 +99,10 @@ export const ACTIONS = {
   ALLOW: 'cru.notificationsallowed',
   NOT_NOW: 'cru.notificationsnotallowed',
   NO_REMINDERS: 'cru.notoreminders',
+  STEP_PRIORITIZED: 'cru.stepprioritized',
+  STEP_DEPRIORITIZED: 'cru.stepdeprioritized',
+  STEP_REMOVED: 'cru.stepremoved',
+  STEP_COMPLETED: 'cru.stepcompleted',
 };
 
 export const INTERACTION_TYPES = {
