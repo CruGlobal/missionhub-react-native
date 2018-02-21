@@ -125,6 +125,7 @@ describe('trackStepsAdded', () => {
       [ACTIONS.STEP_FIELDS.SELF]: 'N',
       [ACTIONS.STEP_FIELDS.LOCALE]: step1.locale,
     });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED, {});
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
       [ACTIONS.STEP_FIELDS.ID]: undefined,
       [ACTIONS.STEP_FIELDS.STAGE]: undefined,
@@ -132,7 +133,6 @@ describe('trackStepsAdded', () => {
       [ACTIONS.STEP_FIELDS.SELF]: 'Y',
       [ACTIONS.STEP_FIELDS.LOCALE]: step2.locale,
     });
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED, {});
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED, { 'steps': steps.length });
   });
 });

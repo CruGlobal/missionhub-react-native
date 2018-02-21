@@ -11,17 +11,21 @@ export function updateAnalyticsContext(analyticsContext) {
 export function trackStepsAdded(steps) {
   return (dispatch) => {
     steps.forEach((step) => {
-      dispatch(trackAction(ACTIONS.STEP_DETAIL, {
-        [ACTIONS.STEP_FIELDS.ID]: step.challenge_type === CUSTOM_STEP_TYPE ? undefined : step.id,
-        [ACTIONS.STEP_FIELDS.STAGE]: step.challenge_type === CUSTOM_STEP_TYPE ? undefined : step.pathway_stage.id,
+      const trackedStep = {
         [ACTIONS.STEP_FIELDS.TYPE]: step.challenge_type,
         [ACTIONS.STEP_FIELDS.SELF]: step.self_step ? 'Y' : 'N',
         [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
-      }));
+      };
 
       if (step.challenge_type === CUSTOM_STEP_TYPE) {
         dispatch(trackAction(ACTIONS.STEP_CREATED));
+
+      } else {
+        trackedStep[ACTIONS.STEP_FIELDS.ID] = step.id;
+        trackedStep[ACTIONS.STEP_FIELDS.STAGE] = step.pathway_stage.id;
       }
+
+      dispatch(trackAction(ACTIONS.STEP_DETAIL, trackedStep));
     });
 
     dispatch(trackAction(ACTIONS.STEPS_ADDED, { 'steps': steps.length }));
