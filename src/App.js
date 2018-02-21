@@ -3,6 +3,7 @@ import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
+import DefaultPreference from 'react-native-default-preference';
 
 import i18n from './i18n';
 
@@ -15,7 +16,9 @@ import getStore from './store';
 
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
+import { codeLogin } from './actions/auth';
 import { ANALYTICS } from './constants';
+import { isAndroid } from './utils/common';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
@@ -31,12 +34,32 @@ class App extends Component {
   }
 
   componentWillMount() {
-    getStore((store) => this.setState({ store }));
+    getStore((store) => {
+      this.setState({ store });
+      this.checkOldAppToken();
+    });
   }
 
   componentDidMount() {
     this.initializeAnalytics();
     AppState.addEventListener('change', this.handleAppStateChange);
+  }
+
+  checkOldAppToken() {
+    const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
+    const androidKey = 'account.guest.secret'; // key from the old android app
+    const key = isAndroid ? androidKey : iOSKey;
+    DefaultPreference.get(key).then((value) => {
+      if (value) {
+        this.state.store.dispatch(codeLogin(value)).then(() => {
+          // If we successfully logged in with the user's guest code, clear it out now
+          DefaultPreference.clear(key);
+        }).catch(() => {
+          // This happens when there is a problem with the code from the API call
+          // We don't want to clear out the key here
+        });
+      }
+    });
   }
 
   initializeAnalytics() { //TODO add tests

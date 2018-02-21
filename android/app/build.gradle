@@ -169,6 +169,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-default-preference')
     compile project(':react-native-fabric')
     compile project(':react-native-fbsdk')
     compile project(':react-native-omniture')
