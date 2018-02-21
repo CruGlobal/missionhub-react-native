@@ -1,6 +1,7 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
 import { getMe } from './people';
+import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
@@ -61,6 +62,21 @@ export function codeLogin(code) {
 }
 
 export function logout() {
+  return (dispatch, getState) => {
+    const pushDeviceId = getState().notifications.pushDeviceId;
+    if (!pushDeviceId) {
+      dispatch(logoutReset());
+    } else {
+      dispatch(deletePushToken(pushDeviceId)).then(()=>{
+        dispatch(logoutReset());
+      }).catch(()=> {
+        dispatch(logoutReset());
+      });
+    }
+  };
+}
+
+export function logoutReset() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
     dispatch(navigateReset(LOGIN_SCREEN));
@@ -96,5 +112,6 @@ export function loadHome() {
     dispatch(getMe());
     dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
+    dispatch(shouldRunSetUpPushNotifications());
   };
 }

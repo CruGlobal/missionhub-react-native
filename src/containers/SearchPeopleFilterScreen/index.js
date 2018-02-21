@@ -16,7 +16,7 @@ import FilterItem from '../../components/FilterItem';
 import styles from './styles';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
-import { trackState } from '../../actions/analytics';
+import { trackSearchFilter, trackState } from '../../actions/analytics';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
@@ -152,6 +152,7 @@ export class SearchPeopleFilterScreen extends Component {
 
     const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
     this.props.dispatch(trackState(trackingObj));
+    this.props.dispatch(trackSearchFilter(item.id));
   }
 
   handleToggle(item) {

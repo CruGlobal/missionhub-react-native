@@ -69,7 +69,7 @@ export default {
   error: {
     error: 'Error',
     unexpectedErrorMessage: 'There was an unexpected error.',
-    baseErrorMessage: 'Please email apps@cru.org if the issue persists.',
+    baseErrorMessage: 'Please email support@missionhub.com if the issue persists.',
     ADD_NEW_PERSON: 'There was an error adding a new person.',
   },
   settingsMenu: {
