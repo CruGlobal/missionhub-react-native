@@ -68,6 +68,6 @@ export function editComment(interaction, comment) {
     const query = {
       interactionId: interaction.id,
     };
-    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData));
+    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.JOURNEY_EDITED)));
   };
 }

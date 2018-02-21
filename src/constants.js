@@ -104,6 +104,7 @@ export const ACTIONS = {
   STEP_REMOVED: 'cru.stepremoved',
   STEP_COMPLETED: 'cru.stepcompleted',
   COMMENT_ADDED: 'cru.commentadded',
+  JOURNEY_EDITED: 'cru.journeyedit',
 };
 
 export const INTERACTION_TYPES = {

@@ -20,6 +20,7 @@ const comment = 'new comment';
 const personId = 1;
 const orgId = 2;
 const interactionId = 3;
+const trackActionResult = { type: 'tracked action' };
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
@@ -27,8 +28,6 @@ describe('add comment', () => {
     dispatch(addCommentResult);
     return Promise.resolve();
   };
-
-  const trackActionResult = { type: 'tracked action' };
 
   beforeEach(() => {
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.COMMENT_ADDED);
@@ -116,7 +115,11 @@ describe('add comment', () => {
 });
 
 describe('edit comment', () => {
-  const action = { type: comment };
+  const editCommentResult = { type: 'edited comment' };
+  const action = (dispatch) => {
+    dispatch(editCommentResult);
+    return Promise.resolve();
+  };
 
   const expectedQuery = {
     interactionId: interactionId,
@@ -131,11 +134,14 @@ describe('edit comment', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => {
+    mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.JOURNEY_EDITED);
+  });
 
-  it('should edit a comment', () => {
-    store.dispatch(editComment({ id: interactionId }, comment));
+  it('should edit a comment', async() => {
+    await store.dispatch(editComment({ id: interactionId }, comment));
 
-    expect(store.getActions()[0]).toBe(action);
+    expect(store.getActions()).toEqual([ editCommentResult, trackActionResult ]);
   });
 });
