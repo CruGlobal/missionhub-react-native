@@ -9,6 +9,7 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackState, trackStepsAdded } from './analytics';
 
 export function getStepSuggestions() {
@@ -19,12 +20,33 @@ export function getStepSuggestions() {
   };
 }
 
-export function getMySteps() {
+export function getMySteps(query = {}) {
   return (dispatch) => {
-    const query = {
-      filters: { completed: false },
+    const queryObj = {
+      order: '-created_at',
+      ...query,
+      filters: {
+        ...(query.filters || {}),
+        completed: false,
+      },
     };
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, query));
+    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
+  };
+}
+
+export function getMyStepsNextPage() {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().steps.pagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
+    const query = {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
+    };
+    return dispatch(getMySteps(query));
   };
 }
 
