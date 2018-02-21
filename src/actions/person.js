@@ -48,17 +48,20 @@ export function savePersonNotes(personId, notes, noteId) {
     };
 
     console.log('ready to send');
-    if (!noteId) return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
-    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, { myId }, bodyData));
+    if (!noteId) {
+      console.log('add person note');
+      return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
+    }
+    console.log('update person note');
+    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, { noteId }, bodyData));
   };
 }
 
-export function getPersonNotes(personId) {
-  return async(dispatch, getState) => {
-    const myId = getState().auth.personId;
+export function getPersonNotes(personId, noteId) {
+  return async(dispatch) => {
     const results = await dispatch(getPersonWithNotes(personId));
-    const note = results.find('person', personId).person_notes.find('person_note', myId);
-    return { note };
+    console.log(results);
+    return results.find('person', personId).person_notes.find('person_note', noteId);
     //should return note text and note id
   };
 }

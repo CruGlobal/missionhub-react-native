@@ -5,6 +5,7 @@ import { REQUESTS } from '../actions/api';
 const initialPersonProfileState = {
   personFirstName: '',
   personLastName: '',
+  noteId: null,
 };
 
 function personProfileReducer(state = initialPersonProfileState, action) {
@@ -25,6 +26,9 @@ function personProfileReducer(state = initialPersonProfileState, action) {
     case REQUESTS.ADD_NEW_PERSON.SUCCESS:
       const result = action.results.findAll('person')[0];
       return { ...state, id: result.id, personFirstName: result.first_name, personLastName: result.last_name };
+    case REQUESTS.ADD_PERSON_NOTES.SUCCESS:
+      console.log(action.results.findAll('id')[0]);
+      return { ...state, noteId: action.results.findAll('id')[0] };
     default:
       return state;
   }

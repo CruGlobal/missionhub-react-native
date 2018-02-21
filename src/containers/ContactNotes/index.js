@@ -19,7 +19,6 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
-      noteId: undefined,
     };
 
     this.saveNotes = this.saveNotes.bind(this);
@@ -43,21 +42,21 @@ export class ContactNotes extends Component {
   }
 
   getNotes() {
-    return this.props.dispatch(getPersonNotes(this.props.person.id)).then((results) => {
-      console.log(results);
-      this.setState({
-        text: results ? results.note : undefined,
-        noteId: results ? results.id : undefined,
+    const { noteId, person } = this.props;
+    if (noteId) {
+      return this.props.dispatch(getPersonNotes(person.id, noteId)).then((results) => {
+        console.log(results);
+        this.setState({ text: results ? results.note : undefined });
       });
-      return results;
-    });
+    }
+    this.setState({ text: undefined });
   }
 
   saveNotes() {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.state.noteId));
+      this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.props.noteId));
     }
 
     this.setState({ editing: false });
@@ -143,4 +142,8 @@ export class ContactNotes extends Component {
   }
 }
 
-export default connect()(ContactNotes);
+
+const mapStateToProps = ({ personProfile }) => ({ noteId: personProfile.noteId });
+
+
+export default connect(mapStateToProps)(ContactNotes);
