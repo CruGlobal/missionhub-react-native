@@ -47,7 +47,7 @@ export function savePersonNotes(personId, notes, noteId) {
       },
     };
 
-    console.log('ready to send');
+    console.log('ready to send, ', bodyData);
     if (!noteId) {
       console.log('add person note');
       return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
@@ -61,8 +61,7 @@ export function getPersonNotes(personId, noteId) {
   return async(dispatch) => {
     const results = await dispatch(getPersonWithNotes(personId));
     console.log(results);
-    return results.find('person', personId).person_notes.find('person_note', noteId);
-    //should return note text and note id
+    return results.find('person_note', noteId);
   };
 }
 
