@@ -1,9 +1,13 @@
-import { FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO, UPDATE_ONBOARDING_PERSON } from '../constants';
+import {
+  FIRST_NAME_CHANGED, LAST_NAME_CHANGED, SET_VISIBLE_PERSON_INFO, UPDATE_VISIBLE_PERSON_INFO,
+  UPDATE_ONBOARDING_PERSON, ACTIONS,
+} from '../constants';
 import { REQUESTS } from './api';
 import callApi from './api';
 import uuidv4 from 'uuid/v4';
 import { getStages } from './stages';
 import { getPersonDetails } from './people';
+import { trackAction } from './analytics';
 
 export function firstNameChanged(firstName) {
   return {
@@ -100,7 +104,7 @@ export function fetchVisiblePersonInfo(personId, currentUserId, personIsCurrentU
 
       function getAssignmentWithPathwayStageId(results) {
         const assignment = results.findAll('contact_assignment')
-          .find((assignment) => assignment.assigned_to.id === currentUserId);
+          .find((a) => a && a.assigned_to ? a.assigned_to.id === currentUserId : false);
         return {
           contactAssignmentId: assignment && assignment.id,
           pathwayStageId: assignment && assignment.pathway_stage_id,
@@ -158,7 +162,7 @@ export function updatePerson(data) {
 }
 
 export function updateFollowupStatus(personId, orgPermissionId, status) {
-  return (dispatch) => {
+  return async(dispatch) => {
     const data = {
       data: {
         type: 'person',
@@ -171,7 +175,10 @@ export function updateFollowupStatus(personId, orgPermissionId, status) {
         },
       } ],
     };
-    return dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId }, data));
+
+    const result = await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId }, data));
+    dispatch(trackAction(ACTIONS.STATUS_CHANGED));
+    return result;
   };
 }
 
@@ -180,4 +187,3 @@ export function deleteContactAssignment(id) {
     return dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
   };
 }
-

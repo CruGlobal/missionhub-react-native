@@ -92,8 +92,9 @@ export default function callApi(requestObject, query = {}, data = {}) {
         reject(err);
       };
 
-      API_CALLS[action.name](newQuery, data).then((results) => {
-        let actionResults = results || {};
+      API_CALLS[action.name](newQuery, data).then((response) => {
+        let actionResults = response ? response.results || {} : {};
+        let meta = response && response.meta;
         // If the results have an error object, call this to reject it
         if (isObject(actionResults) && actionResults.error || actionResults.errors) {
           handleError(actionResults);
@@ -109,6 +110,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
           results: actionResults || {},
           query: newQuery,
           data,
+          meta,
           type: action.SUCCESS,
         });
         resolve(actionResults);

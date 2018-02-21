@@ -1,4 +1,4 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
 import * as RNOmniture from 'react-native-omniture';
 
 export function updateAnalyticsContext(analyticsContext) {
@@ -8,7 +8,13 @@ export function updateAnalyticsContext(analyticsContext) {
   };
 }
 
-export function trackAction(action, data) {
+export function trackSearchFilter(label) {
+  return (dispatch) => {
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
+  };
+}
+
+export function trackAction(action, data = {}) {
   return () => RNOmniture.trackAction(action, data);
 }
 

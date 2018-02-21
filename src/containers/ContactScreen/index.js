@@ -56,7 +56,7 @@ class ContactScreen extends Component {
   }
 
   render() {
-    const { person, organization, isJean, contactStage, personIsCurrentUser } = this.props;
+    const { person, visiblePerson, organization, isJean, contactStage, personIsCurrentUser } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -79,9 +79,10 @@ class ContactScreen extends Component {
         <Flex align="center" justify="center" value={1} style={styles.container}>
           <ContactHeader
             onChangeStage={this.handleChangeStage}
+            organization={this.props.organization}
             type={isJean ? JEAN : CASEY}
             isMe={personIsCurrentUser}
-            person={person}
+            person={visiblePerson || person}
             organization={organization}
             stage={contactStage}
             dispatch={this.props.dispatch}
@@ -104,6 +105,7 @@ ContactScreen.propTypes = {
 const mapStateToProps = ({ auth, stages, profile }, { navigation }) => ({
   ...(navigation.state.params || {}),
   person: navigation.state.params.person || profile.visiblePersonInfo.person,
+  visiblePerson: profile.visiblePersonInfo ? profile.visiblePersonInfo.person : undefined,
   isJean: auth.isJean,
   stages: stages.stages,
   myId: auth.personId,
