@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
-import { selectStage } from '../actions/selectStage';
+import { selectMyStage } from '../actions/selectStage';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 
 @translate('selectStage')
@@ -31,7 +31,7 @@ class StageScreen extends Component {
     if (isAlreadySelected) {
       this.complete(stage);
     } else {
-      this.props.dispatch(selectStage(stage.id)).then(() => {
+      this.props.dispatch(selectMyStage(stage.id)).then(() => {
         this.complete(stage);
       });
     }

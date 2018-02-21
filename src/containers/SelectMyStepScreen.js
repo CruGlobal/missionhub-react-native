@@ -15,11 +15,11 @@ class SelectMyStepScreen extends Component {
   };
 
   render() {
-    const { t, enableBackButton, me, suggestedForMe, personId, myStageId } = this.props;
+    const { t, enableBackButton, me, suggestedForMe, personId, contactStage } = this.props;
 
     let steps = [];
-    if (myStageId) {
-      steps = getFourRandomItems(suggestedForMe[myStageId]);
+    if (contactStage) {
+      steps = getFourRandomItems(suggestedForMe[contactStage.id]);
     } else {
       //todo redirect to stage screen
     }
@@ -40,10 +40,9 @@ class SelectMyStepScreen extends Component {
 
 }
 
-const mapStateToProps = ({ steps, auth, myStageReducer }, { navigation } ) => ({
+const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
   ...(navigation.state.params || {}),
   me: auth.user,
-  myStageId: myStageReducer.stageId,
   suggestedForMe: steps.suggestedForMe,
   personId: auth.personId,
 });

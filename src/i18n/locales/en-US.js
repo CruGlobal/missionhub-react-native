@@ -279,6 +279,7 @@ export default {
     contacted: 'Contacted',
     doNotContact: 'Do Not Contact',
     uncontacted: 'Uncontacted',
+    assign: 'Assign',
     unassign: 'Unassign',
   },
   peopleScreen: {

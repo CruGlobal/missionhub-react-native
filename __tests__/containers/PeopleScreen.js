@@ -1,52 +1,93 @@
 import 'react-native';
 import React from 'react';
 
-// Note: test renderer must be required after react-native.
-import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
-import PeopleScreen from '../../src/containers/PeopleScreen';
-import { testSnapshot } from '../../testUtils';
+import { PeopleScreen, mapStateToProps } from '../../src/containers/PeopleScreen';
+import { testSnapshotShallow } from '../../testUtils';
+
+import { peopleByOrgSelector } from '../../src/selectors/people';
+jest.mock('../../src/selectors/people');
 
 jest.mock('../../src/actions/people', () => ({
   getMyPeople: () => { },
 }));
 
-const mockState = {
-  auth: {
-    personId: '',
-    user: {
-      id: '1',
-      full_name: 'Me',
-    },
-    isJean: false,
+const orgs = [
+  {
+    id: 'personal',
+    type: 'organization',
+    people: [
+      {
+        id: 1,
+        type: 'person',
+      },
+      {
+        id: 2,
+        type: 'person',
+      },
+      {
+        id: 3,
+        type: 'person',
+      },
+    ],
   },
-  people: {
-    all: [],
-    allByOrg: [],
+  {
+    id: 10,
+    type: 'organization',
+    people: [
+      {
+        id: 11,
+        type: 'person',
+      },
+    ],
   },
-  stages: {
-    stagesObj: {},
+  {
+    id: 20,
+    type: 'organization',
+    people: [
+      {
+        id: 21,
+        type: 'person',
+      },
+    ],
   },
-};
+];
 
-const store = createMockStore(mockState);
+const props = {
+  isJean: true,
+  me: {
+    id: 1,
+    type: 'person',
+  },
+  orgs: orgs,
+  dispatch: jest.fn((response) => Promise.resolve(response)),
+};
 
 jest.mock('react-native-device-info');
 
-it('renders correctly as Casey', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <PeopleScreen />
-    </Provider>
-  );
-});
+describe('PeopleScreen', () => {
+  describe('mapStateToProps', () => {
+    it('should provide the necessary props', () => {
+      peopleByOrgSelector.mockReturnValue(orgs);
+      expect(mapStateToProps(
+        {
+          auth: {
+            isJean: true,
+            user: { id: 1, type: 'person' },
+          },
+          people: {},
+        },
+      )).toMatchSnapshot();
+    });
+  });
+  it('renders correctly as Casey', () => {
+    testSnapshotShallow(
+      <PeopleScreen {...props} />
+    );
+  });
 
-it('renders correctly as Jean', () => {
-  store.getState().auth.isJean = true;
-
-  testSnapshot(
-    <Provider store={store}>
-      <PeopleScreen />
-    </Provider>
-  );
+  it('renders correctly as Jean', () => {
+    testSnapshotShallow(
+      <PeopleScreen { ...props} isJean={true} />
+    );
+  });
 });

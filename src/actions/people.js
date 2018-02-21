@@ -1,28 +1,6 @@
 import callApi, { REQUESTS } from './api';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
 
-export function getMe() {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_ME));
-  };
-}
-
-export function getPerson(id) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
-  };
-}
-
-export function getPersonDetails(id) {
-  return async(dispatch) => {
-    const query = {
-      person_id: id,
-      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
-    };
-    return await dispatch(callApi(REQUESTS.GET_PERSON, query));
-  };
-}
-
 export function getMyPeople() {
   return async(dispatch, getState) => {
     const peopleQuery = {
@@ -32,55 +10,36 @@ export function getMyPeople() {
       page: {
         limit: 1000,
       },
-      include: 'reverse_contact_assignments,organizational_permissions,people',
+      include: 'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
     };
 
-    const peopleResults = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery));
-    const people = peopleResults.findAll('person');
+    const people = (await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery))).response;
+    const authPerson = getState().auth.user;
+    const initOrgs = {
+      personal: { id: 'personal', people: { [authPerson.id]: authPerson } },
+    };
 
-    const myOrgs = [ { people: [], id: 'personal' } ];
-    const ministryOrgs = [];
-    const state = getState().auth;
+    const orgs = people.reduce((orgs, person) => {
+      person.reverse_contact_assignments
+        .map((contactAssignment) => contactAssignment.organization)
+        .forEach((org) => {
+          const orgId = org && org.id || 'personal';
+          // Verify contact assignment receiver still is attached to the org
+          if (orgId === 'personal' || person.organizational_permissions.find((orgPermission) => orgPermission.organization.id === orgId)) {
+            const orgData = orgs[orgId] || org;
+            orgs[orgId] = {
+              ...orgData,
+              people: {
+                ...(orgData.people || {}),
+                [person.id]: person,
+              },
+            };
+          }
+        });
+      return orgs;
+    }, initOrgs);
 
-    if (state.isJean) {
-      const orgQuery = {
-        filters: {
-          assigned_tos: 'me',
-        },
-        include: '',
-      };
-      // Always include Me as the first item in the personal ministry
-      myOrgs[0].people.push(state.user);
-
-      const orgsResult = await dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, orgQuery));
-      ministryOrgs.push(...orgsResult.findAll('organization'));
-    }
-
-    people.forEach((person) => {
-      if (!person._placeHolder && `${person.id}` !== `${state.personId}`) {
-
-        if (person.organizational_permissions.length === 0) {
-          myOrgs[0].people.push(person);
-
-        } else {
-          person.reverse_contact_assignments.forEach((contact_assignment) => {
-
-            if (contact_assignment && contact_assignment.assigned_to && contact_assignment.assigned_to.id === state.personId) {
-              const foundOrg = ministryOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
-
-              if (foundOrg && person.organizational_permissions.some((org_p) => org_p.organization_id === foundOrg.id)) {
-                foundOrg.people ? foundOrg.people.push(person) : foundOrg.people = [ person ];
-              }
-            }
-          });
-        }
-      }
-    });
-
-    const nonBlankMinistryOrgs = ministryOrgs.filter((org) => org.people);
-    myOrgs.push(...nonBlankMinistryOrgs);
-
-    return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, myOrgs });
+    return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, orgs });
   };
 }
 
@@ -124,16 +83,5 @@ export function searchPeople(text, filters = {}) {
     }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
-  };
-}
-
-
-export function getUserDetails(id, query = {}) {
-  return (dispatch) => {
-    const newQuery = {
-      person_id: id,
-      ...query,
-    };
-    return dispatch(callApi(REQUESTS.GET_PERSON, newQuery));
   };
 }

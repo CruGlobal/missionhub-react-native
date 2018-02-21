@@ -28,7 +28,7 @@ class AddContactFields extends Component {
     const email = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || {};
     const phone = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || {};
     if (person) {
-      this.setState({
+      const newState = {
         id: person.id,
         firstName: person.first_name,
         lastName: person.last_name,
@@ -39,7 +39,9 @@ class AddContactFields extends Component {
           phone: phone.number,
           gender: person.gender,
         } : {},
-      });
+      };
+      this.setState(newState);
+      this.props.onUpdateData(newState);
     }
   }
 
