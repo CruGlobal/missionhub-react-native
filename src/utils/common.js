@@ -1,13 +1,31 @@
 import moment from 'moment';
-import { Platform } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
 import { DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
 
-export const getFirstThreeValidItems = (arr) => {
-  return [].concat([ arr[0], arr[1], arr[2] ]).filter(Boolean);
+export const getFourRandomItems = (arr) => {
+  if (!arr) {
+    return [];
+  }
+
+  const items = [];
+  const numItems = arr.length >= 4 ? 4 : arr.length;
+
+  let x = 0;
+  while (x < numItems) {
+    const item = arr[Math.floor(Math.random() * arr.length)];
+
+    if (!items.includes(item)) {
+      items.push(item);
+      x++;
+    }
+  }
+
+  return items;
 };
+
 export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();
@@ -53,6 +71,13 @@ export const formatApiDate = (date) => moment(date).utc().format();
 
 export const getInitials = (initials) => (initials || '').trim().substr(0, 2).trim();
 export const intToStringLocale = (num) => parseInt(num).toLocaleString();
+
+// Disable the android back button
+const disableBackPress = () => true;
+export const disableBack = {
+  add: () => BackHandler.addEventListener('hardwareBackPress', disableBackPress),
+  remove: () => BackHandler.removeEventListener('hardwareBackPress', disableBackPress),
+};
 
 export const merge = lodash.merge;
 export const capitalize = lodash.capitalize;

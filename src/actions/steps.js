@@ -10,21 +10,43 @@ import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
 import { trackState } from './analytics';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 export function getStepSuggestions() {
   return (dispatch) => {
-    const query = {};
-    // const query = { filters: { locale: 'en' } };
+    const query = { filters: { locale: i18next.language } };
+
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
   };
 }
 
-export function getMySteps() {
+export function getMySteps(query = {}) {
   return (dispatch) => {
-    const query = {
-      filters: { completed: false },
+    const queryObj = {
+      order: '-accepted_at',
+      ...query,
+      filters: {
+        ...(query.filters || {}),
+        completed: false,
+      },
     };
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, query));
+    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
+  };
+}
+
+export function getMyStepsNextPage() {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().steps.pagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
+    const query = {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
+    };
+    return dispatch(getMySteps(query));
   };
 }
 
@@ -37,7 +59,7 @@ export function getStepsByFilter(filters = {}) {
   };
 }
 
-export function addSteps(steps, receiverId) {
+export function addSteps(steps, receiverId, organization) {
   return (dispatch) => {
     const query = {
       person_id: receiverId,
@@ -46,6 +68,7 @@ export function addSteps(steps, receiverId) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
+        organization_id: organization && organization.id,
       },
     }));
 
@@ -137,7 +160,7 @@ function challengeCompleteAction(step) {
           if (count % 3 === 0) {
             dispatch(getPerson(step.receiver.id)).then((results2) => {
               const assignment = results2.findAll('contact_assignment')
-                .find((assignment) => `${assignment.assigned_to.id}` === myId);
+                .find((a) => a && a.assigned_to ? `${a.assigned_to.id}` === myId : false);
 
               const stages = getState().stages.stages;
               const pathwayStageId = assignment && assignment.pathway_stage_id;

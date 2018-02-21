@@ -5,10 +5,11 @@ import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
-import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone } from '../../src/actions/auth';
+import * as auth from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone, codeLogin, logout, logoutReset } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
-import { ANALYTICS } from '../../src/constants';
+import { ANALYTICS, LOGOUT } from '../../src/constants';
 
 const email = 'Roger';
 const password = 'secret';
@@ -105,6 +106,26 @@ describe('the key', () => {
   });
 });
 
+describe('code login', () => {
+
+  beforeEach(() => {
+    login.onSuccessfulLogin = jest.fn();
+    auth.firstTime = jest.fn();
+  });
+
+  it('should run the code login and then on success', () => {
+    store.dispatch(codeLogin('123')).then(() => {
+      expect(login.onSuccessfulLogin).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('should run the code login and then first time', () => {
+    store.dispatch(codeLogin('123')).then(() => {
+      expect(auth.firstTime).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
 describe('update time zone', () => {
   beforeEach(() => {
     store = mockStore({
@@ -127,5 +148,47 @@ describe('update time zone', () => {
   it('should update timezone ', () => {
     store.dispatch(updateTimezone());
     expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+  });
+});
+
+describe('logout', () => {
+  beforeEach(() => {
+    callApi.default = mockImplementation((type) => {
+      if (type === REQUESTS.DELETE_PUSH_TOKEN) {
+        return Promise.resolve({});
+      } else {
+        return Promise.resolve({});
+      }
+    });
+  });
+
+
+  describe('logout action', () => {
+    it('should logout but not delete push token', () => {
+      store = mockStore({
+        notifications: {
+          pushDeviceId: '',
+        },
+      });
+      store.dispatch(logout());
+      expect(callApi.default).toHaveBeenCalledTimes(0);
+    });
+
+    it('should logout and delete push token', () => {
+      store = mockStore({
+        notifications: {
+          pushDeviceId: '123',
+        },
+      });
+
+      store.dispatch(logout());
+      expect(callApi.default).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call logout reset', () => {
+
+      store.dispatch(logoutReset());
+      expect(store.getActions()[0]).toEqual({ type: LOGOUT });
+    });
   });
 });

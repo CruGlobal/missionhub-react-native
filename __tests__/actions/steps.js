@@ -1,6 +1,6 @@
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { completeStep } from '../../src/actions/steps';
+import { completeStep, getStepSuggestions, getMyStepsNextPage } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams, mockFnWithParamsMultiple } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -9,12 +9,49 @@ import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
 import { COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
+import i18next from 'i18next';
 
 const mockStore = configureStore([ thunk ]);
 let store;
 
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
+
+describe('get step suggestions', () => {
+  const locale = 'de';
+  const stepSuggestionsQuery = { filters: { locale: locale } };
+  const apiResult = { type: 'done' };
+
+  it('should filter by language', () => {
+    store = mockStore();
+    i18next.language = locale;
+    mockFnWithParams(api, 'default', apiResult, REQUESTS.GET_CHALLENGE_SUGGESTIONS, stepSuggestionsQuery);
+
+    store.dispatch(getStepSuggestions());
+
+    expect(store.getActions()).toEqual([ apiResult ]);
+  });
+});
+
+describe('get steps page', () => {
+  const stepsPageQuery = {
+    order: '-accepted_at',
+    page: { limit: 25, offset: 25 },
+    filters: { completed: false },
+  };
+  const apiResult = { type: 'done' };
+
+  it('should filter with page', () => {
+    store = mockStore({
+      steps: { pagination: { page: 1, hasNextPage: true } },
+    });
+    mockFnWithParams(api, 'default', apiResult, REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
+
+    store.dispatch(getMyStepsNextPage());
+
+    expect(store.getActions()[0]).toEqual(apiResult);
+  });
+});
 
 describe('complete challenge', () => {
   const personId = 2123;
@@ -28,6 +65,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
+    order: '-accepted_at',
     filters: { completed: false },
   };
   const data = {

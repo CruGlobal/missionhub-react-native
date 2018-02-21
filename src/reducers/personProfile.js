@@ -1,5 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
-import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED } from '../constants';
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, UPDATE_ONBOARDING_PERSON, RESET_ONBOARDING_PERSON } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialPersonProfileState = {
@@ -24,11 +24,14 @@ function personProfileReducer(state = initialPersonProfileState, action) {
     case PERSON_LAST_NAME_CHANGED:
       return { ...state, personLastName: action.personLastName };
     case REQUESTS.ADD_NEW_PERSON.SUCCESS:
+    case UPDATE_ONBOARDING_PERSON:
       const result = action.results.findAll('person')[0];
       return { ...state, id: result.id, personFirstName: result.first_name, personLastName: result.last_name };
     case REQUESTS.ADD_PERSON_NOTES.SUCCESS:
       console.log('success: ', action.results);
       return state;
+    case RESET_ONBOARDING_PERSON:
+      return initialPersonProfileState;
     default:
       return state;
   }

@@ -2,13 +2,13 @@ import 'react-native';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
 import AddStepScreen from '../../src/containers/AddStepScreen/index';
-import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
-import { createMockNavState, testSnapshot } from '../../testUtils';
+import { createMockNavState, testSnapshot, createMockStore } from '../../testUtils';
 import { STEP_NOTE } from '../../src/constants';
+import * as common from '../../src/utils/common';
 
 const store = createMockStore();
 
@@ -103,6 +103,12 @@ describe('add step methods for stepNote', () => {
   it('runs skip', () => {
     component.skip();
     expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs skip', () => {
+    common.disableBack = { remove: jest.fn() };
+    component.componentWillUnmount();
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });
 

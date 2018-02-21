@@ -1,6 +1,5 @@
 import callApi, { REQUESTS } from './api';
-import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED } from '../constants';
-
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, RESET_ONBOARDING_PERSON } from '../constants';
 
 export function personFirstNameChanged(firstName) {
   return {
@@ -70,4 +69,8 @@ export function getPersonWithNotes(id) {
     const query = { person_id: id, include: 'person_notes' };
     return await dispatch(callApi(REQUESTS.GET_PERSON_NOTES, query));
   };
+}
+
+export function resetPerson() {
+  return { type: RESET_ONBOARDING_PERSON };
 }

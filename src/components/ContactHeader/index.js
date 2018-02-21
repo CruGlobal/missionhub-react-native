@@ -7,8 +7,11 @@ import { Flex, Text, IconButton } from '../common';
 import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
-import { CASEY, JEAN } from '../../constants';
+import { ACTIONS, CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
+import { ORG_PERMISSIONS } from '../../constants';
+import { trackAction } from '../../actions/analytics';
+import { connect } from 'react-redux';
 
 export const PERSON_STEPS = buildTrackingObj('people : person : steps', 'people', 'person', 'steps');
 export const SELF_STEPS = buildTrackingObj('people : self : steps', 'people', 'self', 'steps');
@@ -70,36 +73,41 @@ const JEAN_TABS_MH_USER = [
   },
 ];
 
-export default class ContactHeader extends Component {
+class ContactHeader extends Component {
 
   constructor(props) {
     super(props);
   }
 
   getTabs() {
-    const { person, type, isMe } = this.props;
+    const { person, type, isMe, organization } = this.props;
+    const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
+    const isMhubUser = personOrgPermissions && ORG_PERMISSIONS.includes(personOrgPermissions.permission_id);
 
     if (isMe) {
       return ME_TABS;
-    } else if (type === CASEY) {
+    } else if (type === CASEY || !organization || (organization && organization.id === 'personal')) {
       return CASEY_TABS;
-    } else if (person.userId) {
+    } else if (isMhubUser) {
       return JEAN_TABS_MH_USER;
     }
 
     return JEAN_TABS;
   }
 
-  openUrl(url) {
+  openUrl(url, action) {
     Linking.canOpenURL(url).then((supported) => {
       if (!supported) {
         WARN('Can\'t handle url: ', url);
       } else {
         Linking.openURL(url)
+          .then(() => {
+            this.props.dispatch(trackAction(action));
+          })
           .catch((err) => {
             if (url.includes('telprompt')) {
-            // telprompt was cancelled and Linking openURL method sees this as an error
-            // it is not a true error so ignore it to prevent apps crashing
+              // telprompt was cancelled and Linking openURL method sees this as an error
+              // it is not a true error so ignore it to prevent apps crashing
             } else {
               WARN('openURL error', err);
             }
@@ -110,36 +118,44 @@ export default class ContactHeader extends Component {
 
   getJeanButtons() {
     const { person } = this.props;
-    const numberExists = person.phone_numbers && person.phone_numbers[0];
-    const emailExists = person.email_addresses && person.email_addresses[0];
+    const emailExists = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null;
+    const numberExists = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || null;
     let phoneNumberUrl;
     let smsNumberUrl;
     let emailUrl;
     if (numberExists) {
-      phoneNumberUrl = `tel:${person.phone_numbers[0]}`;
-      smsNumberUrl =`sms:${person.phone_numbers[0]}`;
+      phoneNumberUrl = `tel:${numberExists.number}`;
+      smsNumberUrl =`sms:${numberExists.number}`;
     }
     if (emailExists) {
-      emailUrl = `mailto:${person.email_addresses[0]}`;
+      emailUrl = `mailto:${emailExists.email}`;
     }
 
     return (
       <Flex align="center" justify="center" direction="row">
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!numberExists} style={numberExists ? styles.contactButton : styles.contactButtonDisabled} name="textIcon" type="MissionHub" onPress={()=> this.openUrl(smsNumberUrl)} />
+          <IconButton disabled={!numberExists}
+            style={numberExists ? styles.contactButton : styles.contactButtonDisabled}
+            name="textIcon" type="MissionHub"
+            onPress={()=> this.openUrl(smsNumberUrl, ACTIONS.TEXT_ENGAGED)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!numberExists} style={numberExists ? styles.contactButton : styles.contactButtonDisabled} name="callIcon" type="MissionHub" onPress={() => this.openUrl(phoneNumberUrl)} />
+          <IconButton disabled={!numberExists}
+            style={numberExists ? styles.contactButton : styles.contactButtonDisabled}
+            name="callIcon" type="MissionHub"
+            onPress={() => this.openUrl(phoneNumberUrl, ACTIONS.CALL_ENGAGED)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
-          <IconButton disabled={!emailExists} style={[ emailExists ? styles.contactButton : styles.contactButtonDisabled, styles.emailButton ]} name="emailIcon" type="MissionHub" onPress={() => this.openUrl(emailUrl)} />
+          <IconButton disabled={!emailExists} style={[ emailExists ? styles.contactButton : styles.contactButtonDisabled, styles.emailButton ]}
+            name="emailIcon" type="MissionHub"
+            onPress={() => this.openUrl(emailUrl, ACTIONS.EMAIL_ENGAGED)} />
         </Flex>
       </Flex>
     );
   }
 
   render() {
-    const { person, type, stage, isMe } = this.props;
+    const { person, organization, type, stage, isMe } = this.props;
     const hasStage = stage && stage.name;
 
     return (
@@ -153,7 +169,7 @@ export default class ContactHeader extends Component {
           onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar isMe={isMe} person={person} tabs={this.getTabs()} />
+        <SecondaryTabBar isMe={isMe} person={person} organization={organization} contactStage={stage} tabs={this.getTabs()} />
       </Flex>
     );
   }
@@ -161,8 +177,11 @@ export default class ContactHeader extends Component {
 
 ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,
   isMe: PropTypes.bool.isRequired,
 };
+
+export default connect()(ContactHeader);

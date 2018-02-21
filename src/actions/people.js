@@ -65,7 +65,7 @@ export function getMyPeople() {
         } else {
           person.reverse_contact_assignments.forEach((contact_assignment) => {
 
-            if (contact_assignment.assigned_to.id === state.personId) {
+            if (contact_assignment && contact_assignment.assigned_to && contact_assignment.assigned_to.id === state.personId) {
               const foundOrg = ministryOrgs.find((org) => contact_assignment.organization && org.id === contact_assignment.organization.id);
 
               if (foundOrg && person.organizational_permissions.some((org_p) => org_p.organization_id === foundOrg.id)) {
@@ -90,8 +90,15 @@ export function searchPeople(text, filters = {}) {
       return Promise.reject('NoText');
     }
 
+    // https://api-stage.missionhub.com/apis/v4/search?q=Ultr&fields[person]=first_name,picture&include=organizational_permissions.organization&fields[organization]=name
+
     let query = {
       q: text,
+      fields: {
+        person: 'first_name,last_name',
+        organization: 'name',
+      },
+      include: 'organizational_permissions.organization',
       filters: {},
     };
     if (filters.ministry) {

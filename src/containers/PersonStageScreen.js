@@ -9,7 +9,6 @@ import { navigatePush, navigateBack } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
-import { MAIN_TABS } from '../constants';
 import { trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 
@@ -31,7 +30,7 @@ class PersonStageScreen extends Component {
         },
       }));
     } else {
-      this.props.dispatch(navigatePush(MAIN_TABS));
+      this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
     }
   }
 
@@ -55,6 +54,7 @@ class PersonStageScreen extends Component {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
+          contactStage: stage,
           createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'add person', 'steps'),
         }));
 

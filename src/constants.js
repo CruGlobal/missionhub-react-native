@@ -25,6 +25,9 @@ export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
 export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
+export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
+export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
+export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 
 export const STEP_NOTE = 'stepNote';
 
@@ -54,6 +57,8 @@ export const LINKS = {
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
+export const ORG_PERMISSIONS = [ 1, 4 ];
+
 export const ANALYTICS = {
   PAGE_NAME: 'PageName',
   MCID: 'cru.mcid',
@@ -73,6 +78,17 @@ export const ANALYTICS = {
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 
+export const ACTIONS = {
+  PERSON_ADDED: 'cru.personadded',
+  STATUS_CHANGED: 'cru.contactstatuschanged',
+  EMAIL_ENGAGED: 'cru.emailiconengaged',
+  CALL_ENGAGED: 'cru.calliconengaged',
+  TEXT_ENGAGED: 'cru.texticonengaged',
+  SEARCH_CLICKED: 'cru.searchbuttonclicked',
+  FILTER_ENGAGED: 'cru.searchfilterengaged',
+  SEARCH_FILTER: 'cru.searchfilter',
+};
+
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
@@ -84,6 +100,8 @@ export const INTERACTION_TYPES = {
   // MHInteractionTypeGraduatingOnMission: { id: 6, iconName: '', translationKey: 'interactionNote' },
   MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation' },
 };
+
+export const DEFAULT_PAGE_LIMIT = 25;
 
 export default {
 

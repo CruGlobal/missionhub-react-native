@@ -77,3 +77,19 @@ it('renders org user correctly', () => {
     </Provider>
   );
 });
+
+it('renders permission user correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem
+        onSelect={() => {}}
+        person={{
+          ...mockPerson,
+          organizational_permissions: [
+            { organization_id: '1', followup_status: 'uncontacted', permission_id: 1 },
+          ],
+        }}
+        organization={{ id: '1' }} />
+    </Provider>
+  );
+});

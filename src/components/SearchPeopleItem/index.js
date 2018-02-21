@@ -5,9 +5,22 @@ import { Flex, Text, Touchable } from '../common';
 import styles from './styles';
 
 export default class SearchPeopleItem extends Component {
-  handleSelect = () => { this.props.onSelect(this.props.person); }
+  handleSelect = () => {
+    const { person } = this.props;
+    let org;
+    if (person && person.organizational_permissions && person.organizational_permissions[0] && person.organizational_permissions[0].organization) {
+      org = person.organizational_permissions[0].organization;
+    }
+    this.props.onSelect(this.props.person, org );
+  }
+
   render() {
     const { person } = this.props;
+
+    let orgName;
+    if (person && person.organizational_permissions && person.organizational_permissions[0] && person.organizational_permissions[0].organization) {
+      orgName = person.organizational_permissions[0].organization.name;
+    }
 
     return (
       <Touchable highlight={true} onPress={this.handleSelect}>
@@ -17,7 +30,7 @@ export default class SearchPeopleItem extends Component {
             {person.last_name ? ` ${person.last_name}` : null}
           </Text>
           <Text style={styles.organization}>
-            {person.organization}
+            {orgName}
           </Text>
         </Flex>
       </Touchable>
