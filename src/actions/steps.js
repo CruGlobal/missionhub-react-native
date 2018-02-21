@@ -8,7 +8,7 @@ import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import { getPerson } from './people';
+import { getPerson } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 
@@ -32,6 +32,7 @@ export function getMySteps(query = {}) {
         ...(query.filters || {}),
         completed: false,
       },
+      include: '',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -48,6 +49,7 @@ export function getMyStepsNextPage() {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * page,
       },
+      include: '',
     };
     return dispatch(getMySteps(query));
   };
@@ -71,7 +73,9 @@ export function addSteps(steps, receiverId, organization) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
-        organization_id: organization && organization.id,
+        ...organization && organization.id !== 'personal' ?
+          { organization_id: organization.id } :
+          {},
       },
     }));
 

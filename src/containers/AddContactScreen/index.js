@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
-import { updatePerson } from '../../actions/profile';
+import { updatePerson } from '../../actions/person';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';

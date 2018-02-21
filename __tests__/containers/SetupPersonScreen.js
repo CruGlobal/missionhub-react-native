@@ -7,11 +7,10 @@ import { Provider } from 'react-redux';
 // Note: test renderer must be required after react-native.
 import SetupPersonScreen from '../../src/containers/SetupPersonScreen';
 import { testSnapshot, createMockStore } from '../../testUtils';
-import * as profile from '../../src/actions/profile';
+import * as profile from '../../src/actions/onboardingProfile';
+jest.mock('../../src/actions/onboardingProfile');
 import * as navigation from '../../src/actions/navigation';
 import * as person from '../../src/actions/person';
-// import { createPerson, updateOnboardingPerson } from '../../src/actions/profile';
-
 
 const mockState = {
   personProfile: {
@@ -76,9 +75,9 @@ describe('setup person screen methods', () => {
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
   });
 
-  it('saves and updates person', () => {
+  it('resets person on unmount', () => {
     component.componentWillUnmount();
 
-    expect(person.resetPerson).toHaveBeenCalledTimes(1);
+    expect(profile.resetPerson).toHaveBeenCalledTimes(1);
   });
 });

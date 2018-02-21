@@ -162,9 +162,5 @@ class LoginScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ myStageReducer }) => ({
-  stageId: myStageReducer.stageId,
-});
-
-export default connect(mapStateToProps)(LoginScreen);
+export default connect()(LoginScreen);
 export const LOGIN_SCREEN = 'nav/LOGIN';

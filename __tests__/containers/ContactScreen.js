@@ -1,36 +1,105 @@
 import 'react-native';
 import React from 'react';
+import { testSnapshotShallow } from '../../testUtils';
 
-// Note: test renderer must be required after react-native.
-import ContactScreen from '../../src/containers/ContactScreen';
-import { createMockStore } from '../../testUtils/index';
-import { createMockNavState } from '../../testUtils';
-import { shallow } from 'enzyme/build/index';
+import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
+import { contactAssignmentSelector, personSelector } from '../../src/selectors/people';
+jest.mock('../../src/selectors/people');
 
-jest.mock('react-native-device-info');
+const dispatch = jest.fn((response) => Promise.resolve(response));
 
-const mockState = {
-  auth: { isJean: false },
-  stages: [],
-  profile: { visiblePersonInfo: {} },
-};
+const person = { id: '2', type: 'person', first_name: 'Test Fname' };
+const contactAssignment = { id: 3, type: 'reverse_contact_assignment', pathway_stage_id: 5 };
+const stage = { id: 5, type: 'pathway_stage' };
+const organization = { id: 1, type: 'organization' };
 
-const store = createMockStore(mockState);
-
-const buildScreen = () => (
-  shallow(
-    <ContactScreen navigation={createMockNavState({ person: { id: 'test', first_name: 'Tester' } })} />,
-    { context: { store: store } }
-  )
-);
-
-
-it('renders correctly as Casey', () => {
-  expect(buildScreen().dive()).toMatchSnapshot();
-});
-
-it('renders correctly as Jean', () => {
-  store.getState().auth.isJean = true;
-
-  expect(buildScreen().dive()).toMatchSnapshot();
+describe('ContactScreen', () => {
+  describe('mapStateToProps', () => {
+    it('should provide the necessary props with a contactAssignment', () => {
+      personSelector.mockReturnValue(person);
+      contactAssignmentSelector.mockReturnValue(contactAssignment);
+      expect(mapStateToProps(
+        {
+          auth: {
+            isJean: true,
+            personId: 1,
+          },
+          stages: {
+            stages: [ stage ],
+            stagesObj: {
+              5: stage,
+            },
+          },
+          people: {},
+        },
+        {
+          navigation: {
+            state: {
+              params: {
+                person: {},
+                organization: organization,
+              },
+            },
+          },
+        }
+      )).toMatchSnapshot();
+    });
+    it('should provide the necessary props with a user', () => {
+      personSelector.mockReturnValue({
+        ...person,
+        user: {
+          pathway_stage_id: 5,
+        },
+      });
+      contactAssignmentSelector.mockReturnValue(undefined);
+      expect(mapStateToProps(
+        {
+          auth: {
+            isJean: true,
+            personId: 1,
+          },
+          stages: {
+            stages: [ stage ],
+            stagesObj: {
+              5: stage,
+            },
+          },
+          people: {},
+        },
+        {
+          navigation: {
+            state: {
+              params: {
+                person: {},
+                organization: organization,
+              },
+            },
+          },
+        }
+      )).toMatchSnapshot();
+    });
+  });
+  it('renders correctly as Casey', () => {
+    testSnapshotShallow(
+      <ContactScreen
+        dispatch={dispatch}
+        isJean={false}
+        personIsCurrentUser={false}
+        person={person}
+        contactStage={stage}
+      />
+    );
+  });
+  it('renders correctly as Jean', () => {
+    testSnapshotShallow(
+      <ContactScreen
+        dispatch={dispatch}
+        isJean={true}
+        personIsCurrentUser={false}
+        person={person}
+        contactStage={stage}
+        organization={organization}
+      />
+    );
+  });
 });
