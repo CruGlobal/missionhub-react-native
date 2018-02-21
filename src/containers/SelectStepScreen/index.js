@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
+import i18next from 'i18next';
 
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
@@ -13,6 +14,7 @@ import BackButton from '../BackButton';
 import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
+import { CUSTOM_STEP_TYPE } from '../../constants';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -71,6 +73,9 @@ class SelectStepScreen extends Component {
           id: `${addedSteps.length}`,
           body: newStepText,
           selected: true,
+          locale: i18next.language,
+          challenge_type: CUSTOM_STEP_TYPE,
+          self_step: this.props.myId === this.props.contact.id,
         };
 
         this.setState({
@@ -153,5 +158,8 @@ SelectStepScreen.propTypes = {
   organization: PropTypes.object,
 };
 
+const mapStateToProps = ({ auth }) => ({
+  myId: auth.personId,
+});
 
-export default connect()(SelectStepScreen);
+export default connect(mapStateToProps)(SelectStepScreen);

@@ -96,6 +96,7 @@ export const ACTIONS = {
   STAGE_SELECTED: 'cru.stageselected',
   STEP_DETAIL: 'cru.stepoffaithdetail',
   STEPS_ADDED: 'cru.stepoffaithadded',
+  STEP_CREATED: 'cru.stepoffaithcreated',
   ALLOW: 'cru.notificationsallowed',
   NOT_NOW: 'cru.notificationsnotallowed',
   NO_REMINDERS: 'cru.notoreminders',
@@ -106,6 +107,8 @@ export const ACTIONS = {
   COMMENT_ADDED: 'cru.commentadded',
   JOURNEY_EDITED: 'cru.journeyedit',
 };
+
+export const CUSTOM_STEP_TYPE = 'user created step';
 
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
