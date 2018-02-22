@@ -9,8 +9,9 @@ import { navigatePush, navigateBack } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
-import { trackState } from '../actions/analytics';
+import { trackAction, trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
+import { ACTIONS } from '../constants';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -27,6 +28,7 @@ class PersonStageScreen extends Component {
         onComplete: () => {
           this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
           this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
+          this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
         },
       }));
     } else {

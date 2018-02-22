@@ -9,6 +9,8 @@ import Input from '../../components/Input/index';
 import { keyLogin, facebookLoginAction } from '../../actions/auth';
 import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -49,10 +51,17 @@ class KeyLoginScreen extends Component {
 
     } catch (error) {
       const errorMessage = error.user_error;
+      let action;
 
       if (errorMessage) {
+        action = ACTIONS.USER_ERROR;
         this.setState({ errorMessage });
+
+      } else {
+        action = ACTIONS.SYSTEM_ERROR;
       }
+
+      this.props.dispatch(trackAction(action));
     }
   }
 

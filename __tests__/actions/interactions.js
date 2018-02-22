@@ -1,11 +1,12 @@
 import { addNewComment, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
+import * as analytics from '../../src/actions/analytics';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
-import { INTERACTION_TYPES } from '../../src/constants';
+import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 
 let store;
 
@@ -19,93 +20,106 @@ const comment = 'new comment';
 const personId = 1;
 const orgId = 2;
 const interactionId = 3;
+const trackActionResult = { type: 'tracked action' };
 
 describe('add comment', () => {
-  const action = { type: 'added comment' };
-  const expectedQuery = {};
-  const expectedBody = {
-    data: {
-      type: 'interaction',
-      attributes: {
-        interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
-        comment: comment,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: personId,
-          },
-        },
-        initiators: {
-          data: [
-            {
-              type: 'person',
-              id: '123',
-            },
-          ],
-        },
-      },
-    },
-    included: [],
+  const addCommentResult = { type: 'added comment' };
+  const action = (dispatch) => {
+    dispatch(addCommentResult);
+    return Promise.resolve();
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
-
-  it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment));
-
-    expect(store.getActions()[0]).toBe(action);
+  beforeEach(() => {
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.COMMENT_ADDED);
   });
-});
 
-describe('add comment with org', () => {
-  const action = { type: 'added comment' };
-  const expectedQuery = {};
-  const expectedBody = {
-    data: {
-      type: 'interaction',
-      attributes: {
-        interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
-        comment: comment,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: personId,
-          },
+  describe('without org', () => {
+    const expectedBody = {
+      data: {
+        type: 'interaction',
+        attributes: {
+          interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
+          comment: comment,
         },
-        initiators: {
-          data: [
-            {
+        relationships: {
+          receiver: {
+            data: {
               type: 'person',
-              id: '123',
+              id: personId,
             },
-          ],
-        },
-        organization: {
-          data: {
-            type: 'organization',
-            id: orgId,
+          },
+          initiators: {
+            data: [
+              {
+                type: 'person',
+                id: '123',
+              },
+            ],
           },
         },
       },
-    },
-    included: [],
-  };
+      included: [],
+    };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
+    it('should add a new comment', async() => {
+      mockApi(action, REQUESTS.ADD_NEW_COMMENT, {}, expectedBody);
 
-  it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment, orgId));
+      await store.dispatch(addNewComment(personId, comment));
 
-    expect(store.getActions()[0]).toBe(action);
+      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
+    });
+  });
+
+  describe('with org', () => {
+    const expectedBody = {
+      data: {
+        type: 'interaction',
+        attributes: {
+          interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
+          comment: comment,
+        },
+        relationships: {
+          receiver: {
+            data: {
+              type: 'person',
+              id: personId,
+            },
+          },
+          initiators: {
+            data: [
+              {
+                type: 'person',
+                id: '123',
+              },
+            ],
+          },
+          organization: {
+            data: {
+              type: 'organization',
+              id: orgId,
+            },
+          },
+        },
+      },
+      included: [],
+    };
+
+    it('should add a new comment', async() => {
+      mockApi(action, REQUESTS.ADD_NEW_COMMENT, {}, expectedBody);
+
+      await store.dispatch(addNewComment(personId, comment, orgId));
+
+      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
+    });
   });
 });
 
 describe('edit comment', () => {
-  const action = { type: comment };
+  const editCommentResult = { type: 'edited comment' };
+  const action = (dispatch) => {
+    dispatch(editCommentResult);
+    return Promise.resolve();
+  };
 
   const expectedQuery = {
     interactionId: interactionId,
@@ -120,11 +134,14 @@ describe('edit comment', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => {
+    mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.JOURNEY_EDITED);
+  });
 
-  it('should edit a comment', () => {
-    store.dispatch(editComment({ id: interactionId }, comment));
+  it('should edit a comment', async() => {
+    await store.dispatch(editComment({ id: interactionId }, comment));
 
-    expect(store.getActions()[0]).toBe(action);
+    expect(store.getActions()).toEqual([ editCommentResult, trackActionResult ]);
   });
 });
