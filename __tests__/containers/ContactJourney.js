@@ -18,6 +18,9 @@ const mockState = {
     person: personId,
     isJean: true,
   },
+  swipe: {
+    journey: false,
+  },
 };
 
 const mockPerson = {
@@ -26,11 +29,6 @@ const mockPerson = {
   organizational_permissions: [
     { organization_id: 2 },
   ],
-};
-
-const mockPerson2 = {
-  id: personId,
-  first_name: 'ben',
 };
 
 let store;
@@ -105,22 +103,10 @@ describe('journey methods', () => {
   });
 });
 
-describe('journey person without org', () => {
-  let component;
-  beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
-      <ContactJourney person={mockPerson2} navigation={createMockNavState()} />,
-      { context: { store } },
-    );
-
-    component = screen.dive().dive().dive().instance();
-  });
-
-  it('renders a person without an org', () => {
-
-    const org = component.getOrganization();
-    expect(org).toBe(undefined);
-  });
-
+it('renders with an organization correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <ContactJourney person={mockPerson} organization={{ id: 1 }} navigation={createMockNavState()} />
+    </Provider>
+  );
 });
