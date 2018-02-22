@@ -1,4 +1,4 @@
-import { addNewComment, editComment } from '../../src/actions/interactions';
+import { addNewInteraction, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -50,10 +50,10 @@ describe('add comment', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_INTERACTION, expectedQuery, expectedBody));
 
   it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment));
+    store.dispatch(addNewInteraction(personId, 1, comment));
 
     expect(store.getActions()[0]).toBe(action);
   });
@@ -95,10 +95,10 @@ describe('add comment with org', () => {
     included: [],
   };
 
-  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_COMMENT, expectedQuery, expectedBody));
+  beforeEach(() => mockApi(action, REQUESTS.ADD_NEW_INTERACTION, expectedQuery, expectedBody));
 
   it('should add a new comment', () => {
-    store.dispatch(addNewComment(personId, comment, orgId));
+    store.dispatch(addNewInteraction(personId, 1, comment, orgId));
 
     expect(store.getActions()[0]).toBe(action);
   });

@@ -40,7 +40,7 @@ const mockAddComment = jest.fn(() => Promise.resolve());
 const mockEditComment = jest.fn(() => Promise.resolve());
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/interactions', () => ({
-  addNewComment: () => mockAddComment,
+  addNewInteraction: () => mockAddComment,
   editComment: () => mockEditComment,
 }));
 

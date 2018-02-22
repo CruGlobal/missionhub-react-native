@@ -13,8 +13,9 @@ import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
-import { addNewComment, editComment } from '../../actions/interactions';
+import { addNewInteraction, editComment } from '../../actions/interactions';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { INTERACTION_TYPES } from '../../constants';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -88,7 +89,7 @@ class ContactJourney extends Component {
     const { person, dispatch } = this.props;
     const orgId = this.getOrganization();
 
-    dispatch(addNewComment(person.id, text, orgId)).then(() => {
+    dispatch(addNewInteraction(person.id, INTERACTION_TYPES.MHInteractionTypeNote.id, text, orgId)).then(() => {
       // Add new comment to journey
       this.getInteractions();
     });
