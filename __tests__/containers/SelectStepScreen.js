@@ -12,7 +12,7 @@ import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import { addSteps } from '../../src/actions/steps';
 jest.mock('../../src/actions/steps');
 
-const store = createMockStore();
+const store = createMockStore({ auth: {} });
 
 jest.mock('react-native-device-info');
 

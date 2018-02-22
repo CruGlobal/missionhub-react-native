@@ -8,7 +8,10 @@ import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/sw
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { showReminderScreen, toast } from '../../actions/notifications';
-import { getMySteps, setStepReminder, removeStepReminder, completeStepReminder, deleteStep, getMyStepsNextPage } from '../../actions/steps';
+import {
+  getMySteps, setStepReminder, removeStepReminder, completeStepReminder, getMyStepsNextPage,
+  deleteStepWithTracking,
+} from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
@@ -19,6 +22,8 @@ import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 const MAX_REMINDERS = 3;
 
@@ -72,6 +77,8 @@ class StepsScreen extends Component {
   }
 
   handleSetReminder(step) {
+    this.props.dispatch(trackAction(ACTIONS.STEP_PRIORITIZED));
+
     if (this.props.reminders.length >= MAX_REMINDERS) {
       return;
     }
@@ -86,6 +93,7 @@ class StepsScreen extends Component {
   }
 
   handleRemoveReminder(step) {
+    this.props.dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
     this.props.dispatch(removeStepReminder(step));
   }
 
@@ -94,7 +102,7 @@ class StepsScreen extends Component {
   }
 
   handleDeleteReminder(step) {
-    this.props.dispatch(deleteStep(step));
+    this.props.dispatch(deleteStepWithTracking(step));
   }
 
   handleRefresh() {

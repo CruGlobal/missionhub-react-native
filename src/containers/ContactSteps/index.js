@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { removeSwipeStepsContact } from '../../actions/swipe';
-import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
+import { getStepsByFilter, completeStep, deleteStepWithTracking } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
@@ -52,7 +52,7 @@ class ContactSteps extends Component {
   }
 
   handleRemove(step) {
-    this.props.dispatch(deleteStep(step.id)).then(() => {
+    this.props.dispatch(deleteStepWithTracking(step.id)).then(() => {
       this.getSteps();
     });
   }

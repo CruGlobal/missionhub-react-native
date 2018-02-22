@@ -1,4 +1,6 @@
 import callApi, { REQUESTS } from './api';
+import { ACTIONS, INTERACTION_TYPES } from '../constants';
+import { trackAction } from './analytics';
 
 export function addNewInteraction(personId, interactionId, comment, organizationId) {
   return (dispatch, getState) => {
@@ -44,7 +46,7 @@ export function addNewInteraction(personId, interactionId, comment, organization
       included: [],
     };
     const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, query, bodyData));
+    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
   };
 }
 
@@ -66,6 +68,6 @@ export function editComment(interaction, comment) {
     const query = {
       interactionId: interaction.id,
     };
-    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData));
+    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.JOURNEY_EDITED)));
   };
 }
