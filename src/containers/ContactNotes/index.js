@@ -31,7 +31,7 @@ export class ContactNotes extends Component {
   }
 
   componentWillMount() {
-    this.getNoteId();
+    this.getNoteId(this.props);
   }
 
 
@@ -39,31 +39,24 @@ export class ContactNotes extends Component {
     if (!props.isActiveTab) {
       this.saveNotes();
     }
-    this.getNoteId();
+    this.getNoteId(props);
   }
 
-  getNoteId() {
-    console.log('Get Note Id');
-    const { noteIds, person } = this.props;
+  getNoteId(props) {
+    const { noteIds, person } = props;
     const entry = noteIds.find((el) => { return el.personId === person.id; });
     const noteId = entry ? entry.noteId : null;
-    console.log(`noteId: ${noteId}`);
     this.getNotes(noteId);
   }
 
   async getNotes(noteId) {
-    console.log('Get Notes');
     const { person } = this.props;
     if (noteId) {
-      console.log('there is a noteId');
       return this.props.dispatch(getPersonNotes(person.id, noteId)).then((results) => {
-        console.log('note: ', results);
         const text = results ? results.content : undefined;
-        console.log(`setState: noteId: ${noteId} text: ${text}`);
         this.setState({ noteId, text });
       });
     } else {
-      console.log('setState: bad');
       this.setState({ noteId: null, text: undefined });
     }
 
@@ -77,7 +70,6 @@ export class ContactNotes extends Component {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      console.log('save person notes');
       this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.state.noteId));
     }
 

@@ -29,10 +29,8 @@ function peopleReducer(state = initialState, action) {
         all: people,
       };
     case REQUESTS.ADD_PERSON_NOTES.SUCCESS:
-      console.log(action.results);
       const personId = action.results.findAll('person')[0].id;
       const noteId = action.results.findAll('person_note')[0].id;
-      console.log(`Add Person Notes Success: ${personId}, ${noteId}`);
       return {
         ...state,
         noteIds: [ ...state.noteIds, { personId, noteId } ],
