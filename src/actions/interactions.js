@@ -1,5 +1,5 @@
 import callApi, { REQUESTS } from './api';
-import { ACTIONS, INTERACTION_TYPES } from '../constants';
+import { ACTIONS } from '../constants';
 import { trackAction } from './analytics';
 
 export function addNewInteraction(personId, interactionId, comment, organizationId) {
