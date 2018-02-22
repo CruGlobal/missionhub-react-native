@@ -118,8 +118,8 @@ class ContactHeader extends Component {
 
   getJeanButtons() {
     const { person } = this.props;
-    const emailExists = person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null;
-    const numberExists = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || null;
+    const emailExists = person.email_addresses ? (person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null) : false;
+    const numberExists = person.phone_numbers ? (person.phone_numbers.find((email) => email.primary) || person.phone_numbers[0] || null) : false;
     let phoneNumberUrl;
     let smsNumberUrl;
     let emailUrl;
