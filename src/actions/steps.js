@@ -14,7 +14,10 @@ import { trackAction, trackState, trackStepsAdded } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
-    const query = { filters: { locale: i18next.language } };
+    const language = i18next.language;
+    const query = {
+      filters: { locale: language === 'en-US' ? 'en' : language },
+    };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
   };
