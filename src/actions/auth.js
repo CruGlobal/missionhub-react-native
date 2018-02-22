@@ -8,14 +8,24 @@ import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 
-export function facebookLoginAction(accessToken, id) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
-      fb_access_token: accessToken,
-    })).then((results) => {
+export function facebookLoginAction(accessToken, id, isUpgrade = false) {
+  return (dispatch, getState) => {
+    let data;
+    const upgradeToken = getState().auth.token;
+    if (isUpgrade) {
+      data = {
+        fb_access_token: accessToken,
+        client_token: upgradeToken,
+      };
+    } else {
+      data = {
+        fb_access_token: accessToken,
+      };
+    }
+
+    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then((results) => {
       LOG(results);
       dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
-
       return dispatch(onSuccessfulLogin());
     });
   };
@@ -59,7 +69,6 @@ export function logout() {
 
 export function upgradeAccount() {
   return (dispatch) => {
-    dispatch({ type: LOGOUT });
     dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
   };
 }

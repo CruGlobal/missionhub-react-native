@@ -44,7 +44,7 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
-  facebookLogin() {
+  facebookLogin(isUpgrade) {
     LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
       LOG('Facebook login result', result);
       if (result.isCancelled) {
@@ -72,7 +72,7 @@ class LoginOptionsScreen extends Component {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id, isUpgrade));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();
@@ -86,7 +86,7 @@ class LoginOptionsScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, upgradeAccount } = this.props;
 
     return (
       <Flex style={styles.container}>
@@ -98,7 +98,7 @@ class LoginOptionsScreen extends Component {
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
                 pill={true}
-                onPress={this.facebookLogin}
+                onPress={() => this.facebookLogin(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
@@ -118,13 +118,17 @@ class LoginOptionsScreen extends Component {
                   <Text style={styles.buttonText}>{t('emailSignUp').toUpperCase()}</Text>
                 </Flex>
               </Button>
-              <Button
-                pill={true}
-                onPress={this.tryItNow}
-                text={t('tryNow').toUpperCase()}
-                style={styles.tryButton}
-                buttonTextStyle={styles.buttonText}
-              />
+              {
+                upgradeAccount ? null : (
+                  <Button
+                    pill={true}
+                    onPress={this.tryItNow}
+                    text={t('tryNow').toUpperCase()}
+                    style={styles.tryButton}
+                    buttonTextStyle={styles.buttonText}
+                  />
+                )
+              }
               <Flex direction="column">
                 <Text style={styles.termsText}>{t('terms')}</Text>
                 <Flex direction="row" align="center" justify="center">
@@ -161,5 +165,10 @@ class LoginOptionsScreen extends Component {
   }
 }
 
-export default connect()(LoginOptionsScreen);
+const mapStateToProps = ( reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+
+export default connect(mapStateToProps)(LoginOptionsScreen);
 export const LOGIN_OPTIONS_SCREEN = 'nav/LOGIN_OPTIONS';
