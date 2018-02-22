@@ -1,5 +1,8 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN } from '../../src/constants';
-import { trackAction, trackState, updateAnalyticsContext, updateLoggedInStatus } from '../../src/actions/analytics';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
+import {
+  trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
+  updateLoggedInStatus,
+} from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
@@ -23,6 +26,8 @@ let store;
 const nameWithPrefix = (name) => `mh : ${name}`;
 
 beforeEach(() => {
+  RNOmniture.trackAction.mockReset();
+
   context = {
     [ANALYTICS.SCREENNAME]: screenName,
     [ANALYTICS.MCID]: mcId,
@@ -100,6 +105,35 @@ describe('trackState', () => {
     store.dispatch(trackState(trackingObj));
 
     expect(trackingObj.name).toEqual(newScreenName);
+  });
+});
+
+describe('trackStepsAdded', () => {
+  const step1 = { challenge_type: 'affirm', id: 1, pathway_stage: { id: 1 }, self_step: false, locale: 'en' };
+  const step2 = { challenge_type: CUSTOM_STEP_TYPE, id: 2, self_step: true, locale: 'es' };
+  const steps = [ step1, step2 ];
+
+  it('should track steps', async() => {
+    await store.dispatch(trackStepsAdded(steps));
+
+    expect(store.getActions()).toEqual([]);
+    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(4);
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
+      [ACTIONS.STEP_FIELDS.ID]: step1.id,
+      [ACTIONS.STEP_FIELDS.STAGE]: step1.pathway_stage.id,
+      [ACTIONS.STEP_FIELDS.TYPE]: step1.challenge_type,
+      [ACTIONS.STEP_FIELDS.SELF]: 'N',
+      [ACTIONS.STEP_FIELDS.LOCALE]: step1.locale,
+    });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED, {});
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
+      [ACTIONS.STEP_FIELDS.ID]: undefined,
+      [ACTIONS.STEP_FIELDS.STAGE]: undefined,
+      [ACTIONS.STEP_FIELDS.TYPE]: CUSTOM_STEP_TYPE,
+      [ACTIONS.STEP_FIELDS.SELF]: 'Y',
+      [ACTIONS.STEP_FIELDS.LOCALE]: step2.locale,
+    });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED, { 'steps': steps.length });
   });
 });
 

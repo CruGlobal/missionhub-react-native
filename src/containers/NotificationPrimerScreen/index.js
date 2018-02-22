@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
@@ -21,6 +23,7 @@ class NotificationPrimerScreen extends Component {
   notNow() {
     this.props.dispatch(disableAskPushNotification());
     this.props.onComplete();
+    this.props.dispatch(trackAction(ACTIONS.NOT_NOW));
   }
 
   allow() {
@@ -30,6 +33,7 @@ class NotificationPrimerScreen extends Component {
     }).catch(() => {
       this.props.onComplete();
     });
+    this.props.dispatch(trackAction(ACTIONS.ALLOW));
   }
 
   render() {
