@@ -207,6 +207,14 @@ export default {
     interactionAssignedContacts: 'Assigned Contacts',
     interactionUncontacted: 'Uncontacted',
   },
+  actions: {
+    interactionSpiritualConversation: 'Spiritual Conversation',
+    interactionGospel: 'Gospel Presentation',
+    interactionDecision: 'Personal Decision',
+    interactionSpirit: 'Holy Spirit Presentation',
+    interactionDiscipleshipConversation: 'Discipleship Conversation',
+    interactionNote: 'Comment',
+  },
   notes: {
     header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',

@@ -1,4 +1,4 @@
-import { addNewComment, editComment } from '../../src/actions/interactions';
+import { addNewInteraction, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
@@ -62,9 +62,9 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async() => {
-      mockApi(action, REQUESTS.ADD_NEW_COMMENT, {}, expectedBody);
+      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
-      await store.dispatch(addNewComment(personId, comment));
+      await store.dispatch(addNewInteraction(personId, 1, comment));
 
       expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
@@ -105,10 +105,9 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async() => {
-      mockApi(action, REQUESTS.ADD_NEW_COMMENT, {}, expectedBody);
+      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
-      await store.dispatch(addNewComment(personId, comment, orgId));
-
+      await store.dispatch(addNewInteraction(personId, 1, comment, orgId));
       expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
   });

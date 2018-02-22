@@ -7,6 +7,7 @@ import { Flex } from '../common';
 import CustomTabs from '../../containers/CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';
+import ContactActions from '../../containers/ContactActions';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
 
@@ -49,7 +50,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'actions') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} organization={this.props.organization} />
+          <ContactActions person={this.props.person} organization={this.props.organization} />
         </Flex>
       );
     } else if (tab.page === 'userImpact') {
