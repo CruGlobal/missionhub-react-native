@@ -18,7 +18,7 @@ export class ContactActions extends Component {
     this.props.dispatch(addNewInteraction(person.id, item.id, text, organization && organization.id));
   }
 
-  handleCreateInteraction(item) {
+  handleCreateInteraction = (item) => {
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: (text) => this.handleInteraction(item, text),
       type: 'interaction',
@@ -30,7 +30,7 @@ export class ContactActions extends Component {
     const { t } = this.props;
 
     return (
-      <Flex direction="column" align="center" justify="start" style={styles.rowWrap}>
+      <Flex key={item.id} direction="column" align="center" justify="start" style={styles.rowWrap}>
         <Touchable onPress={()=> this.handleCreateInteraction(item)} style={styles.iconBtn}>
           <Flex self="stretch" align="center" justify="center" style={styles.iconWrap}>
             <Icon name={item.iconName} type="MissionHub" style={styles.icon} />
