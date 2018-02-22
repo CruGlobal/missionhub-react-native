@@ -175,7 +175,8 @@ export default {
   },
   journeyItem: {
     stepTitle: 'Growing Step of Faith',
-    stageTitle: 'Growing',
+    stageTitle: '{{oldStage}} to {{newStage}}',
+    stageText: '{{name}} changed from {{oldStage}} to {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
