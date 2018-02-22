@@ -87,7 +87,35 @@ export const ACTIONS = {
   SEARCH_CLICKED: 'cru.searchbuttonclicked',
   FILTER_ENGAGED: 'cru.searchfilterengaged',
   SEARCH_FILTER: 'cru.searchfilter',
+  USER_ERROR: 'cru.usersigninerror',
+  SYSTEM_ERROR: 'cru.systemsigninerror',
+  ONBOARDING_STARTED: 'cru.onboardingstarted',
+  ONBOARDING_COMPLETE: 'cru.onboardingcomplete',
+  SELF_STAGE_SELECTED: 'cru.selfselectedstage',
+  PERSON_STAGE_SELECTED: 'cru.personselectedstage',
+  STAGE_SELECTED: 'cru.stageselected',
+  STEP_DETAIL: 'cru.stepoffaithdetail',
+  STEPS_ADDED: 'cru.stepoffaithadded',
+  STEP_CREATED: 'cru.stepoffaithcreated',
+  ALLOW: 'cru.notificationsallowed',
+  NOT_NOW: 'cru.notificationsnotallowed',
+  NO_REMINDERS: 'cru.notoreminders',
+  STEP_PRIORITIZED: 'cru.stepprioritized',
+  STEP_DEPRIORITIZED: 'cru.stepdeprioritized',
+  STEP_REMOVED: 'cru.stepremoved',
+  STEP_COMPLETED: 'cru.stepcompleted',
+  COMMENT_ADDED: 'cru.commentadded',
+  JOURNEY_EDITED: 'cru.journeyedit',
+  STEP_FIELDS: {
+    ID: 'Step ID',
+    STAGE: 'Stage',
+    TYPE: 'Challenge Type',
+    SELF: 'Self Step',
+    LOCALE: 'Locale',
+  },
 };
+
+export const CUSTOM_STEP_TYPE = 'user created step';
 
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
