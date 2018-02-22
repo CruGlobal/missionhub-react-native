@@ -27,8 +27,6 @@ function personProfileReducer(state = initialPersonProfileState, action) {
     case UPDATE_ONBOARDING_PERSON:
       const result = action.results.findAll('person')[0];
       return { ...state, id: result.id, personFirstName: result.first_name, personLastName: result.last_name };
-    case REQUESTS.ADD_PERSON_NOTES.SUCCESS:
-      return state;
     case RESET_ONBOARDING_PERSON:
       return initialPersonProfileState;
     default:

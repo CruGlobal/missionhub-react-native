@@ -7,6 +7,7 @@ import { findAllNonPlaceHolders, useFirstExists } from '../utils/common';
 const initialState = {
   all: [],
   allByOrg: [],
+  noteIds: [],
 };
 
 function peopleReducer(state = initialState, action) {
@@ -17,6 +18,7 @@ function peopleReducer(state = initialState, action) {
         return {
           all: useFirstExists(incoming.all, state.all),
           allByOrg: useFirstExists(incoming.allByOrg, state.allByOrg),
+          noteIds: useFirstExists(incoming.noteIds, state.noteIds),
         };
       }
       return state;
@@ -25,6 +27,15 @@ function peopleReducer(state = initialState, action) {
       return {
         ...state,
         all: people,
+      };
+    case REQUESTS.ADD_PERSON_NOTES.SUCCESS:
+      console.log(action.results);
+      const personId = action.results.findAll('person')[0].id;
+      const noteId = action.results.findAll('person_note')[0].id;
+      console.log(`Add Person Notes Success: ${personId}, ${noteId}`);
+      return {
+        ...state,
+        noteIds: [ ...state.noteIds, { personId, noteId } ],
       };
     case LOGOUT:
       return initialState;

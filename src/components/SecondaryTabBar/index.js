@@ -51,7 +51,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'actions') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} organization={this.props.organization} />
+
         </Flex>
       );
     } else if (tab.page === 'userImpact') {

@@ -46,8 +46,10 @@ export function savePersonNotes(personId, notes, noteId) {
     };
 
     if (!noteId) {
+      console.log('Add Person Notes');
       return dispatch(callApi(REQUESTS.ADD_PERSON_NOTES, {}, bodyData));
     }
+    console.log('Update Person Notes');
     return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTES, { noteId }, bodyData));
   };
 }
@@ -62,6 +64,7 @@ export function getPersonNotes(personId, noteId) {
 export function getPersonWithNotes(id) {
   return async(dispatch) => {
     const query = { person_id: id, include: 'person_notes' };
+    console.log('Get Person Notes');
     return await dispatch(callApi(REQUESTS.GET_PERSON_NOTES, query));
   };
 }

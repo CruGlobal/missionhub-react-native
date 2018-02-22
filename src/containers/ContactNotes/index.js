@@ -19,43 +19,66 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
+      noteId: null,
     };
 
+    this.getNoteId = this.getNoteId.bind(this);
+    this.getNotes = this.getNotes.bind(this);
     this.saveNotes = this.saveNotes.bind(this);
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
-  async componentWillMount() {
-    this.getNotes();
+  componentWillMount() {
+    this.getNoteId();
   }
+
 
   componentWillReceiveProps(props) {
     if (!props.isActiveTab) {
       this.saveNotes();
     }
+    this.getNoteId();
+  }
+
+  getNoteId() {
+    console.log('Get Note Id');
+    const { noteIds, person } = this.props;
+    const entry = noteIds.find((el) => { return el.personId === person.id; });
+    const noteId = entry ? entry.noteId : null;
+    console.log(`noteId: ${noteId}`);
+    this.getNotes(noteId);
+  }
+
+  async getNotes(noteId) {
+    console.log('Get Notes');
+    const { person } = this.props;
+    if (noteId) {
+      console.log('there is a noteId');
+      return this.props.dispatch(getPersonNotes(person.id, noteId)).then((results) => {
+        console.log('note: ', results);
+        const text = results ? results.content : undefined;
+        console.log(`setState: noteId: ${noteId} text: ${text}`);
+        this.setState({ noteId, text });
+      });
+    } else {
+      console.log('setState: bad');
+      this.setState({ noteId: null, text: undefined });
+    }
+
   }
 
   onTextChanged(text) {
     this.setState({ text });
   }
 
-  getNotes() {
-    const { noteId, person } = this.props;
-    if (noteId) {
-      return this.props.dispatch(getPersonNotes(person.id, noteId)).then((results) => {
-        this.setState({ text: results ? results.content : undefined });
-      });
-    }
-    this.setState({ text: undefined });
-  }
-
   saveNotes() {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.props.noteId));
+      console.log('save person notes');
+      this.props.dispatch(savePersonNotes(this.props.person.id, this.state.text, this.state.noteId));
     }
 
     this.setState({ editing: false });
@@ -142,7 +165,7 @@ export class ContactNotes extends Component {
 }
 
 
-const mapStateToProps = ({ personProfile }) => ({ noteId: personProfile.noteId });
+const mapStateToProps = ({ people }) => ({ noteIds: people.noteIds });
 
 
 export default connect(mapStateToProps)(ContactNotes);
