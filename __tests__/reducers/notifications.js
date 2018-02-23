@@ -42,6 +42,9 @@ it('updates set token', () => {
 it('updates set token', () => {
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
+    results: {
+      findAll: ()=> [ { id: '9' } ],
+    },
   });
   expect(state.isRegistered).toBe(true);
 });
@@ -53,6 +56,7 @@ it('resets state on logout', () => {
     shouldAsk: true,
     showReminder: true,
     isRegistered: false,
+    pushDeviceId: '',
   };
   const state = notifications({}, {
     type: LOGOUT,

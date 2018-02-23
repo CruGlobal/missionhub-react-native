@@ -12,6 +12,7 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
+import { KEY_SIGN_UP_SCREEN } from '../KeySignUpScreen';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
@@ -29,6 +30,7 @@ class LoginOptionsScreen extends Component {
     this.login = this.login.bind(this);
     this.tryItNow = this.tryItNow.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
+    this.emailSignUp = this.emailSignUp.bind(this);
   }
 
   login() {
@@ -42,6 +44,10 @@ class LoginOptionsScreen extends Component {
 
   navigateToNext(nextScreen) {
     this.props.dispatch(navigatePush(nextScreen));
+  }
+
+  emailSignUp() {
+    this.props.dispatch(navigatePush(KEY_SIGN_UP_SCREEN));
   }
 
   facebookLogin(isUpgrade) {
@@ -109,7 +115,7 @@ class LoginOptionsScreen extends Component {
               </Button>
               <Button
                 pill={true}
-                onPress={this.tryItNow}
+                onPress={this.emailSignUp}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >

@@ -179,6 +179,80 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <View
+    style={
+      Array [
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 5,
+        },
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 25,
+                "marginTop": 45,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
@@ -363,6 +437,80 @@ exports[`renders edit journey correctly 1`] = `
       </View>
     </View>
   </View>
+  <View
+    style={
+      Array [
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 5,
+        },
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 25,
+                "marginTop": 45,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
@@ -545,6 +693,80 @@ exports[`renders journey correctly 1`] = `
           ADD TO OUR JOURNEY
         </Text>
       </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 5,
+        },
+        Object {
+          "alignItems": "flex-start",
+          "alignSelf": "flex-start",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "margin": 25,
+                "marginTop": 45,
+              },
+            ],
+            Object {
+              "fontFamily": "icomoon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
     </View>
   </View>
 </View>

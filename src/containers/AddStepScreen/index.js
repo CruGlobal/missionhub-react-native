@@ -7,10 +7,11 @@ import { translate } from 'react-i18next';
 import styles from './styles';
 
 import { navigateBack } from '../../actions/navigation';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../../components/common';
-import Input from '../../components/Input/index';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE } from '../../constants';
+import { disableBack } from '../../utils/common';
+import BackButton from '../BackButton';
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -26,12 +27,28 @@ class AddStepScreen extends Component {
     this.skip = this.skip.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.type === STEP_NOTE) {
+      disableBack.add();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.type === STEP_NOTE) {
+      disableBack.remove();
+    }
+  }
+
   saveStep() {
     Keyboard.dismiss();
     const text = this.state.step.trim();
     if (!text) {
       return;
     }
+    if (this.props.type === STEP_NOTE) {
+      disableBack.remove();
+    }
+
     this.props.onComplete(text);
     if (this.props.type !== STEP_NOTE) {
       this.props.dispatch(navigateBack());
@@ -41,12 +58,15 @@ class AddStepScreen extends Component {
   skip() {
     Keyboard.dismiss();
     this.props.onComplete(null);
+    if (this.props.type === 'interaction') {
+      this.props.dispatch(navigateBack());
+    }
   }
 
   getButtonText() {
     const { t, type } = this.props;
     let text;
-    if (type === 'journey' || type === STEP_NOTE) {
+    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
@@ -60,7 +80,7 @@ class AddStepScreen extends Component {
     const { t, type } = this.props;
     let text = t('header');
     let style = styles.header;
-    if (type === 'journey' || type === STEP_NOTE) {
+    if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       style = styles.journeyHeader;
       text = t('journeyHeader');
     } else if (type === 'editJourney') {
@@ -75,12 +95,12 @@ class AddStepScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, type, hideSkip } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         {
-          this.props.type === STEP_NOTE ? (
+          type === STEP_NOTE || type === 'interaction' && !hideSkip ? (
             <Flex align="end" justify="center">
               <Button
                 type="transparent"
@@ -118,6 +138,7 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
+        {type !== STEP_NOTE && type !== 'interaction' ? <BackButton absolute={true} /> : null}
       </PlatformKeyboardAvoidingView>
     );
   }
@@ -125,8 +146,9 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE ]),
+  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, 'interaction' ]),
   isEdit: PropTypes.bool,
+  hideSkip: PropTypes.bool,
   text: PropTypes.string,
 };
 

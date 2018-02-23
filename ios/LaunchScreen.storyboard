@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,14 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="missionhub-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rtS-ke-d3r">
-                                <rect key="frame" x="78" y="73" width="219" height="218"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" image="missionHubLogoWords" translatesAutoresizingMaskIntoConstraints="NO" id="43R-0B-FTq">
+                                <rect key="frame" x="38" y="166" width="299" height="90"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.44859093427658081" blue="0.60277283191680908" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rtS-ke-d3r" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="6:11" id="8cN-Or-AvR"/>
-                            <constraint firstItem="rtS-ke-d3r" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HpM-DU-jtV"/>
+                            <constraint firstItem="43R-0B-FTq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fPN-dg-Zmi"/>
+                            <constraint firstItem="43R-0B-FTq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xof-5C-v8i"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="missionhub-logo" width="219" height="218"/>
+        <image name="missionHubLogoWords" width="299" height="90"/>
     </resources>
 </document>

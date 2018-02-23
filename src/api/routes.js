@@ -159,6 +159,10 @@ export default {
     endpoint: `${API_URL}push_notification_device_tokens`,
     method: 'post',
   },
+  'DELETE_PUSH_TOKEN': {
+    endpoint: `${API_URL}push_notification_device_tokens/:deviceId`,
+    method: 'delete',
+  },
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
@@ -167,7 +171,7 @@ export default {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'delete',
   },
-  'ADD_NEW_COMMENT': {
+  'ADD_NEW_INTERACTION': {
     endpoint: `${API_URL}interactions`,
     method: 'post',
   },

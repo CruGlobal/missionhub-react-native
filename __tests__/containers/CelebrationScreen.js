@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
 import CelebrationScreen from '../../src/containers/CelebrationScreen';
 import * as navigation from '../../src/actions/navigation';
+import * as common from '../../src/utils/common';
 
 const store = createMockStore();
 
@@ -63,5 +64,11 @@ describe('celebration screen methods without onComplete', () => {
     navigation.navigateReset = jest.fn();
     component.navigateToNext();
     expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
+  });
+
+  it('unmounts', () => {
+    common.disableBack = { remove: jest.fn() };
+    component.componentWillUnmount();
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });

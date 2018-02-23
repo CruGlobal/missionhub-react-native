@@ -84,9 +84,7 @@ exports[`renders last name correctly 1`] = `
           },
         ]
       }
-    >
-      Test Org
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -262,9 +260,55 @@ exports[`renders single person correctly 1`] = `
           },
         ]
       }
-    >
-      Test Org
-    </Text>
+    />
   </View>
 </View>
+`;
+
+exports[`renders unassign correctly 1`] = `
+<TouchableHighlight
+  accessibilityTraits="button"
+  activeOpacity={0.85}
+  onPress={[Function]}
+  underlayColor="rgba(0, 115, 152, 0.3)"
+>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 8,
+        "width": 750,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 14,
+        }
+      }
+    >
+      Test
+       Test Last
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 10,
+        }
+      }
+    />
+  </Flex>
+</TouchableHighlight>
 `;

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getMyImpact } from '../../actions/impact';
-
 // import styles from './styles';
 import { IconButton } from '../../components/common';
 import Header from '../Header';
@@ -14,11 +12,6 @@ import { openMainMenu } from '../../utils/common';
 
 @translate('impact')
 class ImpactScreen extends Component {
-
-  componentWillMount() {
-    this.props.dispatch(getGlobalImpact());
-    this.props.dispatch(getMyImpact());
-  }
 
   render() {
     const { t } = this.props;

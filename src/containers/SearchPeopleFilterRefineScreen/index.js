@@ -10,7 +10,7 @@ import Header from '../Header';
 import { IconButton } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
-import { trackState } from '../../actions/analytics';
+import { trackSearchFilter, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 
 function setSelected(items = [], id) {
@@ -52,6 +52,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
 
       const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
       this.props.dispatch(trackState(trackingObj));
+      this.props.dispatch(trackSearchFilter(item.id));
 
     } else {
       const newOptions = setSelected(this.state.options, item.id);

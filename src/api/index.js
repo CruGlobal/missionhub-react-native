@@ -74,11 +74,11 @@ lodashForEach(apiRoutes, (routeData, key) => {
           return;
         }
         if (exists(routeData.useJsonDataApiStore) && !routeData.useJsonDataApiStore) {
-          resolve(jsonResponse);
+          resolve({ results: jsonResponse });
         } else {
           const jsonApiStore = new JsonApiDataStore();
           jsonApiStore.sync(jsonResponse);
-          resolve(jsonApiStore);
+          resolve({ meta: jsonResponse.meta, results: jsonApiStore });
         }
       }).catch((err) => {
         LOG('request error or error in logic that handles the request', key, err);

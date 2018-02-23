@@ -14,6 +14,8 @@ import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -36,8 +38,8 @@ export class SearchPeopleScreen extends Component {
     this.clearSearch = this.clearSearch.bind(this);
   }
 
-  handleSelectPerson(person) {
-    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person }));
+  handleSelectPerson(person, organization) {
+    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
   }
 
   handleFilter() {
@@ -45,6 +47,8 @@ export class SearchPeopleScreen extends Component {
       onFilter: this.handleChangeFilter,
       filters: this.state.filters,
     }));
+
+    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
   }
 
   handleChangeFilter(filters) {
@@ -56,6 +60,29 @@ export class SearchPeopleScreen extends Component {
     this.handleSearch(t);
   }
 
+  getPeopleByOrg(results) {
+    let people = results.findAll('person') || [];
+    let orgPeople = [];
+    people.forEach((p) => {
+      if (p && p.organizational_permissions) {
+        p.organizational_permissions.forEach((o) => {
+          if (o.organization) {
+            orgPeople.push({
+              ...p,
+              unique_key: `${o.organization.id}_${p.id}`,
+              organization: o.organization,
+            });
+          } else {
+            orgPeople.push(p);
+          }
+        });
+      } else {
+        orgPeople.push(p);
+      }
+    });
+    return orgPeople;
+  }
+
   handleSearch(text) {
     if (!text) return this.clearSearch();
     if (!this.state.isSearching) {
@@ -63,7 +90,7 @@ export class SearchPeopleScreen extends Component {
     }
 
     this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
-      const people = results.findAll('person') || [];
+      const people = this.getPeopleByOrg(results);
       this.setState({ isSearching: false, results: people });
     }).catch((err) => {
       this.setState({ isSearching: false });
@@ -177,7 +204,7 @@ export class SearchPeopleScreen extends Component {
       <FlatList
         style={styles.list}
         data={results}
-        keyExtractor={(i) => i.id}
+        keyExtractor={(i) => i.unique_key || i.id}
         renderItem={({ item }) => (
           <SearchPeopleItem
             onSelect={this.handleSelectPerson}

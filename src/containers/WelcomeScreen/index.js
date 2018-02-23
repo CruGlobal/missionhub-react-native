@@ -8,10 +8,26 @@ import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import { SETUP_SCREEN } from '../SetupScreen';
 import { GET_STARTED_SCREEN } from '../GetStartedScreen';
+import { disableBack } from '../../utils/common';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('welcome')
 class WelcomeScreen extends Component {
+
+  componentDidMount() {
+    disableBack.add();
+
+    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_STARTED));
+  }
+
+  componentWillUnmount() {
+    disableBack.remove();
+  }
+
   navigateToNext() {
+    // Remove the back handler when moving forward
+    disableBack.remove();
     if (this.props.auth.isLoggedIn) {
       this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
     } else {

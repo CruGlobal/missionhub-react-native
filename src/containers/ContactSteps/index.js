@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { removeSwipeStepsContact } from '../../actions/swipe';
-import { getStepsByFilter, completeStep, deleteStep } from '../../actions/steps';
+import { getStepsByFilter, completeStep, deleteStepWithTracking } from '../../actions/steps';
 
 import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
@@ -52,7 +52,7 @@ class ContactSteps extends Component {
   }
 
   handleRemove(step) {
-    this.props.dispatch(deleteStep(step.id)).then(() => {
+    this.props.dispatch(deleteStepWithTracking(step.id)).then(() => {
       this.getSteps();
     });
   }
@@ -71,7 +71,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { person, isMe } = this.props;
+    const { person, organization, contactStage, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
@@ -84,6 +84,8 @@ class ContactSteps extends Component {
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
+        organization,
+        contactStage: contactStage, //todo using this makes us need to wait until stage is loaded to add a step
         onSaveNewSteps: this.handleSaveNewSteps,
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
@@ -159,6 +161,7 @@ class ContactSteps extends Component {
 
 ContactSteps.propTypes = {
   person: PropTypes.object,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ swipe, auth }) => ({

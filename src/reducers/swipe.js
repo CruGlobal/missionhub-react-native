@@ -12,7 +12,7 @@ import {
 const initialState = {
   stepsHome: true,
   stepsContact: true,
-  stepsReminder: true,
+  stepsReminder: false, // Never show on the reminders anymore
   journey: true,
 };
 

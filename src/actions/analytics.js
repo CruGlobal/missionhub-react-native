@@ -1,4 +1,4 @@
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE } from '../constants';
 import * as RNOmniture from 'react-native-omniture';
 
 export function updateAnalyticsContext(analyticsContext) {
@@ -8,7 +8,37 @@ export function updateAnalyticsContext(analyticsContext) {
   };
 }
 
-export function trackAction(action, data) {
+export function trackStepsAdded(steps) {
+  return (dispatch) => {
+    steps.forEach((step) => {
+      const trackedStep = {
+        [ACTIONS.STEP_FIELDS.TYPE]: step.challenge_type,
+        [ACTIONS.STEP_FIELDS.SELF]: step.self_step ? 'Y' : 'N',
+        [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
+      };
+
+      if (step.challenge_type === CUSTOM_STEP_TYPE) {
+        dispatch(trackAction(ACTIONS.STEP_CREATED));
+
+      } else {
+        trackedStep[ACTIONS.STEP_FIELDS.ID] = step.id;
+        trackedStep[ACTIONS.STEP_FIELDS.STAGE] = step.pathway_stage.id;
+      }
+
+      dispatch(trackAction(ACTIONS.STEP_DETAIL, trackedStep));
+    });
+
+    dispatch(trackAction(ACTIONS.STEPS_ADDED, { 'steps': steps.length }));
+  };
+}
+
+export function trackSearchFilter(label) {
+  return (dispatch) => {
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
+  };
+}
+
+export function trackAction(action, data = {}) {
   return () => RNOmniture.trackAction(action, data);
 }
 
