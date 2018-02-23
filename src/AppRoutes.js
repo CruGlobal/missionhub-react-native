@@ -35,6 +35,8 @@ import { Icon } from './components/common';
 import theme from './theme';
 import { MAIN_TABS } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
+import { KEY_SIGN_UP_SCREEN } from './containers/KeySignUpScreen';
+import KeySignUpScreen from './containers/KeySignUpScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -169,6 +171,7 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   [LOGIN_SCREEN]: { screen: LoginScreen },
+  [KEY_SIGN_UP_SCREEN]: { screen: KeySignUpScreen },
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },
