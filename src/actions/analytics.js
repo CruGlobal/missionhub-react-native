@@ -77,7 +77,7 @@ export function updateLoggedInStatus(status) {
       [ANALYTICS.LOGGED_IN_STATUS]: status,
     };
 
-    RNOmniture.syncMarketingCloudId(updatedContext[ANALYTICS.MCID]);
+    RNOmniture.syncIdentifier(updatedContext[ANALYTICS.SSO_GUID]);
     return dispatch(updateAnalyticsContext(updatedContext));
   };
 }

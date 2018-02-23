@@ -11,12 +11,13 @@ jest.mock('react-native-omniture', () => {
   return {
     trackState: jest.fn(),
     trackAction: jest.fn(),
-    syncMarketingCloudId: jest.fn(),
+    syncIdentifier: jest.fn(),
   };
 });
 
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
+const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
 let context = {
   [ANALYTICS.SCREENNAME]: screenName,
 };
@@ -31,6 +32,7 @@ beforeEach(() => {
   context = {
     [ANALYTICS.SCREENNAME]: screenName,
     [ANALYTICS.MCID]: mcId,
+    [ANALYTICS.SSO_GUID]: ssoGuid,
   };
 
   store = mockStore({
@@ -81,6 +83,7 @@ describe('trackState', () => {
       [ANALYTICS.SITE_SUBSECTION]: subsection,
       [ANALYTICS.SITE_SUB_SECTION_3]: level3,
       [ANALYTICS.MCID]: mcId,
+      [ANALYTICS.SSO_GUID]: ssoGuid,
     };
 
     trackingObj = { name: newScreenName, section: section, subsection: subsection, level3: level3 };
@@ -143,7 +146,7 @@ describe('updateLoggedInStatus', () => {
   beforeEach(() => store.dispatch(updateLoggedInStatus(status)));
 
   it('should sync marketing cloud id', () => {
-    expect(RNOmniture.syncMarketingCloudId).toHaveBeenCalledWith(mcId);
+    expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
   });
 
   it('should update analytics context', () => {
