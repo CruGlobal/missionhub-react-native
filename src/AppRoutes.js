@@ -155,7 +155,7 @@ const screens = {
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person', 'onboarding', 'add person')),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('people : add person', 'people', 'add person')),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
+  [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding', 'add person')),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
   [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('search', 'search') , { gesturesEnabled: true }),
