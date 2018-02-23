@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE } from '../constants';
+import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS } from '../constants';
 import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
@@ -9,12 +9,15 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './people';
-import { trackState } from './analytics';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { trackAction, trackState, trackStepsAdded } from './analytics';
 
 export function getStepSuggestions() {
   return (dispatch) => {
-    const query = { filters: { locale: i18next.language } };
+    const language = i18next.language;
+    const query = {
+      filters: { locale: language === 'en-US' ? 'en' : language },
+    };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
   };
@@ -76,8 +79,10 @@ export function addSteps(steps, receiverId, organization) {
       included: newSteps,
       include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r)=>{
+    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r) => {
       dispatch(getMySteps());
+      dispatch(trackStepsAdded(steps));
+
       return r;
     });
   };
@@ -147,7 +152,7 @@ function challengeCompleteAction(step) {
                 },
               },
             };
-            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData));
+            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
@@ -207,8 +212,18 @@ function challengeCompleteAction(step) {
       const subsection = getAnalyticsSubsection( step.receiver.id, myId );
       const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
       dispatch(trackState(trackingObj));
+      dispatch(trackAction(ACTIONS.STEP_COMPLETED));
 
       return results;
+    });
+  };
+}
+
+export function deleteStepWithTracking(step) {
+  return (dispatch) => {
+    return dispatch(deleteStep(step)).then((r) => {
+      dispatch(trackAction(ACTIONS.STEP_REMOVED));
+      return r;
     });
   };
 }
@@ -216,7 +231,7 @@ function challengeCompleteAction(step) {
 export function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
-    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r)=>{
+    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
       dispatch(removeStepReminder(step));
       dispatch(getMySteps());
       return r;

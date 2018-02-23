@@ -171,7 +171,7 @@ export default {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'delete',
   },
-  'ADD_NEW_COMMENT': {
+  'ADD_NEW_INTERACTION': {
     endpoint: `${API_URL}interactions`,
     method: 'post',
   },

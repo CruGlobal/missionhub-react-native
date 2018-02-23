@@ -58,7 +58,8 @@ export class PeopleScreen extends Component {
     this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED));
   }
 
-  handleRowSelect(person, organization) {
+  handleRowSelect(person, org) {
+    const organization = org && org.id !== 'personal' ? org : undefined;
     this.props.dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
   }
 
