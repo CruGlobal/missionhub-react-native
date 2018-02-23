@@ -1,7 +1,7 @@
 
 import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, RESET_ONBOARDING_PERSON } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
-import { personFirstNameChanged, personLastNameChanged, savePersonNote, resetPerson } from '../../src/actions/person';
+import { personFirstNameChanged, personLastNameChanged, savePersonNote, getPersonNote, resetPerson } from '../../src/actions/person';
 import * as api from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import { mockFnWithParams } from '../../testUtils';
@@ -36,6 +36,7 @@ describe('saveNote', () => {
   const myId = 1;
   const note = 'test';
   let noteId;
+  let action;
 
   const expectedData = {
     data: {
@@ -61,37 +62,59 @@ describe('saveNote', () => {
   };
 
   describe('AddPersonNote', () => {
-    noteId = null;
 
-    const action = { type: 'added notes' };
 
     beforeEach(() => {
-      store = mockStore({ auth: { user: { user: { id: myId } } } });
-      mockApi(action, REQUESTS.ADD_PERSON_NOTES, { }, expectedData);
+      noteId = null;
+      action = { type: 'added note' };
+      const expectedQuery = { };
+
+      store = mockStore();
+      mockApi(action, REQUESTS.ADD_PERSON_NOTE, expectedQuery, expectedData);
     });
 
-    it('should add notes', () => {
-      store.dispatch(savePersonNote(personId, note, noteId));
+    it('should add note', () => {
+      store.dispatch(savePersonNote(personId, note, noteId, myId));
 
       expect(store.getActions()[0]).toBe(action);
     });
   });
 
-  describe('UpdatePersonNotes', () => {
-    noteId = 2;
-
-    const action = { type: 'updated notes' };
-
+  describe('UpdatePersonNote', () => {
     beforeEach(() => {
-      store = mockStore({ auth: { user: { user: { id: myId } } } });
-      mockApi(action, REQUESTS.UPDATE_PERSON_NOTES, { noteId }, expectedData);
+      noteId = 2;
+      action = { type: 'updated note' };
+      const expectedQuery = { noteId };
+
+      store = mockStore();
+      mockApi(action, REQUESTS.UPDATE_PERSON_NOTE, expectedQuery, expectedData);
     });
 
-    it('should update notes', () => {
-      store.dispatch(savePersonNote(personId, note, noteId));
+    it('should update note', () => {
+      store.dispatch(savePersonNote(personId, note, noteId, myId));
 
       expect(store.getActions()[0]).toBe(action);
     });
+  });
+});
+
+describe('GetPersonNote', () => {
+  const personId = 23;
+  const myId = 1;
+
+  const action = { type: 'got note' };
+
+  const expectedQuery = { person_id: personId, include: 'person_notes' };
+
+  beforeEach(() => {
+    store = mockStore();
+    mockApi(action, REQUESTS.GET_PERSON_NOTE, expectedQuery);
+  });
+
+  it('should get note', () => {
+    store.dispatch(getPersonNote(personId, myId));
+
+    expect(store.getActions()[0]).toBe(action);
   });
 });
 

@@ -31,7 +31,7 @@ beforeEach(() => {
     { context: { store: store } }
   );
 
-  shallowScreen = shallowScreen.dive().dive().dive();
+  shallowScreen = shallowScreen.dive().dive();
 
   shallowScreen.setState({ keyboardHeight: 216.5 });
 });
@@ -81,9 +81,9 @@ describe('when keyboard height is set', () => {
 
 describe('componentWillReceiveProps', () => {
   it('should save notes when navigating away', () => {
-    jest.spyOn(shallowScreen.instance(), 'saveNotes');
+    jest.spyOn(shallowScreen.instance(), 'saveNote');
 
-    shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false, noteIds: [ ] });
+    shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
 
     expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
   });

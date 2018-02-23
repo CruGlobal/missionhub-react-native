@@ -22,7 +22,7 @@ export class ContactNotes extends Component {
       noteId: null,
     };
 
-    this.saveNote = this.saveNotes.bind(this);
+    this.saveNote = this.saveNote.bind(this);
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
