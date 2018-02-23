@@ -64,7 +64,6 @@ function buildUpdatedContext(trackingObj, context) {
   return {
     ...context,
     [ANALYTICS.SCREENNAME]: trackingObj.name,
-    [ANALYTICS.PAGE_NAME]: trackingObj.name,
     [ANALYTICS.SITE_SECTION]: trackingObj.section,
     [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
     [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,

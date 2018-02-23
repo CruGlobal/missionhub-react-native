@@ -78,7 +78,6 @@ describe('trackState', () => {
   beforeEach(() => {
     expectedUpdatedContext = {
       [ANALYTICS.SCREENNAME]: nameWithPrefix(newScreenName),
-      [ANALYTICS.PAGE_NAME]: nameWithPrefix(newScreenName),
       [ANALYTICS.SITE_SECTION]: section,
       [ANALYTICS.SITE_SUBSECTION]: subsection,
       [ANALYTICS.SITE_SUB_SECTION_3]: level3,
