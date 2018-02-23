@@ -4,7 +4,7 @@ import { getUserDetails } from './people';
 import { getStages } from './stages';
 import { findAllNonPlaceHolders } from '../utils/common';
 
-export function getJourney(personId, personal = false) {
+export function getJourney(personId, personal = false, organization) {
   return async(dispatch, getState) => {
     // const { personId: myId, isJean } = getState().auth.personId;
     const { isJean } = getState().auth;
@@ -68,8 +68,6 @@ export function getJourney(personId, personal = false) {
     
     
 
-    // For surveys, filter out by organization id
-
     // For no organizations, filter out any interactions that have an organization id
 
     // For interactions, filter out by organization
@@ -77,15 +75,14 @@ export function getJourney(personId, personal = false) {
     // For interactions, filter out by initiators array
 
     
-    // TODO: Make a request to get the full surveys for {personId} if jean
     if (isJean && !personal) {
-      journeySurveys = findAllNonPlaceHolders(person, 'answer_sheet').map((s) => {
-        return {
+      journeySurveys = findAllNonPlaceHolders(person, 'answer_sheet')
+        .filter((s) => organization && s.survey && s.survey.organization_id && `${organization.id}` === `${s.survey.organization_id}`)
+        .map((s) => ({
           ...s,
           type: 'survey',
           date: s.created_at,
-        };
-      });
+        }));
     }
 
 
