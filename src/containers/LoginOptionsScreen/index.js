@@ -46,8 +46,8 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
-  emailSignUp() {
-    this.props.dispatch(navigatePush(KEY_SIGN_UP_SCREEN));
+  emailSignUp(isUpgrade) {
+    this.props.dispatch(navigatePush(KEY_SIGN_UP_SCREEN, { isUpgrade }));
   }
 
   facebookLogin(isUpgrade) {
@@ -115,7 +115,7 @@ class LoginOptionsScreen extends Component {
               </Button>
               <Button
                 pill={true}
-                onPress={this.emailSignUp}
+                onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
