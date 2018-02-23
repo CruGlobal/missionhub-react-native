@@ -192,8 +192,7 @@ export function handleNotifications(state, notification) {
           dispatch(navigateReset(MAIN_TABS));
         } else if (screen.includes('person_steps')) {
           let num = screen.indexOf('/');
-          let slice = screen.slice(num);
-          let personId = parseInt(slice);
+          let personId = screen.slice(num);
           let person;
           let organization;
           dispatch(getPersonDetails(personId)).then((r) => {
