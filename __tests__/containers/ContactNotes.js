@@ -58,12 +58,12 @@ describe('when keyboard height is set', () => {
 
     it('editing is set to false when button is pressed', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
-      jest.spyOn(shallowScreen.instance(), 'saveNotes');
+      jest.spyOn(shallowScreen.instance(), 'saveNote');
 
       shallowScreen.find(Button).simulate('press');
 
       expect(shallowScreen.state('editing')).toBe(false);
-      expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
+      expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
       expect(ReactNative.Keyboard.dismiss).toHaveBeenCalled();
     });
   });
@@ -81,10 +81,10 @@ describe('when keyboard height is set', () => {
 
 describe('componentWillReceiveProps', () => {
   it('should save notes when navigating away', () => {
-    jest.spyOn(shallowScreen.instance(), 'saveNotes');
+    jest.spyOn(shallowScreen.instance(), 'saveNote');
 
     shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
 
-    expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
+    expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
   });
 });

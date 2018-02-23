@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Text, Flex, Button, Input } from '../../components/common';
 import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
-import { saveNotes } from '../../actions/person';
+import { savePersonNote, getPersonNote } from '../../actions/person';
 import { translate } from 'react-i18next';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
@@ -21,29 +21,49 @@ export class ContactNotes extends Component {
       text: undefined,
       keyboardHeight: undefined,
       editing: false,
+      noteId: null,
     };
 
-    this.saveNotes = this.saveNotes.bind(this);
+    this.saveNote = this.saveNote.bind(this);
     this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
+  componentWillMount() {
+    this.getNote();
+  }
+
+
   componentWillReceiveProps(props) {
     if (!props.isActiveTab) {
-      this.saveNotes();
+      this.saveNote();
     }
+  }
+
+  async getNote() {
+    const { person, myId } = this.props;
+    this.props.dispatch(getPersonNote(person.id, myId)).then((results) => {
+      const text = results ? results.content : undefined;
+      const noteId = results ? results.id : null;
+      this.setState({ noteId, text });
+    });
   }
 
   onTextChanged(text) {
     this.setState({ text });
   }
 
-  saveNotes() {
+  saveNote() {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(saveNotes(this.props.person.id, this.state.text));
+      this.props.dispatch(savePersonNote(
+        this.props.person.id,
+        this.state.text,
+        this.state.noteId,
+        this.props.myId,
+      ));
     }
 
     this.setState({ editing: false });
@@ -51,8 +71,7 @@ export class ContactNotes extends Component {
 
   onButtonPress() {
     if (this.state.editing) {
-      this.saveNotes();
-
+      this.saveNote();
     } else {
       this.setState({ editing: true });
       this.notesInput.focus();
@@ -131,4 +150,8 @@ export class ContactNotes extends Component {
   }
 }
 
-export default connect()(ContactNotes);
+
+const mapStateToProps = ({ auth }) => ({ myId: auth.user.user.id });
+
+
+export default connect(mapStateToProps)(ContactNotes);

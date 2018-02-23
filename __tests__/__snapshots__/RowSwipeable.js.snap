@@ -144,7 +144,7 @@ exports[`renders edit action correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

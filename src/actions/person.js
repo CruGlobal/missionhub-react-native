@@ -1,4 +1,5 @@
-import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, SAVE_NOTES, RESET_ONBOARDING_PERSON } from '../constants';
+import callApi, { REQUESTS } from './api';
+import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, RESET_ONBOARDING_PERSON } from '../constants';
 
 export function personFirstNameChanged(firstName) {
   return {
@@ -14,8 +15,55 @@ export function personLastNameChanged(lastName) {
   };
 }
 
-export function saveNotes(personId, notes) {
-  return { type: SAVE_NOTES, personId, notes };
+export function savePersonNote(personId, notes, noteId, myId) {
+  return (dispatch) => {
+    if (!personId || !notes) {
+      return Promise.reject('InvalidData');
+    }
+
+    const bodyData = {
+      data: {
+        type: 'person_note',
+        attributes: {
+          content: notes,
+        },
+        relationships: {
+          person: {
+            data: {
+              type: 'person',
+              id: personId,
+            },
+          },
+          user: {
+            data: {
+              type: 'user',
+              id: myId,
+            },
+          },
+        },
+      },
+    };
+
+    if (!noteId) {
+      return dispatch(callApi(REQUESTS.ADD_PERSON_NOTE, {}, bodyData));
+    }
+    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTE, { noteId }, bodyData));
+  };
+}
+
+export function getPersonNote(personId, myId) {
+  return async(dispatch) => {
+    const query = { person_id: personId, include: 'person_notes' };
+
+    return await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then((results) => {
+      const person = results.find('person', personId);
+      if (person && person.person_notes) {
+        const notes = person.person_notes;
+        return notes.find((element) => { return element.user_id == myId; });
+      }
+      return Promise.reject('PersonNotFound');
+    });
+  };
 }
 
 export function resetPerson() {

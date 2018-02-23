@@ -182,4 +182,15 @@ export default {
   'SEARCH': {
     endpoint: `${API_URL}search`,
   },
+  'ADD_PERSON_NOTE': {
+    endpoint: `${API_URL}person_notes`,
+    method: 'post',
+  },
+  'UPDATE_PERSON_NOTE': {
+    endpoint: `${API_URL}person_notes/:noteId`,
+    method: 'put',
+  },
+  'GET_PERSON_NOTE': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
 };
