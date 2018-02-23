@@ -15,12 +15,18 @@ class StepItem extends Component {
   onHover = () => this.setState({ hovering: true });
   onBlur = () => this.setState({ hovering: false });
   handleAction = () => { this.props.onAction && this.props.onAction(this.props.step); }
-  handleSelect = () => { this.props.onSelect && this.props.onSelect(this.props.step); }
+  handleSelect = () => {
+    if (!this.props.step.receiver) {
+      return;
+    } else {
+      this.props.onSelect && this.props.onSelect(this.props.step);
+    }
+  }
 
   renderIcon() {
     const { type, onAction, hideAction } = this.props;
     const { hovering } = this.state;
-    
+
     if (!onAction) {
       return null;
     }
@@ -55,8 +61,8 @@ class StepItem extends Component {
   render() {
     const { step, type, myId, t } = this.props;
     const isMe = step.receiver && step.receiver.id === myId ;
-    let ownerName = isMe ? t('me') : step.receiver.full_name || '';
-    ownerName = ownerName.toUpperCase();
+    let ownerName = isMe ? t('me') : step.receiver ? step.receiver.full_name : '';
+    ownerName = (ownerName || '').toUpperCase();
     return (
       <Touchable
         highlight={type !== 'reminder'}

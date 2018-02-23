@@ -1,10 +1,34 @@
-import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED } from '../constants';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE } from '../constants';
 import * as RNOmniture from 'react-native-omniture';
 
 export function updateAnalyticsContext(analyticsContext) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
     analyticsContext: analyticsContext,
+  };
+}
+
+export function trackStepsAdded(steps) {
+  return (dispatch) => {
+    steps.forEach((step) => {
+      const trackedStep = {
+        [ACTIONS.STEP_FIELDS.TYPE]: step.challenge_type,
+        [ACTIONS.STEP_FIELDS.SELF]: step.self_step ? 'Y' : 'N',
+        [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
+      };
+
+      if (step.challenge_type === CUSTOM_STEP_TYPE) {
+        dispatch(trackAction(ACTIONS.STEP_CREATED));
+
+      } else {
+        trackedStep[ACTIONS.STEP_FIELDS.ID] = step.id;
+        trackedStep[ACTIONS.STEP_FIELDS.STAGE] = step.pathway_stage.id;
+      }
+
+      dispatch(trackAction(ACTIONS.STEP_DETAIL, trackedStep));
+    });
+
+    dispatch(trackAction(ACTIONS.STEPS_ADDED, { 'steps': steps.length }));
   };
 }
 

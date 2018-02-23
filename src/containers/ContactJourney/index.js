@@ -13,8 +13,10 @@ import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
-import { addNewComment, editComment } from '../../actions/interactions';
+import { addNewInteraction, editComment } from '../../actions/interactions';
+import { removeSwipeJourney } from '../../actions/swipe';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { INTERACTION_TYPES } from '../../constants';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -22,13 +24,17 @@ class ContactJourney extends Component {
   constructor(props) {
     super(props);
 
+    const isPersonal = !props.isCasey && !props.organization;
+
+
     this.state = {
       isLoading: true,
       journey: [],
       editingInteraction: null,
-      isPersonalMinistry: false,
+      isPersonalMinistry: isPersonal,
     };
 
+    this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
     this.handleAddComment = this.handleAddComment.bind(this);
     this.handleEditComment = this.handleEditComment.bind(this);
@@ -36,18 +42,16 @@ class ContactJourney extends Component {
     this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getInteractions();
   }
 
-  componentDidMount() {
-    const orgIdExists = !!this.getOrganization();
-    const isPersonal = !this.props.isCasey && !orgIdExists;
-    this.setState({ isPersonalMinistry: isPersonal });
+  completeBump() {
+    this.props.dispatch(removeSwipeJourney());
   }
 
   getInteractions() {
-    this.props.dispatch(getJourney(this.props.person.id, this.state.isPersonalMinistry)).then((items) => {
+    this.props.dispatch(getJourney(this.props.person.id, this.state.isPersonalMinistry, this.props.organization)).then((items) => {
       this.setState({
         journey: items,
         isLoading: false,
@@ -55,14 +59,6 @@ class ContactJourney extends Component {
     }).catch(() => {
       this.setState({ isLoading: false });
     });
-  }
-
-  getOrganization() {
-    const { person } = this.props;
-    if (person && person.organizational_permissions && person.organizational_permissions.length > 0) {
-      return person.organizational_permissions[0].organization_id;
-    }
-    return undefined;
   }
 
   handleEditInteraction(interaction) {
@@ -85,10 +81,10 @@ class ContactJourney extends Component {
   }
 
   handleAddComment(text) {
-    const { person, dispatch } = this.props;
-    const orgId = this.getOrganization();
+    const { person, dispatch, organization } = this.props;
+    const orgId = organization && organization.id;
 
-    dispatch(addNewComment(person.id, text, orgId)).then(() => {
+    dispatch(addNewInteraction(person.id, INTERACTION_TYPES.MHInteractionTypeNote.id, text, orgId)).then(() => {
       // Add new comment to journey
       this.getInteractions();
     });
@@ -106,13 +102,15 @@ class ContactJourney extends Component {
   }
 
   renderRow({ item }) {
-    const { isCasey } = this.props;
+    const { isCasey, showReminder } = this.props;
     let content = <JourneyItem item={item} type={item.type} />;
     if (item.type === 'interaction' && (isCasey || this.state.isPersonalMinistry)) {
       return (
         <RowSwipeable
           key={item.id}
           onEdit={() => this.handleEditInteraction(item)}
+          bump={showReminder && item.isFirstInteraction}
+          onBumpComplete={showReminder && item.isFirstInteraction ? this.completeBump : undefined}
         >
           {content}
         </RowSwipeable>
@@ -186,11 +184,13 @@ class ContactJourney extends Component {
 
 ContactJourney.propTypes = {
   person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, swipe }) => ({
   isCasey: !auth.isJean,
   myId: auth.personId,
+  showReminder: swipe.journey,  
 });
 
 export default connect(mapStateToProps)(ContactJourney);

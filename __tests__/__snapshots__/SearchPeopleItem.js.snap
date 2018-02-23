@@ -84,9 +84,7 @@ exports[`renders last name correctly 1`] = `
           },
         ]
       }
-    >
-      Test Org
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -262,9 +260,7 @@ exports[`renders single person correctly 1`] = `
           },
         ]
       }
-    >
-      Test Org
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -312,9 +308,7 @@ exports[`renders unassign correctly 1`] = `
           "fontSize": 10,
         }
       }
-    >
-      Test Org
-    </MyText>
+    />
   </Flex>
 </TouchableHighlight>
 `;
