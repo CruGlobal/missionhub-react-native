@@ -17,7 +17,6 @@ function peopleReducer(state = initialState, action) {
         return {
           all: useFirstExists(incoming.all, state.all),
           allByOrg: useFirstExists(incoming.allByOrg, state.allByOrg),
-          noteIds: useFirstExists(incoming.noteIds, state.noteIds),
         };
       }
       return state;

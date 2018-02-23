@@ -56,9 +56,9 @@ export function getPersonNote(personId, myId) {
     const query = { person_id: personId, include: 'person_notes' };
 
     return await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then((results) => {
-      console.log(results);
-      if (results && results.find('person', personId) && results.find('person', personId).person_notes) {
-        const notes = results.find('person', personId).person_notes;
+      const person = results.find('person', personId);
+      if (person && person.person_notes) {
+        const notes = person.person_notes;
         return notes.find((element) => { return element.user_id == myId; });
       }
       return Promise.reject('PersonNotFound');

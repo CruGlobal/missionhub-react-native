@@ -5,7 +5,6 @@ import { REQUESTS } from '../actions/api';
 const initialPersonProfileState = {
   personFirstName: '',
   personLastName: '',
-  noteId: null,
 };
 
 function personProfileReducer(state = initialPersonProfileState, action) {
