@@ -62,7 +62,7 @@ class StepItem extends Component {
     const { step, type, myId, t } = this.props;
     const isMe = step.receiver && step.receiver.id === myId ;
     let ownerName = isMe ? t('me') : step.receiver ? step.receiver.full_name : '';
-    ownerName = ownerName.toUpperCase();
+    ownerName = (ownerName || '').toUpperCase();
     return (
       <Touchable
         highlight={type !== 'reminder'}
