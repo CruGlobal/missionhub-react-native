@@ -246,7 +246,7 @@ exports[`renders stage correctly 1`] = `
         ]
       }
     >
-      Growing
+       to 
     </Text>
     <Text
       accessible={true}
@@ -266,7 +266,7 @@ exports[`renders stage correctly 1`] = `
         ]
       }
     >
-      Test Journey
+       changed from  to 
     </Text>
   </View>
 </View>

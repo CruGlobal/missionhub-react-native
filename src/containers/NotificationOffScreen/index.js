@@ -10,6 +10,8 @@ import { navigateBack } from '../../actions/navigation';
 import { enableAskPushNotification } from '../../actions/notifications';
 import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
+import { trackAction } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
@@ -23,8 +25,9 @@ class NotificationOffScreen extends Component {
 
   notNow() {
     this.close();
+    this.props.dispatch(trackAction(ACTIONS.NO_REMINDERS));
   }
-  
+
   close(shouldAsk) {
     this.props.onClose(shouldAsk);
     this.props.dispatch(navigateBack());

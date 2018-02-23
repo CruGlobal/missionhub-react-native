@@ -7,7 +7,7 @@ import * as common from '../../src/utils/common';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
-import { COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE } from '../../src/constants';
+import { ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import i18next from 'i18next';
 
@@ -78,6 +78,7 @@ describe('complete challenge', () => {
   };
 
   const trackStateResult = { type: 'tracked state' };
+  const trackActionResult = { type: 'tracked action' };
 
   beforeEach(() => {
     store = mockStore({
@@ -94,6 +95,8 @@ describe('complete challenge', () => {
       'default',
       { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.GET_MY_CHALLENGES, stepsQuery ] },
       { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data ] });
+
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
   });
 
   it('completes step', () => {
@@ -104,6 +107,7 @@ describe('complete challenge', () => {
           routeName: ADD_STEP_SCREEN,
           params: { type: STEP_NOTE, onComplete: expect.anything() } },
         trackStateResult,
+        trackActionResult,
       ]);
     });
   });

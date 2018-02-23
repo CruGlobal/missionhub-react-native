@@ -1,11 +1,12 @@
 import callApi, { REQUESTS } from './api';
-import { INTERACTION_TYPES } from '../constants';
+import { ACTIONS } from '../constants';
+import { trackAction } from './analytics';
 
-export function addNewComment(personId, comment, organizationId) {
+export function addNewInteraction(personId, interactionId, comment, organizationId) {
   return (dispatch, getState) => {
     const myId = getState().auth.personId;
-    if (!personId || !comment) {
-      return Promise.reject('InvalidData', personId, comment);
+    if (!personId) {
+      return Promise.reject('InvalidData');
     }
 
     const relationships = {
@@ -32,20 +33,20 @@ export function addNewComment(personId, comment, organizationId) {
         },
       };
     }
-    
+
     const bodyData = {
       data: {
         type: 'interaction',
         attributes: {
-          interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
-          comment: comment,
+          interaction_type_id: interactionId,
+          comment: comment ? comment : undefined,
         },
         relationships,
       },
       included: [],
     };
     const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_COMMENT, query, bodyData));
+    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
   };
 }
 
@@ -54,7 +55,7 @@ export function editComment(interaction, comment) {
     if (!interaction || !comment) {
       return Promise.reject('InvalidDataEditComment');
     }
-    
+
     const bodyData = {
       data: {
         type: 'interaction',
@@ -67,6 +68,6 @@ export function editComment(interaction, comment) {
     const query = {
       interactionId: interaction.id,
     };
-    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData));
+    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.JOURNEY_EDITED)));
   };
 }
