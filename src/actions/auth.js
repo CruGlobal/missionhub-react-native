@@ -4,7 +4,7 @@ import { getMe } from './people';
 import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
-import { updateAnalyticsContext } from './analytics';
+import { logOut, updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
@@ -63,6 +63,8 @@ export function codeLogin(code) {
 
 export function logout() {
   return (dispatch, getState) => {
+    dispatch(logOut());
+
     const pushDeviceId = getState().notifications.pushDeviceId;
     if (!pushDeviceId) {
       dispatch(logoutReset());

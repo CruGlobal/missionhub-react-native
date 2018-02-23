@@ -1,4 +1,7 @@
-import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE } from '../constants';
+import {
+  ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN,
+  NOT_LOGGED_IN,
+} from '../constants';
 import * as RNOmniture from 'react-native-omniture';
 
 export function updateAnalyticsContext(analyticsContext) {
@@ -68,13 +71,27 @@ function buildUpdatedContext(trackingObj, context) {
   };
 }
 
-export function updateLoggedInStatus(status) {
+export function logOut() {
   return (dispatch, getState) => {
 
     const context = getState().analytics;
     const updatedContext = {
       ...context,
-      [ANALYTICS.LOGGED_IN_STATUS]: status,
+      [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+      [ANALYTICS.SSO_GUID]: '',
+    };
+
+    return dispatch(updateAnalyticsContext(updatedContext));
+  };
+}
+
+export function logIn() {
+  return (dispatch, getState) => {
+
+    const context = getState().analytics;
+    const updatedContext = {
+      ...context,
+      [ANALYTICS.LOGGED_IN_STATUS]: LOGGED_IN,
     };
 
     RNOmniture.syncIdentifier(updatedContext[ANALYTICS.SSO_GUID]);

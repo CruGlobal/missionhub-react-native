@@ -1,7 +1,7 @@
 import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
 import {
   trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
-  updateLoggedInStatus,
+  logIn,
 } from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -140,10 +140,8 @@ describe('trackStepsAdded', () => {
   });
 });
 
-describe('updateLoggedInStatus', () => {
-  const status = LOGGED_IN;
-
-  beforeEach(() => store.dispatch(updateLoggedInStatus(status)));
+describe('logIn', () => {
+  beforeEach(() => store.dispatch(logIn()));
 
   it('should sync marketing cloud id', () => {
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
@@ -152,6 +150,6 @@ describe('updateLoggedInStatus', () => {
   it('should update analytics context', () => {
     const action = store.getActions()[0];
     expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext[ANALYTICS.LOGGED_IN_STATUS]).toEqual(status);
+    expect(action.analyticsContext[ANALYTICS.LOGGED_IN_STATUS]).toEqual(LOGGED_IN);
   });
 });

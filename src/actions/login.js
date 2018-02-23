@@ -1,13 +1,13 @@
 import { getPerson } from './people';
 import { navigatePush } from './navigation';
-import { updateLoggedInStatus } from './analytics';
+import { logIn } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import { LOGGED_IN, MAIN_TABS } from '../constants';
+import { MAIN_TABS } from '../constants';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
-    dispatch(updateLoggedInStatus(LOGGED_IN));
+    dispatch(logIn());
 
     const personId = getState().auth.personId;
     const getMeResult = await dispatch(getPerson(personId));
