@@ -158,8 +158,8 @@ const screens = {
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(SetupPersonScreen, buildTrackingObj('onboarding : add person : name', 'onboarding, add person')),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(NotificationPrimerScreen, buildTrackingObj('menu : notifications : permissions', 'menu', 'notifications')),
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(NotificationOffScreen, buildTrackingObj( 'menu : notifications : off', 'menu', 'notifications')),
-  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('mh : search', 'search') , { gesturesEnabled: true }),
-  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('mh : search : refine', 'search', 'refine'), { gesturesEnabled: true }),
+  [SEARCH_SCREEN]: buildTrackedScreen(SearchPeopleScreen, buildTrackingObj('search', 'search') , { gesturesEnabled: true }),
+  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(SearchPeopleFilterScreen, buildTrackingObj('search : refine', 'search', 'refine'), { gesturesEnabled: true }),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
