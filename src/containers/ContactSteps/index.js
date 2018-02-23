@@ -73,28 +73,36 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
+
   handleNavToStage() {
     const { dispatch, isMe, person, contactAssignmentId } = this.props;
 
     if (isMe) {
-      this.props.dispatch(STAGE_SCREEN, {
-        onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+      this.props.dispatch(navigatePush(STAGE_SCREEN, {
+        onComplete: (stage) => {
+          dispatch(updateVisiblePersonInfo({ contactStage: stage }));
+          this.handleNavToSteps();
+        },
         firstItem: undefined,
         contactId: person.id,
         section: 'people',
         subsection: 'self',
         enableBackButton: true,
-      });
+      }));
     } else {
-      this.props.dispatch(PERSON_STAGE_SCREEN, {
-        onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+      this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+        onComplete: (stage) => {
+          dispatch(updateVisiblePersonInfo({ contactStage: stage }));
+          this.handleNavToSteps();
+        },
         firstItem: undefined,
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignmentId,
         section: 'people',
         subsection: 'person',
-      });
+        noNav: true,
+      }));
     }
   }
 
@@ -123,8 +131,9 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    
+    this.props.contactStage ? this.handleNavToSteps(): this.handleNavToStage();
   }
+
 
   renderRow({ item, index }) {
     const { showBump } = this.props;
