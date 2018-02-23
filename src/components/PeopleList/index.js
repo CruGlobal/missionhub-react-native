@@ -49,7 +49,7 @@ export default class PeopleList extends Component {
 
   renderList(items, organization) {
     const { onSelect, sections, refreshing, onRefresh } = this.props;
-    
+
     return (
       <FlatList
         style={styles.list}
@@ -85,7 +85,7 @@ export default class PeopleList extends Component {
             <Icon
               name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
               type="MissionHub"
-              size={15}
+              size={10}
               style={[
                 styles.icon,
               ]} />
