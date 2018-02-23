@@ -75,6 +75,7 @@ class ContactScreen extends Component {
             />
           }
           shadow={false}
+          title={organization ? organization.name : undefined}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
           <ContactHeader

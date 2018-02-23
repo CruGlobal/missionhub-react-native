@@ -67,8 +67,26 @@ export class SearchPeopleScreen extends Component {
     }
 
     this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
-      const people = results.findAll('person') || [];
-      this.setState({ isSearching: false, results: people });
+      let people = results.findAll('person') || [];
+      let orgPeople = [];
+      people.forEach((p) => {
+        if (p && p.organizational_permissions) {
+          p.organizational_permissions.forEach((o) => {
+            if (o.organization) {
+              orgPeople.push({
+                ...p,
+                unique_key: `${o.organization.id}_${p.id}`,
+                organization: o.organization,
+              });
+            } else {
+              orgPeople.push(p);
+            }
+          });
+        } else {
+          orgPeople.push(p);
+        }
+      });
+      this.setState({ isSearching: false, results: orgPeople });
     }).catch((err) => {
       this.setState({ isSearching: false });
       LOG('error getting search results', err);
@@ -181,7 +199,7 @@ export class SearchPeopleScreen extends Component {
       <FlatList
         style={styles.list}
         data={results}
-        keyExtractor={(i) => i.id}
+        keyExtractor={(i) => i.unique_key || i.id}
         renderItem={({ item }) => (
           <SearchPeopleItem
             onSelect={this.handleSelectPerson}
