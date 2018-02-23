@@ -4,8 +4,9 @@ import DeviceInfo from 'react-native-device-info';
 
 import { REQUESTS } from './api';
 import callApi from './api';
-import { navigatePush, navigateBack } from './navigation';
-
+import { navigatePush, navigateBack, navigateReset } from './navigation';
+import { getPersonDetails } from './people';
+import { MAIN_TABS } from '../constants';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
@@ -15,6 +16,8 @@ import {
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
+import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
 
 
 export function disableAskPushNotification() {
@@ -179,8 +182,37 @@ export function deletePushToken(deviceId) {
 }
 
 export function handleNotifications(state, notification) {
-  return () => {
+  return (dispatch, getState) => {
+    const isJean = getState().auth.isJean;
     console.warn('Notification state', state, notification);
+    if (state === 'open') {
+      if (notification && notification.data && notification.data.link && notification.data.link.data) {
+        let screen = notification.data.link.data;
+        if (screen.includes('home')) {
+          dispatch(navigateReset(MAIN_TABS));
+        } else if (screen.includes('person_steps')) {
+          let num = screen.indexOf('/');
+          let slice = screen.slice(num);
+          let personId = parseInt(slice);
+          let person;
+          let organization;
+          dispatch(getPersonDetails(personId)).then((r) => {
+            person = r.find('person', personId);
+            // dispatch(getOrganization()).then((r2) => {
+            //   organization = r2.organization;
+            //   dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
+            // });
+          });
+        } else if (screen.includes('add_a_person')) {
+          dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
+        } else if (screen.includes('steps')) {
+          dispatch(navigateReset(MAIN_TABS));
+        } else if (screen.includes('my_steps')) {
+          dispatch(navigateReset(MAIN_TABS));
+        }
+
+      }
+    }
   };
 }
 
