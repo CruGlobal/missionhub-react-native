@@ -7,20 +7,19 @@ import { Flex } from '../common';
 import CustomTabs from '../../containers/CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';
+import ContactActions from '../../containers/ContactActions';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
 
 import { isAndroid } from '../../utils/common';
+import theme from '../../theme';
 
 export default class SecondaryTabBar extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = { page: 0, notesAreActive: false };
-
-    this.renderTabs = this.renderTabs.bind(this);
-  }
+  state = {
+    page: 0,
+    notesAreActive: false,
+  };
 
   onChangeTab = (index, activeTab) => {
     this.setState({
@@ -29,7 +28,7 @@ export default class SecondaryTabBar extends Component {
     });
   };
 
-  renderTabs(tab) {
+  renderTabs = (tab) => {
     if (tab.page === 'steps') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
@@ -39,7 +38,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'journey') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactJourney person={this.props.person} />
+          <ContactJourney person={this.props.person} organization={this.props.organization} />
         </Flex>
       );
     } else if (tab.page === 'notes') {
@@ -51,7 +50,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'actions') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} organization={this.props.organization} />
+          <ContactActions person={this.props.person} organization={this.props.organization} />
         </Flex>
       );
     } else if (tab.page === 'userImpact') {
@@ -69,12 +68,12 @@ export default class SecondaryTabBar extends Component {
     return (
       <Flex value={1} self="stretch" >
         <ScrollableTabView
-          contentProps={{ keyboardShouldPersistTaps: 'handled' }}
+          contentProps={{ keyboardShouldPersistTaps: 'handled', style: { backgroundColor: theme.white } }}
           tabBarPosition="top"
           initialPage={0}
           page={isAndroid ? this.state.page : undefined}
           locked={true}
-          prerenderingSiblingsNumber={1}
+          prerenderingSiblingsNumber={0}
           renderTabBar={() => <CustomTabs tabArray={tabs} onChangeTab={this.onChangeTab} />}
         >
           {

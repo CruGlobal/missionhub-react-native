@@ -175,7 +175,8 @@ export default {
   },
   journeyItem: {
     stepTitle: 'Growing Step of Faith',
-    stageTitle: 'Growing',
+    stageTitle: '{{oldStage}} to {{newStage}}',
+    stageText: '{{name}} changed from {{oldStage}} to {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
@@ -205,6 +206,14 @@ export default {
     interactionDiscipleshipConversation: 'Discipleship Conversations',
     interactionAssignedContacts: 'Assigned Contacts',
     interactionUncontacted: 'Uncontacted',
+  },
+  actions: {
+    interactionSpiritualConversation: 'Spiritual Conversation',
+    interactionGospel: 'Gospel Presentation',
+    interactionDecision: 'Personal Decision',
+    interactionSpirit: 'Holy Spirit Presentation',
+    interactionDiscipleshipConversation: 'Discipleship Conversation',
+    interactionNote: 'Comment',
   },
   notes: {
     header: 'MY NOTES',

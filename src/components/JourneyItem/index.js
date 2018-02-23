@@ -22,7 +22,7 @@ export default class JourneyItem extends Component {
     if (type === 'step') {
       title = t('stepTitle');
     } else if (type === 'stage') {
-      title = t('stageTitle');
+      title = t('stageTitle', { oldStage: item.old_stage, newStage: item.new_stage });
     } else if (type === 'survey' && item.survey) {
       title = item.survey.title;
     } else if (type === 'interaction') {
@@ -41,13 +41,12 @@ export default class JourneyItem extends Component {
     );
   }
   renderText() {
-    const { item, type } = this.props;
+    const { t, item, type } = this.props;
     let text;
     if (type === 'step') {
       text = item.title;
-    } else if (type === 'survey') {
-      // TODO: We will have a custom view for the survey
-      text = item.text;
+    } else if (type === 'stage') {
+      text = t('stageText', { name: item.name, oldStage: item.old_stage, newStage: item.new_stage });
     } else {
       text = item.text;
     }
