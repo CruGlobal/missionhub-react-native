@@ -16,7 +16,10 @@ import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { STAGE_SCREEN } from '../StageScreen';
+import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { trackState } from '../../actions/analytics';
+import { updateVisiblePersonInfo } from '../../actions/profile';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -70,7 +73,32 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
-  handleCreateStep() {
+  handleNavToStage() {
+    const { dispatch, isMe, person, contactAssignmentId } = this.props;
+
+    if (isMe) {
+      this.props.dispatch(STAGE_SCREEN, {
+        onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+        firstItem: undefined,
+        contactId: person.id,
+        section: 'people',
+        subsection: 'self',
+        enableBackButton: true,
+      });
+    } else {
+      this.props.dispatch(PERSON_STAGE_SCREEN, {
+        onComplete: (stage) => dispatch(updateVisiblePersonInfo({ contactStage: stage })),
+        firstItem: undefined,
+        name: person.first_name,
+        contactId: person.id,
+        contactAssignmentId: contactAssignmentId,
+        section: 'people',
+        subsection: 'person',
+      });
+    }
+  }
+
+  handleNavToSteps() {
     const { person, organization, contactStage, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
@@ -92,6 +120,10 @@ class ContactSteps extends Component {
 
     const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');
     this.props.dispatch(trackState(trackingObj));
+  }
+
+  handleCreateStep() {
+    
   }
 
   renderRow({ item, index }) {
@@ -164,9 +196,10 @@ ContactSteps.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ swipe, auth }) => ({
+const mapStateToProps = ({ swipe, auth, profile }) => ({
   showBump: swipe.stepsContact,
   myId: auth.personId,
+  contactAssignmentId: profile.visiblePersonInfo ? profile.visiblePersonInfo.contactAssignmentId : null,
 });
 
 export default connect(mapStateToProps)(ContactSteps);
