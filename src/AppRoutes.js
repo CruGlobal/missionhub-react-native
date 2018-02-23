@@ -192,6 +192,7 @@ export const MainStackRoutes = StackNavigator({
     navigationOptions: { gesturesEnabled: isAndroid ? false : true },
   },
 }, {
+  initialRouteName: MAIN_TABS,
   navigationOptions: {
     header: null,
     gesturesEnabled: false,

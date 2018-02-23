@@ -8,8 +8,8 @@ export default class SearchPeopleItem extends Component {
   handleSelect = () => {
     const { person } = this.props;
     let org;
-    if (person && person.organizational_permissions && person.organizational_permissions[0] && person.organizational_permissions[0].organization) {
-      org = person.organizational_permissions[0].organization;
+    if (person && person.organization) {
+      org = person.organization;
     }
     this.props.onSelect(this.props.person, org );
   }
@@ -18,8 +18,8 @@ export default class SearchPeopleItem extends Component {
     const { person } = this.props;
 
     let orgName;
-    if (person && person.organizational_permissions && person.organizational_permissions[0] && person.organizational_permissions[0].organization) {
-      orgName = person.organizational_permissions[0].organization.name;
+    if (person && person.organization) {
+      orgName = person.organization.name;
     }
 
     return (
