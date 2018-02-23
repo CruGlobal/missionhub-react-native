@@ -88,6 +88,7 @@ class ContactSteps extends Component {
         section: 'people',
         subsection: 'self',
         enableBackButton: true,
+        noNav: true,
       }));
     } else {
       this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
