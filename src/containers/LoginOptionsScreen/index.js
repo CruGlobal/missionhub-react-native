@@ -120,7 +120,7 @@ class LoginOptionsScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
-                  <Icon name="emailIcon" size={21} type="MissionHub" style={styles.icon} />
+                  <Icon name="emailIcon2" size={21} type="MissionHub" style={styles.icon} />
                   <Text style={styles.buttonText}>{t('emailSignUp').toUpperCase()}</Text>
                 </Flex>
               </Button>

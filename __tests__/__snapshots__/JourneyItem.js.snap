@@ -52,7 +52,7 @@ exports[`renders interaction correctly 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
@@ -324,7 +324,7 @@ exports[`renders step correctly 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
