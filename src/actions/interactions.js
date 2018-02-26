@@ -2,7 +2,7 @@ import callApi, { REQUESTS } from './api';
 import { ACTIONS } from '../constants';
 import { trackAction } from './analytics';
 
-export function addNewInteraction(personId, interactionId, comment, organizationId) {
+export function addNewInteraction(personId, interaction, comment, organizationId) {
   return (dispatch, getState) => {
     const myId = getState().auth.personId;
     if (!personId) {
@@ -38,15 +38,15 @@ export function addNewInteraction(personId, interactionId, comment, organization
       data: {
         type: 'interaction',
         attributes: {
-          interaction_type_id: interactionId,
+          interaction_type_id: interaction.id,
           comment: comment ? comment : undefined,
         },
         relationships,
       },
       included: [],
     };
-    const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
+    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData))
+      .then(() => dispatch(trackAction(interaction.tracking)));
   };
 }
 

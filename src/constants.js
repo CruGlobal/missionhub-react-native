@@ -120,7 +120,7 @@ export const CUSTOM_STEP_TYPE = 'user created step';
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
-  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: 'cru.commentadded' },
+  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.COMMENT_ADDED },
   MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: 'cru.initiatinggospelconversations' },
   MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: 'cru.presentingthegospel' },
   MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: 'cru.newprofessingbelievers' },

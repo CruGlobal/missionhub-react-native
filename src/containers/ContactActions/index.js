@@ -7,7 +7,6 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Icon, Text, Touchable } from '../../components/common';
 import styles from './styles';
-import { trackAction } from '../../actions/analytics';
 
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter((i) => i.isOnAction);
 
@@ -16,8 +15,7 @@ export class ContactActions extends Component {
 
   handleInteraction = (item, text) => {
     const { person, organization } = this.props;
-    this.props.dispatch(addNewInteraction(person.id, item.id, text, organization && organization.id));
-    this.props.dispatch(trackAction(item.tracking));
+    this.props.dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
   }
 
   handleCreateInteraction = (item) => {
