@@ -52,7 +52,7 @@ class ContactSteps extends Component {
   }
 
   handleRemove(step) {
-    this.props.dispatch(deleteStepWithTracking(step.id)).then(() => {
+    this.props.dispatch(deleteStepWithTracking(step)).then(() => {
       this.getSteps();
     });
   }
@@ -65,7 +65,7 @@ class ContactSteps extends Component {
 
   handleSaveNewSteps() {
     this.getSteps().then(() => {
-      this.list.scrollToEnd();
+      this.list && this.list.scrollToEnd();
     });
     this.props.dispatch(navigateBack());
   }
@@ -78,6 +78,7 @@ class ContactSteps extends Component {
       this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
         onSaveNewSteps: this.handleSaveNewSteps,
         enableBackButton: true,
+        contactStage: contactStage,
       }));
     } else {
       this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {

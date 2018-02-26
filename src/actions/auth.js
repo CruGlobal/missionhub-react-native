@@ -1,6 +1,6 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
-import { getMe } from './people';
+import { getMe } from './person';
 import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';

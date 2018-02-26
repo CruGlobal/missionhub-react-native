@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nonReminderStepsSelector should get non reminder steps 1`] = `
+Array [
+  Object {
+    "id": "4",
+    "receiver": Object {
+      "first_name": "Fname2",
+      "id": "20",
+      "last_name": "Lname",
+      "type": "person",
+    },
+  },
+  Object {
+    "id": "5",
+    "receiver": Object {
+      "first_name": "Fname2",
+      "id": "20",
+      "last_name": "Lname",
+      "type": "person",
+    },
+  },
+  Object {
+    "id": "6",
+    "organization": Object {
+      "id": "100",
+    },
+    "receiver": Object {
+      "first_name": "Fname3",
+      "id": "30",
+      "last_name": "Lname2",
+      "type": "person",
+    },
+  },
+]
+`;
+
+exports[`reminderStepsSelector should get reminder steps 1`] = `
+Array [
+  Object {
+    "id": "1",
+    "receiver": Object {
+      "first_name": "Fname2",
+      "id": "20",
+      "last_name": "Lname",
+      "type": "person",
+    },
+    "reminder": true,
+  },
+  Object {
+    "id": "2",
+    "receiver": Object {
+      "first_name": "Fname2",
+      "id": "20",
+      "last_name": "Lname",
+      "type": "person",
+    },
+    "reminder": true,
+  },
+  Object {
+    "id": "3",
+    "organization": Object {
+      "id": "100",
+    },
+    "receiver": Object {
+      "first_name": "Fname3",
+      "id": "30",
+      "last_name": "Lname2",
+      "type": "person",
+    },
+    "reminder": true,
+  },
+]
+`;

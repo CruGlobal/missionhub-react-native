@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
-import { navigatePush } from '../../actions/navigation';
+import { peopleByOrgSelector } from '../../selectors/people';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
 
 import styles from './styles';
@@ -49,7 +50,11 @@ export class PeopleScreen extends Component {
     this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
       organization: org && org.id ? org : undefined,
       isJean: this.props.isJean,
-      onComplete: () => this.getPeople(),
+      onComplete: () => {
+        // You go through 4 screens for adding a person, so pop back to the first one
+        this.props.dispatch(navigateBack(4));
+        this.getPeople();
+      },
     }));
   }
 
@@ -68,12 +73,12 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { people, sectionPeople, isJean, t } = this.props;
+    const { dispatch, orgs, isJean, t } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => this.props.dispatch(openMainMenu())} />
+            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
           }
           right={
             isJean ? (
@@ -93,7 +98,7 @@ export class PeopleScreen extends Component {
         />
         <PeopleList
           sections={isJean}
-          items={isJean ? sectionPeople : people }
+          items={orgs}
           onSelect={this.handleRowSelect}
           onAddContact={this.handleAddContact}
           onRefresh={this.handleRefresh}
@@ -104,12 +109,10 @@ export class PeopleScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, people, stages }) => ({
+export const mapStateToProps = ({ auth, people }) => ({
   isJean: auth.isJean,
-  people: auth.user && auth.user.id ? [ auth.user ].concat(people.all) : people.all,
-  sectionPeople: people.allByOrg,
+  orgs: peopleByOrgSelector({ people, auth }),
   me: auth.user,
-  stagesExist: !!stages.stagesObj,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

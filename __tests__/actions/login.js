@@ -1,4 +1,4 @@
-import * as people from '../../src/actions/people';
+import * as person from '../../src/actions/person';
 import * as navigation from '../../src/actions/navigation';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -31,7 +31,7 @@ describe('onSuccessfulLogin', () => {
     mockFnWithParams(getPersonResult, 'findAll', [ user ], 'user');
     mockFnWithParams(getPersonResult, 'find', myPerson, 'person', personId);
 
-    mockFnWithParams(people, 'getPerson', () => Promise.resolve(getPersonResult), personId);
+    mockFnWithParams(person, 'getPerson', () => Promise.resolve(getPersonResult), personId);
     navigation.navigatePush = (screen) => ({ type: screen });
   });
 

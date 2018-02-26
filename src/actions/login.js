@@ -1,4 +1,4 @@
-import { getPerson } from './people';
+import { getPerson } from './person';
 import { navigatePush } from './navigation';
 import { logInAnalytics } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';

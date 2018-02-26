@@ -1,0 +1,143 @@
+import { peopleByOrgSelector, personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../src/selectors/people';
+
+const people = {
+  allByOrg: {
+    personal: {
+      id: 'personal',
+      type: 'organization',
+      people: {
+        '20': {
+          id: '20',
+          type: 'person',
+          first_name: 'Fname2',
+          last_name: 'Lname',
+        },
+        '21': {
+          id: '21',
+          type: 'person',
+          first_name: 'Fname1',
+          last_name: 'Lname2',
+        },
+        '22': {
+          id: '22',
+          type: 'person',
+          first_name: 'Fname1',
+          last_name: 'Lname1',
+        },
+        '23': {
+          id: '23',
+          type: 'person',
+          first_name: 'ME',
+          last_name: 'Lname',
+        },
+      },
+    },
+    '100': {
+      id: '100',
+      type: 'organization',
+      name: 'Org2',
+      people: {
+        '30': {
+          id: '30',
+          type: 'person',
+          first_name: 'Fname3',
+          last_name: 'Lname2',
+        },
+        '31': {
+          id: '31',
+          type: 'person',
+          first_name: 'Fname3',
+          last_name: 'Lname3',
+        },
+        '32': {
+          id: '32',
+          type: 'person',
+          first_name: 'Fname3',
+          last_name: 'Lname1',
+        },
+      },
+    },
+    '200': {
+      id: '200',
+      type: 'organization',
+      name: 'Org1',
+      people: {
+        '32': {
+          id: '32',
+          type: 'person',
+          first_name: 'Fname3',
+          last_name: 'Lname1',
+        },
+      },
+    },
+  },
+};
+
+const auth = {
+  user: {
+    id: '23',
+  },
+  personId: '23',
+};
+
+describe('peopleByOrgSelector', () => {
+  it('should take the allByOrg object and transform it to sorted arrays', () => {
+    expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();
+  });
+});
+
+describe('personSelector', () => {
+  it('should get a person in the personal org', () => {
+    expect(personSelector({ people }, { orgId: null, personId: '22' })).toMatchSnapshot();
+  });
+  it('should get a person in another org', () => {
+    expect(personSelector({ people }, { orgId: '100', personId: '31' })).toMatchSnapshot();
+  });
+});
+
+describe('contactAssignmentSelector', () => {
+  it('should get a person\'s contactAssignment for that is assigned to the current user', () => {
+    expect(contactAssignmentSelector(
+      { auth },
+      {
+        person: {
+          reverse_contact_assignments: [
+            {
+              assigned_to: {
+                id: '5',
+              },
+            },
+            {
+              assigned_to: {
+                id: '23',
+              },
+            },
+          ],
+        },
+      }
+    )).toMatchSnapshot();
+  });
+});
+
+describe('orgPermissionSelector', () => {
+  it('should get a person\'s organizationalPermission for the current org', () => {
+    expect(orgPermissionSelector(
+      {},
+      {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '100',
+            },
+            {
+              organization_id: '200',
+            },
+          ],
+        },
+        organization: {
+          id: '200',
+        },
+      }
+    )).toMatchSnapshot();
+  });
+});

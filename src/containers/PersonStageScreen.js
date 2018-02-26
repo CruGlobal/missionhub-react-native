@@ -15,24 +15,29 @@ import { ACTIONS } from '../constants';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
-  constructor(props) {
-    super(props);
 
-    this.handleSelectStage = this.handleSelectStage.bind(this);
+  celebrateAndFinish = () => {
+    let celebrationProps = {};
+    if (this.props.onCompleteCelebration) {
+      celebrationProps.onComplete = this.props.onCompleteCelebration;
+    }
+    this.props.dispatch(navigatePush(CELEBRATION_SCREEN, celebrationProps));
+    this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
+    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
   }
 
   handleNavigate = () => {
+    if (this.props.addingContactFlow) {
+      this.celebrateAndFinish();
+      return;
+    }
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-        onComplete: () => {
-          this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
-          this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
-          this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
-        },
+        onComplete: this.celebrateAndFinish,
       }));
     } else {
-      this.props.dispatch(navigatePush(CELEBRATION_SCREEN));
+      this.celebrateAndFinish();
     }
   }
 
@@ -43,7 +48,7 @@ class PersonStageScreen extends Component {
     }
   }
 
-  handleSelectStage(stage, isAlreadySelected) {
+  handleSelectStage = (stage, isAlreadySelected) => {
     if (this.props.onComplete) {
       if (isAlreadySelected) {
         this.complete(stage);
@@ -52,8 +57,20 @@ class PersonStageScreen extends Component {
           this.complete(stage);
         });
       }
+    } else if (this.props.addingContactFlow) {
+      this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(() => {
+        this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          onSaveNewSteps: this.handleNavigate,
+          contactStage: stage,
+          // TODO: Tracking needs to be fixed on this
+          createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'add person', 'steps'),
+          contactName: this.props.name,
+          contactId: this.props.contactId,
+        }));
+      });
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
+
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
           contactStage: stage,
@@ -89,6 +106,7 @@ class PersonStageScreen extends Component {
 
 PersonStageScreen.propTypes = {
   onComplete: PropTypes.func,
+  onCompleteCelebration: PropTypes.func,
   name: PropTypes.string,
   contactId: PropTypes.string,
   currentStage: PropTypes.string,
@@ -96,6 +114,7 @@ PersonStageScreen.propTypes = {
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,
+  addingContactFlow: PropTypes.bool,
 };
 PersonStageScreen.defaultProps = {
   enableBackButton: true,
