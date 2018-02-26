@@ -8,6 +8,8 @@ import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoid
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import { translate } from 'react-i18next';
 import NOTES from '../../../assets/images/myNotes.png';
+import { buildTrackingObj } from '../../utils/common';
+import { trackState } from '../../actions/analytics';
 
 @translate('notes')
 export class ContactNotes extends Component {
@@ -73,6 +75,7 @@ export class ContactNotes extends Component {
     } else {
       this.setState({ editing: true });
       this.notesInput.focus();
+      this.props.dispatch(trackState(buildTrackingObj('people : person : notes : edit', 'people', 'person', 'notes', 'edit')));
     }
   }
 

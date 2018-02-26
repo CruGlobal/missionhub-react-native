@@ -60,7 +60,6 @@ export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 export const ORG_PERMISSIONS = [ 1, 4 ];
 
 export const ANALYTICS = {
-  PAGE_NAME: 'PageName',
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
   PREVIOUS_SCREENNAME: 'cru.previousscreenname',
