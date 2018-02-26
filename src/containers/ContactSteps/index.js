@@ -68,7 +68,7 @@ class ContactSteps extends Component {
 
   handleSaveNewSteps() {
     this.getSteps().then(() => {
-      this.list.scrollToEnd();
+      if (this.list) this.list.scrollToEnd();
     });
     this.props.dispatch(navigateBack());
   }
@@ -77,11 +77,16 @@ class ContactSteps extends Component {
   handleNavToStage() {
     const { dispatch, isMe, person, contactAssignmentId } = this.props;
 
+    const handleNavBack = () => {
+      this.handleSaveNewSteps();
+      this.props.dispatch(navigateBack());
+    };
+
     if (isMe) {
       this.props.dispatch(navigatePush(STAGE_SCREEN, {
         onComplete: (stage) => {
           dispatch(updateVisiblePersonInfo({ contactStage: stage }));
-          this.handleNavToSteps();
+          this.handleNavToSteps(handleNavBack);
         },
         firstItem: undefined,
         contactId: person.id,
@@ -94,7 +99,7 @@ class ContactSteps extends Component {
       this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onComplete: (stage) => {
           dispatch(updateVisiblePersonInfo({ contactStage: stage }));
-          this.handleNavToSteps();
+          this.handleNavToSteps(handleNavBack);
         },
         firstItem: undefined,
         name: person.first_name,
@@ -107,13 +112,13 @@ class ContactSteps extends Component {
     }
   }
 
-  handleNavToSteps() {
+  handleNavToSteps(onSaveNewSteps) {
     const { person, organization, contactStage, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
       this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-        onSaveNewSteps: this.handleSaveNewSteps,
+        onSaveNewSteps,
         enableBackButton: true,
       }));
     } else {
@@ -123,7 +128,7 @@ class ContactSteps extends Component {
         contact: person,
         organization,
         contactStage: contactStage, //todo using this makes us need to wait until stage is loaded to add a step
-        onSaveNewSteps: this.handleSaveNewSteps,
+        onSaveNewSteps,
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
 
@@ -132,7 +137,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.contactStage ? this.handleNavToSteps(): this.handleNavToStage();
+    this.props.contactStage ? this.handleNavToSteps(this.handleSaveNewSteps): this.handleNavToStage();
   }
 
 
