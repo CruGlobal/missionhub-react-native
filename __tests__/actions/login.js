@@ -25,7 +25,7 @@ describe('onSuccessfulLogin', () => {
     myContact = {};
     myPerson = { contact_assignments: [ myContact ] };
 
-    mockFnWithParams(analytics, 'logIn', updateStatusResult);
+    mockFnWithParams(analytics, 'logInAnalytics', updateStatusResult);
 
     const getPersonResult = {};
     mockFnWithParams(getPersonResult, 'findAll', [ user ], 'user');

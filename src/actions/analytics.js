@@ -70,7 +70,7 @@ function buildUpdatedContext(trackingObj, context) {
   };
 }
 
-export function logOut() {
+export function logOutAnalytics() {
   return (dispatch, getState) => {
 
     const context = getState().analytics;
@@ -84,7 +84,7 @@ export function logOut() {
   };
 }
 
-export function logIn() {
+export function logInAnalytics() {
   return (dispatch, getState) => {
 
     const context = getState().analytics;

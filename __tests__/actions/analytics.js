@@ -1,7 +1,7 @@
 import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
 import {
   trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
-  logIn,
+  logInAnalytics,
 } from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -139,8 +139,8 @@ describe('trackStepsAdded', () => {
   });
 });
 
-describe('logIn', () => {
-  beforeEach(() => store.dispatch(logIn()));
+describe('logInAnalytics', () => {
+  beforeEach(() => store.dispatch(logInAnalytics()));
 
   it('should sync marketing cloud id', () => {
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
