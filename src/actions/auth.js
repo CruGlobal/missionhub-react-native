@@ -12,9 +12,10 @@ import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
     let data;
-    const upgradeToken = getState().auth.token;
+    const upgradeToken = getState().auth.upgradeToken;
     if (isUpgrade) {
       data = {
+        provider: 'client_token',
         fb_access_token: accessToken,
         client_token: upgradeToken,
       };
