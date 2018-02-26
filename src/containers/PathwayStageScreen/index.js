@@ -32,6 +32,8 @@ const stageIcons = [
   GUIDING,
 ];
 
+const fallbackIndex = 0;
+
 class PathwayStageScreen extends Component {
   constructor(props) {
     super(props);
@@ -45,9 +47,11 @@ class PathwayStageScreen extends Component {
     this.handleSnapToItem = this.handleSnapToItem.bind(this);
   }
 
-  componentWillMount() {
-    this.props.dispatch(getStages());
-    this.trackStageState(1); //todo this should be updated to get the id of the first stage
+  async componentWillMount() {
+    await this.props.dispatch(getStages());
+
+    const initialIndex = this.props.firstItem ? this.props.firstItem : fallbackIndex;
+    this.trackStageState(this.props.stages[initialIndex].id);
     Keyboard.dismiss();
   }
 
@@ -134,7 +138,7 @@ class PathwayStageScreen extends Component {
           {
             this.props.stages ? (
               <Carousel
-                firstItem={this.props.firstItem || 0}
+                firstItem={this.props.firstItem || fallbackIndex}
                 data={this.props.stages}
                 inactiveSlideOpacity={1}
                 inactiveSlideScale={1}
