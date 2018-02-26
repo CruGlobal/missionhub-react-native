@@ -57,7 +57,16 @@ export class ContactSideMenu extends Component {
     const menuItems = [
       {
         label: t('edit'),
-        action: () => this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, { person, isJean, onComplete: () => dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages)) })),
+        action: () => this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
+          person,
+          isJean,
+          onComplete: () => {
+            // For editing, you only have 1 screen to pop back from
+            dispatch(navigateBack());
+
+            dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages));
+          },
+        })),
       },
       isCaseyNotMe ? {
         label: t('delete'),

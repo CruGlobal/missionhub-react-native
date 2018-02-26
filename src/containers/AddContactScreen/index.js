@@ -35,8 +35,9 @@ class AddContactScreen extends Component {
   complete(addedResults) {
     if (this.props.onComplete) {
       this.props.onComplete(addedResults);
+    } else {
+      this.props.dispatch(navigateBack());
     }
-    this.props.dispatch(navigateBack());
   }
 
   async savePerson() {
@@ -55,9 +56,10 @@ class AddContactScreen extends Component {
       const contactAssignment = newPerson.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
       const contactAssignmentId = contactAssignment && contactAssignment.id;
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: () => {
+        onCompleteCelebration: () => {
           this.complete(results);
         },
+        addingContactFlow: true,
         enableBackButton: false,
         currentStage: null,
         name: newPerson.first_name,
