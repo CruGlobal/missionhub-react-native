@@ -4,7 +4,6 @@ import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN } from '../constant
 import { REQUESTS } from '../actions/api';
 
 const initialAnalyticsState = {
-  [ANALYTICS.PAGE_NAME]: '',
   [ANALYTICS.MCID]: '',
   [ANALYTICS.SCREENNAME]: '',
   [ANALYTICS.PREVIOUS_SCREENNAME]: '',

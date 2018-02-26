@@ -70,14 +70,6 @@ describe('person stage screen methods', () => {
     component = screen.dive().dive().dive().instance();
   });
 
-  it('runs handle navigate', () => {
-    
-    navigation.navigatePush = jest.fn();
-
-    component.handleNavigate();
-    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
-  });
-
   it('runs select stage', () => {
     
     selectStage.updateUserStage = jest.fn();
@@ -85,6 +77,64 @@ describe('person stage screen methods', () => {
     component.handleSelectStage(mockStage, false);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
   });
+
+  it('runs celebrate and finish', () => {
+
+    navigation.navigatePush = jest.fn();
+
+    component.celebrateAndFinish();
+    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('person stage screen methods with add contact flow', () => {
+  let component;
+  const mockComplete = jest.fn();
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    const screen = shallow(
+      <PersonStageScreen
+        navigation={createMockNavState({
+          onCompleteCelebration: mockComplete,
+          addingContactFlow: true,
+          name: 'Test',
+          contactId: '123',
+          currentStage: '2',
+          contactAssignmentId: '333',
+          section: 'section',
+          subsection: 'subsection',
+        })}
+      />,
+      { context: { store } },
+    );
+
+    component = screen.dive().dive().dive().instance();
+  });
+
+  it('runs handle navigate', () => {
+
+    component.celebrateAndFinish = jest.fn();
+
+    component.handleNavigate();
+    expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs update stage', () => {
+    
+    selectStage.updateUserStage = jest.fn();
+
+    component.handleSelectStage(mockStage, false);
+    expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
+  });
+  
+  it('runs celebrate and finish with on complete', () => {
+
+    navigation.navigatePush = jest.fn();
+
+    component.celebrateAndFinish();
+    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+
 });
 
 describe('person stage screen methods', () => {
