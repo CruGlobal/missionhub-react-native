@@ -35,6 +35,7 @@ class ContactSteps extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
+    this.handleSaveNewStage = this.handleSaveNewStage.bind(this);
     this.getSteps = this.getSteps.bind(this);
   }
 
@@ -73,21 +74,20 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
+  handleSaveNewStage(stage) {
+    this.props.dispatch(updateVisiblePersonInfo({ contactStage: stage }));
+    this.handleNavToSteps(() => {
+      this.handleSaveNewSteps();
+      this.props.dispatch(navigateBack());
+    });
+  }
 
   handleNavToStage() {
     const { dispatch, isMe, person, contactAssignmentId } = this.props;
 
-    const handleNavBack = () => {
-      this.handleSaveNewSteps();
-      this.props.dispatch(navigateBack());
-    };
-
     if (isMe) {
-      this.props.dispatch(navigatePush(STAGE_SCREEN, {
-        onComplete: (stage) => {
-          dispatch(updateVisiblePersonInfo({ contactStage: stage }));
-          this.handleNavToSteps(handleNavBack);
-        },
+      dispatch(navigatePush(STAGE_SCREEN, {
+        onComplete: this.handleSaveNewStage,
         firstItem: undefined,
         contactId: person.id,
         section: 'people',
@@ -96,11 +96,8 @@ class ContactSteps extends Component {
         noNav: true,
       }));
     } else {
-      this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: (stage) => {
-          dispatch(updateVisiblePersonInfo({ contactStage: stage }));
-          this.handleNavToSteps(handleNavBack);
-        },
+      dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+        onComplete: this.handleSaveNewStage,
         firstItem: undefined,
         name: person.first_name,
         contactId: person.id,
@@ -113,16 +110,16 @@ class ContactSteps extends Component {
   }
 
   handleNavToSteps(onSaveNewSteps) {
-    const { person, organization, contactStage, isMe } = this.props;
+    const { dispatch, person, organization, contactStage, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
-      this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
+      dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
         onSaveNewSteps,
         enableBackButton: true,
       }));
     } else {
-      this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+      dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
