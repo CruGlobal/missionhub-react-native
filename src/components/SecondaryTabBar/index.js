@@ -64,13 +64,12 @@ export default class SecondaryTabBar extends Component {
 
   render() {
     const { tabs } = this.props;
-
-    const backgroundStyle = { style: { backgroundColor: theme.white } };
+    const style = { backgroundColor: theme.white, ...isAndroid ? { flex: 1 } : undefined };
 
     return (
       <Flex value={1} self="stretch" >
         <ScrollableTabView
-          contentProps={{ keyboardShouldPersistTaps: 'handled', ...isAndroid ? undefined : backgroundStyle }}
+          contentProps={{ keyboardShouldPersistTaps: 'handled', style: style }}
           tabBarPosition="top"
           initialPage={0}
           page={isAndroid ? this.state.page : undefined}
