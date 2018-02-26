@@ -52,15 +52,6 @@ describe('complete', () => {
     ).instance();
     component.complete();
     expect(mockComplete).toHaveBeenCalledTimes(1);
-    expect(navigateBack).toHaveBeenCalled();
-  });
-  it('should run navigateBack', () => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} />,
-      store
-    ).instance();
-    component.complete();
-    expect(navigateBack).toHaveBeenCalled();
   });
 });
 

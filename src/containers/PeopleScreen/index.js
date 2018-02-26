@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { getMyPeople } from '../../actions/people';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
 
 import styles from './styles';
@@ -49,7 +49,11 @@ export class PeopleScreen extends Component {
     this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
       organization: org && org.id ? org : undefined,
       isJean: this.props.isJean,
-      onComplete: () => this.getPeople(),
+      onComplete: () => {
+        // You go through 4 screens for adding a person, so pop back to the first one
+        this.props.dispatch(navigateBack(4));
+        this.getPeople();
+      },
     }));
   }
 
