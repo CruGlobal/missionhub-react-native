@@ -5,10 +5,12 @@ import { DELETE_PERSON, LOGOUT, PEOPLE_WITH_ORG_SECTIONS, UPDATE_PERSON_ATTRIBUT
 import { useFirstExists } from '../utils/common';
 
 const initialState = {
-  allByOrg: {},
+  allByOrg: {
+    personal: { id: 'personal', people: {} },
+  },
 };
 
-function peopleReducer(state = initialState, action) {
+export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
     case REHYDRATE:
       const incoming = action.payload.people;
@@ -84,5 +86,3 @@ function mapObject(obj, fn) {
 function filterObject(obj, fn) {
   return Object.assign({}, ...Object.entries(obj).filter(fn).map(([ id, element ]) => ({ [id]: element })));
 }
-
-export default peopleReducer;

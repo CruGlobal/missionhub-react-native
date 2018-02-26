@@ -234,8 +234,9 @@ function testEditClick(component, isJean) {
   props.menuItems.filter((item) => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-    'isJean': isJean,
-    'person': person,
+    isJean: isJean,
+    person: person,
+    onComplete: expect.any(Function),
   });
 }
 

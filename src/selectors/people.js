@@ -33,17 +33,24 @@ export const personSelector = createSelector(
   ({ people }) => people.allByOrg,
   (_, { orgId }) => orgId,
   (_, { personId }) => personId,
-  (orgs, orgId, personId) => orgs[orgId || 'personal'].people[personId]
+  (orgs, orgId, personId) => {
+    const org = orgs[orgId || 'personal'];
+    return org && org.people[personId];
+  }
 );
 
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
   ({ auth }) => auth.personId,
-  (person, authUserId) => person.reverse_contact_assignments && person.reverse_contact_assignments.find((assignment) => assignment.assigned_to && assignment.assigned_to.id === authUserId)
+  (person, authUserId) =>
+    person.reverse_contact_assignments && person.reverse_contact_assignments
+      .find((assignment) => assignment.assigned_to && assignment.assigned_to.id === authUserId)
 );
 
 export const orgPermissionSelector = createSelector(
   (_, { person }) => person,
   (_, { organization }) => organization,
-  (person, organization) => organization && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id)
+  (person, organization) =>
+    organization && person.organizational_permissions
+      .find((orgPermission) => orgPermission.organization_id === organization.id)
 );

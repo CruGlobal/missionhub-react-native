@@ -42,7 +42,12 @@ export class ContactScreen extends Component {
       }));
     } else {
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: (stage) => dispatch(updatePersonAttributes(person.id, { reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) => assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id }: assignment) })),
+        onComplete: (stage) =>
+          dispatch(updatePersonAttributes(person.id, {
+            reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
+              assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
+            ),
+          })),
         firstItem: firstItemIndex,
         name: person.first_name,
         contactId: person.id,

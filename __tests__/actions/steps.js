@@ -39,7 +39,7 @@ describe('get steps page', () => {
     order: '-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
-    include: '',
+    include: 'receiver',
   };
   const apiResult = { type: 'done' };
 
@@ -70,7 +70,7 @@ describe('complete challenge', () => {
   const stepsQuery = {
     order: '-accepted_at',
     filters: { completed: false },
-    include: '',
+    include: 'receiver',
   };
   const data = {
     data: {

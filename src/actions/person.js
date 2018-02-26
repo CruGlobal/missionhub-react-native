@@ -105,8 +105,8 @@ export function updatePerson(data) {
         type: 'person',
         attributes: {
           first_name: data.firstName,
-          ...data.lastName ? { last_name: data.lastName } : {},
-          ...data.gender ? { gender: data.gender } : {},
+          last_name: data.lastName,
+          gender: data.gender,
         },
       },
       ...data.email || data.phone ? {

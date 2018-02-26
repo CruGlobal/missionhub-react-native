@@ -32,7 +32,7 @@ export function getMySteps(query = {}) {
         ...(query.filters || {}),
         completed: false,
       },
-      include: '',
+      include: 'receiver',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
