@@ -12,6 +12,7 @@ import {
   getMySteps, setStepReminder, removeStepReminder, completeStepReminder, getMyStepsNextPage,
   deleteStepWithTracking,
 } from '../../actions/steps';
+import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
 
 import styles from './styles';
 import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
@@ -33,7 +34,7 @@ function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
 }
 
 @translate('stepsTab')
-class StepsScreen extends Component {
+export class StepsScreen extends Component {
 
   constructor(props) {
     super(props);
@@ -271,9 +272,9 @@ class StepsScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ steps, notifications, swipe }) => ({
-  steps: steps.mine.filter((s)=> !s.reminder),
-  reminders: steps.reminders,
+export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
+  steps: nonReminderStepsSelector({ steps, people }),
+  reminders: reminderStepsSelector({ steps, people }),
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
   showNotificationReminder: notifications.showReminder,
   showStepBump: swipe.stepsHome,

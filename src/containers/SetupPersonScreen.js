@@ -6,8 +6,8 @@ import styles from './SetupScreen/styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../components/common';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
-import { personFirstNameChanged, personLastNameChanged, resetPerson } from '../actions/person';
-import { createPerson, updateOnboardingPerson } from '../actions/profile';
+import { personFirstNameChanged, personLastNameChanged, resetPerson } from '../actions/onboardingProfile';
+import { createPerson, updateOnboardingPerson } from '../actions/onboardingProfile';
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import { disableBack } from '../utils/common';
 
@@ -31,7 +31,7 @@ class SetupPersonScreen extends Component {
       section: 'onboarding',
       subsection: 'add person',
     }));
-  }
+  };
 
   saveAndGoToGetStarted = () => {
     const { dispatch, personFirstName, personLastName } = this.props;

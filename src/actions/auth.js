@@ -1,10 +1,10 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
 import { navigateReset } from './navigation';
-import { getMe } from './people';
+import { getMe } from './person';
 import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
-import { updateAnalyticsContext } from './analytics';
+import { logOutAnalytics, updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
@@ -63,6 +63,8 @@ export function codeLogin(code) {
 
 export function logout() {
   return (dispatch, getState) => {
+    dispatch(logOutAnalytics());
+
     const pushDeviceId = getState().notifications.pushDeviceId;
     if (!pushDeviceId) {
       dispatch(logoutReset());

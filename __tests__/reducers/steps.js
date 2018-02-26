@@ -51,7 +51,7 @@ it('adds new items to existing mine array', () => {
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
       results: {
-        findAll: () => [ { id: '26' } ],
+        response: [ { id: '26' } ],
       },
       query: { page: { offset: 25 } },
     }

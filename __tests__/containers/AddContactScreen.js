@@ -3,13 +3,13 @@ import { createMockStore, createMockNavState, renderShallow, testSnapshotShallow
 
 import AddContactScreen from '../../src/containers/AddContactScreen';
 import { addNewContact } from '../../src/actions/organizations';
-import { updatePerson } from '../../src/actions/profile';
+import { updatePerson } from '../../src/actions/person';
 const mockAddNewContact = { type: 'add new contact', findAll: () => [] };
 jest.mock('../../src/actions/organizations', () => ({
   addNewContact: jest.fn(() => mockAddNewContact),
 }));
 const mockUpdatePerson = { type: 'update person', findAll: () => [] };
-jest.mock('../../src/actions/profile', () => ({
+jest.mock('../../src/actions/person', () => ({
   updatePerson: jest.fn(() => mockUpdatePerson),
 }));
 import { navigateBack } from '../../src/actions/navigation';
@@ -52,15 +52,6 @@ describe('complete', () => {
     ).instance();
     component.complete();
     expect(mockComplete).toHaveBeenCalledTimes(1);
-    expect(navigateBack).toHaveBeenCalled();
-  });
-  it('should run navigateBack', () => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} />,
-      store
-    ).instance();
-    component.complete();
-    expect(navigateBack).toHaveBeenCalled();
   });
 });
 

@@ -5,7 +5,6 @@ import nav from './nav';
 import profile from './profile';
 import personProfile from './personProfile';
 import stages from './stages';
-import myStageReducer from './myStage';
 import steps from './steps';
 import organizations from './organizations';
 import people from './people';
@@ -25,7 +24,6 @@ export default combineReducers({
   groups,
   impact,
   labels,
-  myStageReducer, //TODO rename
   nav,
   notifications,
   organizations,

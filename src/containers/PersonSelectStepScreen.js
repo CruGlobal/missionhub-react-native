@@ -13,10 +13,10 @@ class PersonSelectStepScreen extends Component {
   }
 
   insertName(steps) {
-    return steps.map((step) => {
-      step.body = step.body.replace('<<name>>', this.props.contactName ? this.props.contactName : this.props.personFirstName);
-      return step;
-    });
+    return steps.map((step) => ({
+      ...step,
+      body: step.body.replace('<<name>>', this.props.contactName ? this.props.contactName : this.props.personFirstName),
+    }));
   }
 
   handleNavigate = () => {

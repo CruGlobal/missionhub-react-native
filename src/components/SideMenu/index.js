@@ -35,8 +35,8 @@ export class SideMenu extends Component {
           <IconButton style={styles.button} onPress={() => this.props.dispatch(navigatePush(DRAWER_CLOSE))} name="close" type="Material" size={20} />
         </Flex>
         {menuItems.map(({ label, action, selected }, index) =>
-          <Flex key={index} style={[ styles.buttonContainer, selected && styles.buttonContainerSelected ]}>
-            <Button style={styles.button} buttonTextStyle={styles.buttonText} text={label.toUpperCase()} onPress={action} />
+          <Flex key={index} style={styles.buttonContainer}>
+            <Button style={styles.button} buttonTextStyle={[ styles.buttonText, selected && styles.buttonTextSelected ]} text={label.toUpperCase()} onPress={action} />
           </Flex>
         )}
       </SafeAreaView>

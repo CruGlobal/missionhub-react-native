@@ -10,9 +10,6 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.inactiveColor,
   },
-  buttonContainerSelected: {
-    backgroundColor: COLORS.ACCENT_BLUE,
-  },
   button: {
     margin: 0,
     paddingHorizontal: 24,
@@ -22,5 +19,8 @@ export default StyleSheet.create({
   buttonText: {
     color: theme.white,
     fontSize: 14,
+  },
+  buttonTextSelected: {
+    color: COLORS.LIGHT_BLUE,
   },
 });
