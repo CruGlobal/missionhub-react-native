@@ -71,13 +71,6 @@ class PersonStageScreen extends Component {
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
 
-        let selectProps = {
-          
-        };
-        if (this.props.addingContactFlow) {
-          selectProps.contactName = this.props.name;
-          selectProps.contactId = this.props.contactId;
-        }
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
           contactStage: stage,
