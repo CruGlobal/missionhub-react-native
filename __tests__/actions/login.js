@@ -7,7 +7,7 @@ import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import { LOGGED_IN, MAIN_TABS } from '../../src/constants';
+import { MAIN_TABS } from '../../src/constants';
 
 const mockStore = configureStore([ thunk ]);
 const personId = 593348;
@@ -25,8 +25,7 @@ describe('onSuccessfulLogin', () => {
     myContact = {};
     myPerson = { contact_assignments: [ myContact ] };
 
-
-    mockFnWithParams(analytics, 'updateLoggedInStatus', updateStatusResult, LOGGED_IN);
+    mockFnWithParams(analytics, 'logInAnalytics', updateStatusResult);
 
     const getPersonResult = {};
     mockFnWithParams(getPersonResult, 'findAll', [ user ], 'user');
