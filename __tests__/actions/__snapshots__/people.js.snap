@@ -1,235 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`getMyPeople as Casey should return one org with people 1`] = `
-Array [
-  Object {
-    "response": Array [
-      Object {
-        "id": 123,
-        "organizational_permissions": Array [],
-        "reverse_contact_assignments": Array [
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-          },
-        ],
-      },
-    ],
-    "type": "GET_PEOPLE_LIST_SUCCESS",
-  },
-  Object {
-    "orgs": Object {
-      "personal": Object {
-        "id": "personal",
-        "people": Object {
-          "123": Object {
-            "id": 123,
-            "organizational_permissions": Array [],
-            "reverse_contact_assignments": Array [
-              Object {
-                "assigned_to": Object {
-                  "id": 23,
-                },
+Object {
+  "orgs": Object {
+    "personal": Object {
+      "id": "personal",
+      "people": Object {
+        "123": Object {
+          "id": 123,
+          "organizational_permissions": Array [],
+          "reverse_contact_assignments": Array [
+            Object {
+              "assigned_to": Object {
+                "id": 23,
               },
-            ],
-          },
-          "23": Object {
-            "id": 23,
-            "name": "Test User",
-          },
+            },
+          ],
+        },
+        "23": Object {
+          "id": 23,
+          "name": "Test User",
         },
       },
     },
-    "type": "app/PEOPLE_WITH_ORG_SECTIONS",
   },
-]
+  "type": "app/PEOPLE_WITH_ORG_SECTIONS",
+}
 `;
 
 exports[`getMyPeople as Jean should return all orgs with assigned people 1`] = `
-Array [
-  Object {
-    "response": Array [
-      Object {
-        "id": 7777,
-        "organizational_permissions": Array [
-          Object {
-            "organization": Object {
-              "id": 101,
-            },
-          },
-        ],
-        "reverse_contact_assignments": Array [
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-            "organization": Object {
-              "id": 103,
-            },
-          },
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-            "organization": Object {
-              "id": 101,
-            },
-          },
-        ],
-      },
-      Object {
-        "id": 8888,
-        "organizational_permissions": Array [
-          Object {
-            "organization": Object {
-              "id": 102,
-            },
-          },
-        ],
-        "reverse_contact_assignments": Array [
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-            "organization": Object {
-              "id": 101,
-            },
-          },
-        ],
-      },
-      Object {
-        "id": 9999,
-        "organizational_permissions": Array [],
-        "reverse_contact_assignments": Array [
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-          },
-        ],
-      },
-      Object {
-        "id": 10000,
-        "organizational_permissions": Array [
-          Object {
-            "organization": Object {
-              "id": 111,
-            },
-          },
-        ],
-        "reverse_contact_assignments": Array [
-          Object {
-            "assigned_to": Object {
-              "id": 23,
-            },
-            "organization": Object {
-              "id": 111,
-            },
-          },
-          Object {
-            "assigned_to": Object {
-              "id": 24,
-            },
-            "organization": Object {
-              "id": 111,
-            },
-          },
-        ],
-      },
-    ],
-    "type": "GET_PEOPLE_LIST_SUCCESS",
-  },
-  Object {
-    "orgs": Object {
-      "101": Object {
-        "id": 101,
-        "people": Object {
-          "7777": Object {
-            "id": 7777,
-            "organizational_permissions": Array [
-              Object {
-                "organization": Object {
-                  "id": 101,
-                },
+Object {
+  "orgs": Object {
+    "101": Object {
+      "id": 101,
+      "name": "organizationOne",
+      "people": Object {
+        "7777": Object {
+          "id": 7777,
+          "organizational_permissions": Array [
+            Object {
+              "organization": Object {
+                "id": 101,
+                "name": "organizationOne",
               },
-            ],
-            "reverse_contact_assignments": Array [
-              Object {
-                "assigned_to": Object {
-                  "id": 23,
-                },
-                "organization": Object {
-                  "id": 103,
-                },
+            },
+          ],
+          "reverse_contact_assignments": Array [
+            Object {
+              "assigned_to": Object {
+                "id": 23,
               },
-              Object {
-                "assigned_to": Object {
-                  "id": 23,
-                },
-                "organization": Object {
-                  "id": 101,
-                },
+              "organization": Object {
+                "id": 103,
               },
-            ],
-          },
-        },
-      },
-      "111": Object {
-        "id": 111,
-        "people": Object {
-          "10000": Object {
-            "id": 10000,
-            "organizational_permissions": Array [
-              Object {
-                "organization": Object {
-                  "id": 111,
-                },
+            },
+            Object {
+              "assigned_to": Object {
+                "id": 23,
               },
-            ],
-            "reverse_contact_assignments": Array [
-              Object {
-                "assigned_to": Object {
-                  "id": 23,
-                },
-                "organization": Object {
-                  "id": 111,
-                },
+              "organization": Object {
+                "id": 101,
+                "name": "organizationOne",
               },
-              Object {
-                "assigned_to": Object {
-                  "id": 24,
-                },
-                "organization": Object {
-                  "id": 111,
-                },
-              },
-            ],
-          },
-        },
-      },
-      "personal": Object {
-        "id": "personal",
-        "people": Object {
-          "23": Object {
-            "id": 23,
-            "name": "Test User",
-          },
-          "9999": Object {
-            "id": 9999,
-            "organizational_permissions": Array [],
-            "reverse_contact_assignments": Array [
-              Object {
-                "assigned_to": Object {
-                  "id": 23,
-                },
-              },
-            ],
-          },
+            },
+          ],
         },
       },
     },
-    "type": "app/PEOPLE_WITH_ORG_SECTIONS",
+    "111": Object {
+      "id": 111,
+      "name": "organizationTwo",
+      "people": Object {
+        "10000": Object {
+          "id": 10000,
+          "organizational_permissions": Array [
+            Object {
+              "organization": Object {
+                "id": 111,
+                "name": "organizationTwo",
+              },
+            },
+          ],
+          "reverse_contact_assignments": Array [
+            Object {
+              "assigned_to": Object {
+                "id": 23,
+              },
+              "organization": Object {
+                "id": 111,
+                "name": "organizationTwo",
+              },
+            },
+            Object {
+              "assigned_to": Object {
+                "id": 24,
+              },
+              "organization": Object {
+                "id": 111,
+                "name": "organizationTwo",
+              },
+            },
+          ],
+        },
+      },
+    },
+    "personal": Object {
+      "id": "personal",
+      "people": Object {
+        "23": Object {
+          "id": 23,
+          "name": "Test User",
+        },
+        "9999": Object {
+          "id": 9999,
+          "organizational_permissions": Array [],
+          "reverse_contact_assignments": Array [
+            Object {
+              "assigned_to": Object {
+                "id": 23,
+              },
+            },
+          ],
+        },
+      },
+    },
   },
-]
+  "type": "app/PEOPLE_WITH_ORG_SECTIONS",
+}
 `;

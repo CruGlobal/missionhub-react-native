@@ -35,22 +35,28 @@ describe('getMyPeople', () => {
       await store.dispatch(getMyPeople());
 
       expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, peopleQuery);
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()[1]).toMatchSnapshot();
     });
   });
 
   describe('as Jean', () => {
-    const organizationOneId = 101;
-    const organizationTwoId = 111;
+    const organizationOne = {
+      id: 101,
+      name: 'organizationOne',
+    };
+    const organizationTwo = {
+      id: 111,
+      name: 'organizationTwo',
+    };
     const personOne = {
       id: 7777,
-      organizational_permissions: [ { organization: { id: organizationOneId } } ],
-      reverse_contact_assignments: [ { organization: { id: 103 }, assigned_to: { id: myId } }, { organization: { id: organizationOneId },assigned_to: { id: myId } } ],
+      organizational_permissions: [ { organization: organizationOne } ],
+      reverse_contact_assignments: [ { organization: { id: 103 }, assigned_to: { id: myId } }, { organization: organizationOne,assigned_to: { id: myId } } ],
     };
     const personTwo = {
       id: 8888,
       organizational_permissions: [ { organization: { id: 102 } } ],
-      reverse_contact_assignments: [ { organization: { id: organizationOneId }, assigned_to: { id: myId } } ],
+      reverse_contact_assignments: [ { organization: organizationOne, assigned_to: { id: myId } } ],
     };
     const personThree = {
       id: 9999,
@@ -59,8 +65,8 @@ describe('getMyPeople', () => {
     };
     const personFour = {
       id: 10000,
-      organizational_permissions: [ { organization: { id: organizationTwoId } } ],
-      reverse_contact_assignments: [ { organization: { id: organizationTwoId }, assigned_to: { id: myId } }, { organization: { id: organizationTwoId }, assigned_to: { id: 24 } } ],
+      organizational_permissions: [ { organization: organizationTwo } ],
+      reverse_contact_assignments: [ { organization: organizationTwo, assigned_to: { id: myId } }, { organization: organizationTwo, assigned_to: { id: 24 } } ],
     };
 
     it('should return all orgs with assigned people', async() => {
@@ -69,7 +75,7 @@ describe('getMyPeople', () => {
 
       await store.dispatch(getMyPeople());
       expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, peopleQuery);
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()[1]).toMatchSnapshot();
     });
   });
 });

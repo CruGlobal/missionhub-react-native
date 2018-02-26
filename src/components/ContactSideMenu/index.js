@@ -60,7 +60,7 @@ export class ContactSideMenu extends Component {
         action: () => dispatch(navigatePush(ADD_CONTACT_SCREEN, {
           person,
           isJean,
-          onComplete: () => dispatch(navigateBack())
+          onComplete: () => dispatch(navigateBack()),
         })),
       },
       showDelete ? {

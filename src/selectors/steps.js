@@ -6,7 +6,7 @@ const replaceStepReceiver = (step, orgs) => {
   const currentOrg = orgs[step.organization ? step.organization.id : 'personal'];
   return {
     ...step,
-    receiver: currentOrg && currentOrg.people[step.receiver.id] || LOG('Failed to replace step.receiver', step) || step.receiver,
+    receiver: currentOrg && currentOrg.people[step.receiver.id] || step.receiver,
   };
 };
 
