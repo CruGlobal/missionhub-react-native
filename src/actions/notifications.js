@@ -187,20 +187,16 @@ export function handleNotifications(state, notification) {
     console.warn('Notification state', state, notification);
     if (state === 'open') {
       if (notification && notification.data && notification.data.link && notification.data.link.data) {
-        let screen = notification.data.link.data;
+        let screen = notification.data.link.data.screen;
+        let person = notification.data.link.data.person_id;
+        let organization = notification.data.link.data.organization_id;
+
         if (screen.includes('home')) {
           dispatch(navigateReset(MAIN_TABS));
         } else if (screen.includes('person_steps')) {
-          let num = screen.indexOf('/');
-          let personId = screen.slice(num);
-          let person;
-          let organization;
-          dispatch(getPersonDetails(personId)).then((r) => {
-            person = r.find('person', personId);
-            // dispatch(getOrganization()).then((r2) => {
-            //   organization = r2.organization;
-            //   dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
-            // });
+          dispatch(getPersonDetails(person)).then((r) => {
+            person = r.find('person', person);
+            dispatch(navigatePush(CONTACT_SCREEN, { person, organization: { id: organization } }));
           });
         } else if (screen.includes('add_a_person')) {
           dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
