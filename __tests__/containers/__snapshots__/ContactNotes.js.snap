@@ -40,7 +40,6 @@ exports[`when keyboard height is set and editing is set to true button message c
       editable={true}
       multiline={true}
       onChangeText={[Function]}
-      returnKeyType="next"
       style={
         Object {
           "color": "#505256",
@@ -174,7 +173,6 @@ exports[`when keyboard height is set notes are shown 1`] = `
       editable={false}
       multiline={true}
       onChangeText={[Function]}
-      returnKeyType="next"
       style={
         Object {
           "color": "#505256",
