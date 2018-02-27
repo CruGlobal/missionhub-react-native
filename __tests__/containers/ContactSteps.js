@@ -24,11 +24,6 @@ const mockState = {
   auth: {
     personId: 123,
   },
-  profile: {
-    visiblePersonInfo: {
-      contactAssignmentId: '333',
-    },
-  },
 };
 
 const mockPerson = {
@@ -55,12 +50,13 @@ describe('Navigation to steps screen', () => {
   const handleSaveNewSteps = jest.fn();
   const handleSaveNewStage = jest.fn();
 
-  const createComponent = (isCurrentUser, contactStage) => {
+  const createComponent = (isCurrentUser, contactStage, contactAssignment = null) => {
     const screen = shallow(
       <ContactSteps
         isMe={isCurrentUser}
         person={mockPerson}
         contactStage={contactStage}
+        contactAssignment={contactAssignment}
         navigation={createMockNavState()}
       />,
       { context: { store } },
@@ -79,7 +75,7 @@ describe('Navigation to steps screen', () => {
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
-      { onSaveNewSteps: handleSaveNewSteps, enableBackButton: true }
+      { contactStage: 'forgiven', onSaveNewSteps: handleSaveNewSteps, enableBackButton: true }
     );
   });
 
@@ -102,7 +98,7 @@ describe('Navigation to steps screen', () => {
   });
 
   it('navigates to person steps', () => {
-    let component = createComponent(false, 'forgiven');
+    let component = createComponent(false, 'forgiven', { id: 333 });
 
     component.handleCreateStep();
     expect(navigation.navigatePush).toHaveBeenCalledWith(
@@ -118,8 +114,8 @@ describe('Navigation to steps screen', () => {
     );
   });
 
-  it('navigates to person steps', () => {
-    let component = createComponent(false, undefined);
+  it('navigates to person stage', () => {
+    let component = createComponent(false, undefined, { id: 333 });
 
     component.handleCreateStep();
     expect(navigation.navigatePush).toHaveBeenCalledWith(
@@ -128,7 +124,7 @@ describe('Navigation to steps screen', () => {
         firstItem: undefined,
         name: mockPerson.first_name,
         contactId: mockPerson.id,
-        contactAssignmentId: '333',
+        contactAssignmentId: 333,
         section: 'people',
         subsection: 'person',
         noNav: true,
