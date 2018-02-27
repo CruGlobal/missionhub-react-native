@@ -96,10 +96,10 @@ describe('person stage screen methods', () => {
 
   it('runs select stage', () => {
 
-    selectStage.selectStage = jest.fn();
+    selectStage.selectMyStage = jest.fn();
 
     component.handleSelectStage(mockStage, false);
-    expect(selectStage.selectStage).toHaveBeenCalledTimes(1);
+    expect(selectStage.selectMyStage).toHaveBeenCalledTimes(1);
   });
 });
 

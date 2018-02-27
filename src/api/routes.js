@@ -72,6 +72,9 @@ export default {
   'GET_PERSON': {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
+  'GET_PERSON_JOURNEY': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
     anonymous: true,
@@ -107,7 +110,7 @@ export default {
     anonymous: true,
     useJsonDataApiStore: false,
   },
-  'UPDATE_MY_USER': {
+  'UPDATE_MY_USER_STAGE': {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
@@ -150,10 +153,6 @@ export default {
   },
   'GET_USER_IMPACT': {
     endpoint: REPORTS_URL,
-  },
-  'CREATE_CONTACT_ASSIGNMENT': {
-    endpoint: `${API_URL}contact_assignments`,
-    method: 'post',
   },
   'SET_PUSH_TOKEN': {
     endpoint: `${API_URL}push_notification_device_tokens`,

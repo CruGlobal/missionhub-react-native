@@ -1,7 +1,7 @@
 // import callApi, { REQUESTS } from './api';
 import { getStepsByFilter } from './steps';
-import { getUserDetails } from './people';
 import { getStages } from './stages';
+import { getPersonJourneyDetails } from './person';
 import { findAllNonPlaceHolders } from '../utils/common';
 
 export function getJourney(personId, personal = false, organization) {
@@ -29,7 +29,7 @@ export function getJourney(personId, personal = false, organization) {
     const personQuery = {
       include: 'pathway_progression_audits,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
-    const person = await dispatch(getUserDetails(personId, personQuery));
+    const person = await dispatch(getPersonJourneyDetails(personId, personQuery));
     journeyInteractions = findAllNonPlaceHolders(person, 'contact_assignment')
       .concat(findAllNonPlaceHolders(person, 'interaction'))
       .concat(findAllNonPlaceHolders(person, 'pathway_progression_audit'));

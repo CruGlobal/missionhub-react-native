@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`contactSideMenu  Jean unassign renders unassign correctly 1`] = `
+exports[`contactSideMenu Casey renders correctly with assign 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -10,14 +10,14 @@ exports[`contactSideMenu  Jean unassign renders unassign correctly 1`] = `
       },
       Object {
         "action": [Function],
-        "label": "Unassign",
+        "label": "Assign",
       },
     ]
   }
 />
 `;
 
-exports[`contactSideMenu Casey renders menu correctly 1`] = `
+exports[`contactSideMenu Casey renders correctly with delete 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -34,7 +34,20 @@ exports[`contactSideMenu Casey renders menu correctly 1`] = `
 />
 `;
 
-exports[`contactSideMenu Jean renders menu correctly when missing org permission 1`] = `
+exports[`contactSideMenu Casey renders me user correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`contactSideMenu Jean handles followup status clicks correctly 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -44,14 +57,86 @@ exports[`contactSideMenu Jean renders menu correctly when missing org permission
       },
       Object {
         "action": [Function],
-        "label": "Unassign",
+        "label": "Attempted Contact",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Completed",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Contacted",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Do Not Contact",
+        "selected": false,
+      },
+      Object {
+        "action": [Function],
+        "label": "Uncontacted",
+        "selected": true,
+      },
+      Object {
+        "action": [Function],
+        "label": "Assign",
       },
     ]
   }
 />
 `;
 
-exports[`contactSideMenu Jean renders menu correctly with org permission 1`] = `
+exports[`contactSideMenu Jean renders assign correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Assign",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`contactSideMenu Jean renders me user correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`contactSideMenu Jean renders menu with delete 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Delete Person",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`contactSideMenu Jean renders unassign correctly 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -91,4 +176,30 @@ exports[`contactSideMenu Jean renders menu correctly with org permission 1`] = `
     ]
   }
 />
+`;
+
+exports[`contactSideMenu mapStateToProps should provide the necessary props 1`] = `
+Object {
+  "contactAssignment": Object {
+    "id": 3,
+    "type": "reverse_contact_assignment",
+  },
+  "isJean": true,
+  "myId": 1,
+  "orgPermission": Object {
+    "followup_status": "uncontacted",
+    "id": 4,
+    "type": "organizational_permission",
+  },
+  "organization": Object {
+    "id": 1,
+    "type": "organization",
+  },
+  "person": Object {
+    "first_name": "Test Fname",
+    "id": 2,
+    "type": "person",
+  },
+  "personIsCurrentUser": false,
+}
 `;

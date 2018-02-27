@@ -6,16 +6,16 @@ import { translate } from 'react-i18next';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
-import { deleteContactAssignment, fetchVisiblePersonInfo, updateFollowupStatus } from '../../actions/profile';
+import { createContactAssignment, deleteContactAssignment, updateFollowupStatus } from '../../actions/person';
 import { deleteStep } from '../../actions/steps';
+import { contactAssignmentSelector, orgPermissionSelector, personSelector } from '../../selectors/people';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
 
   unassignAction(deleteMode = false) {
     return () => {
-      const { t, dispatch } = this.props;
-      const { person, contactAssignmentId } = this.props.visiblePersonInfo;
+      const { t, dispatch, person } = this.props;
       Alert.alert(
         t(deleteMode ? 'deleteQuestion' : 'unassignQuestion', { name: person.first_name }),
         t(deleteMode ? 'deleteSentence' : 'unassignSentence'),
@@ -27,15 +27,9 @@ export class ContactSideMenu extends Component {
           {
             text: t(deleteMode ? 'delete' : 'unassignButton'),
             style: 'destructive',
-            onPress: async() => {
-              await dispatch(deleteContactAssignment(contactAssignmentId));
-              if (deleteMode) {
-                for (const challenge of person.received_challenges) {
-                  await dispatch(deleteStep(challenge.id));
-                }
-                dispatch(navigateBack()); // Navigate back twice (out of side menu and out of contact) since we deleted the person
-              }
-              dispatch(navigateBack());
+            onPress: () => {
+              this.deleteOnUnmount = true;
+              dispatch(navigateBack(2)); // Navigate back twice (out of side menu and out of contact) since the contact is no longer in our list
             },
           },
         ],
@@ -43,61 +37,66 @@ export class ContactSideMenu extends Component {
     };
   }
 
+  async componentWillUnmount() {
+    if (this.deleteOnUnmount) {
+      const { dispatch, person, contactAssignment, organization } = this.props;
+      await Promise.all(person.received_challenges.map((step) => dispatch(deleteStep(step))));
+      await dispatch(deleteContactAssignment(contactAssignment.id, person.id, organization && organization.id));
+    }
+  }
+
   render() {
-    const { t, dispatch, myId, stages, organization } = this.props;
-    const { isJean, personIsCurrentUser, person } = this.props.visiblePersonInfo;
+    const { t, dispatch, isJean, personIsCurrentUser, myId, person, orgPermission, contactAssignment, organization } = this.props;
 
-    const isCaseyNotMe = !isJean && !personIsCurrentUser;
-    const isJeanNotMe = isJean && !personIsCurrentUser;
+    const showAssign = !personIsCurrentUser && !contactAssignment;
+    const showDelete = !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
+    const showUnassign = !personIsCurrentUser && contactAssignment && isJean && orgPermission;
 
-    const orgPermission = organization && person && person.organizational_permissions && person.organizational_permissions.find((orgPermission) => orgPermission.organization_id === organization.id);
-
-    const canEditFollowupStatus = isJeanNotMe && orgPermission;
+    const showFollowupStatus = !personIsCurrentUser && isJean && orgPermission;
 
     const menuItems = [
       {
         label: t('edit'),
-        action: () => this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
+        action: () => dispatch(navigatePush(ADD_CONTACT_SCREEN, {
           person,
           isJean,
-          onComplete: () => {
-            // For editing, you only have 1 screen to pop back from
-            dispatch(navigateBack());
-
-            dispatch(fetchVisiblePersonInfo(person.id, myId, personIsCurrentUser, stages));
-          },
+          onComplete: () => dispatch(navigateBack()),
         })),
       },
-      isCaseyNotMe ? {
+      showDelete ? {
         label: t('delete'),
         action: this.unassignAction(true),
       } : null,
-      canEditFollowupStatus ? {
+      showFollowupStatus ? {
         label: t('attemptedContact'),
-        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'attempted_contact')),
+        action: () => dispatch(updateFollowupStatus(person, orgPermission.id, 'attempted_contact')),
         selected: orgPermission.followup_status === 'attempted_contact',
       } : null,
-      canEditFollowupStatus ? {
+      showFollowupStatus ? {
         label: t('completed'),
-        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'completed')),
+        action: () => dispatch(updateFollowupStatus(person, orgPermission.id, 'completed')),
         selected: orgPermission.followup_status === 'completed',
       } : null,
-      canEditFollowupStatus ? {
+      showFollowupStatus ? {
         label: t('contacted'),
-        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'contacted')),
+        action: () => dispatch(updateFollowupStatus(person, orgPermission.id, 'contacted')),
         selected: orgPermission.followup_status === 'contacted',
       } : null,
-      canEditFollowupStatus ? {
+      showFollowupStatus ? {
         label: t('doNotContact'),
-        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'do_not_contact')),
+        action: () => dispatch(updateFollowupStatus(person, orgPermission.id, 'do_not_contact')),
         selected: orgPermission.followup_status === 'do_not_contact',
       } : null,
-      canEditFollowupStatus ? {
+      showFollowupStatus ? {
         label: t('uncontacted'),
-        action: () => this.props.dispatch(updateFollowupStatus(person.id, orgPermission.id, 'uncontacted')),
+        action: () => dispatch(updateFollowupStatus(person, orgPermission.id, 'uncontacted')),
         selected: orgPermission.followup_status === 'uncontacted',
       } : null,
-      isJeanNotMe ? {
+      showAssign ? {
+        action: () => dispatch(createContactAssignment(organization && organization.id, myId, person.id)),
+        label: t('assign'),
+      } : null,
+      showUnassign ? {
         label: t('unassign'),
         action: this.unassignAction(),
       } : null,
@@ -109,11 +108,19 @@ export class ContactSideMenu extends Component {
   }
 }
 
-const mapStateToProps = ({ profile, auth, stages }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  myId: auth.personId,
-  stages: stages.stages,
-  visiblePersonInfo: profile.visiblePersonInfo || {},
-});
+export const mapStateToProps = ({ auth, people }, { navigation }) => {
+  const navParams = navigation.state.params;
+  const person = personSelector({ people }, { personId: navParams.person.id, orgId: navParams.organization && navParams.organization.id }) || navParams.person;
+
+  return {
+    ...(navigation.state.params || {}),
+    person,
+    isJean: auth.isJean,
+    personIsCurrentUser: navigation.state.params.person.id === auth.personId,
+    myId: auth.personId,
+    contactAssignment: contactAssignmentSelector({ auth }, { person }),
+    orgPermission: orgPermissionSelector(null, { person, organization: navParams.organization }),
+  };
+};
 
 export default connect(mapStateToProps)(ContactSideMenu);

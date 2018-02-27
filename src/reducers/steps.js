@@ -5,7 +5,6 @@ import {
   LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT,
   FILTERED_CHALLENGES,
 } from '../constants';
-import { findAllNonPlaceHolders } from '../utils/common';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
@@ -52,7 +51,7 @@ function stepsReducer(state = initialState, action) {
         suggestedForOthers: action.suggestedForOthers,
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      let mySteps = findAllNonPlaceHolders(action.results, 'accepted_challenge');
+      let mySteps = action.results.response;
       mySteps = mySteps.map((s)=> {
         if (state.reminders.find((r)=> r.id === s.id)) return { ...s, reminder: true };
         return s;

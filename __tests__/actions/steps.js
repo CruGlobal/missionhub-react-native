@@ -1,8 +1,8 @@
-import * as api from '../../src/actions/api';
-import { REQUESTS } from '../../src/actions/api';
+import callApi, { REQUESTS } from '../../src/actions/api';
+jest.mock('../../src/actions/api');
 import { completeStep, getStepSuggestions, getMyStepsNextPage } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
-import { mockFnWithParams, mockFnWithParamsMultiple } from '../../testUtils';
+import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -25,10 +25,11 @@ describe('get step suggestions', () => {
   it('should filter by language', () => {
     store = mockStore();
     i18next.language = locale;
-    mockFnWithParams(api, 'default', apiResult, REQUESTS.GET_CHALLENGE_SUGGESTIONS, stepSuggestionsQuery);
+    callApi.mockReturnValue(apiResult);
 
     store.dispatch(getStepSuggestions());
 
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGE_SUGGESTIONS, stepSuggestionsQuery);
     expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
@@ -38,6 +39,7 @@ describe('get steps page', () => {
     order: '-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
+    include: 'receiver',
   };
   const apiResult = { type: 'done' };
 
@@ -45,10 +47,11 @@ describe('get steps page', () => {
     store = mockStore({
       steps: { pagination: { page: 1, hasNextPage: true } },
     });
-    mockFnWithParams(api, 'default', apiResult, REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
+    callApi.mockReturnValue(apiResult);
 
     store.dispatch(getMyStepsNextPage());
 
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
     expect(store.getActions()[0]).toEqual(apiResult);
   });
 });
@@ -67,6 +70,7 @@ describe('complete challenge', () => {
   const stepsQuery = {
     order: '-accepted_at',
     filters: { completed: false },
+    include: 'receiver',
   };
   const data = {
     data: {
@@ -90,25 +94,22 @@ describe('complete challenge', () => {
       'trackState',
       trackStateResult,
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
-
-    mockFnWithParamsMultiple(api,
-      'default',
-      { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.GET_MY_CHALLENGES, stepsQuery ] },
-      { expectedReturn: () => Promise.resolve(), expectedParams: [ REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data ] });
-
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
+
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
   });
 
-  it('completes step', () => {
-    return store.dispatch(completeStep(step)).then(() => {
-      expect(store.getActions()).toEqual([
-        { type: COMPLETED_STEP_COUNT, userId: receiverId },
-        { type: NAVIGATE_FORWARD,
-          routeName: ADD_STEP_SCREEN,
-          params: { type: STEP_NOTE, onComplete: expect.anything() } },
-        trackStateResult,
-        trackActionResult,
-      ]);
-    });
+  it('completes step', async() => {
+    await store.dispatch(completeStep(step));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
+    expect(store.getActions()).toEqual([
+      { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      { type: NAVIGATE_FORWARD,
+        routeName: ADD_STEP_SCREEN,
+        params: { type: STEP_NOTE, onComplete: expect.anything() } },
+      trackStateResult,
+      trackActionResult,
+    ]);
   });
 });
