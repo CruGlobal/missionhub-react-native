@@ -2545,7 +2545,7 @@ hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
-hoist-non-react-statics@2.3.1, hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.2.1, hoist-non-react-statics@^2.3.1:
+hoist-non-react-statics@2.3.1, hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.2.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
 
@@ -4418,9 +4418,9 @@ react-native-fbsdk@0.7.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
-"react-native-omniture@github:dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15":
+"react-native-omniture@https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15":
   version "0.0.1"
-  resolved "https://codeload.github.com/dsgoers/react-native-omniture/tar.gz/4eb498b88f18942b3fdb03094f99b2d77fe8fc15"
+  resolved "https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15"
 
 react-native-push-notification@3.0.2:
   version "3.0.2"
