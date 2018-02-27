@@ -274,7 +274,7 @@ describe('should set up', () => {
     store = configureStore([ thunk ])({
       notifications: {
         token: undefined,
-        shouldAsk: true,
+        shouldAsk: true, 
       },
       auth: {
         isJean: true,
