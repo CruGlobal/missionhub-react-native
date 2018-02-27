@@ -10,7 +10,7 @@ import {
 } from '../../src/constants';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { setupPushNotifications, registerPushDevice, shouldRunSetUpPushNotifications, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
+import { setupPushNotifications, registerPushDevice, shouldRunSetUpPushNotifications, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen, handleNotifications } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
 import { NOTIFICATION_OFF_SCREEN } from '../../src/containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
@@ -269,5 +269,19 @@ describe('should set up', () => {
     notifications.setupPushNotifications = jest.fn();
     store.dispatch(shouldRunSetUpPushNotifications());
     expect(notifications.setupPushNotifications).toHaveBeenCalledTimes(0);
+  });
+  it('should call handleNotifications', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'home', person_id: '', organization_id: '' } } } }));
+    navigation.navigatePush = jest.fn();
+    expect(navigation.navigatePush).toHaveBeenCalledTimes(0);
   });
 });

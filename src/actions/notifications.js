@@ -184,7 +184,6 @@ export function deletePushToken(deviceId) {
 export function handleNotifications(state, notification) {
   return (dispatch, getState) => {
     const isJean = getState().auth.isJean;
-    console.warn('Notification state', state, notification);
     if (state === 'open') {
       if (notification && notification.data && notification.data.link && notification.data.link.data) {
         let screen = notification.data.link.data.screen;
