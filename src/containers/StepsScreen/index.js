@@ -61,6 +61,10 @@ export class StepsScreen extends Component {
     this.getSteps();
   }
 
+  componentDidMount() {
+    console.warn(this.props.pushToken);
+  }
+
   getSteps() {
     return this.props.dispatch(getMySteps());
   }
@@ -280,6 +284,7 @@ export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,
   hasMoreSteps: steps.pagination.hasNextPage,
+  pushtoken: notifications.token,
 });
 
 export default connect(mapStateToProps)(StepsScreen);

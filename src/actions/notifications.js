@@ -12,6 +12,7 @@ import {
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
+  GCM_SENDER_ID,
 } from '../constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
@@ -95,7 +96,6 @@ export function setupPushNotifications() {
   return (dispatch, getState) => {
     const { token, shouldAsk, isRegistered } = getState().notifications;
     if (!shouldAsk) return Promise.reject();
-
     PushNotification.configure({
       onRegister(t) {
         if (token && isRegistered) {
@@ -118,7 +118,7 @@ export function setupPushNotifications() {
         dispatch(handleNotifications(state, notification));
       },
       // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
-      // senderID: CONSTANTS.GCM_SENDER_ID,
+      senderID: GCM_SENDER_ID,
 
       // IOS ONLY (optional): default: all - Permissions to register.
       permissions: {
@@ -156,6 +156,7 @@ export function setupPushNotifications() {
 
 export function registerPushDevice(token) {
   return (dispatch) => {
+
     const type = DeviceInfo.getManufacturer();
     const data ={
       data: {
@@ -185,26 +186,49 @@ export function handleNotifications(state, notification) {
   return (dispatch, getState) => {
     const isJean = getState().auth.isJean;
     if (state === 'open') {
-      if (notification && notification.data && notification.data.link && notification.data.link.data) {
-        let screen = notification.data.link.data.screen;
-        let person = notification.data.link.data.person_id;
-        let organization = notification.data.link.data.organization_id;
+      if (isAndroid) {
+        if (notification && notification.screen) {
+          let screen = notification.screen;
+          let person = notification.person_id;
+          let organization = notification.organization_id;
 
-        if (screen.includes('home')) {
-          dispatch(navigateReset(MAIN_TABS));
-        } else if (screen.includes('person_steps')) {
-          dispatch(getPersonDetails(person)).then((r) => {
-            person = r.find('person', person);
-            dispatch(navigatePush(CONTACT_SCREEN, { person, organization: { id: organization } }));
-          });
-        } else if (screen.includes('add_a_person')) {
-          dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
-        } else if (screen.includes('steps')) {
-          dispatch(navigateReset(MAIN_TABS));
-        } else if (screen.includes('my_steps')) {
-          dispatch(navigateReset(MAIN_TABS));
+          if (screen.includes('home')) {
+            dispatch(navigateReset(MAIN_TABS));
+          } else if (screen.includes('person_steps' && person)) {
+            dispatch(getPersonDetails(person)).then((r) => {
+              person = r.find('person', person);
+              dispatch(navigatePush(CONTACT_SCREEN, { person, organization: { id: organization } }));
+            });
+          } else if (screen.includes('add_a_person')) {
+            dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
+          } else if (screen.includes('steps')) {
+            dispatch(navigateReset(MAIN_TABS));
+          } else if (screen.includes('my_steps')) {
+            dispatch(navigateReset(MAIN_TABS));
+          }
+
         }
+      } else {
+        if (notification && notification.data && notification.data.link && notification.data.link.data) {
+          let screen = notification.data.link.data.screen;
+          let person = notification.data.link.data.person_id;
+          let organization = notification.data.link.data.organization_id;
 
+          if (screen.includes('home')) {
+            dispatch(navigateReset(MAIN_TABS));
+          } else if (screen.includes('person_steps') && person) {
+            dispatch(getPersonDetails(person)).then((r) => {
+              person = r.find('person', person);
+              dispatch(navigatePush(CONTACT_SCREEN, { person, organization: { id: organization } }));
+            });
+          } else if (screen.includes('add_a_person')) {
+            dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
+          } else if (screen.includes('steps')) {
+            dispatch(navigateReset(MAIN_TABS));
+          } else if (screen.includes('my_steps')) {
+            dispatch(navigateReset(MAIN_TABS));
+          }
+        }
       }
     }
   };

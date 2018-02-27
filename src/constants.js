@@ -57,6 +57,7 @@ export const LINKS = {
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
 export const ORG_PERMISSIONS = [ 1, 4 ];
+export const GCM_SENDER_ID = '208966923006';
 
 export const ANALYTICS = {
   MCID: 'cru.mcid',
