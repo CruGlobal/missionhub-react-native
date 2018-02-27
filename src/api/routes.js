@@ -162,6 +162,10 @@ export default {
     endpoint: `${API_URL}push_notification_device_tokens/:deviceId`,
     method: 'delete',
   },
+  'CREATE_CONTACT_ASSIGNMENT': {
+    endpoint: `${API_URL}contact_assignments`,
+    method: 'post',
+  },
   'UPDATE_CONTACT_ASSIGNMENT': {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
