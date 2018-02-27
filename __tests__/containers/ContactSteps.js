@@ -29,9 +29,17 @@ const mockState = {
 const mockPerson = {
   first_name: 'ben',
   id: 1,
+  reverse_contact_assignments: [ ],
+};
+
+const mockStage = {
+  name: 'forgiven',
+  id: 2,
 };
 
 const store = createMockStore(mockState);
+
+let createComponent;
 
 jest.mock('react-native-device-info');
 
@@ -45,28 +53,33 @@ it('renders correctly', () => {
 
 
 describe('Navigation to steps screen', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  navigation.navigatePush = jest.fn();
-  const handleSaveNewSteps = jest.fn();
-  const handleSaveNewStage = jest.fn();
+  let handleSaveNewSteps;
+  let handleSaveNewStage;
 
-  const createComponent = (isCurrentUser, contactStage, contactAssignment = null) => {
-    const screen = shallow(
-      <ContactSteps
-        isMe={isCurrentUser}
-        person={mockPerson}
-        contactStage={contactStage}
-        contactAssignment={contactAssignment}
-        navigation={createMockNavState()}
-      />,
-      { context: { store } },
-    );
+  beforeAll(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    navigation.navigatePush = jest.fn();
+    handleSaveNewSteps = jest.fn();
+    handleSaveNewStage = jest.fn();
 
-    let component = screen.dive().dive().dive().instance();
-    component.handleSaveNewSteps = handleSaveNewSteps;
-    component.handleSaveNewStage = handleSaveNewStage;
-    return component;
-  };
+    createComponent = (isCurrentUser, contactStage, contactAssignment = null) => {
+      const screen = shallow(
+        <ContactSteps
+          isMe={isCurrentUser}
+          person={mockPerson}
+          contactStage={contactStage}
+          contactAssignment={contactAssignment}
+          navigation={createMockNavState()}
+        />,
+        { context: { store } },
+      );
+
+      let component = screen.dive().dive().dive().instance();
+      component.handleSaveNewSteps = handleSaveNewSteps;
+      component.handleSaveNewStage = handleSaveNewStage;
+      return component;
+    };
+  });
 
   it('navigates to select my steps', () => {
     let component = createComponent(true, 'forgiven');
@@ -128,6 +141,67 @@ describe('Navigation to steps screen', () => {
         section: 'people',
         subsection: 'person',
         noNav: true,
+      },
+    );
+  });
+});
+
+
+describe('Navigation from stage to steps', () => {
+  let handleSaveNewSteps;
+
+  beforeAll(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    navigation.navigatePush = jest.fn();
+    navigation.navigateBack = jest.fn();
+    handleSaveNewSteps = jest.fn();
+
+    createComponent = (isCurrentUser, contactStage, contactAssignment = null) => {
+      const screen = shallow(
+        <ContactSteps
+          isMe={isCurrentUser}
+          person={mockPerson}
+          contactStage={contactStage}
+          contactAssignment={contactAssignment}
+          navigation={createMockNavState()}
+        />,
+        { context: { store } },
+      );
+
+      let component = screen.dive().dive().dive().instance();
+      component.handleSaveNewSteps = handleSaveNewSteps;
+      return component;
+    };
+  });
+
+  it('navigates from my stage to my steps', () => {
+    let component = createComponent(true, undefined);
+
+    component.handleSaveNewStage(mockStage);
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      SELECT_MY_STEP_SCREEN, {
+        onSaveNewSteps: expect.any(Function),
+        enableBackButton: true,
+        contactStage: mockStage,
+      },
+    );
+  });
+
+  it('navigates from person stage to person steps', () => {
+    let component = createComponent(false, undefined, { id: 333 });
+
+    component.handleSaveNewStage(mockStage);
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      PERSON_SELECT_STEP_SCREEN, {
+        contactName: mockPerson.first_name,
+        contactId: mockPerson.id,
+        contact: mockPerson,
+        organization: undefined,
+        contactStage: mockStage,
+        onSaveNewSteps: expect.any(Function),
+        createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
       },
     );
   });
