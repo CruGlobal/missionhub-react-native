@@ -4,9 +4,9 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
-	<key>keychain-access-groups</key>
+	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.missionhub</string>
+		<string>applinks:www.missionhub.com</string>
 	</array>
 </dict>
 </plist>
