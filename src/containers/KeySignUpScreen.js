@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
-import { WebView } from 'react-native';
+import { WebView, Linking } from 'react-native';
 
 export default class KeySignUpScreen extends Component {
+
+  componentDidMount() {
+    Linking.getInitialURL().then((url) => {
+    });
+
+    Linking.addEventListener('url', this.handleOpenURL);
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  handleOpenURL = (event) => {
+    console.log(JSON.stringify(event));
+  };
 
   render() {
     const uri = 'https://thekey.me/cas/login?action=signup';
