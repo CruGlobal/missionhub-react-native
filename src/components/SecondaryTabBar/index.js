@@ -64,7 +64,7 @@ export default class SecondaryTabBar extends Component {
 
   render() {
     const { tabs } = this.props;
-    const style = { backgroundColor: theme.white, ...isAndroid ? { flex: 1 } : undefined };
+    const style = { backgroundColor: theme.white, ...isAndroid && { flex: 1 } };
 
     return (
       <Flex value={1} self="stretch" >
