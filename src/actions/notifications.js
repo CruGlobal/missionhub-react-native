@@ -189,16 +189,16 @@ export function handleNotifications(state, notification) {
     let person;
     let organization;
     if (state === 'open') {
-      if (isAndroid) {
-        screen = notification.screen;
-        person = notification.person_id;
-        organization = notification.organization_id;
-      } else {
-        screen = notification.data.link.data.screen;
-        person = notification.data.link.data.person_id;
-        organization = notification.data.link.data.organization_id;
-      }
       if ((notification && notification.data && notification.data.link && notification.data.link.data) || (notification && notification.screen)) {
+        if (isAndroid) {
+          screen = notification.screen;
+          person = notification.person_id;
+          organization = notification.organization_id;
+        } else {
+          screen = notification.data.link.data.screen;
+          person = notification.data.link.data.person_id;
+          organization = notification.data.link.data.organization_id;
+        }
         if (screen.includes('home')) {
           dispatch(navigateReset(MAIN_TABS));
         } else if (screen.includes('person_steps') && person) {
