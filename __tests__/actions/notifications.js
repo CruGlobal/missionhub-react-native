@@ -10,7 +10,7 @@ import {
 } from '../../src/constants';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { setupPushNotifications, registerPushDevice, shouldRunSetUpPushNotifications, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen } from '../../src/actions/notifications';
+import { setupPushNotifications, registerPushDevice, shouldRunSetUpPushNotifications, disableAskPushNotification, enableAskPushNotification, noNotificationReminder, showReminderScreen, handleNotifications } from '../../src/actions/notifications';
 import { mockFnWithParams } from '../../testUtils';
 import { NOTIFICATION_OFF_SCREEN } from '../../src/containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
@@ -85,6 +85,9 @@ describe('set push token', () => {
         token: null,
         isRegistered: false,
       },
+      auth: {
+        isJean: true,
+      },
     });
     store.dispatch(setupPushNotifications());
 
@@ -96,23 +99,53 @@ describe('set push token', () => {
         token: '123',
         isRegistered: true,
       },
+      auth: {
+        isJean: true,
+      },
     });
     store.dispatch(setupPushNotifications());
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(0);
   });
   it('should call configure', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(1);
   });
   it('should call configure and onRegister', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(store.getActions()[0]).toEqual({ type: PUSH_NOTIFICATION_SET_TOKEN, token: '123' });
     expect(store.getActions()[1]).toBe(action);
   });
   it('should call configure and push notifications asked', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(store.getActions()[2]).toEqual({ type: PUSH_NOTIFICATION_ASKED });
@@ -134,7 +167,7 @@ describe('set push token', () => {
 
 describe('actions called', () => {
   beforeEach(() => {
-    common.isAndroid = false;    
+    common.isAndroid = false;
   });
   it('should call disableAskPushNotification', () => {
     store.dispatch(disableAskPushNotification());
@@ -236,5 +269,61 @@ describe('should set up', () => {
     notifications.setupPushNotifications = jest.fn();
     store.dispatch(shouldRunSetUpPushNotifications());
     expect(notifications.setupPushNotifications).toHaveBeenCalledTimes(0);
+  });
+  it('should call handleNotifications with screen home', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    navigation.navigateReset = jest.fn(()=>({ type: 'test ' }));
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'home', person_id: '', organization_id: '' } } } }));
+    expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
+  });
+  it('should call handleNotifications with screen add_a_person', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    navigation.navigatePush = jest.fn(()=>({ type: 'test ' }));
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'add_a_person', person_id: '', organization_id: '' } } } }));
+    expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+  it('should call handleNotifications with screen steps', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    navigation.navigateReset = jest.fn(()=>({ type: 'test ' }));
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'steps', person_id: '', organization_id: '' } } } }));
+    expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
+  });
+  it('should call handleNotifications with screen my_steps', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    navigation.navigateReset = jest.fn(()=>({ type: 'test ' }));
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'my_steps', person_id: '', organization_id: '' } } } }));
+    expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
   });
 });

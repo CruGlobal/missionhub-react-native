@@ -38,7 +38,6 @@ export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
-
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
@@ -58,6 +57,7 @@ export const LINKS = {
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
 export const ORG_PERMISSIONS = [ 1, 4 ];
+export const GCM_SENDER_ID = '208966923006';
 
 export const ANALYTICS = {
   MCID: 'cru.mcid',
@@ -119,13 +119,12 @@ export const CUSTOM_STEP_TYPE = 'user created step';
 export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'spiritualConversationsIcon', translationKey: 'interactionUncontacted' },
-  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true },
-  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true },
-  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true },
-  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true },
-  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit', isOnAction: true },
-  // MHInteractionTypeGraduatingOnMission: { id: 6, iconName: '', translationKey: 'interactionNote' },
-  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation', isOnAction: true },
+  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.COMMENT_ADDED },
+  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationsIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: 'cru.initiatinggospelconversations' },
+  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: 'cru.presentingthegospel' },
+  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: 'cru.newprofessingbelievers' },
+  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit', isOnAction: true, tracking: 'cru.presentingtheholyspirit' },
+  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation', isOnAction: true, tracking: 'cru.discipleshipconversation' },
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;
