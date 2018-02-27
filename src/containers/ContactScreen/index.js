@@ -83,7 +83,6 @@ export class ContactScreen extends Component {
         <Flex align="center" justify="center" value={1} style={styles.container}>
           <ContactHeader
             onChangeStage={this.handleChangeStage}
-            organization={organization}
             type={isJean ? JEAN : CASEY}
             isMe={personIsCurrentUser}
             person={person}

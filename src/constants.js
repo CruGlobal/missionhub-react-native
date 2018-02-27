@@ -38,7 +38,6 @@ export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
-
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
@@ -58,6 +57,7 @@ export const LINKS = {
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
 export const ORG_PERMISSIONS = [ 1, 4 ];
+export const GCM_SENDER_ID = '208966923006';
 
 export const ANALYTICS = {
   MCID: 'cru.mcid',
