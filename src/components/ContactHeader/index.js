@@ -155,7 +155,7 @@ class ContactHeader extends Component {
   }
 
   render() {
-    const { person, organization, type, stage, isMe } = this.props;
+    const { person, contactAssignment, organization, type, stage, isMe } = this.props;
     const hasStage = stage && stage.name;
 
     return (
@@ -169,7 +169,7 @@ class ContactHeader extends Component {
           onPress={this.props.onChangeStage}
         />
         { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar isMe={isMe} person={person} organization={organization} contactStage={stage} tabs={this.getTabs()} />
+        <SecondaryTabBar isMe={isMe} person={person} contactAssignment={contactAssignment} organization={organization} contactStage={stage} tabs={this.getTabs()} />
       </Flex>
     );
   }
@@ -177,6 +177,7 @@ class ContactHeader extends Component {
 
 ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
+  contactAssignment: PropTypes.object,
   organization: PropTypes.object,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,

@@ -28,7 +28,7 @@ export class ContactScreen extends Component {
   }
 
   handleChangeStage() {
-    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage,stages } = this.props;
+    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages } = this.props;
     let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
     firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
     if (personIsCurrentUser) {
@@ -59,7 +59,7 @@ export class ContactScreen extends Component {
   }
 
   render() {
-    const { dispatch, person, organization, isJean, contactStage, personIsCurrentUser } = this.props;
+    const { dispatch, person, contactAssignment, organization, isJean, contactStage, personIsCurrentUser } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -87,6 +87,7 @@ export class ContactScreen extends Component {
             type={isJean ? JEAN : CASEY}
             isMe={personIsCurrentUser}
             person={person}
+            contactAssignment={contactAssignment}
             organization={organization}
             stage={contactStage}
             dispatch={dispatch}
