@@ -5,7 +5,7 @@ import DeviceInfo from 'react-native-device-info';
 import { REQUESTS } from './api';
 import callApi from './api';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
-import { getPersonDetails } from './people';
+import { getPersonDetails } from './person';
 import { MAIN_TABS } from '../constants';
 import {
   PUSH_NOTIFICATION_ASKED,

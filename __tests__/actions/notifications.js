@@ -85,6 +85,9 @@ describe('set push token', () => {
         token: null,
         isRegistered: false,
       },
+      auth: {
+        isJean: true,
+      },
     });
     store.dispatch(setupPushNotifications());
 
@@ -96,23 +99,53 @@ describe('set push token', () => {
         token: '123',
         isRegistered: true,
       },
+      auth: {
+        isJean: true,
+      },
     });
     store.dispatch(setupPushNotifications());
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(0);
   });
   it('should call configure', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(1);
   });
   it('should call configure and onRegister', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(store.getActions()[0]).toEqual({ type: PUSH_NOTIFICATION_SET_TOKEN, token: '123' });
     expect(store.getActions()[1]).toBe(action);
   });
   it('should call configure and push notifications asked', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
     store.dispatch(setupPushNotifications());
 
     expect(store.getActions()[2]).toEqual({ type: PUSH_NOTIFICATION_ASKED });
@@ -134,7 +167,7 @@ describe('set push token', () => {
 
 describe('actions called', () => {
   beforeEach(() => {
-    common.isAndroid = false;    
+    common.isAndroid = false;
   });
   it('should call disableAskPushNotification', () => {
     store.dispatch(disableAskPushNotification());
