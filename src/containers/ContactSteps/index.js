@@ -76,29 +76,28 @@ class ContactSteps extends Component {
 
   handleSaveNewStage(stage) {
     const { dispatch, isMe, person, contactAssignment } = this.props;
+
     if (isMe) {
-      dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } })).then(() => {
-        this.handleNavToSteps(stage, () => {
-          this.handleSaveNewSteps();
-          this.props.dispatch(navigateBack());
-        });
+      dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
+      this.handleNavToSteps(stage, () => {
+        this.handleSaveNewSteps();
+        dispatch(navigateBack());
       });
     } else {
       dispatch(updatePersonAttributes(person.id, {
         reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
           assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
         ),
-      })).then(() => {
-        this.handleNavToSteps(stage, () => {
-          this.handleSaveNewSteps();
-          this.props.dispatch(navigateBack());
-        });
+      }));
+      this.handleNavToSteps(stage, () => {
+        this.handleSaveNewSteps();
+        dispatch(navigateBack());
       });
     }
   }
 
   handleNavToStage() {
-    const { dispatch, isMe, person, contactAssignmentId } = this.props;
+    const { dispatch, isMe, person, contactAssignment } = this.props;
 
     if (isMe) {
       dispatch(navigatePush(STAGE_SCREEN, {
@@ -116,7 +115,7 @@ class ContactSteps extends Component {
         firstItem: undefined,
         name: person.first_name,
         contactId: person.id,
-        contactAssignmentId: contactAssignmentId,
+        contactAssignmentId: contactAssignment.id,
         section: 'people',
         subsection: 'person',
         noNav: true,
