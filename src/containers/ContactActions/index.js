@@ -15,7 +15,7 @@ export class ContactActions extends Component {
 
   handleInteraction = (item, text) => {
     const { person, organization } = this.props;
-    this.props.dispatch(addNewInteraction(person.id, item.id, text, organization && organization.id));
+    this.props.dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
   }
 
   handleCreateInteraction = (item) => {

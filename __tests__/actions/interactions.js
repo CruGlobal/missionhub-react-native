@@ -19,7 +19,7 @@ beforeEach(() => store = configureStore([ thunk ])({
 const comment = 'new comment';
 const personId = 1;
 const orgId = 2;
-const interactionId = 3;
+const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
 const trackActionResult = { type: 'tracked action' };
 
 describe('add comment', () => {
@@ -30,7 +30,7 @@ describe('add comment', () => {
   };
 
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.COMMENT_ADDED);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, interaction.tracking);
   });
 
   describe('without org', () => {
@@ -38,7 +38,7 @@ describe('add comment', () => {
       data: {
         type: 'interaction',
         attributes: {
-          interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
+          interaction_type_id: interaction.id,
           comment: comment,
         },
         relationships: {
@@ -64,7 +64,7 @@ describe('add comment', () => {
     it('should add a new comment', async() => {
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
-      await store.dispatch(addNewInteraction(personId, 1, comment));
+      await store.dispatch(addNewInteraction(personId, interaction, comment));
 
       expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
@@ -75,7 +75,7 @@ describe('add comment', () => {
       data: {
         type: 'interaction',
         attributes: {
-          interaction_type_id: INTERACTION_TYPES.MHInteractionTypeNote.id,
+          interaction_type_id: interaction.id,
           comment: comment,
         },
         relationships: {
@@ -107,7 +107,7 @@ describe('add comment', () => {
     it('should add a new comment', async() => {
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
-      await store.dispatch(addNewInteraction(personId, 1, comment, orgId));
+      await store.dispatch(addNewInteraction(personId, interaction, comment, orgId));
       expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
   });
@@ -121,7 +121,7 @@ describe('edit comment', () => {
   };
 
   const expectedQuery = {
-    interactionId: interactionId,
+    interactionId: interaction.id,
   };
   const expectedBody = {
     data: {
@@ -139,7 +139,7 @@ describe('edit comment', () => {
   });
 
   it('should edit a comment', async() => {
-    await store.dispatch(editComment({ id: interactionId }, comment));
+    await store.dispatch(editComment({ id: interaction.id }, comment));
 
     expect(store.getActions()).toEqual([ editCommentResult, trackActionResult ]);
   });
