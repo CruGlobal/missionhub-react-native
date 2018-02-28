@@ -11,6 +11,7 @@ export default StyleSheet.create({
   tabsHidden: {
     height: 0,
     marginVertical: 0,
+    overflow: 'hidden',
   },
   tab: {
     flex: 1,

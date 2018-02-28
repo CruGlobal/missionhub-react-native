@@ -114,6 +114,7 @@ export class ContactNotes extends Component {
             multiline={true}
             blurOnSubmit={false}
             autoGrow={false}
+            autoCorrect={true}
           />
         </Flex>
       );

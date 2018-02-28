@@ -34,6 +34,7 @@ exports[`when keyboard height is set and editing is set to true button message c
     value={1}
   >
     <Input
+      autoCorrect={true}
       autoGrow={false}
       blurOnSubmit={false}
       editable={true}
