@@ -20,9 +20,9 @@ class CustomTabs extends Component {
   }
 
   render() {
-    const { activeTab, tabArray, style } = this.props;
+    const { activeTab, tabArray, style, isHidden } = this.props;
     return (
-      <View style={[ styles.tabs, style ]}>
+      <View style={[ styles.tabs, style, isHidden ? styles.tabsHidden : undefined ]}>
         {tabArray.map((tab, i) => {
           return (
             <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
@@ -48,5 +48,6 @@ CustomTabs.propTypes = {
   activeTab: PropTypes.number,
   goToPage: PropTypes.func,
   onChangeTab: PropTypes.func,
+  isHidden: PropTypes.bool,
 };
 export default connect()(CustomTabs);

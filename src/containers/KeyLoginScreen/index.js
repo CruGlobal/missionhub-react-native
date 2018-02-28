@@ -137,6 +137,7 @@ class KeyLoginScreen extends Component {
               onChangeText={this.emailChanged}
               value={this.state.email}
               returnKeyType="next"
+              keyboardType="email-address"
               blurOnSubmit={false}
               onSubmitEditing={() => this.password.focus()}
               placeholder={t('emailLabel')}

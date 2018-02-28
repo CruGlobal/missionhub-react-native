@@ -19,7 +19,7 @@ jest.mock('react-native-device-info');
 it('renders dummy view when keyboard height is not set', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactNotes />
+      <ContactNotes onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />
     </Provider>
   );
 });
@@ -27,7 +27,7 @@ it('renders dummy view when keyboard height is not set', () => {
 beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
   shallowScreen = shallow(
-    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
+    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />,
     { context: { store: store } }
   );
 
