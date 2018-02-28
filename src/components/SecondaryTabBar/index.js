@@ -32,7 +32,7 @@ export default class SecondaryTabBar extends Component {
     if (tab.page === 'steps') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactSteps isMe={this.props.isMe} person={this.props.person} contactAssignment={this.props.contactAssignment} organization={this.props.organization} contactStage={this.props.contactStage} />
+          <ContactSteps isMe={this.props.isMe} person={this.props.person} contactAssignment={this.props.contactAssignment} organization={this.props.organization} contactStage={this.props.contactStage} onChangeStage={this.props.onChangeStage} />
         </Flex>
       );
     } else if (tab.page === 'journey') {

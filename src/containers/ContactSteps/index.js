@@ -16,10 +16,7 @@ import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { STAGE_SCREEN } from '../StageScreen';
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { trackState } from '../../actions/analytics';
-import { updatePersonAttributes } from '../../actions/person';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -75,61 +72,23 @@ class ContactSteps extends Component {
   }
 
   handleSaveNewStage(stage) {
-    const { dispatch, isMe, person, contactAssignment } = this.props;
-
-    if (isMe) {
-      dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
-      this.handleNavToSteps(stage, () => {
-        this.handleSaveNewSteps();
-        dispatch(navigateBack());
-      });
-    } else {
-      dispatch(updatePersonAttributes(person.id, {
-        reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
-          assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
-        ),
-      }));
-      this.handleNavToSteps(stage, () => {
-        this.handleSaveNewSteps();
-        dispatch(navigateBack());
-      });
-    }
+    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
   }
 
   handleNavToStage() {
-    const { dispatch, isMe, person, contactAssignment } = this.props;
-
-    if (isMe) {
-      dispatch(navigatePush(STAGE_SCREEN, {
-        onComplete: this.handleSaveNewStage,
-        firstItem: undefined,
-        contactId: person.id,
-        section: 'people',
-        subsection: 'self',
-        enableBackButton: true,
-        noNav: true,
-      }));
-    } else {
-      dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: this.handleSaveNewStage,
-        firstItem: undefined,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment.id,
-        section: 'people',
-        subsection: 'person',
-        noNav: true,
-      }));
-    }
+    this.props.onChangeStage(true, this.handleSaveNewStage);
   }
 
-  handleNavToSteps(stage, onSaveNewSteps) {
+  handleNavToSteps(stage, onComplete = null) {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
       dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-        onSaveNewSteps,
+        onSaveNewSteps: () => {
+          this.handleSaveNewSteps();
+          onComplete && onComplete();
+        },
         enableBackButton: true,
         contactStage: stage,
       }));
@@ -140,7 +99,10 @@ class ContactSteps extends Component {
         contact: person,
         organization,
         contactStage: stage, //todo using this makes us need to wait until stage is loaded to add a step
-        onSaveNewSteps,
+        onSaveNewSteps: () => {
+          this.handleSaveNewSteps();
+          onComplete && onComplete();
+        },
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
 
@@ -149,7 +111,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage, this.handleSaveNewSteps): this.handleNavToStage();
+    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage): this.handleNavToStage();
   }
 
 
