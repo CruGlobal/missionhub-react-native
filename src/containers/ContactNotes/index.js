@@ -107,7 +107,6 @@ export class ContactNotes extends Component {
         value={this.state.text}
         style={styles.notesText}
         multiline={true}
-        returnKeyType="next"
         blurOnSubmit={false}
       />
     );
