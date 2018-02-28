@@ -21,6 +21,11 @@ export function facebookLoginAction(accessToken, id) {
   };
 }
 
+export function createKeyAccount(code, verifier, redirectUri) {
+  const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
+  return tokenAndTicketLogin(data);
+}
+
 export function refreshAuth() {
   return async(dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
@@ -32,7 +37,11 @@ export function refreshAuth() {
 
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
+  return tokenAndTicketLogin(data);
+}
 
+//todo rename these
+function tokenAndTicketLogin(data) {
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getKeyTicket());
