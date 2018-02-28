@@ -149,6 +149,7 @@ exports[`renders correctly 1`] = `
         autoCorrect={false}
         autoFocus={false}
         blurOnSubmit={false}
+        keyboardType="email-address"
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}

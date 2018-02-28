@@ -25,8 +25,6 @@ exports[`when keyboard height is set and editing is set to true button message c
   }
 >
   <Flex
-    align="stretch"
-    justify="center"
     style={
       Object {
         "backgroundColor": "#ffffff",
@@ -36,16 +34,19 @@ exports[`when keyboard height is set and editing is set to true button message c
     value={1}
   >
     <Input
+      autoCorrect={true}
+      autoGrow={false}
       blurOnSubmit={false}
       editable={true}
       multiline={true}
       onChangeText={[Function]}
       style={
         Object {
+          "borderBottomWidth": 0,
           "color": "#505256",
-          "flex": 1,
           "fontSize": 16,
           "marginTop": 30,
+          "paddingBottom": 30,
           "paddingHorizontal": 36,
           "textAlign": "left",
         }
@@ -78,7 +79,7 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
   }
 >
   <Flex
-    align="stretch"
+    align="center"
     justify="center"
     style={
       Object {
@@ -88,49 +89,44 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
     }
     value={1}
   >
-    <Flex
-      align="center"
-      justify="center"
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/myNotes.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 10,
+        }
+      }
+      type="header"
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/myNotes.png",
-          }
+      MY NOTES
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontSize": 16,
+          "paddingHorizontal": 50,
+          "paddingVertical": 10,
+          "textAlign": "center",
         }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 42,
-            "paddingTop": 10,
-          }
-        }
-        type="header"
-      >
-        MY NOTES
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 10,
-            "textAlign": "center",
-          }
-        }
-      >
-        Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
-      </MyText>
-    </Flex>
+      }
+    >
+      Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
+    </MyText>
   </Flex>
   <Flex
     justify="end"
@@ -158,8 +154,6 @@ exports[`when keyboard height is set notes are shown 1`] = `
   }
 >
   <Flex
-    align="stretch"
-    justify="center"
     style={
       Object {
         "backgroundColor": "#ffffff",
@@ -168,23 +162,26 @@ exports[`when keyboard height is set notes are shown 1`] = `
     }
     value={1}
   >
-    <Input
-      blurOnSubmit={false}
-      editable={false}
-      multiline={true}
-      onChangeText={[Function]}
-      style={
-        Object {
-          "color": "#505256",
-          "flex": 1,
-          "fontSize": 16,
-          "marginTop": 30,
-          "paddingHorizontal": 36,
-          "textAlign": "left",
+    <ScrollViewMock>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "borderBottomWidth": 0,
+            "color": "#505256",
+            "fontSize": 16,
+            "marginTop": 30,
+            "paddingBottom": 30,
+            "paddingHorizontal": 36,
+            "textAlign": "left",
+          }
         }
-      }
-      value="Hello, Roge! Here are some notes."
-    />
+      >
+        Hello, Roge! Here are some notes.
+      </MyText>
+    </ScrollViewMock>
   </Flex>
   <Flex
     justify="end"

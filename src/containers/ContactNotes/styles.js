@@ -7,12 +7,13 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   notesText: {
-    flex: 1,
     fontSize: 16,
     color: theme.textColor,
     textAlign: 'left',
     paddingHorizontal: 36,
     marginTop: 30,
+    paddingBottom: 30,
+    borderBottomWidth: 0,    
   },
   nullHeader: {
     fontSize: 42,

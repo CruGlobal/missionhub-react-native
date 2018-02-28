@@ -20,6 +20,10 @@ export class ContactScreen extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      headerOpen: true,
+    };
+
     this.handleChangeStage = this.handleChangeStage.bind(this);
   }
 
@@ -58,6 +62,16 @@ export class ContactScreen extends Component {
     }
   }
 
+  getTitle() {
+    const { person, organization } = this.props;
+    if (!this.state.headerOpen) {
+      return (person.first_name || '').toUpperCase();
+    } else if (organization) {
+      return organization.name;
+    }
+    return undefined;
+  }
+
   render() {
     const { dispatch, person, organization, isJean, contactStage, personIsCurrentUser } = this.props;
     return (
@@ -78,7 +92,7 @@ export class ContactScreen extends Component {
             />
           }
           shadow={false}
-          title={organization ? organization.name : undefined}
+          title={this.getTitle()}
         />
         <Flex align="center" justify="center" value={1} style={styles.container}>
           <ContactHeader
@@ -89,6 +103,8 @@ export class ContactScreen extends Component {
             organization={organization}
             stage={contactStage}
             dispatch={dispatch}
+            onShrinkHeader={() => this.setState({ headerOpen: false })}
+            onOpenHeader={() => this.setState({ headerOpen: true })}
           />
         </Flex>
       </View>
