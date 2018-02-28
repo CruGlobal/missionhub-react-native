@@ -140,12 +140,14 @@ exports[`renders casey 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
-      Object {
-        "alignSelf": "stretch",
-        "flex": 1,
-      }
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "stretch",
+          "flex": 1,
+        },
+      ]
     }
   >
     <View
@@ -1124,12 +1126,14 @@ exports[`renders jean 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
-      Object {
-        "alignSelf": "stretch",
-        "flex": 1,
-      }
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "stretch",
+          "flex": 1,
+        },
+      ]
     }
   >
     <View
@@ -2108,12 +2112,14 @@ exports[`renders jean with a missionhub user as contact 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
-      Object {
-        "alignSelf": "stretch",
-        "flex": 1,
-      }
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "stretch",
+          "flex": 1,
+        },
+      ]
     }
   >
     <View
@@ -3092,12 +3098,14 @@ exports[`renders me 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
-      Object {
-        "alignSelf": "stretch",
-        "flex": 1,
-      }
+      Array [
+        Object {},
+        Object {
+          "alignSelf": "stretch",
+          "flex": 1,
+        },
+      ]
     }
   >
     <View

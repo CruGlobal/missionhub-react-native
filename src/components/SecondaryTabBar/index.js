@@ -78,7 +78,7 @@ export default class SecondaryTabBar extends Component {
     const style = { backgroundColor: theme.white, ...isAndroid ? { flex: 1 } : {} };
 
     return (
-      <Flex ref={(c) => this.view = c} animated={true} value={1} self="stretch">
+      <Flex value={1} self="stretch">
         <ScrollableTabView
           contentProps={{ keyboardShouldPersistTaps: 'handled', style: style }}
           tabBarPosition="top"

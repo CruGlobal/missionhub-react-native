@@ -2,12 +2,14 @@
 
 exports[`renders correctly 1`] = `
 <View
-  collapsable={undefined}
   style={
-    Object {
-      "alignSelf": "stretch",
-      "flex": 1,
-    }
+    Array [
+      Object {},
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+      },
+    ]
   }
 >
   <View
