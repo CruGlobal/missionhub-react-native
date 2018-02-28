@@ -32,7 +32,7 @@ export default class KeySignUpScreen extends Component {
 
   render() {
     const uri = `https://thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
-      + '&redirect_uri=https://stage.missionhub.com/auth&scope=fullticket%20extended&code_challenge_method=S256'
+      + '&redirect_uri=https://missionhub.com/auth&scope=fullticket%20extended&code_challenge_method=S256'
       + `&code_challenge=${this.codeChallege}`;
 
     return (
