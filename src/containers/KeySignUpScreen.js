@@ -19,9 +19,6 @@ class KeySignUpScreen extends Component {
   }
 
   componentDidMount() {
-    Linking.getInitialURL().then((url) => {
-    });
-
     Linking.addEventListener('url', this.handleOpenURL);
   }
 
