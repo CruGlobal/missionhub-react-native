@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { WebView, Linking } from 'react-native';
+import { THE_KEY_CLIENT_ID } from '../constants';
+import { sha256 } from 'js-sha256';
+import base64url from 'base64-url';
+import randomString from 'random-string';
+global.Buffer = global.Buffer || require('buffer').Buffer;
 
 export default class KeySignUpScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    this.codeVerifier = base64url.encode(string);
+    this.codeChallege = base64url.encode(sha256.array(this.codeVerifier));
+  }
 
   componentDidMount() {
     Linking.getInitialURL().then((url) => {
@@ -19,7 +31,9 @@ export default class KeySignUpScreen extends Component {
   };
 
   render() {
-    const uri = 'https://thekey.me/cas/login?action=signup';
+    const uri = `https://thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+      + '&redirect_uri=https://stage.missionhub.com/auth&scope=fullticket%20extended&code_challenge_method=S256'
+      + `&code_challenge=${this.codeChallege}`;
 
     return (
       <WebView
