@@ -69,7 +69,7 @@ class ContactSteps extends Component {
 
   handleSaveNewSteps() {
     this.getSteps().then(() => {
-      if (this.list) this.list.scrollToEnd();
+      this.list && this.list.scrollToEnd();
     });
     this.props.dispatch(navigateBack());
   }
