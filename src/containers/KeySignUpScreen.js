@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WebView, Linking } from 'react-native';
+import { Linking, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { THE_KEY_CLIENT_ID } from '../constants';
 import { sha256 } from 'js-sha256';
@@ -15,7 +15,7 @@ class KeySignUpScreen extends Component {
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });
     this.codeVerifier = base64url.encode(string);
     this.codeChallege = base64url.encode(sha256.array(this.codeVerifier));
-    this.redirectUri = 'https://missionhub.com/auth';
+    this.redirectUri = 'https://stage.missionhub.com/auth';
   }
 
   componentDidMount() {
@@ -32,15 +32,14 @@ class KeySignUpScreen extends Component {
   };
 
   render() {
-    const uri = `https://thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+    const uri = `https://stage.thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
       + `&redirect_uri=${this.redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${this.codeChallege}`;
 
+    Linking.openURL(uri);
+
     return (
-      <WebView
-        source={{ uri }}
-        style={{ marginTop: 20 }}
-      />
+      <Text>Hello, world!</Text> //todo put this code in another screen
     );
   }
 }
