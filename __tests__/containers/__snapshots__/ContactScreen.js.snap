@@ -103,6 +103,8 @@ exports[`ContactScreen renders correctly as Casey 1`] = `
       dispatch={[Function]}
       isMe={false}
       onChangeStage={[Function]}
+      onOpenHeader={[Function]}
+      onShrinkHeader={[Function]}
       person={
         Object {
           "first_name": "Test Fname",
@@ -162,6 +164,8 @@ exports[`ContactScreen renders correctly as Jean 1`] = `
       dispatch={[Function]}
       isMe={false}
       onChangeStage={[Function]}
+      onOpenHeader={[Function]}
+      onShrinkHeader={[Function]}
       organization={
         Object {
           "id": 1,

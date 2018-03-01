@@ -75,8 +75,18 @@ const JEAN_TABS_MH_USER = [
 
 class ContactHeader extends Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    headerOpen: true,
+  };
+
+  shrinkHeader = () => {
+    this.props.onShrinkHeader();
+    this.setState({ headerOpen: false });
+  }
+
+  openHeader = () => {
+    this.props.onOpenHeader();
+    this.setState({ headerOpen: true });
   }
 
   getTabs() {
@@ -157,26 +167,38 @@ class ContactHeader extends Component {
   render() {
     const { person, contactAssignment, organization, type, stage, isMe, onChangeStage } = this.props;
     const hasStage = stage && stage.name;
+    const isHeaderOpen = this.state.headerOpen;
 
     return (
       <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center" self="stretch">
-        <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
-        <PillButton
-          filled={true}
-          text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
-          style={hasStage ? styles.stageBtn : styles.noStage}
-          buttonTextStyle={styles.stageBtnText}
-          onPress={this.props.onChangeStage}
-        />
-        { type === JEAN ? this.getJeanButtons() : null }
+        {
+          isHeaderOpen ? (
+            <Text style={styles.name}>{(person.first_name || '').toUpperCase()}</Text>
+          ) : null
+        }
+        {
+          isHeaderOpen ? (
+            <PillButton
+              filled={true}
+              text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
+              style={hasStage ? styles.stageBtn : styles.noStage}
+              buttonTextStyle={styles.stageBtnText}
+              onPress={this.props.onChangeStage}
+            />
+          ) : null
+        }
+        {
+          isHeaderOpen && type === JEAN ? this.getJeanButtons() : null
+        }
         <SecondaryTabBar
           isMe={isMe}
           person={person}
-          contactAssignment={contactAssignment}
           organization={organization}
           contactStage={stage}
+          contactAssignment={contactAssignment}
           tabs={this.getTabs()}
-          onChangeStage={onChangeStage}
+          onShrinkHeader={this.shrinkHeader}
+          onOpenHeader={this.openHeader}
         />
       </Flex>
     );

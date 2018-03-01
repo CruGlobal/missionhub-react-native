@@ -61,10 +61,6 @@ export class StepsScreen extends Component {
     this.getSteps();
   }
 
-  componentDidMount() {
-    console.warn(this.props.pushToken);
-  }
-
   getSteps() {
     return this.props.dispatch(getMySteps());
   }
