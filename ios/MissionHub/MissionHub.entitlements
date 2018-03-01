@@ -8,9 +8,5 @@
 	<array>
 		<string>applinks:missionhub.com</string>
 	</array>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)com.missionhub</string>
-	</array>
 </dict>
 </plist>
