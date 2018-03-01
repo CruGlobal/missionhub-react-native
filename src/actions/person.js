@@ -27,7 +27,7 @@ export function getPersonDetails(id) {
 
 export function savePersonNote(personId, notes, noteId, myId) {
   return (dispatch) => {
-    if (!personId || !notes) {
+    if (!personId) {
       return Promise.reject('InvalidData');
     }
 
@@ -35,7 +35,7 @@ export function savePersonNote(personId, notes, noteId, myId) {
       data: {
         type: 'person_note',
         attributes: {
-          content: notes,
+          content: notes || '',
         },
         relationships: {
           person: {

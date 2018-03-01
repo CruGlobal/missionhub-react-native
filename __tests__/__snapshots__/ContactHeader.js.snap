@@ -170,6 +170,7 @@ exports[`renders casey 1`] = `
               "marginVertical": 10,
             },
             undefined,
+            undefined,
           ]
         }
       >
@@ -1154,6 +1155,7 @@ exports[`renders jean 1`] = `
               "height": 50,
               "marginVertical": 10,
             },
+            undefined,
             undefined,
           ]
         }
@@ -2140,6 +2142,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               "marginVertical": 10,
             },
             undefined,
+            undefined,
           ]
         }
       >
@@ -3124,6 +3127,7 @@ exports[`renders me 1`] = `
               "height": 50,
               "marginVertical": 10,
             },
+            undefined,
             undefined,
           ]
         }
