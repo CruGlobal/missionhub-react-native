@@ -57,7 +57,7 @@ class LoginOptionsScreen extends Component {
     const codeChallenge = base64url.encode(sha256.array(this.codeVerifier));
     this.redirectUri = 'https://missionhub.com/auth';
 
-    const uri = `https://stage.thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+    const uri = `https://thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
       + `&redirect_uri=${this.redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 

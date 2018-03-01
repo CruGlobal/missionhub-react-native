@@ -1,7 +1,7 @@
 import { API_URL } from './utils';
 import { URL_ENCODED } from '../constants';
 
-const THE_KEY_URL = 'https://stage.thekey.me/cas/api/oauth/';
+const THE_KEY_URL = 'https://thekey.me/cas/api/oauth/';
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
