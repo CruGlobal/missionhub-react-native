@@ -4,7 +4,7 @@ import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 
-import { firstTime, facebookLoginAction, createKeyAccount } from '../../actions/auth';
+import { firstTime, facebookLoginAction, createAccountAndLogin } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -66,7 +66,7 @@ class LoginOptionsScreen extends Component {
 
   handleOpenURL = (event) => {
     const code = event.url.split('code=')[1];
-    this.props.dispatch(createKeyAccount(code, this.codeVerifier, this.redirectUri));
+    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri));
   };
 
   componentWillUnmount() {
