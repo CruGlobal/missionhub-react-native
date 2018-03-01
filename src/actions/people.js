@@ -21,10 +21,10 @@ export function getMyPeople() {
 
     const orgs = people.reduce((orgs, person) => {
       return person.reverse_contact_assignments
-        .filter((contactAssignment) => contactAssignment.assigned_to.id === authPerson.id)
+        .filter((contactAssignment) => contactAssignment.assigned_to && contactAssignment.assigned_to.id === authPerson.id)
         .map((contactAssignment) => contactAssignment.organization)
         // Verify contact assignment is in personal org or person has an org permission in current org
-        .filter((org) => !org || person.organizational_permissions.find((orgPermission) => orgPermission.organization.id === org.id))
+        .filter((org) => !org || person.organizational_permissions.find((orgPermission) => orgPermission.organization && orgPermission.organization.id === org.id))
         .reduce((orgs, org) => {
           const orgId = org && org.id || 'personal';
           const orgData = orgs[orgId] || org;
