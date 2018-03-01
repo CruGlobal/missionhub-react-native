@@ -7,7 +7,6 @@ exports[`renders steps if person has stage set 1`] = `
       "id": "123",
     }
   }
-  contactId="123"
   createStepTracking={Object {}}
   enableBackButton={true}
   headerText="What will you do to help Ron experience God?"
@@ -32,7 +31,6 @@ exports[`sends empty array of steps if person does not have stage set 1`] = `
       "id": "123",
     }
   }
-  contactId="123"
   createStepTracking={Object {}}
   enableBackButton={true}
   headerText="What will you do to help Ron experience God?"

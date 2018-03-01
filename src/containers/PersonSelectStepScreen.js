@@ -41,7 +41,6 @@ class PersonSelectStepScreen extends Component {
         useOthersSteps={true}
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
-        contactId={this.props.contactId}
         organization={this.props.organization}
         onComplete={this.handleNavigate}
         createStepTracking={this.props.createStepTracking}
