@@ -12,6 +12,8 @@ import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 const mockState = {
   steps: {
     mine: [],
@@ -80,18 +82,17 @@ it('renders correctly', () => {
 describe('handleCreateStep', () => {
 
   beforeAll(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     handleSaveNewStage = jest.fn();
     handleSaveNewSteps = jest.fn();
   });
 
   it('navigates to select my steps', () => {
-    let component = createComponent(true, 'forgiven', handleSaveNewSteps, handleSaveNewStage);
+    let component = createComponent(true, mockStage, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
-      { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: 'forgiven' }
+      { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: mockStage }
     );
   });
 
@@ -103,7 +104,7 @@ describe('handleCreateStep', () => {
   });
 
   it('navigates to person steps', () => {
-    let component = createComponent(false, 'forgiven', handleSaveNewSteps, handleSaveNewStage);
+    let component = createComponent(false, mockStage, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
@@ -111,7 +112,7 @@ describe('handleCreateStep', () => {
       { contactName: mockPerson.first_name,
         contactId: mockPerson.id,
         contact: mockPerson,
-        contactStage: 'forgiven',
+        contactStage: mockStage,
         organization: undefined,
         onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
@@ -128,7 +129,7 @@ describe('handleCreateStep', () => {
 });
 
 
-describe('handleSaveNewSteps', () => {
+describe('handleSaveNewStage', () => {
   beforeAll(() => {
     Enzyme.configure({ adapter: new Adapter() });
     handleSaveNewSteps = jest.fn();
