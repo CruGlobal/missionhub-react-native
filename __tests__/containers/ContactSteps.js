@@ -99,7 +99,7 @@ describe('handleCreateStep', () => {
     let component = createComponent(true, undefined, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
-    expect(component.props.onChangeStage).toHaveBeenCalled();
+    expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
   });
 
   it('navigates to person steps', () => {
@@ -123,7 +123,7 @@ describe('handleCreateStep', () => {
     let component = createComponent(false, undefined, handleSaveNewSteps, handleSaveNewStage);
 
     component.handleCreateStep();
-    expect(component.props.onChangeStage).toHaveBeenCalled();
+    expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
   });
 });
 

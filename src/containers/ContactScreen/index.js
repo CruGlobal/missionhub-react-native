@@ -27,7 +27,7 @@ export class ContactScreen extends Component {
     this.props.dispatch(getPersonDetails(this.props.person.id));
   }
 
-  handleChangeStage(noNav, onComplete = null) {
+  handleChangeStage(noNav = false, onComplete = null) {
     const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages } = this.props;
     let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
     firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;

@@ -98,7 +98,7 @@ class ContactSteps extends Component {
         contactId: person.id,
         contact: person,
         organization,
-        contactStage: stage, //todo using this makes us need to wait until stage is loaded to add a step
+        contactStage: stage,
         onSaveNewSteps: () => {
           this.handleSaveNewSteps();
           onComplete && onComplete();
