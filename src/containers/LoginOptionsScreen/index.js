@@ -15,6 +15,7 @@ import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { sha256 } from 'js-sha256';
 import base64url from 'base64-url';
 import randomString from 'random-string';
+import { THE_KEY_URL } from '../../api/utils';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
@@ -57,7 +58,7 @@ class LoginOptionsScreen extends Component {
     const codeChallenge = base64url.encode(sha256.array(this.codeVerifier));
     this.redirectUri = 'https://missionhub.com/auth';
 
-    const uri = `https://thekey.me/cas/login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+    const uri = `${THE_KEY_URL}login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
       + `&redirect_uri=${this.redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 
