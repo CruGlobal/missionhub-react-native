@@ -195,6 +195,7 @@ class ContactHeader extends Component {
           person={person}
           organization={organization}
           contactStage={stage}
+          onChangeStage={onChangeStage}
           contactAssignment={contactAssignment}
           tabs={this.getTabs()}
           onShrinkHeader={this.shrinkHeader}
