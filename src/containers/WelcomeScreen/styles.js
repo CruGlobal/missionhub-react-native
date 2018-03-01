@@ -8,13 +8,14 @@ export default StyleSheet.create({
   },
   descriptionText: {
     color: theme.white,
-    textAlign: 'center',
-    paddingHorizontal: 30,
+    textAlign: 'left',
+    paddingHorizontal: 60,
     paddingVertical: 10,
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 24,
+    lineHeight: 32,
   },
   headerText: {
+    paddingHorizontal: 60,
     color: theme.secondaryColor,
     fontSize: 48,
   },
