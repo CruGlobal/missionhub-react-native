@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should add an org for a person in allByOrg when it is loaded and the org doesn't exist 1`] = `
+Object {
+  "100": Object {
+    "id": "100",
+    "name": "Test Org",
+    "people": Object {
+      "1": Object {
+        "id": "1",
+      },
+      "2": Object {
+        "first_name": "Test Person",
+        "id": "2",
+      },
+    },
+  },
+  "105": Object {
+    "id": "105",
+    "people": Object {
+      "2": Object {
+        "first_name": "Test Person",
+        "id": "2",
+      },
+    },
+  },
+  "personal": Object {
+    "id": "personal",
+    "people": Object {
+      "2": Object {
+        "first_name": "Test Person",
+        "id": "2",
+      },
+      "3": Object {
+        "id": "3",
+      },
+    },
+  },
+}
+`;
+
 exports[`should delete a person from allByOrg  1`] = `
 Object {
   "100": Object {

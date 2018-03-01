@@ -1,6 +1,8 @@
 import people from '../../src/reducers/people';
-import { DELETE_PERSON, PEOPLE_WITH_ORG_SECTIONS, UPDATE_PERSON_ATTRIBUTES } from '../../src/constants';
-import { REQUESTS } from '../../src/actions/api';
+import {
+  DELETE_PERSON, LOAD_PERSON_DETAILS, PEOPLE_WITH_ORG_SECTIONS,
+  UPDATE_PERSON_ATTRIBUTES,
+} from '../../src/constants';
 
 const orgs = {
   '100': {
@@ -26,10 +28,23 @@ it('should replace a person in allByOrg when it is loaded with more includes', (
       allByOrg: orgs,
     },
     {
-      type: REQUESTS.GET_PERSON.SUCCESS,
-      results: {
-        response: { id: '2', first_name: 'Test Person' },
-      },
+      type: LOAD_PERSON_DETAILS,
+      person: { id: '2', first_name: 'Test Person' },
+    },
+  );
+
+  expect(state.allByOrg).toMatchSnapshot();
+});
+
+it('should add an org for a person in allByOrg when it is loaded and the org doesn\'t exist', () => {
+  const state = people(
+    {
+      allByOrg: orgs,
+    },
+    {
+      type: LOAD_PERSON_DETAILS,
+      person: { id: '2', first_name: 'Test Person' },
+      orgId: '105',
     },
   );
 
