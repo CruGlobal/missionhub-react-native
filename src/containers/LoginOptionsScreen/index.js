@@ -67,7 +67,7 @@ class LoginOptionsScreen extends Component {
 
   handleOpenURL = (event) => {
     const code = event.url.split('code=')[1];
-    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri));
+    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri, this.props.upgradeAccount ? this.props.upgradeAccount : null));
   };
 
   componentWillUnmount() {

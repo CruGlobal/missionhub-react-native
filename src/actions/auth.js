@@ -34,9 +34,9 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   };
 }
 
-export function createAccountAndLogin(code, verifier, redirectUri) {
+export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
   const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
-  return getTokenAndLogin(data);
+  return getTokenAndLogin(data, isUpgrade);
 }
 
 export function refreshAccessToken() {
@@ -53,20 +53,28 @@ export function keyLogin(email, password) {
   return getTokenAndLogin(data);
 }
 
-function getTokenAndLogin(data) {
+function getTokenAndLogin(data, isUpgrade) {
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
-    await dispatch(getTicketAndLogin());
+    await dispatch(getTicketAndLogin(isUpgrade));
 
     return dispatch(onSuccessfulLogin());
   };
 }
 
-function getTicketAndLogin() {
-  return async(dispatch) => {
+function getTicketAndLogin(isUpgrade) {
+  return async(dispatch, getState) => {
+    const upgradeToken = getState().auth.upgradeToken;
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
-
-    const data = { code: keyTicketResult.ticket };
+    let data;
+    if (isUpgrade) {
+      data = {
+        code: keyTicketResult.ticket,
+        client_token: upgradeToken,
+      };
+    } else {
+      data = { code: keyTicketResult.ticket };
+    }
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
   };
 }
