@@ -20,23 +20,25 @@ export function getMyPeople() {
     };
 
     const orgs = people.reduce((orgs, person) => {
-      person.reverse_contact_assignments
+      return person.reverse_contact_assignments
+        .filter((contactAssignment) => contactAssignment.assigned_to.id === authPerson.id)
         .map((contactAssignment) => contactAssignment.organization)
-        .forEach((org) => {
+        // Verify contact assignment is in personal org or person has an org permission in current org
+        .filter((org) => !org || person.organizational_permissions.find((orgPermission) => orgPermission.organization.id === org.id))
+        .reduce((orgs, org) => {
           const orgId = org && org.id || 'personal';
-          // Verify contact assignment receiver still is attached to the org
-          if (orgId === 'personal' || person.organizational_permissions.find((orgPermission) => orgPermission.organization.id === orgId)) {
-            const orgData = orgs[orgId] || org;
-            orgs[orgId] = {
+          const orgData = orgs[orgId] || org;
+          return {
+            ...orgs,
+            [orgId]: {
               ...orgData,
               people: {
-                ...(orgData.people || {}),
+                ...orgData.people || {},
                 [person.id]: person,
               },
-            };
-          }
-        });
-      return orgs;
+            },
+          };
+        }, orgs);
     }, initOrgs);
 
     return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, orgs });
