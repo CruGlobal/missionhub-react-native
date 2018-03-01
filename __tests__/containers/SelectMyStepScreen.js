@@ -17,7 +17,6 @@ const store = createMockStore({
   auth: {
     personId: 1234,
   },
-  myStageReducer: { stageId: 4 },
 });
 
 let enableBackButton;
@@ -28,6 +27,7 @@ const test = () => {
       navigation={createMockNavState({
         onSaveNewSteps: jest.fn(),
         enableBackButton: enableBackButton,
+        contactStage: { id: 4 },
       })}
     />,
     store

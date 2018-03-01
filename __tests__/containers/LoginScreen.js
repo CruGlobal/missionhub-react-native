@@ -9,11 +9,8 @@ import { testSnapshot } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import renderer from 'react-test-renderer';
 
-const mockState = {
-  myStageReducer: {},
-};
 
-const store = createMockStore(mockState);
+const store = createMockStore({});
 
 jest.mock('react-native-device-info');
 jest.mock('react-native-snap-carousel');

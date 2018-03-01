@@ -1,137 +1,139 @@
 import { ScrollView } from 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-// Note: test renderer must be required after react-native.
-import { Provider } from 'react-redux';
-import { createMockStore } from '../../testUtils/index';
-import StepsScreen from '../../src/containers/StepsScreen';
-import { testSnapshot } from '../../testUtils';
+import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
+import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
+jest.mock('../../src/selectors/steps');
 import theme from '../../src/theme';
-import Adapter from 'enzyme-adapter-react-16/build/index';
 
-const mockState = {
-  auth: {
-    personId: '',
-    isJean: false,
-  },
-  steps: {
-    mine: [],
-    suggestedForMe: [],
-    suggestedForOthers: [],
-    reminders: [],
-    pagination: {
-      hasNextPage: false,
+const props = {
+  areNotificationsOff: true,
+  hasMoreSteps: true,
+  reminders: [
+    {
+      id: 1,
+      reminder: true,
     },
-  },
-  notifications: {
-    token: '',
-    hasAsked: false,
-    shouldAsk: true,
-    showReminder: true,
-  },
-  swipe: {
-    stepsHome: true,
-    stepsReminder: true,
-  },
+  ],
+  showNotificationReminder: true,
+  showStepBump: true,
+  showStepReminderBump: true,
+  steps: [
+    {
+      id: 2,
+    },
+    {
+      id: 3,
+    },
+  ],
+  dispatch: jest.fn(() => Promise.resolve()),
 };
 
-const store = createMockStore(mockState);
+describe('StepsScreen', () => {
+  describe('mapStateToProps', () => {
+    it('should provide the necessary props', () => {
+      reminderStepsSelector.mockReturnValue([ { id: 1, reminder: true } ]);
+      nonReminderStepsSelector.mockReturnValue([ { id: 2 }, { id: 3 } ]);
+      expect(mapStateToProps(
+        {
+          steps: {
+            pagination: {
+              hasNextPage: true,
+            },
+          },
+          people: {},
+          notifications: {
+            hasAsked: false,
+            shouldAsk: false,
+            token: '',
+            showReminder: true,
+          },
+          swipe: {
+            stepsHome: true,
+            stepsReminder: true,
+          },
+        },
+      )).toMatchSnapshot();
+    });
+  });
 
-jest.mock('react-native-device-info');
-
-it('renders correctly as Casey', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <StepsScreen />
-    </Provider>
-  );
-});
-
-it('renders correctly as Jean', () => {
-  store.getState().auth.isJean = true;
-
-  testSnapshot(
-    <Provider store={store}>
-      <StepsScreen />
-    </Provider>
-  );
-});
-
-
-describe('Background color changes with scrolling', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-
-  const createComponent = () => {
-    const screen = shallow(
-      <StepsScreen />,
-      { context: { store } },
+  it('renders correctly', () => {
+    testSnapshotShallow(
+      <StepsScreen
+        {...props}
+      />
     );
-    return screen.dive().dive().dive();
-  };
-
-  const getBackgroundColor = (component) => {
-    return component.find(ScrollView).props().style.find((element) => {
-      return element.backgroundColor;
-    }).backgroundColor;
-  };
-
-
-  it('Starts with white background', () => {
-    let component = createComponent();
-    expect(getBackgroundColor(component)).toBe(theme.white);
   });
 
-  it('Background is blue when overscrolling up', () => {
-    let component = createComponent();
-    component.instance().handleScroll({
-      nativeEvent: {
-        contentOffset: { y: -1 },
-        layoutMeasurement: { height: 200 },
-        contentSize: { height: 400 },
-      },
+  describe('Background color changes with scrolling', () => {
+    const createComponent = () => {
+      return renderShallow(
+        <StepsScreen {...props} />,
+      );
+    };
+
+    const getBackgroundColor = (component) => {
+      return component.find(ScrollView).props().style.find((element) => {
+        return element.backgroundColor;
+      }).backgroundColor;
+    };
+
+
+    it('Starts with white background', () => {
+      let component = createComponent();
+      expect(getBackgroundColor(component)).toBe(theme.white);
     });
-    component.update();
-    expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
-  });
 
-  it('Background is white when scrolling back down', () => {
-    let component = createComponent();
-    component.instance().handleScroll({
-      nativeEvent: {
-        contentOffset: { y: -1 },
-        layoutMeasurement: { height: 200 },
-        contentSize: { height: 400 },
-      },
+    it('Background is blue when overscrolling up', () => {
+      let component = createComponent();
+      component.instance().handleScroll({
+        nativeEvent: {
+          contentOffset: { y: -1 },
+          layoutMeasurement: { height: 200 },
+          contentSize: { height: 400 },
+        },
+      });
+      component.update();
+      expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
     });
-    component.update();
-    component.instance().handleScroll({
-      nativeEvent: {
-        contentOffset: { y: 1 },
-        layoutMeasurement: { height: 200 },
-        contentSize: { height: 400 },
-      },
+
+    it('Background is white when scrolling back down', () => {
+      let component = createComponent();
+      component.instance().handleScroll({
+        nativeEvent: {
+          contentOffset: { y: -1 },
+          layoutMeasurement: { height: 200 },
+          contentSize: { height: 400 },
+        },
+      });
+      component.update();
+      component.instance().handleScroll({
+        nativeEvent: {
+          contentOffset: { y: 1 },
+          layoutMeasurement: { height: 200 },
+          contentSize: { height: 400 },
+        },
+      });
+      component.update();
+      expect(getBackgroundColor(component)).toBe(theme.white);
     });
-    component.update();
-    expect(getBackgroundColor(component)).toBe(theme.white);
+
+    it('runs handle next', () => {
+      let component = createComponent();
+      component.instance().handleNextPage();
+
+      expect(component.state('paging')).toBe(false);
+    });
+
+    it('does not runs handle next', () => {
+      let component = createComponent();
+      component.setState({ paging: true });
+      component.instance().handleNextPage();
+
+      expect(component.state('paging')).toBe(true);
+    });
+
   });
-
-  it('runs handle next', () => {
-    store.dispatch = jest.fn(() => Promise.resolve());
-    let component = createComponent();
-    component.instance().handleNextPage();
-
-    expect(component.state('paging')).toBe(false);
-  });
-
-  it('does not runs handle next', () => {
-    store.dispatch = jest.fn(() => Promise.resolve());
-    let component = createComponent();
-    component.setState({ paging: true });
-    component.instance().handleNextPage();
-
-    expect(component.state('paging')).toBe(true);
-  });
-
 });
 

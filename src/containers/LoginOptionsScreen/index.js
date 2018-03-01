@@ -4,15 +4,18 @@ import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 
-import { firstTime, facebookLoginAction } from '../../actions/auth';
+import { firstTime, facebookLoginAction, createAccountAndLogin } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { LINKS } from '../../constants';
+import { LINKS, THE_KEY_CLIENT_ID } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { KEY_SIGN_UP_SCREEN } from '../KeySignUpScreen';
+import { sha256 } from 'js-sha256';
+import base64url from 'base64-url';
+import randomString from 'random-string';
+import { THE_KEY_URL } from '../../api/utils';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
@@ -46,8 +49,29 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
-  emailSignUp(isUpgrade) {
-    this.props.dispatch(navigatePush(KEY_SIGN_UP_SCREEN, { isUpgrade }));
+  emailSignUp() {
+    global.Buffer = global.Buffer || require('buffer').Buffer;
+    Linking.addEventListener('url', this.handleOpenURL);
+
+    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    this.codeVerifier = base64url.encode(string);
+    const codeChallenge = base64url.encode(sha256.array(this.codeVerifier));
+    this.redirectUri = 'https://missionhub.com/auth';
+
+    const uri = `${THE_KEY_URL}login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+      + `&redirect_uri=${this.redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
+      + `&code_challenge=${codeChallenge}`;
+
+    Linking.openURL(uri);
+  }
+
+  handleOpenURL = (event) => {
+    const code = event.url.split('code=')[1];
+    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri));
+  };
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
   }
 
   facebookLogin(isUpgrade) {
@@ -120,7 +144,7 @@ class LoginOptionsScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
-                  <Icon name="emailIcon" size={21} type="MissionHub" style={styles.icon} />
+                  <Icon name="emailIcon2" size={21} type="MissionHub" style={styles.icon} />
                   <Text style={styles.buttonText}>{t('emailSignUp').toUpperCase()}</Text>
                 </Flex>
               </Button>

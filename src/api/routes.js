@@ -1,7 +1,7 @@
-import { API_URL } from './utils';
+import { API_URL, THE_KEY_URL } from './utils';
 import { URL_ENCODED } from '../constants';
 
-const THE_KEY_URL = 'https://stage.thekey.me/cas/api/oauth/';
+const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
@@ -11,7 +11,7 @@ const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
 
 const KEY_TOKEN = {
-  endpoint: `${THE_KEY_URL}token`,
+  endpoint: `${THE_KEY_OAUTH_URL}token`,
   method: 'post',
   extra: {
     stringify: false,
@@ -48,7 +48,7 @@ export default {
   'KEY_LOGIN': KEY_TOKEN,
   'KEY_REFRESH_TOKEN': KEY_TOKEN,
   'KEY_GET_TICKET': {
-    endpoint: `${THE_KEY_URL}ticket?service=${AUTH_URL}thekey`,
+    endpoint: `${THE_KEY_OAUTH_URL}ticket?service=${AUTH_URL}thekey`,
     method: 'get',
     extra: {
       stringify: false,
@@ -70,6 +70,9 @@ export default {
     endpoint: `${PEOPLE_URL}me`,
   },
   'GET_PERSON': {
+    endpoint: `${PEOPLE_URL}:person_id`,
+  },
+  'GET_PERSON_JOURNEY': {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
   'GET_STAGES': {
@@ -107,7 +110,7 @@ export default {
     anonymous: true,
     useJsonDataApiStore: false,
   },
-  'UPDATE_MY_USER': {
+  'UPDATE_MY_USER_STAGE': {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
@@ -151,10 +154,6 @@ export default {
   'GET_USER_IMPACT': {
     endpoint: REPORTS_URL,
   },
-  'CREATE_CONTACT_ASSIGNMENT': {
-    endpoint: `${API_URL}contact_assignments`,
-    method: 'post',
-  },
   'SET_PUSH_TOKEN': {
     endpoint: `${API_URL}push_notification_device_tokens`,
     method: 'post',
@@ -181,5 +180,16 @@ export default {
   },
   'SEARCH': {
     endpoint: `${API_URL}search`,
+  },
+  'ADD_PERSON_NOTE': {
+    endpoint: `${API_URL}person_notes`,
+    method: 'post',
+  },
+  'UPDATE_PERSON_NOTE': {
+    endpoint: `${API_URL}person_notes/:noteId`,
+    method: 'put',
+  },
+  'GET_PERSON_NOTE': {
+    endpoint: `${PEOPLE_URL}:person_id`,
   },
 };

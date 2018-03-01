@@ -19,7 +19,7 @@ jest.mock('react-native-device-info');
 it('renders dummy view when keyboard height is not set', () => {
   testSnapshot(
     <Provider store={store}>
-      <ContactNotes />
+      <ContactNotes onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />
     </Provider>
   );
 });
@@ -27,7 +27,7 @@ it('renders dummy view when keyboard height is not set', () => {
 beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
   shallowScreen = shallow(
-    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
+    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />,
     { context: { store: store } }
   );
 
@@ -58,12 +58,12 @@ describe('when keyboard height is set', () => {
 
     it('editing is set to false when button is pressed', () => {
       ReactNative.Keyboard.dismiss = jest.fn();
-      jest.spyOn(shallowScreen.instance(), 'saveNotes');
+      jest.spyOn(shallowScreen.instance(), 'saveNote');
 
       shallowScreen.find(Button).simulate('press');
 
       expect(shallowScreen.state('editing')).toBe(false);
-      expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
+      expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
       expect(ReactNative.Keyboard.dismiss).toHaveBeenCalled();
     });
   });
@@ -81,10 +81,10 @@ describe('when keyboard height is set', () => {
 
 describe('componentWillReceiveProps', () => {
   it('should save notes when navigating away', () => {
-    jest.spyOn(shallowScreen.instance(), 'saveNotes');
+    jest.spyOn(shallowScreen.instance(), 'saveNote');
 
     shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
 
-    expect(shallowScreen.instance().saveNotes).toHaveBeenCalled();
+    expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
   });
 });

@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
-import { updatePerson } from '../../actions/profile';
+import { updatePerson } from '../../actions/person';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
@@ -35,8 +35,9 @@ class AddContactScreen extends Component {
   complete(addedResults) {
     if (this.props.onComplete) {
       this.props.onComplete(addedResults);
+    } else {
+      this.props.dispatch(navigateBack());
     }
-    this.props.dispatch(navigateBack());
   }
 
   async savePerson() {
@@ -55,9 +56,10 @@ class AddContactScreen extends Component {
       const contactAssignment = newPerson.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
       const contactAssignmentId = contactAssignment && contactAssignment.id;
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: () => {
+        onCompleteCelebration: () => {
           this.complete(results);
         },
+        addingContactFlow: true,
         enableBackButton: false,
         currentStage: null,
         name: newPerson.first_name,

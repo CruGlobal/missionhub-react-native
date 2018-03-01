@@ -1,41 +1,88 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, PEOPLE_WITH_ORG_SECTIONS } from '../constants';
-import { findAllNonPlaceHolders, useFirstExists } from '../utils/common';
+import { DELETE_PERSON, LOGOUT, PEOPLE_WITH_ORG_SECTIONS, UPDATE_PERSON_ATTRIBUTES } from '../constants';
+import { useFirstExists } from '../utils/common';
 
 const initialState = {
-  all: [],
-  allByOrg: [],
+  allByOrg: {
+    personal: { id: 'personal', people: {} },
+  },
 };
 
-function peopleReducer(state = initialState, action) {
+export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
     case REHYDRATE:
-      var incoming = action.payload.people;
+      const incoming = action.payload.people;
       if (incoming) {
         return {
-          all: useFirstExists(incoming.all, state.all),
           allByOrg: useFirstExists(incoming.allByOrg, state.allByOrg),
         };
       }
       return state;
-    case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
-      const people = findAllNonPlaceHolders(action.results, 'person');
+    case REQUESTS.GET_PERSON.SUCCESS:
+      const updatedPerson = action.results.response;
       return {
         ...state,
-        all: people,
+        allByOrg: updateAllPersonInstances(state.allByOrg, updatedPerson, true),
+      };
+    case UPDATE_PERSON_ATTRIBUTES:
+      return {
+        ...state,
+        allByOrg: updateAllPersonInstances(state.allByOrg, action.updatedPersonAttributes),
+      };
+    case DELETE_PERSON:
+      return {
+        ...state,
+        allByOrg: deletePersonInOrg(state.allByOrg, action.personId, action.personOrgId),
       };
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
       return {
         ...state,
-        allByOrg: action.myOrgs,
+        allByOrg: action.orgs,
       };
     default:
       return state;
   }
 }
 
-export default peopleReducer;
+function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
+  return mapObject(allByOrg, ([ orgId, org ]) => ({
+    [orgId]: {
+      ...org,
+      people: {
+        ...org.people,
+        ...org.people[updatedPerson.id] ?
+          {
+            ...replace ?
+              { [updatedPerson.id]: updatedPerson } :
+              { [updatedPerson.id]: { ...org.people[updatedPerson.id], ...updatedPerson } },
+          } :
+          {},
+      },
+    },
+  }));
+}
+
+function deletePersonInOrg(allByOrg, deletePersonId, personOrgId) {
+  return mapObject(allByOrg, ([ orgId, org ]) => ({
+    [orgId]: {
+      ...org,
+      people: {
+        ...orgId === personOrgId ?
+          filterObject(org.people, ([ personId ]) => personId !== deletePersonId) :
+          org.people,
+      },
+    },
+  }));
+}
+
+function mapObject(obj, fn) {
+  return Object.assign({}, ...Object.entries(obj).map(fn));
+}
+
+function filterObject(obj, fn) {
+  return Object.assign({}, ...Object.entries(obj).filter(fn).map(([ id, element ]) => ({ [id]: element })));
+}

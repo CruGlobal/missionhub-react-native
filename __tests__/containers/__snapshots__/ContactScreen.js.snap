@@ -1,6 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly as Casey 1`] = `
+exports[`ContactScreen mapStateToProps should provide the necessary props with a contactAssignment 1`] = `
+Object {
+  "contactAssignment": Object {
+    "id": 3,
+    "pathway_stage_id": 5,
+    "type": "reverse_contact_assignment",
+  },
+  "contactStage": Object {
+    "id": 5,
+    "type": "pathway_stage",
+  },
+  "isJean": true,
+  "myId": 1,
+  "organization": Object {
+    "id": 1,
+    "type": "organization",
+  },
+  "person": Object {
+    "first_name": "Test Fname",
+    "id": "2",
+    "type": "person",
+  },
+  "personIsCurrentUser": false,
+  "stages": Array [
+    Object {
+      "id": 5,
+      "type": "pathway_stage",
+    },
+  ],
+}
+`;
+
+exports[`ContactScreen mapStateToProps should provide the necessary props with a user 1`] = `
+Object {
+  "contactAssignment": undefined,
+  "contactStage": Object {
+    "id": 5,
+    "type": "pathway_stage",
+  },
+  "isJean": true,
+  "myId": 1,
+  "organization": Object {
+    "id": 1,
+    "type": "organization",
+  },
+  "person": Object {
+    "first_name": "Test Fname",
+    "id": "2",
+    "type": "person",
+    "user": Object {
+      "pathway_stage_id": 5,
+    },
+  },
+  "personIsCurrentUser": false,
+  "stages": Array [
+    Object {
+      "id": 5,
+      "type": "pathway_stage",
+    },
+  ],
+}
+`;
+
+exports[`ContactScreen renders correctly as Casey 1`] = `
 <View
   style={
     Object {
@@ -40,10 +103,19 @@ exports[`renders correctly as Casey 1`] = `
       dispatch={[Function]}
       isMe={false}
       onChangeStage={[Function]}
+      onOpenHeader={[Function]}
+      onShrinkHeader={[Function]}
       person={
         Object {
-          "first_name": "Tester",
-          "id": "test",
+          "first_name": "Test Fname",
+          "id": "2",
+          "type": "person",
+        }
+      }
+      stage={
+        Object {
+          "id": 5,
+          "type": "pathway_stage",
         }
       }
       type="casey"
@@ -52,7 +124,7 @@ exports[`renders correctly as Casey 1`] = `
 </View>
 `;
 
-exports[`renders correctly as Jean 1`] = `
+exports[`ContactScreen renders correctly as Jean 1`] = `
 <View
   style={
     Object {
@@ -92,10 +164,25 @@ exports[`renders correctly as Jean 1`] = `
       dispatch={[Function]}
       isMe={false}
       onChangeStage={[Function]}
+      onOpenHeader={[Function]}
+      onShrinkHeader={[Function]}
+      organization={
+        Object {
+          "id": 1,
+          "type": "organization",
+        }
+      }
       person={
         Object {
-          "first_name": "Tester",
-          "id": "test",
+          "first_name": "Test Fname",
+          "id": "2",
+          "type": "person",
+        }
+      }
+      stage={
+        Object {
+          "id": 5,
+          "type": "pathway_stage",
         }
       }
       type="jean"

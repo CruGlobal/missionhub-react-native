@@ -1,7 +1,7 @@
 import { REQUESTS } from './api';
 import callApi from './api';
 
-export function selectStage(id) {
+export function selectMyStage(id) {
   const data = {
     data: {
       attributes: {
@@ -11,7 +11,7 @@ export function selectStage(id) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.UPDATE_MY_USER, {}, data));
+    return dispatch(callApi(REQUESTS.UPDATE_MY_USER_STAGE, {}, data));
   };
 }
 

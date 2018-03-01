@@ -32,6 +32,7 @@ exports[`renders correctly 1`] = `
             "marginVertical": 10,
           },
           undefined,
+          undefined,
         ]
       }
     >
@@ -92,7 +93,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -294,115 +295,177 @@ exports[`renders correctly 1`] = `
         </Text>
       </View>
     </View>
-    <RCTScrollView
-      alwaysBounceVertical={false}
-      automaticallyAdjustContentInsets={false}
-      collapsable={undefined}
-      contentOffset={
-        Object {
-          "x": 0,
-        }
-      }
-      directionalLockEnabled={true}
-      horizontal={true}
-      keyboardDismissMode="on-drag"
-      keyboardShouldPersistTaps="handled"
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      pagingEnabled={true}
-      scrollEnabled={false}
-      scrollEventThrottle={16}
-      scrollsToTop={false}
-      showsHorizontalScrollIndicator={false}
+    <View
       style={
-        Object {
-          "backgroundColor": "#ffffff",
-        }
+        Array [
+          Object {
+            "alignSelf": "flex-start",
+            "borderColor": "red",
+            "borderWidth": 1,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+            "flex": 1,
+          },
+        ]
       }
     >
-      <View>
+      <View
+        style={
+          Object {
+            "width": 750,
+          }
+        }
+      >
         <View
           style={
-            Object {
-              "width": 750,
-            }
+            Array [
+              Object {
+                "backgroundColor": "white",
+              },
+              Object {
+                "flex": 1,
+              },
+            ]
           }
         >
           <View
             style={
-              Array [
-                Object {
-                  "backgroundColor": "white",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
+              Object {
+                "flex": 1,
+              }
             }
           >
             <View
               style={
-                Object {
-                  "flex": 1,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "flex": 1,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
               }
             >
               <View
                 style={
                   Array [
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "flex": 1,
-                    },
+                    Object {},
                     Object {
                       "alignItems": "center",
-                      "flex": 1,
                       "justifyContent": "center",
                     },
                   ]
                 }
               >
-                <View
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../assets/images/footprints.png",
+                    }
+                  }
+                />
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
                   style={
                     Array [
-                      Object {},
                       Object {
-                        "alignItems": "center",
-                        "justifyContent": "center",
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "AmaticSC-Bold",
+                      },
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 42,
+                        "paddingTop": 10,
                       },
                     ]
                   }
                 >
-                  <Image
-                    source={
+                  steps of faith
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
                       Object {
-                        "testUri": "../../../assets/images/footprints.png",
-                      }
-                    }
-                  />
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "AmaticSC-Bold",
-                        },
-                        Object {
-                          "color": "#007398",
-                          "fontSize": 42,
-                          "paddingTop": 10,
-                        },
-                      ]
-                    }
-                  >
-                    steps of faith
-                  </Text>
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "paddingHorizontal": 70,
+                        "paddingVertical": 10,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Your Steps of Faith with ben appear here.
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "justifyContent": "flex-end",
+                  },
+                ]
+              }
+            >
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits="button"
+                accessible={true}
+                collapsable={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID={undefined}
+                tvParallaxProperties={undefined}
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {},
+                      null,
+                    ]
+                  }
+                >
                   <Text
                     accessible={true}
                     allowFontScaling={true}
@@ -415,127 +478,51 @@ exports[`renders correctly 1`] = `
                         Object {
                           "fontFamily": "SourceSansPro-Regular",
                         },
-                        Object {
-                          "color": "#505256",
-                          "fontSize": 16,
-                          "paddingHorizontal": 70,
-                          "paddingVertical": 10,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
-                  >
-                    Your Steps of Faith with ben appear here.
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "justifyContent": "flex-end",
-                    },
-                  ]
-                }
-              >
-                <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits="button"
-                  accessible={true}
-                  collapsable={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  nativeID={undefined}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "backgroundColor": "#52C5DC",
-                          "height": 60,
-                          "justifyContent": "center",
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
-                    }
-                  >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      ellipsizeMode="tail"
-                      style={
                         Array [
                           Object {
-                            "color": "#505256",
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 18,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "backgroundColor": "rgba(0,0,0,0)",
-                              "color": "#ffffff",
-                              "fontSize": 18,
-                              "fontWeight": "500",
-                              "letterSpacing": 1.5,
-                              "textAlign": "center",
-                            },
-                            Object {},
-                          ],
-                        ]
-                      }
-                    >
-                      ADD A STEP OF FAITH
-                    </Text>
-                  </View>
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    ADD A STEP OF FAITH
+                  </Text>
                 </View>
               </View>
             </View>
           </View>
         </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
-        >
-          <View
-            tabLabel={undefined}
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
-        >
-          <View
-            tabLabel={undefined}
-          />
-        </View>
       </View>
-    </RCTScrollView>
+      <View
+        style={
+          Object {
+            "width": 750,
+          }
+        }
+      >
+        <View
+          tabLabel={undefined}
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "width": 750,
+          }
+        }
+      >
+        <View
+          tabLabel={undefined}
+        />
+      </View>
+    </View>
   </View>
 </View>
 `;
