@@ -80,6 +80,12 @@ Object {
                 "name": "organizationTwo",
               },
             },
+            Object {
+              "organization": Object {
+                "id": 101,
+                "name": "organizationOne",
+              },
+            },
           ],
           "reverse_contact_assignments": Array [
             Object {
@@ -96,8 +102,8 @@ Object {
                 "id": 24,
               },
               "organization": Object {
-                "id": 111,
-                "name": "organizationTwo",
+                "id": 101,
+                "name": "organizationOne",
               },
             },
           ],
