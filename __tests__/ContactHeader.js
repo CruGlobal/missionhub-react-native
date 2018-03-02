@@ -16,6 +16,11 @@ const mockState = {
     stepsContact: true,
   },
   auth: {},
+  profile: {
+    visiblePersonInfo: {
+      contactAssignmentId: '333',
+    },
+  },
 };
 
 const store = createMockStore(mockState);
