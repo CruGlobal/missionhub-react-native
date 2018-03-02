@@ -165,7 +165,7 @@ class ContactHeader extends Component {
   }
 
   render() {
-    const { person, organization, type, stage, isMe } = this.props;
+    const { person, contactAssignment, organization, type, stage, isMe, onChangeStage } = this.props;
     const hasStage = stage && stage.name;
     const isHeaderOpen = this.state.headerOpen;
 
@@ -195,6 +195,8 @@ class ContactHeader extends Component {
           person={person}
           organization={organization}
           contactStage={stage}
+          onChangeStage={onChangeStage}
+          contactAssignment={contactAssignment}
           tabs={this.getTabs()}
           onShrinkHeader={this.shrinkHeader}
           onOpenHeader={this.openHeader}
@@ -206,6 +208,7 @@ class ContactHeader extends Component {
 
 ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
+  contactAssignment: PropTypes.object,
   organization: PropTypes.object,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,

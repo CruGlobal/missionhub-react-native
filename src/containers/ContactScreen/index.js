@@ -31,33 +31,40 @@ export class ContactScreen extends Component {
     this.props.dispatch(getPersonDetails(this.props.person.id));
   }
 
-  handleChangeStage() {
-    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage,stages } = this.props;
+  handleChangeStage(noNav = false, onComplete = null) {
+    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages } = this.props;
     let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
     firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
     if (personIsCurrentUser) {
       dispatch(navigatePush(STAGE_SCREEN, {
-        onComplete: (stage) => dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } })),
+        onComplete: (stage) => {
+          dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
+          onComplete && onComplete(stage);
+        },
         firstItem: firstItemIndex,
         contactId: person.id,
         section: 'people',
         subsection: 'self',
         enableBackButton: true,
+        noNav,
       }));
     } else {
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: (stage) =>
+        onComplete: (stage) => {
           dispatch(updatePersonAttributes(person.id, {
             reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
               assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
             ),
-          })),
+          }));
+          onComplete && onComplete(stage);
+        },
         firstItem: firstItemIndex,
         name: person.first_name,
         contactId: person.id,
         contactAssignmentId: contactAssignment && contactAssignment.id,
         section: 'people',
         subsection: 'person',
+        noNav,
       }));
     }
   }
@@ -73,7 +80,7 @@ export class ContactScreen extends Component {
   }
 
   render() {
-    const { dispatch, person, organization, isJean, contactStage, personIsCurrentUser } = this.props;
+    const { dispatch, person, contactAssignment, organization, isJean, contactStage, personIsCurrentUser } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -100,6 +107,7 @@ export class ContactScreen extends Component {
             type={isJean ? JEAN : CASEY}
             isMe={personIsCurrentUser}
             person={person}
+            contactAssignment={contactAssignment}
             organization={organization}
             stage={contactStage}
             dispatch={dispatch}
