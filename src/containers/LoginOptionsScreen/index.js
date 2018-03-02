@@ -16,6 +16,7 @@ import { sha256 } from 'js-sha256';
 import base64url from 'base64-url';
 import randomString from 'random-string';
 import { THE_KEY_URL } from '../../api/utils';
+import Buffer from 'buffer';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
@@ -50,7 +51,7 @@ class LoginOptionsScreen extends Component {
   }
 
   emailSignUp() {
-    global.Buffer = global.Buffer || require('buffer').Buffer;
+    global.Buffer = global.Buffer || Buffer.Buffer;
     Linking.addEventListener('url', this.handleOpenURL);
 
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });
