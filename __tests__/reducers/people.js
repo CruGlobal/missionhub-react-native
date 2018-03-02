@@ -36,7 +36,7 @@ it('should replace a person in allByOrg when it is loaded with more includes', (
   expect(state.allByOrg).toMatchSnapshot();
 });
 
-it('should add an org for a person in allByOrg when it is loaded and the org doesn\'t exist', () => {
+it('should add an org for a person in allByOrg when it is loaded and the org does not exist', () => {
   const state = people(
     {
       allByOrg: orgs,
@@ -45,6 +45,21 @@ it('should add an org for a person in allByOrg when it is loaded and the org doe
       type: LOAD_PERSON_DETAILS,
       person: { id: '2', first_name: 'Test Person' },
       orgId: '105',
+    },
+  );
+
+  expect(state.allByOrg).toMatchSnapshot();
+});
+
+it('should add a person to an org in allByOrg when it is loaded and the person in that org does not exist', () => {
+  const state = people(
+    {
+      allByOrg: orgs,
+    },
+    {
+      type: LOAD_PERSON_DETAILS,
+      person: { id: '4', first_name: 'Test Person' },
+      orgId: '100',
     },
   );
 

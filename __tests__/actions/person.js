@@ -37,18 +37,24 @@ describe('getPersonDetails', () => {
   it('should get a person\'s details', async() => {
     const person = { id: '1', first_name: 'Test' };
     const orgId = '2';
-    callApi.mockReturnValue({ type: REQUESTS.GET_PERSON.SUCCESS, response: person });
+
+    const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
+    callApi.mockReturnValue(apiResponse);
 
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
       include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
     });
-    expect(store.getActions()[1]).toEqual({
-      type: LOAD_PERSON_DETAILS,
-      person,
-      orgId,
-    });
+
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      {
+        type: LOAD_PERSON_DETAILS,
+        person,
+        orgId,
+      },
+    ]);
   });
 });
 

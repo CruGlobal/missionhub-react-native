@@ -20,16 +20,20 @@ export default function peopleReducer(state = initialState, action) {
       }
       return state;
     case LOAD_PERSON_DETAILS:
+      const orgId = action.orgId || 'personal';
+      const currentOrg = state.allByOrg[orgId];
       return {
         ...state,
         allByOrg: {
-          // init org if it doesn't exist
-          ...action.orgId ?
-            {
-              [action.orgId]: { id: action.orgId, people: { [action.person.id]: action.person } },
-            } :
-            {},
-          ...updateAllPersonInstances(state.allByOrg, action.person, true),
+          ...updateAllPersonInstances(state.allByOrg, action.person, true), // update existing people
+          [ orgId ]: { // make sure person is added to specified org or create the org if it doesn't exist
+            id: orgId,
+            ...currentOrg,
+            people: {
+              ...currentOrg ? currentOrg.people : {},
+              [ action.person.id ]: action.person,
+            },
+          },
         },
       };
     case UPDATE_PERSON_ATTRIBUTES:
