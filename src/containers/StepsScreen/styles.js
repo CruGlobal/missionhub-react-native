@@ -53,4 +53,9 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 10,
   },
+  gif: {
+    flex: 1,
+    width: theme.fullWidth,
+    height: theme.fullHeight,
+  },
 });

@@ -139,6 +139,14 @@ export class StepsScreen extends Component {
     });
   }
 
+  renderLoad() {
+    return (
+      <Flex>
+        <Image source={'./gifs/HappyBlueLoop1x.gif'} resizeMode="contain" style={styles.gif} />
+      </Flex>
+    );
+  }
+
   renderTop() {
     const { reminders, steps, t, showStepReminderBump } = this.props;
 
