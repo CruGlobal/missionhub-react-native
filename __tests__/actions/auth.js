@@ -6,7 +6,7 @@ import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as login from '../../src/actions/login';
 import * as auth from '../../src/actions/auth';
-import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone, codeLogin, logout, logoutReset } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
@@ -83,7 +83,7 @@ describe('the key', () => {
     it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
       const refreshData = `grant_type=refresh_token&refresh_token=${refreshToken}`;
 
-      return store.dispatch(refreshAuth())
+      return store.dispatch(refreshAccessToken())
         .then(() => {
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_REFRESH_TOKEN, {}, refreshData);
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});

@@ -11,6 +11,7 @@ if (__DEV__) {
 
 export const BASE_URL = baseUrl;
 export const API_URL = `${BASE_URL}/apis/${API_VERSION}/`;
+export const THE_KEY_URL = 'https://thekey.me/cas/';
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',

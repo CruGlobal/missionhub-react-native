@@ -1,7 +1,7 @@
-import { API_URL } from './utils';
+import { API_URL, THE_KEY_URL } from './utils';
 import { URL_ENCODED } from '../constants';
 
-const THE_KEY_URL = 'https://stage.thekey.me/cas/api/oauth/';
+const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
@@ -11,7 +11,7 @@ const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
 
 const KEY_TOKEN = {
-  endpoint: `${THE_KEY_URL}token`,
+  endpoint: `${THE_KEY_OAUTH_URL}token`,
   method: 'post',
   extra: {
     stringify: false,
@@ -48,7 +48,7 @@ export default {
   'KEY_LOGIN': KEY_TOKEN,
   'KEY_REFRESH_TOKEN': KEY_TOKEN,
   'KEY_GET_TICKET': {
-    endpoint: `${THE_KEY_URL}ticket?service=${AUTH_URL}thekey`,
+    endpoint: `${THE_KEY_OAUTH_URL}ticket?service=${AUTH_URL}thekey`,
     method: 'get',
     extra: {
       stringify: false,
