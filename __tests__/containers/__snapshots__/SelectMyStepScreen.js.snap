@@ -4,7 +4,7 @@ exports[`renders correctly with button 1`] = `
 <Connect(Translate(SelectStepScreen))
   createStepTracking={
     Object {
-      "level3": "create",
+      "level3": "steps",
       "name": "onboarding : self : steps : create",
       "section": "onboarding",
       "subsection": "self",
@@ -30,7 +30,7 @@ exports[`renders correctly without button 1`] = `
 <Connect(Translate(SelectStepScreen))
   createStepTracking={
     Object {
-      "level3": "create",
+      "level3": "steps",
       "name": "onboarding : self : steps : create",
       "section": "onboarding",
       "subsection": "self",
