@@ -108,6 +108,28 @@ Object {
             },
           ],
         },
+        "23": Object {
+          "id": 23,
+          "organizational_permissions": Array [
+            Object {
+              "organization": Object {
+                "id": 111,
+                "name": "organizationTwo",
+              },
+            },
+          ],
+          "reverse_contact_assignments": Array [
+            Object {
+              "assigned_to": Object {
+                "id": 23,
+              },
+              "organization": Object {
+                "id": 111,
+                "name": "organizationTwo",
+              },
+            },
+          ],
+        },
       },
     },
     "personal": Object {
