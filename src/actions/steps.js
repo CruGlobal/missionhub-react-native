@@ -32,7 +32,7 @@ export function getMySteps(query = {}) {
         ...(query.filters || {}),
         completed: false,
       },
-      include: 'receiver',
+      include: 'receiver.reverse_contact_assignments',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
