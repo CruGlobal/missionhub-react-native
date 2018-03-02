@@ -22,6 +22,11 @@ class PersonStageScreen extends Component {
       celebrationProps.onComplete = this.props.onCompleteCelebration;
     }
     this.props.dispatch(navigatePush(CELEBRATION_SCREEN, celebrationProps));
+  }
+
+  celebrateAndFinishOnboarding = () => {
+    this.celebrateAndFinish();
+
     this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
     this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
   }
@@ -34,10 +39,10 @@ class PersonStageScreen extends Component {
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-        onComplete: this.celebrateAndFinish,
+        onComplete: this.celebrateAndFinishOnboarding,
       }));
     } else {
-      this.celebrateAndFinish();
+      this.celebrateAndFinishOnboarding();
     }
   }
 
