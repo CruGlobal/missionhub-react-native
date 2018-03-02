@@ -72,6 +72,8 @@ class PersonStageScreen extends Component {
           contactId: this.props.contactId,
         }));
       });
+      this.props.dispatch(trackState(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps')));
+
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
 
