@@ -3,8 +3,7 @@ import callApi from './api';
 
 export function getGlobalImpact() {
   return (dispatch) => {
-    const query = {};
-    return dispatch(callApi(REQUESTS.GET_GLOBAL_IMPACT, query));
+    return dispatch(callApi(REQUESTS.GET_GLOBAL_IMPACT));
   };
 }
 
@@ -22,9 +21,13 @@ export function getImpactById(id) {
   };
 }
 
-export function getUserImpact(userId, period) {
+export function getUserImpact(userId, organizationId, period) {
   return (dispatch) => {
-    const query = { people_ids: userId, period };
+    const query = {
+      people_ids: userId,
+      organization_ids: organizationId,
+      period,
+    };
     return dispatch(callApi(REQUESTS.GET_USER_IMPACT, query));
   };
 }
