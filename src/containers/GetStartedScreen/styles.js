@@ -5,6 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
+    paddingHorizontal: 60,
   },
   headerTitle: {
     color: theme.secondaryColor,
@@ -12,9 +13,9 @@ export default StyleSheet.create({
   },
   text: {
     color: theme.white,
-    fontSize: 16,
-    textAlign: 'center',
-    padding: 30,
-    lineHeight: 24,
+    fontSize: 24,
+    textAlign: 'left',
+    paddingVertical: 10,
+    lineHeight: 32,
   },
 });

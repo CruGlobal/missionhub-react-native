@@ -40,7 +40,7 @@ class WelcomeScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex value={4} align="flex-start" justify="center">
+        <Flex value={4} align="start" justify="center">
           <Text type="header" style={styles.headerText}>{t('welcome')}</Text>
           <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
         </Flex>
