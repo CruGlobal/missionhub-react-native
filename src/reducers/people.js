@@ -1,7 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { REQUESTS } from '../actions/api';
-import { DELETE_PERSON, LOGOUT, PEOPLE_WITH_ORG_SECTIONS, UPDATE_PERSON_ATTRIBUTES } from '../constants';
+import { DELETE_PERSON, LOGOUT, PEOPLE_WITH_ORG_SECTIONS, LOAD_PERSON_DETAILS, UPDATE_PERSON_ATTRIBUTES } from '../constants';
 import { useFirstExists } from '../utils/common';
 
 const initialState = {
@@ -20,11 +19,22 @@ export default function peopleReducer(state = initialState, action) {
         };
       }
       return state;
-    case REQUESTS.GET_PERSON.SUCCESS:
-      const updatedPerson = action.results.response;
+    case LOAD_PERSON_DETAILS:
+      const orgId = action.orgId || 'personal';
+      const currentOrg = state.allByOrg[orgId];
       return {
         ...state,
-        allByOrg: updateAllPersonInstances(state.allByOrg, updatedPerson, true),
+        allByOrg: {
+          ...updateAllPersonInstances(state.allByOrg, action.person, true), // update existing people
+          [ orgId ]: { // make sure person is added to specified org or create the org if it doesn't exist
+            id: orgId,
+            ...currentOrg,
+            people: {
+              ...currentOrg ? currentOrg.people : {},
+              [ action.person.id ]: action.person,
+            },
+          },
+        },
       };
     case UPDATE_PERSON_ATTRIBUTES:
       return {

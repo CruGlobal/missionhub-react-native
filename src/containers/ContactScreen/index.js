@@ -28,7 +28,8 @@ export class ContactScreen extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getPersonDetails(this.props.person.id));
+    const { person, organization } = this.props;
+    this.props.dispatch(getPersonDetails(person.id, organization && organization.id));
   }
 
   handleChangeStage(noNav = false, onComplete = null) {
