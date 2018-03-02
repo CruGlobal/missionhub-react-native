@@ -26,7 +26,12 @@ class StageSuccessScreen extends Component {
 
   handleNavigateToStep = () => {
     disableBack.remove();
-    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onboarding: true, onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
+    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN,
+      { onboarding: true,
+        contactStage: this.props.selectedStage,
+        onSaveNewSteps: this.handleNavigate,
+        enableBackButton: false,
+      }));
   }
 
   getMessage() {
