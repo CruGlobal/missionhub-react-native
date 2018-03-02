@@ -57,18 +57,20 @@ class NotificationOffScreen extends Component {
     const { t } = this.props;
     return (
       <Flex style={styles.container}>
-        <Flex value={.2} />
+        <Flex value={.3} />
         <Flex value={1} align="center" justify="center">
-          <Flex align="center">
+          <Flex value={1} align="center" justify="center">
             <Image source={require('../../../assets/images/notificationOff.png')} />
-            <Text type="header" style={styles.title}>
+          </Flex>
+          <Flex value={.6} align="center" justify="center">
+            <Text style={styles.title}>
               {t('title')}
             </Text>
             <Text style={styles.text}>
               {t('description')}
             </Text>
           </Flex>
-          <Flex value={.7} align="center" justify="center">
+          <Flex value={1} align="center" justify="center">
             <Button
               pill={true}
               type="primary"
@@ -86,6 +88,7 @@ class NotificationOffScreen extends Component {
             />
           </Flex>
         </Flex>
+        <Flex value={.3} />
       </Flex>
     );
   }
