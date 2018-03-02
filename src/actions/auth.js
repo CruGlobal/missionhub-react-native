@@ -21,27 +21,35 @@ export function facebookLoginAction(accessToken, id) {
   };
 }
 
-export function refreshAuth() {
+export function createAccountAndLogin(code, verifier, redirectUri) {
+  const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
+  return getTokenAndLogin(data);
+}
+
+export function refreshAccessToken() {
   return async(dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
 
     await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
-    dispatch(getKeyTicket());
+    dispatch(getTicketAndLogin());
   };
 }
 
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
+  return getTokenAndLogin(data);
+}
 
+function getTokenAndLogin(data) {
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
-    await dispatch(getKeyTicket());
+    await dispatch(getTicketAndLogin());
 
     return dispatch(onSuccessfulLogin());
   };
 }
 
-function getKeyTicket() {
+function getTicketAndLogin() {
   return async(dispatch) => {
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
 

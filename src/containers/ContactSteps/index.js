@@ -32,6 +32,7 @@ class ContactSteps extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
+    this.handleSaveNewStage = this.handleSaveNewStage.bind(this);
     this.getSteps = this.getSteps.bind(this);
   }
 
@@ -70,30 +71,49 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
-  handleCreateStep() {
-    const { person, organization, contactStage, isMe } = this.props;
+  handleSaveNewStage(stage) {
+    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
+  }
+
+  handleNavToStage() {
+    this.props.onChangeStage(true, this.handleSaveNewStage);
+  }
+
+  handleNavToSteps(stage, onComplete = null) {
+    const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
 
     if (isMe) {
-      this.props.dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-        onSaveNewSteps: this.handleSaveNewSteps,
+      dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
+        onSaveNewSteps: () => {
+          this.handleSaveNewSteps();
+          onComplete && onComplete();
+        },
         enableBackButton: true,
-        contactStage: contactStage,
+        contactStage: stage,
       }));
     } else {
-      this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+      dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
         organization,
-        contactStage: contactStage, //todo using this makes us need to wait until stage is loaded to add a step
-        onSaveNewSteps: this.handleSaveNewSteps,
+        contactStage: stage,
+        onSaveNewSteps: () => {
+          this.handleSaveNewSteps();
+          onComplete && onComplete();
+        },
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
     }
 
     const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');
     this.props.dispatch(trackState(trackingObj));
   }
+
+  handleCreateStep() {
+    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage): this.handleNavToStage();
+  }
+
 
   renderRow({ item, index }) {
     const { showBump } = this.props;
@@ -162,6 +182,7 @@ class ContactSteps extends Component {
 
 ContactSteps.propTypes = {
   person: PropTypes.object,
+  contactAssignment: PropTypes.object,
   organization: PropTypes.object,
 };
 
