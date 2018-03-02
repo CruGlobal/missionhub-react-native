@@ -20,6 +20,7 @@ const store = createMockStore({
 });
 
 let enableBackButton;
+let isOnboarding;
 
 const test = () => {
   testSnapshotShallow(
@@ -27,6 +28,7 @@ const test = () => {
       navigation={createMockNavState({
         onSaveNewSteps: jest.fn(),
         enableBackButton: enableBackButton,
+        onboarding: isOnboarding,
         contactStage: { id: 4 },
       })}
     />,
@@ -42,6 +44,13 @@ it('renders correctly with button', () => {
 
 it('renders correctly without button', () => {
   enableBackButton = false;
+
+  test();
+});
+
+it('renders correctly for onboarding', () => {
+  enableBackButton = false;
+  isOnboarding = true;
 
   test();
 });

@@ -1,12 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with button 1`] = `
+exports[`renders correctly for onboarding 1`] = `
 <Connect(Translate(SelectStepScreen))
   createStepTracking={
     Object {
       "level3": "steps",
       "name": "onboarding : self : steps : create",
       "section": "onboarding",
+      "subsection": "self",
+    }
+  }
+  enableBackButton={false}
+  headerText="How do you want to move forward on your spiritual journey?"
+  onComplete={[Function]}
+  receiverId={1234}
+  steps={
+    Array [
+      Object {
+        "body": "test",
+        "id": "2",
+      },
+    ]
+  }
+  useOthersSteps={false}
+/>
+`;
+
+exports[`renders correctly with button 1`] = `
+<Connect(Translate(SelectStepScreen))
+  createStepTracking={
+    Object {
+      "level3": "steps",
+      "name": "people : self : steps : create",
+      "section": "people",
       "subsection": "self",
     }
   }
@@ -31,8 +57,8 @@ exports[`renders correctly without button 1`] = `
   createStepTracking={
     Object {
       "level3": "steps",
-      "name": "onboarding : self : steps : create",
-      "section": "onboarding",
+      "name": "people : self : steps : create",
+      "section": "people",
       "subsection": "self",
     }
   }

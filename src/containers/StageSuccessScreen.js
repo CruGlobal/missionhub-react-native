@@ -11,7 +11,7 @@ import { disableBack } from '../utils/common';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
-  
+
   componentDidMount() {
     disableBack.add();
   }
@@ -26,7 +26,7 @@ class StageSuccessScreen extends Component {
 
   handleNavigateToStep = () => {
     disableBack.remove();
-    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
+    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, { onboarding: true, onSaveNewSteps: this.handleNavigate, enableBackButton: false }));
   }
 
   getMessage() {

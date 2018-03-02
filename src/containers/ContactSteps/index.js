@@ -103,7 +103,7 @@ class ContactSteps extends Component {
           this.handleSaveNewSteps();
           onComplete && onComplete();
         },
-        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps')
+        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
       }));
       this.props.dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
     }
