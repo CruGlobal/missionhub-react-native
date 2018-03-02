@@ -75,7 +75,7 @@ class SelectStepScreen extends Component {
           selected: true,
           locale: i18next.language,
           challenge_type: CUSTOM_STEP_TYPE,
-          self_step: this.props.myId === this.props.contact.id,
+          self_step: this.props.myId === this.props.receiverId,
         };
 
         this.setState({
@@ -154,6 +154,7 @@ SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
   contact: PropTypes.object,
+  receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
 };
