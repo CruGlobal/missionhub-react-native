@@ -5,7 +5,7 @@ import React from 'react';
 import LoginOptionsScreen from '../../src/containers/LoginOptionsScreen';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import Enzyme, { shallow } from 'enzyme/build/index';
-import { createMockStore, testSnapshot } from '../../testUtils';
+import { createMockStore, testSnapshot, createMockNavState } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 
@@ -36,7 +36,11 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <LoginOptionsScreen />
+      <LoginOptionsScreen
+        navigation={createMockNavState({
+          isUpgrade: true,
+        })}
+      />
     </Provider>
   );
 });
@@ -46,7 +50,11 @@ describe('a login button is clicked', () => {
 
   beforeEach(() => {
     screen = shallow(
-      <LoginOptionsScreen />,
+      <LoginOptionsScreen
+        navigation={createMockNavState({
+          isUpgrade: true,
+        })}
+      />,
       { context: { store: store } }
     );
     screen = screen.dive().dive().dive().instance();
