@@ -178,6 +178,7 @@ export default {
     stepTitle: 'Growing Step of Faith',
     stageTitle: '{{oldStage}} to {{newStage}}',
     stageText: '{{name}} changed from {{oldStage}} to {{newStage}}',
+    stageStart: 'You added {{name}} to MissionHub as {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',

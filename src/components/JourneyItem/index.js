@@ -22,7 +22,11 @@ export default class JourneyItem extends Component {
     if (type === 'step') {
       title = t('stepTitle');
     } else if (type === 'stage') {
-      title = t('stageTitle', { oldStage: item.old_stage, newStage: item.new_stage });
+      if (item.old_stage) {
+        title = t('stageTitle', { oldStage: item.old_stage, newStage: item.new_stage });
+      } else {
+        title = item.new_stage;
+      }
     } else if (type === 'survey' && item.survey) {
       title = item.survey.title;
     } else if (type === 'interaction') {
@@ -46,7 +50,11 @@ export default class JourneyItem extends Component {
     if (type === 'step') {
       text = item.title;
     } else if (type === 'stage') {
-      text = t('stageText', { name: item.name, oldStage: item.old_stage, newStage: item.new_stage });
+      if (item.old_stage) {
+        text = t('stageText', { name: item.name, oldStage: item.old_stage, newStage: item.new_stage });
+      } else {
+        text = t('stageStart', { name: item.name, newStage: item.new_stage });
+      }
     } else {
       text = item.text;
     }
@@ -82,7 +90,7 @@ export default class JourneyItem extends Component {
         type="MissionHub"
         size={32}
         style={styles.icon}
-      />      
+      />
     );
   }
 
