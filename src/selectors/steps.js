@@ -4,9 +4,15 @@ const mapSteps = (steps, orgs) => steps.map((step) => replaceStepReceiver(step, 
 
 const replaceStepReceiver = (step, orgs) => {
   const currentOrg = orgs[step.organization ? step.organization.id : 'personal'];
+  let receiver;
+  if (currentOrg && step.receiver && step.receiver.id) {
+    receiver = currentOrg.people[step.receiver.id] || step.receiver;
+  } else {
+    receiver = undefined;
+  }
   return {
     ...step,
-    receiver: currentOrg && currentOrg.people[step.receiver.id] || step.receiver,
+    receiver: receiver,
   };
 };
 
