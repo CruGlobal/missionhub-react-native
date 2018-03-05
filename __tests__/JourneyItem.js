@@ -6,14 +6,19 @@ import JourneyItem from '../src/components/JourneyItem';
 import { testSnapshot } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
-const mockStep = {
-  id: '123',
-  text: 'Test Journey',
-  completed_at: date,
-  created_at: date,
-  interaction_type_id: 1,
-  date,
-};
+let mockStep;
+
+beforeEach(() => {
+  mockStep = {
+    id: '123',
+    text: 'Test Journey',
+    completed_at: date,
+    created_at: date,
+    interaction_type_id: 1,
+    date,
+    new_stage: 'Guiding',
+  };
+});
 
 it('renders step correctly', () => {
   testSnapshot(
@@ -21,10 +26,20 @@ it('renders step correctly', () => {
   );
 });
 
-it('renders stage correctly', () => {
-  testSnapshot(
-    <JourneyItem item={mockStep} type="stage" />
-  );
+describe('stage', () => {
+  it('is rendered correctly with old stage', () => {
+    mockStep.old_stage = 'Growing';
+
+    testSnapshot(
+      <JourneyItem item={mockStep} type="stage" />
+    );
+  });
+
+  it('is rendered correctly without old stage', () => {
+    testSnapshot(
+      <JourneyItem item={mockStep} type="stage" />
+    );
+  });
 });
 
 it('renders survey correctly', () => {
