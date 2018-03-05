@@ -1,15 +1,12 @@
 import { createSelector } from 'reselect';
 
-const mapSteps = (steps, orgs) => steps.map((step) => replaceStepReceiver(step, orgs));
+const mapSteps = (steps, orgs) => steps.filter((s) => {
+  return s.receiver && s.receiver.id;
+}).map((step) => replaceStepReceiver(step, orgs));
 
 const replaceStepReceiver = (step, orgs) => {
   const currentOrg = orgs[step.organization ? step.organization.id : 'personal'];
-  let receiver;
-  if (currentOrg && step.receiver && step.receiver.id) {
-    receiver = currentOrg.people[step.receiver.id] || step.receiver;
-  } else {
-    receiver = undefined;
-  }
+  const receiver = currentOrg.people[step.receiver.id] || step.receiver;
   return {
     ...step,
     receiver: receiver,
