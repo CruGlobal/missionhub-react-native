@@ -228,7 +228,7 @@ export class StepsScreen extends Component {
               onAction={this.handleSetReminder} />
           </RowSwipeable>
         )}
-        removeClippedSubviews={true}
+        removeClippedSubviews={false}
         bounces={false}
         showsVerticalScrollIndicator={false}
         initialNumToRender={10}
