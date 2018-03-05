@@ -40,6 +40,7 @@ export class StepsScreen extends Component {
     super(props);
     this.state = {
       refreshing: false,
+      loading: true,
       addedReminder: props.reminders.length > 0,
       overscrollUp: false,
       paging: false,
@@ -62,7 +63,7 @@ export class StepsScreen extends Component {
   }
 
   getSteps() {
-    return this.props.dispatch(getMySteps());
+    return this.props.dispatch(getMySteps()).then(() => this.setState({ loading: false }));
   }
 
   completeStepBump() {
@@ -288,7 +289,7 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {this.renderLoad()}
+        {this.state.loading ? this.renderLoad() : this.renderSteps()}
       </View>
     );
   }
