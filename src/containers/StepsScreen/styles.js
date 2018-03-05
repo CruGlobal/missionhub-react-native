@@ -6,7 +6,6 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-
   },
   backgroundTop: {
     backgroundColor: theme.backgroundColor,
@@ -57,5 +56,9 @@ export default StyleSheet.create({
     flex: 1,
     width: theme.fullWidth,
     height: theme.fullHeight,
+  },
+  loadText: {
+    fontSize: 64,
+    color: theme.primaryColor,
   },
 });

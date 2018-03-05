@@ -141,8 +141,15 @@ export class StepsScreen extends Component {
 
   renderLoad() {
     return (
-      <Flex>
-        <Image source={'./gifs/HappyBlueLoop1x.gif'} resizeMode="contain" style={styles.gif} />
+      <Flex align="center" justify="center" style={styles.container}>
+        <Flex value={2} />
+        <Flex value={7} >
+          <Image source={require('./gifs/HappyBlueLoop1x.gif')} resizeMode="contain" style={styles.gif} />
+        </Flex>
+        <Flex value={1} >
+          <Text type="header" style={styles.loadText}>Loading</Text>
+        </Flex>
+        <Flex value={2} />
       </Flex>
     );
   }
@@ -245,8 +252,34 @@ export class StepsScreen extends Component {
     );
   }
 
+
+  renderSteps() {
+    return (
+      <ScrollView
+        style={[ styles.container, this.handleBackgroundColor() ]}
+        refreshControl={<RefreshControl
+          refreshing={this.state.refreshing}
+          onRefresh={this.handleRefresh}
+        />}
+        onScroll={this.handleScroll}
+        scrollEventThrottle={16}
+        contentContainerStyle={[
+          styles.contentContainer,
+          {
+            // Flex the white background to the bottom when there's only a few steps
+            // Don't do it all the time because it causes the top to be static
+            flex: this.props.steps.length < 5 ? 1 : undefined,
+          },
+        ]}
+      >
+        {this.renderTop()}
+        {this.renderList()}
+      </ScrollView>
+    );
+  }
+
   render() {
-    const { steps, t, dispatch } = this.props;
+    const { t, dispatch } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -255,26 +288,7 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        <ScrollView
-          style={[ styles.container, this.handleBackgroundColor() ]}
-          refreshControl={<RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.handleRefresh}
-          />}
-          onScroll={this.handleScroll}
-          scrollEventThrottle={16}
-          contentContainerStyle={[
-            styles.contentContainer,
-            {
-              // Flex the white background to the bottom when there's only a few steps
-              // Don't do it all the time because it causes the top to be static
-              flex: steps.length < 5 ? 1 : undefined,
-            },
-          ]}
-        >
-          {this.renderTop()}
-          {this.renderList()}
-        </ScrollView>
+        {this.renderLoad()}
       </View>
     );
   }
