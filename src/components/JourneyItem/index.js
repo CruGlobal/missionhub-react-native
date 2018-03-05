@@ -45,6 +45,9 @@ export default class JourneyItem extends Component {
     let text;
     if (type === 'step') {
       text = item.title;
+      if (item.note) {
+        text = `${text}\n\n${item.note}`;
+      }
     } else if (type === 'stage') {
       text = t('stageText', { name: item.name, oldStage: item.old_stage, newStage: item.new_stage });
     } else {
@@ -82,7 +85,7 @@ export default class JourneyItem extends Component {
         type="MissionHub"
         size={32}
         style={styles.icon}
-      />      
+      />
     );
   }
 
