@@ -12,19 +12,9 @@ import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
-    let data;
     const upgradeToken = getState().auth.upgradeToken;
-    if (isUpgrade) {
-      data = {
-        provider: 'client_token',
-        fb_access_token: accessToken,
-        client_token: upgradeToken,
-      };
-    } else {
-      data = {
-        fb_access_token: accessToken,
-      };
-    }
+    const data = { fb_access_token: accessToken };
+    if (isUpgrade) { data.provider = 'client_token'; data.client_token = upgradeToken; }
 
     return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then((results) => {
       LOG(results);
@@ -66,15 +56,9 @@ function getTicketAndLogin(isUpgrade) {
   return async(dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
-    let data;
-    if (isUpgrade) {
-      data = {
-        code: keyTicketResult.ticket,
-        client_token: upgradeToken,
-      };
-    } else {
-      data = { code: keyTicketResult.ticket };
-    }
+    const data = { code: keyTicketResult.ticket }; 
+    if (isUpgrade) { data.client_token = upgradeToken; }
+
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
   };
 }
@@ -125,12 +109,6 @@ export function firstTime() {
     dispatch({ type: FIRST_TIME });
   };
 }
-
-// export function mergeAccount() {
-//   return (dispatch) => {
-//     return dispatch(callApi(REQUESTS.PROMOTE_ACCOUNT, {}, data))
-//   };
-// }
 
 export function updateTimezone() {
   return (dispatch, getState) => {
