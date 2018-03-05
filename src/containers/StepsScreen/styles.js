@@ -55,10 +55,10 @@ export default StyleSheet.create({
   gif: {
     flex: 1,
     width: theme.fullWidth,
-    height: theme.fullHeight,
   },
   loadText: {
     fontSize: 64,
     color: theme.primaryColor,
+    paddingVertical: 0,
   },
 });

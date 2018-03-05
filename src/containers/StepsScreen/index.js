@@ -144,11 +144,11 @@ export class StepsScreen extends Component {
     return (
       <Flex align="center" justify="center" style={styles.container}>
         <Flex value={2} />
-        <Flex value={7} >
+        <Flex value={10}>
           <Image source={require('./gifs/HappyBlueLoop1x.gif')} resizeMode="contain" style={styles.gif} />
         </Flex>
-        <Flex value={1} >
-          <Text type="header" style={styles.loadText}>Loading</Text>
+        <Flex value={2}>
+          <Text type="header" style={styles.loadText}>{this.props.t('common:loading').toUpperCase()}</Text>
         </Flex>
         <Flex value={2} />
       </Flex>

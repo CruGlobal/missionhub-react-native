@@ -18,120 +18,58 @@ exports[`renders android correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <ScrollViewMock
-    contentContainerStyle={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
-    onScroll={[Function]}
-    refreshControl={
-      <MyRefreshControl
-        colors={
-          Array [
-            "#ffffff",
-            "#52C5DC",
-          ]
-        }
-        onRefresh={[Function]}
-        progressBackgroundColor="#007398"
-        refreshing={false}
-        tintColor="#007398"
-      />
-    }
-    scrollEventThrottle={16}
+  <Flex
+    align="center"
+    justify="center"
     style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        Object {
-          "backgroundColor": "#ffffff",
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
     <Flex
-      align="center"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#66D9F0",
-            "width": 750,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Translate(RowSwipeable)
-        bump={true}
-        key="1"
-        onBumpComplete={[Function]}
-        onComplete={[Function]}
-        onDelete={[Function]}
-      >
-        <Connect(Translate(StepItem))
-          onAction={[Function]}
-          onSelect={[Function]}
-          step={
-            Object {
-              "id": 1,
-              "reminder": true,
-            }
-          }
-          type="reminder"
-        />
-      </Translate(RowSwipeable)>
-    </Flex>
-    <FlatList
-      ListFooterComponent={null}
-      bounces={false}
-      data={
-        Array [
-          Object {
-            "id": 2,
-          },
-          Object {
-            "id": 3,
-          },
-        ]
-      }
-      disableVirtualization={false}
-      extraData={
-        Object {
-          "hideStars": false,
-        }
-      }
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={true}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "overflow": "scroll",
-            "paddingBottom": 50,
-          },
-          Object {
-            "paddingBottom": 40,
-          },
-        ]
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
+      value={2}
     />
-  </ScrollViewMock>
+    <Flex
+      value={10}
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../src/containers/StepsScreen/gifs/HappyBlueLoop1x.gif",
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+            "width": 750,
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      value={2}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 64,
+            "paddingVertical": 0,
+          }
+        }
+        type="header"
+      >
+        LOADING
+      </MyText>
+    </Flex>
+    <Flex
+      value={2}
+    />
+  </Flex>
 </View>
 `;
