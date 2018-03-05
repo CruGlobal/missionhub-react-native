@@ -110,7 +110,7 @@ class ContactJourney extends Component {
     const { showReminder } = this.props;
     const content = <JourneyItem item={item} type={item.type} />;
 
-    if (item.type !== 'survey') {
+    if (item.type !== 'survey' && item.type !== 'stage') {
       return (
         <RowSwipeable
           key={item.id}

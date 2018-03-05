@@ -31,6 +31,19 @@ exports[`journey methods renders a survey row 1`] = `
 />
 `;
 
+exports[`journey methods renders a survey row 2`] = `
+<Translate(JourneyItem)
+  item={
+    Object {
+      "id": "124",
+      "text": "124",
+      "type": "stage",
+    }
+  }
+  type="stage"
+/>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={

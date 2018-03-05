@@ -83,6 +83,15 @@ describe('journey methods', () => {
     expect(snap).toMatchSnapshot();
   });
 
+  it('renders a survey row', () => {
+    const snap = component.renderRow({ item: {
+      id: '124',
+      text: '124',
+      type: 'stage',
+    } });
+    expect(snap).toMatchSnapshot();
+  });
+
   it('handles add comment', () => {
     const comment = 'test';
     component.handleAddComment(comment);
