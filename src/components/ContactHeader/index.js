@@ -75,9 +75,17 @@ const JEAN_TABS_MH_USER = [
 
 class ContactHeader extends Component {
 
-  state = {
-    headerOpen: true,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      headerOpen: true,
+    };
+
+    this.onChangeStage = this.onChangeStage.bind(this);
+  }
+
+
 
   shrinkHeader = () => {
     this.props.onShrinkHeader();
@@ -124,6 +132,10 @@ class ContactHeader extends Component {
           });
       }
     }).catch((err) => WARN('An unexpected error happened', err));
+  }
+
+  onChangeStage() {
+    this.props.onChangeStage();
   }
 
   getJeanButtons() {
@@ -183,7 +195,7 @@ class ContactHeader extends Component {
               text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
               style={hasStage ? styles.stageBtn : styles.noStage}
               buttonTextStyle={styles.stageBtnText}
-              onPress={this.props.onChangeStage}
+              onPress={this.onChangeStage}
             />
           ) : null
         }
