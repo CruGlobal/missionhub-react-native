@@ -20,9 +20,9 @@ class SelectMyStepScreen extends Component {
     let steps = [];
     if (contactStage) {
       steps = getFourRandomItems(suggestedForMe[contactStage.id]);
-    } else {
-      //todo redirect to stage screen
     }
+
+    const section = this.props.onboarding ? 'onboarding' : 'people';
 
     return (
       <SelectStepScreen
@@ -32,7 +32,7 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepTracking={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
+        createStepTracking={buildTrackingObj(`${section} : self : steps : create`, section, 'self', 'steps')}
         enableBackButton={enableBackButton}
       />
     );

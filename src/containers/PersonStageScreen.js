@@ -22,6 +22,11 @@ class PersonStageScreen extends Component {
       celebrationProps.onComplete = this.props.onCompleteCelebration;
     }
     this.props.dispatch(navigatePush(CELEBRATION_SCREEN, celebrationProps));
+  }
+
+  celebrateAndFinishOnboarding = () => {
+    this.celebrateAndFinish();
+
     this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
     this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
   }
@@ -34,10 +39,10 @@ class PersonStageScreen extends Component {
     // Android doesn't need a primer for notifications the way iOS does
     if (!isAndroid && !this.props.hasAskedPushNotifications) {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-        onComplete: this.celebrateAndFinish,
+        onComplete: this.celebrateAndFinishOnboarding,
       }));
     } else {
-      this.celebrateAndFinish();
+      this.celebrateAndFinishOnboarding();
     }
   }
 
@@ -62,12 +67,13 @@ class PersonStageScreen extends Component {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
           contactStage: stage,
-          // TODO: Tracking needs to be fixed on this
-          createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'add person', 'steps'),
+          createStepTracking: buildTrackingObj('people : add person : steps : create', 'people', 'add person', 'steps'),
           contactName: this.props.name,
           contactId: this.props.contactId,
         }));
       });
+      this.props.dispatch(trackState(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps')));
+
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
 

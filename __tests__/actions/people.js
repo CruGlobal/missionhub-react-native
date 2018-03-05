@@ -51,7 +51,7 @@ describe('getMyPeople', () => {
     const personOne = {
       id: 7777,
       organizational_permissions: [ { organization: organizationOne } ],
-      reverse_contact_assignments: [ { organization: { id: 103 }, assigned_to: { id: myId } }, { organization: organizationOne,assigned_to: { id: myId } } ],
+      reverse_contact_assignments: [ { organization: { id: 103 }, assigned_to: { id: myId } }, { organization: organizationOne, assigned_to: { id: myId } } ],
     };
     const personTwo = {
       id: 8888,
@@ -65,13 +65,18 @@ describe('getMyPeople', () => {
     };
     const personFour = {
       id: 10000,
+      organizational_permissions: [ { organization: organizationTwo }, { organization: organizationOne } ],
+      reverse_contact_assignments: [ { organization: organizationTwo, assigned_to: { id: myId } }, { organization: organizationOne, assigned_to: { id: 24 } } ],
+    };
+    const personFive = {
+      id: myId,
       organizational_permissions: [ { organization: organizationTwo } ],
-      reverse_contact_assignments: [ { organization: organizationTwo, assigned_to: { id: myId } }, { organization: organizationTwo, assigned_to: { id: 24 } } ],
+      reverse_contact_assignments: [ { organization: organizationTwo, assigned_to: { id: myId } } ],
     };
 
     it('should return all orgs with assigned people', async() => {
       store = mockStore({ auth: { isJean: true, personId: myId, user: mockUser } });
-      callApi.mockReturnValue({ type: REQUESTS.GET_PEOPLE_LIST.SUCCESS, response: [ personOne, personTwo, personThree, personFour ] });
+      callApi.mockReturnValue({ type: REQUESTS.GET_PEOPLE_LIST.SUCCESS, response: [ personOne, personTwo, personThree, personFour, personFive ] });
 
       await store.dispatch(getMyPeople());
       expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, peopleQuery);
