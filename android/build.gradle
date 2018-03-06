@@ -14,8 +14,6 @@ buildscript {
     }
 }
 
-version '4.1.0'
-
 apply plugin: 'org.ajoberstar.grgit'
 ext.grgit = org.ajoberstar.grgit.Grgit.open()
 
