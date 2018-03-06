@@ -15,10 +15,18 @@ const mockStep = {
   date,
 };
 
-it('renders step correctly', () => {
-  testSnapshot(
-    <JourneyItem item={mockStep} type="step" />
-  );
+describe('step', () => {
+  it('is rendered correctly without comment', () => {
+    testSnapshot(
+      <JourneyItem item={mockStep} type="step" />
+    );
+  });
+
+  it('is rendered correctly with comment', () => {
+    testSnapshot(
+      <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
+    );
+  });
 });
 
 it('renders stage correctly', () => {
