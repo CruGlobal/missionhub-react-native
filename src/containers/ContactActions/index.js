@@ -7,7 +7,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Icon, Text, Touchable } from '../../components/common';
 import styles from './styles';
-import { reloadJourney } from '../../actions/journey';
+import { getJourney } from '../../actions/journey';
 
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter((i) => i.isOnAction);
 
@@ -17,7 +17,7 @@ export class ContactActions extends Component {
   handleInteraction = async(item, text) => {
     const { dispatch, person, organization } = this.props;
     await dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
-    dispatch(reloadJourney(person.id, organization.id));
+    dispatch(getJourney(person.id, organization.id));
   };
 
   handleCreateInteraction = (item) => {
