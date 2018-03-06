@@ -63,7 +63,7 @@ function getJourneyInteractions(person, myId, orgId) {
         date: interaction.created_at,
       })),
     ...person.pathway_progression_audits
-      .filter((audit) => audit.assigned_to && audit.assigned_to.id === myId)
+      .filter((audit) => audit.assigned_to && audit.assigned_to.id === myId || audit.person.id === myId)
       .map((audit) => ({
         ...audit,
         type: 'stage',
