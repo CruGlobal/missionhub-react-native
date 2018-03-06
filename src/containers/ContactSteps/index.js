@@ -91,6 +91,7 @@ class ContactSteps extends Component {
         },
         enableBackButton: true,
         contactStage: stage,
+        organization,
       }));
     } else {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {

@@ -81,13 +81,13 @@ export function getPersonNote(personId, myId) {
   };
 }
 
-export function getPersonJourneyDetails(id, query = {}) {
+export function getPersonJourneyDetails(id) {
   return (dispatch) => {
-    const newQuery = {
+    const query = {
       person_id: id,
-      ...query,
+      include: 'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
-    return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, newQuery));
+    return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, query));
   };
 }
 
