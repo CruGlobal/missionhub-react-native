@@ -45,7 +45,7 @@
 		"react-native-device-info": "0.12.1",
 		"react-native-fabric": "0.5.1",
 		"react-native-fbsdk": "0.7.0",
-		"react-native-omniture": "github:dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15",
+		"react-native-omniture": "https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15",
 		"react-native-push-notification": "3.0.2",
 		"react-native-scrollable-tab-view": "0.8.0",
 		"react-native-snap-carousel": "3.4.0",

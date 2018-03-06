@@ -4433,9 +4433,9 @@ react-native-fbsdk@0.7.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
-"react-native-omniture@github:dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15":
+"react-native-omniture@https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15":
   version "0.0.1"
-  resolved "https://codeload.github.com/dsgoers/react-native-omniture/tar.gz/4eb498b88f18942b3fdb03094f99b2d77fe8fc15"
+  resolved "https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15"
 
 react-native-push-notification@3.0.2:
   version "3.0.2"
