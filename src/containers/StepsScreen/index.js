@@ -9,7 +9,7 @@ import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { showReminderScreen, toast } from '../../actions/notifications';
 import {
-  getMySteps, setStepFocus, completeStepReminder, getMyStepsNextPage,
+  getMySteps, setStepReminder, removeStepReminder, completeStepReminder, getMyStepsNextPage,
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
@@ -89,7 +89,7 @@ export class StepsScreen extends Component {
     this.props.dispatch(toast('✔ Reminder Added'));
 
     const showPushReminder = this.props.reminders.length === 0;
-    this.props.dispatch(setStepFocus(step, true));
+    this.props.dispatch(setStepReminder(step));
     if (showPushReminder) {
       this.props.dispatch(showReminderScreen());
     }
@@ -97,7 +97,7 @@ export class StepsScreen extends Component {
 
   handleRemoveReminder(step) {
     this.props.dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
-    this.props.dispatch(setStepFocus(step, false));
+    this.props.dispatch(removeStepReminder(step));
   }
 
   handleCompleteReminder(step) {
@@ -156,35 +156,11 @@ export class StepsScreen extends Component {
     );
   }
 
-  renderTop() {
-    const { reminders, steps, t, showStepReminderBump } = this.props;
+  renderFocusPrompt() {
+    const { reminders, steps, t } = this.props;
 
-    if (reminders.length === 0 && steps.length === 0) return null;
+    if ((reminders.length === 0 && steps.length === 0) || reminders.length > 0) return null;
 
-    if (reminders.length > 0) {
-      return (
-        <Flex align="center" style={[ styles.top, styles.topItems ]}
-        >
-          {
-            reminders.map((s, index) => (
-              <RowSwipeable
-                key={s.id}
-                bump={showStepReminderBump && index === 0}
-                onBumpComplete={showStepReminderBump && index === 0 ? this.completeReminderBump : undefined}
-                onDelete={() => this.handleDeleteReminder(s)}
-                onComplete={() => this.handleCompleteReminder(s)}
-              >
-                <StepItem
-                  step={s}
-                  type="reminder"
-                  onSelect={this.handleRowSelect}
-                  onAction={this.handleRemoveReminder} />
-              </RowSwipeable>
-            ))
-          }
-        </Flex>
-      );
-    }
     return (
       <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
         <Icon name="starGroupIcon" type="MissionHub" size={45} />
@@ -194,6 +170,34 @@ export class StepsScreen extends Component {
         <Text style={styles.description}>
           {t('reminderDescription')}
         </Text>
+      </Flex>
+    );
+  }
+
+  renderReminders() {
+    const { reminders, steps, showStepReminderBump } = this.props;
+
+    if (reminders.length === 0 && steps.length === 0) return null;
+
+    return (
+      <Flex align="center" style={[ styles.top, styles.topItems ]}>
+        {
+          reminders.map((s, index) => (
+            <RowSwipeable
+              key={s.id}
+              bump={showStepReminderBump && index === 0}
+              onBumpComplete={showStepReminderBump && index === 0 ? this.completeReminderBump : undefined}
+              onDelete={() => this.handleDeleteReminder(s)}
+              onComplete={() => this.handleCompleteReminder(s)}
+            >
+              <StepItem
+                step={s}
+                type="reminder"
+                onSelect={this.handleRowSelect}
+                onAction={this.handleRemoveReminder} />
+            </RowSwipeable>
+          ))
+        }
       </Flex>
     );
   }
@@ -257,26 +261,29 @@ export class StepsScreen extends Component {
 
   renderSteps() {
     return (
-      <ScrollView
-        style={[ styles.container, this.handleBackgroundColor() ]}
-        refreshControl={<RefreshControl
-          refreshing={this.state.refreshing}
-          onRefresh={this.handleRefresh}
-        />}
-        onScroll={this.handleScroll}
-        scrollEventThrottle={16}
-        contentContainerStyle={[
-          styles.contentContainer,
-          {
-            // Flex the white background to the bottom when there's only a few steps
-            // Don't do it all the time because it causes the top to be static
-            flex: this.props.steps.length < 5 ? 1 : undefined,
-          },
-        ]}
-      >
-        {this.renderTop()}
-        {this.renderList()}
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        {this.renderFocusPrompt()}
+        <ScrollView
+          style={[ styles.container, this.handleBackgroundColor() ]}
+          refreshControl={<RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.handleRefresh}
+          />}
+          onScroll={this.handleScroll}
+          scrollEventThrottle={16}
+          contentContainerStyle={[
+            styles.contentContainer,
+            {
+              // Flex the white background to the bottom when there's only a few steps
+              // Don't do it all the time because it causes the top to be static
+              flex: this.props.steps.length < 5 ? 1 : undefined,
+            },
+          ]}
+        >
+          {this.renderReminders()}
+          {this.renderList()}
+        </ScrollView>
+      </View>
     );
   }
 
