@@ -3,7 +3,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../constants';
 
 const initialState = {
-  all: { //todo remove all
+  all: { //todo remove 'all'
     'personal': {},
   },
 };
