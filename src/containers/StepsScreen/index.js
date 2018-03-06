@@ -87,7 +87,6 @@ export class StepsScreen extends Component {
     this.props.dispatch(toast('✔ Reminder Added'));
 
     const showPushReminder = this.props.reminders.length === 0;
-    console.log(step);
     this.props.dispatch(setStepReminder(step));
     if (showPushReminder) {
       this.props.dispatch(showReminderScreen());

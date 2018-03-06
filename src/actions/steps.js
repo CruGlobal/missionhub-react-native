@@ -94,18 +94,54 @@ export function addSteps(steps, receiverId, organization) {
 
 export function setStepReminder(step) {
   return (dispatch) => {
-    return dispatch({
-      type: ADD_STEP_REMINDER,
-      step,
+    const query = { challenge_id: step.id };
+    const data = {
+      data: {
+        type: 'accepted_challenge',
+        attributes: {
+          organization_id: step.organization ? step.organization : null,
+          focus: true,
+        },
+        relationships: {
+          receiver: {
+            data: {
+              type: 'person',
+              id: step.receiver.id,
+            },
+          },
+        },
+      },
+    };
+    console.log(data);
+    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
+      return dispatch({ type: ADD_STEP_REMINDER, step });
     });
   };
 }
 
 export function removeStepReminder(step) {
   return (dispatch) => {
-    return dispatch({
-      type: REMOVE_STEP_REMINDER,
-      step,
+    const query = { challenge_id: step.id };
+    const data = {
+      data: {
+        type: 'accepted_challenge',
+        attributes: {
+          organization_id: step.organization ? step.organization : null,
+          focus: false,
+        },
+        relationships: {
+          receiver: {
+            data: {
+              type: 'person',
+              id: step.receiver.id,
+            },
+          },
+        },
+      },
+    };
+    console.log(data);
+    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
+      return dispatch({ type: REMOVE_STEP_REMINDER, step });
     });
   };
 }
