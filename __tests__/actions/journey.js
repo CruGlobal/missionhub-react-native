@@ -86,7 +86,7 @@ const person = {
       old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
       new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-04T00:00:00',
-      person: {id: personId},
+      person: { id: personId },
     },
     {
       id: '2',
@@ -97,7 +97,7 @@ const person = {
       old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
       new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-05T00:00:00',
-      person: {id: personId},
+      person: { id: personId },
     },
     {
       id: '3',
@@ -108,7 +108,7 @@ const person = {
       old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
       new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-06T00:00:00',
-      person: {id: personId},
+      person: { id: personId },
     },
     {
       id: '4',
@@ -119,7 +119,7 @@ const person = {
       old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
       new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-11T00:00:00',
-      person: {id: personId},
+      person: { id: personId },
     },
   ],
   answer_sheets: [
