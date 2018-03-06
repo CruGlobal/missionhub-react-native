@@ -3,10 +3,8 @@ import { getPersonJourneyDetails } from './person';
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
 
 export function reloadJourney(personId, orgId) {
-  orgId = orgId ? orgId : 'personal';
-
   return async(dispatch, getState) => {
-    const org = getState().journey.all[orgId];
+    const org = getState().journey.all[orgId ? orgId : 'personal'];
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
     return personFeed && await dispatch(getJourney(personId, orgId));
