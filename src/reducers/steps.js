@@ -54,7 +54,7 @@ function stepsReducer(state = initialState, action) {
       let mySteps = action.results.response;
       let myReminders = [];
       mySteps = mySteps.map((s)=> {
-        if (s.attributes.focus) {
+        if (s.focus) {
           myReminders.push(s);
           return { ...s, reminder: true };
         }
