@@ -4,7 +4,7 @@ import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../constants';
 
 const initialState = {
   all: {
-    'personal': [],
+    'personal': {},
   },
 };
 
