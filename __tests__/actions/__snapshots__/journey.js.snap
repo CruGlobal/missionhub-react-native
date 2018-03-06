@@ -46,6 +46,9 @@ Array [
     "organization": Object {
       "id": "1",
     },
+    "person": Object {
+      "id": "2",
+    },
     "personName": "Person with history",
     "type": "stage",
   },
@@ -110,6 +113,9 @@ Array [
       "name": "Uninterested",
     },
     "organization": null,
+    "person": Object {
+      "id": "2",
+    },
     "personName": "Person with history",
     "type": "stage",
   },
