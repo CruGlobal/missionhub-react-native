@@ -47,42 +47,128 @@ exports[`renders correctly 1`] = `
       ]
     }
   >
-    <View
-      style={
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
         Array [
           Object {},
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
         ]
       }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "paddingHorizontal": 70,
-              "paddingVertical": 10,
-              "textAlign": "center",
-            },
-          ]
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
         }
-      >
-        loading journey items
-      </Text>
-    </View>
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "paddingRight": 24,
+                    "paddingVertical": 19,
+                    "width": 750,
+                  },
+                  null,
+                ],
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#E6E8EC",
+                    "borderLeftWidth": 1,
+                    "paddingBottom": 5,
+                    "paddingLeft": 20,
+                  },
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 10,
+                    },
+                  ]
+                }
+              >
+                March 6, 2018
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     style={

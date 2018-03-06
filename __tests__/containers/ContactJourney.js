@@ -21,6 +21,13 @@ const mockState = {
   swipe: {
     journey: false,
   },
+  journey: {
+    all: {
+      'personal': {
+        [personId]: [ { } ],
+      },
+    },
+  },
 };
 
 const mockPerson = {
