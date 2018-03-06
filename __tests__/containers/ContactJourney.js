@@ -12,6 +12,8 @@ import ContactJourney from '../../src/containers/ContactJourney';
 import { Provider } from 'react-redux';
 import { createMockNavState, testSnapshot } from '../../testUtils';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 const personId = '123';
 const mockState = {
   auth: {
@@ -62,7 +64,7 @@ it('renders correctly', () => {
 describe('journey methods', () => {
   let component;
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
+
     const screen = shallow(
       <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
       { context: { store } },
@@ -72,7 +74,6 @@ describe('journey methods', () => {
   });
 
   it('renders a journey row', () => {
-
     const snap = component.renderRow({ item: {
       id: '123',
       text: '123',
@@ -80,11 +81,20 @@ describe('journey methods', () => {
     expect(snap).toMatchSnapshot();
   });
 
-  it('renders a journey row', () => {
-
+  it('renders a survey row', () => {
     const snap = component.renderRow({ item: {
-      id: '123',
-      text: '123',
+      id: '124',
+      text: '124',
+      type: 'survey',
+    } });
+    expect(snap).toMatchSnapshot();
+  });
+
+  it('renders a survey row', () => {
+    const snap = component.renderRow({ item: {
+      id: '124',
+      text: '124',
+      type: 'stage',
     } });
     expect(snap).toMatchSnapshot();
   });
@@ -97,6 +107,8 @@ describe('journey methods', () => {
 
   it('handles edit comment', () => {
     const comment = 'test';
+    component.handleEditInteraction({ text: comment });
+
     component.handleEditComment(comment);
 
     expect(mockEditComment).toHaveBeenCalledTimes(1);

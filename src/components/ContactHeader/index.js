@@ -89,7 +89,7 @@ class ContactHeader extends Component {
     this.setState({ headerOpen: true });
   }
 
-  getTabs() {
+  getTabs = () => {
     const { person, type, isMe, organization } = this.props;
     const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
     const isMhubUser = personOrgPermissions && ORG_PERMISSIONS.includes(personOrgPermissions.permission_id);
@@ -103,9 +103,9 @@ class ContactHeader extends Component {
     }
 
     return JEAN_TABS;
-  }
+  };
 
-  openUrl(url, action) {
+  openUrl = (url, action) => {
     Linking.canOpenURL(url).then((supported) => {
       if (!supported) {
         WARN('Can\'t handle url: ', url);
@@ -124,9 +124,13 @@ class ContactHeader extends Component {
           });
       }
     }).catch((err) => WARN('An unexpected error happened', err));
-  }
+  };
 
-  getJeanButtons() {
+  onChangeStage = () => {
+    this.props.onChangeStage();
+  };
+
+  getJeanButtons = () => {
     const { person } = this.props;
     const emailExists = person.email_addresses ? (person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null) : false;
     const numberExists = person.phone_numbers ? (person.phone_numbers.find((email) => email.primary) || person.phone_numbers[0] || null) : false;
@@ -162,7 +166,7 @@ class ContactHeader extends Component {
         </Flex>
       </Flex>
     );
-  }
+  };
 
   render() {
     const { person, contactAssignment, organization, type, stage, isMe, onChangeStage } = this.props;
@@ -183,7 +187,7 @@ class ContactHeader extends Component {
               text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
               style={hasStage ? styles.stageBtn : styles.noStage}
               buttonTextStyle={styles.stageBtnText}
-              onPress={this.props.onChangeStage}
+              onPress={this.onChangeStage}
             />
           ) : null
         }

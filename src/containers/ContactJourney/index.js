@@ -17,6 +17,7 @@ import { addNewInteraction, editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
+import { updateChallengeNote } from '../../actions/steps';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
@@ -55,17 +56,21 @@ class ContactJourney extends Component {
 
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
+    const text = interaction.type === 'step' ? interaction.note : interaction.text;
+
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleEditComment,
       type: 'editJourney',
       isEdit: true,
-      text: interaction.text,
+      text,
     }));
   }
 
   handleEditComment(text) {
     const { editingInteraction } = this.state;
-    this.props.dispatch(editComment(editingInteraction, text)).then(() => {
+    const action = editingInteraction.type === 'step' ? updateChallengeNote(editingInteraction, text) : editComment(editingInteraction, text);
+
+    this.props.dispatch(action).then(() => {
       // Refresh the journey list after editing a comment
       this.getInteractions();
       this.setState({ editingInteraction: null });
@@ -94,9 +99,10 @@ class ContactJourney extends Component {
   }
 
   renderRow({ item }) {
-    const { isCasey, showReminder } = this.props;
-    let content = <JourneyItem item={item} type={item.type} />;
-    if (item.type === 'interaction' && (isCasey || this.state.isPersonalMinistry)) {
+    const { showReminder } = this.props;
+    const content = <JourneyItem item={item} type={item.type} />;
+
+    if (item.type !== 'survey' && item.type !== 'stage') {
       return (
         <RowSwipeable
           key={item.id}
