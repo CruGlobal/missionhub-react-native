@@ -112,12 +112,12 @@ class ContactJourney extends Component {
   }
 
   renderList() {
-    const { person } = this.props;
+    const { journeyItems } = this.props;
     return (
       <FlatList
         ref={(c) => this.list = c}
         style={styles.list}
-        data={person.personFeed}
+        data={journeyItems}
         keyExtractor={(i) => i.id}
         renderItem={this.renderRow}
         bounces={true}
@@ -149,9 +149,9 @@ class ContactJourney extends Component {
   }
 
   renderContent() {
-    const { person } = this.props;
-    const isLoading = person.personFeedLoading;
-    const hasItems = person.personFeed && person.personFeed.length > 0;
+    const { journeyItems } = this.props;
+    const isLoading = !journeyItems;
+    const hasItems = journeyItems && journeyItems.length > 0;
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {!isLoading && !hasItems && this.renderNull()}
@@ -183,10 +183,17 @@ ContactJourney.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth, swipe }) => ({
-  isCasey: !auth.isJean,
-  myId: auth.personId,
-  showReminder: swipe.journey,
-});
+const mapStateToProps = ({ auth, swipe, journey }, { person, organization }) => {
+  const organizationId = organization ? organization.id : 'personal';
+  const journeyOrg = journey.all[organizationId];
+  const journeyItems = journeyOrg ? journeyOrg[person.id] : undefined;
+
+  return {
+    journeyItems,
+    isCasey: !auth.isJean,
+    myId: auth.personId,
+    showReminder: swipe.journey,
+  };
+};
 
 export default connect(mapStateToProps)(ContactJourney);

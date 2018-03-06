@@ -1,5 +1,6 @@
 import { getStepsByFilter } from './steps';
-import { getPersonJourneyDetails, updatePersonAttributes } from './person';
+import { getPersonJourneyDetails } from './person';
+import { UPDATE_JOURNEY_ITEMS } from '../constants';
 
 export function reloadJourney(personId, orgId) {
   return async(dispatch, getState) => {
@@ -12,10 +13,6 @@ export function reloadJourney(personId, orgId) {
 
 export function getJourney(personId, orgId) {
   return async(dispatch, getState) => {
-    dispatch(updatePersonAttributes(personId, {
-      personFeedLoading: true,
-    }));
-
     try {
 
       const { personId: myId } = getState().auth;
@@ -42,16 +39,11 @@ export function getJourney(personId, orgId) {
         }
       }
 
-      dispatch(updatePersonAttributes(personId, {
-        personFeed: journeyItems,
-        personFeedLoading: false,
-      }));
+      dispatch(updateJourney(personId, orgId, journeyItems));
       return journeyItems;
     }
     catch (e) {
-      dispatch(updatePersonAttributes(personId, {
-        personFeedLoading: false,
-      }));
+      return [];
     }
   };
 }
@@ -115,4 +107,13 @@ function getJourneySurveys(person, orgId) {
       type: 'survey',
       date: s.created_at,
     }));
+}
+
+export function updateJourney(personId, orgId, journeyItems) {
+  return {
+    type: UPDATE_JOURNEY_ITEMS,
+    personId,
+    orgId,
+    journeyItems,
+  };
 }
