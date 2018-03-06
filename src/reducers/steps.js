@@ -52,8 +52,12 @@ function stepsReducer(state = initialState, action) {
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       let mySteps = action.results.response;
+      let myReminders = [];
       mySteps = mySteps.map((s)=> {
-        if (state.reminders.find((r)=> r.id === s.id)) return { ...s, reminder: true };
+        if (s.attributes.focus) {
+          myReminders.push(s);
+          return { ...s, reminder: true };
+        }
         return s;
       });
       // If we're doing paging, concat the old steps with the new ones
@@ -63,6 +67,7 @@ function stepsReducer(state = initialState, action) {
       return {
         ...state,
         mine: mySteps,
+        reminders: myReminders,
         pagination: getPagination(state, action, mySteps),
       };
     case ADD_STEP_REMINDER:
