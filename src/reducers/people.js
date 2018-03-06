@@ -76,7 +76,7 @@ function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {
   }));
 }
 
-function deletePersonInOrg(allByOrg, deletePersonId, personOrgId) {
+function deletePersonInOrg(allByOrg, deletePersonId, personOrgId = 'personal') {
   return mapObject(allByOrg, ([ orgId, org ]) => ({
     [orgId]: {
       ...org,
