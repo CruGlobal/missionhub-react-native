@@ -120,6 +120,15 @@ export function setStepFocus(step, isFocus) {
   };
 }
 
+export function updateChallengeNote(step, note) {
+  return (dispatch) => {
+    const query = { challenge_id: step.id };
+    const data = buildChallengeData({ note });
+
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
+  };
+}
+
 export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
@@ -139,17 +148,19 @@ export function completeStep(step) {
   };
 }
 
+function buildChallengeData(attributes) {
+  return {
+    data: {
+      type: 'accepted_challenge',
+      attributes,
+    },
+  };
+}
+
 function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: 'accepted_challenge',
-        attributes: {
-          completed_at: formatApiDate(),
-        },
-      },
-    };
+    const data = buildChallengeData({ completed_at: formatApiDate() });
     const myId = getState().auth.personId;
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
@@ -158,15 +169,7 @@ function challengeCompleteAction(step) {
         type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
-            const noteData = {
-              data: {
-                type: 'accepted_challenge',
-                attributes: {
-                  note: text,
-                },
-              },
-            };
-            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
+            dispatch(updateChallengeNote(step, text)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
