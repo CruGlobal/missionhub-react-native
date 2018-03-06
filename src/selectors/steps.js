@@ -6,7 +6,7 @@ const mapSteps = (steps, orgs) => steps.filter((s) => {
 
 const replaceStepReceiver = (step, orgs) => {
   const currentOrg = orgs[step.organization ? step.organization.id : 'personal'];
-  const receiver = currentOrg.people[step.receiver.id] || step.receiver;
+  const receiver = currentOrg && currentOrg.people[step.receiver.id] || step.receiver;
   return {
     ...step,
     receiver: receiver,
