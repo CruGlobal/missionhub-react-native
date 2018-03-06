@@ -96,6 +96,21 @@ it('sets user time zone', () => {
   expect(state.timezone).toBe('-5');
 });
 
+it('logs in with facebook', () => {
+  const jsonApiStore = new JsonApiDataStore();
+  jsonApiStore.sync({
+    data: {
+      token: '123',
+      personId: '123',
+    },
+  });
+
+  const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, jsonApiStore);
+
+  expect(state.isLoggedIn).toBe(true);
+  expect(state.isFirstTime).toBe(false);
+});
+
 it('updates a users stage', () => {
   const state = auth(
     { user: { user: { pathway_stage_id: 2 } } },

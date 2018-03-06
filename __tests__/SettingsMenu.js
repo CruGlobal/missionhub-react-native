@@ -5,9 +5,11 @@ import React from 'react';
 import { createMockStore } from '../testUtils/index';
 import SettingsMenu from '../src/components/SettingsMenu';
 import { testSnapshotShallow } from '../testUtils';
+const mockState = {
+  auth: { isFirstTime: false },
+};
 
-const store = createMockStore();
-
+const store = createMockStore(mockState);
 it('renders correctly', () => {
   testSnapshotShallow(
     <SettingsMenu />,

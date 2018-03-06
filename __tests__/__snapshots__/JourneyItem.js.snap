@@ -246,7 +246,7 @@ exports[`renders stage correctly 1`] = `
         ]
       }
     >
-       to 
+      Uninterested to Curious
     </Text>
     <Text
       accessible={true}
@@ -266,7 +266,7 @@ exports[`renders stage correctly 1`] = `
         ]
       }
     >
-       changed from  to 
+      Test Person changed from Uninterested to Curious
     </Text>
   </View>
 </View>
