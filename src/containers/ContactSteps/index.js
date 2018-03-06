@@ -74,9 +74,7 @@ class ContactSteps extends Component {
   }
 
   handleSaveNewStage(stage) {
-    const { dispatch, person, organization } = this.props;
-    dispatch(getJourney(person.id, organization ? organization.id : undefined));
-    this.handleNavToSteps(stage, () => dispatch(navigateBack()));
+    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
   }
 
   handleNavToStage() {

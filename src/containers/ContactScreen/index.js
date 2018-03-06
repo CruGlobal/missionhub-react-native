@@ -14,6 +14,7 @@ import { STAGE_SCREEN } from '../StageScreen';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { personSelector, contactAssignmentSelector } from '../../selectors/people';
+import { getJourney } from '../../actions/journey';
 
 export class ContactScreen extends Component {
 
@@ -33,13 +34,14 @@ export class ContactScreen extends Component {
   }
 
   handleChangeStage(noNav = false, onComplete = null) {
-    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages } = this.props;
+    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages, organization } = this.props;
     let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
     firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
     if (personIsCurrentUser) {
       dispatch(navigatePush(STAGE_SCREEN, {
         onComplete: (stage) => {
           dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
+          dispatch(getJourney(person.id, organization && organization.id));
           onComplete && onComplete(stage);
         },
         firstItem: firstItemIndex,
@@ -57,6 +59,7 @@ export class ContactScreen extends Component {
               assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
             ),
           }));
+          dispatch(getJourney(person.id, organization && organization.id));
           onComplete && onComplete(stage);
         },
         firstItem: firstItemIndex,
