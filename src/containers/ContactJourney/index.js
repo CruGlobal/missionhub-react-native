@@ -26,10 +26,7 @@ class ContactJourney extends Component {
 
     const isPersonal = !props.isCasey && !props.organization;
 
-
     this.state = {
-      isLoading: true,
-      journey: [],
       editingInteraction: null,
       isPersonalMinistry: isPersonal,
     };
@@ -53,14 +50,7 @@ class ContactJourney extends Component {
   getInteractions() {
     const { dispatch, person, organization } = this.props;
 
-    dispatch(getJourney(person.id, organization && organization.id)).then((items) => {
-      this.setState({
-        journey: items,
-        isLoading: false,
-      });
-    }).catch(() => {
-      this.setState({ isLoading: false });
-    });
+    dispatch(getJourney(person.id, organization && organization.id));
   }
 
   handleEditInteraction(interaction) {
@@ -122,12 +112,12 @@ class ContactJourney extends Component {
   }
 
   renderList() {
-    const { journey } = this.state;
+    const { person } = this.props;
     return (
       <FlatList
         ref={(c) => this.list = c}
         style={styles.list}
-        data={journey}
+        data={person.personFeed}
         keyExtractor={(i) => i.id}
         renderItem={this.renderRow}
         bounces={true}
@@ -159,19 +149,23 @@ class ContactJourney extends Component {
   }
 
   renderContent() {
-    const { journey, isLoading } = this.state;
-    if (isLoading) return this.renderLoading();
-    if (journey.length === 0) return this.renderNull();
-    return this.renderList();
+    const { person } = this.props;
+    const isLoading = person.personFeedLoading;
+    const hasItems = person.personFeed && person.personFeed.length > 0;
+    return (
+      <Flex align="center" justify="center" value={1} style={styles.container}>
+        {!isLoading && !hasItems && this.renderNull()}
+        {isLoading && this.renderLoading()}
+        {hasItems && this.renderList()}
+      </Flex>
+    );
   }
 
   render() {
     const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <Flex align="center" justify="center" value={1} style={styles.container}>
-          {this.renderContent()}
-        </Flex>
+        {this.renderContent()}
         <Flex justify="end">
           <Button
             type="secondary"
