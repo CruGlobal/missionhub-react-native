@@ -6,18 +6,14 @@ import JourneyItem from '../src/components/JourneyItem';
 import { testSnapshot } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
-let mockStep;
-
-beforeEach(() => {
-  mockStep = {
-    id: '123',
-    text: 'Test Journey',
-    completed_at: date,
-    created_at: date,
-    interaction_type_id: 1,
-    date,
-  };
-});
+const mockStep = {
+  id: '123',
+  text: 'Test Journey',
+  completed_at: date,
+  created_at: date,
+  interaction_type_id: 1,
+  date,
+};
 
 describe('step', () => {
   it('is rendered correctly without comment', () => {
@@ -27,10 +23,8 @@ describe('step', () => {
   });
 
   it('is rendered correctly with comment', () => {
-    mockStep.note = 'test comment on completed step';
-
     testSnapshot(
-      <JourneyItem item={mockStep} type="step" />
+      <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
     );
   });
 });
