@@ -92,7 +92,7 @@ export function addSteps(steps, receiverId, organization) {
   };
 }
 
-export function setStepReminder(step) {
+export function setStepFocus(step, isFocus) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     const data = {
@@ -100,7 +100,7 @@ export function setStepReminder(step) {
         type: 'accepted_challenge',
         attributes: {
           organization_id: step.organization ? step.organization : null,
-          focus: true,
+          focus: isFocus,
         },
         relationships: {
           receiver: {
@@ -114,33 +114,7 @@ export function setStepReminder(step) {
     };
 
     return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
-      return dispatch({ type: ADD_STEP_REMINDER, step });
-    });
-  };
-}
-
-export function removeStepReminder(step) {
-  return (dispatch) => {
-    const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: 'accepted_challenge',
-        attributes: {
-          organization_id: step.organization ? step.organization : null,
-          focus: false,
-        },
-        relationships: {
-          receiver: {
-            data: {
-              type: 'person',
-              id: step.receiver.id,
-            },
-          },
-        },
-      },
-    };
-
-    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
+      if (isFocus) return dispatch({ type: ADD_STEP_REMINDER, step });
       return dispatch({ type: REMOVE_STEP_REMINDER, step });
     });
   };
@@ -150,7 +124,7 @@ export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
-      dispatch(removeStepReminder(step));
+      dispatch(setStepFocus(step, false));
       return r;
     });
   };
@@ -272,7 +246,7 @@ export function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch(removeStepReminder(step));
+      dispatch(setStepFocus(step, false));
       dispatch(getMySteps());
       return r;
     });

@@ -9,7 +9,7 @@ import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
 import { showReminderScreen, toast } from '../../actions/notifications';
 import {
-  getMySteps, setStepReminder, removeStepReminder, completeStepReminder, getMyStepsNextPage,
+  getMySteps, setStepFocus, completeStepReminder, getMyStepsNextPage,
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
@@ -89,7 +89,7 @@ export class StepsScreen extends Component {
     this.props.dispatch(toast('✔ Reminder Added'));
 
     const showPushReminder = this.props.reminders.length === 0;
-    this.props.dispatch(setStepReminder(step));
+    this.props.dispatch(setStepFocus(step, true));
     if (showPushReminder) {
       this.props.dispatch(showReminderScreen());
     }
@@ -97,7 +97,7 @@ export class StepsScreen extends Component {
 
   handleRemoveReminder(step) {
     this.props.dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
-    this.props.dispatch(removeStepReminder(step));
+    this.props.dispatch(setStepFocus(step, false));
   }
 
   handleCompleteReminder(step) {

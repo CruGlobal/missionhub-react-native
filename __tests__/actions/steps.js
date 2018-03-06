@@ -1,6 +1,6 @@
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
-import { completeStep, getStepSuggestions, getMyStepsNextPage, setStepReminder, removeStepReminder } from '../../src/actions/steps';
+import { completeStep, getStepSuggestions, getMyStepsNextPage, setStepFocus } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -173,13 +173,13 @@ describe('Set Focus', () => {
   });
 
   it('Focus set to true', async() => {
-    await store.dispatch(setStepReminder(step));
+    await store.dispatch(setStepFocus(step, true));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, focusData);
     expect(store.getActions()).toEqual([ { type: ADD_STEP_REMINDER, step: step } ]);
   });
 
   it('Focus set to false', async() => {
-    await store.dispatch(removeStepReminder(step));
+    await store.dispatch(setStepFocus(step, false));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
     expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
   });
