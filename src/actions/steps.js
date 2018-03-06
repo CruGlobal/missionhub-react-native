@@ -112,7 +112,7 @@ export function setStepReminder(step) {
         },
       },
     };
-    console.log(data);
+
     return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
       return dispatch({ type: ADD_STEP_REMINDER, step });
     });
@@ -139,7 +139,7 @@ export function removeStepReminder(step) {
         },
       },
     };
-    console.log(data);
+
     return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
       return dispatch({ type: REMOVE_STEP_REMINDER, step });
     });
