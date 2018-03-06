@@ -101,6 +101,10 @@ export default {
     endpoint: `${CHALLENGES_URL}:challenge_id`,
     method: 'put',
   },
+  'CHALLENGE_SET_FOCUS': {
+    endpoint: `${CHALLENGES_URL}:challenge_id`,
+    method: 'put',
+  },
   'GET_PEOPLE_LIST': {
     endpoint: PEOPLE_URL,
   },
