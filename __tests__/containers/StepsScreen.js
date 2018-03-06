@@ -1,13 +1,32 @@
 import { ScrollView } from 'react-native';
 import React from 'react';
-import { testSnapshotShallow, renderShallow } from '../../testUtils';
+import { renderShallow } from '../../testUtils';
 
 import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
 jest.mock('../../src/selectors/steps');
 import theme from '../../src/theme';
 
-const props = {
+const store = {
+  steps: {
+    pagination: {
+      hasNextPage: true,
+    },
+  },
+  people: {},
+  notifications: {
+    hasAsked: false,
+    shouldAsk: false,
+    token: '',
+    showReminder: true,
+  },
+  swipe: {
+    stepsHome: true,
+    stepsReminder: true,
+  },
+};
+
+const propsWithSteps = {
   areNotificationsOff: true,
   hasMoreSteps: true,
   reminders: [
@@ -30,48 +49,67 @@ const props = {
   dispatch: jest.fn(() => Promise.resolve()),
 };
 
+const propsWithoutSteps = {
+  areNotificationsOff: true,
+  hasMoreSteps: true,
+  reminders: [
+    {
+      id: 1,
+      reminder: true,
+    },
+  ],
+  showNotificationReminder: true,
+  showStepBump: true,
+  showStepReminderBump: true,
+  steps: [],
+  dispatch: jest.fn(() => Promise.resolve()),
+};
+
 describe('StepsScreen', () => {
+  let component;
+
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
       reminderStepsSelector.mockReturnValue([ { id: 1, reminder: true } ]);
       nonReminderStepsSelector.mockReturnValue([ { id: 2 }, { id: 3 } ]);
-      expect(mapStateToProps(
-        {
-          steps: {
-            pagination: {
-              hasNextPage: true,
-            },
-          },
-          people: {},
-          notifications: {
-            hasAsked: false,
-            shouldAsk: false,
-            token: '',
-            showReminder: true,
-          },
-          swipe: {
-            stepsHome: true,
-            stepsReminder: true,
-          },
-        },
-      )).toMatchSnapshot();
+      expect(mapStateToProps(store)).toMatchSnapshot();
     });
   });
 
-  it('renders correctly', () => {
-    testSnapshotShallow(
-      <StepsScreen
-        {...props}
-      />
-    );
+  const createComponent = (props) => {
+    const screen = renderShallow(<StepsScreen {...props} />);
+    return screen;
+  };
+
+  const stopLoad = (component) => {
+    component.instance().setState({ loading: false });
+    component.update();
+    return component;
+  };
+
+  it('renders loading screen correctly', () => {
+    component = createComponent(propsWithSteps);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders empty screen correctly', () => {
+    component = createComponent(propsWithoutSteps);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders screen with steps correctly', () => {
+    component = createComponent(propsWithSteps);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
   });
 
   describe('Background color changes with scrolling', () => {
-    const createComponent = () => {
-      return renderShallow(
-        <StepsScreen {...props} />,
-      );
-    };
+    beforeEach(() => {
+      component = createComponent(propsWithSteps);
+      component = stopLoad(component);
+    });
 
     const getBackgroundColor = (component) => {
       return component.find(ScrollView).props().style.find((element) => {
@@ -81,12 +119,10 @@ describe('StepsScreen', () => {
 
 
     it('Starts with white background', () => {
-      let component = createComponent();
       expect(getBackgroundColor(component)).toBe(theme.white);
     });
 
     it('Background is blue when overscrolling up', () => {
-      let component = createComponent();
       component.instance().handleScroll({
         nativeEvent: {
           contentOffset: { y: -1 },
@@ -99,7 +135,6 @@ describe('StepsScreen', () => {
     });
 
     it('Background is white when scrolling back down', () => {
-      let component = createComponent();
       component.instance().handleScroll({
         nativeEvent: {
           contentOffset: { y: -1 },
@@ -120,14 +155,12 @@ describe('StepsScreen', () => {
     });
 
     it('runs handle next', () => {
-      let component = createComponent();
       component.instance().handleNextPage();
 
       expect(component.state('paging')).toBe(false);
     });
 
     it('does not runs handle next', () => {
-      let component = createComponent();
       component.setState({ paging: true });
       component.instance().handleNextPage();
 

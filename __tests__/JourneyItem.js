@@ -23,7 +23,12 @@ it('renders step correctly', () => {
 
 it('renders stage correctly', () => {
   testSnapshot(
-    <JourneyItem item={mockStep} type="stage" />
+    <JourneyItem item={{
+      ...mockStep,
+      personName: 'Test Person',
+      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
+    }} type="stage" />
   );
 });
 

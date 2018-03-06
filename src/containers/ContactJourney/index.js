@@ -51,7 +51,9 @@ class ContactJourney extends Component {
   }
 
   getInteractions() {
-    this.props.dispatch(getJourney(this.props.person.id, this.state.isPersonalMinistry, this.props.organization)).then((items) => {
+    const { dispatch, person, organization } = this.props;
+
+    dispatch(getJourney(person.id, organization && organization.id)).then((items) => {
       this.setState({
         journey: items,
         isLoading: false,
