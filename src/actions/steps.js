@@ -11,7 +11,7 @@ import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
-import { getJourney } from './journey';
+import { reloadJourney } from './journey';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -191,7 +191,7 @@ function challengeCompleteAction(step) {
                   }));
 
 
-                  dispatch(getJourney(step.receiver.id, step.organization && step.organization.id));
+                  dispatch(reloadJourney(step.receiver.id, step.organization && step.organization.id));
                   dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
