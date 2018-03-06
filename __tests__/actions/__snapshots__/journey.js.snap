@@ -33,19 +33,20 @@ Array [
     "created_at": "2018-02-04T00:00:00",
     "date": "2018-02-04T00:00:00",
     "id": "1",
-    "name": "Person with history",
     "new_pathway_stage": Object {
-      "id": "2",
-    },
-    "new_stage": "Curious",
-    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
       "id": "1",
+      "name": "Uninterested",
     },
-    "old_stage": "Uninterested",
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
     "organization": Object {
       "id": "1",
     },
-    "text": "Stage change in org",
+    "personName": "Person with history",
     "type": "stage",
   },
   Object {
@@ -98,17 +99,18 @@ Array [
     "created_at": "2018-02-11T00:00:00",
     "date": "2018-02-11T00:00:00",
     "id": "4",
-    "name": "Person with history",
     "new_pathway_stage": Object {
-      "id": "2",
-    },
-    "new_stage": "Curious",
-    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
       "id": "1",
+      "name": "Uninterested",
     },
-    "old_stage": "Uninterested",
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
     "organization": null,
-    "text": "Stage change in personal org",
+    "personName": "Person with history",
     "type": "stage",
   },
   Object {

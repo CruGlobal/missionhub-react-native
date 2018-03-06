@@ -1,5 +1,4 @@
 import { getJourney } from '../../src/actions/journey';
-import { getStages } from '../../src/actions/stages';
 import { getStepsByFilter } from '../../src/actions/steps';
 import { getPersonJourneyDetails } from '../../src/actions/person';
 jest.mock('../../src/actions/stages');
@@ -15,10 +14,6 @@ const personId = '2';
 const myId = '1';
 const orgId = '1';
 
-const stages = [
-  { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
-  { id: '2', _type: 'pathway_stage', name: 'Curious' },
-];
 const steps = [
   {
     id: '1',
@@ -88,8 +83,8 @@ const person = {
       comment: 'Stage change in org',
       assigned_to: { id: myId },
       organization: { id: orgId },
-      old_pathway_stage: { id: '1' },
-      new_pathway_stage: { id: '2' },
+      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-04T00:00:00',
     },
     {
@@ -98,8 +93,8 @@ const person = {
       comment: 'Stage change in another org',
       assigned_to: { id: myId },
       organization: { id: '2' },
-      old_pathway_stage: { id: '1' },
-      new_pathway_stage: { id: '2' },
+      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-05T00:00:00',
     },
     {
@@ -108,8 +103,8 @@ const person = {
       comment: 'Stage change by someone else',
       assigned_to: { id: '3' },
       organization: { id: orgId },
-      old_pathway_stage: { id: '1' },
-      new_pathway_stage: { id: '2' },
+      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-06T00:00:00',
     },
     {
@@ -118,8 +113,8 @@ const person = {
       comment: 'Stage change in personal org',
       assigned_to: { id: myId },
       organization: null,
-      old_pathway_stage: { id: '1' },
-      new_pathway_stage: { id: '2' },
+      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
       created_at: '2018-02-11T00:00:00',
     },
   ],
@@ -145,8 +140,6 @@ const person = {
   ],
 };
 
-
-getStages.mockReturnValue(() => Promise.resolve({ response: stages }));
 getStepsByFilter.mockReturnValue(() => Promise.resolve({ response: steps }));
 getPersonJourneyDetails.mockReturnValue(() => Promise.resolve({ response: person }));
 
@@ -156,49 +149,28 @@ describe('get journey', () => {
   beforeEach(() => {
     store = mockStore({
       auth: { personId: myId },
-      stages: {
-        stagesObj: {
-          '1': stages[ 0 ],
-          '2': stages[ 1 ],
-        },
-      },
     });
-  });
-
-  xit('should fetch stages if they are not loaded', async() => {
-    store = mockStore({
-      auth: { personId: myId },
-      stages: {},
-    });
-    await store.dispatch(getJourney(personId));
-    expect(getStages).toHaveBeenCalled();
   });
 
   it('should get a person\'s journey without an org (personal ministry)', async() => {
     expect(await store.dispatch(getJourney(personId))).toMatchSnapshot();
-    expect(getStages).not.toHaveBeenCalled();
     expect(getStepsByFilter).toHaveBeenCalledWith({
       completed: true,
       receiver_ids: personId,
       organization_ids: undefined,
     });
-    expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId, {
-      include: 'pathway_progression_audits,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
-    });
+    expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId);
   });
 
   it('should get a person\'s journey with an org', async() => {
     getStepsByFilter.mockReturnValue(() => Promise.resolve({ response: [ steps[0] ] }));
 
     expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
-    expect(getStages).not.toHaveBeenCalled();
     expect(getStepsByFilter).toHaveBeenCalledWith({
       completed: true,
       receiver_ids: personId,
       organization_ids: orgId,
     });
-    expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId, {
-      include: 'pathway_progression_audits,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
-    });
+    expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId);
   });
 });
