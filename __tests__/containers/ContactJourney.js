@@ -26,7 +26,7 @@ const mockState = {
   journey: {
     all: {
       'personal': {
-        [personId]: [ { } ],
+        [personId]: [ { type: 'step', id: 84472 } ],
       },
     },
   },
