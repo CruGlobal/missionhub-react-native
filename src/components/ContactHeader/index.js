@@ -75,17 +75,9 @@ const JEAN_TABS_MH_USER = [
 
 class ContactHeader extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      headerOpen: true,
-    };
-
-    this.onChangeStage = this.onChangeStage.bind(this);
-  }
-
-
+  state = {
+    headerOpen: true,
+  };
 
   shrinkHeader = () => {
     this.props.onShrinkHeader();
@@ -97,7 +89,7 @@ class ContactHeader extends Component {
     this.setState({ headerOpen: true });
   }
 
-  getTabs() {
+  getTabs = () => {
     const { person, type, isMe, organization } = this.props;
     const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
     const isMhubUser = personOrgPermissions && ORG_PERMISSIONS.includes(personOrgPermissions.permission_id);
@@ -111,9 +103,9 @@ class ContactHeader extends Component {
     }
 
     return JEAN_TABS;
-  }
+  };
 
-  openUrl(url, action) {
+  openUrl = (url, action) => {
     Linking.canOpenURL(url).then((supported) => {
       if (!supported) {
         WARN('Can\'t handle url: ', url);
@@ -132,13 +124,13 @@ class ContactHeader extends Component {
           });
       }
     }).catch((err) => WARN('An unexpected error happened', err));
-  }
+  };
 
-  onChangeStage() {
+  onChangeStage = () => {
     this.props.onChangeStage();
-  }
+  };
 
-  getJeanButtons() {
+  getJeanButtons = () => {
     const { person } = this.props;
     const emailExists = person.email_addresses ? (person.email_addresses.find((email) => email.primary) || person.email_addresses[0] || null) : false;
     const numberExists = person.phone_numbers ? (person.phone_numbers.find((email) => email.primary) || person.phone_numbers[0] || null) : false;
@@ -174,7 +166,7 @@ class ContactHeader extends Component {
         </Flex>
       </Flex>
     );
-  }
+  };
 
   render() {
     const { person, contactAssignment, organization, type, stage, isMe, onChangeStage } = this.props;
