@@ -4,12 +4,14 @@ import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
+import * as navigation from '../../src/actions/navigation';
 import * as login from '../../src/actions/login';
 import * as auth from '../../src/actions/auth';
-import { facebookLoginAction, keyLogin, refreshAuth, updateTimezone, codeLogin, logout, logoutReset } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
+import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
 
 const email = 'Roger';
 const password = 'secret';
@@ -83,7 +85,7 @@ describe('the key', () => {
     it('should login to the key, then get a key ticket, then send the key ticket to Missionhub API, then handle successful login', () => {
       const refreshData = `grant_type=refresh_token&refresh_token=${refreshToken}`;
 
-      return store.dispatch(refreshAuth())
+      return store.dispatch(refreshAccessToken())
         .then(() => {
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_REFRESH_TOKEN, {}, refreshData);
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
@@ -190,5 +192,19 @@ describe('logout', () => {
       store.dispatch(logoutReset());
       expect(store.getActions()[0]).toEqual({ type: LOGOUT });
     });
+  });
+});
+
+describe('on upgrade account', () => {
+  beforeEach(() => {
+
+    navigation.navigatePush = (screen) => ({ type: screen });
+  });
+
+  it('should navigate to login options page', async() => {
+
+    await store.dispatch(upgradeAccount());
+
+    expect(store.getActions()).toEqual([ { type: LOGIN_OPTIONS_SCREEN } ]);
   });
 });

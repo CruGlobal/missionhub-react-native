@@ -6,12 +6,12 @@ import { translate } from 'react-i18next';
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import { logout } from '../../actions/auth';
+import { logout, upgradeAccount } from '../../actions/auth';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
   render() {
-    const { t } = this.props;
+    const { t, isFirstTime } = this.props;
     const menuItems = [
       {
         label: t('about'),
@@ -30,8 +30,14 @@ export class SettingsMenu extends Component {
         action: () => Linking.openURL(LINKS.terms),
       },
       {
-        label: t('signOut'),
-        action: () => this.props.dispatch(logout()),
+        label: isFirstTime ? t('signUp') : t('signOut'),
+        action: () => {
+          if (isFirstTime) {
+            this.props.dispatch(upgradeAccount());
+          } else {
+            this.props.dispatch(logout());
+          }
+        },
       },
     ];
 
@@ -41,4 +47,8 @@ export class SettingsMenu extends Component {
   }
 }
 
-export default connect()(SettingsMenu);
+const mapStateToProps = ({ auth }) => ({
+  isFirstTime: auth.isFirstTime,
+});
+
+export default connect(mapStateToProps)(SettingsMenu);

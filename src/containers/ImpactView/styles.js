@@ -32,7 +32,7 @@ export default StyleSheet.create({
   interactionsWrap: {
     paddingHorizontal: 40,
   },
-  interactsionSection: {
+  interactionSection: {
     paddingBottom: 40,
     backgroundColor: theme.impactBlue,
   },

@@ -1,51 +1,64 @@
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
-import { navigateReset } from './navigation';
+import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
+
 import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { logOutAnalytics, updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 
-export function facebookLoginAction(accessToken, id) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, {
-      fb_access_token: accessToken,
-    })).then((results) => {
+export function facebookLoginAction(accessToken, id, isUpgrade = false) {
+  return (dispatch, getState) => {
+    const upgradeToken = getState().auth.upgradeToken;
+    const data = { fb_access_token: accessToken };
+    if (isUpgrade) { data.provider = 'client_token'; data.client_token = upgradeToken; }
+
+    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then((results) => {
       LOG(results);
       dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
-
       return dispatch(onSuccessfulLogin());
     });
   };
 }
 
-export function refreshAuth() {
+export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
+  const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${verifier}&redirect_uri=${redirectUri}`;
+  return getTokenAndLogin(data, isUpgrade);
+}
+
+export function refreshAccessToken() {
   return async(dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
 
     await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
-    dispatch(getKeyTicket());
+    dispatch(getTicketAndLogin());
   };
 }
 
 export function keyLogin(email, password) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
+  return getTokenAndLogin(data);
+}
 
+function getTokenAndLogin(data, isUpgrade) {
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
-    await dispatch(getKeyTicket());
+    await dispatch(getTicketAndLogin(isUpgrade));
 
     return dispatch(onSuccessfulLogin());
   };
 }
 
-function getKeyTicket() {
-  return async(dispatch) => {
+function getTicketAndLogin(isUpgrade) {
+  return async(dispatch, getState) => {
+    const upgradeToken = getState().auth.upgradeToken;
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
+    const data = { code: keyTicketResult.ticket }; 
+    if (isUpgrade) { data.client_token = upgradeToken; }
 
-    const data = { code: keyTicketResult.ticket };
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
   };
 }
@@ -82,6 +95,12 @@ export function logoutReset() {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
     dispatch(navigateReset(LOGIN_SCREEN));
+  };
+}
+
+export function upgradeAccount() {
+  return (dispatch) => {
+    dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
   };
 }
 

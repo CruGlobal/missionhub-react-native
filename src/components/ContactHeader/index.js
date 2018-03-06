@@ -75,8 +75,18 @@ const JEAN_TABS_MH_USER = [
 
 class ContactHeader extends Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    headerOpen: true,
+  };
+
+  shrinkHeader = () => {
+    this.props.onShrinkHeader();
+    this.setState({ headerOpen: false });
+  }
+
+  openHeader = () => {
+    this.props.onOpenHeader();
+    this.setState({ headerOpen: true });
   }
 
   getTabs() {
@@ -155,21 +165,42 @@ class ContactHeader extends Component {
   }
 
   render() {
-    const { person, organization, type, stage, isMe } = this.props;
+    const { person, contactAssignment, organization, type, stage, isMe, onChangeStage } = this.props;
     const hasStage = stage && stage.name;
+    const isHeaderOpen = this.state.headerOpen;
 
     return (
       <Flex value={1} style={styles.wrap} direction="column" align="center" justify="center" self="stretch">
-        <Text style={styles.name}>{person.first_name.toUpperCase()}</Text>
-        <PillButton
-          filled={true}
-          text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
-          style={hasStage ? styles.stageBtn : styles.noStage}
-          buttonTextStyle={styles.stageBtnText}
-          onPress={this.props.onChangeStage}
+        {
+          isHeaderOpen ? (
+            <Text style={styles.name}>{(person.first_name || '').toUpperCase()}</Text>
+          ) : null
+        }
+        {
+          isHeaderOpen ? (
+            <PillButton
+              filled={true}
+              text={hasStage ? stage.name.toUpperCase() : i18next.t('contactHeader:selectStage')}
+              style={hasStage ? styles.stageBtn : styles.noStage}
+              buttonTextStyle={styles.stageBtnText}
+              onPress={this.props.onChangeStage}
+            />
+          ) : null
+        }
+        {
+          isHeaderOpen && type === JEAN ? this.getJeanButtons() : null
+        }
+        <SecondaryTabBar
+          isMe={isMe}
+          person={person}
+          organization={organization}
+          contactStage={stage}
+          onChangeStage={onChangeStage}
+          contactAssignment={contactAssignment}
+          tabs={this.getTabs()}
+          onShrinkHeader={this.shrinkHeader}
+          onOpenHeader={this.openHeader}
         />
-        { type === JEAN ? this.getJeanButtons() : null }
-        <SecondaryTabBar isMe={isMe} person={person} organization={organization} contactStage={stage} tabs={this.getTabs()} />
       </Flex>
     );
   }
@@ -177,6 +208,7 @@ class ContactHeader extends Component {
 
 ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
+  contactAssignment: PropTypes.object,
   organization: PropTypes.object,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,

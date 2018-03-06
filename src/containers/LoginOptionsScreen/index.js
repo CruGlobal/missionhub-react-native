@@ -4,15 +4,19 @@ import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 
-import { firstTime, facebookLoginAction } from '../../actions/auth';
+import { firstTime, facebookLoginAction, createAccountAndLogin } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { LINKS } from '../../constants';
+import { LINKS, THE_KEY_CLIENT_ID } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { KEY_SIGN_UP_SCREEN } from '../KeySignUpScreen';
+import { sha256 } from 'js-sha256';
+import base64url from 'base64-url';
+import randomString from 'random-string';
+import { THE_KEY_URL } from '../../api/utils';
+import Buffer from 'buffer';
 
 const FACEBOOK_VERSION = 'v2.8';
 const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
@@ -47,10 +51,31 @@ class LoginOptionsScreen extends Component {
   }
 
   emailSignUp() {
-    this.props.dispatch(navigatePush(KEY_SIGN_UP_SCREEN));
+    global.Buffer = global.Buffer || Buffer.Buffer;
+    Linking.addEventListener('url', this.handleOpenURL);
+
+    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    this.codeVerifier = base64url.encode(string);
+    const codeChallenge = base64url.encode(sha256.array(this.codeVerifier));
+    this.redirectUri = 'https://missionhub.com/auth';
+
+    const uri = `${THE_KEY_URL}login?action=signup&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+      + `&redirect_uri=${this.redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
+      + `&code_challenge=${codeChallenge}`;
+
+    Linking.openURL(uri);
   }
 
-  facebookLogin() {
+  handleOpenURL = (event) => {
+    const code = event.url.split('code=')[1];
+    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri, this.props.upgradeAccount ? this.props.upgradeAccount : null));
+  };
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  facebookLogin(isUpgrade) {
     LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
       LOG('Facebook login result', result);
       if (result.isCancelled) {
@@ -78,7 +103,7 @@ class LoginOptionsScreen extends Component {
             return;
           }
           LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken, meResult.id));
+          this.props.dispatch(facebookLoginAction(accessToken, meResult.id, isUpgrade));
         });
         // Start the graph request.
         new GraphRequestManager().addRequest(infoRequest).start();
@@ -92,7 +117,7 @@ class LoginOptionsScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, upgradeAccount } = this.props;
 
     return (
       <Flex style={styles.container}>
@@ -104,7 +129,7 @@ class LoginOptionsScreen extends Component {
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
                 pill={true}
-                onPress={this.facebookLogin}
+                onPress={() => this.facebookLogin(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
@@ -115,7 +140,7 @@ class LoginOptionsScreen extends Component {
               </Button>
               <Button
                 pill={true}
-                onPress={this.emailSignUp}
+                onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
@@ -124,13 +149,17 @@ class LoginOptionsScreen extends Component {
                   <Text style={styles.buttonText}>{t('emailSignUp').toUpperCase()}</Text>
                 </Flex>
               </Button>
-              <Button
-                pill={true}
-                onPress={this.tryItNow}
-                text={t('tryNow').toUpperCase()}
-                style={styles.tryButton}
-                buttonTextStyle={styles.buttonText}
-              />
+              {
+                upgradeAccount ? null : (
+                  <Button
+                    pill={true}
+                    onPress={this.tryItNow}
+                    text={t('tryNow').toUpperCase()}
+                    style={styles.tryButton}
+                    buttonTextStyle={styles.buttonText}
+                  />
+                )
+              }
               <Flex direction="column">
                 <Text style={styles.termsText}>{t('terms')}</Text>
                 <Flex direction="row" align="center" justify="center">
@@ -167,5 +196,10 @@ class LoginOptionsScreen extends Component {
   }
 }
 
-export default connect()(LoginOptionsScreen);
+const mapStateToProps = ( reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+
+export default connect(mapStateToProps)(LoginOptionsScreen);
 export const LOGIN_OPTIONS_SCREEN = 'nav/LOGIN_OPTIONS';

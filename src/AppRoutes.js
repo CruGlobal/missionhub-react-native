@@ -35,8 +35,6 @@ import { Icon } from './components/common';
 import theme from './theme';
 import { MAIN_TABS } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
-import { KEY_SIGN_UP_SCREEN } from './containers/KeySignUpScreen';
-import KeySignUpScreen from './containers/KeySignUpScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -151,7 +149,7 @@ const screens = {
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
   [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps')),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person', 'onboarding', 'add person')),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('people : add person', 'people', 'add person')),
@@ -171,7 +169,6 @@ export const trackableScreens = {
 export const MainStackRoutes = StackNavigator({
   ...screens,
   [LOGIN_SCREEN]: { screen: LoginScreen },
-  [KEY_SIGN_UP_SCREEN]: { screen: KeySignUpScreen },
   [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
   [PERSON_SELECT_STEP_SCREEN]: { screen: PersonSelectStepScreen, navigationOptions: { gesturesEnabled: true } },
   [SELECT_MY_STEP_SCREEN]: { screen: SelectMyStepScreen, navigationOptions: { gesturesEnabled: true } },

@@ -4,7 +4,7 @@ import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
-import { refreshAuth } from './auth';
+import { refreshAccessToken } from './auth';
 import { EXPIRED_ACCESS_TOKEN } from '../constants';
 
 
@@ -79,7 +79,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         APILOG('REQUEST ERROR', action.name, err);
         if (err) {
           if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
-            dispatch(refreshAuth());
+            dispatch(refreshAccessToken());
           }
 
           dispatch({

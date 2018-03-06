@@ -10,6 +10,7 @@ exports[`renders correctly 1`] = `
         "marginVertical": 10,
       },
       undefined,
+      undefined,
     ]
   }
 >
@@ -283,6 +284,7 @@ exports[`renders tab 0 correctly 1`] = `
         "height": 50,
         "marginVertical": 10,
       },
+      undefined,
       undefined,
     ]
   }

@@ -12,6 +12,8 @@ import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 const mockState = {
   steps: {
     mine: [],
@@ -27,11 +29,46 @@ const mockState = {
 const mockPerson = {
   first_name: 'ben',
   id: 1,
+  reverse_contact_assignments: [ ],
+};
+
+const mockStage = {
+  name: 'forgiven',
+  id: 2,
+};
+
+const mockContactAssignment = {
+  id: 333,
 };
 
 const store = createMockStore(mockState);
 
+const createComponent = (isCurrentUser, contactStage, handleSaveNewSteps, handleSaveNewStage = null) => {
+  const screen = shallow(
+    <ContactSteps
+      isMe={isCurrentUser}
+      person={mockPerson}
+      contactStage={contactStage}
+      contactAssignment={mockContactAssignment}
+      onChangeStage={jest.fn()}
+      navigation={createMockNavState()}
+    />,
+    { context: { store } },
+  );
+
+  let component = screen.dive().dive().dive().instance();
+  component.handleSaveNewSteps = handleSaveNewSteps;
+  if (handleSaveNewStage) component.handleSaveNewStage = handleSaveNewStage;
+  return component;
+};
+
+let handleSaveNewStage;
+let handleSaveNewSteps;
+navigation.navigatePush = jest.fn();
+navigation.navigateBack = jest.fn();
+
 jest.mock('react-native-device-info');
+
 
 it('renders correctly', () => {
   testSnapshot(
@@ -42,47 +79,87 @@ it('renders correctly', () => {
 });
 
 
-describe('Navigation to steps screen', () => {
-  Enzyme.configure({ adapter: new Adapter() });
-  navigation.navigatePush = jest.fn();
-  const onSaveNewSteps = jest.fn();
+describe('handleCreateStep', () => {
 
-  const createComponent = (isCurrentUser) => {
-    const screen = shallow(
-      <ContactSteps
-        isMe={isCurrentUser}
-        person={mockPerson}
-        navigation={createMockNavState()}
-      />,
-      { context: { store } },
-    );
+  beforeAll(() => {
+    handleSaveNewStage = jest.fn();
+    handleSaveNewSteps = jest.fn();
+  });
 
-    let component = screen.dive().dive().dive().instance();
-    component.handleSaveNewSteps = onSaveNewSteps;
-    return component;
-  };
-
-  it('navigates to my steps', () => {
-    let component = createComponent(true);
-
+  it('navigates to select my steps', () => {
+    let component = createComponent(true, mockStage, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
-      { onSaveNewSteps, enableBackButton: true }
+      { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: mockStage }
     );
   });
 
-  it('navigates to person steps', () => {
-    let component = createComponent(false);
-
+  it('navigates to select my stage', () => {
+    let component = createComponent(true, undefined, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
+
+    expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
+  });
+
+  it('navigates to person steps', () => {
+    let component = createComponent(false, mockStage, handleSaveNewSteps, handleSaveNewStage);
+    component.handleCreateStep();
+
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       PERSON_SELECT_STEP_SCREEN,
       { contactName: mockPerson.first_name,
         contactId: mockPerson.id,
         contact: mockPerson,
-        onSaveNewSteps,
+        contactStage: mockStage,
+        organization: undefined,
+        onSaveNewSteps: expect.any(Function),
+        createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
+      },
+    );
+  });
+
+  it('navigates to person stage', () => {
+    let component = createComponent(false, undefined, handleSaveNewSteps, handleSaveNewStage);
+
+    component.handleCreateStep();
+    expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
+  });
+});
+
+
+describe('handleSaveNewStage', () => {
+  beforeAll(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    handleSaveNewSteps = jest.fn();
+  });
+
+  it('navigates from my stage to my steps', () => {
+    let component = createComponent(true, undefined, handleSaveNewSteps);
+    component.handleSaveNewStage(mockStage);
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      SELECT_MY_STEP_SCREEN, {
+        onSaveNewSteps: expect.any(Function),
+        enableBackButton: true,
+        contactStage: mockStage,
+      },
+    );
+  });
+
+  it('navigates from person stage to person steps', () => {
+    let component = createComponent(false, undefined, handleSaveNewSteps);
+    component.handleSaveNewStage(mockStage);
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      PERSON_SELECT_STEP_SCREEN, {
+        contactName: mockPerson.first_name,
+        contactId: mockPerson.id,
+        contact: mockPerson,
+        organization: undefined,
+        contactStage: mockStage,
+        onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
       },
     );

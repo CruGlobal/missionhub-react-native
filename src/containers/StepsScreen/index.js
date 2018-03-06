@@ -61,10 +61,6 @@ export class StepsScreen extends Component {
     this.getSteps();
   }
 
-  componentDidMount() {
-    console.warn(this.props.pushToken);
-  }
-
   getSteps() {
     return this.props.dispatch(getMySteps());
   }
@@ -232,7 +228,7 @@ export class StepsScreen extends Component {
               onAction={this.handleSetReminder} />
           </RowSwipeable>
         )}
-        removeClippedSubviews={true}
+        removeClippedSubviews={false}
         bounces={false}
         showsVerticalScrollIndicator={false}
         initialNumToRender={10}

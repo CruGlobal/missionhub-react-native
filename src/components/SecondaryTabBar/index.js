@@ -19,6 +19,7 @@ export default class SecondaryTabBar extends Component {
   state = {
     page: 0,
     notesAreActive: false,
+    hideTabBar: false,
   };
 
   onChangeTab = (index, activeTab) => {
@@ -28,11 +29,21 @@ export default class SecondaryTabBar extends Component {
     });
   };
 
+  shrinkHeader = () => {
+    this.props.onShrinkHeader();
+    this.setState({ hideTabBar: true });
+  }
+
+  openHeader = () => {
+    this.props.onOpenHeader();
+    this.setState({ hideTabBar: false });
+  }
+
   renderTabs = (tab) => {
     if (tab.page === 'steps') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactSteps isMe={this.props.isMe} person={this.props.person} organization={this.props.organization} contactStage={this.props.contactStage} />
+          <ContactSteps isMe={this.props.isMe} person={this.props.person} contactAssignment={this.props.contactAssignment} organization={this.props.organization} contactStage={this.props.contactStage} onChangeStage={this.props.onChangeStage} />
         </Flex>
       );
     } else if (tab.page === 'journey') {
@@ -44,7 +55,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'notes') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} isActiveTab={this.state.notesAreActive} />
+          <ContactNotes person={this.props.person} isActiveTab={this.state.notesAreActive} onNotesActive={this.shrinkHeader} onNotesInactive={this.openHeader} />
         </Flex>
       );
     } else if (tab.page === 'actions') {
@@ -56,7 +67,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'userImpact') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ImpactView user={this.props.person} isContactScreen={true} />
+          <ImpactView user={this.props.person} organization={this.props.organization} isContactScreen={true} />
         </Flex>
       );
     }
@@ -67,7 +78,7 @@ export default class SecondaryTabBar extends Component {
     const style = { backgroundColor: theme.white, ...isAndroid ? { flex: 1 } : {} };
 
     return (
-      <Flex value={1} self="stretch" >
+      <Flex value={1} self="stretch">
         <ScrollableTabView
           contentProps={{ keyboardShouldPersistTaps: 'handled', style: style }}
           tabBarPosition="top"
@@ -75,7 +86,7 @@ export default class SecondaryTabBar extends Component {
           page={isAndroid ? this.state.page : undefined}
           locked={true}
           prerenderingSiblingsNumber={0}
-          renderTabBar={() => <CustomTabs tabArray={tabs} onChangeTab={this.onChangeTab} />}
+          renderTabBar={() => <CustomTabs isHidden={this.state.hideTabBar} tabArray={tabs} onChangeTab={this.onChangeTab} />}
         >
           {
             tabs.map(this.renderTabs)
@@ -89,5 +100,8 @@ export default class SecondaryTabBar extends Component {
 SecondaryTabBar.propTypes = {
   tabs: PropTypes.array.isRequired,
   person: PropTypes.object.isRequired,
+  contactAssignment: PropTypes.object,
   organization: PropTypes.object,
+  onShrinkHeader: PropTypes.func,
+  onOpenHeader: PropTypes.func,
 };
