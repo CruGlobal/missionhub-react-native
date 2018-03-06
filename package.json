@@ -19,7 +19,6 @@
 		"android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
 		"android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
 		"android:build": "react-native run-android --variant=release",
-		"precommit-msg": "echo 'Pre-commit checks...' && exit 0",
 		"onesky:upload": "babel-node ./bin/oneskyUpload.js",
 		"onesky:download": "babel-node ./bin/oneskyDownload.js"
 	},
@@ -46,7 +45,7 @@
 		"react-native-device-info": "0.12.1",
 		"react-native-fabric": "0.5.1",
 		"react-native-fbsdk": "0.7.0",
-		"react-native-omniture": "github:dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15",
+		"react-native-omniture": "https://github.com/dsgoers/react-native-omniture#4eb498b88f18942b3fdb03094f99b2d77fe8fc15",
 		"react-native-push-notification": "3.0.2",
 		"react-native-scrollable-tab-view": "0.8.0",
 		"react-native-snap-carousel": "3.4.0",
@@ -79,15 +78,10 @@
 		"jest-cli": "21.2.1",
 		"mockdate": "2.0.2",
 		"onesky-utils": "1.2.0",
-		"pre-commit": "1.2.2",
 		"react-dom": "16.2.0",
 		"react-test-renderer": "16.0.0-beta.5",
 		"redux-mock-store": "1.3.0"
 	},
-	"pre-commit": [
-		"precommit-msg",
-		"lint"
-	],
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
