@@ -62,8 +62,9 @@ export class StepsScreen extends Component {
     this.getSteps();
   }
 
-  getSteps() {
-    return this.props.dispatch(getMySteps()).then(() => this.setState({ loading: false }));
+  async getSteps() {
+    await this.props.dispatch(getMySteps());
+    this.setState({ loading: false });
   }
 
   completeStepBump() {

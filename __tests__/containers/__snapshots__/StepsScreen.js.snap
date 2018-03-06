@@ -25,7 +25,7 @@ Object {
 }
 `;
 
-exports[`StepsScreen renders correctly renders empty screen correctly 1`] = `
+exports[`StepsScreen renders empty screen correctly 1`] = `
 <View
   style={
     Object {
@@ -165,7 +165,7 @@ exports[`StepsScreen renders correctly renders empty screen correctly 1`] = `
 </View>
 `;
 
-exports[`StepsScreen renders correctly renders loading screen correctly 1`] = `
+exports[`StepsScreen renders loading screen correctly 1`] = `
 <View
   style={
     Object {
@@ -239,7 +239,7 @@ exports[`StepsScreen renders correctly renders loading screen correctly 1`] = `
 </View>
 `;
 
-exports[`StepsScreen renders correctly renders screen with steps correctly 1`] = `
+exports[`StepsScreen renders screen with steps correctly 1`] = `
 <View
   style={
     Object {

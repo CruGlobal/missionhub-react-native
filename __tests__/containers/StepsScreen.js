@@ -6,8 +6,6 @@ import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
 jest.mock('../../src/selectors/steps');
 import theme from '../../src/theme';
-import Enzyme from 'enzyme/build/index';
-import Adapter from 'enzyme-adapter-react-16/build/index';
 
 const store = {
   steps: {
@@ -68,6 +66,8 @@ const propsWithoutSteps = {
 };
 
 describe('StepsScreen', () => {
+  let component;
+
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
       reminderStepsSelector.mockReturnValue([ { id: 1, reminder: true } ]);
@@ -76,45 +76,39 @@ describe('StepsScreen', () => {
     });
   });
 
+  const createComponent = (props) => {
+    const screen = renderShallow(<StepsScreen {...props} />);
+    return screen;
+  };
 
-  describe('renders correctly', () => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const createComponent = (props) => {
-      const screen = renderShallow(
-        <StepsScreen {...props} />,
-      );
-      return screen;
-    };
+  const stopLoad = (component) => {
+    component.instance().setState({ loading: false });
+    component.update();
+    return component;
+  };
 
-    it('renders loading screen correctly', () => {
-      let component = createComponent(propsWithSteps);
+  it('renders loading screen correctly', () => {
+    component = createComponent(propsWithSteps);
 
-      expect(component).toMatchSnapshot();
-    });
-
-    it('renders empty screen correctly', () => {
-      let component = createComponent(propsWithoutSteps);
-      component.instance().setState({ loading: false });
-      component.update();
-      expect(component).toMatchSnapshot();
-    });
-
-    it('renders screen with steps correctly', () => {
-      let component = createComponent(propsWithSteps);
-      component.instance().setState({ loading: false });
-      component.update();
-      expect(component).toMatchSnapshot();
-    });
+    expect(component).toMatchSnapshot();
   });
 
+  it('renders empty screen correctly', () => {
+    component = createComponent(propsWithoutSteps);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders screen with steps correctly', () => {
+    component = createComponent(propsWithSteps);
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
 
   describe('Background color changes with scrolling', () => {
-    let component;
-
     beforeEach(() => {
-      component = renderShallow(<StepsScreen {...propsWithSteps} />);
-      component.instance().setState({ loading: false });
-      component.update();
+      component = createComponent(propsWithSteps);
+      component = stopLoad(component);
     });
 
     const getBackgroundColor = (component) => {
