@@ -63,6 +63,7 @@ export default {
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
   statusBarColor: colorConvert({ color: SECONDARY, darken: 0.3, hex: true }),
+  buttonHeight: 60,
   buttonBackgroundColor: COLORS.TRANSPARENT,
   buttonBorderColor: COLORS.WHITE,
   buttonBorderWidth: 1,
@@ -85,5 +86,4 @@ export default {
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
   headerHeight: isAndroid ? 56 : 65,
-  itemHeight: 90,
 };

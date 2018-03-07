@@ -11,6 +11,7 @@ import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
+import theme from '../../theme';
 
 @translate('notes')
 export class ContactNotes extends Component {
@@ -134,7 +135,7 @@ export class ContactNotes extends Component {
 
   render() {
     return (
-      <PlatformKeyboardAvoidingView offset={60}>
+      <PlatformKeyboardAvoidingView offset={theme.buttonHeight}>
         { (this.state.text || this.state.editing) ? this.renderNotes() : this.renderEmpty() }
         <Flex justify="end">
           <Button
