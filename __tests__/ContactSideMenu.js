@@ -10,6 +10,7 @@ import { navigatePush, navigateBack } from '../src/actions/navigation';
 import { updateFollowupStatus, createContactAssignment, deleteContactAssignment } from '../src/actions/person';
 import { deleteStep } from '../src/actions/steps';
 import { personSelector, contactAssignmentSelector, orgPermissionSelector } from '../src/selectors/people';
+import { DRAWER_CLOSE } from '../src/constants';
 jest.mock('../src/actions/navigation');
 jest.mock('../src/actions/person');
 jest.mock('../src/actions/steps');
@@ -23,6 +24,7 @@ const organization = { id: 1, type: 'organization' };
 
 beforeEach(() => {
   dispatch.mockClear();
+  navigateBack.mockClear();
   navigatePush.mockClear();
   deleteStep.mockClear();
   deleteContactAssignment.mockClear();
@@ -255,7 +257,8 @@ function testUnassignClick(component, deleteMode = false) {
   //Manually call onPress
   Alert.alert.mock.calls[0][2][1].onPress();
   expect(component.instance().deleteOnUnmount).toEqual(true);
-  expect(navigateBack).toHaveBeenCalledWith(2);
+  expect(navigatePush).toHaveBeenCalledWith(DRAWER_CLOSE);
+  expect(navigateBack).toHaveBeenCalledTimes(1);
 }
 
 function testDeleteClick(component) {
