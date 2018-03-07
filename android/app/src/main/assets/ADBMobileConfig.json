@@ -17,7 +17,7 @@
     "appid": "58da46bb049b81f56c62a3b2a126f7de7d33c2fb0cbd064245adf44706925d3f"
   },
   "analytics": {
-    "rsids": "crumissionhubstaging",
+    "rsids": "crumissionhub,cruproduction",
     "server": "cru.sc.omtrdc.net",
     "ssl": true,
     "offlineEnabled": true,
