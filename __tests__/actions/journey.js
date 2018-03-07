@@ -1,4 +1,4 @@
-import { getJourney } from '../../src/actions/journey';
+import { getJourney, reloadJourney } from '../../src/actions/journey';
 import { getStepsByFilter } from '../../src/actions/steps';
 import { getPersonJourneyDetails } from '../../src/actions/person';
 jest.mock('../../src/actions/stages');
@@ -13,6 +13,11 @@ const mockStore = configureStore([ thunk ]);
 const personId = '2';
 const myId = '1';
 const orgId = '1';
+const mockState = {
+  auth: { personId: myId },
+};
+
+let store;
 
 const steps = [
   {
@@ -147,14 +152,34 @@ const person = {
 getStepsByFilter.mockReturnValue(() => Promise.resolve({ response: steps }));
 getPersonJourneyDetails.mockReturnValue(() => Promise.resolve({ response: person }));
 
-describe('get journey', () => {
-  let store;
+describe('reload journey', () => {
+  it('should not load if journey has not been fetched for org', async() => {
+    store = mockStore({ ...mockState, journey: { all: { 'personal': {} } } });
 
-  beforeEach(() => {
-    store = mockStore({
-      auth: { personId: myId },
-    });
+    await store.dispatch(reloadJourney(personId, orgId));
+
+    expect(store.getActions()).toEqual([]);
   });
+
+  it('should not load if journey has not been fetched for person', async() => {
+    store = mockStore({ ...mockState, journey: { all: { 'personal': {}, [orgId]: {} } } });
+
+    await store.dispatch(reloadJourney(personId, orgId));
+
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('should reload if journey has been fetched for person', async() => {
+    store = mockStore({ ...mockState, journey: { all: { 'personal': { [personId]: [] } } } });
+
+    await store.dispatch(reloadJourney(personId));
+
+    expect(store.getActions().length).toEqual(1);
+  });
+});
+
+describe('get journey', () => {
+  beforeEach(() => store = mockStore(mockState));
 
   it('should get a person\'s journey without an org (personal ministry)', async() => {
     expect(await store.dispatch(getJourney(personId))).toMatchSnapshot();
