@@ -1,33 +1,50 @@
 import { getStepsByFilter } from './steps';
 import { getPersonJourneyDetails } from './person';
+import { UPDATE_JOURNEY_ITEMS } from '../constants';
+
+export function reloadJourney(personId, orgId) {
+  return async(dispatch, getState) => {
+    const org = getState().journey[orgId ? orgId : 'personal'];
+    const personFeed = org && org[personId];
+    // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
+    return personFeed && await dispatch(getJourney(personId, orgId));
+  };
+}
 
 export function getJourney(personId, orgId) {
   return async(dispatch, getState) => {
-    const { personId: myId } = getState().auth;
+    try {
 
-    const [ person, journeySteps ] = await Promise.all([
-      getJourneyPerson(dispatch, personId),
-      getJourneySteps(dispatch, personId, orgId),
-    ]);
+      const { personId: myId } = getState().auth;
 
-    const journeyItems = [
-      ...journeySteps,
-      ...getJourneyInteractions(person, myId, orgId),
-      ...orgId ? getJourneySurveys(person, orgId) : [],
-    ]
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
+      const [ person, journeySteps ] = await Promise.all([
+        getJourneyPerson(dispatch, personId),
+        getJourneySteps(dispatch, personId, orgId),
+      ]);
 
-    // Add this so we know where to show the bump action on comments
-    // We only want to show it if it's one of the first couple of items, otherwise the user won't see it.
-    const checkCommentOnFirstItems = 3;
-    for (let i = 0; i < checkCommentOnFirstItems; i++) {
-      if (journeyItems[i] && journeyItems[i].type === 'interaction') {
-        journeyItems[i].isFirstInteraction = true;
-        break;
+      const journeyItems = [
+        ...journeySteps,
+        ...getJourneyInteractions(person, myId, orgId),
+        ...orgId ? getJourneySurveys(person, orgId) : [],
+      ]
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Add this so we know where to show the bump action on comments
+      // We only want to show it if it's one of the first couple of items, otherwise the user won't see it.
+      const checkCommentOnFirstItems = 3;
+      for (let i = 0; i < checkCommentOnFirstItems; i++) {
+        if (journeyItems[ i ] && journeyItems[ i ].type === 'interaction') {
+          journeyItems[ i ].isFirstInteraction = true;
+          break;
+        }
       }
-    }
 
-    return journeyItems;
+      dispatch(updateJourney(personId, orgId, journeyItems));
+      return journeyItems;
+    }
+    catch (e) {
+      return [];
+    }
   };
 }
 
@@ -90,4 +107,13 @@ function getJourneySurveys(person, orgId) {
       type: 'survey',
       date: s.created_at,
     }));
+}
+
+export function updateJourney(personId, orgId, journeyItems) {
+  return {
+    type: UPDATE_JOURNEY_ITEMS,
+    personId,
+    orgId,
+    journeyItems,
+  };
 }
