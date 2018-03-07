@@ -22,7 +22,7 @@ export default class JourneyItem extends Component {
     if (type === 'step') {
       title = t('stepTitle');
     } else if (type === 'stage') {
-      if (item.old_stage) {
+      if (item.old_pathway_stage) {
         title = t('stageTitle', { oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
         title = item.new_pathway_stage.name;
@@ -53,7 +53,7 @@ export default class JourneyItem extends Component {
         text = `${text}\n\n${item.note}`;
       }
     } else if (type === 'stage') {
-      if (item.old_stage) {
+      if (item.old_pathway_stage) {
         text = t('stageText', { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
         text = t('stageStart', { personName: item.personName, newStage: item.new_pathway_stage.name });

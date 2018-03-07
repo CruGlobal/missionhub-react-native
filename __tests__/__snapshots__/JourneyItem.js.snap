@@ -521,7 +521,7 @@ exports[`stage is rendered correctly with old stage 1`] = `
         ]
       }
     >
-      Curious
+      Uninterested to Curious
     </Text>
     <Text
       accessible={true}
@@ -541,7 +541,7 @@ exports[`stage is rendered correctly with old stage 1`] = `
         ]
       }
     >
-      You added  to MissionHub as Curious
+      Test Person changed from Uninterested to Curious
     </Text>
   </View>
 </View>
