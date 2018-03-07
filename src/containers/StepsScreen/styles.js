@@ -24,6 +24,10 @@ export default StyleSheet.create({
     paddingHorizontal: 27,
     paddingVertical: 32,
   },
+  topSticky: {
+    position: 'absolute',
+    top: 0,
+  },
   title: {
     fontSize: 36,
     color: theme.white,
