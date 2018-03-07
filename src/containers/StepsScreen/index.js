@@ -163,7 +163,9 @@ export class StepsScreen extends Component {
   renderFocusPrompt() {
     const { reminders, t } = this.props;
 
-    if (this.noSteps() || reminders.length > 0) return null;
+    if (this.noSteps() || reminders.length > 0) {
+      return null;
+    }
 
     return (
       <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
