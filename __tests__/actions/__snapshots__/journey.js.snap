@@ -35,8 +35,8 @@ Array [
     "id": "1",
     "new_pathway_stage": Object {
       "_type": "pathway_stage",
-      "id": "1",
-      "name": "Uninterested",
+      "id": "2",
+      "name": "Curious",
     },
     "old_pathway_stage": Object {
       "_type": "pathway_stage",
@@ -104,8 +104,8 @@ Array [
     "id": "4",
     "new_pathway_stage": Object {
       "_type": "pathway_stage",
-      "id": "1",
-      "name": "Uninterested",
+      "id": "2",
+      "name": "Curious",
     },
     "old_pathway_stage": Object {
       "_type": "pathway_stage",
