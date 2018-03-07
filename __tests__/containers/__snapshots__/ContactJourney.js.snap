@@ -73,6 +73,7 @@ exports[`renders correctly 1`] = `
       data={
         Array [
           Object {
+            "date": "2010-01-01 12:12:12",
             "id": 84472,
             "type": "step",
           },
@@ -341,7 +342,7 @@ exports[`renders correctly 1`] = `
                       ]
                     }
                   >
-                    March 6, 2018
+                    January 1, 2010
                   </Text>
                   <Text
                     accessible={true}
