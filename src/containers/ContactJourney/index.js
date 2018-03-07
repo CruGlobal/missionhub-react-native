@@ -27,10 +27,7 @@ class ContactJourney extends Component {
 
     const isPersonal = !props.isCasey && !props.organization;
 
-
     this.state = {
-      isLoading: true,
-      journey: [],
       editingInteraction: null,
       isPersonalMinistry: isPersonal,
     };
@@ -54,14 +51,7 @@ class ContactJourney extends Component {
   getInteractions() {
     const { dispatch, person, organization } = this.props;
 
-    dispatch(getJourney(person.id, organization && organization.id)).then((items) => {
-      this.setState({
-        journey: items,
-        isLoading: false,
-      });
-    }).catch(() => {
-      this.setState({ isLoading: false });
-    });
+    dispatch(getJourney(person.id, organization && organization.id));
   }
 
   handleEditInteraction(interaction) {
@@ -128,12 +118,12 @@ class ContactJourney extends Component {
   }
 
   renderList() {
-    const { journey } = this.state;
+    const { journeyItems } = this.props;
     return (
       <FlatList
         ref={(c) => this.list = c}
         style={styles.list}
-        data={journey}
+        data={journeyItems}
         keyExtractor={(i) => i.id}
         renderItem={this.renderRow}
         bounces={true}
@@ -165,19 +155,23 @@ class ContactJourney extends Component {
   }
 
   renderContent() {
-    const { journey, isLoading } = this.state;
-    if (isLoading) return this.renderLoading();
-    if (journey.length === 0) return this.renderNull();
-    return this.renderList();
+    const { journeyItems } = this.props;
+    const isLoading = !journeyItems;
+    const hasItems = journeyItems && journeyItems.length > 0;
+    return (
+      <Flex align="center" justify="center" value={1} style={styles.container}>
+        {!isLoading && !hasItems && this.renderNull()}
+        {isLoading && this.renderLoading()}
+        {hasItems && this.renderList()}
+      </Flex>
+    );
   }
 
   render() {
     const { t } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <Flex align="center" justify="center" value={1} style={styles.container}>
-          {this.renderContent()}
-        </Flex>
+        {this.renderContent()}
         <Flex justify="end">
           <Button
             type="secondary"
@@ -195,10 +189,17 @@ ContactJourney.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth, swipe }) => ({
-  isCasey: !auth.isJean,
-  myId: auth.personId,
-  showReminder: swipe.journey,
-});
+const mapStateToProps = ({ auth, swipe, journey }, { person, organization }) => {
+  const organizationId = organization ? organization.id : 'personal';
+  const journeyOrg = journey[organizationId];
+  const journeyItems = journeyOrg ? journeyOrg[person.id] : undefined;
+
+  return {
+    journeyItems,
+    isCasey: !auth.isJean,
+    myId: auth.personId,
+    showReminder: swipe.journey,
+  };
+};
 
 export default connect(mapStateToProps)(ContactJourney);

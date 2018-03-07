@@ -7,6 +7,7 @@ import { translate } from 'react-i18next';
 
 import { removeSwipeStepsContact } from '../../actions/swipe';
 import { getStepsByFilter, completeStep, deleteStepWithTracking } from '../../actions/steps';
+import { reloadJourney } from '../../actions/journey';
 
 import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
@@ -58,10 +59,11 @@ class ContactSteps extends Component {
     });
   }
 
-  handleComplete(step) {
-    this.props.dispatch(completeStep(step)).then(() => {
-      this.getSteps();
-    });
+  async handleComplete(step) {
+    const { dispatch, person, organization } = this.props;
+    await dispatch(completeStep(step));
+    this.getSteps();
+    dispatch(reloadJourney(person.id, organization ? organization.id : undefined));
   }
 
   handleSaveNewSteps() {
