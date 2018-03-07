@@ -74,7 +74,7 @@ function getJourneyInteractions(person, myId, orgId) {
         },
         new_pathway_stage: {
           name: '',
-          ...audit.old_pathway_stage,
+          ...audit.new_pathway_stage,
         },
         date: audit.created_at,
       })),
