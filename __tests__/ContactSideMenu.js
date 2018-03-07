@@ -24,6 +24,7 @@ const organization = { id: 1, type: 'organization' };
 
 beforeEach(() => {
   dispatch.mockClear();
+  navigateBack.mockClear();
   navigatePush.mockClear();
   deleteStep.mockClear();
   deleteContactAssignment.mockClear();
@@ -257,7 +258,7 @@ function testUnassignClick(component, deleteMode = false) {
   Alert.alert.mock.calls[0][2][1].onPress();
   expect(component.instance().deleteOnUnmount).toEqual(true);
   expect(navigatePush).toHaveBeenCalledWith(DRAWER_CLOSE);
-  expect(navigateBack).toHaveBeenCalledWith();
+  expect(navigateBack).toHaveBeenCalledTimes(1);
 }
 
 function testDeleteClick(component) {
