@@ -1,5 +1,5 @@
 import { getPerson } from './person';
-import { navigatePush } from './navigation';
+import { navigateReset } from './navigation';
 import { logInAnalytics } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
@@ -22,7 +22,7 @@ export function onSuccessfulLogin() {
       }
     }
 
-    return dispatch(navigatePush(nextScreen));
+    return dispatch(navigateReset(nextScreen));
   };
 }
 

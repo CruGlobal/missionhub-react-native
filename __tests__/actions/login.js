@@ -32,7 +32,7 @@ describe('onSuccessfulLogin', () => {
     mockFnWithParams(getPersonResult, 'find', myPerson, 'person', personId);
 
     mockFnWithParams(person, 'getPerson', () => Promise.resolve(getPersonResult), personId);
-    navigation.navigatePush = (screen) => ({ type: screen });
+    navigation.navigateReset = (screen) => ({ type: screen });
   });
 
   it('should navigate to Get Started', async() => {
