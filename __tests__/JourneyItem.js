@@ -29,15 +29,25 @@ describe('step', () => {
   });
 });
 
-it('renders stage correctly', () => {
-  testSnapshot(
-    <JourneyItem item={{
-      ...mockStep,
-      personName: 'Test Person',
-      old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
-      new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
-    }} type="stage" />
-  );
+describe('stage', () => {
+  const mockStage = {
+    ...mockStep,
+    personName: 'Test Person',
+    new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
+  };
+
+  it('is rendered correctly with old stage', () => {
+    testSnapshot(
+      <JourneyItem item={{ ...mockStage, old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' } }} type="stage" />
+    );
+  });
+
+  it('is rendered correctly without old stage', () => {
+    testSnapshot(
+      <JourneyItem item={{ ...mockStage, old_pathway_stage: { name: '' } }} type="stage" />
+
+    );
+  });
 });
 
 it('renders survey correctly', () => {

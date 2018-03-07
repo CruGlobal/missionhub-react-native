@@ -16,13 +16,26 @@ export default class JourneyItem extends Component {
 
     return <DateComponent date={item.date} style={styles.date} format="LL" />;
   }
+
+  hasOldStage(item) {
+    return item.old_pathway_stage.name;
+  }
+
+  translatableStage(item) {
+    return { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name };
+  }
+
   renderTitle() {
     const { t, item, type } = this.props;
     let title;
     if (type === 'step') {
       title = t('stepTitle');
     } else if (type === 'stage') {
-      title = t('stageTitle', { oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
+      if (item.old_pathway_stage.name) {
+        title = t('stageTitle', this.translatableStage(item));
+      } else {
+        title = item.new_pathway_stage.name;
+      }
     } else if (type === 'survey' && item.survey) {
       title = item.survey.title;
     } else if (type === 'interaction') {
@@ -49,7 +62,11 @@ export default class JourneyItem extends Component {
         text = `${text}\n\n${item.note}`;
       }
     } else if (type === 'stage') {
-      text = t('stageText', { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
+      if (this.hasOldStage(item)) {
+        text = t('stageText', this.translatableStage(item));
+      } else {
+        text = t('stageStart', this.translatableStage(item));
+      }
     } else {
       text = item.text;
     }
