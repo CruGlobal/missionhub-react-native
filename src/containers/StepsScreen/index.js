@@ -162,7 +162,7 @@ export class StepsScreen extends Component {
     if ((reminders.length === 0 && steps.length === 0) || reminders.length > 0) return null;
 
     return (
-      <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty, /*styles.topSticky*/ ]}>
+      <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
         <Icon name="starGroupIcon" type="MissionHub" size={45} />
         <Text type="header" style={styles.title}>
           {t('reminderTitle').toUpperCase()}
@@ -175,11 +175,11 @@ export class StepsScreen extends Component {
   }
 
   renderReminders() {
-    const { reminders, steps, t, showStepReminderBump } = this.props;
+    const { reminders, steps, showStepReminderBump } = this.props;
 
     if (reminders.length === 0 && steps.length === 0) return null;
 
-    if (reminders.length > 0) return (
+    return (
       <Flex align="center" style={[ styles.top, styles.topItems ]}>
         {
           reminders.map((s, index) => (
@@ -200,17 +200,6 @@ export class StepsScreen extends Component {
         }
       </Flex>
     );
-    /*return (
-      <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
-        <Icon name="starGroupIcon" type="MissionHub" size={45} />
-        <Text type="header" style={styles.title}>
-          {t('reminderTitle').toUpperCase()}
-        </Text>
-        <Text style={styles.description}>
-          {t('reminderDescription')}
-        </Text>
-      </Flex>
-    );*/
   }
 
   renderList() {
@@ -293,7 +282,6 @@ export class StepsScreen extends Component {
         >
           {this.renderReminders()}
           {this.renderList()}
-          {/*this.renderFocusPrompt()*/}
         </ScrollView>
       </View>
     );
