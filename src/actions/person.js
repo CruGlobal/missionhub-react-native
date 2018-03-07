@@ -1,5 +1,5 @@
 import callApi, { REQUESTS } from './api';
-import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS } from '../constants';
+import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
 import { getMyPeople } from './people';
 
@@ -15,13 +15,18 @@ export function getPerson(id) {
   };
 }
 
-export function getPersonDetails(id) {
+export function getPersonDetails(id, orgId) {
   return async(dispatch) => {
     const query = {
       person_id: id,
       include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
     };
-    return await dispatch(callApi(REQUESTS.GET_PERSON, query));
+    const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
+    return dispatch({
+      type: LOAD_PERSON_DETAILS,
+      person,
+      orgId,
+    });
   };
 }
 
@@ -76,13 +81,13 @@ export function getPersonNote(personId, myId) {
   };
 }
 
-export function getPersonJourneyDetails(id, query = {}) {
+export function getPersonJourneyDetails(id) {
   return (dispatch) => {
-    const newQuery = {
+    const query = {
       person_id: id,
-      ...query,
+      include: 'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
-    return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, newQuery));
+    return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, query));
   };
 }
 

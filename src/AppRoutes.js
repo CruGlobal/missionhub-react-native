@@ -149,7 +149,7 @@ const screens = {
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
   [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
   [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(StageSuccessScreen, buildTrackingObj('onboarding : self : choose my steps', 'onboarding', 'self')),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
+  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps')),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(SelectMyStepScreen, buildTrackingObj('onboarding : self : steps : add', 'onboarding', 'self', 'steps')),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(AddSomeoneScreen, buildTrackingObj('onboarding : add person', 'onboarding', 'add person')),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(AddContactScreen, buildTrackingObj('people : add person', 'people', 'add person')),

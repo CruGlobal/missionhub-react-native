@@ -1,107 +1,21 @@
-// import callApi, { REQUESTS } from './api';
 import { getStepsByFilter } from './steps';
-import { getStages } from './stages';
 import { getPersonJourneyDetails } from './person';
-import { findAllNonPlaceHolders } from '../utils/common';
 
-export function getJourney(personId, personal = false, organization) {
+export function getJourney(personId, orgId) {
   return async(dispatch, getState) => {
-    // const { personId: myId, isJean } = getState().auth.personId;
-    const { isJean } = getState().auth;
+    const { personId: myId } = getState().auth;
 
-    let journeySteps = [];
-    let journeyInteractions = [];
-    let journeySurveys = [];
+    const [ person, journeySteps ] = await Promise.all([
+      getJourneyPerson(dispatch, personId),
+      getJourneySteps(dispatch, personId, orgId),
+    ]);
 
-    // Get the steps
-    const stepsFilter = {
-      completed: true,
-      receiver_ids: personId,
-    };
-    const steps = await dispatch(getStepsByFilter(stepsFilter));
-    journeySteps = findAllNonPlaceHolders(steps, 'accepted_challenge').map((s) => ({
-      ...s,
-      type: 'step',
-      date: s.completed_at,
-    }));
-
-    // Get the interactions
-    const personQuery = {
-      include: 'pathway_progression_audits,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
-    };
-    const person = await dispatch(getPersonJourneyDetails(personId, personQuery));
-    journeyInteractions = findAllNonPlaceHolders(person, 'contact_assignment')
-      .concat(findAllNonPlaceHolders(person, 'interaction'))
-      .concat(findAllNonPlaceHolders(person, 'pathway_progression_audit'));
-
-    let stagesObj = getState().stages.stagesObj;
-
-    if (!stagesObj) {
-      await dispatch(getStages());
-      stagesObj = getState().stages.stagesObj;
-    }
-      
-
-    journeyInteractions = journeyInteractions.map((j) => {
-      let text = '';
-      let type = 'interaction';
-      let date = j.created_at;
-      if (j.comment) {
-        // type = 'comment';
-        text = j.comment;
-      }
-      if (j.new_pathway_stage && j.old_pathway_stage) {
-        type = 'stage';
-        const oldStage = stagesObj[`${j.old_pathway_stage.id}`];
-        j.old_stage = oldStage && oldStage.name;
-        const newStage = stagesObj[`${j.new_pathway_stage.id}`];
-        j.new_stage = newStage && newStage.name;
-        j.name = j.person ? j.person.first_name : '';
-      }
-      return {
-        ...j,
-        text,
-        type,
-        date,
-      };
-    });
-    
-    
-
-    // For no organizations, filter out any interactions that have an organization id
-
-    // For interactions, filter out by organization
-
-    // For interactions, filter out by initiators array
-
-    
-    if (isJean && !personal) {
-      journeySurveys = findAllNonPlaceHolders(person, 'answer_sheet')
-        .filter((s) => organization && s.survey && s.survey.organization_id && `${organization.id}` === `${s.survey.organization_id}`)
-        .map((s) => ({
-          ...s,
-          type: 'survey',
-          date: s.created_at,
-        }));
-    }
-
-
-    // Combine all and then update the store
-    let journeyItems = [].concat(
-      journeySteps,
-      journeyInteractions,
-      journeySurveys,
-    );
-    journeyItems.sort((a, b) => {
-      const aDate = new Date(a.date);
-      const bDate = new Date(b.date);
-      if (aDate > bDate) {
-        return -1;
-      } else if (aDate < bDate) {
-        return 1;
-      }
-      return 0;
-    });
+    const journeyItems = [
+      ...journeySteps,
+      ...getJourneyInteractions(person, myId, orgId),
+      ...orgId ? getJourneySurveys(person, orgId) : [],
+    ]
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     // Add this so we know where to show the bump action on comments
     // We only want to show it if it's one of the first couple of items, otherwise the user won't see it.
@@ -115,4 +29,65 @@ export function getJourney(personId, personal = false, organization) {
 
     return journeyItems;
   };
+}
+
+async function getJourneySteps(dispatch, personId, orgId) {
+  const stepsFilter = {
+    completed: true,
+    receiver_ids: personId,
+    organization_ids: orgId,
+  };
+  const { response: steps } = await dispatch(getStepsByFilter(stepsFilter));
+  return steps
+    .filter((step) => orgId || !step.organization || !step.organization.id) // for personal ministry, filter out all org steps
+    .map((s) => ({
+      ...s,
+      type: 'step',
+      date: s.completed_at,
+    }));
+}
+
+async function getJourneyPerson(dispatch, personId) {
+  const { response: person } = await dispatch(getPersonJourneyDetails(personId));
+  return person;
+}
+
+function getJourneyInteractions(person, myId, orgId) {
+  return [
+    ...person.interactions
+      .filter((interaction) => interaction.initiators && interaction.initiators.some((initiator) => initiator.id === myId))
+      .map((interaction) => ({
+        ...interaction,
+        type: 'interaction',
+        text: interaction.comment || '',
+        date: interaction.created_at,
+      })),
+    ...person.pathway_progression_audits
+      .filter((audit) => audit.assigned_to && audit.assigned_to.id === myId || audit.person.id === myId)
+      .map((audit) => ({
+        ...audit,
+        type: 'stage',
+        personName: person.first_name,
+        old_pathway_stage: {
+          name: '',
+          ...audit.old_pathway_stage,
+        },
+        new_pathway_stage: {
+          name: '',
+          ...audit.old_pathway_stage,
+        },
+        date: audit.created_at,
+      })),
+  ]
+    .filter((interaction) => !orgId && !interaction.organization || interaction.organization && interaction.organization.id === orgId);
+}
+
+function getJourneySurveys(person, orgId) {
+  return person.answer_sheets
+    .filter((answerSheet) => answerSheet.survey && answerSheet.survey.organization_id === orgId)
+    .map((s) => ({
+      ...s,
+      type: 'survey',
+      date: s.created_at,
+    }));
 }

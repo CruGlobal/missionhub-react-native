@@ -6,7 +6,6 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-
   },
   backgroundTop: {
     backgroundColor: theme.backgroundColor,
@@ -52,5 +51,14 @@ export default StyleSheet.create({
     paddingHorizontal: 70,
     textAlign: 'center',
     paddingVertical: 10,
+  },
+  gif: {
+    flex: 1,
+    width: theme.fullWidth,
+  },
+  loadText: {
+    fontSize: 64,
+    color: theme.primaryColor,
+    paddingVertical: 0,
   },
 });

@@ -1,13 +1,13 @@
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
-import { completeStep, getStepSuggestions, getMyStepsNextPage } from '../../src/actions/steps';
+import { completeStep, getStepSuggestions, getMyStepsNextPage, setStepFocus } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
-import { ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE } from '../../src/constants';
+import { ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import i18next from 'i18next';
 
@@ -39,7 +39,7 @@ describe('get steps page', () => {
     order: '-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
-    include: 'receiver',
+    include: 'receiver.reverse_contact_assignments',
   };
   const apiResult = { type: 'done' };
 
@@ -70,7 +70,7 @@ describe('complete challenge', () => {
   const stepsQuery = {
     order: '-accepted_at',
     filters: { completed: false },
-    include: 'receiver',
+    include: 'receiver.reverse_contact_assignments',
   };
   const data = {
     data: {
@@ -111,5 +111,76 @@ describe('complete challenge', () => {
       trackStateResult,
       trackActionResult,
     ]);
+  });
+});
+
+
+describe('Set Focus', () => {
+  const personId= 123;
+  const receiverId= 456;
+
+  const stepId= 102;
+  const step = {
+    id: stepId,
+    receiver: { id: receiverId },
+  };
+
+  const query = { challenge_id: stepId };
+
+  const focusData = {
+    data: {
+      type: 'accepted_challenge',
+      attributes: {
+        organization_id: null,
+        focus: true,
+      },
+      relationships: {
+        receiver: {
+          data: {
+            type: 'person',
+            id: receiverId,
+          },
+        },
+      },
+    },
+  };
+
+  const unfocusData = {
+    data: {
+      type: 'accepted_challenge',
+      attributes: {
+        organization_id: null,
+        focus: false,
+      },
+      relationships: {
+        receiver: {
+          data: {
+            type: 'person',
+            id: receiverId,
+          },
+        },
+      },
+    },
+  };
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { personId: personId },
+      steps: { userStepCount: { [receiverId]: 2 } },
+    });
+
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+  });
+
+  it('Focus set to true', async() => {
+    await store.dispatch(setStepFocus(step, true));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, focusData);
+    expect(store.getActions()).toEqual([ { type: ADD_STEP_REMINDER, step: step } ]);
+  });
+
+  it('Focus set to false', async() => {
+    await store.dispatch(setStepFocus(step, false));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
+    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
   });
 });

@@ -91,6 +91,7 @@ class ContactSteps extends Component {
         },
         enableBackButton: true,
         contactStage: stage,
+        organization,
       }));
     } else {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
@@ -103,11 +104,10 @@ class ContactSteps extends Component {
           this.handleSaveNewSteps();
           onComplete && onComplete();
         },
-        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps') }));
+        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
+      }));
+      this.props.dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
     }
-
-    const trackingObj = buildTrackingObj(`people : ${subsection} : steps : add`, 'people', subsection, 'steps');
-    this.props.dispatch(trackState(trackingObj));
   }
 
   handleCreateStep() {

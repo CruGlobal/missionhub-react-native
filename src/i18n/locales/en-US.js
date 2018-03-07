@@ -79,6 +79,7 @@ export default {
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
     signOut: 'Sign out',
+    signUp: 'Upgrade Account',
   },
   login: {
     tagline1: 'Grow closer to God.',
@@ -176,7 +177,7 @@ export default {
   journeyItem: {
     stepTitle: 'Growing Step of Faith',
     stageTitle: '{{oldStage}} to {{newStage}}',
-    stageText: '{{name}} changed from {{oldStage}} to {{newStage}}',
+    stageText: '{{personName}} changed from {{oldStage}} to {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',

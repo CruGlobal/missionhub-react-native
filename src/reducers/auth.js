@@ -13,6 +13,7 @@ const initialAuthState = {
   user: {},
   isJean: false,
   timezone: '',
+  upgradeToken: null,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -39,6 +40,7 @@ function authReducer(state = initialAuthState, action) {
         token: results.access_token,
         refreshToken: results.refresh_token,
         isLoggedIn: true,
+        isFirstTime: false,
       };
     case REQUESTS.KEY_REFRESH_TOKEN.SUCCESS:
       return {
@@ -52,6 +54,7 @@ function authReducer(state = initialAuthState, action) {
         token: results.token,
         personId: `${results.person_id}`,
         isLoggedIn: true,
+        isFirstTime: false,
       };
     case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
       return {
@@ -59,6 +62,7 @@ function authReducer(state = initialAuthState, action) {
         token: results.token,
         personId: `${results.person_id}`,
         isLoggedIn: true,
+        isFirstTime: false,
       };
     case FIRST_TIME:
       return {
@@ -69,6 +73,7 @@ function authReducer(state = initialAuthState, action) {
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {
         ...state,
+        upgradeToken: action.data ? action.data.code : null,
         isLoggedIn: true,
         token: results.token,
         personId: `${results.person_id}`,

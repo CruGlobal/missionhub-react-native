@@ -15,24 +15,25 @@ class SelectMyStepScreen extends Component {
   };
 
   render() {
-    const { t, enableBackButton, me, suggestedForMe, personId, contactStage } = this.props;
+    const { t, enableBackButton, me, suggestedForMe, personId, contactStage, organization } = this.props;
 
     let steps = [];
     if (contactStage) {
       steps = getFourRandomItems(suggestedForMe[contactStage.id]);
-    } else {
-      //todo redirect to stage screen
     }
+
+    const section = this.props.onboarding ? 'onboarding' : 'people';
 
     return (
       <SelectStepScreen
         steps={steps}
         receiverId={personId}
         contact={me}
+        organization={organization}
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepTracking={buildTrackingObj('onboarding : self : steps : create', 'onboarding', 'self', 'create')}
+        createStepTracking={buildTrackingObj(`${section} : self : steps : create`, section, 'self', 'steps')}
         enableBackButton={enableBackButton}
       />
     );

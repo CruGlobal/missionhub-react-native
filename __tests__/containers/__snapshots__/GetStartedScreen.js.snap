@@ -7,6 +7,7 @@ exports[`renders correctly 1`] = `
       Object {
         "backgroundColor": "#007398",
         "flex": 1,
+        "paddingHorizontal": 60,
       },
       Object {
         "alignItems": "center",
@@ -21,7 +22,7 @@ exports[`renders correctly 1`] = `
       Array [
         Object {},
         Object {
-          "alignItems": "center",
+          "alignItems": "flex-start",
           "flex": 4,
           "justifyContent": "center",
         },
@@ -63,10 +64,10 @@ exports[`renders correctly 1`] = `
           },
           Object {
             "color": "#ffffff",
-            "fontSize": 16,
-            "lineHeight": 24,
-            "padding": 30,
-            "textAlign": "center",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
           },
         ]
       }

@@ -202,7 +202,7 @@ export function handleNotifications(state, notification) {
         if (screen.includes('home')) {
           dispatch(navigateReset(MAIN_TABS));
         } else if (screen.includes('person_steps') && person) {
-          dispatch(getPersonDetails(person)).then((r) => {
+          dispatch(getPersonDetails(person, organization)).then((r) => {
             person = r.find('person', person);
             dispatch(navigatePush(CONTACT_SCREEN, { person, organization: { id: organization } }));
           });

@@ -40,7 +40,7 @@ const reportPeriods = [
 ];
 
 @translate('impact')
-class ImpactView extends Component {
+export class ImpactView extends Component {
 
   constructor(props) {
     super(props);
@@ -66,7 +66,8 @@ class ImpactView extends Component {
   }
 
   getInteractionReport() {
-    this.props.dispatch(getUserImpact(this.props.user.id, this.state.period)).then((r) => {
+    const { dispatch, user, organization = {} } = this.props;
+    dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
       const report = r.findAll('person_report')[0];
       const interactions = report ? report.interactions : [];
       const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key)=>{
@@ -156,7 +157,7 @@ class ImpactView extends Component {
           </Text>
         </Flex>
         <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
-        <Flex style={isContactScreen ? styles.interactsionSection : styles.bottomSection}>
+        <Flex style={isContactScreen ? styles.interactionSection : styles.bottomSection}>
           {
             isContactScreen ? this.renderContactReport() : (
               <Text style={[ styles.text, styles.bottomText ]}>
@@ -175,7 +176,7 @@ ImpactView.propTypes = {
   user: PropTypes.object,
 };
 
-const mapStateToProps = ({ impact }) => ({
+export const mapStateToProps = ({ impact }) => ({
   myImpact: impact.mine,
   globalImpact: impact.global,
 });
