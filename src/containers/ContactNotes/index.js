@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Dimensions, View, Keyboard, Image } from 'react-native';
+import { ScrollView, Keyboard, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -20,13 +20,11 @@ export class ContactNotes extends Component {
 
     this.state = {
       text: undefined,
-      keyboardHeight: undefined,
       editing: false,
       noteId: null,
     };
 
     this.saveNote = this.saveNote.bind(this);
-    this.onLayout = this.onLayout.bind(this);
     this.onButtonPress = this.onButtonPress.bind(this);
     this.onTextChanged = this.onTextChanged.bind(this);
   }
@@ -94,13 +92,6 @@ export class ContactNotes extends Component {
     }
   }
 
-  onLayout(event) {
-    if (!this.state.keyboardHeight) {
-      const keyboardHeight = Dimensions.get('window').height - event.nativeEvent.layout.height;
-      this.setState({ keyboardHeight });
-    }
-  }
-
   renderNotes() {
     if (this.state.editing) {
       return (
@@ -142,24 +133,18 @@ export class ContactNotes extends Component {
   }
 
   render() {
-    if (this.state.keyboardHeight) {
-      return (
-        <PlatformKeyboardAvoidingView offset={this.state.keyboardHeight}>
-          { (this.state.text || this.state.editing) ? this.renderNotes() : this.renderEmpty() }
-          <Flex justify="end">
-            <Button
-              type="secondary"
-              onPress={this.onButtonPress}
-              text={this.getButtonText()}
-            />
-          </Flex>
-        </PlatformKeyboardAvoidingView>
-      );
-    } else {
-      return (
-        <View style={{ flex: 1 }} onLayout={this.onLayout} />
-      );
-    }
+    return (
+      <PlatformKeyboardAvoidingView offset={60}>
+        { (this.state.text || this.state.editing) ? this.renderNotes() : this.renderEmpty() }
+        <Flex justify="end">
+          <Button
+            type="secondary"
+            onPress={this.onButtonPress}
+            text={this.getButtonText()}
+          />
+        </Flex>
+      </PlatformKeyboardAvoidingView>
+    );
   }
 }
 
