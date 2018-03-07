@@ -181,7 +181,9 @@ export class StepsScreen extends Component {
   renderReminders() {
     const { reminders, showStepReminderBump } = this.props;
 
-    if (this.noSteps()) return null;
+    if (this.noSteps()) {
+      return null;
+    }
 
     return (
       <Flex align="center" style={[ styles.top, styles.topItems ]}>
