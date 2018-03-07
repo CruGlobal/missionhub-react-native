@@ -20,19 +20,18 @@ function journeyReducer(state = initialState, action) {
       }
       return state;
     case UPDATE_JOURNEY_ITEMS:
-      const personId = action.personId;
       const orgId = action.orgId || 'personal';
-      const journeyItems = action.journeyItems;
+      const org = state.all[orgId] || {};
 
-      const newState = { all: { ...state.all } };
-      const org = newState.all[orgId];
-
-      if (org) {
-        org[personId] = journeyItems;
-      } else {
-        newState.all[orgId] = { [personId]: journeyItems };
-      }
-      return newState;
+      return {
+        all: {
+          ...state.all,
+          [orgId]: {
+            ...org,
+            [action.personId]: action.journeyItems,
+          },
+        },
+      };
     case LOGOUT:
       return initialState;
     default:
