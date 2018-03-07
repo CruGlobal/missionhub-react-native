@@ -14,8 +14,6 @@ export default class JourneyItem extends Component {
   renderDate() {
     const { item } = this.props;
 
-    console.log(item)
-
     return <DateComponent date={item.date} style={styles.date} format="LL" />;
   }
   renderTitle() {
