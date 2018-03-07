@@ -1,6 +1,6 @@
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
-import { completeStep, getStepSuggestions, getMyStepsNextPage, setStepFocus } from '../../src/actions/steps';
+import { completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus } from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -17,13 +17,17 @@ let store;
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
+beforeEach(() => {
+  callApi.mockClear();
+  store = mockStore();
+});
+
 describe('get step suggestions', () => {
   const locale = 'de';
   const stepSuggestionsQuery = { filters: { locale: locale } };
   const apiResult = { type: 'done' };
 
   it('should filter by language', () => {
-    store = mockStore();
     i18next.language = locale;
     callApi.mockReturnValue(apiResult);
 
@@ -53,6 +57,24 @@ describe('get steps page', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
     expect(store.getActions()[0]).toEqual(apiResult);
+  });
+});
+
+describe('getStepsByFilter', () => {
+  it('should get filtered steps for a person', () => {
+    const stepsFilter = {
+      completed: true,
+      receiver_ids: '1',
+      organization_ids: '2',
+    };
+    const apiResult = { type: 'done' };
+
+    callApi.mockReturnValue(apiResult);
+
+    store.dispatch(getStepsByFilter(stepsFilter));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 100 } });
+    expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
 

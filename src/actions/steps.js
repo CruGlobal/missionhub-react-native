@@ -60,6 +60,7 @@ export function getStepsByFilter(filters = {}) {
   return (dispatch) => {
     const query = {
       filters,
+      page: { limit: 100 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
   };
