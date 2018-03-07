@@ -7,16 +7,18 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Icon, Text, Touchable } from '../../components/common';
 import styles from './styles';
+import { reloadJourney } from '../../actions/journey';
 
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter((i) => i.isOnAction);
 
 @translate('actions')
 export class ContactActions extends Component {
 
-  handleInteraction = (item, text) => {
-    const { person, organization } = this.props;
-    this.props.dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
-  }
+  handleInteraction = async(item, text) => {
+    const { dispatch, person, organization } = this.props;
+    await dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
+    dispatch(reloadJourney(person.id, organization.id));
+  };
 
   handleCreateInteraction = (item) => {
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
@@ -24,7 +26,7 @@ export class ContactActions extends Component {
       type: 'interaction',
       hideSkip: item.id === INTERACTION_TYPES.MHInteractionTypeNote.id,
     }));
-  }
+  };
 
   renderIcons = (item) => {
     const { t } = this.props;

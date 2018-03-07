@@ -23,6 +23,11 @@ const mockState = {
   swipe: {
     journey: false,
   },
+  journey: {
+    'personal': {
+      [personId]: [ { type: 'step', id: 84472, date: '2010-01-01 12:12:12' } ],
+    },
+  },
 };
 
 const mockPerson = {
