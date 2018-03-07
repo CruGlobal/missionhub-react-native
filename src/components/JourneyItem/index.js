@@ -23,9 +23,9 @@ export default class JourneyItem extends Component {
       title = t('stepTitle');
     } else if (type === 'stage') {
       if (item.old_stage) {
-        title = t('stageTitle', { oldStage: item.old_stage, newStage: item.new_stage });
+        title = t('stageTitle', { oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
-        title = item.new_stage;
+        title = item.new_pathway_stage.name;
       }
     } else if (type === 'survey' && item.survey) {
       title = item.survey.title;
@@ -49,11 +49,14 @@ export default class JourneyItem extends Component {
     let text;
     if (type === 'step') {
       text = item.title;
+      if (item.note) {
+        text = `${text}\n\n${item.note}`;
+      }
     } else if (type === 'stage') {
       if (item.old_stage) {
-        text = t('stageText', { name: item.name, oldStage: item.old_stage, newStage: item.new_stage });
+        text = t('stageText', { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
-        text = t('stageStart', { name: item.name, newStage: item.new_stage });
+        text = t('stageStart', { personName: item.personName, newStage: item.new_pathway_stage.name });
       }
     } else {
       text = item.text;

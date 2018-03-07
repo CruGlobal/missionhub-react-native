@@ -92,21 +92,40 @@ export function addSteps(steps, receiverId, organization) {
   };
 }
 
-export function setStepReminder(step) {
+export function setStepFocus(step, isFocus) {
   return (dispatch) => {
-    return dispatch({
-      type: ADD_STEP_REMINDER,
-      step,
+    const query = { challenge_id: step.id };
+    const data = {
+      data: {
+        type: 'accepted_challenge',
+        attributes: {
+          organization_id: step.organization ? step.organization : null,
+          focus: isFocus,
+        },
+        relationships: {
+          receiver: {
+            data: {
+              type: 'person',
+              id: step.receiver.id,
+            },
+          },
+        },
+      },
+    };
+
+    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
+      if (isFocus) return dispatch({ type: ADD_STEP_REMINDER, step });
+      return dispatch({ type: REMOVE_STEP_REMINDER, step });
     });
   };
 }
 
-export function removeStepReminder(step) {
+export function updateChallengeNote(step, note) {
   return (dispatch) => {
-    return dispatch({
-      type: REMOVE_STEP_REMINDER,
-      step,
-    });
+    const query = { challenge_id: step.id };
+    const data = buildChallengeData({ note });
+
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
   };
 }
 
@@ -114,7 +133,7 @@ export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
-      dispatch(removeStepReminder(step));
+      dispatch(setStepFocus(step, false));
       return r;
     });
   };
@@ -129,17 +148,19 @@ export function completeStep(step) {
   };
 }
 
+function buildChallengeData(attributes) {
+  return {
+    data: {
+      type: 'accepted_challenge',
+      attributes,
+    },
+  };
+}
+
 function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: 'accepted_challenge',
-        attributes: {
-          completed_at: formatApiDate(),
-        },
-      },
-    };
+    const data = buildChallengeData({ completed_at: formatApiDate() });
     const myId = getState().auth.personId;
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
@@ -148,15 +169,7 @@ function challengeCompleteAction(step) {
         type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
-            const noteData = {
-              data: {
-                type: 'accepted_challenge',
-                attributes: {
-                  note: text,
-                },
-              },
-            };
-            dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, noteData)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
+            dispatch(updateChallengeNote(step, text)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
@@ -236,7 +249,7 @@ export function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch(removeStepReminder(step));
+      dispatch(setStepFocus(step, false));
       dispatch(getMySteps());
       return r;
     });

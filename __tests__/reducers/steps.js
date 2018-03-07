@@ -78,3 +78,22 @@ it('get pagination works for total', () => {
 
   expect(result).toEqual({ page: 2, hasNextPage: false });
 });
+
+it('receives reminders', () => {
+  const state = steps(
+    {
+      mine: [],
+      reminders: [],
+    },
+    {
+      type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
+      results: {
+        response: [ { id: '1', focus: true }, { id: '2', focus: false } ],
+      },
+      query: { page: { offset: 0 } },
+    },
+  );
+
+  expect(state.mine.length).toEqual(2);
+  expect(state.reminders).toEqual([ { id: '1', focus: true } ]);
+});

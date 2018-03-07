@@ -214,10 +214,11 @@ describe('deleteContactAssignment', () => {
   });
 });
 
-describe('get user', () => {
+describe('getPersonJourneyDetails', () => {
   const userId = 1;
   const expectedQuery = {
     person_id: userId,
+    include: 'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
   };
   const action = { type: 'got user' };
 

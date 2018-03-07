@@ -15,7 +15,7 @@ class SelectMyStepScreen extends Component {
   };
 
   render() {
-    const { t, enableBackButton, me, suggestedForMe, personId, contactStage } = this.props;
+    const { t, enableBackButton, me, suggestedForMe, personId, contactStage, organization } = this.props;
 
     let steps = [];
     if (contactStage) {
@@ -29,6 +29,7 @@ class SelectMyStepScreen extends Component {
         steps={steps}
         receiverId={personId}
         contact={me}
+        organization={organization}
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}

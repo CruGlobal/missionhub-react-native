@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get journey should get a person's journey with an org 1`] = `
+Array [
+  Object {
+    "_type": "accepted_challenge",
+    "completed_at": "2018-02-09T00:00:00",
+    "date": "2018-02-09T00:00:00",
+    "id": "1",
+    "organization": Object {
+      "id": "1",
+    },
+    "title": "Step in org",
+    "type": "step",
+  },
+  Object {
+    "_type": "answer_sheet",
+    "created_at": "2018-02-07T00:00:00",
+    "date": "2018-02-07T00:00:00",
+    "id": "1",
+    "survey": Object {
+      "organization_id": "1",
+      "title": "Survey in org",
+    },
+    "type": "survey",
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "1",
+    },
+    "comment": "Stage change in org",
+    "created_at": "2018-02-04T00:00:00",
+    "date": "2018-02-04T00:00:00",
+    "id": "1",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": Object {
+      "id": "1",
+    },
+    "person": Object {
+      "id": "2",
+    },
+    "personName": "Person with history",
+    "type": "stage",
+  },
+  Object {
+    "_type": "interaction",
+    "comment": "Interaction in org",
+    "created_at": "2018-02-01T00:00:00",
+    "date": "2018-02-01T00:00:00",
+    "id": "1",
+    "initiators": Array [
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "1",
+      },
+    ],
+    "organization": Object {
+      "id": "1",
+    },
+    "text": "Interaction in org",
+    "type": "interaction",
+  },
+]
+`;
+
+exports[`get journey should get a person's journey without an org (personal ministry) 1`] = `
+Array [
+  Object {
+    "_type": "interaction",
+    "comment": "Comment in personal org",
+    "created_at": "2018-02-12T00:00:00",
+    "date": "2018-02-12T00:00:00",
+    "id": "4",
+    "initiators": Array [
+      Object {
+        "id": "1",
+      },
+    ],
+    "isFirstInteraction": true,
+    "organization": null,
+    "text": "Comment in personal org",
+    "type": "interaction",
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "1",
+    },
+    "comment": "Stage change in personal org",
+    "created_at": "2018-02-11T00:00:00",
+    "date": "2018-02-11T00:00:00",
+    "id": "4",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": null,
+    "person": Object {
+      "id": "2",
+    },
+    "personName": "Person with history",
+    "type": "stage",
+  },
+  Object {
+    "_type": "accepted_challenge",
+    "completed_at": "2018-02-10T00:00:00",
+    "date": "2018-02-10T00:00:00",
+    "id": "2",
+    "organization": null,
+    "title": "Step in personal org",
+    "type": "step",
+  },
+]
+`;

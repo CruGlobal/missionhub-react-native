@@ -6,38 +6,45 @@ import JourneyItem from '../src/components/JourneyItem';
 import { testSnapshot } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
-let mockStep;
+const mockStep = {
+  id: '123',
+  text: 'Test Journey',
+  completed_at: date,
+  created_at: date,
+  interaction_type_id: 1,
+  date,
+};
 
-beforeEach(() => {
-  mockStep = {
-    id: '123',
-    text: 'Test Journey',
-    completed_at: date,
-    created_at: date,
-    interaction_type_id: 1,
-    date,
-    new_stage: 'Guiding',
-  };
-});
+describe('step', () => {
+  it('is rendered correctly without comment', () => {
+    testSnapshot(
+      <JourneyItem item={mockStep} type="step" />
+    );
+  });
 
-it('renders step correctly', () => {
-  testSnapshot(
-    <JourneyItem item={mockStep} type="step" />
-  );
+  it('is rendered correctly with comment', () => {
+    testSnapshot(
+      <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
+    );
+  });
 });
 
 describe('stage', () => {
-  it('is rendered correctly with old stage', () => {
-    mockStep.old_stage = 'Growing';
+  const mockStage = {
+    ...mockStep,
+    personName: 'Test Person',
+    new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
+  };
 
+  it('is rendered correctly with old stage', () => {
     testSnapshot(
-      <JourneyItem item={mockStep} type="stage" />
+      <JourneyItem item={{ ...mockStage, old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' } }} type="stage" />
     );
   });
 
   it('is rendered correctly without old stage', () => {
     testSnapshot(
-      <JourneyItem item={mockStep} type="stage" />
+      <JourneyItem item={mockStage} type="stage" />
     );
   });
 });
