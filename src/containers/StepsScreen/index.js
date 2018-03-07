@@ -141,6 +141,10 @@ export class StepsScreen extends Component {
     });
   }
 
+  noSteps() {
+    return this.props.reminders.length === 0 && this.props.steps.length === 0;
+  }
+
   renderLoad() {
     return (
       <Flex align="center" justify="center" style={styles.container}>
@@ -157,9 +161,9 @@ export class StepsScreen extends Component {
   }
 
   renderFocusPrompt() {
-    const { reminders, steps, t } = this.props;
+    const { reminders, t } = this.props;
 
-    if ((reminders.length === 0 && steps.length === 0) || reminders.length > 0) return null;
+    if (this.noSteps() || reminders.length > 0) return null;
 
     return (
       <Flex align="center" justify="center" style={[ styles.top, styles.topEmpty ]}>
@@ -175,9 +179,9 @@ export class StepsScreen extends Component {
   }
 
   renderReminders() {
-    const { reminders, steps, showStepReminderBump } = this.props;
+    const { reminders, showStepReminderBump } = this.props;
 
-    if (reminders.length === 0 && steps.length === 0) return null;
+    if (this.noSteps()) return null;
 
     return (
       <Flex align="center" style={[ styles.top, styles.topItems ]}>
