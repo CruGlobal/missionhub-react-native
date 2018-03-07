@@ -14,6 +14,8 @@ export default class JourneyItem extends Component {
   renderDate() {
     const { item } = this.props;
 
+    console.log(item)
+
     return <DateComponent date={item.date} style={styles.date} format="LL" />;
   }
   renderTitle() {
@@ -22,7 +24,7 @@ export default class JourneyItem extends Component {
     if (type === 'step') {
       title = t('stepTitle');
     } else if (type === 'stage') {
-      if (item.old_pathway_stage) {
+      if (item.old_pathway_stage.name) {
         title = t('stageTitle', { oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
         title = item.new_pathway_stage.name;
@@ -53,7 +55,7 @@ export default class JourneyItem extends Component {
         text = `${text}\n\n${item.note}`;
       }
     } else if (type === 'stage') {
-      if (item.old_pathway_stage) {
+      if (item.old_pathway_stage.name) {
         text = t('stageText', { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name });
       } else {
         text = t('stageStart', { personName: item.personName, newStage: item.new_pathway_stage.name });

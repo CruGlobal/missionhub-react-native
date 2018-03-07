@@ -44,7 +44,8 @@ describe('stage', () => {
 
   it('is rendered correctly without old stage', () => {
     testSnapshot(
-      <JourneyItem item={mockStage} type="stage" />
+      <JourneyItem item={{ ...mockStage, old_pathway_stage: { name: '' } }} type="stage" />
+
     );
   });
 });

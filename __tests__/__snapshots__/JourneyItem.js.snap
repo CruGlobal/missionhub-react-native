@@ -677,7 +677,7 @@ exports[`stage is rendered correctly without old stage 1`] = `
         ]
       }
     >
-      You added  to MissionHub as Curious
+      You added Test Person to MissionHub as Curious
     </Text>
   </View>
 </View>
