@@ -2,9 +2,7 @@ import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../../src/constants';
 import journeyReducer from '../../src/reducers/journey';
 
 const initialState = {
-  all: {
-    'personal': {},
-  },
+  'personal': {},
 };
 
 const personId = 1;
@@ -15,9 +13,7 @@ it('should have personal ministry in initial state', () => {
   const result = journeyReducer(undefined, {});
 
   expect(result).toEqual({
-    all: {
-      'personal': {},
-    },
+    'personal': {},
   });
 });
 
@@ -28,11 +24,9 @@ describe('update journey items', () => {
     const result = journeyReducer(undefined, action);
 
     expect(result).toEqual({
-      all: {
-        'personal': {},
-        [orgId]: {
-          [personId]: journeyItems,
-        },
+      'personal': {},
+      [orgId]: {
+        [personId]: journeyItems,
       },
     });
   });
@@ -43,21 +37,17 @@ describe('update journey items', () => {
     const result = journeyReducer(undefined, action);
 
     expect(result).toEqual({
-      all: {
-        'personal': {
-          [personId]: journeyItems,
-        },
+      'personal': {
+        [personId]: journeyItems,
       },
     });
   });
 
   it('should add to existing org if found', () => {
     const state = {
-      all: {
-        'personal': {},
-        [orgId]: {
-          2: [ 'three', 'four' ],
-        },
+      'personal': {},
+      [orgId]: {
+        2: [ 'three', 'four' ],
       },
     };
     const action = { type: UPDATE_JOURNEY_ITEMS, personId, orgId, journeyItems };
@@ -65,12 +55,10 @@ describe('update journey items', () => {
     const result = journeyReducer(state, action);
 
     expect(result).toEqual({
-      all: {
-        'personal': {},
-        [orgId]: {
-          [personId]: journeyItems,
-          ...state.all[orgId],
-        },
+      'personal': {},
+      [orgId]: {
+        [personId]: journeyItems,
+        ...state[orgId],
       },
     });
   });

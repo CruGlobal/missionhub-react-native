@@ -16,7 +16,6 @@ const orgId = '1';
 const mockState = {
   auth: { personId: myId },
 };
-
 let store;
 
 const steps = [
@@ -154,7 +153,7 @@ getPersonJourneyDetails.mockReturnValue(() => Promise.resolve({ response: person
 
 describe('reload journey', () => {
   it('should not load if journey has not been fetched for org', async() => {
-    store = mockStore({ ...mockState, journey: { all: { 'personal': {} } } });
+    store = mockStore({ ...mockState, journey: { 'personal': {} } });
 
     await store.dispatch(reloadJourney(personId, orgId));
 
@@ -162,7 +161,7 @@ describe('reload journey', () => {
   });
 
   it('should not load if journey has not been fetched for person', async() => {
-    store = mockStore({ ...mockState, journey: { all: { 'personal': {}, [orgId]: {} } } });
+    store = mockStore({ ...mockState, journey: { 'personal': {}, [orgId]: {} } });
 
     await store.dispatch(reloadJourney(personId, orgId));
 
@@ -170,7 +169,7 @@ describe('reload journey', () => {
   });
 
   it('should reload if journey has been fetched for person', async() => {
-    store = mockStore({ ...mockState, journey: { all: { 'personal': { [personId]: [] } } } });
+    store = mockStore({ ...mockState, journey: { 'personal': { [personId]: [] } } });
 
     await store.dispatch(reloadJourney(personId));
 

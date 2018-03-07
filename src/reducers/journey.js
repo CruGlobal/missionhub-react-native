@@ -3,9 +3,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../constants';
 
 const initialState = {
-  all: { //todo remove 'all'
-    'personal': {},
-  },
+  'personal': {},
 };
 
 function journeyReducer(state = initialState, action) {
@@ -21,15 +19,13 @@ function journeyReducer(state = initialState, action) {
       return state;
     case UPDATE_JOURNEY_ITEMS:
       const orgId = action.orgId || 'personal';
-      const org = state.all[orgId] || {};
+      const org = state[orgId] || {};
 
       return {
-        all: {
-          ...state.all,
-          [orgId]: {
-            ...org,
-            [action.personId]: action.journeyItems,
-          },
+        ...state,
+        [orgId]: {
+          ...org,
+          [action.personId]: action.journeyItems,
         },
       };
     case LOGOUT:
