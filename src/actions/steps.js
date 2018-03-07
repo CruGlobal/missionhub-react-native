@@ -252,7 +252,7 @@ export function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch(setStepFocus(step, false));
+      dispatch({ type: REMOVE_STEP_REMINDER, step });
       dispatch(getMySteps());
       return r;
     });
