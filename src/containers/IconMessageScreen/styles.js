@@ -15,4 +15,10 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 32,
   },
+  image: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+
+  },
 });
