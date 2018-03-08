@@ -26,6 +26,7 @@ class KeyLoginScreen extends Component {
       email: '',
       password: '',
       errorMessage: '',
+      logo: true,
     };
 
     this.emailChanged = this.emailChanged.bind(this);
@@ -33,6 +34,24 @@ class KeyLoginScreen extends Component {
     this.login = this.login.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
   }
+
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  _keyboardDidShow = () => {
+    this.setState({ logo: false });
+  };
+
+  _keyboardDidHide = () => {
+    this.setState({ logo: true });
+  };
 
   emailChanged(email) {
     this.setState({ email });
@@ -122,9 +141,12 @@ class KeyLoginScreen extends Component {
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
         <BackButton />
-        <Flex value={1} align="center" justify="center">
-          <Image source={LOGO} resizeMode="contain" />
-        </Flex>
+        {
+          this.state.logo ?
+            <Flex value={1} align="center" justify="center">
+              <Image source={LOGO} resizeMode="contain" />
+            </Flex> : null
+        }
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
