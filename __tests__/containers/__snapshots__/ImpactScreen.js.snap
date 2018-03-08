@@ -118,7 +118,9 @@ exports[`Impact Screen renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "marginTop": 0,
+          },
           Object {
             "alignItems": "center",
             "flex": 4,
