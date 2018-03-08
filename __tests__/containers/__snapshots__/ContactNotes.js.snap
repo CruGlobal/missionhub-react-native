@@ -3,7 +3,7 @@
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={60}
+  keyboardVerticalOffset={65}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -57,7 +57,7 @@ exports[`contact notes and editing is set to true button message changes to DONE
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={60}
+  keyboardVerticalOffset={65}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -132,7 +132,7 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
 exports[`contact notes notes are shown 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={60}
+  keyboardVerticalOffset={65}
   style={
     Object {
       "backgroundColor": "#007398",
