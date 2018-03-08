@@ -67,6 +67,8 @@ export default StyleSheet.create({
     marginTop: 10,
     paddingHorizontal: 3,
     textDecorationLine: 'underline',
+    fontWeight: 'normal',
+    letterSpacing: 0,
   },
   onboardText: {
     color: theme.secondaryColor,

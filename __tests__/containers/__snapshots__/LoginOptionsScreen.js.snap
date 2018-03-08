@@ -509,6 +509,8 @@ exports[`renders correctly 1`] = `
                         Object {
                           "color": "#ffffff",
                           "fontSize": 12,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0,
                           "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
@@ -606,6 +608,8 @@ exports[`renders correctly 1`] = `
                         Object {
                           "color": "#ffffff",
                           "fontSize": 12,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0,
                           "marginTop": 10,
                           "paddingHorizontal": 3,
                           "textAlign": "center",
