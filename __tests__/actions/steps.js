@@ -73,7 +73,7 @@ describe('getStepsByFilter', () => {
 
     store.dispatch(getStepsByFilter(stepsFilter));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 100 } });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 } });
     expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
