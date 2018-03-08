@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": undefined,
+            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -156,7 +156,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": undefined,
+            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {
@@ -517,7 +517,7 @@ exports[`renders title correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": undefined,
+            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -641,7 +641,7 @@ exports[`renders title correctly 1`] = `
       style={
         Array [
           Object {
-            "marginTop": undefined,
+            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {

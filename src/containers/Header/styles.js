@@ -19,11 +19,11 @@ export default StyleSheet.create({
   },
   left: {
     paddingLeft: 5,
-    marginTop: (isiPhoneX() ? iPhoneXMargin : undefined),
+    marginTop: (isiPhoneX() ? iPhoneXMargin : 0),
   },
   right: {
     paddingRight: 5,
-    marginTop: (isiPhoneX() ? iPhoneXMargin : undefined),
+    marginTop: (isiPhoneX() ? iPhoneXMargin : 0),
   },
   title: {
     color: 'white',
