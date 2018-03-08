@@ -89,7 +89,7 @@ class App extends Component {
     var { Crashlytics } = Fabric;
 
     Crashlytics.log(e.message);
-    Crashlytics.recordCustomExceptionName(e.message, '', []);
+    Crashlytics.recordCustomExceptionName(e.message.split('\n')[0], e.message, []);
   }
 
   dispatchAnalyticsContextUpdate(context) {
