@@ -11,6 +11,7 @@ import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
+import { reloadJourney } from './journey';
 
 export function getStepSuggestions() {
   return (dispatch) => {
@@ -199,6 +200,8 @@ function challengeCompleteAction(step) {
                     },
                   }));
 
+
+                  dispatch(reloadJourney(step.receiver.id, step.organization && step.organization.id));
                   dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
@@ -249,7 +252,7 @@ export function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch(setStepFocus(step, false));
+      dispatch({ type: REMOVE_STEP_REMINDER, step });
       dispatch(getMySteps());
       return r;
     });

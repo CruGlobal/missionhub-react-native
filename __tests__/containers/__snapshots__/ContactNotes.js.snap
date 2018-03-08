@@ -1,20 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders dummy view when keyboard height is not set 1`] = `
-<View
-  onLayout={[Function]}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-/>
-`;
-
-exports[`when keyboard height is set and editing is set to true button message changes to DONE 1`] = `
+exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={216.5}
+  keyboardVerticalOffset={60}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -65,10 +54,10 @@ exports[`when keyboard height is set and editing is set to true button message c
 </KeyboardAvoidingView>
 `;
 
-exports[`when keyboard height is set icon and prompt are shown if no notes 1`] = `
+exports[`contact notes icon and prompt are shown if no notes 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={216.5}
+  keyboardVerticalOffset={60}
   style={
     Object {
       "backgroundColor": "#007398",
@@ -140,10 +129,10 @@ exports[`when keyboard height is set icon and prompt are shown if no notes 1`] =
 </KeyboardAvoidingView>
 `;
 
-exports[`when keyboard height is set notes are shown 1`] = `
+exports[`contact notes notes are shown 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
-  keyboardVerticalOffset={216.5}
+  keyboardVerticalOffset={60}
   style={
     Object {
       "backgroundColor": "#007398",
