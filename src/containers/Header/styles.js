@@ -1,7 +1,9 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
-import { isAndroid } from '../../utils/common';
+import { isAndroid, isiPhoneX } from '../../utils/common';
+
+const iPhoneXMargin = 17;
 
 export default StyleSheet.create({
   header: {
@@ -17,9 +19,11 @@ export default StyleSheet.create({
   },
   left: {
     paddingLeft: 5,
+    marginTop: (isiPhoneX() ? iPhoneXMargin : undefined),
   },
   right: {
     paddingRight: 5,
+    marginTop: (isiPhoneX() ? iPhoneXMargin : undefined),
   },
   title: {
     color: 'white',
