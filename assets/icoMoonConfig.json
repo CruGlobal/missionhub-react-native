@@ -28,7 +28,7 @@
       },
       "setIdx": 0,
       "setId": 3,
-      "iconIdx": 0
+      "iconIdx": 1
     },
     {
       "icon": {
@@ -313,9 +313,9 @@
         {}
       ],
       "properties": {
-        "order": 59,
+        "order": 95,
         "id": 32,
-        "name": "Combined-Shape",
+        "name": "removeStepIcon",
         "prevSize": 32,
         "code": 59657
       },
