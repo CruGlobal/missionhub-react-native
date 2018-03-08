@@ -294,4 +294,18 @@ export default {
     people: 'People',
     impact: 'Impact',
   },
+  onboarding: {
+    screen1: {
+      name: 'handcraft your faith journey',
+      description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
+    },
+    screen2: {
+      name: 'take your relationships deeper',
+      description: 'MissionHub helps you grow closer to God by helping others experience Him.',
+    },
+    screen3: {
+      name: 'record your journey with God',
+      description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
+    },
+  },
 };

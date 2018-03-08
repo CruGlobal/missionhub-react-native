@@ -13,7 +13,7 @@ class IconMessageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex align="center" justify="center" value={4}>
+        <Flex align="start" justify="center" value={4}>
           <Image source={iconPath} />
           <Text style={styles.text}>{mainText}</Text>
         </Flex>

@@ -19,7 +19,7 @@ exports[`renders correctly 1`] = `
       Array [
         Object {},
         Object {
-          "flex": 0.2,
+          "flex": 0.3,
         },
       ]
     }
@@ -42,6 +42,8 @@ exports[`renders correctly 1`] = `
           Object {},
           Object {
             "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
           },
         ]
       }
@@ -53,6 +55,19 @@ exports[`renders correctly 1`] = `
           }
         }
       />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flex": 0.6,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -84,7 +99,7 @@ exports[`renders correctly 1`] = `
           Object {},
           Object {
             "alignItems": "center",
-            "flex": 0.7,
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -261,5 +276,15 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.3,
+        },
+      ]
+    }
+  />
 </View>
 `;

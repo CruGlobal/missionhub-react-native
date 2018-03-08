@@ -6,7 +6,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
     paddingHorizontal: 40,
-    paddingTop: 125,
   },
   title: {
     color: theme.secondaryColor,

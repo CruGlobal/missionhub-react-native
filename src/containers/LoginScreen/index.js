@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
+import i18next from '../../i18n';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import styles from './styles';
@@ -21,20 +22,20 @@ const sliderWidth = theme.fullWidth;
 const ONBOARDING = [
   {
     id: 1,
-    name: 'handcraft your faith journey',
-    description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
+    name: i18next.t('onboarding:screen1.name'),
+    description: i18next.t('onboarding:screen1.description'),
     image: ONBOARDING_1,
   },
   {
     id: 2,
-    name: 'take your relationships deeper',
-    description: 'MissionHub helps you grow closer to God by helping others experience Him.',
+    name: i18next.t('onboarding:screen2.name'),
+    description: i18next.t('onboarding:screen2.description'),
     image: ONBOARDING_2,
   },
   {
     id: 3,
-    name: 'record your journey with God',
-    description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
+    name: i18next.t('onboarding:screen3.name'),
+    description: i18next.t('onboarding:screen3.description'),
     image: ONBOARDING_3,
   },
 ];

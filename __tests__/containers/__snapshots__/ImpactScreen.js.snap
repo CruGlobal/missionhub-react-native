@@ -110,7 +110,7 @@ exports[`Impact Screen renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>

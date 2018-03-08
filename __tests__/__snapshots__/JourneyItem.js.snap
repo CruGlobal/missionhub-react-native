@@ -463,7 +463,7 @@ exports[`stage is rendered correctly with old stage 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
@@ -599,7 +599,7 @@ exports[`stage is rendered correctly without old stage 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
@@ -735,7 +735,7 @@ exports[`step is rendered correctly with comment 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
@@ -873,7 +873,7 @@ exports[`step is rendered correctly without comment 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <View
     style={
