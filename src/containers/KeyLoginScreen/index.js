@@ -152,7 +152,7 @@ class KeyLoginScreen extends Component {
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <Flex value={.5} justify="center" style={{ alignSelf: 'flex-start', marginLeft: 25, marginTop: isiPhoneX() ? 60 : 0 }}>
+        <Flex value={.5} justify="center" style={{ alignSelf: 'flex-start', marginLeft: 25, marginTop: isiPhoneX() ? 60 : 7 }}>
           <IconButton
             name="backIcon"
             type="MissionHub"

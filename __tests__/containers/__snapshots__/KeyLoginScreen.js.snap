@@ -24,7 +24,7 @@ exports[`renders correctly 1`] = `
         Object {
           "alignSelf": "flex-start",
           "marginLeft": 25,
-          "marginTop": 0,
+          "marginTop": 7,
         },
         Object {
           "flex": 0.5,
