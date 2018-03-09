@@ -14,7 +14,7 @@ import {
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID,
 } from '../constants';
-import { isAndroid } from '../utils/common';
+import { isAndroid, isString } from '../utils/common';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
@@ -189,15 +189,18 @@ export function handleNotifications(state, notification) {
     let person;
     let organization;
     if (state === 'open') {
-      if ((notification && notification.data && notification.data.link && notification.data.link.data) || (notification && notification.screen)) {
+      if ((notification && notification.data && notification.data.link && notification.data.link.data) || (notification && notification.screen && isAndroid)) {
         if (isAndroid) {
-          screen = notification.screen;
-          person = notification.person_id;
-          organization = notification.organization_id;
+          screen = notification.screen || '';
+          person = notification.person_id || '';
+          organization = notification.organization_id || '';
         } else {
-          screen = notification.data.link.data.screen;
-          person = notification.data.link.data.person_id;
-          organization = notification.data.link.data.organization_id;
+          screen = notification.data.link.data.screen || '';
+          person = notification.data.link.data.person_id || '';
+          organization = notification.data.link.data.organization_id || '';
+        }
+        if (!isString(screen)) {
+          screen = '';
         }
         if (screen.includes('home')) {
           dispatch(navigateReset(MAIN_TABS));
