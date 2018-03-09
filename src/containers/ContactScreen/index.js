@@ -71,6 +71,7 @@ export class ContactScreen extends Component {
           name: person.first_name,
           contactId: person.id,
           contactAssignmentId: contactAssignment && contactAssignment.id,
+          orgId: organization && organization.id,
           section: 'people',
           subsection: 'person',
           noNav,
