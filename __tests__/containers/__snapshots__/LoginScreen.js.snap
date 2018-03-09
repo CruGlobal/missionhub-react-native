@@ -36,6 +36,27 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/landscape.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 110,
+            "height": 340.875,
+            "position": "absolute",
+            "width": 3375,
+          },
+          Object {
+            "left": -30,
+          },
+        ]
+      }
+    />
     <View
       style={
         Array [

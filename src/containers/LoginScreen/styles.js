@@ -96,4 +96,10 @@ export default StyleSheet.create({
     paddingTop: 2,
     letterSpacing: 1.5,
   },
+  footerImage: {
+    position: 'absolute',
+    bottom: 110,
+    height: 0.4545*theme.fullWidth,
+    width: theme.fullWidth*4.5,
+  },
 });

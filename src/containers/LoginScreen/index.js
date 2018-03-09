@@ -9,9 +9,7 @@ import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
-import ONBOARDING_1 from '../../../assets/images/onboarding1.png';
-import ONBOARDING_2 from '../../../assets/images/onboarding2.png';
-import ONBOARDING_3 from '../../../assets/images/onboarding3.png';
+import LANDSCAPE from '../../../assets/images/landscape.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
@@ -24,19 +22,16 @@ const ONBOARDING = [
     id: 1,
     name: i18next.t('onboarding:screen1.name'),
     description: i18next.t('onboarding:screen1.description'),
-    image: ONBOARDING_1,
   },
   {
     id: 2,
     name: i18next.t('onboarding:screen2.name'),
     description: i18next.t('onboarding:screen2.description'),
-    image: ONBOARDING_2,
   },
   {
     id: 3,
     name: i18next.t('onboarding:screen3.name'),
     description: i18next.t('onboarding:screen3.description'),
-    image: ONBOARDING_3,
   },
 ];
 
@@ -47,12 +42,14 @@ class LoginScreen extends Component {
 
     this.state = {
       activeSlide: 0,
+      scrollPosition: 0,
     };
 
     this.renderOnboarding = this.renderOnboarding.bind(this);
     this.getStarted = this.getStarted.bind(this);
     this.login = this.login.bind(this);
     this.handleSnapToItem = this.handleSnapToItem.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -81,6 +78,10 @@ class LoginScreen extends Component {
     this.props.dispatch(trackState(buildTrackingObj(`splash : ${index}`, 'splash')));
   }
 
+  handleScroll(e) {
+    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
+  }
+
   renderOnboarding({ item }) {
     return (
       <View key={item.id} style={styles.onboardWrap}>
@@ -89,9 +90,7 @@ class LoginScreen extends Component {
             <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
             <Text style={styles.onboardText}>{item.description}</Text>
           </Flex>
-          <Flex value={1} align="start" justify="end">
-            <Image source={item.image} style={styles.onboardImage} />
-          </Flex>
+          <Flex value={1} />
         </Flex>
       </View>
     );
@@ -99,6 +98,8 @@ class LoginScreen extends Component {
 
   render() {
     const { t } = this.props;
+
+    let leftMargin = (this.state.scrollPosition / -1) -30;
 
     return (
       <Flex style={styles.container}>
@@ -134,8 +135,17 @@ class LoginScreen extends Component {
               itemWidth={sliderWidth}
               scrollEventThrottle={5}
               onSnapToItem={this.handleSnapToItem}
+              onScroll={this.handleScroll}
             />
           </Flex>
+          <Image
+            resizeMode="contain"
+            source={LANDSCAPE}
+            style={[
+              styles.footerImage,
+              { left: leftMargin },
+            ]}
+          />
           <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
             <Flex direction="column" self="stretch" align="center">
               <Button
