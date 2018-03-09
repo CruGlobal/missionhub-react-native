@@ -12,7 +12,7 @@ import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
-import { isAndroid } from '../../utils/common';
+import { isAndroid, isiPhoneX } from '../../utils/common';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -152,9 +152,8 @@ class KeyLoginScreen extends Component {
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <Flex value={.5} justify="center">
+        <Flex value={.5} justify="center" style={{ alignSelf: 'flex-start', marginLeft: 25, marginTop: isiPhoneX() ? 60 : 7 }}>
           <IconButton
-            style={{ marginLeft: 25 }}
             name="backIcon"
             type="MissionHub"
             onPress={() => dispatch(navigateBack())}

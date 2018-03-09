@@ -51,20 +51,29 @@ class App extends Component {
   checkOldAppToken() {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
     const androidKey = 'account.guest.secret'; // key from the old android app
-    const key = isAndroid ? androidKey : iOSKey;
-    DefaultPreference.get(key).then((value) => {
-      if (value) {
-        this.state.store.dispatch(codeLogin(value)).then(() => {
-          // If we successfully logged in with the user's guest code, clear it out now
-          DefaultPreference.clear(key);
-        }).catch(() => {
-          // This happens when there is a problem with the code from the API call
-          // We don't want to clear out the key here
-        });
-      }
-    });
+    
+    const getKey = (key) => {
+      DefaultPreference.get(key).then((value) => {
+        if (value) {
+          this.state.store.dispatch(codeLogin(value)).then(() => {
+            // If we successfully logged in with the user's guest code, clear it out now
+            DefaultPreference.clear(key);
+          }).catch(() => {
+            // This happens when there is a problem with the code from the API call
+            // We don't want to clear out the key here
+          });
+        }
+      });
+    };
+    if (isAndroid) {
+      DefaultPreference.setName('com.missionhub.accounts.AccountManager').then(() => {
+        getKey(androidKey);
+      });
+    } else {
+      getKey(iOSKey);
+    }
   }
-
+  
   initializeAnalytics() { //TODO add tests
     if (this.state && this.state.store) {
       this.collectLifecycleData();

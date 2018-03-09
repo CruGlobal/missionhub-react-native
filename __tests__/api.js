@@ -44,7 +44,12 @@ describe('call api', () => {
   });
 
   describe('other error messages', () => {
-    beforeEach(() => ReactNative.Alert.alert = jest.fn());
+    const lastTwoArgs = [
+      [ { text: 'Ok', onPress: expect.anything() } ],
+      { onDismiss: expect.anything() },
+    ];
+
+    beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, buttons) => buttons[0].onPress()));
 
     it('should return server response', () => {
       return callMethod({ error: 'test' }, (error) => {
@@ -54,7 +59,20 @@ describe('call api', () => {
 
     it('should show generic error message if request does not have it', () => {
       return callMethod({ error: 'test' }, () => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, ...lastTwoArgs);
+      });
+    });
+
+    //todo get this test working
+    xit('should show not show alert if an alert modal is already up', () => {
+      ReactNative.Alert.alert = jest.fn();
+
+      serverResponse = { error: 'test' };
+
+      return callMethod(serverResponse, () => {
+        return callMethod(serverResponse, () => {
+          expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(1);
+        });
       });
     });
 
@@ -62,7 +80,7 @@ describe('call api', () => {
       serverResponse = { error: 'test' };
 
       return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`, ...lastTwoArgs);
       });
     });
 
