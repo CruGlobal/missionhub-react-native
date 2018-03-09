@@ -6,7 +6,7 @@ let baseUrl = '';
 if (__DEV__) {
   baseUrl = 'https://api-stage.missionhub.com';
 } else {
-  baseUrl = 'https://api-stage.missionhub.com';
+  baseUrl = 'https://api.missionhub.com';
 }
 
 export const BASE_URL = baseUrl;
