@@ -154,7 +154,7 @@ class KeyLoginScreen extends Component {
 
         <Flex value={.5} justify="center">
           <IconButton
-            style={{ marginLeft: 25, marginTop: isiPhoneX() ? 35 : 0 }}
+            style={{ marginLeft: 25, marginTop: isiPhoneX() ? 60 : 0 }}
             name="backIcon"
             type="MissionHub"
             onPress={() => dispatch(navigateBack())}
