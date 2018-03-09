@@ -230,7 +230,7 @@ exports[`renders survey correctly 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]

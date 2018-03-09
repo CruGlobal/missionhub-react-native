@@ -122,7 +122,7 @@ export default class JourneyItem extends Component {
   renderSurvey() {
     const { answers } = this.props.item;
     return (
-      <Flex value={1} direction="column" style={styles.textWrap}>
+      <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
         {

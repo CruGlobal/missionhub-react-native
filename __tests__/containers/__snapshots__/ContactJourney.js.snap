@@ -480,7 +480,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          ADD A COMMENT
+          SOMETHING COOL HAPPENED
         </Text>
       </View>
     </View>
@@ -623,7 +623,7 @@ exports[`renders with an organization correctly 1`] = `
             ]
           }
         >
-          ADD A COMMENT
+          SOMETHING COOL HAPPENED
         </Text>
       </View>
     </View>
