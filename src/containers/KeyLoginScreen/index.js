@@ -7,10 +7,11 @@ import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, facebookLoginAction } from '../../actions/auth';
-import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import { navigateBack } from '../../actions/navigation';
+import IconButton from '../../components/IconButton';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -134,13 +135,20 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, dispatch } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <BackButton />
+        <Flex value={1} justify="center">
+          <IconButton
+            style={{ marginLeft: 25 }}
+            name="backIcon"
+            type="MissionHub"
+            onPress={() => dispatch(navigateBack())}
+          />
+        </Flex>
         {
           this.state.logo ?
             <Flex value={1} align="center" justify="center">
