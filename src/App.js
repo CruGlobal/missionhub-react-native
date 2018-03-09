@@ -7,7 +7,7 @@ import DefaultPreference from 'react-native-default-preference';
 
 import i18n from './i18n';
 
-import Fabric from 'react-native-fabric';
+import { Crashlytics } from 'react-native-fabric';
 
 import './utils/reactotron'; // This needs to be before the store
 import './utils/globals';
@@ -95,9 +95,6 @@ class App extends Component {
   }
 
   handleError(e) {
-    var { Crashlytics } = Fabric;
-
-    Crashlytics.log(e.message);
     Crashlytics.recordCustomExceptionName(e.message.split('\n')[0], e.message, []);
   }
 
