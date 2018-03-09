@@ -88,6 +88,7 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "marginLeft": 25,
+                    "marginTop": 0,
                   },
                 ],
               ],

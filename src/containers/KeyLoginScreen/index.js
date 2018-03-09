@@ -12,7 +12,7 @@ import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
-import { isAndroid } from '../../utils/common';
+import { isAndroid, isiPhoneX } from '../../utils/common';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -154,7 +154,7 @@ class KeyLoginScreen extends Component {
 
         <Flex value={.5} justify="center">
           <IconButton
-            style={{ marginLeft: 25 }}
+            style={{ marginLeft: 25, marginTop: isiPhoneX() ? 35 : 0 }}
             name="backIcon"
             type="MissionHub"
             onPress={() => dispatch(navigateBack())}
