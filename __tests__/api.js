@@ -60,6 +60,19 @@ describe('call api', () => {
       });
     });
 
+    //todo get this test working
+    xit('should show not show alert if an alert modal is already up', () => {
+      ReactNative.Alert.alert = jest.fn();
+
+      serverResponse = { error: 'test' };
+
+      return callMethod(serverResponse, () => {
+        return callMethod(serverResponse, () => {
+          expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
+
     it('should show specific error message if request has it', () => {
       serverResponse = { error: 'test' };
 
