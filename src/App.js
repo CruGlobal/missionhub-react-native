@@ -82,7 +82,7 @@ class App extends Component {
   }
 
   initializeErrorHandling() {
-    ErrorUtils.setGlobalHandler(this.handleError);
+    ErrorUtils.setGlobalHandler(this.handleError); // eslint-disable-line no-undef
   }
 
   handleError(e) {
