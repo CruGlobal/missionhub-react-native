@@ -31,6 +31,7 @@ exports[`Impact Screen renders correctly 1`] = `
       style={
         Array [
           Object {
+            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -109,7 +110,7 @@ exports[`Impact Screen renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -117,7 +118,9 @@ exports[`Impact Screen renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "marginTop": 0,
+          },
           Object {
             "alignItems": "center",
             "flex": 4,
@@ -154,6 +157,7 @@ exports[`Impact Screen renders correctly 1`] = `
       style={
         Array [
           Object {
+            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {

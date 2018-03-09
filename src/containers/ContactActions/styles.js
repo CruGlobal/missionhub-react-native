@@ -23,6 +23,9 @@ export default StyleSheet.create({
     fontSize: 32,
     color: theme.primaryColor,
   },
+  commentIcon: {
+    fontSize: 26,
+  },
   text: {
     fontSize: 12,
     textAlign: 'center',

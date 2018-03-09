@@ -7,6 +7,8 @@ import DefaultPreference from 'react-native-default-preference';
 
 import i18n from './i18n';
 
+import Fabric from 'react-native-fabric';
+
 import './utils/reactotron'; // This needs to be before the store
 import './utils/globals';
 
@@ -42,6 +44,7 @@ class App extends Component {
 
   componentDidMount() {
     this.initializeAnalytics();
+    this.initializeErrorHandling();
     AppState.addEventListener('change', this.handleAppStateChange);
   }
 
@@ -76,6 +79,17 @@ class App extends Component {
     else {
       setTimeout(this.initializeAnalytics.bind(this), 50);
     }
+  }
+
+  initializeErrorHandling() {
+    ErrorUtils.setGlobalHandler(this.handleError); // eslint-disable-line no-undef
+  }
+
+  handleError(e) {
+    var { Crashlytics } = Fabric;
+
+    Crashlytics.log(e.message);
+    Crashlytics.recordCustomExceptionName(e.message.split('\n')[0], e.message, []);
   }
 
   dispatchAnalyticsContextUpdate(context) {

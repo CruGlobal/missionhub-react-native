@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 import Color from 'color';
 
-import { exists, isAndroid } from './utils/common';
+import { exists, isAndroid, isiPhoneX } from './utils/common';
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
@@ -49,6 +49,8 @@ const SECONDARY = COLORS.BLUE;
 const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
+const iPhoneHeaderHeight = 65;
+
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
@@ -63,6 +65,7 @@ export default {
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
   statusBarColor: colorConvert({ color: SECONDARY, darken: 0.3, hex: true }),
+  buttonHeight: 60,
   buttonBackgroundColor: COLORS.TRANSPARENT,
   buttonBorderColor: COLORS.WHITE,
   buttonBorderWidth: 1,
@@ -84,6 +87,5 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  headerHeight: isAndroid ? 56 : 65,
-  itemHeight: 90,
+  headerHeight: isAndroid ? 56 : isiPhoneX() ? iPhoneHeaderHeight + 20 : iPhoneHeaderHeight,
 };

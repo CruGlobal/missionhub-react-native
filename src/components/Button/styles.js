@@ -1,9 +1,10 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
+import { isiPhoneX } from '../../utils/common';
 
 const common = {
-  height: 60,
+  height: theme.buttonHeight,
   justifyContent: 'center',
   alignItems: 'center',
 };
@@ -29,6 +30,7 @@ export default StyleSheet.create({
   secondary: {
     backgroundColor: theme.secondaryColor,
     ...common,
+    height: isiPhoneX() ? common.height + 25 : common.height,
   },
   disabled: {
     opacity: 0.6,

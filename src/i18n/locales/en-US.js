@@ -65,6 +65,7 @@ export default {
     save: 'Save',
     delete: 'Delete',
     cancel: 'Cancel',
+    continue: 'Continue',
   },
   error: {
     error: 'Error',
@@ -170,7 +171,7 @@ export default {
   },
   contactJourney: {
     loading: 'Loading Journey Items',
-    addComment: 'Add a Comment',
+    somethingCool: 'Something Cool Happened',
     ourJourney: 'Our Journey',
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
@@ -284,6 +285,10 @@ export default {
     assign: 'Assign',
     unassign: 'Unassign',
   },
+  assignAlert: {
+    question: 'Would you like to assign this person to yourself?',
+    sentence: 'Selecting a stage will also assign this person to you.',
+  },
   peopleScreen: {
     header: 'PEOPLE',
     personalMinistry: 'Personal Ministry',
@@ -293,5 +298,19 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
+  },
+  onboarding: {
+    screen1: {
+      name: 'handcraft your faith journey',
+      description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
+    },
+    screen2: {
+      name: 'take your relationships deeper',
+      description: 'MissionHub helps you grow closer to God by helping others experience Him.',
+    },
+    screen3: {
+      name: 'record your journey with God',
+      description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
+    },
   },
 };

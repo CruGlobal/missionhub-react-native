@@ -202,63 +202,102 @@ exports[`renders casey 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,1)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,1)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Steps
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Steps
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -288,63 +327,102 @@ exports[`renders casey 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            Our Journey
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Our Journey
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -374,63 +452,102 @@ exports[`renders casey 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Notes
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Notes
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <RCTScrollView
@@ -1119,7 +1236,7 @@ exports[`renders jean 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -1188,63 +1305,102 @@ exports[`renders jean 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,1)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,1)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Steps
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Steps
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -1274,63 +1430,102 @@ exports[`renders jean 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            Our Journey
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Our Journey
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -1360,63 +1555,102 @@ exports[`renders jean 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Notes
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Notes
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <RCTScrollView
@@ -2105,7 +2339,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -2174,63 +2408,102 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,1)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,1)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Steps
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Steps
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -2260,63 +2533,102 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            Our Journey
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Our Journey
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -2346,63 +2658,102 @@ exports[`renders jean with a missionhub user as contact 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Notes
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Notes
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <RCTScrollView
@@ -3091,7 +3442,7 @@ exports[`renders me 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -3160,63 +3511,102 @@ exports[`renders me 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,1)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,1)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Steps
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,1)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Steps
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           accessibilityComponentType={undefined}
@@ -3246,63 +3636,102 @@ exports[`renders me 1`] = `
           testID={undefined}
           tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
+                Object {},
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 32,
-                  },
-                  Object {
-                    "color": "rgba(255,255,255,0.4)",
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
                 },
               ]
             }
           >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
+            <View
+              style={
                 Array [
+                  Object {},
                   Object {
-                    "fontSize": 11,
-                    "paddingTop": 3,
+                    "alignItems": "center",
+                    "flex": 4,
+                    "justifyContent": "center",
                   },
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
                   Object {
-                    "color": "rgba(255,255,255,0.4)",
+                    "alignItems": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
                   },
-                ],
-              ]
-            }
-          >
-            My Journey
-          </Text>
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 11,
+                        "paddingTop": 3,
+                      },
+                      Object {
+                        "color": "rgba(255,255,255,0.4)",
+                      },
+                    ],
+                  ]
+                }
+              >
+                My Journey
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <RCTScrollView

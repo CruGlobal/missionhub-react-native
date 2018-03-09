@@ -104,10 +104,15 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {
+                      "fontSize": 26,
+                    },
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -218,10 +223,13 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {},
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -332,10 +340,13 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {},
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -345,7 +356,7 @@ exports[`renders dummy view 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -446,10 +457,13 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {},
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -459,7 +473,7 @@ exports[`renders dummy view 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>
@@ -560,10 +574,13 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {},
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -674,10 +691,13 @@ exports[`renders dummy view 1`] = `
                   Object {
                     "fontSize": 18,
                   },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 32,
-                  },
+                  Array [
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 32,
+                    },
+                    Object {},
+                  ],
                 ],
                 Object {
                   "fontFamily": "icomoon",
@@ -687,7 +707,7 @@ exports[`renders dummy view 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
       </View>

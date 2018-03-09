@@ -1,6 +1,7 @@
 
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
+import { isiPhoneX } from '../../utils/common';
 
 export default StyleSheet.create({
   container: {
@@ -25,8 +26,8 @@ export default StyleSheet.create({
     width: theme.fullWidth,
   },
   skipBtn: {
-    paddingTop: 30,
-    paddingRight: 30,
+    marginTop: isiPhoneX() ? 17 : 0,
+    padding: 30,
   },
   skipBtnText: {
     fontSize: 14,

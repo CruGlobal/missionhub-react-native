@@ -9,6 +9,7 @@ import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
 import { createContactAssignment, deleteContactAssignment, updateFollowupStatus } from '../../actions/person';
 import { deleteStep } from '../../actions/steps';
 import { contactAssignmentSelector, orgPermissionSelector, personSelector } from '../../selectors/people';
+import { DRAWER_CLOSE } from '../../constants';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
@@ -29,7 +30,8 @@ export class ContactSideMenu extends Component {
             style: 'destructive',
             onPress: () => {
               this.deleteOnUnmount = true;
-              dispatch(navigateBack(2)); // Navigate back twice (out of side menu and out of contact) since the contact is no longer in our list
+              dispatch(navigatePush(DRAWER_CLOSE));
+              dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
             },
           },
         ],

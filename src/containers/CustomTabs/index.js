@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Flex from '../../components/Flex';
 import { Text, Icon, Touchable } from '../../components/common';
 import styles from './styles';
 import { trackState } from '../../actions/analytics';
@@ -26,15 +27,21 @@ class CustomTabs extends Component {
         {tabArray.map((tab, i) => {
           return (
             <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
-              <Icon
-                name={tab.iconName}
-                type="MissionHub"
-                size={32}
-                style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
-              />
-              <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
-                {tab.tabLabel}
-              </Text>
+              <Flex value={1} align="center" justify="center" >
+                <Flex value={4} align="center" justify="center">
+                  <Icon
+                    name={tab.iconName}
+                    type="MissionHub"
+                    size={tab.iconName === 'actionsIcon'? 26 : 32}
+                    style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
+                  />
+                </Flex>
+                <Flex value={1} align="center" justify="center">
+                  <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
+                    {tab.tabLabel}
+                  </Text>
+                </Flex>
+              </Flex>
             </Touchable>
           );
         })}

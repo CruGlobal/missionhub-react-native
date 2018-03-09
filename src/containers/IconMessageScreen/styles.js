@@ -5,12 +5,20 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
+    paddingHorizontal: 60,
   },
   text: {
-    fontSize: 16,
-    textAlign: 'center',
-    padding: 30,
+    fontSize: 24,
+    textAlign: 'left',
+
+    paddingVertical: 10,
     color: theme.white,
-    lineHeight: 24,
+    lineHeight: 32,
+  },
+  image: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+
   },
 });

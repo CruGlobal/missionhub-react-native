@@ -5,14 +5,14 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
+    paddingHorizontal: 60,
   },
   descriptionText: {
     color: theme.white,
-    textAlign: 'center',
-    paddingHorizontal: 30,
+    textAlign: 'left',
     paddingVertical: 10,
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 24,
+    lineHeight: 32,
   },
   headerText: {
     color: theme.secondaryColor,

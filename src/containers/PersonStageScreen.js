@@ -22,14 +22,14 @@ class PersonStageScreen extends Component {
       celebrationProps.onComplete = this.props.onCompleteCelebration;
     }
     this.props.dispatch(navigatePush(CELEBRATION_SCREEN, celebrationProps));
-  }
+  };
 
   celebrateAndFinishOnboarding = () => {
     this.celebrateAndFinish();
 
     this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
     this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
-  }
+  };
 
   handleNavigate = () => {
     if (this.props.addingContactFlow) {
@@ -44,7 +44,7 @@ class PersonStageScreen extends Component {
     } else {
       this.celebrateAndFinishOnboarding();
     }
-  }
+  };
 
   complete(stage) {
     this.props.onComplete(stage);
@@ -53,14 +53,15 @@ class PersonStageScreen extends Component {
     }
   }
 
-  handleSelectStage = (stage, isAlreadySelected) => {
+  handleSelectStage = async(stage, isAlreadySelected) => {
     if (this.props.onComplete) {
       if (isAlreadySelected) {
         this.complete(stage);
       } else {
-        this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(()=>{
-          this.complete(stage);
-        });
+        this.props.contactAssignmentId ?
+          await this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)) :
+          await this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id, this.props.orgId));
+        this.complete(stage);
       }
     } else if (this.props.addingContactFlow) {
       this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(() => {
@@ -80,6 +81,8 @@ class PersonStageScreen extends Component {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
           contactStage: stage,
+          contactName: this.props.name,
+          contactId: this.props.contactId,
           createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'onboarding', 'add person', 'steps'),
         }));
 
@@ -87,7 +90,7 @@ class PersonStageScreen extends Component {
         this.props.dispatch(trackState(trackingObj));
       });
     }
-  }
+  };
 
   render() {
     const { t, name, personFirstName, enableBackButton, section, subsection, questionText, firstItem } = this.props;
@@ -117,6 +120,7 @@ PersonStageScreen.propTypes = {
   contactId: PropTypes.string,
   currentStage: PropTypes.string,
   contactAssignmentId: PropTypes.string,
+  orgId: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,

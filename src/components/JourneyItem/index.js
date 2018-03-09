@@ -97,19 +97,21 @@ export default class JourneyItem extends Component {
     if (!iconType) return null;
 
     return (
-      <Icon
-        name={iconType}
-        type="MissionHub"
-        size={32}
-        style={styles.icon}
-      />
+      <Flex value={1} >
+        <Icon
+          name={iconType}
+          type="MissionHub"
+          size={32}
+          style={[ styles.icon, iconType === 'commentIcon' ? styles.commentIcon : {} ]}
+        />
+      </Flex>
     );
   }
 
   renderContent() {
     if (this.props.type === 'survey') return this.renderSurvey();
     return (
-      <Flex value={1} direction="column" style={styles.textWrap}>
+      <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
         {this.renderText()}
@@ -120,7 +122,7 @@ export default class JourneyItem extends Component {
   renderSurvey() {
     const { answers } = this.props.item;
     return (
-      <Flex value={1} direction="column" style={styles.textWrap}>
+      <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
         {

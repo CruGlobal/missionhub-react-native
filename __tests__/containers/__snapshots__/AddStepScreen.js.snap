@@ -833,8 +833,8 @@ exports[`renders step note correctly 1`] = `
             },
             null,
             Object {
-              "paddingRight": 30,
-              "paddingTop": 30,
+              "marginTop": 0,
+              "padding": 30,
             },
             null,
           ]

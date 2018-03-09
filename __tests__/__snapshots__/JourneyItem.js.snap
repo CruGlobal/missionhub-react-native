@@ -20,40 +20,56 @@ exports[`renders interaction correctly 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {
+                "fontSize": 32,
+              },
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -64,7 +80,7 @@ exports[`renders interaction correctly 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]
@@ -156,40 +172,54 @@ exports[`renders survey correctly 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -200,7 +230,7 @@ exports[`renders survey correctly 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]
@@ -431,40 +461,54 @@ exports[`stage is rendered correctly with old stage 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -475,7 +519,7 @@ exports[`stage is rendered correctly with old stage 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]
@@ -567,40 +611,54 @@ exports[`stage is rendered correctly without old stage 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -611,7 +669,7 @@ exports[`stage is rendered correctly without old stage 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]
@@ -703,40 +761,54 @@ exports[`step is rendered correctly with comment 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -747,7 +819,7 @@ exports[`step is rendered correctly with comment 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]
@@ -841,40 +913,54 @@ exports[`step is rendered correctly without comment 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 32,
-          },
-          Object {
-            "alignSelf": "center",
-            "color": "#007398",
-            "textAlign": "center",
-            "width": 75,
-          },
-        ],
-        Object {
-          "fontFamily": "icomoon",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
+          "flex": 1,
         },
       ]
     }
   >
-    
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
   <View
     style={
       Array [
@@ -885,7 +971,7 @@ exports[`step is rendered correctly without comment 1`] = `
           "paddingLeft": 20,
         },
         Object {
-          "flex": 1,
+          "flex": 3.5,
           "flexDirection": "column",
         },
       ]

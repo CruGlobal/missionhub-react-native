@@ -2,40 +2,38 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
+import i18next from '../../i18n';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
-import ONBOARDING_1 from '../../../assets/images/onboarding1.png';
-import ONBOARDING_2 from '../../../assets/images/onboarding2.png';
-import ONBOARDING_3 from '../../../assets/images/onboarding3.png';
+import LANDSCAPE from '../../../assets/images/landscapeOnboardingImage.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
+
+const overScrollMargin = 120;
 
 const sliderWidth = theme.fullWidth;
 
 const ONBOARDING = [
   {
     id: 1,
-    name: 'handcraft your faith journey',
-    description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
-    image: ONBOARDING_1,
+    name: i18next.t('onboarding:screen1.name'),
+    description: i18next.t('onboarding:screen1.description'),
   },
   {
     id: 2,
-    name: 'take your relationships deeper',
-    description: 'MissionHub helps you grow closer to God by helping others experience Him.',
-    image: ONBOARDING_2,
+    name: i18next.t('onboarding:screen2.name'),
+    description: i18next.t('onboarding:screen2.description'),
   },
   {
     id: 3,
-    name: 'record your journey with God',
-    description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
-    image: ONBOARDING_3,
+    name: i18next.t('onboarding:screen3.name'),
+    description: i18next.t('onboarding:screen3.description'),
   },
 ];
 
@@ -46,12 +44,14 @@ class LoginScreen extends Component {
 
     this.state = {
       activeSlide: 0,
+      scrollPosition: 0,
     };
 
     this.renderOnboarding = this.renderOnboarding.bind(this);
     this.getStarted = this.getStarted.bind(this);
     this.login = this.login.bind(this);
     this.handleSnapToItem = this.handleSnapToItem.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -80,6 +80,10 @@ class LoginScreen extends Component {
     this.props.dispatch(trackState(buildTrackingObj(`splash : ${index}`, 'splash')));
   }
 
+  handleScroll(e) {
+    this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
+  }
+
   renderOnboarding({ item }) {
     return (
       <View key={item.id} style={styles.onboardWrap}>
@@ -88,9 +92,7 @@ class LoginScreen extends Component {
             <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
             <Text style={styles.onboardText}>{item.description}</Text>
           </Flex>
-          <Flex value={1} align="start" justify="end">
-            <Image source={item.image} style={styles.onboardImage} />
-          </Flex>
+          <Flex value={1} />
         </Flex>
       </View>
     );
@@ -98,6 +100,8 @@ class LoginScreen extends Component {
 
   render() {
     const { t } = this.props;
+
+    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
 
     return (
       <Flex style={styles.container}>
@@ -133,8 +137,17 @@ class LoginScreen extends Component {
               itemWidth={sliderWidth}
               scrollEventThrottle={5}
               onSnapToItem={this.handleSnapToItem}
+              onScroll={this.handleScroll}
             />
           </Flex>
+          <Image
+            resizeMode="contain"
+            source={LANDSCAPE}
+            style={[
+              styles.footerImage,
+              { left: leftMargin },
+            ]}
+          />
           <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
             <Flex direction="column" self="stretch" align="center">
               <Button

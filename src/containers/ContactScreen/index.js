@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
 
@@ -16,6 +17,7 @@ import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { personSelector, contactAssignmentSelector } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
 
+@translate('contactScreen')
 export class ContactScreen extends Component {
 
   constructor(props) {
@@ -33,43 +35,48 @@ export class ContactScreen extends Component {
     this.props.dispatch(getPersonDetails(person.id, organization && organization.id));
   }
 
-  handleChangeStage(noNav = false, onComplete = null) {
+  async handleChangeStage(noNav = false, onComplete = null) {
     const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages, organization } = this.props;
-    let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
-    firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
-    if (personIsCurrentUser) {
-      dispatch(navigatePush(STAGE_SCREEN, {
-        onComplete: (stage) => {
-          dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
-          dispatch(reloadJourney(person.id, organization && organization.id));
-          onComplete && onComplete(stage);
-        },
-        firstItem: firstItemIndex,
-        contactId: person.id,
-        section: 'people',
-        subsection: 'self',
-        enableBackButton: true,
-        noNav,
-      }));
-    } else {
-      dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-        onComplete: (stage) => {
-          dispatch(updatePersonAttributes(person.id, {
-            reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
-              assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
-            ),
-          }));
-          dispatch(reloadJourney(person.id, organization && organization.id));
-          onComplete && onComplete(stage);
-        },
-        firstItem: firstItemIndex,
-        name: person.first_name,
-        contactId: person.id,
-        contactAssignmentId: contactAssignment && contactAssignment.id,
-        section: 'people',
-        subsection: 'person',
-        noNav,
-      }));
+    if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
+      let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
+      firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
+      if (personIsCurrentUser) {
+        dispatch(navigatePush(STAGE_SCREEN, {
+          onComplete: (stage) => {
+            dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
+            dispatch(reloadJourney(person.id, organization && organization.id));
+            onComplete && onComplete(stage);
+          },
+          firstItem: firstItemIndex,
+          contactId: person.id,
+          section: 'people',
+          subsection: 'self',
+          enableBackButton: true,
+          noNav,
+        }));
+      } else {
+        dispatch(navigatePush(PERSON_STAGE_SCREEN, {
+          onComplete: (stage) => {
+            contactAssignment ?
+              dispatch(updatePersonAttributes(person.id, {
+                reverse_contact_assignments: person.reverse_contact_assignments.map((assignment) =>
+                  assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
+                ),
+              })) :
+              dispatch(getPersonDetails(person.id, organization && organization.id));
+            dispatch(reloadJourney(person.id, organization && organization.id));
+            onComplete && onComplete(stage);
+          },
+          firstItem: firstItemIndex,
+          name: person.first_name,
+          contactId: person.id,
+          contactAssignmentId: contactAssignment && contactAssignment.id,
+          orgId: organization && organization.id,
+          section: 'people',
+          subsection: 'person',
+          noNav,
+        }));
+      }
     }
   }
 
@@ -81,6 +88,32 @@ export class ContactScreen extends Component {
       return organization.name;
     }
     return undefined;
+  }
+
+  async promptToAssign(personIsCurrentUser = false, hasContactAssignment = false) {
+    const { t } = this.props;
+    const shouldPromptToAssign = !personIsCurrentUser && !hasContactAssignment;
+    return shouldPromptToAssign ?
+      await new Promise((resolve) => Alert.alert(
+        t('assignAlert:question'),
+        t('assignAlert:sentence'),
+        [
+          {
+            text: t('cancel'),
+            style: 'cancel',
+            onPress: () => resolve(false),
+          },
+          {
+            text: t('continue'),
+            style: 'default',
+            onPress: () => {
+              resolve(true);
+            },
+          },
+        ],
+        { onDismiss: () => resolve(false) }
+      )) :
+      true;
   }
 
   render() {

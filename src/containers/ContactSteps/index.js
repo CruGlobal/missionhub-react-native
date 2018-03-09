@@ -46,7 +46,8 @@ class ContactSteps extends Component {
   }
 
   getSteps() {
-    return this.props.dispatch(getStepsByFilter({ completed: false, receiver_ids: this.props.person.id })).then((results) => {
+    const { dispatch, person, organization } = this.props;
+    return dispatch(getStepsByFilter({ completed: false, receiver_ids: person.id, organization_ids: organization && organization.id })).then((results) => {
       const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
       this.setState({ steps });
       return results;

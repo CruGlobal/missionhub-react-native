@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Linking, Switch } from 'react-native';
+import { Linking, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -9,7 +9,6 @@ import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { enableAskPushNotification } from '../../actions/notifications';
 import { isAndroid } from '../../utils/common';
-import theme from '../../theme';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -57,40 +56,39 @@ class NotificationOffScreen extends Component {
   render() {
     const { t } = this.props;
     return (
-      <Flex style={styles.container} align="center" justify="center">
-        <Flex direction="row" align="center" justify="center" style={styles.allowRow}>
-          <Text style={styles.allowText}>
-            {t('allow')}
-          </Text>
-          <Switch
-            value={true}
-            disabled={true}
-            tintColor={theme.white}
-          />
+      <Flex style={styles.container}>
+        <Flex value={.3} />
+        <Flex value={1} align="center" justify="center">
+          <Flex value={1} align="center" justify="center">
+            <Image source={require('../../../assets/images/notificationOff.png')} />
+          </Flex>
+          <Flex value={.6} align="center" justify="center">
+            <Text style={styles.title}>
+              {t('title')}
+            </Text>
+            <Text style={styles.text}>
+              {t('description')}
+            </Text>
+          </Flex>
+          <Flex value={1} align="center" justify="center">
+            <Button
+              pill={true}
+              type="primary"
+              onPress={this.goToSettings}
+              text={t('settings').toUpperCase()}
+              style={styles.allowButton}
+              buttonTextStyle={[ styles.buttonText, styles.allowButtonText ]}
+            />
+            <Button
+              pill={true}
+              onPress={this.notNow}
+              text={t('noReminders').toUpperCase()}
+              style={styles.notNowButton}
+              buttonTextStyle={styles.buttonText}
+            />
+          </Flex>
         </Flex>
-        <Text type="header" style={styles.title}>
-          {t('title')}
-        </Text>
-        <Text style={styles.text}>
-          {t('description')}
-        </Text>
-        <Flex align="center" justify="center">
-          <Button
-            pill={true}
-            type="primary"
-            onPress={this.goToSettings}
-            text={t('settings').toUpperCase()}
-            style={styles.allowButton}
-            buttonTextStyle={[ styles.buttonText, styles.allowButtonText ]}
-          />
-          <Button
-            pill={true}
-            onPress={this.notNow}
-            text={t('noReminders').toUpperCase()}
-            style={styles.notNowButton}
-            buttonTextStyle={styles.buttonText}
-          />
-        </Flex>
+        <Flex value={.3} />
       </Flex>
     );
   }

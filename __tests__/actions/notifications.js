@@ -326,4 +326,20 @@ describe('should set up', () => {
     store.dispatch(handleNotifications('open', { data: { link: { data: { screen: 'my_steps', person_id: '', organization_id: '' } } } }));
     expect(navigation.navigateReset).toHaveBeenCalledTimes(1);
   });
+  it('should call handleNotifications with screen being not a string', () => {
+    store = configureStore([ thunk ])({
+      notifications: {
+        token: undefined,
+        shouldAsk: true,
+      },
+      auth: {
+        isJean: true,
+      },
+    });
+    navigation.navigateReset = jest.fn(()=>({ type: 'test ' }));
+    navigation.navigatePush = jest.fn(()=>({ type: 'test ' }));
+    store.dispatch(handleNotifications('open', { data: { link: { data: { screen: { screen: 'my_steps' }, person_id: '', organization_id: '' } } } }));
+    expect(navigation.navigateReset).toHaveBeenCalledTimes(0);
+    expect(navigation.navigatePush).toHaveBeenCalledTimes(0);
+  });
 });
