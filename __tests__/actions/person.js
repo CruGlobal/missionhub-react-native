@@ -1,6 +1,6 @@
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../src/constants';
 import {
-  getMe, getPersonDetails, updateFollowupStatus, updatePerson, deleteContactAssignment,
+  getMe, getPersonDetails, updateFollowupStatus, updatePerson, createContactAssignment, deleteContactAssignment,
   getPersonJourneyDetails, savePersonNote, getPersonNote,
 } from '../../src/actions/person';
 import callApi, { REQUESTS } from '../../src/actions/api';
@@ -201,6 +201,25 @@ describe('updateFollowupStatus', () => {
     await updateFollowupStatus({ id: 1, type: 'person', organizational_permissions: [] }, 2, 'uncontacted')(dispatch);
 
     expect(analytics.trackAction).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED);
+  });
+});
+
+describe('createContactAssignment', () => {
+  it('should send the correct API request', async() => {
+    callApi.mockReturnValue({ type: REQUESTS.UPDATE_PERSON });
+    await createContactAssignment(1, 2, 3)(dispatch);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON,
+      { personId: 3 },
+      {
+        included: [ {
+          type: 'contact_assignment',
+          attributes: {
+            assigned_to_id: 2,
+            organization_id: 1,
+          },
+        } ],
+      });
+    expect(dispatch).toHaveBeenCalledTimes(2);
   });
 });
 
