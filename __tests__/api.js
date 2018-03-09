@@ -46,7 +46,7 @@ describe('call api', () => {
   describe('other error messages', () => {
     const buttons = [ { text: 'Ok', onPress: expect.anything() } ];
 
-    beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, buttons) => console.log(buttons[0].onPress())));
+    beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, buttons) => buttons[0].onPress()));
 
     it('should return server response', () => {
       return callMethod({ error: 'test' }, (error) => {
