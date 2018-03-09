@@ -9,11 +9,13 @@ import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
-import LANDSCAPE from '../../../assets/images/landscape.png';
+import LANDSCAPE from '../../../assets/images/landscapeOnboardingImage.png';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
+
+export const overScrollMargin = 120;
 
 const sliderWidth = theme.fullWidth;
 
@@ -99,7 +101,7 @@ class LoginScreen extends Component {
   render() {
     const { t } = this.props;
 
-    let leftMargin = (this.state.scrollPosition / -1) -30;
+    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
 
     return (
       <Flex style={styles.container}>

@@ -40,19 +40,19 @@ exports[`renders correctly 1`] = `
       resizeMode="contain"
       source={
         Object {
-          "testUri": "../../../assets/images/landscape.png",
+          "testUri": "../../../assets/images/landscapeOnboardingImage.png",
         }
       }
       style={
         Array [
           Object {
-            "bottom": 110,
+            "bottom": 100,
             "height": 340.875,
             "position": "absolute",
-            "width": 3375,
+            "width": NaN,
           },
           Object {
-            "left": -30,
+            "left": -120,
           },
         ]
       }
