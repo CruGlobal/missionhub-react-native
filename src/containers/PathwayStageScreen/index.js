@@ -7,7 +7,7 @@ import Carousel from 'react-native-snap-carousel';
 import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
-import LANDSCAPE from '../../../assets/images/landscape.png';
+import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
@@ -20,9 +20,11 @@ import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { ACTIONS } from '../../constants';
 
+const screenMargin = 60;
 const sliderWidth = theme.fullWidth;
-const stageWidth = theme.fullWidth - 120;
+const stageWidth = theme.fullWidth - screenMargin*2;
 const stageMargin = theme.fullWidth / 30;
+const overScrollMargin = 120;
 
 const stageIcons = [
   UNINTERESTED,
@@ -113,13 +115,7 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
-    let leftMargin;
-
-    if (this.state.scrollPosition < 0) {
-      leftMargin = -30;
-    } else {
-      leftMargin = (this.state.scrollPosition / -1) -30;
-    }
+    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>

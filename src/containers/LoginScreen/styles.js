@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
-import { overScrollMargin } from './';
+
+const overScrollMargin = 120;
 
 export default StyleSheet.create({
   container: {

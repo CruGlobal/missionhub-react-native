@@ -15,7 +15,7 @@ import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
 
-export const overScrollMargin = 120;
+const overScrollMargin = 120;
 
 const sliderWidth = theme.fullWidth;
 
