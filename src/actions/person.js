@@ -1,7 +1,6 @@
 import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
-import { getMyPeople } from './people';
 
 export function getMe() {
   return (dispatch) => {
@@ -184,9 +183,8 @@ export function createContactAssignment(organizationId, personAssignedToId, pers
         },
       } ],
     };
-    const result = await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data));
-    dispatch(getMyPeople());
-    return result;
+    await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data));
+    dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }
 
