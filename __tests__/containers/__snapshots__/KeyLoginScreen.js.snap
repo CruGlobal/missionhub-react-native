@@ -21,7 +21,11 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
-        Object {},
+        Object {
+          "alignSelf": "flex-start",
+          "marginLeft": 25,
+          "marginTop": 7,
+        },
         Object {
           "flex": 0.5,
           "justifyContent": "center",
@@ -86,9 +90,7 @@ exports[`renders correctly 1`] = `
                   Object {
                     "margin": 10,
                   },
-                  Object {
-                    "marginLeft": 25,
-                  },
+                  Object {},
                 ],
               ],
               Object {
