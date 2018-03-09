@@ -7,10 +7,12 @@ import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, facebookLoginAction } from '../../actions/auth';
-import BackButton from '../BackButton';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import { navigateBack } from '../../actions/navigation';
+import IconButton from '../../components/IconButton';
+import { isAndroid } from '../../utils/common';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -26,6 +28,7 @@ class KeyLoginScreen extends Component {
       email: '',
       password: '',
       errorMessage: '',
+      logo: true,
     };
 
     this.emailChanged = this.emailChanged.bind(this);
@@ -33,6 +36,34 @@ class KeyLoginScreen extends Component {
     this.login = this.login.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
   }
+
+  componentWillMount() {
+    if (isAndroid) {
+      this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
+      this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);
+    } else {
+      this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', this._hideLogo);
+      this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', this._showLogo);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isAndroid) {
+      this.keyboardDidShowListener.remove();
+      this.keyboardDidHideListener.remove();
+    } else {
+      this.keyboardWillShowListener.remove();
+      this.keyboardWillHideListener.remove();
+    }
+  }
+
+  _hideLogo = () => {
+    this.setState({ logo: false });
+  };
+
+  _showLogo = () => {
+    this.setState({ logo: true });
+  };
 
   emailChanged(email) {
     this.setState({ email });
@@ -115,16 +146,26 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, dispatch } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <BackButton />
-        <Flex value={1} align="center" justify="center">
-          <Image source={LOGO} resizeMode="contain" />
+        <Flex value={.5} justify="center">
+          <IconButton
+            style={{ marginLeft: 25 }}
+            name="backIcon"
+            type="MissionHub"
+            onPress={() => dispatch(navigateBack())}
+          />
         </Flex>
+        {
+          this.state.logo ?
+            <Flex value={1} align="center" justify="center">
+              <Image source={LOGO} resizeMode="contain" />
+            </Flex> : null
+        }
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
