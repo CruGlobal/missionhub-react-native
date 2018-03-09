@@ -163,7 +163,7 @@ export function registerPushDevice(token) {
         type: 'push_notification_device_token',
         attributes: {
           token,
-          platform: type === 'Apple' ? 'APNS_SANDBOX' : 'GCM',
+          platform: type === 'Apple' ? 'APNS' : 'GCM',
         },
       },
     };
