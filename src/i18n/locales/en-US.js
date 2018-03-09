@@ -65,6 +65,7 @@ export default {
     save: 'Save',
     delete: 'Delete',
     cancel: 'Cancel',
+    continue: 'Continue',
   },
   error: {
     error: 'Error',
@@ -283,6 +284,10 @@ export default {
     uncontacted: 'Uncontacted',
     assign: 'Assign',
     unassign: 'Unassign',
+  },
+  assignAlert: {
+    question: 'Would you like to assign this person to yourself?',
+    sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
     header: 'PEOPLE',
