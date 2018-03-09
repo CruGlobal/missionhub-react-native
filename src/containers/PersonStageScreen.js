@@ -60,7 +60,7 @@ class PersonStageScreen extends Component {
       } else {
         this.props.contactAssignmentId ?
           await this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)) :
-          await this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id));
+          await this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id, this.props.orgId));
         this.complete(stage);
       }
     } else if (this.props.addingContactFlow) {
@@ -120,6 +120,7 @@ PersonStageScreen.propTypes = {
   contactId: PropTypes.string,
   currentStage: PropTypes.string,
   contactAssignmentId: PropTypes.string,
+  orgId: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
   noNav: PropTypes.bool,
