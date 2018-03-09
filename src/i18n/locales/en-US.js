@@ -171,7 +171,7 @@ export default {
   },
   contactJourney: {
     loading: 'Loading Journey Items',
-    addComment: 'Add a Comment',
+    somethingCool: 'Something Cool Happened',
     ourJourney: 'Our Journey',
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },

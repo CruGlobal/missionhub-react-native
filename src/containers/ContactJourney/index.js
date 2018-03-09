@@ -176,7 +176,7 @@ class ContactJourney extends Component {
           <Button
             type="secondary"
             onPress={this.handleCreateInteraction}
-            text={t('addComment').toUpperCase()}
+            text={t('somethingCool').toUpperCase()}
           />
         </Flex>
       </View>
