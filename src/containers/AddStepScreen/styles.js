@@ -27,8 +27,7 @@ export default StyleSheet.create({
   },
   skipBtn: {
     marginTop: isiPhoneX() ? 17 : 0,
-    paddingTop: 30,
-    paddingRight: 30,
+    padding: 30,
   },
   skipBtnText: {
     fontSize: 14,
