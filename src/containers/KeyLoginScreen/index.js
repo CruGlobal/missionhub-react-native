@@ -141,7 +141,7 @@ class KeyLoginScreen extends Component {
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <Flex value={1} justify="center">
+        <Flex value={.5} justify="center">
           <IconButton
             style={{ marginLeft: 25 }}
             name="backIcon"
