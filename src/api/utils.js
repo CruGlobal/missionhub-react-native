@@ -1,17 +1,12 @@
 import merge from 'lodash/merge';
 import qs from 'qs';
+import Config from 'react-native-config';
 
 const API_VERSION = 'v4';
-let baseUrl = '';
-if (__DEV__) {
-  baseUrl = 'https://api-stage.missionhub.com';
-} else {
-  baseUrl = 'https://api.missionhub.com';
-}
 
-export const BASE_URL = baseUrl;
+export const BASE_URL = Config.API_BASE_URL;
 export const API_URL = `${BASE_URL}/apis/${API_VERSION}/`;
-export const THE_KEY_URL = 'https://thekey.me/cas/';
+export const THE_KEY_URL = Config.THE_KEY_URL;
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',
