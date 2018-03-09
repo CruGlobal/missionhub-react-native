@@ -11,6 +11,7 @@ import { Alert } from 'react-native';
 import i18n from '../i18n';
 
 const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
+let showingAlert = false;
 
 // Setup API call
 let API_CALLS = {};
@@ -94,7 +95,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
           return reject(err);
 
         } else {
-          showAlert(routeData, key);
+          if (!showingAlert) {
+            showingAlert = true;
+            showAlert(routeData, key);
+          }
 
           APILOG(`${key} FAIL`, err);
           return reject(err);
@@ -112,7 +116,8 @@ const showAlert = (routeData, key) => {
     errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
   }
 
-  Alert.alert(i18n.t('error:error'), errorMessage);
+  const buttons = [ { text: i18n.t('ok'), onPress: () => showingAlert = false } ];
+  Alert.alert(i18n.t('error:error'), errorMessage, buttons);
 };
 
 const isUrlEncoded = (routeData) => {
