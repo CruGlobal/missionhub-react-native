@@ -37,14 +37,32 @@ class KeyLoginScreen extends Component {
   }
 
   componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);
+
+    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', this._hideLogo);
+    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', this._showLogo);
   }
 
   componentWillUnmount() {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
+
+    this.keyboardWillShowListener.remove();
+    this.keyboardWillHideListener.remove();
   }
+
+  _hideLogo = () => {
+    if (this.state.logo) {
+      this.setState({ logo: false });
+    }
+  };
+
+  _showLogo = () => {
+    if (!this.state.logo) {
+      this.setState({ logo: true });
+    }
+  };
 
   _keyboardDidShow = () => {
     this.setState({ logo: false });
