@@ -35,6 +35,13 @@ exports[`renders correctly 1`] = `
           "testUri": "../../../assets/images/pathFinder.png",
         }
       }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
     />
     <Text
       accessible={true}
@@ -181,6 +188,13 @@ exports[`renders correctly with default state 1`] = `
       source={
         Object {
           "testUri": "../../../assets/images/pathFinder.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
         }
       }
     />

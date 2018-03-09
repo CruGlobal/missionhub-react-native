@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
+const screenMargin = 60;
+const stageWidth = theme.fullWidth - screenMargin*2;
+const stageMargin = theme.fullWidth / 30;
+const carouselWidth = screenMargin*2 + stageWidth*5 + stageMargin*8;
+const overScrollMargin = 120;
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -33,8 +39,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: theme.white,
     height: 320,
-    width: theme.fullWidth - 120,
-    marginHorizontal: theme.fullWidth / 30,
+    width: stageWidth,
+    marginHorizontal: stageMargin,
   },
   card: {
     alignItems: 'center',
@@ -46,6 +52,6 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: -20,
     height: 0.4545*theme.fullWidth,
-    width: theme.fullWidth*4.5,
+    width: carouselWidth + overScrollMargin*2,
   },
 });

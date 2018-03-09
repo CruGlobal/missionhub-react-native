@@ -31,6 +31,13 @@ exports[`renders button text correctly 1`] = `
   >
     <Image
       source={undefined}
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
     />
     <Text
       accessible={true}
@@ -179,6 +186,13 @@ exports[`renders icon correctly 1`] = `
           "testUri": "../../../assets/images/footprints.png",
         }
       }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
     />
     <Text
       accessible={true}
@@ -294,6 +308,13 @@ exports[`renders main text correctly 1`] = `
   >
     <Image
       source={undefined}
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
     />
     <Text
       accessible={true}

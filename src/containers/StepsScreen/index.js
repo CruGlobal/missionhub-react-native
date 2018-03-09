@@ -215,7 +215,7 @@ export class StepsScreen extends Component {
     if (steps.length === 0) {
       const hasReminders = reminders.length > 0;
       return (
-        <Flex align="center" justify="center" style={{ paddingTop: 50 }}>
+        <Flex value={1} align="center" justify="center">
           <Image source={NULL} />
           <Text type="header" style={styles.nullHeader}>
             {t('nullHeader')}

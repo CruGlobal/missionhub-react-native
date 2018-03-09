@@ -123,11 +123,7 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
       <Flex
         align="center"
         justify="center"
-        style={
-          Object {
-            "paddingTop": 50,
-          }
-        }
+        value={1}
       >
         <Image
           source={

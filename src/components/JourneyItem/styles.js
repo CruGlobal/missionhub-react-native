@@ -10,10 +10,13 @@ export default StyleSheet.create({
     width: theme.fullWidth,
   },
   icon: {
-    width: 75,
+    fontSize: 40,
     textAlign: 'center',
     alignSelf: 'center',
     color: theme.primaryColor,
+  },
+  commentIcon: {
+    fontSize: 32,
   },
   textWrap: {
     borderLeftColor: theme.separatorColor,

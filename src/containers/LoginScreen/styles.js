@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
+const overScrollMargin = 120;
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -95,5 +97,11 @@ export default StyleSheet.create({
     fontWeight: '500',
     paddingTop: 2,
     letterSpacing: 1.5,
+  },
+  footerImage: {
+    position: 'absolute',
+    bottom: 100,
+    height: 0.4545*theme.fullWidth,
+    width: theme.fullWidth*3+overScrollMargin*2,
   },
 });
