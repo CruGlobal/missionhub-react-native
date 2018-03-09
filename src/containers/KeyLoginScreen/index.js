@@ -12,6 +12,7 @@ import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
+import { isAndroid } from '../../utils/common';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -37,38 +38,30 @@ class KeyLoginScreen extends Component {
   }
 
   componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);
-
-    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', this._hideLogo);
-    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', this._showLogo);
+    if (isAndroid) {
+      this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
+      this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);
+    } else {
+      this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', this._hideLogo);
+      this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', this._showLogo);
+    }
   }
 
   componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-
-    this.keyboardWillShowListener.remove();
-    this.keyboardWillHideListener.remove();
+    if (isAndroid) {
+      this.keyboardDidShowListener.remove();
+      this.keyboardDidHideListener.remove();
+    } else {
+      this.keyboardWillShowListener.remove();
+      this.keyboardWillHideListener.remove();
+    }
   }
 
   _hideLogo = () => {
-    if (this.state.logo) {
-      this.setState({ logo: false });
-    }
-  };
-
-  _showLogo = () => {
-    if (!this.state.logo) {
-      this.setState({ logo: true });
-    }
-  };
-
-  _keyboardDidShow = () => {
     this.setState({ logo: false });
   };
 
-  _keyboardDidHide = () => {
+  _showLogo = () => {
     this.setState({ logo: true });
   };
 
