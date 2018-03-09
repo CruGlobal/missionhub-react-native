@@ -11,7 +11,7 @@ import { Alert } from 'react-native';
 import i18n from '../i18n';
 
 const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
-let showingAlert = false;
+let showingErrorModal = false;
 
 // Setup API call
 let API_CALLS = {};
@@ -95,8 +95,8 @@ lodashForEach(apiRoutes, (routeData, key) => {
           return reject(err);
 
         } else {
-          if (!showingAlert) {
-            showingAlert = true;
+          if (!showingErrorModal) {
+            showingErrorModal = true;
             showAlert(routeData, key);
           }
 
@@ -116,7 +116,7 @@ const showAlert = (routeData, key) => {
     errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
   }
 
-  const buttons = [ { text: i18n.t('ok'), onPress: () => showingAlert = false } ];
+  const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
   Alert.alert(i18n.t('error:error'), errorMessage, buttons);
 };
 
