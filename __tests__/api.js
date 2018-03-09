@@ -44,7 +44,10 @@ describe('call api', () => {
   });
 
   describe('other error messages', () => {
-    const buttons = [ { text: 'Ok', onPress: expect.anything() } ];
+    const lastTwoArgs = [
+      [ { text: 'Ok', onPress: expect.anything() } ],
+      { onDismiss: expect.anything() },
+    ];
 
     beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, buttons) => buttons[0].onPress()));
 
@@ -56,7 +59,7 @@ describe('call api', () => {
 
     it('should show generic error message if request does not have it', () => {
       return callMethod({ error: 'test' }, () => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, buttons);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, ...lastTwoArgs);
       });
     });
 
@@ -77,7 +80,7 @@ describe('call api', () => {
       serverResponse = { error: 'test' };
 
       return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`, buttons);
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`, ...lastTwoArgs);
       });
     });
 

@@ -117,7 +117,7 @@ const showAlert = (routeData, key) => {
   }
 
   const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
-  Alert.alert(i18n.t('error:error'), errorMessage, buttons);
+  Alert.alert(i18n.t('error:error'), errorMessage, buttons, { onDismiss: () => showingErrorModal = false });
 };
 
 const isUrlEncoded = (routeData) => {
