@@ -85,7 +85,8 @@
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
-			"<rootDir>/__mock__/react-native-device-info.js"
+			"<rootDir>/__mock__/react-native-device-info.js",
+			"<rootDir>/__mock__/react-native-fabric.js"
 		],
 		"snapshotSerializers": [
 			"enzyme-to-json/serializer"
