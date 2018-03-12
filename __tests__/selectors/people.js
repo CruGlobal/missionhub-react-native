@@ -96,7 +96,9 @@ describe('personSelector', () => {
 });
 
 describe('contactAssignmentSelector', () => {
-  it('should get a person\'s contactAssignment for that is assigned to the current user', () => {
+  const organization = { id: '100' };
+
+  it('should get a person\'s contactAssignment for that is assigned to the current user\'s org ministry', () => {
     expect(contactAssignmentSelector(
       { auth },
       {
@@ -106,13 +108,38 @@ describe('contactAssignmentSelector', () => {
               assigned_to: {
                 id: '5',
               },
+              organization: organization,
             },
+            {
+              assigned_to: {
+                id: '23',
+              },
+              organization: organization,
+            },
+          ],
+          organizational_permissions: [
+            {
+              organization_id: organization.id,
+            },
+          ],
+        },
+      }
+    )).toMatchSnapshot();
+  });
+
+  it('should get a person\'s contactAssignment for that is assigned to the current user\'s personal ministry', () => {
+    expect(contactAssignmentSelector(
+      { auth },
+      {
+        person: {
+          reverse_contact_assignments: [
             {
               assigned_to: {
                 id: '23',
               },
             },
           ],
+          organizational_permissions: [],
         },
       }
     )).toMatchSnapshot();
