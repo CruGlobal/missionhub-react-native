@@ -1,11 +1,10 @@
 codecov:
   token: c4a5784a-81a2-4c65-a5ae-bef23f5ac97a
 
-#coverage:
-#  status:
-#    patch:
-#      default:
-#        target: 95%
-#        only_pulls: true
+coverage:
+  status:
+    patch:
+      default:
+        target: 80%
 
 comment: false
