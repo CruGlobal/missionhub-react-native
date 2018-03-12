@@ -38,4 +38,9 @@ export default StyleSheet.create({
   icon: {
     marginRight: 10,
   },
+  forgotPasswordText: {
+    paddingVertical: 10,
+    color: theme.secondaryColor,
+    fontSize: 14,
+  },
 });

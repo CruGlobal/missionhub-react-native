@@ -252,6 +252,28 @@ exports[`renders correctly 1`] = `
         underlineColorAndroid="rgba(0,0,0,0)"
         value=""
       />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "paddingVertical": 10,
+            },
+          ]
+        }
+      >
+        Forgot Password?
+      </Text>
     </View>
     <View
       accessibilityComponentType={undefined}

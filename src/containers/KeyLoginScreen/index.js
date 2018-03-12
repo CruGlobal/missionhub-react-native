@@ -199,6 +199,7 @@ class KeyLoginScreen extends Component {
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
+            <Text style={styles.forgotPasswordText}>{t('forgotPassword')}</Text>
           </View>
           {
             !this.state.email && !this.state.password ? (
