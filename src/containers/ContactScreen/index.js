@@ -16,6 +16,7 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { personSelector, contactAssignmentSelector } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
+import { orgSelector } from '../../selectors/orgs';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
@@ -166,11 +167,12 @@ ContactScreen.propTypes = {
 };
 
 
-export const mapStateToProps = ({ auth, stages, people }, { navigation }) => {
+export const mapStateToProps = ({ auth, stages, people, organizations }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
   const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
+  const organization = orgSelector({ organizations }, { orgId });
 
   return {
     ...(navigation.state.params || {}),
@@ -178,6 +180,7 @@ export const mapStateToProps = ({ auth, stages, people }, { navigation }) => {
     isJean: auth.isJean,
     stages: stages.stages,
     myId: auth.personId,
+    organization,
     personIsCurrentUser: person.id === auth.personId,
     contactAssignment: contactAssignment,
     contactStage: stages.stagesObj[(contactAssignment && contactAssignment.pathway_stage_id || person.user && person.user.pathway_stage_id)],
