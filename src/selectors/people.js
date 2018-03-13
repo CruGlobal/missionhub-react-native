@@ -41,12 +41,13 @@ export const personSelector = createSelector(
 
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
+  (_, __, { orgId }) => orgId,
   ({ auth }) => auth.personId,
-  (person, authUserId) =>
+  (person, orgId, authUserId) =>
     person.reverse_contact_assignments && person.reverse_contact_assignments
       .find((assignment) => assignment.assigned_to && assignment.assigned_to.id === authUserId
-        && (person.organizational_permissions.length === 0 //personal ministry
-          || person.organizational_permissions.some((org_permission) => org_permission.organization_id === assignment.organization.id)
+        && (!assignment.organization || orgId === assignment.organization.id)
+        && (!orgId || person.organizational_permissions.some((org_permission) => org_permission.organization_id === assignment.organization.id)
         )
       )
 );

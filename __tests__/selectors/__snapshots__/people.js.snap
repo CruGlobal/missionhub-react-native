@@ -16,6 +16,7 @@ Object {
   "assigned_to": Object {
     "id": "23",
   },
+  "organization": null,
 }
 `;
 

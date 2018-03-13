@@ -96,7 +96,8 @@ describe('personSelector', () => {
 });
 
 describe('contactAssignmentSelector', () => {
-  const organization = { id: '100' };
+  const organizationOne = { id: '100' };
+  const organizationTwo = { id: '101' };
 
   it('should get a person\'s contactAssignment for that is assigned to the current user\'s org ministry', () => {
     expect(contactAssignmentSelector(
@@ -108,22 +109,38 @@ describe('contactAssignmentSelector', () => {
               assigned_to: {
                 id: '5',
               },
-              organization: organization,
+              organization: organizationOne,
             },
             {
               assigned_to: {
                 id: '23',
               },
-              organization: organization,
+              organization: organizationTwo,
+            },
+            {
+              assigned_to: {
+                id: '23',
+              },
+              organization: { id: '102' },
+            },
+            {
+              assigned_to: {
+                id: '23',
+              },
+              organization: organizationOne,
             },
           ],
           organizational_permissions: [
             {
-              organization_id: organization.id,
+              organization_id: organizationOne.id,
+            },
+            {
+              organization_id: organizationTwo.id,
             },
           ],
         },
-      }
+      },
+      { orgId: organizationOne.id }
     )).toMatchSnapshot();
   });
 
@@ -137,11 +154,13 @@ describe('contactAssignmentSelector', () => {
               assigned_to: {
                 id: '23',
               },
+              organization: null,
             },
           ],
           organizational_permissions: [],
         },
-      }
+      },
+      { orgId: undefined }
     )).toMatchSnapshot();
   });
 });
