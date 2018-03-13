@@ -168,8 +168,9 @@ ContactScreen.propTypes = {
 
 export const mapStateToProps = ({ auth, stages, people }, { navigation }) => {
   const navParams = navigation.state.params;
-  const person = personSelector({ people }, { personId: navParams.person.id, orgId: navParams.organization && navParams.organization.id }) || navParams.person;
-  const contactAssignment = contactAssignmentSelector({ auth }, { person });
+  const orgId = navParams.organization && navParams.organization.id;
+  const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
+  const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
 
   return {
     ...(navigation.state.params || {}),
