@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View, Image } from 'react-native';
+import { Keyboard, View, Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
 import Input from '../../components/Input/index';
-import { keyLogin, facebookLoginAction } from '../../actions/auth';
+import { keyLogin, facebookLoginAction, createAccountAndLogin } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
+import { sha256 } from 'js-sha256';
+import base64url from 'base64-url';
+import { THE_KEY_URL } from '../../api/utils';
+import { THE_KEY_CLIENT_ID } from '../../constants';
+import randomString from 'random-string';
+import Buffer from 'buffer';
 
 
 const FACEBOOK_VERSION = 'v2.8';
@@ -74,8 +80,26 @@ class KeyLoginScreen extends Component {
   }
 
   handleForgotPassword() {
+    global.Buffer = global.Buffer || Buffer.Buffer;
+    Linking.addEventListener('url', this.handleOpenURL);
 
+    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    this.codeVerifier = base64url.encode(string);
+    const codeChallenge = base64url.encode(sha256.array(this.codeVerifier));
+    this.redirectUri = 'https://missionhub.com/auth';
+
+    const uri = `${THE_KEY_URL}service/selfservice?target=displayForgotPassword&client_id=${THE_KEY_CLIENT_ID}`
+      + `&response_type=code&redirect_uri=${this.redirectUri}&scope=fullticket+extended`
+      + `&code_challenge_method=S256&code_challenge=${codeChallenge}`;
+
+
+    Linking.openURL(uri);
   }
+
+  handleOpenURL = (event) => {
+    const code = event.url.split('code=')[1];
+    this.props.dispatch(createAccountAndLogin(code, this.codeVerifier, this.redirectUri, null));
+  };
 
   async login() {
     this.setState({ errorMessage: '' });
