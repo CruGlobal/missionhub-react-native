@@ -7,11 +7,16 @@ import * as analytics from '../../src/actions/analytics';
 import * as navigation from '../../src/actions/navigation';
 import * as login from '../../src/actions/login';
 import * as auth from '../../src/actions/auth';
+import * as person from '../../src/actions/person';
+import * as organizations from '../../src/actions/organizations';
+import * as stages from '../../src/actions/stages';
+import * as notifications from '../../src/actions/notifications';
 import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
+import { getTimezoneString } from '../../src/actions/auth';
 
 const email = 'Roger';
 const password = 'secret';
@@ -206,5 +211,39 @@ describe('on upgrade account', () => {
     await store.dispatch(upgradeAccount());
 
     expect(store.getActions()).toEqual([ { type: LOGIN_OPTIONS_SCREEN } ]);
+  });
+});
+
+describe('loadHome', () => {
+  const getMeResult = { type: 'got me successfully' };
+  const getAssignedOrgsResult = { type: 'got orgs' };
+  const getStagesResult = { type: 'got stages' };
+  const timezoneResult = { type: 'updated TZ' };
+  const notificationsResult = { type: 'notifications result' };
+
+  const tzData = {
+    data: {
+      attributes: {
+        timezone: getTimezoneString(),
+      },
+    },
+  };
+
+  it('loads me, organizations, stages, timezone, and notifications', () => {
+    mockFnWithParams(person, 'getMe', getMeResult);
+    mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
+    mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
+    mockFnWithParams(callApi, 'default', timezoneResult, REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+    mockFnWithParams(notifications, 'shouldRunSetUpPushNotifications', notificationsResult);
+
+    store.dispatch(auth.loadHome());
+
+    expect(store.getActions()).toEqual([
+      getMeResult,
+      getAssignedOrgsResult,
+      getStagesResult,
+      timezoneResult,
+      notificationsResult,
+    ]);
   });
 });

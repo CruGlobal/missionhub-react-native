@@ -1,22 +1,26 @@
 import { REQUESTS } from './api';
 import callApi from './api';
 
+const getOrganizationsQuery = {
+  limit: 100,
+};
+
 export function getMyOrganizations() {
-  return (dispatch) => {
-    const query = {
-      limit: 100,
-    };
-    return dispatch(callApi(REQUESTS.GET_MY_ORGANIZATIONS, query));
-  };
+  return getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
 }
 
-export function getOrganizations(filters = {}) {
+export function getAssignedOrganizations() {
+  const query = {
+    ...getOrganizationsQuery,
+    filters: { assigned_tos: 'me' },
+  };
+
+  return getOrganizations(REQUESTS.GET_ORGANIZATIONS, query);
+}
+
+function getOrganizations(requestObject, query) {
   return (dispatch) => {
-    const query = {
-      limit: 100,
-      filters,
-    };
-    return dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, query));
+    return dispatch(callApi(requestObject, query));
   };
 }
 
