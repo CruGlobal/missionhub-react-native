@@ -26,7 +26,7 @@ export const peopleByOrgSelector = createSelector(
       if (b.id === 'personal') {
         return 1;
       }
-      return (a.name || a.id).localeCompare((b.name || b.id));
+      return a.name.localeCompare(b.name);
     })
 );
 export const personSelector = createSelector(
