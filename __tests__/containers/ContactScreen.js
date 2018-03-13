@@ -9,7 +9,7 @@ import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
 
 jest.mock('../../src/selectors/people');
-jest.mock('../../src/selectors/organizationSelector');
+jest.mock('../../src/selectors/organizations');
 
 const dispatch = jest.fn((response) => Promise.resolve(response));
 navigation.navigatePush = jest.fn();
