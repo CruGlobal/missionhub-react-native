@@ -8,10 +8,6 @@ export function getMe() {
     const { response: person } = await dispatch(callApi(REQUESTS.GET_ME));
 
     Crashlytics.setUserIdentifier(person.id);
-    Crashlytics.setUserName(person.full_name);
-    const emailAddresses = person.email_addresses || [];
-    const emailAddress = emailAddresses.find((emailAddress) => emailAddress.primary) || emailAddresses[0] || {};
-    Crashlytics.setUserEmail(emailAddress.email);
     
     return person;
   };
