@@ -111,15 +111,19 @@ export function firstTime() {
   };
 }
 
+export function getTimezoneString() {
+  return `${new Date().getTimezoneOffset()/60*-1}`;
+}
+
 export function updateTimezone() {
   return (dispatch, getState) => {
     const currentTime = getState().auth.timezone;
-    const timezone = new Date().getTimezoneOffset()/60*-1;
-    if (currentTime !== `${timezone}`) {
+    const timezone = getTimezoneString();
+    if (currentTime !== timezone) {
       const data = {
         data: {
           attributes: {
-            timezone: `${timezone}`,
+            timezone: timezone,
           },
         },
       };

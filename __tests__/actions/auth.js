@@ -16,6 +16,7 @@ import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
+import { getTimezoneString } from '../../src/actions/auth';
 
 const email = 'Roger';
 const password = 'secret';
@@ -223,7 +224,7 @@ describe('loadHome', () => {
   const tzData = {
     data: {
       attributes: {
-        timezone: `${new Date().getTimezoneOffset()/60*-1}`,
+        timezone: getTimezoneString(),
       },
     },
   };
