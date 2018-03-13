@@ -73,6 +73,10 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
+  handleForgotPassword() {
+
+  }
+
   async login() {
     this.setState({ errorMessage: '' });
 
@@ -199,11 +203,19 @@ class KeyLoginScreen extends Component {
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
-            <Text style={styles.forgotPasswordText}>{t('forgotPassword')}</Text>
+            <Button
+              name={'forgotPasswordButton'}
+              text={t('forgotPassword')}
+              type="transparent"
+              style={styles.forgotPasswordButton}
+              buttonTextStyle={styles.forgotPasswordText}
+              onPress={this.handleForgotPassword}
+            />
           </View>
           {
             !this.state.email && !this.state.password ? (
               <Button
+                name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
                 style={styles.facebookButton}
@@ -222,6 +234,7 @@ class KeyLoginScreen extends Component {
           !this.state.email && !this.state.password ? null : (
             <Flex value={1} align="stretch" justify="end">
               <Button
+                name={'loginButton'}
                 type="secondary"
                 onPress={this.login}
                 text={t('login').toUpperCase()}

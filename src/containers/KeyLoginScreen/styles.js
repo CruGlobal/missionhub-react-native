@@ -38,8 +38,12 @@ export default StyleSheet.create({
   icon: {
     marginRight: 10,
   },
+  forgotPasswordButton: {
+    width: 140,
+  },
   forgotPasswordText: {
     paddingVertical: 10,
+    textAlign: 'left',
     color: theme.secondaryColor,
     fontSize: 14,
   },

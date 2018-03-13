@@ -54,7 +54,8 @@ describe('a login button is clicked', () => {
   });
 
   it('facebook login is called', () => {
-    let click = () => screen.dive().dive().dive().find('Button').simulate('press');
+    screen = screen.dive().dive().dive();
+    let click = () => screen.find({ name: 'facebookButton' }).simulate('press');
 
     click();
 
@@ -62,7 +63,7 @@ describe('a login button is clicked', () => {
   });
 
   it('key login is called', async() => {
-    let click = () => screen.find('Button').simulate('press');
+    let click = () => screen.find({ name: 'loginButton' }).simulate('press');
     screen = screen.dive().dive().dive();
     screen.setState({ email: 'klasjflk@lkjasdf.com' });
 

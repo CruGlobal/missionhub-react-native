@@ -158,7 +158,7 @@ class LoginScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               />
               <Flex direction="row" align="center">
-                <Text style={styles.signInText}>ALREADY A MEMBER?</Text>
+                <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
                 <Button
                   text={t('signIn').toUpperCase()}
                   type="transparent"
