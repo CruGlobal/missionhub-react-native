@@ -9,7 +9,7 @@ import { logOutAnalytics, updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
-import { getMyOrganizations } from './organizations';
+import { getAssignedOrganizations } from './organizations';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
@@ -132,7 +132,7 @@ export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
-    dispatch(getMyOrganizations());
+    dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
     dispatch(shouldRunSetUpPushNotifications());

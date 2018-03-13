@@ -10,11 +10,13 @@ export function getMyOrganizations() {
   };
 }
 
-export function getOrganizations(filters = {}) {
+export function getAssignedOrganizations() {
   return (dispatch) => {
     const query = {
       limit: 100,
-      filters,
+      filters: {
+        assigned_tos: 'me',
+      },
     };
     return dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, query));
   };
