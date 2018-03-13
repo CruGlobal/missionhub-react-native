@@ -1,4 +1,4 @@
-import { orgSelector } from '../../src/selectors/orgs';
+import { organizationSelector } from '../../src/selectors/organizations';
 
 const orgOne = { id: '95' };
 const orgTwo = { id: '96' };
@@ -8,13 +8,13 @@ const organizations = {
 };
 
 it('should return org', () => {
-  const result = orgSelector({ organizations }, { orgId: orgTwo.id });
+  const result = organizationSelector({ organizations }, { orgId: orgTwo.id });
 
   expect(result).toEqual(orgTwo);
 });
 
 it('should not return an org when undefined is passed', () => {
-  const result = orgSelector({ organizations }, { orgId: undefined });
+  const result = organizationSelector({ organizations }, { orgId: undefined });
 
   expect(result).toBe(undefined);
 });

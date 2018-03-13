@@ -16,7 +16,7 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { personSelector, contactAssignmentSelector } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
-import { orgSelector } from '../../selectors/orgs';
+import { organizationSelector } from '../../selectors/organizations';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
@@ -172,7 +172,7 @@ export const mapStateToProps = ({ auth, stages, people, organizations }, { navig
   const orgId = navParams.organization && navParams.organization.id;
   const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
   const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
-  const organization = orgSelector({ organizations }, { orgId });
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     ...(navigation.state.params || {}),

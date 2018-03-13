@@ -4,12 +4,12 @@ import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
 import { contactAssignmentSelector, personSelector } from '../../src/selectors/people';
-import { orgSelector } from '../../src/selectors/orgs';
+import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
 
 jest.mock('../../src/selectors/people');
-jest.mock('../../src/selectors/orgs');
+jest.mock('../../src/selectors/organizationSelector');
 
 const dispatch = jest.fn((response) => Promise.resolve(response));
 navigation.navigatePush = jest.fn();
@@ -25,7 +25,7 @@ describe('ContactScreen', () => {
     it('should provide the necessary props with a contactAssignment', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
-      orgSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
+      organizationSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
       expect(mapStateToProps(
         {
           auth: {
@@ -61,7 +61,7 @@ describe('ContactScreen', () => {
         },
       });
       contactAssignmentSelector.mockReturnValue(undefined);
-      orgSelector.mockReturnValue(organization);
+      organizationSelector.mockReturnValue(organization);
       expect(mapStateToProps(
         {
           auth: {
