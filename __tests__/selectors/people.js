@@ -143,8 +143,8 @@ describe('contactAssignmentSelector', () => {
             },
           ],
         },
+        orgId: organizationOne.id,
       },
-      { orgId: organizationOne.id }
     )).toMatchSnapshot();
   });
 
@@ -163,8 +163,8 @@ describe('contactAssignmentSelector', () => {
           ],
           organizational_permissions: [],
         },
-      },
-      { orgId: undefined }
+        orgId: undefined,
+      }
     )).toMatchSnapshot();
   });
 });

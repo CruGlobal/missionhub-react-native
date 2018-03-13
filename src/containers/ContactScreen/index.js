@@ -170,7 +170,7 @@ export const mapStateToProps = ({ auth, stages, people }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
-  const contactAssignment = contactAssignmentSelector({ auth }, { person }, { orgId });
+  const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
 
   return {
     ...(navigation.state.params || {}),

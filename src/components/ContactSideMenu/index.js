@@ -121,7 +121,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
     isJean: auth.isJean,
     personIsCurrentUser: navigation.state.params.person.id === auth.personId,
     myId: auth.personId,
-    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }, { orgId }),
+    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission: orgPermissionSelector(null, { person, organization: navParams.organization }),
   };
 };

@@ -41,7 +41,7 @@ export const personSelector = createSelector(
 
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
-  (_, __, { orgId }) => orgId,
+  (_, { orgId }) => orgId,
   ({ auth }) => auth.personId,
   (person, orgId, authUserId) =>
     person.reverse_contact_assignments && person.reverse_contact_assignments
