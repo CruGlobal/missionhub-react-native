@@ -14,6 +14,7 @@ import thunk from 'redux-thunk';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
+import { buildTrackingObj } from '../../src/utils/common';
 
 const mockState = {
   personProfile: {
@@ -143,12 +144,13 @@ describe('person stage screen methods with add contact flow', () => {
     );
     component = screen.dive().dive().dive().instance();
     selectStage.updateUserStage = () => () => Promise.resolve();
-    analytics.trackState = () => (trackStateResult);
+    analytics.trackState = jest.fn(() => (trackStateResult));
     navigation.navigatePush = jest.fn();
 
     await component.handleSelectStage(mockStage, false);
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
+    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps'));
   });
 
   it('runs celebrate and finish with on complete', () => {
