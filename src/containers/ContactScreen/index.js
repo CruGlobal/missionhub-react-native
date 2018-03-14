@@ -14,7 +14,7 @@ import { CASEY, CONTACT_MENU_DRAWER, DRAWER_OPEN, JEAN } from '../../constants';
 import { STAGE_SCREEN } from '../StageScreen';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { personSelector, contactAssignmentSelector } from '../../selectors/people';
+import { personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
 
@@ -184,6 +184,7 @@ export const mapStateToProps = ({ auth, stages, people, organizations }, { navig
     personIsCurrentUser: person.id === auth.personId,
     contactAssignment: contactAssignment,
     contactStage: stages.stagesObj[(contactAssignment && contactAssignment.pathway_stage_id || person.user && person.user.pathway_stage_id)],
+    orgPermission: orgPermissionSelector(null, { person, organization: navParams.organization }),
   };
 };
 
