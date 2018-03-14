@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
@@ -15,8 +13,6 @@ import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const mockState = {
   personProfile: {
