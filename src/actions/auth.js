@@ -1,4 +1,4 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL } from '../constants';
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 
@@ -9,6 +9,12 @@ import { logOutAnalytics, updateAnalyticsContext } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
+import base64url from 'base64-url';
+import { sha256 } from 'js-sha256';
+import { Linking } from 'react-native';
+import Buffer from 'buffer';
+import { THE_KEY_URL } from '../api/utils';
+import randomString from 'random-string';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
@@ -21,6 +27,35 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
       dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
       return dispatch(onSuccessfulLogin());
     });
+  };
+}
+
+export function openKeyURL(baseURL, upgradeAccount) {
+  return (dispatch) => {
+    global.Buffer = global.Buffer || Buffer.Buffer;
+    Linking.addEventListener('url', handleOpenURL);
+
+    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    const codeVerifier = base64url.encode(string);
+    const codeChallenge = base64url.encode(sha256.array(codeVerifier));
+    const redirectUri = 'https://missionhub.com/auth';
+
+    const uri = `${THE_KEY_URL}${baseURL}&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
+      + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
+      + `&code_challenge=${codeChallenge}`;
+
+    dispatch({ type: OPEN_URL, codeVerifier, redirectUri, upgradeAccount });
+    Linking.openURL(uri);
+  };
+}
+
+function handleOpenURL(event) {
+  console.log(event);
+  return (dispatch, getState) => {
+    const { codeVerifier, redirectUri, upgradeAccount } = getState().auth;
+
+    const code = event.url.split('code=')[1];
+    return createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null);
   };
 }
 

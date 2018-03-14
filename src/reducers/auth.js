@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES } from '../constants';
+import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES, OPEN_URL } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { findAllNonPlaceHolders } from '../utils/common';
 
@@ -14,6 +14,9 @@ const initialAuthState = {
   isJean: false,
   timezone: '',
   upgradeToken: null,
+  codeVerifier: null,
+  redirectUri: null,
+  upgradeAccount: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -69,6 +72,13 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         isFirstTime: true,
         isLoggedIn: false,
+      };
+    case OPEN_URL:
+      return {
+        ...state,
+        codeVerifier: action.codeVerifier,
+        redirectUri: action.redirectUri,
+        upgradeAccount: action.upgradeAccount,
       };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {
