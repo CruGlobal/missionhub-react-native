@@ -284,7 +284,7 @@ exports[`renders correctly 1`] = `
               },
               null,
               Object {
-                "width": 140,
+                "width": 130,
               },
               null,
             ]
@@ -313,7 +313,9 @@ exports[`renders correctly 1`] = `
                   },
                   Object {
                     "color": "#52C5DC",
-                    "fontSize": 14,
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0,
                     "paddingVertical": 10,
                     "textAlign": "left",
                   },

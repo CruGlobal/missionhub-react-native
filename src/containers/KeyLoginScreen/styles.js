@@ -39,12 +39,14 @@ export default StyleSheet.create({
     marginRight: 10,
   },
   forgotPasswordButton: {
-    width: 140,
+    width: 130,
   },
   forgotPasswordText: {
     paddingVertical: 10,
     textAlign: 'left',
     color: theme.secondaryColor,
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'normal',
+    letterSpacing: 0,
   },
 });
