@@ -38,7 +38,6 @@ export function openKeyURL(baseURL, upgradeAccount = false) {
 
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });
     const codeVerifier = base64url.encode(string);
-    console.log(codeVerifier);
     const codeChallenge = base64url.encode(sha256.array(codeVerifier));
     const redirectUri = 'https://missionhub.com/auth';
 

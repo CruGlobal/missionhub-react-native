@@ -29,7 +29,6 @@ class LoginOptionsScreen extends Component {
     this.login = this.login.bind(this);
     this.tryItNow = this.tryItNow.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
-    this.emailSignUp = this.emailSignUp.bind(this);
   }
 
   login() {
@@ -45,9 +44,9 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
-  emailSignUp() {
+  emailSignUp = () => {
     this.props.dispatch(openKeyURL('login?action=signup', this.props.upgradeAccount));
-  }
+  };
 
   componentWillUnmount() {
     Linking.removeEventListener('url', this.handleOpenURL);
