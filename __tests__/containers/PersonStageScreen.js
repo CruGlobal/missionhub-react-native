@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
-import PersonStageScreen,  from '../../src/containers/PersonStageScreen';
+import PersonStageScreen from '../../src/containers/PersonStageScreen';
 import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import * as selectStage from '../../src/actions/selectStage';
