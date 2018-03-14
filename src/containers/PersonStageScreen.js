@@ -71,6 +71,7 @@ class PersonStageScreen extends Component {
           createStepTracking: buildTrackingObj('people : add person : steps : create', 'people', 'add person', 'steps'),
           contactName: this.props.name,
           contactId: this.props.contactId,
+          organization: { id: this.props.orgId },
         }));
       });
       this.props.dispatch(trackState(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps')));
