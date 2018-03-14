@@ -12,7 +12,6 @@ import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
 import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL, handleOpenURL } from '../../src/actions/auth';
-import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
