@@ -178,6 +178,23 @@ exports[`contactSideMenu Jean renders unassign correctly 1`] = `
 />
 `;
 
+exports[`contactSideMenu Jean should hide followup status for Missionhub users 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Assign",
+      },
+    ]
+  }
+/>
+`;
+
 exports[`contactSideMenu mapStateToProps should provide the necessary props 1`] = `
 Object {
   "contactAssignment": Object {

@@ -7,8 +7,8 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
-import { ORG_PERMISSIONS } from '../../constants';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
+import { isMissionhubUser } from '../../utils/common';
 
 @translate()
 export class PeopleItem extends Component {
@@ -68,7 +68,7 @@ export class PeopleItem extends Component {
     } else if (organization && organization.id) {
       const personOrgPermissions = orgPermissions.find((o) => o.organization_id === organization.id);
       if (personOrgPermissions) {
-        if (ORG_PERMISSIONS.includes(personOrgPermissions.permission_id)) {
+        if (isMissionhubUser(personOrgPermissions)) {
           status = '';
         } else {
           status = personOrgPermissions.followup_status || '';
