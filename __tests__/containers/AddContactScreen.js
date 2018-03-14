@@ -27,6 +27,17 @@ const store = createMockStore({
   auth: { user: me },
 });
 
+function buildScreen(props) {
+  return renderShallow(
+    <AddContactScreen {...props} />,
+    store
+  );
+}
+
+function buildScreenInstance(props) {
+  return buildScreen(props).instance();
+}
+
 beforeEach(() => organizations.addNewContact.mockImplementation(jest.fn(() => mockAddNewContact)));
 
 it('renders correctly', () => {
@@ -38,11 +49,10 @@ it('renders correctly', () => {
 
 describe('handleUpdateData', () => {
   it('should update the state', () => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} />,
-      store
-    ).instance();
+    const component = buildScreenInstance({ navigation: createMockNavState() });
+
     component.handleUpdateData('some data');
+
     expect(component.state).toEqual({
       data: 'some data',
     });
@@ -52,53 +62,48 @@ describe('handleUpdateData', () => {
 describe('complete', () => {
   it('should run the onComplete and navigateBack', () => {
     const mockComplete = jest.fn();
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-      })} />,
-      store
-    ).instance();
+    const component = buildScreenInstance({
+      navigation: createMockNavState({ onComplete: mockComplete }),
+    });
+
     component.complete();
+
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
 
 describe('savePerson', () => {
   it('should add a new person', async() => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} />,
-      store
-    );
-    const componentInstance = component.instance();
-    component.setState({
+    const componentInstance = buildScreenInstance({ navigation: createMockNavState() });
+    componentInstance.setState({
       data: {
         first_name: 'Fname',
       },
     });
+
     await componentInstance.savePerson();
+
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname' });
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
     expect(navigateBack).toHaveBeenCalled();
   });
+
   it('should add a new person with an org', async() => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} organization={{ id: 2 }} />,
-      store
-    );
-    const componentInstance = component.instance();
-    component.setState({
+    const componentInstance = buildScreenInstance({ navigation: createMockNavState(), organization: { id: 2 } });
+    componentInstance.setState({
       data: {
         first_name: 'Fname',
       },
     });
+
     await componentInstance.savePerson();
+
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname', orgId: 2 });
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
     expect(navigateBack).toHaveBeenCalled();
   });
 
   it('should navigate to person stage screen', async() => {
-
     const newPerson = {
       type: 'person',
       id: 1000,
@@ -109,11 +114,7 @@ describe('savePerson', () => {
         },
       ],
     };
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} organization={organization} />,
-      store,
-    );
-    const componentInstance = component.instance();
+    const component = buildScreenInstance({ navigation: createMockNavState(), organization: organization });
     component.setState({
       data: {
         first_name: 'Fname',
@@ -121,7 +122,7 @@ describe('savePerson', () => {
     });
     organizations.addNewContact.mockImplementation(() => ({ type: 'add new contact', findAll: () => [ newPerson ] }));
 
-    await componentInstance.savePerson();
+    await component.savePerson();
 
     expect(store.dispatch).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
@@ -140,27 +141,24 @@ describe('savePerson', () => {
 
   it('should add a new person with a callback', async() => {
     const onCompleteMock = jest.fn();
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} onComplete={onCompleteMock} />,
-      store
-    );
+    const component = buildScreen({ navigation: createMockNavState(), onComplete: onCompleteMock });
     const componentInstance = component.instance();
     component.setState({
       data: {
         first_name: 'Fname',
       },
     });
+
     await componentInstance.savePerson();
+
     expect(addNewContact).toHaveBeenCalledWith({ first_name: 'Fname' });
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
     expect(onCompleteMock).toHaveBeenCalledTimes(1);
     expect(navigateBack).toHaveBeenCalled();
   });
+
   it('should add a new person with a callback', async() => {
-    const component = renderShallow(
-      <AddContactScreen navigation={createMockNavState()} />,
-      store,
-    );
+    const component = buildScreen({ navigation: createMockNavState() });
     const componentInstance = component.instance();
     component.setProps({
       person: {
@@ -172,7 +170,9 @@ describe('savePerson', () => {
         first_name: 'Fname',
       },
     });
+
     await componentInstance.savePerson();
+
     expect(updatePerson).toHaveBeenCalledWith({ first_name: 'Fname' });
     expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
     expect(navigateBack).toHaveBeenCalled();
