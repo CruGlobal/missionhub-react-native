@@ -81,23 +81,21 @@ class ContactHeader extends Component {
   shrinkHeader = () => {
     this.props.onShrinkHeader();
     this.setState({ headerOpen: false });
-  }
+  };
 
   openHeader = () => {
     this.props.onOpenHeader();
     this.setState({ headerOpen: true });
-  }
+  };
 
   getTabs = () => {
-    const { person, type, isMe, organization } = this.props;
-    const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
-    const isMhubUser = isMissionhubUser(personOrgPermissions);
+    const { type, isMe, organization, orgPermission } = this.props;
 
     if (isMe) {
       return ME_TABS;
     } else if (type === CASEY || !organization || (organization && organization.id === 'personal')) {
       return CASEY_TABS;
-    } else if (isMhubUser) {
+    } else if (isMissionhubUser(orgPermission)) {
       return JEAN_TABS_MH_USER;
     }
 
@@ -213,6 +211,7 @@ ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
   contactAssignment: PropTypes.object,
   organization: PropTypes.object,
+  orgPermission: PropTypes.object,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,

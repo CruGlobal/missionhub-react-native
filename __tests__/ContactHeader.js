@@ -3,8 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import ContactHeader from '../src/components/ContactHeader';
-import { testSnapshot } from '../testUtils';
-import { Provider } from 'react-redux';
+import { testSnapshotShallow } from '../testUtils';
 import { createMockStore } from '../testUtils/index';
 import { CASEY, JEAN } from '../src/constants';
 
@@ -25,30 +24,30 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
-const mockPerson = { first_name: 'ben', id: 1, email_addresses: [], phone_numbers: [] };
+const person = { first_name: 'ben', id: '1', email_addresses: [], phone_numbers: [] };
+const organization = { name: 'Test Org', id: '10' };
 
 jest.mock('NativeAnimatedHelper');
 
 it('renders casey', () => {
-  testContactHeader(mockPerson, CASEY);
+  testContactHeader(person, CASEY);
 });
 
 it('renders jean', () => {
-  testContactHeader(mockPerson, JEAN);
+  testContactHeader(person, JEAN, false, organization);
 });
 
 it('renders me', () => {
-  testContactHeader(mockPerson, JEAN, true);
+  testContactHeader(person, JEAN, true);
 });
 
 it('renders jean with a missionhub user as contact', () => {
-  testContactHeader({ ...mockPerson, userId: 123 }, JEAN);
+  testContactHeader({ ...person }, JEAN, false, organization, { permission_id: 1 });
 });
 
-const testContactHeader = (person, type, isMe = false) => {
-  testSnapshot(
-    <Provider store={store}>
-      <ContactHeader isMe={isMe} person={person} type={type} onChangeStage={() => {}} />
-    </Provider>,
+const testContactHeader = (person, type, isMe = false, organization, orgPermission) => {
+  testSnapshotShallow(
+    <ContactHeader isMe={isMe} person={person} organization={organization} orgPermission={orgPermission} type={type} onChangeStage={() => {}} />,
+    store
   );
 };

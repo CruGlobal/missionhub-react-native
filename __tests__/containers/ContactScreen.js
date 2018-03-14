@@ -3,7 +3,7 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
-import { contactAssignmentSelector, personSelector } from '../../src/selectors/people';
+import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
@@ -18,6 +18,7 @@ const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment', pathway_stage_id: 5 };
 const stage = { id: 5, type: 'pathway_stage' };
 const organization = { id: 1, type: 'organization' };
+const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
 
 
 describe('ContactScreen', () => {
@@ -26,6 +27,7 @@ describe('ContactScreen', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
       organizationSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
+      orgPermissionSelector.mockReturnValue(orgPermission);
       expect(mapStateToProps(
         {
           auth: {
@@ -62,6 +64,7 @@ describe('ContactScreen', () => {
       });
       contactAssignmentSelector.mockReturnValue(undefined);
       organizationSelector.mockReturnValue(organization);
+      orgPermissionSelector.mockReturnValue(orgPermission);
       expect(mapStateToProps(
         {
           auth: {
