@@ -15,6 +15,7 @@ Object {
   "myId": 1,
   "organization": Object {
     "id": 1,
+    "name": "Org from org selector",
     "type": "organization",
   },
   "person": Object {

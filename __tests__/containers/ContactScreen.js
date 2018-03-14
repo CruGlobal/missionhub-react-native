@@ -4,10 +4,12 @@ import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
 import { contactAssignmentSelector, personSelector } from '../../src/selectors/people';
+import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
 
 jest.mock('../../src/selectors/people');
+jest.mock('../../src/selectors/organizations');
 
 const dispatch = jest.fn((response) => Promise.resolve(response));
 navigation.navigatePush = jest.fn();
@@ -23,6 +25,7 @@ describe('ContactScreen', () => {
     it('should provide the necessary props with a contactAssignment', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
+      organizationSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
       expect(mapStateToProps(
         {
           auth: {
@@ -36,6 +39,7 @@ describe('ContactScreen', () => {
             },
           },
           people: {},
+          organizations: { all: [ organization ] },
         },
         {
           navigation: {
@@ -57,6 +61,7 @@ describe('ContactScreen', () => {
         },
       });
       contactAssignmentSelector.mockReturnValue(undefined);
+      organizationSelector.mockReturnValue(organization);
       expect(mapStateToProps(
         {
           auth: {

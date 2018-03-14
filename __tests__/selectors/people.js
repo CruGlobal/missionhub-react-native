@@ -1,5 +1,52 @@
 import { peopleByOrgSelector, personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../src/selectors/people';
 
+const auth = {
+  user: {
+    id: '23',
+  },
+  personId: '23',
+};
+
+const organizationOne = {
+  id: '100',
+  type: 'organization',
+  name: 'Org2',
+  people: {
+    '30': {
+      id: '30',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname2',
+    },
+    '31': {
+      id: '31',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname3',
+    },
+    '32': {
+      id: '32',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname1',
+    },
+  },
+};
+
+const organizationTwo = {
+  id: '200',
+  type: 'organization',
+  name: 'Org1',
+  people: {
+    '32': {
+      id: '32',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname1',
+    },
+  },
+};
+
 const people = {
   allByOrg: {
     personal: {
@@ -24,60 +71,17 @@ const people = {
           first_name: 'Fname1',
           last_name: 'Lname1',
         },
-        '23': {
-          id: '23',
+        [auth.personId]: {
+          id: auth.personId,
           type: 'person',
           first_name: 'ME',
           last_name: 'Lname',
         },
       },
     },
-    '100': {
-      id: '100',
-      type: 'organization',
-      name: 'Org2',
-      people: {
-        '30': {
-          id: '30',
-          type: 'person',
-          first_name: 'Fname3',
-          last_name: 'Lname2',
-        },
-        '31': {
-          id: '31',
-          type: 'person',
-          first_name: 'Fname3',
-          last_name: 'Lname3',
-        },
-        '32': {
-          id: '32',
-          type: 'person',
-          first_name: 'Fname3',
-          last_name: 'Lname1',
-        },
-      },
-    },
-    '200': {
-      id: '200',
-      type: 'organization',
-      name: 'Org1',
-      people: {
-        '32': {
-          id: '32',
-          type: 'person',
-          first_name: 'Fname3',
-          last_name: 'Lname1',
-        },
-      },
-    },
+    [organizationOne.id]: organizationOne,
+    [organizationTwo.id]: organizationTwo,
   },
-};
-
-const auth = {
-  user: {
-    id: '23',
-  },
-  personId: '23',
 };
 
 describe('peopleByOrgSelector', () => {
@@ -91,12 +95,15 @@ describe('personSelector', () => {
     expect(personSelector({ people }, { orgId: null, personId: '22' })).toMatchSnapshot();
   });
   it('should get a person in another org', () => {
-    expect(personSelector({ people }, { orgId: '100', personId: '31' })).toMatchSnapshot();
+    expect(personSelector({ people }, { orgId: organizationOne.id, personId: '31' })).toMatchSnapshot();
   });
 });
 
 describe('contactAssignmentSelector', () => {
-  it('should get a person\'s contactAssignment for that is assigned to the current user', () => {
+  const organizationOne = { id: '100' };
+  const organizationTwo = { id: '101' };
+
+  it('should get a person\'s contactAssignment for that is assigned to the current user\'s org ministry', () => {
     expect(contactAssignmentSelector(
       { auth },
       {
@@ -106,14 +113,57 @@ describe('contactAssignmentSelector', () => {
               assigned_to: {
                 id: '5',
               },
+              organization: organizationOne,
             },
             {
               assigned_to: {
-                id: '23',
+                id: auth.personId,
               },
+              organization: organizationTwo,
+            },
+            {
+              assigned_to: {
+                id: auth.personId,
+              },
+              organization: { id: '102' },
+            },
+            {
+              assigned_to: {
+                id: auth.personId,
+              },
+              organization: organizationOne,
+            },
+          ],
+          organizational_permissions: [
+            {
+              organization_id: organizationOne.id,
+            },
+            {
+              organization_id: organizationTwo.id,
             },
           ],
         },
+        orgId: organizationOne.id,
+      },
+    )).toMatchSnapshot();
+  });
+
+  it('should get a person\'s contactAssignment for that is assigned to the current user\'s personal ministry', () => {
+    expect(contactAssignmentSelector(
+      { auth },
+      {
+        person: {
+          reverse_contact_assignments: [
+            {
+              assigned_to: {
+                id: auth.personId,
+              },
+              organization: null,
+            },
+          ],
+          organizational_permissions: [],
+        },
+        orgId: undefined,
       }
     )).toMatchSnapshot();
   });
@@ -127,15 +177,15 @@ describe('orgPermissionSelector', () => {
         person: {
           organizational_permissions: [
             {
-              organization_id: '100',
+              organization_id: organizationOne.id,
             },
             {
-              organization_id: '200',
+              organization_id: organizationTwo.id,
             },
           ],
         },
         organization: {
-          id: '200',
+          id: organizationTwo.id,
         },
       }
     )).toMatchSnapshot();
