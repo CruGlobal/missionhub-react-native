@@ -228,6 +228,20 @@ describe('contactSideMenu', () => {
       testFollowupStatusClick(component, 'Do Not Contact', person, orgPermission.id, 'do_not_contact');
       testFollowupStatusClick(component, 'Uncontacted', person, orgPermission.id, 'uncontacted');
     });
+
+    it('should hide followup status for Missionhub users', () => {
+      testSnapshotShallow(
+        <ContactSideMenu
+          dispatch={dispatch}
+          isJean={true}
+          myId={1}
+          personIsCurrentUser={false}
+          person={person}
+          orgPermission={{ permission_id: 1 }}
+          organization={organization}
+        />
+      );
+    });
   });
 });
 
