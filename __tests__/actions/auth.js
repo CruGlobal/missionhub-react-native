@@ -7,11 +7,13 @@ import * as analytics from '../../src/actions/analytics';
 import * as navigation from '../../src/actions/navigation';
 import * as login from '../../src/actions/login';
 import * as auth from '../../src/actions/auth';
-import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL, handleOpenURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
+import { Linking } from 'react-native';
+import { OPEN_URL } from '../../src/constants';
 
 const email = 'Roger';
 const password = 'secret';
@@ -19,6 +21,8 @@ const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
+const codeVerifier = 'kasnjdfbahieahkhdbfhbhaslejrsd';
+const redirectUri = 'https://missionhub.com/auth';
 const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
@@ -37,7 +41,12 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: { refreshToken: refreshToken } });
+  store = mockStore({ auth: {
+    refreshToken: refreshToken,
+    codeVerifier: codeVerifier,
+    redirectUri: redirectUri,
+    upgradeAccount: false,
+  } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -103,6 +112,35 @@ describe('the key', () => {
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
 
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
+        });
+    });
+  });
+
+  describe('open key URL', () => {
+    const expectedUrlResult = {
+      type: OPEN_URL,
+      codeVerifier: expect.any(String),
+      redirectUri: redirectUri,
+      upgradeAccount: false,
+    };
+
+    it('should open key URL', () => {
+      Linking.addEventListener = jest.fn();
+      Linking.openURL = jest.fn();
+
+      store.dispatch(openKeyURL('login?action=signup', false));
+
+      expect(Linking.addEventListener).toHaveBeenCalledWith('url', handleOpenURL);
+      expect(store.getActions()).toEqual([ expectedUrlResult ]);
+      expect(Linking.openURL).toHaveBeenCalledWith(expect.any(String));
+    });
+
+    it('should call createAccountAndLogin on return', () => {
+      auth.createAccountAndLogin = jest.fn();
+
+      store.dispatch(handleOpenURL({ url: `${redirectUri}?code=ST-6280-ajelrwerw34laekjdfr` }))
+        .then(() => {
+          expect(auth.createAccountAndLogin).toHaveBeenCalledWith('ST-6280-ajelrwerw34laekjdfr');
         });
     });
   });

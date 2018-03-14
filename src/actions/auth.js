@@ -37,6 +37,7 @@ export function openKeyURL(baseURL, upgradeAccount) {
 
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });
     const codeVerifier = base64url.encode(string);
+    console.log(codeVerifier);
     const codeChallenge = base64url.encode(sha256.array(codeVerifier));
     const redirectUri = 'https://missionhub.com/auth';
 
@@ -44,18 +45,18 @@ export function openKeyURL(baseURL, upgradeAccount) {
       + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 
-    dispatch({ type: OPEN_URL, codeVerifier, redirectUri, upgradeAccount });
+
     Linking.openURL(uri);
+    return dispatch({ type: OPEN_URL, codeVerifier, redirectUri, upgradeAccount });
   };
 }
 
-function handleOpenURL(event) {
-  console.log(event);
+export function handleOpenURL(event) {
   return (dispatch, getState) => {
     const { codeVerifier, redirectUri, upgradeAccount } = getState().auth;
 
     const code = event.url.split('code=')[1];
-    return createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null);
+    return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
   };
 }
 
