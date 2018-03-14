@@ -15,6 +15,7 @@ import { Linking } from 'react-native';
 import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
+import { getAssignedOrganizations } from './organizations';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
@@ -92,7 +93,7 @@ function getTicketAndLogin(isUpgrade) {
   return async(dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
-    const data = { code: keyTicketResult.ticket }; 
+    const data = { code: keyTicketResult.ticket };
     if (isUpgrade) { data.client_token = upgradeToken; }
 
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
@@ -146,15 +147,19 @@ export function firstTime() {
   };
 }
 
+export function getTimezoneString() {
+  return `${new Date().getTimezoneOffset()/60*-1}`;
+}
+
 export function updateTimezone() {
   return (dispatch, getState) => {
     const currentTime = getState().auth.timezone;
-    const timezone = new Date().getTimezoneOffset()/60*-1;
-    if (currentTime !== `${timezone}`) {
+    const timezone = getTimezoneString();
+    if (currentTime !== timezone) {
       const data = {
         data: {
           attributes: {
-            timezone: `${timezone}`,
+            timezone: timezone,
           },
         },
       };
@@ -167,6 +172,7 @@ export function loadHome() {
   return (dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
+    dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
     dispatch(shouldRunSetUpPushNotifications());

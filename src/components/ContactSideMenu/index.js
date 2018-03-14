@@ -112,7 +112,8 @@ export class ContactSideMenu extends Component {
 
 export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params;
-  const person = personSelector({ people }, { personId: navParams.person.id, orgId: navParams.organization && navParams.organization.id }) || navParams.person;
+  const orgId = navParams.organization && navParams.organization.id;
+  const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
 
   return {
     ...(navigation.state.params || {}),
@@ -120,7 +121,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
     isJean: auth.isJean,
     personIsCurrentUser: navigation.state.params.person.id === auth.personId,
     myId: auth.personId,
-    contactAssignment: contactAssignmentSelector({ auth }, { person }),
+    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     orgPermission: orgPermissionSelector(null, { person, organization: navParams.organization }),
   };
 };
