@@ -79,6 +79,6 @@ describe('a login button is clicked', () => {
 
     click();
 
-    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', false);
+    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
   });
 });

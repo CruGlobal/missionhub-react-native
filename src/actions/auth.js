@@ -30,7 +30,7 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   };
 }
 
-export function openKeyURL(baseURL, upgradeAccount) {
+export function openKeyURL(baseURL, upgradeAccount = false) {
   return (dispatch) => {
     global.Buffer = global.Buffer || Buffer.Buffer;
     Linking.addEventListener('url', handleOpenURL);

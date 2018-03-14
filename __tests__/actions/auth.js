@@ -22,6 +22,7 @@ const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const codeVerifier = 'kasnjdfbahieahkhdbfhbhaslejrsd';
+const returnCode = 'ST-6280-ajelrwerw34laekjdfr';
 const redirectUri = 'https://missionhub.com/auth';
 const mockStore = configureStore([ thunk ]);
 
@@ -138,9 +139,9 @@ describe('the key', () => {
     it('should call createAccountAndLogin on return', () => {
       auth.createAccountAndLogin = jest.fn();
 
-      store.dispatch(handleOpenURL({ url: `${redirectUri}?code=ST-6280-ajelrwerw34laekjdfr` }))
+      store.dispatch(handleOpenURL({ url: `${redirectUri}?code=${returnCode}` }))
         .then(() => {
-          expect(auth.createAccountAndLogin).toHaveBeenCalledWith('ST-6280-ajelrwerw34laekjdfr');
+          expect(auth.createAccountAndLogin).toHaveBeenCalledWith(returnCode);
         });
     });
   });
