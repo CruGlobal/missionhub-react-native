@@ -35,7 +35,6 @@ class KeyLoginScreen extends Component {
     this.passwordChanged = this.passwordChanged.bind(this);
     this.login = this.login.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
-    this.handleForgotPassword = this.handleForgotPassword.bind(this);
   }
 
   componentWillMount() {
@@ -74,9 +73,9 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
-  handleForgotPassword() {
+  handleForgotPassword = () => {
     this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword'));
-  }
+  };
 
   async login() {
     this.setState({ errorMessage: '' });
