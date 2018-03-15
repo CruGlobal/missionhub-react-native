@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES, OPEN_URL } from '../constants';
+import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { findAllNonPlaceHolders } from '../utils/common';
 
