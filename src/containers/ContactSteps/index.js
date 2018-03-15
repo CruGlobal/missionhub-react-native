@@ -154,7 +154,7 @@ class ContactSteps extends Component {
 
     return (
       <Flex align="center" justify="center">
-        <Image source={NULL} />
+        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
         <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
         <Text style={styles.nullText}>{t('stepNull', { name })}</Text>
       </Flex>

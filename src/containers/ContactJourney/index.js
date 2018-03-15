@@ -138,7 +138,7 @@ class ContactJourney extends Component {
     const { t } = this.props;
     return (
       <Flex align="center" justify="center" value={1}>
-        <Image source={NULL} />
+        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
         <Text type="header" style={styles.nullHeader}>{t('ourJourney').toUpperCase()}</Text>
         <Text style={styles.nullText}>{t('journeyNull')}</Text>
       </Flex>
