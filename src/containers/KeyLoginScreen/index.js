@@ -78,10 +78,11 @@ class KeyLoginScreen extends Component {
   };
 
   async login() {
+    const { email, password } = this.state;
     this.setState({ errorMessage: '' });
 
     try {
-      await this.props.dispatch(keyLogin(this.state.email, this.state.password));
+      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
       Keyboard.dismiss();
 
     } catch (error) {
