@@ -41,7 +41,7 @@ it('renders correctly', () => {
 
 describe('a login button is clicked', () => {
   let screen;
-  const loginResult = { type: 'test' };
+  const loginResult = { type: 'login result' };
 
   beforeEach(() => {
     screen = renderShallow(
@@ -57,10 +57,10 @@ describe('a login button is clicked', () => {
   });
 
   it('key login is called', async() => {
-    const credentials = { email: 'klasjflk@lkjasdf.com', password: 'this&is=unsafe' };
+    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
     screen.setState(credentials);
     auth.keyLogin.mockImplementation((email, password) => {
-      return email === credentials.email && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+      return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
     });
 
     await screen.find({ name: 'loginButton' }).simulate('press');
