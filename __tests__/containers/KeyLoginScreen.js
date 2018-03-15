@@ -15,6 +15,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
   facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
+  openKeyURL: jest.fn(),
 }));
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
@@ -54,7 +55,8 @@ describe('a login button is clicked', () => {
   });
 
   it('facebook login is called', () => {
-    let click = () => screen.dive().dive().dive().find('Button').simulate('press');
+    screen = screen.dive().dive().dive();
+    let click = () => screen.find({ name: 'facebookButton' }).simulate('press');
 
     click();
 
@@ -62,12 +64,21 @@ describe('a login button is clicked', () => {
   });
 
   it('key login is called', async() => {
-    let click = () => screen.find('Button').simulate('press');
+    let click = () => screen.find({ name: 'loginButton' }).simulate('press');
     screen = screen.dive().dive().dive();
     screen.setState({ email: 'klasjflk@lkjasdf.com' });
 
     await click();
 
     expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+  });
+
+  it('forgot password is called', () => {
+    let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+    screen = screen.dive().dive().dive();
+
+    click();
+
+    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
   });
 });
