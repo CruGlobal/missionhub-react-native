@@ -2,22 +2,20 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import StageScreen from '../../src/containers/StageScreen';
-import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
+import {
+  createMockNavState, mockFnWithParams, renderShallow,
+  testSnapshot,
+} from '../../testUtils';
 import * as selectStage from '../../src/actions/selectStage';
-
-const mockStages = () => {
-  return 'mock stages';
-};
+import * as navigation from '../../src/actions/navigation';
+import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
+import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 
 jest.mock('react-native-device-info');
-jest.mock('../../src/actions/stages', () => {
-  return {
-    getStages: () => mockStages(),
-    getStagesIfNotExists: () => mockStages(),
-  };
-});
 
 const mockState = {
   profile: {
@@ -29,25 +27,31 @@ const mockStage = {
   id: 1,
 };
 const mockComplete = jest.fn();
+const contactId = '123';
 
-const store = createMockStore(mockState);
+const mockStore = configureStore([ thunk ]);
+let store;
 let component;
 
 function buildShallowScreen(props) {
   return renderShallow(<StageScreen
     navigation={createMockNavState({
       name: 'Test',
-      contactId: '123',
+      contactId: contactId,
       currentStage: '2',
       section: 'section',
       subsection: 'subsection',
       onComplete: mockComplete,
+      dispatch: null,
       ...props,
     })}
   />, store).instance();
 }
 
-beforeEach(() => mockComplete.mockReset());
+beforeEach(() => {
+  store = mockStore(mockState);
+  mockComplete.mockReset();
+});
 
 it('StageScreen renders correctly with back button', () => {
   testSnapshot(
@@ -78,26 +82,45 @@ describe('StageScreen', () => {
     );
   });
 
-  it('loads stages when component is mounted', () => {
-    expect(store.dispatch).toHaveBeenCalledWith(mockStages());
-  });
-
   it('renders correctly without back button', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });
 
-describe('stage screen methods', () => {
+describe('handleSelectStage', () => {
   beforeEach(() => {
     component = buildShallowScreen({});
   });
 
-  it('runs select stage', () => {
-    selectStage.selectMyStage = jest.fn();
+  describe('when not already selected', () => {
+    describe('and no nav is false', () => {
+      it('should select stage, navigate to select step screen, then onComplete navigates to contact screen', async() => {
+        const selectMyStepNavAction = { type: 'navigated to select my step screen' };
+        const contactScreenNavAction = { type: 'navigated to contact screen' };
+        const selectStageAction = { type: 'selected stage' };
+        const selectStageResult = (dispatch) => {
+          dispatch(selectStageAction);
+          return dispatch(() => Promise.resolve());
+        };
+        mockFnWithParams(selectStage, 'selectMyStage', selectStageResult, mockStage.id);
+        navigation.navigatePush = jest.fn((screenName, params) => {
+          if (screenName === SELECT_MY_STEP_SCREEN && params.onSaveNewSteps && params.enableBackButton && params.contactStage === mockStage) {
+            params.onSaveNewSteps(); //todo figure out cleaner way to test this
+            return selectMyStepNavAction;
+          } else if (screenName === CONTACT_SCREEN && JSON.stringify(params) === JSON.stringify({ person: { id: contactId } })) {
+            return contactScreenNavAction;
+          }
+        });
 
-    component.handleSelectStage(mockStage, false);
+        await component.handleSelectStage(mockStage, false);
 
-    expect(selectStage.selectMyStage).toHaveBeenCalledTimes(1);
+        expect(store.getActions()).toEqual([
+          selectStageAction,
+          contactScreenNavAction,
+          selectMyStepNavAction,
+        ]);
+      });
+    });
   });
 });
 
