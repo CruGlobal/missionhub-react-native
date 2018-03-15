@@ -79,9 +79,15 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     value={1}
   >
     <Image
+      resizeMode="contain"
       source={
         Object {
           "testUri": "../../../assets/images/myNotes.png",
+        }
+      }
+      style={
+        Object {
+          "flexShrink": 1,
         }
       }
     />

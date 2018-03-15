@@ -126,7 +126,7 @@ export class ContactNotes extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Image source={NOTES} />
+        <Image source={NOTES} style={{ flexShrink: 1 }} resizeMode="contain" />
         <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
         <Text style={styles.nullText}>{text}</Text>
       </Flex>
