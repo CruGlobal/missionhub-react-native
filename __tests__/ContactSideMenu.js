@@ -237,7 +237,7 @@ describe('contactSideMenu', () => {
           myId={1}
           personIsCurrentUser={false}
           person={person}
-          orgPermission={{ permission_id: 1 }}
+          isMissionhubUser={false}
           organization={organization}
         />
       );

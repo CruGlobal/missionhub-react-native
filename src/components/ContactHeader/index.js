@@ -8,7 +8,7 @@ import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
-import { buildTrackingObj, isMissionhubUser } from '../../utils/common';
+import { buildTrackingObj } from '../../utils/common';
 import { trackAction } from '../../actions/analytics';
 import { connect } from 'react-redux';
 
@@ -89,13 +89,13 @@ class ContactHeader extends Component {
   };
 
   getTabs = () => {
-    const { type, isMe, organization, orgPermission } = this.props;
+    const { type, isMe, organization, isMissionhubUser } = this.props;
 
     if (isMe) {
       return ME_TABS;
     } else if (type === CASEY || !organization || (organization && organization.id === 'personal')) {
       return CASEY_TABS;
-    } else if (isMissionhubUser(orgPermission)) {
+    } else if (isMissionhubUser) {
       return JEAN_TABS_MH_USER;
     }
 
@@ -211,7 +211,7 @@ ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
   contactAssignment: PropTypes.object,
   organization: PropTypes.object,
-  orgPermission: PropTypes.object,
+  isMissionhubUser: PropTypes.bool,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,
