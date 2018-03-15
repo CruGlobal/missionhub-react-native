@@ -34,7 +34,6 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
 export function openKeyURL(baseURL, upgradeAccount = false) {
   return (dispatch) => {
     global.Buffer = global.Buffer || Buffer.Buffer;
-    Linking.addEventListener('url', handleOpenURL);
 
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });
     const codeVerifier = base64url.encode(string);
@@ -45,18 +44,13 @@ export function openKeyURL(baseURL, upgradeAccount = false) {
       + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 
+    Linking.addEventListener('url', (event) => {
+      const code = event.url.split('code=')[1];
+      return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
+    });
 
     Linking.openURL(uri);
-    return dispatch({ type: OPEN_URL, codeVerifier, redirectUri, upgradeAccount });
-  };
-}
-
-export function handleOpenURL(event) {
-  return (dispatch, getState) => {
-    const { codeVerifier, redirectUri, upgradeAccount } = getState().auth;
-
-    const code = event.url.split('code=')[1];
-    return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
+    return dispatch({ type: OPEN_URL });
   };
 }
 

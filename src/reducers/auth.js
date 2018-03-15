@@ -14,9 +14,6 @@ const initialAuthState = {
   isJean: false,
   timezone: '',
   upgradeToken: null,
-  codeVerifier: null,
-  redirectUri: null,
-  upgradeAccount: false,
 };
 
 function authReducer(state = initialAuthState, action) {
@@ -72,13 +69,6 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         isFirstTime: true,
         isLoggedIn: false,
-      };
-    case OPEN_URL:
-      return {
-        ...state,
-        codeVerifier: action.codeVerifier,
-        redirectUri: action.redirectUri,
-        upgradeAccount: action.upgradeAccount,
       };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {

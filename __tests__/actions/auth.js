@@ -11,7 +11,7 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL, handleOpenURL } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
@@ -27,9 +27,6 @@ const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
-const codeVerifier = 'kasnjdfbahieahkhdbfhbhaslejrsd';
-const returnCode = 'ST-6280-ajelrwerw34laekjdfr';
-const redirectUri = 'https://missionhub.com/auth';
 const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
@@ -48,12 +45,7 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: {
-    refreshToken: refreshToken,
-    codeVerifier: codeVerifier,
-    redirectUri: redirectUri,
-    upgradeAccount: false,
-  } });
+  store = mockStore({ auth: { refreshToken: refreshToken } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -124,12 +116,7 @@ describe('the key', () => {
   });
 
   describe('open key URL', () => {
-    const expectedUrlResult = {
-      type: OPEN_URL,
-      codeVerifier: expect.any(String),
-      redirectUri: redirectUri,
-      upgradeAccount: false,
-    };
+    const expectedUrlResult = { type: OPEN_URL };
 
     it('should open key URL', () => {
       Linking.addEventListener = jest.fn();
@@ -137,18 +124,9 @@ describe('the key', () => {
 
       store.dispatch(openKeyURL('login?action=signup', false));
 
-      expect(Linking.addEventListener).toHaveBeenCalledWith('url', handleOpenURL);
+      expect(Linking.addEventListener).toHaveBeenCalledWith('url', expect.any(Function));
       expect(store.getActions()).toEqual([ expectedUrlResult ]);
       expect(Linking.openURL).toHaveBeenCalledWith(expect.any(String));
-    });
-
-    it('should call createAccountAndLogin on return', () => {
-      auth.createAccountAndLogin = jest.fn();
-
-      store.dispatch(handleOpenURL({ url: `${redirectUri}?code=${returnCode}` }))
-        .then(() => {
-          expect(auth.createAccountAndLogin).toHaveBeenCalledWith(returnCode);
-        });
     });
   });
 });
