@@ -15,6 +15,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
   facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
+  openKeyURL: jest.fn(),
 }));
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
@@ -53,7 +54,7 @@ describe('a login button is clicked', () => {
   });
 
   it('facebook login is called', () => {
-    screen.dive().dive().dive().find('Button').simulate('press');
+    screen.dive().dive().dive().find({ name: 'facebookButton' }).simulate('press');
 
     expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
   });
@@ -66,8 +67,17 @@ describe('a login button is clicked', () => {
       return email === credentials.email && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
     });
 
-    await screen.find('Button').simulate('press');
+    await screen.find({ name: 'loginButton' }).simulate('press');
 
     expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+  });
+
+  it('forgot password is called', () => {
+    let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+    screen = screen.dive().dive().dive();
+
+    click();
+
+    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
   });
 });
