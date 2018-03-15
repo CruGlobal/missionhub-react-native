@@ -3,9 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import Enzyme, { shallow } from 'enzyme/build/index';
-import { createMockStore, testSnapshot } from '../../testUtils';
+import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 
@@ -31,7 +29,6 @@ jest.mock('react-native-fbsdk', () => ({
 
 beforeEach(() => {
   store = createMockStore();
-  Enzyme.configure({ adapter: new Adapter() });
 });
 
 it('renders correctly', () => {
@@ -47,21 +44,20 @@ describe('a login button is clicked', () => {
   const loginResult = { type: 'test' };
 
   beforeEach(() => {
-    screen = shallow(
+    screen = renderShallow(
       <KeyLoginScreen />,
-      { context: { store: store } }
+      store
     );
   });
 
   it('facebook login is called', () => {
-    screen.dive().dive().dive().find({ name: 'facebookButton' }).simulate('press');
+    screen.find({ name: 'facebookButton' }).simulate('press');
 
     expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
   });
 
   it('key login is called', async() => {
     const credentials = { email: 'klasjflk@lkjasdf.com', password: 'this&is=unsafe' };
-    screen = screen.dive().dive().dive();
     screen.setState(credentials);
     auth.keyLogin.mockImplementation((email, password) => {
       return email === credentials.email && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
@@ -74,7 +70,6 @@ describe('a login button is clicked', () => {
 
   it('forgot password is called', () => {
     let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
-    screen = screen.dive().dive().dive();
 
     click();
 
