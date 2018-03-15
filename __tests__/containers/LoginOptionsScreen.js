@@ -15,6 +15,7 @@ jest.mock('../../src/actions/auth', () => ({
   facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
   firstTime: jest.fn(),
+  openKeyURL: jest.fn(),
 }));
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
@@ -33,12 +34,22 @@ beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
 });
 
-it('renders correctly', () => {
+it('renders correctly without upgrade', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <LoginOptionsScreen
+        navigation={createMockNavState({ })}
+      />
+    </Provider>
+  );
+});
+
+it('renders correctly with upgrade', ()=> {
   testSnapshot(
     <Provider store={store}>
       <LoginOptionsScreen
         navigation={createMockNavState({
-          isUpgrade: true,
+          upgradeAccount: true,
         })}
       />
     </Provider>
@@ -52,7 +63,7 @@ describe('a login button is clicked', () => {
     screen = shallow(
       <LoginOptionsScreen
         navigation={createMockNavState({
-          isUpgrade: true,
+          upgradeAccount: false,
         })}
       />,
       { context: { store: store } }
@@ -74,6 +85,12 @@ describe('a login button is clicked', () => {
   it('navigate next to be called', async() => {
     screen.navigateToNext();
     expect(store.dispatch).toHaveBeenCalledTimes(1);
+  });
+
+  it('open key login to be called', () => {
+    screen.emailSignUp();
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(auth.openKeyURL).toHaveBeenCalledWith('login?action=signup', false);
   });
 
   it('facebook login to not be called', async() => {
