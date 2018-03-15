@@ -202,6 +202,7 @@ Object {
     "type": "reverse_contact_assignment",
   },
   "isJean": true,
+  "isMissionhubUser": false,
   "myId": 1,
   "orgPermission": Object {
     "followup_status": "uncontacted",

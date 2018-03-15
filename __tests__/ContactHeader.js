@@ -42,12 +42,12 @@ it('renders me', () => {
 });
 
 it('renders jean with a missionhub user as contact', () => {
-  testContactHeader({ ...person }, JEAN, false, organization, { permission_id: 1 });
+  testContactHeader({ ...person }, JEAN, false, organization, true);
 });
 
-const testContactHeader = (person, type, isMe = false, organization, orgPermission) => {
+const testContactHeader = (person, type, isMe = false, organization, isMissionhubUser = false) => {
   testSnapshotShallow(
-    <ContactHeader isMe={isMe} person={person} organization={organization} orgPermission={orgPermission} type={type} onChangeStage={() => {}} />,
+    <ContactHeader isMe={isMe} person={person} organization={organization} isMissionhubUser={isMissionhubUser} type={type} onChangeStage={() => {}} />,
     store
   );
 };

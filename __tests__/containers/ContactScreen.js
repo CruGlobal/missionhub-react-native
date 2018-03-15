@@ -23,37 +23,42 @@ const orgPermission = { id: '6', _type: 'organizational_permission', permission_
 
 describe('ContactScreen', () => {
   describe('mapStateToProps', () => {
+    const state = {
+      auth: {
+        isJean: true,
+        personId: 1,
+      },
+      stages: {
+        stages: [ stage ],
+        stagesObj: {
+          5: stage,
+        },
+      },
+      people: {},
+      organizations: { all: [ organization ] },
+    };
+    const props = {
+      navigation: {
+        state: {
+          params: {
+            person,
+            organization,
+          },
+        },
+      },
+    };
+
     it('should provide the necessary props with a contactAssignment', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
       organizationSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
       orgPermissionSelector.mockReturnValue(orgPermission);
-      expect(mapStateToProps(
-        {
-          auth: {
-            isJean: true,
-            personId: 1,
-          },
-          stages: {
-            stages: [ stage ],
-            stagesObj: {
-              5: stage,
-            },
-          },
-          people: {},
-          organizations: { all: [ organization ] },
-        },
-        {
-          navigation: {
-            state: {
-              params: {
-                person: {},
-                organization: organization,
-              },
-            },
-          },
-        }
-      )).toMatchSnapshot();
+
+      expect(mapStateToProps(state, props)).toMatchSnapshot();
+      expect(personSelector).toHaveBeenCalledWith({ people: state.people }, { personId: person.id, orgId: organization.id });
+      expect(contactAssignmentSelector).toHaveBeenCalledWith({ auth: state.auth }, { person, orgId: organization.id });
+      expect(organizationSelector).toHaveBeenCalledWith({ organizations: state.organizations }, { orgId: organization.id });
+      expect(orgPermissionSelector).toHaveBeenCalledWith(null, { person, organization });
     });
     it('should provide the necessary props with a user', () => {
       personSelector.mockReturnValue({
@@ -65,31 +70,11 @@ describe('ContactScreen', () => {
       contactAssignmentSelector.mockReturnValue(undefined);
       organizationSelector.mockReturnValue(organization);
       orgPermissionSelector.mockReturnValue(orgPermission);
-      expect(mapStateToProps(
-        {
-          auth: {
-            isJean: true,
-            personId: 1,
-          },
-          stages: {
-            stages: [ stage ],
-            stagesObj: {
-              5: stage,
-            },
-          },
-          people: {},
-        },
-        {
-          navigation: {
-            state: {
-              params: {
-                person: {},
-                organization: organization,
-              },
-            },
-          },
-        }
-      )).toMatchSnapshot();
+      expect(mapStateToProps(state, props)).toMatchSnapshot();
+      expect(personSelector).toHaveBeenCalledWith({ people: state.people }, { personId: person.id, orgId: organization.id });
+      expect(contactAssignmentSelector).toHaveBeenCalledWith({ auth: state.auth }, { person, orgId: organization.id });
+      expect(organizationSelector).toHaveBeenCalledWith({ organizations: state.organizations }, { orgId: organization.id });
+      expect(orgPermissionSelector).toHaveBeenCalledWith(null, { person, organization });
     });
   });
   it('renders correctly as Casey', () => {

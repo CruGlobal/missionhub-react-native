@@ -49,13 +49,13 @@ export class ContactSideMenu extends Component {
   }
 
   render() {
-    const { t, dispatch, isJean, personIsCurrentUser, myId, person, orgPermission, contactAssignment, organization } = this.props;
+    const { t, dispatch, isJean, personIsCurrentUser, myId, person, orgPermission, contactAssignment, organization, isMissionhubUser } = this.props;
 
     const showAssign = !personIsCurrentUser && !contactAssignment;
     const showDelete = !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
     const showUnassign = !personIsCurrentUser && contactAssignment && isJean && orgPermission;
 
-    const showFollowupStatus = !personIsCurrentUser && isJean && orgPermission && !isMissionhubUser(orgPermission);
+    const showFollowupStatus = !personIsCurrentUser && isJean && orgPermission && !isMissionhubUser;
 
     const menuItems = [
       {
@@ -115,6 +115,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
+  const orgPermission = orgPermissionSelector(null, { person, organization: navParams.organization });
 
   return {
     ...(navigation.state.params || {}),
@@ -123,7 +124,8 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
     personIsCurrentUser: navigation.state.params.person.id === auth.personId,
     myId: auth.personId,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
-    orgPermission: orgPermissionSelector(null, { person, organization: navParams.organization }),
+    orgPermission: orgPermission,
+    isMissionhubUser: isMissionhubUser(orgPermission),
   };
 };
 
