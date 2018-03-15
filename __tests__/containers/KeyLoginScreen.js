@@ -45,7 +45,6 @@ describe('a login button is clicked', () => {
   let screen;
   const loginResult = { type: 'test' };
 
-
   beforeEach(() => {
     screen = shallow(
       <KeyLoginScreen />,
@@ -54,19 +53,20 @@ describe('a login button is clicked', () => {
   });
 
   it('facebook login is called', () => {
-    let click = () => screen.dive().dive().dive().find('Button').simulate('press');
-
-    click();
+    screen.dive().dive().dive().find('Button').simulate('press');
 
     expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
   });
 
   it('key login is called', async() => {
-    let click = () => screen.find('Button').simulate('press');
+    const credentials = { email: 'klasjflk@lkjasdf.com', password: 'this&is=unsafe' };
     screen = screen.dive().dive().dive();
-    screen.setState({ email: 'klasjflk@lkjasdf.com' });
+    screen.setState(credentials);
+    auth.keyLogin.mockImplementation((email, password) => {
+      return email === credentials.email && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+    });
 
-    await click();
+    await screen.find('Button').simulate('press');
 
     expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
   });
