@@ -131,7 +131,7 @@ android {
         multiDexEnabled true
     }
     signingConfigs {
-        release {
+        test {
             keyAlias props['keyAlias']
             keyPassword props['keyAliasPassword']
             storeFile rootProject.file(props['keyStore'])
@@ -149,11 +149,14 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
+
+            signingConfig signingConfigs.test
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
+
+            signingConfig signingConfigs.test
         }
     }
     // applicationVariants are e.g. debug, release
