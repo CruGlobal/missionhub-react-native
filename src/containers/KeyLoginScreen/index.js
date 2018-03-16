@@ -6,7 +6,7 @@ import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 're
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
 import Input from '../../components/Input/index';
-import { keyLogin, facebookLoginAction } from '../../actions/auth';
+import { keyLogin, facebookLoginAction, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -73,11 +73,16 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
+  handleForgotPassword = () => {
+    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword'));
+  };
+
   async login() {
+    const { email, password } = this.state;
     this.setState({ errorMessage: '' });
 
     try {
-      await this.props.dispatch(keyLogin(this.state.email, this.state.password));
+      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
       Keyboard.dismiss();
 
     } catch (error) {
@@ -199,10 +204,19 @@ class KeyLoginScreen extends Component {
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
+            <Button
+              name={'forgotPasswordButton'}
+              text={t('forgotPassword')}
+              type="transparent"
+              style={styles.forgotPasswordButton}
+              buttonTextStyle={styles.forgotPasswordText}
+              onPress={this.handleForgotPassword}
+            />
           </View>
           {
             !this.state.email && !this.state.password ? (
               <Button
+                name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
                 style={styles.facebookButton}
@@ -221,6 +235,7 @@ class KeyLoginScreen extends Component {
           !this.state.email && !this.state.password ? null : (
             <Flex value={1} align="stretch" justify="end">
               <Button
+                name={'loginButton'}
                 type="secondary"
                 onPress={this.login}
                 text={t('login').toUpperCase()}

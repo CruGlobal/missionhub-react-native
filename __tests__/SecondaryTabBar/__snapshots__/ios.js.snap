@@ -493,9 +493,15 @@ exports[`renders correctly 1`] = `
                   }
                 >
                   <Image
+                    resizeMode="contain"
                     source={
                       Object {
                         "testUri": "../../../assets/images/footprints.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "flexShrink": 1,
                       }
                     }
                   />

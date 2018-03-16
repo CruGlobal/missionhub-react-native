@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { navigatePush, navigateBack } from '../actions/navigation';
+import { navigatePush } from '../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectMyStage } from '../actions/selectStage';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
+import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
+import { CONTACT_SCREEN } from './ContactScreen';
 
 @translate('selectStage')
 class StageScreen extends Component {
@@ -17,13 +19,21 @@ class StageScreen extends Component {
   }
 
   complete(stage) {
-    if (this.props.onComplete) {
-      this.props.onComplete(stage);
-      if (!this.props.noNav) {
-        this.props.dispatch(navigateBack());
+    const { onComplete, noNav, dispatch, contactId } = this.props;
+
+    if (onComplete) {
+      onComplete(stage);
+      if (!noNav) {
+        dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
+          onSaveNewSteps: () => {
+            dispatch(navigatePush(CONTACT_SCREEN, { person: { id: contactId } }));
+          },
+          enableBackButton: true,
+          contactStage: stage,
+        }));
       }
     } else {
-      this.props.dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
+      dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
     }
   }
 

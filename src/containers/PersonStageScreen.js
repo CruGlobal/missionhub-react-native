@@ -5,13 +5,14 @@ import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
-import { navigatePush, navigateBack } from '../actions/navigation';
+import { navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { trackAction, trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import { ACTIONS } from '../constants';
+import { CONTACT_SCREEN } from './ContactScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -47,9 +48,18 @@ class PersonStageScreen extends Component {
   };
 
   complete(stage) {
-    this.props.onComplete(stage);
-    if (!this.props.noNav) {
-      this.props.dispatch(navigateBack());
+    const { onComplete, noNav, dispatch, contactId, orgId, name } = this.props;
+
+    onComplete(stage);
+    if (!noNav) {
+      dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        onSaveNewSteps: () => dispatch(navigatePush(CONTACT_SCREEN, { person: { id: contactId }, organization: { id: orgId } })),
+        contactStage: stage,
+        createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
+        contactName: name,
+        contactId: contactId,
+        organization: { id: orgId },
+      }));
     }
   }
 
@@ -71,6 +81,7 @@ class PersonStageScreen extends Component {
           createStepTracking: buildTrackingObj('people : add person : steps : create', 'people', 'add person', 'steps'),
           contactName: this.props.name,
           contactId: this.props.contactId,
+          organization: { id: this.props.orgId },
         }));
       });
       this.props.dispatch(trackState(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps')));

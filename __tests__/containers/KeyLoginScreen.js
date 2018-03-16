@@ -3,9 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import Enzyme, { shallow } from 'enzyme/build/index';
-import { createMockStore, testSnapshot } from '../../testUtils';
+import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 
@@ -15,6 +13,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
   facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
+  openKeyURL: jest.fn(),
 }));
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
@@ -30,7 +29,6 @@ jest.mock('react-native-fbsdk', () => ({
 
 beforeEach(() => {
   store = createMockStore();
-  Enzyme.configure({ adapter: new Adapter() });
 });
 
 it('renders correctly', () => {
@@ -43,31 +41,38 @@ it('renders correctly', () => {
 
 describe('a login button is clicked', () => {
   let screen;
-  const loginResult = { type: 'test' };
-
+  const loginResult = { type: 'login result' };
 
   beforeEach(() => {
-    screen = shallow(
+    screen = renderShallow(
       <KeyLoginScreen />,
-      { context: { store: store } }
+      store
     );
   });
 
   it('facebook login is called', () => {
-    let click = () => screen.dive().dive().dive().find('Button').simulate('press');
-
-    click();
+    screen.find({ name: 'facebookButton' }).simulate('press');
 
     expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
   });
 
   it('key login is called', async() => {
-    let click = () => screen.find('Button').simulate('press');
-    screen = screen.dive().dive().dive();
-    screen.setState({ email: 'klasjflk@lkjasdf.com' });
+    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+    screen.setState(credentials);
+    auth.keyLogin.mockImplementation((email, password) => {
+      return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+    });
 
-    await click();
+    await screen.find({ name: 'loginButton' }).simulate('press');
 
     expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+  });
+
+  it('forgot password is called', () => {
+    let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+
+    click();
+
+    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
   });
 });

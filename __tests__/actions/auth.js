@@ -11,12 +11,15 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount } from '../../src/actions/auth';
+import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { ANALYTICS, LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
+import { Linking } from 'react-native';
+import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
+
 
 const email = 'Roger';
 const password = 'secret';
@@ -109,6 +112,21 @@ describe('the key', () => {
 
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
         });
+    });
+  });
+
+  describe('open key URL', () => {
+    const expectedUrlResult = { type: OPEN_URL };
+
+    it('should open key URL', () => {
+      Linking.addEventListener = jest.fn();
+      Linking.openURL = jest.fn();
+
+      store.dispatch(openKeyURL('login?action=signup', false));
+
+      expect(Linking.addEventListener).toHaveBeenCalledWith('url', expect.any(Function));
+      expect(store.getActions()).toEqual([ expectedUrlResult ]);
+      expect(Linking.openURL).toHaveBeenCalledWith(expect.any(String));
     });
   });
 });

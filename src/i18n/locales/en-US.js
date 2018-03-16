@@ -105,6 +105,7 @@ export default {
     verifyEmailMessage: 'Verify your account via Email',
     emailLabel: 'Email',
     passwordLabel: 'Password',
+    forgotPassword: 'Forgot Password?',
     login: 'LOGIN',
     errorDefault: 'There was a problem signing in.',
     errorIncorrect: 'Your Email or Password is Incorrect',

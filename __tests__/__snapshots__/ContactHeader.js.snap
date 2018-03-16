@@ -631,9 +631,15 @@ exports[`renders casey 1`] = `
                     }
                   >
                     <Image
+                      resizeMode="contain"
                       source={
                         Object {
                           "testUri": "../../../assets/images/footprints.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "flexShrink": 1,
                         }
                       }
                     />
@@ -1734,9 +1740,15 @@ exports[`renders jean 1`] = `
                     }
                   >
                     <Image
+                      resizeMode="contain"
                       source={
                         Object {
                           "testUri": "../../../assets/images/footprints.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "flexShrink": 1,
                         }
                       }
                     />
@@ -2837,9 +2849,15 @@ exports[`renders jean with a missionhub user as contact 1`] = `
                     }
                   >
                     <Image
+                      resizeMode="contain"
                       source={
                         Object {
                           "testUri": "../../../assets/images/footprints.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "flexShrink": 1,
                         }
                       }
                     />
@@ -3815,9 +3833,15 @@ exports[`renders me 1`] = `
                     }
                   >
                     <Image
+                      resizeMode="contain"
                       source={
                         Object {
                           "testUri": "../../../assets/images/footprints.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "flexShrink": 1,
                         }
                       }
                     />

@@ -38,4 +38,15 @@ export default StyleSheet.create({
   icon: {
     marginRight: 10,
   },
+  forgotPasswordButton: {
+    width: 130,
+  },
+  forgotPasswordText: {
+    paddingVertical: 10,
+    textAlign: 'left',
+    color: theme.secondaryColor,
+    fontSize: 16,
+    fontWeight: 'normal',
+    letterSpacing: 0,
+  },
 });
