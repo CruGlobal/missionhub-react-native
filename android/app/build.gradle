@@ -137,6 +137,13 @@ android {
             storeFile rootProject.file(props['keyStore'])
             storePassword props['keyStorePassword']
         }
+
+        release {
+            storeFile file(androidKeystorePath)
+            storePassword androidKeystoreStorePassword
+            keyAlias androidKeystoreKeyAlias
+            keyPassword androidKeystoreKeyPassword
+        }
     }
     splits {
         abi {
@@ -156,7 +163,9 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
 
-            signingConfig signingConfigs.test
+            if (signingConfigs.release.storeFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     // applicationVariants are e.g. debug, release
