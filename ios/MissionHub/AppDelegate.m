@@ -20,6 +20,8 @@
 
 #import "ADBMobile.h"
 
+const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
@@ -52,10 +54,19 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
 
+  [self configureAdobeAnalytics];
   [ADBMobile collectLifecycleData];
+  
   return YES;
 }
 
+- (void)configureAdobeAnalytics {
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *filename = [bundle objectForInfoDictionaryKey:MH_ADOBE_ANAYLYTICS_FILENAME_KEY];
+  NSString *filepath = [bundle pathForResource:filename ofType:@"json"];
+  
+  [ADBMobile overrideConfigPath:filepath];
+}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [FBSDKAppEvents activateApp];

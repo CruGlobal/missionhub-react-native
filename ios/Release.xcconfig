@@ -5,4 +5,4 @@
 //  Created by Robert Eldredge on 3/15/18.
 //  Copyright © 2018 Facebook. All rights reserved.
 //
-ADB_CONFIG = ADBMobileConfig.json
+ADB_CONFIG = ADBMobileConfig
