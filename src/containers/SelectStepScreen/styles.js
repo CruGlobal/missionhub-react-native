@@ -7,12 +7,17 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  headerWrap: {
-    backgroundColor: theme.primaryColor,
-  },
   headerTitle: {
     fontSize: 36,
     color: theme.secondaryColor,
+  },
+  collapsedHeader: {
+    paddingTop: theme.notchHeight,
+    height: '100%',
+  },
+  collapsedHeaderTitle: {
+    fontSize: 14,
+    color: theme.white,
   },
   headerText: {
     fontSize: 16,
