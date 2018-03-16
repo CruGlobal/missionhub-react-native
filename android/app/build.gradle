@@ -127,6 +127,9 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
 
+        proguardFiles getDefaultProguardFile("proguard-android.txt")
+        proguardFiles "proguard-rules.pro"
+
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
     }
@@ -161,7 +164,6 @@ android {
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
 
             if (signingConfigs.release.storeFile.exists()) {
                 signingConfig signingConfigs.release
