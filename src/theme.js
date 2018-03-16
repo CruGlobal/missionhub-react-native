@@ -50,6 +50,7 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
+const notchHeight = isiPhoneX() ? 20 : 0; // This should be 44 (or use SafeAreaView everywhere)
 
 export default {
   // base theme
@@ -87,5 +88,6 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  headerHeight: isAndroid ? 56 : isiPhoneX() ? iPhoneHeaderHeight + 20 : iPhoneHeaderHeight,
+  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
+  notchHeight,
 };
