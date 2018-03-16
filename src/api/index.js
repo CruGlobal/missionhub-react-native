@@ -1,3 +1,4 @@
+import { Crashlytics } from 'react-native-fabric';
 import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';
@@ -11,7 +12,6 @@ import { Alert } from 'react-native';
 import i18n from '../i18n';
 
 const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
-let showingErrorModal = false;
 
 // Setup API call
 let API_CALLS = {};
@@ -95,11 +95,10 @@ lodashForEach(apiRoutes, (routeData, key) => {
           return reject(err);
 
         } else {
-          if (!showingErrorModal) {
-            showingErrorModal = true;
-            showAlert(routeData, key);
+          showAlert(routeData, key);
+          if (!__DEV__) {
+            Crashlytics.recordCustomExceptionName(`API Error: ${key} ${method.toUpperCase()} ${endpoint}`, `\n\nQuery Params:\n${JSON.stringify(query, null, 2)}\n\nResponse:\n${JSON.stringify(err, null, 2)}`, []);
           }
-
           APILOG(`${key} FAIL`, err);
           return reject(err);
         }
@@ -107,6 +106,8 @@ lodashForEach(apiRoutes, (routeData, key) => {
     })
   );
 });
+
+let showingErrorModal = false;
 
 const showAlert = (routeData, key) => {
   let errorMessage = `${i18n.t('error:unexpectedErrorMessage')} ${i18n.t('error:baseErrorMessage')}`;
@@ -116,8 +117,11 @@ const showAlert = (routeData, key) => {
     errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
   }
 
-  const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
-  Alert.alert(i18n.t('error:error'), errorMessage, buttons, { onDismiss: () => showingErrorModal = false });
+  if (!showingErrorModal) {
+    showingErrorModal = true;
+    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
+    Alert.alert(i18n.t('error:error'), errorMessage, buttons, { onDismiss: () => showingErrorModal = false });
+  }
 };
 
 const isUrlEncoded = (routeData) => {

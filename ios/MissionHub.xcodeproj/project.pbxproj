@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -60,6 +59,7 @@
 		C7C940C71D8C44AE9616BFB5 /* libreactnativeomnitureapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF146DAE0C54045801AF678 /* libreactnativeomnitureapi.a */; };
 		C8E8B7E3C7BA42B6AE9FCC91 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A4476C6DBC4FF48FC5DAC0 /* Zocial.ttf */; };
 		D14BDAD02051F6D300C6C70A /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D14BDACF2051F6D300C6C70A /* icomoon.ttf */; };
+		D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = D1835D2B205BFA5800DDB80A /* ADBMobileConfig_debug.json */; };
 		D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C23C5D26FAD84794B4657E73 /* AmaticSC-Bold.ttf */; };
 		E601B83451D245D796326489 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E70A604B1FC941E193868924 /* MaterialIcons.ttf */; };
 		EEAFB6FB1835460B90F49437 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAF0B65AF72844C4A2103B73 /* Feather.ttf */; };
@@ -70,6 +70,7 @@
 		FA45FFF01FFE7E7300153E56 /* AdobeMobileLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */; };
 		FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 965575DE5A994FE09AA10EC4 /* SourceSansPro-Regular.ttf */; };
 		FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DE556CDA154426A57159A9 /* Entypo.ttf */; };
+		63CCD346A5A94B92885F6266 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EED27DCE4942CAAD01A388 /* libReactNativeConfig.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -465,6 +466,9 @@
 		C91FE11509214641AE33C2E6 /* reactnativeomnitureapi.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = reactnativeomnitureapi.xcodeproj; path = "../node_modules/react-native-omniture/ios/reactnativeomnitureapi.xcodeproj"; sourceTree = "<group>"; };
 		D00F0A76ED1B4F7FBF6D7E5A /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		D14BDACF2051F6D300C6C70A /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		D1835D29205B173B00DDB80A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		D1835D2A205B177500DDB80A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		D1835D2B205BFA5800DDB80A /* ADBMobileConfig_debug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ADBMobileConfig_debug.json; sourceTree = "<group>"; };
 		E70A604B1FC941E193868924 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		EAF0B65AF72844C4A2103B73 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		FA45FFBE1FFE7D9600153E56 /* ADBMobile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
@@ -472,6 +476,8 @@
 		FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdobeMobileLibrary.a; sourceTree = "<group>"; };
 		FA45FFEC1FFE7DFD00153E56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA45FFEE1FFE7E0900153E56 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3878D83B32ED4F84916EDEEE /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeConfig.xcodeproj"; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		11EED27DCE4942CAAD01A388 /* libReactNativeConfig.a */ = {isa = PBXFileReference; name = "libReactNativeConfig.a"; path = "libReactNativeConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,6 +522,7 @@
 				C7C940C71D8C44AE9616BFB5 /* libreactnativeomnitureapi.a in Frameworks */,
 				2166B1DAD6F1498199186152 /* libSMXCrashlytics.a in Frameworks */,
 				AF0D1B855E0F4D2CA94E1C7D /* libRNDefaultPreference.a in Frameworks */,
+				63CCD346A5A94B92885F6266 /* libReactNativeConfig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +643,8 @@
 				AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D1835D29205B173B00DDB80A /* Debug.xcconfig */,
+				D1835D2A205B177500DDB80A /* Release.xcconfig */,
 			);
 			name = MissionHub;
 			sourceTree = "<group>";
@@ -723,6 +732,7 @@
 				C91FE11509214641AE33C2E6 /* reactnativeomnitureapi.xcodeproj */,
 				5E558AFB09024F108756A4D1 /* SMXCrashlytics.xcodeproj */,
 				3C4317547AC44AB09D0EFD30 /* RNDefaultPreference.xcodeproj */,
+				3878D83B32ED4F84916EDEEE /* ReactNativeConfig.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -848,6 +858,7 @@
 			children = (
 				FA45FFBE1FFE7D9600153E56 /* ADBMobile.h */,
 				FA45FFBF1FFE7D9600153E56 /* ADBMobileConfig.json */,
+				D1835D2B205BFA5800DDB80A /* ADBMobileConfig_debug.json */,
 				FA45FFC21FFE7D9600153E56 /* AdobeMobileLibrary.a */,
 			);
 			path = AdobeMobileLibrary;
@@ -963,6 +974,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = DQ48D9BF2V;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1436,6 +1448,7 @@
 				C8E8B7E3C7BA42B6AE9FCC91 /* Zocial.ttf in Resources */,
 				D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */,
 				EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */,
+				D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */,
 				FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */,
 				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 			);
@@ -1567,6 +1580,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D29205B173B00DDB80A /* Debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
@@ -1583,12 +1597,14 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = MissionHubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1603,6 +1619,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D2A205B177500DDB80A /* Release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
@@ -1616,12 +1633,14 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = MissionHubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1636,8 +1655,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D29205B173B00DDB80A /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1657,6 +1678,7 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1664,6 +1686,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
+				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1673,14 +1696,19 @@
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D2A205B177500DDB80A /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1699,6 +1727,7 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = MissionHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1706,6 +1735,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
+				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1715,12 +1745,15 @@
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D29205B173B00DDB80A /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1739,11 +1772,13 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = "MissionHub-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1760,6 +1795,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D2A205B177500DDB80A /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1778,11 +1814,13 @@
 					"$(SRCROOT)/../node_modules/react-native-omniture/ios",
 					"$(SRCROOT)/../node_modules/react-native-fabric/ios/SMXCrashlytics",
 					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
+					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 				);
 				INFOPLIST_FILE = "MissionHub-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1799,6 +1837,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D29205B173B00DDB80A /* Debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1813,6 +1852,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MissionHub-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1824,6 +1864,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D2A205B177500DDB80A /* Release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1838,6 +1879,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.MissionHub-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1849,6 +1891,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D29205B173B00DDB80A /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1890,6 +1933,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1835D2A205B177500DDB80A /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

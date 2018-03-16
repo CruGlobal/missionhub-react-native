@@ -3,7 +3,7 @@ import { BackHandler, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
-import { DRAWER_OPEN, MAIN_MENU_DRAWER } from '../constants';
+import { DRAWER_OPEN, MAIN_MENU_DRAWER, ORG_PERMISSIONS } from '../constants';
 
 export const getFourRandomItems = (arr) => {
   if (!arr) {
@@ -60,6 +60,7 @@ export const refresh = (obj, method) => {
 };
 
 export const isLoggedIn = (authState) => authState.token && authState.isLoggedIn;
+export const isMissionhubUser = (orgPermission) => !!orgPermission && ORG_PERMISSIONS.includes(orgPermission.permission_id);
 
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type)
