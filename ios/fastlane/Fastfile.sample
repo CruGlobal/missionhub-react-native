@@ -1,0 +1,56 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new release build to the App Store"
+  lane :release do
+    increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    build_app(scheme: "MissionHub")
+    upload_to_app_store
+  end
+  
+  desc "Push a new (beta) release build to Crashlytics"
+  lane :beta do
+    increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    get_certificates
+    get_provisioning_profile(adhoc: true)
+
+    gym(
+        scheme: "MissionHub",
+        export_method: "ad-hoc",
+        export_options: {
+        provisioningProfiles: {
+        "com.missionhub" => "MissionHub Beta"
+        }
+      }
+    )
+
+    crashlytics(
+                crashlytics_path: "./Crashlytics.framework",
+                api_token: " ",
+                build_secret: " ",
+                ipa_path: "./MissionHub.ipa",
+                groups: "missionhub-ios",
+                notes_path: "./release_notes/releaseNotes.txt"
+
+    )
+
+    hipchat(
+            message: "MissionHub iOS Beta build released to Crashlytics.",
+            channel: "MissionHub - Engineering",
+            api_token: " ",
+            version: "2",
+            custom_color: "green"
+    )
+    end
+end

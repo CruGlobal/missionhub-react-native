@@ -41,6 +41,7 @@
 		4FC01FA8205C574F0079E21F /* Deliverfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F04205C574F0079E21F /* Deliverfile */; };
 		4FC01FA9205C574F0079E21F /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F05205C574F0079E21F /* Fastfile */; };
 		4FC02014205C574F0079E21F /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01FA6205C574F0079E21F /* Gemfile */; };
+		4FC0223720604BA80079E21F /* Fastfile.sample in Resources */ = {isa = PBXBuildFile; fileRef = 4FC0220920604BA80079E21F /* Fastfile.sample */; };
 		5219785E4CD040F7A2171548 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A9D8C8A0134EF68FE25064 /* libRNVectorIcons.a */; };
 		54A5C1B1ABCC4B59A47C5C6D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DF48B4BD34D30AC457FEF /* Foundation.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -441,6 +442,7 @@
 		4FC01F04205C574F0079E21F /* Deliverfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Deliverfile; sourceTree = "<group>"; };
 		4FC01F05205C574F0079E21F /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
 		4FC01FA6205C574F0079E21F /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		4FC0220920604BA80079E21F /* Fastfile.sample */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile.sample; sourceTree = "<group>"; };
 		558D776D127C41A297B33FFD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		5E558AFB09024F108756A4D1 /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SMXCrashlytics.xcodeproj; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				4FC01F03205C574F0079E21F /* Appfile */,
 				4FC01F04205C574F0079E21F /* Deliverfile */,
 				4FC01F05205C574F0079E21F /* Fastfile */,
+				4FC0220920604BA80079E21F /* Fastfile.sample */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -1460,6 +1463,7 @@
 				4FC01FA7205C574F0079E21F /* Appfile in Resources */,
 				09D9321F34FF4077A802150D /* FontAwesome.ttf in Resources */,
 				54A5C1B1ABCC4B59A47C5C6D /* Foundation.ttf in Resources */,
+				4FC0223720604BA80079E21F /* Fastfile.sample in Resources */,
 				B0AF4F7D6EE545DC84578A2D /* Ionicons.ttf in Resources */,
 				AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */,
 				05E67ECF151A4D54AE2D24A8 /* MaterialCommunityIcons.ttf in Resources */,
