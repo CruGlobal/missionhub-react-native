@@ -38,7 +38,7 @@ platform :ios do
     crashlytics(
                 crashlytics_path: "./Crashlytics.framework",
                 ipa_path: "./MissionHub.ipa",
-                emails: "ryan.t.carlson@cru.org",
+                groups: "missionhub-ios",
                 notes_path: "./release_notes/releaseNotes.txt"
     )
 
