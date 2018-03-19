@@ -22,15 +22,15 @@ platform :ios do
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do
     increment_build_number(xcodeproj: "MissionHub.xcodeproj")
-    get_certificates
-    get_provisioning_profile(adhoc: true)
 
+    match()
+    
     gym(
         scheme: "MissionHub",
         export_method: "ad-hoc",
         export_options: {
         provisioningProfiles: {
-        "com.missionhub" => "MissionHub Beta"
+        "com.missionhub" => "match AdHoc com.missionhub"
         }
       }
     )

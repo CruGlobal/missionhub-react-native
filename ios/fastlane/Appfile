@@ -1,5 +1,5 @@
 app_identifier("com.missionhub") # The bundle identifier of your app
-apple_id("ryan.t.carlson@cru.org") # Your Apple email address
+apple_id("cruapps@cru.org") # Your Apple email address
 
 itc_team_id "1308653" # iTunes Connect Team ID
 team_id "DQ48D9BF2V" # Developer Portal Team ID
