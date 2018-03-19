@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
-import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
+import { enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -27,8 +27,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   allow() {
-    this.props.dispatch(enableAskPushNotification());
-    this.props.dispatch(setupPushNotifications()).then(() => {
+    this.props.dispatch(enableAskPushNotification()).then(() => {
       this.props.onComplete();
     }).catch(() => {
       this.props.onComplete();

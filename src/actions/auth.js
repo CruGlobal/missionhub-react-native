@@ -73,7 +73,7 @@ export function keyLogin(email, password) {
   return getTokenAndLogin(data);
 }
 
-function getTokenAndLogin(data, isUpgrade) {
+function getTokenAndLogin(data, isUpgrade = false) {
   return async(dispatch) => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
