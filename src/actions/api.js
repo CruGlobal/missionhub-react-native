@@ -3,7 +3,7 @@ import lodashForEach from 'lodash/forEach';
 import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
-import { isObject } from '../utils/common';
+import { isObject, isConnected } from '../utils/common';
 import { refreshAccessToken } from './auth';
 import { EXPIRED_ACCESS_TOKEN } from '../constants';
 

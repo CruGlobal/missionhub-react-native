@@ -1,9 +1,10 @@
 import moment from 'moment';
-import { BackHandler, Platform } from 'react-native';
+import { BackHandler, Platform, NetInfo, Alert } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
 import { DRAWER_OPEN, MAIN_MENU_DRAWER, ORG_PERMISSIONS } from '../constants';
+import i18n from '../i18n';
 
 export const getFourRandomItems = (arr) => {
   if (!arr) {
@@ -115,4 +116,22 @@ export const isEquivalentObject = (a, b) => {
   // If we made it this far, objects
   // are considered equivalent
   return true;
+};
+
+//returns true if device has internet connection
+//if not, returns false and displays error message
+export const isConnected = () => {
+  if (NetInfo.isConnected) return true;
+  offlineError();
+  return false;
+};
+
+let showingErrorModal = false;
+
+const offlineError = () => {
+  if (!showingErrorModal) {
+    showingErrorModal = true;
+    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
+    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingErrorModal = false });
+  }
 };
