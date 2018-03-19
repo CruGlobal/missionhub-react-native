@@ -37,18 +37,14 @@ platform :ios do
 
     crashlytics(
                 crashlytics_path: "./Crashlytics.framework",
-                api_token: " ",
-                build_secret: " ",
                 ipa_path: "./MissionHub.ipa",
-                groups: "missionhub-ios",
+                emails: "ryan.t.carlson@cru.org",
                 notes_path: "./release_notes/releaseNotes.txt"
-
     )
 
     hipchat(
             message: "MissionHub iOS Beta build released to Crashlytics.",
             channel: "MissionHub - Engineering",
-            api_token: " ",
             version: "2",
             custom_color: "green"
     )
