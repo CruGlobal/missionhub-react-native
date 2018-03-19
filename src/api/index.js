@@ -96,7 +96,9 @@ lodashForEach(apiRoutes, (routeData, key) => {
 
         } else {
           showAlert(routeData, key);
-          Crashlytics.recordCustomExceptionName(`API Error: ${key} ${method.toUpperCase()} ${endpoint}`, `\n\nQuery Params:\n${JSON.stringify(query, null, 2)}\n\nResponse:\n${JSON.stringify(err, null, 2)}`, []);
+          if (!__DEV__) {
+            Crashlytics.recordCustomExceptionName(`API Error: ${key} ${method.toUpperCase()} ${endpoint}`, `\n\nQuery Params:\n${JSON.stringify(query, null, 2)}\n\nResponse:\n${JSON.stringify(err, null, 2)}`, []);
+          }
           APILOG(`${key} FAIL`, err);
           return reject(err);
         }

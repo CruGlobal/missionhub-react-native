@@ -3,7 +3,7 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
-import { contactAssignmentSelector, personSelector } from '../../src/selectors/people';
+import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
@@ -18,40 +18,47 @@ const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment', pathway_stage_id: 5 };
 const stage = { id: 5, type: 'pathway_stage' };
 const organization = { id: 1, type: 'organization' };
+const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
 
 
 describe('ContactScreen', () => {
   describe('mapStateToProps', () => {
+    const state = {
+      auth: {
+        isJean: true,
+        personId: 1,
+      },
+      stages: {
+        stages: [ stage ],
+        stagesObj: {
+          5: stage,
+        },
+      },
+      people: {},
+      organizations: { all: [ organization ] },
+    };
+    const props = {
+      navigation: {
+        state: {
+          params: {
+            person,
+            organization,
+          },
+        },
+      },
+    };
+
     it('should provide the necessary props with a contactAssignment', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
       organizationSelector.mockReturnValue({ ...organization, name: 'Org from org selector' });
-      expect(mapStateToProps(
-        {
-          auth: {
-            isJean: true,
-            personId: 1,
-          },
-          stages: {
-            stages: [ stage ],
-            stagesObj: {
-              5: stage,
-            },
-          },
-          people: {},
-          organizations: { all: [ organization ] },
-        },
-        {
-          navigation: {
-            state: {
-              params: {
-                person: {},
-                organization: organization,
-              },
-            },
-          },
-        }
-      )).toMatchSnapshot();
+      orgPermissionSelector.mockReturnValue(orgPermission);
+
+      expect(mapStateToProps(state, props)).toMatchSnapshot();
+      expect(personSelector).toHaveBeenCalledWith({ people: state.people }, { personId: person.id, orgId: organization.id });
+      expect(contactAssignmentSelector).toHaveBeenCalledWith({ auth: state.auth }, { person, orgId: organization.id });
+      expect(organizationSelector).toHaveBeenCalledWith({ organizations: state.organizations }, { orgId: organization.id });
+      expect(orgPermissionSelector).toHaveBeenCalledWith(null, { person, organization });
     });
     it('should provide the necessary props with a user', () => {
       personSelector.mockReturnValue({
@@ -62,31 +69,12 @@ describe('ContactScreen', () => {
       });
       contactAssignmentSelector.mockReturnValue(undefined);
       organizationSelector.mockReturnValue(organization);
-      expect(mapStateToProps(
-        {
-          auth: {
-            isJean: true,
-            personId: 1,
-          },
-          stages: {
-            stages: [ stage ],
-            stagesObj: {
-              5: stage,
-            },
-          },
-          people: {},
-        },
-        {
-          navigation: {
-            state: {
-              params: {
-                person: {},
-                organization: organization,
-              },
-            },
-          },
-        }
-      )).toMatchSnapshot();
+      orgPermissionSelector.mockReturnValue(orgPermission);
+      expect(mapStateToProps(state, props)).toMatchSnapshot();
+      expect(personSelector).toHaveBeenCalledWith({ people: state.people }, { personId: person.id, orgId: organization.id });
+      expect(contactAssignmentSelector).toHaveBeenCalledWith({ auth: state.auth }, { person, orgId: organization.id });
+      expect(organizationSelector).toHaveBeenCalledWith({ organizations: state.organizations }, { orgId: organization.id });
+      expect(orgPermissionSelector).toHaveBeenCalledWith(null, { person, organization });
     });
   });
   it('renders correctly as Casey', () => {

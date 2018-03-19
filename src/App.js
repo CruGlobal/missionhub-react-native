@@ -51,7 +51,7 @@ class App extends Component {
   checkOldAppToken() {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
     const androidKey = 'account.guest.secret'; // key from the old android app
-    
+
     const getKey = (key) => {
       DefaultPreference.get(key).then((value) => {
         if (value) {
@@ -73,7 +73,7 @@ class App extends Component {
       getKey(iOSKey);
     }
   }
-  
+
   initializeAnalytics() { //TODO add tests
     if (this.state && this.state.store) {
       this.collectLifecycleData();
@@ -95,7 +95,9 @@ class App extends Component {
   }
 
   handleError(e) {
-    Crashlytics.recordCustomExceptionName(e.message.split('\n')[0], e.message, []);
+    if (!__DEV__) {
+      Crashlytics.recordCustomExceptionName(e.message.split('\n')[ 0 ], e.message, []);
+    }
   }
 
   dispatchAnalyticsContextUpdate(context) {

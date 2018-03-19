@@ -14,9 +14,10 @@ import { CASEY, CONTACT_MENU_DRAWER, DRAWER_OPEN, JEAN } from '../../constants';
 import { STAGE_SCREEN } from '../StageScreen';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { personSelector, contactAssignmentSelector } from '../../selectors/people';
+import { personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
+import { isMissionhubUser } from '../../utils/common';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
@@ -118,7 +119,7 @@ export class ContactScreen extends Component {
   }
 
   render() {
-    const { dispatch, person, contactAssignment, organization, isJean, contactStage, personIsCurrentUser } = this.props;
+    const { dispatch, person, contactAssignment, organization, isJean, contactStage, personIsCurrentUser, isMissionhubUser } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -147,6 +148,7 @@ export class ContactScreen extends Component {
             person={person}
             contactAssignment={contactAssignment}
             organization={organization}
+            isMissionhubUser={isMissionhubUser}
             stage={contactStage}
             dispatch={dispatch}
             onShrinkHeader={() => this.setState({ headerOpen: false })}
@@ -173,6 +175,7 @@ export const mapStateToProps = ({ auth, stages, people, organizations }, { navig
   const person = personSelector({ people }, { personId: navParams.person.id, orgId }) || navParams.person;
   const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
   const organization = organizationSelector({ organizations }, { orgId });
+  const orgPermission = orgPermissionSelector(null, { person, organization: navParams.organization });
 
   return {
     ...(navigation.state.params || {}),
@@ -184,6 +187,8 @@ export const mapStateToProps = ({ auth, stages, people, organizations }, { navig
     personIsCurrentUser: person.id === auth.personId,
     contactAssignment: contactAssignment,
     contactStage: stages.stagesObj[(contactAssignment && contactAssignment.pathway_stage_id || person.user && person.user.pathway_stage_id)],
+    orgPermission: orgPermission,
+    isMissionhubUser: isMissionhubUser(orgPermission),
   };
 };
 

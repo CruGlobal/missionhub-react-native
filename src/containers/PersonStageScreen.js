@@ -60,6 +60,7 @@ class PersonStageScreen extends Component {
         contactId: contactId,
         organization: { id: orgId },
       }));
+      dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
     }
   }
 

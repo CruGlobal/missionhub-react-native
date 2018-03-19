@@ -1,6 +1,7 @@
 import { ToastAndroid } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import DeviceInfo from 'react-native-device-info';
+import Config from 'react-native-config';
 
 import { REQUESTS } from './api';
 import callApi from './api';
@@ -163,7 +164,9 @@ export function registerPushDevice(token) {
         type: 'push_notification_device_token',
         attributes: {
           token,
-          platform: type === 'Apple' ? 'APNS' : 'GCM',
+          platform: type === 'Apple' ?
+            Config.APNS_SANDBOX ? 'APNS_SANDBOX' : 'APNS' :
+            'GCM',
         },
       },
     };
