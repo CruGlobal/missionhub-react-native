@@ -1,4 +1,4 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL, OFFLINE } from '../constants';
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 
@@ -16,9 +16,14 @@ import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
+import { isConnected } from '../utils/common';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
+    if (!isConnected()) {
+      return dispatch({ type: OFFLINE });
+    }
+
     const upgradeToken = getState().auth.upgradeToken;
     const data = { fb_access_token: accessToken };
     if (isUpgrade) { data.provider = 'client_token'; data.client_token = upgradeToken; }
@@ -33,6 +38,10 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
 
 export function openKeyURL(baseURL, upgradeAccount = false) {
   return (dispatch) => {
+    if (!isConnected()) {
+      return dispatch({ type: OFFLINE });
+    }
+
     global.Buffer = global.Buffer || Buffer.Buffer;
 
     const string = randomString({ length: 50, numeric: true, letters: true, special: false });

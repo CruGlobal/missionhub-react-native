@@ -4,6 +4,7 @@ export const LOGIN = 'app/LOGIN';
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
 export const OPEN_URL = 'app/OPEN_URL';
+export const OFFLINE = 'app/OFFLINE';
 export const STAGES = 'app/STAGES';
 export const SELECT_STAGE = 'app/SELECT_STAGE';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
