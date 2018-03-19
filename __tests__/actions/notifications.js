@@ -74,7 +74,6 @@ describe('set push token', () => {
     notifications: {
       shouldAsk: true,
       token: null,
-      isRegistered: false,
     },
   }));
 
@@ -83,7 +82,6 @@ describe('set push token', () => {
       notifications: {
         shouldAsk: false,
         token: null,
-        isRegistered: false,
       },
       auth: {
         isJean: true,
@@ -93,11 +91,10 @@ describe('set push token', () => {
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(0);
   });
-  it('should not call configure with isRegistered true and token exists', () => {
+  it('should not call configure with token exists', () => {
     store = configureStore([ thunk ])({
       notifications: {
         token: '123',
-        isRegistered: true,
       },
       auth: {
         isJean: true,
