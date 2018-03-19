@@ -40,112 +40,6 @@
 		4FC01FA7205C574F0079E21F /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F03205C574F0079E21F /* Appfile */; };
 		4FC01FA8205C574F0079E21F /* Deliverfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F04205C574F0079E21F /* Deliverfile */; };
 		4FC01FA9205C574F0079E21F /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F05205C574F0079E21F /* Fastfile */; };
-		4FC01FAA205C574F0079E21F /* app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F07205C574F0079E21F /* app_icon.jpg */; };
-		4FC01FAB205C574F0079E21F /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F08205C574F0079E21F /* copyright.txt */; };
-		4FC01FAC205C574F0079E21F /* description.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0A205C574F0079E21F /* description.txt */; };
-		4FC01FAD205C574F0079E21F /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0B205C574F0079E21F /* keywords.txt */; };
-		4FC01FAE205C574F0079E21F /* marketing_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0C205C574F0079E21F /* marketing_url.txt */; };
-		4FC01FAF205C574F0079E21F /* name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0D205C574F0079E21F /* name.txt */; };
-		4FC01FB0205C574F0079E21F /* privacy_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0E205C574F0079E21F /* privacy_url.txt */; };
-		4FC01FB1205C574F0079E21F /* promotional_text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F0F205C574F0079E21F /* promotional_text.txt */; };
-		4FC01FB2205C574F0079E21F /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F10205C574F0079E21F /* release_notes.txt */; };
-		4FC01FB3205C574F0079E21F /* subtitle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F11205C574F0079E21F /* subtitle.txt */; };
-		4FC01FB4205C574F0079E21F /* support_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F12205C574F0079E21F /* support_url.txt */; };
-		4FC01FB5205C574F0079E21F /* description.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F14205C574F0079E21F /* description.txt */; };
-		4FC01FB6205C574F0079E21F /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F15205C574F0079E21F /* keywords.txt */; };
-		4FC01FB7205C574F0079E21F /* marketing_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F16205C574F0079E21F /* marketing_url.txt */; };
-		4FC01FB8205C574F0079E21F /* name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F17205C574F0079E21F /* name.txt */; };
-		4FC01FB9205C574F0079E21F /* privacy_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F18205C574F0079E21F /* privacy_url.txt */; };
-		4FC01FBA205C574F0079E21F /* promotional_text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F19205C574F0079E21F /* promotional_text.txt */; };
-		4FC01FBB205C574F0079E21F /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F1A205C574F0079E21F /* release_notes.txt */; };
-		4FC01FBC205C574F0079E21F /* subtitle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F1B205C574F0079E21F /* subtitle.txt */; };
-		4FC01FBD205C574F0079E21F /* support_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F1C205C574F0079E21F /* support_url.txt */; };
-		4FC01FBE205C574F0079E21F /* description.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F1E205C574F0079E21F /* description.txt */; };
-		4FC01FBF205C574F0079E21F /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F1F205C574F0079E21F /* keywords.txt */; };
-		4FC01FC0205C574F0079E21F /* marketing_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F20205C574F0079E21F /* marketing_url.txt */; };
-		4FC01FC1205C574F0079E21F /* name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F21205C574F0079E21F /* name.txt */; };
-		4FC01FC2205C574F0079E21F /* privacy_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F22205C574F0079E21F /* privacy_url.txt */; };
-		4FC01FC3205C574F0079E21F /* promotional_text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F23205C574F0079E21F /* promotional_text.txt */; };
-		4FC01FC4205C574F0079E21F /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F24205C574F0079E21F /* release_notes.txt */; };
-		4FC01FC5205C574F0079E21F /* subtitle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F25205C574F0079E21F /* subtitle.txt */; };
-		4FC01FC6205C574F0079E21F /* support_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F26205C574F0079E21F /* support_url.txt */; };
-		4FC01FC7205C574F0079E21F /* primary_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F27205C574F0079E21F /* primary_category.txt */; };
-		4FC01FC8205C574F0079E21F /* primary_first_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F28205C574F0079E21F /* primary_first_sub_category.txt */; };
-		4FC01FC9205C574F0079E21F /* primary_second_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F29205C574F0079E21F /* primary_second_sub_category.txt */; };
-		4FC01FCA205C574F0079E21F /* demo_password.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F2B205C574F0079E21F /* demo_password.txt */; };
-		4FC01FCB205C574F0079E21F /* demo_user.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F2C205C574F0079E21F /* demo_user.txt */; };
-		4FC01FCC205C574F0079E21F /* email_address.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F2D205C574F0079E21F /* email_address.txt */; };
-		4FC01FCD205C574F0079E21F /* first_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F2E205C574F0079E21F /* first_name.txt */; };
-		4FC01FCE205C574F0079E21F /* last_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F2F205C574F0079E21F /* last_name.txt */; };
-		4FC01FCF205C574F0079E21F /* notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F30205C574F0079E21F /* notes.txt */; };
-		4FC01FD0205C574F0079E21F /* phone_number.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F31205C574F0079E21F /* phone_number.txt */; };
-		4FC01FD1205C574F0079E21F /* secondary_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F32205C574F0079E21F /* secondary_category.txt */; };
-		4FC01FD2205C574F0079E21F /* secondary_first_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F33205C574F0079E21F /* secondary_first_sub_category.txt */; };
-		4FC01FD3205C574F0079E21F /* secondary_second_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F34205C574F0079E21F /* secondary_second_sub_category.txt */; };
-		4FC01FD4205C574F0079E21F /* address_line1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F36205C574F0079E21F /* address_line1.txt */; };
-		4FC01FD5205C574F0079E21F /* city_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F37205C574F0079E21F /* city_name.txt */; };
-		4FC01FD6205C574F0079E21F /* country.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F38205C574F0079E21F /* country.txt */; };
-		4FC01FD7205C574F0079E21F /* email_address.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F39205C574F0079E21F /* email_address.txt */; };
-		4FC01FD8205C574F0079E21F /* first_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3A205C574F0079E21F /* first_name.txt */; };
-		4FC01FD9205C574F0079E21F /* is_displayed_on_app_store.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3B205C574F0079E21F /* is_displayed_on_app_store.txt */; };
-		4FC01FDA205C574F0079E21F /* last_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3C205C574F0079E21F /* last_name.txt */; };
-		4FC01FDB205C574F0079E21F /* phone_number.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3D205C574F0079E21F /* phone_number.txt */; };
-		4FC01FDC205C574F0079E21F /* postal_code.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3E205C574F0079E21F /* postal_code.txt */; };
-		4FC01FDD205C574F0079E21F /* state.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F3F205C574F0079E21F /* state.txt */; };
-		4FC01FDE205C574F0079E21F /* trade_name.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F40205C574F0079E21F /* trade_name.txt */; };
-		4FC01FDF205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F43205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png */; };
-		4FC01FE0205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F44205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png */; };
-		4FC01FE1205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F45205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 English.png */; };
-		4FC01FE2205C574F0079E21F /* 1_iphone4_1.4-inch 01 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F46205C574F0079E21F /* 1_iphone4_1.4-inch 01 English.png */; };
-		4FC01FE3205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F47205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 English.png */; };
-		4FC01FE4205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F48205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 English.png */; };
-		4FC01FE5205C574F0079E21F /* 2_ipad_2.people9.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F49205C574F0079E21F /* 2_ipad_2.people9.7.png */; };
-		4FC01FE6205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4A205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png */; };
-		4FC01FE7205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4B205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 English.png */; };
-		4FC01FE8205C574F0079E21F /* 2_iphone4_2.4-inch 02 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4C205C574F0079E21F /* 2_iphone4_2.4-inch 02 English.png */; };
-		4FC01FE9205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4D205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 English.png */; };
-		4FC01FEA205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4E205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 English.png */; };
-		4FC01FEB205C574F0079E21F /* 3_ipad_3.contacts9.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F4F205C574F0079E21F /* 3_ipad_3.contacts9.7.png */; };
-		4FC01FEC205C574F0079E21F /* 3_ipadPro_3.contacts12.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F50205C574F0079E21F /* 3_ipadPro_3.contacts12.9.png */; };
-		4FC01FED205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F51205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 English.png */; };
-		4FC01FEE205C574F0079E21F /* 3_iphone4_3.4-inch 03 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F52205C574F0079E21F /* 3_iphone4_3.4-inch 03 English.png */; };
-		4FC01FEF205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F53205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 English.png */; };
-		4FC01FF0205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F54205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 English.png */; };
-		4FC01FF1205C574F0079E21F /* 4_ipad_4.steps9.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F55205C574F0079E21F /* 4_ipad_4.steps9.7.png */; };
-		4FC01FF2205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F56205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png */; };
-		4FC01FF3205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F57205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 English.png */; };
-		4FC01FF4205C574F0079E21F /* 4_iphone4_4.4-inch 04 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F58205C574F0079E21F /* 4_iphone4_4.4-inch 04 English.png */; };
-		4FC01FF5205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F59205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 English.png */; };
-		4FC01FF6205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 English.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F5A205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 English.png */; };
-		4FC01FF7205C574F0079E21F /* 5_ipad_5.history9.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F5B205C574F0079E21F /* 5_ipad_5.history9.7.png */; };
-		4FC01FF8205C574F0079E21F /* 5_ipadPro_5.history12.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F5C205C574F0079E21F /* 5_ipadPro_5.history12.9.png */; };
-		4FC01FF9205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F5E205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png */; };
-		4FC01FFA205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F5F205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png */; };
-		4FC01FFB205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F60205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 French Canadian.png */; };
-		4FC01FFC205C574F0079E21F /* 1_iphone4_1.4-inch 01 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F61205C574F0079E21F /* 1_iphone4_1.4-inch 01 French Canadian.png */; };
-		4FC01FFD205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F62205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 French Canadian.png */; };
-		4FC01FFE205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F63205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 French Canadian.png */; };
-		4FC01FFF205C574F0079E21F /* 2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F64205C574F0079E21F /* 2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png */; };
-		4FC02000205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F65205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png */; };
-		4FC02001205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F66205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 French Canadian.png */; };
-		4FC02002205C574F0079E21F /* 2_iphone4_2.4-inch 02 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F67205C574F0079E21F /* 2_iphone4_2.4-inch 02 French Canadian.png */; };
-		4FC02003205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F68205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 French Canadian.png */; };
-		4FC02004205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F69205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 French Canadian.png */; };
-		4FC02005205C574F0079E21F /* 3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6A205C574F0079E21F /* 3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png */; };
-		4FC02006205C574F0079E21F /* 3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6B205C574F0079E21F /* 3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png */; };
-		4FC02007205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6C205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 French Canadian.png */; };
-		4FC02008205C574F0079E21F /* 3_iphone4_3.4-inch 03 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6D205C574F0079E21F /* 3_iphone4_3.4-inch 03 French Canadian.png */; };
-		4FC02009205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6E205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 French Canadian.png */; };
-		4FC0200A205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F6F205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 French Canadian.png */; };
-		4FC0200B205C574F0079E21F /* 4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F70205C574F0079E21F /* 4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png */; };
-		4FC0200C205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F71205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png */; };
-		4FC0200D205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F72205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 French Canadian.png */; };
-		4FC0200E205C574F0079E21F /* 4_iphone4_4.4-inch 04 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F73205C574F0079E21F /* 4_iphone4_4.4-inch 04 French Canadian.png */; };
-		4FC0200F205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F74205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 French Canadian.png */; };
-		4FC02010205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 French Canadian.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F75205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 French Canadian.png */; };
-		4FC02011205C574F0079E21F /* 5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F76205C574F0079E21F /* 5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png */; };
-		4FC02012205C574F0079E21F /* 5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F77205C574F0079E21F /* 5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png */; };
-		4FC02013205C574F0079E21F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01F78205C574F0079E21F /* README.txt */; };
 		4FC02014205C574F0079E21F /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 4FC01FA6205C574F0079E21F /* Gemfile */; };
 		5219785E4CD040F7A2171548 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A9D8C8A0134EF68FE25064 /* libRNVectorIcons.a */; };
 		54A5C1B1ABCC4B59A47C5C6D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DF48B4BD34D30AC457FEF /* Foundation.ttf */; };
@@ -546,112 +440,6 @@
 		4FC01F03205C574F0079E21F /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Appfile; sourceTree = "<group>"; };
 		4FC01F04205C574F0079E21F /* Deliverfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Deliverfile; sourceTree = "<group>"; };
 		4FC01F05205C574F0079E21F /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
-		4FC01F07205C574F0079E21F /* app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = app_icon.jpg; sourceTree = "<group>"; };
-		4FC01F08205C574F0079E21F /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
-		4FC01F0A205C574F0079E21F /* description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
-		4FC01F0B205C574F0079E21F /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
-		4FC01F0C205C574F0079E21F /* marketing_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = marketing_url.txt; sourceTree = "<group>"; };
-		4FC01F0D205C574F0079E21F /* name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = name.txt; sourceTree = "<group>"; };
-		4FC01F0E205C574F0079E21F /* privacy_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy_url.txt; sourceTree = "<group>"; };
-		4FC01F0F205C574F0079E21F /* promotional_text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = promotional_text.txt; sourceTree = "<group>"; };
-		4FC01F10205C574F0079E21F /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
-		4FC01F11205C574F0079E21F /* subtitle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.txt; sourceTree = "<group>"; };
-		4FC01F12205C574F0079E21F /* support_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = support_url.txt; sourceTree = "<group>"; };
-		4FC01F14205C574F0079E21F /* description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
-		4FC01F15205C574F0079E21F /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
-		4FC01F16205C574F0079E21F /* marketing_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = marketing_url.txt; sourceTree = "<group>"; };
-		4FC01F17205C574F0079E21F /* name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = name.txt; sourceTree = "<group>"; };
-		4FC01F18205C574F0079E21F /* privacy_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy_url.txt; sourceTree = "<group>"; };
-		4FC01F19205C574F0079E21F /* promotional_text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = promotional_text.txt; sourceTree = "<group>"; };
-		4FC01F1A205C574F0079E21F /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
-		4FC01F1B205C574F0079E21F /* subtitle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.txt; sourceTree = "<group>"; };
-		4FC01F1C205C574F0079E21F /* support_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = support_url.txt; sourceTree = "<group>"; };
-		4FC01F1E205C574F0079E21F /* description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
-		4FC01F1F205C574F0079E21F /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
-		4FC01F20205C574F0079E21F /* marketing_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = marketing_url.txt; sourceTree = "<group>"; };
-		4FC01F21205C574F0079E21F /* name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = name.txt; sourceTree = "<group>"; };
-		4FC01F22205C574F0079E21F /* privacy_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy_url.txt; sourceTree = "<group>"; };
-		4FC01F23205C574F0079E21F /* promotional_text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = promotional_text.txt; sourceTree = "<group>"; };
-		4FC01F24205C574F0079E21F /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
-		4FC01F25205C574F0079E21F /* subtitle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.txt; sourceTree = "<group>"; };
-		4FC01F26205C574F0079E21F /* support_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = support_url.txt; sourceTree = "<group>"; };
-		4FC01F27205C574F0079E21F /* primary_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = primary_category.txt; sourceTree = "<group>"; };
-		4FC01F28205C574F0079E21F /* primary_first_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = primary_first_sub_category.txt; sourceTree = "<group>"; };
-		4FC01F29205C574F0079E21F /* primary_second_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = primary_second_sub_category.txt; sourceTree = "<group>"; };
-		4FC01F2B205C574F0079E21F /* demo_password.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = demo_password.txt; sourceTree = "<group>"; };
-		4FC01F2C205C574F0079E21F /* demo_user.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = demo_user.txt; sourceTree = "<group>"; };
-		4FC01F2D205C574F0079E21F /* email_address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = email_address.txt; sourceTree = "<group>"; };
-		4FC01F2E205C574F0079E21F /* first_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = first_name.txt; sourceTree = "<group>"; };
-		4FC01F2F205C574F0079E21F /* last_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last_name.txt; sourceTree = "<group>"; };
-		4FC01F30205C574F0079E21F /* notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
-		4FC01F31205C574F0079E21F /* phone_number.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phone_number.txt; sourceTree = "<group>"; };
-		4FC01F32205C574F0079E21F /* secondary_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_category.txt; sourceTree = "<group>"; };
-		4FC01F33205C574F0079E21F /* secondary_first_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_first_sub_category.txt; sourceTree = "<group>"; };
-		4FC01F34205C574F0079E21F /* secondary_second_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_second_sub_category.txt; sourceTree = "<group>"; };
-		4FC01F36205C574F0079E21F /* address_line1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address_line1.txt; sourceTree = "<group>"; };
-		4FC01F37205C574F0079E21F /* city_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city_name.txt; sourceTree = "<group>"; };
-		4FC01F38205C574F0079E21F /* country.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country.txt; sourceTree = "<group>"; };
-		4FC01F39205C574F0079E21F /* email_address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = email_address.txt; sourceTree = "<group>"; };
-		4FC01F3A205C574F0079E21F /* first_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = first_name.txt; sourceTree = "<group>"; };
-		4FC01F3B205C574F0079E21F /* is_displayed_on_app_store.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = is_displayed_on_app_store.txt; sourceTree = "<group>"; };
-		4FC01F3C205C574F0079E21F /* last_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last_name.txt; sourceTree = "<group>"; };
-		4FC01F3D205C574F0079E21F /* phone_number.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phone_number.txt; sourceTree = "<group>"; };
-		4FC01F3E205C574F0079E21F /* postal_code.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = postal_code.txt; sourceTree = "<group>"; };
-		4FC01F3F205C574F0079E21F /* state.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = state.txt; sourceTree = "<group>"; };
-		4FC01F40205C574F0079E21F /* trade_name.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trade_name.txt; sourceTree = "<group>"; };
-		4FC01F43205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png"; sourceTree = "<group>"; };
-		4FC01F44205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png"; sourceTree = "<group>"; };
-		4FC01F45205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone35_1.3.5-inch 01 English.png"; sourceTree = "<group>"; };
-		4FC01F46205C574F0079E21F /* 1_iphone4_1.4-inch 01 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone4_1.4-inch 01 English.png"; sourceTree = "<group>"; };
-		4FC01F47205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone6_1.4.7-inch 01 English.png"; sourceTree = "<group>"; };
-		4FC01F48205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone6Plus_1.5.5-inch 01 English.png"; sourceTree = "<group>"; };
-		4FC01F49205C574F0079E21F /* 2_ipad_2.people9.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_ipad_2.people9.7.png; sourceTree = "<group>"; };
-		4FC01F4A205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png"; sourceTree = "<group>"; };
-		4FC01F4B205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone35_2.3.5-inch 02 English.png"; sourceTree = "<group>"; };
-		4FC01F4C205C574F0079E21F /* 2_iphone4_2.4-inch 02 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone4_2.4-inch 02 English.png"; sourceTree = "<group>"; };
-		4FC01F4D205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone6_2.4.7-inch 02 English.png"; sourceTree = "<group>"; };
-		4FC01F4E205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone6Plus_2.5.5-inch 02 English.png"; sourceTree = "<group>"; };
-		4FC01F4F205C574F0079E21F /* 3_ipad_3.contacts9.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_ipad_3.contacts9.7.png; sourceTree = "<group>"; };
-		4FC01F50205C574F0079E21F /* 3_ipadPro_3.contacts12.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_ipadPro_3.contacts12.9.png; sourceTree = "<group>"; };
-		4FC01F51205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone35_3.3.5-inch 03 English.png"; sourceTree = "<group>"; };
-		4FC01F52205C574F0079E21F /* 3_iphone4_3.4-inch 03 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone4_3.4-inch 03 English.png"; sourceTree = "<group>"; };
-		4FC01F53205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone6_3.4.7-inch 03 English.png"; sourceTree = "<group>"; };
-		4FC01F54205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone6Plus_3.5.5-inch 03 English.png"; sourceTree = "<group>"; };
-		4FC01F55205C574F0079E21F /* 4_ipad_4.steps9.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_ipad_4.steps9.7.png; sourceTree = "<group>"; };
-		4FC01F56205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png"; sourceTree = "<group>"; };
-		4FC01F57205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone35_4.3.5-inch 04 English.png"; sourceTree = "<group>"; };
-		4FC01F58205C574F0079E21F /* 4_iphone4_4.4-inch 04 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone4_4.4-inch 04 English.png"; sourceTree = "<group>"; };
-		4FC01F59205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone6_4.4.7-inch 04 English.png"; sourceTree = "<group>"; };
-		4FC01F5A205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone6Plus_4.5.5-inch 04 English.png"; sourceTree = "<group>"; };
-		4FC01F5B205C574F0079E21F /* 5_ipad_5.history9.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_ipad_5.history9.7.png; sourceTree = "<group>"; };
-		4FC01F5C205C574F0079E21F /* 5_ipadPro_5.history12.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_ipadPro_5.history12.9.png; sourceTree = "<group>"; };
-		4FC01F5E205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png"; sourceTree = "<group>"; };
-		4FC01F5F205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png"; sourceTree = "<group>"; };
-		4FC01F60205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone35_1.3.5-inch 01 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F61205C574F0079E21F /* 1_iphone4_1.4-inch 01 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone4_1.4-inch 01 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F62205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone6_1.4.7-inch 01 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F63205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_iphone6Plus_1.5.5-inch 01 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F64205C574F0079E21F /* 2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png"; sourceTree = "<group>"; };
-		4FC01F65205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png"; sourceTree = "<group>"; };
-		4FC01F66205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone35_2.3.5-inch 02 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F67205C574F0079E21F /* 2_iphone4_2.4-inch 02 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone4_2.4-inch 02 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F68205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone6_2.4.7-inch 02 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F69205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_iphone6Plus_2.5.5-inch 02 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F6A205C574F0079E21F /* 3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png"; sourceTree = "<group>"; };
-		4FC01F6B205C574F0079E21F /* 3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png"; sourceTree = "<group>"; };
-		4FC01F6C205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone35_3.3.5-inch 03 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F6D205C574F0079E21F /* 3_iphone4_3.4-inch 03 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone4_3.4-inch 03 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F6E205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone6_3.4.7-inch 03 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F6F205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_iphone6Plus_3.5.5-inch 03 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F70205C574F0079E21F /* 4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png"; sourceTree = "<group>"; };
-		4FC01F71205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png"; sourceTree = "<group>"; };
-		4FC01F72205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone35_4.3.5-inch 04 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F73205C574F0079E21F /* 4_iphone4_4.4-inch 04 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone4_4.4-inch 04 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F74205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone6_4.4.7-inch 04 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F75205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 French Canadian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_iphone6Plus_4.5.5-inch 04 French Canadian.png"; sourceTree = "<group>"; };
-		4FC01F76205C574F0079E21F /* 5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png"; sourceTree = "<group>"; };
-		4FC01F77205C574F0079E21F /* 5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png"; sourceTree = "<group>"; };
-		4FC01F78205C574F0079E21F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4FC01FA6205C574F0079E21F /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		558D776D127C41A297B33FFD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		5E558AFB09024F108756A4D1 /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SMXCrashlytics.xcodeproj; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; };
@@ -918,186 +706,8 @@
 				4FC01F03205C574F0079E21F /* Appfile */,
 				4FC01F04205C574F0079E21F /* Deliverfile */,
 				4FC01F05205C574F0079E21F /* Fastfile */,
-				4FC01F06205C574F0079E21F /* metadata */,
-				4FC01F41205C574F0079E21F /* screenshots */,
 			);
 			path = fastlane;
-			sourceTree = "<group>";
-		};
-		4FC01F06205C574F0079E21F /* metadata */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F07205C574F0079E21F /* app_icon.jpg */,
-				4FC01F08205C574F0079E21F /* copyright.txt */,
-				4FC01F09205C574F0079E21F /* en-CA */,
-				4FC01F13205C574F0079E21F /* en-US */,
-				4FC01F1D205C574F0079E21F /* fr-CA */,
-				4FC01F27205C574F0079E21F /* primary_category.txt */,
-				4FC01F28205C574F0079E21F /* primary_first_sub_category.txt */,
-				4FC01F29205C574F0079E21F /* primary_second_sub_category.txt */,
-				4FC01F2A205C574F0079E21F /* review_information */,
-				4FC01F32205C574F0079E21F /* secondary_category.txt */,
-				4FC01F33205C574F0079E21F /* secondary_first_sub_category.txt */,
-				4FC01F34205C574F0079E21F /* secondary_second_sub_category.txt */,
-				4FC01F35205C574F0079E21F /* trade_representative_contact_information */,
-			);
-			path = metadata;
-			sourceTree = "<group>";
-		};
-		4FC01F09205C574F0079E21F /* en-CA */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F0A205C574F0079E21F /* description.txt */,
-				4FC01F0B205C574F0079E21F /* keywords.txt */,
-				4FC01F0C205C574F0079E21F /* marketing_url.txt */,
-				4FC01F0D205C574F0079E21F /* name.txt */,
-				4FC01F0E205C574F0079E21F /* privacy_url.txt */,
-				4FC01F0F205C574F0079E21F /* promotional_text.txt */,
-				4FC01F10205C574F0079E21F /* release_notes.txt */,
-				4FC01F11205C574F0079E21F /* subtitle.txt */,
-				4FC01F12205C574F0079E21F /* support_url.txt */,
-			);
-			path = "en-CA";
-			sourceTree = "<group>";
-		};
-		4FC01F13205C574F0079E21F /* en-US */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F14205C574F0079E21F /* description.txt */,
-				4FC01F15205C574F0079E21F /* keywords.txt */,
-				4FC01F16205C574F0079E21F /* marketing_url.txt */,
-				4FC01F17205C574F0079E21F /* name.txt */,
-				4FC01F18205C574F0079E21F /* privacy_url.txt */,
-				4FC01F19205C574F0079E21F /* promotional_text.txt */,
-				4FC01F1A205C574F0079E21F /* release_notes.txt */,
-				4FC01F1B205C574F0079E21F /* subtitle.txt */,
-				4FC01F1C205C574F0079E21F /* support_url.txt */,
-			);
-			path = "en-US";
-			sourceTree = "<group>";
-		};
-		4FC01F1D205C574F0079E21F /* fr-CA */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F1E205C574F0079E21F /* description.txt */,
-				4FC01F1F205C574F0079E21F /* keywords.txt */,
-				4FC01F20205C574F0079E21F /* marketing_url.txt */,
-				4FC01F21205C574F0079E21F /* name.txt */,
-				4FC01F22205C574F0079E21F /* privacy_url.txt */,
-				4FC01F23205C574F0079E21F /* promotional_text.txt */,
-				4FC01F24205C574F0079E21F /* release_notes.txt */,
-				4FC01F25205C574F0079E21F /* subtitle.txt */,
-				4FC01F26205C574F0079E21F /* support_url.txt */,
-			);
-			path = "fr-CA";
-			sourceTree = "<group>";
-		};
-		4FC01F2A205C574F0079E21F /* review_information */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F2B205C574F0079E21F /* demo_password.txt */,
-				4FC01F2C205C574F0079E21F /* demo_user.txt */,
-				4FC01F2D205C574F0079E21F /* email_address.txt */,
-				4FC01F2E205C574F0079E21F /* first_name.txt */,
-				4FC01F2F205C574F0079E21F /* last_name.txt */,
-				4FC01F30205C574F0079E21F /* notes.txt */,
-				4FC01F31205C574F0079E21F /* phone_number.txt */,
-			);
-			path = review_information;
-			sourceTree = "<group>";
-		};
-		4FC01F35205C574F0079E21F /* trade_representative_contact_information */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F36205C574F0079E21F /* address_line1.txt */,
-				4FC01F37205C574F0079E21F /* city_name.txt */,
-				4FC01F38205C574F0079E21F /* country.txt */,
-				4FC01F39205C574F0079E21F /* email_address.txt */,
-				4FC01F3A205C574F0079E21F /* first_name.txt */,
-				4FC01F3B205C574F0079E21F /* is_displayed_on_app_store.txt */,
-				4FC01F3C205C574F0079E21F /* last_name.txt */,
-				4FC01F3D205C574F0079E21F /* phone_number.txt */,
-				4FC01F3E205C574F0079E21F /* postal_code.txt */,
-				4FC01F3F205C574F0079E21F /* state.txt */,
-				4FC01F40205C574F0079E21F /* trade_name.txt */,
-			);
-			path = trade_representative_contact_information;
-			sourceTree = "<group>";
-		};
-		4FC01F41205C574F0079E21F /* screenshots */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F42205C574F0079E21F /* en-US */,
-				4FC01F5D205C574F0079E21F /* fr-CA */,
-				4FC01F78205C574F0079E21F /* README.txt */,
-			);
-			path = screenshots;
-			sourceTree = "<group>";
-		};
-		4FC01F42205C574F0079E21F /* en-US */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F43205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png */,
-				4FC01F44205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png */,
-				4FC01F45205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 English.png */,
-				4FC01F46205C574F0079E21F /* 1_iphone4_1.4-inch 01 English.png */,
-				4FC01F47205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 English.png */,
-				4FC01F48205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 English.png */,
-				4FC01F49205C574F0079E21F /* 2_ipad_2.people9.7.png */,
-				4FC01F4A205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png */,
-				4FC01F4B205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 English.png */,
-				4FC01F4C205C574F0079E21F /* 2_iphone4_2.4-inch 02 English.png */,
-				4FC01F4D205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 English.png */,
-				4FC01F4E205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 English.png */,
-				4FC01F4F205C574F0079E21F /* 3_ipad_3.contacts9.7.png */,
-				4FC01F50205C574F0079E21F /* 3_ipadPro_3.contacts12.9.png */,
-				4FC01F51205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 English.png */,
-				4FC01F52205C574F0079E21F /* 3_iphone4_3.4-inch 03 English.png */,
-				4FC01F53205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 English.png */,
-				4FC01F54205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 English.png */,
-				4FC01F55205C574F0079E21F /* 4_ipad_4.steps9.7.png */,
-				4FC01F56205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png */,
-				4FC01F57205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 English.png */,
-				4FC01F58205C574F0079E21F /* 4_iphone4_4.4-inch 04 English.png */,
-				4FC01F59205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 English.png */,
-				4FC01F5A205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 English.png */,
-				4FC01F5B205C574F0079E21F /* 5_ipad_5.history9.7.png */,
-				4FC01F5C205C574F0079E21F /* 5_ipadPro_5.history12.9.png */,
-			);
-			path = "en-US";
-			sourceTree = "<group>";
-		};
-		4FC01F5D205C574F0079E21F /* fr-CA */ = {
-			isa = PBXGroup;
-			children = (
-				4FC01F5E205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png */,
-				4FC01F5F205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png */,
-				4FC01F60205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 French Canadian.png */,
-				4FC01F61205C574F0079E21F /* 1_iphone4_1.4-inch 01 French Canadian.png */,
-				4FC01F62205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 French Canadian.png */,
-				4FC01F63205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 French Canadian.png */,
-				4FC01F64205C574F0079E21F /* 2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png */,
-				4FC01F65205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png */,
-				4FC01F66205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 French Canadian.png */,
-				4FC01F67205C574F0079E21F /* 2_iphone4_2.4-inch 02 French Canadian.png */,
-				4FC01F68205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 French Canadian.png */,
-				4FC01F69205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 French Canadian.png */,
-				4FC01F6A205C574F0079E21F /* 3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png */,
-				4FC01F6B205C574F0079E21F /* 3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png */,
-				4FC01F6C205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 French Canadian.png */,
-				4FC01F6D205C574F0079E21F /* 3_iphone4_3.4-inch 03 French Canadian.png */,
-				4FC01F6E205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 French Canadian.png */,
-				4FC01F6F205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 French Canadian.png */,
-				4FC01F70205C574F0079E21F /* 4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png */,
-				4FC01F71205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png */,
-				4FC01F72205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 French Canadian.png */,
-				4FC01F73205C574F0079E21F /* 4_iphone4_4.4-inch 04 French Canadian.png */,
-				4FC01F74205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 French Canadian.png */,
-				4FC01F75205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 French Canadian.png */,
-				4FC01F76205C574F0079E21F /* 5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png */,
-				4FC01F77205C574F0079E21F /* 5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png */,
-			);
-			path = "fr-CA";
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -1383,9 +993,8 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = DQ48D9BF2V;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1841,135 +1450,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FC0200B205C574F0079E21F /* 4_ipad_4.Simulator Screen Shot May 2, 2017, 11.58.13 AM.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				4FC01FE7205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 English.png in Resources */,
-				4FC01FD5205C574F0079E21F /* city_name.txt in Resources */,
-				4FC01FD9205C574F0079E21F /* is_displayed_on_app_store.txt in Resources */,
-				4FC01FF4205C574F0079E21F /* 4_iphone4_4.4-inch 04 English.png in Resources */,
-				4FC01FE4205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 English.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				4FC02003205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 French Canadian.png in Resources */,
-				4FC01FBA205C574F0079E21F /* promotional_text.txt in Resources */,
-				4FC01FFA205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.57.48 PM.png in Resources */,
-				4FC01FE2205C574F0079E21F /* 1_iphone4_1.4-inch 01 English.png in Resources */,
 				FEE571759377450BAF6BC4BB /* Entypo.ttf in Resources */,
-				4FC02006205C574F0079E21F /* 3_ipadPro_3.Simulator Screen Shot May 2, 2017, 11.52.46 AM.png in Resources */,
 				D14BDAD02051F6D300C6C70A /* icomoon.ttf in Resources */,
-				4FC02012205C574F0079E21F /* 5_ipadPro_5.Simulator Screen Shot May 2, 2017, 11.49.43 AM.png in Resources */,
 				7D3BD3260324477BA89E88A6 /* EvilIcons.ttf in Resources */,
-				4FC01FDC205C574F0079E21F /* postal_code.txt in Resources */,
-				4FC02011205C574F0079E21F /* 5_ipad_5.Simulator Screen Shot May 2, 2017, 11.57.55 AM.png in Resources */,
-				4FC02013205C574F0079E21F /* README.txt in Resources */,
-				4FC01FD2205C574F0079E21F /* secondary_first_sub_category.txt in Resources */,
-				4FC01FC4205C574F0079E21F /* release_notes.txt in Resources */,
-				4FC01FF8205C574F0079E21F /* 5_ipadPro_5.history12.9.png in Resources */,
-				4FC01FBC205C574F0079E21F /* subtitle.txt in Resources */,
-				4FC01FC9205C574F0079E21F /* primary_second_sub_category.txt in Resources */,
 				EEAFB6FB1835460B90F49437 /* Feather.ttf in Resources */,
-				4FC01FF3205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 English.png in Resources */,
 				4FC01FA8205C574F0079E21F /* Deliverfile in Resources */,
-				4FC0200A205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 French Canadian.png in Resources */,
-				4FC02008205C574F0079E21F /* 3_iphone4_3.4-inch 03 French Canadian.png in Resources */,
 				4FC01FA7205C574F0079E21F /* Appfile in Resources */,
-				4FC01FBD205C574F0079E21F /* support_url.txt in Resources */,
-				4FC0200D205C574F0079E21F /* 4_iphone35_4.3.5-inch 04 French Canadian.png in Resources */,
-				4FC01FE3205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 English.png in Resources */,
-				4FC01FB9205C574F0079E21F /* privacy_url.txt in Resources */,
-				4FC01FE6205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.24.55 AM.png in Resources */,
-				4FC01FB4205C574F0079E21F /* support_url.txt in Resources */,
-				4FC01FE1205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 English.png in Resources */,
-				4FC01FFF205C574F0079E21F /* 2_ipad_2.Simulator Screen Shot May 2, 2017, 11.56.50 AM.png in Resources */,
-				4FC01FB2205C574F0079E21F /* release_notes.txt in Resources */,
-				4FC01FDF205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.52.27 PM.png in Resources */,
 				09D9321F34FF4077A802150D /* FontAwesome.ttf in Resources */,
-				4FC01FD1205C574F0079E21F /* secondary_category.txt in Resources */,
-				4FC02000205C574F0079E21F /* 2_ipadPro_2.Simulator Screen Shot May 2, 2017, 11.49.28 AM.png in Resources */,
 				54A5C1B1ABCC4B59A47C5C6D /* Foundation.ttf in Resources */,
-				4FC01FBB205C574F0079E21F /* release_notes.txt in Resources */,
-				4FC01FB5205C574F0079E21F /* description.txt in Resources */,
-				4FC01FEB205C574F0079E21F /* 3_ipad_3.contacts9.7.png in Resources */,
-				4FC01FF7205C574F0079E21F /* 5_ipad_5.history9.7.png in Resources */,
-				4FC01FC8205C574F0079E21F /* primary_first_sub_category.txt in Resources */,
 				B0AF4F7D6EE545DC84578A2D /* Ionicons.ttf in Resources */,
-				4FC01FDB205C574F0079E21F /* phone_number.txt in Resources */,
-				4FC01FDE205C574F0079E21F /* trade_name.txt in Resources */,
-				4FC01FFE205C574F0079E21F /* 1_iphone6Plus_1.5.5-inch 01 French Canadian.png in Resources */,
-				4FC0200F205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 French Canadian.png in Resources */,
-				4FC01FF2205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.47.10 AM.png in Resources */,
-				4FC01FCF205C574F0079E21F /* notes.txt in Resources */,
-				4FC01FC3205C574F0079E21F /* promotional_text.txt in Resources */,
-				4FC01FB0205C574F0079E21F /* privacy_url.txt in Resources */,
-				4FC01FAF205C574F0079E21F /* name.txt in Resources */,
 				AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */,
 				05E67ECF151A4D54AE2D24A8 /* MaterialCommunityIcons.ttf in Resources */,
-				4FC01FDD205C574F0079E21F /* state.txt in Resources */,
-				4FC01FC7205C574F0079E21F /* primary_category.txt in Resources */,
-				4FC01FC1205C574F0079E21F /* name.txt in Resources */,
 				E601B83451D245D796326489 /* MaterialIcons.ttf in Resources */,
-				4FC01FD4205C574F0079E21F /* address_line1.txt in Resources */,
-				4FC01FB7205C574F0079E21F /* marketing_url.txt in Resources */,
-				4FC01FC6205C574F0079E21F /* support_url.txt in Resources */,
-				4FC01FBF205C574F0079E21F /* keywords.txt in Resources */,
-				4FC02010205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 French Canadian.png in Resources */,
-				4FC01FCD205C574F0079E21F /* first_name.txt in Resources */,
-				4FC02002205C574F0079E21F /* 2_iphone4_2.4-inch 02 French Canadian.png in Resources */,
 				8B6F8C0332CB4ECF95DC0435 /* Octicons.ttf in Resources */,
-				4FC01FE5205C574F0079E21F /* 2_ipad_2.people9.7.png in Resources */,
-				4FC01FD3205C574F0079E21F /* secondary_second_sub_category.txt in Resources */,
-				4FC0200E205C574F0079E21F /* 4_iphone4_4.4-inch 04 French Canadian.png in Resources */,
-				4FC01FCE205C574F0079E21F /* last_name.txt in Resources */,
-				4FC01FCB205C574F0079E21F /* demo_user.txt in Resources */,
-				4FC01FEF205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 English.png in Resources */,
-				4FC01FAC205C574F0079E21F /* description.txt in Resources */,
-				4FC01FC2205C574F0079E21F /* privacy_url.txt in Resources */,
-				4FC01FF5205C574F0079E21F /* 4_iphone6_4.4.7-inch 04 English.png in Resources */,
-				4FC01FFB205C574F0079E21F /* 1_iphone35_1.3.5-inch 01 French Canadian.png in Resources */,
-				4FC01FD0205C574F0079E21F /* phone_number.txt in Resources */,
-				4FC02005205C574F0079E21F /* 3_ipad_3.Simulator Screen Shot May 2, 2017, 11.56.53 AM.png in Resources */,
-				4FC01FDA205C574F0079E21F /* last_name.txt in Resources */,
-				4FC02004205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 French Canadian.png in Resources */,
-				4FC01FAB205C574F0079E21F /* copyright.txt in Resources */,
-				4FC01FC5205C574F0079E21F /* subtitle.txt in Resources */,
-				4FC01FF6205C574F0079E21F /* 4_iphone6Plus_4.5.5-inch 04 English.png in Resources */,
 				4FC01FA9205C574F0079E21F /* Fastfile in Resources */,
-				4FC0200C205C574F0079E21F /* 4_ipadPro_4.Simulator Screen Shot May 2, 2017, 11.51.02 AM.png in Resources */,
-				4FC01FBE205C574F0079E21F /* description.txt in Resources */,
 				B86EC7CFA28449329597D55A /* SimpleLineIcons.ttf in Resources */,
-				4FC02001205C574F0079E21F /* 2_iphone35_2.3.5-inch 02 French Canadian.png in Resources */,
 				C8E8B7E3C7BA42B6AE9FCC91 /* Zocial.ttf in Resources */,
 				D3D4E35331C34B429DE06476 /* AmaticSC-Bold.ttf in Resources */,
-				4FC01FFD205C574F0079E21F /* 1_iphone6_1.4.7-inch 01 French Canadian.png in Resources */,
-				4FC01FD6205C574F0079E21F /* country.txt in Resources */,
-				4FC01FE8205C574F0079E21F /* 2_iphone4_2.4-inch 02 English.png in Resources */,
-				4FC01FCC205C574F0079E21F /* email_address.txt in Resources */,
-				4FC01FE0205C574F0079E21F /* 1_ipadPro_1.Simulator Screen Shot May 1, 2017, 2.49.56 PM.png in Resources */,
-				4FC01FFC205C574F0079E21F /* 1_iphone4_1.4-inch 01 French Canadian.png in Resources */,
 				EF1863CAC1DC4A5DA93AB5C5 /* SourceSansPro-Bold.ttf in Resources */,
-				4FC01FE9205C574F0079E21F /* 2_iphone6_2.4.7-inch 02 English.png in Resources */,
-				4FC02009205C574F0079E21F /* 3_iphone6_3.4.7-inch 03 French Canadian.png in Resources */,
-				4FC01FD8205C574F0079E21F /* first_name.txt in Resources */,
-				4FC01FEA205C574F0079E21F /* 2_iphone6Plus_2.5.5-inch 02 English.png in Resources */,
-				4FC01FD7205C574F0079E21F /* email_address.txt in Resources */,
-				4FC01FED205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 English.png in Resources */,
-				4FC01FF9205C574F0079E21F /* 1_ipad_1.Simulator Screen Shot May 1, 2017, 2.56.21 PM.png in Resources */,
-				4FC01FAA205C574F0079E21F /* app_icon.jpg in Resources */,
-				4FC01FAE205C574F0079E21F /* marketing_url.txt in Resources */,
-				4FC01FCA205C574F0079E21F /* demo_password.txt in Resources */,
-				4FC01FB3205C574F0079E21F /* subtitle.txt in Resources */,
-				4FC02007205C574F0079E21F /* 3_iphone35_3.3.5-inch 03 French Canadian.png in Resources */,
-				4FC01FF0205C574F0079E21F /* 3_iphone6Plus_3.5.5-inch 03 English.png in Resources */,
-				4FC01FEC205C574F0079E21F /* 3_ipadPro_3.contacts12.9.png in Resources */,
-				4FC01FB8205C574F0079E21F /* name.txt in Resources */,
 				D1835D2C205BFA5800DDB80A /* ADBMobileConfig_debug.json in Resources */,
 				FD487B586E344F67806CD6AD /* SourceSansPro-Regular.ttf in Resources */,
 				4FC02014205C574F0079E21F /* Gemfile in Resources */,
-				4FC01FC0205C574F0079E21F /* marketing_url.txt in Resources */,
-				4FC01FF1205C574F0079E21F /* 4_ipad_4.steps9.7.png in Resources */,
-				4FC01FEE205C574F0079E21F /* 3_iphone4_3.4-inch 03 English.png in Resources */,
-				4FC01FAD205C574F0079E21F /* keywords.txt in Resources */,
-				4FC01FB1205C574F0079E21F /* promotional_text.txt in Resources */,
-				4FC01FB6205C574F0079E21F /* keywords.txt in Resources */,
 				FA45FFEB1FFE7DD100153E56 /* ADBMobileConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
