@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`SelectStepScreen should render correctly 1`] = `
 <Flex
   style={
     Object {
@@ -48,4 +48,87 @@ exports[`renders correctly 1`] = `
     />
   </Flex>
 </Flex>
+`;
+
+exports[`SelectStepScreen should render foreground header correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    value={1.5}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+        }
+      }
+      type="header"
+    >
+      Steps of Faith
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,0)",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 20,
+          "textAlign": "center",
+        }
+      }
+    />
+  </Flex>
+</View>
+`;
+
+exports[`SelectStepScreen should render sticky header correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": "100%",
+        "paddingTop": 0,
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 14,
+      }
+    }
+  >
+    STEPS OF FAITH
+  </MyText>
+</View>
 `;

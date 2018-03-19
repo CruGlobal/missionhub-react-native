@@ -13,11 +13,24 @@ const store = createMockStore({ auth: {} });
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
-  testSnapshotShallow(
-    <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />,
-    store
-  );
+describe('SelectStepScreen', () => {
+  let component, parallaxProps;
+  beforeEach(() => {
+    component = renderShallow(
+      <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />,
+      store
+    );
+    parallaxProps = component.find('ParallaxScrollView').props();
+  });
+  it('should render correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+  it('should render foreground header correctly', () => {
+    testSnapshotShallow(parallaxProps.renderForeground());
+  });
+  it('should render sticky header correctly', () => {
+    testSnapshotShallow(parallaxProps.renderStickyHeader());
+  });
 });
 
 
