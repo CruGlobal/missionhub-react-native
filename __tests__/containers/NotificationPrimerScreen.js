@@ -53,6 +53,5 @@ describe('notification primer methods', () => {
   it('runs allow', () => {
     component.allow();
     expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
-    expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
