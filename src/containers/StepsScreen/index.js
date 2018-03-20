@@ -63,6 +63,9 @@ export class StepsScreen extends Component {
   }
 
   async getSteps() {
+    /*TODO
+    if getMySteps() fails the loading screen will show indefinitely. We need to either catch the exception
+    or show the loading screen based on the Redux state rather than the state. The latter is probably better */
     await this.props.dispatch(getMySteps());
     this.setState({ loading: false });
   }
