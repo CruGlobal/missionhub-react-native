@@ -120,18 +120,18 @@ export const isEquivalentObject = (a, b) => {
 
 //returns true if device has internet connection
 //if not, returns false and displays error message
-export const isConnected = () => {
+export const isOnline = () => {
   if (NetInfo.isConnected) return true;
   offlineError();
   return false;
 };
 
-let showingErrorModal = false;
+let showingOfflineModal = false;
 
 const offlineError = () => {
-  if (!showingErrorModal) {
-    showingErrorModal = true;
-    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
-    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingErrorModal = false });
+  if (!showingOfflineModal) {
+    showingOfflineModal = true;
+    const buttons = [ { text: i18n.t('ok'), onPress: () => showingOfflineModal = false } ];
+    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingOfflineModal = false });
   }
 };
