@@ -14,20 +14,21 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
-    increment_build_number(xcodeproj: "MissionHub.xcodeproj")
-    build_app(scheme: "MissionHub")
-    upload_to_app_store
+    # increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    # build_app(scheme: "MissionHub")
+    # upload_to_app_store
   end
   
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do
     increment_build_number(xcodeproj: "MissionHub.xcodeproj")
 
-    match()
+    # match()
     
     gym(
         scheme: "MissionHub",
         export_method: "ad-hoc",
+        skip_package_ipa: "true",
         export_options: {
         provisioningProfiles: {
         "com.missionhub" => "match AdHoc com.missionhub"
@@ -35,18 +36,18 @@ platform :ios do
       }
     )
 
-    crashlytics(
-                crashlytics_path: "./Crashlytics.framework",
-                ipa_path: "./MissionHub.ipa",
-                groups: "missionhub-ios",
-                notes_path: "./release_notes/releaseNotes.txt"
-    )
+    # crashlytics(
+    #             crashlytics_path: "./Crashlytics.framework",
+    #             ipa_path: "./MissionHub.ipa",
+    #             groups: "missionhub-ios",
+    #             notes_path: "./release_notes/releaseNotes.txt"
+    # )
 
-    hipchat(
-            message: "MissionHub iOS Beta build released to Crashlytics.",
-            channel: "MissionHub - Engineering",
-            version: "2",
-            custom_color: "green"
-    )
+    # hipchat(
+    #         message: "MissionHub iOS Beta build released to Crashlytics.",
+    #         channel: "MissionHub - Engineering",
+    #         version: "2",
+    #         custom_color: "green"
+    # )
     end
 end

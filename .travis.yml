@@ -1,18 +1,11 @@
-language: node_js
-node_js:
-- '8'
-script:
-- yarn run test:coverage -- --maxWorkers=4
-- yarn run lint
-notifications:
-  email: false
-after_success:
-- bash <(curl -s https://codecov.io/bash)
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-  yarn run onesky:upload; fi
-cache:
-  yarn: true
-env:
-  global:
-  - secure: x+/ErK+mpslyOoJFQ9g5nAbriM6IbOoC2cJMat5oipsL1GYfSlf2Q/XopHEjJKm0hFenatXyhwq8qwVd2Qb+IWStWWJQ2ZKzgMJvQe8mmzMtK0fHRvr3TADMxiCn7BuBZpe7ag7r27vr0YJj1kOK0aiAiLMlGTnqMHai2B/fh34KWtWvk5Xm9wo/AE9zjOqi1pimRF3O8jfbFVxBb11RS5g3RsHRrKHtmUENdxM452fyeVlTbOjKmvFgss1E9926YYg77VJoeg1Dy8dcPKmsprn4Qcv+7BJOWJ7dLtnqHuZOnn9IrG1A8Bt8I8t/65J53MVe//40oTzuPsAJtMaRlw1k7EgDsuevQ4biMkLBuBJ7Moj8plZGwKCplyxgtvmxd7eJ1ndZlNIS5UDswqmUt66U4typH9E2wmcd56zQ8I/OcIQM24FURiCoeX2H4GTUv42KT40Tn4xOT8opVcPqNF5qYPxM8oaISBdPhR9IZyYaxecJ8rB4hbHezaW3TsXYNXihz/sIcNhAYMRc1BnbOj7hXXMgH4uFLayaq97LcqwIW/IH12p8fFlYjYJOMn3styGCgdsraTMCAfc1dC1u5EGrfEnQhc0EUlsv86P2KVm0wxuPUC8tEXq8QxYlWPhjh7cPN+M5yq6znJt61bMVR4Y/rtOt2jtAghybL7VG0SQ=
-  - secure: xU/4DwAKaz7i5bYMataoQRURNHxA6h+XSdAmgk5BL7G9cHms6Y55wx+I5hnwlY7xvxulIdUzewXaycBGDwKMxmfp9QkmFJp1IHl5etGHqBNc/GAAxh9mvPE+uBOMXMLqqKsxIuJVXNLVQKygFIZeOjUMuN3T2nBrGeVm1h9k1XQvhjaPTHasVbiEVrOCz1yEqr9e/sUZ8YYvUQwP1abrKj4UKBgekIFtxvpOyyE0VXOTLzjDRnlN52C2rFscNLAyrUGU32EL9NA/BFkDz7iv0ax01tUsZA9Ju3czcn0kvkLCjpibMqOll7UETg9vjWdyu2yp5ObEgG9zbOPijxMgBXDxuLh8DsTRjbxbn+sE1TV4Z8t+LMInQbCKkvNqiEEnJ1+O0gsZKsQbpH0x9aHgFTAcupyXgjZPCK6/lQ8U4Pe3Rtre+4fc7sdfN7qCfC0iwZKmkOCBmiF6aNxTCaMohdDuhG3dn/q4LQeDnttGBHM9Qa/2ofnh5GzrTZ/+rnVhWetsR5RicId1MfFXVqQXL37kJ+HdW4MRaY3jnaAzbx48ONUItj4l70gyT8tC/9Vj0i6JPQ4jlv0g2UcgUig2z4fzzScUvj+6PBcSyWLKOzdPaU+8zd1dyDfsMTdg0dEjsIIZs0bbnysPUuIaY2h6NebZ+3PaTX4D2xGQutTvdCY=
+language: objective-c
+xcode_project: ios/Missionhub.xcodeproj
+os: osx
+osx_image: xcode9.2
+
+before_install:
+- cd ios
+
+install:
+- bundler install
+- fastlane ios beta
