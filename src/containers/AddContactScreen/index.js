@@ -49,7 +49,7 @@ class AddContactScreen extends Component {
     }
     const isEdit = person;
     const results = await dispatch(isEdit ? updatePerson(saveData) : addNewContact(saveData));
-    const newPerson = findAllNonPlaceHolders(results, 'person')[ 0 ];
+    const newPerson = findAllNonPlaceHolders(results, 'person')[0];
     if (isEdit || !newPerson) {
       this.complete(results);
     } else {
