@@ -24,11 +24,10 @@ global.APILOG = jest.fn();
 
 beforeEach(() => expect.assertions(1));
 
-it('should refresh key access token if user is logged in with TheKey', async() => {
-  store = mockStore({ auth: { ...mockAuthState, refreshToken: 'refresh' } });
-  const refreshTokenResult = { type: 'refreshed token' };
+async function test(state, method, apiResult, ) {
+  store = mockStore({ auth: { ...mockAuthState, ...state } });
   mockFnWithParams(API_CALLS, request.name, Promise.reject(error), query, {});
-  mockFnWithParams(auth, 'refreshAccessToken', refreshTokenResult);
+  mockFnWithParams(auth, method, apiResult);
 
   try {
     await store.dispatch(callApi(request, {}, {}));
@@ -39,7 +38,7 @@ it('should refresh key access token if user is logged in with TheKey', async() =
         query: query,
         type: request.FETCH,
       },
-      refreshTokenResult,
+      apiResult,
       {
         data: {},
         query: query,
@@ -48,31 +47,13 @@ it('should refresh key access token if user is logged in with TheKey', async() =
       },
     ]);
   }
+}
+
+it('should refresh key access token if user is logged in with TheKey', () => {
+  return test({ refreshToken: 'refresh' }, 'refreshAccessToken', { type: 'refreshed token' });
 });
 
 it('should refresh anonymous login if user is Try It Now', async() => {
-  store = mockStore({ auth: { ...mockAuthState, isFirstTime: true } });
-  const anonymousRefreshResult = { type: 'refreshed anonymous token' };
-  mockFnWithParams(API_CALLS, request.name, Promise.reject(error), query, {});
-  mockFnWithParams(auth, 'refreshAnonymousLogin', anonymousRefreshResult);
-
-  try {
-    await store.dispatch(callApi(request, {}, {}));
-  } catch (error) {
-    expect(store.getActions()).toEqual([
-      {
-        data: {},
-        query: query,
-        type: request.FETCH,
-      },
-      anonymousRefreshResult,
-      {
-        data: {},
-        query: query,
-        type: request.FAIL,
-        error: error,
-      },
-    ]);
-  }
+  return test({ isFirstTime: true }, 'refreshAnonymousLogin', { type: 'refreshed anonymous token' });
 });
 
