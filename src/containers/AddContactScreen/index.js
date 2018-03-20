@@ -7,6 +7,7 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
+import { offlineError } from '../../actions/auth';
 import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
@@ -41,14 +42,19 @@ class AddContactScreen extends Component {
   }
 
   async savePerson() {
-    const { me, organization, dispatch, person } = this.props;
+    const { me, organization, dispatch, person, isOnline } = this.props;
+    if (!isOnline) {
+      dispatch(offlineError());
+      return;
+    }
+
     let saveData = { ...this.state.data };
     if (organization) {
       saveData.orgId = organization.id;
     }
     const isEdit = person;
     const results = await dispatch(isEdit ? updatePerson(saveData) : addNewContact(saveData));
-    const newPerson = findAllNonPlaceHolders(results, 'person')[0];
+    const newPerson = findAllNonPlaceHolders(results, 'person')[ 0 ];
     if (isEdit || !newPerson) {
       this.complete(results);
     } else {
@@ -57,19 +63,17 @@ class AddContactScreen extends Component {
       const contactAssignmentId = contactAssignment && contactAssignment.id;
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onCompleteCelebration: () => {
-          this.complete(results);
-        },
-        addingContactFlow: true,
-        enableBackButton: false,
-        currentStage: null,
-        name: newPerson.first_name,
-        contactId: newPerson.id,
-        contactAssignmentId: contactAssignmentId,
-        section: 'people',
-        subsection: 'person',
-        orgId: organization && organization.id,
-      }));
-
+          this.complete(results);},
+          addingContactFlow: true,
+          enableBackButton: false,
+          currentStage: null,
+          name: newPerson.first_name,
+          contactId: newPerson.id,
+          contactAssignmentId: contactAssignmentId,
+          section: 'people',
+          subsection: 'person',
+          orgId: organization && organization.id,
+        }));
       this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED));
     }
   }
@@ -114,6 +118,7 @@ AddContactScreen.propTypes = {
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   me: auth.user,
+  isOnline: auth.isOnline,
 });
 
 export default connect(mapStateToProps)(AddContactScreen);

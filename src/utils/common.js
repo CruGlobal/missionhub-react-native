@@ -117,21 +117,3 @@ export const isEquivalentObject = (a, b) => {
   // are considered equivalent
   return true;
 };
-
-//returns true if device has internet connection
-//if not, returns false and displays error message
-export const isOnline = () => {
-  if (NetInfo.isConnected) return true;
-  offlineError();
-  return false;
-};
-
-let showingOfflineModal = false;
-
-const offlineError = () => {
-  if (!showingOfflineModal) {
-    showingOfflineModal = true;
-    const buttons = [ { text: i18n.t('ok'), onPress: () => showingOfflineModal = false } ];
-    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingOfflineModal = false });
-  }
-};

@@ -1,4 +1,4 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL, OFFLINE_ERROR } from '../constants';
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 
@@ -11,11 +11,25 @@ import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 import base64url from 'base64-url';
 import { sha256 } from 'js-sha256';
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
+import i18n from '../i18n';
+
+
+let showingOfflineModal = false;
+
+export function offlineError() {
+  console.log('there');
+  if (!showingOfflineModal) {
+    showingOfflineModal = true;
+    const buttons = [ { text: i18n.t('ok'), onPress: () => showingOfflineModal = false } ];
+    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingOfflineModal = false });
+  }
+  return { type: OFFLINE_ERROR };
+}
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
