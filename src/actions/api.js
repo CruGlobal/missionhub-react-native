@@ -3,9 +3,9 @@ import lodashForEach from 'lodash/forEach';
 import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
-import { isObject, isConnected } from '../utils/common';
+import { isObject } from '../utils/common';
 import { refreshAccessToken } from './auth';
-import { EXPIRED_ACCESS_TOKEN, OFFLINE } from '../constants';
+import { EXPIRED_ACCESS_TOKEN } from '../constants';
 
 
 
@@ -36,10 +36,6 @@ const METHODS_WITH_DATA = [ 'put', 'post', 'delete' ];
 export default function callApi(requestObject, query = {}, data = {}) {
   return (dispatch, getState) => (
     new Promise((resolve, reject) => {
-      if (!isConnected()) {
-        return dispatch({ type: OFFLINE });
-      }
-
       // Generic error handler
       const throwErr = (msg) => {
         if (__DEV__) {
