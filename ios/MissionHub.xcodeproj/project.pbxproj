@@ -1733,7 +1733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
@@ -1766,8 +1766,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
-				PROVISIONING_PROFILE = "e1cf0231-f0f8-44ff-ab79-f1cdf594c68e";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.missionhub";
+				PROVISIONING_PROFILE = "bbcc8a10-d031-4270-8e9a-d2a8fa11b609";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
