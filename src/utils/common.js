@@ -1,10 +1,9 @@
 import moment from 'moment';
-import { BackHandler, Platform, NetInfo, Alert } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
 import { DRAWER_OPEN, MAIN_MENU_DRAWER, ORG_PERMISSIONS } from '../constants';
-import i18n from '../i18n';
 
 export const getFourRandomItems = (arr) => {
   if (!arr) {
