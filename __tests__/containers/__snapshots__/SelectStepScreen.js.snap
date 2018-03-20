@@ -1,318 +1,134 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`SelectStepScreen should render correctly 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <ParallaxScrollView
+    backgroundColor="#007398"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#fff"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    renderBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <StepsList
+      createStepText="Create your own step..."
+      items={Array []}
+      onCreateStep={[Function]}
+      onSelectStep={[Function]}
+    />
+  </ParallaxScrollView>
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="ADD TO MY STEPS"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`SelectStepScreen should render foreground header correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    value={1.5}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+        }
+      }
+      type="header"
+    >
+      Steps of Faith
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,0)",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "lineHeight": 24,
+          "paddingHorizontal": 50,
+          "paddingVertical": 20,
+          "textAlign": "center",
+        }
+      }
+    />
+  </Flex>
+</View>
+`;
+
+exports[`SelectStepScreen should render sticky header correctly 1`] = `
 <View
   style={
     Array [
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
+        "height": "100%",
+        "paddingTop": 0,
       },
-      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
     ]
   }
 >
-  <View
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
-      Array [
-        Object {
-          "backgroundColor": "#007398",
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1.5,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "flex": 1.5,
-            "justifyContent": "center",
-          },
-        ]
+      Object {
+        "color": "#ffffff",
+        "fontSize": 14,
       }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 36,
-            },
-          ]
-        }
-      >
-        steps of faith
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "backgroundColor": "rgba(0,0,0,0)",
-              "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingHorizontal": 50,
-              "paddingVertical": 20,
-              "textAlign": "center",
-            },
-          ]
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 2,
-        },
-      ]
     }
   >
-    <RCTScrollView
-      ItemSeparatorComponent={[Function]}
-      ListFooterComponent={[Function]}
-      data={Array []}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      renderItem={[Function]}
-      scrollEnabled={true}
-      scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits="button"
-            accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "borderBottomColor": "#E6E8EC",
-                    "borderBottomWidth": 1,
-                    "borderTopColor": "#E6E8EC",
-                    "borderTopWidth": 1,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "flex-start",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={false}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 40,
-                        "margin": 15,
-                      },
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                  ]
-                }
-              >
-                
-              </Text>
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "flex": 1,
-                      "fontSize": 16,
-                      "paddingHorizontal": 15,
-                      "paddingVertical": 5,
-                    },
-                  ]
-                }
-              >
-                Create your own step...
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-    </RCTScrollView>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "justifyContent": "flex-end",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "width": 750,
-            },
-            null,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          ADD TO MY STEPS
-        </Text>
-      </View>
-    </View>
-  </View>
+    STEPS OF FAITH
+  </MyText>
 </View>
 `;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/default
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
@@ -15,6 +17,7 @@ import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CUSTOM_STEP_TYPE } from '../../constants';
+import theme from '../../theme';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -123,11 +126,24 @@ class SelectStepScreen extends Component {
 
     return (
       <Flex style={styles.container}>
-        <Flex value={1.5} align="center" justify="center" style={styles.headerWrap}>
-          {this.renderTitle()}
-          {this.renderBackButton()}
-        </Flex>
-        <Flex value={2}>
+        <ParallaxScrollView
+          backgroundColor={theme.primaryColor}
+          parallaxHeaderHeight={215}
+          renderForeground={() =>
+            <Flex value={1} align="center" justify="center">
+              {this.renderTitle()}
+              {this.renderBackButton()}
+            </Flex>
+          }
+          stickyHeaderHeight={theme.headerHeight}
+          renderStickyHeader={() =>
+            <Flex align="center" justify="center" style={styles.collapsedHeader}>
+              <Text style={styles.collapsedHeaderTitle}>
+                {t('stepsOfFaith').toUpperCase()}
+              </Text>
+            </Flex>
+          }
+        >
           <StepsList
             ref={(c) => this.stepsList = c}
             personFirstName={this.props.personFirstName}
@@ -136,7 +152,7 @@ class SelectStepScreen extends Component {
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
           />
-        </Flex>
+        </ParallaxScrollView>
         <Flex align="center" justify="end">
           <Button
             type="secondary"

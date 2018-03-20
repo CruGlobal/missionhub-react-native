@@ -2,11 +2,8 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import { Provider } from 'react-redux';
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
-import { renderShallow, testSnapshot, createMockStore } from '../../testUtils';
-import Enzyme, { shallow } from 'enzyme/build/index';
-import Adapter from 'enzyme-adapter-react-16/build/index';
+import { renderShallow, createMockStore, testSnapshotShallow } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import { addSteps } from '../../src/actions/steps';
@@ -16,34 +13,44 @@ const store = createMockStore({ auth: {} });
 
 jest.mock('react-native-device-info');
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />
-    </Provider>
-  );
+describe('SelectStepScreen', () => {
+  let component, parallaxProps;
+  beforeEach(() => {
+    component = renderShallow(
+      <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />,
+      store
+    );
+    parallaxProps = component.find('ParallaxScrollView').props();
+  });
+  it('should render correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+  it('should render foreground header correctly', () => {
+    testSnapshotShallow(parallaxProps.renderForeground());
+  });
+  it('should render sticky header correctly', () => {
+    testSnapshotShallow(parallaxProps.renderStickyHeader());
+  });
 });
 
 
 describe('Navigation', () => {
-  Enzyme.configure({ adapter: new Adapter() });
   navigation.navigatePush = jest.fn();
 
   const createComponent = () => {
-    const screen = shallow(
+    const screen = renderShallow(
       <SelectStepScreen
         steps={[ { id: '1', body: 'Test Step' } ]}
         onComplete={jest.fn()}
         createStepTracking={{}} />,
-      { context: { store } },
+      store,
     );
 
-    let component = screen.dive().dive().dive().instance();
-    return component;
+    return screen.instance();
   };
 
   it('navigates to add step screen', () => {
-    let component = createComponent(true);
+    const component = createComponent(true);
 
     component.handleCreateStep();
 
