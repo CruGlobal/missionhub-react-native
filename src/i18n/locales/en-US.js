@@ -73,6 +73,10 @@ export default {
     baseErrorMessage: 'Please email support@missionhub.com if the issue persists.',
     ADD_NEW_PERSON: 'There was an error adding a new person.',
   },
+  offline: {
+    youreOffline: 'You\'re currently offline',
+    connectToInternet: 'Connect to the internet and you can continue to use MissionHub.',
+  },
   settingsMenu: {
     about: 'About',
     help: 'Help',
