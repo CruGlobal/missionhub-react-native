@@ -46,7 +46,7 @@ it('updates set token', () => {
       findAll: ()=> [ { id: '9' } ],
     },
   });
-  expect(state.isRegistered).toBe(true);
+  expect(state.pushDeviceId).toBe('9');
 });
 
 it('resets state on logout', () => {
@@ -55,7 +55,6 @@ it('resets state on logout', () => {
     hasAsked: false,
     shouldAsk: true,
     showReminder: true,
-    isRegistered: false,
     pushDeviceId: '',
   };
   const state = notifications({}, {

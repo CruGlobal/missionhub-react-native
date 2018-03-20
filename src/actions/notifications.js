@@ -95,11 +95,11 @@ export function shouldRunSetUpPushNotifications() {
 
 export function setupPushNotifications() {
   return (dispatch, getState) => {
-    const { token, shouldAsk, isRegistered } = getState().notifications;
+    const { shouldAsk, token } = getState().notifications;
     if (!shouldAsk) return Promise.reject();
     PushNotification.configure({
       onRegister(t) {
-        if (token && isRegistered) {
+        if (t.token === token) {
           return;
         }
         dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: t.token });
