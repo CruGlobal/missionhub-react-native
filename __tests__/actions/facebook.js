@@ -14,6 +14,12 @@ const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 const expectedAnalyticsResult = { 'type': 'fb id changed' };
 const facebookId = 48347272923;
 
+const facebookLoginActionResult = { type: 'refreshed fb login' };
+const apiResult = (dispatch) => {
+  dispatch(facebookLoginActionResult);
+  return Promise.resolve();
+};
+
 let store;
 
 global.LOG = jest.fn();
@@ -21,42 +27,25 @@ global.LOG = jest.fn();
 beforeEach(() => {
   store = mockStore({ auth: {} });
   mockFnWithParams(analytics, 'updateAnalyticsContext', expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: facebookId });
+  mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: fbAccessToken });
 });
 
 describe('facebook login', () => {
-  const expectedApiData = { fb_access_token: fbAccessToken };
-  const expectedApiResult = { type: 'fb success' };
-
-  beforeEach(() => {
-    const mockFn = (dispatch) => {
-      dispatch(expectedApiResult);
-      return dispatch(() => Promise.resolve());
-    };
-
-    mockFnWithParams(callApi, 'default', mockFn, REQUESTS.FACEBOOK_LOGIN, {}, expectedApiData);
-  });
-
-  it('should log in to Facebook, update analytics context, and then handle result', () => {
+  it('should log in to Facebook and then update analytics context', () => {
     return store.dispatch(facebookLoginAction(fbAccessToken, facebookId)).then(() => {
-      expect(store.getActions()).toEqual([ expectedApiResult, expectedAnalyticsResult ]);
+      expect(store.getActions()).toEqual([ facebookLoginActionResult, expectedAnalyticsResult ]);
     });
   });
 });
 
 describe('refreshMissionHubFacebookAccess', () => {
-  const accessTokenResult = { accessToken: 'fb access token', userID: facebookId };
-  const facebookLoginAction = { type: 'refreshed fb login' };
-  const apiResult = (dispatch) => {
-    dispatch(facebookLoginAction);
-    return Promise.resolve();
-  };
+  const accessTokenResult = { accessToken: fbAccessToken, userID: facebookId };
 
   it('should send current FB access token', async() => {
     mockFnWithParams(AccessToken, 'getCurrentAccessToken', accessTokenResult);
-    mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: accessTokenResult.accessToken });
 
     await store.dispatch(refreshMissionHubFacebookAccess());
 
-    expect(store.getActions()).toEqual([ facebookLoginAction, expect.anything() ]);
+    expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
   });
 });
