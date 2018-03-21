@@ -3,6 +3,10 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import StepsList from '../../src/components/StepsList';
+import Touchable from '../../src/components/Touchable';
 import { renderShallow, createMockStore, testSnapshotShallow } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
@@ -31,7 +35,28 @@ describe('SelectStepScreen', () => {
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
   });
+
 });
+
+describe('renderSaveButton', () => {
+  let component;
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    component = shallow(
+      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} />,
+      { context: { store } }
+    ).dive().dive().dive();
+  });
+  it('should not render save button', () => {
+    expect(component).toMatchSnapshot();
+  });
+  it('should render save button', () => {
+    component.instance().handleSelectStep({ id: '1' });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+});
+
 
 
 describe('Navigation', () => {
