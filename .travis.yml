@@ -17,9 +17,6 @@ matrix:
         yarn: true
 
     - language: objective-c
-      branches:
-        only:
-        - /^v.*\.beta*/
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
@@ -31,7 +28,11 @@ matrix:
       - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       install:
       - bundler install
-      - fastlane ios beta
+      deploy:
+        provider: script
+        script: fastlane ios beta
+        on:
+          condition: $TRAVIS_COMMIT_MESSAGE == [beta]*
 
 env:
   global:
