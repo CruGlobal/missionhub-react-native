@@ -119,6 +119,14 @@ export function codeLogin(code) {
   };
 }
 
+export function refreshAnonymousLogin() {
+  return (dispatch, getState) => {
+    const code = getState().auth.upgradeToken;
+
+    return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
+  };
+}
+
 export function logout() {
   return (dispatch, getState) => {
     dispatch(logOutAnalytics());

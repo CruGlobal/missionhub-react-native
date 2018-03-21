@@ -19,6 +19,7 @@ import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
 import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
+import { refreshAnonymousLogin } from '../../src/actions/auth';
 
 
 const email = 'Roger';
@@ -27,6 +28,7 @@ const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
 const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
+const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([ thunk ]);
 
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
@@ -45,7 +47,10 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: { refreshToken: refreshToken } });
+  store = mockStore({ auth: {
+    refreshToken,
+    upgradeToken,
+  } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -173,6 +178,18 @@ describe('update time zone', () => {
   it('should update timezone ', () => {
     store.dispatch(updateTimezone());
     expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+  });
+});
+
+describe('refreshAnonymousLogin', () => {
+  const apiResult = { type: 'refreshed anonymous token' };
+
+  it('should send the code', async() => {
+    mockFnWithParams(callApi, 'default', (dispatch) => dispatch(apiResult), REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code: upgradeToken });
+
+    await store.dispatch(refreshAnonymousLogin());
+
+    expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
 

@@ -5,10 +5,13 @@ import { UPDATE_STAGES } from '../../src/constants';
 
 const token = 'asdfasndfiosdc';
 const personId = 123456;
+const initialState = {
+  user: {},
+};
 
 const callAuth = (type, results) => {
   return auth(
-    { user: {} },
+    initialState,
     {
       type: type,
       results: results,
@@ -58,6 +61,14 @@ it('returns token, person id, and logged in status after creating person', () =>
   expect(state.isLoggedIn).toBe(true);
   expect(state.token).toBe(token);
   expect(state.personId).toBe(`${personId}`);
+});
+
+it('sets new token after refreshing anonymous login', () => {
+  const state = callAuth(REQUESTS.REFRESH_ANONYMOUS_LOGIN.SUCCESS, {
+    token: token,
+  });
+
+  expect(state).toEqual({ ...initialState, token });
 });
 
 it('sets isJean after loading me', () => {
