@@ -12,7 +12,7 @@ export function facebookLoginWithUsernamePassword(isUpgrade, onComplete) {
       if (result.isCancelled) {
         return;
       }
-      dispatch(facebookLoginWithAccessToken(isUpgrade, onComplete));
+      return dispatch(facebookLoginWithAccessToken(isUpgrade, onComplete));
 
     }, (err) => {
       LOG('err', err);
@@ -25,7 +25,7 @@ export function facebookLoginWithUsernamePassword(isUpgrade, onComplete) {
 
 export function facebookLoginWithAccessToken(isUpgrade, onComplete) {
   return (dispatch) => {
-    AccessToken.getCurrentAccessToken().then((data) => {
+    return AccessToken.getCurrentAccessToken().then((data) => {
       const { accessToken, userID } = data;
 
       if (!accessToken) {

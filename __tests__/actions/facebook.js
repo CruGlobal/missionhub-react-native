@@ -17,7 +17,7 @@ const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 const expectedAnalyticsResult = { type: 'fb id changed' };
 const facebookId = 48347272923;
 
-const facebookLoginActionResult = { type: 'refreshed fb login' };
+const facebookLoginActionResult = { type: 'fb login success' };
 const apiResult = (dispatch) => {
   dispatch(facebookLoginActionResult);
   return Promise.resolve();
@@ -37,12 +37,20 @@ beforeEach(() => {
 });
 
 describe('facebookLoginWithUsernamePassword', () => {
-  it('logs in', async() => {
-    mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ]);
+  beforeEach(() => mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ]));
 
-    await store.dispatch(facebookLoginWithUsernamePassword(false, null, store));
+  it('logs in', async() => {
+    await store.dispatch(facebookLoginWithUsernamePassword(false, null));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
+  });
+
+  it('fires onComplete action if present', async() => {
+    const onCompleteResult = { type: 'hello, world' };
+
+    await store.dispatch(facebookLoginWithUsernamePassword(false, () => onCompleteResult));
+
+    expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything(), onCompleteResult ]);
   });
 });
 
