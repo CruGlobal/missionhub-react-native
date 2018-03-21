@@ -16,6 +16,7 @@ const mockStore = configureStore([ thunk ]);
 const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 const expectedAnalyticsResult = { type: 'fb id changed' };
 const facebookId = 48347272923;
+const upgradeToken = 'jllkjasdflk32l232';
 
 const facebookLoginActionResult = { type: 'fb login success' };
 const apiResult = (dispatch) => {
@@ -30,7 +31,9 @@ let store;
 global.LOG = jest.fn();
 
 beforeEach(() => {
-  store = mockStore({ auth: {} });
+  store = mockStore({ auth: {
+    upgradeToken,
+  } });
   mockFnWithParams(analytics, 'updateAnalyticsContext', expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: facebookId });
   mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: fbAccessToken });
   mockFnWithParams(AccessToken, 'getCurrentAccessToken', accessTokenResult);
@@ -51,6 +54,19 @@ describe('facebookLoginWithUsernamePassword', () => {
     await store.dispatch(facebookLoginWithUsernamePassword(false, () => onCompleteResult));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything(), onCompleteResult ]);
+  });
+
+  it('upgrades account', async() => {
+    const data = {
+      fb_access_token: fbAccessToken,
+      provider: 'client_token',
+      client_token: upgradeToken,
+    };
+    mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, data);
+
+    await store.dispatch(facebookLoginWithUsernamePassword(true, null));
+
+    expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
   });
 });
 
