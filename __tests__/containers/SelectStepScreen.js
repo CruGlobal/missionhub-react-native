@@ -5,8 +5,6 @@ import React from 'react';
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import StepsList from '../../src/components/StepsList';
-import Touchable from '../../src/components/Touchable';
 import { renderShallow, createMockStore, testSnapshotShallow } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
