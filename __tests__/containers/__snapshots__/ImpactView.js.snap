@@ -1,26 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImpactView mapStateToProps should provide the necessary props 1`] = `
-Object {
-  "globalImpact": Object {
-    "id": "global-2018",
-    "pathway_moved_count": 50,
-    "receivers_count": 5,
-    "step_owners_count": 200,
-    "steps_count": 10,
-    "type": "impact_report",
-  },
-  "myImpact": Object {
-    "id": "me-2018",
-    "pathway_moved_count": 3,
-    "receivers_count": 5,
-    "steps_count": 10,
-    "type": "impact_report",
-  },
-}
+exports[`ImpactView contact impact renders empty state 1`] = `
+<ScrollViewMock
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      Here you will see all the steps Test Fname has taken.
+
+See what God is doing through Test Fname below.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      style={
+        Object {
+          "paddingHorizontal": 40,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        style={
+          Object {
+            "paddingBottom": 30,
+          }
+        }
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="1"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#005A7F",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1w"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="2"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="3"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="3m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="4"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="6m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="5"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1y"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</ScrollViewMock>
 `;
 
-exports[`ImpactView renders correctly when isContactScreen 1`] = `
+exports[`ImpactView contact impact renders plural state 1`] = `
 <ScrollViewMock
   bounces={false}
   style={
@@ -224,7 +408,316 @@ exports[`ImpactView renders correctly when isContactScreen 1`] = `
 </ScrollViewMock>
 `;
 
-exports[`ImpactView renders correctly when not isContactScreen 1`] = `
+exports[`ImpactView contact impact renders singular state 1`] = `
+<ScrollViewMock
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  Test Fname took 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      style={
+        Object {
+          "paddingHorizontal": 40,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        style={
+          Object {
+            "paddingBottom": 30,
+          }
+        }
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="1"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#005A7F",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1w"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="2"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="3"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="3m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="4"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="6m"
+        />
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "100",
+            }
+          }
+          key="5"
+          onPress={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#005A7F",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "height": 50,
+              "marginHorizontal": 5,
+              "paddingHorizontal": 5,
+              "width": 50,
+            }
+          }
+          text="1y"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</ScrollViewMock>
+`;
+
+exports[`ImpactView mapStateToProps should provide the necessary props 1`] = `
+Object {
+  "globalImpact": Object {
+    "id": "global-2018",
+    "pathway_moved_count": 50,
+    "receivers_count": 5,
+    "step_owners_count": 200,
+    "steps_count": 10,
+    "type": "impact_report",
+  },
+  "myImpact": Object {
+    "id": "me-2018",
+    "pathway_moved_count": 3,
+    "receivers_count": 5,
+    "steps_count": 10,
+    "type": "impact_report",
+  },
+}
+`;
+
+exports[`ImpactView user impact renders empty state 1`] = `
+<ScrollViewMock
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      Here you will see all the steps you've taken.
+
+See what God is doing through all of us below.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+        "paddingLeft": 50,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          undefined,
+        ]
+      }
+    >
+      You will see the steps other users have taken here shortly.
+
+You will see how others have moved on their spiritual journey here shortly.
+    </MyText>
+  </Flex>
+</ScrollViewMock>
+`;
+
+exports[`ImpactView user impact renders plural state 1`] = `
 <ScrollViewMock
   bounces={false}
   style={
@@ -304,6 +797,91 @@ exports[`ImpactView renders correctly when not isContactScreen 1`] = `
       In 2018, 200 users took 10 steps of faith with 5 people.
 
 50 people reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+</ScrollViewMock>
+`;
+
+exports[`ImpactView user impact renders singular state 1`] = `
+<ScrollViewMock
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  you took 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+        "paddingLeft": 50,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          undefined,
+        ]
+      }
+    >
+      In 2018, 200 users took 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
 </ScrollViewMock>
