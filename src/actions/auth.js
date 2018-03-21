@@ -16,12 +16,16 @@ import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
+import { AccessToken } from 'react-native-fbsdk';
 
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
     const data = { fb_access_token: accessToken };
-    if (isUpgrade) { data.provider = 'client_token'; data.client_token = upgradeToken; }
+    if (isUpgrade) {
+      data.provider = 'client_token';
+      data.client_token = upgradeToken;
+    }
 
     return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then((results) => {
       LOG(results);
@@ -87,7 +91,9 @@ function getTicketAndLogin(isUpgrade) {
     const upgradeToken = getState().auth.upgradeToken;
     const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
     const data = { code: keyTicketResult.ticket };
-    if (isUpgrade) { data.client_token = upgradeToken; }
+    if (isUpgrade) {
+      data.client_token = upgradeToken;
+    }
 
     await dispatch(callApi(REQUESTS.TICKET_LOGIN, {}, data));
   };
@@ -109,6 +115,14 @@ export function refreshAnonymousLogin() {
     const code = getState().auth.upgradeToken;
 
     return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
+  };
+}
+
+export function refreshMissionHubFacebookAccess() {
+  return async(dispatch) => {
+    const { accessToken } = await AccessToken.getCurrentAccessToken();
+
+    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: accessToken }));
   };
 }
 

@@ -20,6 +20,8 @@ import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';
+import { AccessToken } from 'react-native-fbsdk';
+import { refreshMissionHubFacebookAccess } from '../../src/actions/auth';
 
 
 const email = 'Roger';
@@ -188,6 +190,20 @@ describe('refreshAnonymousLogin', () => {
     mockFnWithParams(callApi, 'default', (dispatch) => dispatch(apiResult), REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code: upgradeToken });
 
     await store.dispatch(refreshAnonymousLogin());
+
+    expect(store.getActions()).toEqual([ apiResult ]);
+  });
+});
+
+describe('refreshMissionHubFacebookAccess', () => {
+  const accessTokenResult = { accessToken: 'fb access token' };
+  const apiResult = { type: 'refreshed fb login' };
+
+  it('should send current FB access token', async() => {
+    mockFnWithParams(AccessToken, 'getCurrentAccessToken', accessTokenResult);
+    mockFnWithParams(callApi, 'default', (dispatch) => dispatch(apiResult), REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: accessTokenResult.accessToken });
+
+    await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(store.getActions()).toEqual([ apiResult ]);
   });
