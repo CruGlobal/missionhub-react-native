@@ -70,9 +70,7 @@ platform :ios do
 
     sh('git', 'checkout', travis_branch)
 
-    push_to_git_remote(
-        local_branch: 'MHP-1314-Fastlane-Travis',
-    )
+    push_to_git_remote
 
     hipchat(
         message: "MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.",
@@ -86,46 +84,46 @@ platform :ios do
   lane :beta do
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
 
-    # # Travis requires a keychain to be created to store the certificates in, however
-    # # using this utility to create a keychain locally will really mess up local keychains
-    # # and is not required for a successful build
-    # if is_ci?
-    #   create_keychain(
-    #       name: ENV["MATCH_KEYCHAIN_NAME"],
-    #       password: ENV["MATCH_PASSWORD"],
-    #       default_keychain: true,
-    #       unlock: true,
-    #       timeout: 3600,
-    #       add_to_search_list: true
-    #   )
-    #
-    #   match(readonly: true,
-    #         keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-    #         keychain_password: ENV["MATCH_PASSWORD"])
-    # else
-    #   # Locally match will prompt on the first run for the "MATCH_PASSWORD" and remember it
-    #   # in the environment after that.
-    #   match(readonly: true)
-    # end
-    #
-    # gym(
-    #     scheme: "MissionHub",
-    #     export_method: "ad-hoc",
-    #     export_options: {
-    #     provisioningProfiles: {
-    #     "com.missionhub" => "match AdHoc com.missionhub"
-    #     }
-    #   }
-    # )
-    #
-    # crashlytics(
-    #             crashlytics_path: "./Crashlytics.framework",
-    #             ipa_path: "./MissionHub.ipa",
-    #             groups: "missionhub-ios",
-    #             notes_path: "./release_notes/releaseNotes.txt"
-    # )
-    #
-    # clean_build_artifacts
+    # Travis requires a keychain to be created to store the certificates in, however
+    # using this utility to create a keychain locally will really mess up local keychains
+    # and is not required for a successful build
+    if is_ci?
+      create_keychain(
+          name: ENV["MATCH_KEYCHAIN_NAME"],
+          password: ENV["MATCH_PASSWORD"],
+          default_keychain: true,
+          unlock: true,
+          timeout: 3600,
+          add_to_search_list: true
+      )
+
+      match(readonly: true,
+            keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+            keychain_password: ENV["MATCH_PASSWORD"])
+    else
+      # Locally match will prompt on the first run for the "MATCH_PASSWORD" and remember it
+      # in the environment after that.
+      match(readonly: true)
+    end
+
+    gym(
+        scheme: "MissionHub",
+        export_method: "ad-hoc",
+        export_options: {
+        provisioningProfiles: {
+        "com.missionhub" => "match AdHoc com.missionhub"
+        }
+      }
+    )
+
+    crashlytics(
+                crashlytics_path: "./Crashlytics.framework",
+                ipa_path: "./MissionHub.ipa",
+                groups: "missionhub-ios",
+                notes_path: "./release_notes/releaseNotes.txt"
+    )
+
+    clean_build_artifacts
 
     travis_branch = ENV["TRAVIS_BRANCH"]
 
@@ -136,15 +134,13 @@ platform :ios do
         message: "[skip ci] Build number bump to ##{build_number}"
     )
 
-    push_to_git_remote(
-        local_branch: 'MHP-1314-Fastlane-Travis',
-    )
+    push_to_git_remote
 
-    # hipchat(
-    #         message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.",
-    #         channel: "MissionHub - Engineering",
-    #         version: "2",
-    #         custom_color: "green"
-    # )
+    hipchat(
+            message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.",
+            channel: "MissionHub - Engineering",
+            version: "2",
+            custom_color: "green"
+    )
     end
 end
