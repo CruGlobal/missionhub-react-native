@@ -78,6 +78,11 @@ function authReducer(state = initialAuthState, action) {
         token: results.token,
         personId: `${results.person_id}`,
       };
+    case REQUESTS.REFRESH_ANONYMOUS_LOGIN.SUCCESS:
+      return {
+        ...state,
+        token: results.token,
+      };
     case REQUESTS.UPDATE_TIMEZONE.SUCCESS:
       const userTime = findAllNonPlaceHolders(results, 'user')[0];
       return {

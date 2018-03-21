@@ -114,6 +114,12 @@ export default {
     anonymous: true,
     useJsonDataApiStore: false,
   },
+  'REFRESH_ANONYMOUS_LOGIN': {
+    endpoint: `${AUTH_URL}client_token`,
+    method: 'post',
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
   'UPDATE_MY_USER_STAGE': {
     endpoint: `${API_URL}users/me`,
     method: 'put',
