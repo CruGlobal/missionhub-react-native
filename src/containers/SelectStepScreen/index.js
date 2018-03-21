@@ -27,6 +27,7 @@ class SelectStepScreen extends Component {
 
     this.state = {
       steps: props.steps,
+      selectedSteps: [],
       addedSteps: [],
       contact: null,
     };
@@ -58,7 +59,8 @@ class SelectStepScreen extends Component {
 
   handleSelectStep(item) {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
-    this.setState({ steps });
+    const selectedSteps = steps.filter((s) => s.selected);
+    this.setState({ steps, selectedSteps });
   }
 
   handleCreateStep() {
@@ -83,6 +85,7 @@ class SelectStepScreen extends Component {
 
         this.setState({
           steps: this.state.steps.concat([ newStep ]),
+          selectedSteps: this.state.selectedSteps.concat([ newStep ]),
           addedSteps: addedSteps.concat([ newStep ]),
         });
         if (this.stepsList && this.stepsList.onScrollToEnd) {
@@ -121,6 +124,20 @@ class SelectStepScreen extends Component {
     );
   }
 
+  renderSaveButton() {
+    const { t } = this.props;
+    return this.state.selectedSteps.length > 0 ?
+      (<Flex align="center" justify="end">
+        <Button
+          type="secondary"
+          onPress={this.saveAllSteps}
+          text={t('addStep').toUpperCase()}
+          style={styles.addButton}
+        />
+      </Flex>)
+      : null;
+  }
+
   render() {
     const { t } = this.props;
 
@@ -153,14 +170,7 @@ class SelectStepScreen extends Component {
             onCreateStep={this.handleCreateStep}
           />
         </ParallaxScrollView>
-        <Flex align="center" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveAllSteps}
-            text={t('addStep').toUpperCase()}
-            style={styles.addButton}
-          />
-        </Flex>
+        {this.renderSaveButton()}
       </Flex>
     );
   }
