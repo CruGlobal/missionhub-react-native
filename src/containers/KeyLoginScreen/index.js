@@ -12,7 +12,8 @@ import { ACTIONS } from '../../constants';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
-import { facebookLoginWithUsernamePassword } from '../../utils/facebook';
+import { onSuccessfulLogin } from '../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -96,7 +97,7 @@ class KeyLoginScreen extends Component {
   }
 
   facebookLogin = () => {
-    facebookLoginWithUsernamePassword(this.props.dispatch, false);
+    this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin));
   };
 
   renderErrorMessage() {

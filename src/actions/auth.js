@@ -1,11 +1,11 @@
-import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, ANALYTICS, OPEN_URL } from '../constants';
+import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 
 import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
-import { logOutAnalytics, updateAnalyticsContext } from './analytics';
+import { logOutAnalytics } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
@@ -16,24 +16,6 @@ import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
-import { AccessToken } from 'react-native-fbsdk';
-
-export function facebookLoginAction(accessToken, id, isUpgrade = false) {
-  return (dispatch, getState) => {
-    const upgradeToken = getState().auth.upgradeToken;
-    const data = { fb_access_token: accessToken };
-    if (isUpgrade) {
-      data.provider = 'client_token';
-      data.client_token = upgradeToken;
-    }
-
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, data)).then((results) => {
-      LOG(results);
-      dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: id }));
-      return dispatch(onSuccessfulLogin());
-    });
-  };
-}
 
 export function openKeyURL(baseURL, upgradeAccount = false) {
   return (dispatch) => {
@@ -115,14 +97,6 @@ export function refreshAnonymousLogin() {
     const code = getState().auth.upgradeToken;
 
     return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
-  };
-}
-
-export function refreshMissionHubFacebookAccess() {
-  return async(dispatch) => {
-    const { accessToken } = await AccessToken.getCurrentAccessToken();
-
-    return dispatch(callApi(REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: accessToken }));
   };
 }
 

@@ -11,7 +11,8 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-import { facebookLoginWithUsernamePassword } from '../../utils/facebook';
+import { onSuccessfulLogin } from '../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -50,7 +51,7 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    facebookLoginWithUsernamePassword(dispatch, upgradeAccount ? upgradeAccount : false);
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin));
   };
 
   render() {
