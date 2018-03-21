@@ -53,6 +53,8 @@ platform :ios do
                 notes_path: "./release_notes/releaseNotes.txt"
     )
 
+    clean_build_artifacts
+    
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
         message: "[skip ci] Build number bump to ##{build_number}"
