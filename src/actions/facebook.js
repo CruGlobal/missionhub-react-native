@@ -17,8 +17,6 @@ export function facebookLoginWithUsernamePassword(isUpgrade, onComplete) {
     }, (err) => {
       LOG('err', err);
       LoginManager.logOut();
-    }).catch(() => {
-      LOG('facebook login manager catch');
     });
   };
 }
