@@ -7,7 +7,7 @@ const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
 export function facebookLoginWithUsernamePassword(isUpgrade, onComplete) {
   return (dispatch) => {
-    LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
+    return LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
       LOG('Facebook login result', result);
       if (result.isCancelled) {
         return;
