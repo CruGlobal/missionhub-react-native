@@ -38,17 +38,17 @@ beforeEach(() => {
 
 describe('facebookLoginWithUsernamePassword', () => {
   it('logs in', async() => {
-    mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({isCancelled: false}), [ 'public_profile', 'email' ]);
+    mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ]);
 
     await store.dispatch(facebookLoginWithUsernamePassword(false, null, store));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
-  })
+  });
 });
 
 describe('facebook login', () => {
   it('should log in to Facebook and then update analytics context', async() => {
-    await store.dispatch(facebookLoginAction(fbAccessToken, facebookId))
+    await store.dispatch(facebookLoginAction(fbAccessToken, facebookId));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expectedAnalyticsResult ]);
   });
