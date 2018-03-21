@@ -31,7 +31,7 @@ export function facebookLoginWithAccessToken(isUpgrade, onComplete) {
         return;
       }
 
-      dispatch(facebookLoginAction(accessToken.toString(), userID, isUpgrade)).then(() => {
+      return dispatch(facebookLoginAction(accessToken.toString(), userID, isUpgrade)).then(() => {
         onComplete && dispatch(onComplete());
       });
     });
