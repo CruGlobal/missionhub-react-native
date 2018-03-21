@@ -23,37 +23,37 @@ platform :ios do
   lane :beta do
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
 
-    create_keychain(
-        name: ENV["MATCH_KEYCHAIN_NAME"],
-        password: ENV["MATCH_PASSWORD"],
-        default_keychain: true,
-        unlock: true,
-        timeout: 3600,
-        add_to_search_list: true
-    )
-
-    match(readonly: true,
-          keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-          keychain_password: ENV["MATCH_PASSWORD"])
-
-    gym(
-        scheme: "MissionHub",
-        export_method: "ad-hoc",
-        export_options: {
-        provisioningProfiles: {
-        "com.missionhub" => "match AdHoc com.missionhub"
-        }
-      }
-    )
-
-    crashlytics(
-                crashlytics_path: "./Crashlytics.framework",
-                ipa_path: "./MissionHub.ipa",
-                groups: "missionhub-ios",
-                notes_path: "./release_notes/releaseNotes.txt"
-    )
-
-    clean_build_artifacts
+    # create_keychain(
+    #     name: ENV["MATCH_KEYCHAIN_NAME"],
+    #     password: ENV["MATCH_PASSWORD"],
+    #     default_keychain: true,
+    #     unlock: true,
+    #     timeout: 3600,
+    #     add_to_search_list: true
+    # )
+    #
+    # match(readonly: true,
+    #       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+    #       keychain_password: ENV["MATCH_PASSWORD"])
+    #
+    # gym(
+    #     scheme: "MissionHub",
+    #     export_method: "ad-hoc",
+    #     export_options: {
+    #     provisioningProfiles: {
+    #     "com.missionhub" => "match AdHoc com.missionhub"
+    #     }
+    #   }
+    # )
+    #
+    # crashlytics(
+    #             crashlytics_path: "./Crashlytics.framework",
+    #             ipa_path: "./MissionHub.ipa",
+    #             groups: "missionhub-ios",
+    #             notes_path: "./release_notes/releaseNotes.txt"
+    # )
+    #
+    # clean_build_artifacts
 
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
