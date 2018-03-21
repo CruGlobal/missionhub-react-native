@@ -4,7 +4,7 @@ import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
-import { refreshAccessToken } from './auth';
+import { refreshAccessToken, refreshAnonymousLogin } from './auth';
 import { EXPIRED_ACCESS_TOKEN } from '../constants';
 
 
@@ -50,8 +50,9 @@ export default function callApi(requestObject, query = {}, data = {}) {
       let newQuery = { ...query };
       const action = requestObject;
 
+      const authState = getState().auth;
       if (!action.anonymous) {
-        const { token } = getState().auth;
+        const { token } = authState;
         // If the request has not already passed in an access token, set it
         if (!newQuery.access_token) {
           newQuery.access_token = token;
@@ -79,7 +80,13 @@ export default function callApi(requestObject, query = {}, data = {}) {
         APILOG('REQUEST ERROR', action.name, err);
         if (err) {
           if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
-            dispatch(refreshAccessToken());
+            if (authState.refreshToken) {
+              dispatch(refreshAccessToken());
+            } else if (authState.isFirstTime) {
+              dispatch(refreshAnonymousLogin());
+            } else {
+              //todo refresh FB access
+            }
           }
 
           dispatch({
