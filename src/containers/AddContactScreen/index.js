@@ -69,7 +69,7 @@ class AddContactScreen extends Component {
         subsection: 'person',
         orgId: organization && organization.id,
       }));
-      
+
       this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED));
     }
   }
