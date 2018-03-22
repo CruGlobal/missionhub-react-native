@@ -5,21 +5,23 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import LoginScreen from '../../src/containers/LoginScreen';
-import { renderShallow, testSnapshotShallow } from '../../testUtils';
+import { renderShallow } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import renderer from 'react-test-renderer';
 
 const store = createMockStore({});
+let screen;
 
 jest.mock('react-native-device-info');
 jest.mock('react-native-snap-carousel');
 
+beforeEach(() => screen = renderShallow(<LoginScreen />, store));
+
 it('renders', () => {
-  testSnapshotShallow(<LoginScreen />, store);
+  expect(screen).toMatchSnapshot();
 });
 
 it('renders onboarding', () => {
-  const screen = renderShallow(<LoginScreen />, store);
   const carouselProps = screen.getElement().props.children.props.children[0].props.children[1].props;
   const item = carouselProps.data[2];
 
