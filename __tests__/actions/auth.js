@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
-import * as analytics from '../../src/actions/analytics';
 import * as navigation from '../../src/actions/navigation';
 import * as login from '../../src/actions/login';
 import * as auth from '../../src/actions/auth';
@@ -11,16 +10,15 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { facebookLoginAction, keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
+import { keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
-import { ANALYTICS, LOGOUT } from '../../src/constants';
+import { LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
 import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';
-
 
 const email = 'Roger';
 const password = 'secret';
@@ -31,7 +29,6 @@ const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([ thunk ]);
 
-const fbAccessToken = 'nlnfasljfnasvgywenashfkjasdf';
 let store;
 
 constants.THE_KEY_CLIENT_ID = mockClientId;
@@ -53,34 +50,6 @@ beforeEach(() => {
   } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
-});
-
-describe('facebook login', () => {
-  global.LOG = jest.fn();
-
-  const facebookId = 48347272923;
-
-  const expectedApiData = { fb_access_token: fbAccessToken };
-  const expectedApiResult = { type: 'fb success' };
-
-  const expectedAnalyticsResult = { 'type': 'fb id changed' };
-
-  beforeEach(() => {
-    const mockFn = (dispatch) => {
-      dispatch(expectedApiResult);
-      return dispatch(() => Promise.resolve());
-    };
-
-    mockFnWithParams(callApi, 'default', mockFn, REQUESTS.FACEBOOK_LOGIN, {}, expectedApiData);
-
-    mockFnWithParams(analytics, 'updateAnalyticsContext',expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: 48347272923 });
-  });
-
-  it('should log in to Facebook, update analytics context, and then handle result', () => {
-    return store.dispatch(facebookLoginAction(fbAccessToken, facebookId)).then(() => {
-      expect(store.getActions()).toEqual([ expectedApiResult, expectedAnalyticsResult, onSuccessfulLoginResult ]);
-    });
-  });
 });
 
 describe('the key', () => {
