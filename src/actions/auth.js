@@ -17,7 +17,6 @@ import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 
-
 export function facebookLoginAction(accessToken, id, isUpgrade = false) {
   return (dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
