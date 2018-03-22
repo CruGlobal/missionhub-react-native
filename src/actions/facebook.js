@@ -61,7 +61,7 @@ export function refreshMissionHubFacebookAccess() {
       return await dispatch(facebookLoginAction(accessToken, userID));
 
     } catch (error) {
-      if (error.errors[0].status === UNPROCESSABLE_ENTITY) {
+      if (error && error.errors && error.errors[0].status === UNPROCESSABLE_ENTITY) {
         dispatch(facebookLoginWithUsernamePassword(false, null));
       }
     }
