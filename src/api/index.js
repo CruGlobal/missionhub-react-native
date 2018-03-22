@@ -6,7 +6,7 @@ import { JsonApiDataStore } from 'jsonapi-datastore';
 import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
-import { EXPIRED_ACCESS_TOKEN, URL_ENCODED } from '../constants';
+import { EXPIRED_ACCESS_TOKEN, URL_ENCODED, NETWORK_REQUEST_FAILED } from '../constants';
 import { Alert } from 'react-native';
 
 import i18n from '../i18n';
@@ -48,6 +48,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
 
       // Get the endpoint either from the query, or the routeData
       let endpoint = query.endpoint || routeData.endpoint;
+      //endpoint = endpoint + 'trouble';
 
       // Only do this for endpoints that have query parameters
       if (endpoint.includes('/:')) {
@@ -84,7 +85,12 @@ lodashForEach(apiRoutes, (routeData, key) => {
       }).catch((err) => {
         LOG('request error or error in logic that handles the request', key, err);
 
-        if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
+        if (err.message === NETWORK_REQUEST_FAILED) {
+          showOfflineAlert();
+          APILOG(`${key} FAIL`, err);
+          return reject(err);
+
+        } else if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
           return reject({ user_error: i18n.t('keyLogin:invalidCredentialsMessage') });
 
         } else if (err['thekey_authn_error'] === 'email_unverified') {
@@ -121,6 +127,14 @@ const showAlert = (routeData, key) => {
     showingErrorModal = true;
     const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
     Alert.alert(i18n.t('error:error'), errorMessage, buttons, { onDismiss: () => showingErrorModal = false });
+  }
+};
+
+const showOfflineAlert = () => {
+  if (!showingErrorModal) {
+    showingErrorModal = true;
+    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
+    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingErrorModal = false });
   }
 };
 
