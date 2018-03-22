@@ -37,11 +37,10 @@ beforeEach(() => {
   mockFnWithParams(analytics, 'updateAnalyticsContext', expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: facebookId });
   mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: fbAccessToken });
   mockFnWithParams(AccessToken, 'getCurrentAccessToken', accessTokenResult);
+  mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ])
 });
 
 describe('facebookLoginWithUsernamePassword', () => {
-  beforeEach(() => mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ]));
-
   it('logs in', async() => {
     await store.dispatch(facebookLoginWithUsernamePassword(false, null));
 
@@ -85,5 +84,14 @@ describe('refreshMissionHubFacebookAccess', () => {
     await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
+    expect(LoginManager.logInWithReadPermissions).not.toHaveBeenCalled();
+  });
+
+  it('should prompt user to log in again if an error occurs', async() => {
+    mockFnWithParams(AccessToken, 'refreshCurrentAccessTokenAsync', Promise.reject());
+
+    await store.dispatch(refreshMissionHubFacebookAccess());
+
+    expect(LoginManager.logInWithReadPermissions).toHaveBeenCalled();
   });
 });
