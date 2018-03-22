@@ -35,9 +35,9 @@ platform :ios do
     #   submit_for_review: options[:submit_for_review].presence? || false,
     # )
 
-    cru_update_commit(build_number: build_number, version_number: version_number)
+    cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
 
-    cru_notify_users(message: "MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.")
+    cru_notify_users("MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.")
   end
   
   desc "Push a new (beta) release build to Crashlytics"
@@ -59,7 +59,7 @@ platform :ios do
     #             notes_path: "./release_notes/releaseNotes.txt"
     # )
 
-    cru_update_commit(build_number: build_number)
+    cru_update_commit(message: "[skip ci] Build number bump to ##{build_number}")
 
     cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
   end
@@ -100,14 +100,14 @@ platform :ios do
     end
   end
 
-  lane :cru_update_commit do |build_number, version_number|
+  lane :cru_update_commit do |options|
     clean_build_artifacts
 
     sh('git', 'checkout', '--', '../../.env')
 
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
-        message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}"
+        message: options[:message]
     )
 
     if is_ci?
@@ -119,9 +119,9 @@ platform :ios do
     push_to_git_remote
   end
 
-  lane :cru_notify_users do |message|
+  lane :cru_notify_users do |options|
     hipchat(
-        message: message,
+        message: options[:message],
         channel: "MissionHub - Engineering",
         version: "2",
         custom_color: "green"
