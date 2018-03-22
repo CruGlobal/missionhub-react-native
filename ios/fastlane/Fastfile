@@ -103,6 +103,8 @@ platform :ios do
   lane :cru_update_commit do |build_number, version_number|
     clean_build_artifacts
 
+    sh('git', 'checkout', '--', '../../.env')
+
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
         message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}"
