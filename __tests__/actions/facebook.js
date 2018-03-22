@@ -80,6 +80,8 @@ describe('facebook login', () => {
 
 describe('refreshMissionHubFacebookAccess', () => {
   it('should send current FB access token', async() => {
+    mockFnWithParams(AccessToken, 'refreshCurrentAccessTokenAsync', Promise.resolve());
+
     await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);

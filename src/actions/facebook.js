@@ -57,6 +57,7 @@ export function facebookLoginAction(accessToken, id, isUpgrade = false) {
 export function refreshMissionHubFacebookAccess() {
   return async(dispatch) => {
     try {
+      await AccessToken.refreshCurrentAccessTokenAsync();
       const { accessToken, userID } = await AccessToken.getCurrentAccessToken();
       return await dispatch(facebookLoginAction(accessToken, userID));
 
