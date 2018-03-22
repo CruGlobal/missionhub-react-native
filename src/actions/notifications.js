@@ -1,4 +1,4 @@
-import { ToastAndroid } from 'react-native';
+import { ToastAndroid, PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import DeviceInfo from 'react-native-device-info';
 import Config from 'react-native-config';
@@ -106,8 +106,10 @@ export function setupPushNotifications() {
         //make api call to register token with user
         dispatch(registerPushDevice(t.token));
       },
-      onNotification(notification) {
+      onNotification(notification = {}) {
         dispatch(handleNotification(notification));
+
+        notification.finish && notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
       // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
       senderID: GCM_SENDER_ID,
@@ -176,7 +178,7 @@ export function deletePushToken(deviceId) {
   };
 }
 
-export function handleNotification(notification = {}) {
+export function handleNotification(notification) {
   return async(dispatch, getState) => {
 
     if (!notification.userInteraction) {
