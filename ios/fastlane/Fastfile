@@ -16,10 +16,67 @@ platform :ios do
   lane :release do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
 
+    # this is broken..
     version_number = increment_version_number(
-        bump_type: options[:bump_type].presence || 'patch' # Automatically increment major version number
+        bump_type: 'patch' # Automatically increment major version number
     )
 
+    cru_fetch_certs
+
+    cru_build_app(export_method: 'release', profile_name: 'match Release com.missionhub')
+
+    # upload_to_app_store(
+    #   app_identifier: 'com.missionhub',
+    #   ipa: './MissionHub.ipa',
+    #   skip_screenshots: true,
+    #   skip_metadata: true,
+    #   version: version_number,
+    #   automatic_release: options[:automatic_release].presence? || false,
+    #   submit_for_review: options[:submit_for_review].presence? || false,
+    # )
+
+    cru_update_commit(build_number: build_number, version_number: version_number)
+
+    cru_notify_users(message: "MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.")
+  end
+  
+  desc "Push a new (beta) release build to Crashlytics"
+  lane :beta do |options|
+    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+
+    cru_fetch_certs
+
+    unless options[':staging']
+      sh('cp', '../../.env.production', '../../.env')
+    end
+
+    cru_build_app(export_method: 'ad-hoc', profile_name: 'match AdHoc com.missionhub')
+
+    # crashlytics(
+    #             crashlytics_path: "./Crashlytics.framework",
+    #             ipa_path: "./MissionHub.ipa",
+    #             groups: "missionhub-ios",
+    #             notes_path: "./release_notes/releaseNotes.txt"
+    # )
+
+    cru_update_commit(build_number: build_number)
+
+    cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
+  end
+
+  lane :cru_build_app do |options|
+    gym(
+        scheme: "MissionHub",
+        export_method: options[:export_method],
+        export_options: {
+            provisioningProfiles: {
+                'com.missionhub' => options[:profile_name]
+            }
+        }
+    )
+  end
+
+  lane :cru_fetch_certs do
     # Travis requires a keychain to be created to store the certificates in, however
     # using this utility to create a keychain locally will really mess up local keychains
     # and is not required for a successful build
@@ -34,7 +91,6 @@ platform :ios do
       )
 
       match(readonly: true,
-            type: 'Release',
             keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
             keychain_password: ENV["MATCH_PASSWORD"])
     else
@@ -42,105 +98,32 @@ platform :ios do
       # in the environment after that.
       match(readonly: true)
     end
+  end
 
-    gym(
-        scheme: "MissionHub",
-        export_options: {
-            provisioningProfiles: {
-                "com.missionhub" => "match Release com.missionhub"
-            }
-        }
-    )
-    upload_to_app_store(
-      app_identifier: 'com.missionhub',
-      ipa: './MissionHub.ipa',
-      skip_screenshots: true,
-      skip_metadata: true,
-      version: version_number,
-      automatic_release: options[:automatic_release].presence? || false,
-      submit_for_review: options[:submit_for_review].presence? || false,
-    )
+  lane :cru_update_commit do |build_number, version_number|
+    clean_build_artifacts
 
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
         message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}"
     )
 
-    travis_branch = ENV["TRAVIS_BRANCH"]
+    if is_ci?
+      travis_branch = ENV["TRAVIS_BRANCH"]
 
-    sh('git', 'checkout', travis_branch)
+      sh('git', 'checkout', travis_branch)
+    end
 
     push_to_git_remote
+  end
 
+  lane :cru_notify_users do |message|
     hipchat(
-        message: "MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.",
+        message: message,
         channel: "MissionHub - Engineering",
         version: "2",
         custom_color: "green"
     )
   end
-  
-  desc "Push a new (beta) release build to Crashlytics"
-  lane :beta do
-    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
 
-    # Travis requires a keychain to be created to store the certificates in, however
-    # using this utility to create a keychain locally will really mess up local keychains
-    # and is not required for a successful build
-    if is_ci?
-      create_keychain(
-          name: ENV["MATCH_KEYCHAIN_NAME"],
-          password: ENV["MATCH_PASSWORD"],
-          default_keychain: true,
-          unlock: true,
-          timeout: 3600,
-          add_to_search_list: true
-      )
-
-      match(readonly: true,
-            keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-            keychain_password: ENV["MATCH_PASSWORD"])
-    else
-      # Locally match will prompt on the first run for the "MATCH_PASSWORD" and remember it
-      # in the environment after that.
-      match(readonly: true)
-    end
-
-    gym(
-        scheme: "MissionHub",
-        export_method: "ad-hoc",
-        export_options: {
-        provisioningProfiles: {
-        "com.missionhub" => "match AdHoc com.missionhub"
-        }
-      }
-    )
-
-    crashlytics(
-                crashlytics_path: "./Crashlytics.framework",
-                ipa_path: "./MissionHub.ipa",
-                groups: "missionhub-ios",
-                notes_path: "./release_notes/releaseNotes.txt"
-    )
-
-    clean_build_artifacts
-
-    travis_branch = ENV["TRAVIS_BRANCH"]
-
-    sh('git', 'checkout', travis_branch)
-
-    commit_version_bump(
-        xcodeproj: 'MissionHub.xcodeproj',
-        message: "[skip ci] Build number bump to ##{build_number}"
-    )
-
-    push_to_git_remote
-
-    hipchat(
-            message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.",
-            channel: "MissionHub - Engineering",
-            version: "2",
-            custom_color: "green"
-    )
-    end
 end
