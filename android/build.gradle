@@ -30,10 +30,11 @@ allprojects {
         }
 
         // Specify the fbsdk version https://github.com/facebook/react-native/issues/17147
-        // configurations.all {
-        //     resolutionStrategy {
-        //         force 'com.facebook.android:facebook-android-sdk:4.22.1'
-        //     }
-        // }
+        configurations.all {
+            resolutionStrategy {
+                force 'com.google.android.gms:play-services-gcm:11.8.0'
+                // force 'com.facebook.android:facebook-android-sdk:4.22.1'
+            }
+        }
     }
 }
