@@ -48,7 +48,8 @@ platform :ios do
                 crashlytics_path: "./Crashlytics.framework",
                 ipa_path: "./MissionHub.ipa",
                 groups: "missionhub-ios",
-                notes_path: "./release_notes/releaseNotes.txt"
+                notes: 'Beta build for MissionHub iOS. See Jira board for issues that are \"Ready for QA"'
+
     )
 
     cru_update_commit(message: "[skip ci] Build number bump to ##{build_number}")
