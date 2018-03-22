@@ -48,8 +48,6 @@ export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
 
-export const UNPROCESSABLE_ENTITY = '422';
-
 export const CASEY = 'casey';
 export const JEAN = 'jean';
 

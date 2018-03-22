@@ -1,4 +1,4 @@
-import { ANALYTICS, UNPROCESSABLE_ENTITY } from '../constants';
+import { ANALYTICS } from '../constants';
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
@@ -62,9 +62,7 @@ export function refreshMissionHubFacebookAccess() {
       return await dispatch(facebookLoginAction(accessToken, userID));
 
     } catch (error) {
-      if (error && error.errors && error.errors[0].status === UNPROCESSABLE_ENTITY) {
-        dispatch(facebookLoginWithUsernamePassword(false, null));
-      }
+      dispatch(facebookLoginWithUsernamePassword(false, null));
     }
   };
 }
