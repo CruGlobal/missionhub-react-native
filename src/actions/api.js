@@ -6,6 +6,7 @@ import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
 import { refreshAccessToken, refreshAnonymousLogin } from './auth';
 import { EXPIRED_ACCESS_TOKEN } from '../constants';
+import { refreshMissionHubFacebookAccess } from './facebook';
 
 
 
@@ -85,7 +86,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
             } else if (authState.isFirstTime) {
               dispatch(refreshAnonymousLogin());
             } else {
-              //todo refresh FB access
+              dispatch(refreshMissionHubFacebookAccess());
             }
           }
 

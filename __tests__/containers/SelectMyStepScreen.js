@@ -36,13 +36,13 @@ const test = () => {
   );
 };
 
-it('renders correctly with button', () => {
+it('renders correctly with back button', () => {
   enableBackButton = true;
 
   test();
 });
 
-it('renders correctly without button', () => {
+it('renders correctly without back button', () => {
   enableBackButton = false;
 
   test();

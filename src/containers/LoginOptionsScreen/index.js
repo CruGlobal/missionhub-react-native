@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
-import { LoginManager, GraphRequestManager, GraphRequest, AccessToken } from 'react-native-fbsdk';
 
-import { firstTime, facebookLoginAction, openKeyURL } from '../../actions/auth';
+import { firstTime, openKeyURL } from '../../actions/auth';
 import styles from './styles';
 import { Text, Button, Flex, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
@@ -12,10 +11,8 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
-
-const FACEBOOK_VERSION = 'v2.8';
-const FACEBOOK_FIELDS = 'name,email,picture,about,cover,first_name,last_name';
-const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
+import { onSuccessfulLogin } from '../../actions/login';
+import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -28,7 +25,6 @@ class LoginOptionsScreen extends Component {
 
     this.login = this.login.bind(this);
     this.tryItNow = this.tryItNow.bind(this);
-    this.facebookLogin = this.facebookLogin.bind(this);
     this.emailSignUp = this.emailSignUp.bind(this);
   }
 
@@ -53,46 +49,10 @@ class LoginOptionsScreen extends Component {
     Linking.removeEventListener('url', this.handleOpenURL);
   }
 
-  facebookLogin(isUpgrade) {
-    LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
-      LOG('Facebook login result', result);
-      if (result.isCancelled) {
-        return;
-      }
-      AccessToken.getCurrentAccessToken().then((data) => {
-        if (!data.accessToken) {
-          LOG('facebook access token doesnt exist');
-          return;
-        }
-        const accessToken = data.accessToken.toString();
-        const getMeConfig = {
-          version: FACEBOOK_VERSION,
-          accessToken,
-          parameters: {
-            fields: {
-              string: FACEBOOK_FIELDS,
-            },
-          },
-        };
-        // Create a graph request asking for user information with a callback to handle the response.
-        const infoRequest = new GraphRequest('/me', getMeConfig, (err, meResult) => {
-          if (err) {
-            LOG('error getting facebook user', err);
-            return;
-          }
-          LOG('facebook me', meResult);
-          this.props.dispatch(facebookLoginAction(accessToken, meResult.id, isUpgrade));
-        });
-        // Start the graph request.
-        new GraphRequestManager().addRequest(infoRequest).start();
-      });
-    }, (err) => {
-      LOG('err', err);
-      LoginManager.logOut();
-    }).catch(() => {
-      LOG('facebook login manager catch');
-    });
-  }
+  facebookLogin = () => {
+    const { dispatch, upgradeAccount } = this.props;
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin));
+  };
 
   render() {
     const { t, upgradeAccount } = this.props;
@@ -107,7 +67,7 @@ class LoginOptionsScreen extends Component {
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
                 pill={true}
-                onPress={() => this.facebookLogin(upgradeAccount ? upgradeAccount : false)}
+                onPress={this.facebookLogin}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
