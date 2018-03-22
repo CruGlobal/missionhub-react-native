@@ -40,10 +40,10 @@ describe('renderSaveButton', () => {
   let component;
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
-    component = shallow(
+    component = renderShallow(
       <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} />,
-      { context: { store } }
-    ).dive().dive().dive();
+      store
+    );
   });
   it('should not render save button', () => {
     expect(component).toMatchSnapshot();
