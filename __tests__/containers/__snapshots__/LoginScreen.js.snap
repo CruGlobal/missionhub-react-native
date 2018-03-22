@@ -208,3 +208,64 @@ exports[`renders 1`] = `
   </Flex>
 </Flex>
 `;
+
+exports[`renders onboarding 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "justifyContent": "center",
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    direction="column"
+  >
+    <Flex
+      justify="center"
+      value={1.5}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 42,
+            "letterSpacing": 1.5,
+            "lineHeight": 44,
+            "paddingHorizontal": 70,
+            "textAlign": "center",
+          }
+        }
+        type="header"
+      >
+        record your journey with god
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "padding": 15,
+            "paddingHorizontal": 40,
+            "textAlign": "center",
+          }
+        }
+      >
+        MissionHub remembers every step of faith you've taken so you can see what God is doing.
+      </MyText>
+    </Flex>
+    <Flex
+      value={1}
+    />
+  </Flex>
+</View>
+`;
