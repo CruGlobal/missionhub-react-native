@@ -5,7 +5,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import LoginScreen from '../../src/containers/LoginScreen';
-import { testSnapshot } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import renderer from 'react-test-renderer';
 
@@ -15,12 +15,8 @@ const store = createMockStore({});
 jest.mock('react-native-device-info');
 jest.mock('react-native-snap-carousel');
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <LoginScreen />
-    </Provider>,
-  );
+it('renders', () => {
+  testSnapshotShallow(<LoginScreen />, store);
 });
 
 it('tracks state on launch', () => {
