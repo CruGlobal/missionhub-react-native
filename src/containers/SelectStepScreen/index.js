@@ -27,7 +27,6 @@ class SelectStepScreen extends Component {
 
     this.state = {
       steps: props.steps,
-      selectedSteps: [],
       addedSteps: [],
       contact: null,
     };
@@ -57,10 +56,13 @@ class SelectStepScreen extends Component {
     }
   }
 
+  filterSelected() {
+    return this.state.steps.filter((s) => s.selected);
+  }
+
   handleSelectStep(item) {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
-    const selectedSteps = steps.filter((s) => s.selected);
-    this.setState({ steps, selectedSteps });
+    this.setState({ steps });
   }
 
   handleCreateStep() {
@@ -85,7 +87,6 @@ class SelectStepScreen extends Component {
 
         this.setState({
           steps: this.state.steps.concat([ newStep ]),
-          selectedSteps: this.state.selectedSteps.concat([ newStep ]),
           addedSteps: addedSteps.concat([ newStep ]),
         });
         if (this.stepsList && this.stepsList.onScrollToEnd) {
@@ -98,7 +99,7 @@ class SelectStepScreen extends Component {
   }
 
   saveAllSteps() {
-    const selectedSteps = this.state.steps.filter((s) => s.selected);
+    const selectedSteps = this.filterSelected();
 
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());
@@ -126,7 +127,7 @@ class SelectStepScreen extends Component {
 
   renderSaveButton() {
     const { t } = this.props;
-    return this.state.selectedSteps.length > 0 ?
+    return this.filterSelected().length > 0 ?
       (<Flex align="center" justify="end">
         <Button
           type="secondary"
