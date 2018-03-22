@@ -3,8 +3,6 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { renderShallow, createMockStore, testSnapshotShallow } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
@@ -39,7 +37,6 @@ describe('SelectStepScreen', () => {
 describe('renderSaveButton', () => {
   let component;
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     component = renderShallow(
       <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} />,
       store
