@@ -1,5 +1,197 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ContactJourney renders loading screen correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "date": "2010-01-01 12:12:12",
+            "id": 84472,
+            "type": "step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="SOMETHING COOL HAPPENED"
+      type="secondary"
+    />
+  </Flex>
+</View>
+`;
+
+exports[`ContactJourney renders null screen correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "date": "2010-01-01 12:12:12",
+            "id": 84472,
+            "type": "step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="SOMETHING COOL HAPPENED"
+      type="secondary"
+    />
+  </Flex>
+</View>
+`;
+
+exports[`ContactJourney renders screen with steps correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "date": "2010-01-01 12:12:12",
+            "id": 84472,
+            "type": "step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="SOMETHING COOL HAPPENED"
+      type="secondary"
+    />
+  </Flex>
+</View>
+`;
+
 exports[`journey methods renders a journey row 1`] = `
 <Translate(RowSwipeable)
   bump={false}

@@ -10,12 +10,12 @@ import thunk from 'redux-thunk';
 import * as navigation from '../../src/actions/navigation';
 import ContactJourney from '../../src/containers/ContactJourney';
 import { Provider } from 'react-redux';
-import { createMockNavState, testSnapshot } from '../../testUtils';
+import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const personId = '123';
-const mockState = {
+const mockStateWithJourney = {
   auth: {
     person: personId,
     isJean: true,
@@ -30,6 +30,17 @@ const mockState = {
   },
 };
 
+const mockStateNoJourney = {
+  auth: {
+    person: personId,
+    isJean: true,
+  },
+  swipe: {
+    journey: false,
+  },
+  journey: { },
+};
+
 const mockPerson = {
   id: personId,
   first_name: 'ben',
@@ -39,7 +50,7 @@ const mockPerson = {
 };
 
 let store;
-beforeEach(() => store = configureStore([ thunk ])(mockState));
+beforeEach(() => store = configureStore([ thunk ])(mockStateWithJourney));
 
 const mockAddComment = jest.fn(() => Promise.resolve());
 const mockEditComment = jest.fn(() => Promise.resolve());
@@ -58,6 +69,41 @@ it('renders correctly', () => {
   );
 });
 
+
+
+describe('ContactJourney', () => {
+  let component;
+
+  const createComponent = () => {
+    return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
+  };
+
+  const stopLoad = (component) => {
+    component.instance().setState({ loading: false });
+    component.update();
+    return component;
+  };
+
+  it('renders loading screen correctly', () => {
+    component = createComponent();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders null screen correctly', () => {
+    component = createComponent();
+    component = stopLoad(component);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders screen with steps correctly', () => {
+    component = createComponent();
+    component = stopLoad(component);
+
+    expect(component).toMatchSnapshot();
+  });
+});
 
 describe('journey methods', () => {
   let component;
