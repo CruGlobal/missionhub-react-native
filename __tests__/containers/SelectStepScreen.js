@@ -31,7 +31,27 @@ describe('SelectStepScreen', () => {
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
   });
+
 });
+
+describe('renderSaveButton', () => {
+  let component;
+  beforeEach(() => {
+    component = renderShallow(
+      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} />,
+      store
+    );
+  });
+  it('should not render save button', () => {
+    expect(component).toMatchSnapshot();
+  });
+  it('should render save button', () => {
+    component.instance().handleSelectStep({ id: '1' });
+    component.update();
+    expect(component).toMatchSnapshot();
+  });
+});
+
 
 
 describe('Navigation', () => {
