@@ -110,7 +110,7 @@ class LoginScreen extends Component {
             <Pagination
               dotsLength={3}
               activeDotIndex={this.state.activeSlide}
-              containerStyle={{ marginTop: 30 }}
+              containerStyle={{ marginTop: 15 }}
               dotStyle={{
                 width: 10,
                 height: 10,
