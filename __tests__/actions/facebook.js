@@ -37,7 +37,7 @@ beforeEach(() => {
   mockFnWithParams(analytics, 'updateAnalyticsContext', expectedAnalyticsResult, { [ANALYTICS.FACEBOOK_ID]: facebookId });
   mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, { fb_access_token: fbAccessToken });
   mockFnWithParams(AccessToken, 'getCurrentAccessToken', accessTokenResult);
-  mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ])
+  mockFnWithParams(LoginManager, 'logInWithReadPermissions', Promise.resolve({ isCancelled: false }), [ 'public_profile', 'email' ]);
 });
 
 describe('facebookLoginWithUsernamePassword', () => {
