@@ -56,6 +56,10 @@ class SelectStepScreen extends Component {
     }
   }
 
+  filterSelected() {
+    return this.state.steps.filter((s) => s.selected);
+  }
+
   handleSelectStep(item) {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
     this.setState({ steps });
@@ -95,7 +99,7 @@ class SelectStepScreen extends Component {
   }
 
   saveAllSteps() {
-    const selectedSteps = this.state.steps.filter((s) => s.selected);
+    const selectedSteps = this.filterSelected();
 
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());
@@ -119,6 +123,20 @@ class SelectStepScreen extends Component {
         </Text>
       </Flex>
     );
+  }
+
+  renderSaveButton() {
+    const { t } = this.props;
+    return this.filterSelected().length > 0 ?
+      (<Flex align="center" justify="end">
+        <Button
+          type="secondary"
+          onPress={this.saveAllSteps}
+          text={t('addStep').toUpperCase()}
+          style={styles.addButton}
+        />
+      </Flex>)
+      : null;
   }
 
   render() {
@@ -153,14 +171,7 @@ class SelectStepScreen extends Component {
             onCreateStep={this.handleCreateStep}
           />
         </ParallaxScrollView>
-        <Flex align="center" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.saveAllSteps}
-            text={t('addStep').toUpperCase()}
-            style={styles.addButton}
-          />
-        </Flex>
+        {this.renderSaveButton()}
       </Flex>
     );
   }

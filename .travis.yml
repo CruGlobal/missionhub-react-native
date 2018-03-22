@@ -1,18 +1,45 @@
-language: node_js
-node_js:
-- '8'
-script:
-- yarn run test:coverage -- --maxWorkers=4
-- yarn run lint
-notifications:
-  email: false
-after_success:
-- bash <(curl -s https://codecov.io/bash)
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-  yarn run onesky:upload; fi
-cache:
-  yarn: true
+matrix:
+  include:
+
+    - language: node_js
+      node_js:
+      - '8'
+      script:
+      - yarn run test:coverage -- --maxWorkers=4
+      - yarn run lint
+      notifications:
+        email: false
+      after_success:
+      - bash <(curl -s https://codecov.io/bash)
+      - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+        yarn run onesky:upload; fi
+      cache:
+        yarn: true
+
+    - language: objective-c
+      if: branch = master and type = push
+      xcode_project: ios/Missionhub.xcodeproj
+      os: osx
+      osx_image: xcode9.2
+      before_install:
+      - brew install yarn
+      - yarn install
+      - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
+      - cd ios
+      - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
+      install:
+      - bundler install
+      deploy:
+        provider: script
+        script: fastlane ios beta
+
 env:
   global:
+  - secure: Qo7WDyR6KtZnpk5ikAHSah/SdQGIP0lHU/IaCMe5XsIqHZnxPvKNy8cyUguxDqGkwPOyOqE8ZovNDQ7ZCdu0rEug9uMX/EZxoNc2Lfcps/VrUp84Hh0lYAUD1lfpn0Oz4XwVG/5yVjgtRGFdo8FNN+hf1DnbpuijhQ5g5bYYmjYy7Qbj+dxUo4FoiYxKxCunQUessvq1JWU2TfLkS1S2Rp+a/UjxyAoTuGuXisMI2fgESaYiC0Yh1L/7fRh4owR95lwQa7ox94Nloo4VPYxOvgZMoU1YV9e8FXgZ/IacKoqV0OKRxKx81T8/TSdLVQ7Z/+S6ejradLCzEEOvEPg4HPPdGzB9Mk+dkvqqhD/NzgDXOjFOU4dsb/I6+lydYVFQ2Mfgw4bfPcs34hGsdrnO1nwIyDrJXxbKeCE62WXUQhR8SM2o+MJJ5B9hdyFevwoaV2/MKrqq9GsEGVsMMMXK3cY2AyLEfu3DufEfEHmYD1+4TBpeqrqLog1lRITdzEAJGptnTXz/weyFKnBvmAzYgVMo8YAgYd2ZrvugeobA3WdkaqkiL6yqdH/PRjp+yk8uS3zdovdyLm2ZDcKjrvY8WKKglGKjEXbjjeNMLIJwgXtdiqb7396FpB7YKttB3Iw2Us9IbH2Y60A0kEGEvWE/DaIs6gY5ZQc0EsqqDo2Rrmw=
+  - secure: KOzE8ukv1toXhoEuTZ6LmREb3olfEqPbd3T8GUc0pHPVi2a2hEvvG5sVDC+JnVNeykSdbpQz5gnnzbXcC+7vUrSSN7jIfOsNbiQtLKk4MGKT0bh0jci0cTHfu2gWmYGxT2xS/Vy1lDOFyOJKU1mT9G/tbuXurc1tkm5X7gI93VZJgZy8KFtKi8654Fe1KEwdeSiKittPNUlJQFqnVmihumfx093YefgoKkwP3tr7e37ooU1k0JjxiE0WYXgz2iJ0bX2rmNBBVXTFxNzJbLZaN7smSCFhmb8e7VSObT6RnI52r7hcPQ+qQAQxvKg26qvDPnLUAOqoR4AoamxO52vINZl+UyQmk4RmcL9X1fLtBz2D+rBEmbh+6MNfrwkbal/ZiB6xULNINiQJDdCcOsn8X6ra8f75x/31ohQMMztlbDUmtbNzw1KI9vKvwY6C5zQcKG2L0PI6OE7V2fKjI8K2XxglZo8px46hbxDUH4Pv9TlwbFPl6W1X6GWuLTgk7VT1Uc/UevmlRxzz412E5Yi7rAju58z6WvBUESrZH4Dikmj+wwP6bSE0/c/m+lFmfZQiVcATU6Ky9v9rMg3u4Helsnz0ikFLGxX40RitEoFAJPJfZOyezpOcJiXpUtqLPcg7FY0qbujwp15At+pFAJ8syhwjIvPXJ+uQVMXZtuGNHb4=
+  - secure: LLr2Aq5SYO11S5DzXz/vXdrTKwO8vVT3EfWy8FlNM4FKAvP3J7PhtHBsHEOa68OUOw2njzeWPCkPLMKj733sRswxM+KvvEqYCX/rwNoNVDqBr5SJl6HfIGjeYI9jiKsx3Q1ga/+hbcl8DwL7dS+2FXQPYPCklCwirJ/vNHgVkDkg5WZjveaEuAtot5+BJhzU9XG1B87QfnsD3Or2Q6nmEk5DytYMp+vkSu4pr7izA3O+91M9GT+mdXbgf7VgZQvHoN90KVyan0j7mVEP4ruodLUa8NhPvu1dyu0sJWD0XXdG1Nmnd67Pw14jMeyLTczQakJQiG4YbGA6cu6rB3LYKUGScnBA5ugW8qguITCkvAKhMieENIzD3Ki7L4OqrR/20rDCvJE/DUao8r+a6/yoR1QbZc5y6wZRppG0IT0yX8fbCZ1DAilAo7I9IdLgDY9UW+NEd3zpoSkAyZETy+N2gRmASxpfuVt3AnF6zE4uATNl96KVT7cRFct8mSwpoKAdEfxTYKRHWzQMPW38X3thU7oWrgbVPDVSJoNibvS9sgvrrCIdyOZ38KnE5FTajKPq1qu0Aj5sH2m5YPqqFZQIdYcNtdL757LSrL1vfTFstjx9i+6+Xaa/R7Z3uq+kkf6Kzm+MQkiNg7yBOiNtGm8DtCDA3RzmqEprjhzwff2EUbU=
+  - secure: 5oEN3FvkMgKKmvIvxBFUPF3p+VPvHDMs1dVdrwUsURWFeK7qKSYVDVQ5+LGI6Ptm+X2906a/7TMfpMY/Gv8yxJQdbhwc2zZdrCnZrj34BUTdzAvuUbPQDRHCTbJnr6Rs+h7vI4/jLr1Wg/tle/a4GKXOKwEwJy3argDehU5wvGgTPtp1/Nb461h+Fpb8hqk4ET1PB/OnoXND9aTPlyFpWJC30j90ypWaqEVfG1OL3QjOcII1/TWB8+RK2C0vGEn6l7BWJahNFwg/aiMwCyDU1gENQNZ6aPb21rSyjM/G+rmt53xbLhJS50jjQYSynj1J890OT4U4/rOpIhkjXwIHdpyI5iSNP/thWD6oipSYsnlV7ET1O4wRukIwHt6by4xkD8TQySrs/fheuZSyQMNrveXQJcOwCSDWp4Q1p3vCwBv9BYrfu0nlsT8kCfjxbcXmuWn0kOQUl8o5+2EbCsCC3QmtX8wXWr0YIsWOVXIll5MA13MFXQax0ok6/0R7Wm/P7KYZMZkNytb1q3Q/dH+kxCQxS+c7PPbCmHKCKedI3NcjdKdTA12NO5j7wr5c2ohy1H00y6l+yh7+G5vZl2YpRNiRSwDeskLnfgtnjeeg/EX9vjCkYa9XJXZ972RHE94CfWCtv2dSVA1OBkDZlr9TDiWUg2FpKHVpltPmqQu1jFw=
+  - secure: xVF5oHvidtK/7p7Cz3O5MET6Ty6fYYVye4hTdeo+3BOUwR3mA0RkroGq+CAPhVQzTuGPblaO3ZiB0h2IZh2YrI6BF9z3yIVigAeWjW7tPdbul1Wi5mQpN3LixP2MtyrgG1UWo5Tvdd7jH3dt4zq3emyXIYM1jPUwmA3fsG5Ui6c9iUNwhzVSDWR9Jc0ZwlKNBzQtGZsfRV+hM7qtUVKdFCjhawfuK2tejt99jQ2qdxNgfgtBgoAIaKwPp597jWnUSrZc6NS3hGhPhO41CE36057w84zYEU/I4Nfd3liviPPgzLDBXTzlYTRKDoRvOt3Bf/0INkvb52wJcdREWF7Egecye86kfzxlnfgitxIKB0DY4wFMin3lU1PWBJAQgwyvS7aAtLOhH6siuZGKswKNx3k6MzzkMn6MIsaIe8gpqSWvaSo8WfbJ6ADV0jilEQu36dCEtpyEKyOd9+H6pM46SlPA75YjSamWd5WftWbceIKktdZVeMg2N9V84nkdF8aw3OgenBgm0kW87cTY7J8+IbO/3ZE8MWTEM+dXPZRYY5Cm9asBc2EcnIXtBOgCSPsbjSpd8PrsS6Q/tOWHRIb5seGMFOM1IM9SISyMGcZANejlHxKnngHr2SxzI8Wg3R5Fr4hlBOSLim+wEIwHNfiH7hHlg7GbjAiyj7ow6B0rhjE=
+  - secure: azo+/fy172hiup0s3jV3y7EXztDQWuk5QpHpIAFG4cWAeRjcAw5MUQB+yL1Qts9FPQrge7JPTGBdk1bCQW6VNEZcAbHgt17+jU40BV+zZ41t513PQU0GSRLsn2y9OSzS6O8SkWWA+SFR84MvGUIUXREKC4JV8dvdtQxNZOazoYcVFAGy5Uv1/9hn1ZuVBxSUMwl+DQuYboEoCXg0La5H2ZaBT3M1J7z0GktYPImOsM8a5Bk09jnEDRvWEIbUEf8r6dcEkDuR+RpxiAyFP4fzs7UPIBqkfEAXuY7xpi4x6h3UjhWG2uHk+idCfqw1AaztIUXONSTTaP1lJwLJwkycSpcMq/KuD6TWk2+NTETLFaaPIMlR37dMW0vzWhKisO6B9akahZ+axEw4Z0bW+u2y6//T3iXZJbpCb3XXXsT0exgaAfhIhYZmpQ/w61MtWyXXlmU7TrrSpT/Z46GyICX52CDT+v6zE5iSfl874yY73OVHrhTHnCi5/Gs7xfGCSVimxJLdbbiSDA/Km/u9zF9bNzQnzTYV/UMeCKLkepb74QujwaLKLUCZi/PypL69GZAUwGsaxsXXhAMkvlJl5Kq9Xsr1jXYHZpjdwjcbVL2mNUmncIl9IoQwiHGkUtewY31DLiu1k1BOGeQBCGwKAB+C4fqqkdljMEJuG94LrcILAho=
   - secure: x+/ErK+mpslyOoJFQ9g5nAbriM6IbOoC2cJMat5oipsL1GYfSlf2Q/XopHEjJKm0hFenatXyhwq8qwVd2Qb+IWStWWJQ2ZKzgMJvQe8mmzMtK0fHRvr3TADMxiCn7BuBZpe7ag7r27vr0YJj1kOK0aiAiLMlGTnqMHai2B/fh34KWtWvk5Xm9wo/AE9zjOqi1pimRF3O8jfbFVxBb11RS5g3RsHRrKHtmUENdxM452fyeVlTbOjKmvFgss1E9926YYg77VJoeg1Dy8dcPKmsprn4Qcv+7BJOWJ7dLtnqHuZOnn9IrG1A8Bt8I8t/65J53MVe//40oTzuPsAJtMaRlw1k7EgDsuevQ4biMkLBuBJ7Moj8plZGwKCplyxgtvmxd7eJ1ndZlNIS5UDswqmUt66U4typH9E2wmcd56zQ8I/OcIQM24FURiCoeX2H4GTUv42KT40Tn4xOT8opVcPqNF5qYPxM8oaISBdPhR9IZyYaxecJ8rB4hbHezaW3TsXYNXihz/sIcNhAYMRc1BnbOj7hXXMgH4uFLayaq97LcqwIW/IH12p8fFlYjYJOMn3styGCgdsraTMCAfc1dC1u5EGrfEnQhc0EUlsv86P2KVm0wxuPUC8tEXq8QxYlWPhjh7cPN+M5yq6znJt61bMVR4Y/rtOt2jtAghybL7VG0SQ=
   - secure: xU/4DwAKaz7i5bYMataoQRURNHxA6h+XSdAmgk5BL7G9cHms6Y55wx+I5hnwlY7xvxulIdUzewXaycBGDwKMxmfp9QkmFJp1IHl5etGHqBNc/GAAxh9mvPE+uBOMXMLqqKsxIuJVXNLVQKygFIZeOjUMuN3T2nBrGeVm1h9k1XQvhjaPTHasVbiEVrOCz1yEqr9e/sUZ8YYvUQwP1abrKj4UKBgekIFtxvpOyyE0VXOTLzjDRnlN52C2rFscNLAyrUGU32EL9NA/BFkDz7iv0ax01tUsZA9Ju3czcn0kvkLCjpibMqOll7UETg9vjWdyu2yp5ObEgG9zbOPijxMgBXDxuLh8DsTRjbxbn+sE1TV4Z8t+LMInQbCKkvNqiEEnJ1+O0gsZKsQbpH0x9aHgFTAcupyXgjZPCK6/lQ8U4Pe3Rtre+4fc7sdfN7qCfC0iwZKmkOCBmiF6aNxTCaMohdDuhG3dn/q4LQeDnttGBHM9Qa/2ofnh5GzrTZ/+rnVhWetsR5RicId1MfFXVqQXL37kJ+HdW4MRaY3jnaAzbx48ONUItj4l70gyT8tC/9Vj0i6JPQ4jlv0g2UcgUig2z4fzzScUvj+6PBcSyWLKOzdPaU+8zd1dyDfsMTdg0dEjsIIZs0bbnysPUuIaY2h6NebZ+3PaTX4D2xGQutTvdCY=
