@@ -69,12 +69,12 @@ export class ImpactView extends Component {
     dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
       const report = r.findAll('person_report')[0];
       const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key)=>{
+      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
         let num = 0;
         if (INTERACTION_TYPES[key].requestFieldName) {
           num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
         } else {
-          const interaction = interactions.find((i)=> i.interaction_type_id === INTERACTION_TYPES[key].id);
+          const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
           num = interaction ? interaction.interaction_count : 0;
         }
         return {
@@ -87,7 +87,7 @@ export class ImpactView extends Component {
   }
 
   handleChangePeriod(period) {
-    this.setState({ period }, ()=> {
+    this.setState({ period }, () => {
       this.getInteractionReport();
     });
   }
@@ -120,7 +120,7 @@ export class ImpactView extends Component {
       <Flex style={styles.interactionsWrap} direction="column">
         <Flex style={{ paddingBottom: 30 }} align="center" justify="center" direction="row">
           {
-            reportPeriods.map((p)=> {
+            reportPeriods.map((p) => {
               return (
                 <Button
                   key={p.id}

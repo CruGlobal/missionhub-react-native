@@ -148,7 +148,7 @@ class ContactHeader extends Component {
           <IconButton disabled={!numberExists}
             style={numberExists ? styles.contactButton : styles.contactButtonDisabled}
             name="textIcon" type="MissionHub"
-            onPress={()=> this.openUrl(smsNumberUrl, ACTIONS.TEXT_ENGAGED)} />
+            onPress={() => this.openUrl(smsNumberUrl, ACTIONS.TEXT_ENGAGED)} />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
           <IconButton disabled={!numberExists}
