@@ -17,6 +17,7 @@ matrix:
         yarn: true
 
     - language: objective-c
+      if: branch = master
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
