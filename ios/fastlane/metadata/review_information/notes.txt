@@ -1,0 +1,19 @@
+MissionHub Apple Review Docs:
+
+(NOTE: Provided credentials are for a FACEBOOK account, AND WILL NOT WORK with TheKey. There's no differences w/in the app once authenticated with one provider or the other.)
+
+MissionHub is built to connect with the online follow-up system at www.missionhub.com. The MissionHub app connects to a web API to provide data securely over HTTPS to users. Login is handled by Facebook and/or The Key (CAS implementation) and we never see a user's account credentials.
+
+An organization and account has been set up for you to access the app as a user would. A Facebook account is required for use, so we have also provided you with a real Facebook account to test with. We have also pre-populated the organization with a handful of contacts. The provided user has the highest level of permissions and can access every feature in the app.
+
+To login, from the home screen: Choose "Already have an account? Log in." and then enter the provided credentials for Facebook login.
+
+CREDENTIALS:
+u: test.account@missionhub.com
+p: Missionhub2014
+
+The account we gave you as already agreed to allow the MHub Facebook app permissions to their data. Upon logging in for the first time a user would be asked to grant or deny access to some of their Facebook data.
+
+In your organization you can create people, record interactions with people, view their ministry activity stats etc. Please play around as you figure out if our app meets your standards.
+
+Thanks for your time.
