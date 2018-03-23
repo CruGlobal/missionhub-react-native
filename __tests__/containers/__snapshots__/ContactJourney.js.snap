@@ -19,38 +19,60 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
     }
     value={1}
   >
-    <FlatList
-      ItemSeparatorComponent={[Function]}
-      bounces={true}
-      data={
-        Array [
-          Object {
-            "date": "2010-01-01 12:12:12",
-            "id": 84472,
-            "type": "step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEventThrottle={100}
-      showsVerticalScrollIndicator={false}
+    <Flex
+      align="center"
+      justify="center"
       style={
         Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#E6E8EC",
-          "borderBottomWidth": 1,
+          "backgroundColor": "#ffffff",
+          "flex": 1,
         }
       }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
+    >
+      <Flex
+        value={2}
+      />
+      <Flex
+        value={10}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../src/containers/ContactJourney/gifs/HappyBlueLoop1x.gif",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "width": 750,
+            }
+          }
+        />
+      </Flex>
+      <Flex
+        value={2}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+              "fontSize": 64,
+              "paddingVertical": 0,
+            }
+          }
+          type="header"
+        >
+          LOADING
+        </MyText>
+      </Flex>
+      <Flex
+        value={2}
+      />
+    </Flex>
   </Flex>
   <Flex
     justify="end"
@@ -83,38 +105,56 @@ exports[`ContactJourney renders null screen correctly 1`] = `
     }
     value={1}
   >
-    <FlatList
-      ItemSeparatorComponent={[Function]}
-      bounces={true}
-      data={
-        Array [
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        resizeMode="contain"
+        source={
           Object {
-            "date": "2010-01-01 12:12:12",
-            "id": 84472,
-            "type": "step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      renderItem={[Function]}
-      scrollEventThrottle={100}
-      showsVerticalScrollIndicator={false}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#E6E8EC",
-          "borderBottomWidth": 1,
+            "testUri": "../../../assets/images/ourJourney.png",
+          }
         }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
+        style={
+          Object {
+            "flexShrink": 1,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          }
+        }
+        type="header"
+      >
+        OUR JOURNEY
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          }
+        }
+      >
+        This is where MissionHub saves all of your completed steps and any notes you added along the way.
+      </MyText>
+    </Flex>
   </Flex>
   <Flex
     justify="end"
@@ -236,450 +276,6 @@ exports[`journey methods renders a survey row 2`] = `
 />
 `;
 
-exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "flex": 1,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <RCTScrollView
-      ItemSeparatorComponent={[Function]}
-      bounces={true}
-      data={
-        Array [
-          Object {
-            "date": "2010-01-01 12:12:12",
-            "id": 84472,
-            "type": "step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
-      onLayout={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      renderItem={[Function]}
-      scrollEventThrottle={100}
-      showsVerticalScrollIndicator={false}
-      stickyHeaderIndices={Array []}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#E6E8EC",
-          "borderBottomWidth": 1,
-        }
-      }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
-    >
-      <View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View>
-            <View
-              style={
-                Array [
-                  Array [
-                    Object {
-                      "bottom": 0,
-                      "marginTop": 1,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    },
-                    Object {
-                      "width": 75,
-                    },
-                  ],
-                  Object {
-                    "flexDirection": "row",
-                    "justifyContent": "flex-end",
-                  },
-                ]
-              }
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits="button"
-                accessible={true}
-                collapsable={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#A0A2A6",
-                    "flex": 1,
-                    "justifyContent": "center",
-                    "opacity": 1,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "alignItems": "center",
-                        "flexDirection": "column",
-                        "justifyContent": "center",
-                      },
-                    ]
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": undefined,
-                          "fontSize": 12,
-                        },
-                        Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                          Object {
-                            "fontSize": 30,
-                          },
-                          Object {},
-                        ],
-                        Object {
-                          "fontFamily": "icomoon",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 13,
-                        },
-                      ]
-                    }
-                  >
-                    Edit
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View
-              collapsable={undefined}
-              onMoveShouldSetResponder={[Function]}
-              onMoveShouldSetResponderCapture={[Function]}
-              onResponderEnd={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderReject={[Function]}
-              onResponderRelease={[Function]}
-              onResponderStart={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              onStartShouldSetResponderCapture={[Function]}
-              style={
-                Object {
-                  "transform": Array [
-                    Object {
-                      "translateX": 0,
-                    },
-                  ],
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "paddingRight": 24,
-                        "paddingVertical": 19,
-                        "width": 750,
-                      },
-                      null,
-                    ],
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={false}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": undefined,
-                          "fontSize": 12,
-                        },
-                        Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                          Object {
-                            "fontSize": 32,
-                          },
-                          Array [
-                            Object {
-                              "alignSelf": "center",
-                              "color": "#007398",
-                              "fontSize": 40,
-                              "textAlign": "center",
-                            },
-                            Object {},
-                          ],
-                        ],
-                        Object {
-                          "fontFamily": "icomoon",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "borderLeftColor": "#E6E8EC",
-                        "borderLeftWidth": 1,
-                        "paddingBottom": 5,
-                        "paddingLeft": 20,
-                      },
-                      Object {
-                        "flex": 3.5,
-                        "flexDirection": "column",
-                      },
-                    ]
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#A0A2A6",
-                          "fontSize": 10,
-                        },
-                      ]
-                    }
-                  >
-                    January 1, 2010
-                  </Text>
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#007398",
-                          "fontSize": 16,
-                        },
-                      ]
-                    }
-                  >
-                    Growing Step of Faith
-                  </Text>
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "fontSize": 14,
-                        },
-                      ]
-                    }
-                  />
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-    </RCTScrollView>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "justifyContent": "flex-end",
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          SOMETHING COOL HAPPENED
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
 exports[`renders with an organization correctly 1`] = `
 <View
   style={
@@ -706,7 +302,10 @@ exports[`renders with an organization correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "backgroundColor": "#ffffff",
+            "flex": 1,
+          },
           Object {
             "alignItems": "center",
             "justifyContent": "center",
@@ -714,30 +313,84 @@ exports[`renders with an organization correctly 1`] = `
         ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
+            Object {},
             Object {
-              "color": "#505256",
+              "flex": 2,
             },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {},
             Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "paddingHorizontal": 70,
-              "paddingVertical": 10,
-              "textAlign": "center",
+              "flex": 10,
             },
           ]
         }
       >
-        loading journey items
-      </Text>
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../src/containers/ContactJourney/gifs/HappyBlueLoop1x.gif",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "width": 750,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 2,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "AmaticSC-Bold",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 64,
+                "paddingVertical": 0,
+              },
+            ]
+          }
+        >
+          loading
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 2,
+            },
+          ]
+        }
+      />
     </View>
   </View>
   <View

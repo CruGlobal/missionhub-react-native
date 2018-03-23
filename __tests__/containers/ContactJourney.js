@@ -15,42 +15,19 @@ import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils
 Enzyme.configure({ adapter: new Adapter() });
 
 const personId = '123';
-const mockStateWithJourney = {
-  auth: {
-    person: personId,
-    isJean: true,
-  },
-  swipe: {
-    journey: false,
-  },
-  journey: {
-    'personal': {
-      [personId]: [ { type: 'step', id: 84472, date: '2010-01-01 12:12:12' } ],
-    },
-  },
-};
-
-const mockStateNoJourney = {
-  auth: {
-    person: personId,
-    isJean: true,
-  },
-  swipe: {
-    journey: false,
-  },
-  journey: { },
-};
+const organizationId = 2;
 
 const mockPerson = {
   id: personId,
   first_name: 'ben',
   organizational_permissions: [
-    { organization_id: 2 },
+    { organization_id: organizationId },
   ],
 };
 
-let store;
-beforeEach(() => store = configureStore([ thunk ])(mockStateWithJourney));
+const mockJourneyList = [
+  { type: 'step', id: 84472, date: '2010-01-01 12:12:12' },
+];
 
 const mockAddComment = jest.fn(() => Promise.resolve());
 const mockEditComment = jest.fn(() => Promise.resolve());
@@ -60,46 +37,52 @@ jest.mock('../../src/actions/interactions', () => ({
   editComment: () => mockEditComment,
 }));
 
+let store;
+let component;
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <ContactJourney person={mockPerson} navigation={createMockNavState()} />
-    </Provider>
-  );
-});
+const createMockStore = (personId = null, journeyList = null) => {
+  let personal = {};
+  if (personId) personal = { [personId]: journeyList ? journeyList : [] };
 
+  const mockState = {
+    auth: {
+      person: personId,
+      isJean: true,
+    },
+    swipe: {
+      journey: false,
+    },
+    journey: {
+      'personal': personal,
+    },
+  };
+
+  return configureStore([ thunk ])(mockState);
+};
+
+const createComponent = (store) => {
+  return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
+};
 
 
 describe('ContactJourney', () => {
-  let component;
-
-  const createComponent = () => {
-    return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
-  };
-
-  const stopLoad = (component) => {
-    component.instance().setState({ loading: false });
-    component.update();
-    return component;
-  };
-
   it('renders loading screen correctly', () => {
-    component = createComponent();
+    store = createMockStore();
+    component = createComponent(store);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders null screen correctly', () => {
-    component = createComponent();
-    component = stopLoad(component);
+    store = createMockStore(personId);
+    component = createComponent(store);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders screen with steps correctly', () => {
-    component = createComponent();
-    component = stopLoad(component);
+    store = createMockStore(personId, mockJourneyList);
+    component = createComponent(store);
 
     expect(component).toMatchSnapshot();
   });
@@ -108,13 +91,8 @@ describe('ContactJourney', () => {
 describe('journey methods', () => {
   let component;
   beforeEach(() => {
-
-    const screen = shallow(
-      <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
-      { context: { store } },
-    );
-
-    component = screen.dive().dive().dive().instance();
+    store = createMockStore(personId, mockJourneyList);
+    component = createComponent(store).instance();
   });
 
   it('renders a journey row', () => {
@@ -168,7 +146,7 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={createMockStore(personId, mockJourneyList)}>
       <ContactJourney person={mockPerson} organization={{ id: 1 }} navigation={createMockNavState()} />
     </Provider>
   );
