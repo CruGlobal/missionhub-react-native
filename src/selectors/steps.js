@@ -20,7 +20,7 @@ export const reminderStepsSelector = createSelector(
 );
 
 export const nonReminderStepsSelector = createSelector(
-  ({ steps }) => steps.mine.filter((s)=> !s.reminder),
+  ({ steps }) => steps.mine.filter((s) => !s.reminder),
   ({ people }) => people.allByOrg,
   mapSteps
 );
