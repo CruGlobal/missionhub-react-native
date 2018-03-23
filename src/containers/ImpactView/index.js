@@ -111,7 +111,7 @@ export class ImpactView extends Component {
       contacts_with_interactions = report.contacts_with_interaction_count;
     }
 
-    this.state.interactions.forEach(function (interaction) {
+    this.state.interactions.forEach(function(interaction) {
       if (interaction.id !== 100) {
         numInteractions += interaction.num;
       }
