@@ -22,7 +22,7 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
-const onSelect = () => {};
+const onSelect = jest.fn();
 
 const mockOrganization = { id: '1' };
 const mockContactAssignment = { id: '90', assigned_to: { id: '1' }, pathway_stage_id: '1' };
@@ -53,6 +53,8 @@ const mockPerson = {
 const mockNavigatePushResult = { type: 'navigated' };
 const mockGetPeopleResult = { type: 'got people' };
 
+let shallowScreen;
+
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/people', () => ({
   getMyPeople: () => mockGetPeopleResult,
@@ -63,6 +65,8 @@ jest.mock('../../src/actions/navigation', () => ({
     return mockNavigatePushResult;
   }),
 }));
+
+beforeEach(() => shallowScreen = renderShallow(<PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />, store));
 
 it('renders correctly', () => {
   testSnapshot(
@@ -105,10 +109,8 @@ it('renders permission user correctly', () => {
 });
 
 describe('handleChangeStage', () => {
-  it('changes stage', () => {
-    const screen = renderShallow(<PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />, store);
-
-    screen.getElement().props.children.props.children[1].props.onPress();
+  it('navigates to person stage screen', () => {
+    shallowScreen.getElement().props.children.props.children[1].props.onPress();
 
     expect(store.dispatch).toHaveBeenCalledWith(mockGetPeopleResult);
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
@@ -122,5 +124,13 @@ describe('handleChangeStage', () => {
       orgId: mockOrganization.id,
     });
     expect(store.dispatch).toHaveBeenCalledWith(mockNavigatePushResult);
+  });
+});
+
+describe('item selected', () => {
+  it('calls onSelect', () => {
+    shallowScreen.getElement().props.onPress();
+
+    expect(onSelect).toHaveBeenCalledWith(mockPerson, mockOrganization);
   });
 });
