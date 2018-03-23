@@ -925,6 +925,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = DQ48D9BF2V;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1599,6 +1600,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1643,10 +1645,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
-				PROVISIONING_PROFILE = "bbcc8a10-d031-4270-8e9a-d2a8fa11b609";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
+				PROVISIONING_PROFILE = "1351bc70-a16f-40d4-9530-0dfca870610e";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
