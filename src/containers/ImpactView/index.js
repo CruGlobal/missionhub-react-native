@@ -103,13 +103,26 @@ export class ImpactView extends Component {
     const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
 
+    let numInteractions = 0;
+    let contacts_with_interactions = 0;
+
+    if (this.state.userImpact.graph) {
+      const report = this.state.userImpact.findAll('person_report')[0];
+      contacts_with_interactions = report.contacts_with_interaction_count
+    }
+
+    this.state.interactions.forEach(function (interaction) {
+      if (interaction.id !== 100) {
+        numInteractions += interaction.num;
+      }
+    });
     const stepsSentenceOptions = {
       context: context(steps_count),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
-      stepsCount: steps_count,
-      receiversCount: receivers_count,
+      stepsCount: steps_count + numInteractions,
+      receiversCount: receivers_count + contacts_with_interactions,
     };
 
     const stageSentenceOptions = {
