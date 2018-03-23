@@ -71,7 +71,8 @@ export class ImpactView extends Component {
 
   getInteractionReport() {
     const { dispatch, user, organization = {} } = this.props;
-    dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
+
+    dispatch(getUserImpact(user ? user.id : this.state.me.id, organization.id, this.state.period)).then((r) => {
       const report = r.findAll('person_report')[0];
       const interactions = report ? report.interactions : [];
       const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
