@@ -3,12 +3,10 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
-import { createMockStore, testSnapshot } from '../../testUtils';
+import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import PeopleItem from '../../src/containers/PeopleItem';
-
-jest.mock('../../src/actions/people', () => ({
-  getMyPeople: () => () => 'test',
-}));
+import { navigatePush } from '../../src/actions/navigation';
+import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 
 const mockState = {
   auth: {
@@ -24,9 +22,10 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
-jest.mock('react-native-device-info');
+const onSelect = () => {};
 
-
+const mockOrganization = { id: '1' };
+const mockContactAssignment = { id: '90', assigned_to: { id: '1' }, pathway_stage_id: '1' };
 const mockPerson = {
   id: '123',
   first_name: 'John',
@@ -46,18 +45,29 @@ const mockPerson = {
   created_at: '2017-12-05T15:13:10Z',
   updated_at: '2017-12-05T15:13:10Z',
   organizational_permissions: [
-    { organization_id: '1', followup_status: 'uncontacted' },
+    { organization_id: mockOrganization.id, followup_status: 'uncontacted' },
   ],
-  reverse_contact_assignments: [
-    { assigned_to: { id: '1' }, pathway_stage_id: '1' },
-  ],
+  reverse_contact_assignments: [ mockContactAssignment ],
 };
 
+const mockNavigatePushResult = { type: 'navigated' };
+const mockGetPeopleResult = { type: 'got people' };
+
+jest.mock('react-native-device-info');
+jest.mock('../../src/actions/people', () => ({
+  getMyPeople: () => mockGetPeopleResult,
+}));
+jest.mock('../../src/actions/navigation', () => ({
+  navigatePush: jest.fn((_, params) => {
+    params.onComplete();
+    return mockNavigatePushResult;
+  }),
+}));
 
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem onSelect={() => {}} person={mockPerson} />
+      <PeopleItem onSelect={onSelect} person={mockPerson} />
     </Provider>
   );
 });
@@ -65,7 +75,7 @@ it('renders correctly', () => {
 it('renders personal user correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem onSelect={() => {}} person={mockPerson} organization={{ id: 'personal' }} />
+      <PeopleItem onSelect={onSelect} person={mockPerson} organization={{ id: 'personal' }} />
     </Provider>
   );
 });
@@ -73,7 +83,7 @@ it('renders personal user correctly', () => {
 it('renders org user correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem onSelect={() => {}} person={mockPerson} organization={{ id: '1' }} />
+      <PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />
     </Provider>
   );
 });
@@ -86,10 +96,31 @@ it('renders permission user correctly', () => {
         person={{
           ...mockPerson,
           organizational_permissions: [
-            { organization_id: '1', followup_status: 'uncontacted', permission_id: 1 },
+            { organization_id: mockOrganization.id, followup_status: 'uncontacted', permission_id: 1 },
           ],
         }}
-        organization={{ id: '1' }} />
+        organization={mockOrganization} />
     </Provider>
   );
+});
+
+describe('handleChangeStage', () => {
+  it('changes stage', () => {
+    const screen = renderShallow(<PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />, store);
+
+    screen.getElement().props.children.props.children[1].props.onPress();
+
+    expect(store.dispatch).toHaveBeenCalledWith(mockGetPeopleResult);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+      onComplete: expect.anything(),
+      currentStage: null,
+      name: mockPerson.first_name,
+      contactId: mockPerson.id,
+      contactAssignmentId: mockContactAssignment.id,
+      section: 'people',
+      subsection: 'person',
+      orgId: mockOrganization.id,
+    });
+    expect(store.dispatch).toHaveBeenCalledWith(mockNavigatePushResult);
+  });
 });
