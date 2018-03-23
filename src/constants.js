@@ -3,6 +3,8 @@ import Config from 'react-native-config';
 export const LOGIN = 'app/LOGIN';
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
+export const CONNECTION_CHANGE = 'app/CONNECTION_CHANGE';
+export const OFFLINE_ERROR = 'app/OFFLINE_ERROR';
 export const OPEN_URL = 'app/OPEN_URL';
 export const STAGES = 'app/STAGES';
 export const SELECT_STAGE = 'app/SELECT_STAGE';

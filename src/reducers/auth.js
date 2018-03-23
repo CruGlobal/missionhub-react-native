@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES } from '../constants';
+import { CONNECTION_CHANGE, FIRST_TIME, LOGIN, LOGOUT, UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { findAllNonPlaceHolders } from '../utils/common';
 
@@ -30,6 +30,11 @@ function authReducer(state = initialAuthState, action) {
         };
       }
       return state;
+    case CONNECTION_CHANGE:
+      return {
+        ...state,
+        isOnline: action.isOnline,
+      };
     case LOGIN:
       return {
         ...state,
