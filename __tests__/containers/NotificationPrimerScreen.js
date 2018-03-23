@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { Provider } from 'react-redux';
 import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
-import { enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
+import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
 
 const store = createMockStore();
 
@@ -53,5 +53,7 @@ describe('notification primer methods', () => {
   it('runs allow', () => {
     component.allow();
     expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
+    expect(setupPushNotifications).toHaveBeenCalledTimes(1);
+    expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
