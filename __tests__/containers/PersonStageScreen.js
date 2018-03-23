@@ -37,7 +37,6 @@ const mockNavState = {
   section: 'section',
   subsection: 'subsection',
 };
-const trackStateResult = { type: 'tracked state' };
 
 jest.mock('react-native-device-info');
 
@@ -56,7 +55,6 @@ navigation.navigatePush = jest.fn();
 
 beforeEach(() => {
   navigation.navigatePush.mockReset();
-  analytics.trackState = jest.fn(() => (trackStateResult));
 });
 
 it('renders correctly', () => {
@@ -84,13 +82,12 @@ describe('person stage screen methods', () => {
     }, store);
   });
 
-  it('runs select stage', async() => {
+  it('runs select stage', () => {
     selectStage.updateUserStage = jest.fn();
 
-    await component.handleSelectStage(mockStage, false);
+    component.handleSelectStage(mockStage, false);
 
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps'));
   });
 
   it('runs celebrate and finish', () => {
@@ -121,6 +118,9 @@ describe('person stage screen methods with add contact flow', () => {
   });
 
   it('runs update stage', async() => {
+    const trackStateResult = { type: 'tracked state' };
+    analytics.trackState = jest.fn(() => (trackStateResult));
+
     const mockStore = configureStore([ thunk ])(mockState);
     component = buildScreen({
       onCompleteCelebration: mockComplete,

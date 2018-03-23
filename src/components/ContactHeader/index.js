@@ -9,6 +9,7 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
+import { ORG_PERMISSIONS } from '../../constants';
 import { trackAction } from '../../actions/analytics';
 import { connect } from 'react-redux';
 
@@ -81,21 +82,23 @@ class ContactHeader extends Component {
   shrinkHeader = () => {
     this.props.onShrinkHeader();
     this.setState({ headerOpen: false });
-  };
+  }
 
   openHeader = () => {
     this.props.onOpenHeader();
     this.setState({ headerOpen: true });
-  };
+  }
 
   getTabs = () => {
-    const { type, isMe, organization, isMissionhubUser } = this.props;
+    const { person, type, isMe, organization } = this.props;
+    const personOrgPermissions = organization && person.organizational_permissions.find((o) => o.organization_id === organization.id);
+    const isMhubUser = personOrgPermissions && ORG_PERMISSIONS.includes(personOrgPermissions.permission_id);
 
     if (isMe) {
       return ME_TABS;
     } else if (type === CASEY || !organization || (organization && organization.id === 'personal')) {
       return CASEY_TABS;
-    } else if (isMissionhubUser) {
+    } else if (isMhubUser) {
       return JEAN_TABS_MH_USER;
     }
 
@@ -211,7 +214,6 @@ ContactHeader.propTypes = {
   person: PropTypes.object.isRequired,
   contactAssignment: PropTypes.object,
   organization: PropTypes.object,
-  isMissionhubUser: PropTypes.bool,
   type: PropTypes.string.isRequired,
   stage: PropTypes.object,
   onChangeStage: PropTypes.func.isRequired,

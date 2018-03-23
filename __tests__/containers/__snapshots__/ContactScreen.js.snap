@@ -12,13 +12,7 @@ Object {
     "type": "pathway_stage",
   },
   "isJean": true,
-  "isMissionhubUser": false,
   "myId": 1,
-  "orgPermission": Object {
-    "_type": "organizational_permission",
-    "id": "6",
-    "permission_id": 2,
-  },
   "organization": Object {
     "id": 1,
     "name": "Org from org selector",
@@ -47,13 +41,7 @@ Object {
     "type": "pathway_stage",
   },
   "isJean": true,
-  "isMissionhubUser": false,
   "myId": 1,
-  "orgPermission": Object {
-    "_type": "organizational_permission",
-    "id": "6",
-    "permission_id": 2,
-  },
   "organization": Object {
     "id": 1,
     "type": "organization",

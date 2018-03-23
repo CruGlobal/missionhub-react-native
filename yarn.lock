@@ -4380,10 +4380,6 @@ react-native-animatable@1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-config@^0.11.5:
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.5.tgz#516cb7b6ec437c7739236ca075971db3aabdcb95"
-
 react-native-default-preference@1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-native-default-preference/-/react-native-default-preference-1.3.1.tgz#5eeb415bdc71334e39d7837a0399dee1169a832e"
