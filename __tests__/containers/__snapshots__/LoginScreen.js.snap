@@ -1,41 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<View
+exports[`renders 1`] = `
+<Flex
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-        "justifyContent": "center",
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 3,
-          "justifyContent": "center",
-        },
-      ]
-    }
+  <Flex
+    align="center"
+    justify="center"
+    value={3}
   >
-    <View
-      style={
-        Array [
-          Object {},
+    <Flex
+      align="center"
+      value={4}
+    >
+      <Pagination
+        activeDotIndex={0}
+        containerStyle={
           Object {
-            "alignItems": "center",
-            "flex": 4,
-          },
-        ]
-      }
-    />
+            "marginTop": 15,
+          }
+        }
+        dotStyle={
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 5,
+            "height": 10,
+            "marginHorizontal": 0,
+            "width": 10,
+          }
+        }
+        dotsLength={3}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.8}
+        inactiveDotStyle={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 5,
+            "height": 10,
+            "marginHorizontal": 0,
+            "width": 10,
+          }
+        }
+        tappableDots={false}
+        vertical={false}
+      />
+      <Carousel
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={250}
+        autoplay={false}
+        autoplayDelay={5000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={Object {}}
+        contentContainerCustomStyle={Object {}}
+        data={
+          Array [
+            Object {
+              "description": "Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.",
+              "id": 1,
+              "name": "handcraft your faith journey",
+            },
+            Object {
+              "description": "MissionHub helps you grow closer to God by helping others experience Him.",
+              "id": 2,
+              "name": "take your relationships deeper",
+            },
+            Object {
+              "description": "MissionHub remembers every step of faith you've taken so you can see what God is doing.",
+              "id": 3,
+              "name": "record your journey with God",
+            },
+          ]
+        }
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        hasParallaxImages={false}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        itemWidth={750}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        onScroll={[Function]}
+        onSnapToItem={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={5}
+        shouldOptimizeUpdates={true}
+        slideStyle={Object {}}
+        sliderWidth={750}
+        swipeThreshold={20}
+        vertical={false}
+      />
+    </Flex>
     <Image
       resizeMode="contain"
       source={
@@ -57,235 +122,150 @@ exports[`renders correctly 1`] = `
         ]
       }
     />
-    <View
+    <Flex
+      align="center"
+      justify="start"
+      self="stretch"
       style={
-        Array [
-          Object {
-            "backgroundColor": "#3EB1C8",
-            "paddingHorizontal": 30,
-          },
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "flex": 1,
-            "justifyContent": "flex-start",
-          },
-        ]
+        Object {
+          "backgroundColor": "#3EB1C8",
+          "paddingHorizontal": 30,
+        }
       }
+      value={1}
     >
-      <View
-        style={
-          Array [
-            Object {},
+      <Flex
+        align="center"
+        direction="column"
+        self="stretch"
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          onPress={[Function]}
+          pill={true}
+          style={
             Object {
               "alignItems": "center",
-              "alignSelf": "stretch",
-              "flexDirection": "column",
-            },
-          ]
-        }
-      >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits="button"
-          accessible={true}
-          collapsable={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          nativeID={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
+              "backgroundColor": "#005A7F",
+              "height": 48,
+              "marginVertical": 20,
+              "width": 670,
             }
           }
-          testID={undefined}
-          tvParallaxProperties={undefined}
+          text="GET STARTED"
+        />
+        <Flex
+          align="center"
+          direction="row"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#005A7F",
-                  "height": 48,
-                  "marginVertical": 20,
-                  "width": 670,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "paddingTop": 2,
-                    },
-                  ],
-                ]
-              }
-            >
-              GET STARTED
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-              },
-            ]
-          }
-        >
-          <Text
+          <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#005A7F",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "paddingTop": 2,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
+              }
             }
           >
             ALREADY A MEMBER?
-          </Text>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits="button"
-            accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
+          </MyText>
+          <Button
+            buttonTextStyle={
               Object {
-                "opacity": 1,
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "paddingTop": 2,
               }
             }
-            testID={undefined}
-            tvParallaxProperties={undefined}
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {
-                    "padding": 2,
-                    "paddingHorizontal": 15,
-                  },
-                  null,
-                ]
+            onPress={[Function]}
+            style={
+              Object {
+                "padding": 2,
+                "paddingHorizontal": 15,
               }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 18,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "paddingTop": 2,
-                      },
-                    ],
-                  ]
-                }
-              >
-                SIGN IN
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+            }
+            text="SIGN IN"
+            type="transparent"
+          />
+        </Flex>
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders onboarding 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "justifyContent": "center",
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    direction="column"
+  >
+    <Flex
+      justify="center"
+      value={1.5}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 42,
+            "letterSpacing": 1.5,
+            "lineHeight": 44,
+            "paddingHorizontal": 70,
+            "textAlign": "center",
+          }
+        }
+        type="header"
+      >
+        record your journey with god
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "padding": 15,
+            "paddingHorizontal": 40,
+            "textAlign": "center",
+          }
+        }
+      >
+        MissionHub remembers every step of faith you've taken so you can see what God is doing.
+      </MyText>
+    </Flex>
+    <Flex
+      value={1}
+    />
+  </Flex>
 </View>
 `;

@@ -26,6 +26,26 @@ Push a new release build to the App Store
 fastlane ios beta
 ```
 Push a new (beta) release build to Crashlytics
+### ios cru_build_app
+```
+fastlane ios cru_build_app
+```
+
+### ios cru_fetch_certs
+```
+fastlane ios cru_fetch_certs
+```
+
+### ios cru_update_commit
+```
+fastlane ios cru_update_commit
+```
+
+### ios cru_notify_users
+```
+fastlane ios cru_notify_users
+```
+
 
 ----
 
