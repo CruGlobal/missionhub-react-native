@@ -43,7 +43,7 @@ describe('action methods', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <ContactActions person={mockPerson} navigation={createMockNavState()} dispatch={()=>{}} />,
+      <ContactActions person={mockPerson} navigation={createMockNavState()} dispatch={() => {}} />,
       { context: { store } },
     );
 

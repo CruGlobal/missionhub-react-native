@@ -34,7 +34,7 @@ Enzyme.configure({ adapter: new Adapter() });
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <CustomTabs tabArray={tabArray} activeTab={1} goToPage={()=>{}} />
+      <CustomTabs tabArray={tabArray} activeTab={1} goToPage={() => {}} />
     </Provider>
   );
 });
@@ -42,7 +42,7 @@ it('renders correctly', () => {
 it('renders tab 0 correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <CustomTabs tabArray={tabArray} activeTab={0} goToPage={()=>{}} />
+      <CustomTabs tabArray={tabArray} activeTab={0} goToPage={() => {}} />
     </Provider>
   );
 });

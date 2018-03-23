@@ -108,9 +108,9 @@ export function logout() {
     if (!pushDeviceId) {
       dispatch(logoutReset());
     } else {
-      dispatch(deletePushToken(pushDeviceId)).then(()=>{
+      dispatch(deletePushToken(pushDeviceId)).then(() => {
         dispatch(logoutReset());
-      }).catch(()=> {
+      }).catch(() => {
         dispatch(logoutReset());
       });
     }

@@ -33,7 +33,7 @@ export class ContactActions extends Component {
 
     return (
       <Flex key={item.id} direction="column" align="center" justify="start" style={styles.rowWrap}>
-        <Touchable onPress={()=> this.handleCreateInteraction(item)} style={styles.iconBtn}>
+        <Touchable onPress={() => this.handleCreateInteraction(item)} style={styles.iconBtn}>
           <Flex self="stretch" align="center" justify="center" style={styles.iconWrap}>
             <Icon name={item.iconName} type="MissionHub" style={[ styles.icon, item.iconName === 'commentIcon' ? styles.commentIcon : {} ]} />
           </Flex>

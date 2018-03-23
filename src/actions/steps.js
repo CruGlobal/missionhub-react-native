@@ -143,7 +143,7 @@ export function completeStepReminder(step) {
 
 export function completeStep(step) {
   return (dispatch) => {
-    return dispatch(challengeCompleteAction(step)).then((r)=>{
+    return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
       return r;
     });
