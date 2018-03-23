@@ -108,7 +108,7 @@ export class ImpactView extends Component {
 
     if (this.state.userImpact.graph) {
       const report = this.state.userImpact.findAll('person_report')[0];
-      contacts_with_interactions = report.contacts_with_interaction_count
+      contacts_with_interactions = report.contacts_with_interaction_count;
     }
 
     this.state.interactions.forEach(function (interaction) {
