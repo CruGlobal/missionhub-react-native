@@ -44,7 +44,7 @@ it('renders correctly without upgrade', () => {
   );
 });
 
-it('renders correctly with upgrade', ()=> {
+it('renders correctly with upgrade', () => {
   testSnapshot(
     <Provider store={store}>
       <LoginOptionsScreen

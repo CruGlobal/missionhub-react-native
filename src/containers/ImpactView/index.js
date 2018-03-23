@@ -8,7 +8,6 @@ import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../.
 
 import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { intToStringLocale } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
 
 const reportPeriods = [
@@ -70,12 +69,12 @@ export class ImpactView extends Component {
     dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
       const report = r.findAll('person_report')[0];
       const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key)=>{
+      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
         let num = 0;
         if (INTERACTION_TYPES[key].requestFieldName) {
           num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
         } else {
-          const interaction = interactions.find((i)=> i.interaction_type_id === INTERACTION_TYPES[key].id);
+          const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
           num = interaction ? interaction.interaction_count : 0;
         }
         return {
@@ -88,20 +87,32 @@ export class ImpactView extends Component {
   }
 
   handleChangePeriod(period) {
-    this.setState({ period }, ()=> {
+    this.setState({ period }, () => {
       this.getInteractionReport();
     });
   }
 
   buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
-    return this.props.t('impactSentence', {
+    const { t, isContactScreen, user } = this.props;
+    const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
+    const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
+
+    const stepsSentenceOptions = {
+      context: context(steps_count),
       year: new Date().getFullYear(),
-      numInitiators: global ? intToStringLocale(step_owners_count) : '',
-      initiator: global ? '$t(users)' : this.props.isContactScreen ? this.props.user.first_name : '$t(you)',
-      stepsCount: intToStringLocale(steps_count),
-      receiversCount: intToStringLocale(receivers_count),
-      pathwayMovedCount: intToStringLocale(pathway_moved_count),
-    });
+      numInitiators: global ? step_owners_count : '',
+      initiator: initiator,
+      stepsCount: steps_count,
+      receiversCount: receivers_count,
+    };
+
+    const stageSentenceOptions = {
+      context: context(pathway_moved_count),
+      initiator: initiator,
+      pathwayMovedCount: pathway_moved_count,
+    };
+
+    return `${t('stepsSentence', stepsSentenceOptions)}\n\n${t('stageSentence', stageSentenceOptions)}`;
   }
 
   renderContactReport() {
@@ -109,7 +120,7 @@ export class ImpactView extends Component {
       <Flex style={styles.interactionsWrap} direction="column">
         <Flex style={{ paddingBottom: 30 }} align="center" justify="center" direction="row">
           {
-            reportPeriods.map((p)=> {
+            reportPeriods.map((p) => {
               return (
                 <Button
                   key={p.id}

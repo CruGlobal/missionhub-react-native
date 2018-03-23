@@ -53,7 +53,7 @@ function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       let mySteps = action.results.response;
       let myReminders = [];
-      mySteps = mySteps.map((s)=> {
+      mySteps = mySteps.map((s) => {
         if (s.focus) {
           myReminders.push(s);
           return { ...s, reminder: true };
@@ -71,7 +71,7 @@ function stepsReducer(state = initialState, action) {
         pagination: getPagination(state, action, mySteps),
       };
     case ADD_STEP_REMINDER:
-      const newMine = state.mine.map((s)=> {
+      const newMine = state.mine.map((s) => {
         if (s.id === action.step.id) return { ...s, reminder: true };
         return s;
       });
@@ -81,7 +81,7 @@ function stepsReducer(state = initialState, action) {
         reminders: [ ...state.reminders, action.step ],
       };
     case REMOVE_STEP_REMINDER:
-      const newRemove = state.mine.map((s)=> {
+      const newRemove = state.mine.map((s) => {
         if (s.id === action.step.id) return { ...s, reminder: undefined };
         return s;
       });

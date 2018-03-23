@@ -43,7 +43,7 @@ it('updates set token', () => {
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
-      findAll: ()=> [ { id: '9' } ],
+      findAll: () => [ { id: '9' } ],
     },
   });
   expect(state.pushDeviceId).toBe('9');

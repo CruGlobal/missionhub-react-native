@@ -42,7 +42,6 @@ class AddContactScreen extends Component {
 
   async savePerson() {
     const { me, organization, dispatch, person } = this.props;
-
     let saveData = { ...this.state.data };
     if (organization) {
       saveData.orgId = organization.id;
@@ -70,6 +69,7 @@ class AddContactScreen extends Component {
         subsection: 'person',
         orgId: organization && organization.id,
       }));
+
       this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED));
     }
   }
