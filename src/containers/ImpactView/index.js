@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../../actions/impact';
+import { getMe } from '../../actions/person';
 
 import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
@@ -61,6 +62,10 @@ export class ImpactView extends Component {
     } else {
       this.props.dispatch(getGlobalImpact());
       this.props.dispatch(getMyImpact());
+      this.props.dispatch(getMe()).then((me) => {
+        this.setState({ me: me });
+        this.getInteractionReport();
+      });
     }
   }
 
