@@ -43,29 +43,112 @@ describe('ImpactView', () => {
       )).toMatchSnapshot();
     });
   });
-  it('renders correctly when not isContactScreen', () => {
-    testSnapshotShallow(
-      <ImpactView
-        dispatch={dispatch}
-        isContactScreen={false}
-        user={person}
-        myImpact={myImpact}
-        globalImpact={globalImpact}
-      />
-    );
-  });
-  it('renders correctly when isContactScreen', () => {
-    const component = renderShallow(
-      <ImpactView
-        dispatch={dispatch}
-        isContactScreen={true}
-        user={person}
-        globalImpact={globalImpact}
-      />
-    );
-    component.setState({
-      userImpact,
+  describe('user impact', () => {
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={false}
+          user={person}
+          myImpact={{
+            ...myImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+        />
+      );
     });
-    expect(component).toMatchSnapshot();
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={false}
+          user={person}
+          myImpact={{
+            ...myImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+        />
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={false}
+          user={person}
+          myImpact={{
+            ...myImpact,
+          }}
+          globalImpact={globalImpact}
+        />
+      );
+    });
+  });
+  describe('contact impact', () => {
+    it('renders empty state', () => {
+      const component = renderShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={true}
+          user={person}
+          globalImpact={globalImpact}
+        />
+      );
+      component.setState({
+        userImpact: {
+          ...userImpact,
+          steps_count: 0,
+          pathway_moved_count: 0,
+        },
+      });
+      expect(component).toMatchSnapshot();
+    });
+    it('renders singular state', () => {
+      const component = renderShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={true}
+          user={person}
+          globalImpact={globalImpact}
+        />
+      );
+      component.setState({
+        userImpact: {
+          ...userImpact,
+          steps_count: 1,
+          receivers_count: 1,
+          pathway_moved_count: 1,
+        },
+      });
+      expect(component).toMatchSnapshot();
+    });
+    it('renders plural state', () => {
+      const component = renderShallow(
+        <ImpactView
+          dispatch={dispatch}
+          isContactScreen={true}
+          user={person}
+          globalImpact={globalImpact}
+        />
+      );
+      component.setState({
+        userImpact,
+      });
+      expect(component).toMatchSnapshot();
+    });
   });
 });
