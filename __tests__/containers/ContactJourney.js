@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -11,8 +9,6 @@ import * as navigation from '../../src/actions/navigation';
 import ContactJourney from '../../src/containers/ContactJourney';
 import { Provider } from 'react-redux';
 import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const personId = '123';
 const organizationId = 2;
