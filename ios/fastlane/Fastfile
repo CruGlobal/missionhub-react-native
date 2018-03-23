@@ -29,7 +29,7 @@ platform :ios do
 
     cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
 
-    cru_notify_users("MissionHub iOS Release Build ##{version_number} (#{build_number}) submitted to App Store.")
+    cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
   end
   
   desc "Push a new (beta) release build to Crashlytics"
@@ -44,11 +44,11 @@ platform :ios do
                 crashlytics_path: "./Crashlytics.framework",
                 ipa_path: "./MissionHub.ipa",
                 groups: "missionhub-ios",
-                notes: 'Beta build for MissionHub iOS. See Jira board for issues that are \"Ready for QA"'
+                notes: 'Beta build for MissionHub iOS. See Jira board for issues that are "Ready for QA"'
 
     )
 
-    cru_update_commit(message: "[skip ci] Build number bump to ##{build_number}")
+    cru_update_commit(message: "[skip ci] Build number bump to (#{build_number})")
 
     cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
   end
