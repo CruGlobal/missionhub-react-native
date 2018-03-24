@@ -1,6 +1,5 @@
 import { ToastAndroid, PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
-import DeviceInfo from 'react-native-device-info';
 import Config from 'react-native-config';
 
 import { REQUESTS } from './api';
@@ -49,26 +48,27 @@ export function showReminderScreen() {
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
-      return dispatch(setupPushNotifications());
+      return dispatch(registerNotificationHandler());
     }
 
     if (token || !showReminder) return;
+
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
         const hasAllowedPermission = permission && permission.alert;
-        if (!hasAllowedPermission) {
-          dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
-            onClose: (askUser) => {
-              if (askUser) {
-                dispatch(enableAskPushNotification());
-                dispatch(setupPushNotifications());
-              } else {
-                dispatch(noNotificationReminder());
-              }
-              dispatch(navigateBack());
-            },
-          }));
-        }
+        if (hasAllowedPermission) return;
+
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
+          onClose: (askUser) => {
+            if (askUser) {
+              dispatch(enableAskPushNotification());
+              dispatch(registerNotificationHandler());
+            } else {
+              dispatch(noNotificationReminder());
+            }
+            dispatch(navigateBack());
+          },
+        }));
       });
       return;
     }
@@ -79,106 +79,49 @@ export function showReminderScreen() {
   };
 }
 
-export function shouldRunSetUpPushNotifications() {
+export function reregisterNotificationHandler() {
   return (dispatch) => {
     if (isAndroid) {
-      return dispatch(setupPushNotifications());
+      return dispatch(registerNotificationHandler());
     }
+
     PushNotification.checkPermissions((permission) => {
       const hasAllowedPermission = permission && permission.alert;
       if (hasAllowedPermission) {
-        dispatch(setupPushNotifications());
+        dispatch(registerNotificationHandler());
       }
     });
   };
 }
 
-export function setupPushNotifications() {
+export function registerNotificationHandler() {
   return (dispatch, getState) => {
-    const { token, shouldAsk, isRegistered } = getState().notifications;
-    if (!shouldAsk) return Promise.reject();
+
     PushNotification.configure({
       onRegister(t) {
-        if (token && isRegistered) {
+        const { token } = getState().notifications;
+
+        if (token === t.token) {
           return;
         }
         dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: t.token });
         //make api call to register token with user
         dispatch(registerPushDevice(t.token));
       },
-      onNotification(notification = {}) {
-        dispatch(handleNotification(notification));
+      async onNotification(notification = {}) {
+        await dispatch(handleNotification(notification));
 
         notification.finish && notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
-      // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
+      // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,
-
-      // IOS ONLY (optional): default: all - Permissions to register.
-      permissions: {
-        alert: true,
-        badge: true,
-        sound: true,
-      },
-      // Should the initial notification be popped automatically
-      // default: true
-      popInitialNotification: true,
-      /**
-       * (optional) default: true
-       * - Specified if permissions (ios) and token (android and ios) will requested or not,
-       * - if not, you must call PushNotificationsHandler.requestPermissions() later
-       */
-      requestPermissions: false,
     });
 
-    if (!getState().notifications.hasAskedPushNotification) {
-      dispatch({ type: PUSH_NOTIFICATION_ASKED });
-    }
-
-    if (isAndroid) {
-      PushNotification.requestPermissions();
-      return Promise.resolve();
-    }
-
-    return PushNotification.requestPermissions().then((p) => {
-      LOG('permission resolved to', p);
-      return p;
-    });
+    dispatch({ type: PUSH_NOTIFICATION_ASKED });
   };
 }
 
-
-export function registerPushDevice(token) {
-  return (dispatch) => {
-
-    const type = DeviceInfo.getManufacturer();
-    const data ={
-      data: {
-        type: 'push_notification_device_token',
-        attributes: {
-          token,
-          platform: type === 'Apple' ?
-            Config.APNS_SANDBOX ? 'APNS_SANDBOX' : 'APNS' :
-            'GCM',
-        },
-      },
-    };
-
-    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data));
-  };
-}
-
-export function deletePushToken(deviceId) {
-  return (dispatch) => {
-    const query ={
-      deviceId,
-    };
-
-    return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
-  };
-}
-
-export function handleNotification(notification) {
+function handleNotification(notification) {
   return async(dispatch, getState) => {
 
     if (!notification.userInteraction) {
@@ -195,6 +138,7 @@ export function handleNotification(notification) {
 
     switch (screen) {
       case 'home':
+      case 'steps':
         dispatch(navigateReset(MAIN_TABS));
         break;
       case 'person_steps':
@@ -203,14 +147,11 @@ export function handleNotification(notification) {
           dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
         }
         break;
-      case 'add_a_person':
-        dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
-        break;
-      case 'steps':
-        dispatch(navigateReset(MAIN_TABS));
-        break;
       case 'my_steps':
         dispatch(navigatePush(CONTACT_SCREEN, { person: user }));
+        break;
+      case 'add_a_person':
+        dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
         break;
     }
   };
@@ -230,6 +171,35 @@ function parseNotificationDataAndroid(notification) {
     screen: notification.screen,
     person: notification.person_id,
     organization: notification.organization_id,
+  };
+}
+
+function registerPushDevice(token) {
+  return (dispatch) => {
+
+    const data ={
+      data: {
+        type: 'push_notification_device_token',
+        attributes: {
+          token,
+          platform: isAndroid ?
+            'GCM' :
+            Config.APNS_SANDBOX ? 'APNS_SANDBOX' : 'APNS',
+        },
+      },
+    };
+
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data));
+  };
+}
+
+export function deletePushToken(deviceId) {
+  return (dispatch) => {
+    const query ={
+      deviceId,
+    };
+
+    return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
   };
 }
 

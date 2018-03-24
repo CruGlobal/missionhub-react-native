@@ -238,7 +238,7 @@ describe('loadHome', () => {
     mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
     mockFnWithParams(callApi, 'default', timezoneResult, REQUESTS.UPDATE_TIMEZONE, {}, tzData);
-    mockFnWithParams(notifications, 'shouldRunSetUpPushNotifications', notificationsResult);
+    mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
 
     store.dispatch(auth.loadHome());
 
