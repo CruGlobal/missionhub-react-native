@@ -186,6 +186,7 @@ describe('registerNotificationHandler', () => {
       onRegister: expect.any(Function),
       onNotification: expect.any(Function),
       senderID: GCM_SENDER_ID,
+      requestPermissions: false,
     });
     expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
   });

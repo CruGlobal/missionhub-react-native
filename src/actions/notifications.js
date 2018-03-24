@@ -95,8 +95,7 @@ export function reregisterNotificationHandler() {
 }
 
 export function registerNotificationHandler() {
-  return (dispatch, getState) => {
-
+  return async(dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
         const { token } = getState().notifications;
@@ -115,9 +114,14 @@ export function registerNotificationHandler() {
       },
       // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,
+
+      // we manually call this after to have access to a promise for the iOS prompt
+      requestPermissions: false,
     });
 
     dispatch({ type: PUSH_NOTIFICATION_ASKED });
+
+    return await PushNotification.requestPermissions();
   };
 }
 
