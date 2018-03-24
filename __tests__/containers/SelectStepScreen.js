@@ -54,7 +54,7 @@ let store = createMockStore({
 });
 
 let component, parallaxProps, instance;
-let onComplete = () => {};
+let onComplete = jest.fn();
 let createStepTracking = {};
 let enableBackButton = false;
 
@@ -195,7 +195,7 @@ describe('Navigation', () => {
       trackingObj: createStepTracking,
     });
     createStepTracking = {};
-    onComplete = () => {};
+    onComplete = jest.fn();
   });
 });
 

@@ -51,6 +51,8 @@ export default class PeopleList extends Component {
     this.setState({ items });
   }
 
+  keyExtractor = i => i.id;
+
   renderList(items, organization) {
     const { onSelect, sections, refreshing, onRefresh } = this.props;
 
@@ -58,7 +60,7 @@ export default class PeopleList extends Component {
       <FlatList
         style={styles.list}
         data={items}
-        keyExtractor={i => i.id}
+        keyExtractor={this.keyExtractor}
         scrollEnabled={!sections}
         renderItem={({ item }) => (
           <PeopleItem

@@ -98,6 +98,13 @@ export const MEMBER_PERSON_TABS = [
 ];
 
 export class PersonScreen extends Component {
+  openPersonMenuDrawer = () =>
+    this.props.dispatch(
+      DrawerActions.openDrawer({
+        drawer: PERSON_MENU_DRAWER,
+      }),
+    );
+
   render() {
     const {
       dispatch,
@@ -119,13 +126,7 @@ export class PersonScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={() =>
-                dispatch(
-                  DrawerActions.openDrawer({
-                    drawer: PERSON_MENU_DRAWER,
-                  }),
-                )
-              }
+              onPress={this.openPersonMenuDrawer}
             />
           }
           shadow={false}

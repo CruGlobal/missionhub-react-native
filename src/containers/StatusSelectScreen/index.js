@@ -76,8 +76,10 @@ class StatusSelectScreen extends Component {
     );
   }
 
+  navigateBack = () => this.props.dispatch(navigateBack());
+
   render() {
-    const { t, dispatch } = this.props;
+    const { t } = this.props;
 
     return (
       <View style={styles.container}>
@@ -86,7 +88,7 @@ class StatusSelectScreen extends Component {
             <Button
               text={t('cancel').toUpperCase()}
               type="transparent"
-              onPress={() => dispatch(navigateBack())}
+              onPress={this.navigateBack}
               style={styles.headerButton}
               buttonTextStyle={[
                 styles.headerButtonText,

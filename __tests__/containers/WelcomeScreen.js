@@ -27,7 +27,7 @@ describe('welcome screen methods', () => {
   let component;
 
   beforeEach(() => {
-    const screen = shallow(<WelcomeScreen dispatch={() => {}} />, {
+    const screen = shallow(<WelcomeScreen dispatch={jest.fn()} />, {
       context: { store },
     });
 

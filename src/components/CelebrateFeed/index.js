@@ -13,6 +13,22 @@ export default class CelebrateFeed extends Component {
     this.state = { ...this.state, isListScrolled: false };
   }
 
+  renderSectionHeader = ({ section: { date } }) => {
+    const { title, header } = styles;
+
+    return (
+      <Flex style={header} align="center">
+        <DateComponent date={date} format={'relative'} style={title} />
+      </Flex>
+    );
+  };
+
+  renderItem = ({ item }) => <CelebrateItem event={item} />;
+
+  keyExtractor = item => {
+    return item.id;
+  };
+
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
       this.props.loadMoreItemsCallback();
@@ -31,21 +47,14 @@ export default class CelebrateFeed extends Component {
   };
 
   render() {
-    const { title, header } = styles;
     const { items } = this.props;
 
     return (
       <SectionList
         sections={items}
-        renderSectionHeader={({ section: { date } }) => (
-          <Flex style={header} align="center">
-            <DateComponent date={date} format={'relative'} style={title} />
-          </Flex>
-        )}
-        renderItem={({ item }) => <CelebrateItem event={item} />}
-        keyExtractor={item => {
-          return item.id;
-        }}
+        renderSectionHeader={this.renderSectionHeader}
+        renderItem={this.renderItem}
+        keyExtractor={this.keyExtractor}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}

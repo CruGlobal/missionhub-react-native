@@ -8,7 +8,7 @@ const store = createMockStore();
 it('renders casey view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       person={{
         email_addresses: [],
         phone_numbers: [],
@@ -21,7 +21,7 @@ it('renders casey view correctly', () => {
 it('renders jean view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       isJean={true}
       person={{
         email_addresses: [],

@@ -94,6 +94,8 @@ export class SwipeTabMenu extends Component {
     return width / 2 - maxMenuItemWidth / 2;
   }
 
+  ref = ref => (this.scrollView = ref);
+
   render() {
     const { tabs, navigation } = this.props;
     const { maxMenuItemWidth, previousIndex } = this.state;
@@ -103,7 +105,7 @@ export class SwipeTabMenu extends Component {
     return (
       <ViewOverflow style={styles.container}>
         <ScrollView
-          ref={ref => (this.scrollView = ref)}
+          ref={this.ref}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           contentInset={{

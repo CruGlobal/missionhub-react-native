@@ -64,7 +64,7 @@ const testContactHeader = (
       organization={organization}
       isMissionhubUser={isMissionhubUser}
       type={type}
-      onChangeStage={() => {}}
+      onChangeStage={jest.fn()}
     />,
     store,
   );

@@ -24,7 +24,7 @@ it('renders correctly', () => {
 
 it('renders remove/complete actions correctly', () => {
   testSnapshot(
-    <RowSwipeable onComplete={() => {}} onDelete={() => {}}>
+    <RowSwipeable onComplete={jest.fn()} onDelete={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -32,7 +32,7 @@ it('renders remove/complete actions correctly', () => {
 
 it('renders edit action correctly', () => {
   testSnapshot(
-    <RowSwipeable onEdit={() => {}}>
+    <RowSwipeable onEdit={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -40,7 +40,7 @@ it('renders edit action correctly', () => {
 
 it('renders edit bump correctly', () => {
   testSnapshot(
-    <RowSwipeable bump={true} onBumpComplete={() => {}}>
+    <RowSwipeable bump={true} onBumpComplete={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -51,7 +51,7 @@ describe('swipe gestures', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <RowSwipeable onEdit={() => {}}>
+      <RowSwipeable onEdit={jest.fn()}>
         <View />
       </RowSwipeable>,
     );

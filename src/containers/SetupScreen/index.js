@@ -44,6 +44,16 @@ class SetupScreen extends Component {
     }
   }
 
+  updateFirstName = t => this.props.dispatch(firstNameChanged(t));
+
+  updateLastName = t => this.props.dispatch(lastNameChanged(t));
+
+  firstNameRef = c => (this.firstName = c);
+
+  lastNameRef = c => (this.lastName = c);
+
+  onSubmitEditing = () => this.lastName.focus();
+
   render() {
     const { t } = this.props;
 
@@ -65,13 +75,13 @@ class SetupScreen extends Component {
               {t('profileLabels.firstNameRequired')}
             </Text>
             <Input
-              ref={c => (this.firstName = c)}
-              onChangeText={t => this.props.dispatch(firstNameChanged(t))}
+              ref={this.firstNameRef}
+              onChangeText={this.updateFirstName}
               value={this.props.firstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
-              onSubmitEditing={() => this.lastName.focus()}
+              onSubmitEditing={this.onSubmitEditing}
               placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
@@ -79,8 +89,8 @@ class SetupScreen extends Component {
 
           <View style={{ paddingTop: 30 }}>
             <Input
-              ref={c => (this.lastName = c)}
-              onChangeText={t => this.props.dispatch(lastNameChanged(t))}
+              ref={this.lastNameRef}
+              onChangeText={this.updateLastName}
               value={this.props.lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}
@@ -93,7 +103,7 @@ class SetupScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.saveAndGoToGetStarted()}
+            onPress={this.saveAndGoToGetStarted}
             text={t('next').toUpperCase()}
           />
         </Flex>

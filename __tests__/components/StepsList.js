@@ -16,9 +16,9 @@ it('renders correctly', () => {
       items={items}
       createStepText="Create your own step..."
       loadMoreStepsText="load more steps"
-      onSelectStep={() => {}}
-      onCreateStep={() => {}}
-      onLoadMoreSteps={() => {}}
+      onSelectStep={jest.fn()}
+      onCreateStep={jest.fn()}
+      onLoadMoreSteps={jest.fn()}
     />,
   );
 });

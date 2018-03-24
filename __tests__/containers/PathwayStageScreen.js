@@ -22,7 +22,7 @@ const store = createMockStore({
 jest.mock('react-native-device-info');
 
 const mockProps = {
-  onSelect: () => {},
+  onSelect: jest.fn(),
   section: 'section',
   subsection: 'subsection',
 };

@@ -82,6 +82,8 @@ class LoginOptionsScreen extends Component {
     });
   };
 
+  openTermsLink = () => Linking.openURL(LINKS.terms);
+
   render() {
     const { t, upgradeAccount } = this.props;
 
@@ -153,14 +155,14 @@ class LoginOptionsScreen extends Component {
                   <Button
                     text={t('tos')}
                     type="transparent"
-                    onPress={() => Linking.openURL(LINKS.terms)}
+                    onPress={this.openTermsLink}
                     buttonTextStyle={styles.termsTextLink}
                   />
                   <Text style={styles.termsText}>{t('and')}</Text>
                   <Button
                     text={t('privacy')}
                     type="transparent"
-                    onPress={() => Linking.openURL(LINKS.terms)}
+                    onPress={this.openTermsLink}
                     buttonTextStyle={styles.termsTextLink}
                   />
                 </Flex>

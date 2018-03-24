@@ -104,6 +104,8 @@ class CommentBox extends Component {
     );
   }
 
+  ref = c => (this.searchInput = c);
+
   renderInput() {
     const { t, placeholder } = this.props;
     const { text, action } = this.state;
@@ -158,7 +160,7 @@ class CommentBox extends Component {
           style={styles.inputWrap}
         >
           <Input
-            ref={c => (this.searchInput = c)}
+            ref={this.ref}
             onFocus={this.focus}
             onBlur={this.blur}
             onChangeText={this.handleTextChange}

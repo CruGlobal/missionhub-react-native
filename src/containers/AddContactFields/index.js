@@ -58,9 +58,24 @@ class AddContactFields extends Component {
     });
   }
 
+  firstNameRef = c => (this.firstName = c);
+
+  lastNameRef = c => (this.lastName = c);
+
+  emailRef = c => (this.email = c);
+
+  phoneref = c => (this.phone = c);
+
+  lastNameFocus = () => this.lastName.focus();
+
+  emailFocus = () => this.email && this.email.focus();
+
+  phoneFocus = () => this.phone.focus();
+
   render() {
     const { t, isJean } = this.props;
     const { firstName, lastName, email, phone, gender } = this.state;
+
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
@@ -68,27 +83,27 @@ class AddContactFields extends Component {
             {t('profileLabels.firstNameRequired')}
           </Text>
           <Input
-            ref={c => (this.firstName = c)}
+            ref={this.firstNameRef}
             onChangeText={t => this.updateField('firstName', t)}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.lastName.focus()}
+            onSubmitEditing={this.lastNameFocus}
           />
         </Flex>
         <Flex direction="column">
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
-            ref={c => (this.lastName = c)}
+            ref={this.lastNameRef}
             onChangeText={t => this.updateField('lastName', t)}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.email && this.email.focus()}
+            onSubmitEditing={this.emailFocus}
           />
         </Flex>
         {isJean
@@ -96,7 +111,7 @@ class AddContactFields extends Component {
               <Flex direction="column" key="email">
                 <Text style={styles.label}>{t('profileLabels.email')}</Text>
                 <Input
-                  ref={c => (this.email = c)}
+                  ref={this.emailRef}
                   onChangeText={t => this.updateField('email', t)}
                   value={email}
                   placeholder={t('profileLabels.email')}
@@ -104,7 +119,7 @@ class AddContactFields extends Component {
                   keyboardType="email-address"
                   returnKeyType="next"
                   blurOnSubmit={false}
-                  onSubmitEditing={() => this.phone.focus()}
+                  onSubmitEditing={this.phoneFocus}
                 />
               </Flex>,
               <Flex
@@ -132,7 +147,7 @@ class AddContactFields extends Component {
               <Flex direction="column" key="phone">
                 <Text style={styles.label}>{t('profileLabels.phone')}</Text>
                 <Input
-                  ref={c => (this.phone = c)}
+                  ref={this.phoneref}
                   onChangeText={t => this.updateField('phone', t)}
                   value={phone}
                   placeholder={t('profileLabels.phone')}

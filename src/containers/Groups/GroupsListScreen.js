@@ -22,8 +22,16 @@ export class GroupsListScreen extends Component {
     );
   };
 
+  openMainMenu = () => this.props.dispatch(openMainMenu());
+
+  keyExtractor = i => i.id;
+
+  renderItem = ({ item }) => (
+    <GroupCardItem group={item} onPress={this.handlePress} />
+  );
+
   render() {
-    const { dispatch, t, orgs } = this.props;
+    const { t, orgs } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -32,7 +40,7 @@ export class GroupsListScreen extends Component {
             <IconButton
               name="menuIcon"
               type="MissionHub"
-              onPress={() => dispatch(openMainMenu())}
+              onPress={this.openMainMenu}
             />
           }
           title={t('header').toUpperCase()}
@@ -40,10 +48,8 @@ export class GroupsListScreen extends Component {
         <FlatList
           style={styles.cardList}
           data={orgs}
-          keyExtractor={i => i.id}
-          renderItem={({ item }) => (
-            <GroupCardItem group={item} onPress={this.handlePress} />
-          )}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
         />
       </View>
     );

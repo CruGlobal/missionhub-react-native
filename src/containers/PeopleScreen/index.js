@@ -43,6 +43,8 @@ export class PeopleScreen extends Component {
     return this.props.dispatch(getMyPeople());
   }
 
+  openMainMenu = () => this.props.dispatch(openMainMenu());
+
   handleAddContact(org) {
     this.props.dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
@@ -71,7 +73,7 @@ export class PeopleScreen extends Component {
   }
 
   render() {
-    const { dispatch, orgs, isJean, t } = this.props;
+    const { orgs, isJean, t } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
@@ -79,7 +81,7 @@ export class PeopleScreen extends Component {
             <IconButton
               name="menuIcon"
               type="MissionHub"
-              onPress={() => dispatch(openMainMenu())}
+              onPress={this.openMainMenu}
             />
           }
           right={
@@ -94,7 +96,7 @@ export class PeopleScreen extends Component {
                 name="addContactIcon"
                 type="MissionHub"
                 size={24}
-                onPress={() => this.handleAddContact()}
+                onPress={this.handleAddContact}
               />
             )
           }

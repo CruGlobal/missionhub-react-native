@@ -6,7 +6,7 @@ import { RadioButton } from '../src/components/common';
 import { testSnapshot } from '../testUtils';
 
 const props = {
-  onSelect: () => {},
+  onSelect: jest.fn(),
   label: 'Test label',
   checked: true,
 };

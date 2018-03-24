@@ -13,6 +13,8 @@ const store = createMockStore();
 
 jest.mock('react-native-device-info');
 
+const mockDispatch = r => Promise.resolve(r);
+
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
@@ -68,10 +70,9 @@ describe('renders filtered with organization people', () => {
 
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
-    screen = shallow(
-      <SearchPeopleScreen dispatch={r => Promise.resolve(r)} />,
-      { context: { store: store } },
-    );
+    screen = shallow(<SearchPeopleScreen dispatch={mockDispatch} />, {
+      context: { store: store },
+    });
   });
 
   it('should combine organizations', () => {

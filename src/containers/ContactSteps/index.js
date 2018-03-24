@@ -177,14 +177,18 @@ class ContactSteps extends Component {
     );
   }
 
+  ref = c => (this.list = c);
+
+  keyExtractor = i => i.id;
+
   renderList() {
     const { steps } = this.props;
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={this.ref}
         style={styles.list}
         data={steps}
-        keyExtractor={i => i.id}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}

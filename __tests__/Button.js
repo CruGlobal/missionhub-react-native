@@ -6,21 +6,21 @@ import { Button } from '../src/components/common';
 import { testSnapshot } from '../testUtils';
 
 it('renders correctly', () => {
-  testSnapshot(<Button onPress={() => {}} />);
+  testSnapshot(<Button onPress={jest.fn()} />);
 });
 
 it('renders pill correctly', () => {
-  testSnapshot(<Button pill={true} onPress={() => {}} />);
+  testSnapshot(<Button pill={true} onPress={jest.fn()} />);
 });
 
 it('renders primary correctly', () => {
-  testSnapshot(<Button type="primary" onPress={() => {}} />);
+  testSnapshot(<Button type="primary" onPress={jest.fn()} />);
 });
 
 it('renders secondary correctly', () => {
-  testSnapshot(<Button type="secondary" onPress={() => {}} />);
+  testSnapshot(<Button type="secondary" onPress={jest.fn()} />);
 });
 
 it('renders transparent correctly', () => {
-  testSnapshot(<Button type="transparent" onPress={() => {}} />);
+  testSnapshot(<Button type="transparent" onPress={jest.fn()} />);
 });

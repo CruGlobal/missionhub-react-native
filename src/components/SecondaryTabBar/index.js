@@ -91,6 +91,14 @@ export default class SecondaryTabBar extends Component {
     }
   };
 
+  renderTabBar = () => (
+    <CustomTabs
+      isHidden={this.state.hideTabBar}
+      tabArray={this.props.tabs}
+      onChangeTab={this.onChangeTab}
+    />
+  );
+
   render() {
     const { tabs } = this.props;
     const style = {
@@ -107,13 +115,7 @@ export default class SecondaryTabBar extends Component {
           page={isAndroid ? this.state.page : undefined}
           locked={true}
           prerenderingSiblingsNumber={0}
-          renderTabBar={() => (
-            <CustomTabs
-              isHidden={this.state.hideTabBar}
-              tabArray={tabs}
-              onChangeTab={this.onChangeTab}
-            />
-          )}
+          renderTabBar={this.renderTabBar}
         >
           {tabs.map(this.renderTabs)}
         </ScrollableTabView>

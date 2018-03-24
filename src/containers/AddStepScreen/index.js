@@ -110,6 +110,8 @@ class AddStepScreen extends Component {
     );
   }
 
+  ref = c => (this.stepInput = c);
+
   render() {
     const { t, type, hideSkip } = this.props;
 
@@ -132,7 +134,7 @@ class AddStepScreen extends Component {
 
         <Flex value={1} style={styles.fieldWrap}>
           <Input
-            ref={c => (this.stepInput = c)}
+            ref={this.ref}
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}

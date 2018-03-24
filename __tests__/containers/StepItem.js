@@ -66,14 +66,14 @@ it('renders type reminder correctly', () => {
 
 it('renders type action correctly', () => {
   testSnapshotShallow(
-    <StepItem step={mockStep} type="swipeable" onAction={() => {}} />,
+    <StepItem step={mockStep} type="swipeable" onAction={jest.fn()} />,
     store,
   );
 });
 
 it('renders hover for step', () => {
   const component = renderShallow(
-    <StepItem step={mockStep} type="swipeable" onAction={() => {}} />,
+    <StepItem step={mockStep} type="swipeable" onAction={jest.fn()} />,
     store,
   );
   component.setState({ hovering: true });
@@ -90,7 +90,7 @@ describe('step item methods', () => {
         step={{ ...mockStep, receiver: null }}
         onSelect={mockSelect}
         type="swipeable"
-        onAction={() => {}}
+        onAction={jest.fn()}
       />,
       { context: { store } },
     );

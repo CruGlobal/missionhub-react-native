@@ -48,7 +48,7 @@ exports[`renders casey 1`] = `
   />
   <SecondaryTabBar
     isMe={false}
-    onChangeStage={[Function]}
+    onChangeStage={[MockFunction]}
     onOpenHeader={[Function]}
     onShrinkHeader={[Function]}
     person={
@@ -240,7 +240,7 @@ exports[`renders jean 1`] = `
   </Flex>
   <SecondaryTabBar
     isMe={false}
-    onChangeStage={[Function]}
+    onChangeStage={[MockFunction]}
     onOpenHeader={[Function]}
     onShrinkHeader={[Function]}
     organization={
@@ -449,7 +449,7 @@ exports[`renders jean with a missionhub user as contact 1`] = `
   </Flex>
   <SecondaryTabBar
     isMe={false}
-    onChangeStage={[Function]}
+    onChangeStage={[MockFunction]}
     onOpenHeader={[Function]}
     onShrinkHeader={[Function]}
     organization={
@@ -669,7 +669,7 @@ exports[`renders me 1`] = `
   </Flex>
   <SecondaryTabBar
     isMe={true}
-    onChangeStage={[Function]}
+    onChangeStage={[MockFunction]}
     onOpenHeader={[Function]}
     onShrinkHeader={[Function]}
     person={

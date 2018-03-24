@@ -72,16 +72,22 @@ export default class StepsList extends Component {
     setTimeout(() => this.listView.scrollToEnd(), 200);
   }
 
+  ref = c => (this.listView = c);
+
+  keyExtractor = item => item.id;
+
+  itemSeparatorComponent = (sectionID, rowID) => <Separator key={rowID} />;
+
   render() {
     return (
       <FlatList
-        ref={c => (this.listView = c)}
-        keyExtractor={item => item.id}
+        ref={this.ref}
+        keyExtractor={this.keyExtractor}
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}
         ListFooterComponent={this.renderFooter}
-        ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
+        ItemSeparatorComponent={this.itemSeparatorComponent}
       />
     );
   }

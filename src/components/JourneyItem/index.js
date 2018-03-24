@@ -217,14 +217,11 @@ export default class JourneyItem extends Component {
     );
   }
 
+  ref = c => (this._view = c);
+
   render() {
     return (
-      <Flex
-        ref={c => (this._view = c)}
-        direction="row"
-        align="center"
-        style={styles.row}
-      >
+      <Flex ref={this.ref} direction="row" align="center" style={styles.row}>
         {this.renderIcon()}
         {this.renderContent()}
       </Flex>

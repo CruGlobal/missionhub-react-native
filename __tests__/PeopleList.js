@@ -50,13 +50,13 @@ const orgs = [
 
 it('renders correctly as Casey', () => {
   testSnapshotShallow(
-    <PeopleList sections={false} items={orgs} onSelect={() => {}} />,
+    <PeopleList sections={false} items={orgs} onSelect={jest.fn()} />,
   );
 });
 
 it('renders correctly as Jean', () => {
   testSnapshotShallow(
-    <PeopleList sections={true} items={orgs} onSelect={() => {}} />,
+    <PeopleList sections={true} items={orgs} onSelect={jest.fn()} />,
   );
 });
 

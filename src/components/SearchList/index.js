@@ -63,6 +63,8 @@ class SearchList extends Component {
     this.handleSearchDebounced(this.state.text);
   }
 
+  ref = c => (this.searchInput = c);
+
   renderCenter() {
     const { t, placeholder } = this.props;
     const { text } = this.state;
@@ -75,7 +77,7 @@ class SearchList extends Component {
         self="stretch"
       >
         <Input
-          ref={c => (this.searchInput = c)}
+          ref={this.ref}
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
@@ -128,6 +130,8 @@ class SearchList extends Component {
     );
   }
 
+  keyExtractor = i => i.unique_key || i.id;
+
   renderContent() {
     const { t, listProps, defaultData = [] } = this.props;
     const { results, text, isSearching } = this.state;
@@ -159,7 +163,7 @@ class SearchList extends Component {
       <FlatList
         style={styles.list}
         data={resultsLength === 0 ? defaultData : results}
-        keyExtractor={i => i.unique_key || i.id}
+        keyExtractor={this.keyExtractor}
         {...listProps}
       />
     );

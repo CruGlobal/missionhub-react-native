@@ -22,12 +22,14 @@ export default class Input extends Component {
     return this.input.isFocused();
   }
 
+  ref = c => (this.input = c);
+
   render() {
     const { style = {}, ...rest } = this.props;
 
     return (
       <TextInput
-        ref={c => (this.input = c)}
+        ref={this.ref}
         autoCorrect={false}
         autoFocus={false}
         multiline={false}

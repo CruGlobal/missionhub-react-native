@@ -5,30 +5,25 @@ import { Touchable } from '../common';
 
 import styles from './styles';
 
-class Card extends Component {
+export default class Card extends Component {
   setNativeProps(nProps) {
     this._view.setNativeProps(nProps);
   }
+
+  ref = c => (this._view = c);
+
   render() {
     const { style, onPress, ...rest } = this.props;
     if (onPress) {
       return (
         <Touchable
-          ref={c => (this._view = c)}
+          ref={this.ref}
           {...rest}
           onPress={onPress}
           style={[styles.card, style]}
         />
       );
     }
-    return (
-      <View
-        ref={c => (this._view = c)}
-        {...rest}
-        style={[styles.card, style]}
-      />
-    );
+    return <View ref={this.ref} {...rest} style={[styles.card, style]} />;
   }
 }
-
-export default Card;

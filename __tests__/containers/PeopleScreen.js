@@ -10,7 +10,7 @@ import { peopleByOrgSelector } from '../../src/selectors/people';
 jest.mock('../../src/selectors/people');
 
 jest.mock('../../src/actions/people', () => ({
-  getMyPeople: () => {},
+  getMyPeople: jest.fn(),
 }));
 
 const orgs = [
