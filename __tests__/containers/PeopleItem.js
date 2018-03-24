@@ -110,7 +110,7 @@ it('renders permission user correctly', () => {
 
 describe('handleChangeStage', () => {
   it('navigates to person stage screen', () => {
-    shallowScreen.childAt(0).childAt(1).prop.onPress();
+    shallowScreen.childAt(0).childAt(1).props().onPress();
 
     expect(store.dispatch).toHaveBeenCalledWith(mockGetPeopleResult);
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
