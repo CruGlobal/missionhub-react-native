@@ -38,10 +38,6 @@ platform :ios do
 
     cru_fetch_certs
 
-    unless options[':staging']
-      sh('cp', '../../.env.production', '../../.env')
-    end
-
     cru_build_app(export_method: 'ad-hoc', profile_name: 'match AdHoc com.missionhub')
 
     crashlytics(
@@ -95,9 +91,7 @@ platform :ios do
 
   lane :cru_update_commit do |options|
     clean_build_artifacts
-
-    sh('git', 'checkout', '--', '../../.env')
-
+    
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
         message: options[:message]
