@@ -22,24 +22,25 @@ export class PeopleItem extends Component {
     };
   }
 
-  handleSelect = () => { this.props.onSelect(this.props.person, this.props.organization); }
+  handleSelect = () => this.props.onSelect(this.props.person, this.props.organization);
 
   handleChangeStage = () => {
-    const { me, dispatch, person } = this.props;
+    const { me, dispatch, person, organization } = this.props;
 
     const contactAssignment = person.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
     const contactAssignmentId = contactAssignment && contactAssignment.id;
 
     dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-      onComplete: () => this.props.dispatch(getMyPeople()),
+      onComplete: () => dispatch(getMyPeople()),
       currentStage: null,
       name: person.first_name,
       contactId: person.id,
       contactAssignmentId: contactAssignmentId,
       section: 'people',
       subsection: 'person',
+      orgId: organization.id,
     }));
-  }
+  };
 
   render() {
     const { person, me, t, stagesObj, organization, isJean } = this.props;
