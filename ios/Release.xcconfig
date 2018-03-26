@@ -6,4 +6,3 @@
 //  Copyright © 2018 Facebook. All rights reserved.
 //
 ADB_CONFIG = ADBMobileConfig
-ENV_FILENAME = .env.production
