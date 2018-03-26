@@ -6,3 +6,4 @@
 //  Copyright © 2018 Facebook. All rights reserved.
 //
 ADB_CONFIG = ADBMobileConfig_debug
+ENV_FILENAME = .env.staging
