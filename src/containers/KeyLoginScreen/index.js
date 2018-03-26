@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View, Image } from 'react-native';
+import { Keyboard, View, Image, ActivityIndicator } from 'react-native';
 import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
@@ -25,6 +25,7 @@ class KeyLoginScreen extends Component {
       password: '',
       errorMessage: '',
       logo: true,
+      isLoading: false,
     };
 
     this.emailChanged = this.emailChanged.bind(this);
@@ -74,7 +75,7 @@ class KeyLoginScreen extends Component {
 
   async login() {
     const { email, password } = this.state;
-    this.setState({ errorMessage: '' });
+    this.setState({ errorMessage: '', isLoading: true });
 
     try {
       await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
@@ -86,10 +87,11 @@ class KeyLoginScreen extends Component {
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
-        this.setState({ errorMessage });
+        this.setState({ errorMessage, isLoading: false });
 
       } else {
         action = ACTIONS.SYSTEM_ERROR;
+        this.setState({ isLoading: false });
       }
 
       this.props.dispatch(trackAction(action));
@@ -98,6 +100,7 @@ class KeyLoginScreen extends Component {
 
   facebookLogin = () => {
     this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin));
+    this.setState({ isLoading: true });
   };
 
   renderErrorMessage() {
@@ -187,6 +190,7 @@ class KeyLoginScreen extends Component {
               </Button>
             ) : null
           }
+          {this.state.isLoading ? <ActivityIndicator size="large" /> : null }
         </Flex>
 
         {
