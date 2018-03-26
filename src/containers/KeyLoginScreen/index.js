@@ -14,6 +14,7 @@ import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import theme from '../../theme';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -191,7 +192,7 @@ class KeyLoginScreen extends Component {
               </Button>
             ) : null
           }
-          {this.state.isLoading ? <ActivityIndicator size="large" /> : null }
+          {this.state.isLoading ? <ActivityIndicator size="large" color={theme.white} /> : null }
         </Flex>
 
         {

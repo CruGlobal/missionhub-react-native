@@ -13,6 +13,8 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import theme from '../../theme';
+
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -121,7 +123,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-              {this.state.isLoading ? <ActivityIndicator size="large" /> : null }
+              {this.state.isLoading ? <ActivityIndicator size="large" color={theme.white} /> : null }
             </Flex>
 
             <Flex value={1} align="end" direction="row">
