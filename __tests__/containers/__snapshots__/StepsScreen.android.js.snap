@@ -37,7 +37,7 @@ exports[`renders android correctly 1`] = `
         resizeMode="contain"
         source={
           Object {
-            "testUri": "../../../src/containers/StepsScreen/gifs/HappyBlueLoop1x.gif",
+            "testUri": "../../../assets/gifs/HappyBlueLoop1x.gif",
           }
         }
         style={

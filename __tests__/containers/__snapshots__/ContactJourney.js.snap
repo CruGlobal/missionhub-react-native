@@ -39,7 +39,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "testUri": "../../../src/containers/ContactJourney/gifs/HappyBlueLoop1x.gif",
+              "testUri": "../../../assets/gifs/HappyBlueLoop1x.gif",
             }
           }
           style={
@@ -337,7 +337,7 @@ exports[`renders with an organization correctly 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "testUri": "../../../src/containers/ContactJourney/gifs/HappyBlueLoop1x.gif",
+              "testUri": "../../../assets/gifs/HappyBlueLoop1x.gif",
             }
           }
           style={
