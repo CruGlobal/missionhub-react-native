@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Linking } from 'react-native';
+import { Image, Linking, ActivityIndicator } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
@@ -21,6 +21,7 @@ class LoginOptionsScreen extends Component {
 
     this.state = {
       activeSlide: 0,
+      isLoading: false,
     };
 
     this.login = this.login.bind(this);
@@ -42,7 +43,9 @@ class LoginOptionsScreen extends Component {
   }
 
   emailSignUp() {
-    this.props.dispatch(openKeyURL('login?action=signup', this.props.upgradeAccount));
+    this.props.dispatch(openKeyURL('login?action=signup', this.props.upgradeAccount)).then(() => {
+      this.setState({ isLoading: true });
+    });
   }
 
   componentWillUnmount() {
@@ -51,7 +54,9 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin));
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin)).then(() => {
+      this.setState({ isLoading: true });
+    });
   };
 
   render() {
@@ -116,6 +121,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
+              {this.state.isLoading ? <ActivityIndicator size="large" /> : null }
             </Flex>
 
             <Flex value={1} align="end" direction="row">
