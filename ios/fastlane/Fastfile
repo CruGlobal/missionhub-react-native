@@ -14,7 +14,7 @@ platform :ios do
         target: 'MissionHub'
     )
 
-    if options.key?(:release_type)
+    if options.key?(:version)
       version_number = increment_version_number(
           version_number: options[:version] # Automatically increment major version number
       )
