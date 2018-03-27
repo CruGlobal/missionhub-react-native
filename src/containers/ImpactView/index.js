@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getUserImpact, getImpactById } from '../../actions/impact';
+import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../../actions/impact';
 
 import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
@@ -57,6 +57,9 @@ export class ImpactView extends Component {
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
         this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
+    } else {
+      this.props.dispatch(getGlobalImpact());
+      this.props.dispatch(getMyImpact());
     }
     this.getInteractionReport();
   }
