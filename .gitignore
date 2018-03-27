@@ -81,3 +81,4 @@ android/app/bin/
 !mh-test.keystore
 
 .env.default
+.env
