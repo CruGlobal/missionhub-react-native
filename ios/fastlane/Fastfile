@@ -8,11 +8,13 @@ platform :ios do
   lane :release do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
     profile_name = 'match Release com.missionhub'
+    version_number = get_version_number
 
-    # this is broken..
-    # version_number = increment_version_number(
-    #     bump_type: 'patch' # Automatically increment major version number
-    # )
+    if options.key?(:release_type)
+      version_number = increment_version_number(
+          bump_type: options[:release_type] # Automatically increment major version number
+      )
+    end
 
     automatic_code_signing(
         use_automatic_signing: false,
@@ -23,19 +25,19 @@ platform :ios do
 
     cru_build_app(export_method: 'release', profile_name: 'match Release com.missionhub')
 
-    # upload_to_app_store(
-    #   app_identifier: 'com.missionhub',
-    #   ipa: './MissionHub.ipa',
-    #   skip_screenshots: true,
-    #   skip_metadata: true,
-    #   version: version_number,
-    #   automatic_release: options[:automatic_release].presence? || false,
-    #   submit_for_review: options[:submit_for_review].presence? || false,
-    # )
+    upload_to_app_store(
+      app_identifier: 'com.missionhub',
+      ipa: './MissionHub.ipa',
+      skip_screenshots: true,
+      skip_metadata: true,
+      app_version: version_number,
+      automatic_release: options.key?(:auto_release) && options[:auto_release] || false,
+      submit_for_review: options.key?(:submit) && options[:submit] || false,
+    )
 
-    cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
+    # cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
 
-    cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
+    # cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
   end
   
   desc "Push a new (beta) release build to Crashlytics"
