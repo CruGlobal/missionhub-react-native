@@ -54,13 +54,11 @@ export class ImpactView extends Component {
 
   componentWillMount() {
     if (this.props.isContactScreen) {
-      this.getInteractionReport();
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
         this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
-    } else {
-      this.getInteractionReport();
     }
+    this.getInteractionReport();
   }
 
   async getInteractionReport() {
