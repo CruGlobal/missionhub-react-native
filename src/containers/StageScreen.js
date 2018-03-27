@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { navigatePush } from '../actions/navigation';
+import { navigateBack, navigatePush } from '../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -19,15 +19,13 @@ class StageScreen extends Component {
   }
 
   complete(stage) {
-    const { onComplete, noNav, dispatch, contactId } = this.props;
+    const { onComplete, noNav, dispatch } = this.props;
 
     if (onComplete) {
       onComplete(stage);
       if (!noNav) {
         dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-          onSaveNewSteps: () => {
-            dispatch(navigatePush(CONTACT_SCREEN, { person: { id: contactId } }));
-          },
+          onSaveNewSteps: () => dispatch(navigateBack(2)),
           enableBackButton: true,
           contactStage: stage,
         }));
