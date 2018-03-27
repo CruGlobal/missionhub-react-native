@@ -92,8 +92,7 @@ export class ImpactView extends Component {
     });
   }
 
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 },
-    global = false) {
+  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
     const { t, isContactScreen, user } = this.props;
     const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
