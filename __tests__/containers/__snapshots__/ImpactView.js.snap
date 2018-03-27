@@ -629,7 +629,7 @@ Object {
     "steps_count": 10,
     "type": "impact_report",
   },
-  "user": Object {
+  "me": Object {
     "first_name": "Test Fname",
     "id": "2",
     "type": "person",
