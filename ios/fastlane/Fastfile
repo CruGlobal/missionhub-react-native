@@ -8,6 +8,8 @@ platform :ios do
   lane :release do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
     profile_name = 'match AppStore com.missionhub'
+    submit_for_review = options.key?(:submit) && options[:submit] || false
+    automatic_release = options.key?(:auto_release) && options[:auto_release] || false
     version_number = get_version_number(
         target: 'MissionHub'
     )
@@ -33,13 +35,17 @@ platform :ios do
       skip_screenshots: true,
       skip_metadata: true,
       app_version: version_number,
-      automatic_release: options.key?(:auto_release) && options[:auto_release] || false,
-      submit_for_review: options.key?(:submit) && options[:submit] || false,
+      automatic_release: automatic_release,
+      submit_for_review: submit_for_review,
     )
 
-    # cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
+    cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
 
-    # cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
+    cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
+
+    if submit_for_review
+      cru_notify_users("Build has been submitted for review and will be #{automatic_release ? 'automatically' : 'manually'} released.")
+    end
   end
   
   desc "Push a new (beta) release build to Crashlytics"
