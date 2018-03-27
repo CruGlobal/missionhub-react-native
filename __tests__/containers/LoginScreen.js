@@ -8,6 +8,7 @@ import LoginScreen from '../../src/containers/LoginScreen';
 import { renderShallow } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import renderer from 'react-test-renderer';
+import Carousel from 'react-native-snap-carousel';
 
 const store = createMockStore({});
 let screen;
@@ -22,7 +23,7 @@ it('renders', () => {
 });
 
 it('renders onboarding', () => {
-  const carouselProps = screen.getElement().props.children.props.children[0].props.children[1].props;
+  const carouselProps = screen.find(Carousel).props();
   const item = carouselProps.data[2];
 
   expect(carouselProps.renderItem({ item })).toMatchSnapshot();
