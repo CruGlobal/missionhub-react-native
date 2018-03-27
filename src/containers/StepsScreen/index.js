@@ -148,21 +148,6 @@ export class StepsScreen extends Component {
     return this.props.reminders.length === 0 && this.props.steps.length === 0;
   }
 
-  renderLoad() {
-    return (
-      <Flex align="center" justify="center" style={styles.container}>
-        <Flex value={2} />
-        <Flex value={10}>
-          <Image source={require('../../../assets/gifs/HappyBlueLoop.gif')} resizeMode="contain" style={styles.gif} />
-        </Flex>
-        <Flex value={2}>
-          <Text type="header" style={styles.loadText}>{this.props.t('common:loading').toUpperCase()}</Text>
-        </Flex>
-        <Flex value={2} />
-      </Flex>
-    );
-  }
-
   renderFocusPrompt() {
     const { reminders, t } = this.props;
 
@@ -308,7 +293,7 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {this.state.loading ? this.renderLoad() : this.renderSteps()}
+        {this.state.loading ? <Loading /> : this.renderSteps()}
       </View>
     );
   }

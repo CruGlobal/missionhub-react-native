@@ -15,7 +15,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
 import { addNewInteraction, editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
-import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { buildTrackingObj, getAnalyticsSubsection, Loading } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { updateChallengeNote } from '../../actions/steps';
 
@@ -145,22 +145,6 @@ class ContactJourney extends Component {
     );
   }
 
-  renderLoading() {
-    const { t } = this.props;
-    return (
-      <Flex align="center" justify="center" style={styles.container}>
-        <Flex value={2} />
-        <Flex value={10}>
-          <Image source={require('../../../assets/gifs/HappyBlueLoop.gif')} resizeMode="contain" style={styles.gif} />
-        </Flex>
-        <Flex value={2}>
-          <Text type="header" style={styles.loadText}>{t('common:loading').toUpperCase()}</Text>
-        </Flex>
-        <Flex value={2} />
-      </Flex>
-    );
-  }
-
   renderContent() {
     const { journeyItems } = this.props;
     const isLoading = !journeyItems;
@@ -168,7 +152,7 @@ class ContactJourney extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {!isLoading && !hasItems && this.renderNull()}
-        {isLoading && this.renderLoading()}
+        {isLoading && <Loading />}
         {hasItems && this.renderList()}
       </Flex>
     );
