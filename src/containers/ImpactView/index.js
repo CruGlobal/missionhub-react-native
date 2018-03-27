@@ -66,9 +66,9 @@ export class ImpactView extends Component {
   }
 
   async getInteractionReport() {
-    const { dispatch, user, organization = {} } = this.props;
+    const { dispatch, user, me, organization = {} } = this.props;
 
-    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : this.state.me.id, organization.id, this.state.period));
+    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, this.state.period));
 
     const report = personReports[0];
     const interactions = report ? report.interactions : [];
@@ -202,7 +202,7 @@ ImpactView.propTypes = {
 export const mapStateToProps = ({ impact, auth }) => ({
   myImpact: impact.mine,
   globalImpact: impact.global,
-  user: auth.user,
+  me: auth.user,
 });
 
 export default connect(mapStateToProps)(ImpactView);
