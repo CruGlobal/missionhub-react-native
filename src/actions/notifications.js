@@ -159,7 +159,7 @@ export function registerPushDevice(token) {
   return (dispatch) => {
 
     const type = DeviceInfo.getManufacturer();
-    const data ={
+    const data = {
       data: {
         type: 'push_notification_device_token',
         attributes: {
@@ -177,7 +177,7 @@ export function registerPushDevice(token) {
 
 export function deletePushToken(deviceId) {
   return (dispatch) => {
-    const query ={
+    const query = {
       deviceId,
     };
 

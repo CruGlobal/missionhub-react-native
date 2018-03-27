@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 const screenMargin = 60;
-const stageWidth = theme.fullWidth - screenMargin*2;
+const stageWidth = theme.fullWidth - screenMargin * 2;
 const stageMargin = theme.fullWidth / 30;
-const carouselWidth = screenMargin*2 + stageWidth*5 + stageMargin*8;
+const carouselWidth = screenMargin * 2 + stageWidth * 5 + stageMargin * 8;
 const overScrollMargin = 120;
 
 export default StyleSheet.create({
@@ -51,7 +51,7 @@ export default StyleSheet.create({
   footerImage: {
     position: 'absolute',
     bottom: -20,
-    height: 0.4545*theme.fullWidth,
-    width: carouselWidth + overScrollMargin*2,
+    height: 0.4545 * theme.fullWidth,
+    width: carouselWidth + overScrollMargin * 2,
   },
 });

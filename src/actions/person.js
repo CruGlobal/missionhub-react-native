@@ -124,7 +124,7 @@ export function updatePerson(data) {
             id: data.emailId,
             type: 'email',
             attributes: { email: data.email },
-          } ]: [],
+          } ] : [],
           ...data.phone ? [ {
             id: data.phoneId,
             type: 'phone_number',
@@ -173,7 +173,7 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
 
     dispatch(trackAction(ACTIONS.STATUS_CHANGED));
 
-    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status }: orgPermission) }));
+    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status } : orgPermission) }));
   };
 }
 

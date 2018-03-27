@@ -101,7 +101,7 @@ export default StyleSheet.create({
   footerImage: {
     position: 'absolute',
     bottom: 100,
-    height: 0.4545*theme.fullWidth,
-    width: theme.fullWidth*3+overScrollMargin*2,
+    height: 0.4545 * theme.fullWidth,
+    width: theme.fullWidth * 3 + overScrollMargin * 2,
   },
 });
