@@ -19,60 +19,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
     }
     value={1}
   >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#ffffff",
-          "flex": 1,
-        }
-      }
-    >
-      <Flex
-        value={2}
-      />
-      <Flex
-        value={10}
-      >
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../assets/gifs/HappyBlueLoop.gif",
-            }
-          }
-          style={
-            Object {
-              "flex": 1,
-              "width": 750,
-            }
-          }
-        />
-      </Flex>
-      <Flex
-        value={2}
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 64,
-              "paddingVertical": 0,
-            }
-          }
-          type="header"
-        >
-          LOADING
-        </MyText>
-      </Flex>
-      <Flex
-        value={2}
-      />
-    </Flex>
+    <Loading />
   </Flex>
   <Flex
     justify="end"
@@ -303,7 +250,6 @@ exports[`renders with an organization correctly 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#ffffff",
             "flex": 1,
           },
           Object {
