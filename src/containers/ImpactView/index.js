@@ -66,27 +66,27 @@ export class ImpactView extends Component {
     }
   }
 
-  getInteractionReport() {
+  async getInteractionReport() {
     const { dispatch, user, organization = {} } = this.props;
 
-    dispatch(getUserImpact(user ? user.id : this.state.me.id, organization.id, this.state.period)).then((r) => {
-      const report = r.findAll('person_report')[0];
-      const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
-        let num = 0;
-        if (INTERACTION_TYPES[key].requestFieldName) {
-          num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
-        } else {
-          const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
-          num = interaction ? interaction.interaction_count : 0;
-        }
-        return {
-          ...INTERACTION_TYPES[key],
-          num,
-        };
-      });
-      this.setState({ userImpact: r, interactions: arr });
+    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : this.state.me.id, organization.id, this.state.period));
+
+    const report = personReports[0];
+    const interactions = report ? report.interactions : [];
+    const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
+      let num = 0;
+      if (INTERACTION_TYPES[key].requestFieldName) {
+        num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
+      } else {
+        const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
+        num = interaction ? interaction.interaction_count : 0;
+      }
+      return {
+        ...INTERACTION_TYPES[key],
+        num,
+      };
     });
+    this.setState({ userImpact: personReports, interactions: arr });
   }
 
   handleChangePeriod(period) {
