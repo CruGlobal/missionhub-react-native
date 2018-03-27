@@ -136,33 +136,33 @@ function handleNotification(notification) {
 
     const { isJean, user } = getState().auth;
 
-    const { screen, person, organization } = isAndroid ?
-      parseNotificationDataAndroid(notification) :
-      parseNotificationDataIOS(notification);
+    const { screen, person, organization } = parseNotificationData(notification);
 
     switch (screen) {
       case 'home':
       case 'steps':
-        dispatch(navigateReset(MAIN_TABS));
-        break;
+        return dispatch(navigateReset(MAIN_TABS));
       case 'person_steps':
         if (person) {
           const { response: loadedPerson } = await dispatch(getPersonDetails(person, organization));
-          dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
+          return dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
         }
-        break;
+        return;
       case 'my_steps':
-        dispatch(navigatePush(CONTACT_SCREEN, { person: user }));
-        break;
+        return dispatch(navigatePush(CONTACT_SCREEN, { person: user }));
       case 'add_a_person':
-        dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
-        break;
+        return dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
     }
   };
 }
 
-function parseNotificationDataIOS(notification) {
-  const { data: { link: { data = {} } = {} } = {} } = notification;
+function parseNotificationData(notification) {
+  const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
+  const data = {
+    ...notification,
+    ...iosData,
+  };
+
   return {
     screen: data.screen,
     person: data.person_id,
@@ -170,18 +170,10 @@ function parseNotificationDataIOS(notification) {
   };
 }
 
-function parseNotificationDataAndroid(notification) {
-  return {
-    screen: notification.screen,
-    person: notification.person_id,
-    organization: notification.organization_id,
-  };
-}
-
 function registerPushDevice(token) {
   return (dispatch) => {
 
-    const data ={
+    const data = {
       data: {
         type: 'push_notification_device_token',
         attributes: {
@@ -199,7 +191,7 @@ function registerPushDevice(token) {
 
 export function deletePushToken(deviceId) {
   return (dispatch) => {
-    const query ={
+    const query = {
       deviceId,
     };
 
