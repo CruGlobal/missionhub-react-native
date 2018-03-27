@@ -15,7 +15,7 @@ import {
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
+import { Flex, Text, Icon, IconButton, RefreshControl, Loading } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';

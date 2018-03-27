@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import styles from './styles';
 import { getJourney } from '../../actions/journey';
-import { Flex, Button, Separator, Text } from '../../components/common';
+import { Flex, Button, Separator, Text, Loading } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -15,7 +15,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { trackState } from '../../actions/analytics';
 import { addNewInteraction, editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
-import { buildTrackingObj, getAnalyticsSubsection, Loading } from '../../utils/common';
+import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { updateChallengeNote } from '../../actions/steps';
 
