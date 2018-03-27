@@ -16,7 +16,7 @@ platform :ios do
 
     if options.key?(:release_type)
       version_number = increment_version_number(
-          bump_type: options[:release_type] # Automatically increment major version number
+          version_number: options[:version] # Automatically increment major version number
       )
     end
 
