@@ -62,10 +62,7 @@ export class ImpactView extends Component {
     } else {
       this.props.dispatch(getGlobalImpact());
       this.props.dispatch(getMyImpact());
-      this.props.dispatch(getMe()).then((me) => {
-        this.setState({ me: me });
-        this.getInteractionReport();
-      });
+      this.getInteractionReport();
     }
   }
 
@@ -206,9 +203,10 @@ ImpactView.propTypes = {
   user: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact }) => ({
+export const mapStateToProps = ({ impact, auth }) => ({
   myImpact: impact.mine,
   globalImpact: impact.global,
+  user: auth.user,
 });
 
 export default connect(mapStateToProps)(ImpactView);
