@@ -94,12 +94,13 @@ export class ImpactView extends Component {
     });
   }
 
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0, contacts_with_interaction_count = 0 }, global = false) {
+  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
     const { t, isContactScreen, user } = this.props;
     const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
 
     let numInteractions = 0;
+    let contacts_with_interactions = this.state.userImpact.contacts_with_interaction_count || 0;
 
     // ignore: num uncontacted, num assigned contacts and notes
     const ignoredReportValues = [ 100, 101, 1 ];
@@ -115,7 +116,7 @@ export class ImpactView extends Component {
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
       stepsCount: steps_count + numInteractions,
-      receiversCount: receivers_count + contacts_with_interaction_count,
+      receiversCount: receivers_count + contacts_with_interactions,
     };
 
     const stageSentenceOptions = {
