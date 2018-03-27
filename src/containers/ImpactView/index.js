@@ -114,8 +114,8 @@ export class ImpactView extends Component {
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
-      stepsCount: steps_count + numInteractions,
-      receiversCount: receivers_count + contacts_with_interaction_count,
+      stepsCount: steps_count + (global ? 0 : numInteractions),
+      receiversCount: receivers_count + (global ? 0 : contacts_with_interaction_count),
     };
 
     const stageSentenceOptions = {
