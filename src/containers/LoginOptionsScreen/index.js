@@ -61,6 +61,14 @@ class LoginOptionsScreen extends Component {
     });
   };
 
+  renderLoading() {
+    return (
+      <Flex value={1} style={{ justifyContent: 'center', width: 2 }}>
+        <ActivityIndicator size="small" color={theme.white} />
+      </Flex>
+    );
+  }
+
   render() {
     const { t, upgradeAccount } = this.props;
 
@@ -123,7 +131,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-              {this.state.isLoading ? <ActivityIndicator size="large" color={theme.white} /> : null }
+              {this.renderLoading()}
             </Flex>
 
             <Flex value={1} align="end" direction="row">

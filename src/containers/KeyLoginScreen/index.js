@@ -113,6 +113,14 @@ class KeyLoginScreen extends Component {
     );
   }
 
+  renderLoading() {
+    return (
+      <Flex value={1} style={{ justifyContent: 'center' }}>
+        <ActivityIndicator size="large" color={theme.white} />
+      </Flex>
+    );
+  }
+
   render() {
     const { t, dispatch } = this.props;
 
@@ -192,12 +200,12 @@ class KeyLoginScreen extends Component {
               </Button>
             ) : null
           }
-          {this.state.isLoading ? <ActivityIndicator size="large" color={theme.white} /> : null }
+          {this.state.isLoading ? this.renderLoading() : null }
         </Flex>
 
         {
           !this.state.email && !this.state.password ? null : (
-            <Flex value={1} align="stretch" justify="end">
+            <Flex align="stretch" justify="end">
               <Button
                 name={'loginButton'}
                 type="secondary"
