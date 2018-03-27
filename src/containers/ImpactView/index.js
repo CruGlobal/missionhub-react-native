@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../../actions/impact';
-import { getMe } from '../../actions/person';
 
 import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
