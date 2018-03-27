@@ -1,14 +1,10 @@
 import Config from 'react-native-config';
 
-export const LOGIN = 'app/LOGIN';
 export const LOGOUT = 'app/LOGOUT';
 export const FIRST_TIME = 'app/FIRST_TIME';
 export const OPEN_URL = 'app/OPEN_URL';
-export const STAGES = 'app/STAGES';
-export const SELECT_STAGE = 'app/SELECT_STAGE';
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
-export const SAVE_NOTES = 'app/SAVE_NOTES';
 export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
@@ -25,8 +21,6 @@ export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
-export const SET_JOURNEY_ITEMS = 'app/SET_JOURNEY_ITEMS';
-export const CLEAR_JOURNEY_ITEMS = 'app/CLEAR_JOURNEY_ITEMS';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
@@ -44,6 +38,7 @@ export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
+export const NETWORK_REQUEST_FAILED = 'Network request failed';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;

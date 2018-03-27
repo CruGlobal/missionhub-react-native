@@ -3,10 +3,11 @@ import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
 import ReactNative from 'react-native';
 import locale from '../src/i18n/locales/en-US';
-import { EXPIRED_ACCESS_TOKEN } from '../src/constants';
+import { EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from '../src/constants';
 
 const { invalidCredentialsMessage, verifyEmailMessage } = locale.keyLogin;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
+const { youreOffline, connectToInternet } = locale.offline;
 let serverResponse = {};
 
 beforeEach(() => {
@@ -60,6 +61,12 @@ describe('call api', () => {
     it('should show generic error message if request does not have it', () => {
       return callMethod({ error: 'test' }, () => {
         expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, ...lastTwoArgs);
+      });
+    });
+
+    it('should show offline error message', () => {
+      return callMethod({ message: NETWORK_REQUEST_FAILED }, () => {
+        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(youreOffline, connectToInternet, ...lastTwoArgs);
       });
     });
 

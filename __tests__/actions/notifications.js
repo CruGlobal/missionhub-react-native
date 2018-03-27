@@ -74,6 +74,7 @@ describe('set push token', () => {
     notifications: {
       shouldAsk: true,
       token: null,
+      isRegistered: false,
     },
   }));
 
@@ -82,6 +83,7 @@ describe('set push token', () => {
       notifications: {
         shouldAsk: false,
         token: null,
+        isRegistered: false,
       },
       auth: {
         isJean: true,
@@ -91,10 +93,11 @@ describe('set push token', () => {
 
     expect(PushNotification.configure).toHaveBeenCalledTimes(0);
   });
-  it('should not call configure with token exists', () => {
+  it('should not call configure with isRegistered true and token exists', () => {
     store = configureStore([ thunk ])({
       notifications: {
         token: '123',
+        isRegistered: true,
       },
       auth: {
         isJean: true,
@@ -133,23 +136,6 @@ describe('set push token', () => {
     expect(store.getActions()[0]).toEqual({ type: PUSH_NOTIFICATION_SET_TOKEN, token: '123' });
     expect(store.getActions()[1]).toBe(action);
   });
-  it('should call configure and not update token', () => {
-    notifications.registerPushDevice = jest.fn();
-
-    store = configureStore([ thunk ])({
-      notifications: {
-        token: '123',
-        shouldAsk: true,
-      },
-      auth: {
-        isJean: true,
-      },
-    });
-    store.dispatch(setupPushNotifications());
-
-    expect(PushNotification.configure).toHaveBeenCalledTimes(3);
-    expect(notifications.registerPushDevice).toHaveBeenCalledTimes(0);
-  });
   it('should call configure and push notifications asked', () => {
     store = configureStore([ thunk ])({
       notifications: {
@@ -168,14 +154,14 @@ describe('set push token', () => {
     PushNotification.configure = jest.fn();
     store.dispatch(setupPushNotifications());
 
-    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(5);
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(4);
   });
   it('should call request permissions for android', () => {
     common.isAndroid = true;
     PushNotification.configure = jest.fn();
     store.dispatch(setupPushNotifications());
 
-    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(6);
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(5);
   });
 });
 

@@ -7,11 +7,17 @@ platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    profile_name = 'match Release com.missionhub'
 
     # this is broken..
     # version_number = increment_version_number(
     #     bump_type: 'patch' # Automatically increment major version number
     # )
+
+    automatic_code_signing(
+        use_automatic_signing: false,
+        profile_name: profile_name
+    )
 
     cru_fetch_certs
 
@@ -35,14 +41,16 @@ platform :ios do
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    profile_name = 'match AdHoc com.missionhub'
+
+    automatic_code_signing(
+        use_automatic_signing: false,
+        profile_name: profile_name
+    )
 
     cru_fetch_certs
 
-    unless options[':staging']
-      sh('cp', '../../.env.production', '../../.env')
-    end
-
-    cru_build_app(export_method: 'ad-hoc', profile_name: 'match AdHoc com.missionhub')
+    cru_build_app(export_method: 'ad-hoc', profile_name: profile_name)
 
     crashlytics(
                 crashlytics_path: "./Crashlytics.framework",
@@ -95,9 +103,7 @@ platform :ios do
 
   lane :cru_update_commit do |options|
     clean_build_artifacts
-
-    sh('git', 'checkout', '--', '../../.env')
-
+    
     commit_version_bump(
         xcodeproj: 'MissionHub.xcodeproj',
         message: options[:message]
