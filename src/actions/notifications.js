@@ -110,7 +110,7 @@ export function registerNotificationHandler() {
       async onNotification(notification = {}) {
         await dispatch(handleNotification(notification));
 
-        notification.finish && notification.finish(PushNotificationIOS.FetchResult.NoData);
+        notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
       // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,

@@ -240,6 +240,8 @@ describe('registerNotificationHandler', () => {
       },
     });
 
+    const finish = jest.fn();
+
     beforeEach(() => {
       common.isAndroid = true;
       store.clearActions();
@@ -251,6 +253,7 @@ describe('registerNotificationHandler', () => {
           await config.onNotification({
             ...notification,
             userInteraction,
+            finish,
           });
           resolve();
         })
@@ -260,8 +263,7 @@ describe('registerNotificationHandler', () => {
     }
 
     it('should do nothing if user hasn\'t opened the notification; also it should call iOS finish', async() => {
-      const finish = jest.fn();
-      await testNotification({ screen: 'home', finish }, false);
+      await testNotification({ screen: 'home' }, false);
       expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
       expect(finish).toHaveBeenCalledWith(PushNotificationIOS.FetchResult.NoData);
     });
