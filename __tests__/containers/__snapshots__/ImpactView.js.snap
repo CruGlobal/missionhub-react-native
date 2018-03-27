@@ -622,17 +622,17 @@ Object {
     "steps_count": 10,
     "type": "impact_report",
   },
+  "me": Object {
+    "first_name": "Test Fname",
+    "id": "2",
+    "type": "person",
+  },
   "myImpact": Object {
     "id": "me-2018",
     "pathway_moved_count": 3,
     "receivers_count": 5,
     "steps_count": 10,
     "type": "impact_report",
-  },
-  "me": Object {
-    "first_name": "Test Fname",
-    "id": "2",
-    "type": "person",
   },
 }
 `;
