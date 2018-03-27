@@ -636,7 +636,7 @@ Object {
   },
 }
 `;
-// id: '2', type: 'person', first_name: 'Test Fname'
+
 exports[`ImpactView user impact renders empty state 1`] = `
 <ScrollViewMock
   bounces={false}
