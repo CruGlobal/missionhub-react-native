@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../../actions/impact';
+import { getUserImpact, getImpactById } from '../../actions/impact';
 
 import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
@@ -45,7 +45,8 @@ export class ImpactView extends Component {
     super(props);
 
     this.state = {
-      userImpact: {},
+      contactImpact: {},
+      interactionReport: {},
       interactions: [],
       period: 'P1W',
     };
@@ -55,11 +56,9 @@ export class ImpactView extends Component {
     if (this.props.isContactScreen) {
       this.getInteractionReport();
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
-        this.setState({ userImpact: results.findAll('impact_report')[0] || {} });
+        this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
     } else {
-      this.props.dispatch(getGlobalImpact());
-      this.props.dispatch(getMyImpact());
       this.getInteractionReport();
     }
   }
@@ -84,7 +83,7 @@ export class ImpactView extends Component {
         num,
       };
     });
-    this.setState({ userImpact: report, interactions: arr });
+    this.setState({ interactionReport: report, interactions: arr });
   }
 
   handleChangePeriod(period) {
@@ -93,10 +92,12 @@ export class ImpactView extends Component {
     });
   }
 
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0, contacts_with_interaction_count = 0 }, global = false) {
+  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 },
+    global = false) {
     const { t, isContactScreen, user } = this.props;
     const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
+    const { contacts_with_interaction_count = 0 } = this.state.interactionReport || {};
 
     let numInteractions = 0;
 
@@ -166,8 +167,8 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, myImpact, isContactScreen } = this.props;
-    let impact = this.state.userImpact || myImpact;
+    const { globalImpact, userImpact, isContactScreen } = this.props;
+    const { contactImpact } = this.state;
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -175,7 +176,7 @@ export class ImpactView extends Component {
       >
         <Flex style={styles.topSection}>
           <Text style={[ styles.text, styles.topText ]}>
-            {this.buildImpactSentence(impact)}
+            {this.buildImpactSentence(isContactScreen ? contactImpact : userImpact)}
           </Text>
         </Flex>
         <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
@@ -199,7 +200,7 @@ ImpactView.propTypes = {
 };
 
 export const mapStateToProps = ({ impact, auth }) => ({
-  myImpact: impact.mine,
+  userImpact: impact.mine,
   globalImpact: impact.global,
   me: auth.user,
 });
