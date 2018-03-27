@@ -36,9 +36,9 @@ jest.mock('../../src/actions/interactions', () => ({
 let store;
 let component;
 
-const createMockStore = (personId = null, journeyList = null) => {
+const createMockStore = (personId, journeyList) => {
   let personal = {};
-  if (personId) personal = { [personId]: journeyList ? journeyList : [] };
+  if (personId) personal = { [personId]: journeyList };
 
   const mockState = {
     auth: {
@@ -56,29 +56,29 @@ const createMockStore = (personId = null, journeyList = null) => {
   return configureStore([ thunk ])(mockState);
 };
 
-const createComponent = (store) => {
+const createComponent = () => {
   return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
 };
 
 
 describe('ContactJourney', () => {
   it('renders loading screen correctly', () => {
-    store = createMockStore();
-    component = createComponent(store);
+    store = createMockStore(null, []);
+    component = createComponent();
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders null screen correctly', () => {
-    store = createMockStore(personId);
-    component = createComponent(store);
+    store = createMockStore(personId, []);
+    component = createComponent();
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders screen with steps correctly', () => {
     store = createMockStore(personId, mockJourneyList);
-    component = createComponent(store);
+    component = createComponent();
 
     expect(component).toMatchSnapshot();
   });
@@ -88,7 +88,7 @@ describe('journey methods', () => {
   let component;
   beforeEach(() => {
     store = createMockStore(personId, mockJourneyList);
-    component = createComponent(store).instance();
+    component = createComponent().instance();
   });
 
   it('renders a journey row', () => {
