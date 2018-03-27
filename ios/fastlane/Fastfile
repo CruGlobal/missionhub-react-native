@@ -7,8 +7,10 @@ platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
     build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
-    profile_name = 'match Release com.missionhub'
-    version_number = get_version_number
+    profile_name = 'match AppStore com.missionhub'
+    version_number = get_version_number(
+        target: 'MissionHub'
+    )
 
     if options.key?(:release_type)
       version_number = increment_version_number(
@@ -23,7 +25,7 @@ platform :ios do
 
     cru_fetch_certs
 
-    cru_build_app(export_method: 'release', profile_name: 'match Release com.missionhub')
+    cru_build_app(export_method: 'app-store', profile_name: profile_name)
 
     upload_to_app_store(
       app_identifier: 'com.missionhub',
