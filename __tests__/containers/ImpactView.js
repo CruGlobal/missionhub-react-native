@@ -39,6 +39,9 @@ describe('ImpactView', () => {
             mine: myImpact,
             global: globalImpact,
           },
+          auth: {
+            user: person,
+          },
         },
       )).toMatchSnapshot();
     });

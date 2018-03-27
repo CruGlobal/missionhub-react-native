@@ -629,9 +629,14 @@ Object {
     "steps_count": 10,
     "type": "impact_report",
   },
+  "user": Object {
+    "first_name": "Test Fname",
+    "id": "2",
+    "type": "person",
+  },
 }
 `;
-
+// id: '2', type: 'person', first_name: 'Test Fname'
 exports[`ImpactView user impact renders empty state 1`] = `
 <ScrollViewMock
   bounces={false}
