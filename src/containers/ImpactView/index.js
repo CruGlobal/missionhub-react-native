@@ -104,15 +104,17 @@ export class ImpactView extends Component {
     let contacts_with_interactions = 0;
 
     if (this.state.userImpact.graph) {
-      const report = this.state.userImpact.findAll('person_report')[0];
-      contacts_with_interactions = report.contacts_with_interaction_count;
+      contacts_with_interactions = this.state.userImpact.contacts_with_interaction_count;
     }
 
+    // ignore: num uncontacted, num assigned contacts and notes
+    const ignoredReportValues = [ 100, 101, 1 ];
     this.state.interactions.forEach(function(interaction) {
-      if (interaction.id !== 100) {
+      if (!ignoredReportValues.includes(interaction.id)) {
         numInteractions += interaction.num;
       }
     });
+
     const stepsSentenceOptions = {
       context: context(steps_count),
       year: new Date().getFullYear(),
