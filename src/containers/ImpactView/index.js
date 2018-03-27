@@ -86,7 +86,7 @@ export class ImpactView extends Component {
         num,
       };
     });
-    this.setState({ userImpact: personReports, interactions: arr });
+    this.setState({ userImpact: report, interactions: arr });
   }
 
   handleChangePeriod(period) {
@@ -101,11 +101,7 @@ export class ImpactView extends Component {
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
 
     let numInteractions = 0;
-    let contacts_with_interactions = 0;
-
-    if (this.state.userImpact.graph) {
-      contacts_with_interactions = this.state.userImpact.contacts_with_interaction_count;
-    }
+    let contacts_with_interactions = this.state.userImpact.contacts_with_interaction_count || 0;
 
     // ignore: num uncontacted, num assigned contacts and notes
     const ignoredReportValues = [ 100, 101, 1 ];
@@ -116,7 +112,7 @@ export class ImpactView extends Component {
     });
 
     const stepsSentenceOptions = {
-      context: context(steps_count),
+      context: context(steps_count + numInteractions),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
