@@ -104,43 +104,59 @@ describe('addSteps', () => {
   };
   const steps = [ step1, step2, step3 ];
 
-  const expectedApiParam = {
-    included: [
-      {
-        type: 'accepted_challenge',
-        attributes: {
-          title: step1.body,
-          challenge_suggestion_id: step1.id,
-        },
+  const acceptedChallenges = [
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step1.body,
+        challenge_suggestion_id: step1.id,
       },
-      {
-        type: 'accepted_challenge',
-        attributes: {
-          title: step2.body,
-          challenge_suggestion_id: null,
-        },
+    },
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step2.body,
+        challenge_suggestion_id: null,
       },
-      {
-        type: 'accepted_challenge',
-        attributes: {
-          title: step3.body,
-          challenge_suggestion_id: null,
-        },
+    },
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step3.body,
+        challenge_suggestion_id: null,
       },
-    ],
-    include: 'received_challenges',
-  };
+    },
+  ];
 
-  it('creates steps', async() => {
-    const stepAddedResult = { type: 'added steps tracked' };
-    mockFnWithParams(analytics, 'trackStepsAdded', stepAddedResult, steps);
-    callApi.mockReturnValue(() => Promise.resolve());
+  const stepAddedResult = { type: 'added steps tracked' };
 
-    await store.dispatch(addSteps(steps, receiverId, null));
+  const test = async(organization, expectedIncluded) => {
+    const expectedApiParam = {
+      included: expectedIncluded,
+      include: 'received_challenges',
+    };
+
+    await store.dispatch(addSteps(steps, receiverId, organization));
 
     expect(store.getActions()).toEqual([ stepAddedResult ]);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_CHALLENGES, { person_id: receiverId }, expectedApiParam);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
+  };
+
+  beforeEach(() => {
+    mockFnWithParams(analytics, 'trackStepsAdded', stepAddedResult, steps);
+    callApi.mockReturnValue(() => Promise.resolve());
+  });
+
+  it('creates steps without org', async() => {
+    return test(null, acceptedChallenges);
+  });
+
+  it('creates steps with org', async() => {
+    const organization = { id: '200' };
+    const expectedIncluded = acceptedChallenges.map((c) => ({ ...c, attributes: { ...c.attributes, organization_id: organization.id } }));
+
+    return test(organization, expectedIncluded);
   });
 });
 
