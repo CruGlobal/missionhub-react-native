@@ -15,7 +15,7 @@ import {
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
 
 import styles from './styles';
-import { Flex, Text, Icon, IconButton, RefreshControl } from '../../components/common';
+import { Flex, Text, Icon, IconButton, RefreshControl, Loading } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import FooterLoading from '../../components/FooterLoading';
@@ -146,21 +146,6 @@ export class StepsScreen extends Component {
 
   noSteps() {
     return this.props.reminders.length === 0 && this.props.steps.length === 0;
-  }
-
-  renderLoad() {
-    return (
-      <Flex align="center" justify="center" style={styles.container}>
-        <Flex value={2} />
-        <Flex value={10}>
-          <Image source={require('./gifs/HappyBlueLoop1x.gif')} resizeMode="contain" style={styles.gif} />
-        </Flex>
-        <Flex value={2}>
-          <Text type="header" style={styles.loadText}>{this.props.t('common:loading').toUpperCase()}</Text>
-        </Flex>
-        <Flex value={2} />
-      </Flex>
-    );
   }
 
   renderFocusPrompt() {
@@ -308,7 +293,7 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {this.state.loading ? this.renderLoad() : this.renderSteps()}
+        {this.state.loading ? <Loading /> : this.renderSteps()}
       </View>
     );
   }

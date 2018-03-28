@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import styles from './styles';
 import { getJourney } from '../../actions/journey';
-import { Flex, Button, Separator, Text } from '../../components/common';
+import { Flex, Button, Separator, Text, Loading } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -145,15 +145,6 @@ class ContactJourney extends Component {
     );
   }
 
-  renderLoading() {
-    const { t } = this.props;
-    return (
-      <Flex align="center" justify="center">
-        <Text type="header" style={styles.nullText}>{t('loading')}</Text>
-      </Flex>
-    );
-  }
-
   renderContent() {
     const { journeyItems } = this.props;
     const isLoading = !journeyItems;
@@ -161,7 +152,7 @@ class ContactJourney extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {!isLoading && !hasItems && this.renderNull()}
-        {isLoading && this.renderLoading()}
+        {isLoading && <Loading />}
         {hasItems && this.renderList()}
       </Flex>
     );
