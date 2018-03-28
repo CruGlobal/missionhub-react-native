@@ -171,7 +171,7 @@ export function registerPushDevice(token) {
       },
     };
 
-    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, {}, data));
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
   };
 }
 
