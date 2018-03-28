@@ -91,9 +91,10 @@ describe('a login button is clicked', () => {
     });
 
     it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad);
     });
     it('loading wheel to be rendered', () => {
+      screen.instance().startLoad();
       screen.update();
       expect(screen).toMatchSnapshot();
     });

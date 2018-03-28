@@ -89,9 +89,10 @@ describe('a login button is clicked', () => {
 
     it('open key login to be called', () => {
       expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(auth.openKeyURL).toHaveBeenCalledWith('login?action=signup', false);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('login?action=signup', screen.instance().startLoad, false);
     });
     it('loading wheel to be rendered', () => {
+      screen.instance().startLoad();
       screen.update();
       expect(screen).toMatchSnapshot();
     });
