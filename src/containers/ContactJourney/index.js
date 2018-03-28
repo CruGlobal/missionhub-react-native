@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import styles from './styles';
 import { getJourney } from '../../actions/journey';
-import { Flex, Button, Separator, Text, Loading } from '../../components/common';
+import { Flex, Button, Separator, Text, LoadingGuy } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -152,7 +152,7 @@ class ContactJourney extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {!isLoading && !hasItems && this.renderNull()}
-        {isLoading && <Loading />}
+        {isLoading && <LoadingGuy />}
         {hasItems && this.renderList()}
       </Flex>
     );

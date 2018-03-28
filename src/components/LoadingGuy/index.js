@@ -6,7 +6,7 @@ import i18next from 'i18next';
 import Text from '../Text';
 import styles from './styles';
 
-export default class Loading extends Component {
+export default class LoadingGuy extends Component {
   render() {
     return (
       <Flex align="center" justify="center" style={styles.container}>
