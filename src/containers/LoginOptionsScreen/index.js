@@ -43,10 +43,12 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
+  startLoad = () => {
+    this.setState({ isLoading: true });
+  };
+
   emailSignUp() {
-    this.props.dispatch(openKeyURL('login?action=signup', this.props.upgradeAccount)).then(() => {
-      this.setState({ isLoading: true });
-    });
+    this.props.dispatch(openKeyURL('login?action=signup', this.startLoad, this.props.upgradeAccount));
   }
 
   componentWillUnmount() {
