@@ -1,4 +1,3 @@
-import { Crashlytics } from 'react-native-fabric';
 import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
@@ -6,9 +5,6 @@ import { trackAction } from './analytics';
 export function getMe() {
   return async(dispatch) => {
     const { response: person } = await dispatch(callApi(REQUESTS.GET_ME));
-
-    Crashlytics.setUserIdentifier(person.id);
-    
     return person;
   };
 }
