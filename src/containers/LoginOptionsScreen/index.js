@@ -57,8 +57,12 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin)).then(() => {
-      this.setState({ isLoading: true });
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin)).then((result) => {
+      if (result) {
+        this.setState({ isLoading: true });
+      } else {
+        this.setState({ isLoading: false });
+      }
     });
   };
 

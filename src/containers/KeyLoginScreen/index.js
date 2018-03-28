@@ -103,8 +103,12 @@ class KeyLoginScreen extends Component {
   }
 
   facebookLogin = () => {
-    this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin)).then(() => {
-      this.setState({ isLoading: true });
+    this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin)).then((result) => {
+      if (result) {
+        this.setState({ isLoading: true });
+      } else {
+        this.setState({ isLoading: false });
+      }
     });
   };
 
