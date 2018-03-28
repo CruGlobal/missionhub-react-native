@@ -134,15 +134,25 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
 
+        proguardFiles getDefaultProguardFile("proguard-android.txt")
+        proguardFiles "proguard-rules.pro"
+
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
     }
     signingConfigs {
-        release {
+        test {
             keyAlias props['keyAlias']
             keyPassword props['keyAliasPassword']
             storeFile rootProject.file(props['keyStore'])
             storePassword props['keyStorePassword']
+        }
+
+        release {
+            storeFile file(androidKeystorePath)
+            storePassword androidKeystoreStorePassword
+            keyAlias androidKeystoreKeyAlias
+            keyPassword androidKeystoreKeyPassword
         }
     }
     splits {
@@ -154,10 +164,17 @@ android {
         }
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+
+            signingConfig signingConfigs.test
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
+
+            if (signingConfigs.release.storeFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     // applicationVariants are e.g. debug, release
