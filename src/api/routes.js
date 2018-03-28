@@ -75,6 +75,9 @@ export default {
   'GET_PERSON_JOURNEY': {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
+  'GET_PERSON_FEED': {
+    endpoint: `${API_URL}person_feed`,
+  },
   'GET_STAGES': {
     endpoint: `${API_URL}pathway_stages`,
     anonymous: true,
