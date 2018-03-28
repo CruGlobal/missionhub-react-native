@@ -3,9 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import LoginOptionsScreen from '../../src/containers/LoginOptionsScreen';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import Enzyme, { shallow } from 'enzyme/build/index';
-import { createMockStore, testSnapshot, createMockNavState } from '../../testUtils';
+import { createMockStore, testSnapshot, createMockNavState, renderShallow } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 
@@ -31,7 +29,6 @@ jest.mock('react-native-fbsdk', () => ({
 
 beforeEach(() => {
   store = createMockStore();
-  Enzyme.configure({ adapter: new Adapter() });
 });
 
 it('renders correctly without upgrade', () => {
@@ -60,41 +57,58 @@ describe('a login button is clicked', () => {
   let screen;
 
   beforeEach(() => {
-    screen = shallow(
+    screen = renderShallow(
       <LoginOptionsScreen
         navigation={createMockNavState({
           upgradeAccount: false,
         })}
       />,
-      { context: { store: store } }
+      store
     );
-    screen = screen.dive().dive().dive().instance();
   });
 
-
   it('login to be called', async() => {
-    screen.login();
+    screen.find({ name: 'loginButton' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
   it('try it now to be called', async() => {
-    screen.tryItNow();
+    screen.find({ name: 'tryItNowButton' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(2);
   });
 
   it('navigate next to be called', async() => {
-    screen.navigateToNext();
+    screen.instance().navigateToNext();
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
-  it('open key login to be called', () => {
-    screen.emailSignUp();
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
-    expect(auth.openKeyURL).toHaveBeenCalledWith('login?action=signup', false);
+  describe('email signup button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'emailButton' }).simulate('press');
+    });
+
+    it('open key login to be called', () => {
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('login?action=signup', false);
+    });
+    it('loading wheel to be rendered', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
 
-  it('facebook login to not be called', async() => {
-    screen.facebookLogin();
-    expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+
+  describe('facebook signup button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'facebookButton' }).simulate('press');
+    });
+
+    it('facebook login to not be called', async() => {
+      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+    });
+    it('loading wheel to be rendered', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
 });

@@ -50,22 +50,39 @@ describe('a login button is clicked', () => {
     );
   });
 
-  it('facebook login is called', () => {
-    screen.find({ name: 'facebookButton' }).simulate('press');
-
-    expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
-  });
-
-  it('key login is called', async() => {
-    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
-    screen.setState(credentials);
-    auth.keyLogin.mockImplementation((email, password) => {
-      return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+  describe('facebook login button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
-    await screen.find({ name: 'loginButton' }).simulate('press');
+    it('facebook login is called', () => {
+      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+    });
+    it('loading wheel appears', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
+  });
 
-    expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+
+  describe('key login button is pressed', () => {
+    beforeEach(async() => {
+      const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+      screen.setState(credentials);
+      auth.keyLogin.mockImplementation((email, password) => {
+        return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+      });
+
+      await screen.find({ name: 'loginButton' }).simulate('press');
+    });
+
+    it('key login is called', async() => {
+      expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+    });
+    it('loading wheel appears', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
 
   it('forgot password is called', () => {

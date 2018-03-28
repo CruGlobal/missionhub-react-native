@@ -80,6 +80,7 @@ class LoginOptionsScreen extends Component {
           <Flex value={1.2} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
+                name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
                 style={styles.facebookButton}
@@ -91,6 +92,7 @@ class LoginOptionsScreen extends Component {
                 </Flex>
               </Button>
               <Button
+                name={'emailButton'}
                 pill={true}
                 onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
@@ -104,6 +106,7 @@ class LoginOptionsScreen extends Component {
               {
                 upgradeAccount ? null : (
                   <Button
+                    name={'tryItNowButton'}
                     pill={true}
                     onPress={this.tryItNow}
                     text={t('tryNow').toUpperCase()}
@@ -136,6 +139,7 @@ class LoginOptionsScreen extends Component {
             <Flex value={1} align="end" direction="row">
               <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
               <Button
+                name={'loginButton'}
                 text={t('signIn').toUpperCase()}
                 type="transparent"
                 onPress={this.login}
