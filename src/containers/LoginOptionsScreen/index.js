@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Linking, ActivityIndicator } from 'react-native';
+import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
 import styles from './styles';
-import { Text, Button, Flex, Icon } from '../../components/common';
+import { Text, Button, Flex, Icon, LoadingWheel } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
@@ -13,7 +13,6 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import theme from '../../theme';
 
 
 @translate('loginOptions')
@@ -64,7 +63,7 @@ class LoginOptionsScreen extends Component {
   renderLoading() {
     return (
       <Flex value={1} style={{ justifyContent: 'center', width: 2 }}>
-        <ActivityIndicator size="small" color={theme.white} />
+        <LoadingWheel />
       </Flex>
     );
   }
@@ -131,7 +130,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-              {this.renderLoading()}
+              {this.state.isLoading ? this.renderLoading() : null }
             </Flex>
 
             <Flex value={1} align="end" direction="row">

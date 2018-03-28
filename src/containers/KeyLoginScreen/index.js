@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, View, Image, ActivityIndicator } from 'react-native';
+import { Keyboard, View, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import styles from './styles';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
@@ -14,7 +14,6 @@ import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
-import theme from '../../theme';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -116,7 +115,7 @@ class KeyLoginScreen extends Component {
   renderLoading() {
     return (
       <Flex value={1} style={{ justifyContent: 'center' }}>
-        <ActivityIndicator size="large" color={theme.white} />
+        <LoadingWheel />
       </Flex>
     );
   }

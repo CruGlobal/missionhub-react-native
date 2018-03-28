@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -7,6 +6,6 @@ export default StyleSheet.create({
   },
   gif: {
     flex: 1,
-    width: theme.fullWidth,
+    width: 60,
   },
 });
