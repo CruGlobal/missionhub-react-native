@@ -36,20 +36,17 @@ jest.mock('../../src/actions/interactions', () => ({
 let store;
 let component;
 
-const createMockStore = (personId, journeyList) => {
-  let personal = {};
-  if (personId) personal = { [personId]: journeyList };
-
+const createMockStore = (id, personalJourney) => {
   const mockState = {
     auth: {
-      person: personId,
+      person: id,
       isJean: true,
     },
     swipe: {
       journey: false,
     },
     journey: {
-      'personal': personal,
+      'personal': personalJourney,
     },
   };
 
@@ -63,21 +60,21 @@ const createComponent = () => {
 
 describe('ContactJourney', () => {
   it('renders loading screen correctly', () => {
-    store = createMockStore(null, []);
+    store = createMockStore(null, {});
     component = createComponent();
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders null screen correctly', () => {
-    store = createMockStore(personId, []);
+    store = createMockStore(personId, { [personId]: [] });
     component = createComponent();
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders screen with steps correctly', () => {
-    store = createMockStore(personId, mockJourneyList);
+    store = createMockStore(personId, { [personId]: mockJourneyList });
     component = createComponent();
 
     expect(component).toMatchSnapshot();
@@ -87,7 +84,7 @@ describe('ContactJourney', () => {
 describe('journey methods', () => {
   let component;
   beforeEach(() => {
-    store = createMockStore(personId, mockJourneyList);
+    store = createMockStore(personId, { [personId]: mockJourneyList });
     component = createComponent().instance();
   });
 
@@ -142,7 +139,7 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   testSnapshot(
-    <Provider store={createMockStore(personId, mockJourneyList)}>
+    <Provider store={createMockStore(personId, { [personId]: mockJourneyList })}>
       <ContactJourney person={mockPerson} organization={{ id: 1 }} navigation={createMockNavState()} />
     </Provider>
   );
