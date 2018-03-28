@@ -187,6 +187,193 @@ exports[`a login button is clicked facebook login button is pressed loading whee
 </PlatformKeyboardAvoidingView>
 `;
 
+exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
+<PlatformKeyboardAvoidingView>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginLeft": 25,
+        "marginTop": 7,
+      }
+    }
+    value={0.5}
+  >
+    <IconButton
+      name="backIcon"
+      onPress={[Function]}
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+    value={3}
+  >
+    <View>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value=""
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      name="facebookButton"
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+    >
+      <Flex
+        direction="row"
+      >
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+        >
+          LOG IN WITH FACEBOOK
+        </MyText>
+      </Flex>
+    </Button>
+    <Flex
+      style={
+        Object {
+          "justifyContent": "center",
+        }
+      }
+      value={1}
+    >
+      <LoadingWheel />
+    </Flex>
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
+
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
   <Flex

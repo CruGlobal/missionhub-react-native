@@ -85,11 +85,18 @@ describe('a login button is clicked', () => {
     });
   });
 
-  it('forgot password is called', () => {
-    let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+  describe('forgot password button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+    });
 
-    click();
-
-    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
+    it('forgot password is called', () => {
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
+    });
+    it('loading wheel to be rendered', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
+
 });

@@ -71,6 +71,7 @@ class KeyLoginScreen extends Component {
 
   handleForgotPassword = () => {
     this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword'));
+    this.setState({ isLoading: true });
   };
 
   async login() {
