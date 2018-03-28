@@ -110,7 +110,7 @@ export class ImpactView extends Component {
     });
 
     const stepsSentenceOptions = {
-      context: context(steps_count + numInteractions),
+      context: context(steps_count + (global ? 0 : numInteractions)),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
