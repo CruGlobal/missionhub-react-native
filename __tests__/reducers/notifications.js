@@ -5,6 +5,7 @@ import {
   PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
+  DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -31,7 +32,7 @@ it('updates showReminder', () => {
   expect(state.showReminder).toBe(false);
 });
 
-it('updates set token', () => {
+it('updates push notification token', () => {
   const state = notifications({}, {
     type: PUSH_NOTIFICATION_SET_TOKEN,
     token: '123',
@@ -39,7 +40,7 @@ it('updates set token', () => {
   expect(state.token).toBe('123');
 });
 
-it('updates set token', () => {
+it('updates push notification token after sending to API', () => {
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
@@ -49,6 +50,13 @@ it('updates set token', () => {
   expect(state.pushDeviceId).toEqual('9');
 });
 
+it('should disable welcome notification', () => {
+  const state = notifications({}, {
+    type: DISABLE_WELCOME_NOTIFICATION,
+  });
+  expect(state.hasShownWelcomeNotification).toEqual(true);
+});
+
 it('resets state on logout', () => {
   let expectedState = {
     token: '',
@@ -56,6 +64,7 @@ it('resets state on logout', () => {
     shouldAsk: true,
     showReminder: true,
     pushDeviceId: '',
+    hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {
     type: LOGOUT,

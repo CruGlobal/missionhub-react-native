@@ -7,6 +7,7 @@ import {
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
+  DISABLE_WELCOME_NOTIFICATION,
 } from '../constants';
 import { useFirstExists } from '../utils/common';
 
@@ -16,6 +17,7 @@ const initialAuthState = {
   shouldAsk: true,
   showReminder: true,
   pushDeviceId: '',
+  hasShownWelcomeNotification: false,
 };
 
 function notificationReducer(state = initialAuthState, action) {
@@ -57,6 +59,11 @@ function notificationReducer(state = initialAuthState, action) {
       return {
         ...state,
         pushDeviceId: deviceToken.id,
+      };
+    case DISABLE_WELCOME_NOTIFICATION:
+      return {
+        ...state,
+        hasShownWelcomeNotification: true,
       };
     case LOGOUT:
       return initialAuthState;
