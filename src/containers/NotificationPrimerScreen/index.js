@@ -28,8 +28,11 @@ class NotificationPrimerScreen extends Component {
 
   async allow() {
     this.props.dispatch(enableAskPushNotification());
-    await this.props.dispatch(registerNotificationHandler());
-    this.props.onComplete();
+    try {
+      await this.props.dispatch(registerNotificationHandler());
+    } finally {
+      this.props.onComplete();
+    }
     this.props.dispatch(trackAction(ACTIONS.ALLOW));
   }
 

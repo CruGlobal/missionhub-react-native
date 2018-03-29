@@ -51,12 +51,12 @@ export function showReminderScreen() {
       return dispatch(registerNotificationHandler());
     }
 
-    if (token || !showReminder) return;
+    if (token || !showReminder) { return; }
 
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
         const hasAllowedPermission = permission && permission.alert;
-        if (hasAllowedPermission) return;
+        if (hasAllowedPermission) { return; }
 
         dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
           onClose: (askUser) => {
