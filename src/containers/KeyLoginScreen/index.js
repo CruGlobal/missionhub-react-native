@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Keyboard, View, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import styles from './styles';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon } from '../../components/common';
+import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
@@ -25,6 +25,7 @@ class KeyLoginScreen extends Component {
       password: '',
       errorMessage: '',
       logo: true,
+      isLoading: false,
     };
 
     this.emailChanged = this.emailChanged.bind(this);
@@ -68,13 +69,17 @@ class KeyLoginScreen extends Component {
     this.setState({ password });
   }
 
+  startLoad = () => {
+    this.setState({ isLoading: true });
+  };
+
   handleForgotPassword = () => {
-    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword'));
+    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad));
   };
 
   async login() {
     const { email, password } = this.state;
-    this.setState({ errorMessage: '' });
+    this.setState({ errorMessage: '', isLoading: true });
 
     try {
       await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
@@ -86,10 +91,11 @@ class KeyLoginScreen extends Component {
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
-        this.setState({ errorMessage });
+        this.setState({ errorMessage, isLoading: false });
 
       } else {
         action = ACTIONS.SYSTEM_ERROR;
+        this.setState({ isLoading: false });
       }
 
       this.props.dispatch(trackAction(action));
@@ -97,7 +103,13 @@ class KeyLoginScreen extends Component {
   }
 
   facebookLogin = () => {
-    this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin));
+    this.props.dispatch(facebookLoginWithUsernamePassword(false, onSuccessfulLogin)).then((result) => {
+      if (result) {
+        this.setState({ isLoading: true });
+      } else {
+        this.setState({ isLoading: false });
+      }
+    });
   };
 
   renderErrorMessage() {
@@ -105,6 +117,14 @@ class KeyLoginScreen extends Component {
       <View style={styles.errorBar}>
         <Text style={styles.errorMessage}>{this.state.errorMessage}</Text>
       </View>
+    );
+  }
+
+  renderLoading() {
+    return (
+      <Flex value={1} style={{ justifyContent: 'center' }}>
+        <LoadingWheel />
+      </Flex>
     );
   }
 
@@ -187,11 +207,12 @@ class KeyLoginScreen extends Component {
               </Button>
             ) : null
           }
+          {this.state.isLoading ? this.renderLoading() : null }
         </Flex>
 
         {
           !this.state.email && !this.state.password ? null : (
-            <Flex value={1} align="stretch" justify="end">
+            <Flex align="stretch" justify="end">
               <Button
                 name={'loginButton'}
                 type="secondary"

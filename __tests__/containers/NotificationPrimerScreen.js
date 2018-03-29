@@ -7,13 +7,13 @@ import Adapter from 'enzyme-adapter-react-16';
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { Provider } from 'react-redux';
 import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
-import { setupPushNotifications, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
+import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
 
 const store = createMockStore();
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/notifications', () => ({
-  setupPushNotifications: jest.fn(() => Promise.resolve()),
+  registerNotificationHandler: jest.fn(() => Promise.resolve()),
   enableAskPushNotification: jest.fn(),
   disableAskPushNotification: jest.fn(),
 }));
@@ -53,7 +53,7 @@ describe('notification primer methods', () => {
   it('runs allow', () => {
     component.allow();
     expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
-    expect(setupPushNotifications).toHaveBeenCalledTimes(1);
+    expect(registerNotificationHandler).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });

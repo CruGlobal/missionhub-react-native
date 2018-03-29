@@ -1,8 +1,9 @@
 import {
-  ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN,
+  ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
   NOT_LOGGED_IN,
 } from '../constants';
 import * as RNOmniture from 'react-native-omniture';
+import { isCustomStep } from '../utils/common';
 
 export function updateAnalyticsContext(analyticsContext) {
   return {
@@ -20,7 +21,7 @@ export function trackStepsAdded(steps) {
         [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
       };
 
-      if (step.challenge_type === CUSTOM_STEP_TYPE) {
+      if (isCustomStep(step)) {
         dispatch(trackAction(ACTIONS.STEP_CREATED));
 
       } else {

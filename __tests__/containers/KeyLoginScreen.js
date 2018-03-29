@@ -50,29 +50,54 @@ describe('a login button is clicked', () => {
     );
   });
 
-  it('facebook login is called', () => {
-    screen.find({ name: 'facebookButton' }).simulate('press');
-
-    expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
-  });
-
-  it('key login is called', async() => {
-    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
-    screen.setState(credentials);
-    auth.keyLogin.mockImplementation((email, password) => {
-      return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+  describe('facebook login button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
-    await screen.find({ name: 'loginButton' }).simulate('press');
-
-    expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+    it('facebook login is called', () => {
+      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+    });
+    it('loading wheel appears', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
 
-  it('forgot password is called', () => {
-    let click = () => screen.find({ name: 'forgotPasswordButton' }).simulate('press');
 
-    click();
+  describe('key login button is pressed', () => {
+    beforeEach(async() => {
+      const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+      screen.setState(credentials);
+      auth.keyLogin.mockImplementation((email, password) => {
+        return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+      });
 
-    expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword');
+      await screen.find({ name: 'loginButton' }).simulate('press');
+    });
+
+    it('key login is called', async() => {
+      expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
+    });
+    it('loading wheel appears', () => {
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
   });
+
+  describe('forgot password button is pressed', () => {
+    beforeEach(() => {
+      screen.find({ name: 'forgotPasswordButton' }).simulate('press');
+    });
+
+    it('forgot password is called', () => {
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad);
+    });
+    it('loading wheel to be rendered', () => {
+      screen.instance().startLoad();
+      screen.update();
+      expect(screen).toMatchSnapshot();
+    });
+  });
+
 });

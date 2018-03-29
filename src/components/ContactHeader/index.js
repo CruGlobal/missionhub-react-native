@@ -136,7 +136,7 @@ class ContactHeader extends Component {
     let emailUrl;
     if (numberExists) {
       phoneNumberUrl = `tel:${numberExists.number}`;
-      smsNumberUrl =`sms:${numberExists.number}`;
+      smsNumberUrl = `sms:${numberExists.number}`;
     }
     if (emailExists) {
       emailUrl = `mailto:${emailExists.email}`;

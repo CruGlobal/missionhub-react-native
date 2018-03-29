@@ -1,3 +1,4 @@
+import { Crashlytics } from 'react-native-fabric';
 import { getPerson } from './person';
 import { navigateReset } from './navigation';
 import { logInAnalytics } from './analytics';
@@ -10,6 +11,8 @@ export function onSuccessfulLogin() {
     dispatch(logInAnalytics());
 
     const personId = getState().auth.personId;
+    Crashlytics.setUserIdentifier(personId);
+
     const getMeResult = await dispatch(getPerson(personId));
 
     let nextScreen = GET_STARTED_SCREEN;
