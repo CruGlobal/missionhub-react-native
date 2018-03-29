@@ -18,6 +18,7 @@ import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
+import uuidv4 from 'uuid/v4';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -77,7 +78,7 @@ class SelectStepScreen extends Component {
         const addedSteps = this.state.addedSteps;
 
         const newStep = {
-          id: `${addedSteps.length}`,
+          id: uuidv4(),
           body: newStepText,
           selected: true,
           locale: i18next.language,
