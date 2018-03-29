@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
 import styles from './styles';
-import { Text, Button, Flex, Icon } from '../../components/common';
+import { Text, Button, Flex, Icon, LoadingWheel } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
@@ -14,6 +14,7 @@ import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
+
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class LoginOptionsScreen extends Component {
 
     this.state = {
       activeSlide: 0,
+      isLoading: false,
     };
 
     this.login = this.login.bind(this);
@@ -41,8 +43,12 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(navigatePush(nextScreen));
   }
 
+  startLoad = () => {
+    this.setState({ isLoading: true });
+  };
+
   emailSignUp() {
-    this.props.dispatch(openKeyURL('login?action=signup', this.props.upgradeAccount));
+    this.props.dispatch(openKeyURL('login?action=signup', this.startLoad, this.props.upgradeAccount));
   }
 
   componentWillUnmount() {
@@ -51,8 +57,22 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin));
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin)).then((result) => {
+      if (result) {
+        this.setState({ isLoading: true });
+      } else {
+        this.setState({ isLoading: false });
+      }
+    });
   };
+
+  renderLoading() {
+    return (
+      <Flex value={1} style={{ justifyContent: 'center', width: 2 }}>
+        <LoadingWheel />
+      </Flex>
+    );
+  }
 
   render() {
     const { t, upgradeAccount } = this.props;
@@ -66,6 +86,7 @@ class LoginOptionsScreen extends Component {
           <Flex value={1.2} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
+                name={'facebookButton'}
                 pill={true}
                 onPress={this.facebookLogin}
                 style={styles.facebookButton}
@@ -77,6 +98,7 @@ class LoginOptionsScreen extends Component {
                 </Flex>
               </Button>
               <Button
+                name={'emailButton'}
                 pill={true}
                 onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
                 style={styles.facebookButton}
@@ -90,6 +112,7 @@ class LoginOptionsScreen extends Component {
               {
                 upgradeAccount ? null : (
                   <Button
+                    name={'tryItNowButton'}
                     pill={true}
                     onPress={this.tryItNow}
                     text={t('tryNow').toUpperCase()}
@@ -116,11 +139,13 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
+              {this.state.isLoading ? this.renderLoading() : null }
             </Flex>
 
             <Flex value={1} align="end" direction="row">
               <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
               <Button
+                name={'loginButton'}
                 text={t('signIn').toUpperCase()}
                 type="transparent"
                 onPress={this.login}

@@ -17,7 +17,7 @@ import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 
-export function openKeyURL(baseURL, upgradeAccount = false) {
+export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -32,6 +32,7 @@ export function openKeyURL(baseURL, upgradeAccount = false) {
 
     Linking.addEventListener('url', (event) => {
       const code = event.url.split('code=')[1];
+      onReturn();
       return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
     });
 
@@ -137,7 +138,7 @@ export function firstTime() {
 }
 
 export function getTimezoneString() {
-  return `${new Date().getTimezoneOffset()/60*-1}`;
+  return `${new Date().getTimezoneOffset() / 60 * -1}`;
 }
 
 export function updateTimezone() {

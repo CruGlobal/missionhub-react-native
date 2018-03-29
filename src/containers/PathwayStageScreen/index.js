@@ -22,7 +22,7 @@ import { ACTIONS } from '../../constants';
 
 const screenMargin = 60;
 const sliderWidth = theme.fullWidth;
-const stageWidth = theme.fullWidth - screenMargin*2;
+const stageWidth = theme.fullWidth - screenMargin * 2;
 const stageMargin = theme.fullWidth / 30;
 const overScrollMargin = 120;
 
