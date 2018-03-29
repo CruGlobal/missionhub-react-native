@@ -16,7 +16,7 @@ export function getMe() {
 }
 
 export function getPerson(id) {
-  return (dispatch) => dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id, include: personInclude }));
+  return (dispatch) => dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id, include: `${personInclude},contact_assignments` }));
 }
 
 export function getPersonDetails(id, orgId) {
