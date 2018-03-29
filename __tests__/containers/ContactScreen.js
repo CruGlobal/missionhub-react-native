@@ -3,24 +3,35 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
+import { STAGE_SCREEN } from '../../src/containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
+import {UPDATE_PERSON_ATTRIBUTES} from '../../src/constants';
 import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
+import { getMyImpact } from '../../src/actions/impact';
+import callApi, { REQUESTS } from '../../src/actions/api';
 
 jest.mock('../../src/selectors/people');
 jest.mock('../../src/selectors/organizations');
-
-const dispatch = jest.fn((response) => Promise.resolve(response));
-navigation.navigatePush = jest.fn();
+jest.mock('../../src/actions/api');
 
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment', pathway_stage_id: 5 };
 const stage = { id: 5, type: 'pathway_stage' };
 const organization = { id: 1, type: 'organization' };
 const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
+
+const dispatch = jest.fn((response) => Promise.resolve(response));
+navigation.navigatePush = jest.fn((screenName, params) => {
+  if (screenName === PERSON_STAGE_SCREEN && params.onComplete) {
+    params.onComplete(stage);
+    return { type: 'nav to select stage' };
+  }
+});
 
 const state = {
   auth: {
@@ -48,6 +59,7 @@ const props = {
 };
 
 let store;
+let component;
 
 const createMockStore = () => {
   return configureStore([ thunk ])(state);
@@ -165,5 +177,24 @@ describe('ContactScreen', () => {
         expect(await promptPromise).toEqual(true);
       });
     });
+  });
+
+  describe('handleChangeStage', () => {
+    beforeEach(() => {
+      store = createMockStore();
+      component = createComponent();
+
+      callApi.mockClear();
+      callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+
+      component.instance().promptToAssign = jest.fn(() => true );
+    });
+
+    it('updates person stage', async() => {
+      await component.instance().handleChangeStage();
+
+      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, { person_id: 'me' });
+    });
+
   });
 });
