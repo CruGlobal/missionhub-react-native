@@ -95,8 +95,9 @@ describe('the key', () => {
     it('should open key URL', () => {
       Linking.addEventListener = jest.fn();
       Linking.openURL = jest.fn();
+      const onReturn = jest.fn();
 
-      store.dispatch(openKeyURL('login?action=signup', false));
+      store.dispatch(openKeyURL('login?action=signup', onReturn, false));
 
       expect(Linking.addEventListener).toHaveBeenCalledWith('url', expect.any(Function));
       expect(store.getActions()).toEqual([ expectedUrlResult ]);
