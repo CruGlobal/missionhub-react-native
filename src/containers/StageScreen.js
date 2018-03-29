@@ -8,7 +8,6 @@ import PathwayStageScreen from './PathwayStageScreen';
 import { selectMyStage } from '../actions/selectStage';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
-import { CONTACT_SCREEN } from './ContactScreen';
 
 @translate('selectStage')
 class StageScreen extends Component {
