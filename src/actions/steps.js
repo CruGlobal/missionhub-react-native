@@ -9,6 +9,7 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { getPerson } from './person';
+import { getMyImpact } from './impact';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
@@ -136,6 +137,7 @@ export function completeStepReminder(step) {
     return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
       dispatch(setStepFocus(step, false));
+      dispatch(getMyImpact());
       return r;
     });
   };
@@ -145,6 +147,7 @@ export function completeStep(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
       dispatch(getMySteps());
+      dispatch(getMyImpact());
       return r;
     });
   };
