@@ -3,11 +3,11 @@ import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
 
-const personIncludes = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
+const personInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
 
 export function getMe() {
   return async(dispatch) => {
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include: personIncludes }));
+    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include: personInclude }));
 
     Crashlytics.setUserIdentifier(person.id);
 
@@ -16,14 +16,14 @@ export function getMe() {
 }
 
 export function getPerson(id) {
-  return (dispatch) => dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id, include: personIncludes }));
+  return (dispatch) => dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id, include: personInclude }));
 }
 
 export function getPersonDetails(id, orgId) {
   return async(dispatch) => {
     const query = {
       person_id: id,
-      include: personIncludes,
+      include: personInclude,
     };
     const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
     return dispatch({

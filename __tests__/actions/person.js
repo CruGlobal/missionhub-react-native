@@ -11,6 +11,7 @@ import configureStore from 'redux-mock-store';
 
 const store = configureStore([ thunk ])({});
 const dispatch = jest.fn((response) => Promise.resolve(response));
+const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
 
 beforeEach(() => {
   store.clearActions();
@@ -28,7 +29,7 @@ describe('get me', () => {
   it('should get me', () => {
     store.dispatch(getMe());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, { include: expectedInclude });
     expect(store.getActions()[0]).toEqual(action);
   });
 });
@@ -44,7 +45,7 @@ describe('getPersonDetails', () => {
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
-      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
+      include: expectedInclude,
     });
 
     expect(store.getActions()).toEqual([

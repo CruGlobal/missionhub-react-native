@@ -47,7 +47,7 @@ describe('register push token', () => {
   };
   const action = { type: 'registered' };
 
-  beforeEach(() => mockApi(action, REQUESTS.SET_PUSH_TOKEN, {}, expectedData));
+  beforeEach(() => mockApi(action, REQUESTS.SET_PUSH_TOKEN, { include: '' }, expectedData));
 
   it('should get people list', () => {
     store.dispatch(registerPushDevice(token));
@@ -68,7 +68,7 @@ describe('set push token', () => {
   };
   const action = { type: 'registered' };
 
-  beforeEach(() => mockApi(action, REQUESTS.SET_PUSH_TOKEN, {}, expectedData));
+  beforeEach(() => mockApi(action, REQUESTS.SET_PUSH_TOKEN, { include: '' }, expectedData));
 
   beforeEach(() => store = configureStore([ thunk ])({
     notifications: {
