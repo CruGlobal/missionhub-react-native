@@ -2,7 +2,7 @@ import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 
-import { shouldRunSetUpPushNotifications, deletePushToken } from './notifications';
+import { reregisterNotificationHandler, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { logOutAnalytics } from './analytics';
@@ -165,6 +165,6 @@ export function loadHome() {
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateTimezone());
-    dispatch(shouldRunSetUpPushNotifications());
+    dispatch(reregisterNotificationHandler());
   };
 }
