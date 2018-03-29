@@ -5,6 +5,7 @@ import {
 import callApi, { REQUESTS } from './api';
 import uuidv4 from 'uuid/v4';
 import { updatePerson } from './person';
+import { Crashlytics } from 'react-native-fabric';
 
 export function firstNameChanged(firstName) {
   return {
@@ -27,8 +28,10 @@ export function createMyPerson(firstName, lastName) {
     last_name: lastName,
   };
 
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+  return async(dispatch) => {
+    const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+    Crashlytics.setUserIdentifier(`${me.person_id}`);
+    return me;
   };
 }
 
