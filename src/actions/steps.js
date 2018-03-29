@@ -56,10 +56,11 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}) {
+export function getStepsByFilter(filters = {}, include = '') {
   return (dispatch) => {
     const query = {
       filters,
+      include,
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
