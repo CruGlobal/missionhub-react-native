@@ -52,13 +52,4 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 10,
   },
-  gif: {
-    flex: 1,
-    width: theme.fullWidth,
-  },
-  loadText: {
-    fontSize: 64,
-    color: theme.primaryColor,
-    paddingVertical: 0,
-  },
 });

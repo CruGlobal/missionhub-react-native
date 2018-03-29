@@ -57,6 +57,7 @@
         "classes": "always"
       }
     ],
+    "space-infix-ops": "error",
     "no-console": 0,
     "no-case-declarations": 0,
     "keyword-spacing": [

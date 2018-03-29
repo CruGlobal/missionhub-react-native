@@ -114,7 +114,7 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage): this.handleNavToStage();
+    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage) : this.handleNavToStage();
   }
 
 
