@@ -5,7 +5,8 @@ import DateComponent from './DateComponent';
 import Flex from './Flex';
 import Icon from './Icon';
 import Input from './Input';
-import Loading from './Loading';
+import LoadingGuy from './LoadingGuy';
+import LoadingWheel from './LoadingWheel';
 import Text from './Text';
 import Touchable from './Touchable';
 import Separator from './Separator';
@@ -21,7 +22,8 @@ export {
   Flex,
   Icon,
   Input,
-  Loading,
+  LoadingGuy,
+  LoadingWheel,
   Text,
   Touchable,
   Separator,
