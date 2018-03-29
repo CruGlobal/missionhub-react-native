@@ -7,6 +7,8 @@ import { contactAssignmentSelector, personSelector, orgPermissionSelector } from
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
 import { Alert } from 'react-native';
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 
 jest.mock('../../src/selectors/people');
 jest.mock('../../src/selectors/organizations');
@@ -20,34 +22,54 @@ const stage = { id: 5, type: 'pathway_stage' };
 const organization = { id: 1, type: 'organization' };
 const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
 
+const state = {
+  auth: {
+    isJean: true,
+    personId: 1,
+  },
+  stages: {
+    stages: [ stage ],
+    stagesObj: {
+      5: stage,
+    },
+  },
+  people: {},
+  organizations: { all: [ organization ] },
+};
+const props = {
+  navigation: {
+    state: {
+      params: {
+        person,
+        organization,
+      },
+    },
+  },
+};
+
+let store;
+
+const createMockStore = () => {
+  return configureStore([ thunk ])(state);
+};
+
+const createComponent = () => {
+  return renderShallow(
+    <ContactScreen
+      dispatch={dispatch}
+      isJean={true}
+      personIsCurrentUser={false}
+      person={person}
+      contactStage={stage}
+      organization={organization}
+    />,
+    store
+  );
+};
+
 
 describe('ContactScreen', () => {
   describe('mapStateToProps', () => {
-    const state = {
-      auth: {
-        isJean: true,
-        personId: 1,
-      },
-      stages: {
-        stages: [ stage ],
-        stagesObj: {
-          5: stage,
-        },
-      },
-      people: {},
-      organizations: { all: [ organization ] },
-    };
-    const props = {
-      navigation: {
-        state: {
-          params: {
-            person,
-            organization,
-          },
-        },
-      },
-    };
-
     it('should provide the necessary props with a contactAssignment', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
@@ -105,16 +127,8 @@ describe('ContactScreen', () => {
     let instance;
 
     beforeEach(() => {
-      instance = renderShallow(
-        <ContactScreen
-          dispatch={dispatch}
-          isJean={true}
-          personIsCurrentUser={false}
-          person={person}
-          contactStage={stage}
-          organization={organization}
-        />
-      ).instance();
+      store = createMockStore();
+      instance = createComponent().instance();
       Alert.alert = jest.fn();
     });
 

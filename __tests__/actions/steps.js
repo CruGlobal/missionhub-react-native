@@ -94,6 +94,7 @@ describe('complete challenge', () => {
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
   };
+  const impactQuery = { person_id: 'me' };
   const data = {
     data: {
       type: 'accepted_challenge',
@@ -125,6 +126,7 @@ describe('complete challenge', () => {
     await store.dispatch(completeStep(step));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, impactQuery);
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       { type: NAVIGATE_FORWARD,
