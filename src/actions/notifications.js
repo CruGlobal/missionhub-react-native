@@ -10,7 +10,6 @@ import { MAIN_TABS } from '../constants';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID,
 } from '../constants';
@@ -103,7 +102,6 @@ export function registerNotificationHandler() {
         if (token === t.token) {
           return;
         }
-        dispatch({ type: PUSH_NOTIFICATION_SET_TOKEN, token: t.token });
         //make api call to register token with user
         dispatch(registerPushDevice(t.token));
       },
