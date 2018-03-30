@@ -2,7 +2,6 @@ import notifications from '../../src/reducers/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
 } from '../../src/constants';
@@ -29,14 +28,6 @@ it('updates showReminder', () => {
     bool: false,
   });
   expect(state.showReminder).toBe(false);
-});
-
-it('updates set token', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_SET_TOKEN,
-    token: '123',
-  });
-  expect(state.token).toBe('123');
 });
 
 it('updates set token', () => {
