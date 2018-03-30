@@ -1,21 +1,30 @@
 import callApi, { REQUESTS } from '../../src/actions/api';
-jest.mock('../../src/actions/api');
-import { completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus } from '../../src/actions/steps';
+import {
+  completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
+  addSteps,
+} from '../../src/actions/steps';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
-import { ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER } from '../../src/constants';
+import {
+  ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER,
+  CUSTOM_STEP_TYPE,
+} from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import i18next from 'i18next';
 
 const mockStore = configureStore([ thunk ]);
 let store;
 
+const personId = 2123;
+const receiverId = 983547;
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
+
+jest.mock('../../src/actions/api');
 
 beforeEach(() => {
   callApi.mockClear();
@@ -78,10 +87,80 @@ describe('getStepsByFilter', () => {
   });
 });
 
-describe('complete challenge', () => {
-  const personId = 2123;
-  const receiverId = 983547;
+describe('addSteps', () => {
+  const step1 = {
+    id: '100',
+    body: 'System generated step',
+  };
+  const step2 = {
+    id: 'f53836fd-c6e3-4c69-bcd3-362928c5c924',
+    body: 'Hello world',
+    challenge_type: CUSTOM_STEP_TYPE,
+  };
+  const step3 = {
+    id: '25fc6712-67c2-4774-88dd-083f138a8011',
+    body: 'another custom step',
+    challenge_type: CUSTOM_STEP_TYPE,
+  };
+  const steps = [ step1, step2, step3 ];
 
+  const acceptedChallenges = [
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step1.body,
+        challenge_suggestion_id: step1.id,
+      },
+    },
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step2.body,
+        challenge_suggestion_id: null,
+      },
+    },
+    {
+      type: 'accepted_challenge',
+      attributes: {
+        title: step3.body,
+        challenge_suggestion_id: null,
+      },
+    },
+  ];
+
+  const stepAddedResult = { type: 'added steps tracked' };
+
+  const test = async(organization, expectedIncluded) => {
+    const expectedApiParam = {
+      included: expectedIncluded,
+      include: 'received_challenges',
+    };
+
+    await store.dispatch(addSteps(steps, receiverId, organization));
+
+    expect(store.getActions()).toEqual([ stepAddedResult ]);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_CHALLENGES, { person_id: receiverId }, expectedApiParam);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
+  };
+
+  beforeEach(() => {
+    mockFnWithParams(analytics, 'trackStepsAdded', stepAddedResult, steps);
+    callApi.mockReturnValue(() => Promise.resolve());
+  });
+
+  it('creates steps without org', async() => {
+    return test(null, acceptedChallenges);
+  });
+
+  it('creates steps with org', async() => {
+    const organization = { id: '200' };
+    const expectedIncluded = acceptedChallenges.map((c) => ({ ...c, attributes: { ...c.attributes, organization_id: organization.id } }));
+
+    return test(organization, expectedIncluded);
+  });
+});
+
+describe('complete challenge', () => {
   const stepId = 34556;
   const step = {
     id: stepId,
@@ -138,10 +217,7 @@ describe('complete challenge', () => {
 
 
 describe('Set Focus', () => {
-  const personId= 123;
-  const receiverId= 456;
-
-  const stepId= 102;
+  const stepId = 102;
   const step = {
     id: stepId,
     receiver: { id: receiverId },

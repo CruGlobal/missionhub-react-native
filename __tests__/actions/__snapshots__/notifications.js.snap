@@ -1,0 +1,289 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registerNotificationHandler onNotification should deep link to ME user's contact screen 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "person": Object {
+        "id": "1",
+        "type": "person",
+      },
+    },
+    "routeName": "nav/CONTACT",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onNotification should deep link to add contact screen 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "isJean": true,
+      "onComplete": [Function],
+      "organization": Object {
+        "id": "2",
+      },
+    },
+    "routeName": "nav/ADD_CONTACT",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+  Object {
+    "actions": Array [
+      Object {
+        "routeName": "nav/MAIN_TABS",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": undefined,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onNotification should deep link to contact screen 1`] = `
+Array [
+  Object {
+    "response": Object {
+      "id": "1",
+      "type": "person",
+    },
+    "type": "app/LOAD_PERSON_DETAILS",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+  Object {
+    "params": Object {
+      "organization": Object {
+        "id": "2",
+      },
+      "person": Object {
+        "id": "1",
+        "type": "person",
+      },
+    },
+    "routeName": "nav/CONTACT",
+    "type": "Navigation/NAVIGATE",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onNotification should deep link to contact screen on iOS 1`] = `
+Array [
+  Object {
+    "response": Object {
+      "id": "1",
+      "type": "person",
+    },
+    "type": "app/LOAD_PERSON_DETAILS",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+  Object {
+    "params": Object {
+      "organization": Object {
+        "id": "2",
+      },
+      "person": Object {
+        "id": "1",
+        "type": "person",
+      },
+    },
+    "routeName": "nav/CONTACT",
+    "type": "Navigation/NAVIGATE",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onNotification should deep link to home screen 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "routeName": "nav/MAIN_TABS",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": undefined,
+    "type": "Navigation/RESET",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onNotification should deep link to main steps tab screen 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "routeName": "nav/MAIN_TABS",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": undefined,
+    "type": "Navigation/RESET",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onRegister should update notification token for android devices 1`] = `
+Array [
+  Array [
+    Object {
+      "FAIL": "SET_PUSH_TOKEN_FAIL",
+      "FETCH": "SET_PUSH_TOKEN_FETCH",
+      "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
+      "endpoint": "undefined/apis/v4/push_notification_device_tokens",
+      "method": "post",
+      "name": "SET_PUSH_TOKEN",
+    },
+    Object {
+      "include": "",
+    },
+    Object {
+      "data": Object {
+        "attributes": Object {
+          "platform": "GCM",
+          "token": "New Token",
+        },
+        "type": "push_notification_device_token",
+      },
+    },
+  ],
+]
+`;
+
+exports[`registerNotificationHandler onRegister should update notification token for android devices 2`] = `
+Array [
+  Object {
+    "token": "New Token",
+    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
+  },
+  Object {
+    "type": "SET_PUSH_TOKEN_SUCCESS",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+]
+`;
+
+exports[`registerNotificationHandler onRegister should update notification token for iOS devices 1`] = `
+Array [
+  Array [
+    Object {
+      "FAIL": "SET_PUSH_TOKEN_FAIL",
+      "FETCH": "SET_PUSH_TOKEN_FETCH",
+      "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
+      "endpoint": "undefined/apis/v4/push_notification_device_tokens",
+      "method": "post",
+      "name": "SET_PUSH_TOKEN",
+    },
+    Object {
+      "include": "",
+    },
+    Object {
+      "data": Object {
+        "attributes": Object {
+          "platform": "APNS",
+          "token": "New Token",
+        },
+        "type": "push_notification_device_token",
+      },
+    },
+  ],
+]
+`;
+
+exports[`registerNotificationHandler onRegister should update notification token for iOS devices 2`] = `
+Array [
+  Object {
+    "token": "New Token",
+    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
+  },
+  Object {
+    "type": "SET_PUSH_TOKEN_SUCCESS",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+]
+`;
+
+exports[`showReminderScreen should show Notification Off screen and disable notifications 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "onClose": [Function],
+    },
+    "routeName": "nav/NOTIFICATION_OFF",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "bool": false,
+    "type": "app/PUSH_NOTIFICATION_REMINDER",
+  },
+  Object {
+    "immediate": undefined,
+    "key": undefined,
+    "type": "Navigation/BACK",
+  },
+]
+`;
+
+exports[`showReminderScreen should show Notification Off screen and enable notifications 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "onClose": [Function],
+    },
+    "routeName": "nav/NOTIFICATION_OFF",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "bool": true,
+    "type": "app/PUSH_NOTIFICATION_SHOULD_ASK",
+  },
+  Object {
+    "type": "app/PUSH_NOTIFICATION_ASKED",
+  },
+  Object {
+    "immediate": undefined,
+    "key": undefined,
+    "type": "Navigation/BACK",
+  },
+]
+`;
+
+exports[`showReminderScreen should show Notification Primer screen 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "onComplete": [Function],
+    },
+    "routeName": "nav/NOTIFICATION_PRIMER",
+    "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "immediate": undefined,
+    "key": undefined,
+    "type": "Navigation/BACK",
+  },
+]
+`;

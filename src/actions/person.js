@@ -1,4 +1,3 @@
-import { Crashlytics } from 'react-native-fabric';
 import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
@@ -8,9 +7,6 @@ const personInclude = 'email_addresses,phone_numbers,organizational_permissions,
 export function getMe() {
   return async(dispatch) => {
     const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include: personInclude }));
-
-    Crashlytics.setUserIdentifier(person.id);
-
     return person;
   };
 }
@@ -124,7 +120,7 @@ export function updatePerson(data) {
             id: data.emailId,
             type: 'email',
             attributes: { email: data.email },
-          } ]: [],
+          } ] : [],
           ...data.phone ? [ {
             id: data.phoneId,
             type: 'phone_number',
@@ -173,7 +169,7 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
 
     dispatch(trackAction(ACTIONS.STATUS_CHANGED));
 
-    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status }: orgPermission) }));
+    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status } : orgPermission) }));
   };
 }
 
