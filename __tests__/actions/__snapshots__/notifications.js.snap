@@ -153,7 +153,9 @@ Array [
       "method": "post",
       "name": "SET_PUSH_TOKEN",
     },
-    Object {},
+    Object {
+      "include": "",
+    },
     Object {
       "data": Object {
         "attributes": Object {
@@ -193,7 +195,9 @@ Array [
       "method": "post",
       "name": "SET_PUSH_TOKEN",
     },
-    Object {},
+    Object {
+      "include": "",
+    },
     Object {
       "data": Object {
         "attributes": Object {
