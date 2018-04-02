@@ -4,15 +4,13 @@ import { trackAction } from './analytics';
 
 const personInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
 
-export function getMe() {
+export function getMe(extraInclude) {
+  const include = extraInclude ? `${personInclude},${extraInclude}` : personInclude;
+
   return async(dispatch) => {
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include: personInclude }));
+    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include }));
     return person;
   };
-}
-
-export function getPerson(id) {
-  return (dispatch) => dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id, include: `${personInclude},contact_assignments` }));
 }
 
 export function getPersonDetails(id, orgId) {
