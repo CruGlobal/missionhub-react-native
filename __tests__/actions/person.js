@@ -32,6 +32,15 @@ describe('get me', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, { include: expectedInclude });
     expect(store.getActions()[0]).toEqual(action);
   });
+
+  it('should add extra include', () => {
+    const extraInclude = 'contact_assignments';
+
+    store.dispatch(getMe(extraInclude));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, { include: `${expectedInclude},${extraInclude}` });
+    expect(store.getActions()[0]).toEqual(action);
+  });
 });
 
 describe('getPersonDetails', () => {
