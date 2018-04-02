@@ -57,7 +57,6 @@ platform :ios do
                 ipa_path: "./MissionHub.ipa",
                 groups: "missionhub-ios",
                 notes: 'Beta build for MissionHub iOS. See Jira board for issues that are "Ready for QA"'
-
     )
 
     cru_update_commit(message: "[skip ci] Build number bump to (#{build_number})")
@@ -66,6 +65,8 @@ platform :ios do
   end
 
   lane :cru_build_app do |options|
+    sh('echo', '.env.production', '>', '/tmp/envfile')
+
     gym(
         scheme: "MissionHub",
         export_method: options[:export_method],
