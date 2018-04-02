@@ -9,7 +9,6 @@ export function getGlobalImpact() {
 
 export function getMyImpact() {
   return (dispatch) => {
-    console.log('here');
     const query = { person_id: 'me' };
     return dispatch(callApi(REQUESTS.GET_MY_IMPACT, query));
   };

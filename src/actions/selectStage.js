@@ -31,7 +31,6 @@ export function updateUserStage(contactAssignmentId, stageId) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).then(() => {
-      console.log('update');
       return dispatch(getMyImpact());
     });
   };
@@ -72,7 +71,6 @@ export function selectPersonStage(personId, assignedToId, pathwayStageId, orgId)
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then(() => {
-      console.log('create');
       return dispatch(getMyImpact());
     });
   };

@@ -20,6 +20,7 @@ const stage = { id: 5, type: 'pathway_stage' };
 const organization = { id: 1, type: 'organization' };
 const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
 
+
 describe('ContactScreen', () => {
   describe('mapStateToProps', () => {
     const state = {
