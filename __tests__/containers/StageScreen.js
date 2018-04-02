@@ -13,7 +13,6 @@ import {
 import * as selectStage from '../../src/actions/selectStage';
 import * as navigation from '../../src/actions/navigation';
 import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
-import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 
 jest.mock('react-native-device-info');
 
@@ -96,7 +95,7 @@ describe('handleSelectStage', () => {
     describe('and no nav is false', () => {
       it('should select stage, navigate to select step screen, then onComplete navigates to contact screen', async() => {
         const selectMyStepNavAction = { type: 'navigated to select my step screen' };
-        const contactScreenNavAction = { type: 'navigated to contact screen' };
+        const navigateBackAction = { type: 'navigated back 2x' };
         const selectStageAction = { type: 'selected stage' };
         const selectStageResult = (dispatch) => {
           dispatch(selectStageAction);
@@ -107,16 +106,15 @@ describe('handleSelectStage', () => {
           if (screenName === SELECT_MY_STEP_SCREEN && params.onSaveNewSteps && params.enableBackButton && params.contactStage === mockStage) {
             params.onSaveNewSteps(); //todo figure out cleaner way to test this
             return selectMyStepNavAction;
-          } else if (screenName === CONTACT_SCREEN && JSON.stringify(params) === JSON.stringify({ person: { id: contactId } })) {
-            return contactScreenNavAction;
           }
         });
+        mockFnWithParams(navigation, 'navigateBack', navigateBackAction, 2);
 
         await component.handleSelectStage(mockStage, false);
 
         expect(store.getActions()).toEqual([
           selectStageAction,
-          contactScreenNavAction,
+          navigateBackAction,
           selectMyStepNavAction,
         ]);
       });
