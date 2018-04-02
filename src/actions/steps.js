@@ -58,12 +58,12 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}) {
+export function getStepsByFilter(filters = {}, include) {
   return (dispatch) => {
     const query = {
       filters,
       page: { limit: 1000 },
-      include: '',
+      include,
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
   };
