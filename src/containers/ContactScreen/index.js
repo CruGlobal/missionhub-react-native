@@ -18,7 +18,6 @@ import { personSelector, contactAssignmentSelector, orgPermissionSelector } from
 import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
 import { isMissionhubUser } from '../../utils/common';
-import { getMyImpact } from '../../actions/impact';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
@@ -68,8 +67,6 @@ export class ContactScreen extends Component {
               })) :
               dispatch(getPersonDetails(person.id, organization && organization.id));
             dispatch(reloadJourney(person.id, organization && organization.id));
-            console.log('there');
-            dispatch(getMyImpact());
             onComplete && onComplete(stage);
           },
           firstItem: firstItemIndex,
