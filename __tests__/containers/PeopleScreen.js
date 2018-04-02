@@ -54,10 +54,6 @@ const orgs = [
 
 const props = {
   isJean: true,
-  me: {
-    id: 1,
-    type: 'person',
-  },
   orgs: orgs,
   dispatch: jest.fn((response) => Promise.resolve(response)),
 };
@@ -72,7 +68,6 @@ describe('PeopleScreen', () => {
         {
           auth: {
             isJean: true,
-            user: { id: 1, type: 'person' },
           },
           people: {},
         },

@@ -2,16 +2,14 @@ import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
 
-export function getMe() {
-  return async(dispatch) => {
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME));
-    return person;
-  };
-}
+const personInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
 
-export function getPerson(id) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
+export function getMe(extraInclude) {
+  const include = extraInclude ? `${personInclude},${extraInclude}` : personInclude;
+
+  return async(dispatch) => {
+    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include }));
+    return person;
   };
 }
 
@@ -19,7 +17,7 @@ export function getPersonDetails(id, orgId) {
   return async(dispatch) => {
     const query = {
       person_id: id,
-      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
+      include: personInclude,
     };
     const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
     return dispatch({
