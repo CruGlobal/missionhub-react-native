@@ -5,15 +5,14 @@ import { renderShallow, testSnapshotShallow } from '../../testUtils';
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
 import { STAGE_SCREEN } from '../../src/containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
-import {UPDATE_PERSON_ATTRIBUTES} from '../../src/constants';
 import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
+import * as journey from '../../src/actions/journey';
+import * as impact from '../../src/actions/impact';
 import { Alert } from 'react-native';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { getMyImpact } from '../../src/actions/impact';
-import callApi, { REQUESTS } from '../../src/actions/api';
 
 jest.mock('../../src/selectors/people');
 jest.mock('../../src/selectors/organizations');
@@ -22,6 +21,7 @@ jest.mock('../../src/actions/api');
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment', pathway_stage_id: 5 };
 const stage = { id: 5, type: 'pathway_stage' };
+const stages = [ stage ];
 const organization = { id: 1, type: 'organization' };
 const orgPermission = { id: '6', _type: 'organizational_permission', permission_id: 2 };
 
@@ -39,7 +39,7 @@ const state = {
     personId: 1,
   },
   stages: {
-    stages: [ stage ],
+    stages,
     stagesObj: {
       5: stage,
     },
@@ -74,6 +74,7 @@ const createComponent = () => {
       person={person}
       contactStage={stage}
       organization={organization}
+      stages={stages}
     />,
     store
   );
@@ -180,12 +181,12 @@ describe('ContactScreen', () => {
   });
 
   describe('handleChangeStage', () => {
+    journey.reloadJourney = jest.fn();
+    impact.getMyImpact = jest.fn();
+
     beforeEach(() => {
       store = createMockStore();
       component = createComponent();
-
-      callApi.mockClear();
-      callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
 
       component.instance().promptToAssign = jest.fn(() => true );
     });
@@ -193,8 +194,9 @@ describe('ContactScreen', () => {
     it('updates person stage', async() => {
       await component.instance().handleChangeStage();
 
-      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, { person_id: 'me' });
+      expect(navigation.navigatePush).toHaveBeenCalled();
+      expect(journey.reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
+      expect(impact.getMyImpact).toHaveBeenCalled();
     });
-
   });
 });

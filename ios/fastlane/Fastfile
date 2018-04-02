@@ -103,17 +103,17 @@ platform :ios do
 
   lane :cru_update_commit do |options|
     clean_build_artifacts
-    
-    commit_version_bump(
-        xcodeproj: 'MissionHub.xcodeproj',
-        message: options[:message]
-    )
 
     if is_ci?
       travis_branch = ENV["TRAVIS_BRANCH"]
 
       sh('git', 'checkout', travis_branch)
     end
+
+    commit_version_bump(
+        xcodeproj: 'MissionHub.xcodeproj',
+        message: options[:message]
+    )
 
     push_to_git_remote
   end

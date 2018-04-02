@@ -68,6 +68,7 @@ export class ContactScreen extends Component {
               })) :
               dispatch(getPersonDetails(person.id, organization && organization.id));
             dispatch(reloadJourney(person.id, organization && organization.id));
+            console.log('there');
             dispatch(getMyImpact());
             onComplete && onComplete(stage);
           },
@@ -178,6 +179,7 @@ export const mapStateToProps = ({ auth, stages, people, organizations }, { navig
   const contactAssignment = contactAssignmentSelector({ auth }, { person, orgId });
   const organization = organizationSelector({ organizations }, { orgId });
   const orgPermission = orgPermissionSelector(null, { person, organization: navParams.organization });
+  console.log(stages);
 
   return {
     ...(navigation.state.params || {}),

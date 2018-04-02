@@ -32,7 +32,7 @@ class CustomTabs extends Component {
                   <Icon
                     name={tab.iconName}
                     type="MissionHub"
-                    size={tab.iconName === 'actionsIcon'? 26 : 32}
+                    size={tab.iconName === 'actionsIcon' ? 26 : 32}
                     style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
                   />
                 </Flex>

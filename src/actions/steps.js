@@ -1,8 +1,10 @@
 import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS } from '../constants';
-import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
+import {
+  REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
+} from '../constants';
+import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -76,6 +78,7 @@ export function addSteps(steps, receiverId, organization) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
+        challenge_suggestion_id: isCustomStep(s) ? null : s.id,
         ...organization && organization.id !== 'personal' ?
           { organization_id: organization.id } :
           {},
