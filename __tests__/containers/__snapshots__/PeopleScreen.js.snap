@@ -3,10 +3,6 @@
 exports[`PeopleScreen mapStateToProps should provide the necessary props 1`] = `
 Object {
   "isJean": true,
-  "me": Object {
-    "id": 1,
-    "type": "person",
-  },
   "orgs": Array [
     Object {
       "id": "personal",
