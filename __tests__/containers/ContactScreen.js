@@ -3,7 +3,6 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
-import { STAGE_SCREEN } from '../../src/containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
