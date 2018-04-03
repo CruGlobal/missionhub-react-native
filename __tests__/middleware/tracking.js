@@ -22,12 +22,12 @@ const back = { type: 'Navigation/BACK' };
 
 const trackStateResult = { type: 'tracked state' };
 
-const test = (expectedTrackingObj) => {
+const test = (expectedTrackingObj, trackResult = true) => {
   mockFnWithParams(analytics, 'trackState', trackStateResult, expectedTrackingObj);
 
   store.dispatch(navigationAction);
 
-  expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+  expect(store.getActions()).toEqual([ navigationAction, ...trackResult ? [ trackStateResult ] : [] ]);
 };
 
 describe('navigate forward', () => {
@@ -64,6 +64,12 @@ describe('navigate forward', () => {
   describe('to drawer', () => {
     beforeEach(() => {
       navigationAction = { type: NAVIGATE_FORWARD, routeName: DRAWER_OPEN, params: { drawer: MAIN_MENU_DRAWER } };
+    });
+
+    it('tracks nothing if actionParams are missing', () => {
+      navigationAction.params = undefined;
+
+      test(buildTrackingObj(), false);
     });
 
     it('tracks main menu drawer', () => {
