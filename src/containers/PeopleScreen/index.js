@@ -112,7 +112,6 @@ export class PeopleScreen extends Component {
 export const mapStateToProps = ({ auth, people }) => ({
   isJean: auth.isJean,
   orgs: peopleByOrgSelector({ people, auth }),
-  me: auth.user,
 });
 
 export default connect(mapStateToProps)(PeopleScreen);

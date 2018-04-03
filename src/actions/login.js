@@ -1,4 +1,5 @@
-import { getPerson } from './person';
+import { Crashlytics } from 'react-native-fabric';
+import { getMe } from './person';
 import { navigateReset } from './navigation';
 import { logInAnalytics } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
@@ -10,12 +11,14 @@ export function onSuccessfulLogin() {
     dispatch(logInAnalytics());
 
     const personId = getState().auth.personId;
-    const getMeResult = await dispatch(getPerson(personId));
+    Crashlytics.setUserIdentifier(personId);
+
+    const mePerson = await dispatch(getMe('contact_assignments'));
 
     let nextScreen = GET_STARTED_SCREEN;
-    if (getMeResult.findAll('user')[0].pathway_stage_id) {
+    if (mePerson.user.pathway_stage_id) {
 
-      if (hasPersonWithStageSelected(getMeResult.find('person', personId))) {
+      if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;

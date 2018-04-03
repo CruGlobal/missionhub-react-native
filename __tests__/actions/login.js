@@ -8,9 +8,10 @@ import * as analytics from '../../src/actions/analytics';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { MAIN_TABS } from '../../src/constants';
+import { Crashlytics } from 'react-native-fabric';
 
 const mockStore = configureStore([ thunk ]);
-const personId = 593348;
+const personId = '593348';
 let store;
 let user;
 let myContact;
@@ -23,15 +24,11 @@ describe('onSuccessfulLogin', () => {
 
     user = {};
     myContact = {};
-    myPerson = { contact_assignments: [ myContact ] };
+    myPerson = { user, contact_assignments: [ myContact ] };
 
     mockFnWithParams(analytics, 'logInAnalytics', updateStatusResult);
 
-    const getPersonResult = {};
-    mockFnWithParams(getPersonResult, 'findAll', [ user ], 'user');
-    mockFnWithParams(getPersonResult, 'find', myPerson, 'person', personId);
-
-    mockFnWithParams(person, 'getPerson', () => Promise.resolve(getPersonResult), personId);
+    mockFnWithParams(person, 'getMe', () => Promise.resolve(myPerson), 'contact_assignments');
     navigation.navigateReset = (screen) => ({ type: screen });
   });
 
@@ -58,5 +55,11 @@ describe('onSuccessfulLogin', () => {
     await store.dispatch(onSuccessfulLogin());
 
     expect(store.getActions()).toEqual([ updateStatusResult, { type: MAIN_TABS } ]);
+  });
+
+  it('should set Fabric user id', async() => {
+    await store.dispatch(onSuccessfulLogin());
+
+    expect(Crashlytics.setUserIdentifier).toHaveBeenCalledWith(`${personId}`);
   });
 });

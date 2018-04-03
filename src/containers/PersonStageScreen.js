@@ -5,14 +5,13 @@ import { translate } from 'react-i18next';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
-import { navigatePush } from '../actions/navigation';
+import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { trackAction, trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import { ACTIONS } from '../constants';
-import { CONTACT_SCREEN } from './ContactScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -53,7 +52,7 @@ class PersonStageScreen extends Component {
     onComplete(stage);
     if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        onSaveNewSteps: () => dispatch(navigatePush(CONTACT_SCREEN, { person: { id: contactId }, organization: { id: orgId } })),
+        onSaveNewSteps: () => dispatch(navigateBack(2)),
         contactStage: stage,
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
         contactName: name,

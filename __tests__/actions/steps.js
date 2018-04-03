@@ -76,13 +76,14 @@ describe('getStepsByFilter', () => {
       receiver_ids: '1',
       organization_ids: '2',
     };
+    const include = 'receiver';
     const apiResult = { type: 'done' };
 
     callApi.mockReturnValue(apiResult);
 
-    store.dispatch(getStepsByFilter(stepsFilter));
+    store.dispatch(getStepsByFilter(stepsFilter, include));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 } });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 }, include: include });
     expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
