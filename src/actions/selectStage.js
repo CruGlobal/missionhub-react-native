@@ -1,6 +1,6 @@
 import { REQUESTS } from './api';
 import callApi from './api';
-import { getGlobalImpact, getMyImpact } from './impact';
+import { refreshImpact } from './impact';
 
 export function selectMyStage(id) {
   const data = {
@@ -31,8 +31,7 @@ export function updateUserStage(contactAssignmentId, stageId) {
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).then((r) => {
-      dispatch(getMyImpact());
-      dispatch(getGlobalImpact());
+      dispatch(refreshImpact());
       return r;
     });
   };
@@ -73,8 +72,7 @@ export function selectPersonStage(personId, assignedToId, pathwayStageId, orgId)
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then((r) => {
-      dispatch(getMyImpact());
-      dispatch(getGlobalImpact());
+      dispatch(refreshImpact());
       return r;
     });
   };

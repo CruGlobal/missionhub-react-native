@@ -3,7 +3,7 @@ import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
   addSteps,
 } from '../../src/actions/steps';
-import { getMyImpact, getGlobalImpact } from '../../src/actions/impact';
+import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -188,8 +188,7 @@ describe('complete challenge', () => {
   const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
 
-  const myImpactResponse = { type: 'test my impact' };
-  const globalImpactResponse = { type: 'test global impact' };
+  const impactResponse = { type: 'test impact' };
 
   beforeEach(() => {
     store = mockStore({
@@ -204,8 +203,7 @@ describe('complete challenge', () => {
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
 
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
-    getMyImpact.mockReturnValue(myImpactResponse);
-    getGlobalImpact.mockReturnValue(globalImpactResponse);
+    refreshImpact.mockReturnValue(impactResponse);
   });
 
   it('completes step', async() => {
@@ -219,8 +217,7 @@ describe('complete challenge', () => {
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
-      myImpactResponse,
-      globalImpactResponse,
+      impactResponse,
     ]);
   });
 });

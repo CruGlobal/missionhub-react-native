@@ -11,7 +11,7 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 
-import { getGlobalImpact, getMyImpact } from './impact';
+import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
@@ -159,8 +159,7 @@ export function completeStep(step) {
 function refreshSteps() {
   return (dispatch) => {
     dispatch(getMySteps());
-    dispatch(getMyImpact());
-    return dispatch(getGlobalImpact());
+    return dispatch(refreshImpact());
   };
 }
 

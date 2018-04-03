@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { updateUserStage, selectPersonStage } from '../../src/actions/selectStage';
 import callApi, { REQUESTS } from '../../src/actions/api';
-import { getMyImpact, getGlobalImpact } from '../../src/actions/impact';
+import { refreshImpact } from '../../src/actions/impact';
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/impact');
 
@@ -56,10 +56,10 @@ const selectData = {
   },
 };
 
-callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
-getMyImpact.mockReturnValue({ type: 'test my impact' });
-getGlobalImpact.mockReturnValue({ type: 'test global impact' });
+const impactResponse = { type: 'test impact' };
 
+callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+refreshImpact.mockReturnValue(impactResponse);
 
 beforeEach(() => {
   callApi.mockClear();
@@ -71,8 +71,7 @@ it('updateUserStage', async() => {
 
   expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, { contactAssignmentId }, updateData);
   expect(store.getActions()).toEqual([
-    { type: 'test my impact' },
-    { type: 'test global impact' },
+    impactResponse,
   ]);
 });
 
@@ -81,8 +80,7 @@ it('selectPersonStage', async() => {
 
   expect(callApi).toHaveBeenCalledWith(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, selectData);
   expect(store.getActions()).toEqual([
-    { type: 'test my impact' },
-    { type: 'test global impact' },
+    impactResponse,
   ]);
 });
 
