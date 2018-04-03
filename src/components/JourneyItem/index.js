@@ -29,7 +29,8 @@ export default class JourneyItem extends Component {
     const { t, item, type } = this.props;
     let title;
     if (type === 'step') {
-      title = t('stepTitle', { stageName: 'Growing' });
+      const pathwayStage = (item.challenge_suggestion && item.challenge_suggestion.pathway_stage) ? item.challenge_suggestion.pathway_stage.name + ' ' : '';
+      title = t('stepTitle', { stageName: pathwayStage });
     } else if (type === 'stage') {
       if (item.old_pathway_stage.name) {
         title = t('stageTitle', this.translatableStage(item));
