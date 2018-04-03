@@ -66,14 +66,6 @@ class LoginOptionsScreen extends Component {
     });
   };
 
-  renderLoading() {
-    return (
-      <Flex value={1} style={{ justifyContent: 'center', width: 2 }}>
-        <LoadingWheel />
-      </Flex>
-    );
-  }
-
   render() {
     const { t, upgradeAccount } = this.props;
 
@@ -139,7 +131,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-              {this.state.isLoading ? this.renderLoading() : null }
+
             </Flex>
 
             <Flex value={1} align="end" direction="row">
@@ -154,6 +146,7 @@ class LoginOptionsScreen extends Component {
             </Flex>
           </Flex>
         </Flex>
+        {this.state.isLoading ? <LoadingWheel /> : null }
       </Flex>
     );
   }
