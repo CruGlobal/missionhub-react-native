@@ -54,28 +54,25 @@ exports[`renders 1`] = `
         activeSlideAlignment="center"
         activeSlideOffset={20}
         apparitionDelay={250}
-        autoplay={false}
-        autoplayDelay={5000}
-        autoplayInterval={3000}
+        autoplay={true}
+        autoplayDelay={0}
+        autoplayInterval={2000}
         callbackOffsetMargin={5}
         containerCustomStyle={Object {}}
         contentContainerCustomStyle={Object {}}
         data={
           Array [
             Object {
-              "description": "Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.",
               "id": 1,
-              "name": "handcraft your faith journey",
+              "name": "Focus on the people in your life",
             },
             Object {
-              "description": "MissionHub helps you grow closer to God by helping others experience Him.",
               "id": 2,
-              "name": "take your relationships deeper",
+              "name": "Take steps to help them experience God",
             },
             Object {
-              "description": "MissionHub remembers every step of faith you've taken so you can see what God is doing.",
               "id": 3,
-              "name": "record your journey with God",
+              "name": "See God work and know you're part of it",
             },
           ]
         }
@@ -233,7 +230,7 @@ exports[`renders onboarding 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#007398",
             "fontSize": 42,
             "letterSpacing": 1.5,
             "lineHeight": 44,
@@ -243,24 +240,7 @@ exports[`renders onboarding 1`] = `
         }
         type="header"
       >
-        record your journey with god
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "lineHeight": 24,
-            "padding": 15,
-            "paddingHorizontal": 40,
-            "textAlign": "center",
-          }
-        }
-      >
-        MissionHub remembers every step of faith you've taken so you can see what God is doing.
+        see god work and know you're part of it
       </MyText>
     </Flex>
     <Flex

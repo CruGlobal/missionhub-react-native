@@ -23,17 +23,14 @@ const ONBOARDING = [
   {
     id: 1,
     name: i18next.t('onboarding:screen1.name'),
-    description: i18next.t('onboarding:screen1.description'),
   },
   {
     id: 2,
     name: i18next.t('onboarding:screen2.name'),
-    description: i18next.t('onboarding:screen2.description'),
   },
   {
     id: 3,
     name: i18next.t('onboarding:screen3.name'),
-    description: i18next.t('onboarding:screen3.description'),
   },
 ];
 
@@ -90,7 +87,6 @@ class LoginScreen extends Component {
         <Flex direction="column">
           <Flex value={1.5} justify="center">
             <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
-            <Text style={styles.onboardText}>{item.description}</Text>
           </Flex>
           <Flex value={1} />
         </Flex>
@@ -138,6 +134,9 @@ class LoginScreen extends Component {
               scrollEventThrottle={5}
               onSnapToItem={this.handleSnapToItem}
               onScroll={this.handleScroll}
+              autoplay={true}
+              autoplayDelay={0}
+              autoplayInterval={2000}
             />
           </Flex>
           <Image
