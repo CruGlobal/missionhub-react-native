@@ -1,4 +1,4 @@
-import { getGlobalImpact, getMyImpact, getImpactById, getUserImpact } from '../../src/actions/impact';
+import { getGlobalImpact, getMyImpact, getImpactById, getUserImpact, refreshImpact } from '../../src/actions/impact';
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 
@@ -22,6 +22,15 @@ describe('getMyImpact', () => {
     await store.dispatch(getMyImpact());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, { person_id: 'me' });
+  });
+});
+
+describe('refreshImpact', () => {
+  it('should get my impact and global impact', async() => {
+    await store.dispatch(refreshImpact());
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, { person_id: 'me' });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GLOBAL_IMPACT);
   });
 });
 
