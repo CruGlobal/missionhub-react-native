@@ -43,6 +43,10 @@ platform :ios do
     build_number = number_of_commits(all: false)
     profile_name = 'match AdHoc com.missionhub'
 
+    increment_build_number(
+        build_number: build_number
+    )
+    
     automatic_code_signing(
         use_automatic_signing: false,
         profile_name: profile_name
