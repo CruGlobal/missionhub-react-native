@@ -3,6 +3,7 @@ import callApi from './api';
 
 const getOrganizationsQuery = {
   limit: 100,
+  include: '',
 };
 
 export function getMyOrganizations() {
@@ -19,9 +20,7 @@ export function getAssignedOrganizations() {
 }
 
 function getOrganizations(requestObject, query) {
-  return (dispatch) => {
-    return dispatch(callApi(requestObject, query));
-  };
+  return (dispatch) => dispatch(callApi(requestObject, query));
 }
 
 export function addNewContact(data) {

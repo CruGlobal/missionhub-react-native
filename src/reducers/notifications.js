@@ -5,7 +5,6 @@ import {
   LOGOUT,
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
 } from '../constants';
 import { useFirstExists } from '../utils/common';
@@ -15,7 +14,6 @@ const initialAuthState = {
   hasAsked: false,
   shouldAsk: true,
   showReminder: true,
-  isRegistered: false,
   pushDeviceId: '',
 };
 
@@ -30,7 +28,6 @@ function notificationReducer(state = initialAuthState, action) {
           hasAsked: useFirstExists(incoming.hasAsked, state.hasAsked),
           shouldAsk: useFirstExists(incoming.shouldAsk, state.shouldAsk),
           showReminder: useFirstExists(incoming.showReminder, state.showReminder),
-          isRegistered: useFirstExists(incoming.isRegistered, state.isRegistered),
         };
       }
       return state;
@@ -49,16 +46,10 @@ function notificationReducer(state = initialAuthState, action) {
         ...state,
         hasAsked: true,
       };
-    case PUSH_NOTIFICATION_SET_TOKEN:
-      return {
-        ...state,
-        token: action.token,
-      };
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
       const deviceToken = action.results.findAll('push_notification_device_token')[0] || {};
       return {
         ...state,
-        isRegistered: true,
         pushDeviceId: deviceToken.id,
       };
     case LOGOUT:

@@ -6,7 +6,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
-    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    build_number = number_of_commits(all: false)
     profile_name = 'match AppStore com.missionhub'
     submit_for_review = options.key?(:submit) && options[:submit] || false
     automatic_release = options.key?(:auto_release) && options[:auto_release] || false
@@ -19,6 +19,10 @@ platform :ios do
           version_number: options[:version] # Automatically increment major version number
       )
     end
+
+    increment_build_number(
+        build_number: build_number
+    )
 
     automatic_code_signing(
         use_automatic_signing: false,
@@ -50,9 +54,13 @@ platform :ios do
   
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do |options|
-    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    build_number = number_of_commits(all: false)
     profile_name = 'match AdHoc com.missionhub'
 
+    increment_build_number(
+        build_number: build_number
+    )
+    
     automatic_code_signing(
         use_automatic_signing: false,
         profile_name: profile_name
@@ -67,15 +75,22 @@ platform :ios do
                 ipa_path: "./MissionHub.ipa",
                 groups: "missionhub-ios",
                 notes: 'Beta build for MissionHub iOS. See Jira board for issues that are "Ready for QA"'
-
     )
-
-    cru_update_commit(message: "[skip ci] Build number bump to (#{build_number})")
 
     cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
   end
 
   lane :cru_build_app do |options|
+
+    begin
+    # if there is a local .env file, move it to a backup.
+      sh('mv -f ../../.env ../../.env.bkup')
+    rescue
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
+    end
+
+    sh('cp', '../../.env.production', '../../.env')
+
     gym(
         scheme: "MissionHub",
         export_method: options[:export_method],
@@ -85,6 +100,14 @@ platform :ios do
             }
         }
     )
+
+    # if there is a backup .env file created above, put it back.
+    # don't fail if it isn't there though.
+    begin
+      sh('mv -f ../../.env.bkup ../../.env')
+    rescue
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
+    end
   end
 
   lane :cru_fetch_certs do
@@ -113,17 +136,17 @@ platform :ios do
 
   lane :cru_update_commit do |options|
     clean_build_artifacts
-    
-    commit_version_bump(
-        xcodeproj: 'MissionHub.xcodeproj',
-        message: options[:message]
-    )
 
     if is_ci?
       travis_branch = ENV["TRAVIS_BRANCH"]
 
       sh('git', 'checkout', travis_branch)
     end
+
+    commit_version_bump(
+        xcodeproj: 'MissionHub.xcodeproj',
+        message: options[:message]
+    )
 
     push_to_git_remote
   end

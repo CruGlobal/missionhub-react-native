@@ -13,6 +13,7 @@ beforeEach(() => store = configureStore([ thunk ])());
 describe('getMyOrganizations', () => {
   const query = {
     limit: 100,
+    include: '',
   };
 
   it('should get my organizations', () => {
@@ -27,6 +28,7 @@ describe('getMyOrganizations', () => {
 describe('getAssignedOrganizations', () => {
   const query = {
     limit: 100,
+    include: '',
     filters: {
       assigned_tos: 'me',
     },

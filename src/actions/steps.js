@@ -1,14 +1,16 @@
 import i18next from 'i18next';
 
 import callApi, { REQUESTS } from './api';
-import { REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS } from '../constants';
-import { buildTrackingObj, formatApiDate, getAnalyticsSubsection } from '../utils/common';
+import {
+  REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
+} from '../constants';
+import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
 import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import { getPerson } from './person';
+import { getPersonDetails } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
@@ -56,11 +58,12 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}) {
+export function getStepsByFilter(filters = {}, include) {
   return (dispatch) => {
     const query = {
       filters,
       page: { limit: 1000 },
+      include,
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
   };
@@ -75,6 +78,7 @@ export function addSteps(steps, receiverId, organization) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
+        challenge_suggestion_id: isCustomStep(s) ? null : s.id,
         ...organization && organization.id !== 'personal' ?
           { organization_id: organization.id } :
           {},
@@ -165,7 +169,7 @@ function challengeCompleteAction(step) {
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const myId = getState().auth.personId;
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
         type: STEP_NOTE,
@@ -182,8 +186,8 @@ function challengeCompleteAction(step) {
           const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
 
           if (count % 3 === 0) {
-            dispatch(getPerson(step.receiver.id)).then((results2) => {
-              const assignment = results2.findAll('contact_assignment')
+            dispatch(getPersonDetails(step.receiver.id, step.organization && step.organization.id)).then((getPersonDetailsResult) => {
+              const assignment = getPersonDetailsResult.person.reverse_contact_assignments
                 .find((a) => a && a.assigned_to ? `${a.assigned_to.id}` === myId : false);
 
               const stages = getState().stages.stages;
@@ -235,7 +239,7 @@ function challengeCompleteAction(step) {
       dispatch(trackState(trackingObj));
       dispatch(trackAction(ACTIONS.STEP_COMPLETED));
 
-      return results;
+      return challengeCompleteResult;
     });
   };
 }

@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -10,36 +8,22 @@ import thunk from 'redux-thunk';
 import * as navigation from '../../src/actions/navigation';
 import ContactJourney from '../../src/containers/ContactJourney';
 import { Provider } from 'react-redux';
-import { createMockNavState, testSnapshot } from '../../testUtils';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils';
 
 const personId = '123';
-const mockState = {
-  auth: {
-    person: personId,
-    isJean: true,
-  },
-  swipe: {
-    journey: false,
-  },
-  journey: {
-    'personal': {
-      [personId]: [ { type: 'step', id: 84472, date: '2010-01-01 12:12:12' } ],
-    },
-  },
-};
+const organizationId = 2;
 
 const mockPerson = {
   id: personId,
   first_name: 'ben',
   organizational_permissions: [
-    { organization_id: 2 },
+    { organization_id: organizationId },
   ],
 };
 
-let store;
-beforeEach(() => store = configureStore([ thunk ])(mockState));
+const mockJourneyList = [
+  { type: 'step', id: 84472, date: '2010-01-01 12:12:12' },
+];
 
 const mockAddComment = jest.fn(() => Promise.resolve());
 const mockEditComment = jest.fn(() => Promise.resolve());
@@ -49,26 +33,59 @@ jest.mock('../../src/actions/interactions', () => ({
   editComment: () => mockEditComment,
 }));
 
+let store;
+let component;
 
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <ContactJourney person={mockPerson} navigation={createMockNavState()} />
-    </Provider>
-  );
+const createMockStore = (id, personalJourney) => {
+  const mockState = {
+    auth: {
+      person: id,
+      isJean: true,
+    },
+    swipe: {
+      journey: false,
+    },
+    journey: {
+      'personal': personalJourney,
+    },
+  };
+
+  return configureStore([ thunk ])(mockState);
+};
+
+const createComponent = () => {
+  return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
+};
+
+
+describe('ContactJourney', () => {
+  it('renders loading screen correctly', () => {
+    store = createMockStore(null, {});
+    component = createComponent();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders null screen correctly', () => {
+    store = createMockStore(personId, { [personId]: [] });
+    component = createComponent();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders screen with steps correctly', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    component = createComponent();
+
+    expect(component).toMatchSnapshot();
+  });
 });
-
 
 describe('journey methods', () => {
   let component;
   beforeEach(() => {
-
-    const screen = shallow(
-      <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
-      { context: { store } },
-    );
-
-    component = screen.dive().dive().dive().instance();
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    component = createComponent().instance();
   });
 
   it('renders a journey row', () => {
@@ -122,7 +139,7 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   testSnapshot(
-    <Provider store={store}>
+    <Provider store={createMockStore(personId, { [personId]: mockJourneyList })}>
       <ContactJourney person={mockPerson} organization={{ id: 1 }} navigation={createMockNavState()} />
     </Provider>
   );

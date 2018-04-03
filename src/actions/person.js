@@ -1,21 +1,15 @@
-import { Crashlytics } from 'react-native-fabric';
 import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
 
-export function getMe() {
+const personInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
+
+export function getMe(extraInclude) {
+  const include = extraInclude ? `${personInclude},${extraInclude}` : personInclude;
+
   return async(dispatch) => {
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME));
-
-    Crashlytics.setUserIdentifier(person.id);
-    
+    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include }));
     return person;
-  };
-}
-
-export function getPerson(id) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_PERSON, { person_id: id }));
   };
 }
 
@@ -23,7 +17,7 @@ export function getPersonDetails(id, orgId) {
   return async(dispatch) => {
     const query = {
       person_id: id,
-      include: 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user',
+      include: personInclude,
     };
     const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
     return dispatch({
@@ -124,7 +118,7 @@ export function updatePerson(data) {
             id: data.emailId,
             type: 'email',
             attributes: { email: data.email },
-          } ]: [],
+          } ] : [],
           ...data.phone ? [ {
             id: data.phoneId,
             type: 'phone_number',
@@ -173,7 +167,7 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
 
     dispatch(trackAction(ACTIONS.STATUS_CHANGED));
 
-    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status }: orgPermission) }));
+    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status } : orgPermission) }));
   };
 }
 

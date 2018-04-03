@@ -1,5 +1,629 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`a login button is clicked email signup button is pressed loading wheel to be rendered 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/missionHubLogoWords.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="start"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#007398",
+          "paddingHorizontal": 30,
+        }
+      }
+      value={1.2}
+    >
+      <Flex
+        align="center"
+        direction="column"
+        self="stretch"
+        value={4}
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="facebookButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#52C5DC",
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="facebookIcon"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH FACEBOOK
+            </MyText>
+          </Flex>
+        </Button>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="emailButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#52C5DC",
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="emailIcon2"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH EMAIL
+            </MyText>
+          </Flex>
+        </Button>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="tryItNowButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+          text="TRY IT NOW"
+        />
+        <Flex
+          direction="column"
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+                "marginTop": 10,
+                "paddingHorizontal": 3,
+                "textAlign": "center",
+              }
+            }
+          >
+            By creating your MissionHub account you agree to our
+          </MyText>
+          <Flex
+            align="center"
+            direction="row"
+            justify="center"
+          >
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Terms of Service"
+              type="transparent"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                }
+              }
+            >
+              and
+            </MyText>
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Privacy Policy"
+              type="transparent"
+            />
+          </Flex>
+        </Flex>
+        <Flex
+          style={
+            Object {
+              "justifyContent": "center",
+              "width": 2,
+            }
+          }
+          value={1}
+        >
+          <LoadingWheel />
+        </Flex>
+      </Flex>
+      <Flex
+        align="end"
+        direction="row"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "marginRight": 10,
+              "paddingTop": 2,
+            }
+          }
+        >
+          ALREADY A MEMBER?
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "paddingTop": 2,
+            }
+          }
+          name="loginButton"
+          onPress={[Function]}
+          text="SIGN IN"
+          type="transparent"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`a login button is clicked facebook signup button is pressed loading wheel to be rendered 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/missionHubLogoWords.png",
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="start"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#007398",
+          "paddingHorizontal": 30,
+        }
+      }
+      value={1.2}
+    >
+      <Flex
+        align="center"
+        direction="column"
+        self="stretch"
+        value={4}
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="facebookButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#52C5DC",
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="facebookIcon"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH FACEBOOK
+            </MyText>
+          </Flex>
+        </Button>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="emailButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#52C5DC",
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+        >
+          <Flex
+            direction="row"
+          >
+            <Icon
+              name="emailIcon2"
+              size={21}
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              type="MissionHub"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                }
+              }
+            >
+              SIGN UP WITH EMAIL
+            </MyText>
+          </Flex>
+        </Button>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+          name="tryItNowButton"
+          onPress={[Function]}
+          pill={true}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            }
+          }
+          text="TRY IT NOW"
+        />
+        <Flex
+          direction="column"
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+                "marginTop": 10,
+                "paddingHorizontal": 3,
+                "textAlign": "center",
+              }
+            }
+          >
+            By creating your MissionHub account you agree to our
+          </MyText>
+          <Flex
+            align="center"
+            direction="row"
+            justify="center"
+          >
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Terms of Service"
+              type="transparent"
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                }
+              }
+            >
+              and
+            </MyText>
+            <Button
+              buttonTextStyle={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0,
+                  "marginTop": 10,
+                  "paddingHorizontal": 3,
+                  "textAlign": "center",
+                  "textDecorationLine": "underline",
+                }
+              }
+              onPress={[Function]}
+              text="Privacy Policy"
+              type="transparent"
+            />
+          </Flex>
+        </Flex>
+        <Flex
+          style={
+            Object {
+              "justifyContent": "center",
+              "width": 2,
+            }
+          }
+          value={1}
+        >
+          <LoadingWheel />
+        </Flex>
+      </Flex>
+      <Flex
+        align="end"
+        direction="row"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "marginRight": 10,
+              "paddingTop": 2,
+            }
+          }
+        >
+          ALREADY A MEMBER?
+        </MyText>
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "marginBottom": 20,
+              "paddingTop": 2,
+            }
+          }
+          name="loginButton"
+          onPress={[Function]}
+          text="SIGN IN"
+          type="transparent"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
 exports[`renders correctly with upgrade 1`] = `
 <View
   style={

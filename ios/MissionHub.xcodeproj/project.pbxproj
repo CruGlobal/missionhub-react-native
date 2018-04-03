@@ -1513,7 +1513,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
 			};
 			name = Debug;
@@ -1549,7 +1549,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
 			};
 			name = Release;
@@ -1563,7 +1563,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 45;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1595,7 +1595,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1613,7 +1613,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1644,7 +1644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "1351bc70-a16f-40d4-9530-0dfca870610e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

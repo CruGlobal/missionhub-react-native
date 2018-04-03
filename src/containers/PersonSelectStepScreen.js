@@ -29,9 +29,6 @@ class PersonSelectStepScreen extends Component {
     let contextualizedSteps = [];
     if (this.props.contactStage) {
       contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[this.props.contactStage.id]);
-
-    } else {
-      //todo redirect to stage screen
     }
 
     return (

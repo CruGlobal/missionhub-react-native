@@ -45,45 +45,46 @@ export class ImpactView extends Component {
     super(props);
 
     this.state = {
-      userImpact: {},
+      contactImpact: {},
+      interactionReport: {},
       interactions: [],
       period: 'P1W',
-      impactById: null,
     };
   }
 
   componentWillMount() {
     if (this.props.isContactScreen) {
-      this.getInteractionReport();
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
-        this.setState({ impactById: results.findAll('impact_report')[0] || {} });
+        this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
     } else {
       this.props.dispatch(getGlobalImpact());
       this.props.dispatch(getMyImpact());
     }
+    this.getInteractionReport();
   }
 
-  getInteractionReport() {
-    const { dispatch, user, organization = {} } = this.props;
-    dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
-      const report = r.findAll('person_report')[0];
-      const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
-        let num = 0;
-        if (INTERACTION_TYPES[key].requestFieldName) {
-          num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
-        } else {
-          const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
-          num = interaction ? interaction.interaction_count : 0;
-        }
-        return {
-          ...INTERACTION_TYPES[key],
-          num,
-        };
-      });
-      this.setState({ userImpact: r, interactions: arr });
+  async getInteractionReport() {
+    const { dispatch, user, me, organization = {} } = this.props;
+
+    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, this.state.period));
+
+    const report = personReports[0];
+    const interactions = report ? report.interactions : [];
+    const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
+      let num = 0;
+      if (INTERACTION_TYPES[key].requestFieldName) {
+        num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
+      } else {
+        const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
+        num = interaction ? interaction.interaction_count : 0;
+      }
+      return {
+        ...INTERACTION_TYPES[key],
+        num,
+      };
     });
+    this.setState({ interactionReport: report, interactions: arr });
   }
 
   handleChangePeriod(period) {
@@ -96,14 +97,25 @@ export class ImpactView extends Component {
     const { t, isContactScreen, user } = this.props;
     const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
+    const { contacts_with_interaction_count = 0 } = this.state.interactionReport || {};
+
+    let numInteractions = 0;
+
+    // ignore: num uncontacted, num assigned contacts and notes
+    const ignoredReportValues = [ 100, 101, 1 ];
+    this.state.interactions.forEach(function(interaction) {
+      if (!ignoredReportValues.includes(interaction.id)) {
+        numInteractions += interaction.num;
+      }
+    });
 
     const stepsSentenceOptions = {
-      context: context(steps_count),
+      context: context(steps_count + (global ? 0 : numInteractions)),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
-      stepsCount: steps_count,
-      receiversCount: receivers_count,
+      stepsCount: steps_count + (global ? 0 : numInteractions),
+      receiversCount: receivers_count + (global ? 0 : contacts_with_interaction_count),
     };
 
     const stageSentenceOptions = {
@@ -155,8 +167,8 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, myImpact, isContactScreen } = this.props;
-    let impact = this.state.impactById || myImpact;
+    const { globalImpact, userImpact, isContactScreen } = this.props;
+    const { contactImpact } = this.state;
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -164,7 +176,7 @@ export class ImpactView extends Component {
       >
         <Flex style={styles.topSection}>
           <Text style={[ styles.text, styles.topText ]}>
-            {this.buildImpactSentence(isContactScreen && this.state.userImpact ? this.state.userImpact : impact)}
+            {this.buildImpactSentence(isContactScreen ? contactImpact : userImpact)}
           </Text>
         </Flex>
         <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
@@ -187,9 +199,10 @@ ImpactView.propTypes = {
   user: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact }) => ({
-  myImpact: impact.mine,
+export const mapStateToProps = ({ impact, auth }) => ({
+  userImpact: impact.mine,
   globalImpact: impact.global,
+  me: auth.user,
 });
 
 export default connect(mapStateToProps)(ImpactView);

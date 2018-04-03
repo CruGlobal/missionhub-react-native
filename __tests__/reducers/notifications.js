@@ -2,7 +2,6 @@ import notifications from '../../src/reducers/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
 } from '../../src/constants';
@@ -33,20 +32,12 @@ it('updates showReminder', () => {
 
 it('updates set token', () => {
   const state = notifications({}, {
-    type: PUSH_NOTIFICATION_SET_TOKEN,
-    token: '123',
-  });
-  expect(state.token).toBe('123');
-});
-
-it('updates set token', () => {
-  const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
       findAll: () => [ { id: '9' } ],
     },
   });
-  expect(state.isRegistered).toBe(true);
+  expect(state.pushDeviceId).toEqual('9');
 });
 
 it('resets state on logout', () => {
@@ -55,7 +46,6 @@ it('resets state on logout', () => {
     hasAsked: false,
     shouldAsk: true,
     showReminder: true,
-    isRegistered: false,
     pushDeviceId: '',
   };
   const state = notifications({}, {

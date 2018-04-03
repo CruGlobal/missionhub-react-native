@@ -67,7 +67,6 @@ coverage/
 **/build/
 android/app/build
 
-.env.local
 .vscode/
 
 android/app/bin/
@@ -81,3 +80,6 @@ android/app/bin/
 !mh-test.keystore
 
 .env.default
+.env
+.env.local
+.env.bkup

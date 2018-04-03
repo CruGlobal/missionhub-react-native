@@ -1,10 +1,8 @@
-
 import { StyleSheet } from 'react-native';
-import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
+  gif: {
     flex: 1,
-    backgroundColor: theme.backgroundColor,
+    width: 60,
   },
 });
