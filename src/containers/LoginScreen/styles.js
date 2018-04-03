@@ -78,7 +78,7 @@ export default StyleSheet.create({
     fontSize: 42,
     lineHeight: 44,
     letterSpacing: 1.5,
-    color: theme.secondaryColor,
+    color: theme.primaryColor,
     textAlign: 'center',
     paddingHorizontal: 70,
   },
