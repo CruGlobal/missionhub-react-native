@@ -173,17 +173,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         </MyText>
       </Flex>
     </Button>
-    <Flex
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }
-      value={1}
-    >
-      <LoadingWheel />
-    </Flex>
   </Flex>
+  <LoadingWheel />
 </PlatformKeyboardAvoidingView>
 `;
 
@@ -360,17 +351,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         </MyText>
       </Flex>
     </Button>
-    <Flex
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }
-      value={1}
-    >
-      <LoadingWheel />
-    </Flex>
   </Flex>
+  <LoadingWheel />
 </PlatformKeyboardAvoidingView>
 `;
 
@@ -492,16 +474,6 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         type="transparent"
       />
     </View>
-    <Flex
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }
-      value={1}
-    >
-      <LoadingWheel />
-    </Flex>
   </Flex>
   <Flex
     align="stretch"
@@ -514,6 +486,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
       type="secondary"
     />
   </Flex>
+  <LoadingWheel />
 </PlatformKeyboardAvoidingView>
 `;
 
