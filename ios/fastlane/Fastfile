@@ -63,8 +63,14 @@ platform :ios do
   end
 
   lane :cru_build_app do |options|
+
+    begin
     # if there is a local .env file, move it to a backup.
-    sh('[ -f ../.env ] &&', 'mv', '-f', '../.env', '../.env.bkup')
+      sh('mv -f ../.env ../.env.bkup')
+    rescue
+      # move along...
+    end
+
     sh('cp', '../.env.production', '../.env')
 
     gym(
@@ -79,7 +85,11 @@ platform :ios do
 
     # if there is a backup .env file created above, put it back.
     # don't fail if it isn't there though.
-    sh('[ -f ../.env.bkup ] &&', 'mv', '-f', '../.env.bkup', '../.env')
+    begin
+      sh('mv -f ../.env.bkup ../.env')
+    rescue
+      #move along...
+    end
   end
 
   lane :cru_fetch_certs do
