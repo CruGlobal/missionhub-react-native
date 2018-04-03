@@ -66,12 +66,12 @@ platform :ios do
 
     begin
     # if there is a local .env file, move it to a backup.
-      sh('mv -f ../.env ../.env.bkup')
+      sh('mv -f ../../.env ../../.env.bkup')
     rescue
       # move along...
     end
 
-    sh('cp', '../.env.production', '../.env')
+    sh('cp', '../../.env.production', '../../.env')
 
     gym(
         scheme: "MissionHub",
@@ -86,7 +86,7 @@ platform :ios do
     # if there is a backup .env file created above, put it back.
     # don't fail if it isn't there though.
     begin
-      sh('mv -f ../.env.bkup ../.env')
+      sh('mv -f ../../.env.bkup ../../.env')
     rescue
       #move along...
     end
