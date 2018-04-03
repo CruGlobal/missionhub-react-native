@@ -150,7 +150,7 @@ export function completeStepReminder(step) {
 export function completeStep(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      refreshSteps(dispatch);
+      dispatch(refreshSteps());
       return r;
     });
   };

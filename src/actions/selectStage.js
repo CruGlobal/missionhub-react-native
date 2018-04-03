@@ -30,8 +30,10 @@ export function updateUserStage(contactAssignmentId, stageId) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).then(() => {
-      return dispatch(getMyImpact());
+    return dispatch(callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data)).then((r) => {
+      dispatch(getMyImpact());
+      dispatch(getGlobalImpact());
+      return r;
     });
   };
 }
@@ -70,9 +72,10 @@ export function selectPersonStage(personId, assignedToId, pathwayStageId, orgId)
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then(() => {
+    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then((r) => {
       dispatch(getMyImpact());
-      return dispatch(getGlobalImpact());
+      dispatch(getGlobalImpact());
+      return r;
     });
   };
 }

@@ -3,6 +3,7 @@ import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
   addSteps,
 } from '../../src/actions/steps';
+import { getMyImpact, getGlobalImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -25,6 +26,7 @@ const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/impact');
 
 beforeEach(() => {
   callApi.mockClear();
@@ -174,7 +176,6 @@ describe('complete challenge', () => {
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
   };
-  const impactQuery = { person_id: 'me' };
   const data = {
     data: {
       type: 'accepted_challenge',
@@ -186,6 +187,9 @@ describe('complete challenge', () => {
 
   const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
+
+  const myImpactResponse = { type: 'test my impact' };
+  const globalImpactResponse = { type: 'test global impact' };
 
   beforeEach(() => {
     store = mockStore({
@@ -199,14 +203,15 @@ describe('complete challenge', () => {
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
 
-    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+    getMyImpact.mockReturnValue(myImpactResponse);
+    getGlobalImpact.mockReturnValue(globalImpactResponse);
   });
 
   it('completes step', async() => {
     await store.dispatch(completeStep(step));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, impactQuery);
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       { type: NAVIGATE_FORWARD,
@@ -214,6 +219,8 @@ describe('complete challenge', () => {
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
+      myImpactResponse,
+      globalImpactResponse,
     ]);
   });
 });
