@@ -11,7 +11,7 @@ import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 
-import { getMyImpact } from './impact';
+import { getGlobalImpact, getMyImpact } from './impact';
 import { getPersonDetails } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
@@ -140,9 +140,8 @@ export function updateChallengeNote(step, note) {
 export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      dispatch(getMySteps());
+      refreshSteps(dispatch);
       dispatch(setStepFocus(step, false));
-      dispatch(getMyImpact());
       return r;
     });
   };
@@ -151,10 +150,17 @@ export function completeStepReminder(step) {
 export function completeStep(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      dispatch(getMySteps());
-      dispatch(getMyImpact());
+      refreshSteps(dispatch);
       return r;
     });
+  };
+}
+
+function refreshSteps() {
+  return (dispatch) => {
+    dispatch(getMySteps());
+    dispatch(getMyImpact());
+    return dispatch(getGlobalImpact());
   };
 }
 

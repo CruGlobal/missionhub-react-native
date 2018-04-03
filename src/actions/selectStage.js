@@ -1,6 +1,6 @@
 import { REQUESTS } from './api';
 import callApi from './api';
-import { getMyImpact } from './impact';
+import { getGlobalImpact, getMyImpact } from './impact';
 
 export function selectMyStage(id) {
   const data = {
@@ -71,7 +71,8 @@ export function selectPersonStage(personId, assignedToId, pathwayStageId, orgId)
 
   return (dispatch) => {
     return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then(() => {
-      return dispatch(getMyImpact());
+      dispatch(getMyImpact());
+      return dispatch(getGlobalImpact());
     });
   };
 }
