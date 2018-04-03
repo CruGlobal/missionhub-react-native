@@ -72,7 +72,7 @@ platform :ios do
     # if there is a local .env file, move it to a backup.
       sh('mv -f ../../.env ../../.env.bkup')
     rescue
-      # move along...
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
     end
 
     sh('cp', '../../.env.production', '../../.env')
@@ -92,7 +92,7 @@ platform :ios do
     begin
       sh('mv -f ../../.env.bkup ../../.env')
     rescue
-      #move along...
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
     end
   end
 
