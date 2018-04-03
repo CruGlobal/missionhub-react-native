@@ -70,17 +70,13 @@ it('updateUserStage', async() => {
   await store.dispatch(updateUserStage(contactAssignmentId, stageId));
 
   expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, { contactAssignmentId }, updateData);
-  expect(store.getActions()).toEqual([
-    impactResponse,
-  ]);
+  expect(store.getActions()).toEqual([ impactResponse ]);
 });
 
 it('selectPersonStage', async() => {
   await store.dispatch(selectPersonStage(personId, myId, stageId, orgId));
 
   expect(callApi).toHaveBeenCalledWith(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, selectData);
-  expect(store.getActions()).toEqual([
-    impactResponse,
-  ]);
+  expect(store.getActions()).toEqual([ impactResponse ]);
 });
 

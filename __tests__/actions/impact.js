@@ -7,7 +7,8 @@ import thunk from 'redux-thunk';
 
 const store = configureStore([ thunk ])();
 
-callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+const apiResponse = { type: 'test' };
+callApi.mockReturnValue(() => Promise.resolve(apiResponse));
 
 describe('getGlobalImpact', () => {
   it('should make api request', async() => {
@@ -27,10 +28,13 @@ describe('getMyImpact', () => {
 
 describe('refreshImpact', () => {
   it('should get my impact and global impact', async() => {
+    callApi.mockReturnValue({ type: 'test' });
+
     await store.dispatch(refreshImpact());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_IMPACT, { person_id: 'me' });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GLOBAL_IMPACT);
+    expect(store.getActions()).toEqual([ apiResponse, apiResponse ]);
   });
 });
 
