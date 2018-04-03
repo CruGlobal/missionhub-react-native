@@ -65,7 +65,9 @@ platform :ios do
   end
 
   lane :cru_build_app do |options|
-    sh('echo', '.env.production', '>', '/tmp/envfile')
+    # if there is a local .env file, move it to a backup.
+    sh('[ -f ../.env ] &&', 'mv', '-f', '../.env', '../.env.bkup')
+    sh('cp', '../.env.production', '../.env')
 
     gym(
         scheme: "MissionHub",
@@ -76,6 +78,10 @@ platform :ios do
             }
         }
     )
+
+    # if there is a backup .env file created above, put it back.
+    # don't fail if it isn't there though.
+    sh('[ -f ../.env.bkup ] &&', 'mv', '-f', '../.env.bkup', '../.env')
   end
 
   lane :cru_fetch_certs do
