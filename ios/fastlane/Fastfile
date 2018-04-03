@@ -6,7 +6,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
-    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    build_number = ENV["TRAVIS_BUILD_NUMBER"]
     profile_name = 'match Release com.missionhub'
 
     # this is broken..
@@ -40,7 +40,7 @@ platform :ios do
   
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do |options|
-    build_number = increment_build_number(xcodeproj: "MissionHub.xcodeproj")
+    build_number = number_of_commits(all: false)
     profile_name = 'match AdHoc com.missionhub'
 
     automatic_code_signing(
@@ -58,8 +58,6 @@ platform :ios do
                 groups: "missionhub-ios",
                 notes: 'Beta build for MissionHub iOS. See Jira board for issues that are "Ready for QA"'
     )
-
-    cru_update_commit(message: "[skip ci] Build number bump to (#{build_number})")
 
     cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
   end
