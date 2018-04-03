@@ -172,10 +172,6 @@ Array [
 exports[`registerNotificationHandler onRegister should update notification token for android devices 2`] = `
 Array [
   Object {
-    "token": "New Token",
-    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
-  },
-  Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
@@ -213,10 +209,6 @@ Array [
 
 exports[`registerNotificationHandler onRegister should update notification token for iOS devices 2`] = `
 Array [
-  Object {
-    "token": "New Token",
-    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
-  },
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
