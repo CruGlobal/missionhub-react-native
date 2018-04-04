@@ -6,7 +6,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
-    build_number = number_of_commits(all: false)
+    build_number = ENV["TRAVIS_BUILD_NUMBER"]
     profile_name = 'match AppStore com.missionhub'
     submit_for_review = options.key?(:submit) && options[:submit] || false
     automatic_release = options.key?(:auto_release) && options[:auto_release] || false
@@ -54,7 +54,7 @@ platform :ios do
   
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do |options|
-    build_number = number_of_commits(all: false)
+    build_number = ENV["TRAVIS_BUILD_NUMBER"]
     profile_name = 'match AdHoc com.missionhub'
 
     increment_build_number(
