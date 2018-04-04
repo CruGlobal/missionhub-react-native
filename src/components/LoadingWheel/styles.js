@@ -7,7 +7,7 @@ export default StyleSheet.create({
     position: 'absolute',
     width: theme.fullWidth,
     height: theme.fullHeight,
-    opacity: .75,
+    opacity: .7,
   },
   gif: {
     flex: 1,
