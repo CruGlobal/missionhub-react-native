@@ -34,6 +34,7 @@ class KeyLoginScreen extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props.upgradeAccount);
     if (isAndroid) {
       this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
       this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);

@@ -31,7 +31,7 @@ class LoginOptionsScreen extends Component {
   }
 
   login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN);
+    this.navigateToNext(KEY_LOGIN_SCREEN, { upgradeAccount: this.props.upgradeAccount });
   }
 
   tryItNow() {
@@ -39,8 +39,8 @@ class LoginOptionsScreen extends Component {
     this.navigateToNext(WELCOME_SCREEN);
   }
 
-  navigateToNext(nextScreen) {
-    this.props.dispatch(navigatePush(nextScreen));
+  navigateToNext(nextScreen, props = {} ) {
+    this.props.dispatch(navigatePush(nextScreen, props));
   }
 
   startLoad = () => {
