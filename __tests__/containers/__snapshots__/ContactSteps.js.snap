@@ -8,31 +8,20 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
+  <Flex
+    align="center"
+    justify="center"
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "flex": 1,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
-        ]
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
       }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
     >
       <Image
         resizeMode="contain"
@@ -47,133 +36,47 @@ exports[`renders correctly 1`] = `
           }
         }
       />
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "paddingTop": 10,
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          }
         }
+        type="header"
       >
-        steps of faith
-      </Text>
-      <Text
+        STEPS OF FAITH
+      </MyText>
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "paddingHorizontal": 70,
-              "paddingVertical": 10,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          }
         }
       >
         Your Steps of Faith with ben appear here.
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "justifyContent": "flex-end",
-        },
-      ]
-    }
+      </MyText>
+    </Flex>
+  </Flex>
+  <Flex
+    justify="end"
   >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
-    </View>
-  </View>
+    <Button
+      onPress={[Function]}
+      text="ADD A STEP OF FAITH"
+      type="secondary"
+    />
+  </Flex>
 </View>
 `;
