@@ -92,19 +92,17 @@ it('sets isJean after loading me', () => {
 });
 
 it('sets user time zone', () => {
-  const jsonApiStore = new JsonApiDataStore();
-  jsonApiStore.sync({
-    data: {
-      type: 'user',
-      attributes: {
-        timezone: '-5',
-      },
+  const action = {
+    response: {
+      timezone: '-10',
+      language: 'en-US',
     },
-  });
+  };
 
-  const state = callAuth(REQUESTS.UPDATE_TIMEZONE.SUCCESS, jsonApiStore);
+  const state = callAuth(REQUESTS.UPDATE_ME_USER.SUCCESS, action);
 
-  expect(state.timezone).toBe('-5');
+  expect(state.user.user.timezone).toEqual(action.response.timezone);
+  expect(state.user.user.language).toEqual(action.response.language);
 });
 
 it('logs in with facebook', () => {

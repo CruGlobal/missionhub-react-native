@@ -120,11 +120,7 @@ export default {
     anonymous: true,
     useJsonDataApiStore: false,
   },
-  'UPDATE_MY_USER_STAGE': {
-    endpoint: `${API_URL}users/me`,
-    method: 'put',
-  },
-  'UPDATE_TIMEZONE': {
+  'UPDATE_ME_USER': {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
