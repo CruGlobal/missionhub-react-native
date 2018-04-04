@@ -56,7 +56,6 @@ async function getJourneySteps(dispatch, personId, orgId) {
   };
   const include = 'challenge_suggestion.pathway_stage';
   const { response: steps } = await dispatch(getStepsByFilter(stepsFilter, include));
-  console.log(steps);
   return steps
     .filter((step) => orgId || !step.organization || !step.organization.id) // for personal ministry, filter out all org steps
     .map((s) => ({
