@@ -29,7 +29,7 @@ export default class JourneyItem extends Component {
     const { t, item, type } = this.props;
     let title;
     if (type === 'step') {
-      const pathwayStage = item.challenge_suggestion && item.challenge_suggestion.pathway_stage ?
+      const pathwayStage = item.challenge_suggestion && item.challenge_suggestion.pathway_stage && item.challenge_suggestion.pathway_stage.name ?
         ` ${item.challenge_suggestion.pathway_stage.name} ` : ' ';
       title = t('stepTitle', { stageName: pathwayStage });
     } else if (type === 'stage') {

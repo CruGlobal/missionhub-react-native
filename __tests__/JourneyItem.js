@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import JourneyItem from '../src/components/JourneyItem';
-import { testSnapshot } from '../testUtils';
+import { testSnapshot, testSnapshotShallow } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
 const mockStep = {
@@ -22,19 +22,19 @@ const challenge_suggestion = {
 
 describe('step', () => {
   it('is rendered correctly without comment', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={mockStep} type="step" />
     );
   });
 
   it('is rendered correctly with comment', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
     );
   });
 
   it('is rendered correctly with pathway stage', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={{ ...mockStep, challenge_suggestion }} type="step" />
     );
   });
