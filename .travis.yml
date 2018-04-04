@@ -32,7 +32,7 @@ matrix:
       - fastlane ios beta
 
     - language: objective-c
-      if: tag =~ ^v(\d+\.){1,}\d+
+      if: tag =~ /^v(\d+\.){1,}\d+
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
