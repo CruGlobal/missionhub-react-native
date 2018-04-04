@@ -5,13 +5,14 @@ import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 
-export function facebookLoginWithUsernamePassword(isUpgrade, onComplete) {
+export function facebookLoginWithUsernamePassword(isUpgrade, startLoad, onComplete) {
   return (dispatch) => {
     return LoginManager.logInWithReadPermissions(FACEBOOK_SCOPE).then((result) => {
       LOG('Facebook login result', result);
       if (result.isCancelled) {
         return;
       }
+      startLoad && startLoad();
       return dispatch(facebookLoginWithAccessToken(isUpgrade, onComplete));
 
     }, (err) => {
