@@ -31,6 +31,21 @@ matrix:
       script:
       - fastlane ios beta
 
+    - language: objective-c
+      if: tag =~ ^v(\d+\.){1,}\d+
+      xcode_project: ios/Missionhub.xcodeproj
+      os: osx
+      osx_image: xcode9.2
+      install:
+      - brew install yarn
+      - yarn install
+      - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
+      - cd ios
+      - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
+      - bundler install
+      script:
+      - fastlane ios release version:$TRAVIS_TAG submit:true auto_release:false
+
 env:
   global:
   - secure: Qo7WDyR6KtZnpk5ikAHSah/SdQGIP0lHU/IaCMe5XsIqHZnxPvKNy8cyUguxDqGkwPOyOqE8ZovNDQ7ZCdu0rEug9uMX/EZxoNc2Lfcps/VrUp84Hh0lYAUD1lfpn0Oz4XwVG/5yVjgtRGFdo8FNN+hf1DnbpuijhQ5g5bYYmjYy7Qbj+dxUo4FoiYxKxCunQUessvq1JWU2TfLkS1S2Rp+a/UjxyAoTuGuXisMI2fgESaYiC0Yh1L/7fRh4owR95lwQa7ox94Nloo4VPYxOvgZMoU1YV9e8FXgZ/IacKoqV0OKRxKx81T8/TSdLVQ7Z/+S6ejradLCzEEOvEPg4HPPdGzB9Mk+dkvqqhD/NzgDXOjFOU4dsb/I6+lydYVFQ2Mfgw4bfPcs34hGsdrnO1nwIyDrJXxbKeCE62WXUQhR8SM2o+MJJ5B9hdyFevwoaV2/MKrqq9GsEGVsMMMXK3cY2AyLEfu3DufEfEHmYD1+4TBpeqrqLog1lRITdzEAJGptnTXz/weyFKnBvmAzYgVMo8YAgYd2ZrvugeobA3WdkaqkiL6yqdH/PRjp+yk8uS3zdovdyLm2ZDcKjrvY8WKKglGKjEXbjjeNMLIJwgXtdiqb7396FpB7YKttB3Iw2Us9IbH2Y60A0kEGEvWE/DaIs6gY5ZQc0EsqqDo2Rrmw=
