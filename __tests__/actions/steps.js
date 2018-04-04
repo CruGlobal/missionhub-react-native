@@ -3,6 +3,7 @@ import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
   addSteps,
 } from '../../src/actions/steps';
+import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -25,6 +26,7 @@ const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/impact');
 
 beforeEach(() => {
   callApi.mockClear();
@@ -186,6 +188,8 @@ describe('complete challenge', () => {
   const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
 
+  const impactResponse = { type: 'test impact' };
+
   beforeEach(() => {
     store = mockStore({
       auth: { personId: personId },
@@ -198,7 +202,8 @@ describe('complete challenge', () => {
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
 
-    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+    refreshImpact.mockReturnValue(impactResponse);
   });
 
   it('completes step', async() => {
@@ -212,6 +217,7 @@ describe('complete challenge', () => {
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
+      impactResponse,
     ]);
   });
 });
