@@ -6,13 +6,20 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do |options|
-    build_number = number_of_commits(all: false)
-    profile_name = 'match Release com.missionhub'
+    profile_name = 'match AppStore com.missionhub'
+    submit_for_review = options.key?(:submit) && options[:submit] || false
+    automatic_release = options.key?(:auto_release) && options[:auto_release] || false
+    version_number = get_version_number(
+        target: 'MissionHub'
+    )
 
-    # this is broken..
-    # version_number = increment_version_number(
-    #     bump_type: 'patch' # Automatically increment major version number
-    # )
+    if options.key?(:version)
+      version_number = increment_version_number(
+          version_number: options[:version] # Automatically increment major version number
+      )
+    end
+
+    build_number = cru_increment_build_number
 
     automatic_code_signing(
         use_automatic_signing: false,
@@ -21,31 +28,32 @@ platform :ios do
 
     cru_fetch_certs
 
-    cru_build_app(export_method: 'release', profile_name: 'match Release com.missionhub')
+    cru_build_app(export_method: 'app-store', profile_name: profile_name)
 
-    # upload_to_app_store(
-    #   app_identifier: 'com.missionhub',
-    #   ipa: './MissionHub.ipa',
-    #   skip_screenshots: true,
-    #   skip_metadata: true,
-    #   version: version_number,
-    #   automatic_release: options[:automatic_release].presence? || false,
-    #   submit_for_review: options[:submit_for_review].presence? || false,
-    # )
+    upload_to_app_store(
+      app_identifier: 'com.missionhub',
+      ipa: './MissionHub.ipa',
+      skip_screenshots: true,
+      skip_metadata: true,
+      app_version: version_number,
+      automatic_release: automatic_release,
+      submit_for_review: submit_for_review,
+    )
 
     cru_update_commit(message: "[skip ci] Version number bump to #{version_number}, Build number bump to ##{build_number}")
 
     cru_notify_users("MissionHub iOS Release Build #{version_number} (#{build_number}) submitted to App Store.")
+
+    if submit_for_review
+      cru_notify_users("Build has been submitted for review and will be #{automatic_release ? 'automatically' : 'manually'} released.")
+    end
   end
   
   desc "Push a new (beta) release build to Crashlytics"
   lane :beta do |options|
-    build_number = number_of_commits(all: false)
     profile_name = 'match AdHoc com.missionhub'
 
-    increment_build_number(
-        build_number: build_number
-    )
+    build_number = cru_increment_build_number
     
     automatic_code_signing(
         use_automatic_signing: false,
@@ -64,6 +72,16 @@ platform :ios do
     )
 
     cru_notify_users(message: "MissionHub iOS Beta Build ##{build_number} released to Crashlytics.")
+  end
+
+  lane :cru_increment_build_number do
+    build_number = ENV["TRAVIS_BUILD_NUMBER"] || get_build_number.to_i + 1
+
+    increment_build_number(
+        build_number: build_number
+    )
+
+    build_number
   end
 
   lane :cru_build_app do |options|
