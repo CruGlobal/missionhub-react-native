@@ -133,7 +133,7 @@ describe('journey methods', () => {
           name: 'Uninterested',
         },
       },
-      } });
+    } });
     expect(snap).toMatchSnapshot();
   });
 
