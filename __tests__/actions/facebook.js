@@ -42,7 +42,7 @@ beforeEach(() => {
 
 describe('facebookLoginWithUsernamePassword', () => {
   it('logs in', async() => {
-    await store.dispatch(facebookLoginWithUsernamePassword(false, null));
+    await store.dispatch(facebookLoginWithUsernamePassword(false, null, null));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
   });
@@ -50,7 +50,7 @@ describe('facebookLoginWithUsernamePassword', () => {
   it('fires onComplete action if present', async() => {
     const onCompleteResult = { type: 'hello, world' };
 
-    await store.dispatch(facebookLoginWithUsernamePassword(false, () => onCompleteResult));
+    await store.dispatch(facebookLoginWithUsernamePassword(false, null, () => onCompleteResult));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything(), onCompleteResult ]);
   });
@@ -63,7 +63,7 @@ describe('facebookLoginWithUsernamePassword', () => {
     };
     mockFnWithParams(callApi, 'default', apiResult, REQUESTS.FACEBOOK_LOGIN, {}, data);
 
-    await store.dispatch(facebookLoginWithUsernamePassword(true, null));
+    await store.dispatch(facebookLoginWithUsernamePassword(true, null, null));
 
     expect(store.getActions()).toEqual([ facebookLoginActionResult, expect.anything() ]);
   });
