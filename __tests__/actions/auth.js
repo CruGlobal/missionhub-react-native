@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
@@ -10,7 +11,7 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
+import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
 import { LOGOUT } from '../../src/constants';
@@ -44,10 +45,14 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: {
-    refreshToken,
-    upgradeToken,
-  } });
+  store = mockStore({
+    auth: {
+      refreshToken,
+      upgradeToken,
+      user: {
+        user: {},
+      },
+    } });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -126,28 +131,35 @@ describe('code login', () => {
   });
 });
 
-describe('update time zone', () => {
+describe('updateLocaleAndTimezone', () => {
   beforeEach(() => {
     store = mockStore({
       auth: {
-        timezone: '',
+        user: {
+          user: {
+            timezone: '-8',
+            language: 'fr-CA',
+          },
+        },
       },
     });
   });
 
   MockDate.set('2018-02-06', 300);
+  i18next.language = 'en-US';
 
-  let tzData = {
+  const newUserSettings = {
     data: {
       attributes: {
         timezone: '-5',
+        language: 'en-US',
       },
     },
   };
 
   it('should update timezone ', () => {
-    store.dispatch(updateTimezone());
-    expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+    store.dispatch(updateLocaleAndTimezone());
+    expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_ME_USER, {}, newUserSettings);
   });
 });
 
@@ -223,13 +235,14 @@ describe('loadHome', () => {
   const getMeResult = { type: 'got me successfully' };
   const getAssignedOrgsResult = { type: 'got orgs' };
   const getStagesResult = { type: 'got stages' };
-  const timezoneResult = { type: 'updated TZ' };
+  const updateUserResult = { type: 'updated locale and TZ' };
   const notificationsResult = { type: 'notifications result' };
 
-  const tzData = {
+  const userSettings = {
     data: {
       attributes: {
         timezone: getTimezoneString(),
+        language: 'en-US',
       },
     },
   };
@@ -238,7 +251,7 @@ describe('loadHome', () => {
     mockFnWithParams(person, 'getMe', getMeResult);
     mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
-    mockFnWithParams(callApi, 'default', timezoneResult, REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+    mockFnWithParams(callApi, 'default', updateUserResult, REQUESTS.UPDATE_ME_USER, {}, userSettings);
     mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
 
     store.dispatch(auth.loadHome());
@@ -247,7 +260,7 @@ describe('loadHome', () => {
       getMeResult,
       getAssignedOrgsResult,
       getStagesResult,
-      timezoneResult,
+      updateUserResult,
       notificationsResult,
     ]);
   });
