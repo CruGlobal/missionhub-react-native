@@ -120,14 +120,6 @@ class KeyLoginScreen extends Component {
     );
   }
 
-  renderLoading() {
-    return (
-      <Flex value={1} style={{ justifyContent: 'center' }}>
-        <LoadingWheel />
-      </Flex>
-    );
-  }
-
   render() {
     const { t, dispatch } = this.props;
 
@@ -207,7 +199,6 @@ class KeyLoginScreen extends Component {
               </Button>
             ) : null
           }
-          {this.state.isLoading ? this.renderLoading() : null }
         </Flex>
 
         {
@@ -222,7 +213,7 @@ class KeyLoginScreen extends Component {
             </Flex>
           )
         }
-
+        {this.state.isLoading ? <LoadingWheel /> : null }
       </PlatformKeyboardAvoidingView>
     );
   }

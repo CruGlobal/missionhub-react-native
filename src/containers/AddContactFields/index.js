@@ -79,7 +79,7 @@ class AddContactFields extends Component {
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.email.focus()}
+            onSubmitEditing={() => this.email && this.email.focus()}
           />
         </Flex>
         {isJean ? [

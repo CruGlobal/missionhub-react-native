@@ -33,9 +33,4 @@ ImpactScreen.propTypes = {
   isContactScreen: PropTypes.bool,
 };
 
-const mapStateToProps = ({ impact }) => ({
-  myImpact: impact.mine,
-  globalImpact: impact.global,
-});
-
-export default connect(mapStateToProps)(ImpactScreen);
+export default connect()(ImpactScreen);
