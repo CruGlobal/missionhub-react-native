@@ -14,6 +14,13 @@ export function getMyImpact() {
   };
 }
 
+export function refreshImpact() {
+  return (dispatch) => {
+    dispatch(getMyImpact());
+    return dispatch(getGlobalImpact());
+  };
+}
+
 export function getImpactById(id) {
   return (dispatch) => {
     const query = { person_id: id };

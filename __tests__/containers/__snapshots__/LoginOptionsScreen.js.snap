@@ -255,17 +255,6 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
             />
           </Flex>
         </Flex>
-        <Flex
-          style={
-            Object {
-              "justifyContent": "center",
-              "width": 2,
-            }
-          }
-          value={1}
-        >
-          <LoadingWheel />
-        </Flex>
       </Flex>
       <Flex
         align="end"
@@ -309,6 +298,7 @@ exports[`a login button is clicked email signup button is pressed loading wheel 
       </Flex>
     </Flex>
   </Flex>
+  <LoadingWheel />
 </Flex>
 `;
 
@@ -567,17 +557,6 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
             />
           </Flex>
         </Flex>
-        <Flex
-          style={
-            Object {
-              "justifyContent": "center",
-              "width": 2,
-            }
-          }
-          value={1}
-        >
-          <LoadingWheel />
-        </Flex>
       </Flex>
       <Flex
         align="end"
@@ -621,6 +600,7 @@ exports[`a login button is clicked facebook signup button is pressed loading whe
       </Flex>
     </Flex>
   </Flex>
+  <LoadingWheel />
 </Flex>
 `;
 
