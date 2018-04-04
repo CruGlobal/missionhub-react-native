@@ -865,7 +865,7 @@ exports[`step is rendered correctly with comment 1`] = `
         ]
       }
     >
-      Growing Step of Faith
+      Completed Step of Faith
     </Text>
     <Text
       accessible={true}
@@ -889,6 +889,154 @@ exports[`step is rendered correctly with comment 1`] = `
 
 test comment on completed step
     </Text>
+  </View>
+</View>
+`;
+
+exports[`step is rendered correctly with pathway stage 1`] = `
+<View
+  style={
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "paddingRight": 24,
+          "paddingVertical": 19,
+          "width": 750,
+        },
+        null,
+      ],
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#E6E8EC",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Completed Guiding Step of Faith
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    />
   </View>
 </View>
 `;
@@ -1017,7 +1165,7 @@ exports[`step is rendered correctly without comment 1`] = `
         ]
       }
     >
-      Growing Step of Faith
+      Completed Step of Faith
     </Text>
     <Text
       accessible={true}

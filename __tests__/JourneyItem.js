@@ -14,6 +14,11 @@ const mockStep = {
   interaction_type_id: 1,
   date,
 };
+const challenge_suggestion = {
+  pathway_stage: {
+    name: 'Guiding',
+  },
+};
 
 describe('step', () => {
   it('is rendered correctly without comment', () => {
@@ -25,6 +30,12 @@ describe('step', () => {
   it('is rendered correctly with comment', () => {
     testSnapshot(
       <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
+    );
+  });
+
+  it('is rendered correctly with pathway stage', () => {
+    testSnapshot(
+      <JourneyItem item={{ ...mockStep, challenge_suggestion }} type="step" />
     );
   });
 });
