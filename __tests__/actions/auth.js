@@ -163,7 +163,7 @@ describe('updateLocaleAndTimezone', () => {
     data: {
       attributes: {
         timezone: '-5',
-        language: 'en-US',
+        mobile_language: 'en-US',
       },
     },
   };
@@ -253,7 +253,7 @@ describe('loadHome', () => {
     data: {
       attributes: {
         timezone: getTimezoneString(),
-        language: 'en-US',
+        mobile_language: 'en-US',
       },
     },
   };
