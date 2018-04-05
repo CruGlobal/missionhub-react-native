@@ -123,23 +123,9 @@ Array [
     "_type": "accepted_challenge",
     "completed_at": "2018-02-10T00:00:00",
     "date": "2018-02-10T00:00:00",
-    "id": "3",
+    "id": "2",
     "organization": null,
     "title": "Step in personal org",
-    "type": "step",
-  },
-  Object {
-    "_type": "accepted_challenge",
-    "challenge_suggestion": Object {
-      "pathway_stage": Object {
-        "name": "guiding",
-      },
-    },
-    "completed_at": "2018-02-10T00:00:00",
-    "date": "2018-02-10T00:00:00",
-    "id": "4",
-    "organization": null,
-    "title": "Step in personal org w/ stage",
     "type": "step",
   },
 ]

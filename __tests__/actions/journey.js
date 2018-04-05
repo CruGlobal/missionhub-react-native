@@ -30,33 +30,9 @@ const steps = [
   {
     id: '2',
     _type: 'accepted_challenge',
-    title: 'Step in org w/ stage',
-    organization: { id: orgId },
-    completed_at: '2018-02-09T00:00:00',
-    challenge_suggestion: {
-      pathway_stage: {
-        name: 'guiding',
-      },
-    },
-  },
-  {
-    id: '3',
-    _type: 'accepted_challenge',
     title: 'Step in personal org',
     organization: null,
     completed_at: '2018-02-10T00:00:00',
-  },
-  {
-    id: '4',
-    _type: 'accepted_challenge',
-    title: 'Step in personal org w/ stage',
-    organization: null,
-    completed_at: '2018-02-10T00:00:00',
-    challenge_suggestion: {
-      pathway_stage: {
-        name: 'guiding',
-      },
-    },
   },
 ];
 const person = {
