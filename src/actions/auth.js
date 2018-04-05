@@ -152,7 +152,7 @@ export function updateLocaleAndTimezone() {
         data: {
           attributes: {
             timezone,
-            language,
+            mobile_language: language,
           },
         },
       };
