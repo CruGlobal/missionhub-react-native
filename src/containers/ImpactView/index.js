@@ -64,6 +64,10 @@ export class ImpactView extends Component {
     this.getInteractionReport();
   }
 
+  componentWillReceiveProps() {
+    this.getInteractionReport();
+  }
+
   async getInteractionReport() {
     const { dispatch, user, me, organization = {} } = this.props;
 
