@@ -136,7 +136,7 @@ class LoginScreen extends Component {
               onScroll={this.handleScroll}
               autoplay={true}
               autoplayDelay={0}
-              autoplayInterval={2000}
+              autoplayInterval={3000}
             />
           </Flex>
           <Image
