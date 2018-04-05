@@ -114,29 +114,6 @@ describe('journey methods', () => {
     expect(snap).toMatchSnapshot();
   });
 
-  it('renders a step row without stage assignment', () => {
-    const snap = component.renderRow({ item: {
-      id: '124',
-      text: '124',
-      type: 'step',
-    } });
-    expect(snap).toMatchSnapshot();
-  });
-
-  it('renders a step row with stage assignment', () => {
-    const snap = component.renderRow({ item: {
-      id: '124',
-      text: '124',
-      type: 'step',
-      contact_suggestion: {
-        pathway_stage: {
-          name: 'Uninterested',
-        },
-      },
-    } });
-    expect(snap).toMatchSnapshot();
-  });
-
   it('handles add comment', () => {
     const comment = 'test';
     component.handleAddComment(comment);

@@ -197,49 +197,6 @@ exports[`journey methods renders a journey row 1`] = `
 </Translate(RowSwipeable)>
 `;
 
-exports[`journey methods renders a step row with stage assignment 1`] = `
-<Translate(RowSwipeable)
-  bump={false}
-  onBumpComplete={undefined}
-  onEdit={[Function]}
->
-  <Translate(JourneyItem)
-    item={
-      Object {
-        "contact_suggestion": Object {
-          "pathway_stage": Object {
-            "name": "Uninterested",
-          },
-        },
-        "id": "124",
-        "text": "124",
-        "type": "step",
-      }
-    }
-    type="step"
-  />
-</Translate(RowSwipeable)>
-`;
-
-exports[`journey methods renders a step row without stage assignment 1`] = `
-<Translate(RowSwipeable)
-  bump={false}
-  onBumpComplete={undefined}
-  onEdit={[Function]}
->
-  <Translate(JourneyItem)
-    item={
-      Object {
-        "id": "124",
-        "text": "124",
-        "type": "step",
-      }
-    }
-    type="step"
-  />
-</Translate(RowSwipeable)>
-`;
-
 exports[`journey methods renders a survey row 1`] = `
 <Translate(JourneyItem)
   item={
