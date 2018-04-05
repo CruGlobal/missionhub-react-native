@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import JourneyItem from '../src/components/JourneyItem';
-import { testSnapshot, testSnapshotShallow } from '../testUtils';
+import { testSnapshotShallow } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
 const mockStep = {
@@ -48,13 +48,13 @@ describe('stage', () => {
   };
 
   it('is rendered correctly with old stage', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={{ ...mockStage, old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' } }} type="stage" />
     );
   });
 
   it('is rendered correctly without old stage', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={{ ...mockStage, old_pathway_stage: { name: '' } }} type="stage" />
 
     );
@@ -62,7 +62,7 @@ describe('stage', () => {
 });
 
 it('renders survey correctly', () => {
-  testSnapshot(
+  testSnapshotShallow(
     <JourneyItem item={{
       ...mockStep,
       survey: { title: 'Survey Test' },
@@ -76,7 +76,7 @@ it('renders survey correctly', () => {
 });
 
 it('renders interaction correctly', () => {
-  testSnapshot(
+  testSnapshotShallow(
     <JourneyItem item={mockStep} type="interaction" />
   );
 });
