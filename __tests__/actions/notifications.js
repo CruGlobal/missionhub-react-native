@@ -3,10 +3,8 @@ import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
-  Config: {
-    GCM_SENDER_ID: 'Test GCM Sender ID',
-    APNS_SANDBOX: false,
-  },
+  GCM_SENDER_ID: 'Test GCM Sender ID',
+  APNS_MODE: 'APNS',
 }));
 
 import {
