@@ -23,7 +23,7 @@ platform :android do
     cru_build_app
 
     crashlytics(
-        groups: 'god-tools-android',
+        groups: 'missionhub-android',
         notes: 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
     )
 
