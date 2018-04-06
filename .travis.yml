@@ -40,7 +40,7 @@ matrix:
 
         - extra-google-google_play_services
 #      if: branch = master and type = push
-      before-install:
+      before_install:
       - wget -qO- https://deb.nodesource.com/setup_6.x | sudo bash -
       - sudo apt-get install nodejs
       install:
