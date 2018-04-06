@@ -31,7 +31,14 @@ matrix:
       script:
       - fastlane ios beta
 
-    - language: java
+    - language: android
+      android:
+        components:
+        - build-tools-26.0.1
+
+        - android-26
+
+        - extra-google-google_play_services
 #      if: branch = master and type = push
       install:
       - yarn install
