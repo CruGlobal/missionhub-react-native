@@ -92,7 +92,7 @@ class App extends Component {
   }
 
   initializeErrorHandling() {
-    window.onunhandledrejection = ({ reason }) => {
+    window.onunhandledrejection = ({ reason }) => { // eslint-disable-line no-undef
       this.handleError(reason);
     };
 
