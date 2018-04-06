@@ -31,6 +31,15 @@ matrix:
       script:
       - fastlane ios beta
 
+    - language: java
+#      if: branch = master and type = push
+      install:
+      - yarn install
+      - cd android
+      - bundler install
+      script:
+      - fastlane android beta
+
     - language: objective-c
       if: tag =~ ^v(\d+\.){1,}\d+
       xcode_project: ios/Missionhub.xcodeproj
