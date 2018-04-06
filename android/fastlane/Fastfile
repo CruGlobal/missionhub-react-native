@@ -19,11 +19,46 @@ platform :android do
 
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
+
+    cru_build_app
+
+    crashlytics(
+        groups: 'god-tools-android',
+        notes: 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
+    )
+
+    cru_notify_users(message: "MissionHub Android Beta Build released to Crashlytics.")
+  end
+
+  lane :cru_build_app do
+
+    begin
+      # if there is a local .env file, move it to a backup.
+      sh('mv -f ../../.env ../../.env.bkup')
+    rescue
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
+    end
+
+    sh('cp', '../../.env.production', '../../.env')
+
     gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
+
+    # if there is a backup .env file created above, put it back.
+    # don't fail if it isn't there though.
+    begin
+      sh('mv -f ../../.env.bkup ../../.env')
+    rescue
+      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
+    end
+  end
+
+  lane :cru_notify_users do |options|
+    hipchat(
+        message: options[:message],
+        channel: "MissionHub - Engineering",
+        version: "2",
+        custom_color: "green"
+    )
   end
 
   desc "Deploy a new version to the Google Play"
