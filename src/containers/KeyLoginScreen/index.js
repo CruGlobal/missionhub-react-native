@@ -34,7 +34,6 @@ class KeyLoginScreen extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.upgradeAccount);
     if (isAndroid) {
       this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._hideLogo);
       this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._showLogo);
@@ -223,5 +222,9 @@ class KeyLoginScreen extends Component {
   }
 }
 
-export default connect()(KeyLoginScreen);
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(KeyLoginScreen);
 export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';
