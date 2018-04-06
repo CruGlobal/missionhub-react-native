@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } from '../../components/common';
 import Input from '../../components/Input/index';
-import { keyLogin, openKeyURL } from '../../actions/auth';
+import { keyLogin, openKeyURL, upgradeAccount } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -75,15 +75,17 @@ class KeyLoginScreen extends Component {
   };
 
   handleForgotPassword = () => {
-    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad));
+    const { dispatch, upgradeAccount } = this.props;
+    dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad, upgradeAccount ? upgradeAccount : false));
   };
 
   async login() {
     const { email, password } = this.state;
+    const { dispatch, upgradeAccount } = this.props;
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
+      await dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password), upgradeAccount ? upgradeAccount : false));
       Keyboard.dismiss();
 
     } catch (error) {
@@ -99,12 +101,13 @@ class KeyLoginScreen extends Component {
         this.setState({ isLoading: false });
       }
 
-      this.props.dispatch(trackAction(action));
+      dispatch(trackAction(action));
     }
   }
 
   facebookLogin = () => {
-    this.props.dispatch(facebookLoginWithUsernamePassword(false, this.startLoad, onSuccessfulLogin)).then((result) => {
+    const { dispatch, upgradeAccount } = this.props;
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, this.startLoad, onSuccessfulLogin)).then((result) => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
