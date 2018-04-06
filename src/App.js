@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
+import { Alert } from 'react-native';
 import 'core-js';
 
 import i18n from './i18n';
@@ -20,11 +21,13 @@ import getStore from './store';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin } from './actions/auth';
-import { ANALYTICS } from './constants';
+import { ANALYTICS, EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 
 // TODO: Add loading stuff with redux persist
 class App extends Component {
+  showingErrorModal = false;
+
   state = {
     store: null,
     appState: AppState.currentState,
@@ -100,10 +103,60 @@ class App extends Component {
   }
 
   handleError(e) {
-    if (!__DEV__) {
-      Crashlytics.recordCustomExceptionName(e.message.split('\n')[ 0 ], e.message, []);
+    let crashlyticsError;
+    const apiError = e.apiError;
+
+    if (apiError) {
+      if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
+        return;
+
+      } else if (apiError.message === NETWORK_REQUEST_FAILED) {
+        this.showOfflineAlert();
+
+      } else {
+        this.showApiErrorAlert(e.key);
+        crashlyticsError = {
+          title: `API Error: ${e.key} ${e.method.toUpperCase()} ${e.endpoint}`,
+          message: `\n\nQuery Params:\n${JSON.stringify(e.query, null, 2)}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
+        };
+      }
+
+    } else {
+      crashlyticsError = {
+        title: e.message.split('\n')[ 0 ],
+        message: e.message,
+      };
+    }
+
+    if (!__DEV__ && crashlyticsError) {
+      Crashlytics.recordCustomExceptionName(crashlyticsError.title, crashlyticsError.message, []);
     }
   }
+
+  showOfflineAlert = () => {
+    this.showAlert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'));
+  };
+
+  showApiErrorAlert = (key) => {
+    let errorMessage = `${i18n.t('error:unexpectedErrorMessage')} ${i18n.t('error:baseErrorMessage')}`;
+
+    const customErrorKey = `error:${key}`;
+    if (i18n.exists(customErrorKey)) {
+      errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
+    }
+
+    this.showAlert(i18n.t('error:error'), errorMessage);
+  };
+
+  showAlert = (title, message) => {
+    console.log(message);
+    if (!this.showingErrorModal) {
+      this.showingErrorModal = true;
+
+      const buttons = [ { text: i18n.t('ok'), onPress: () => this.showingErrorModal = false } ];
+      Alert.alert(title, message, buttons, { onDismiss: () => this.showingErrorModal = false });
+    }
+  };
 
   dispatchAnalyticsContextUpdate(context) {
     this.state.store.dispatch(updateAnalyticsContext(context));

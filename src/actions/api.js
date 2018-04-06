@@ -79,8 +79,10 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
       const handleError = (err) => {
         APILOG('REQUEST ERROR', action.name, err);
-        if (err) {
-          if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
+        const apiError = err.apiError;
+
+        if (apiError) {
+          if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
             if (authState.refreshToken) {
               dispatch(refreshAccessToken());
             } else if (authState.isFirstTime) {
@@ -90,8 +92,8 @@ export default function callApi(requestObject, query = {}, data = {}) {
             }
           }
 
-          dispatch({
-            error: err,
+          dispatch({ //todo is this used anywhere?
+            error: apiError,
             query: newQuery,
             data,
             type: action.FAIL,
