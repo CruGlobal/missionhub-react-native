@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Image } from 'react-native';
 import { translate } from 'react-i18next';
 import i18next from '../../i18n';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -42,7 +42,6 @@ class LoginScreen extends Component {
     this.state = {
       activeSlide: 0,
       scrollPosition: 0,
-      autoPlay: true,
     };
 
     this.renderOnboarding = this.renderOnboarding.bind(this);
@@ -50,7 +49,6 @@ class LoginScreen extends Component {
     this.login = this.login.bind(this);
     this.handleSnapToItem = this.handleSnapToItem.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.disableAutoPlay = this.disableAutoPlay.bind(this);
   }
 
   componentWillMount() {
@@ -73,8 +71,6 @@ class LoginScreen extends Component {
     this.setState({ activeSlide: index });
 
     this.trackSplashState(index + 1);
-
-    if (index === ONBOARDING.length - 1) { this.disableAutoPlay(); }
   }
 
   trackSplashState(index) {
@@ -85,21 +81,15 @@ class LoginScreen extends Component {
     this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
   }
 
-  disableAutoPlay() {
-    this.setState({ autoPlay: false });
-  }
-
   renderOnboarding({ item }) {
     return (
       <View key={item.id} style={styles.onboardWrap}>
-        <TouchableWithoutFeedback onPressIn={this.disableAutoPlay}>
-          <Flex direction="column">
-            <Flex value={1.5} justify="center">
-              <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
-            </Flex>
-            <Flex value={1} />
+        <Flex direction="column">
+          <Flex value={1.5} justify="center">
+            <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
           </Flex>
-        </TouchableWithoutFeedback>
+          <Flex value={1} />
+        </Flex>
       </View>
     );
   }
@@ -144,9 +134,9 @@ class LoginScreen extends Component {
               scrollEventThrottle={5}
               onSnapToItem={this.handleSnapToItem}
               onScroll={this.handleScroll}
-              autoplay={this.state.autoPlay}
+              autoplay={true}
               autoplayDelay={0}
-              autoplayInterval={3000}
+              autoplayInterval={2000}
             />
           </Flex>
           <Image

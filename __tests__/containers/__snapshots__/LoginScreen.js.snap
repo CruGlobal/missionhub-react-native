@@ -56,7 +56,7 @@ exports[`renders 1`] = `
         apparitionDelay={250}
         autoplay={true}
         autoplayDelay={0}
-        autoplayInterval={3000}
+        autoplayInterval={2000}
         callbackOffsetMargin={5}
         containerCustomStyle={Object {}}
         contentContainerCustomStyle={Object {}}
@@ -217,39 +217,35 @@ exports[`renders onboarding 1`] = `
     }
   }
 >
-  <TouchableWithoutFeedback
-    onPressIn={[Function]}
+  <Flex
+    direction="column"
   >
     <Flex
-      direction="column"
+      justify="center"
+      value={1.5}
     >
-      <Flex
-        justify="center"
-        value={1.5}
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "letterSpacing": 1.5,
-              "lineHeight": 44,
-              "paddingHorizontal": 70,
-              "textAlign": "center",
-            }
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "letterSpacing": 1.5,
+            "lineHeight": 44,
+            "paddingHorizontal": 70,
+            "textAlign": "center",
           }
-          type="header"
-        >
-          see god work and know you're part of it
-        </MyText>
-      </Flex>
-      <Flex
-        value={1}
-      />
+        }
+        type="header"
+      >
+        see god work and know you're part of it
+      </MyText>
     </Flex>
-  </TouchableWithoutFeedback>
+    <Flex
+      value={1}
+    />
+  </Flex>
 </View>
 `;
