@@ -40,3 +40,12 @@ it('tracks state on launch', () => {
 
   expect(analytics.trackState).toHaveBeenCalled();
 });
+
+it('disables autoplay when reaches last page', () => {
+  screen.instance().handleSnapToItem(2);
+  screen.update();
+
+  const carouselProps = screen.find(Carousel).props();
+
+  expect(carouselProps.autoplay).toEqual(false);
+});
