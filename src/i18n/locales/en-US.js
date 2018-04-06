@@ -181,7 +181,7 @@ export default {
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
   journeyItem: {
-    stepTitle: 'Growing Step of Faith',
+    stepTitle: 'Completed{{stageName}}Step of Faith',
     stageTitle: '{{oldStage}} to {{newStage}}',
     stageText: '{{personName}} changed from {{oldStage}} to {{newStage}}',
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',

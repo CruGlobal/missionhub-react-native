@@ -23,7 +23,7 @@ export default function tracking({ dispatch, getState }) {
           newAction = trackContactScreen(action, getState);
 
         } else if (routeName === DRAWER_OPEN) {
-          const actionParams = action.params;
+          const { params: actionParams = {} } = action;
 
           if (actionParams.drawer === CONTACT_MENU_DRAWER) {
             newAction = trackContactMenu(actionParams.isCurrentUser);

@@ -13,6 +13,7 @@ const mockStore = configureStore([ thunk ]);
 const personId = '2';
 const myId = '1';
 const orgId = '1';
+const include = 'challenge_suggestion.pathway_stage';
 const mockState = {
   auth: { personId: myId },
 };
@@ -186,7 +187,7 @@ describe('get journey', () => {
       completed: true,
       receiver_ids: personId,
       organization_ids: undefined,
-    });
+    }, include);
     expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId);
   });
 
@@ -198,7 +199,7 @@ describe('get journey', () => {
       completed: true,
       receiver_ids: personId,
       organization_ids: orgId,
-    });
+    }, include);
     expect(getPersonJourneyDetails).toHaveBeenCalledWith(personId);
   });
 });
