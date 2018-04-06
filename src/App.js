@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
+import 'core-js';
 
 import i18n from './i18n';
 
@@ -91,6 +92,10 @@ class App extends Component {
   }
 
   initializeErrorHandling() {
+    window.onunhandledrejection = ({ reason }) => {
+      this.handleError(reason);
+    };
+
     ErrorUtils.setGlobalHandler(this.handleError); // eslint-disable-line no-undef
   }
 
