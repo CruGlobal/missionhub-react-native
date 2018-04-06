@@ -147,7 +147,7 @@ export function updateLocaleAndTimezone() {
     const { user: { user } = {} } = getState().auth;
     const timezone = getTimezoneString();
     const language = i18next.language;
-    if (user.timezone !== timezone || user.language !== language) {
+    if (user.timezone !== timezone || user.mobile_language !== language) {
       const data = {
         data: {
           attributes: {
