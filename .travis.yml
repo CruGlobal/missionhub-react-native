@@ -46,7 +46,7 @@ matrix:
         licenses:
         - android-sdk-license-.+
 
-#      if: branch = master and type = push
+      if: branch = master and type = push
       before_install:
       - wget -qO- https://deb.nodesource.com/setup_6.x | sudo bash -
       - sudo apt-get install nodejs
