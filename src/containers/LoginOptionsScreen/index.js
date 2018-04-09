@@ -57,7 +57,7 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, this.startLoad, onSuccessfulLogin)).then((result) => {
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
@@ -92,7 +92,7 @@ class LoginOptionsScreen extends Component {
               <Button
                 name={'emailButton'}
                 pill={true}
-                onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
+                onPress={() => this.emailSignUp(upgradeAccount || false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
@@ -152,7 +152,7 @@ class LoginOptionsScreen extends Component {
   }
 }
 
-const mapStateToProps = ( reduxState, { navigation }) => ({
+const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 

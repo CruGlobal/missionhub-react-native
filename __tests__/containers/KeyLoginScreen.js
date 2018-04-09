@@ -6,7 +6,7 @@ import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
-import * as facebook from '../../src/actions/facebook';
+import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 
 let store;
 
@@ -15,9 +15,8 @@ jest.mock('../../src/actions/auth', () => ({
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
   openKeyURL: jest.fn(),
 }));
-jest.mock('../../src/actions/facebook', () => ({
-  facebookLoginWithUsernamePassword: jest.fn().mockReturnValue({ type: 'test' }),
-}));
+jest.mock('../../src/actions/facebook');
+facebookLoginWithUsernamePassword.mockReturnValue({ type: 'test' });
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: ({
@@ -59,7 +58,7 @@ describe('a login button is clicked', () => {
 
   describe('facebook login button is pressed', () => {
     beforeEach(() => {
-      facebook.facebookLoginWithUsernamePassword.mockImplementation((isUpgrade, startLoad, onComplete) => {
+      facebookLoginWithUsernamePassword.mockImplementation((isUpgrade, startLoad, onComplete) => {
         startLoad();
         return onComplete();
       }) ;
@@ -68,7 +67,7 @@ describe('a login button is clicked', () => {
     });
 
     it('facebook login is called', () => {
-      expect(facebook.facebookLoginWithUsernamePassword).toHaveBeenCalledTimes(1);
+      expect(facebookLoginWithUsernamePassword).toHaveBeenCalledTimes(1);
     });
     it('loading wheel appears', () => {
       screen.update();

@@ -104,7 +104,7 @@ class KeyLoginScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, this.startLoad, onSuccessfulLogin)).then((result) => {
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
@@ -220,7 +220,7 @@ class KeyLoginScreen extends Component {
   }
 }
 
-const mapStateToProps = (reduxState, { navigation }) => ({
+const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
