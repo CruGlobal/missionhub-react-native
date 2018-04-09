@@ -149,7 +149,6 @@ class App extends Component {
   };
 
   showAlert = (title, message) => {
-    console.log(message);
     if (!this.showingErrorModal) {
       this.showingErrorModal = true;
 
