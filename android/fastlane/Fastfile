@@ -21,12 +21,9 @@ platform :android do
   lane :beta do
 
     cru_build_app
-
-    home = ENV['HOME']
-
+    
     crashlytics(
         apk_path: ENV['GRADLE_APK_OUTPUT_PATH'],
-        crashlytics_path: "#{home}/Library/CrashlyticsAndroid/crashlytics-devtools.jar",
         groups: 'missionhub-android',
         notes: 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
     )
