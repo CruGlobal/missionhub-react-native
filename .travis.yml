@@ -39,13 +39,13 @@ matrix:
         - tools
 
         - build-tools-26.0.1
+        - build-tools-23.0.1
 
         - android-26
+        - android-23
 
         - extra-google-google_play_services
-        licenses:
-        - 'android-sdk-license-.+'
-        
+
 #      if: branch = master and type = push
       before_install:
       - wget -qO- https://deb.nodesource.com/setup_6.x | sudo bash -
