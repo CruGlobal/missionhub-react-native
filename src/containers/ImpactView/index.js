@@ -71,7 +71,7 @@ export class ImpactView extends Component {
     var months = today.getMonth();
     var days = today.getDate();
 
-    return 'P' + months + 'M' + days + 'D';
+    return `P${months}M${days}D`;
   };
 
   async getInteractionReport(period = this.state.period) {
