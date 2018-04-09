@@ -277,7 +277,7 @@ describe('registerNotificationHandler', () => {
     });
 
     it('should deep link to contact screen', async() => {
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, response: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
       await testNotification({ screen: 'person_steps', person_id: '1', organization_id: '2' });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
@@ -285,7 +285,7 @@ describe('registerNotificationHandler', () => {
 
     it('should deep link to contact screen on iOS', async() => {
       common.isAndroid = false;
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, response: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
       await testNotification({ data: { link: { data: { screen: 'person_steps', person_id: '1', organization_id: '2' } } } });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();

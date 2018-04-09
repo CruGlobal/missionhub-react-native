@@ -142,7 +142,7 @@ function handleNotification(notification) {
         return dispatch(navigateReset(MAIN_TABS));
       case 'person_steps':
         if (person) {
-          const { response: loadedPerson } = await dispatch(getPersonDetails(person, organization));
+          const { person: loadedPerson } = await dispatch(getPersonDetails(person, organization));
           return dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
         }
         return;
