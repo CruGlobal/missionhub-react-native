@@ -87,6 +87,17 @@ describe('the key', () => {
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
         });
     });
+
+    it('should login to the key, get a key ticket, then send the key ticket to Missionhub API with client token, then handle successful login', () => {
+      return store.dispatch(keyLogin(email, password, true))
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket, client_token: upgradeToken });
+
+          expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
+        });
+    });
   });
 
   describe('open key URL', () => {

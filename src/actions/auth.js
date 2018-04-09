@@ -55,7 +55,7 @@ export function refreshAccessToken() {
   };
 }
 
-export function keyLogin(email, password, isUpgrade) {
+export function keyLogin(email, password, isUpgrade = false) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
   return getTokenAndLogin(data, isUpgrade);
 }

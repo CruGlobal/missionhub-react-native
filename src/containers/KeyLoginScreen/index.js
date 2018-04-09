@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } from '../../components/common';
 import Input from '../../components/Input/index';
-import { keyLogin, openKeyURL, upgradeAccount } from '../../actions/auth';
+import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -74,17 +74,15 @@ class KeyLoginScreen extends Component {
   };
 
   handleForgotPassword = () => {
-    const { dispatch, upgradeAccount } = this.props;
-    dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad, upgradeAccount ? upgradeAccount : false));
+    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad, this.props.upgradeAccount));
   };
 
   async login() {
     const { email, password } = this.state;
-    const { dispatch, upgradeAccount } = this.props;
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password), upgradeAccount ? upgradeAccount : false));
+      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password), this.props.upgradeAccount));
       Keyboard.dismiss();
 
     } catch (error) {
@@ -100,7 +98,7 @@ class KeyLoginScreen extends Component {
         this.setState({ isLoading: false });
       }
 
-      dispatch(trackAction(action));
+      this.props.dispatch(trackAction(action));
     }
   }
 
