@@ -74,7 +74,7 @@ class KeyLoginScreen extends Component {
   };
 
   handleForgotPassword = () => {
-    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad));
+    this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad, this.props.upgradeAccount));
   };
 
   async login() {
@@ -82,7 +82,7 @@ class KeyLoginScreen extends Component {
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password)));
+      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password), this.props.upgradeAccount));
       Keyboard.dismiss();
 
     } catch (error) {
@@ -103,7 +103,8 @@ class KeyLoginScreen extends Component {
   }
 
   facebookLogin = () => {
-    this.props.dispatch(facebookLoginWithUsernamePassword(false, this.startLoad, onSuccessfulLogin)).then((result) => {
+    const { dispatch, upgradeAccount } = this.props;
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
@@ -219,5 +220,9 @@ class KeyLoginScreen extends Component {
   }
 }
 
-export default connect()(KeyLoginScreen);
+const mapStateToProps = (_, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(KeyLoginScreen);
 export const KEY_LOGIN_SCREEN = 'nav/KEY_LOGIN';
