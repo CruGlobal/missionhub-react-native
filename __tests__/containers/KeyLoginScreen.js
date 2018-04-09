@@ -3,18 +3,20 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
-import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
+import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
+import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 
 let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
-  facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
   openKeyURL: jest.fn(),
 }));
+jest.mock('../../src/actions/facebook');
+facebookLoginWithUsernamePassword.mockReturnValue({ type: 'test' });
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: ({
@@ -34,7 +36,9 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen />
+      <KeyLoginScreen
+        navigation={createMockNavState({ })}
+      />
     </Provider>
   );
 });
@@ -45,18 +49,25 @@ describe('a login button is clicked', () => {
 
   beforeEach(() => {
     screen = renderShallow(
-      <KeyLoginScreen />,
+      <KeyLoginScreen
+        navigation={createMockNavState({ })}
+      />,
       store
     );
   });
 
   describe('facebook login button is pressed', () => {
     beforeEach(() => {
+      facebookLoginWithUsernamePassword.mockImplementation((isUpgrade, startLoad, onComplete) => {
+        startLoad();
+        return onComplete();
+      }) ;
+
       screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
     it('facebook login is called', () => {
-      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+      expect(facebookLoginWithUsernamePassword).toHaveBeenCalledTimes(1);
     });
     it('loading wheel appears', () => {
       screen.update();
@@ -91,7 +102,7 @@ describe('a login button is clicked', () => {
     });
 
     it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, undefined);
     });
     it('loading wheel to be rendered', () => {
       screen.instance().startLoad();
