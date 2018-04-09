@@ -178,7 +178,7 @@ function registerPushDevice(token) {
           token,
           platform: isAndroid ?
             'GCM' :
-            Config.APNS_SANDBOX ? 'APNS_SANDBOX' : 'APNS',
+            Config.APNS_MODE,
         },
       },
     };
