@@ -57,7 +57,7 @@ export class ImpactView extends Component {
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
         this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
-      this.getInteractionReport(this.state.period);
+      this.getInteractionReport();
     } else {
       this.props.dispatch(getGlobalImpact());
       this.props.dispatch(getMyImpact());
@@ -74,7 +74,7 @@ export class ImpactView extends Component {
     return 'P' + months + 'M' + days + 'D';
   };
 
-  async getInteractionReport(period) {
+  async getInteractionReport(period = this.state.period) {
     const { dispatch, user, me, organization = {} } = this.props;
 
     const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, period));
