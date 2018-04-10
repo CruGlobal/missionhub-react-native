@@ -104,7 +104,7 @@ class App extends Component {
 
   handleError(e) {
     let crashlyticsError;
-    const apiError = e.apiError;
+    const { apiError } = e;
 
     if (apiError) {
       if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
