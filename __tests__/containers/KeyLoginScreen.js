@@ -72,7 +72,12 @@ describe('a login button is clicked', () => {
 
   describe('key login button is pressed', () => {
     const clickLoginButton = () => screen.find({ name: 'loginButton' }).simulate('press');
+
     const mockTrackActionResult = { type: 'tracked action' };
+    const expectTrackAction = (expected) => {
+      expect(trackAction).toHaveBeenCalledWith(expected);
+      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+    };
 
     beforeEach(() => {
       const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
@@ -105,8 +110,7 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+      expectTrackAction(ACTIONS.USER_ERROR);
     });
 
     it('shows invalid credentials message and tracks user error when email or password is missing', async() => {
@@ -116,8 +120,7 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+      expectTrackAction(ACTIONS.USER_ERROR);
     });
 
     it('shows email verification required message and tracks user error when email has not been verified', async() => {
@@ -127,8 +130,7 @@ describe('a login button is clicked', () => {
 
       screen.update();
       expect(screen).toMatchSnapshot();
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.USER_ERROR);
-      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+      expectTrackAction(ACTIONS.USER_ERROR);
     });
 
     it('tracks system error for unexpected error', async() => {
@@ -136,8 +138,7 @@ describe('a login button is clicked', () => {
 
       await clickLoginButton();
 
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.SYSTEM_ERROR);
-      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+      expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
   });
 
