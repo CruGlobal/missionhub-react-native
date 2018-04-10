@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import Enzyme, { shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { TouchableWithoutFeedback } from 'react-native';
 import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
@@ -11,7 +11,6 @@ import { renderShallow } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import renderer from 'react-test-renderer';
 import Carousel from 'react-native-snap-carousel';
-import Adapter from 'enzyme-adapter-react-16/build/index';
 
 const store = createMockStore({});
 let screen;
@@ -45,13 +44,12 @@ it('disables autoplay when reaches last page', () => {
 });
 
 it('disables autoplay when user touches onboarding page', () => {
-  Enzyme.configure({ adapter: new Adapter() });
   const page = shallow(carouselProps.renderItem({ item }));
 
-  page.find(TouchableWithoutFeedback).simulate('press');
+  page.find(TouchableWithoutFeedback).props().onPressIn();
   screen.update();
 
-  expect(carouselProps.autoplay).toEqual(false);
+  expect(screen.find(Carousel).props().autoplay).toEqual(false);
 });
 
 it('tracks state on launch', () => {
