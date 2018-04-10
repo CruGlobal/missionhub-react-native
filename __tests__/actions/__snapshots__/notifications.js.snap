@@ -51,7 +51,7 @@ Array [
 exports[`registerNotificationHandler onNotification should deep link to contact screen 1`] = `
 Array [
   Object {
-    "response": Object {
+    "person": Object {
       "id": "1",
       "type": "person",
     },
@@ -79,7 +79,7 @@ Array [
 exports[`registerNotificationHandler onNotification should deep link to contact screen on iOS 1`] = `
 Array [
   Object {
-    "response": Object {
+    "person": Object {
       "id": "1",
       "type": "person",
     },
