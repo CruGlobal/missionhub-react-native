@@ -41,6 +41,7 @@ const createMockStore = (id, personalJourney) => {
     auth: {
       person: id,
       isJean: true,
+      personId: 24,
     },
     swipe: {
       journey: false,
