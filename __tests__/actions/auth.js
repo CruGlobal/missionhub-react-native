@@ -45,10 +45,12 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: {
+  store = mockStore({
+    auth: {
       refreshToken,
       upgradeToken,
-    } });
+    },
+  });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });

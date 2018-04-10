@@ -31,7 +31,7 @@ it('updates showReminder', () => {
 });
 
 it('should update push device', () => {
-  const pushDevice = { id: '9', token: 'some token' }
+  const pushDevice = { id: '9', token: 'some token' };
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
