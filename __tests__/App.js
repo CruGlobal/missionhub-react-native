@@ -41,7 +41,7 @@ it('shows offline alert if network request failed', () => {
 it('should not show alert for expired access token', () => {
   test({ apiError: { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] } });
 
-  expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(0);
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should show specific error message if request has it', () => {
