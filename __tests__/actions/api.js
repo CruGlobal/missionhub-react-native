@@ -27,12 +27,12 @@ beforeEach(() => expect.assertions(1));
 
 async function test(state, obj, method, apiResult, ) {
   store = mockStore({ auth: { ...mockAuthState, ...state } });
-  mockFnWithParams(API_CALLS, request.name, Promise.reject(error), query, {});
+  mockFnWithParams(API_CALLS, request.name, Promise.reject({ apiError: error }), query, {});
   mockFnWithParams(obj, method, apiResult);
 
   try {
     await store.dispatch(callApi(request, {}, {}));
-  } catch (error) {
+  } catch (e) {
     expect(store.getActions()).toEqual([
       {
         data: {},
