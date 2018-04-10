@@ -102,24 +102,9 @@ export function refreshAnonymousLogin() {
 }
 
 export function logout() {
-  return (dispatch, getState) => {
-    dispatch(logOutAnalytics());
-
-    const pushDeviceId = getState().notifications.pushDeviceId;
-    if (!pushDeviceId) {
-      dispatch(logoutReset());
-    } else {
-      dispatch(deletePushToken(pushDeviceId)).then(() => {
-        dispatch(logoutReset());
-      }).catch(() => {
-        dispatch(logoutReset());
-      });
-    }
-  };
-}
-
-export function logoutReset() {
   return (dispatch) => {
+    dispatch(deletePushToken());
+    dispatch(logOutAnalytics());
     dispatch({ type: LOGOUT });
     dispatch(navigateReset(LOGIN_SCREEN));
   };

@@ -30,23 +30,23 @@ it('updates showReminder', () => {
   expect(state.showReminder).toBe(false);
 });
 
-it('updates set token', () => {
+it('should update push device', () => {
+  const pushDevice = { id: '9', token: 'some token' }
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
-      findAll: () => [ { id: '9' } ],
+      response: pushDevice,
     },
   });
-  expect(state.pushDeviceId).toEqual('9');
+  expect(state.pushDevice).toEqual(pushDevice);
 });
 
 it('resets state on logout', () => {
   let expectedState = {
-    token: '',
+    pushDevice: {},
     hasAsked: false,
     shouldAsk: true,
     showReminder: true,
-    pushDeviceId: '',
   };
   const state = notifications({}, {
     type: LOGOUT,
