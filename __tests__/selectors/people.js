@@ -33,6 +33,18 @@ const organizationOne = {
   },
 };
 
+const unnamedOrganization = {
+  id: '150',
+  type: 'organization',
+  people: {
+    '33': {
+      id: '33',
+      type: 'person',
+      first_name: 'Fname4',
+    },
+  },
+};
+
 const organizationTwo = {
   id: '200',
   type: 'organization',
@@ -79,6 +91,7 @@ const people = {
         },
       },
     },
+    [unnamedOrganization.id]: unnamedOrganization,
     [organizationOne.id]: organizationOne,
     [organizationTwo.id]: organizationTwo,
   },
