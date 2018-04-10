@@ -41,6 +41,7 @@ describe('step', () => {
 });
 
 describe('stage', () => {
+  const stagePersonId = 889433;
   const mockStage = {
     ...mockStep,
     personName: 'Test Person',
@@ -49,10 +50,10 @@ describe('stage', () => {
       _type: 'pathway_stage',
       name: 'Curious',
     },
-    person: { id: 1 },
+    person: { id: stagePersonId },
   };
 
-  it('is rendered correctly with old stage', () => {
+  it('is rendered correctly with old stage for a contact', () => {
     testSnapshotShallow(
       <JourneyItem
         item={{
@@ -64,7 +65,19 @@ describe('stage', () => {
     );
   });
 
-  it('is rendered correctly without old stage', () => {
+  it('is rendered correctly with old stage for self', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+        }}
+        myId={stagePersonId}
+        type="stage" />
+    );
+  });
+
+  it('is rendered correctly without old stage for a contact', () => {
     testSnapshotShallow(
       <JourneyItem
         item={{
@@ -72,6 +85,19 @@ describe('stage', () => {
           old_pathway_stage: { name: '' },
         }}
         myId={484893}
+        type="stage" />
+
+    );
+  });
+
+  it('is rendered correctly without old stage for self', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { name: '' },
+        }}
+        myId={stagePersonId}
         type="stage" />
 
     );
