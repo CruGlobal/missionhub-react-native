@@ -107,7 +107,7 @@ export function setStepFocus(step, isFocus) {
       data: {
         type: 'accepted_challenge',
         attributes: {
-          organization_id: step.organization ? step.organization : null,
+          organization_id: step.organization ? step.organization.id : null,
           focus: isFocus,
         },
         relationships: {
