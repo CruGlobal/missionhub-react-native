@@ -57,27 +57,17 @@ export class ImpactView extends Component {
       this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
         this.setState({ contactImpact: results.findAll('impact_report')[0] || {} });
       });
-      this.getInteractionReport();
     } else {
       this.props.dispatch(getGlobalImpact());
       this.props.dispatch(getMyImpact());
-      this.getInteractionReport(this.buildCurrentYearPeriod());
     }
-
+    this.getInteractionReport();
   }
 
-  buildCurrentYearPeriod = function() {
-    var today = new Date();
-    var months = today.getMonth();
-    var days = today.getDate();
-
-    return `P${months}M${days}D`;
-  };
-
-  async getInteractionReport(period = this.state.period) {
+  async getInteractionReport() {
     const { dispatch, user, me, organization = {} } = this.props;
 
-    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, period));
+    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, this.state.period));
 
     const report = personReports[0];
     const interactions = report ? report.interactions : [];
