@@ -187,7 +187,7 @@ export default {
     stageTextSelf: 'You changed from {{oldStage}} to {{newStage}}',
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',
     stageStartSelf: 'You added yourself to MissionHub as {{newStage}}',
-    interactionNote: 'Comment',
+    interactionNote: '',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
     interactionDecision: 'Personal Decisions',
