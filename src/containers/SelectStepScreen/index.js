@@ -188,7 +188,7 @@ SelectStepScreen.propTypes = {
 };
 
 const mapStateToProps = ({ auth }) => ({
-  myId: auth.personId,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

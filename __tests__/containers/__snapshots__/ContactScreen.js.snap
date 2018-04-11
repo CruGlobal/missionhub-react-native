@@ -13,7 +13,7 @@ Object {
   },
   "isJean": true,
   "isMissionhubUser": false,
-  "myId": 1,
+  "myId": "1",
   "orgPermission": Object {
     "_type": "organizational_permission",
     "id": "6",
@@ -48,7 +48,7 @@ Object {
   },
   "isJean": true,
   "isMissionhubUser": false,
-  "myId": 1,
+  "myId": "1",
   "orgPermission": Object {
     "_type": "organizational_permission",
     "id": "6",

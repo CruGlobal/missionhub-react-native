@@ -191,7 +191,7 @@ ContactSteps.propTypes = {
 
 const mapStateToProps = ({ swipe, auth }) => ({
   showBump: swipe.stepsContact,
-  myId: auth.personId,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(ContactSteps);

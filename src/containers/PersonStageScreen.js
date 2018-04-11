@@ -145,7 +145,7 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
-  myId: auth.personId,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(PersonStageScreen);

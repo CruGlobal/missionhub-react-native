@@ -15,7 +15,9 @@ const store = createMockStore({
     },
   },
   auth: {
-    personId: 1234,
+    person: {
+      id: '1234',
+    },
   },
 });
 

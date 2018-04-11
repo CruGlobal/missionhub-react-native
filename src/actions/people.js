@@ -14,7 +14,7 @@ export function getMyPeople() {
     };
 
     const people = (await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery))).response;
-    const authPerson = getState().auth.user;
+    const authPerson = getState().auth.person;
     const initOrgs = {
       personal: { id: 'personal', people: { [authPerson.id]: authPerson } },
     };
