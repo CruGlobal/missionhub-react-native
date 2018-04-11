@@ -53,7 +53,7 @@ Object {
   },
   "105": Object {
     "id": "105",
-    "name": "",
+    "name": "test org 1",
     "people": Object {
       "2": Object {
         "first_name": "Test Person",

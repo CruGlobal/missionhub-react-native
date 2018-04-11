@@ -47,11 +47,12 @@ describe('getPersonDetails', () => {
   it('should get a person\'s details', async() => {
     const person = { id: '1', first_name: 'Test' };
     const orgId = '2';
+    const orgName = 'test org';
 
     const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
     callApi.mockReturnValue(apiResponse);
 
-    await store.dispatch(getPersonDetails(person.id, orgId));
+    await store.dispatch(getPersonDetails(person.id, orgId, orgName));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
       include: expectedInclude,
@@ -63,6 +64,7 @@ describe('getPersonDetails', () => {
         type: LOAD_PERSON_DETAILS,
         person,
         orgId,
+        orgName,
       },
     ]);
   });
