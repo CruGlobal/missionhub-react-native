@@ -22,13 +22,6 @@ const store = createMockStore({
       pathway_moved_count: 46,
     },
   },
-  auth: {
-    user: {
-      id: '2',
-      type: 'person',
-      first_name: 'Test Fname',
-    },
-  },
 });
 
 jest.mock('react-native-device-info');
