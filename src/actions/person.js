@@ -13,7 +13,7 @@ export function getMe(extraInclude) {
   };
 }
 
-export function getPersonDetails(id, orgId) {
+export function getPersonDetails(id, orgId, orgName) {
   return async(dispatch) => {
     const query = {
       person_id: id,
@@ -24,6 +24,7 @@ export function getPersonDetails(id, orgId) {
       type: LOAD_PERSON_DETAILS,
       person,
       orgId,
+      orgName,
     });
   };
 }
