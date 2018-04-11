@@ -323,7 +323,8 @@ describe('showWelcomeNotification', () => {
   });
 
   it('should queue local notification', () => {
-    MockDate.set('2018-01-01');
+    const mockDate = '2018-01-01';
+    MockDate.set(mockDate);
 
     const store = mockStore({
       notifications: {
@@ -334,7 +335,7 @@ describe('showWelcomeNotification', () => {
     expect(PushNotification.localNotificationSchedule).toHaveBeenCalledWith({
       title: i18next.t('welcomeNotification:title'),
       message: i18next.t('welcomeNotification:message'),
-      date: new Date('2018-01-01T00:00:03.000Z'),
+      date: new Date(`${mockDate}T00:00:03.000Z`),
     });
     expect(store.getActions()).toEqual([ {
       type: DISABLE_WELCOME_NOTIFICATION,
