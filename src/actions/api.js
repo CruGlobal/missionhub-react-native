@@ -78,7 +78,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
       const handleError = (err) => {
         APILOG('REQUEST ERROR', action.name, err);
-        const apiError = err.apiError;
+        const { apiError } = err;
 
         if (apiError) {
           if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
