@@ -490,6 +490,477 @@ exports[`a login button is clicked key login button is pressed loading wheel app
 </PlatformKeyboardAvoidingView>
 `;
 
+exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
+<PlatformKeyboardAvoidingView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FF5532",
+        "height": 60,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+        }
+      }
+    >
+      Verify your account via Email
+    </MyText>
+  </View>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginLeft": 25,
+        "marginTop": 7,
+      }
+    }
+    value={0.5}
+  >
+    <IconButton
+      name="backIcon"
+      onPress={[Function]}
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+    value={3}
+  >
+    <View>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value="klas&jflk@lkjasdf.com"
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value="this&is=unsafe"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+  </Flex>
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      name="loginButton"
+      onPress={[Function]}
+      text="LOGIN"
+      type="secondary"
+    />
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
+
+exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
+<PlatformKeyboardAvoidingView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FF5532",
+        "height": 60,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+        }
+      }
+    >
+      Your Email or Password is Incorrect
+    </MyText>
+  </View>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginLeft": 25,
+        "marginTop": 7,
+      }
+    }
+    value={0.5}
+  >
+    <IconButton
+      name="backIcon"
+      onPress={[Function]}
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+    value={3}
+  >
+    <View>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value="klas&jflk@lkjasdf.com"
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value="this&is=unsafe"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+  </Flex>
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      name="loginButton"
+      onPress={[Function]}
+      text="LOGIN"
+      type="secondary"
+    />
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
+
+exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
+<PlatformKeyboardAvoidingView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FF5532",
+        "height": 60,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+        }
+      }
+    >
+      Your Email or Password is Incorrect
+    </MyText>
+  </View>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginLeft": 25,
+        "marginTop": 7,
+      }
+    }
+    value={0.5}
+  >
+    <IconButton
+      name="backIcon"
+      onPress={[Function]}
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+    value={3}
+  >
+    <View>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value="klas&jflk@lkjasdf.com"
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value="this&is=unsafe"
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </View>
+  </Flex>
+  <Flex
+    align="stretch"
+    justify="end"
+  >
+    <Button
+      name="loginButton"
+      onPress={[Function]}
+      text="LOGIN"
+      type="secondary"
+    />
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   keyboardVerticalOffset={0}

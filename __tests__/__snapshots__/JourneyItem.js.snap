@@ -257,7 +257,7 @@ exports[`renders survey correctly 1`] = `
 </Flex>
 `;
 
-exports[`stage is rendered correctly with old stage 1`] = `
+exports[`stage is rendered correctly with old stage for a contact 1`] = `
 <Flex
   align="center"
   direction="row"
@@ -344,7 +344,94 @@ exports[`stage is rendered correctly with old stage 1`] = `
 </Flex>
 `;
 
-exports[`stage is rendered correctly without old stage 1`] = `
+exports[`stage is rendered correctly with old stage for self 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="journeyIcon"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Uninterested to Curious
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      You changed from Uninterested to Curious
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`stage is rendered correctly without old stage for a contact 1`] = `
 <Flex
   align="center"
   direction="row"
@@ -426,6 +513,93 @@ exports[`stage is rendered correctly without old stage 1`] = `
       }
     >
       You added Test Person to MissionHub as Curious
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`stage is rendered correctly without old stage for self 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="journeyIcon"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Curious
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      You added yourself to MissionHub as Curious
     </MyText>
   </Flex>
 </Flex>

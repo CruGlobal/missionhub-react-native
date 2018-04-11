@@ -1449,6 +1449,10 @@ core-js@^2.2.2, core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
 
+core-js@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.4.tgz#f2c8bf181f2a80b92f360121429ce63a2f0aeae0"
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -4434,9 +4438,9 @@ react-native-parallax-scroll-view@^0.21.0:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-push-notification@3.0.2:
+"react-native-push-notification@https://github.com/CruGlobal/react-native-push-notification":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-3.0.2.tgz#3fa7d654cfd915436597b0dd5ba8b0f898c4b0f5"
+  resolved "https://github.com/CruGlobal/react-native-push-notification#d5d7df5c6046dc36f430f2f230e3bcf7baf30254"
 
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
