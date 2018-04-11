@@ -18,7 +18,9 @@
     "__DEV__": true,
     "LOG": true,
     "WARN": true,
-    "APILOG": true
+    "APILOG": true,
+    "window": true,
+    "ErrorUtils": true
   },
   "rules": {
     "strict": 0,

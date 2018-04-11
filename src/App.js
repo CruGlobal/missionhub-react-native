@@ -95,11 +95,11 @@ class App extends Component {
   }
 
   initializeErrorHandling() {
-    window.onunhandledrejection = ({ reason }) => { // eslint-disable-line no-undef
+    window.onunhandledrejection = ({ reason }) => {
       this.handleError(reason);
     };
 
-    ErrorUtils.setGlobalHandler(this.handleError); // eslint-disable-line no-undef
+    ErrorUtils.setGlobalHandler(this.handleError);
   }
 
   handleError(e) {
