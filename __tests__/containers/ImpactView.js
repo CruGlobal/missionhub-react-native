@@ -39,9 +39,6 @@ describe('ImpactView', () => {
             mine: myImpact,
             global: globalImpact,
           },
-          auth: {
-            user: person,
-          },
         },
       )).toMatchSnapshot();
     });
@@ -53,7 +50,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           isContactScreen={false}
           user={person}
-          userImpact={{
+          myImpact={{
             ...myImpact,
             steps_count: 0,
             pathway_moved_count: 0,
@@ -72,7 +69,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           isContactScreen={false}
           user={person}
-          userImpact={{
+          myImpact={{
             ...myImpact,
             steps_count: 1,
             receivers_count: 1,
@@ -93,7 +90,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           isContactScreen={false}
           user={person}
-          userImpact={{
+          myImpact={{
             ...myImpact,
           }}
           globalImpact={globalImpact}
@@ -112,7 +109,7 @@ describe('ImpactView', () => {
         />
       );
       component.setState({
-        contactImpact: {
+        userImpact: {
           ...userImpact,
           steps_count: 0,
           pathway_moved_count: 0,
@@ -130,7 +127,7 @@ describe('ImpactView', () => {
         />
       );
       component.setState({
-        contactImpact: {
+        userImpact: {
           ...userImpact,
           steps_count: 1,
           receivers_count: 1,
@@ -149,9 +146,7 @@ describe('ImpactView', () => {
         />
       );
       component.setState({
-        contactImpact: {
-          ...userImpact,
-        },
+        userImpact,
       });
       expect(component).toMatchSnapshot();
     });
