@@ -16,6 +16,7 @@ import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
+import i18next from 'i18next';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -141,19 +142,21 @@ export function getTimezoneString() {
   return `${new Date().getTimezoneOffset() / 60 * -1}`;
 }
 
-export function updateTimezone() {
+export function updateLocaleAndTimezone() {
   return (dispatch, getState) => {
-    const currentTime = getState().auth.timezone;
+    const { user: { user = {} } = {} } = getState().auth;
     const timezone = getTimezoneString();
-    if (currentTime !== timezone) {
+    const language = i18next.language;
+    if (user.timezone !== timezone || user.mobile_language !== language) {
       const data = {
         data: {
           attributes: {
-            timezone: timezone,
+            timezone,
+            mobile_language: language,
           },
         },
       };
-      return dispatch(callApi(REQUESTS.UPDATE_TIMEZONE, {}, data));
+      return dispatch(callApi(REQUESTS.UPDATE_ME_USER, {}, data));
     }
   };
 }
@@ -164,7 +167,7 @@ export function loadHome() {
     dispatch(getMe());
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
-    dispatch(updateTimezone());
+    dispatch(updateLocaleAndTimezone());
     dispatch(reregisterNotificationHandler());
   };
 }

@@ -12,7 +12,7 @@ export function selectMyStage(id) {
   };
 
   return (dispatch) => {
-    return dispatch(callApi(REQUESTS.UPDATE_MY_USER_STAGE, {}, data));
+    return dispatch(callApi(REQUESTS.UPDATE_ME_USER, {}, data));
   };
 }
 

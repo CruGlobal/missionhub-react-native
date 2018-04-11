@@ -4438,9 +4438,9 @@ react-native-parallax-scroll-view@^0.21.0:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-push-notification@3.0.2:
+"react-native-push-notification@https://github.com/CruGlobal/react-native-push-notification":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-3.0.2.tgz#3fa7d654cfd915436597b0dd5ba8b0f898c4b0f5"
+  resolved "https://github.com/CruGlobal/react-native-push-notification#d5d7df5c6046dc36f430f2f230e3bcf7baf30254"
 
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
