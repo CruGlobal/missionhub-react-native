@@ -55,14 +55,3 @@ it('should show generic error message if request does not have it', () => {
 
   expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, ...lastTwoArgs);
 });
-
-//todo get this test working
-xit('should show not show alert if an alert modal is already up', async() => {
-  ReactNative.Alert.alert = jest.fn();
-  const error = { apiError: {}, key: 'test', method: '', message: '' };
-
-  await test(error);
-  await test(error);
-
-  return expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(1);
-});
