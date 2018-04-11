@@ -26,7 +26,6 @@ lodashForEach(apiRoutes, (data, key) => {
     ...data,
     name: key,
     FETCH: `${key}_FETCH`,
-    FAIL: `${key}_FAIL`,
     SUCCESS: `${key}_SUCCESS`,
   };
 });
@@ -91,13 +90,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
               dispatch(refreshMissionHubFacebookAccess());
             }
           }
-
-          dispatch({ //todo is this used anywhere?
-            error: apiError,
-            query: newQuery,
-            data,
-            type: action.FAIL,
-          });
         }
         reject(err);
       };

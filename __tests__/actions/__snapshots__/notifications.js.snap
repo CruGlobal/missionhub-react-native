@@ -146,7 +146,6 @@ exports[`registerNotificationHandler onRegister should update notification token
 Array [
   Array [
     Object {
-      "FAIL": "SET_PUSH_TOKEN_FAIL",
       "FETCH": "SET_PUSH_TOKEN_FETCH",
       "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
       "endpoint": "undefined/apis/v4/push_notification_device_tokens",
@@ -184,7 +183,6 @@ exports[`registerNotificationHandler onRegister should update notification token
 Array [
   Array [
     Object {
-      "FAIL": "SET_PUSH_TOKEN_FAIL",
       "FETCH": "SET_PUSH_TOKEN_FETCH",
       "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
       "endpoint": "undefined/apis/v4/push_notification_device_tokens",

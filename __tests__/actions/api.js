@@ -40,12 +40,6 @@ async function test(state, obj, method, apiResult, ) {
         type: request.FETCH,
       },
       apiResult,
-      {
-        data: {},
-        query: query,
-        type: request.FAIL,
-        error: error,
-      },
     ]);
   }
 }
