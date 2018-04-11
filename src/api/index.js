@@ -1,4 +1,3 @@
-import { Crashlytics } from 'react-native-fabric';
 import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';
@@ -6,10 +5,7 @@ import { JsonApiDataStore } from 'jsonapi-datastore';
 import request from './utils';
 import apiRoutes from './routes';
 import { exists } from '../utils/common';
-import { EXPIRED_ACCESS_TOKEN, URL_ENCODED, NETWORK_REQUEST_FAILED } from '../constants';
-import { Alert } from 'react-native';
-
-import i18n from '../i18n';
+import { URL_ENCODED } from '../constants';
 
 const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
 
@@ -82,61 +78,15 @@ lodashForEach(apiRoutes, (routeData, key) => {
           const response = jsonApiStore.sync(jsonResponse);
           resolve({ meta: jsonResponse.meta, results: jsonApiStore, response });
         }
-      }).catch((err) => {
-        LOG('request error or error in logic that handles the request', key, err);
+      }).catch((apiError) => {
+        LOG('request error or error in logic that handles the request', key, apiError);
+        APILOG(`${key} FAIL`, apiError);
 
-        if (err.message === NETWORK_REQUEST_FAILED) {
-          showOfflineAlert();
-          APILOG(`${key} FAIL`, err);
-          return reject(err);
-
-        } else if (err['error'] === 'invalid_request' || err['thekey_authn_error'] === 'invalid_credentials') {
-          return reject({ user_error: i18n.t('keyLogin:invalidCredentialsMessage') });
-
-        } else if (err['thekey_authn_error'] === 'email_unverified') {
-          return reject({ user_error: i18n.t('keyLogin:verifyEmailMessage') });
-
-        } else if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
-          //todo would be nice not to have this here and in actions/api.js
-          return reject(err);
-
-        } else {
-          showAlert(routeData, key);
-          if (!__DEV__) {
-            Crashlytics.recordCustomExceptionName(`API Error: ${key} ${method.toUpperCase()} ${endpoint}`, `\n\nQuery Params:\n${JSON.stringify(query, null, 2)}\n\nResponse:\n${JSON.stringify(err, null, 2)}`, []);
-          }
-          APILOG(`${key} FAIL`, err);
-          return reject(err);
-        }
+        return reject({ key, endpoint, method, query, apiError });
       });
     })
   );
 });
-
-let showingErrorModal = false;
-
-const showAlert = (routeData, key) => {
-  let errorMessage = `${i18n.t('error:unexpectedErrorMessage')} ${i18n.t('error:baseErrorMessage')}`;
-
-  const customErrorKey = `error:${key}`;
-  if (i18n.exists(customErrorKey)) {
-    errorMessage = `${i18n.t(customErrorKey)} ${i18n.t('error:baseErrorMessage')}`;
-  }
-
-  if (!showingErrorModal) {
-    showingErrorModal = true;
-    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
-    Alert.alert(i18n.t('error:error'), errorMessage, buttons, { onDismiss: () => showingErrorModal = false });
-  }
-};
-
-const showOfflineAlert = () => {
-  if (!showingErrorModal) {
-    showingErrorModal = true;
-    const buttons = [ { text: i18n.t('ok'), onPress: () => showingErrorModal = false } ];
-    Alert.alert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'), buttons, { onDismiss: () => showingErrorModal = false });
-  }
-};
 
 const isUrlEncoded = (routeData) => {
   return routeData.extra && routeData.extra.headers && routeData.extra.headers['Content-Type'] === URL_ENCODED;

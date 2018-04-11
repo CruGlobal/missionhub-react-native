@@ -6,6 +6,8 @@ import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
+import { trackAction } from '../../src/actions/analytics';
+import { ACTIONS } from '../../src/constants';
 import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 
 let store;
@@ -27,6 +29,9 @@ jest.mock('react-native-fbsdk', () => ({
   }),
   GraphRequest: jest.fn((param1, param2, cb) => cb(undefined, {})),
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
+}));
+jest.mock('../../src/actions/analytics', () => ({
+  trackAction: jest.fn(),
 }));
 
 beforeEach(() => {
@@ -77,22 +82,74 @@ describe('a login button is clicked', () => {
 
 
   describe('key login button is pressed', () => {
-    beforeEach(async() => {
+    const clickLoginButton = () => screen.find({ name: 'loginButton' }).simulate('press');
+
+    const mockTrackActionResult = { type: 'tracked action' };
+    const expectTrackAction = (expected) => {
+      expect(trackAction).toHaveBeenCalledWith(expected);
+      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+    };
+
+    beforeEach(() => {
       const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
       screen.setState(credentials);
       auth.keyLogin.mockImplementation((email, password) => {
         return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
       });
 
-      await screen.find({ name: 'loginButton' }).simulate('press');
+      trackAction.mockReset();
+      trackAction.mockReturnValue(mockTrackActionResult);
     });
 
     it('key login is called', async() => {
+      await clickLoginButton();
+
       expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
     });
-    it('loading wheel appears', () => {
+
+    it('loading wheel appears', async() => {
+      await clickLoginButton();
+
       screen.update();
       expect(screen).toMatchSnapshot();
+    });
+
+    it('shows invalid credentials message and tracks user error when invalid credentials are entered', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'invalid_credentials' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('shows invalid credentials message and tracks user error when email or password is missing', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { error: 'invalid_request' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('shows email verification required message and tracks user error when email has not been verified', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'email_unverified' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('tracks system error for unexpected error', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { error: 'invalid_grant' } }));
+
+      await clickLoginButton();
+
+      expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
   });
 
@@ -110,5 +167,4 @@ describe('a login button is clicked', () => {
       expect(screen).toMatchSnapshot();
     });
   });
-
 });

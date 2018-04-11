@@ -14,6 +14,7 @@ import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import i18n from '../../i18n';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -86,8 +87,16 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      const errorMessage = error.user_error;
+      const apiError = error.apiError;
+      let errorMessage;
       let action;
+
+      if (apiError['error'] === 'invalid_request' || apiError['thekey_authn_error'] === 'invalid_credentials') {
+        errorMessage = i18n.t('keyLogin:invalidCredentialsMessage');
+
+      } else if (apiError['thekey_authn_error'] === 'email_unverified') {
+        errorMessage = i18n.t('keyLogin:verifyEmailMessage');
+      }
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
