@@ -18,10 +18,14 @@ platform :android do
 
     cru_build_app
 
+    changelog_message = 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
+    sh('cd .. && touch changelog.txt')
+    File.write('./changelog.txt', changelog_message)
+
     crashlytics(
         apk_path: ENV['GRADLE_APK_OUTPUT_PATH'],
         groups: 'missionhub-android',
-        notes: 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
+        notes_path: 'fastlane/changelog.txt'
     )
 
     cru_notify_users(message: "MissionHub Android Beta Build released to Crashlytics.")
