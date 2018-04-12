@@ -5,7 +5,6 @@ import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
-import 'core-js';
 
 import i18n from './i18n';
 
