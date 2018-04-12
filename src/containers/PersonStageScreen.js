@@ -73,33 +73,20 @@ class PersonStageScreen extends Component {
           await this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id, this.props.orgId));
         this.complete(stage);
       }
-    } else if (this.props.addingContactFlow) {
+    } else {
+      const trackingScreen = this.props.addingContactFlow ? 'people' : 'onboarding';
+
       this.props.dispatch(updateUserStage(this.props.contactAssignmentId, stage.id)).then(() => {
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
           contactStage: stage,
-          createStepTracking: buildTrackingObj('people : add person : steps : create', 'people', 'add person', 'steps'),
+          createStepTracking: buildTrackingObj(`${trackingScreen} : add person : steps : create`, trackingScreen, 'add person', 'steps'),
           contactName: this.props.name,
           contactId: this.props.contactId,
           organization: { id: this.props.orgId },
         }));
       });
-      this.props.dispatch(trackState(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps')));
-
-    } else {
-      this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
-
-        this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          onSaveNewSteps: this.handleNavigate,
-          contactStage: stage,
-          contactName: this.props.name,
-          contactId: this.props.contactId,
-          createStepTracking: buildTrackingObj('onboarding : add person : steps : create', 'onboarding', 'add person', 'steps'),
-        }));
-
-        const trackingObj = buildTrackingObj('onboarding : add person : steps : add', 'onboarding', 'add person', 'steps');
-        this.props.dispatch(trackState(trackingObj));
-      });
+      this.props.dispatch(trackState(buildTrackingObj(`${trackingScreen} : add person : steps : add`, trackingScreen, 'add person', 'steps')));
     }
   };
 
@@ -141,12 +128,17 @@ PersonStageScreen.defaultProps = {
   enableBackButton: true,
 };
 
-const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  personFirstName: personProfile.personFirstName,
-  personId: personProfile.id,
-  myId: auth.personId,
-});
+const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
+  const navProps = (navigation.state.params || {});
+
+  return {
+    ...navProps,
+    personFirstName: personProfile.personFirstName,
+    personId: personProfile.id,
+    contactAssignmentId: navProps.onComplete ? navProps.contactAssignmentId : personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
+    myId: auth.personId,
+  };
+};
 
 export default connect(mapStateToProps)(PersonStageScreen);
 export const PERSON_STAGE_SCREEN = 'nav/PERSON_STAGE';
