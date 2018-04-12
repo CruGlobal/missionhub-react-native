@@ -120,7 +120,6 @@ Object {
   },
   "personal": Object {
     "id": "personal",
-    "name": "",
     "people": Object {
       "2": Object {
         "first_name": "Test Person",
