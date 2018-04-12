@@ -8,6 +8,7 @@ import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Touchable from '../../src/components/Touchable';
 import * as navigation from '../../src/actions/navigation';
+import IconButton from '../../src/components/IconButton';
 
 const store = createMockStore();
 let shallowScreen;
@@ -32,7 +33,7 @@ describe('back button', () => {
 
   it('calls navigate back once', () => {
     navigation.navigateBack = jest.fn();
-    shallowScreen.find(Touchable).simulate('press');
+    shallowScreen.find(IconButton).props().onPress();
 
     expect(navigation.navigateBack).toHaveBeenCalledTimes(1);
   });
@@ -55,10 +56,12 @@ describe('back button absolute', () => {
 });
 
 describe('back button customNavigate', () => {
+  const mockCustomNav = jest.fn();
+
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(
-      <BackButton customNavigate="backToStages" dispatch={jest.fn()} />,
+      <BackButton customNavigate={mockCustomNav} dispatch={jest.fn()} />,
       { context: { store: store } }
     );
   
@@ -66,10 +69,10 @@ describe('back button customNavigate', () => {
   });
 
 
-  it('navigate back is called 2 times', () => {
+  it('custom navigation function is called', () => {
     navigation.navigateBack = jest.fn();
-    shallowScreen.find(Touchable).simulate('press');
+    shallowScreen.find(IconButton).props().onPress();
 
-    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
+    expect(mockCustomNav).toHaveBeenCalledTimes(1);
   });
 });
