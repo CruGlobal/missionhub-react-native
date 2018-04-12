@@ -18,11 +18,7 @@ export class BackButton extends Component {
           name="backIcon"
           type="MissionHub"
           onPress={() => {
-            if (customNavigate === 'backToStages') {
-              dispatch(navigateBack(2));
-            } else {
-              dispatch(navigateBack());
-            }
+            customNavigate ? customNavigate() : dispatch(navigateBack());
             Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
           }}
         />
@@ -32,7 +28,7 @@ export class BackButton extends Component {
 }
 
 BackButton.propTypes = {
-  customNavigate: PropTypes.string,
+  customNavigate: PropTypes.func,
   absolute: PropTypes.bool,
 };
 
