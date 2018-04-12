@@ -11,7 +11,7 @@ import configureStore from 'redux-mock-store';
 
 const store = configureStore([ thunk ])({});
 const dispatch = jest.fn((response) => Promise.resolve(response));
-const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions,organizational_permissions.organization,reverse_contact_assignments,user';
+const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   store.clearActions();
