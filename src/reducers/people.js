@@ -20,6 +20,7 @@ export default function peopleReducer(state = initialState, action) {
       }
       return state;
     case LOAD_PERSON_DETAILS:
+      console.log(action.org);
       const orgId = action.orgId || 'personal';
       const org = action.org || {};
       const currentOrg = state.allByOrg[orgId];
