@@ -62,7 +62,6 @@ function authReducer(state = initialAuthState, action) {
       return {
         ...state,
         isFirstTime: true,
-        isLoggedIn: false,
       };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {
