@@ -1,4 +1,5 @@
 import {
+  COMPLETE_ONBOARDING,
   FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON, UPDATE_ONBOARDING_PERSON,
 } from '../constants';
@@ -6,6 +7,10 @@ import callApi, { REQUESTS } from './api';
 import uuidv4 from 'uuid/v4';
 import { updatePerson } from './person';
 import { Crashlytics } from 'react-native-fabric';
+
+export function completeOnboarding() {
+  return { type: COMPLETE_ONBOARDING };
+}
 
 export function firstNameChanged(firstName) {
   return {

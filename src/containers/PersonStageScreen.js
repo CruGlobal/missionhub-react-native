@@ -12,6 +12,7 @@ import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { trackAction, trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import { ACTIONS } from '../constants';
+import { completeOnboarding } from '../actions/onboardingProfile';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -88,6 +89,7 @@ class PersonStageScreen extends Component {
 
     } else {
       this.props.dispatch(selectPersonStage(this.props.contactId || this.props.personId, this.props.myId, stage.id)).then(() => {
+        this.props.dispatch(completeOnboarding());
 
         this.props.dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
           onSaveNewSteps: this.handleNavigate,
