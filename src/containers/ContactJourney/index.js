@@ -100,7 +100,7 @@ class ContactJourney extends Component {
 
   renderRow({ item }) {
     const { showReminder, myId } = this.props;
-    const content = <JourneyItem item={item} type={item.type} myId={myId} />;
+    const content = <JourneyItem item={item} myId={myId} />;
 
     if (item.type !== 'survey' && item.type !== 'stage') {
       return (
