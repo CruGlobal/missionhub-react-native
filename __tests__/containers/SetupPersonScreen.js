@@ -17,6 +17,9 @@ const mockState = {
     personFirstName: '',
     personLastName: '',
   },
+  auth: {
+    personId: '1', // TODO: update to auth.person.id
+  },
 };
 
 let store = createMockStore(mockState);
