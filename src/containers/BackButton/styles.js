@@ -5,10 +5,8 @@ import { isiPhoneX } from '../../utils/common';
 const margin = 25;
 
 export default StyleSheet.create({
-  absolute: {
+  absoluteTopLeft: {
     position: 'absolute',
-  },
-  button: {
     top: isiPhoneX() ? margin + 25 : margin,
     left: 5,
   },
