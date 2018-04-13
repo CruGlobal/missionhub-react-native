@@ -9,7 +9,7 @@ import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { MAIN_TABS } from '../../src/constants';
 import { Crashlytics } from 'react-native-fabric';
-import { completeOnboarding } from '../../src/actions/onboardingProfile';
+import * as onboardingProfile from '../../src/actions/onboardingProfile';
 
 const mockStore = configureStore([ thunk ]);
 const personId = '593348';
@@ -50,12 +50,14 @@ describe('onSuccessfulLogin', () => {
   });
 
   it('should complete onboarding and navigate to Main Tabs', async() => {
+    const onboardingCompleteAction = { type: 'onboarding done' };
+    mockFnWithParams(onboardingProfile, 'completeOnboarding', onboardingCompleteAction);
     user.pathway_stage_id = 5;
     myContact.pathway_stage_id = 2;
 
     await store.dispatch(onSuccessfulLogin());
 
-    expect(store.getActions()).toEqual([ updateStatusResult, completeOnboarding(), { type: MAIN_TABS } ]);
+    expect(store.getActions()).toEqual([ updateStatusResult, onboardingCompleteAction, { type: MAIN_TABS } ]);
   });
 
   it('should set Fabric user id', async() => {
