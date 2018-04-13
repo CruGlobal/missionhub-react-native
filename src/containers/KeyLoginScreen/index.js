@@ -9,8 +9,6 @@ import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
-import { navigateBack } from '../../actions/navigation';
-import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
@@ -139,7 +137,7 @@ class KeyLoginScreen extends Component {
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
         <Flex value={.5} justify="start" style={{ alignSelf: 'flex-start' }}>
-          <BackButton />
+          <BackButton style={{ marginLeft: 5, marginTop: isiPhoneX() ? 50 : 25 }} />
         </Flex>
         {
           this.state.logo ?

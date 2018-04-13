@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 
 import Header from '../Header';
-import { IconButton } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
 import { trackSearchFilter, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
+import BackButton from '../BackButton';
 
 function setSelected(items = [], id) {
   return items.map((i) => ({
@@ -73,15 +73,12 @@ export class SearchPeopleFilterRefineScreen extends Component {
   }
 
   render() {
-    const { t, title, dispatch } = this.props;
+    const { t, title } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              onPress={() => dispatch(navigateBack())} />
+            <BackButton />
           }
           title={title || t('title')}
         />
