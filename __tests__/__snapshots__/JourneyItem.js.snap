@@ -5,15 +5,12 @@ exports[`renders interaction correctly 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -70,7 +67,7 @@ exports[`renders interaction correctly 1`] = `
         }
       }
     >
-      Test Journey
+      Test Interaction
     </MyText>
   </Flex>
 </Flex>
@@ -81,15 +78,12 @@ exports[`renders survey correctly 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -145,7 +139,7 @@ exports[`renders survey correctly 1`] = `
         }
       }
     >
-      Survey Test
+      Test Survey
     </MyText>
     <Flex
       direction="column"
@@ -249,15 +243,12 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -336,15 +327,12 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -423,15 +411,12 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -510,15 +495,12 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -597,15 +579,12 @@ exports[`step is rendered correctly with comment 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -673,7 +652,7 @@ exports[`step is rendered correctly with comment 1`] = `
         }
       }
     >
-      undefined
+      Test Step
 
 test comment on completed step
     </MyText>
@@ -686,15 +665,12 @@ exports[`step is rendered correctly with pathway stage 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -761,7 +737,9 @@ exports[`step is rendered correctly with pathway stage 1`] = `
           "fontSize": 14,
         }
       }
-    />
+    >
+      Test Step
+    </MyText>
   </Flex>
 </Flex>
 `;
@@ -771,15 +749,12 @@ exports[`step is rendered correctly without comment 1`] = `
   align="center"
   direction="row"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingRight": 24,
-        "paddingVertical": 19,
-        "width": 750,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
   }
 >
   <Flex
@@ -846,7 +821,9 @@ exports[`step is rendered correctly without comment 1`] = `
           "fontSize": 14,
         }
       }
-    />
+    >
+      Test Step
+    </MyText>
   </Flex>
 </Flex>
 `;

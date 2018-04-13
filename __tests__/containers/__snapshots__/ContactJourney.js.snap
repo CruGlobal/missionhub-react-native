@@ -141,8 +141,8 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
         Array [
           Object {
             "date": "2010-01-01 12:12:12",
-            "id": 84472,
-            "type": "step",
+            "id": "84472",
+            "type": "accepted_challenge",
           },
         ]
       }
@@ -193,7 +193,6 @@ exports[`journey methods renders a journey row 1`] = `
       }
     }
     myId="123"
-    type={undefined}
   />
 </Translate(RowSwipeable)>
 `;
@@ -208,7 +207,6 @@ exports[`journey methods renders a survey row 1`] = `
     }
   }
   myId="123"
-  type="survey"
 />
 `;
 
@@ -222,7 +220,6 @@ exports[`journey methods renders a survey row 2`] = `
     }
   }
   myId="123"
-  type="stage"
 />
 `;
 

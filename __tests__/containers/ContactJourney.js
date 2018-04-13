@@ -22,7 +22,7 @@ const mockPerson = {
 };
 
 const mockJourneyList = [
-  { type: 'step', id: 84472, date: '2010-01-01 12:12:12' },
+  { type: 'accepted_challenge', id: '84472', date: '2010-01-01 12:12:12' },
 ];
 
 const mockAddComment = jest.fn(() => Promise.resolve());
