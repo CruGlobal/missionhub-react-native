@@ -105,17 +105,12 @@ it('sets user time zone', () => {
 });
 
 it('logs in with facebook', () => {
-  const jsonApiStore = new JsonApiDataStore();
-  jsonApiStore.sync({
-    data: {
-      token: '123',
-      personId: '123',
-    },
-  });
+  const token = '123';
 
-  const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, jsonApiStore);
+  const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, { token });
 
   expect(state.isFirstTime).toBe(false);
+  expect(state.token).toBe(token);
 });
 
 it('updates a users stage', () => {
