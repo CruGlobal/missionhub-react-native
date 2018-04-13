@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
@@ -18,6 +18,7 @@ import { personSelector, contactAssignmentSelector, orgPermissionSelector } from
 import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
 import { isMissionhubUser } from '../../utils/common';
+import BackButton from '../BackButton';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
@@ -124,11 +125,7 @@ export class ContactScreen extends Component {
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              onPress={() => dispatch(navigateBack())}
-            />
+            <BackButton />
           }
           right={
             <IconButton

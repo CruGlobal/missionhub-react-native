@@ -4,11 +4,14 @@ exports[`back button absolute renders with absolute 1`] = `
 <View
   style={
     Array [
-      Object {
-        "left": 5,
-        "position": "absolute",
-        "top": 25,
-      },
+      Array [
+        null,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",
@@ -29,7 +32,10 @@ exports[`back button renders normally 1`] = `
 <View
   style={
     Array [
-      Object {},
+      Array [
+        null,
+        null,
+      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",

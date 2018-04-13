@@ -11,9 +11,9 @@ import IconButton from '../../components/IconButton';
 
 export class BackButton extends Component {
   render() {
-    const { dispatch, customNavigate, absolute } = this.props;
+    const { dispatch, customNavigate, absolute, style } = this.props;
     return (
-      <Flex self="start" align="start" justify="center" style={absolute ? styles.absoluteTopLeft : undefined}>
+      <Flex self="start" align="start" justify="center" style={[ style || null, absolute ? styles.absoluteTopLeft : null ]}>
         <IconButton
           name="backIcon"
           type="MissionHub"
