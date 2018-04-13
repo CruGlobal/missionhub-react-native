@@ -1,6 +1,12 @@
 import personProfile from '../../src/reducers/personProfile';
 import { REQUESTS } from '../../src/actions/api';
-import { PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, UPDATE_ONBOARDING_PERSON, RESET_ONBOARDING_PERSON } from '../../src/constants';
+import {
+  PERSON_FIRST_NAME_CHANGED,
+  PERSON_LAST_NAME_CHANGED,
+  UPDATE_ONBOARDING_PERSON,
+  RESET_ONBOARDING_PERSON,
+  LOGOUT, COMPLETE_ONBOARDING,
+} from '../../src/constants';
 
 it('updates from API call', () => {
   const firstName = 'test';
@@ -78,7 +84,7 @@ it('updates last name', () => {
   expect(state.personLastName).toBe(lastName);
 });
 
-it('resets state', () => {
+it('resets onboarding person and sets completed to true', () => {
   const state = personProfile(
     undefined,
     {
@@ -86,6 +92,38 @@ it('resets state', () => {
     }
   );
 
-  expect(state.personFirstName).toBe('');
-  expect(state.personLastName).toBe('');
+  expect(state).toEqual({
+    hasCompletedOnboarding: true,
+    personFirstName: '',
+    personLastName: '',
+  });
+});
+
+it('completes onboarding', () => {
+
+  const state = personProfile(
+    {},
+    {
+      type: COMPLETE_ONBOARDING,
+    }
+  );
+
+  expect(state).toEqual({
+    hasCompletedOnboarding: true,
+  });
+});
+
+it('resets state on logout', () => {
+  const state = personProfile(
+    undefined,
+    {
+      type: LOGOUT,
+    }
+  );
+
+  expect(state).toEqual({
+    hasCompletedOnboarding: false,
+    personFirstName: '',
+    personLastName: '',
+  });
 });
