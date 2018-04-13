@@ -58,7 +58,6 @@ it('returns token, person id, and logged in status after creating person', () =>
     person_id: personId,
   });
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.token).toBe(token);
   expect(state.personId).toBe(`${personId}`);
 });
@@ -116,7 +115,6 @@ it('logs in with facebook', () => {
 
   const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, jsonApiStore);
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.isFirstTime).toBe(false);
 });
 

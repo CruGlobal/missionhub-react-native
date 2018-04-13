@@ -108,14 +108,14 @@ describe('navigate reset', () => {
 describe('rehydrate', () => {
   it('tracks main tabs if logged in', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: true } } };
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef' } } };
 
     test(buildTrackingObj('steps', 'steps'));
   });
 
   it('does nothing if not logged in', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: false } } };
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: null } } };
 
     store.dispatch(navigationAction);
 
