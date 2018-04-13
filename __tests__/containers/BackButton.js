@@ -6,7 +6,6 @@ import { BackButton } from '../../src/containers/BackButton';
 import { createMockStore } from '../../testUtils/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
-import Touchable from '../../src/components/Touchable';
 import * as navigation from '../../src/actions/navigation';
 import IconButton from '../../src/components/IconButton';
 
