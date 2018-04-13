@@ -47,7 +47,8 @@ export default class JourneyItem extends Component {
     } else if (type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
-        title = t(interaction.translationKey);
+        //Todo: once comment interactions are separated from "something cool happened" notes, title should always equal t(interaction.interactionKey)
+        title = interaction.translationKey === 'interactionNote' ? null : t(interaction.translationKey);
       }
     }
 

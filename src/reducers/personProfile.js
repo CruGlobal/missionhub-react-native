@@ -24,8 +24,15 @@ function personProfileReducer(state = initialPersonProfileState, action) {
       return { ...state, personLastName: action.personLastName };
     case REQUESTS.ADD_NEW_PERSON.SUCCESS:
     case UPDATE_ONBOARDING_PERSON:
-      const result = action.results.findAll('person')[0];
-      return { ...state, id: result.id, personFirstName: result.first_name, personLastName: result.last_name };
+      const person = action.results.response;
+      const contactAssignment = person.reverse_contact_assignments[0];
+      return {
+        ...state,
+        id: person.id,
+        personFirstName: person.first_name,
+        personLastName: person.last_name,
+        contactAssignmentId: contactAssignment ? contactAssignment.id : state.contactAssignmentId,
+      };
     case RESET_ONBOARDING_PERSON:
       return initialPersonProfileState;
     default:

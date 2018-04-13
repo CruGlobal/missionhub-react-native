@@ -66,19 +66,6 @@ exports[`renders interaction correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "color": "#007398",
-          "fontSize": 16,
-        }
-      }
-    >
-      Comment
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
           "fontSize": 14,
         }
       }

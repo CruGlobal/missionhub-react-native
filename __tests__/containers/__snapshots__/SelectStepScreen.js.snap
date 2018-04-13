@@ -118,6 +118,52 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
 </View>
 `;
 
+exports[`renderBackButton should render back button 1`] = `
+<Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <ParallaxScrollView
+    backgroundColor="#007398"
+    backgroundScrollSpeed={5}
+    contentBackgroundColor="#fff"
+    contentContainerStyle={null}
+    fadeOutForeground={true}
+    onChangeHeaderVisibility={[Function]}
+    outputScaleValue={5}
+    parallaxHeaderHeight={215}
+    renderBackground={[Function]}
+    renderForeground={[Function]}
+    renderParallaxHeader={[Function]}
+    renderScrollComponent={[Function]}
+    renderStickyHeader={[Function]}
+    stickyHeaderHeight={65}
+  >
+    <StepsList
+      createStepText="Create your own step..."
+      items={
+        Array [
+          Object {
+            "id": "1",
+            "selected": false,
+          },
+        ]
+      }
+      onCreateStep={[Function]}
+      onSelectStep={[Function]}
+    />
+  </ParallaxScrollView>
+  <Connect(BackButton)
+    absolute={true}
+    customNavigate={[Function]}
+  />
+</Flex>
+`;
+
 exports[`renderSaveButton should not render save button 1`] = `
 <Flex
   style={

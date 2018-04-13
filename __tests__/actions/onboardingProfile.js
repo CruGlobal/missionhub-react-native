@@ -55,7 +55,7 @@ describe('createMyPerson', () => {
 
 describe('createPerson', () => {
   it('should send the correct API request', () => {
-    createPerson('Roger', 'Goers')(dispatch);
+    createPerson('Roger', 'Goers', '1')(dispatch);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, {
       data: {
         type: 'person',
@@ -64,6 +64,14 @@ describe('createPerson', () => {
           last_name: 'Goers',
         },
       },
+      included: [
+        {
+          type: 'contact_assignment',
+          attributes: {
+            assigned_to_id: '1',
+          },
+        },
+      ],
     });
     expect(dispatch).toHaveBeenCalled();
   });
