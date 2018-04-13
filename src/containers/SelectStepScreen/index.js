@@ -151,7 +151,6 @@ class SelectStepScreen extends Component {
           renderForeground={() =>
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}
-              {this.renderBackButton()}
             </Flex>
           }
           stickyHeaderHeight={theme.headerHeight}
@@ -173,6 +172,7 @@ class SelectStepScreen extends Component {
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
+        {this.renderBackButton()}
       </Flex>
     );
   }
