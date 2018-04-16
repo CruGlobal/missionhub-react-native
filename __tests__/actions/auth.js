@@ -49,7 +49,7 @@ beforeEach(() => {
     auth: {
       refreshToken,
       upgradeToken,
-      user: {
+      person: {
         user: {},
       },
     } });
@@ -146,7 +146,7 @@ describe('updateLocaleAndTimezone', () => {
   beforeEach(() => {
     store = mockStore({
       auth: {
-        user: {
+        person: {
           user: {
             timezone: '-8',
             language: 'fr-CA',

@@ -229,12 +229,12 @@ describe('registerNotificationHandler', () => {
   });
 
   describe('onNotification', () => {
-    const user = { id: '1', type: 'person' };
+    const person = { id: '1', type: 'person' };
 
     const store = mockStore({
       auth: {
         isJean: true,
-        user,
+        person,
       },
     });
 
@@ -277,7 +277,7 @@ describe('registerNotificationHandler', () => {
     });
 
     it('should deep link to contact screen', async() => {
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({ screen: 'person_steps', person_id: '1', organization_id: '2' });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
@@ -285,7 +285,7 @@ describe('registerNotificationHandler', () => {
 
     it('should deep link to contact screen on iOS', async() => {
       common.isAndroid = false;
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({ data: { link: { data: { screen: 'person_steps', person_id: '1', organization_id: '2' } } } });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();

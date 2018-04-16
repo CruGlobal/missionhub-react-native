@@ -30,7 +30,12 @@ describe('getMyPeople', () => {
 
     it('should return one org with people', async() => {
       callApi.mockReturnValue({ type: REQUESTS.GET_PEOPLE_LIST.SUCCESS, response: peopleList });
-      store = mockStore({ auth: { isJean: false, personId: myId, user: mockUser } });
+      store = mockStore({
+        auth: {
+          isJean: false,
+          person: mockUser,
+        },
+      });
 
       await store.dispatch(getMyPeople());
 
@@ -75,7 +80,12 @@ describe('getMyPeople', () => {
     };
 
     it('should return all orgs with assigned people', async() => {
-      store = mockStore({ auth: { isJean: true, personId: myId, user: mockUser } });
+      store = mockStore({
+        auth: {
+          isJean: true,
+          person: mockUser,
+        },
+      });
       callApi.mockReturnValue({ type: REQUESTS.GET_PEOPLE_LIST.SUCCESS, response: [ personOne, personTwo, personThree, personFour, personFive ] });
 
       await store.dispatch(getMyPeople());

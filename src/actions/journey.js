@@ -15,7 +15,7 @@ export function getJourney(personId, orgId) {
   return async(dispatch, getState) => {
     try {
 
-      const { personId: myId } = getState().auth;
+      const { person: { id: myId } } = getState().auth;
 
       const [ person, journeySteps ] = await Promise.all([
         getJourneyPerson(dispatch, personId),
