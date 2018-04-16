@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders navItem correctly 1`] = `
+<Flex
+  align="center"
+  justify="center"
+  value={1}
+>
+  <Icon
+    name="stepsIcon"
+    size={24}
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+    type="MissionHub"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": 14,
+      }
+    }
+  >
+    Steps
+  </MyText>
+</Flex>
+`;
+
+exports[`renders tab bar correctly 1`] = `
+<TabBarBottom
+  activeBackgroundColor="transparent"
+  activeTintColor="#007398"
+  adaptive={false}
+  allowFontScaling={true}
+  animationEnabled={false}
+  getLabel={[Function]}
+  getOnPress={[Function]}
+  getTestIDProps={[Function]}
+  inactiveBackgroundColor="transparent"
+  inactiveTintColor="#A0A2A6"
+  indicatorStyle={
+    Object {
+      "backgroundColor": "transparent",
+    }
+  }
+  isLandscape={false}
+  jumpToIndex={[Function]}
+  layout={
+    Object {
+      "height": 0,
+      "measured": false,
+      "width": 0,
+    }
+  }
+  navigation={
+    Object {
+      "addListener": [Function],
+      "dispatch": [Function],
+      "getParam": [Function],
+      "goBack": [Function],
+      "navigate": [Function],
+      "pop": [Function],
+      "popToTop": [Function],
+      "push": [Function],
+      "replace": [Function],
+      "setParams": [Function],
+      "state": Object {
+        "index": 0,
+        "isTransitioning": false,
+        "routes": Array [
+          Object {
+            "key": "StepsTab",
+            "params": undefined,
+            "routeName": "StepsTab",
+          },
+          Object {
+            "key": "PeopleTab",
+            "params": undefined,
+            "routeName": "PeopleTab",
+          },
+          Object {
+            "key": "ImpactTab",
+            "params": undefined,
+            "routeName": "ImpactTab",
+          },
+        ],
+      },
+    }
+  }
+  navigationState={
+    Object {
+      "index": 0,
+      "isTransitioning": false,
+      "routes": Array [
+        Object {
+          "key": "StepsTab",
+          "params": undefined,
+          "routeName": "StepsTab",
+        },
+        Object {
+          "key": "PeopleTab",
+          "params": undefined,
+          "routeName": "PeopleTab",
+        },
+        Object {
+          "key": "ImpactTab",
+          "params": undefined,
+          "routeName": "ImpactTab",
+        },
+      ],
+    }
+  }
+  offsetX={0}
+  panX={0}
+  position={-0}
+  renderIcon={[Function]}
+  scrollEnabled={false}
+  showIcon={false}
+  showLabel={true}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  tabBarPosition="bottom"
+  tabStyle={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+  upperCaseLabel={false}
+  useNativeDriver={false}
+/>
+`;

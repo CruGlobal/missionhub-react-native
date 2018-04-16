@@ -49,7 +49,7 @@ import { buildTrackingObj, isAndroid } from './utils/common';
 //   },
 // });
 
-const navItem = (name) => ({ tintColor }) => (
+export const navItem = (name) => ({ tintColor }) => (
   <Flex value={1} align="center" justify="center">
     <Icon
       type="MissionHub"
