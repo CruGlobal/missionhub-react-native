@@ -107,7 +107,7 @@ export function setStepFocus(step, isFocus) {
       data: {
         type: 'accepted_challenge',
         attributes: {
-          organization_id: step.organization ? step.organization : null,
+          organization_id: step.organization ? step.organization.id : null,
           focus: isFocus,
         },
         relationships: {
@@ -176,7 +176,7 @@ function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
-    const myId = getState().auth.personId;
+    const { person: { id: myId } } = getState().auth;
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });

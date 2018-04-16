@@ -25,6 +25,10 @@ export default class JourneyItem extends Component {
     return { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name };
   }
 
+  isSelfPathwayProgressionAudit(item) {
+    return this.props.myId === item.person.id;
+  }
+
   renderTitle() {
     const { t, item, type } = this.props;
     let title;
@@ -43,7 +47,8 @@ export default class JourneyItem extends Component {
     } else if (type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
-        title = t(interaction.translationKey);
+        //Todo: once comment interactions are separated from "something cool happened" notes, title should always equal t(interaction.interactionKey)
+        title = interaction.translationKey === 'interactionNote' ? null : t(interaction.translationKey);
       }
     }
 
@@ -55,6 +60,7 @@ export default class JourneyItem extends Component {
       </Text>
     );
   }
+
   renderText() {
     const { t, item, type } = this.props;
     let text;
@@ -65,9 +71,17 @@ export default class JourneyItem extends Component {
       }
     } else if (type === 'stage') {
       if (this.hasOldStage(item)) {
-        text = t('stageText', this.translatableStage(item));
+        if (this.isSelfPathwayProgressionAudit(item)) {
+          text = t('stageTextSelf', this.translatableStage(item));
+        } else {
+          text = t('stageText', this.translatableStage(item));
+        }
       } else {
-        text = t('stageStart', this.translatableStage(item));
+        if (this.isSelfPathwayProgressionAudit(item)) {
+          text = t('stageStartSelf', this.translatableStage(item));
+        } else {
+          text = t('stageStart', this.translatableStage(item));
+        }
       }
     } else {
       text = item.text;

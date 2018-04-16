@@ -25,7 +25,7 @@ function getOrganizations(requestObject, query) {
 
 export function addNewContact(data) {
   return (dispatch, getState) => {
-    const myId = getState().auth.personId;
+    const { person: { id: myId } } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject('InvalidData', data);
     }

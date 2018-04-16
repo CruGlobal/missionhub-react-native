@@ -26,7 +26,7 @@ platform :ios do
         profile_name: profile_name
     )
 
-    cru_fetch_certs
+    cru_fetch_certs(type: 'appstore')
 
     cru_build_app(export_method: 'app-store', profile_name: profile_name)
 
@@ -60,7 +60,7 @@ platform :ios do
         profile_name: profile_name
     )
 
-    cru_fetch_certs
+    cru_fetch_certs(type: 'adhoc')
 
     cru_build_app(export_method: 'ad-hoc', profile_name: profile_name)
 
@@ -114,7 +114,7 @@ platform :ios do
     end
   end
 
-  lane :cru_fetch_certs do
+  lane :cru_fetch_certs do |options|
     # Travis requires a keychain to be created to store the certificates in, however
     # using this utility to create a keychain locally will really mess up local keychains
     # and is not required for a successful build
@@ -129,12 +129,14 @@ platform :ios do
       )
 
       match(readonly: true,
+            type: options[:type],
             keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
             keychain_password: ENV["MATCH_PASSWORD"])
     else
       # Locally match will prompt on the first run for the "MATCH_PASSWORD" and remember it
       # in the environment after that.
-      match(readonly: true)
+      match(readonly: true,
+            type: options[:type])
     end
   end
 

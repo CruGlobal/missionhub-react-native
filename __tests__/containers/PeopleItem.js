@@ -10,7 +10,7 @@ import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 
 const mockState = {
   auth: {
-    user: {
+    person: {
       id: '1',
       stage: { id: '1', name: 'Stage 1' },
     },

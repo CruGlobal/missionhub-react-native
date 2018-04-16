@@ -154,6 +154,6 @@ ContactNotes.propTypes = {
   onNotesInactive: PropTypes.func,
 };
 
-const mapStateToProps = ({ auth }) => ({ myId: auth.user.user.id });
+const mapStateToProps = ({ auth }) => ({ myId: auth.person.user.id });
 
 export default connect(mapStateToProps)(ContactNotes);

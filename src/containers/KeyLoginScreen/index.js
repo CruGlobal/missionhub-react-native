@@ -9,11 +9,11 @@ import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
-import { navigateBack } from '../../actions/navigation';
-import IconButton from '../../components/IconButton';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import BackButton from '../BackButton';
+import i18n from '../../i18n';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -86,8 +86,16 @@ class KeyLoginScreen extends Component {
       Keyboard.dismiss();
 
     } catch (error) {
-      const errorMessage = error.user_error;
+      const apiError = error.apiError;
+      let errorMessage;
       let action;
+
+      if (apiError['error'] === 'invalid_request' || apiError['thekey_authn_error'] === 'invalid_credentials') {
+        errorMessage = i18n.t('keyLogin:invalidCredentialsMessage');
+
+      } else if (apiError['thekey_authn_error'] === 'email_unverified') {
+        errorMessage = i18n.t('keyLogin:verifyEmailMessage');
+      }
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
@@ -122,18 +130,14 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
-    const { t, dispatch } = this.props;
+    const { t } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
 
-        <Flex value={.5} justify="center" style={{ alignSelf: 'flex-start', marginLeft: 25, marginTop: isiPhoneX() ? 60 : 7 }}>
-          <IconButton
-            name="backIcon"
-            type="MissionHub"
-            onPress={() => dispatch(navigateBack())}
-          />
+        <Flex value={.5} justify="start" style={{ alignSelf: 'flex-start' }}>
+          <BackButton style={{ marginLeft: 5, marginTop: isiPhoneX() ? 50 : 25 }} />
         </Flex>
         {
           this.state.logo ?

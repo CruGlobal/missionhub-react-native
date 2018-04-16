@@ -4,11 +4,14 @@ exports[`back button absolute renders with absolute 1`] = `
 <View
   style={
     Array [
-      Object {
-        "left": 5,
-        "position": "absolute",
-        "top": 5,
-      },
+      Array [
+        null,
+        Object {
+          "left": 5,
+          "position": "absolute",
+          "top": 25,
+        },
+      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",
@@ -17,21 +20,11 @@ exports[`back button absolute renders with absolute 1`] = `
     ]
   }
 >
-  <TouchableIOS
-    isAndroidOpacity={true}
+  <IconButton
+    name="backIcon"
     onPress={[Function]}
-  >
-    <Icon
-      name="backIcon"
-      style={
-        Object {
-          "margin": 25,
-          "marginTop": 45,
-        }
-      }
-      type="MissionHub"
-    />
-  </TouchableIOS>
+    type="MissionHub"
+  />
 </View>
 `;
 
@@ -39,7 +32,10 @@ exports[`back button renders normally 1`] = `
 <View
   style={
     Array [
-      Object {},
+      Array [
+        null,
+        null,
+      ],
       Object {
         "alignItems": "flex-start",
         "alignSelf": "flex-start",
@@ -48,20 +44,10 @@ exports[`back button renders normally 1`] = `
     ]
   }
 >
-  <TouchableIOS
-    isAndroidOpacity={true}
+  <IconButton
+    name="backIcon"
     onPress={[Function]}
-  >
-    <Icon
-      name="backIcon"
-      style={
-        Object {
-          "margin": 25,
-          "marginTop": 45,
-        }
-      }
-      type="MissionHub"
-    />
-  </TouchableIOS>
+    type="MissionHub"
+  />
 </View>
 `;

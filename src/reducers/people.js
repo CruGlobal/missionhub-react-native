@@ -21,14 +21,14 @@ export default function peopleReducer(state = initialState, action) {
       return state;
     case LOAD_PERSON_DETAILS:
       const orgId = action.orgId || 'personal';
+      const org = action.org || {};
       const currentOrg = state.allByOrg[orgId];
       return {
         ...state,
         allByOrg: {
           ...updateAllPersonInstances(state.allByOrg, action.person, true), // update existing people
           [ orgId ]: { // make sure person is added to specified org or create the org if it doesn't exist
-            id: orgId,
-            name: '', // Used for sorting in the peopleByOrgSelector, called by the People Tab. The People Tab should reload this and get the full org
+            ...org,
             ...currentOrg,
             people: {
               ...currentOrg ? currentOrg.people : {},

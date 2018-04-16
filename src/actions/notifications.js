@@ -132,7 +132,7 @@ function handleNotification(notification) {
       return;
     }
 
-    const { isJean, user } = getState().auth;
+    const { isJean, person: me } = getState().auth;
 
     const { screen, person, organization } = parseNotificationData(notification);
 
@@ -147,7 +147,7 @@ function handleNotification(notification) {
         }
         return;
       case 'my_steps':
-        return dispatch(navigatePush(CONTACT_SCREEN, { person: user }));
+        return dispatch(navigatePush(CONTACT_SCREEN, { person: me }));
       case 'add_a_person':
         return dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
     }

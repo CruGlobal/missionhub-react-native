@@ -192,6 +192,7 @@ exports[`journey methods renders a journey row 1`] = `
         "text": "123",
       }
     }
+    myId="123"
     type={undefined}
   />
 </Translate(RowSwipeable)>
@@ -206,6 +207,7 @@ exports[`journey methods renders a survey row 1`] = `
       "type": "survey",
     }
   }
+  myId="123"
   type="survey"
 />
 `;
@@ -219,6 +221,7 @@ exports[`journey methods renders a survey row 2`] = `
       "type": "stage",
     }
   }
+  myId="123"
   type="stage"
 />
 `;
