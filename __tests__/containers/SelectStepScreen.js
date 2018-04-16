@@ -9,7 +9,13 @@ import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import { addSteps } from '../../src/actions/steps';
 jest.mock('../../src/actions/steps');
 
-const store = createMockStore({ auth: {} });
+const store = createMockStore({
+  auth: {
+    person: {
+      id: '123',
+    },
+  },
+});
 
 jest.mock('react-native-device-info');
 
@@ -48,6 +54,19 @@ describe('renderSaveButton', () => {
   it('should render save button', () => {
     component.instance().handleSelectStep({ id: '1' });
     component.update();
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe('renderBackButton', () => {
+  let component;
+  beforeEach(() => {
+    component = renderShallow(
+      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} enableBackButton={true} />,
+      store
+    );
+  });
+  it('should render back button', () => {
     expect(component).toMatchSnapshot();
   });
 });

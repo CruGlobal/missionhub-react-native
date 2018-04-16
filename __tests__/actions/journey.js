@@ -15,7 +15,11 @@ const myId = '1';
 const orgId = '1';
 const include = 'challenge_suggestion.pathway_stage';
 const mockState = {
-  auth: { personId: myId },
+  auth: {
+    person: {
+      id: myId,
+    },
+  },
 };
 let store;
 

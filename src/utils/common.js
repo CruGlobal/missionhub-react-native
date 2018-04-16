@@ -59,7 +59,7 @@ export const refresh = (obj, method) => {
   });
 };
 
-export const isLoggedIn = (authState) => authState.token && authState.isLoggedIn;
+export const isAuthenticated = (authState) => authState.token;
 export const isMissionhubUser = (orgPermission) => !!orgPermission && ORG_PERMISSIONS.includes(orgPermission.permission_id);
 
 export const isCustomStep = (step) => step.challenge_type === CUSTOM_STEP_TYPE;

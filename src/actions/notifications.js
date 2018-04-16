@@ -43,14 +43,14 @@ export function noNotificationReminder(showReminder = false) {
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { hasAsked, token, showReminder } = getState().notifications;
+    const { hasAsked, pushDevice, showReminder } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
       return dispatch(registerNotificationHandler());
     }
 
-    if (token || !showReminder) { return; }
+    if (pushDevice.token || !showReminder) { return; }
 
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
@@ -97,9 +97,9 @@ export function registerNotificationHandler() {
   return async(dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
-        const { token } = getState().notifications;
+        const { pushDevice } = getState().notifications;
 
-        if (token === t.token) {
+        if (pushDevice.token === t.token) {
           return;
         }
         //make api call to register token with user
@@ -132,7 +132,7 @@ function handleNotification(notification) {
       return;
     }
 
-    const { isJean, user } = getState().auth;
+    const { isJean, person: me } = getState().auth;
 
     const { screen, person, organization } = parseNotificationData(notification);
 
@@ -147,7 +147,7 @@ function handleNotification(notification) {
         }
         return;
       case 'my_steps':
-        return dispatch(navigatePush(CONTACT_SCREEN, { person: user }));
+        return dispatch(navigatePush(CONTACT_SCREEN, { person: me }));
       case 'add_a_person':
         return dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
     }
@@ -187,10 +187,15 @@ function registerPushDevice(token) {
   };
 }
 
-export function deletePushToken(deviceId) {
-  return (dispatch) => {
+export function deletePushToken() {
+  return (dispatch, getState) => {
+    const { pushDevice } = getState().notifications;
+    if (!pushDevice.id) {
+      return;
+    }
+
     const query = {
-      deviceId,
+      deviceId: pushDevice.id,
     };
 
     return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));

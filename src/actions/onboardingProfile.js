@@ -59,7 +59,7 @@ export function personLastNameChanged(lastName) {
   };
 }
 
-export function createPerson(firstName, lastName) {
+export function createPerson(firstName, lastName, myId) {
   const data = {
     data: {
       type: 'person',
@@ -68,6 +68,14 @@ export function createPerson(firstName, lastName) {
         last_name: lastName,
       },
     },
+    included: [
+      {
+        type: 'contact_assignment',
+        attributes: {
+          assigned_to_id: myId,
+        },
+      },
+    ],
   };
 
   return (dispatch) => {

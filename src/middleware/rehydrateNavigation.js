@@ -1,6 +1,6 @@
 import { MainRoutes } from '../AppRoutes';
 import { REHYDRATE } from 'redux-persist/constants';
-import { isLoggedIn } from '../utils/common';
+import { isAuthenticated } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
@@ -26,7 +26,7 @@ export default function navigation() {
 
         const { auth, personProfile, people } = action.payload;
 
-        if (auth && isLoggedIn(auth)) {
+        if (auth && isAuthenticated(auth)) {
           if (!personProfile.hasCompletedOnboarding && !hasContactWithPathwayStage(auth.user.id, people)) {
 
             if (auth.user.user && auth.user.user.pathway_stage_id) {

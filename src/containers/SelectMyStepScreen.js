@@ -43,9 +43,9 @@ class SelectMyStepScreen extends Component {
 
 const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
   ...(navigation.state.params || {}),
-  me: auth.user,
+  me: auth.person,
   suggestedForMe: steps.suggestedForMe,
-  personId: auth.personId,
+  personId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(SelectMyStepScreen);

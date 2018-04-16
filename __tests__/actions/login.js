@@ -21,7 +21,13 @@ const updateStatusResult = { type: 'now logged in' };
 
 describe('onSuccessfulLogin', () => {
   beforeEach(() => {
-    store = mockStore({ auth: { personId: personId } });
+    store = mockStore({
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
+    });
 
     user = {};
     myContact = {};

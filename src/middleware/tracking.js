@@ -61,7 +61,7 @@ function trackRoute(route) {
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
-  if (action.params.person.id === getState().auth.personId) {
+  if (action.params.person.id === getState().auth.person.id) {
     return trackState(SELF_STEPS);
   }
 

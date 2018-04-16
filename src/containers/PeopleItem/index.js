@@ -137,7 +137,7 @@ PeopleItem.propTypes = {
 
 const mapStateToProps = ({ auth, stages }) => ({
   isJean: auth.isJean,
-  me: auth.user,
+  me: auth.person,
   stagesObj: stages.stagesObj,
 });
 
