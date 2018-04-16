@@ -11,7 +11,7 @@ import configureStore from 'redux-mock-store';
 
 const store = configureStore([ thunk ])({});
 const dispatch = jest.fn((response) => Promise.resolve(response));
-const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
+const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   store.clearActions();
@@ -44,9 +44,23 @@ describe('get me', () => {
 });
 
 describe('getPersonDetails', () => {
+  const orgId = '2';
+  const org = { id: orgId, name: 'test org' };
+
+  const person = {
+    id: '1',
+    first_name: 'Test',
+    organizational_permissions: [
+      {
+        organization: org,
+        organization_id: orgId,
+      },
+    ],
+  };
+
   it('should get a person\'s details', async() => {
-    const person = { id: '1', first_name: 'Test' };
-    const orgId = '2';
+
+
 
     const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
     callApi.mockReturnValue(apiResponse);
@@ -63,6 +77,7 @@ describe('getPersonDetails', () => {
         type: LOAD_PERSON_DETAILS,
         person,
         orgId,
+        org,
       },
     ]);
   });

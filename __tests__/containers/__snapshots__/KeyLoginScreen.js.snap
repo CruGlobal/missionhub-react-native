@@ -3,20 +3,21 @@
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -181,20 +182,21 @@ exports[`a login button is clicked facebook login button is pressed loading whee
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
 <PlatformKeyboardAvoidingView>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -359,20 +361,21 @@ exports[`a login button is clicked forgot password button is pressed loading whe
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -517,20 +520,21 @@ exports[`a login button is clicked key login button is pressed shows email verif
     </MyText>
   </View>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -674,20 +678,21 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     </MyText>
   </View>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -831,20 +836,21 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     </MyText>
   </View>
   <Flex
-    justify="center"
+    justify="start"
     style={
       Object {
         "alignSelf": "flex-start",
-        "marginLeft": 25,
-        "marginTop": 7,
       }
     }
     value={0.5}
   >
-    <IconButton
-      name="backIcon"
-      onPress={[Function]}
-      type="MissionHub"
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
     />
   </Flex>
   <Flex
@@ -984,86 +990,103 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "alignSelf": "flex-start",
-          "marginLeft": 25,
-          "marginTop": 7,
         },
         Object {
           "flex": 0.5,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
+        Array [
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "marginLeft": 5,
+              "marginTop": 25,
             },
             null,
-            Object {},
-            null,
-          ]
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "backgroundColor": "transparent",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>

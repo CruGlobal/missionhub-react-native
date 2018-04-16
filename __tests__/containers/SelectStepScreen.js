@@ -58,6 +58,19 @@ describe('renderSaveButton', () => {
   });
 });
 
+describe('renderBackButton', () => {
+  let component;
+  beforeEach(() => {
+    component = renderShallow(
+      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} enableBackButton={true} />,
+      store
+    );
+  });
+  it('should render back button', () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
 
 
 describe('Navigation', () => {

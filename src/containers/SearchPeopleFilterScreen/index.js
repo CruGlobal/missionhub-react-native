@@ -4,19 +4,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { getMyOrganizations } from '../../actions/organizations';
 import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
 import { getMyLabels } from '../../actions/labels';
 
 import Header from '../Header';
-import { IconButton, RefreshControl } from '../../components/common';
+import { RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import styles from './styles';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter, trackState } from '../../actions/analytics';
+import BackButton from '../BackButton';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
@@ -191,10 +192,7 @@ export class SearchPeopleFilterScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              onPress={() => this.props.dispatch(navigateBack())} />
+            <BackButton />
           }
           title={t('title')}
         />

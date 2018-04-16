@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
-import { navigateBack, navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
 import styles from './styles';
 import { Flex, IconButton, Input, Text } from '../../components/common';
@@ -16,6 +16,7 @@ import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import BackButton from '../BackButton';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -219,10 +220,7 @@ export class SearchPeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              onPress={() => this.props.dispatch(navigateBack())} />
+            <BackButton />
           }
           right={
             <IconButton

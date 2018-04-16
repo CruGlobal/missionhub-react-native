@@ -85,13 +85,7 @@ exports[`ContactScreen renders correctly as Casey 1`] = `
   }
 >
   <Connect(Header)
-    left={
-      <IconButton
-        name="backIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
+    left={<Connect(BackButton) />}
     right={
       <IconButton
         name="moreIcon"
@@ -146,13 +140,7 @@ exports[`ContactScreen renders correctly as Jean 1`] = `
   }
 >
   <Connect(Header)
-    left={
-      <IconButton
-        name="backIcon"
-        onPress={[Function]}
-        type="MissionHub"
-      />
-    }
+    left={<Connect(BackButton) />}
     right={
       <IconButton
         name="moreIcon"
