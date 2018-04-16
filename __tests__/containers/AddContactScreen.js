@@ -24,7 +24,7 @@ jest.mock('react-native-device-info');
 const me = { id: 99 };
 const organization = { id: 2 };
 const store = createMockStore({
-  auth: { user: me },
+  auth: { person: me },
 });
 
 function buildScreen(props) {

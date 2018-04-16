@@ -106,7 +106,7 @@ class SetupPersonScreen extends Component {
 }
 
 const mapStateToProps = ({ auth, personProfile }) => ({
-  myId: auth.personId, // TODO: update to auth.person.id
+  myId: auth.person.id,
   personFirstName: personProfile.personFirstName,
   personLastName: personProfile.personLastName,
 });

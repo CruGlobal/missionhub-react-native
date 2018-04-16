@@ -136,7 +136,7 @@ const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
     personFirstName: personProfile.personFirstName,
     personId: personProfile.id,
     contactAssignmentId: navProps.onComplete ? navProps.contactAssignmentId : personProfile.contactAssignmentId, // onComplete currently seems to be used as a flag to indicate if we are in onboarding or not
-    myId: auth.personId,
+    myId: auth.person.id,
   };
 };
 

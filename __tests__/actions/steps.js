@@ -192,7 +192,11 @@ describe('complete challenge', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: { personId: personId },
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
@@ -270,7 +274,11 @@ describe('Set Focus', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: { personId: personId },
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 

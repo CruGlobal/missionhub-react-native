@@ -59,7 +59,7 @@ PersonSelectStepScreen.propTypes = {
 
 const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  myId: auth.personId,
+  myId: auth.person.id,
   suggestedForOthers: steps.suggestedForOthers,
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,

@@ -2,14 +2,12 @@ import { REHYDRATE } from 'redux-persist/constants';
 
 import { FIRST_TIME, LOGOUT, UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../actions/api';
-import { findAllNonPlaceHolders } from '../utils/common';
 
 const initialAuthState = {
   isFirstTime: false,
   token: '',
   refreshToken: '',
-  personId: '',
-  user: {},
+  person: { user: {} },
   isJean: false,
   upgradeToken: null,
 };
@@ -43,14 +41,20 @@ function authReducer(state = initialAuthState, action) {
       return {
         ...state,
         token: results.token,
-        personId: `${results.person_id}`,
+        person: {
+          ...state.person,
+          id: `${results.person_id}`,
+        },
         isFirstTime: false,
       };
     case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
       return {
         ...state,
         token: results.token,
-        personId: `${results.person_id}`,
+        person: {
+          ...state.person,
+          id: `${results.person_id}`,
+        },
         isFirstTime: false,
       };
     case FIRST_TIME:
@@ -63,7 +67,10 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         upgradeToken: action.data ? action.data.code : null,
         token: results.token,
-        personId: `${results.person_id}`,
+        person: {
+          ...state.person,
+          id: `${results.person_id}`,
+        },
       };
     case REQUESTS.REFRESH_ANONYMOUS_LOGIN.SUCCESS:
       return {
@@ -73,40 +80,32 @@ function authReducer(state = initialAuthState, action) {
     case REQUESTS.UPDATE_ME_USER.SUCCESS:
       return {
         ...state,
-        user: {
-          ...state.user,
+        person: {
+          ...state.person,
           user: results.response,
         },
       };
     case REQUESTS.GET_ME.SUCCESS:
-      const person = findAllNonPlaceHolders(results, 'person')[0];
-
-      let user = person || {};
-      // Add the stage if we're getting the same user again
-      if (state.user.stage && state.user.id === user.id) {
-        user.stage = state.user.stage;
-      }
+      const person = results.response;
 
       return {
         ...state,
-        personId: `${user.id}`,
-        user,
+        person: {
+          ...person,
+          stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
+        },
         isJean: person.organizational_permissions.length > 0,
       };
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = (results ? results.findAll('pathway_stage') : action.stages) || [];
-      let userWithStage = { ...state.user };
-      if (userWithStage.user && userWithStage.user.pathway_stage_id) {
-        const myStage = stages.find((s) => `${s.id}` === `${userWithStage.user.pathway_stage_id}`);
-        if (myStage) {
-          userWithStage.stage = myStage;
-        }
-      }
+      const stages = (results ? results.response : action.stages) || [];
       return {
         ...state,
-        user: userWithStage,
+        person: {
+          ...state.person,
+          stage: stages.find((s) => s.id === `${state.person.user.pathway_stage_id}`),
+        },
       };
     case LOGOUT:
       return initialAuthState;

@@ -45,7 +45,13 @@ describe('navigate forward', () => {
 
   describe('to contact screen', () => {
     it('tracks person steps', () => {
-      store = mockStore({ auth: { personId: 2 } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: 2,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
 
       test(PERSON_STEPS);
@@ -54,7 +60,13 @@ describe('navigate forward', () => {
 
     it('tracks self steps', () => {
       const id = 3;
-      store = mockStore({ auth: { personId: id } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: id,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
 
       test(SELF_STEPS);

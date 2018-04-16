@@ -22,7 +22,9 @@ const mockStep = {
 
 const mockState = {
   auth: {
-    personId: '1',
+    person: {
+      id: '1',
+    },
   },
 };
 
