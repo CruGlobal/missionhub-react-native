@@ -43,14 +43,14 @@ export function noNotificationReminder(showReminder = false) {
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { hasAsked, token, showReminder } = getState().notifications;
+    const { hasAsked, pushDevice, showReminder } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
       return dispatch(registerNotificationHandler());
     }
 
-    if (token || !showReminder) { return; }
+    if (pushDevice.token || !showReminder) { return; }
 
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
@@ -97,9 +97,9 @@ export function registerNotificationHandler() {
   return async(dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
-        const { token } = getState().notifications;
+        const { pushDevice } = getState().notifications;
 
-        if (token === t.token) {
+        if (pushDevice.token === t.token) {
           return;
         }
         //make api call to register token with user
@@ -187,10 +187,15 @@ function registerPushDevice(token) {
   };
 }
 
-export function deletePushToken(deviceId) {
-  return (dispatch) => {
+export function deletePushToken() {
+  return (dispatch, getState) => {
+    const { pushDevice } = getState().notifications;
+    if (!pushDevice.id) {
+      return;
+    }
+
     const query = {
-      deviceId,
+      deviceId: pushDevice.id,
     };
 
     return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));

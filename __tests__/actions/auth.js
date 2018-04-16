@@ -11,15 +11,16 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
+import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
-import { LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
 import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';
+import { deletePushToken } from '../../src/actions/notifications';
+jest.mock('../../src/actions/notifications');
 
 const email = 'Roger';
 const password = 'secret';
@@ -52,7 +53,8 @@ beforeEach(() => {
       person: {
         user: {},
       },
-    } });
+    },
+  });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -187,44 +189,10 @@ describe('refreshAnonymousLogin', () => {
 });
 
 describe('logout', () => {
-  beforeEach(() => {
-    callApi.default = mockImplementation((type) => {
-      if (type === REQUESTS.DELETE_PUSH_TOKEN) {
-        return Promise.resolve({});
-      } else {
-        return Promise.resolve({});
-      }
-    });
-  });
-
-
-  describe('logout action', () => {
-    it('should logout but not delete push token', () => {
-      store = mockStore({
-        notifications: {
-          pushDeviceId: '',
-        },
-      });
-      store.dispatch(logout());
-      expect(callApi.default).toHaveBeenCalledTimes(0);
-    });
-
-    it('should logout and delete push token', () => {
-      store = mockStore({
-        notifications: {
-          pushDeviceId: '123',
-        },
-      });
-
-      store.dispatch(logout());
-      expect(callApi.default).toHaveBeenCalledTimes(1);
-    });
-
-    it('should call logout reset', () => {
-
-      store.dispatch(logoutReset());
-      expect(store.getActions()[0]).toEqual({ type: LOGOUT });
-    });
+  it('should perform the needed actions for signing out', () => {
+    deletePushToken.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
+    store.dispatch(logout());
+    expect(store.getActions()).toMatchSnapshot();
   });
 });
 
