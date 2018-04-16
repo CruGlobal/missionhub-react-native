@@ -17,6 +17,11 @@ const mockState = {
     personFirstName: '',
     personLastName: '',
   },
+  auth: {
+    person: {
+      id: '1',
+    },
+  },
 };
 
 let store = createMockStore(mockState);

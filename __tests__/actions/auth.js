@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import i18next from 'i18next';
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
@@ -10,15 +11,16 @@ import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
-import { keyLogin, refreshAccessToken, updateTimezone, codeLogin, logout, logoutReset, upgradeAccount, openKeyURL } from '../../src/actions/auth';
+import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
 import MockDate from 'mockdate';
-import { LOGOUT } from '../../src/constants';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
 import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';
+import { deletePushToken } from '../../src/actions/notifications';
+jest.mock('../../src/actions/notifications');
 
 const email = 'Roger';
 const password = 'secret';
@@ -44,10 +46,15 @@ const mockImplementation = (implementation) => {
 const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 
 beforeEach(() => {
-  store = mockStore({ auth: {
-    refreshToken,
-    upgradeToken,
-  } });
+  store = mockStore({
+    auth: {
+      refreshToken,
+      upgradeToken,
+      person: {
+        user: {},
+      },
+    },
+  });
 
   mockFnWithParams(login, 'onSuccessfulLogin', onSuccessfulLoginResult);
 });
@@ -83,6 +90,17 @@ describe('the key', () => {
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket });
+
+          expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
+        });
+    });
+
+    it('should login to the key, get a key ticket, then send the key ticket to Missionhub API with client token, then handle successful login', () => {
+      return store.dispatch(keyLogin(email, password, true))
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket, client_token: upgradeToken });
 
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
         });
@@ -126,28 +144,35 @@ describe('code login', () => {
   });
 });
 
-describe('update time zone', () => {
+describe('updateLocaleAndTimezone', () => {
   beforeEach(() => {
     store = mockStore({
       auth: {
-        timezone: '',
+        person: {
+          user: {
+            timezone: '-8',
+            language: 'fr-CA',
+          },
+        },
       },
     });
   });
 
   MockDate.set('2018-02-06', 300);
+  i18next.language = 'en-US';
 
-  let tzData = {
+  const newUserSettings = {
     data: {
       attributes: {
         timezone: '-5',
+        mobile_language: 'en-US',
       },
     },
   };
 
   it('should update timezone ', () => {
-    store.dispatch(updateTimezone());
-    expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+    store.dispatch(updateLocaleAndTimezone());
+    expect(callApi.default).toHaveBeenCalledWith(REQUESTS.UPDATE_ME_USER, {}, newUserSettings);
   });
 });
 
@@ -164,44 +189,10 @@ describe('refreshAnonymousLogin', () => {
 });
 
 describe('logout', () => {
-  beforeEach(() => {
-    callApi.default = mockImplementation((type) => {
-      if (type === REQUESTS.DELETE_PUSH_TOKEN) {
-        return Promise.resolve({});
-      } else {
-        return Promise.resolve({});
-      }
-    });
-  });
-
-
-  describe('logout action', () => {
-    it('should logout but not delete push token', () => {
-      store = mockStore({
-        notifications: {
-          pushDeviceId: '',
-        },
-      });
-      store.dispatch(logout());
-      expect(callApi.default).toHaveBeenCalledTimes(0);
-    });
-
-    it('should logout and delete push token', () => {
-      store = mockStore({
-        notifications: {
-          pushDeviceId: '123',
-        },
-      });
-
-      store.dispatch(logout());
-      expect(callApi.default).toHaveBeenCalledTimes(1);
-    });
-
-    it('should call logout reset', () => {
-
-      store.dispatch(logoutReset());
-      expect(store.getActions()[0]).toEqual({ type: LOGOUT });
-    });
+  it('should perform the needed actions for signing out', () => {
+    deletePushToken.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
+    store.dispatch(logout());
+    expect(store.getActions()).toMatchSnapshot();
   });
 });
 
@@ -223,13 +214,14 @@ describe('loadHome', () => {
   const getMeResult = { type: 'got me successfully' };
   const getAssignedOrgsResult = { type: 'got orgs' };
   const getStagesResult = { type: 'got stages' };
-  const timezoneResult = { type: 'updated TZ' };
+  const updateUserResult = { type: 'updated locale and TZ' };
   const notificationsResult = { type: 'notifications result' };
 
-  const tzData = {
+  const userSettings = {
     data: {
       attributes: {
         timezone: getTimezoneString(),
+        mobile_language: 'en-US',
       },
     },
   };
@@ -238,7 +230,7 @@ describe('loadHome', () => {
     mockFnWithParams(person, 'getMe', getMeResult);
     mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
-    mockFnWithParams(callApi, 'default', timezoneResult, REQUESTS.UPDATE_TIMEZONE, {}, tzData);
+    mockFnWithParams(callApi, 'default', updateUserResult, REQUESTS.UPDATE_ME_USER, {}, userSettings);
     mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
 
     store.dispatch(auth.loadHome());
@@ -247,7 +239,7 @@ describe('loadHome', () => {
       getMeResult,
       getAssignedOrgsResult,
       getStagesResult,
-      timezoneResult,
+      updateUserResult,
       notificationsResult,
     ]);
   });

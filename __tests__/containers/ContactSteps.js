@@ -1,18 +1,16 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
 
 // Note: test renderer must be required after react-native.
 import ContactSteps from '../../src/containers/ContactSteps';
-import { Provider } from 'react-redux';
-import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import * as navigation from '../../src/actions/navigation';
+import { createMockStore, createMockNavState, testSnapshotShallow, renderShallow } from '../../testUtils';
+import { navigatePush } from '../../src/actions/navigation';
+jest.mock('../../src/actions/navigation');
 import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { getStepsByFilter } from '../../src/actions/steps';
+jest.mock('../../src/actions/steps');
 
 const mockState = {
   steps: {
@@ -22,7 +20,9 @@ const mockState = {
     stepsContact: true,
   },
   auth: {
-    personId: 123,
+    person: {
+      id: '123',
+    },
   },
 };
 
@@ -41,43 +41,60 @@ const mockContactAssignment = {
   id: 333,
 };
 
+const steps = [ { id: '1', title: 'Test Step' } ];
+getStepsByFilter.mockReturnValue({ response: steps });
+
 const store = createMockStore(mockState);
 
-const createComponent = (isCurrentUser, contactStage, handleSaveNewSteps, handleSaveNewStage = null) => {
-  const screen = shallow(
+const createComponent = (isCurrentUser = false, contactStage, handleSaveNewSteps, handleSaveNewStage, org) => {
+  const screen = renderShallow(
     <ContactSteps
       isMe={isCurrentUser}
       person={mockPerson}
+      organization={org}
       contactStage={contactStage}
       contactAssignment={mockContactAssignment}
       onChangeStage={jest.fn()}
       navigation={createMockNavState()}
     />,
-    { context: { store } },
+    store,
   );
 
-  let component = screen.dive().dive().dive().instance();
-  component.handleSaveNewSteps = handleSaveNewSteps;
-  if (handleSaveNewStage) component.handleSaveNewStage = handleSaveNewStage;
+  const component = screen.instance();
+  handleSaveNewSteps && (component.handleSaveNewSteps = handleSaveNewSteps);
+  handleSaveNewStage && (component.handleSaveNewStage = handleSaveNewStage);
   return component;
 };
 
 let handleSaveNewStage;
 let handleSaveNewSteps;
-navigation.navigatePush = jest.fn();
-navigation.navigateBack = jest.fn();
 
 jest.mock('react-native-device-info');
 
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <ContactSteps isMe={false} person={mockPerson} navigation={createMockNavState()} />
-    </Provider>
+  testSnapshotShallow(
+    <ContactSteps isMe={false} person={mockPerson} navigation={createMockNavState()} />,
+    store,
   );
 });
 
+describe('getSteps', () => {
+  it('should get steps for a personal org', async() => {
+    const component = createComponent();
+    const loadedSteps = await component.getSteps();
+    expect(getStepsByFilter).toHaveBeenCalledWith({ completed: false, receiver_ids: mockPerson.id, organization_ids: 'personal' }, 'receiver');
+    expect(component.state).toEqual({ steps });
+    expect(loadedSteps).toEqual(steps);
+  });
+  it('should get steps for a ministry org', async() => {
+    const component = createComponent(false, undefined, undefined, undefined, { id: '4' });
+    const loadedSteps = await component.getSteps();
+    expect(getStepsByFilter).toHaveBeenCalledWith({ completed: false, receiver_ids: mockPerson.id, organization_ids: '4' }, 'receiver');
+    expect(component.state).toEqual({ steps });
+    expect(loadedSteps).toEqual(steps);
+  });
+});
 
 describe('handleCreateStep', () => {
 
@@ -87,27 +104,27 @@ describe('handleCreateStep', () => {
   });
 
   it('navigates to select my steps', () => {
-    let component = createComponent(true, mockStage, handleSaveNewSteps, handleSaveNewStage);
+    const component = createComponent(true, mockStage, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(
+    expect(navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
       { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: mockStage }
     );
   });
 
   it('navigates to select my stage', () => {
-    let component = createComponent(true, undefined, handleSaveNewSteps, handleSaveNewStage);
+    const component = createComponent(true, undefined, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
     expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
   });
 
   it('navigates to person steps', () => {
-    let component = createComponent(false, mockStage, handleSaveNewSteps, handleSaveNewStage);
+    const component = createComponent(false, mockStage, handleSaveNewSteps, handleSaveNewStage);
     component.handleCreateStep();
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(
+    expect(navigatePush).toHaveBeenCalledWith(
       PERSON_SELECT_STEP_SCREEN,
       { contactName: mockPerson.first_name,
         contactId: mockPerson.id,
@@ -121,7 +138,7 @@ describe('handleCreateStep', () => {
   });
 
   it('navigates to person stage', () => {
-    let component = createComponent(false, undefined, handleSaveNewSteps, handleSaveNewStage);
+    const component = createComponent(false, undefined, handleSaveNewSteps, handleSaveNewStage);
 
     component.handleCreateStep();
     expect(component.props.onChangeStage).toHaveBeenCalledWith(true, handleSaveNewStage);
@@ -131,15 +148,14 @@ describe('handleCreateStep', () => {
 
 describe('handleSaveNewStage', () => {
   beforeAll(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     handleSaveNewSteps = jest.fn();
   });
 
   it('navigates from my stage to my steps', () => {
-    let component = createComponent(true, undefined, handleSaveNewSteps);
+    const component = createComponent(true, undefined, handleSaveNewSteps);
     component.handleSaveNewStage(mockStage);
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(
+    expect(navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN, {
         onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
@@ -149,10 +165,10 @@ describe('handleSaveNewStage', () => {
   });
 
   it('navigates from person stage to person steps', () => {
-    let component = createComponent(false, undefined, handleSaveNewSteps);
+    const component = createComponent(false, undefined, handleSaveNewSteps);
     component.handleSaveNewStage(mockStage);
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(
+    expect(navigatePush).toHaveBeenCalledWith(
       PERSON_SELECT_STEP_SCREEN, {
         contactName: mockPerson.first_name,
         contactId: mockPerson.id,
@@ -165,4 +181,3 @@ describe('handleSaveNewStage', () => {
     );
   });
 });
-

@@ -1,13 +1,7 @@
 import API_CALLS from '../src/api';
 import * as utils from '../src/api/utils';
 import { REQUESTS } from '../src/actions/api';
-import ReactNative from 'react-native';
-import locale from '../src/i18n/locales/en-US';
-import { EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from '../src/constants';
 
-const { invalidCredentialsMessage, verifyEmailMessage } = locale.keyLogin;
-const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
-const { youreOffline, connectToInternet } = locale.offline;
 let serverResponse = {};
 
 beforeEach(() => {
@@ -18,85 +12,19 @@ beforeEach(() => {
   expect.assertions(1);
 });
 
-const callMethod = (mockResponse, callback) => {
-  serverResponse = mockResponse;
+const request = REQUESTS.GET_ME;
 
-  return API_CALLS[REQUESTS.GET_ME.name]({}, {}).catch(callback);
-};
+it('should return apiError object for api errors', () => {
+  const response = { error: 'test' };
+  serverResponse = response;
 
-//warning: a silent failure can occur in the described class and the result of the test is a timeout
-describe('call api', () => {
-  it('should return email/password message when TheKey returns invalid request', () => {
-    return callMethod({ ['error']: 'invalid_request' }, (error) => {
-      expect(error).toEqual({ user_error: invalidCredentialsMessage });
-    });
-  });
-
-  it('should return email/password message when TheKey returns invalid credentials', () => {
-    return callMethod({ ['thekey_authn_error']: 'invalid_credentials' }, (error) => {
-      expect(error).toEqual({ user_error: invalidCredentialsMessage });
-    });
-  });
-
-  it('should return email/password message when TheKey returns invalid credentials', () => {
-    return callMethod({ ['thekey_authn_error']: 'email_unverified' }, (error) => {
-      expect(error).toEqual({ user_error: verifyEmailMessage });
-    });
-  });
-
-  describe('other error messages', () => {
-    const lastTwoArgs = [
-      [ { text: 'Ok', onPress: expect.anything() } ],
-      { onDismiss: expect.anything() },
-    ];
-
-    beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, buttons) => buttons[0].onPress()));
-
-    it('should return server response', () => {
-      return callMethod({ error: 'test' }, (error) => {
-        expect(error).toEqual(serverResponse);
-      });
-    });
-
-    it('should show generic error message if request does not have it', () => {
-      return callMethod({ error: 'test' }, () => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${unexpectedErrorMessage} ${baseErrorMessage}`, ...lastTwoArgs);
-      });
-    });
-
-    it('should show offline error message', () => {
-      return callMethod({ message: NETWORK_REQUEST_FAILED }, () => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(youreOffline, connectToInternet, ...lastTwoArgs);
-      });
-    });
-
-    //todo get this test working
-    xit('should show not show alert if an alert modal is already up', () => {
-      ReactNative.Alert.alert = jest.fn();
-
-      serverResponse = { error: 'test' };
-
-      return callMethod(serverResponse, () => {
-        return callMethod(serverResponse, () => {
-          expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(1);
-        });
-      });
-    });
-
-    it('should show specific error message if request has it', () => {
-      serverResponse = { error: 'test' };
-
-      return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledWith(error, `${ADD_NEW_PERSON} ${baseErrorMessage}`, ...lastTwoArgs);
-      });
-    });
-
-    it('should not show alert for expired access token', () => {
-      serverResponse = { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] };
-
-      return API_CALLS[REQUESTS.ADD_NEW_PERSON.name]({}, {}).catch(() => {
-        expect(ReactNative.Alert.alert).toHaveBeenCalledTimes(0);
-      });
+  return API_CALLS[request.name]({}, {}).catch((error) => {
+    expect(error).toEqual({
+      apiError: response,
+      endpoint: request.endpoint,
+      key: request.name,
+      method: 'get',
+      query: {},
     });
   });
 });

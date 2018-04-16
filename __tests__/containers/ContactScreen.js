@@ -26,7 +26,9 @@ describe('ContactScreen', () => {
     const state = {
       auth: {
         isJean: true,
-        personId: 1,
+        person: {
+          id: '1',
+        },
       },
       stages: {
         stages: [ stage ],

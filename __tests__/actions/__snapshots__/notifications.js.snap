@@ -51,7 +51,7 @@ Array [
 exports[`registerNotificationHandler onNotification should deep link to contact screen 1`] = `
 Array [
   Object {
-    "response": Object {
+    "person": Object {
       "id": "1",
       "type": "person",
     },
@@ -79,7 +79,7 @@ Array [
 exports[`registerNotificationHandler onNotification should deep link to contact screen on iOS 1`] = `
 Array [
   Object {
-    "response": Object {
+    "person": Object {
       "id": "1",
       "type": "person",
     },
@@ -146,14 +146,15 @@ exports[`registerNotificationHandler onRegister should update notification token
 Array [
   Array [
     Object {
-      "FAIL": "SET_PUSH_TOKEN_FAIL",
       "FETCH": "SET_PUSH_TOKEN_FETCH",
       "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
       "endpoint": "undefined/apis/v4/push_notification_device_tokens",
       "method": "post",
       "name": "SET_PUSH_TOKEN",
     },
-    Object {},
+    Object {
+      "include": "",
+    },
     Object {
       "data": Object {
         "attributes": Object {
@@ -170,10 +171,6 @@ Array [
 exports[`registerNotificationHandler onRegister should update notification token for android devices 2`] = `
 Array [
   Object {
-    "token": "New Token",
-    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
-  },
-  Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
@@ -186,14 +183,15 @@ exports[`registerNotificationHandler onRegister should update notification token
 Array [
   Array [
     Object {
-      "FAIL": "SET_PUSH_TOKEN_FAIL",
       "FETCH": "SET_PUSH_TOKEN_FETCH",
       "SUCCESS": "SET_PUSH_TOKEN_SUCCESS",
       "endpoint": "undefined/apis/v4/push_notification_device_tokens",
       "method": "post",
       "name": "SET_PUSH_TOKEN",
     },
-    Object {},
+    Object {
+      "include": "",
+    },
     Object {
       "data": Object {
         "attributes": Object {
@@ -209,10 +207,6 @@ Array [
 
 exports[`registerNotificationHandler onRegister should update notification token for iOS devices 2`] = `
 Array [
-  Object {
-    "token": "New Token",
-    "type": "app/PUSH_NOTIFICATION_SET_TOKEN",
-  },
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },

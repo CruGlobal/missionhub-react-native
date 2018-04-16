@@ -3,6 +3,7 @@ import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
   addSteps,
 } from '../../src/actions/steps';
+import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
@@ -25,6 +26,7 @@ const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/impact');
 
 beforeEach(() => {
   callApi.mockClear();
@@ -76,13 +78,14 @@ describe('getStepsByFilter', () => {
       receiver_ids: '1',
       organization_ids: '2',
     };
+    const include = 'receiver';
     const apiResult = { type: 'done' };
 
     callApi.mockReturnValue(apiResult);
 
-    store.dispatch(getStepsByFilter(stepsFilter));
+    store.dispatch(getStepsByFilter(stepsFilter, include));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 } });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 }, include: include });
     expect(store.getActions()).toEqual([ apiResult ]);
   });
 });
@@ -185,9 +188,15 @@ describe('complete challenge', () => {
   const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
 
+  const impactResponse = { type: 'test impact' };
+
   beforeEach(() => {
     store = mockStore({
-      auth: { personId: personId },
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
@@ -197,7 +206,8 @@ describe('complete challenge', () => {
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
     mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
 
-    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+    refreshImpact.mockReturnValue(impactResponse);
   });
 
   it('completes step', async() => {
@@ -211,6 +221,7 @@ describe('complete challenge', () => {
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
+      impactResponse,
     ]);
   });
 });
@@ -263,7 +274,11 @@ describe('Set Focus', () => {
 
   beforeEach(() => {
     store = mockStore({
-      auth: { personId: personId },
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 

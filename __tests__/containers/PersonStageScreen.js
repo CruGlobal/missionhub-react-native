@@ -19,7 +19,11 @@ const mockState = {
     personFirstName: 'Billy',
     personLastName: 'Test',
   },
-  auth: {},
+  auth: {
+    person: {
+      id: '123',
+    },
+  },
   notifications: {},
   stages: [],
 };
@@ -53,9 +57,11 @@ function buildScreen(mockNavState, store) {
 }
 
 navigation.navigatePush = jest.fn();
+navigation.navigateBack = jest.fn();
 
 beforeEach(() => {
   navigation.navigatePush.mockReset();
+  navigation.navigateBack.mockReset();
   analytics.trackState = jest.fn(() => (trackStateResult));
 });
 
@@ -86,9 +92,11 @@ describe('person stage screen methods', () => {
 
   it('runs select stage', async() => {
     selectStage.updateUserStage = jest.fn();
+    navigation.navigatePush = jest.fn((_, params) => params.onSaveNewSteps());
 
     await component.handleSelectStage(mockStage, false);
 
+    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
     expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps'));
   });

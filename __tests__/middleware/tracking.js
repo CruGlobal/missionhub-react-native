@@ -22,12 +22,12 @@ const back = { type: 'Navigation/BACK' };
 
 const trackStateResult = { type: 'tracked state' };
 
-const test = (expectedTrackingObj) => {
+const test = (expectedTrackingObj, trackResult = [ trackStateResult ]) => {
   mockFnWithParams(analytics, 'trackState', trackStateResult, expectedTrackingObj);
 
   store.dispatch(navigationAction);
 
-  expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+  expect(store.getActions()).toEqual([ navigationAction, ...trackResult ]);
 };
 
 describe('navigate forward', () => {
@@ -45,7 +45,13 @@ describe('navigate forward', () => {
 
   describe('to contact screen', () => {
     it('tracks person steps', () => {
-      store = mockStore({ auth: { personId: 2 } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: 2,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
 
       test(PERSON_STEPS);
@@ -54,7 +60,13 @@ describe('navigate forward', () => {
 
     it('tracks self steps', () => {
       const id = 3;
-      store = mockStore({ auth: { personId: id } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: id,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
 
       test(SELF_STEPS);
@@ -64,6 +76,12 @@ describe('navigate forward', () => {
   describe('to drawer', () => {
     beforeEach(() => {
       navigationAction = { type: NAVIGATE_FORWARD, routeName: DRAWER_OPEN, params: { drawer: MAIN_MENU_DRAWER } };
+    });
+
+    it('tracks nothing if actionParams are missing', () => {
+      navigationAction.params = undefined;
+
+      test(buildTrackingObj(), []);
     });
 
     it('tracks main menu drawer', () => {
@@ -102,14 +120,14 @@ describe('navigate reset', () => {
 describe('rehydrate', () => {
   it('tracks main tabs if logged in', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: true } } };
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef' } } };
 
     test(buildTrackingObj('steps', 'steps'));
   });
 
   it('does nothing if not logged in', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: false } } };
+    navigationAction = { type: REHYDRATE, payload: { auth: { token: null } } };
 
     store.dispatch(navigationAction);
 

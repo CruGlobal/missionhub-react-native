@@ -2,7 +2,6 @@ import notifications from '../../src/reducers/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
@@ -32,22 +31,15 @@ it('updates showReminder', () => {
   expect(state.showReminder).toBe(false);
 });
 
-it('updates push notification token', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_SET_TOKEN,
-    token: '123',
-  });
-  expect(state.token).toBe('123');
-});
-
-it('updates push notification token after sending to API', () => {
+it('should update push device', () => {
+  const pushDevice = { id: '9', token: 'some token' };
   const state = notifications({}, {
     type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
     results: {
-      findAll: () => [ { id: '9' } ],
+      response: pushDevice,
     },
   });
-  expect(state.pushDeviceId).toEqual('9');
+  expect(state.pushDevice).toEqual(pushDevice);
 });
 
 it('should disable welcome notification', () => {
@@ -59,11 +51,10 @@ it('should disable welcome notification', () => {
 
 it('resets state on logout', () => {
   let expectedState = {
-    token: '',
+    pushDevice: {},
     hasAsked: false,
     shouldAsk: true,
     showReminder: true,
-    pushDeviceId: '',
     hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {

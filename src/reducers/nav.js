@@ -3,7 +3,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { MainRoutes } from '../AppRoutes';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { MAIN_TABS } from '../constants';
-import { isLoggedIn } from '../utils/common';
+import { isAuthenticated } from '../utils/common';
 
 const initialState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN));
 
@@ -21,7 +21,7 @@ function navReducer(state = initialState, action) {
     case REHYDRATE:
       const authState = action.payload.auth;
 
-      if (authState && isLoggedIn(authState)) {
+      if (authState && isAuthenticated(authState)) {
         return loggedInState;
       }
       return state;

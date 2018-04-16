@@ -20,19 +20,21 @@ const updateStatusResult = { type: 'now logged in' };
 
 describe('onSuccessfulLogin', () => {
   beforeEach(() => {
-    store = mockStore({ auth: { personId: personId } });
+    store = mockStore({
+      auth: {
+        person: {
+          id: personId,
+        },
+      },
+    });
 
     user = {};
     myContact = {};
-    myPerson = { contact_assignments: [ myContact ] };
+    myPerson = { user, contact_assignments: [ myContact ] };
 
     mockFnWithParams(analytics, 'logInAnalytics', updateStatusResult);
 
-    const getPersonResult = {};
-    mockFnWithParams(getPersonResult, 'findAll', [ user ], 'user');
-    mockFnWithParams(getPersonResult, 'find', myPerson, 'person', personId);
-
-    mockFnWithParams(person, 'getPerson', () => Promise.resolve(getPersonResult), personId);
+    mockFnWithParams(person, 'getMe', () => Promise.resolve(myPerson), 'contact_assignments');
     navigation.navigateReset = (screen) => ({ type: screen });
   });
 

@@ -113,7 +113,7 @@ AddContactScreen.propTypes = {
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  me: auth.user,
+  me: auth.person,
 });
 
 export default connect(mapStateToProps)(AddContactScreen);

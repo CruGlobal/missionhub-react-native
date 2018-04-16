@@ -45,6 +45,7 @@ it('should add an org for a person in allByOrg when it is loaded and the org doe
       type: LOAD_PERSON_DETAILS,
       person: { id: '2', first_name: 'Test Person' },
       orgId: '105',
+      org: { id: '105', name: 'test org 1' },
     },
   );
 
@@ -60,6 +61,7 @@ it('should add a person to an org in allByOrg when it is loaded and the person i
       type: LOAD_PERSON_DETAILS,
       person: { id: '4', first_name: 'Test Person' },
       orgId: '100',
+      org: { id: '100', name: 'test org 2' },
     },
   );
 

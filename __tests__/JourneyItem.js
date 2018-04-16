@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import JourneyItem from '../src/components/JourneyItem';
-import { testSnapshot } from '../testUtils';
+import { testSnapshotShallow } from '../testUtils';
 
 const date = '2017-12-06T14:24:52Z';
 const mockStep = {
@@ -14,44 +14,98 @@ const mockStep = {
   interaction_type_id: 1,
   date,
 };
+const challenge_suggestion = {
+  pathway_stage: {
+    name: 'Guiding',
+  },
+};
 
 describe('step', () => {
   it('is rendered correctly without comment', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={mockStep} type="step" />
     );
   });
 
   it('is rendered correctly with comment', () => {
-    testSnapshot(
+    testSnapshotShallow(
       <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} type="step" />
+    );
+  });
+
+  it('is rendered correctly with pathway stage', () => {
+    testSnapshotShallow(
+      <JourneyItem item={{ ...mockStep, challenge_suggestion }} type="step" />
     );
   });
 });
 
 describe('stage', () => {
+  const stagePersonId = 889433;
   const mockStage = {
     ...mockStep,
     personName: 'Test Person',
-    new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
+    new_pathway_stage: {
+      id: '2',
+      _type: 'pathway_stage',
+      name: 'Curious',
+    },
+    person: { id: stagePersonId },
   };
 
-  it('is rendered correctly with old stage', () => {
-    testSnapshot(
-      <JourneyItem item={{ ...mockStage, old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' } }} type="stage" />
+  it('is rendered correctly with old stage for a contact', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+        }}
+        myId={484893}
+        type="stage" />
     );
   });
 
-  it('is rendered correctly without old stage', () => {
-    testSnapshot(
-      <JourneyItem item={{ ...mockStage, old_pathway_stage: { name: '' } }} type="stage" />
+  it('is rendered correctly with old stage for self', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+        }}
+        myId={stagePersonId}
+        type="stage" />
+    );
+  });
+
+  it('is rendered correctly without old stage for a contact', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { name: '' },
+        }}
+        myId={484893}
+        type="stage" />
+
+    );
+  });
+
+  it('is rendered correctly without old stage for self', () => {
+    testSnapshotShallow(
+      <JourneyItem
+        item={{
+          ...mockStage,
+          old_pathway_stage: { name: '' },
+        }}
+        myId={stagePersonId}
+        type="stage" />
 
     );
   });
 });
 
 it('renders survey correctly', () => {
-  testSnapshot(
+  testSnapshotShallow(
     <JourneyItem item={{
       ...mockStep,
       survey: { title: 'Survey Test' },
@@ -65,7 +119,7 @@ it('renders survey correctly', () => {
 });
 
 it('renders interaction correctly', () => {
-  testSnapshot(
+  testSnapshotShallow(
     <JourneyItem item={mockStep} type="interaction" />
   );
 });

@@ -99,8 +99,8 @@ class ContactJourney extends Component {
   }
 
   renderRow({ item }) {
-    const { showReminder } = this.props;
-    const content = <JourneyItem item={item} type={item.type} />;
+    const { showReminder, myId } = this.props;
+    const content = <JourneyItem item={item} type={item.type} myId={myId} />;
 
     if (item.type !== 'survey' && item.type !== 'stage') {
       return (
@@ -188,7 +188,7 @@ const mapStateToProps = ({ auth, swipe, journey }, { person, organization }) => 
   return {
     journeyItems,
     isCasey: !auth.isJean,
-    myId: auth.personId,
+    myId: auth.person.id,
     showReminder: swipe.journey,
   };
 };

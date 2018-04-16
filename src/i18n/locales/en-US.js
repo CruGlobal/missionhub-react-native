@@ -181,10 +181,12 @@ export default {
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
   journeyItem: {
-    stepTitle: 'Growing Step of Faith',
+    stepTitle: 'Completed{{stageName}}Step of Faith',
     stageTitle: '{{oldStage}} to {{newStage}}',
     stageText: '{{personName}} changed from {{oldStage}} to {{newStage}}',
+    stageTextSelf: 'You changed from {{oldStage}} to {{newStage}}',
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',
+    stageStartSelf: 'You added yourself to MissionHub as {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
@@ -318,16 +320,13 @@ export default {
   },
   onboarding: {
     screen1: {
-      name: 'handcraft your faith journey',
-      description: 'Choose your own steps of faith and MissionHub helps you stay focused on the people you care about.',
+      name: 'Focus on the people in your life',
     },
     screen2: {
-      name: 'take your relationships deeper',
-      description: 'MissionHub helps you grow closer to God by helping others experience Him.',
+      name: 'Take steps to help them experience God',
     },
     screen3: {
-      name: 'record your journey with God',
-      description: 'MissionHub remembers every step of faith you\'ve taken so you can see what God is doing.',
+      name: 'See God work and know you\'re part of it',
     },
   },
   welcomeNotification: {

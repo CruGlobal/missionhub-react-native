@@ -5,29 +5,27 @@ import {
   LOGOUT,
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_SET_TOKEN,
   PUSH_NOTIFICATION_REMINDER,
   DISABLE_WELCOME_NOTIFICATION,
 } from '../constants';
 import { useFirstExists } from '../utils/common';
 
-const initialAuthState = {
-  token: '',
+const initialState = {
+  pushDevice: {},
   hasAsked: false,
   shouldAsk: true,
   showReminder: true,
-  pushDeviceId: '',
   hasShownWelcomeNotification: false,
 };
 
-function notificationReducer(state = initialAuthState, action) {
+function notificationReducer(state = initialState, action) {
   switch (action.type) {
     case REHYDRATE:
-      var incoming = action.payload.notifications;
+      const incoming = action.payload.notifications;
       if (incoming) {
         return {
-          ...initialAuthState,
-          token: useFirstExists(incoming.token, state.token),
+          ...initialState,
+          pushDevice: useFirstExists(incoming.pushDevice, state.pushDevice),
           hasAsked: useFirstExists(incoming.hasAsked, state.hasAsked),
           shouldAsk: useFirstExists(incoming.shouldAsk, state.shouldAsk),
           showReminder: useFirstExists(incoming.showReminder, state.showReminder),
@@ -49,16 +47,10 @@ function notificationReducer(state = initialAuthState, action) {
         ...state,
         hasAsked: true,
       };
-    case PUSH_NOTIFICATION_SET_TOKEN:
-      return {
-        ...state,
-        token: action.token,
-      };
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
-      const deviceToken = action.results.findAll('push_notification_device_token')[0] || {};
       return {
         ...state,
-        pushDeviceId: deviceToken.id,
+        pushDevice: action.results.response,
       };
     case DISABLE_WELCOME_NOTIFICATION:
       return {
@@ -66,7 +58,7 @@ function notificationReducer(state = initialAuthState, action) {
         hasShownWelcomeNotification: true,
       };
     case LOGOUT:
-      return initialAuthState;
+      return initialState;
     default:
       return state;
   }

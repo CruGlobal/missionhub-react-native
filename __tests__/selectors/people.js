@@ -1,10 +1,9 @@
 import { peopleByOrgSelector, personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../src/selectors/people';
 
 const auth = {
-  user: {
+  person: {
     id: '23',
   },
-  personId: '23',
 };
 
 const organizationOne = {
@@ -29,6 +28,18 @@ const organizationOne = {
       type: 'person',
       first_name: 'Fname3',
       last_name: 'Lname1',
+    },
+  },
+};
+
+const unnamedOrganization = {
+  id: '150',
+  type: 'organization',
+  people: {
+    '33': {
+      id: '33',
+      type: 'person',
+      first_name: 'Fname4',
     },
   },
 };
@@ -71,14 +82,15 @@ const people = {
           first_name: 'Fname1',
           last_name: 'Lname1',
         },
-        [auth.personId]: {
-          id: auth.personId,
+        [auth.person.id]: {
+          id: auth.person.id,
           type: 'person',
           first_name: 'ME',
           last_name: 'Lname',
         },
       },
     },
+    [unnamedOrganization.id]: unnamedOrganization,
     [organizationOne.id]: organizationOne,
     [organizationTwo.id]: organizationTwo,
   },
@@ -117,19 +129,19 @@ describe('contactAssignmentSelector', () => {
             },
             {
               assigned_to: {
-                id: auth.personId,
+                id: auth.person.id,
               },
               organization: organizationTwo,
             },
             {
               assigned_to: {
-                id: auth.personId,
+                id: auth.person.id,
               },
               organization: { id: '102' },
             },
             {
               assigned_to: {
-                id: auth.personId,
+                id: auth.person.id,
               },
               organization: organizationOne,
             },
@@ -156,7 +168,7 @@ describe('contactAssignmentSelector', () => {
           reverse_contact_assignments: [
             {
               assigned_to: {
-                id: auth.personId,
+                id: auth.person.id,
               },
               organization: null,
             },

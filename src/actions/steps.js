@@ -10,7 +10,9 @@ import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import { getPerson } from './person';
+
+import { refreshImpact } from './impact';
+import { getPersonDetails } from './person';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
@@ -58,10 +60,11 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}) {
+export function getStepsByFilter(filters = {}, include = '') {
   return (dispatch) => {
     const query = {
       filters,
+      include,
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
@@ -104,7 +107,7 @@ export function setStepFocus(step, isFocus) {
       data: {
         type: 'accepted_challenge',
         attributes: {
-          organization_id: step.organization ? step.organization : null,
+          organization_id: step.organization ? step.organization.id : null,
           focus: isFocus,
         },
         relationships: {
@@ -137,7 +140,7 @@ export function updateChallengeNote(step, note) {
 export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      dispatch(getMySteps());
+      refreshSteps(dispatch);
       dispatch(setStepFocus(step, false));
       return r;
     });
@@ -147,9 +150,16 @@ export function completeStepReminder(step) {
 export function completeStep(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      dispatch(getMySteps());
+      dispatch(refreshSteps());
       return r;
     });
+  };
+}
+
+function refreshSteps() {
+  return (dispatch) => {
+    dispatch(getMySteps());
+    return dispatch(refreshImpact());
   };
 }
 
@@ -166,9 +176,9 @@ function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
-    const myId = getState().auth.personId;
+    const { person: { id: myId } } = getState().auth;
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((results) => {
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(navigatePush(ADD_STEP_SCREEN, {
         type: STEP_NOTE,
@@ -185,8 +195,8 @@ function challengeCompleteAction(step) {
           const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
 
           if (count % 3 === 0) {
-            dispatch(getPerson(step.receiver.id)).then((results2) => {
-              const assignment = results2.findAll('contact_assignment')
+            dispatch(getPersonDetails(step.receiver.id, step.organization && step.organization.id)).then((getPersonDetailsResult) => {
+              const assignment = getPersonDetailsResult.person.reverse_contact_assignments
                 .find((a) => a && a.assigned_to ? `${a.assigned_to.id}` === myId : false);
 
               const stages = getState().stages.stages;
@@ -238,7 +248,7 @@ function challengeCompleteAction(step) {
       dispatch(trackState(trackingObj));
       dispatch(trackAction(ACTIONS.STEP_COMPLETED));
 
-      return results;
+      return challengeCompleteResult;
     });
   };
 }

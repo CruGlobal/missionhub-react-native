@@ -31,7 +31,7 @@ class LoginOptionsScreen extends Component {
   }
 
   login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN);
+    this.navigateToNext(KEY_LOGIN_SCREEN, { upgradeAccount: this.props.upgradeAccount });
   }
 
   tryItNow() {
@@ -39,8 +39,8 @@ class LoginOptionsScreen extends Component {
     this.navigateToNext(WELCOME_SCREEN);
   }
 
-  navigateToNext(nextScreen) {
-    this.props.dispatch(navigatePush(nextScreen));
+  navigateToNext(nextScreen, props = {} ) {
+    this.props.dispatch(navigatePush(nextScreen, props));
   }
 
   startLoad = () => {
@@ -57,7 +57,7 @@ class LoginOptionsScreen extends Component {
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount ? upgradeAccount : false, onSuccessfulLogin)).then((result) => {
+    dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
@@ -65,14 +65,6 @@ class LoginOptionsScreen extends Component {
       }
     });
   };
-
-  renderLoading() {
-    return (
-      <Flex value={1} style={{ justifyContent: 'center', width: 2 }}>
-        <LoadingWheel />
-      </Flex>
-    );
-  }
 
   render() {
     const { t, upgradeAccount } = this.props;
@@ -100,7 +92,7 @@ class LoginOptionsScreen extends Component {
               <Button
                 name={'emailButton'}
                 pill={true}
-                onPress={() => this.emailSignUp(upgradeAccount ? upgradeAccount : false)}
+                onPress={() => this.emailSignUp(upgradeAccount || false)}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
@@ -139,7 +131,7 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-              {this.state.isLoading ? this.renderLoading() : null }
+
             </Flex>
 
             <Flex value={1} align="end" direction="row">
@@ -154,12 +146,13 @@ class LoginOptionsScreen extends Component {
             </Flex>
           </Flex>
         </Flex>
+        {this.state.isLoading ? <LoadingWheel /> : null }
       </Flex>
     );
   }
 }
 
-const mapStateToProps = ( reduxState, { navigation }) => ({
+const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 

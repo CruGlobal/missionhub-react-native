@@ -14,7 +14,7 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { buildTrackingObj, findAllNonPlaceHolders, getAnalyticsSubsection } from '../../utils/common';
+import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import { trackState } from '../../actions/analytics';
@@ -45,13 +45,13 @@ class ContactSteps extends Component {
     this.props.dispatch(removeSwipeStepsContact());
   }
 
-  getSteps() {
+  async getSteps() {
     const { dispatch, person, organization } = this.props;
-    return dispatch(getStepsByFilter({ completed: false, receiver_ids: person.id, organization_ids: organization && organization.id })).then((results) => {
-      const steps = findAllNonPlaceHolders(results, 'accepted_challenge');
-      this.setState({ steps });
-      return results;
-    });
+    const filters = { completed: false, receiver_ids: person.id, organization_ids: organization && organization.id || 'personal' };
+
+    const { response: steps } = await dispatch(getStepsByFilter(filters, 'receiver'));
+    this.setState({ steps });
+    return steps;
   }
 
   handleRemove(step) {
@@ -191,7 +191,7 @@ ContactSteps.propTypes = {
 
 const mapStateToProps = ({ swipe, auth }) => ({
   showBump: swipe.stepsContact,
-  myId: auth.personId,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(ContactSteps);

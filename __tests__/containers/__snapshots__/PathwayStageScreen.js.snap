@@ -79,11 +79,14 @@ exports[`renders back button correctly 1`] = `
   <View
     style={
       Array [
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 5,
-        },
+        Array [
+          null,
+          Object {
+            "left": 5,
+            "position": "absolute",
+            "top": 25,
+          },
+        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",
@@ -116,38 +119,53 @@ exports[`renders back button correctly 1`] = `
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
             Object {
-              "color": undefined,
-              "fontSize": 12,
+              "backgroundColor": "transparent",
             },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "margin": 25,
-                "marginTop": 45,
-              },
-            ],
-            Object {
-              "fontFamily": "icomoon",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
+            null,
+            Object {},
+            null,
           ]
         }
       >
-        
-      </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {},
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
   </View>
 </View>

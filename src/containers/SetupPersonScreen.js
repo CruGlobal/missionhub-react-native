@@ -25,7 +25,7 @@ class SetupPersonScreen extends Component {
     // make sure to remove the person after this page gets unmounted
     this.props.dispatch(resetPerson());
   }
-  
+
   navigate = () => {
     this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
       section: 'onboarding',
@@ -33,8 +33,8 @@ class SetupPersonScreen extends Component {
     }));
   };
 
-  saveAndGoToGetStarted = () => {
-    const { dispatch, personFirstName, personLastName } = this.props;
+  saveAndGoToGetStarted = async() => {
+    const { dispatch, personFirstName, personLastName, myId } = this.props;
     if (personFirstName) {
       Keyboard.dismiss();
 
@@ -44,18 +44,15 @@ class SetupPersonScreen extends Component {
           firstName: personFirstName,
           lastName: personLastName,
         };
-        dispatch(updateOnboardingPerson(data)).then(this.navigate);
+        await dispatch(updateOnboardingPerson(data));
+        this.navigate();
       } else {
-        dispatch(createPerson(personFirstName, personLastName)).then((r) => {
-          const person = r.findAll('person')[0];
-          if (person && person.id) {
-            this.setState({ personId: person.id });
-          }
-          this.navigate();
-        });
+        const { response: person } = await dispatch(createPerson(personFirstName, personLastName, myId));
+        this.setState({ personId: person.id });
+        this.navigate();
       }
     }
-  }
+  };
 
   render() {
     const { t, personFirstName, personLastName, dispatch } = this.props;
@@ -108,7 +105,8 @@ class SetupPersonScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ personProfile }) => ({
+const mapStateToProps = ({ auth, personProfile }) => ({
+  myId: auth.person.id,
   personFirstName: personProfile.personFirstName,
   personLastName: personProfile.personLastName,
 });

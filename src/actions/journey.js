@@ -15,7 +15,7 @@ export function getJourney(personId, orgId) {
   return async(dispatch, getState) => {
     try {
 
-      const { personId: myId } = getState().auth;
+      const { person: { id: myId } } = getState().auth;
 
       const [ person, journeySteps ] = await Promise.all([
         getJourneyPerson(dispatch, personId),
@@ -54,7 +54,8 @@ async function getJourneySteps(dispatch, personId, orgId) {
     receiver_ids: personId,
     organization_ids: orgId,
   };
-  const { response: steps } = await dispatch(getStepsByFilter(stepsFilter));
+  const include = 'challenge_suggestion.pathway_stage';
+  const { response: steps } = await dispatch(getStepsByFilter(stepsFilter, include));
   return steps
     .filter((step) => orgId || !step.organization || !step.organization.id) // for personal ministry, filter out all org steps
     .map((s) => ({
