@@ -57,7 +57,6 @@ it('returns token, person id, and logged in status after creating person', () =>
     person_id: personId,
   });
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.token).toBe(token);
   expect(state.person.id).toBe(`${personId}`);
 });
@@ -99,7 +98,7 @@ it('sets user time zone', () => {
 
 it('logs in with facebook', () => {
   const result = {
-    token: '123',
+    token,
     person: {
       id: '123',
     },
@@ -107,8 +106,8 @@ it('logs in with facebook', () => {
 
   const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, result);
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.isFirstTime).toBe(false);
+  expect(state.token).toBe(token);
 });
 
 it('updates a users stage', () => {

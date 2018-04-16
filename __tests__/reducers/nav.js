@@ -10,7 +10,6 @@ describe('rehydrate', () => {
         payload: {
           auth: {
             token: '2342342',
-            isLoggedIn: true,
           },
         },
       });
@@ -26,7 +25,6 @@ describe('rehydrate', () => {
         payload: {
           auth: {
             token: null,
-            isLoggedIn: true,
           },
         },
       });

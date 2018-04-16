@@ -4,7 +4,6 @@ import { FIRST_TIME, LOGOUT, UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
-  isLoggedIn: false,
   isFirstTime: false,
   token: '',
   refreshToken: '',
@@ -31,14 +30,12 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         token: results.access_token,
         refreshToken: results.refresh_token,
-        isLoggedIn: true,
         isFirstTime: false,
       };
     case REQUESTS.KEY_REFRESH_TOKEN.SUCCESS:
       return {
         ...state,
         token: results.access_token,
-        isLoggedIn: true,
       };
     case REQUESTS.TICKET_LOGIN.SUCCESS:
       return {
@@ -48,7 +45,6 @@ function authReducer(state = initialAuthState, action) {
           ...state.person,
           id: `${results.person_id}`,
         },
-        isLoggedIn: true,
         isFirstTime: false,
       };
     case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
@@ -59,7 +55,6 @@ function authReducer(state = initialAuthState, action) {
           ...state.person,
           id: `${results.person_id}`,
         },
-        isLoggedIn: true,
         isFirstTime: false,
       };
     case FIRST_TIME:
@@ -71,7 +66,6 @@ function authReducer(state = initialAuthState, action) {
       return {
         ...state,
         upgradeToken: action.data ? action.data.code : null,
-        isLoggedIn: true,
         token: results.token,
         person: {
           ...state.person,

@@ -10,7 +10,7 @@ import { testSnapshot, createMockStore } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import * as common from '../../src/utils/common';
 
-const store = createMockStore({ auth: { isLoggedIn: true } });
+const store = createMockStore();
 
 jest.mock('react-native-device-info');
 

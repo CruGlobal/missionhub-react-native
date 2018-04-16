@@ -54,9 +54,5 @@ class WelcomeScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({
-  auth: auth,
-});
-
-export default connect(mapStateToProps)(WelcomeScreen);
+export default connect()(WelcomeScreen);
 export const WELCOME_SCREEN = 'nav/WELCOME';
