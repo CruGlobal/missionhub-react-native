@@ -8,6 +8,11 @@ import uuidv4 from 'uuid/v4';
 import { updatePerson } from './person';
 import { Crashlytics } from 'react-native-fabric';
 
+/*
+A user is considered to have completed onboarding once they've:
+1) selected a stage for themselves, and
+2) selected a stage for a contact assignment
+ */
 export function completeOnboarding() {
   return { type: COMPLETE_ONBOARDING };
 }

@@ -2,7 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants';
 import { MAIN_TABS } from '../../src/constants';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import navigation from '../../src/middleware/navigation';
+import navigation from '../../src/middleware/rehydrateNavigation';
 import configureStore from 'redux-mock-store';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
