@@ -43,7 +43,6 @@ describe('rehydrate', () => {
         type: REHYDRATE,
         payload: {
           auth: {
-            isLoggedIn: true,
             token: null,
           },
         },
@@ -57,7 +56,6 @@ describe('rehydrate', () => {
         type: REHYDRATE,
         payload: {
           auth: {
-            isLoggedIn: true,
             token,
             user: { id: myId },
           },
@@ -95,7 +93,6 @@ describe('rehydrate', () => {
         type: REHYDRATE,
         payload: {
           auth: {
-            isLoggedIn: true,
             token,
           },
           personProfile: { hasCompletedOnboarding: true },
@@ -109,7 +106,6 @@ describe('rehydrate', () => {
           type: REHYDRATE,
           payload: {
             auth: {
-              isLoggedIn: true,
               token,
               user: {
                 id: myId,
@@ -147,7 +143,6 @@ describe('rehydrate', () => {
           type: REHYDRATE,
           payload: {
             auth: {
-              isLoggedIn: true,
               token,
               user: {
                 id: myId,
@@ -181,7 +176,6 @@ describe('rehydrate', () => {
           type: REHYDRATE,
           payload: {
             auth: {
-              isLoggedIn: true,
               token,
               user: {
                 id: myId,
