@@ -13,6 +13,7 @@ import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
+import { completeOnboarding } from '../../src/actions/onboardingProfile';
 
 const mockState = {
   personProfile: {
@@ -44,6 +45,9 @@ const mockNavState = {
 const trackStateResult = { type: 'tracked state' };
 
 jest.mock('react-native-device-info');
+jest.mock('../../src/actions/onboardingProfile', () => ({
+  completeOnboarding: jest.fn().mockReturnValue({ type: 'onboarding complete' }),
+}));
 
 function buildScreen(mockNavState, store) {
   const screen = renderShallow(
@@ -61,6 +65,8 @@ navigation.navigateBack = jest.fn();
 
 beforeEach(() => {
   navigation.navigatePush.mockReset();
+  navigation.navigatePush.mockReturnValue({ type: 'navigated forward' });
+
   navigation.navigateBack.mockReset();
   analytics.trackState = jest.fn(() => (trackStateResult));
 });
@@ -79,7 +85,7 @@ it('renders correctly', () => {
   );
 });
 
-describe('person stage screen methods', () => {
+describe('person stage screen methods with onComplete prop', () => {
   let component;
   const mockComplete = jest.fn();
 
@@ -105,6 +111,24 @@ describe('person stage screen methods', () => {
     component.celebrateAndFinish();
 
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('person stage screen methods with onComplete prop but without add contact flow', () => {
+  it('runs update stage', async() => {
+    const mockStore = configureStore([ thunk ])(mockState);
+    const component = buildScreen({
+      onCompleteCelebration: jest.fn(),
+      addingContactFlow: false,
+      ...mockNavState,
+    }, mockStore);
+    selectStage.updateUserStage = () => () => Promise.resolve();
+
+    await component.handleSelectStage(mockStage, false);
+
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
+    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('onboarding : add person : steps : add', 'onboarding', 'add person', 'steps'));
+    expect(completeOnboarding).toHaveBeenCalled();
   });
 });
 
