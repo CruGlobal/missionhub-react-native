@@ -87,7 +87,7 @@ function authReducer(state = initialAuthState, action) {
       return {
         ...state,
         person: {
-          ...state.user,
+          ...state.person,
           user: results.response,
         },
       };
