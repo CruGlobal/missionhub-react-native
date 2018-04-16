@@ -27,9 +27,9 @@ export default function navigation() {
         const { auth, personProfile, people } = action.payload;
 
         if (auth && isAuthenticated(auth)) {
-          if (!personProfile.hasCompletedOnboarding && !hasContactWithPathwayStage(auth.user.id, people)) {
+          if (!personProfile.hasCompletedOnboarding && !hasContactWithPathwayStage(auth.person.id, people)) {
 
-            if (auth.user.user && auth.user.user.pathway_stage_id) {
+            if (auth.person.user.pathway_stage_id) {
               navState = addSomeoneState;
 
             } else {

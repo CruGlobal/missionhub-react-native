@@ -57,7 +57,7 @@ describe('rehydrate', () => {
         payload: {
           auth: {
             token,
-            user: { id: myId },
+            person: { id: myId },
           },
           personProfile: { hasCompletedOnboarding: false },
           people: {
@@ -107,7 +107,7 @@ describe('rehydrate', () => {
           payload: {
             auth: {
               token,
-              user: {
+              person: {
                 id: myId,
                 user: { pathway_stage_id: '3' },
               },
@@ -144,7 +144,7 @@ describe('rehydrate', () => {
           payload: {
             auth: {
               token,
-              user: {
+              person: {
                 id: myId,
                 user: { pathway_stage_id: null },
               },
@@ -177,7 +177,7 @@ describe('rehydrate', () => {
           payload: {
             auth: {
               token,
-              user: {
+              person: {
                 id: myId,
                 user: { pathway_stage_id: null },
               },
