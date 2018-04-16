@@ -39,9 +39,10 @@ let component;
 const createMockStore = (id, personalJourney) => {
   const mockState = {
     auth: {
-      person: id,
+      person: {
+        id,
+      },
       isJean: true,
-      personId: 24,
     },
     swipe: {
       journey: false,

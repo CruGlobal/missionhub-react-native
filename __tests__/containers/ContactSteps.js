@@ -20,7 +20,9 @@ const mockState = {
     stepsContact: true,
   },
   auth: {
-    personId: 123,
+    person: {
+      id: '123',
+    },
   },
 };
 

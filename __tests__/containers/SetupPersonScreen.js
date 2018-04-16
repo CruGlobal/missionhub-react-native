@@ -18,7 +18,9 @@ const mockState = {
     personLastName: '',
   },
   auth: {
-    personId: '1', // TODO: update to auth.person.id
+    person: {
+      id: '1',
+    },
   },
 };
 

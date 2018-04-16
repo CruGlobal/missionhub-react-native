@@ -6,6 +6,15 @@ import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
 jest.mock('../../src/selectors/steps');
 import theme from '../../src/theme';
+import { trackAction } from '../../src/actions/analytics';
+jest.mock('../../src/actions/analytics');
+import { ACTIONS } from '../../src/constants';
+import { showReminderScreen, showWelcomeNotification, toast } from '../../src/actions/notifications';
+jest.mock('../../src/actions/notifications');
+import { setStepFocus } from '../../src/actions/steps';
+jest.mock('../../src/actions/steps');
+
+const dispatch = jest.fn(async() => {});
 
 const store = {
   steps: {
@@ -46,7 +55,7 @@ const propsWithSteps = {
       id: 3,
     },
   ],
-  dispatch: jest.fn(() => Promise.resolve()),
+  dispatch,
 };
 
 const propsWithoutSteps = {
@@ -62,10 +71,14 @@ const propsWithoutSteps = {
   showStepBump: true,
   showStepReminderBump: true,
   steps: [],
-  dispatch: jest.fn(() => Promise.resolve()),
+  dispatch,
 };
 
 describe('StepsScreen', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   let component;
 
   describe('mapStateToProps', () => {
@@ -76,10 +89,8 @@ describe('StepsScreen', () => {
     });
   });
 
-  const createComponent = (props) => {
-    const screen = renderShallow(<StepsScreen {...props} />);
-    return screen;
-  };
+  const createComponent = (props) =>
+    renderShallow(<StepsScreen {...props} />);
 
   const stopLoad = (component) => {
     component.instance().setState({ loading: false });
@@ -160,13 +171,52 @@ describe('StepsScreen', () => {
       expect(component.state('paging')).toBe(false);
     });
 
-    it('does not runs handle next', () => {
+    it('should not run handle next', () => {
       component.setState({ paging: true });
       component.instance().handleNextPage();
 
       expect(component.state('paging')).toBe(true);
     });
 
+  });
+
+  describe('handleSetReminder', () => {
+    it('should focus a step', () => {
+      const component = createComponent({
+        reminders: [],
+        dispatch,
+      });
+      component.instance().handleSetReminder('testStep');
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
+      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
+      expect(showReminderScreen).toHaveBeenCalled();
+      expect(showWelcomeNotification).toHaveBeenCalled();
+    });
+    it('should focus a step and not show notification reminder screen if reminders already exist', () => {
+      const component = createComponent({
+        reminders: [ 'someStep' ],
+        dispatch,
+      });
+      component.instance().handleSetReminder('testStep');
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
+      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
+      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showWelcomeNotification).toHaveBeenCalled();
+    });
+    it('should not focus a step when reminders slots are filled', () => {
+      const component = createComponent({
+        reminders: [ 'step1', 'step2', 'step3' ],
+        dispatch,
+      });
+      component.instance().handleSetReminder('testStep');
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(toast).not.toHaveBeenCalled();
+      expect(setStepFocus).not.toHaveBeenCalled();
+      expect(showReminderScreen).not.toHaveBeenCalled();
+      expect(showWelcomeNotification).not.toHaveBeenCalled();
+    });
   });
 });
 

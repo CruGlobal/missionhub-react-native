@@ -13,7 +13,11 @@ let store;
 const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
 
 beforeEach(() => store = configureStore([ thunk ])({
-  auth: { personId: '123' },
+  auth: {
+    person: {
+      id: '123',
+    },
+  },
 }));
 
 const comment = 'new comment';

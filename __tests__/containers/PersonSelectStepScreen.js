@@ -5,7 +5,7 @@ import React from 'react';
 import PersonSelectStepScreen from '../../src/containers/PersonSelectStepScreen';
 import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
 
-const myId = 14312;
+const myId = '14312';
 const contactId = '123';
 let personStageId;
 const mockState = {
@@ -17,7 +17,11 @@ const mockState = {
     },
   },
   personProfile: {},
-  auth: { personId: myId },
+  auth: {
+    person: {
+      id: myId,
+    },
+  },
 };
 
 let store = createMockStore(mockState);

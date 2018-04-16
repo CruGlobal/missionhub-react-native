@@ -10,7 +10,7 @@ export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
     dispatch(logInAnalytics());
 
-    const personId = getState().auth.personId;
+    const { person: { id: personId } } = getState().auth;
     Crashlytics.setUserIdentifier(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
