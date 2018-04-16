@@ -22,6 +22,7 @@ class AddContactScreen extends Component {
 
     this.state = {
       data: {},
+      contactCreated: false,
     };
 
     this.savePerson = this.savePerson.bind(this);
@@ -47,9 +48,11 @@ class AddContactScreen extends Component {
       saveData.orgId = organization.id;
     }
     const isEdit = person;
-    const results = await dispatch(isEdit ? updatePerson(saveData) : addNewContact(saveData));
+    const results = await dispatch(isEdit || this.state.contactCreated ? updatePerson(saveData) : addNewContact(saveData));
+    this.setState({ contactCreated: true });
     const newPerson = findAllNonPlaceHolders(results, 'person')[0];
-    if (isEdit || !newPerson) {
+
+    if (isEdit && !newPerson) {
       this.complete(results);
     } else {
       // If adding a new person, select a stage for them, then run all the onComplete functionality
