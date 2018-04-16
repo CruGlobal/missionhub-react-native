@@ -30,7 +30,7 @@ import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/Not
 
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
-import { Icon } from './components/common';
+import { Flex, Icon, Text } from './components/common';
 
 import theme from './theme';
 import { MAIN_TABS } from './constants';
@@ -49,22 +49,19 @@ import { buildTrackingObj, isAndroid } from './utils/common';
 //   },
 // });
 
-const navIcon = (name) => ({ tintColor }) => (
-  <Icon
-    type="MissionHub"
-    name={name}
-    size={isAndroid ? 22 : 24}
-    style={{ color: tintColor }}
-  />
+const navItem = (name) => ({ tintColor }) => (
+  <Flex value={1} align="center" justify="center">
+    <Icon
+      type="MissionHub"
+      name={`${name}Icon`}
+      size={isAndroid ? 22 : 24}
+      style={{ color: tintColor }}
+    />
+    <Text style={{ color: tintColor, fontSize: 14 }}>
+      {i18next.t(`appRoutes:${name}`)}
+    </Text>
+  </Flex>
 );
-
-function labelStyle() {
-  if (isAndroid) {
-    return { marginTop: 5, marginBottom: -5 };
-  } else {
-    return {};
-  }
-}
 
 const buildTrackedScreen = (screen, tracking, navOptions) => {
   return {
@@ -80,24 +77,21 @@ const tabs = {
     StepsScreen,
     stepsTab,
     {
-      tabBarLabel: i18next.t('appRoutes:steps'),
-      tabBarIcon: navIcon('stepsIcon'),
+      tabBarLabel: navItem('steps'),
     },
   ),
   PeopleTab: buildTrackedScreen(
     PeopleScreen,
     buildTrackingObj('people', 'people'),
     {
-      tabBarLabel: i18next.t('appRoutes:people'),
-      tabBarIcon: navIcon('peopleIcon'),
+      tabBarLabel: navItem('people'),
     }
   ),
   ImpactTab: buildTrackedScreen(
     ImpactScreen,
     buildTrackingObj('impact', 'impact'),
     {
-      tabBarLabel: i18next.t('appRoutes:impact'),
-      tabBarIcon: navIcon('impactIcon'),
+      tabBarLabel: navItem('impact'),
     },
   ),
 };
@@ -106,13 +100,12 @@ export const MainTabRoutes = TabNavigator(
   tabs, {
     // initialRouteName: 'ImpactTab',
     tabBarOptions: {
-      showIcon: true,
+      showIcon: false,
       showLabel: true,
       style: { backgroundColor: theme.white },
       activeTintColor: theme.primaryColor,
       inactiveTintColor: theme.inactiveColor,
       tabStyle: { backgroundColor: theme.lightBackgroundColor },
-      labelStyle: labelStyle(),
       indicatorStyle: { backgroundColor: 'transparent' } ,
       upperCaseLabel: false,
 
