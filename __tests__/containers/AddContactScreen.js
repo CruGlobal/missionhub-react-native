@@ -5,10 +5,11 @@ import AddContactScreen from '../../src/containers/AddContactScreen';
 import { addNewContact } from '../../src/actions/organizations';
 import { updatePerson } from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
+import * as person from '../../src/actions/person';
 import { navigateBack, navigatePush } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 
-const mockAddNewContact = { type: 'add new contact', findAll: () => [] };
+const mockAddNewContact = { type: 'add new contact', findAll: () => [], response: { id: 23 } };
 jest.mock('../../src/actions/organizations', () => ({
   addNewContact: jest.fn(() => mockAddNewContact),
 }));
@@ -51,10 +52,11 @@ describe('handleUpdateData', () => {
   it('should update the state', () => {
     const component = buildScreenInstance({ navigation: createMockNavState() });
 
-    component.handleUpdateData('some data');
+    component.handleUpdateData({ firstName: 'some data' });
 
     expect(component.state).toEqual({
-      data: 'some data',
+      contactCreated: false,
+      data: { firstName: 'some data', id: null },
     });
   });
 });
@@ -120,7 +122,7 @@ describe('savePerson', () => {
         first_name: 'Fname',
       },
     });
-    organizations.addNewContact.mockImplementation(() => ({ type: 'add new contact', findAll: () => [ newPerson ] }));
+    organizations.addNewContact.mockImplementation(() => ({ type: 'add new contact', findAll: () => [ newPerson ], response: { id: 23 } }));
 
     await component.savePerson();
 
@@ -176,5 +178,45 @@ describe('savePerson', () => {
     expect(updatePerson).toHaveBeenCalledWith({ first_name: 'Fname' });
     expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
     expect(navigateBack).toHaveBeenCalled();
+  });
+
+  it('should update person if person already created in add contact flow', async() => {
+    const component = buildScreen({ navigation: createMockNavState() });
+    const componentInstance = component.instance();
+    component.setState({
+      data: {
+        first_name: 'Fname',
+        id: 23,
+      },
+      contactCreated: true,
+    });
+    const newPerson = {
+      type: 'person',
+      id: 1000,
+      first_name: 'LeBron',
+      reverse_contact_assignments: [
+        { id: 300,
+          assigned_to: { id: me.id },
+        },
+      ],
+    };
+    person.updatePerson.mockImplementation(() => ({ type: 'add new contact', findAll: () => [ newPerson ] }));
+
+    await componentInstance.savePerson();
+
+    expect(updatePerson).toHaveBeenCalledWith({ first_name: 'Fname', id: 23 });
+    expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+      onCompleteCelebration: expect.anything(),
+      addingContactFlow: true,
+      enableBackButton: false,
+      currentStage: null,
+      name: newPerson.first_name,
+      contactId: newPerson.id,
+      contactAssignmentId: newPerson.reverse_contact_assignments[0].id,
+      section: 'people',
+      subsection: 'person',
+      orgId: organization.id,
+    });
   });
 });
