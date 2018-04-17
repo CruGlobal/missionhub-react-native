@@ -43,7 +43,7 @@ class AddContactScreen extends Component {
 
   async createContact(saveData) {
     return await this.props.dispatch(addNewContact(saveData)).then((r) => {
-      this.setState({ createdContact: true, data: { ...this.state.data, id: r.id } });
+      this.setState({ contactCreated: true, data: { ...this.state.data, id: r.response.id } });
       return r;
     });
   }
@@ -64,6 +64,7 @@ class AddContactScreen extends Component {
       // If adding a new person, select a stage for them, then run all the onComplete functionality
       const contactAssignment = newPerson.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
       const contactAssignmentId = contactAssignment && contactAssignment.id;
+
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onCompleteCelebration: () => {
           this.complete(results);
