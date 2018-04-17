@@ -22,7 +22,7 @@ const mockPerson = {
 };
 
 const mockJourneyList = [
-  { type: 'accepted_challenge', id: '84472', date: '2010-01-01 12:12:12' },
+  { _type: 'accepted_challenge', id: '84472', date: '2010-01-01 12:12:12' },
 ];
 
 const mockAddComment = jest.fn(() => Promise.resolve());
@@ -90,29 +90,46 @@ describe('journey methods', () => {
     component = createComponent().instance();
   });
 
-  it('renders a journey row', () => {
-    const snap = component.renderRow({ item: {
-      id: '123',
-      text: '123',
-    } });
+  it('renders a step row', () => {
+    const snap = component.renderRow({
+      item: {
+        id: '123',
+        note: '123',
+        _type: 'accepted_challenge',
+      },
+    });
+    expect(snap).toMatchSnapshot();
+  });
+
+  it('renders an interaction row', () => {
+    const snap = component.renderRow({
+      item: {
+        id: '123',
+        comment: '123',
+        _type: 'interaction',
+      },
+    });
     expect(snap).toMatchSnapshot();
   });
 
   it('renders a survey row', () => {
-    const snap = component.renderRow({ item: {
-      id: '124',
-      text: '124',
-      type: 'survey',
-    } });
+    const snap = component.renderRow({
+      item: {
+        id: '124',
+        text: '124',
+        _type: 'answer_sheet',
+      },
+    });
     expect(snap).toMatchSnapshot();
   });
 
-  it('renders a survey row', () => {
-    const snap = component.renderRow({ item: {
-      id: '124',
-      text: '124',
-      type: 'stage',
-    } });
+  it('renders a stage change row', () => {
+    const snap = component.renderRow({
+      item: {
+        id: '124',
+        _type: 'pathway_progression_audit',
+      },
+    });
     expect(snap).toMatchSnapshot();
   });
 
