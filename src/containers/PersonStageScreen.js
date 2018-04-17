@@ -12,6 +12,7 @@ import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { trackAction, trackState } from '../actions/analytics';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import { ACTIONS } from '../constants';
+import { completeOnboarding } from '../actions/onboardingProfile';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -85,7 +86,12 @@ class PersonStageScreen extends Component {
           contactId: this.props.contactId,
           organization: { id: this.props.orgId },
         }));
+
+        if (!this.props.addingContactFlow) {
+          this.props.dispatch(completeOnboarding());
+        }
       });
+
       this.props.dispatch(trackState(buildTrackingObj(`${trackingScreen} : add person : steps : add`, trackingScreen, 'add person', 'steps')));
     }
   };

@@ -20,6 +20,8 @@ import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';
 import { deletePushToken } from '../../src/actions/notifications';
+import * as onboardingProfile from '../../src/actions/onboardingProfile';
+
 jest.mock('../../src/actions/notifications');
 
 const email = 'Roger';
@@ -216,6 +218,7 @@ describe('loadHome', () => {
   const getStagesResult = { type: 'got stages' };
   const updateUserResult = { type: 'updated locale and TZ' };
   const notificationsResult = { type: 'notifications result' };
+  const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 
   const userSettings = {
     data: {
@@ -232,6 +235,7 @@ describe('loadHome', () => {
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
     mockFnWithParams(callApi, 'default', updateUserResult, REQUESTS.UPDATE_ME_USER, {}, userSettings);
     mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
+    mockFnWithParams(onboardingProfile, 'resetPerson', resetOnboardingPersonResult);
 
     store.dispatch(auth.loadHome());
 
@@ -241,6 +245,7 @@ describe('loadHome', () => {
       getStagesResult,
       updateUserResult,
       notificationsResult,
+      resetOnboardingPersonResult,
     ]);
   });
 });
