@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import theme from '../src/theme';
 
-import { createMockStore, renderShallow, testSnapshot } from '../testUtils';
+import { createMockStore, testSnapshot } from '../testUtils';
 import { MainTabRoutes, navItem } from '../src/AppRoutes';
 
 const store = createMockStore({
