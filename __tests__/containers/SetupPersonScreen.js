@@ -79,10 +79,4 @@ describe('setup person screen methods', () => {
 
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
   });
-
-  it('resets person on unmount', () => {
-    component.componentWillUnmount();
-
-    expect(profile.resetPerson).toHaveBeenCalledTimes(1);
-  });
 });
