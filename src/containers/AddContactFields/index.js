@@ -29,7 +29,6 @@ class AddContactFields extends Component {
     const phone = person.phone_numbers.find((email) => email.primary) || person.email_addresses[0] || {};
     if (person) {
       const newState = {
-        id: person.id,
         firstName: person.first_name,
         lastName: person.last_name,
         ...isJean ? {

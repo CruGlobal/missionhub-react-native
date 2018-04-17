@@ -30,7 +30,7 @@ class AddContactScreen extends Component {
   }
 
   handleUpdateData(data) {
-    this.setState({ data });
+    this.setState({ data: { ...this.state.data, ...data } });
   }
 
   complete(addedResults) {
