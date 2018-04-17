@@ -22,33 +22,23 @@ export default function navigation() {
   return (next) => (action) => {
     switch (action.type) {
       case REHYDRATE:
-        let navState;
-
-        const { auth, personProfile, people } = action.payload;
-
-        if (auth && isAuthenticated(auth)) {
-          if (!personProfile.hasCompletedOnboarding && !hasContactWithPathwayStage(auth.person.id, people)) {
-
-            if (auth.person.user.pathway_stage_id) {
-              navState = addSomeoneState;
-
-            } else {
-              navState = getStartedState;
-            }
-
-          } else {
-            navState = loggedInState;
-          }
-
-        } else {
-          navState = initialState;
-        }
-
-        action.payload.navigation = navState;
+        action.payload.navigation = getNavState(action.payload);
     }
 
     return next(action);
   };
+}
+
+function getNavState({ auth, personProfile, people }) {
+  if (auth && isAuthenticated(auth)) {
+    if (personProfile.hasCompletedOnboarding || hasContactWithPathwayStage(auth.person.id, people)) {
+      return loggedInState;
+    }
+
+    return auth.person.user.pathway_stage_id ? addSomeoneState : getStartedState;
+  }
+
+  return initialState;
 }
 
 function hasContactWithPathwayStage(myId, people) {
