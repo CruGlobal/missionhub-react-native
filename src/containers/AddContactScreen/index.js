@@ -41,6 +41,13 @@ class AddContactScreen extends Component {
     }
   }
 
+  async createContact(saveData) {
+    return await this.props.dispatch(addNewContact(saveData)).then((r) => {
+      this.setState({ createdContact: true, data: { ...this.state.data, id: r.id } });
+      return r;
+    });
+  }
+
   async savePerson() {
     const { me, organization, dispatch, person } = this.props;
     let saveData = { ...this.state.data };
@@ -48,8 +55,7 @@ class AddContactScreen extends Component {
       saveData.orgId = organization.id;
     }
     const isEdit = person;
-    const results = await dispatch(isEdit || this.state.contactCreated ? updatePerson(saveData) : addNewContact(saveData));
-    this.setState({ contactCreated: true });
+    const results = isEdit || this.state.contactCreated ? await dispatch(updatePerson(saveData)) : await this.createContact(saveData);
     const newPerson = findAllNonPlaceHolders(results, 'person')[0];
 
     if (isEdit && !newPerson) {
