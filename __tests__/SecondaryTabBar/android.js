@@ -13,7 +13,11 @@ const mockState = {
   swipe: {
     stepsContact: true,
   },
-  auth: {},
+  auth: {
+    person: {
+      id: '123',
+    },
+  },
 };
 
 const store = createMockStore(mockState);

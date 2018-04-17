@@ -79,11 +79,14 @@ exports[`renders back button correctly 1`] = `
   <View
     style={
       Array [
-        Object {
-          "left": 5,
-          "position": "absolute",
-          "top": 25,
-        },
+        Array [
+          null,
+          Object {
+            "left": 5,
+            "position": "absolute",
+            "top": 25,
+          },
+        ],
         Object {
           "alignItems": "flex-start",
           "alignSelf": "flex-start",

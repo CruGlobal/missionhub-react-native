@@ -14,22 +14,31 @@ import {
   showReminderScreen,
   reregisterNotificationHandler,
   registerNotificationHandler,
+  deletePushToken,
+  showWelcomeNotification,
 } from '../../src/actions/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
+  DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 import { getPersonDetails } from '../../src/actions/person';
-import { PushNotificationIOS } from 'react-native';
 jest.mock('../../src/actions/person');
+import { PushNotificationIOS } from 'react-native';
+import i18next from 'i18next';
+import MockDate from 'mockdate';
 
 const mockStore = configureStore([ thunk ]);
-const store = mockStore({ notifications: {} });
+const store = mockStore({
+  notifications: {
+    pushDevice: {},
+  },
+});
 
 beforeEach(() => {
   common.isAndroid = false;
@@ -67,6 +76,7 @@ describe('showReminderScreen', () => {
   it('should setup android notifications', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         shouldAsk: true,
       },
     });
@@ -77,7 +87,9 @@ describe('showReminderScreen', () => {
   it('should do nothing if we already have a token', () => {
     const store = mockStore({
       notifications: {
-        token: '123',
+        pushDevice: {
+          token: '123',
+        },
       },
     });
     store.dispatch(showReminderScreen());
@@ -86,6 +98,7 @@ describe('showReminderScreen', () => {
   it('should do nothing if reminders are disabled', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         showReminder: false,
       },
     });
@@ -95,6 +108,7 @@ describe('showReminderScreen', () => {
   it('should do nothing if permissions are already granted', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         showReminder: true,
         hasAsked: true,
       },
@@ -107,6 +121,7 @@ describe('showReminderScreen', () => {
   it('should show Notification Off screen and enable notifications', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         showReminder: true,
         hasAsked: true,
       },
@@ -121,6 +136,7 @@ describe('showReminderScreen', () => {
   it('should show Notification Off screen and disable notifications', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         showReminder: true,
         hasAsked: true,
       },
@@ -135,6 +151,7 @@ describe('showReminderScreen', () => {
   it('should show Notification Primer screen', () => {
     const store = mockStore({
       notifications: {
+        pushDevice: {},
         showReminder: true,
         hasAsked: false,
       },
@@ -194,7 +211,9 @@ describe('registerNotificationHandler', () => {
     const newToken = 'New Token';
     const store = mockStore({
       notifications: {
-        token: oldToken,
+        pushDevice: {
+          token: oldToken,
+        },
       },
     });
 
@@ -229,12 +248,12 @@ describe('registerNotificationHandler', () => {
   });
 
   describe('onNotification', () => {
-    const user = { id: '1', type: 'person' };
+    const person = { id: '1', type: 'person' };
 
     const store = mockStore({
       auth: {
         isJean: true,
-        user,
+        person,
       },
     });
 
@@ -277,7 +296,7 @@ describe('registerNotificationHandler', () => {
     });
 
     it('should deep link to contact screen', async() => {
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({ screen: 'person_steps', person_id: '1', organization_id: '2' });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
@@ -285,7 +304,7 @@ describe('registerNotificationHandler', () => {
 
     it('should deep link to contact screen on iOS', async() => {
       common.isAndroid = false;
-      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person: user });
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({ data: { link: { data: { screen: 'person_steps', person_id: '1', organization_id: '2' } } } });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
@@ -301,5 +320,70 @@ describe('registerNotificationHandler', () => {
       store.getActions()[0].params.onComplete();
       expect(store.getActions()).toMatchSnapshot();
     });
+  });
+});
+
+describe('deletePushToken', () => {
+  it('should not make an api request if there is nothing to delete', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+      },
+    });
+
+    store.dispatch(deletePushToken());
+
+    expect(callApi).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
+  });
+  it('should delete the push notification device token', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {
+          id: '1',
+        },
+      },
+    });
+    callApi.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
+
+    store.dispatch(deletePushToken());
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_PUSH_TOKEN, { deviceId: '1' } , {});
+    expect(store.getActions()).toEqual([ { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS } ]);
+  });
+});
+
+describe('showWelcomeNotification', () => {
+  it('should do nothing if disabled', () => {
+    const store = mockStore({
+      notifications: {
+        hasShownWelcomeNotification: true,
+      },
+    });
+    store.dispatch(showWelcomeNotification());
+    expect(PushNotification.localNotificationSchedule).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('should queue local notification', () => {
+    const mockDate = '2018-01-01';
+    MockDate.set(mockDate);
+
+    const store = mockStore({
+      notifications: {
+        hasShownWelcomeNotification: false,
+      },
+    });
+    store.dispatch(showWelcomeNotification());
+    expect(PushNotification.localNotificationSchedule).toHaveBeenCalledWith({
+      title: i18next.t('welcomeNotification:title'),
+      message: i18next.t('welcomeNotification:message'),
+      date: new Date(`${mockDate}T00:00:03.000Z`),
+    });
+    expect(store.getActions()).toEqual([ {
+      type: DISABLE_WELCOME_NOTIFICATION,
+    } ]);
+
+    MockDate.reset();
   });
 });

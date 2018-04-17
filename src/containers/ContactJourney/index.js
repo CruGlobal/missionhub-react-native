@@ -188,7 +188,7 @@ const mapStateToProps = ({ auth, swipe, journey }, { person, organization }) => 
   return {
     journeyItems,
     isCasey: !auth.isJean,
-    myId: auth.personId,
+    myId: auth.person.id,
     showReminder: swipe.journey,
   };
 };
