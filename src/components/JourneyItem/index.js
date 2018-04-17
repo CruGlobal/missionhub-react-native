@@ -17,12 +17,12 @@ export default class JourneyItem extends Component {
     return <DateComponent date={item._type === 'accepted_challenge' ? item.completed_at : item.created_at} style={styles.date} format="LL" />;
   }
 
-  hasOldStage(item) {
+  oldStage(item) {
     return item.old_pathway_stage && item.old_pathway_stage.name;
   }
 
   translatableStage(item) {
-    return { personName: item.person.first_name, oldStage: item.old_pathway_stage && item.old_pathway_stage.name, newStage: item.new_pathway_stage.name };
+    return { personName: item.person.first_name, oldStage: this.oldStage(item), newStage: item.new_pathway_stage.name };
   }
 
   isSelfPathwayProgressionAudit(item) {
@@ -37,7 +37,7 @@ export default class JourneyItem extends Component {
         ` ${item.challenge_suggestion.pathway_stage.name} ` : ' ';
       title = t('stepTitle', { stageName: pathwayStage });
     } else if (_type === 'pathway_progression_audit') {
-      if (this.hasOldStage(item)) {
+      if (this.oldStage(item)) {
         title = t('stageTitle', this.translatableStage(item));
       } else {
         title = item.new_pathway_stage.name;
@@ -70,7 +70,7 @@ export default class JourneyItem extends Component {
         text = `${text}\n\n${item.note}`;
       }
     } else if (_type === 'pathway_progression_audit') {
-      if (this.hasOldStage(item)) {
+      if (this.oldStage(item)) {
         if (this.isSelfPathwayProgressionAudit(item)) {
           text = t('stageTextSelf', this.translatableStage(item));
         } else {
