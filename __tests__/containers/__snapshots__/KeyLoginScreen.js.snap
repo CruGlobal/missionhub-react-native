@@ -513,6 +513,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 0,
         }
       }
     >
@@ -671,6 +672,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 0,
         }
       }
     >
@@ -829,6 +831,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 0,
         }
       }
     >
