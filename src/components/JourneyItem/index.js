@@ -177,4 +177,5 @@ JourneyItem.propTypes = {
     title: PropTypes.string,
     completed_at: PropTypes.date,
   }).isRequired,
+  myId: PropTypes.string.isRequired,
 };
