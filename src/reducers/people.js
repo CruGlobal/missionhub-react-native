@@ -1,7 +1,4 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { DELETE_PERSON, LOGOUT, PEOPLE_WITH_ORG_SECTIONS, LOAD_PERSON_DETAILS, UPDATE_PERSON_ATTRIBUTES } from '../constants';
-import { useFirstExists } from '../utils/common';
 
 const initialState = {
   allByOrg: {
@@ -11,14 +8,6 @@ const initialState = {
 
 export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      const incoming = action.payload.people;
-      if (incoming) {
-        return {
-          allByOrg: useFirstExists(incoming.allByOrg, state.allByOrg),
-        };
-      }
-      return state;
     case LOAD_PERSON_DETAILS:
       const orgId = action.orgId || 'personal';
       const org = action.org || {};

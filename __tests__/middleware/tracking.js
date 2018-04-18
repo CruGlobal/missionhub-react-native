@@ -9,7 +9,7 @@ import * as analytics from '../../src/actions/analytics';
 import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
-import { REHYDRATE } from 'redux-persist/constants';
+import { REHYDRATE } from 'redux-persist';
 import { buildTrackingObj } from '../../src/utils/common';
 
 const mockStore = configureStore([ tracking ]);

@@ -1,35 +1,24 @@
+import { NavigationActions } from 'react-navigation';
+
 import { MainRoutes } from '../AppRoutes';
-import { REHYDRATE } from 'redux-persist/constants';
 import { isAuthenticated } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
-import { NavigationActions } from 'react-navigation';
 
-const initialState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN));
-const addSomeoneState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams(ADD_SOMEONE_SCREEN));
-const getStartedState = MainRoutes.router.getStateForAction(MainRoutes.router.getActionForPathAndParams(GET_STARTED_SCREEN));
+export function navigationInit({ auth, personProfile, people }) {
+  const initialState = MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN);
+  const addSomeoneState = MainRoutes.router.getActionForPathAndParams(ADD_SOMEONE_SCREEN);
+  const getStartedState = MainRoutes.router.getActionForPathAndParams(GET_STARTED_SCREEN);
 
-const loggedInState = MainRoutes.router.getStateForAction(NavigationActions.reset({
-  index: 0,
-  actions: [
-    NavigationActions.navigate({ routeName: MAIN_TABS }),
-  ],
-}));
+  const loggedInState = NavigationActions.reset({
+    index: 0,
+    actions: [
+      NavigationActions.navigate({ routeName: MAIN_TABS }),
+    ],
+  });
 
-export default function navigation() {
-  return (next) => (action) => {
-    switch (action.type) {
-      case REHYDRATE:
-        action.payload.navigation = getNavState(action.payload);
-    }
-
-    return next(action);
-  };
-}
-
-function getNavState({ auth, personProfile, people }) {
   if (auth && isAuthenticated(auth)) {
     if (personProfile.hasCompletedOnboarding || hasContactWithPathwayStage(auth.person.id, people)) {
       return loggedInState;

@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { REQUESTS } from '../actions/api';
 import {
   LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT,
@@ -35,15 +33,6 @@ export function getPagination(state, action, steps) {
 
 function stepsReducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      var incoming = action.payload.steps;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case FILTERED_CHALLENGES:
       return {
         ...state,

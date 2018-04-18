@@ -1,14 +1,14 @@
 import { AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { persistStore, createTransform } from 'redux-persist';
+import { persistStore, persistReducer, createTransform } from 'redux-persist';
+import getStoredStateMigrateV4 from 'redux-persist/lib/integration/getStoredStateMigrateV4';
 import jsan from 'jsan';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 
 import reducers from './reducers';
 import tracking from './middleware/tracking';
 import steps from './middleware/steps';
-import rehydrateNavigation from './middleware/rehydrateNavigation';
 
 let myCreateStore = createStore;
 
@@ -17,6 +17,7 @@ if (__DEV__) {
   const Reactotron = require('reactotron-react-native').default;
   myCreateStore = Reactotron.createStore;
 }
+
 const navMiddleware = createReactNavigationReduxMiddleware(
   'root',
   (state) => state.nav,
@@ -24,7 +25,7 @@ const navMiddleware = createReactNavigationReduxMiddleware(
 
 // Setup enhancers and middleware
 const enhancers = [];
-const middleware = [ thunk, rehydrateNavigation, tracking, steps, navMiddleware ];
+const middleware = [ thunk, tracking, steps, navMiddleware ];
 
 const composedEnhancers = compose(
   applyMiddleware(...middleware),
@@ -42,16 +43,30 @@ let myTransform = createTransform(
   },
 );
 
-export default function getStore(onCompletion) {
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  transforms: [ myTransform ],
+  getStoredState: getStoredStateMigrateV4({ storage: AsyncStorage, transforms: [ myTransform ] }),
+};
+
+export default () => {
   const store = myCreateStore(
-    reducers,
+    persistReducer(persistConfig, reducers),
     {},
     composedEnhancers,
   );
-  persistStore(store, { storage: AsyncStorage, transforms: [ myTransform ] }, () => {
-    onCompletion(store);
-    // setTimeout(() => onCompletion(store), 1500);
-  });
+  const persistor = persistStore(store);
 
-  return store;
-}
+  if (module.hot) {
+    module.hot.accept(() => {
+      // This fetches the new state of the above reducers.
+      const nextRootReducer = require('./reducers').default;
+      store.replaceReducer(
+        persistReducer(persistConfig, nextRootReducer)
+      );
+    });
+  }
+
+  return { store, persistor };
+};

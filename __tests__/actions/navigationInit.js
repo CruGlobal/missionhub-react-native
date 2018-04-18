@@ -1,15 +1,15 @@
-import { REHYDRATE } from 'redux-persist/constants';
+import { REHYDRATE } from 'redux-persist';
 import { MAIN_TABS } from '../../src/constants';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import navigation from '../../src/middleware/rehydrateNavigation';
+import { navigationInit } from '../../src/actions/navigationInit';
 import configureStore from 'redux-mock-store';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
 const token = 'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
 
-const mockStore = configureStore([ navigation ]);
+const mockStore = configureStore();
 let store;
 
 const test = (data, route) => {
