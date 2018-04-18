@@ -64,6 +64,7 @@ exports[`renders correctly 1`] = `
           accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
+          hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
           nativeID={undefined}
@@ -220,6 +221,7 @@ exports[`renders correctly 1`] = `
     getItemCount={[Function]}
     horizontal={false}
     initialNumToRender={15}
+    invertStickyHeaders={undefined}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
     numColumns={1}
@@ -264,14 +266,7 @@ exports[`renders correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >
@@ -370,14 +365,7 @@ exports[`renders correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >
@@ -444,14 +432,7 @@ exports[`renders correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >
@@ -567,6 +548,7 @@ exports[`renders title correctly 1`] = `
           accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
+          hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
           nativeID={undefined}
@@ -723,6 +705,7 @@ exports[`renders title correctly 1`] = `
     getItemCount={[Function]}
     horizontal={false}
     initialNumToRender={15}
+    invertStickyHeaders={undefined}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
     numColumns={1}
@@ -767,14 +750,7 @@ exports[`renders title correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >
@@ -873,14 +849,7 @@ exports[`renders title correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >
@@ -947,14 +916,7 @@ exports[`renders title correctly 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
+          style={null}
           testID={undefined}
           tvParallaxProperties={undefined}
         >

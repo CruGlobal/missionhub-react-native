@@ -95,6 +95,7 @@ Let's figure out where you are on your journey.
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
+      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}

@@ -1,4 +1,6 @@
 rootProject.name = 'MissionHub'
+include ':react-native-device-info'
+project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
 include ':react-native-config'
 project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
 include ':react-native-default-preference'
@@ -11,8 +13,6 @@ include ':react-native-omniture'
 project(':react-native-omniture').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-omniture/android')
 include ':react-native-push-notification'
 project(':react-native-push-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-push-notification/android')
-include ':react-native-device-info'
-project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
 include ':react-native-vector-icons'
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 
