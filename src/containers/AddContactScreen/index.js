@@ -11,7 +11,6 @@ import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
-import { findAllNonPlaceHolders } from '../../utils/common';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -45,22 +44,17 @@ class AddContactScreen extends Component {
     }
   }
 
-  async createContact(saveData) {
-    const results = await this.props.dispatch(addNewContact(saveData));
-    this.setState({ person: { ...this.state.person, id: results.response.id } });
-    return results;
-  }
-
   async savePerson() {
     const { me, organization, dispatch } = this.props;
     let saveData = { ...this.state.person };
     if (organization) {
       saveData.orgId = organization.id;
     }
-    const results = saveData.id ? await dispatch(updatePerson(saveData)) : await this.createContact(saveData);
-    const newPerson = findAllNonPlaceHolders(results, 'person')[0];
+    const results = await dispatch(saveData.id ? updatePerson(saveData) : addNewContact(saveData));
+    const newPerson = results.response;
+    this.setState({ person: { ...this.state.person, id: newPerson.id } });
 
-    if (this.props.person || !newPerson) { //we know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
+    if (this.props.person) { //we know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
       this.complete(results);
     } else {
       // If adding a new person, select a stage for them, then run all the onComplete functionality
