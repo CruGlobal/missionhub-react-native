@@ -183,8 +183,8 @@ describe('StepsScreen', () => {
   describe('handleSetReminder', () => {
     it('should focus a step', () => {
       const component = createComponent({
+        ...propsWithSteps,
         reminders: [],
-        dispatch,
       });
       component.instance().handleSetReminder('testStep');
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
@@ -195,8 +195,8 @@ describe('StepsScreen', () => {
     });
     it('should focus a step and not show notification reminder screen if reminders already exist', () => {
       const component = createComponent({
+        ...propsWithSteps,
         reminders: [ 'someStep' ],
-        dispatch,
       });
       component.instance().handleSetReminder('testStep');
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
@@ -207,8 +207,8 @@ describe('StepsScreen', () => {
     });
     it('should not focus a step when reminders slots are filled', () => {
       const component = createComponent({
+        ...propsWithSteps,
         reminders: [ 'step1', 'step2', 'step3' ],
-        dispatch,
       });
       component.instance().handleSetReminder('testStep');
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);

@@ -42,3 +42,16 @@ it('renders android correctly', () => {
     />
   );
 });
+
+it('renders loading on Android correctly', () => {
+  testSnapshotShallow(
+    <StepsScreen
+      {
+      ...{
+        ...props,
+        steps: [],
+      }
+      }
+    />
+  );
+});

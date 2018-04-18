@@ -40,7 +40,6 @@ export class StepsScreen extends Component {
     super(props);
     this.state = {
       refreshing: false,
-      loading: true,
       addedReminder: props.reminders.length > 0,
       overscrollUp: false,
       paging: false,
@@ -63,11 +62,7 @@ export class StepsScreen extends Component {
   }
 
   async getSteps() {
-    try {
-      await this.props.dispatch(getMySteps());
-    } finally {
-      this.setState({ loading: false });
-    }
+    this.props.dispatch(getMySteps());
   }
 
   completeStepBump() {
@@ -101,8 +96,9 @@ export class StepsScreen extends Component {
   }
 
   handleRemoveReminder(step) {
-    this.props.dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
-    this.props.dispatch(setStepFocus(step, false));
+    const { dispatch } = this.props;
+    dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
+    dispatch(setStepFocus(step, false));
   }
 
   handleCompleteReminder(step) {
@@ -129,16 +125,22 @@ export class StepsScreen extends Component {
   }
 
   handleBackgroundColor() {
-    if (this.state.overscrollUp) return styles.backgroundTop;
+    if (this.state.overscrollUp) {
+      return styles.backgroundTop;
+    }
+
     return styles.backgroundBottom;
   }
 
   handleNextPage() {
-    if (this.state.paging || !this.props.hasMoreSteps) {
+    const { hasMoreSteps, dispatch } = this.props;
+
+    if (this.state.paging || !hasMoreSteps) {
       return;
     }
+
     this.setState({ paging: true });
-    this.props.dispatch(getMyStepsNextPage()).then(() => {
+    dispatch(getMyStepsNextPage()).then(() => {
       // Put a slight delay on stopping the paging so that the new items can populate in the list
       setTimeout(() => this.setState({ paging: false }), 500);
     }).catch(() => {
@@ -147,13 +149,14 @@ export class StepsScreen extends Component {
   }
 
   noSteps() {
-    return this.props.reminders.length === 0 && this.props.steps.length === 0;
+    const { reminders, steps } = this.props;
+    return reminders.length === 0 && steps.length === 0;
   }
 
   renderFocusPrompt() {
     const { reminders, t } = this.props;
 
-    if (this.noSteps() || reminders.length > 0) {
+    if (reminders.length > 0) {
       return null;
     }
 
@@ -286,7 +289,8 @@ export class StepsScreen extends Component {
   }
 
   render() {
-    const { t, dispatch } = this.props;
+    const { t, dispatch, steps } = this.props;
+
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -295,14 +299,14 @@ export class StepsScreen extends Component {
           }
           title={t('title').toUpperCase()}
         />
-        {this.state.loading ? <LoadingGuy /> : this.renderSteps()}
+        {steps ? this.renderSteps() : <LoadingGuy />}
       </View>
     );
   }
 }
 
 export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
-  steps: nonReminderStepsSelector({ steps, people }),
+  steps: steps.mine && nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
   showNotificationReminder: notifications.showReminder,
