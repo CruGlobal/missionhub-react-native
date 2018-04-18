@@ -1,6 +1,7 @@
 import { ToastAndroid, PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
+import i18next from 'i18next';
 
 import { REQUESTS } from './api';
 import callApi from './api';
@@ -11,6 +12,7 @@ import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
+  DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
 } from '../constants';
 import { isAndroid } from '../utils/common';
@@ -199,6 +201,24 @@ export function deletePushToken() {
     };
 
     return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
+  };
+}
+
+export function showWelcomeNotification() {
+  return (dispatch, getState) => {
+    if (getState().notifications.hasShownWelcomeNotification) {
+      return;
+    }
+
+    PushNotification.localNotificationSchedule({
+      title: i18next.t('welcomeNotification:title'),
+      message: i18next.t('welcomeNotification:message'),
+      date: new Date(Date.now() + 1000 * 3), // in 3 secs
+    });
+
+    dispatch({
+      type: DISABLE_WELCOME_NOTIFICATION,
+    });
   };
 }
 

@@ -7,7 +7,7 @@ import debounce from 'lodash/debounce';
 import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
 import { navigatePush } from '../../actions/navigation';
-import { showReminderScreen, toast } from '../../actions/notifications';
+import { showReminderScreen, showWelcomeNotification, toast } from '../../actions/notifications';
 import {
   getMySteps, setStepFocus, completeStepReminder, getMyStepsNextPage,
   deleteStepWithTracking,
@@ -83,19 +83,21 @@ export class StepsScreen extends Component {
   }
 
   handleSetReminder(step) {
-    this.props.dispatch(trackAction(ACTIONS.STEP_PRIORITIZED));
+    const { dispatch, reminders, t } = this.props;
+    dispatch(trackAction(ACTIONS.STEP_PRIORITIZED));
 
-    if (this.props.reminders.length >= MAX_REMINDERS) {
+    if (reminders.length >= MAX_REMINDERS) {
       return;
     }
 
-    this.props.dispatch(toast('✔ Reminder Added'));
+    dispatch(toast(t('reminderAddedToast')));
 
-    const showPushReminder = this.props.reminders.length === 0;
-    this.props.dispatch(setStepFocus(step, true));
+    const showPushReminder = reminders.length === 0;
+    dispatch(setStepFocus(step, true));
     if (showPushReminder) {
-      this.props.dispatch(showReminderScreen());
+      dispatch(showReminderScreen());
     }
+    dispatch(showWelcomeNotification());
   }
 
   handleRemoveReminder(step) {

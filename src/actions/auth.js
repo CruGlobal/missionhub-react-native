@@ -17,6 +17,7 @@ import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 import i18next from 'i18next';
+import { resetPerson } from './onboardingProfile';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -154,5 +155,6 @@ export function loadHome() {
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     dispatch(reregisterNotificationHandler());
+    dispatch(resetPerson());
   };
 }

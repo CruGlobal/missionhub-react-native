@@ -15,19 +15,23 @@ import {
   reregisterNotificationHandler,
   registerNotificationHandler,
   deletePushToken,
+  showWelcomeNotification,
 } from '../../src/actions/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
+  DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 import { getPersonDetails } from '../../src/actions/person';
-import { PushNotificationIOS } from 'react-native';
 jest.mock('../../src/actions/person');
+import { PushNotificationIOS } from 'react-native';
+import i18next from 'i18next';
+import MockDate from 'mockdate';
 
 const mockStore = configureStore([ thunk ]);
 const store = mockStore({
@@ -346,5 +350,40 @@ describe('deletePushToken', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_PUSH_TOKEN, { deviceId: '1' } , {});
     expect(store.getActions()).toEqual([ { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS } ]);
+  });
+});
+
+describe('showWelcomeNotification', () => {
+  it('should do nothing if disabled', () => {
+    const store = mockStore({
+      notifications: {
+        hasShownWelcomeNotification: true,
+      },
+    });
+    store.dispatch(showWelcomeNotification());
+    expect(PushNotification.localNotificationSchedule).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('should queue local notification', () => {
+    const mockDate = '2018-01-01';
+    MockDate.set(mockDate);
+
+    const store = mockStore({
+      notifications: {
+        hasShownWelcomeNotification: false,
+      },
+    });
+    store.dispatch(showWelcomeNotification());
+    expect(PushNotification.localNotificationSchedule).toHaveBeenCalledWith({
+      title: i18next.t('welcomeNotification:title'),
+      message: i18next.t('welcomeNotification:message'),
+      date: new Date(`${mockDate}T00:00:03.000Z`),
+    });
+    expect(store.getActions()).toEqual([ {
+      type: DISABLE_WELCOME_NOTIFICATION,
+    } ]);
+
+    MockDate.reset();
   });
 });

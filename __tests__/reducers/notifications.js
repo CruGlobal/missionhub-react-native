@@ -4,6 +4,7 @@ import {
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
+  DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -41,12 +42,20 @@ it('should update push device', () => {
   expect(state.pushDevice).toEqual(pushDevice);
 });
 
+it('should disable welcome notification', () => {
+  const state = notifications({}, {
+    type: DISABLE_WELCOME_NOTIFICATION,
+  });
+  expect(state.hasShownWelcomeNotification).toEqual(true);
+});
+
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
     hasAsked: false,
     shouldAsk: true,
     showReminder: true,
+    hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {
     type: LOGOUT,

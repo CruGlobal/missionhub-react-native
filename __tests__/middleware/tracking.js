@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import {
-  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
+  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, MAIN_TABS, NAVIGATE_FORWARD,
   NAVIGATE_RESET,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
@@ -118,20 +118,11 @@ describe('navigate reset', () => {
 });
 
 describe('rehydrate', () => {
-  it('tracks main tabs if logged in', () => {
+  it('tracks navigation payload', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef' } } };
+    navigationAction = { type: REHYDRATE, payload: { navigation: { routes: [ { routeName: MAIN_TABS } ] } } };
 
     test(buildTrackingObj('steps', 'steps'));
-  });
-
-  it('does nothing if not logged in', () => {
-    store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: null } } };
-
-    store.dispatch(navigationAction);
-
-    expect(store.getActions()).toEqual([ navigationAction ]);
   });
 });
 
