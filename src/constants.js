@@ -39,6 +39,7 @@ export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
+export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
