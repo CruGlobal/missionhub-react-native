@@ -27,19 +27,25 @@ describe('step', () => {
 
   it('is rendered correctly without comment', () => {
     testSnapshotShallow(
-      <JourneyItem item={mockStep} />
+      <JourneyItem
+        item={mockStep}
+        myId={myId} />
     );
   });
 
   it('is rendered correctly with comment', () => {
     testSnapshotShallow(
-      <JourneyItem item={{ ...mockStep, note: 'test comment on completed step' }} />
+      <JourneyItem
+        item={{ ...mockStep, note: 'test comment on completed step' }}
+        myId={myId} />
     );
   });
 
   it('is rendered correctly with pathway stage', () => {
     testSnapshotShallow(
-      <JourneyItem item={{ ...mockStep, challenge_suggestion }} />
+      <JourneyItem
+        item={{ ...mockStep, challenge_suggestion }}
+        myId={myId} />
     );
   });
 });
@@ -98,32 +104,36 @@ describe('stage', () => {
 
 it('renders survey correctly', () => {
   testSnapshotShallow(
-    <JourneyItem item={{
-      id: '5',
-      _type: 'answer_sheet',
-      survey: { title: 'Test Survey' },
-      answers: [
-        { id: '1', question: { label: 'Question 1' }, value: 'Answer 1' },
-        { id: '2', question: { label: 'Question 2' }, value: 'Answer 2' },
-        { id: '3', question: { label: 'Question 3' }, value: 'Answer 3' },
-      ],
-      created_at: date,
-    }} />
+    <JourneyItem
+      item={{
+        id: '5',
+        _type: 'answer_sheet',
+        survey: { title: 'Test Survey' },
+        answers: [
+          { id: '1', question: { label: 'Question 1' }, value: 'Answer 1' },
+          { id: '2', question: { label: 'Question 2' }, value: 'Answer 2' },
+          { id: '3', question: { label: 'Question 3' }, value: 'Answer 3' },
+        ],
+        created_at: date,
+      }}
+      myId={myId} />
   );
 });
 
 it('renders interaction correctly', () => {
   testSnapshotShallow(
-    <JourneyItem item={{
-      id: '4',
-      _type: 'interaction',
-      interaction_type_id: 1,
-      comment: 'Test Interaction',
-      initiators: [
-        { id: myId },
-      ],
-      organization: null,
-      created_at: date,
-    }} />
+    <JourneyItem
+      item={{
+        id: '4',
+        _type: 'interaction',
+        interaction_type_id: 1,
+        comment: 'Test Interaction',
+        initiators: [
+          { id: myId },
+        ],
+        organization: null,
+        created_at: date,
+      }}
+      myId={myId} />
   );
 });
