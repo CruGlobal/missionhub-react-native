@@ -5,7 +5,7 @@ import API_CALLS from '../api';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
 import { refreshAccessToken, refreshAnonymousLogin } from './auth';
-import { EXPIRED_ACCESS_TOKEN } from '../constants';
+import { EXPIRED_ACCESS_TOKEN, UPDATE_TOKEN } from '../constants';
 import { refreshMissionHubFacebookAccess } from './facebook';
 
 
@@ -116,6 +116,14 @@ export default function callApi(requestObject, query = {}, data = {}) {
           meta,
           type: action.SUCCESS,
         });
+
+        if (response.sessionHeader) {
+          dispatch({
+            type: UPDATE_TOKEN,
+            token: response.sessionHeader,
+          });
+        }
+
         resolve(actionResults);
       }).catch(handleError);
     })
