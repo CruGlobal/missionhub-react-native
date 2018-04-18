@@ -196,7 +196,7 @@ describe('savePerson', () => {
       ],
     };
 
-    const updatePersonResponse = { type: 'update person', findAll: () => [ newPerson ] }
+    const updatePersonResponse = { type: 'update person', findAll: () => [ newPerson ] };
     person.updatePerson.mockImplementation(() => (updatePersonResponse));
 
     await componentInstance.savePerson();
