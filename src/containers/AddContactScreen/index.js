@@ -21,8 +21,7 @@ class AddContactScreen extends Component {
     super(props);
 
     this.state = {
-      data: {},
-      contactCreated: false,
+      person: {},
     };
 
     this.savePerson = this.savePerson.bind(this);
@@ -31,11 +30,11 @@ class AddContactScreen extends Component {
 
   componentWillMount() {
     const { person } = this.props;
-    this.setState({ data: { id: person ? person.id : null } });
+    this.setState({ person });
   }
 
-  handleUpdateData(data) {
-    this.setState({ data: { ...this.state.data, ...data } });
+  handleUpdateData(newData) {
+    this.setState({ person: { ...this.state.person, ...newData } });
   }
 
   complete(addedResults) {
@@ -47,23 +46,21 @@ class AddContactScreen extends Component {
   }
 
   async createContact(saveData) {
-    return await this.props.dispatch(addNewContact(saveData)).then((r) => {
-      this.setState({ contactCreated: true, data: { ...this.state.data, id: r.response.id } });
-      return r;
-    });
+    const { response: newPerson } = await this.props.dispatch(addNewContact(saveData));
+    this.setState({ person: { ...this.state.person, id: newPerson.id } });
+    return newPerson;
   }
 
   async savePerson() {
-    const { me, organization, dispatch, person } = this.props;
-    let saveData = { ...this.state.data };
+    const { me, organization, dispatch } = this.props;
+    let saveData = { ...this.state.person };
     if (organization) {
       saveData.orgId = organization.id;
     }
-    const isEdit = person;
-    const results = isEdit || this.state.contactCreated ? await dispatch(updatePerson(saveData)) : await this.createContact(saveData);
+    const results = saveData.id ? await dispatch(updatePerson(saveData)) : await this.createContact(saveData);
     const newPerson = findAllNonPlaceHolders(results, 'person')[0];
-
-    if (isEdit || !newPerson) {
+    
+    if (this.props.person || !newPerson) { //we know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
       this.complete(results);
     } else {
       // If adding a new person, select a stage for them, then run all the onComplete functionality
