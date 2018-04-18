@@ -46,9 +46,9 @@ class AddContactScreen extends Component {
   }
 
   async createContact(saveData) {
-    const { response: newPerson } = await this.props.dispatch(addNewContact(saveData));
-    this.setState({ person: { ...this.state.person, id: newPerson.id } });
-    return newPerson;
+    const results = await this.props.dispatch(addNewContact(saveData));
+    this.setState({ person: { ...this.state.person, id: results.response.id } });
+    return results;
   }
 
   async savePerson() {
@@ -59,7 +59,7 @@ class AddContactScreen extends Component {
     }
     const results = saveData.id ? await dispatch(updatePerson(saveData)) : await this.createContact(saveData);
     const newPerson = findAllNonPlaceHolders(results, 'person')[0];
-    
+
     if (this.props.person || !newPerson) { //we know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
       this.complete(results);
     } else {
