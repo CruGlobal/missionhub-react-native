@@ -77,19 +77,26 @@ export class StepsScreen extends Component {
     this.props.dispatch(navigatePush(CONTACT_SCREEN, { person: step.receiver, organization: step.organization }));
   }
 
+  hasReminders() {
+    return this.props.reminders.length > 0;
+  }
+
+  hasMaxReminders() {
+    return this.props.reminders.length >= MAX_REMINDERS;
+  }
+
   handleSetReminder(step) {
-    const { dispatch, reminders, t } = this.props;
+    const { dispatch, t } = this.props;
     dispatch(trackAction(ACTIONS.STEP_PRIORITIZED));
 
-    if (reminders.length >= MAX_REMINDERS) {
+    if (this.hasMaxReminders()) {
       return;
     }
 
     dispatch(toast(t('reminderAddedToast')));
 
-    const showPushReminder = reminders.length === 0;
     dispatch(setStepFocus(step, true));
-    if (showPushReminder) {
+    if (!this.hasReminders()) {
       dispatch(showReminderScreen());
     }
     dispatch(showWelcomeNotification());
@@ -148,15 +155,10 @@ export class StepsScreen extends Component {
     });
   }
 
-  noSteps() {
-    const { reminders, steps } = this.props;
-    return reminders.length === 0 && steps.length === 0;
-  }
-
   renderFocusPrompt() {
-    const { reminders, t } = this.props;
+    const { t } = this.props;
 
-    if (reminders.length > 0) {
+    if (this.hasReminders()) {
       return null;
     }
 
@@ -176,12 +178,8 @@ export class StepsScreen extends Component {
   renderReminders() {
     const { reminders, showStepReminderBump } = this.props;
 
-    if (this.noSteps()) {
-      return null;
-    }
-
     return (
-      <Flex align="center" style={[ styles.top, styles.topItems ]}>
+      <Flex align="center" style={[ styles.top ]}>
         {
           reminders.map((s, index) => (
             <RowSwipeable
@@ -204,9 +202,8 @@ export class StepsScreen extends Component {
   }
 
   renderList() {
-    const { steps, reminders, t, showStepBump, hasMoreSteps } = this.props;
+    const { steps, t, showStepBump, hasMoreSteps } = this.props;
     if (steps.length === 0) {
-      const hasReminders = reminders.length > 0;
       return (
         <Flex value={1} align="center" justify="center">
           <Image source={NULL} />
@@ -215,14 +212,14 @@ export class StepsScreen extends Component {
           </Text>
           <Text style={styles.nullText}>
             {
-              hasReminders ? t('nullWithReminders') : t('nullNoReminders')
+              this.hasReminders() ? t('nullWithReminders') : t('nullNoReminders')
             }
           </Text>
         </Flex>
       );
     }
 
-    const hideStars = reminders.length === MAX_REMINDERS;
+    const hideStars = this.hasMaxReminders();
 
     return (
       <FlatList
