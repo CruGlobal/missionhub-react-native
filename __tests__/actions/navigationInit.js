@@ -1,60 +1,49 @@
-import { REHYDRATE } from 'redux-persist';
-import { MAIN_TABS } from '../../src/constants';
+import { MAIN_TABS, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../../src/constants';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { navigationInit } from '../../src/actions/navigationInit';
-import configureStore from 'redux-mock-store';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
 const token = 'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
 
-const mockStore = configureStore();
-let store;
-
-const test = (data, route) => {
-  store.dispatch(data);
-
-  expect(store.getActions()).toEqual([ {
-    ...data,
-    payload: {
-      ...data.payload,
-      navigation: expect.objectContaining({
-        routes: expect.arrayContaining([
-          expect.objectContaining({
-            routeName: route,
-          }),
-        ]),
-      }),
-    },
-  } ]);
-
-  expect(store.getActions()[0].payload.navigation.routes.length).toEqual(1);
+const test = (store, route) => {
+  expect(navigationInit(store)).toEqual({
+    routeName: route,
+    type: NAVIGATE_FORWARD,
+  });
 };
 
-beforeEach(() => {
-  store = mockStore();
-});
+const testReset = (store, route) => {
+  expect(navigationInit(store)).toEqual(
+    expect.objectContaining({
+      actions: [ {
+        routeName: route,
+        type: NAVIGATE_FORWARD,
+      } ],
+      type: NAVIGATE_RESET,
+    })
+  );
+};
 
-describe('rehydrate', () => {
+describe('navigationInit', () => {
   describe('not logged in user', () => {
     it('should go to Login screen', () => {
-      test({
-        type: REHYDRATE,
-        payload: {
+      test(
+        {
           auth: {
             token: null,
           },
         },
-      }, LOGIN_SCREEN);
+        LOGIN_SCREEN,
+      );
     });
   });
 
   describe('logged in user', () => {
     it('has not completed onboarding but has a contact with pathway stage should go to MainTabs', () => {
-      test({
-        type: REHYDRATE,
-        payload: {
+      testReset(
+        {
           auth: {
             token,
             person: { id: myId },
@@ -85,26 +74,26 @@ describe('rehydrate', () => {
             },
           },
         },
-      }, MAIN_TABS);
+        MAIN_TABS,
+      );
     });
 
     it('has completed onboarding but does not have contact with pathway stage should go to MainTabs', () => {
-      test({
-        type: REHYDRATE,
-        payload: {
+      testReset(
+        {
           auth: {
             token,
           },
           personProfile: { hasCompletedOnboarding: true },
         },
-      }, MAIN_TABS);
+        MAIN_TABS,
+      );
     });
 
     describe('has not completed onboarding and does not have a contact with pathway stage', () => {
       it('has self stage should go to AddSomeone', () => {
-        test({
-          type: REHYDRATE,
-          payload: {
+        test(
+          {
             auth: {
               token,
               person: {
@@ -135,13 +124,13 @@ describe('rehydrate', () => {
               },
             },
           },
-        }, ADD_SOMEONE_SCREEN);
+          ADD_SOMEONE_SCREEN
+        );
       });
 
       it('does not have self stage should go to GetStarted', () => {
-        test({
-          type: REHYDRATE,
-          payload: {
+        test(
+          {
             auth: {
               token,
               person: {
@@ -168,13 +157,13 @@ describe('rehydrate', () => {
               },
             },
           },
-        }, GET_STARTED_SCREEN);
+          GET_STARTED_SCREEN
+        );
       });
 
       it('should not check my reverse contact assignments', () => {
-        store.dispatch({
-          type: REHYDRATE,
-          payload: {
+        test(
+          {
             auth: {
               token,
               person: {
@@ -201,7 +190,8 @@ describe('rehydrate', () => {
               },
             },
           },
-        }, GET_STARTED_SCREEN);
+          GET_STARTED_SCREEN,
+        );
       });
     });
   });
