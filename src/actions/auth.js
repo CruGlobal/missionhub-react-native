@@ -18,6 +18,7 @@ import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 import i18next from 'i18next';
 import { resetPerson } from './onboardingProfile';
+import { refreshMissionHubFacebookAccess } from './facebook';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -100,6 +101,18 @@ export function refreshAnonymousLogin() {
     const code = getState().auth.upgradeToken;
 
     return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
+  };
+}
+
+export function refreshTokens() {
+  return (dispatch, getState) => {
+    if (getState().auth.refreshToken) {
+      dispatch(refreshAccessToken());
+    } else if (getState().auth.isFirstTime) {
+      dispatch(refreshAnonymousLogin());
+    } else {
+      dispatch(refreshMissionHubFacebookAccess());
+    }
   };
 }
 
