@@ -40,9 +40,9 @@ class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
+    store.dispatch(navigationInit(store.getState()));
     this.initializeAnalytics();
     AppState.addEventListener('change', this.handleAppStateChange);
-    store.dispatch(navigationInit(store.getState()));
   };
 
   checkOldAppToken() {
