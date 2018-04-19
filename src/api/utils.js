@@ -26,7 +26,7 @@ function handleResponse(response) {
 
   return response.text().then((t) => ({
     jsonResponse: t ? JSON.parse(t) : null,
-    sessionHeader: response.headers.get('x-mh-session'),
+    sessionHeader: response.headers.get('X-MH-Session'),
   }));
 }
 

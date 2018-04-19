@@ -1,6 +1,6 @@
 import request from '../../src/api/utils';
 
-const sessionKey = 'x-mh-session';
+const sessionKey = 'X-MH-Session';
 
 const requestObj = {
   type: 'post',
