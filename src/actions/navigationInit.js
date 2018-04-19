@@ -1,33 +1,19 @@
-import { NavigationActions } from 'react-navigation';
-
-import { MainRoutes } from '../AppRoutes';
 import { isAuthenticated } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
-export function navigationInit({ auth, personProfile, people }) {
-  const initialState = MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN);
-  const addSomeoneState = MainRoutes.router.getActionForPathAndParams(ADD_SOMEONE_SCREEN);
-  const getStartedState = MainRoutes.router.getActionForPathAndParams(GET_STARTED_SCREEN);
-
-  const loggedInState = NavigationActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({ routeName: MAIN_TABS }),
-    ],
-  });
-
+export function initialRoute({ auth, personProfile, people }) {
   if (auth && isAuthenticated(auth)) {
     if (personProfile.hasCompletedOnboarding || hasContactWithPathwayStage(auth.person.id, people)) {
-      return loggedInState;
+      return MAIN_TABS;
     }
 
-    return auth.person.user.pathway_stage_id ? addSomeoneState : getStartedState;
+    return auth.person.user.pathway_stage_id ? ADD_SOMEONE_SCREEN : GET_STARTED_SCREEN;
   }
 
-  return initialState;
+  return LOGIN_SCREEN;
 }
 
 function hasContactWithPathwayStage(myId, people) {

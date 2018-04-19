@@ -1,32 +1,17 @@
-import { MAIN_TABS, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../../src/constants';
+import { MAIN_TABS } from '../../src/constants';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import { navigationInit } from '../../src/actions/navigationInit';
+import { initialRoute } from '../../src/actions/navigationInit';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
 const token = 'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
 
 const test = (store, route) => {
-  expect(navigationInit(store)).toEqual({
-    routeName: route,
-    type: NAVIGATE_FORWARD,
-  });
+  expect(initialRoute(store)).toEqual(route);
 };
 
-const testReset = (store, route) => {
-  expect(navigationInit(store)).toEqual(
-    expect.objectContaining({
-      actions: [ {
-        routeName: route,
-        type: NAVIGATE_FORWARD,
-      } ],
-      type: NAVIGATE_RESET,
-    })
-  );
-};
-
-describe('navigationInit', () => {
+describe('initialRoute', () => {
   describe('not logged in user', () => {
     it('should go to Login screen', () => {
       test(
@@ -42,7 +27,7 @@ describe('navigationInit', () => {
 
   describe('logged in user', () => {
     it('has not completed onboarding but has a contact with pathway stage should go to MainTabs', () => {
-      testReset(
+      test(
         {
           auth: {
             token,
@@ -79,7 +64,7 @@ describe('navigationInit', () => {
     });
 
     it('has completed onboarding but does not have contact with pathway stage should go to MainTabs', () => {
-      testReset(
+      test(
         {
           auth: {
             token,

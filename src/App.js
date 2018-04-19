@@ -24,7 +24,8 @@ import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin } from './actions/auth';
 import { ANALYTICS, EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
-import { navigationInit } from './actions/navigationInit';
+import { initialRoute } from './actions/navigationInit';
+import { navigateReset } from './actions/navigation';
 
 class App extends Component {
   showingErrorModal = false;
@@ -40,7 +41,7 @@ class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
-    store.dispatch(navigationInit(store.getState()));
+    store.dispatch(navigateReset(initialRoute(store.getState())));
     this.initializeAnalytics();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
