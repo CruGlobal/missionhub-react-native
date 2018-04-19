@@ -97,21 +97,21 @@ export function codeLogin(code) {
 }
 
 export function refreshAnonymousLogin() {
-  return (dispatch, getState) => {
+  return async(dispatch, getState) => {
     const code = getState().auth.upgradeToken;
 
-    return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
+    return await dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
   };
 }
 
 export function refreshTokens() {
-  return (dispatch, getState) => {
+  return async(dispatch, getState) => {
     if (getState().auth.refreshToken) {
-      dispatch(refreshAccessToken());
+      await dispatch(refreshAccessToken());
     } else if (getState().auth.isFirstTime) {
-      dispatch(refreshAnonymousLogin());
+      await dispatch(refreshAnonymousLogin());
     } else {
-      dispatch(refreshMissionHubFacebookAccess());
+      await dispatch(refreshMissionHubFacebookAccess());
     }
   };
 }
