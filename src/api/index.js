@@ -65,18 +65,19 @@ lodashForEach(apiRoutes, (routeData, key) => {
         query,
         method === 'get' ? undefined : data,
         extra,
-      ).then((jsonResponse) => {
+      ).then(({ jsonResponse, sessionHeader }) => {
         APILOG(`${key} SUCCESS`, jsonResponse);
         if (!jsonResponse) {
-          resolve(null);
+          resolve({ sessionHeader });
           return;
         }
+
         if (exists(routeData.useJsonDataApiStore) && !routeData.useJsonDataApiStore) {
           resolve({ results: jsonResponse });
         } else {
           const jsonApiStore = new JsonApiDataStore();
           const response = jsonApiStore.sync(jsonResponse);
-          resolve({ meta: jsonResponse.meta, results: jsonApiStore, response });
+          resolve({ meta: jsonResponse.meta, results: jsonApiStore, response, sessionHeader });
         }
       }).catch((apiError) => {
         LOG('request error or error in logic that handles the request', key, apiError);

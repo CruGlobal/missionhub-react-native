@@ -1,6 +1,6 @@
 import { REHYDRATE } from 'redux-persist/constants';
 
-import { FIRST_TIME, LOGOUT, UPDATE_STAGES } from '../constants';
+import { FIRST_TIME, LOGOUT, UPDATE_STAGES, UPDATE_TOKEN } from '../constants';
 import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
@@ -106,6 +106,11 @@ function authReducer(state = initialAuthState, action) {
           ...state.person,
           stage: stages.find((s) => s.id === `${state.person.user.pathway_stage_id}`),
         },
+      };
+    case UPDATE_TOKEN:
+      return {
+        ...state,
+        token: action.token,
       };
     case LOGOUT:
       return initialAuthState;
