@@ -48,6 +48,17 @@ it('renders correctly', () => {
   );
 });
 
+it('renders correctly for forced logout', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <KeyLoginScreen
+        navigation={createMockNavState({ })}
+        forcedLogout={true}
+      />
+    </Provider>
+  );
+});
+
 describe('a login button is clicked', () => {
   let screen;
   const loginResult = { type: 'login result' };
