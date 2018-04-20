@@ -18,7 +18,6 @@ import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 import i18next from 'i18next';
 import { resetPerson } from './onboardingProfile';
-import { refreshMissionHubFacebookAccess } from './facebook';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -50,10 +49,10 @@ export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
 }
 
 export function refreshAccessToken() {
-  return async(dispatch, getState) => {
+  return (dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
 
-    await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
+    dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
     dispatch(getTicketAndLogin());
   };
 }
@@ -101,18 +100,6 @@ export function refreshAnonymousLogin() {
     const code = getState().auth.upgradeToken;
 
     return await dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
-  };
-}
-
-export function refreshTokens() {
-  return async(dispatch, getState) => {
-    if (getState().auth.refreshToken) {
-      await dispatch(refreshAccessToken());
-    } else if (getState().auth.isFirstTime) {
-      await dispatch(refreshAnonymousLogin());
-    } else {
-      await dispatch(refreshMissionHubFacebookAccess());
-    }
   };
 }
 

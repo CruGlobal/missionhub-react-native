@@ -19,7 +19,7 @@ import getStore from './store';
 
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
-import { codeLogin, refreshTokens } from './actions/auth';
+import { codeLogin } from './actions/auth';
 import { ANALYTICS, EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 
@@ -30,7 +30,6 @@ class App extends Component {
   state = {
     store: null,
     appState: AppState.currentState,
-    loading: true,
   };
 
   constructor(props) {
@@ -41,14 +40,8 @@ class App extends Component {
 
   componentWillMount() {
     getStore((store) => {
-
       this.setState({ store });
-
       this.checkOldAppToken();
-
-      this.state.store.dispatch(refreshTokens());
-      
-      this.setState({ loading: false });
     });
   }
 
@@ -182,7 +175,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.store) {
       return <LoadingScreen />;
     }
 
