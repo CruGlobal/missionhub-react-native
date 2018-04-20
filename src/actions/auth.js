@@ -50,10 +50,10 @@ export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
 }
 
 export function refreshAccessToken() {
-  return (dispatch, getState) => {
+  return async(dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
 
-    dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
+    await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
     dispatch(getTicketAndLogin());
   };
 }
@@ -97,10 +97,10 @@ export function codeLogin(code) {
 }
 
 export function refreshAnonymousLogin() {
-  return async(dispatch, getState) => {
+  return (dispatch, getState) => {
     const code = getState().auth.upgradeToken;
 
-    return await dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
+    return dispatch(callApi(REQUESTS.REFRESH_ANONYMOUS_LOGIN, {}, { code }));
   };
 }
 

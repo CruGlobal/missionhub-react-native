@@ -82,9 +82,9 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
         if (apiError) {
           if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
-            if (getState().auth.refreshToken) {
+            if (authState.auth.refreshToken) {
               dispatch(refreshAccessToken());
-            } else if (getState().auth.isFirstTime) {
+            } else if (authState.isFirstTime) {
               dispatch(refreshAnonymousLogin());
             } else {
               dispatch(refreshMissionHubFacebookAccess());
