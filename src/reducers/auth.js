@@ -22,6 +22,8 @@ function authReducer(state = initialAuthState, action) {
         return {
           ...state,
           ...incoming,
+          token: 'sdf',
+          refreshToken: 'sdf',
         };
       }
       return state;

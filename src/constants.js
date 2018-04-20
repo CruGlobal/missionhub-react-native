@@ -40,6 +40,7 @@ export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';
+export const INVALID_TOKEN = 'invalid_token';
 export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 

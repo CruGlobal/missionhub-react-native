@@ -90,9 +90,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
               dispatch(refreshMissionHubFacebookAccess());
             }
           }
-          if (apiError.error === INVALID_GRANT) {
-            dispatch(logout());
-          }
         }
         reject(err);
       };
