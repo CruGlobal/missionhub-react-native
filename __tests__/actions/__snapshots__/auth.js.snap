@@ -18,6 +18,7 @@ Array [
   Object {
     "actions": Array [
       Object {
+        "params": Object {},
         "routeName": "nav/LOGIN",
         "type": "Navigation/NAVIGATE",
       },

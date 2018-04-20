@@ -82,7 +82,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
         if (apiError) {
           if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
-            if (authState.auth.refreshToken) {
+            if (authState.refreshToken) {
               dispatch(refreshAccessToken());
             } else if (authState.isFirstTime) {
               dispatch(refreshAnonymousLogin());
