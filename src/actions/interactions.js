@@ -1,6 +1,7 @@
 import callApi, { REQUESTS } from './api';
 import { ACTIONS } from '../constants';
 import { trackAction } from './analytics';
+import { refreshImpact } from './impact';
 
 export function addNewInteraction(personId, interaction, comment, organizationId) {
   return (dispatch, getState) => {
@@ -46,7 +47,11 @@ export function addNewInteraction(personId, interaction, comment, organizationId
       included: [],
     };
     return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData))
-      .then(() => dispatch(trackAction(interaction.tracking)));
+      .then((r) => {
+        dispatch(trackAction(interaction.tracking));
+        dispatch(refreshImpact());
+        return r;
+      });
   };
 }
 
