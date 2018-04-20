@@ -128,15 +128,18 @@ platform :ios do
           add_to_search_list: true
       )
 
-      match(readonly: true,
+      match(readonly: false,
             type: options[:type],
             keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-            keychain_password: ENV["MATCH_PASSWORD"])
+            keychain_password: ENV["MATCH_PASSWORD"],
+            force_for_new_devices: true)
     else
       # Locally match will prompt on the first run for the "MATCH_PASSWORD" and remember it
       # in the environment after that.
-      match(readonly: true,
-            type: options[:type])
+
+      match(readonly: false,
+            type: options[:type],
+            force_for_new_devices: true)
     end
   end
 
