@@ -17,6 +17,11 @@ const mockState = {
     personFirstName: '',
     personLastName: '',
   },
+  auth: {
+    person: {
+      id: '1',
+    },
+  },
 };
 
 let store = createMockStore(mockState);
@@ -73,11 +78,5 @@ describe('setup person screen methods', () => {
     component.saveAndGoToGetStarted();
 
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
-  });
-
-  it('resets person on unmount', () => {
-    component.componentWillUnmount();
-
-    expect(profile.resetPerson).toHaveBeenCalledTimes(1);
   });
 });

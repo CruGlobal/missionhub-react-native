@@ -3,18 +3,22 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
-import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
+import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
+import { trackAction } from '../../src/actions/analytics';
+import { ACTIONS } from '../../src/constants';
+import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 
 let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/auth', () => ({
-  facebookLoginAction: jest.fn().mockReturnValue({ type: 'test' }),
   keyLogin: jest.fn().mockReturnValue({ type: 'test' }),
   openKeyURL: jest.fn(),
 }));
+jest.mock('../../src/actions/facebook');
+facebookLoginWithUsernamePassword.mockReturnValue({ type: 'test' });
 jest.mock('../../src/actions/navigation');
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: ({
@@ -26,6 +30,9 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequest: jest.fn((param1, param2, cb) => cb(undefined, {})),
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
+jest.mock('../../src/actions/analytics', () => ({
+  trackAction: jest.fn(),
+}));
 
 beforeEach(() => {
   store = createMockStore();
@@ -34,7 +41,9 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <KeyLoginScreen />
+      <KeyLoginScreen
+        navigation={createMockNavState({ })}
+      />
     </Provider>
   );
 });
@@ -45,18 +54,25 @@ describe('a login button is clicked', () => {
 
   beforeEach(() => {
     screen = renderShallow(
-      <KeyLoginScreen />,
+      <KeyLoginScreen
+        navigation={createMockNavState({ })}
+      />,
       store
     );
   });
 
   describe('facebook login button is pressed', () => {
     beforeEach(() => {
+      facebookLoginWithUsernamePassword.mockImplementation((isUpgrade, startLoad, onComplete) => {
+        startLoad();
+        return onComplete();
+      }) ;
+
       screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
     it('facebook login is called', () => {
-      expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
+      expect(facebookLoginWithUsernamePassword).toHaveBeenCalledTimes(1);
     });
     it('loading wheel appears', () => {
       screen.update();
@@ -66,22 +82,74 @@ describe('a login button is clicked', () => {
 
 
   describe('key login button is pressed', () => {
-    beforeEach(async() => {
+    const clickLoginButton = () => screen.find({ name: 'loginButton' }).simulate('press');
+
+    const mockTrackActionResult = { type: 'tracked action' };
+    const expectTrackAction = (expected) => {
+      expect(trackAction).toHaveBeenCalledWith(expected);
+      expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
+    };
+
+    beforeEach(() => {
       const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
       screen.setState(credentials);
       auth.keyLogin.mockImplementation((email, password) => {
         return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
       });
 
-      await screen.find({ name: 'loginButton' }).simulate('press');
+      trackAction.mockReset();
+      trackAction.mockReturnValue(mockTrackActionResult);
     });
 
     it('key login is called', async() => {
+      await clickLoginButton();
+
       expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
     });
-    it('loading wheel appears', () => {
+
+    it('loading wheel appears', async() => {
+      await clickLoginButton();
+
       screen.update();
       expect(screen).toMatchSnapshot();
+    });
+
+    it('shows invalid credentials message and tracks user error when invalid credentials are entered', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'invalid_credentials' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('shows invalid credentials message and tracks user error when email or password is missing', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { error: 'invalid_request' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('shows email verification required message and tracks user error when email has not been verified', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'email_unverified' } }));
+
+      await clickLoginButton();
+
+      screen.update();
+      expect(screen).toMatchSnapshot();
+      expectTrackAction(ACTIONS.USER_ERROR);
+    });
+
+    it('tracks system error for unexpected error', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { error: 'invalid_grant' } }));
+
+      await clickLoginButton();
+
+      expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
   });
 
@@ -91,7 +159,7 @@ describe('a login button is clicked', () => {
     });
 
     it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, undefined);
     });
     it('loading wheel to be rendered', () => {
       screen.instance().startLoad();
@@ -99,5 +167,4 @@ describe('a login button is clicked', () => {
       expect(screen).toMatchSnapshot();
     });
   });
-
 });

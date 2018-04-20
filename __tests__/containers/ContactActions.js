@@ -13,12 +13,6 @@ import { createMockNavState, testSnapshot } from '../../testUtils';
 import { ContactActions } from '../../src/containers/ContactActions';
 
 const personId = '123';
-const mockState = {
-  auth: {
-    person: personId,
-    isJean: true,
-  },
-};
 
 const mockPerson = {
   id: personId,
@@ -36,7 +30,7 @@ it('renders dummy view', () => {
 });
 
 let store;
-beforeEach(() => store = configureStore([ thunk ])(mockState));
+beforeEach(() => store = configureStore([ thunk ])());
 
 describe('action methods', () => {
   let component;

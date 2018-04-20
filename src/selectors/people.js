@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
-  ({ auth }) => auth.user,
+  ({ auth }) => auth.person,
   (orgs, authUser) => Object.values(orgs)
     .map((org) => ({
       ...org,
@@ -26,7 +26,7 @@ export const peopleByOrgSelector = createSelector(
       if (b.id === 'personal') {
         return 1;
       }
-      return a.name.localeCompare(b.name);
+      return a.name ? a.name.localeCompare(b.name) : 1;
     })
 );
 export const personSelector = createSelector(
@@ -42,7 +42,7 @@ export const personSelector = createSelector(
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
   (_, { orgId }) => orgId,
-  ({ auth }) => auth.personId,
+  ({ auth }) => auth.person.id,
   (person, orgId, authUserId) =>
     person.reverse_contact_assignments && person.reverse_contact_assignments
       .find((assignment) => assignment.assigned_to && assignment.assigned_to.id === authUserId

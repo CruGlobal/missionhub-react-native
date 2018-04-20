@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { navigatePush } from '../../actions/navigation';
+import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 import i18next from 'i18next';
@@ -109,7 +109,7 @@ class SelectStepScreen extends Component {
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
     return enableBackButton ?
-      (<BackButton customNavigate={contact || this.state.contact ? undefined : 'backToStages'} absolute={true} />)
+      (<BackButton customNavigate={contact || this.state.contact ? undefined : () => this.props.dispatch(navigateBack(2))} absolute={true} />)
       : null;
   }
 
@@ -151,7 +151,6 @@ class SelectStepScreen extends Component {
           renderForeground={() =>
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}
-              {this.renderBackButton()}
             </Flex>
           }
           stickyHeaderHeight={theme.headerHeight}
@@ -173,6 +172,7 @@ class SelectStepScreen extends Component {
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
+        {this.renderBackButton()}
       </Flex>
     );
   }
@@ -188,7 +188,7 @@ SelectStepScreen.propTypes = {
 };
 
 const mapStateToProps = ({ auth }) => ({
-  myId: auth.personId,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

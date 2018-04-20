@@ -5,7 +5,7 @@ import { refreshImpact } from './impact';
 
 export function addNewInteraction(personId, interaction, comment, organizationId) {
   return (dispatch, getState) => {
-    const myId = getState().auth.personId;
+    const { person: { id: myId } } = getState().auth;
     if (!personId) {
       return Promise.reject('InvalidData');
     }

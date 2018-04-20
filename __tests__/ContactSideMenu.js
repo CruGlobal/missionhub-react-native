@@ -40,7 +40,9 @@ describe('contactSideMenu', () => {
         {
           auth: {
             isJean: true,
-            personId: 1,
+            person: {
+              id: '1',
+            },
           },
           people: {},
         },

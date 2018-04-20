@@ -5,12 +5,13 @@ import { logInAnalytics } from './analytics';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
+import { completeOnboarding } from './onboardingProfile';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
     dispatch(logInAnalytics());
 
-    const personId = getState().auth.personId;
+    const { person: { id: personId } } = getState().auth;
     Crashlytics.setUserIdentifier(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
@@ -20,6 +21,7 @@ export function onSuccessfulLogin() {
 
       if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
+        dispatch(completeOnboarding());
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;
       }

@@ -181,10 +181,12 @@ export default {
     journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
   journeyItem: {
-    stepTitle: 'Growing Step of Faith',
+    stepTitle: 'Completed{{stageName}}Step of Faith',
     stageTitle: '{{oldStage}} to {{newStage}}',
     stageText: '{{personName}} changed from {{oldStage}} to {{newStage}}',
+    stageTextSelf: 'You changed from {{oldStage}} to {{newStage}}',
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',
+    stageStartSelf: 'You added yourself to MissionHub as {{newStage}}',
     interactionNote: 'Comment',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
@@ -284,6 +286,7 @@ export default {
     reminderTitle: 'Focus your week',
     reminderDescription: 'Star up to three steps and get weekly handcrafted reminders.',
     holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
+    reminderAddedToast: '✔ Reminder Added',
   },
   contactSideMenu: {
     edit: 'Edit',
@@ -325,5 +328,9 @@ export default {
     screen3: {
       name: 'See God work and know you\'re part of it',
     },
+  },
+  welcomeNotification: {
+    title: 'Great job focusing a step!',
+    message: "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
 };

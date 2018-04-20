@@ -11,7 +11,7 @@ import configureStore from 'redux-mock-store';
 
 const store = configureStore([ thunk ])({});
 const dispatch = jest.fn((response) => Promise.resolve(response));
-const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
+const expectedInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   store.clearActions();
@@ -44,9 +44,23 @@ describe('get me', () => {
 });
 
 describe('getPersonDetails', () => {
+  const orgId = '2';
+  const org = { id: orgId, name: 'test org' };
+
+  const person = {
+    id: '1',
+    first_name: 'Test',
+    organizational_permissions: [
+      {
+        organization: org,
+        organization_id: orgId,
+      },
+    ],
+  };
+
   it('should get a person\'s details', async() => {
-    const person = { id: '1', first_name: 'Test' };
-    const orgId = '2';
+
+
 
     const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
     callApi.mockReturnValue(apiResponse);
@@ -63,12 +77,15 @@ describe('getPersonDetails', () => {
         type: LOAD_PERSON_DETAILS,
         person,
         orgId,
+        org,
       },
     ]);
   });
 });
 
 describe('updatePerson', () => {
+  const updateInclude = 'email_addresses,phone_numbers,reverse_contact_assignments';
+
   afterEach(() => {
     expect(dispatch).toHaveBeenCalled();
   });
@@ -94,7 +111,7 @@ describe('updatePerson', () => {
       id: 1,
       firstName: 'Test Fname',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
       data: {
         type: 'person',
         attributes: {
@@ -109,7 +126,7 @@ describe('updatePerson', () => {
       firstName: 'Test Fname',
       lastName: 'Test Lname',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
       data: {
         type: 'person',
         attributes: {
@@ -125,7 +142,7 @@ describe('updatePerson', () => {
       firstName: 'Test Fname',
       gender: 'Male',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
       data: {
         type: 'person',
         attributes: {
@@ -142,7 +159,7 @@ describe('updatePerson', () => {
       email: 'a@a.com',
       emailId: 2,
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
       data: {
         type: 'person',
         attributes: {
@@ -165,7 +182,7 @@ describe('updatePerson', () => {
       phone: '1234567890',
       phoneId: 3,
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
       data: {
         type: 'person',
         attributes: {

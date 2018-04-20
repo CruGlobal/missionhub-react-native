@@ -2,7 +2,7 @@ import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 import { trackAction } from './analytics';
 
-const personInclude = 'email_addresses,phone_numbers,organizational_permissions,reverse_contact_assignments,user';
+const personInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 export function getMe(extraInclude) {
   const include = extraInclude ? `${personInclude},${extraInclude}` : personInclude;
@@ -20,10 +20,12 @@ export function getPersonDetails(id, orgId) {
       include: personInclude,
     };
     const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
+    const orgPermission = orgId && person.organizational_permissions.find((o) => o.organization_id === orgId);
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,
       orgId,
+      org: orgPermission && orgPermission.organization,
     });
   };
 }
@@ -131,7 +133,7 @@ export function updatePerson(data) {
     };
     const query = {
       personId: data.id,
-      include: 'email_addresses,phone_numbers',
+      include: 'email_addresses,phone_numbers,reverse_contact_assignments',
     };
     const results = await dispatch(callApi(REQUESTS.UPDATE_PERSON, query, bodyData));
     const person = results.response;

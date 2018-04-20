@@ -1,10 +1,10 @@
 import { trackState } from '../actions/analytics';
-import { MAIN_TABS_SCREEN, trackableScreens } from '../AppRoutes';
+import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
 import { REHYDRATE } from 'redux-persist/constants';
-import { buildTrackingObj, isLoggedIn } from '../utils/common';
+import { buildTrackingObj } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -44,11 +44,7 @@ export default function tracking({ dispatch, getState }) {
         break;
 
       case REHYDRATE:
-        const authState = action.payload.auth;
-        if (authState && isLoggedIn(authState)) {
-          newAction = trackState(MAIN_TABS_SCREEN.tracking);
-        }
-
+        newAction = trackRoute(action.payload.navigation.routes[0]);
         break;
     }
 
@@ -65,7 +61,7 @@ function trackRoute(route) {
 }
 
 function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
-  if (action.params.person.id === getState().auth.personId) {
+  if (action.params.person.id === getState().auth.person.id) {
     return trackState(SELF_STEPS);
   }
 

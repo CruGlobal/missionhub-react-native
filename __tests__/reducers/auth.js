@@ -1,12 +1,11 @@
 import auth from '../../src/reducers/auth';
 import { REQUESTS } from '../../src/actions/api';
-import { JsonApiDataStore } from 'jsonapi-datastore';
-import { UPDATE_STAGES } from '../../src/constants';
+import { UPDATE_STAGES, UPDATE_TOKEN } from '../../src/constants';
 
 const token = 'asdfasndfiosdc';
-const personId = 123456;
+const personId = '123456';
 const initialState = {
-  user: {},
+  person: {},
 };
 
 const callAuth = (type, results) => {
@@ -47,7 +46,7 @@ it('returns token and person id after logging in with ticket', () => {
   });
 
   expect(state.token).toBe(token);
-  expect(state.personId).toBe(`${personId}`);
+  expect(state.person.id).toBe(`${personId}`);
 });
 
 it('returns token, person id, and logged in status after creating person', () => {
@@ -58,9 +57,8 @@ it('returns token, person id, and logged in status after creating person', () =>
     person_id: personId,
   });
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.token).toBe(token);
-  expect(state.personId).toBe(`${personId}`);
+  expect(state.person.id).toBe(`${personId}`);
 });
 
 it('sets new token after refreshing anonymous login', () => {
@@ -72,66 +70,73 @@ it('sets new token after refreshing anonymous login', () => {
 });
 
 it('sets isJean after loading me', () => {
-  const jsonApiStore = new JsonApiDataStore();
-  jsonApiStore.sync({
-    data: {
-      type: 'person',
-      relationships: {
-        organizational_permissions: {
-          data: [
-            { id: 1, type: 'organizational_permission' },
-          ],
-        },
-      },
-    },
-  });
+  const response = {
+    type: 'person',
+    organizational_permissions: [
+      { id: 1, type: 'organizational_permission' },
+    ],
+  };
 
-  const state = callAuth(REQUESTS.GET_ME.SUCCESS, jsonApiStore);
+  const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
 
   expect(state.isJean).toBe(true);
 });
 
 it('sets user time zone', () => {
-  const jsonApiStore = new JsonApiDataStore();
-  jsonApiStore.sync({
-    data: {
-      type: 'user',
-      attributes: {
-        timezone: '-5',
-      },
+  const action = {
+    response: {
+      timezone: '-10',
+      language: 'en-US',
     },
-  });
+  };
 
-  const state = callAuth(REQUESTS.UPDATE_TIMEZONE.SUCCESS, jsonApiStore);
+  const state = callAuth(REQUESTS.UPDATE_ME_USER.SUCCESS, action);
 
-  expect(state.timezone).toBe('-5');
+  expect(state.person.user.timezone).toEqual(action.response.timezone);
+  expect(state.person.user.language).toEqual(action.response.language);
 });
 
 it('logs in with facebook', () => {
-  const jsonApiStore = new JsonApiDataStore();
-  jsonApiStore.sync({
-    data: {
-      token: '123',
-      personId: '123',
+  const result = {
+    token,
+    person: {
+      id: '123',
     },
-  });
+  };
 
-  const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, jsonApiStore);
+  const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, result);
 
-  expect(state.isLoggedIn).toBe(true);
   expect(state.isFirstTime).toBe(false);
+  expect(state.token).toBe(token);
 });
 
 it('updates a users stage', () => {
   const state = auth(
-    { user: { user: { pathway_stage_id: 2 } } },
+    {
+      person: {
+        user: {
+          pathway_stage_id: 2,
+        },
+      },
+    },
     {
       type: UPDATE_STAGES,
       stages: [
-        { id: 2 },
+        { id: '2' },
       ],
-    });
+    }
+  );
 
+  expect(state.person.stage.id).toBe('2');
+});
 
-  expect(state.user.stage.id).toBe(2);
+it('updates a user token', () => {
+  const state = auth({},
+    {
+      token,
+      type: UPDATE_TOKEN,
+    }
+  );
+
+  expect(state).toEqual({ token });
 });

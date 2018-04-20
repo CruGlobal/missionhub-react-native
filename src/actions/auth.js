@@ -16,6 +16,8 @@ import Buffer from 'buffer';
 import { THE_KEY_URL } from '../api/utils';
 import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
+import i18next from 'i18next';
+import { resetPerson } from './onboardingProfile';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -55,9 +57,9 @@ export function refreshAccessToken() {
   };
 }
 
-export function keyLogin(email, password) {
+export function keyLogin(email, password, isUpgrade = false) {
   const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
-  return getTokenAndLogin(data);
+  return getTokenAndLogin(data, isUpgrade);
 }
 
 function getTokenAndLogin(data, isUpgrade) {
@@ -102,24 +104,9 @@ export function refreshAnonymousLogin() {
 }
 
 export function logout() {
-  return (dispatch, getState) => {
-    dispatch(logOutAnalytics());
-
-    const pushDeviceId = getState().notifications.pushDeviceId;
-    if (!pushDeviceId) {
-      dispatch(logoutReset());
-    } else {
-      dispatch(deletePushToken(pushDeviceId)).then(() => {
-        dispatch(logoutReset());
-      }).catch(() => {
-        dispatch(logoutReset());
-      });
-    }
-  };
-}
-
-export function logoutReset() {
   return (dispatch) => {
+    dispatch(deletePushToken());
+    dispatch(logOutAnalytics());
     dispatch({ type: LOGOUT });
     dispatch(navigateReset(LOGIN_SCREEN));
   };
@@ -141,19 +128,21 @@ export function getTimezoneString() {
   return `${new Date().getTimezoneOffset() / 60 * -1}`;
 }
 
-export function updateTimezone() {
+export function updateLocaleAndTimezone() {
   return (dispatch, getState) => {
-    const currentTime = getState().auth.timezone;
+    const { person: { user } } = getState().auth;
     const timezone = getTimezoneString();
-    if (currentTime !== timezone) {
+    const language = i18next.language;
+    if (user.timezone !== timezone || user.mobile_language !== language) {
       const data = {
         data: {
           attributes: {
-            timezone: timezone,
+            timezone,
+            mobile_language: language,
           },
         },
       };
-      return dispatch(callApi(REQUESTS.UPDATE_TIMEZONE, {}, data));
+      return dispatch(callApi(REQUESTS.UPDATE_ME_USER, {}, data));
     }
   };
 }
@@ -164,7 +153,8 @@ export function loadHome() {
     dispatch(getMe());
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
-    dispatch(updateTimezone());
+    dispatch(updateLocaleAndTimezone());
     dispatch(reregisterNotificationHandler());
+    dispatch(resetPerson());
   };
 }

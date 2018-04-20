@@ -96,6 +96,17 @@ Array [
     ],
     "type": "organization",
   },
+  Object {
+    "id": "150",
+    "people": Array [
+      Object {
+        "first_name": "Fname4",
+        "id": "33",
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
 ]
 `;
 

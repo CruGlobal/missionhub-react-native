@@ -1,4 +1,5 @@
 import {
+  COMPLETE_ONBOARDING,
   FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON, UPDATE_ONBOARDING_PERSON,
 } from '../constants';
@@ -6,6 +7,15 @@ import callApi, { REQUESTS } from './api';
 import uuidv4 from 'uuid/v4';
 import { updatePerson } from './person';
 import { Crashlytics } from 'react-native-fabric';
+
+/*
+A user is considered to have completed onboarding once they've:
+1) selected a stage for themselves, and
+2) selected a stage for a contact assignment
+ */
+export function completeOnboarding() {
+  return { type: COMPLETE_ONBOARDING };
+}
 
 export function firstNameChanged(firstName) {
   return {
@@ -49,7 +59,7 @@ export function personLastNameChanged(lastName) {
   };
 }
 
-export function createPerson(firstName, lastName) {
+export function createPerson(firstName, lastName, myId) {
   const data = {
     data: {
       type: 'person',
@@ -58,6 +68,14 @@ export function createPerson(firstName, lastName) {
         last_name: lastName,
       },
     },
+    included: [
+      {
+        type: 'contact_assignment',
+        attributes: {
+          assigned_to_id: myId,
+        },
+      },
+    ],
   };
 
   return (dispatch) => {

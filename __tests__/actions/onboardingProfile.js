@@ -4,9 +4,10 @@ import {
   createMyPerson,
   personFirstNameChanged,
   personLastNameChanged,
-  createPerson, resetPerson,
+  createPerson, resetPerson, completeOnboarding,
 } from '../../src/actions/onboardingProfile';
 import {
+  COMPLETE_ONBOARDING,
   FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
 } from '../../src/constants';
@@ -19,6 +20,12 @@ const dispatch = jest.fn((response) => Promise.resolve(response));
 beforeEach(() => {
   dispatch.mockClear();
   callApi.mockClear();
+});
+
+describe('completeOnboarding', () => {
+  it('should return completeOnboarding', () => {
+    expect(completeOnboarding()).toEqual({ type: COMPLETE_ONBOARDING });
+  });
 });
 
 describe('firstNameChanged', () => {
@@ -55,7 +62,7 @@ describe('createMyPerson', () => {
 
 describe('createPerson', () => {
   it('should send the correct API request', () => {
-    createPerson('Roger', 'Goers')(dispatch);
+    createPerson('Roger', 'Goers', '1')(dispatch);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, {
       data: {
         type: 'person',
@@ -64,6 +71,14 @@ describe('createPerson', () => {
           last_name: 'Goers',
         },
       },
+      included: [
+        {
+          type: 'contact_assignment',
+          attributes: {
+            assigned_to_id: '1',
+          },
+        },
+      ],
     });
     expect(dispatch).toHaveBeenCalled();
   });

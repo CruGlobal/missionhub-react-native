@@ -60,12 +60,12 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}, include) {
+export function getStepsByFilter(filters = {}, include = '') {
   return (dispatch) => {
     const query = {
       filters,
-      page: { limit: 1000 },
       include,
+      page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
   };
@@ -107,7 +107,7 @@ export function setStepFocus(step, isFocus) {
       data: {
         type: 'accepted_challenge',
         attributes: {
-          organization_id: step.organization ? step.organization : null,
+          organization_id: step.organization ? step.organization.id : null,
           focus: isFocus,
         },
         relationships: {
@@ -176,7 +176,7 @@ function challengeCompleteAction(step) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
-    const myId = getState().auth.personId;
+    const { person: { id: myId } } = getState().auth;
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });

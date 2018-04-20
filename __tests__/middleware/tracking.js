@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import {
-  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
+  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, MAIN_TABS, NAVIGATE_FORWARD,
   NAVIGATE_RESET,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
@@ -45,7 +45,13 @@ describe('navigate forward', () => {
 
   describe('to contact screen', () => {
     it('tracks person steps', () => {
-      store = mockStore({ auth: { personId: 2 } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: 2,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
 
       test(PERSON_STEPS);
@@ -54,7 +60,13 @@ describe('navigate forward', () => {
 
     it('tracks self steps', () => {
       const id = 3;
-      store = mockStore({ auth: { personId: id } });
+      store = mockStore({
+        auth: {
+          person: {
+            id: id,
+          },
+        },
+      });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
 
       test(SELF_STEPS);
@@ -106,20 +118,11 @@ describe('navigate reset', () => {
 });
 
 describe('rehydrate', () => {
-  it('tracks main tabs if logged in', () => {
+  it('tracks navigation payload', () => {
     store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: true } } };
+    navigationAction = { type: REHYDRATE, payload: { navigation: { routes: [ { routeName: MAIN_TABS } ] } } };
 
     test(buildTrackingObj('steps', 'steps'));
-  });
-
-  it('does nothing if not logged in', () => {
-    store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { auth: { token: '34fssdfef', isLoggedIn: false } } };
-
-    store.dispatch(navigationAction);
-
-    expect(store.getActions()).toEqual([ navigationAction ]);
   });
 });
 

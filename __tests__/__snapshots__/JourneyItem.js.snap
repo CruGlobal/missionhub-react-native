@@ -1,1042 +1,852 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders interaction correctly 1`] = `
-<View
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="commentIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {
-                "fontSize": 32,
-              },
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {
+            "fontSize": 32,
           },
         ]
       }
-    >
-      Comment
-    </Text>
-    <Text
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "fontSize": 14,
+        }
       }
     >
       Test Journey
-    </Text>
-  </View>
-</View>
+    </MyText>
+  </Flex>
+</Flex>
 `;
 
 exports[`renders survey correctly 1`] = `
-<View
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="surveyIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
           },
+          Object {},
         ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
       }
     >
       Survey Test
-    </Text>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flexDirection": "column",
-          },
-        ]
-      }
+    </MyText>
+    <Flex
+      direction="column"
+      key="1"
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 14,
-              "marginTop": 8,
-            },
-          ]
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
         }
       >
         Question 1
-      </Text>
-      <Text
+      </MyText>
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Answer 1
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flexDirection": "column",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      direction="column"
+      key="2"
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 14,
-              "marginTop": 8,
-            },
-          ]
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
         }
       >
         Question 2
-      </Text>
-      <Text
+      </MyText>
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Answer 2
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flexDirection": "column",
-          },
-        ]
-      }
+      </MyText>
+    </Flex>
+    <Flex
+      direction="column"
+      key="3"
     >
-      <Text
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 14,
-              "marginTop": 8,
-            },
-          ]
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
         }
       >
         Question 3
-      </Text>
-      <Text
+      </MyText>
+      <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-            },
-          ]
+          Object {
+            "fontSize": 14,
+          }
         }
       >
         Answer 3
-      </Text>
-    </View>
-  </View>
-</View>
+      </MyText>
+    </Flex>
+  </Flex>
+</Flex>
 `;
 
-exports[`stage is rendered correctly with old stage 1`] = `
-<View
+exports[`stage is rendered correctly with old stage for a contact 1`] = `
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="journeyIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
           },
+          Object {},
         ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
       }
     >
       Uninterested to Curious
-    </Text>
-    <Text
+    </MyText>
+    <MyText
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "fontSize": 14,
+        }
       }
     >
       Test Person changed from Uninterested to Curious
-    </Text>
-  </View>
-</View>
+    </MyText>
+  </Flex>
+</Flex>
 `;
 
-exports[`stage is rendered correctly without old stage 1`] = `
-<View
+exports[`stage is rendered correctly with old stage for self 1`] = `
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="journeyIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
           },
+          Object {},
         ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Uninterested to Curious
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      You changed from Uninterested to Curious
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`stage is rendered correctly without old stage for a contact 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="journeyIcon"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
       }
     >
       Curious
-    </Text>
-    <Text
+    </MyText>
+    <MyText
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "fontSize": 14,
+        }
       }
     >
       You added Test Person to MissionHub as Curious
-    </Text>
-  </View>
-</View>
+    </MyText>
+  </Flex>
+</Flex>
 `;
 
-exports[`step is rendered correctly with comment 1`] = `
-<View
+exports[`stage is rendered correctly without old stage for self 1`] = `
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="journeyIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
           },
+          Object {},
         ]
       }
-    >
-      Growing Step of Faith
-    </Text>
-    <Text
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Curious
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      You added yourself to MissionHub as Curious
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`step is rendered correctly with comment 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="stepsIcon"
+      size={32}
+      style={
         Array [
           Object {
-            "color": "#505256",
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
           },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
+          Object {},
         ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Completed Step of Faith
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
       }
     >
       undefined
 
 test comment on completed step
-    </Text>
-  </View>
-</View>
+    </MyText>
+  </Flex>
+</Flex>
 `;
 
-exports[`step is rendered correctly without comment 1`] = `
-<View
+exports[`step is rendered correctly with pathway stage 1`] = `
+<Flex
+  align="center"
+  direction="row"
   style={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "paddingRight": 24,
-          "paddingVertical": 19,
-          "width": 750,
-        },
-        null,
-      ],
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
       },
+      null,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
+  <Flex
+    value={1}
   >
-    <Text
-      accessible={true}
-      allowFontScaling={false}
-      ellipsizeMode="tail"
+    <Icon
+      name="stepsIcon"
+      size={32}
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 32,
-            },
-            Array [
-              Object {
-                "alignSelf": "center",
-                "color": "#007398",
-                "fontSize": 40,
-                "textAlign": "center",
-              },
-              Object {},
-            ],
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-        ]
-      }
-    >
-      
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "borderLeftColor": "#E6E8EC",
-          "borderLeftWidth": 1,
-          "paddingBottom": 5,
-          "paddingLeft": 20,
-        },
-        Object {
-          "flex": 3.5,
-          "flexDirection": "column",
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#A0A2A6",
-            "fontSize": 10,
-          },
-        ]
-      }
-    >
-      December 6, 2017
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
+            "alignSelf": "center",
             "color": "#007398",
-            "fontSize": 16,
+            "fontSize": 40,
+            "textAlign": "center",
           },
+          Object {},
         ]
       }
-    >
-      Growing Step of Faith
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
       }
     />
-  </View>
-</View>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Completed Guiding Step of Faith
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`step is rendered correctly without comment 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      null,
+    ]
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="stepsIcon"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <DateComponent
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Completed Step of Faith
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    />
+  </Flex>
+</Flex>
 `;

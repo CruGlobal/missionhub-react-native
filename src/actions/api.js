@@ -5,7 +5,7 @@ import API_CALLS from '../api';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
 import { refreshAccessToken, refreshAnonymousLogin } from './auth';
-import { EXPIRED_ACCESS_TOKEN } from '../constants';
+import { EXPIRED_ACCESS_TOKEN, UPDATE_TOKEN } from '../constants';
 import { refreshMissionHubFacebookAccess } from './facebook';
 
 
@@ -26,7 +26,6 @@ lodashForEach(apiRoutes, (data, key) => {
     ...data,
     name: key,
     FETCH: `${key}_FETCH`,
-    FAIL: `${key}_FAIL`,
     SUCCESS: `${key}_SUCCESS`,
   };
 });
@@ -79,8 +78,10 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
       const handleError = (err) => {
         APILOG('REQUEST ERROR', action.name, err);
-        if (err) {
-          if (err.errors && err.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
+        const { apiError } = err;
+
+        if (apiError) {
+          if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
             if (authState.refreshToken) {
               dispatch(refreshAccessToken());
             } else if (authState.isFirstTime) {
@@ -89,13 +90,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
               dispatch(refreshMissionHubFacebookAccess());
             }
           }
-
-          dispatch({
-            error: err,
-            query: newQuery,
-            data,
-            type: action.FAIL,
-          });
         }
         reject(err);
       };
@@ -122,6 +116,14 @@ export default function callApi(requestObject, query = {}, data = {}) {
           meta,
           type: action.SUCCESS,
         });
+
+        if (response.sessionHeader) {
+          dispatch({
+            type: UPDATE_TOKEN,
+            token: response.sessionHeader,
+          });
+        }
+
         resolve(actionResults);
       }).catch(handleError);
     })

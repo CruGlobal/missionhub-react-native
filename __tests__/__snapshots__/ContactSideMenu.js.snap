@@ -203,7 +203,7 @@ Object {
   },
   "isJean": true,
   "isMissionhubUser": false,
-  "myId": 1,
+  "myId": "1",
   "orgPermission": Object {
     "followup_status": "uncontacted",
     "id": 4,
