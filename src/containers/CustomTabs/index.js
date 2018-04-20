@@ -28,7 +28,7 @@ class CustomTabs extends Component {
           return (
             <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
               <Flex value={1} align="center" justify="center" >
-                <Flex value={4} align="center" justify="center">
+                <Flex value={1} align="center" justify="center">
                   <Icon
                     name={tab.iconName}
                     type="MissionHub"
@@ -36,7 +36,7 @@ class CustomTabs extends Component {
                     style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
                   />
                 </Flex>
-                <Flex value={1} align="center" justify="center">
+                <Flex align="center" justify="center">
                   <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
                     {tab.tabLabel}
                   </Text>

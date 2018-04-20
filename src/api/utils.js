@@ -14,19 +14,20 @@ const DEFAULT_HEADERS = {
 };
 
 const ERROR_CODES = [ 400, 401, 402, 403, 404, 500, 504 ];
-export function handleResponse(response) {
-  if (!response) return null;
+
+function handleResponse(response) {
+  if (!response) {
+    return null;
+  }
+
   if (response && ERROR_CODES.includes(response.status)) {
     return response.json().then((jsonResponse) => Promise.reject(jsonResponse));
-
-  } else {
-    return json(response);
-    // return response;
   }
-}
 
-export function json(response) {
-  return response.text().then((t) => t ? JSON.parse(t) : null);
+  return response.text().then((t) => ({
+    jsonResponse: t ? JSON.parse(t) : null,
+    sessionHeader: response.headers.get('X-MH-Session'),
+  }));
 }
 
 function createUrl(url = '', params) {
@@ -37,10 +38,7 @@ function createUrl(url = '', params) {
   let fullUrl = newUrl;
   if (params && Object.keys(params).length > 0) {
     let paramsStr = qs.stringify(params);
-    // let paramsStr = Object.keys(params).map((p) => `${p}=${params[p]}`).join('&');
-    // if (paramsStr) {
-    // fullUrl += `?${paramsStr}`;
-    // }
+
     fullUrl += `?${paramsStr}`;
   }
   return fullUrl;

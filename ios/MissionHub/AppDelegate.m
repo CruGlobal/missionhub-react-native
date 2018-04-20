@@ -1,10 +1,8 @@
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 #import "AppDelegate.h"
@@ -38,6 +36,11 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
                            didFinishLaunchingWithOptions:launchOptions];
   [Fabric with:@[[Crashlytics class]]];
 
+  if (@available(iOS 10, *)) {
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+  }
+
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
@@ -56,7 +59,7 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
   [self configureAdobeAnalytics];
   [ADBMobile collectLifecycleData];
-  
+
   return YES;
 }
 
@@ -64,7 +67,7 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
   NSBundle *bundle = [NSBundle mainBundle];
   NSString *filename = [bundle objectForInfoDictionaryKey:MH_ADOBE_ANAYLYTICS_FILENAME_KEY];
   NSString *filepath = [bundle pathForResource:filename ofType:@"json"];
-  
+
   [ADBMobile overrideConfigPath:filepath];
 }
 
@@ -110,5 +113,12 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
   [RCTPushNotificationManager didReceiveLocalNotification:notification];
 }
 // End PushNotificationIOS
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+        willPresentNotification:(UNNotification *)notification
+        withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+
+   completionHandler(UNNotificationPresentationOptionAlert);
+}
 
 @end
