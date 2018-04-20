@@ -2,24 +2,14 @@
 
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Flex
-    justify="start"
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -42,7 +32,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -67,8 +57,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         returnKeyType="next"
         value=""
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -118,7 +108,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
     <Button
       buttonTextStyle={
         Object {
@@ -181,24 +171,14 @@ exports[`a login button is clicked facebook login button is pressed loading whee
 
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Flex
-    justify="start"
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -221,7 +201,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -246,8 +226,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         returnKeyType="next"
         value=""
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -297,7 +277,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
     <Button
       buttonTextStyle={
         Object {
@@ -360,24 +340,14 @@ exports[`a login button is clicked forgot password button is pressed loading whe
 
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Flex
-    justify="start"
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -400,7 +370,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -425,8 +395,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -476,7 +446,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
   </Flex>
   <Flex
     align="stretch"
@@ -495,7 +465,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
 
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
 <PlatformKeyboardAvoidingView>
-  <View
+  <Component
     style={
       Object {
         "alignItems": "center",
@@ -519,25 +489,15 @@ exports[`a login button is clicked key login button is pressed shows email verif
     >
       Verify your account via Email
     </MyText>
-  </View>
-  <Flex
-    justify="start"
+  </Component>
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -560,7 +520,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -585,8 +545,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -636,7 +596,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
   </Flex>
   <Flex
     align="stretch"
@@ -654,7 +614,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
 <PlatformKeyboardAvoidingView>
-  <View
+  <Component
     style={
       Object {
         "alignItems": "center",
@@ -678,25 +638,15 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </View>
-  <Flex
-    justify="start"
+  </Component>
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -719,7 +669,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -744,8 +694,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -795,7 +745,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
   </Flex>
   <Flex
     align="stretch"
@@ -813,7 +763,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
 <PlatformKeyboardAvoidingView>
-  <View
+  <Component
     style={
       Object {
         "alignItems": "center",
@@ -837,25 +787,15 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </View>
-  <Flex
-    justify="start"
+  </Component>
+  <Connect(BackButton)
     style={
       Object {
-        "alignSelf": "flex-start",
+        "marginLeft": 5,
+        "marginTop": 25,
       }
     }
-    value={0.5}
-  >
-    <Connect(BackButton)
-      style={
-        Object {
-          "marginLeft": 5,
-          "marginTop": 25,
-        }
-      }
-    />
-  </Flex>
+  />
   <Flex
     align="center"
     justify="center"
@@ -878,7 +818,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
     value={3}
   >
-    <View>
+    <Component>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -903,8 +843,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </View>
-    <View
+    </Component>
+    <Component
       style={
         Object {
           "paddingVertical": 30,
@@ -954,7 +894,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         text="Forgot Password?"
         type="transparent"
       />
-    </View>
+    </Component>
   </Flex>
   <Flex
     align="stretch"
@@ -972,6 +912,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
 
 exports[`renders correctly 1`] = `
 <View
+  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -991,105 +932,92 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
+        Array [
+          Object {
+            "marginLeft": 5,
+            "marginTop": 25,
+          },
+          null,
+        ],
         Object {
+          "alignItems": "flex-start",
           "alignSelf": "flex-start",
-        },
-        Object {
-          "flex": 0.5,
-          "justifyContent": "flex-start",
+          "justifyContent": "center",
         },
       ]
     }
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Array [
-            Object {
-              "marginLeft": 5,
-              "marginTop": 25,
-            },
-            null,
-          ],
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "opacity": 1,
+        }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
-        <View
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
           style={
             Array [
               Object {
-                "backgroundColor": "transparent",
+                "color": undefined,
+                "fontSize": 12,
               },
-              null,
-              Object {},
-              null,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
                 },
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "margin": 10,
                   },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
+                  Object {},
                 ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
       </View>
     </View>
   </View>
@@ -1245,6 +1173,7 @@ exports[`renders correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         collapsable={undefined}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
         nativeID={undefined}
@@ -1321,6 +1250,7 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
+      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}

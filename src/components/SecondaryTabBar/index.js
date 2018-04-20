@@ -32,12 +32,12 @@ export default class SecondaryTabBar extends Component {
   shrinkHeader = () => {
     this.props.onShrinkHeader();
     this.setState({ hideTabBar: true });
-  }
+  };
 
   openHeader = () => {
     this.props.onOpenHeader();
     this.setState({ hideTabBar: false });
-  }
+  };
 
   renderTabs = (tab) => {
     if (tab.page === 'steps') {
@@ -71,7 +71,7 @@ export default class SecondaryTabBar extends Component {
         </Flex>
       );
     }
-  }
+  };
 
   render() {
     const { tabs } = this.props;

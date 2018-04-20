@@ -3,6 +3,7 @@
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
+  enabled={true}
   keyboardVerticalOffset={65}
   style={
     Object {
@@ -57,6 +58,7 @@ exports[`contact notes and editing is set to true button message changes to DONE
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
+  enabled={true}
   keyboardVerticalOffset={65}
   style={
     Object {
@@ -138,6 +140,7 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
 exports[`contact notes notes are shown 1`] = `
 <KeyboardAvoidingView
   behavior="padding"
+  enabled={true}
   keyboardVerticalOffset={65}
   style={
     Object {
@@ -157,7 +160,7 @@ exports[`contact notes notes are shown 1`] = `
     }
     value={1}
   >
-    <ScrollViewMock>
+    <ScrollView>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -176,7 +179,7 @@ exports[`contact notes notes are shown 1`] = `
       >
         Hello, Roge! Here are some notes.
       </MyText>
-    </ScrollViewMock>
+    </ScrollView>
   </Flex>
   <Flex
     justify="end"
