@@ -29,6 +29,8 @@ build/
 .gradle
 local.properties
 *.iml
+*crashlytics-build.properties
+*com_crashlytics_export_strings.xml
 
 # node.js
 #
