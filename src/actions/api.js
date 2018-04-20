@@ -4,8 +4,8 @@ import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
-import { logout, refreshAccessToken, refreshAnonymousLogin } from './auth';
-import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT } from '../constants';
+import { refreshAccessToken, refreshAnonymousLogin } from './auth';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN } from '../constants';
 import { refreshMissionHubFacebookAccess } from './facebook';
 
 

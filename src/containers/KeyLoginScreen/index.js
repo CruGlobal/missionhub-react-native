@@ -142,7 +142,10 @@ class KeyLoginScreen extends Component {
         {
           this.state.logo ?
             <Flex value={1} align="center" justify="center">
-              <Image source={LOGO} resizeMode="contain" />
+              {this.props.forcedLogout ?
+                <Text style={styles.header}>{t('forcedLogout:message')}</Text> :
+                <Image source={LOGO} resizeMode="contain" />
+              }
             </Flex> : null
         }
 

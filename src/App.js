@@ -115,7 +115,7 @@ class App extends Component {
       } else if (apiError.error === INVALID_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
-        this.state.store.dispatch(logout());
+        this.state.store.dispatch(logout(true));
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
 
