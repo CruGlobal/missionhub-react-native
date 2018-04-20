@@ -10,7 +10,6 @@ import * as auth from '../src/actions/auth';
 import getStore from '../src/store';
 import locale from '../src/i18n/locales/en-US';
 import { createMockStore } from '../testUtils';
-import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -22,6 +21,7 @@ global.window = {};
 
 jest.mock('react-navigation-redux-helpers', () => ({
   createReduxBoundAddListener: jest.fn(),
+  createReactNavigationReduxMiddleware: jest.fn(),
 }));
 
 jest.mock('../src/store');
@@ -59,7 +59,7 @@ it('shows offline alert if network request failed', () => {
 it('should logout if invalid grant', () => {
   const screen = test({ apiError: { error: INVALID_GRANT } });
 
-  expect(screen.state.store.dispatch).toHaveBeenCalled();
+  expect(screen.instance().state.store.dispatch).toHaveBeenCalled();
   expect(auth.logout).toHaveBeenCalledWith(true);
 });
 
