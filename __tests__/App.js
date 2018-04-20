@@ -5,8 +5,12 @@ import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 
 import App from '../src/App';
-import { EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from '../src/constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from '../src/constants';
+import * as auth from '../src/actions/auth';
+import getStore from '../src/store';
 import locale from '../src/i18n/locales/en-US';
+import { createMockStore } from '../testUtils';
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -15,6 +19,17 @@ jest.mock('react-native-default-preference', () => ({
 }));
 jest.mock('react-native-omniture');
 global.window = {};
+
+jest.mock('react-navigation-redux-helpers', () => ({
+  createReduxBoundAddListener: jest.fn(),
+}));
+
+jest.mock('../src/store');
+getStore.mockImplementation((callback) => {
+  console.log('here');
+  callback(createMockStore());
+});
+auth.logout = jest.fn();
 
 const { youreOffline, connectToInternet } = locale.offline;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
@@ -28,14 +43,24 @@ beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, 
 
 const test = (response) => {
   const shallowScreen = shallow(<App />);
+  shallowScreen.update();
 
   shallowScreen.instance().handleError(response);
+
+  return shallowScreen;
 };
 
 it('shows offline alert if network request failed', () => {
   test({ apiError: { message: NETWORK_REQUEST_FAILED } });
 
   expect(ReactNative.Alert.alert).toHaveBeenCalledWith(youreOffline, connectToInternet, ...lastTwoArgs);
+});
+
+it('should logout if invalid grant', () => {
+  const screen = test({ apiError: { error: INVALID_GRANT } });
+
+  expect(screen.state.store.dispatch).toHaveBeenCalled();
+  expect(auth.logout).toHaveBeenCalledWith(true);
 });
 
 it('should not show alert for expired access token', () => {
