@@ -64,31 +64,7 @@ export class ImpactView extends Component {
     }
   }
 
-<<<<<<< HEAD
-  componentWillReceiveProps() {
-    this.getInteractionReport();
-  }
 
-  async getInteractionReport() {
-    const { dispatch, user, me, organization = {} } = this.props;
-
-    const { response: personReports } = await dispatch(getUserImpact(user ? user.id : me.id, organization.id, this.state.period));
-
-    const report = personReports[0];
-    const interactions = report ? report.interactions : [];
-    const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
-      let num = 0;
-      if (INTERACTION_TYPES[key].requestFieldName) {
-        num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
-      } else {
-        const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
-        num = interaction ? interaction.interaction_count : 0;
-      }
-      return {
-        ...INTERACTION_TYPES[key],
-        num,
-      };
-=======
   getInteractionReport() {
     const { dispatch, user, organization = {} } = this.props;
     dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
@@ -108,7 +84,6 @@ export class ImpactView extends Component {
         };
       });
       this.setState({ userImpact: r, interactions: arr });
->>>>>>> master
     });
   }
 
