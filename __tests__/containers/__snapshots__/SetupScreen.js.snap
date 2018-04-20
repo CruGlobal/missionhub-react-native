@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <View
+  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -204,6 +205,7 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
+      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}

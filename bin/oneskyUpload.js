@@ -1,6 +1,6 @@
 import process from 'process';
 import dotenv from 'dotenv';
-import oneSky from 'onesky-utils';
+import oneSky from '@brainly/onesky-utils';
 import translations from '../src/i18n/locales/en-US';
 
 dotenv.config({ path: '.env.local' });

@@ -20,6 +20,7 @@ exports[`renders correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -60,7 +61,7 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -104,7 +105,6 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -145,6 +145,7 @@ exports[`renders correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -185,7 +186,7 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -229,7 +230,6 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -270,6 +270,7 @@ exports[`renders correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -310,7 +311,7 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -354,7 +355,6 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -412,6 +412,7 @@ exports[`renders tab 0 correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -452,7 +453,7 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -496,7 +497,6 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -537,6 +537,7 @@ exports[`renders tab 0 correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -577,7 +578,7 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -621,7 +622,6 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -662,6 +662,7 @@ exports[`renders tab 0 correctly 1`] = `
     accessibilityTraits="button"
     accessible={true}
     collapsable={undefined}
+    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
     isTVSelectable={true}
     nativeID={undefined}
@@ -702,7 +703,7 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 4,
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -746,7 +747,6 @@ exports[`renders tab 0 correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
