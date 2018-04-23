@@ -64,7 +64,6 @@ exports[`renders correctly 1`] = `
           accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
-          hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
           nativeID={undefined}
@@ -226,7 +225,14 @@ exports[`renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
         testID={undefined}
         tvParallaxProperties={undefined}
       >
@@ -358,7 +364,14 @@ exports[`renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
         testID={undefined}
         tvParallaxProperties={undefined}
       >
@@ -490,7 +503,14 @@ exports[`renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
         testID={undefined}
         tvParallaxProperties={undefined}
       >
@@ -622,7 +642,14 @@ exports[`renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
         testID={undefined}
         tvParallaxProperties={undefined}
       >
@@ -754,7 +781,14 @@ exports[`renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ]
+        }
         testID={undefined}
         tvParallaxProperties={undefined}
       >

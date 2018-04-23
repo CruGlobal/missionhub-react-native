@@ -17,7 +17,14 @@ exports[`renders drilldown item correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -198,7 +205,14 @@ exports[`renders single item correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >

@@ -38,7 +38,6 @@ export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
-export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';
 export const INVALID_TOKEN = 'invalid_token';

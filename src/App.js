@@ -134,12 +134,8 @@ class App extends Component {
       };
     }
 
-    if (crashlyticsError) {
-      LOG(e);
-
-      if (!__DEV__) {
-        Crashlytics.recordCustomExceptionName(crashlyticsError.title, crashlyticsError.message, []);
-      }
+    if (!__DEV__ && crashlyticsError) {
+      Crashlytics.recordCustomExceptionName(crashlyticsError.title, crashlyticsError.message, []);
     }
   }
 

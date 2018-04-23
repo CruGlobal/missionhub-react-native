@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImpactView contact impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -201,11 +201,11 @@ See what God is doing through Test Fname below.
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView contact impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -405,11 +405,11 @@ exports[`ImpactView contact impact renders plural state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView contact impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -609,7 +609,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
       </Flex>
     </Flex>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView mapStateToProps should provide the necessary props 1`] = `
@@ -633,7 +633,7 @@ Object {
 `;
 
 exports[`ImpactView user impact renders empty state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -714,11 +714,11 @@ See what God is doing through all of us below.
 You will see how others have moved on their spiritual journey here shortly.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user impact renders plural state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -799,11 +799,11 @@ exports[`ImpactView user impact renders plural state 1`] = `
 50 people reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;
 
 exports[`ImpactView user impact renders singular state 1`] = `
-<ScrollView
+<ScrollViewMock
   bounces={false}
   style={
     Object {
@@ -884,5 +884,5 @@ exports[`ImpactView user impact renders singular state 1`] = `
 1 person reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
+</ScrollViewMock>
 `;

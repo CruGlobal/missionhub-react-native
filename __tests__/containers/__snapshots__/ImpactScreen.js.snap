@@ -48,7 +48,6 @@ exports[`Impact Screen renders correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         collapsable={undefined}
-        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
         nativeID={undefined}

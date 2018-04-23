@@ -47,7 +47,7 @@ Object {
 `;
 
 exports[`PeopleScreen renders correctly as Casey 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -122,11 +122,11 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     refreshing={false}
     sections={true}
   />
-</Component>
+</View>
 `;
 
 exports[`PeopleScreen renders correctly as Jean 1`] = `
-<Component
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -201,5 +201,5 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     refreshing={false}
     sections={true}
   />
-</Component>
+</View>
 `;

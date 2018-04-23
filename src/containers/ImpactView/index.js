@@ -63,7 +63,7 @@ export class ImpactView extends Component {
       this.props.dispatch(getMyImpact());
     }
   }
-  
+
   getInteractionReport() {
     const { dispatch, user, organization = {} } = this.props;
     dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {

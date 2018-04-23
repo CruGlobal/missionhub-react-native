@@ -84,8 +84,6 @@ describe('getPersonDetails', () => {
 });
 
 describe('updatePerson', () => {
-  const updateInclude = 'email_addresses,phone_numbers,reverse_contact_assignments';
-
   afterEach(() => {
     expect(dispatch).toHaveBeenCalled();
   });
@@ -111,7 +109,7 @@ describe('updatePerson', () => {
       id: 1,
       firstName: 'Test Fname',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
       data: {
         type: 'person',
         attributes: {
@@ -126,7 +124,7 @@ describe('updatePerson', () => {
       firstName: 'Test Fname',
       lastName: 'Test Lname',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
       data: {
         type: 'person',
         attributes: {
@@ -142,7 +140,7 @@ describe('updatePerson', () => {
       firstName: 'Test Fname',
       gender: 'Male',
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
       data: {
         type: 'person',
         attributes: {
@@ -159,7 +157,7 @@ describe('updatePerson', () => {
       email: 'a@a.com',
       emailId: 2,
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
       data: {
         type: 'person',
         attributes: {
@@ -182,7 +180,7 @@ describe('updatePerson', () => {
       phone: '1234567890',
       phoneId: 3,
     })(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: updateInclude }, {
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UPDATE_PERSON, { personId: 1, include: 'email_addresses,phone_numbers' }, {
       data: {
         type: 'person',
         attributes: {

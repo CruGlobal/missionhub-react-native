@@ -26,7 +26,7 @@ Object {
 `;
 
 exports[`StepsScreen renders empty screen correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -43,14 +43,14 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -164,13 +164,13 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
           Choose a person in People view and add some new steps.
         </MyText>
       </Flex>
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;
 
 exports[`StepsScreen renders loading screen correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -188,11 +188,11 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     title="STEPS OF FAITH"
   />
   <LoadingGuy />
-</Component>
+</View>
 `;
 
 exports[`StepsScreen renders screen with steps correctly 1`] = `
-<Component
+<View
   style={
     Object {
       "flex": 1,
@@ -209,14 +209,14 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <Component
+  <View
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollView
+    <ScrollViewMock
       contentContainerStyle={
         Array [
           Object {
@@ -330,7 +330,7 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollView>
-  </Component>
-</Component>
+    </ScrollViewMock>
+  </View>
+</View>
 `;

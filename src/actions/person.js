@@ -133,7 +133,7 @@ export function updatePerson(data) {
     };
     const query = {
       personId: data.id,
-      include: 'email_addresses,phone_numbers,reverse_contact_assignments',
+      include: 'email_addresses,phone_numbers',
     };
     const results = await dispatch(callApi(REQUESTS.UPDATE_PERSON, query, bodyData));
     const person = results.response;

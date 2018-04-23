@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { BackHandler, Platform } from 'react-native';
-import * as DeviceInfo from 'react-native-device-info';
+import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import { navigatePush } from '../actions/navigation';
 import { CUSTOM_STEP_TYPE, DRAWER_OPEN, MAIN_MENU_DRAWER, ORG_PERMISSIONS } from '../constants';
