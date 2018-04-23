@@ -140,7 +140,7 @@ export function updateChallengeNote(step, note) {
 export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      refreshSteps(dispatch);
+      dispatch(refreshSteps());
       dispatch(setStepFocus(step, false));
       return r;
     });
