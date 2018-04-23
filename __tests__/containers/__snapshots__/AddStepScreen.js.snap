@@ -2,7 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <View
-  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -114,7 +113,6 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -206,7 +204,6 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -279,7 +276,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders edit journey correctly 1`] = `
 <View
-  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -393,7 +389,6 @@ exports[`renders edit journey correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -485,7 +480,6 @@ exports[`renders edit journey correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -558,7 +552,6 @@ exports[`renders edit journey correctly 1`] = `
 
 exports[`renders journey correctly 1`] = `
 <View
-  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -672,7 +665,6 @@ exports[`renders journey correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -764,7 +756,6 @@ exports[`renders journey correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -837,7 +828,6 @@ exports[`renders journey correctly 1`] = `
 
 exports[`renders step note correctly 1`] = `
 <View
-  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -871,7 +861,6 @@ exports[`renders step note correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -1037,7 +1026,6 @@ exports[`renders step note correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}

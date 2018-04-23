@@ -21,6 +21,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+*.mobileprovision
+*.cer
+*.DSYM.zip
 
 # Android/IntelliJ
 #
@@ -29,8 +32,6 @@ build/
 .gradle
 local.properties
 *.iml
-*crashlytics-build.properties
-*com_crashlytics_export_strings.xml
 
 # node.js
 #
@@ -38,9 +39,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 package-lock.json
-
-# Bundle artifact
-*.jsbundle
 
 # BUCK
 buck-out/
@@ -61,6 +59,21 @@ buck-out/
 .tmp/
 
 coverage/
+
+
+
+# CUSTOM: Remove some files from being tracked in git
+**/.gradle/
+**/build/
+android/app/build
+
+.vscode/
+
+android/app/bin/
+**/.settings/
+**/.project
+**/.classpath
+**/*.apk
 
 # Include the test keystore so that others can build the app
 # The app will need to be resigned with the REAL keystore when released

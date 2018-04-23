@@ -1,6 +1,6 @@
 import auth from '../../src/reducers/auth';
 import { REQUESTS } from '../../src/actions/api';
-import { UPDATE_STAGES, UPDATE_TOKEN } from '../../src/constants';
+import { UPDATE_STAGES } from '../../src/constants';
 
 const token = 'asdfasndfiosdc';
 const personId = '123456';
@@ -128,15 +128,4 @@ it('updates a users stage', () => {
   );
 
   expect(state.person.stage.id).toBe('2');
-});
-
-it('updates a user token', () => {
-  const state = auth({},
-    {
-      token,
-      type: UPDATE_TOKEN,
-    }
-  );
-
-  expect(state).toEqual({ token });
 });

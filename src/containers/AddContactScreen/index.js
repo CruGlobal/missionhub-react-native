@@ -11,6 +11,7 @@ import styles from './styles';
 import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
+import { findAllNonPlaceHolders } from '../../utils/common';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -20,20 +21,15 @@ class AddContactScreen extends Component {
     super(props);
 
     this.state = {
-      person: {},
+      data: {},
     };
 
     this.savePerson = this.savePerson.bind(this);
     this.handleUpdateData = this.handleUpdateData.bind(this);
   }
 
-  componentWillMount() {
-    const { person } = this.props;
-    this.setState({ person });
-  }
-
-  handleUpdateData(newData) {
-    this.setState({ person: { ...this.state.person, ...newData } });
+  handleUpdateData(data) {
+    this.setState({ data });
   }
 
   complete(addedResults) {
@@ -45,22 +41,20 @@ class AddContactScreen extends Component {
   }
 
   async savePerson() {
-    const { me, organization, dispatch } = this.props;
-    let saveData = { ...this.state.person };
+    const { me, organization, dispatch, person } = this.props;
+    let saveData = { ...this.state.data };
     if (organization) {
       saveData.orgId = organization.id;
     }
-    const results = await dispatch(saveData.id ? updatePerson(saveData) : addNewContact(saveData));
-    const newPerson = results.response;
-    this.setState({ person: { ...this.state.person, id: newPerson.id } });
-
-    if (this.props.person) { //we know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
+    const isEdit = person;
+    const results = await dispatch(isEdit ? updatePerson(saveData) : addNewContact(saveData));
+    const newPerson = findAllNonPlaceHolders(results, 'person')[0];
+    if (isEdit || !newPerson) {
       this.complete(results);
     } else {
       // If adding a new person, select a stage for them, then run all the onComplete functionality
       const contactAssignment = newPerson.reverse_contact_assignments.find((a) => a.assigned_to.id === me.id);
       const contactAssignmentId = contactAssignment && contactAssignment.id;
-
       dispatch(navigatePush(PERSON_STAGE_SCREEN, {
         onCompleteCelebration: () => {
           this.complete(results);

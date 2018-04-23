@@ -2,7 +2,7 @@ import callApi, { REQUESTS } from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import API_CALLS from '../../src/api';
-import { EXPIRED_ACCESS_TOKEN, UPDATE_TOKEN } from '../../src/constants';
+import { EXPIRED_ACCESS_TOKEN } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';
 import * as auth from '../../src/actions/auth';
 import * as facebook from '../../src/actions/facebook';
@@ -56,28 +56,3 @@ it('should refresh facebook login if user is not logged in with TheKey or Try It
   return test({}, facebook, 'refreshMissionHubFacebookAccess', { type: 'refreshed fb login' });
 });
 
-it('should update token if present in response', async() => {
-  store = mockStore({ auth: { ...mockAuthState } });
-  const newToken = 'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
-  mockFnWithParams(API_CALLS, request.name, Promise.resolve({ sessionHeader: newToken }), query, {});
-
-  await store.dispatch(callApi(request, {}, {}));
-
-  expect(store.getActions()).toEqual([
-    {
-      data: {},
-      query: query,
-      type: request.FETCH,
-    },
-    {
-      data: {},
-      query: query,
-      type: request.SUCCESS,
-      results: { response: undefined },
-    },
-    {
-      type: UPDATE_TOKEN,
-      token: newToken,
-    },
-  ]);
-});

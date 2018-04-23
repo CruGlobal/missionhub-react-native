@@ -196,6 +196,11 @@ describe('logout', () => {
     store.dispatch(logout());
     expect(store.getActions()).toMatchSnapshot();
   });
+  it('should perform the needed actions for forced signing out', () => {
+    deletePushToken.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
+    store.dispatch(logout(true));
+    expect(store.getActions()).toMatchSnapshot();
+  });
 });
 
 describe('on upgrade account', () => {

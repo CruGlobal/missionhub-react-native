@@ -51,11 +51,9 @@ exports[`renders 1`] = `
         vertical={false}
       />
       <Carousel
-        activeAnimationOptions={null}
-        activeAnimationType="timing"
         activeSlideAlignment="center"
         activeSlideOffset={20}
-        apparitionDelay={0}
+        apparitionDelay={250}
         autoplay={true}
         autoplayDelay={0}
         autoplayInterval={3000}
@@ -86,8 +84,6 @@ exports[`renders 1`] = `
         inactiveSlideScale={1}
         inactiveSlideShift={0}
         itemWidth={750}
-        layout="default"
-        lockScrollTimeoutDuration={1000}
         lockScrollWhileSnapping={false}
         loop={false}
         loopClonesPerSide={3}
@@ -99,7 +95,6 @@ exports[`renders 1`] = `
         slideStyle={Object {}}
         sliderWidth={750}
         swipeThreshold={20}
-        useScrollView={false}
         vertical={false}
       />
     </Flex>
@@ -212,7 +207,7 @@ exports[`renders 1`] = `
 `;
 
 exports[`renders onboarding 1`] = `
-<Component
+<View
   style={
     Object {
       "alignItems": "center",
@@ -256,5 +251,5 @@ exports[`renders onboarding 1`] = `
       />
     </Flex>
   </TouchableWithoutFeedback>
-</Component>
+</View>
 `;

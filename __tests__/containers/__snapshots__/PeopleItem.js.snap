@@ -17,7 +17,14 @@ exports[`renders correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -155,7 +162,6 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -228,7 +234,14 @@ exports[`renders org user correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -366,7 +379,6 @@ exports[`renders org user correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -439,7 +451,14 @@ exports[`renders permission user correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -577,7 +596,6 @@ exports[`renders permission user correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}
@@ -650,7 +668,14 @@ exports[`renders personal user correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >

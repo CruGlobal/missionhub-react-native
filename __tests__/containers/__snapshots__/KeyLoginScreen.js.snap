@@ -2,14 +2,24 @@
 
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Connect(BackButton)
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -32,7 +42,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -57,8 +67,8 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         returnKeyType="next"
         value=""
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -108,7 +118,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
     <Button
       buttonTextStyle={
         Object {
@@ -171,14 +181,24 @@ exports[`a login button is clicked facebook login button is pressed loading whee
 
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Connect(BackButton)
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -201,7 +221,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -226,8 +246,8 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         returnKeyType="next"
         value=""
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -277,7 +297,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
     <Button
       buttonTextStyle={
         Object {
@@ -340,14 +360,24 @@ exports[`a login button is clicked forgot password button is pressed loading whe
 
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Connect(BackButton)
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -370,7 +400,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -395,8 +425,8 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -446,7 +476,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
   </Flex>
   <Flex
     align="stretch"
@@ -465,7 +495,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
 
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -489,15 +519,25 @@ exports[`a login button is clicked key login button is pressed shows email verif
     >
       Verify your account via Email
     </MyText>
-  </Component>
-  <Connect(BackButton)
+  </View>
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -520,7 +560,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -545,8 +585,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -596,7 +636,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
   </Flex>
   <Flex
     align="stretch"
@@ -614,7 +654,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -638,15 +678,25 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </Component>
-  <Connect(BackButton)
+  </View>
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -669,7 +719,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -694,8 +744,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -745,7 +795,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
   </Flex>
   <Flex
     align="stretch"
@@ -763,7 +813,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -787,15 +837,25 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     >
       Your Email or Password is Incorrect
     </MyText>
-  </Component>
-  <Connect(BackButton)
+  </View>
+  <Flex
+    justify="start"
     style={
       Object {
-        "marginLeft": 5,
-        "marginTop": 25,
+        "alignSelf": "flex-start",
       }
     }
-  />
+    value={0.5}
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+  </Flex>
   <Flex
     align="center"
     justify="center"
@@ -818,7 +878,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     }
     value={3}
   >
-    <Component>
+    <View>
       <MyText
         accessible={true}
         allowFontScaling={true}
@@ -843,8 +903,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         returnKeyType="next"
         value="klas&jflk@lkjasdf.com"
       />
-    </Component>
-    <Component
+    </View>
+    <View
       style={
         Object {
           "paddingVertical": 30,
@@ -894,7 +954,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         text="Forgot Password?"
         type="transparent"
       />
-    </Component>
+    </View>
   </Flex>
   <Flex
     align="stretch"
@@ -912,7 +972,6 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
 
 exports[`renders correctly 1`] = `
 <View
-  enabled={true}
   keyboardVerticalOffset={0}
   onLayout={[Function]}
   style={
@@ -932,92 +991,105 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
-        Array [
-          Object {
-            "marginLeft": 5,
-            "marginTop": 25,
-          },
-          null,
-        ],
         Object {
-          "alignItems": "flex-start",
           "alignSelf": "flex-start",
-          "justifyContent": "center",
+        },
+        Object {
+          "flex": 0.5,
+          "justifyContent": "flex-start",
         },
       ]
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
+        Array [
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "marginLeft": 5,
+              "marginTop": 25,
             },
             null,
-            Object {},
-            null,
-          ]
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
-        <Text
-          accessible={true}
-          allowFontScaling={false}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": undefined,
-                "fontSize": 12,
+                "backgroundColor": "transparent",
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {},
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          
-        </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -1173,7 +1245,6 @@ exports[`renders correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         collapsable={undefined}
-        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
         nativeID={undefined}
@@ -1250,7 +1321,494 @@ exports[`renders correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       collapsable={undefined}
-      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#52C5DC",
+              "borderWidth": 1,
+              "height": 48,
+              "margin": 8,
+              "width": 670,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 21,
+                  },
+                  Object {
+                    "marginRight": 10,
+                  },
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "paddingTop": 2,
+                },
+              ]
+            }
+          >
+            LOG IN WITH FACEBOOK
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly for forced logout 1`] = `
+<View
+  keyboardVerticalOffset={0}
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-start",
+        },
+        Object {
+          "flex": 0.5,
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Array [
+            Object {
+              "marginLeft": 5,
+              "marginTop": 25,
+            },
+            null,
+          ],
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingLeft": 30,
+            "paddingRight": 80,
+            "textAlign": "left",
+          },
+        ]
+      }
+    >
+      It's been a while since you've signed in.
+Please sign in so we know it's you.
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "padding": 30,
+        },
+        Object {
+          "flex": 3,
+        },
+      ]
+    }
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            },
+          ]
+        }
+      >
+        Email
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        multiline={false}
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {},
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 12,
+            },
+          ]
+        }
+      >
+        Password
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={true}
+        multiline={false}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {},
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits="button"
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "width": 130,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0,
+                    "paddingVertical": 10,
+                    "textAlign": "left",
+                  },
+                ],
+              ]
+            }
+          >
+            Forgot Password?
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      collapsable={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
       nativeID={undefined}

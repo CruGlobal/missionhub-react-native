@@ -2,7 +2,6 @@ import { addNewInteraction, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
-import * as impact from '../../src/actions/impact';
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -26,7 +25,6 @@ const personId = 1;
 const orgId = 2;
 const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
 const trackActionResult = { type: 'tracked action' };
-const refreshImpactResult = { type: 'refreshed impact' };
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
@@ -37,7 +35,6 @@ describe('add comment', () => {
 
   beforeEach(() => {
     mockFnWithParams(analytics, 'trackAction', trackActionResult, interaction.tracking);
-    mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
   });
 
   describe('without org', () => {
@@ -73,7 +70,7 @@ describe('add comment', () => {
 
       await store.dispatch(addNewInteraction(personId, interaction, comment));
 
-      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult, refreshImpactResult ]);
+      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
   });
 
@@ -115,7 +112,7 @@ describe('add comment', () => {
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
       await store.dispatch(addNewInteraction(personId, interaction, comment, orgId));
-      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult, refreshImpactResult ]);
+      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult ]);
     });
   });
 });

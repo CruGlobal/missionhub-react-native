@@ -176,13 +176,13 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-device-info')
     compile project(':react-native-config')
     compile project(':react-native-default-preference')
     compile project(':react-native-fabric')
     compile project(':react-native-fbsdk')
     compile project(':react-native-omniture')
     compile project(':react-native-push-notification')
+    compile project(':react-native-device-info')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:26.0.1"

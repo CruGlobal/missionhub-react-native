@@ -17,7 +17,14 @@ exports[`renders last name correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -99,7 +106,14 @@ exports[`renders no org correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -180,7 +194,14 @@ exports[`renders single person correctly 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
   testID={undefined}
   tvParallaxProperties={undefined}
 >
@@ -248,7 +269,6 @@ exports[`renders unassign correctly 1`] = `
 <TouchableHighlight
   accessibilityTraits="button"
   activeOpacity={0.85}
-  delayPressOut={100}
   onPress={[Function]}
   underlayColor="rgba(0, 115, 152, 0.3)"
 >
