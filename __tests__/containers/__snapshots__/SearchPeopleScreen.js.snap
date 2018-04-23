@@ -64,6 +64,7 @@ exports[`renders correctly 1`] = `
           accessibilityTraits="button"
           accessible={true}
           collapsable={undefined}
+          hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
           nativeID={undefined}
@@ -219,6 +220,7 @@ exports[`renders correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         collapsable={undefined}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
         nativeID={undefined}
@@ -356,7 +358,7 @@ exports[`renders correctly 1`] = `
 `;
 
 exports[`renders with no results state 1`] = `
-<View
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -452,11 +454,11 @@ exports[`renders with no results state 1`] = `
       Search results will appear here.
     </MyText>
   </Flex>
-</View>
+</Component>
 `;
 
 exports[`renders with results state 1`] = `
-<View
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -552,11 +554,11 @@ exports[`renders with results state 1`] = `
       Search results will appear here.
     </MyText>
   </Flex>
-</View>
+</Component>
 `;
 
 exports[`renders with searching state 1`] = `
-<View
+<Component
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -652,5 +654,5 @@ exports[`renders with searching state 1`] = `
       Search results will appear here.
     </MyText>
   </Flex>
-</View>
+</Component>
 `;

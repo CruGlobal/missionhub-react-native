@@ -8,13 +8,13 @@ import android.content.Context;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.reactlibrary.RNDefaultPreferencePackage;
 import com.smixx.fabric.FabricPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.moduleomniture.reactnativeomnitureapi.OmniturePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -48,13 +48,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNDeviceInfo(),
             new ReactNativeConfigPackage(),
             new RNDefaultPreferencePackage(),
             new FabricPackage(),
             new FBSDKPackage(mCallbackManager),
             new OmniturePackage(),
             new ReactNativePushNotificationPackage(),
-            new RNDeviceInfo(),
             new VectorIconsPackage()
       );
     }

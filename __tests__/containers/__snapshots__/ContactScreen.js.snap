@@ -77,7 +77,7 @@ Object {
 `;
 
 exports[`ContactScreen renders correctly as Casey 1`] = `
-<View
+<Component
   style={
     Object {
       "flex": 1,
@@ -107,7 +107,15 @@ exports[`ContactScreen renders correctly as Casey 1`] = `
     value={1}
   >
     <Connect(ContactHeader)
-      dispatch={[Function]}
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
       isMe={false}
       onChangeStage={[Function]}
       onOpenHeader={[Function]}
@@ -128,11 +136,11 @@ exports[`ContactScreen renders correctly as Casey 1`] = `
       type="casey"
     />
   </Flex>
-</View>
+</Component>
 `;
 
 exports[`ContactScreen renders correctly as Jean 1`] = `
-<View
+<Component
   style={
     Object {
       "flex": 1,
@@ -162,7 +170,18 @@ exports[`ContactScreen renders correctly as Jean 1`] = `
     value={1}
   >
     <Connect(ContactHeader)
-      dispatch={[Function]}
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
       isMe={false}
       onChangeStage={[Function]}
       onOpenHeader={[Function]}
@@ -189,5 +208,5 @@ exports[`ContactScreen renders correctly as Jean 1`] = `
       type="jean"
     />
   </Flex>
-</View>
+</Component>
 `;
