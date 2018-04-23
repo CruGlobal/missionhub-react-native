@@ -130,13 +130,13 @@ class KeyLoginScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, forcedLogout } = this.props;
+    const marginTop = isiPhoneX() ? 50 : 25;
 
     return (
       <PlatformKeyboardAvoidingView>
         {this.state.errorMessage ? this.renderErrorMessage() : null }
-
-        <BackButton style={{ marginLeft: 5, marginTop: isiPhoneX() ? 50 : 25 }} />
+        {forcedLogout ? <View style={{ marginTop }} /> : <BackButton style={{ marginLeft: 5, marginTop }} />}
         {
           this.state.logo ?
             <Flex value={1} align="center" justify="center">
