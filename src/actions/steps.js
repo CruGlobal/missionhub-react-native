@@ -158,8 +158,7 @@ export function completeStep(step) {
 
 function refreshSteps() {
   return (dispatch) => {
-    dispatch(getMySteps());
-    return dispatch(refreshImpact());
+    return dispatch(getMySteps());
   };
 }
 
@@ -180,6 +179,7 @@ function challengeCompleteAction(step) {
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+      dispatch(refreshImpact());
       dispatch(navigatePush(ADD_STEP_SCREEN, {
         type: STEP_NOTE,
         onComplete: (text) => {

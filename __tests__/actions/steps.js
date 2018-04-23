@@ -216,12 +216,12 @@ describe('complete challenge', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      impactResponse,
       { type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
-      impactResponse,
     ]);
   });
 });
