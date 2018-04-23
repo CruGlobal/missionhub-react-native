@@ -8,7 +8,6 @@ import { renderShallow, testSnapshotShallow } from '../testUtils';
 import { ADD_CONTACT_SCREEN } from '../src/containers/AddContactScreen';
 import { navigatePush, navigateBack } from '../src/actions/navigation';
 import { updateFollowupStatus, createContactAssignment, deleteContactAssignment } from '../src/actions/person';
-import { deleteStep } from '../src/actions/steps';
 import { personSelector, contactAssignmentSelector, orgPermissionSelector } from '../src/selectors/people';
 import { DRAWER_CLOSE } from '../src/constants';
 jest.mock('../src/actions/navigation');
@@ -26,7 +25,6 @@ beforeEach(() => {
   dispatch.mockClear();
   navigateBack.mockClear();
   navigatePush.mockClear();
-  deleteStep.mockClear();
   deleteContactAssignment.mockClear();
 });
 
@@ -62,7 +60,6 @@ describe('contactSideMenu', () => {
 
   describe('componentWillUnmount', () => {
     beforeEach(() => {
-      deleteStep.mockImplementation((response) => Promise.resolve(response));
       deleteContactAssignment.mockImplementation((response) => Promise.resolve(response));
     });
     it('should delete person if deleteOnUnmount is set', async() => {
@@ -82,8 +79,6 @@ describe('contactSideMenu', () => {
       ).instance();
       instance.deleteOnUnmount = true;
       await instance.componentWillUnmount();
-      expect(deleteStep).toHaveBeenCalledWith({ id: 1 });
-      expect(deleteStep).toHaveBeenCalledWith({ id: 2 });
       expect(deleteContactAssignment).toHaveBeenCalledWith(contactAssignment.id, person.id, organization.id);
     });
     it('should do nothing if deleteOnUnmount is not set', async() => {
@@ -102,7 +97,6 @@ describe('contactSideMenu', () => {
         />
       ).instance();
       await instance.componentWillUnmount();
-      expect(deleteStep).not.toHaveBeenCalled();
       expect(deleteContactAssignment).not.toHaveBeenCalled();
     });
   });
