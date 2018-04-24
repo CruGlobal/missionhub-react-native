@@ -5,6 +5,9 @@ import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
+// eslint-disable-next-line import/default
+import codePush from 'react-native-code-push';
+import Config from 'react-native-config';
 
 import i18n from './i18n';
 
@@ -24,9 +27,9 @@ import { ANALYTICS, EXPIRED_ACCESS_TOKEN, NETWORK_REQUEST_FAILED } from './const
 import { isAndroid } from './utils/common';
 
 // TODO: Add loading stuff with redux persist
-class App extends Component {
+@codePush({ deploymentKey: isAndroid ? Config.CODEPUSH_ANDROID_KEY : Config.CODEPUSH_IOS_KEY })
+export default class App extends Component {
   showingErrorModal = false;
-
   state = {
     store: null,
     appState: AppState.currentState,
@@ -192,5 +195,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

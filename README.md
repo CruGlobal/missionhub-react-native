@@ -30,7 +30,6 @@ Plugins:
 
 - Open the `ios/MissionHub.xcodeproj` file with Xcode
 - Run the MissionHub scheme on a simulator or connected device
-- Set environment config in `.env` (you'll probably want to copy `.env.staging`).
 
 #### For Android:
 
