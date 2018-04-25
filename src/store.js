@@ -21,7 +21,7 @@ const navMiddleware = createReactNavigationReduxMiddleware(
 const enhancers = [];
 const middleware = [ thunk, rehydrateNavigation, tracking, steps, navMiddleware ];
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const storeEnhancers = composeEnhancers(
   applyMiddleware(...middleware),
