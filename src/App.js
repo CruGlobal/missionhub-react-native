@@ -21,7 +21,7 @@ import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin, logout } from './actions/auth';
 import {
-  ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, INVALID_TOKEN,
+  ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT,
   NETWORK_REQUEST_FAILED,
 } from './constants';
 import { isAndroid } from './utils/common';
