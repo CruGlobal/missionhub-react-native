@@ -7,6 +7,7 @@ import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
 
+import { store, persistor } from './store';
 import i18n from './i18n';
 
 import { Crashlytics } from 'react-native-fabric';
@@ -14,10 +15,6 @@ import { Crashlytics } from 'react-native-fabric';
 import './utils/globals';
 
 import LoadingScreen from './containers/LoadingScreen';
-
-import configureStore from './store';
-const { store, persistor } = configureStore();
-
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin, logout } from './actions/auth';
@@ -98,7 +95,7 @@ class App extends Component {
       if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
-        this.state.store.dispatch(logout(true));
+        store.dispatch(logout(true));
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
 

@@ -7,9 +7,7 @@ import Enzyme from 'enzyme/build/index';
 import App from '../src/App';
 import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from '../src/constants';
 import * as auth from '../src/actions/auth';
-import getStore from '../src/store';
 import locale from '../src/i18n/locales/en-US';
-import { createMockStore } from '../testUtils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -27,12 +25,15 @@ jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
 
-
-
-jest.mock('../src/store');
-getStore.mockImplementation((callback) => {
-  callback(createMockStore());
-});
+import { store } from '../src/store';
+jest.mock('../src/store', () => ({
+  store: { // store is a duplicate of what createMockStore returns but I couldn't get it imported above this mock since mocks are hoisted
+    getState: jest.fn(() => ({})),
+    dispatch: jest.fn((response) => Promise.resolve(response)),
+    subscribe: jest.fn(),
+  },
+  persistor: {},
+}));
 
 const { youreOffline, connectToInternet } = locale.offline;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
@@ -59,10 +60,10 @@ it('shows offline alert if network request failed', () => {
 });
 
 it('should logout if invalid grant', () => {
-  const screen = test({ apiError: { error: INVALID_GRANT } });
+  test({ apiError: { error: INVALID_GRANT } });
 
   expect(auth.logout).toHaveBeenCalledWith(true);
-  expect(screen.instance().state.store.dispatch).toHaveBeenCalledWith(logoutResponse);
+  expect(store.dispatch).toHaveBeenCalledWith(logoutResponse);
 });
 
 it('should not show alert for expired access token', () => {
