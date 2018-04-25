@@ -18,6 +18,7 @@ import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
 import i18next from 'i18next';
 import { resetPerson } from './onboardingProfile';
+import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {
@@ -103,12 +104,12 @@ export function refreshAnonymousLogin() {
   };
 }
 
-export function logout() {
+export function logout(forcedLogout = false) {
   return (dispatch) => {
     dispatch(deletePushToken());
     dispatch(logOutAnalytics());
     dispatch({ type: LOGOUT });
-    dispatch(navigateReset(LOGIN_SCREEN));
+    dispatch(forcedLogout ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout }) : navigateReset(LOGIN_SCREEN));
   };
 }
 
