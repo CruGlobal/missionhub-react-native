@@ -8,7 +8,7 @@ import { MainTabRoutes, navItem } from '../src/AppRoutes';
 
 const store = createMockStore({
   steps: {
-    mine: [],
+    mine: null,
     reminders: [],
     userStepCount: {},
     pagination: {
