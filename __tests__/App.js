@@ -26,7 +26,6 @@ jest.mock('react-navigation-redux-helpers', () => ({
 
 jest.mock('../src/store');
 getStore.mockImplementation((callback) => {
-  console.log('here');
   callback(createMockStore());
 });
 auth.logout = jest.fn();
@@ -43,7 +42,6 @@ beforeEach(() => ReactNative.Alert.alert = jest.fn().mockImplementation((_, __, 
 
 const test = (response) => {
   const shallowScreen = shallow(<App />);
-  shallowScreen.update();
 
   shallowScreen.instance().handleError(response);
 
@@ -59,8 +57,7 @@ it('shows offline alert if network request failed', () => {
 it('should logout if invalid grant', () => {
   const screen = test({ apiError: { error: INVALID_GRANT } });
 
-  expect(screen.instance().state.store.dispatch).toHaveBeenCalled();
-  expect(auth.logout).toHaveBeenCalledWith(true);
+  expect(screen.instance().state.store.dispatch).toHaveBeenCalledWith(auth.logout(true));
 });
 
 it('should not show alert for expired access token', () => {
