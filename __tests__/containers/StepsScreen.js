@@ -197,36 +197,59 @@ describe('StepsScreen', () => {
         ...propsWithSteps,
         reminders: [],
       });
+
       component.instance().handleSetReminder('testStep');
+
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
+
     it('should focus a step and not show notification reminder screen if reminders already exist', () => {
       const component = createComponent({
         ...propsWithSteps,
         reminders: [ 'someStep' ],
       });
+
       component.instance().handleSetReminder('testStep');
+
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
+
     it('should not focus a step when reminders slots are filled', () => {
       const component = createComponent({
         ...propsWithSteps,
         reminders: [ 'step1', 'step2', 'step3' ],
       });
+
       component.instance().handleSetReminder('testStep');
+
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
       expect(showReminderScreen).not.toHaveBeenCalled();
       expect(showWelcomeNotification).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('handleRemoveReminder', () => {
+    it('should remove reminder', () => {
+      const step = 'some step';
+      const component = createComponent({
+        ...propsWithSteps,
+        reminders: [ step ],
+      });
+
+      component.instance().handleRemoveReminder(step);
+
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DEPRIORITIZED);
+      expect(setStepFocus).toHaveBeenCalledWith(step, false);
     });
   });
 });
