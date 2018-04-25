@@ -8,8 +8,12 @@ export default StyleSheet.create({
     fontSize: 12,
   },
   header: {
-    color: theme.white,
     fontSize: 24,
+    textAlign: 'left',
+    paddingRight: 80,
+    paddingLeft: 30,
+    color: theme.white,
+    lineHeight: 32,
   },
   errorBar: {
     backgroundColor: '#FF5532',
