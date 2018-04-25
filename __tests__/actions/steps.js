@@ -1,7 +1,7 @@
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
-  addSteps,
+  addSteps, completeStepReminder,
 } from '../../src/actions/steps';
 import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
@@ -190,6 +190,8 @@ describe('complete challenge', () => {
 
   const impactResponse = { type: 'test impact' };
 
+  const removeReminderResponse = { type: REMOVE_STEP_REMINDER, step };
+
   beforeEach(() => {
     store = mockStore({
       auth: {
@@ -216,12 +218,28 @@ describe('complete challenge', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      impactResponse,
       { type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
         params: { type: STEP_NOTE, onComplete: expect.anything() } },
       trackStateResult,
       trackActionResult,
+    ]);
+  });
+
+  it('completes step reminder', async() => {
+    await store.dispatch(completeStepReminder(step));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
+    expect(store.getActions()).toEqual([
+      { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
+      { type: NAVIGATE_FORWARD,
+        routeName: ADD_STEP_SCREEN,
+        params: { type: STEP_NOTE, onComplete: expect.anything() } },
+      trackStateResult,
+      trackActionResult,
+      removeReminderResponse,
     ]);
   });
 });
