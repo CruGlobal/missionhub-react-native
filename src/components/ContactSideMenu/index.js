@@ -7,7 +7,6 @@ import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
 import { createContactAssignment, deleteContactAssignment, updateFollowupStatus } from '../../actions/person';
-import { deleteStep } from '../../actions/steps';
 import { contactAssignmentSelector, orgPermissionSelector, personSelector } from '../../selectors/people';
 import { DRAWER_CLOSE } from '../../constants';
 import { isMissionhubUser } from '../../utils/common';
@@ -43,7 +42,6 @@ export class ContactSideMenu extends Component {
   async componentWillUnmount() {
     if (this.deleteOnUnmount) {
       const { dispatch, person, contactAssignment, organization } = this.props;
-      await Promise.all(person.received_challenges.map((step) => dispatch(deleteStep(step))));
       await dispatch(deleteContactAssignment(contactAssignment.id, person.id, organization && organization.id));
     }
   }

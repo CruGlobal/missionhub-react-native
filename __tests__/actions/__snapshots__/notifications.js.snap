@@ -37,6 +37,7 @@ Array [
   Object {
     "actions": Array [
       Object {
+        "params": Object {},
         "routeName": "nav/MAIN_TABS",
         "type": "Navigation/NAVIGATE",
       },
@@ -109,6 +110,7 @@ Array [
   Object {
     "actions": Array [
       Object {
+        "params": Object {},
         "routeName": "nav/MAIN_TABS",
         "type": "Navigation/NAVIGATE",
       },
@@ -128,6 +130,7 @@ Array [
   Object {
     "actions": Array [
       Object {
+        "params": Object {},
         "routeName": "nav/MAIN_TABS",
         "type": "Navigation/NAVIGATE",
       },

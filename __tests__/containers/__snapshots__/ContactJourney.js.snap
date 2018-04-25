@@ -140,9 +140,9 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       data={
         Array [
           Object {
+            "_type": "accepted_challenge",
             "date": "2010-01-01 12:12:12",
-            "id": 84472,
-            "type": "step",
+            "id": "84472",
           },
         ]
       }
@@ -179,7 +179,19 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
 </Component>
 `;
 
-exports[`journey methods renders a journey row 1`] = `
+exports[`journey methods renders a stage change row 1`] = `
+<Translate(JourneyItem)
+  item={
+    Object {
+      "_type": "pathway_progression_audit",
+      "id": "124",
+    }
+  }
+  myId="123"
+/>
+`;
+
+exports[`journey methods renders a step row 1`] = `
 <Translate(RowSwipeable)
   bump={false}
   onBumpComplete={undefined}
@@ -188,12 +200,12 @@ exports[`journey methods renders a journey row 1`] = `
   <Translate(JourneyItem)
     item={
       Object {
+        "_type": "accepted_challenge",
         "id": "123",
-        "text": "123",
+        "note": "123",
       }
     }
     myId="123"
-    type={undefined}
   />
 </Translate(RowSwipeable)>
 `;
@@ -202,28 +214,32 @@ exports[`journey methods renders a survey row 1`] = `
 <Translate(JourneyItem)
   item={
     Object {
+      "_type": "answer_sheet",
       "id": "124",
       "text": "124",
-      "type": "survey",
     }
   }
   myId="123"
-  type="survey"
 />
 `;
 
-exports[`journey methods renders a survey row 2`] = `
-<Translate(JourneyItem)
-  item={
-    Object {
-      "id": "124",
-      "text": "124",
-      "type": "stage",
+exports[`journey methods renders an interaction row 1`] = `
+<Translate(RowSwipeable)
+  bump={false}
+  onBumpComplete={undefined}
+  onEdit={[Function]}
+>
+  <Translate(JourneyItem)
+    item={
+      Object {
+        "_type": "interaction",
+        "comment": "123",
+        "id": "123",
+      }
     }
-  }
-  myId="123"
-  type="stage"
-/>
+    myId="123"
+  />
+</Translate(RowSwipeable)>
 `;
 
 exports[`renders with an organization correctly 1`] = `

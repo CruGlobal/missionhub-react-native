@@ -77,6 +77,9 @@ export default {
     youreOffline: 'You\'re currently offline',
     connectToInternet: 'Connect to the internet and you can continue to use MissionHub.',
   },
+  forcedLogout: {
+    message: 'It\'s been a while since you\'ve signed in.\nPlease sign in so we know it\'s you.',
+  },
   settingsMenu: {
     about: 'About',
     help: 'Help',

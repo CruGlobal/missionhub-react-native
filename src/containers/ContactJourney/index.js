@@ -56,7 +56,7 @@ class ContactJourney extends Component {
 
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
-    const text = interaction.type === 'step' ? interaction.note : interaction.text;
+    const text = interaction._type === 'accepted_challenge' ? interaction.note : interaction.comment;
 
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleEditComment,
@@ -68,7 +68,7 @@ class ContactJourney extends Component {
 
   handleEditComment(text) {
     const { editingInteraction } = this.state;
-    const action = editingInteraction.type === 'step' ? updateChallengeNote(editingInteraction, text) : editComment(editingInteraction, text);
+    const action = editingInteraction._type === 'accepted_challenge' ? updateChallengeNote(editingInteraction, text) : editComment(editingInteraction, text);
 
     this.props.dispatch(action).then(() => {
       // Refresh the journey list after editing a comment
@@ -100,9 +100,9 @@ class ContactJourney extends Component {
 
   renderRow({ item }) {
     const { showReminder, myId } = this.props;
-    const content = <JourneyItem item={item} type={item.type} myId={myId} />;
+    const content = <JourneyItem item={item} myId={myId} />;
 
-    if (item.type !== 'survey' && item.type !== 'stage') {
+    if (item._type !== 'answer_sheet' && item._type !== 'pathway_progression_audit') {
       return (
         <RowSwipeable
           key={item.id}
