@@ -49,6 +49,7 @@ matrix:
 
       if: branch = master and type = push
       before_install:
+      - git fetch --unshallow
       - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
       - sudo apt-get install nodejs
       - echo yes | sdkmanager "build-tools;26.0.1" # Android platform required by app
