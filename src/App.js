@@ -20,10 +20,7 @@ import getStore from './store';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin, logout } from './actions/auth';
-import {
-  ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT,
-  NETWORK_REQUEST_FAILED,
-} from './constants';
+import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 
 // TODO: Add loading stuff with redux persist
@@ -109,7 +106,7 @@ class App extends Component {
     const { apiError } = e;
 
     if (apiError) {
-      if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
+      if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
         this.state.store.dispatch(logout(true));
