@@ -117,6 +117,16 @@ describe('StepsScreen', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('renders correctly with max reminders', () => {
+    const reminders = [
+      { id: 11, reminder: true }, { id: 12, reminder: true }, { id: 13, reminder: true },
+    ];
+
+    component = createComponent({ ...propsWithSteps, reminders });
+    component = stopLoad(component);
+    expect(component).toMatchSnapshot();
+  });
+
   describe('Background color changes with scrolling', () => {
     beforeEach(() => {
       component = createComponent(propsWithSteps);
