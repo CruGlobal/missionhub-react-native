@@ -19,16 +19,20 @@ jest.mock('react-native-default-preference', () => ({
 jest.mock('react-native-omniture');
 global.window = {};
 
+const logoutResponse = { type: 'logged out' };
+auth.logout = jest.fn().mockReturnValue(logoutResponse);
+
 jest.mock('react-navigation-redux-helpers', () => ({
   createReduxBoundAddListener: jest.fn(),
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
 
+
+
 jest.mock('../src/store');
 getStore.mockImplementation((callback) => {
   callback(createMockStore());
 });
-auth.logout = jest.fn();
 
 const { youreOffline, connectToInternet } = locale.offline;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;
@@ -57,7 +61,8 @@ it('shows offline alert if network request failed', () => {
 it('should logout if invalid grant', () => {
   const screen = test({ apiError: { error: INVALID_GRANT } });
 
-  expect(screen.instance().state.store.dispatch).toHaveBeenCalledWith(auth.logout(true));
+  expect(auth.logout).toHaveBeenCalledWith(true);
+  expect(screen.instance().state.store.dispatch).toHaveBeenCalledWith(logoutResponse);
 });
 
 it('should not show alert for expired access token', () => {
