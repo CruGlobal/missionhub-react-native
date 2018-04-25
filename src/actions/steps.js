@@ -140,7 +140,7 @@ export function updateChallengeNote(step, note) {
 export function completeStepReminder(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      refreshSteps(dispatch);
+      dispatch(getMySteps());
       dispatch(setStepFocus(step, false));
       return r;
     });
@@ -150,16 +150,9 @@ export function completeStepReminder(step) {
 export function completeStep(step) {
   return (dispatch) => {
     return dispatch(challengeCompleteAction(step)).then((r) => {
-      dispatch(refreshSteps());
+      dispatch(getMySteps());
       return r;
     });
-  };
-}
-
-function refreshSteps() {
-  return (dispatch) => {
-    dispatch(getMySteps());
-    return dispatch(refreshImpact());
   };
 }
 
@@ -180,6 +173,7 @@ function challengeCompleteAction(step) {
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+      dispatch(refreshImpact());
       dispatch(navigatePush(ADD_STEP_SCREEN, {
         type: STEP_NOTE,
         onComplete: (text) => {
