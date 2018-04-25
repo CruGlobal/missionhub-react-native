@@ -49,7 +49,7 @@ it('renders loading on Android correctly', () => {
       {
       ...{
         ...props,
-        steps: [],
+        steps: null,
       }
       }
     />

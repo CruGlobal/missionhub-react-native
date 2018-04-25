@@ -96,7 +96,6 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
               "backgroundColor": "#66D9F0",
               "width": 750,
             },
-            Object {},
           ]
         }
       >
@@ -262,7 +261,6 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
               "backgroundColor": "#66D9F0",
               "width": 750,
             },
-            Object {},
           ]
         }
       >

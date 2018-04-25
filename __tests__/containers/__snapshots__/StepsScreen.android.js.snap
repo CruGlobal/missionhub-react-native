@@ -18,14 +18,14 @@ exports[`renders android correctly 1`] = `
     }
     title="STEPS OF FAITH"
   />
-  <View
+  <Component
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <ScrollViewMock
+    <ScrollView
       contentContainerStyle={
         Array [
           Object {
@@ -71,7 +71,6 @@ exports[`renders android correctly 1`] = `
               "backgroundColor": "#66D9F0",
               "width": 750,
             },
-            Object {},
           ]
         }
       >
@@ -139,13 +138,13 @@ exports[`renders android correctly 1`] = `
         updateCellsBatchingPeriod={50}
         windowSize={21}
       />
-    </ScrollViewMock>
-  </View>
-</View>
+    </ScrollView>
+  </Component>
+</Component>
 `;
 
 exports[`renders loading on Android correctly 1`] = `
-<View
+<Component
   style={
     Object {
       "flex": 1,

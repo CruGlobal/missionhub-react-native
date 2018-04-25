@@ -18,6 +18,7 @@ const dispatch = jest.fn(async() => {});
 
 const store = {
   steps: {
+    mine: true,
     pagination: {
       hasNextPage: true,
     },
@@ -99,7 +100,7 @@ describe('StepsScreen', () => {
   };
 
   it('renders loading screen correctly', () => {
-    component = createComponent(propsWithSteps);
+    component = createComponent({ ...propsWithoutSteps, steps: null });
 
     expect(component).toMatchSnapshot();
   });
