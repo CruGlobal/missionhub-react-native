@@ -8,7 +8,7 @@ import {
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
-  mine: null,
+  mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
   reminders: [],
