@@ -10,7 +10,6 @@ import i18n from './i18n';
 
 import { Crashlytics } from 'react-native-fabric';
 
-import './utils/reactotron'; // This needs to be before the store
 import './utils/globals';
 
 import LoadingScreen from './containers/LoadingScreen';
