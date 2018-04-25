@@ -111,9 +111,6 @@ class App extends Component {
     if (apiError) {
       if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
         return;
-
-      } else if (apiError.error === INVALID_TOKEN) {
-        return;
       } else if (apiError.error === INVALID_GRANT) {
         this.state.store.dispatch(logout(true));
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
