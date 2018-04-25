@@ -27,11 +27,7 @@ jest.mock('react-navigation-redux-helpers', () => ({
 
 import { store } from '../src/store';
 jest.mock('../src/store', () => ({
-  store: { // store is a duplicate of what createMockStore returns but I couldn't get it imported above this mock since mocks are hoisted
-    getState: jest.fn(() => ({})),
-    dispatch: jest.fn((response) => Promise.resolve(response)),
-    subscribe: jest.fn(),
-  },
+  store: require('../testUtils').createMockStore(),
   persistor: {},
 }));
 
