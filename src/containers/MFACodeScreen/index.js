@@ -69,6 +69,7 @@ class MFACodeScreen extends Component {
               blurOnSubmit={true}
               keyboardType="numeric"
               onSubmitEditing={this.completeMfa}
+              autoFocus={true}
             />
           </View>
 

@@ -63,6 +63,7 @@ exports[`login button is clicked shows loading indicator 1`] = `
         Verification Code
       </MyText>
       <Input
+        autoFocus={true}
         blurOnSubmit={true}
         keyboardType="numeric"
         onChangeText={[Function]}
@@ -146,6 +147,7 @@ exports[`renders correctly 1`] = `
         Verification Code
       </MyText>
       <Input
+        autoFocus={true}
         blurOnSubmit={true}
         keyboardType="numeric"
         onChangeText={[Function]}
