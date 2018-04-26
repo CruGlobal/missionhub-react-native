@@ -85,16 +85,6 @@ platform :ios do
   end
 
   lane :cru_build_app do |options|
-
-    begin
-    # if there is a local .env file, move it to a backup.
-      sh('mv -f ../../.env ../../.env.bkup')
-    rescue
-      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
-    end
-
-    sh('cp', '../../.env.production', '../../.env')
-
     gym(
         scheme: "MissionHub",
         export_method: options[:export_method],
@@ -104,14 +94,6 @@ platform :ios do
             }
         }
     )
-
-    # if there is a backup .env file created above, put it back.
-    # don't fail if it isn't there though.
-    begin
-      sh('mv -f ../../.env.bkup ../../.env')
-    rescue
-      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
-    end
   end
 
   lane :cru_fetch_certs do |options|
