@@ -19,7 +19,7 @@ import getStore from './store';
 
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
-import { codeLogin, logout } from './actions/auth';
+import { codeLogin } from './actions/auth';
 import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 
@@ -109,7 +109,7 @@ class App extends Component {
       if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
-        this.state.store.dispatch(logout(true));
+        return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
 
