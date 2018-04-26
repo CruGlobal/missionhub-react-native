@@ -9,12 +9,14 @@ import { Flex, Text, Input, Button } from '../../components/common';
 import { keyLogin } from '../../actions/auth';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { MFA_REQUIRED } from '../../constants';
+import LoadingWheel from '../../components/LoadingWheel';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {
 
   state = {
     mfaCode: '',
+    isLoading: false,
   };
 
   mfaCodeChanged = (mfaCode) => {
@@ -25,11 +27,11 @@ class MFACodeScreen extends Component {
     const { email, password, upgradeAccount } = this.props;
     const { dispatch, t } = this.props;
 
+    this.setState({ isLoading: true });
+
     try {
       await dispatch(keyLogin(email, password, this.state.mfaCode, upgradeAccount));
       Keyboard.dismiss();
-
-      //todo need loading indicator
 
     } catch (error) {
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
@@ -38,6 +40,9 @@ class MFACodeScreen extends Component {
       }
 
       throw error;
+
+    } finally {
+      this.setState({ isLoading: false });
     }
   };
 
@@ -75,6 +80,8 @@ class MFACodeScreen extends Component {
             buttonTextStyle={styles.signInBtnText}
           />
         </Flex>
+
+        {this.state.isLoading ? <LoadingWheel /> : null }
       </PlatformKeyboardAvoidingView>
     );
   }

@@ -59,5 +59,12 @@ describe('login button is clicked', () => {
 
     expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'), i18n.t('ok'));
   });
+
+  it('shows loading indicator', () => { //this test is synchronous on purpose 😁
+    clickLoginButton();
+
+    screen.update();
+    expect(screen).toMatchSnapshot();
+  });
 });
 
