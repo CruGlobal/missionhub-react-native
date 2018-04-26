@@ -60,6 +60,18 @@ describe('login button is clicked', () => {
     expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'), i18n.t('ok'));
   });
 
+  it('it throws unexpected errors', async() => {
+    expect.assertions(1);
+    const error = { apiError: { message: 'some error' } };
+    keyLogin.mockReturnValue(() => Promise.reject(error));
+
+    try {
+      await clickLoginButton();
+    } catch (e) {
+      expect(e).toEqual(error);
+    }
+  });
+
   it('shows loading indicator', () => { //this test is synchronous on purpose 😁
     clickLoginButton();
 
