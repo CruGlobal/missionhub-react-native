@@ -19,7 +19,7 @@ import getStore from './store';
 
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
-import { codeLogin, logout } from './actions/auth';
+import { codeLogin } from './actions/auth';
 import {
   ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, INVALID_TOKEN,
   NETWORK_REQUEST_FAILED,
@@ -115,7 +115,7 @@ class App extends Component {
       } else if (apiError.error === INVALID_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
-        this.state.store.dispatch(logout(true));
+        return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
 
