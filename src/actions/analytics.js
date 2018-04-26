@@ -53,7 +53,7 @@ export function trackState(trackingObj) {
     }
     const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
-    const updatedContext = buildUpdatedContext(newTrackingObj, getState().analytics);
+    const updatedContext = buildUpdatedContext(newTrackingObj, getState);
 
     RNOmniture.trackState(newTrackingObj.name, updatedContext);
 
@@ -61,13 +61,16 @@ export function trackState(trackingObj) {
   };
 }
 
-function buildUpdatedContext(trackingObj, context) {
+function buildUpdatedContext(trackingObj, getState) {
+  const { analytics, auth } = getState();
+
   return {
-    ...context,
+    ...analytics,
     [ANALYTICS.SCREENNAME]: trackingObj.name,
     [ANALYTICS.SITE_SECTION]: trackingObj.section,
     [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
     [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
+    [ANALYTICS.GR_MASTER_PERSON_ID]: auth.person.global_registry_mdm_id,
   };
 }
 
