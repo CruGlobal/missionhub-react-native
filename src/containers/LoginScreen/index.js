@@ -53,7 +53,7 @@ class LoginScreen extends Component {
     this.disableAutoPlay = this.disableAutoPlay.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.trackSplashState(1);
   }
 

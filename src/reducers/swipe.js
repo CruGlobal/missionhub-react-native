@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import {
   LOGOUT,
   SWIPE_REMINDER_STEPS_HOME,
@@ -18,15 +16,6 @@ const initialState = {
 
 function swipeReducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      var incoming = action.payload.swipe;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case SWIPE_REMINDER_STEPS_HOME:
       return { ...state, stepsHome: false };
     case SWIPE_REMINDER_STEPS_CONTACT:
