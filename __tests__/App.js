@@ -58,15 +58,14 @@ it('shows offline alert if network request failed', () => {
   expect(ReactNative.Alert.alert).toHaveBeenCalledWith(youreOffline, connectToInternet, ...lastTwoArgs);
 });
 
-it('should logout if invalid grant', () => {
-  const screen = test({ apiError: { error: INVALID_GRANT } });
-
-  expect(auth.logout).toHaveBeenCalledWith(true);
-  expect(screen.instance().state.store.dispatch).toHaveBeenCalledWith(logoutResponse);
-});
-
 it('should not show alert for expired access token', () => {
   test({ apiError: { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] } });
+
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+});
+
+it('should not show alert for invalid grant', () => {
+  test({ apiError: { error: INVALID_GRANT } });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
