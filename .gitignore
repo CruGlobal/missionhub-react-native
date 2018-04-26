@@ -67,6 +67,5 @@ coverage/
 !mh-test.keystore
 
 .env.default
-.env
 .env.local
 .env.bkup
