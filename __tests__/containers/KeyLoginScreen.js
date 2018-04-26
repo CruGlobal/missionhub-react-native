@@ -9,6 +9,8 @@ import * as auth from '../../src/actions/auth';
 import { trackAction } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
+import { navigatePush } from '../../src/actions/navigation';
+import { MFA_CODE_SCREEN } from '../../src/containers/MFACodeScreen';
 
 let store;
 
@@ -67,6 +69,7 @@ describe('a login button is clicked', () => {
     screen = renderShallow(
       <KeyLoginScreen
         navigation={createMockNavState({ })}
+        upgradeAccount={true}
       />,
       store
     );
@@ -101,11 +104,13 @@ describe('a login button is clicked', () => {
       expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
     };
 
+    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+
     beforeEach(() => {
-      const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+
       screen.setState(credentials);
       auth.keyLogin.mockImplementation((email, password) => {
-        return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+        return email === credentials.email && password === credentials.password ? loginResult : undefined;
       });
 
       trackAction.mockReset();
@@ -162,6 +167,18 @@ describe('a login button is clicked', () => {
 
       expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
+
+    it('sends user to MFA screen if the mfa_required is returned from the Key', async() => {
+      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } }));
+
+      await clickLoginButton();
+
+      expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
+        email: credentials.email,
+        password: credentials.password,
+        upgradeAccount: true,
+      });
+    });
   });
 
   describe('forgot password button is pressed', () => {
@@ -170,7 +187,7 @@ describe('a login button is clicked', () => {
     });
 
     it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, undefined);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, true);
     });
     it('loading wheel to be rendered', () => {
       screen.instance().startLoad();

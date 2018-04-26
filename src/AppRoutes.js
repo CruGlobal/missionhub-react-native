@@ -35,6 +35,8 @@ import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import { MAIN_TABS } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
+import { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+import MFACodeScreen from './containers/MFACodeScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -138,6 +140,7 @@ export const MAIN_TABS_SCREEN = buildTrackedScreen(
 const screens = {
   [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth', 'auth')),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
+  [MFA_CODE_SCREEN]: buildTrackedScreen(MFACodeScreen, buildTrackingObj('auth : verification', 'auth')),
   [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
   [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),
