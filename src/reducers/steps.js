@@ -8,7 +8,7 @@ import {
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
-  mine: [],
+  mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
   reminders: [],
@@ -60,10 +60,12 @@ function stepsReducer(state = initialState, action) {
         }
         return s;
       });
+
       // If we're doing paging, concat the old steps with the new ones
       if (action.query.page && action.query.page.offset > 0) {
-        mySteps = state.mine.concat(mySteps);
+        mySteps = state.mine ? state.mine.concat(mySteps) : mySteps;
       }
+
       return {
         ...state,
         mine: mySteps,

@@ -11,18 +11,18 @@ const interactionsArr = Object.keys(INTERACTION_TYPES).map((key) => INTERACTION_
 @translate('journeyItem')
 export default class JourneyItem extends Component {
   setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+
   renderDate() {
     const { item } = this.props;
-
-    return <DateComponent date={item.date} style={styles.date} format="LL" />;
+    return <DateComponent date={item._type === 'accepted_challenge' ? item.completed_at : item.created_at} style={styles.date} format="LL" />;
   }
 
-  hasOldStage(item) {
-    return item.old_pathway_stage.name;
+  oldStage(item) {
+    return item.old_pathway_stage && item.old_pathway_stage.name;
   }
 
   translatableStage(item) {
-    return { personName: item.personName, oldStage: item.old_pathway_stage.name, newStage: item.new_pathway_stage.name };
+    return { personName: item.person.first_name, oldStage: this.oldStage(item), newStage: item.new_pathway_stage.name };
   }
 
   isSelfPathwayProgressionAudit(item) {
@@ -30,21 +30,21 @@ export default class JourneyItem extends Component {
   }
 
   renderTitle() {
-    const { t, item, type } = this.props;
+    const { t, item, item: { _type } } = this.props;
     let title;
-    if (type === 'step') {
+    if (_type === 'accepted_challenge') {
       const pathwayStage = item.challenge_suggestion && item.challenge_suggestion.pathway_stage && item.challenge_suggestion.pathway_stage.name ?
         ` ${item.challenge_suggestion.pathway_stage.name} ` : ' ';
       title = t('stepTitle', { stageName: pathwayStage });
-    } else if (type === 'stage') {
-      if (item.old_pathway_stage.name) {
+    } else if (_type === 'pathway_progression_audit') {
+      if (this.oldStage(item)) {
         title = t('stageTitle', this.translatableStage(item));
       } else {
         title = item.new_pathway_stage.name;
       }
-    } else if (type === 'survey' && item.survey) {
+    } else if (_type === 'answer_sheet' && item.survey) {
       title = item.survey.title;
-    } else if (type === 'interaction') {
+    } else if (_type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
         //Todo: once comment interactions are separated from "something cool happened" notes, title should always equal t(interaction.interactionKey)
@@ -62,15 +62,15 @@ export default class JourneyItem extends Component {
   }
 
   renderText() {
-    const { t, item, type } = this.props;
+    const { t, item, item: { _type } } = this.props;
     let text;
-    if (type === 'step') {
+    if (_type === 'accepted_challenge') {
       text = item.title;
       if (item.note) {
         text = `${text}\n\n${item.note}`;
       }
-    } else if (type === 'stage') {
-      if (this.hasOldStage(item)) {
+    } else if (_type === 'pathway_progression_audit') {
+      if (this.oldStage(item)) {
         if (this.isSelfPathwayProgressionAudit(item)) {
           text = t('stageTextSelf', this.translatableStage(item));
         } else {
@@ -83,8 +83,8 @@ export default class JourneyItem extends Component {
           text = t('stageStart', this.translatableStage(item));
         }
       }
-    } else {
-      text = item.text;
+    } else if (_type === 'interaction') {
+      text = item.comment;
     }
 
     return (
@@ -95,15 +95,15 @@ export default class JourneyItem extends Component {
   }
 
   renderIcon() {
-    const { item, type } = this.props;
+    const { item, item: { _type } } = this.props;
     let iconType;
-    if (type === 'step') {
+    if (_type === 'accepted_challenge') {
       iconType = 'stepsIcon';
-    } else if (type === 'stage') {
+    } else if (_type === 'pathway_progression_audit') {
       iconType = 'journeyIcon';
-    } else if (type === 'survey') {
+    } else if (_type === 'answer_sheet') {
       iconType = 'surveyIcon';
-    } else if (type === 'interaction') {
+    } else if (_type === 'interaction') {
       const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
       if (interaction) {
         iconType = interaction.iconName;
@@ -125,7 +125,7 @@ export default class JourneyItem extends Component {
   }
 
   renderContent() {
-    if (this.props.type === 'survey') return this.renderSurvey();
+    if (this.props.item._type === 'answer_sheet') return this.renderSurvey();
     return (
       <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
@@ -154,16 +154,12 @@ export default class JourneyItem extends Component {
   }
 
   render() {
-    const { type } = this.props;
     return (
       <Flex
         ref={(c) => this._view = c}
         direction="row"
         align="center"
-        style={[
-          styles.row,
-          type && styles[type] ? styles[type] : null,
-        ]}
+        style={styles.row}
       >
         {this.renderIcon()}
         {this.renderContent()}
@@ -176,9 +172,10 @@ export default class JourneyItem extends Component {
 JourneyItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    _type: PropTypes.oneOf([ 'accepted_challenge', 'pathway_progression_audit', 'answer_sheet', 'interaction' ]),
     text: PropTypes.string,
     title: PropTypes.string,
     completed_at: PropTypes.date,
   }).isRequired,
-  type: PropTypes.oneOf([ 'step', 'stage', 'survey', 'interaction' ]),
+  myId: PropTypes.string.isRequired,
 };

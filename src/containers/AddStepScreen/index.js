@@ -138,7 +138,7 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
-        {type !== STEP_NOTE && type !== 'interaction' ? <BackButton absolute={true} /> : null}
+        {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
       </PlatformKeyboardAvoidingView>
     );
   }

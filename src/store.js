@@ -12,11 +12,6 @@ import rehydrateNavigation from './middleware/rehydrateNavigation';
 
 let myCreateStore = createStore;
 
-// Setup reactotron for development builds
-if (__DEV__) {
-  const Reactotron = require('reactotron-react-native').default;
-  myCreateStore = Reactotron.createStore;
-}
 const navMiddleware = createReactNavigationReduxMiddleware(
   'root',
   (state) => state.nav,
@@ -26,7 +21,9 @@ const navMiddleware = createReactNavigationReduxMiddleware(
 const enhancers = [];
 const middleware = [ thunk, rehydrateNavigation, tracking, steps, navMiddleware ];
 
-const composedEnhancers = compose(
+const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const storeEnhancers = composeEnhancers(
   applyMiddleware(...middleware),
   ...enhancers
 );
@@ -46,7 +43,7 @@ export default function getStore(onCompletion) {
   const store = myCreateStore(
     reducers,
     {},
-    composedEnhancers,
+    storeEnhancers,
   );
   persistStore(store, { storage: AsyncStorage, transforms: [ myTransform ] }, () => {
     onCompletion(store);
