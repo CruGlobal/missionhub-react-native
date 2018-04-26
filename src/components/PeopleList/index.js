@@ -101,8 +101,6 @@ export default class PeopleList extends Component {
       return (
         <ScrollView
           style={styles.sectionWrap}
-          bounces={true}
-          scrollEnabled={true}
           refreshControl={<RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
