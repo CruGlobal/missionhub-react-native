@@ -1,11 +1,13 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Alert } from 'react-native';
 
 import { renderShallow } from '../../testUtils';
 import MFACodeScreen from '../../src/containers/MFACodeScreen';
 import { keyLogin } from '../../src/actions/auth';
 import { MFA_REQUIRED } from '../../src/constants';
+import i18n from '../../src/i18n';
 
 jest.mock('../../src/actions/auth');
 
@@ -50,12 +52,12 @@ describe('login button is clicked', () => {
   });
 
   it('shows error modal if mfa code is incorrect', async() => {
+    Alert.alert = jest.fn();
     keyLogin.mockReturnValue(() => Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }));
 
     await clickLoginButton();
 
-    screen.update();
-    expect(screen).toMatchSnapshot();
+    expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'), i18n.t('ok'));
   });
 });
 

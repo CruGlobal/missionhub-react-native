@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
@@ -15,7 +15,6 @@ class MFACodeScreen extends Component {
 
   state = {
     mfaCode: '',
-    errorMessage: '',
   };
 
   mfaCodeChanged = (mfaCode) => {
@@ -34,28 +33,19 @@ class MFACodeScreen extends Component {
 
     } catch (error) {
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
-        return this.setState({ errorMessage: t('mfaIncorrect') });
+        Alert.alert(t('mfaIncorrect'), t('ok'));
+        return;
       }
 
       throw error;
     }
   };
 
-  renderErrorMessage() {
-    return (
-      <View style={styles.errorBar}>
-        <Text style={styles.errorMessage}>{this.state.errorMessage}</Text>
-      </View>
-    );
-  }
-
   render() {
     const { t } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView>
-        {this.state.errorMessage ? this.renderErrorMessage() : null }
-
         <Flex justify="center" value={1} style={styles.container}>
 
           <Text type="header" style={styles.mfaHeader}>{t('mfaLogin:mfaHeader').toLowerCase()}</Text>
