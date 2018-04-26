@@ -123,6 +123,7 @@ class AddStepScreen extends Component {
             value={this.state.step}
             multiline={true}
             autoFocus={true}
+            autoCorrect={true}
             selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
