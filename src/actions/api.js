@@ -80,6 +80,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         APILOG('REQUEST ERROR', action.name, err);
         const { apiError } = err;
 
+        //TODO: use in new api
         if (apiError) {
           if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
             if (authState.refreshToken) {
@@ -117,6 +118,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
           type: action.SUCCESS,
         });
 
+        // TODO: add to new api
         if (response.sessionHeader) {
           dispatch({
             type: UPDATE_TOKEN,

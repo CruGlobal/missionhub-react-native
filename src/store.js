@@ -3,30 +3,38 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer, createTransform } from 'redux-persist';
 import getStoredStateMigrateV4 from 'redux-persist/lib/integration/getStoredStateMigrateV4';
+import { offline } from '@redux-offline/redux-offline';
+import offlineConfig from '@redux-offline/redux-offline/lib/defaults';
 import jsan from 'jsan';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 
 import reducers from './reducers';
 import tracking from './middleware/tracking';
 import steps from './middleware/steps';
+import { offlineEffect } from './api/new';
 
 const navMiddleware = createReactNavigationReduxMiddleware(
   'root',
   (state) => state.nav,
 );
 
-// Setup enhancers and middleware
-const enhancers = [];
-const middleware = [ thunk, tracking, steps, navMiddleware ];
-
 const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const storeEnhancers = composeEnhancers(
-  applyMiddleware(...middleware),
-  ...enhancers
+const enhancers = composeEnhancers(
+  applyMiddleware(
+    thunk,
+    tracking,
+    steps,
+    navMiddleware,
+  ),
+  offline({
+    ...offlineConfig,
+    persist: false,
+    effect: offlineEffect,
+  }),
 );
 
-let myTransform = createTransform(
+const myTransform = createTransform(
   // transform state coming from redux on its way to being serialized and stored
   (inboundState) => {
     return jsan.stringify(inboundState);
@@ -47,7 +55,7 @@ const persistConfig = {
 export const store = createStore(
   persistReducer(persistConfig, reducers),
   {},
-  storeEnhancers,
+  enhancers,
 );
 
 export const persistor = persistStore(store);

@@ -157,5 +157,19 @@ export function loadHome() {
     dispatch(updateLocaleAndTimezone());
     dispatch(reregisterNotificationHandler());
     dispatch(resetPerson());
+
+    dispatch({
+      type: 'TEST_OFFLINE_REQUEST',
+      meta: {
+        offline: {
+          // the network action to execute:
+          effect: { route: REQUESTS.GET_ME },
+          // action to dispatch when effect succeeds:
+          commit: { type: 'FOLLOW_USER_COMMIT', meta: { } },
+          // action to dispatch if network action fails permanently:
+          rollback: { type: 'FOLLOW_USER_ROLLBACK', meta: { } },
+        },
+      },
+    });
   };
 }
