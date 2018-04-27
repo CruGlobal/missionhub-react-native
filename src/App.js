@@ -95,9 +95,7 @@ export default class App extends Component {
     const { apiError } = e;
 
     if (apiError) {
-      if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
-        return;
-      } else if (apiError.error === INVALID_GRANT) {
+      if (apiError.error === INVALID_GRANT || (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN)) {
         return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
