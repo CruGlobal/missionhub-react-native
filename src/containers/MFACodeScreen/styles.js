@@ -2,22 +2,13 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 import { isiPhoneX } from '../../utils/common';
 
+const marginTop = isiPhoneX() ? 50 : 25;
+
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
     paddingHorizontal: 40,
-  },
-  errorBar: {
-    backgroundColor: '#FF5532',
-    height: isiPhoneX() ? 85 : 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorMessage: {
-    color: theme.white,
-    fontSize: 16,
-    marginTop: isiPhoneX() ? 25 : 0,
   },
   label: {
     color: theme.secondaryColor,
@@ -38,6 +29,14 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 32,
     letterSpacing: .25,
+  },
+  backButton: {
+    marginLeft: 5,
+    marginTop,
+  },
+  doneButton: {
+    marginRight: 10,
+    marginTop,
   },
   image: {
     width: 80,

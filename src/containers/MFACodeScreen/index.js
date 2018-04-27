@@ -10,6 +10,7 @@ import { keyLogin } from '../../actions/auth';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { MFA_REQUIRED } from '../../constants';
 import LoadingWheel from '../../components/LoadingWheel';
+import BackButton from '../BackButton';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {
@@ -51,6 +52,17 @@ class MFACodeScreen extends Component {
 
     return (
       <PlatformKeyboardAvoidingView>
+        <Flex direction="row" justify="between" align="center">
+          <BackButton style={styles.backButton} />
+
+          <Button
+            text={t('done').toUpperCase()}
+            type="transparent"
+            onPress={this.completeMfa}
+            style={styles.doneButton}
+          />
+        </Flex>
+
         <Flex justify="center" value={1} style={styles.container}>
 
           <Text type="header" style={styles.mfaHeader}>{t('mfaLogin:mfaHeader').toLowerCase()}</Text>
@@ -72,14 +84,6 @@ class MFACodeScreen extends Component {
               autoFocus={true}
             />
           </View>
-
-          <Button
-            text={t('done').toUpperCase()}
-            type="transparent"
-            onPress={this.completeMfa}
-            style={styles.signInButton}
-            buttonTextStyle={styles.signInBtnText}
-          />
         </Flex>
 
         {this.state.isLoading ? <LoadingWheel /> : null }

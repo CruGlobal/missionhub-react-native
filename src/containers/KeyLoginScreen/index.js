@@ -95,20 +95,25 @@ class KeyLoginScreen extends Component {
 
       } else if (apiError['thekey_authn_error'] === 'email_unverified') {
         errorMessage = i18n.t('keyLogin:verifyEmailMessage');
+
       } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
-        return dispatch(navigatePush(MFA_CODE_SCREEN, { email, password, upgradeAccount }));
+        dispatch(navigatePush(MFA_CODE_SCREEN, { email, password, upgradeAccount }));
+        this.setState({ email: '', password: '' });
+        return;
       }
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
-        this.setState({ errorMessage, isLoading: false });
+        this.setState({ errorMessage });
 
       } else {
         action = ACTIONS.SYSTEM_ERROR;
-        this.setState({ isLoading: false });
       }
 
       dispatch(trackAction(action));
+
+    } finally {
+      this.setState({ isLoading: false });
     }
   };
 

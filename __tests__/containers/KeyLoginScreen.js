@@ -123,8 +123,8 @@ describe('a login button is clicked', () => {
       expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
     });
 
-    it('loading wheel appears', async() => {
-      await clickLoginButton();
+    it('loading wheel appears', () => {
+      clickLoginButton();
 
       screen.update();
       expect(screen).toMatchSnapshot();
@@ -168,15 +168,24 @@ describe('a login button is clicked', () => {
       expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
 
-    it('sends user to MFA screen if the mfa_required is returned from the Key', async() => {
-      auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } }));
+    describe('mfa_required is returned from the Key', () => {
+      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } })))
 
-      await clickLoginButton();
+      it('should send user to MFA screen', async() => {
+        await clickLoginButton();
 
-      expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
-        email: credentials.email,
-        password: credentials.password,
-        upgradeAccount: true,
+        expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
+          email: credentials.email,
+          password: credentials.password,
+          upgradeAccount: true,
+        });
+      });
+
+      it('should clear username and password', async() => {
+        await clickLoginButton();
+
+        screen.update();
+        expect(screen).toMatchSnapshot();
       });
     });
   });

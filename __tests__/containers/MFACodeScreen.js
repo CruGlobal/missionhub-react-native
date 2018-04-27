@@ -40,7 +40,7 @@ it('renders correctly', () => {
 });
 
 describe('login button is clicked', () => {
-  const clickLoginButton = () => screen.childAt(0).childAt(3).props().onPress();
+  const clickLoginButton = () => screen.childAt(0).childAt(1).props().onPress();
 
   it('logs in with email, password, mfa code, and upgrade account', async() => {
     const mockKeyLoginResult = { type: 'logged in with the Key' };
