@@ -7,9 +7,7 @@ import Enzyme from 'enzyme/build/index';
 import App from '../src/App';
 import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from '../src/constants';
 import * as auth from '../src/actions/auth';
-import getStore from '../src/store';
 import locale from '../src/i18n/locales/en-US';
-import { createMockStore } from '../testUtils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -27,12 +25,10 @@ jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
 
-
-
-jest.mock('../src/store');
-getStore.mockImplementation((callback) => {
-  callback(createMockStore());
-});
+jest.mock('../src/store', () => ({
+  store: require('../testUtils').createMockStore(),
+  persistor: {},
+}));
 
 const { youreOffline, connectToInternet } = locale.offline;
 const { error, unexpectedErrorMessage, baseErrorMessage, ADD_NEW_PERSON } = locale.error;

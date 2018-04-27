@@ -58,6 +58,29 @@ it('renders step note correctly', () => {
   );
 });
 
+it('renders interaction without skip correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'interaction',
+        hideSkip: true,
+      })} />
+    </Provider>
+  );
+});
+
+it('renders interaction with skip correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <AddStepScreen navigation={createMockNavState({
+        onComplete: () => {},
+        type: 'interaction',
+        hideSkip: false,
+      })} />
+    </Provider>
+  );
+});
 
 describe('add step methods', () => {
   let component;

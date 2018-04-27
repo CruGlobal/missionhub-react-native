@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { REQUESTS } from '../actions/api';
 import {
   LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT,
@@ -8,7 +6,7 @@ import {
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
-  mine: [],
+  mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
   reminders: [],
@@ -35,15 +33,6 @@ export function getPagination(state, action, steps) {
 
 function stepsReducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      var incoming = action.payload.steps;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case FILTERED_CHALLENGES:
       return {
         ...state,
@@ -60,10 +49,12 @@ function stepsReducer(state = initialState, action) {
         }
         return s;
       });
+
       // If we're doing paging, concat the old steps with the new ones
       if (action.query.page && action.query.page.offset > 0) {
-        mySteps = state.mine.concat(mySteps);
+        mySteps = state.mine ? state.mine.concat(mySteps) : mySteps;
       }
+
       return {
         ...state,
         mine: mySteps,

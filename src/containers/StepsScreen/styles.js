@@ -33,8 +33,6 @@ export default StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  topItems: {
-  },
   list: {
     overflow: 'scroll',
     backgroundColor: theme.white,

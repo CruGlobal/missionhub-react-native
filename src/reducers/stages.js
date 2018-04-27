@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { REQUESTS } from '../actions/api';
 import { LOGOUT } from '../constants';
 
@@ -10,15 +8,6 @@ const initialStagesState = {
 
 function stagesReducer(state = initialStagesState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      var incoming = action.payload.stages;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case REQUESTS.GET_STAGES.SUCCESS:
       const stages = action.results.findAll('pathway_stage') || [];
       const stagesObj = stages.reduce((p, n) => {

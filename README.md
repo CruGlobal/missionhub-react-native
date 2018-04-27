@@ -30,7 +30,6 @@ Plugins:
 
 - Open the `ios/MissionHub.xcodeproj` file with Xcode
 - Run the MissionHub scheme on a simulator or connected device
-- Set environment config in `.env` (you'll probably want to copy `.env.staging`).
 
 #### For Android:
 
@@ -47,7 +46,7 @@ You must run the application in in Dev mode to see logs.
 
 You can use the built in Chrome Debugger for a lot of things by shaking the device and selecting **Debug JS Remotely**.
 
-You can also install [reactotron](https://github.com/infinitered/reactotron) to see a lot of detail remotely through that application. It will automatically find your device when you run the app.
+You can also install the [React Native Debugger](https://github.com/jhen0409/react-native-debugger) to see a lot of detail remotely through that application. It will automatically find your device when you run the app.
 
 You can enable **Hot Reloading** by shaking the device and enabling it from there.
 
