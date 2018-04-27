@@ -38,6 +38,10 @@ export default StyleSheet.create({
     marginRight: 10,
     marginTop,
   },
+  doneButtonText: {
+    fontSize: 14,
+    letterSpacing: 2,
+  },
   image: {
     width: 80,
     height: 80,

@@ -169,7 +169,7 @@ describe('a login button is clicked', () => {
     });
 
     describe('mfa_required is returned from the Key', () => {
-      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } })))
+      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } })));
 
       it('should send user to MFA screen', async() => {
         await clickLoginButton();

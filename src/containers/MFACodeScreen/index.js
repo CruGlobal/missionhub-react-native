@@ -60,6 +60,7 @@ class MFACodeScreen extends Component {
             type="transparent"
             onPress={this.completeMfa}
             style={styles.doneButton}
+            buttonTextStyle={styles.doneButtonText}
           />
         </Flex>
 

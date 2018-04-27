@@ -16,6 +16,12 @@ exports[`login button is clicked shows loading indicator 1`] = `
       }
     />
     <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+          "letterSpacing": 2,
+        }
+      }
       onPress={[Function]}
       style={
         Object {
@@ -120,6 +126,12 @@ exports[`renders correctly 1`] = `
       }
     />
     <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+          "letterSpacing": 2,
+        }
+      }
       onPress={[Function]}
       style={
         Object {
