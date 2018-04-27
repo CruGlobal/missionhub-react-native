@@ -27,7 +27,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 10,
     color: theme.white,
-    lineHeight: 32,
+    lineHeight: 24,
     letterSpacing: .25,
   },
   backButton: {

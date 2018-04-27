@@ -71,7 +71,7 @@ exports[`login button is clicked shows loading indicator 1`] = `
           "color": "#ffffff",
           "fontSize": 16,
           "letterSpacing": 0.25,
-          "lineHeight": 32,
+          "lineHeight": 24,
           "paddingVertical": 10,
           "textAlign": "center",
         }
@@ -181,7 +181,7 @@ exports[`renders correctly 1`] = `
           "color": "#ffffff",
           "fontSize": 16,
           "letterSpacing": 0.25,
-          "lineHeight": 32,
+          "lineHeight": 24,
           "paddingVertical": 10,
           "textAlign": "center",
         }
