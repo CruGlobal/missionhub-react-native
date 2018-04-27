@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   fieldsWrap: {
-    paddingTop: 50,
+    paddingVertical: 50,
     paddingHorizontal: 25,
   },
   label: {

@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -22,16 +20,6 @@ const initialAnalyticsState = {
 
 function analyticsReducer(state = initialAnalyticsState, action) {
   switch (action.type) {
-    case REHYDRATE:
-      const incoming = action.payload.analytics;
-
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case ANALYTICS_CONTEXT_CHANGED:
       return {
         ...state,

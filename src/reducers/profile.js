@@ -1,4 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
 import { LOGOUT, FIRST_NAME_CHANGED, LAST_NAME_CHANGED } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -11,15 +10,6 @@ function profileReducer(state = initialProfileState, action) {
   const results = action.results;
 
   switch (action.type) {
-    case REHYDRATE:
-      const incoming = action.payload.profile;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case FIRST_NAME_CHANGED:
       return {
         ...state,

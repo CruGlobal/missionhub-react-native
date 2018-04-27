@@ -53,7 +53,7 @@ class LoginScreen extends Component {
     this.disableAutoPlay = this.disableAutoPlay.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.trackSplashState(1);
   }
 
@@ -148,15 +148,14 @@ class LoginScreen extends Component {
               autoplayDelay={0}
               autoplayInterval={3000}
             />
+            <Image
+              source={LANDSCAPE}
+              style={[
+                styles.footerImage,
+                { left: leftMargin },
+              ]}
+            />
           </Flex>
-          <Image
-            resizeMode="contain"
-            source={LANDSCAPE}
-            style={[
-              styles.footerImage,
-              { left: leftMargin },
-            ]}
-          />
           <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
             <Flex direction="column" self="stretch" align="center">
               <Button

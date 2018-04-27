@@ -123,6 +123,7 @@ class AddStepScreen extends Component {
             value={this.state.step}
             multiline={true}
             autoFocus={true}
+            autoCorrect={true}
             selectionColor={theme.white}
             returnKeyType="done"
             blurOnSubmit={true}
@@ -138,7 +139,7 @@ class AddStepScreen extends Component {
             style={styles.createButton}
           />
         </Flex>
-        {type !== STEP_NOTE && type !== 'interaction' ? <BackButton absolute={true} /> : null}
+        {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
       </PlatformKeyboardAvoidingView>
     );
   }
