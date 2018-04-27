@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import {
-  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, MAIN_TABS, NAVIGATE_FORWARD,
+  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
   NAVIGATE_RESET,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
@@ -9,7 +9,6 @@ import * as analytics from '../../src/actions/analytics';
 import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
-import { REHYDRATE } from 'redux-persist/constants';
 import { buildTrackingObj } from '../../src/utils/common';
 
 const mockStore = configureStore([ tracking ]);
@@ -116,16 +115,6 @@ describe('navigate reset', () => {
     test(tracking);
   });
 });
-
-describe('rehydrate', () => {
-  it('tracks navigation payload', () => {
-    store = mockStore();
-    navigationAction = { type: REHYDRATE, payload: { navigation: { routes: [ { routeName: MAIN_TABS } ] } } };
-
-    test(buildTrackingObj('steps', 'steps'));
-  });
-});
-
 
 it('tracks previous screenname when navigating back', () => {
   const prevScreenName = 'prev screen';

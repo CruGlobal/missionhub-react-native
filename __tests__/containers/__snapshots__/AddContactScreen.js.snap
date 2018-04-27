@@ -13,24 +13,26 @@ exports[`renders correctly 1`] = `
     shadow={false}
     title="ADD SOMEONE"
   />
-  <Connect(Translate(AddContactFields))
-    onUpdateData={[Function]}
-  />
-  <Flex
-    align="stretch"
-    justify="end"
-    value={1}
-  >
-    <Button
-      onPress={[Function]}
-      style={
-        Object {
-          "width": 750,
-        }
+  <ScrollView
+    style={
+      Object {
+        "flex": 1,
       }
-      text="DONE"
-      type="secondary"
+    }
+  >
+    <Connect(Translate(AddContactFields))
+      onUpdateData={[Function]}
     />
-  </Flex>
+  </ScrollView>
+  <Button
+    onPress={[Function]}
+    style={
+      Object {
+        "width": 750,
+      }
+    }
+    text="DONE"
+    type="secondary"
+  />
 </PlatformKeyboardAvoidingView>
 `;

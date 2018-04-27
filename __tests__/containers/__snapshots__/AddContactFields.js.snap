@@ -8,7 +8,7 @@ exports[`renders casey view correctly 1`] = `
   style={
     Object {
       "paddingHorizontal": 25,
-      "paddingTop": 50,
+      "paddingVertical": 50,
     }
   }
 >
@@ -75,7 +75,7 @@ exports[`renders jean view correctly 1`] = `
   style={
     Object {
       "paddingHorizontal": 25,
-      "paddingTop": 50,
+      "paddingVertical": 50,
     }
   }
 >

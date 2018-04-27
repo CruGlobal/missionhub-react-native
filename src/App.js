@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
 import { Alert } from 'react-native';
+// eslint-disable-next-line import/default
+import codePush from 'react-native-code-push';
+import Config from 'react-native-config';
 
+import { store, persistor } from './store';
 import i18n from './i18n';
 
 import { Crashlytics } from 'react-native-fabric';
@@ -13,42 +18,32 @@ import { Crashlytics } from 'react-native-fabric';
 import './utils/globals';
 
 import LoadingScreen from './containers/LoadingScreen';
-
-import getStore from './store';
-
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin, logout } from './actions/auth';
 import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
+import { initialRoute } from './actions/navigationInit';
+import { navigateReset } from './actions/navigation';
 
-// TODO: Add loading stuff with redux persist
-class App extends Component {
+@codePush({ deploymentKey: isAndroid ? Config.CODEPUSH_ANDROID_KEY : Config.CODEPUSH_IOS_KEY })
+export default class App extends Component {
   showingErrorModal = false;
-
   state = {
-    store: null,
     appState: AppState.currentState,
   };
 
   constructor(props) {
     super(props);
-
-    this.handleAppStateChange = this.handleAppStateChange.bind(this);
-  }
-
-  componentWillMount() {
-    getStore((store) => {
-      this.setState({ store });
-      this.checkOldAppToken();
-    });
-  }
-
-  componentDidMount() {
-    this.initializeAnalytics();
     this.initializeErrorHandling();
-    AppState.addEventListener('change', this.handleAppStateChange);
   }
+
+  onBeforeLift = () => {
+    this.checkOldAppToken();
+    store.dispatch(navigateReset(initialRoute(store.getState())));
+    this.initializeAnalytics();
+    AppState.addEventListener('change', this.handleAppStateChange);
+  };
 
   checkOldAppToken() {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
@@ -57,7 +52,7 @@ class App extends Component {
     const getKey = (key) => {
       DefaultPreference.get(key).then((value) => {
         if (value) {
-          this.state.store.dispatch(codeLogin(value)).then(() => {
+          store.dispatch(codeLogin(value)).then(() => {
             // If we successfully logged in with the user's guest code, clear it out now
             DefaultPreference.clear(key);
           }).catch(() => {
@@ -77,19 +72,14 @@ class App extends Component {
   }
 
   initializeAnalytics() { //TODO add tests
-    if (this.state && this.state.store) {
-      this.collectLifecycleData();
+    this.collectLifecycleData();
 
-      this.dispatchAnalyticsContextUpdate({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language });
+    this.dispatchAnalyticsContextUpdate({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language });
 
-      RNOmniture.loadMarketingCloudId((result) => {
-        const updatedContext = { [ANALYTICS.MCID]: result };
-        this.dispatchAnalyticsContextUpdate(updatedContext);
-      });
-    }
-    else {
-      setTimeout(this.initializeAnalytics.bind(this), 50);
-    }
+    RNOmniture.loadMarketingCloudId((result) => {
+      const updatedContext = { [ANALYTICS.MCID]: result };
+      this.dispatchAnalyticsContextUpdate(updatedContext);
+    });
   }
 
   initializeErrorHandling() {
@@ -108,7 +98,7 @@ class App extends Component {
       if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
         return;
       } else if (apiError.error === INVALID_GRANT) {
-        this.state.store.dispatch(logout(true));
+        store.dispatch(logout(true));
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
 
@@ -157,40 +147,37 @@ class App extends Component {
   };
 
   dispatchAnalyticsContextUpdate(context) {
-    this.state.store.dispatch(updateAnalyticsContext(context));
+    store.dispatch(updateAnalyticsContext(context));
   }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
-  handleAppStateChange(nextAppState) {
+  handleAppStateChange = (nextAppState) => {
     if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
       this.collectLifecycleData();
     }
 
     this.setState({ appState: nextAppState });
-  }
+  };
 
   collectLifecycleData() {
-    if (this.state.store) {
-      RNOmniture.collectLifecycleData(this.state.store.getState().analytics);
-    }
+    RNOmniture.collectLifecycleData(store.getState().analytics);
   }
 
   render() {
-    if (!this.state.store) {
-      return <LoadingScreen />;
-    }
-
     return (
-      <Provider store={this.state.store}>
-        <I18nextProvider i18n={ i18n }>
-          <AppWithNavigationState />
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <PersistGate
+            loading={<LoadingScreen />}
+            onBeforeLift={this.onBeforeLift}
+            persistor={persistor}>
+            <AppWithNavigationState />
+          </PersistGate>
         </I18nextProvider>
       </Provider>
     );
   }
 }
-
-export default App;

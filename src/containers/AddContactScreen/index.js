@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -8,7 +9,7 @@ import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import styles from './styles';
-import { Flex, Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
+import { Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackAction } from '../../actions/analytics';
@@ -96,16 +97,16 @@ class AddContactScreen extends Component {
           shadow={false}
           title={person ? t('editPerson').toUpperCase() : orgName ? t('addToOrg', { orgName }) : t('addSomeone').toUpperCase()}
         />
-        <AddContactFields person={person} isJean={isJean} onUpdateData={this.handleUpdateData} />
+        <ScrollView style={styles.container}>
+          <AddContactFields person={person} isJean={isJean} onUpdateData={this.handleUpdateData} />
+        </ScrollView>
 
-        <Flex value={1} align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.savePerson}
-            text={t('done').toUpperCase()}
-            style={styles.button}
-          />
-        </Flex>
+        <Button
+          type="secondary"
+          onPress={this.savePerson}
+          text={t('done').toUpperCase()}
+          style={styles.button}
+        />
       </PlatformKeyboardAvoidingView>
     );
   }

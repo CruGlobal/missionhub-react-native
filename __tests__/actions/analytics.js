@@ -18,6 +18,7 @@ jest.mock('react-native-omniture', () => {
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
 const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
+const grMasterPersonId = '686fb90b-0ae8-4b0a-8e62-f7437f425c59';
 let context = {
   [ANALYTICS.SCREENNAME]: screenName,
 };
@@ -37,6 +38,9 @@ beforeEach(() => {
 
   store = mockStore({
     analytics: context,
+    auth: {
+      person: { global_registry_mdm_id: grMasterPersonId },
+    },
   });
 });
 
@@ -83,6 +87,7 @@ describe('trackState', () => {
       [ANALYTICS.SITE_SUB_SECTION_3]: level3,
       [ANALYTICS.MCID]: mcId,
       [ANALYTICS.SSO_GUID]: ssoGuid,
+      [ANALYTICS.GR_MASTER_PERSON_ID]: grMasterPersonId,
     };
 
     trackingObj = { name: newScreenName, section: section, subsection: subsection, level3: level3 };
