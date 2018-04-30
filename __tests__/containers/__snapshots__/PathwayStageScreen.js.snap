@@ -109,44 +109,32 @@ exports[`renders back button correctly 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    />
-  </View>
+  />
   <Image
     resizeMode="contain"
     source={
@@ -187,44 +175,32 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    />
-  </View>
+  />
   <Image
     resizeMode="contain"
     source={
@@ -265,44 +241,32 @@ exports[`renders firstItem correctly 1`] = `
     ]
   }
 >
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    />
-  </View>
+  />
   <Image
     resizeMode="contain"
     source={

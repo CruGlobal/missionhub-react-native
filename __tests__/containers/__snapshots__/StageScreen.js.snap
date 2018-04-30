@@ -109,46 +109,34 @@ exports[`StageScreen renders correctly with back button 1`] = `
       </View>
     </View>
   </View>
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    >
-      Roger, which stage best describes where you are on your journey?
-    </Text>
-  </View>
+    Roger, which stage best describes where you are on your journey?
+  </Text>
   <Image
     resizeMode="contain"
     source={
@@ -189,46 +177,34 @@ exports[`StageScreen renders correctly without back button 1`] = `
     ]
   }
 >
-  <View
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
         },
       ]
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
-            "fontWeight": "500",
-            "paddingBottom": 25,
-            "paddingHorizontal": 30,
-            "paddingTop": 45,
-            "textAlign": "center",
-            "width": 650,
-          },
-        ]
-      }
-    >
-      Roger, which stage best describes where you are on your journey?
-    </Text>
-  </View>
+    Roger, which stage best describes where you are on your journey?
+  </Text>
   <Image
     resizeMode="contain"
     source={
