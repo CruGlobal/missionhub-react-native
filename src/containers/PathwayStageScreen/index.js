@@ -120,7 +120,7 @@ class PathwayStageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
-        <Flex value={0} align="center" justify="center">
+        <Flex align="center" justify="center">
           <Text style={styles.title}>
             {this.props.questionText}
           </Text>

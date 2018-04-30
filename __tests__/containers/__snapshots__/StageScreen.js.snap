@@ -112,12 +112,9 @@ exports[`StageScreen renders correctly with back button 1`] = `
   <View
     style={
       Array [
-        Object {
-          "marginVertical": 125,
-        },
+        Object {},
         Object {
           "alignItems": "center",
-          "flex": 1,
           "justifyContent": "center",
         },
       ]
@@ -195,12 +192,9 @@ exports[`StageScreen renders correctly without back button 1`] = `
   <View
     style={
       Array [
-        Object {
-          "marginVertical": 125,
-        },
+        Object {},
         Object {
           "alignItems": "center",
-          "flex": 1,
           "justifyContent": "center",
         },
       ]
