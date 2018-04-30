@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -36,15 +36,6 @@ class AddStepScreen extends Component {
   componentWillUnmount() {
     if (this.props.type === STEP_NOTE) {
       disableBack.remove();
-    }
-  }
-
-  onChangeText = (text) => {
-    if (text.length > 255) {
-      const { t } = this.props;
-      Alert.alert(t('tooLong'));
-    } else {
-      this.setState({ step: text });
     }
   }
 
@@ -128,7 +119,7 @@ class AddStepScreen extends Component {
         <Flex value={1} style={styles.fieldWrap}>
           <Input
             ref={(c) => this.stepInput = c}
-            onChangeText={this.onChangeText}
+            onChangeText={(t) => this.setState({ step: t })}
             value={this.state.step}
             multiline={true}
             autoFocus={true}
