@@ -148,6 +148,7 @@ export default {
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
     createStep: 'Create your own step...',
+    loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Steps of Faith',
   },
   selectStage: {

@@ -261,104 +261,204 @@ exports[`renders correctly 1`] = `
       style={null}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+            },
+          ]
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits="button"
+          accessible={true}
+          collapsable={undefined}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "borderBottomColor": "#E6E8EC",
-                "borderBottomWidth": 1,
-                "borderTopColor": "#E6E8EC",
-                "borderTopWidth": 1,
-              },
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
-              },
-            ]
+            Object {
+              "alignSelf": "stretch",
+              "opacity": 1,
+            }
           }
+          testID={undefined}
+          tvParallaxProperties={undefined}
         >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
+          <View
             style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "borderBottomColor": "#E6E8EC",
+                  "borderBottomWidth": 1,
+                  "borderTopColor": "#E6E8EC",
+                  "borderTopWidth": 1,
                 },
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={false}
+              ellipsizeMode="tail"
+              style={
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 40,
+                      "margin": 15,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
                   },
                   Object {
-                    "fontSize": 18,
+                    "fontFamily": "SourceSansPro-Regular",
                   },
                   Object {
-                    "color": "#52C5DC",
-                    "fontSize": 40,
-                    "margin": 15,
+                    "flex": 1,
+                    "fontSize": 16,
+                    "paddingHorizontal": 15,
+                    "paddingVertical": 5,
                   },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
+                ]
+              }
+            >
+              Create your own step...
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits="button"
+          accessible={true}
+          collapsable={undefined}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
             }
-          >
-            
-          </Text>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#52C5DC",
+                  "borderWidth": 1,
+                  "height": 48,
+                  "width": 670,
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "flex": 1,
-                  "fontSize": 16,
-                  "paddingHorizontal": 15,
-                  "paddingVertical": 5,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            Create your own step...
-          </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "letterSpacing": 2,
+                      "lineHeight": 24,
+                    },
+                  ],
+                ]
+              }
+            >
+              LOAD MORE STEPS
+            </Text>
+          </View>
         </View>
       </View>
     </View>

@@ -31,10 +31,6 @@ class SelectStepScreen extends Component {
       addedSteps: [],
       contact: null,
     };
-
-    this.handleSelectStep = this.handleSelectStep.bind(this);
-    this.handleCreateStep = this.handleCreateStep.bind(this);
-    this.saveAllSteps = this.saveAllSteps.bind(this);
   }
 
   componentWillMount() {
@@ -61,12 +57,12 @@ class SelectStepScreen extends Component {
     return this.state.steps.filter((s) => s.selected);
   }
 
-  handleSelectStep(item) {
+  handleSelectStep = (item) => {
     const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
     this.setState({ steps });
-  }
+  };
 
-  handleCreateStep() {
+  handleCreateStep = () => {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
     }
@@ -98,14 +94,18 @@ class SelectStepScreen extends Component {
     }));
 
     this.props.dispatch(trackState(this.props.createStepTracking));
-  }
+  };
 
-  saveAllSteps() {
+  handleLoadMoreSteps = () => {
+    console.log('load more steps');
+  };
+
+  saveAllSteps = () => {
     const selectedSteps = this.filterSelected();
 
     this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
       .then(() => this.props.onComplete());
-  }
+  };
 
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
@@ -168,8 +168,10 @@ class SelectStepScreen extends Component {
             personFirstName={this.props.personFirstName}
             items={this.state.steps}
             createStepText={t('createStep')}
+            loadMoreStepsText={t('loadMoreSteps')}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
+            onLoadMoreSteps={this.handleLoadMoreSteps}
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}

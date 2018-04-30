@@ -28,7 +28,9 @@ exports[`SelectStepScreen should render correctly 1`] = `
     <StepsList
       createStepText="Create your own step..."
       items={Array []}
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
@@ -153,7 +155,9 @@ exports[`renderBackButton should render back button 1`] = `
           },
         ]
       }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
@@ -199,7 +203,9 @@ exports[`renderSaveButton should not render save button 1`] = `
           },
         ]
       }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
@@ -241,7 +247,9 @@ exports[`renderSaveButton should render save button 1`] = `
           },
         ]
       }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>

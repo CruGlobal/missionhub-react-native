@@ -20,4 +20,17 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
+  loadMoreStepsButton: {
+    backgroundColor: theme.white,
+    height: 48,
+    width: theme.fullWidth - 80,
+    borderColor: theme.secondaryColor,
+    borderWidth: theme.buttonBorderWidth,
+  },
+  loadMoreStepsButtonText: {
+    color: theme.secondaryColor,
+    fontSize: 14,
+    letterSpacing: 2,
+    lineHeight: 24,
+  },
 });
