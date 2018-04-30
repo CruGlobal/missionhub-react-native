@@ -1,10 +1,5 @@
 apply plugin: "com.android.application"
 
-project.ext.envConfigFiles = [
-        debug: ".env.staging",
-        release: ".env.production",
-]
-
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
@@ -84,6 +79,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 buildscript {
     repositories {
@@ -107,7 +103,7 @@ repositories {
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = false
+def enableSeparateBuildPerCPUArchitecture = true
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
@@ -176,9 +172,10 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-device-info')
+    compile project(':react-native-code-push')
     compile project(':react-native-config')
     compile project(':react-native-default-preference')
+    compile project(':react-native-device-info')
     compile project(':react-native-fabric')
     compile project(':react-native-fbsdk')
     compile project(':react-native-omniture')

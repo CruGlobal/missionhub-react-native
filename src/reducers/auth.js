@@ -1,5 +1,3 @@
-import { REHYDRATE } from 'redux-persist/constants';
-
 import { FIRST_TIME, LOGOUT, UPDATE_STAGES, UPDATE_TOKEN } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -16,15 +14,6 @@ function authReducer(state = initialAuthState, action) {
   const results = action.results;
 
   switch (action.type) {
-    case REHYDRATE:
-      const incoming = action.payload.auth;
-      if (incoming) {
-        return {
-          ...state,
-          ...incoming,
-        };
-      }
-      return state;
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,

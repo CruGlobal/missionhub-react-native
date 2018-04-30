@@ -4,10 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    // flex: 1,
-    paddingTop: 20,
-    backgroundColor: theme.primaryColor,
-    paddingHorizontal: 30,
+    flex: 1,
   },
   button: {
     width: theme.fullWidth,

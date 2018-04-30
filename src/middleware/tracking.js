@@ -3,7 +3,6 @@ import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import { CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD, NAVIGATE_RESET } from '../constants';
-import { REHYDRATE } from 'redux-persist/constants';
 import { buildTrackingObj } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
@@ -41,10 +40,6 @@ export default function tracking({ dispatch, getState }) {
 
       case NAVIGATE_RESET:
         newAction = trackRoute(action.actions[0]);
-        break;
-
-      case REHYDRATE:
-        newAction = trackRoute(action.payload.navigation.routes[0]);
         break;
     }
 

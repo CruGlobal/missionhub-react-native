@@ -32,25 +32,7 @@ platform :android do
   end
 
   lane :cru_build_app do
-
-    begin
-      # if there is a local .env file, move it to a backup.
-      sh('mv -f ../../.env ../../.env.bkup')
-    rescue
-      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
-    end
-
-    sh('cp', '../../.env.production', '../../.env')
-
     gradle(task: "clean assembleRelease")
-
-    # if there is a backup .env file created above, put it back.
-    # don't fail if it isn't there though.
-    begin
-      sh('mv -f ../../.env.bkup ../../.env')
-    rescue
-      puts "The droid (file) we were looking for wasn't there. We can go about our business... Move along.."
-    end
   end
 
   lane :cru_notify_users do |options|
