@@ -68,7 +68,7 @@ exports[`renders correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
@@ -347,7 +347,7 @@ exports[`renders edit journey correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
@@ -712,7 +712,7 @@ exports[`renders interaction with skip correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
@@ -991,7 +991,7 @@ exports[`renders interaction without skip correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
@@ -1270,7 +1270,7 @@ exports[`renders journey correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
@@ -1635,7 +1635,7 @@ exports[`renders step note correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      autoCorrect={false}
+      autoCorrect={true}
       autoFocus={true}
       blurOnSubmit={true}
       multiline={true}
