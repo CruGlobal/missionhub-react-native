@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import styles from './styles';
 import { Flex, Text, Input, Button } from '../../components/common';
@@ -8,6 +9,7 @@ import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoid
 import LoadingWheel from '../../components/LoadingWheel';
 import BackButton from '../../containers/BackButton';
 
+@translate('mfaLogin')
 export default class MFACodeComponent extends Component {
   render() {
     const { t, onSubmit, onChangeText, isLoading, value } = this.props;
@@ -29,18 +31,18 @@ export default class MFACodeComponent extends Component {
 
         <Flex justify="center" value={1} style={container}>
 
-          <Text type="header" style={mfaHeader}>{t('mfaLogin:mfaHeader').toLowerCase()}</Text>
+          <Text type="header" style={mfaHeader}>{t('mfaHeader').toLowerCase()}</Text>
 
-          <Text style={mfaDescription}>{t('mfaLogin:mfaDescription')}</Text>
+          <Text style={mfaDescription}>{t('mfaDescription')}</Text>
 
           <View>
-            <Text style={label}>{t('mfaLogin:mfaLabel')}</Text>
+            <Text style={label}>{t('mfaLabel')}</Text>
 
             <Input
               onChangeText={onChangeText}
               value={value}
               returnKeyType="done"
-              placeholder={t('mfaLogin:mfaLabel')}
+              placeholder={t('mfaLabel')}
               placeholderTextColor="white"
               blurOnSubmit={true}
               keyboardType="numeric"
@@ -61,5 +63,4 @@ MFACodeComponent.propTypes = {
   value: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  t: PropTypes.func.isRequired,
 };

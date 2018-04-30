@@ -1,31 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`changes text 1`] = `
-<MFACodeComponent
+<Translate(MFACodeComponent)
   isLoading={false}
   onChangeText={[Function]}
   onSubmit={[Function]}
-  t={[Function]}
   value="new text"
 />
 `;
 
 exports[`onSubmit changes loading property 1`] = `
-<MFACodeComponent
+<Translate(MFACodeComponent)
   isLoading={true}
   onChangeText={[Function]}
   onSubmit={[Function]}
-  t={[Function]}
   value=""
 />
 `;
 
 exports[`renders correctly 1`] = `
-<MFACodeComponent
+<Translate(MFACodeComponent)
   isLoading={false}
   onChangeText={[Function]}
   onSubmit={[Function]}
-  t={[Function]}
   value=""
 />
 `;

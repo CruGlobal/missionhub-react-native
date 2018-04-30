@@ -44,11 +44,9 @@ class MFACodeScreen extends Component {
   };
 
   render() {
-    const { t } = this.props;
     const { mfaCode, isLoading } = this.state;
 
     return <MFACodeComponent
-      t={t}
       onChangeText={this.mfaCodeChanged}
       value={mfaCode}
       onSubmit={this.completeMfa}

@@ -10,7 +10,6 @@ it('renders loading', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={true}
-      t={jest.fn((key) => key)}
     />
   );
 });
@@ -22,7 +21,6 @@ it('renders not loading', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={false}
-      t={jest.fn((key) => key)}
     />
   );
 });
@@ -36,7 +34,6 @@ it('calls onChangeText prop', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={true}
-      t={jest.fn((key) => key)}
     />
   ).childAt(1).childAt(2).childAt(1).props().onChangeText();
 
@@ -52,7 +49,6 @@ it('submits when DONE button is pressed', () => {
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
-      t={jest.fn((key) => key)}
     />
   ).childAt(0).childAt(1).props().onPress();
 
@@ -68,7 +64,6 @@ it('submits when done on keyboard is pressed', () => {
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
-      t={jest.fn((key) => key)}
     />
   ).childAt(1).childAt(2).childAt(1).props().onSubmitEditing();
 
