@@ -2,6 +2,7 @@ import { AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer, createTransform } from 'redux-persist';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import getStoredStateMigrateV4 from 'redux-persist/lib/integration/getStoredStateMigrateV4';
 import jsan from 'jsan';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
@@ -40,6 +41,7 @@ let myTransform = createTransform(
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  stateReconciler: autoMergeLevel2,
   transforms: [ myTransform ],
   getStoredState: getStoredStateMigrateV4({ storage: AsyncStorage, transforms: [ myTransform ] }),
 };
