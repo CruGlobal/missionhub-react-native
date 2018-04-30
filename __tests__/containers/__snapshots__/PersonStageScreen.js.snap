@@ -16,23 +16,12 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -78,6 +67,16 @@ exports[`renders correctly 1`] = `
       Which stage best describes where Test is on their journey?
     </Text>
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
   <View
     style={
       Array [
@@ -171,5 +170,26 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;

@@ -16,23 +16,12 @@ exports[`renders back button correctly 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -76,6 +65,16 @@ exports[`renders back button correctly 1`] = `
       }
     />
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
   <View
     style={
       Array [
@@ -169,6 +168,27 @@ exports[`renders back button correctly 1`] = `
       </View>
     </View>
   </View>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;
 
@@ -188,23 +208,12 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -248,6 +257,37 @@ exports[`renders correctly 1`] = `
       }
     />
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;
 
@@ -267,23 +307,12 @@ exports[`renders firstItem correctly 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -327,5 +356,36 @@ exports[`renders firstItem correctly 1`] = `
       }
     />
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;

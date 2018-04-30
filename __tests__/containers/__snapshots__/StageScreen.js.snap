@@ -16,23 +16,12 @@ exports[`StageScreen renders correctly with back button 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -78,6 +67,16 @@ exports[`StageScreen renders correctly with back button 1`] = `
       Roger, which stage best describes where you are on your journey?
     </Text>
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
   <View
     style={
       Array [
@@ -171,6 +170,27 @@ exports[`StageScreen renders correctly with back button 1`] = `
       </View>
     </View>
   </View>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;
 
@@ -190,23 +210,12 @@ exports[`StageScreen renders correctly without back button 1`] = `
     ]
   }
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/landscapeStagesImage.png",
-      }
-    }
+  <View
     style={
       Array [
+        Object {},
         Object {
-          "bottom": -20,
-          "height": 340.875,
-          "position": "absolute",
-          "width": 3710,
-        },
-        Object {
-          "left": -120,
+          "flex": 0.2,
         },
       ]
     }
@@ -252,5 +261,36 @@ exports[`StageScreen renders correctly without back button 1`] = `
       Roger, which stage best describes where you are on your journey?
     </Text>
   </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 0.2,
+        },
+      ]
+    }
+  />
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
 </View>
 `;
