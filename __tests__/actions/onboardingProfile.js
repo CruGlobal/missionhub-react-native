@@ -14,6 +14,7 @@ import {
   RESET_ONBOARDING_PERSON,
 } from '../../src/constants';
 import callApi, { REQUESTS } from '../../src/actions/api';
+
 jest.mock('../../src/actions/api');
 
 const dispatch = jest.fn((response) => Promise.resolve(response));

@@ -1,11 +1,11 @@
-jest.mock('../../src/actions/api');
-
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
 import callApi, { REQUESTS } from '../../src/actions/api';
 import { getJourney, reloadJourney } from '../../src/actions/journey';
+
+jest.mock('../../src/actions/api');
 
 const mockStore = configureStore([ thunk ]);
 
