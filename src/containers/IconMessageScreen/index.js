@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
+
+import styles from './styles';
 
 class IconMessageScreen extends Component {
   render() {

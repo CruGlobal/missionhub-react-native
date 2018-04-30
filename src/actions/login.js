@@ -1,10 +1,12 @@
 import { Crashlytics } from 'react-native-fabric';
-import { getMe } from './person';
-import { navigateReset } from './navigation';
-import { logInAnalytics } from './analytics';
+
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
+
+import { getMe } from './person';
+import { navigateReset } from './navigation';
+import { logInAnalytics } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
 export function onSuccessfulLogin() {

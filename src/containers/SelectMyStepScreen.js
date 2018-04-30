@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import SelectStepScreen from './SelectStepScreen';
+
 import { buildTrackingObj, getFourRandomItems } from '../utils/common';
+
+import SelectStepScreen from './SelectStepScreen';
 
 @translate('selectStep')
 class SelectMyStepScreen extends Component {

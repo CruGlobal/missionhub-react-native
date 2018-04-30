@@ -3,12 +3,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import PersonStageScreen from '../../src/containers/PersonStageScreen';
 import { testSnapshot, createMockNavState, createMockStore, renderShallow } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import * as selectStage from '../../src/actions/selectStage';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';

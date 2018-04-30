@@ -2,9 +2,10 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
+import { Provider } from 'react-redux';
+
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
-import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 import { trackAction } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';

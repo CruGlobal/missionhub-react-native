@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Keyboard, View, Image } from 'react-native';
 import { translate } from 'react-i18next';
-import styles from './styles';
+
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } from '../../components/common';
 import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
@@ -14,6 +14,8 @@ import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
 import i18n from '../../i18n';
+
+import styles from './styles';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {

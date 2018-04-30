@@ -5,9 +5,10 @@ import thunk from 'redux-thunk';
 
 // Note: test renderer must be required after react-native.
 
+import { Provider } from 'react-redux';
+
 import * as navigation from '../../src/actions/navigation';
 import ContactJourney from '../../src/containers/ContactJourney';
-import { Provider } from 'react-redux';
 import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils';
 
 const personId = '123';

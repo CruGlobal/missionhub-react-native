@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
-import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import { ImpactView, mapStateToProps } from '../../src/containers/ImpactView';
 
 const dispatch = jest.fn((response) => Promise.resolve(response));

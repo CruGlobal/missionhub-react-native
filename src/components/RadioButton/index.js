@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
-import styles from './styles';
 import { Touchable, Flex, Text } from '../common';
+
+import styles from './styles';
 
 export default class RadioButton extends Component {
   render() {

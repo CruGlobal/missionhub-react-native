@@ -2,10 +2,11 @@ import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
-import request from './utils';
-import apiRoutes from './routes';
 import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
+
+import request from './utils';
+import apiRoutes from './routes';
 
 const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
 

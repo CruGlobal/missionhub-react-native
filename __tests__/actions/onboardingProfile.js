@@ -1,3 +1,5 @@
+import { Crashlytics } from 'react-native-fabric';
+
 import {
   firstNameChanged,
   lastNameChanged,
@@ -11,7 +13,6 @@ import {
   FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
 } from '../../src/constants';
-import { Crashlytics } from 'react-native-fabric';
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 

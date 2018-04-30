@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { ACTIONS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 import { trackAction } from './analytics';
 import { refreshImpact } from './impact';
 

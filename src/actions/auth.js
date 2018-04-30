@@ -1,24 +1,27 @@
+import Buffer from 'buffer';
+
+import base64url from 'base64-url';
+import { sha256 } from 'js-sha256';
+import { Linking } from 'react-native';
+import randomString from 'random-string';
+import i18next from 'i18next';
+
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
+import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
+import { THE_KEY_URL } from '../api/utils';
+import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
-
 import { reregisterNotificationHandler, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { logOutAnalytics } from './analytics';
 import { onSuccessfulLogin } from './login';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
-import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
-import base64url from 'base64-url';
-import { sha256 } from 'js-sha256';
-import { Linking } from 'react-native';
-import Buffer from 'buffer';
-import { THE_KEY_URL } from '../api/utils';
-import randomString from 'random-string';
 import { getAssignedOrganizations } from './organizations';
-import i18next from 'i18next';
 import { resetPerson } from './onboardingProfile';
-import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return (dispatch) => {

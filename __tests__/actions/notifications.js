@@ -28,6 +28,7 @@ import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 import { getPersonDetails } from '../../src/actions/person';
+
 jest.mock('../../src/actions/person');
 import { PushNotificationIOS } from 'react-native';
 import i18next from 'i18next';

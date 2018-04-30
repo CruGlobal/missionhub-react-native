@@ -1,6 +1,7 @@
+import { NavigationActions } from 'react-navigation';
+
 import nav from '../../src/reducers/nav';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
-import { NavigationActions } from 'react-navigation';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
 describe('navReducer', () => {

@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/onboardingProfile';
 import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
+
+import styles from './styles';
 
 @translate('setup')
 class SetupScreen extends Component {

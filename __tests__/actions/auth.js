@@ -1,6 +1,9 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
+import MockDate from 'mockdate';
+import { Linking } from 'react-native';
+
 import * as callApi from '../../src/actions/api';
 import * as constants from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
@@ -13,9 +16,7 @@ import * as stages from '../../src/actions/stages';
 import * as notifications from '../../src/actions/notifications';
 import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
-import MockDate from 'mockdate';
 import { LOGIN_OPTIONS_SCREEN } from '../../src/containers/LoginOptionsScreen';
-import { Linking } from 'react-native';
 import { OPEN_URL } from '../../src/constants';
 import { getTimezoneString } from '../../src/actions/auth';
 import { refreshAnonymousLogin } from '../../src/actions/auth';

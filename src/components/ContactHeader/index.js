@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Linking } from 'react-native';
-import i18next from '../../i18n';
+import { connect } from 'react-redux';
 
+import i18next from '../../i18n';
 import { Flex, Text, IconButton } from '../common';
-import styles from './styles';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
 import { trackAction } from '../../actions/analytics';
-import { connect } from 'react-redux';
+
+import styles from './styles';
 
 export const PERSON_STEPS = buildTrackingObj('people : person : steps', 'people', 'person', 'steps');
 export const SELF_STEPS = buildTrackingObj('people : self : steps', 'people', 'self', 'steps');

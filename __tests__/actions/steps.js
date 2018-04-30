@@ -1,3 +1,7 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import i18next from 'i18next';
+
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
@@ -7,15 +11,13 @@ import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
 import {
   ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER,
   CUSTOM_STEP_TYPE,
 } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
-import i18next from 'i18next';
+
 
 const mockStore = configureStore([ thunk ]);
 let store;

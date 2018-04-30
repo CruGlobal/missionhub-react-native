@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+
 import { updateUserStage, selectPersonStage } from '../../src/actions/selectStage';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import { refreshImpact } from '../../src/actions/impact';

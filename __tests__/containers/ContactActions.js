@@ -6,9 +6,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 // Note: test renderer must be required after react-native.
+import { Provider } from 'react-redux';
+
 import * as navigation from '../../src/actions/navigation';
 import * as interactions from '../../src/actions/interactions';
-import { Provider } from 'react-redux';
 import { createMockNavState, testSnapshot } from '../../testUtils';
 import { ContactActions } from '../../src/containers/ContactActions';
 

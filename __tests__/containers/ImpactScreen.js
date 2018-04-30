@@ -3,10 +3,11 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
+import MockDate from 'mockdate';
+
 import { createMockStore } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
 import { testSnapshot } from '../../testUtils';
-import MockDate from 'mockdate';
 
 const store = createMockStore({
   impact: {

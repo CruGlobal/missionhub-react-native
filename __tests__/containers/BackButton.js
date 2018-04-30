@@ -2,10 +2,11 @@ import React from 'react';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 
 // Note: test renderer must be required after react-native.
-import { BackButton } from '../../src/containers/BackButton';
-import { createMockStore } from '../../testUtils/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
+
+import { BackButton } from '../../src/containers/BackButton';
+import { createMockStore } from '../../testUtils/index';
 import * as navigation from '../../src/actions/navigation';
 import IconButton from '../../src/components/IconButton';
 

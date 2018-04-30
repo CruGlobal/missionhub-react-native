@@ -4,7 +4,6 @@ import React from 'react';
 
 import { ContactSideMenu, mapStateToProps } from '../src/components/ContactSideMenu';
 import { renderShallow, testSnapshotShallow } from '../testUtils';
-
 import { ADD_CONTACT_SCREEN } from '../src/containers/AddContactScreen';
 import { navigatePush, navigateBack } from '../src/actions/navigation';
 import { updateFollowupStatus, createContactAssignment, deleteContactAssignment } from '../src/actions/person';

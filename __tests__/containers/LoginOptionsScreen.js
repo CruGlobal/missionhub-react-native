@@ -2,9 +2,10 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
+import { Provider } from 'react-redux';
+
 import LoginOptionsScreen from '../../src/containers/LoginOptionsScreen';
 import { createMockStore, testSnapshot, createMockNavState, renderShallow } from '../../testUtils';
-import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 
 let store;

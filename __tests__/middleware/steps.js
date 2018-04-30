@@ -1,4 +1,5 @@
 import configureStore from 'redux-mock-store';
+
 import { REQUESTS } from '../../src/actions/api';
 import steps from '../../src/middleware/steps';
 import { FILTERED_CHALLENGES } from '../../src/constants';

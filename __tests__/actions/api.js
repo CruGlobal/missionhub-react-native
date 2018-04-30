@@ -1,6 +1,7 @@
-import callApi, { REQUESTS } from '../../src/actions/api';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+
+import callApi, { REQUESTS } from '../../src/actions/api';
 import API_CALLS from '../../src/api';
 import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, UPDATE_TOKEN } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';

@@ -6,6 +6,7 @@ import {
 import callApi, { REQUESTS } from '../../src/actions/api';
 jest.mock('../../src/actions/api');
 import * as analytics from '../../src/actions/analytics';
+
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 

@@ -10,7 +10,6 @@ import ContactNotes from '../../containers/ContactNotes';
 import ContactActions from '../../containers/ContactActions';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
-
 import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
