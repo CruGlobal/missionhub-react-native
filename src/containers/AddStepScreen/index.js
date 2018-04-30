@@ -137,6 +137,7 @@ class AddStepScreen extends Component {
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
+            maxLength={255}
           />
         </Flex>
 
