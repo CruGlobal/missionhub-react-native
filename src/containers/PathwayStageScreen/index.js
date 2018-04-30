@@ -119,6 +119,7 @@ class PathwayStageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
+        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
         <Flex value={1} align="center" justify="center" style={{ marginVertical: 125 }}>
           <Text style={styles.title}>
             {this.props.questionText}
@@ -140,15 +141,14 @@ class PathwayStageScreen extends Component {
             ) : null
           }
         </Flex>
-        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
-        {<Image
+        <Image
           resizeMode="contain"
           source={LANDSCAPE}
           style={[
             styles.footerImage,
             { left: leftMargin },
           ]}
-        />}
+        />
       </Flex>
     );
   }
