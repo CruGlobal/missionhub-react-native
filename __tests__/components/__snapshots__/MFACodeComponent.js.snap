@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  enabled={true}
+  keyboardVerticalOffset={0}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="between"
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+          "letterSpacing": 2,
+        }
+      }
+      onPress={[MockFunction]}
+      style={
+        Object {
+          "marginRight": 10,
+          "marginTop": 25,
+        }
+      }
+      text="DONE"
+      type="transparent"
+    />
+  </Flex>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "paddingHorizontal": 40,
+      }
+    }
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+          "letterSpacing": 2,
+          "lineHeight": 32,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      mfalogin:mfaheader
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "letterSpacing": 0.25,
+          "lineHeight": 24,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      mfaLogin:mfaDescription
+    </MyText>
+    <Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        mfaLogin:mfaLabel
+      </MyText>
+      <Input
+        autoFocus={true}
+        blurOnSubmit={true}
+        keyboardType="numeric"
+        onChangeText={[MockFunction]}
+        onSubmitEditing={[MockFunction]}
+        placeholder="mfaLogin:mfaLabel"
+        placeholderTextColor="white"
+        returnKeyType="done"
+        value="Roge"
+      />
+    </Component>
+  </Flex>
+  <LoadingWheel />
+</KeyboardAvoidingView>
+`;
+
+exports[`renders not loading 1`] = `
+<KeyboardAvoidingView
+  behavior="padding"
+  enabled={true}
+  keyboardVerticalOffset={0}
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="between"
+  >
+    <Connect(BackButton)
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 25,
+        }
+      }
+    />
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+          "letterSpacing": 2,
+        }
+      }
+      onPress={[MockFunction]}
+      style={
+        Object {
+          "marginRight": 10,
+          "marginTop": 25,
+        }
+      }
+      text="DONE"
+      type="transparent"
+    />
+  </Flex>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "paddingHorizontal": 40,
+      }
+    }
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+          "letterSpacing": 2,
+          "lineHeight": 32,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      mfalogin:mfaheader
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "letterSpacing": 0.25,
+          "lineHeight": 24,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      mfaLogin:mfaDescription
+    </MyText>
+    <Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        mfaLogin:mfaLabel
+      </MyText>
+      <Input
+        autoFocus={true}
+        blurOnSubmit={true}
+        keyboardType="numeric"
+        onChangeText={[MockFunction]}
+        onSubmitEditing={[MockFunction]}
+        placeholder="mfaLogin:mfaLabel"
+        placeholderTextColor="white"
+        returnKeyType="done"
+        value="Roge"
+      />
+    </Component>
+  </Flex>
+</KeyboardAvoidingView>
+`;

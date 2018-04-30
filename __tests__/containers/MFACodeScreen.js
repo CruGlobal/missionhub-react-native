@@ -39,8 +39,15 @@ it('renders correctly', () => {
   expect(screen).toMatchSnapshot();
 });
 
-describe('login button is clicked', () => {
-  const clickLoginButton = () => screen.childAt(0).childAt(1).props().onPress();
+it('changes text', () => {
+  screen.props().onChangeText('new text');
+
+  screen.update();
+  expect(screen).toMatchSnapshot();
+});
+
+describe('onSubmit', () => {
+  const clickLoginButton = () => screen.props().onSubmit();
 
   it('logs in with email, password, mfa code, and upgrade account', async() => {
     const mockKeyLoginResult = { type: 'logged in with the Key' };
@@ -72,7 +79,7 @@ describe('login button is clicked', () => {
     }
   });
 
-  it('shows loading indicator', () => { //this test is synchronous on purpose 😁
+  it('changes loading property', () => { //this test is synchronous on purpose 😁
     clickLoginButton();
 
     screen.update();

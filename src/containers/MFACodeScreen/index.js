@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { View, Keyboard, Alert } from 'react-native';
+import { Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
-import { Flex, Text, Input, Button } from '../../components/common';
 import { keyLogin } from '../../actions/auth';
-import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { MFA_REQUIRED } from '../../constants';
-import LoadingWheel from '../../components/LoadingWheel';
-import BackButton from '../BackButton';
+import MFACodeComponent from '../../components/MFACodeComponent';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {
@@ -49,47 +45,15 @@ class MFACodeScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const { mfaCode, isLoading } = this.state;
 
-    return (
-      <PlatformKeyboardAvoidingView>
-        <Flex direction="row" justify="between" align="center">
-          <BackButton style={styles.backButton} />
-
-          <Button
-            text={t('done').toUpperCase()}
-            type="transparent"
-            onPress={this.completeMfa}
-            style={styles.doneButton}
-            buttonTextStyle={styles.doneButtonText}
-          />
-        </Flex>
-
-        <Flex justify="center" value={1} style={styles.container}>
-
-          <Text type="header" style={styles.mfaHeader}>{t('mfaLogin:mfaHeader').toLowerCase()}</Text>
-
-          <Text style={styles.mfaDescription}>{t('mfaLogin:mfaDescription')}</Text>
-
-          <View>
-            <Text style={styles.label}>{t('mfaLogin:mfaLabel')}</Text>
-
-            <Input
-              onChangeText={this.mfaCodeChanged}
-              value={this.state.mfaCode}
-              returnKeyType="done"
-              placeholder={t('mfaLogin:mfaLabel')}
-              placeholderTextColor="white"
-              blurOnSubmit={true}
-              keyboardType="numeric"
-              onSubmitEditing={this.completeMfa}
-              autoFocus={true}
-            />
-          </View>
-        </Flex>
-
-        {this.state.isLoading ? <LoadingWheel /> : null }
-      </PlatformKeyboardAvoidingView>
-    );
+    return <MFACodeComponent
+      t={t}
+      onChangeText={this.mfaCodeChanged}
+      value={mfaCode}
+      onSubmit={this.completeMfa}
+      isLoading={isLoading}
+    />;
   }
 }
 
