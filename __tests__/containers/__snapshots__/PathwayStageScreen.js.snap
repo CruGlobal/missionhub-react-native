@@ -19,17 +19,9 @@ exports[`renders back button correctly 1`] = `
   <View
     style={
       Array [
-        Object {},
         Object {
-          "flex": 0.2,
+          "marginVertical": 125,
         },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -65,16 +57,6 @@ exports[`renders back button correctly 1`] = `
       }
     />
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.2,
-        },
-      ]
-    }
-  />
   <View
     style={
       Array [
@@ -211,17 +193,9 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Array [
-        Object {},
         Object {
-          "flex": 0.2,
+          "marginVertical": 125,
         },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -257,16 +231,6 @@ exports[`renders correctly 1`] = `
       }
     />
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.2,
-        },
-      ]
-    }
-  />
   <Image
     resizeMode="contain"
     source={
@@ -310,17 +274,9 @@ exports[`renders firstItem correctly 1`] = `
   <View
     style={
       Array [
-        Object {},
         Object {
-          "flex": 0.2,
+          "marginVertical": 125,
         },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -356,16 +312,6 @@ exports[`renders firstItem correctly 1`] = `
       }
     />
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.2,
-        },
-      ]
-    }
-  />
   <Image
     resizeMode="contain"
     source={

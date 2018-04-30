@@ -19,17 +19,9 @@ exports[`StageScreen renders correctly with back button 1`] = `
   <View
     style={
       Array [
-        Object {},
         Object {
-          "flex": 0.2,
+          "marginVertical": 125,
         },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -67,16 +59,6 @@ exports[`StageScreen renders correctly with back button 1`] = `
       Roger, which stage best describes where you are on your journey?
     </Text>
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.2,
-        },
-      ]
-    }
-  />
   <View
     style={
       Array [
@@ -213,17 +195,9 @@ exports[`StageScreen renders correctly without back button 1`] = `
   <View
     style={
       Array [
-        Object {},
         Object {
-          "flex": 0.2,
+          "marginVertical": 125,
         },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {},
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -261,16 +235,6 @@ exports[`StageScreen renders correctly without back button 1`] = `
       Roger, which stage best describes where you are on your journey?
     </Text>
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 0.2,
-        },
-      ]
-    }
-  />
   <Image
     resizeMode="contain"
     source={

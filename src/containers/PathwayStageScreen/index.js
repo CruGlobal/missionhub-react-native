@@ -119,8 +119,7 @@ class PathwayStageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex value={.2} />
-        <Flex value={1} align="center" justify="center">
+        <Flex value={1} align="center" justify="center" style={{ marginVertical: 125 }}>
           <Text style={styles.title}>
             {this.props.questionText}
           </Text>
@@ -141,7 +140,6 @@ class PathwayStageScreen extends Component {
             ) : null
           }
         </Flex>
-        <Flex value={.2} />
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
         {<Image
           resizeMode="contain"
