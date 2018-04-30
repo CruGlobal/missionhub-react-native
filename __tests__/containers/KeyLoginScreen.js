@@ -7,7 +7,7 @@ import { createMockNavState, createMockStore, renderShallow, testSnapshot } from
 import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 import { trackAction } from '../../src/actions/analytics';
-import { ACTIONS } from '../../src/constants';
+import { ACTIONS, MFA_REQUIRED } from '../../src/constants';
 import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 import { navigatePush } from '../../src/actions/navigation';
 import { MFA_CODE_SCREEN } from '../../src/containers/MFACodeScreen';
@@ -169,7 +169,7 @@ describe('a login button is clicked', () => {
     });
 
     describe('mfa_required is returned from the Key', () => {
-      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: 'mfa_required' } })));
+      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } })));
 
       it('should send user to MFA screen', async() => {
         await clickLoginButton();
