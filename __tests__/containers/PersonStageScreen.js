@@ -1,8 +1,6 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
-
-// Note: test renderer must be required after react-native.
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 

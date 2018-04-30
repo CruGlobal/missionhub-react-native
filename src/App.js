@@ -12,10 +12,7 @@ import { Crashlytics } from 'react-native-fabric';
 
 import { store, persistor } from './store';
 import i18n from './i18n';
-
-
 import './utils/globals';
-
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';

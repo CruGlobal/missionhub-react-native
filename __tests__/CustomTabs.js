@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';

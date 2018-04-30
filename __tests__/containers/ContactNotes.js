@@ -1,7 +1,5 @@
 import ReactNative from 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
