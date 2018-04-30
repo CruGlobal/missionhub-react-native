@@ -63,6 +63,15 @@ it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async() => {
   return test({ refreshToken: 'refresh' }, auth, refreshRequest, invalidGrantError, 'logout', [ true ], { type: 'logged out' }, {}, refreshTokenData);
 });
 
+it('should not logout if invalid_grant is returned and request wasn\'t KEY_REFRESH_TOKEN', async() => {
+  auth.logout = jest.fn();
+  store = mockStore({ auth: { ...mockAuthState } });
+
+  mockFnWithParams(API_CALLS, getMeRequest.name, Promise.reject({ apiError: invalidGrantError }), accessTokenQuery, {});
+
+  expect(auth.logout).not.toHaveBeenCalled();
+});
+
 it('should update token if present in response', async() => {
   store = mockStore({ auth: { ...mockAuthState } });
   const newToken = 'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
