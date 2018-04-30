@@ -120,7 +120,7 @@ class PathwayStageScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
-        <Flex value={1} align="center" justify="center" style={{ marginVertical: 125 }}>
+        <Flex value={0} align="center" justify="center">
           <Text style={styles.title}>
             {this.props.questionText}
           </Text>
@@ -137,6 +137,7 @@ class PathwayStageScreen extends Component {
                 onScroll={this.handleScroll}
                 scrollEventThrottle={5}
                 onSnapToItem={this.handleSnapToItem}
+                containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
               />
             ) : null
           }
