@@ -30,6 +30,7 @@ export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
 
 export const STEP_NOTE = 'stepNote';
+export const CREATE_STEP = 'createStep';
 
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
