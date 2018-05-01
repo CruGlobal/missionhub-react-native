@@ -135,6 +135,550 @@ exports[`renders back button correctly 1`] = `
       ]
     }
   />
+  <RCTScrollView
+    activeAnimationOptions={null}
+    activeAnimationType="timing"
+    activeSlideAlignment="center"
+    activeSlideOffset={20}
+    apparitionDelay={0}
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayDelay={5000}
+    autoplayInterval={3000}
+    callbackOffsetMargin={5}
+    collapsable={undefined}
+    containerCustomStyle={
+      Object {
+        "flex": 0,
+        "flexGrow": 0,
+        "height": 400,
+      }
+    }
+    contentContainerCustomStyle={Object {}}
+    contentContainerStyle={
+      Array [
+        Object {},
+        Object {
+          "paddingLeft": 72.5,
+          "paddingRight": 72.5,
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "description": "Stage 1 description",
+          "id": 1,
+          "name": "Stage 1",
+        },
+        Object {
+          "description": "Stage 2 description",
+          "id": 2,
+          "name": "Stage 2",
+        },
+        Object {
+          "description": "Stage 3 description",
+          "id": 3,
+          "name": "Stage 3",
+        },
+      ]
+    }
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    disableVirtualization={false}
+    enableMomentum={false}
+    enableSnap={true}
+    firstItem={0}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={undefined}
+    hasParallaxImages={false}
+    horizontal={true}
+    inactiveSlideOpacity={1}
+    inactiveSlideScale={1}
+    inactiveSlideShift={0}
+    initialNumToRender={7}
+    initialScrollIndex={undefined}
+    invertStickyHeaders={false}
+    inverted={false}
+    itemWidth={680}
+    keyExtractor={[Function]}
+    layout="default"
+    lockScrollTimeoutDuration={1000}
+    lockScrollWhileSnapping={false}
+    loop={false}
+    loopClonesPerSide={3}
+    maxToRenderPerBatch={15}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onResponderRelease={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onSnapToItem={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    onTouchStart={[Function]}
+    overScrollMode="never"
+    pinchGestureEnabled={false}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={1}
+    scrollsToTop={false}
+    shouldOptimizeUpdates={true}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    slideStyle={Object {}}
+    sliderWidth={825}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 0,
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "height": 400,
+        "opacity": 0,
+        "width": 825,
+      }
+    }
+    swipeThreshold={20}
+    updateCellsBatchingPeriod={50}
+    useScrollView={false}
+    vertical={false}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={15}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/uninterestedIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 1
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 1 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/curiousIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 2
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 2 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/forgivenIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 3
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 3 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
   <Image
     resizeMode="contain"
     source={
@@ -160,6 +704,616 @@ exports[`renders back button correctly 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#66D9F0",
+        "flex": 1,
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "paddingBottom": 25,
+          "paddingHorizontal": 30,
+          "paddingTop": 45,
+          "textAlign": "center",
+          "width": 650,
+        },
+      ]
+    }
+  />
+  <RCTScrollView
+    activeAnimationOptions={null}
+    activeAnimationType="timing"
+    activeSlideAlignment="center"
+    activeSlideOffset={20}
+    apparitionDelay={0}
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayDelay={5000}
+    autoplayInterval={3000}
+    callbackOffsetMargin={5}
+    collapsable={undefined}
+    containerCustomStyle={
+      Object {
+        "flex": 0,
+        "flexGrow": 0,
+        "height": 400,
+      }
+    }
+    contentContainerCustomStyle={Object {}}
+    contentContainerStyle={
+      Array [
+        Object {},
+        Object {
+          "paddingLeft": 72.5,
+          "paddingRight": 72.5,
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "description": "Stage 1 description",
+          "id": 1,
+          "name": "Stage 1",
+        },
+        Object {
+          "description": "Stage 2 description",
+          "id": 2,
+          "name": "Stage 2",
+        },
+        Object {
+          "description": "Stage 3 description",
+          "id": 3,
+          "name": "Stage 3",
+        },
+      ]
+    }
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    disableVirtualization={false}
+    enableMomentum={false}
+    enableSnap={true}
+    firstItem={0}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={undefined}
+    hasParallaxImages={false}
+    horizontal={true}
+    inactiveSlideOpacity={1}
+    inactiveSlideScale={1}
+    inactiveSlideShift={0}
+    initialNumToRender={7}
+    initialScrollIndex={undefined}
+    invertStickyHeaders={false}
+    inverted={false}
+    itemWidth={680}
+    keyExtractor={[Function]}
+    layout="default"
+    lockScrollTimeoutDuration={1000}
+    lockScrollWhileSnapping={false}
+    loop={false}
+    loopClonesPerSide={3}
+    maxToRenderPerBatch={15}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onResponderRelease={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onSnapToItem={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    onTouchStart={[Function]}
+    overScrollMode="never"
+    pinchGestureEnabled={false}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={1}
+    scrollsToTop={false}
+    shouldOptimizeUpdates={true}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    slideStyle={Object {}}
+    sliderWidth={825}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 0,
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "height": 400,
+        "opacity": 0,
+        "width": 825,
+      }
+    }
+    swipeThreshold={20}
+    updateCellsBatchingPeriod={50}
+    useScrollView={false}
+    vertical={false}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={15}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/uninterestedIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 1
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 1 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/curiousIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 2
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 2 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/forgivenIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 3
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 3 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/images/landscapeStagesImage.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": -20,
+          "height": 340.875,
+          "position": "absolute",
+          "width": 3710,
+        },
+        Object {
+          "left": -120,
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`renders correctly without stages 1`] = `
 <View
   style={
     Array [
@@ -267,6 +1421,550 @@ exports[`renders firstItem correctly 1`] = `
       ]
     }
   />
+  <RCTScrollView
+    activeAnimationOptions={null}
+    activeAnimationType="timing"
+    activeSlideAlignment="center"
+    activeSlideOffset={20}
+    apparitionDelay={0}
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayDelay={5000}
+    autoplayInterval={3000}
+    callbackOffsetMargin={5}
+    collapsable={undefined}
+    containerCustomStyle={
+      Object {
+        "flex": 0,
+        "flexGrow": 0,
+        "height": 400,
+      }
+    }
+    contentContainerCustomStyle={Object {}}
+    contentContainerStyle={
+      Array [
+        Object {},
+        Object {
+          "paddingLeft": 72.5,
+          "paddingRight": 72.5,
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "description": "Stage 1 description",
+          "id": 1,
+          "name": "Stage 1",
+        },
+        Object {
+          "description": "Stage 2 description",
+          "id": 2,
+          "name": "Stage 2",
+        },
+        Object {
+          "description": "Stage 3 description",
+          "id": 3,
+          "name": "Stage 3",
+        },
+      ]
+    }
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    disableVirtualization={false}
+    enableMomentum={false}
+    enableSnap={true}
+    firstItem={1}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={undefined}
+    hasParallaxImages={false}
+    horizontal={true}
+    inactiveSlideOpacity={1}
+    inactiveSlideScale={1}
+    inactiveSlideShift={0}
+    initialNumToRender={7}
+    initialScrollIndex={undefined}
+    invertStickyHeaders={false}
+    inverted={false}
+    itemWidth={680}
+    keyExtractor={[Function]}
+    layout="default"
+    lockScrollTimeoutDuration={1000}
+    lockScrollWhileSnapping={false}
+    loop={false}
+    loopClonesPerSide={3}
+    maxToRenderPerBatch={15}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onResponderRelease={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onSnapToItem={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    onTouchStart={[Function]}
+    overScrollMode="never"
+    pinchGestureEnabled={false}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={1}
+    scrollsToTop={false}
+    shouldOptimizeUpdates={true}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    slideStyle={Object {}}
+    sliderWidth={825}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 0,
+        "flexDirection": "row",
+        "flexGrow": 0,
+        "height": 400,
+        "opacity": 0,
+        "width": 825,
+      }
+    }
+    swipeThreshold={20}
+    updateCellsBatchingPeriod={50}
+    useScrollView={false}
+    vertical={false}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={15}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/uninterestedIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 1
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 1 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/curiousIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 2
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 2 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          pointerEvents="box-none"
+          style={
+            Array [
+              Object {
+                "width": 680,
+              },
+              Object {},
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "height": 320,
+                "justifyContent": "space-between",
+                "marginHorizontal": 25,
+                "width": 630,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 30,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/forgivenIcon.png",
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "AmaticSC-Bold",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 42,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                stage 3
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "padding": 5,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Stage 3 description
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits="button"
+              accessible={true}
+              collapsable={undefined}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#007398",
+                      "height": 60,
+                      "justifyContent": "center",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
   <Image
     resizeMode="contain"
     source={
