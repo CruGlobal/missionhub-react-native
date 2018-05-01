@@ -26,7 +26,7 @@ const mockState = {
     },
   },
   notifications: {},
-  stages: [],
+  stages: {},
 };
 
 const mockStage = {
