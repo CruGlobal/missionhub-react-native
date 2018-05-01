@@ -7,6 +7,7 @@ import { renderShallow, createMockStore, testSnapshotShallow } from '../../testU
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import { addSteps } from '../../src/actions/steps';
+import { CREATE_STEP } from '../../src/constants';
 jest.mock('../../src/actions/steps');
 
 const store = createMockStore({
@@ -95,7 +96,7 @@ describe('Navigation', () => {
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       ADD_STEP_SCREEN,
-      { onComplete: expect.any(Function) }
+      { type: CREATE_STEP, onComplete: expect.any(Function) }
     );
   });
 });
