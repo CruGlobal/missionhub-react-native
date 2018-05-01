@@ -9,9 +9,11 @@ import styles from './styles';
 import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE } from '../../constants';
+import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+
+const characterLimit = 255;
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -40,11 +42,12 @@ class AddStepScreen extends Component {
   }
 
   onChangeText = (text) => {
-    if (text.length < 255) {
-      this.setState({ step: text });
-    } else {
-      const { t } = this.props;
-      Alert.alert(t('makeShorter'), t('ok'));
+    const { t, type } = this.props;
+
+    this.setState({ step: text });
+
+    if (type === CREATE_STEP && text.length >= characterLimit) {
+      Alert.alert('', t('makeShorter'));
     }
   };
 
@@ -74,14 +77,13 @@ class AddStepScreen extends Component {
 
   getButtonText() {
     const { t, type } = this.props;
-    let text;
+    let text = t('createStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
-    } else {
-      text = t('createStep');
     }
+
     return text.toUpperCase();
   }
 
@@ -137,7 +139,7 @@ class AddStepScreen extends Component {
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
-            maxLength={255}
+            maxLength={type === CREATE_STEP ? characterLimit : undefined }
           />
         </Flex>
 
@@ -157,7 +159,7 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, 'interaction' ]),
+  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, CREATE_STEP, 'interaction' ]),
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,

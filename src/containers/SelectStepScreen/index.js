@@ -16,7 +16,7 @@ import BackButton from '../BackButton';
 import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CUSTOM_STEP_TYPE } from '../../constants';
+import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 import uuidv4 from 'uuid/v4';
 
@@ -74,6 +74,7 @@ class SelectStepScreen extends Component {
       disableBack.remove();
     }
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
 
