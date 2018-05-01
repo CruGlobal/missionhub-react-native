@@ -10,11 +10,13 @@ import PathwayStageScreen from '../../src/containers/PathwayStageScreen';
 import * as common from '../../src/utils/common';
 
 const store = createMockStore({
-  stages: [
-    { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
-    { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
-    { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
-  ],
+  stages: {
+    stages: [
+      { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
+      { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
+      { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+    ],
+  },
 });
 
 jest.mock('react-native-device-info');
@@ -37,6 +39,14 @@ it('renders firstItem correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PathwayStageScreen {...mockProps} firstItem={1} />
+    </Provider>
+  );
+});
+
+it('renders correctly without stages', () => {
+  testSnapshot(
+    <Provider store={createMockStore({ stages: {} })}>
+      <PathwayStageScreen {...mockProps} />
     </Provider>
   );
 });
