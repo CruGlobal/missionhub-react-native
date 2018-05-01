@@ -27,6 +27,8 @@ matrix:
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
+      env:
+      - ENVFILE=.env.beta
       install:
       - brew install yarn
       - yarn install
@@ -36,7 +38,6 @@ matrix:
       - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       - bundler install
       script:
-      - ENVFILE=.env.beta
       - fastlane ios beta
 
     - language: android
@@ -55,6 +56,8 @@ matrix:
         - android-sdk-license-.+
 
       if: branch = master and type = push
+      env:
+      - ENVFILE=.env.beta
       before_install:
       - git fetch --unshallow
       - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
@@ -62,14 +65,13 @@ matrix:
       - echo yes | sdkmanager "build-tools;26.0.1" # Android platform required by app
       - echo yes | sdkmanager "build-tools;25.0.3" # Android platform required by some dependency
       - echo yes | sdkmanager "build-tools;23.0.1" # Android platform required by some dependency
-      
+
       install:
       - yarn install
       - yarn run onesky:download
       - cd android
       - bundler install
       script:
-      - ENVFILE=.env.beta
       - fastlane android beta
 
     - language: objective-c
@@ -77,6 +79,8 @@ matrix:
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
+      env:
+      - ENVFILE=.env.production
       install:
       - brew install yarn
       - yarn install
@@ -86,7 +90,6 @@ matrix:
       - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       - bundler install
       script:
-      - ENVFILE=.env.production
       - fastlane ios release version:$TRAVIS_TAG submit:true auto_release:false
 
 env:
