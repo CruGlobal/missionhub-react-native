@@ -2,10 +2,9 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
-import { testSnapshot } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 import MockDate from 'mockdate';
 
 const store = createMockStore({
@@ -24,6 +23,11 @@ const store = createMockStore({
   },
 });
 
+const person = {
+  id: '123',
+  first_name: 'Fname',
+};
+
 jest.mock('react-native-device-info');
 
 describe('Impact Screen', () => {
@@ -36,10 +40,9 @@ describe('Impact Screen', () => {
   });
 
   it('renders correctly', () => {
-    testSnapshot(
-      <Provider store={store}>
-        <ImpactScreen />
-      </Provider>
+    testSnapshotShallow(
+      <ImpactScreen person={person} />,
+      store
     );
   });
 });

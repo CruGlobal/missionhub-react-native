@@ -1,5 +1,260 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ImpactView ME user impact renders empty state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      Here you will see all the steps you've taken.
+
+See what God is doing through all of us below.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+        "paddingLeft": 50,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          undefined,
+        ]
+      }
+    >
+      You will see the steps other users have taken here shortly.
+
+You will see how others have moved on their spiritual journey here shortly.
+    </MyText>
+  </Flex>
+</ScrollView>
+`;
+
+exports[`ImpactView ME user impact renders plural state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  you took 10 steps of faith with 5 people.
+
+3 people reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+        "paddingLeft": 50,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          undefined,
+        ]
+      }
+    >
+      In 2018, 200 users took 10 steps of faith with 5 people.
+
+50 people reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+</ScrollView>
+`;
+
+exports[`ImpactView ME user impact renders singular state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  you took 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+        "paddingLeft": 50,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          undefined,
+        ]
+      }
+    >
+      In 2018, 200 users took 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+</ScrollView>
+`;
+
 exports[`ImpactView contact impact renders empty state 1`] = `
 <ScrollView
   bounces={false}
@@ -198,6 +453,440 @@ See what God is doing through Test Fname below.
           }
           text="1y"
         />
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="100"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="peopleIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Assigned Contacts
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            1
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="101"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="uncontactedIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Uncontacted
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="2"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritualConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Spiritual Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="3"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="gospelIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Gospel Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="4"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="decisionIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Personal Decisions
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="5"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Holy Spirit Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="9"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="discipleshipConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Discipleship Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
       </Flex>
     </Flex>
   </Flex>
@@ -403,6 +1092,440 @@ exports[`ImpactView contact impact renders plural state 1`] = `
           text="1y"
         />
       </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="100"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="peopleIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Assigned Contacts
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            1
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="101"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="uncontactedIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Uncontacted
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="2"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritualConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Spiritual Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="3"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="gospelIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Gospel Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="4"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="decisionIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Personal Decisions
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="5"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Holy Spirit Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="9"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="discipleshipConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Discipleship Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
     </Flex>
   </Flex>
 </ScrollView>
@@ -607,12 +1730,446 @@ exports[`ImpactView contact impact renders singular state 1`] = `
           text="1y"
         />
       </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="100"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="peopleIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Assigned Contacts
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            1
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="101"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="uncontactedIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Uncontacted
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="2"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritualConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Spiritual Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="3"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="gospelIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Gospel Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="4"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="decisionIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Personal Decisions
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="5"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="spiritIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Holy Spirit Presentations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="9"
+        style={
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "paddingVertical": 5,
+          }
+        }
+      >
+        <Flex
+          value={1}
+        >
+          <Icon
+            name="discipleshipConversationIcon"
+            style={
+              Object {
+                "fontSize": 28,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          value={4}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 16,
+              }
+            }
+          >
+            Discipleship Conversations
+          </MyText>
+        </Flex>
+        <Flex
+          align="end"
+          justify="center"
+          value={1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+              }
+            }
+          >
+            -
+          </MyText>
+        </Flex>
+      </Flex>
     </Flex>
   </Flex>
 </ScrollView>
 `;
 
-exports[`ImpactView mapStateToProps should provide the necessary props 1`] = `
+exports[`ImpactView mapStateToProps should provide the necessary props when not viewing contact screen 1`] = `
 Object {
   "globalImpact": Object {
     "id": "global-2018",
@@ -622,267 +2179,150 @@ Object {
     "steps_count": 10,
     "type": "impact_report",
   },
-  "myImpact": Object {
+  "impact": Object {
     "id": "me-2018",
     "pathway_moved_count": 3,
     "receivers_count": 5,
     "steps_count": 10,
     "type": "impact_report",
   },
+  "interactions": Object {
+    "P1W": Array [
+      Object {
+        "iconName": "peopleIcon",
+        "id": "100",
+        "num": 1,
+        "requestFieldName": "contact_count",
+        "translationKey": "interactionAssignedContacts",
+      },
+      Object {
+        "iconName": "uncontactedIcon",
+        "id": "101",
+        "num": 0,
+        "requestFieldName": "uncontacted_count",
+        "translationKey": "interactionUncontacted",
+      },
+      Object {
+        "iconName": "spiritualConversationIcon",
+        "id": "2",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.initiatinggospelconversations",
+        "translationKey": "interactionSpiritualConversation",
+      },
+      Object {
+        "iconName": "gospelIcon",
+        "id": "3",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.presentingthegospel",
+        "translationKey": "interactionGospel",
+      },
+      Object {
+        "iconName": "decisionIcon",
+        "id": "4",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.newprofessingbelievers",
+        "translationKey": "interactionDecision",
+      },
+      Object {
+        "iconName": "spiritIcon",
+        "id": "5",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.presentingtheholyspirit",
+        "translationKey": "interactionSpirit",
+      },
+      Object {
+        "iconName": "discipleshipConversationIcon",
+        "id": "9",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.discipleshipconversation",
+        "translationKey": "interactionDiscipleshipConversation",
+      },
+    ],
+  },
+  "personId": "1",
 }
 `;
 
-exports[`ImpactView user impact renders empty state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
+exports[`ImpactView mapStateToProps should provide the necessary props when viewing contact screen 1`] = `
+Object {
+  "globalImpact": Object {
+    "id": "global-2018",
+    "pathway_moved_count": 50,
+    "receivers_count": 5,
+    "step_owners_count": 200,
+    "steps_count": 10,
+    "type": "impact_report",
+  },
+  "impact": Object {
+    "id": "1-2018",
+    "pathway_moved_count": 4,
+    "receivers_count": 6,
+    "steps_count": 11,
+    "type": "impact_report",
+  },
+  "interactions": Object {
+    "P1W": Array [
       Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      Here you will see all the steps you've taken.
-
-See what God is doing through all of us below.
-    </MyText>
-  </Flex>
-  <Image
-    source={
+        "iconName": "peopleIcon",
+        "id": "100",
+        "num": 1,
+        "requestFieldName": "contact_count",
+        "translationKey": "interactionAssignedContacts",
+      },
       Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
+        "iconName": "uncontactedIcon",
+        "id": "101",
+        "num": 0,
+        "requestFieldName": "uncontacted_count",
+        "translationKey": "interactionUncontacted",
+      },
       Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
+        "iconName": "spiritualConversationIcon",
+        "id": "2",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.initiatinggospelconversations",
+        "translationKey": "interactionSpiritualConversation",
+      },
       Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-        "paddingLeft": 50,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
-      }
-    >
-      You will see the steps other users have taken here shortly.
-
-You will see how others have moved on their spiritual journey here shortly.
-    </MyText>
-  </Flex>
-</ScrollView>
-`;
-
-exports[`ImpactView user impact renders plural state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
+        "iconName": "gospelIcon",
+        "id": "3",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.presentingthegospel",
+        "translationKey": "interactionGospel",
+      },
       Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  you took 10 steps of faith with 5 people.
-
-3 people reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
+        "iconName": "decisionIcon",
+        "id": "4",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.newprofessingbelievers",
+        "translationKey": "interactionDecision",
+      },
       Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
+        "iconName": "spiritIcon",
+        "id": "5",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.presentingtheholyspirit",
+        "translationKey": "interactionSpirit",
+      },
       Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-        "paddingLeft": 50,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
-      }
-    >
-      In 2018, 200 users took 10 steps of faith with 5 people.
-
-50 people reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-</ScrollView>
-`;
-
-exports[`ImpactView user impact renders singular state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  you took 1 step of faith with 1 person.
-
-1 person reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-        "paddingLeft": 50,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          undefined,
-        ]
-      }
-    >
-      In 2018, 200 users took 1 step of faith with 1 person.
-
-1 person reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-</ScrollView>
+        "iconName": "discipleshipConversationIcon",
+        "id": "9",
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.discipleshipconversation",
+        "translationKey": "interactionDiscipleshipConversation",
+      },
+    ],
+  },
+  "personId": "2",
+}
 `;
