@@ -49,7 +49,7 @@ const ME_TABS = [
     tracking: buildTrackingObj('people : self : journey', 'people', 'self', 'journey'),
   },
   {
-    page: 'myImpact',
+    page: 'userImpact',
     iconName: 'impactIcon',
     tabLabel: i18next.t('contactHeader:impact'),
     tracking: buildTrackingObj('people : person : impact', 'people', 'person', 'impact'),

@@ -706,7 +706,7 @@ exports[`renders me 1`] = `
         },
         Object {
           "iconName": "impactIcon",
-          "page": "myImpact",
+          "page": "userImpact",
           "tabLabel": "Impact",
           "tracking": Object {
             "level3": "impact",

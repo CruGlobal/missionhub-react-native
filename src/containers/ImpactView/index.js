@@ -169,7 +169,8 @@ ImpactView.propTypes = {
   organization: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact, auth }, { isContactScreen, person, organization = {} }) => {
+export const mapStateToProps = ({ impact, auth }, { person, organization = {} }) => {
+  const isContactScreen = person.id !== auth.person.id;
   const personId = isContactScreen ? person.id : auth.person.id;
   const orgId = organization.id || '';
 

@@ -53,11 +53,6 @@ const tabArray = [
     iconName: 'impactIcon',
     tabLabel: 'Impact',
   },
-  {
-    page: 'myImpact',
-    iconName: 'impactIcon',
-    tabLabel: 'Impact',
-  },
 ];
 
 jest.mock('NativeAnimatedHelper');
