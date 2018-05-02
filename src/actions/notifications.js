@@ -97,6 +97,12 @@ export function reregisterNotificationHandler() {
 
 export function registerNotificationHandler() {
   return async(dispatch, getState) => {
+    return await PushNotification.requestPermissions();
+  };
+}
+
+export function configureNotificationHandler() {
+  return async(dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
         const { pushDevice } = getState().notifications;
@@ -119,9 +125,7 @@ export function registerNotificationHandler() {
       requestPermissions: false,
     });
 
-    dispatch({ type: PUSH_NOTIFICATION_ASKED });
-
-    return await PushNotification.requestPermissions();
+    return Promise.resolve();
   };
 }
 

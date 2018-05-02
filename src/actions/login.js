@@ -6,6 +6,7 @@ import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 import { completeOnboarding } from './onboardingProfile';
+import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 
 export function onSuccessfulLogin() {
   return async(dispatch, getState) => {
@@ -22,6 +23,10 @@ export function onSuccessfulLogin() {
       if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
         dispatch(completeOnboarding());
+        return dispatch(navigateReset(
+          NOTIFICATION_PRIMER_SCREEN,
+          { onComplete: () => dispatch(navigateReset(MAIN_TABS)) },
+        ));
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;
       }

@@ -25,6 +25,7 @@ import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED 
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
+import { configureNotificationHandler } from './actions/notifications';
 
 @codePush({ deploymentKey: isAndroid ? Config.CODEPUSH_ANDROID_KEY : Config.CODEPUSH_IOS_KEY })
 export default class App extends Component {
@@ -41,6 +42,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(configureNotificationHandler());
     this.initializeAnalytics();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
