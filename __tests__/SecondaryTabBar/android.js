@@ -29,6 +29,11 @@ const tabArray = [
     tabLabel: 'My Steps',
   },
   {
+    page: 'actions',
+    iconName: 'actionsIcon',
+    tabLabel: 'My Actions',
+  },
+  {
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: 'Our Journey',
@@ -37,6 +42,16 @@ const tabArray = [
     page: 'notes',
     iconName: 'notesIcon',
     tabLabel: 'My Notes',
+  },
+  {
+    page: 'userImpact',
+    iconName: 'impactIcon',
+    tabLabel: 'Impact',
+  },
+  {
+    page: 'myImpact',
+    iconName: 'impactIcon',
+    tabLabel: 'Impact',
   },
 ];
 
