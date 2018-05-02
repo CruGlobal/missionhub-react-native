@@ -704,6 +704,17 @@ exports[`renders me 1`] = `
             "subsection": "self",
           },
         },
+        Object {
+          "iconName": "impactIcon",
+          "page": "myImpact",
+          "tabLabel": "Impact",
+          "tracking": Object {
+            "level3": "impact",
+            "name": "people : person : impact",
+            "section": "people",
+            "subsection": "person",
+          },
+        },
       ]
     }
   />
