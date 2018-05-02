@@ -70,6 +70,12 @@ export default class SecondaryTabBar extends Component {
           <ImpactView user={this.props.person} organization={this.props.organization} isContactScreen={true} />
         </Flex>
       );
+    } else if (tab.page === 'myImpact') {
+      return (
+        <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
+          <ImpactView user={this.props.person} organization={this.props.organization} />
+        </Flex>
+      );
     }
   };
 

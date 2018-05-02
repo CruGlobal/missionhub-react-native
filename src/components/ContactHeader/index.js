@@ -48,6 +48,12 @@ const ME_TABS = [
     tabLabel: i18next.t('contactHeader:myJourney'),
     tracking: buildTrackingObj('people : self : journey', 'people', 'self', 'journey'),
   },
+  {
+    page: 'myImpact',
+    iconName: 'impactIcon',
+    tabLabel: i18next.t('contactHeader:impact'),
+    tracking: buildTrackingObj('people : person : impact', 'people', 'person', 'impact'),
+  },
 ];
 
 const JEAN_TABS = [
