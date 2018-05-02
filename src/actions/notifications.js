@@ -96,7 +96,8 @@ export function reregisterNotificationHandler() {
 }
 
 export function registerNotificationHandler() {
-  return async(dispatch, getState) => {
+  return async(dispatch) => {
+    dispatch({ type: PUSH_NOTIFICATION_ASKED });
     return await PushNotification.requestPermissions();
   };
 }

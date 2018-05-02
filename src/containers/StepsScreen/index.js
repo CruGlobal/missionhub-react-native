@@ -6,7 +6,7 @@ import debounce from 'lodash/debounce';
 
 import { removeSwipeStepsHome, removeSwipeStepsReminder } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
-import { navigatePush } from '../../actions/navigation';
+import { navigateBack, navigatePush } from '../../actions/navigation';
 import { showReminderScreen, showWelcomeNotification, toast } from '../../actions/notifications';
 import {
   getMySteps, setStepFocus, completeStepReminder, getMyStepsNextPage,
