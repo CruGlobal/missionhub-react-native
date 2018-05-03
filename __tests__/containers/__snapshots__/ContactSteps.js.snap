@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly with no steps 1`] = `
 <Component
   style={
     Object {
@@ -68,6 +68,66 @@ exports[`renders correctly 1`] = `
         Your Steps of Faith with ben appear here.
       </MyText>
     </Flex>
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="ADD A STEP OF FAITH"
+      type="secondary"
+    />
+  </Flex>
+</Component>
+`;
+
+exports[`renders correctly with steps 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "title": "Test Step",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
   </Flex>
   <Flex
     justify="end"
