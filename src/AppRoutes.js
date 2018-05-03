@@ -27,6 +27,7 @@ import SearchPeopleFilterScreen, { SEARCH_FILTER_SCREEN } from './containers/Sea
 import SearchPeopleFilterRefineScreen, { SEARCH_REFINE_SCREEN } from './containers/SearchPeopleFilterRefineScreen';
 import LoginOptionsScreen, { LOGIN_OPTIONS_SCREEN } from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
+import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
@@ -138,6 +139,7 @@ export const MAIN_TABS_SCREEN = buildTrackedScreen(
 const screens = {
   [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(LoginOptionsScreen, buildTrackingObj('auth', 'auth')),
   [KEY_LOGIN_SCREEN]: buildTrackedScreen(KeyLoginScreen, buildTrackingObj('auth : sign in', 'auth'), { gesturesEnabled: true }),
+  [MFA_CODE_SCREEN]: buildTrackedScreen(MFACodeScreen, buildTrackingObj('auth : verification', 'auth')),
   [WELCOME_SCREEN]: buildTrackedScreen(WelcomeScreen, buildTrackingObj('onboarding : welcome', 'onboarding')),
   [SETUP_SCREEN]: buildTrackedScreen(SetupScreen, buildTrackingObj('onboarding : name', 'onboarding')),
   [GET_STARTED_SCREEN]: buildTrackedScreen(GetStartedScreen, buildTrackingObj('onboarding : get started', 'onboarding')),

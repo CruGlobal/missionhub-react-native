@@ -58,8 +58,14 @@ export function refreshAccessToken() {
   };
 }
 
-export function keyLogin(email, password, isUpgrade = false) {
-  const data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended&username=${email}&password=${password}`;
+export function keyLogin(email, password, mfaCode, isUpgrade = false) {
+  let data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended`
+    + `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+
+  if (mfaCode) {
+    data = `${data}&thekey_mfa_token=${mfaCode}`;
+  }
+
   return getTokenAndLogin(data, isUpgrade);
 }
 
