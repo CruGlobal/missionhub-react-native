@@ -8,9 +8,10 @@ import { translate } from 'react-i18next';
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 
 import PeopleItem from '../../containers/PeopleItem';
-import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
+import { Flex, Text, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
 import styles from './styles';
+import IconButton from '../IconButton';
 
 @translate('peopleScreen')
 export default class PeopleList extends Component {
@@ -78,18 +79,18 @@ export default class PeopleList extends Component {
           {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end" align="center">
-          <Touchable isAndroidOpacity={true} onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
-            <Icon name="addContactIcon" type="MissionHub" size={24} style={styles.icon} />
-          </Touchable>
-          <Touchable isAndroidOpacity={true} onPress={() => this.toggleSection(org.id)}>
-            <Icon
-              name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
-              type="MissionHub"
-              size={10}
-              style={[
-                styles.icon,
-              ]} />
-          </Touchable>
+          <IconButton
+            name="addContactIcon"
+            type="MissionHub"
+            size={24}
+            onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
+          </IconButton>
+          <IconButton
+            name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
+            type="MissionHub"
+            size={10}
+            onPress={() => this.toggleSection(org.id)}>
+          </IconButton>
         </Flex>
       </Flex>
     );
