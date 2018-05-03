@@ -37,7 +37,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, isOnboarding } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={.3} />
@@ -47,7 +47,7 @@ class NotificationPrimerScreen extends Component {
           </Flex>
           <Flex value={.6} align="center" justify="center">
             <Text style={styles.text}>
-              {t('description')}
+              {isOnboarding ? t('onboardingDescription') : t('reminderDescription')}
             </Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
