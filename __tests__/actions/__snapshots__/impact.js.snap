@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPeopleInteractionsReport should make api request 1`] = `
+Array [
+  Object {
+    "response": Array [
+      Object {
+        "_type": "person_report",
+        "contact_count": 1,
+        "contacts_with_interaction_count": 0,
+        "id": "728-4195255-P1Y",
+        "interactions": Array [
+          Object {
+            "interaction_count": 1,
+            "interaction_type_id": 2,
+          },
+          Object {
+            "interaction_count": 2,
+            "interaction_type_id": 4,
+          },
+          Object {
+            "interaction_count": 1,
+            "interaction_type_id": 5,
+          },
+        ],
+        "length": 0,
+        "organization_id": 728,
+        "person_id": 4195255,
+        "uncontacted_count": null,
+      },
+    ],
+    "type": "GET_PEOPLE_INTERACTIONS_REPORT_SUCCESS",
+  },
+  Object {
+    "organizationId": "3",
+    "period": "P1W",
+    "personId": "2",
+    "report": Array [
+      Object {
+        "iconName": "peopleIcon",
+        "id": 100,
+        "num": 1,
+        "requestFieldName": "contact_count",
+        "translationKey": "interactionAssignedContacts",
+      },
+      Object {
+        "iconName": "uncontactedIcon",
+        "id": 101,
+        "num": 0,
+        "requestFieldName": "uncontacted_count",
+        "translationKey": "interactionUncontacted",
+      },
+      Object {
+        "iconName": "spiritualConversationIcon",
+        "id": 2,
+        "isOnAction": true,
+        "num": 1,
+        "tracking": "cru.initiatinggospelconversations",
+        "translationKey": "interactionSpiritualConversation",
+      },
+      Object {
+        "iconName": "gospelIcon",
+        "id": 3,
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.presentingthegospel",
+        "translationKey": "interactionGospel",
+      },
+      Object {
+        "iconName": "decisionIcon",
+        "id": 4,
+        "isOnAction": true,
+        "num": 2,
+        "tracking": "cru.newprofessingbelievers",
+        "translationKey": "interactionDecision",
+      },
+      Object {
+        "iconName": "spiritIcon",
+        "id": 5,
+        "isOnAction": true,
+        "num": 1,
+        "tracking": "cru.presentingtheholyspirit",
+        "translationKey": "interactionSpirit",
+      },
+      Object {
+        "iconName": "discipleshipConversationIcon",
+        "id": 9,
+        "isOnAction": true,
+        "num": 0,
+        "tracking": "cru.discipleshipconversation",
+        "translationKey": "interactionDiscipleshipConversation",
+      },
+    ],
+    "type": "app/UPDATE_PEOPLE_INTERACTION_REPORT",
+  },
+]
+`;

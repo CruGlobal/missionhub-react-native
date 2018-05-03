@@ -1,24 +1,41 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT } from '../constants';
+import { LOGOUT, UPDATE_PEOPLE_INTERACTION_REPORT } from '../constants';
 
 const initialState = {
-  mine: {},
+  people: {},
+  interactions: {},
   global: {},
 };
 
 function impactReducer(state = initialState, action) {
   switch (action.type) {
-    case REQUESTS.GET_MY_IMPACT.SUCCESS:
-      const mine = action.results.findAll('impact_report')[0] || {};
+    case REQUESTS.GET_IMPACT_BY_ID.SUCCESS:
+      const impact = action.results.response;
       return {
         ...state,
-        mine,
+        people: {
+          ...state.people,
+          [impact.person_id]: impact,
+        },
       };
     case REQUESTS.GET_GLOBAL_IMPACT.SUCCESS:
-      const globalImpact = action.results.findAll('impact_report')[0] || {};
+      const globalImpact = action.results.response;
       return {
         ...state,
         global: globalImpact,
+      };
+    case UPDATE_PEOPLE_INTERACTION_REPORT:
+      const key = `${action.personId}-${action.organizationId}`;
+
+      return {
+        ...state,
+        interactions: {
+          ...state.interactions,
+          [key]: {
+            ...state.interactions[key],
+            [action.period]: action.report,
+          },
+        },
       };
     case LOGOUT:
       return initialState;
