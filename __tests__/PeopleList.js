@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import { testSnapshotShallow } from '../testUtils';
+import { renderShallow, testSnapshotShallow } from '../testUtils';
 import PeopleList from '../src/components/PeopleList';
 
 const orgs = [
@@ -58,4 +58,38 @@ it('renders correctly as Jean', () => {
   testSnapshotShallow(
     <PeopleList sections={true} items={orgs} onSelect={() => {}} />
   );
+});
+
+
+describe('button presses', () => {
+  let component;
+  let componentInstance;
+
+  beforeEach(() => {
+    component = renderShallow(
+      <PeopleList
+        sections={true}
+        items={orgs}
+        onSelect={jest.fn()}
+        onAddContact={jest.fn()}
+      />);
+
+    componentInstance = component.instance();
+
+    componentInstance.toggleSection = jest.fn();
+  });
+
+  it('onAddContact', () => {
+    const addContactButton = component.find({ name: 'addContactIcon' }).first();
+    addContactButton.simulate('press');
+
+    expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(undefined);
+  });
+
+  it('toggleSection', () => {
+    const arrowButton = component.find({ name: 'upArrowIcon' }).first();
+    arrowButton.simulate('press');
+
+    expect(componentInstance.toggleSection).toHaveBeenCalledWith('personal');
+  });
 });
