@@ -79,7 +79,7 @@ export default class PeopleList extends Component {
         </Text>
         <Flex direction="row" justify="end" align="center">
           <Touchable isAndroidOpacity={true} onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
-            <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
+            <Icon name="addContactIcon" type="MissionHub" size={24} style={styles.icon} />
           </Touchable>
           <Touchable isAndroidOpacity={true} onPress={() => this.toggleSection(org.id)}>
             <Icon
