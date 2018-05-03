@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getMyImpact, getUserImpact, getImpactById } from '../../actions/impact';
+import { getGlobalImpact, getPeopleInteractionsReport, getImpactById } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
 
@@ -40,50 +40,25 @@ const reportPeriods = [
 
 @translate('impact')
 export class ImpactView extends Component {
+  state = {
+    period: 'P1W',
+  };
 
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    const { dispatch, personId, isContactScreen } = this.props;
 
-    this.state = {
-      userImpact: {},
-      interactions: [],
-      period: 'P1W',
-      impactById: null,
-    };
-  }
-
-  componentWillMount() {
-    if (this.props.isContactScreen) {
+    dispatch(getImpactById(personId));
+    if (isContactScreen) {
       this.getInteractionReport();
-      this.props.dispatch(getImpactById(this.props.user.id)).then((results) => {
-        this.setState({ impactById: results.findAll('impact_report')[0] || {} });
-      });
     } else {
-      this.props.dispatch(getGlobalImpact());
-      this.props.dispatch(getMyImpact());
+      dispatch(getGlobalImpact());
     }
   }
-  
+
   getInteractionReport() {
-    const { dispatch, user, organization = {} } = this.props;
-    dispatch(getUserImpact(user.id, organization.id, this.state.period)).then((r) => {
-      const report = r.findAll('person_report')[0];
-      const interactions = report ? report.interactions : [];
-      const arr = Object.keys(INTERACTION_TYPES).filter((k) => !INTERACTION_TYPES[k].hideReport).map((key) => {
-        let num = 0;
-        if (INTERACTION_TYPES[key].requestFieldName) {
-          num = report ? report[INTERACTION_TYPES[key].requestFieldName] : 0;
-        } else {
-          const interaction = interactions.find((i) => i.interaction_type_id === INTERACTION_TYPES[key].id);
-          num = interaction ? interaction.interaction_count : 0;
-        }
-        return {
-          ...INTERACTION_TYPES[key],
-          num,
-        };
-      });
-      this.setState({ userImpact: r, interactions: arr });
-    });
+    const { dispatch, person, organization = {} } = this.props;
+
+    dispatch(getPeopleInteractionsReport(person.id, organization.id, this.state.period));
   }
 
   handleChangePeriod(period) {
@@ -93,8 +68,8 @@ export class ImpactView extends Component {
   }
 
   buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
-    const { t, isContactScreen, user } = this.props;
-    const initiator = global ? '$t(users)' : isContactScreen ? user.first_name : '$t(you)';
+    const { t, isContactScreen, person } = this.props;
+    const initiator = global ? '$t(users)' : isContactScreen ? person.first_name : '$t(you)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
 
     const stepsSentenceOptions = {
@@ -116,6 +91,13 @@ export class ImpactView extends Component {
   }
 
   renderContactReport() {
+    const { t, interactions } = this.props;
+
+    const interactionsReport =
+      interactions[this.state.period] ||
+      Object.values(INTERACTION_TYPES)
+        .filter((type) => !type.hideReport);
+
     return (
       <Flex style={styles.interactionsWrap} direction="column">
         <Flex style={{ paddingBottom: 30 }} align="center" justify="center" direction="row">
@@ -134,14 +116,14 @@ export class ImpactView extends Component {
           }
         </Flex>
         {
-          this.state.interactions.map((i) => {
+          interactionsReport.map((i) => {
             return (
               <Flex align="center" style={styles.interactionRow} key={i.id} direction="row">
                 <Flex value={1}>
                   <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
                 </Flex>
                 <Flex value={4}>
-                  <Text style={styles.interactionText}>{this.props.t(i.translationKey)}</Text>
+                  <Text style={styles.interactionText}>{t(i.translationKey)}</Text>
                 </Flex>
                 <Flex value={1} justify="center" align="end">
                   <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
@@ -155,8 +137,7 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, myImpact, isContactScreen } = this.props;
-    let impact = this.state.impactById || myImpact;
+    const { globalImpact, impact, isContactScreen } = this.props;
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -164,17 +145,17 @@ export class ImpactView extends Component {
       >
         <Flex style={styles.topSection}>
           <Text style={[ styles.text, styles.topText ]}>
-            {this.buildImpactSentence(isContactScreen && this.state.userImpact ? this.state.userImpact : impact)}
+            {this.buildImpactSentence(impact)}
           </Text>
         </Flex>
         <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
         <Flex style={isContactScreen ? styles.interactionSection : styles.bottomSection}>
           {
-            isContactScreen ? this.renderContactReport() : (
+            isContactScreen ?
+              this.renderContactReport() :
               <Text style={[ styles.text, styles.bottomText ]}>
                 {this.buildImpactSentence(globalImpact, true)}
               </Text>
-            )
           }
         </Flex>
       </ScrollView>
@@ -183,13 +164,22 @@ export class ImpactView extends Component {
 }
 
 ImpactView.propTypes = {
-  isContactScreen: PropTypes.bool,
-  user: PropTypes.object,
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact }) => ({
-  myImpact: impact.mine,
-  globalImpact: impact.global,
-});
+export const mapStateToProps = ({ impact, auth }, { person, organization = {} }) => {
+  const isContactScreen = person.id !== auth.person.id;
+  const personId = person.id;
+  const orgId = organization.id || '';
+
+  return {
+    isContactScreen,
+    personId,
+    impact: impact.people[personId] || {},
+    interactions: impact.interactions[`${personId}-${orgId}`] || {},
+    globalImpact: impact.global,
+  };
+};
 
 export default connect(mapStateToProps)(ImpactView);

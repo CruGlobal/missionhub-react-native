@@ -126,22 +126,14 @@ describe('trackStepsAdded', () => {
 
     expect(store.getActions()).toEqual([]);
     expect(RNOmniture.trackAction).toHaveBeenCalledTimes(4);
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
-      [ACTIONS.STEP_FIELDS.ID]: step1.id,
-      [ACTIONS.STEP_FIELDS.STAGE]: step1.pathway_stage.id,
-      [ACTIONS.STEP_FIELDS.TYPE]: step1.challenge_type,
-      [ACTIONS.STEP_FIELDS.SELF]: 'N',
-      [ACTIONS.STEP_FIELDS.LOCALE]: step1.locale,
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
+      [ACTIONS.STEP_DETAIL.key]: `${step1.challenge_type} | N | ${step1.locale} | ${step1.id} | ${step1.pathway_stage.id}`,
     });
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED, {});
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
-      [ACTIONS.STEP_FIELDS.ID]: undefined,
-      [ACTIONS.STEP_FIELDS.STAGE]: undefined,
-      [ACTIONS.STEP_FIELDS.TYPE]: CUSTOM_STEP_TYPE,
-      [ACTIONS.STEP_FIELDS.SELF]: 'Y',
-      [ACTIONS.STEP_FIELDS.LOCALE]: step2.locale,
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
+      [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step2.locale}`,
     });
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED, { 'steps': steps.length });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED.name, { [ACTIONS.STEPS_ADDED.key]: steps.length });
   });
 });
 

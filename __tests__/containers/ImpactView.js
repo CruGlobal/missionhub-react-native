@@ -1,11 +1,12 @@
 import 'react-native';
 import React from 'react';
 
-import { testSnapshotShallow, renderShallow } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 import { ImpactView, mapStateToProps } from '../../src/containers/ImpactView';
 
 const dispatch = jest.fn((response) => Promise.resolve(response));
 
+const me = { id: '1', type: 'person', first_name: 'ME' };
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const myImpact = {
   id: 'me-2018',
@@ -14,7 +15,7 @@ const myImpact = {
   receivers_count: 5,
   pathway_moved_count: 3,
 };
-const userImpact = {
+const personImpact = {
   id: '1-2018',
   type: 'impact_report',
   steps_count: 11,
@@ -29,28 +30,113 @@ const globalImpact = {
   step_owners_count: 200,
   pathway_moved_count: 50,
 };
+const personInteractions = {
+  P1W: [ {
+    id: '100',
+    requestFieldName: 'contact_count',
+    iconName: 'peopleIcon',
+    translationKey: 'interactionAssignedContacts',
+    num: 1,
+  }, {
+    id: '101',
+    requestFieldName: 'uncontacted_count',
+    iconName: 'uncontactedIcon',
+    translationKey: 'interactionUncontacted',
+    num: 0,
+  }, {
+    id: '2',
+    iconName: 'spiritualConversationIcon',
+    translationKey: 'interactionSpiritualConversation',
+    isOnAction: true,
+    tracking: 'cru.initiatinggospelconversations',
+    num: 0,
+  }, {
+    id: '3',
+    iconName: 'gospelIcon',
+    translationKey: 'interactionGospel',
+    isOnAction: true,
+    tracking: 'cru.presentingthegospel',
+    num: 0,
+  }, {
+    id: '4',
+    iconName: 'decisionIcon',
+    translationKey: 'interactionDecision',
+    isOnAction: true,
+    tracking: 'cru.newprofessingbelievers',
+    num: 0,
+  }, {
+    id: '5',
+    iconName: 'spiritIcon',
+    translationKey: 'interactionSpirit',
+    isOnAction: true,
+    tracking: 'cru.presentingtheholyspirit',
+    num: 0,
+  }, {
+    id: '9',
+    iconName: 'discipleshipConversationIcon',
+    translationKey: 'interactionDiscipleshipConversation',
+    isOnAction: true,
+    tracking: 'cru.discipleshipconversation',
+    num: 0,
+  } ],
+};
+const organization = { id: '34', _type: 'organization' };
 
 describe('ImpactView', () => {
   describe('mapStateToProps', () => {
-    it('should provide the necessary props', () => {
+    it('should provide the necessary props when not viewing contact screen', () => {
       expect(mapStateToProps(
         {
           impact: {
-            mine: myImpact,
+            people: {
+              [`${me.id}`]: myImpact,
+            },
+            interactions: {
+              [`${me.id}-${organization.id}`]: personInteractions,
+            },
             global: globalImpact,
           },
+          auth: {
+            person: me,
+          },
         },
+        {
+          person: me,
+          organization,
+        }
+      )).toMatchSnapshot();
+    });
+    it('should provide the necessary props when viewing contact screen', () => {
+      expect(mapStateToProps(
+        {
+          impact: {
+            people: {
+              [`${person.id}`]: personImpact,
+            },
+            interactions: {
+              [`${person.id}-${organization.id}`]: personInteractions,
+            },
+            global: globalImpact,
+          },
+          auth: {
+            person: me,
+          },
+        },
+        {
+          person,
+          organization,
+        }
       )).toMatchSnapshot();
     });
   });
-  describe('user impact', () => {
+  describe('ME user impact', () => {
     it('renders empty state', () => {
       testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
           isContactScreen={false}
-          user={person}
-          myImpact={{
+          person={me}
+          impact={{
             ...myImpact,
             steps_count: 0,
             pathway_moved_count: 0,
@@ -68,8 +154,8 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           isContactScreen={false}
-          user={person}
-          myImpact={{
+          person={me}
+          impact={{
             ...myImpact,
             steps_count: 1,
             receivers_count: 1,
@@ -89,10 +175,8 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           isContactScreen={false}
-          user={person}
-          myImpact={{
-            ...myImpact,
-          }}
+          person={me}
+          impact={myImpact}
           globalImpact={globalImpact}
         />
       );
@@ -100,55 +184,46 @@ describe('ImpactView', () => {
   });
   describe('contact impact', () => {
     it('renders empty state', () => {
-      const component = renderShallow(
+      testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
           isContactScreen={true}
-          user={person}
-          globalImpact={globalImpact}
+          person={person}
+          impact={{
+            ...personImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
         />
       );
-      component.setState({
-        userImpact: {
-          ...userImpact,
-          steps_count: 0,
-          pathway_moved_count: 0,
-        },
-      });
-      expect(component).toMatchSnapshot();
     });
     it('renders singular state', () => {
-      const component = renderShallow(
+      testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
           isContactScreen={true}
-          user={person}
-          globalImpact={globalImpact}
+          person={person}
+          impact={{
+            ...personImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
         />
       );
-      component.setState({
-        userImpact: {
-          ...userImpact,
-          steps_count: 1,
-          receivers_count: 1,
-          pathway_moved_count: 1,
-        },
-      });
-      expect(component).toMatchSnapshot();
     });
     it('renders plural state', () => {
-      const component = renderShallow(
+      testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
           isContactScreen={true}
-          user={person}
-          globalImpact={globalImpact}
+          person={person}
+          impact={personImpact}
+          interactions={personInteractions}
         />
       );
-      component.setState({
-        userImpact,
-      });
-      expect(component).toMatchSnapshot();
     });
   });
 });

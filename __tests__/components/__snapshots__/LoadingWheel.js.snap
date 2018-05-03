@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#000000",
+        "height": 1334,
+        "opacity": 0.7,
+        "position": "absolute",
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../assets/gifs/loadingSpiralBlue.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "width": 60,
+      }
+    }
+  />
+</Component>
+`;

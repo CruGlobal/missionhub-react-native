@@ -119,6 +119,25 @@ class PathwayStageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
+        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
+        <Text style={styles.title}>{this.props.questionText}</Text>
+        {
+          this.props.stages ? (
+            <Carousel
+              firstItem={this.props.firstItem || fallbackIndex}
+              data={this.props.stages}
+              inactiveSlideOpacity={1}
+              inactiveSlideScale={1}
+              renderItem={this.renderStage}
+              sliderWidth={sliderWidth + 75}
+              itemWidth={stageWidth + stageMargin * 2}
+              onScroll={this.handleScroll}
+              scrollEventThrottle={5}
+              onSnapToItem={this.handleSnapToItem}
+              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+            />
+          ) : null
+        }
         <Image
           resizeMode="contain"
           source={LANDSCAPE}
@@ -127,28 +146,6 @@ class PathwayStageScreen extends Component {
             { left: leftMargin },
           ]}
         />
-        <Flex value={1} align="center" justify="center">
-          <Text style={styles.title}>
-            {this.props.questionText}
-          </Text>
-          {
-            this.props.stages ? (
-              <Carousel
-                firstItem={this.props.firstItem || fallbackIndex}
-                data={this.props.stages}
-                inactiveSlideOpacity={1}
-                inactiveSlideScale={1}
-                renderItem={this.renderStage}
-                sliderWidth={sliderWidth + 75}
-                itemWidth={stageWidth + stageMargin * 2}
-                onScroll={this.handleScroll}
-                scrollEventThrottle={5}
-                onSnapToItem={this.handleSnapToItem}
-              />
-            ) : null
-          }
-        </Flex>
-        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
       </Flex>
     );
   }

@@ -8,12 +8,14 @@ import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, MFA_REQUIRED } from '../../constants';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
 import i18n from '../../i18n';
+import { navigatePush } from '../../actions/navigation';
+import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
 import styles from './styles';
 
@@ -29,10 +31,6 @@ class KeyLoginScreen extends Component {
       logo: true,
       isLoading: false,
     };
-
-    this.emailChanged = this.emailChanged.bind(this);
-    this.passwordChanged = this.passwordChanged.bind(this);
-    this.login = this.login.bind(this);
   }
 
   componentWillMount() {
@@ -63,13 +61,13 @@ class KeyLoginScreen extends Component {
     this.setState({ logo: true });
   };
 
-  emailChanged(email) {
+  emailChanged = (email) => {
     this.setState({ email });
-  }
+  };
 
-  passwordChanged(password) {
+  passwordChanged = (password) => {
     this.setState({ password });
-  }
+  };
 
   startLoad = () => {
     this.setState({ isLoading: true });
@@ -79,12 +77,14 @@ class KeyLoginScreen extends Component {
     this.props.dispatch(openKeyURL('service/selfservice?target=displayForgotPassword', this.startLoad, this.props.upgradeAccount));
   };
 
-  async login() {
+  login = async() => {
+    const { dispatch, upgradeAccount } = this.props;
     const { email, password } = this.state;
+
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await this.props.dispatch(keyLogin(encodeURIComponent(email), encodeURIComponent(password), this.props.upgradeAccount));
+      await dispatch(keyLogin(email, password, null, upgradeAccount));
       Keyboard.dismiss();
 
     } catch (error) {
@@ -97,20 +97,27 @@ class KeyLoginScreen extends Component {
 
       } else if (apiError['thekey_authn_error'] === 'email_unverified') {
         errorMessage = i18n.t('keyLogin:verifyEmailMessage');
+
+      } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
+        dispatch(navigatePush(MFA_CODE_SCREEN, { email, password, upgradeAccount }));
+        this.setState({ email: '', password: '' });
+        return;
       }
 
       if (errorMessage) {
         action = ACTIONS.USER_ERROR;
-        this.setState({ errorMessage, isLoading: false });
+        this.setState({ errorMessage });
 
       } else {
         action = ACTIONS.SYSTEM_ERROR;
-        this.setState({ isLoading: false });
       }
 
-      this.props.dispatch(trackAction(action));
+      dispatch(trackAction(action));
+
+    } finally {
+      this.setState({ isLoading: false });
     }
-  }
+  };
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;

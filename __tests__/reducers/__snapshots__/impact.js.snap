@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should update global impact reports 1`] = `
+Object {
+  "global": Object {
+    "type": "impact_report",
+  },
+  "interactions": Object {},
+  "people": Object {},
+}
+`;
+
+exports[`should update interaction reports 1`] = `
+Object {
+  "global": Object {},
+  "interactions": Object {
+    "123-456": Object {
+      "P1W": Array [
+        Object {
+          "iconName": "peopleIcon",
+          "id": "100",
+          "num": 1,
+          "requestFieldName": "contact_count",
+          "translationKey": "interactionAssignedContacts",
+        },
+      ],
+    },
+  },
+  "people": Object {},
+}
+`;
+
+exports[`should update person impact reports 1`] = `
+Object {
+  "global": Object {},
+  "interactions": Object {},
+  "people": Object {
+    "123": Object {
+      "person_id": "123",
+      "type": "impact_report",
+    },
+  },
+}
+`;

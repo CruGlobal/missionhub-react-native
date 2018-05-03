@@ -25,11 +25,12 @@ import * as onboardingProfile from '../../src/actions/onboardingProfile';
 
 jest.mock('../../src/actions/notifications');
 
-const email = 'Roger';
-const password = 'secret';
+const email = 'klas&jflk@lkjasdf.com';
+const password = 'this&is=unsafe';
 const mockClientId = 123456;
 const ticket = 'nfnvjvkfkfj886';
-const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended&username=${email}&password=${password}`;
+const data = `grant_type=password&client_id=${mockClientId}&scope=fullticket%20extended`
+  + `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([ thunk ]);
@@ -99,11 +100,22 @@ describe('the key', () => {
     });
 
     it('should login to the key, get a key ticket, then send the key ticket to Missionhub API with client token, then handle successful login', () => {
-      return store.dispatch(keyLogin(email, password, true))
+      return store.dispatch(keyLogin(email, password, null, true))
         .then(() => {
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, data);
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_GET_TICKET, {}, {});
           expect(callApi.default).toHaveBeenCalledWith(REQUESTS.TICKET_LOGIN, {}, { code: ticket, client_token: upgradeToken });
+
+          expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
+        });
+    });
+
+    it('should send mfa code if passed', () => {
+      const mfaCode = '123456';
+
+      return store.dispatch(keyLogin(email, password, mfaCode))
+        .then(() => {
+          expect(callApi.default).toHaveBeenCalledWith(REQUESTS.KEY_LOGIN, {}, `${data}&thekey_mfa_token=${mfaCode}`);
 
           expect(store.getActions()).toEqual([ onSuccessfulLoginResult ]);
         });
