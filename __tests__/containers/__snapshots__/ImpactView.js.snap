@@ -2244,6 +2244,7 @@ Object {
       },
     ],
   },
+  "isContactScreen": false,
   "personId": "1",
 }
 `;
@@ -2323,6 +2324,7 @@ Object {
       },
     ],
   },
+  "isContactScreen": true,
   "personId": "2",
 }
 `;

@@ -21,12 +21,13 @@ const store = createMockStore({
       pathway_moved_count: 46,
     },
   },
+  auth: {
+    person: {
+      id: '123',
+      first_name: 'Fname',
+    },
+  },
 });
-
-const person = {
-  id: '123',
-  first_name: 'Fname',
-};
 
 jest.mock('react-native-device-info');
 
@@ -41,7 +42,7 @@ describe('Impact Screen', () => {
 
   it('renders correctly', () => {
     testSnapshotShallow(
-      <ImpactScreen person={person} />,
+      <ImpactScreen />,
       store
     );
   });
