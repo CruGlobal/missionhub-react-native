@@ -101,7 +101,7 @@ describe('ImpactView', () => {
           },
         },
         {
-          isContactScreen: false,
+          person: me,
           organization,
         }
       )).toMatchSnapshot();
@@ -118,9 +118,11 @@ describe('ImpactView', () => {
             },
             global: globalImpact,
           },
+          auth: {
+            person: me,
+          },
         },
         {
-          isContactScreen: true,
           person,
           organization,
         }

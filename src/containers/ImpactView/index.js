@@ -164,16 +164,17 @@ export class ImpactView extends Component {
 }
 
 ImpactView.propTypes = {
-  isContactScreen: PropTypes.bool,
-  person: PropTypes.object,
+  person: PropTypes.object.isRequired,
   organization: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact, auth }, { isContactScreen, person, organization = {} }) => {
-  const personId = isContactScreen ? person.id : auth.person.id;
+export const mapStateToProps = ({ impact, auth }, { person, organization = {} }) => {
+  const isContactScreen = person.id !== auth.person.id;
+  const personId = person.id;
   const orgId = organization.id || '';
 
   return {
+    isContactScreen,
     personId,
     impact: impact.people[personId] || {},
     interactions: impact.interactions[`${personId}-${orgId}`] || {},
