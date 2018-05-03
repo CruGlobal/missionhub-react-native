@@ -1,7 +1,9 @@
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
+
 import { ANALYTICS } from '../constants';
+
 import callApi, { REQUESTS } from './api';
 import { updateAnalyticsContext } from './analytics';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 const FACEBOOK_SCOPE = [ 'public_profile', 'email' ];
 

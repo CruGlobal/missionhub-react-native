@@ -3,10 +3,6 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { REQUESTS } from './api';
-import callApi from './api';
-import { navigatePush, navigateBack, navigateReset } from './navigation';
-import { getPersonDetails } from './person';
 import { MAIN_TABS } from '../constants';
 import {
   PUSH_NOTIFICATION_ASKED,
@@ -20,6 +16,11 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
+
+import { getPersonDetails } from './person';
+import { navigatePush, navigateBack, navigateReset } from './navigation';
+import callApi from './api';
+import { REQUESTS } from './api';
 
 
 export function disableAskPushNotification() {

@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../../components/common';
-import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { isMissionhubUser } from '../../utils/common';
+
+import styles from './styles';
 
 @translate()
 export class PeopleItem extends Component {

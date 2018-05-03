@@ -1,5 +1,6 @@
-import { API_URL, THE_KEY_URL } from './utils';
 import { URL_ENCODED } from '../constants';
+
+import { API_URL, THE_KEY_URL } from './utils';
 
 const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
 

@@ -4,7 +4,6 @@ import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
-import styles from './styles';
 import { Text, Button, Flex, Icon, LoadingWheel } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
@@ -13,6 +12,8 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+
+import styles from './styles';
 
 
 @translate('loginOptions')

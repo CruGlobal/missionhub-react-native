@@ -1,11 +1,10 @@
 import 'react-native';
 import React from 'react';
+import MockDate from 'mockdate';
 
-// Note: test renderer must be required after react-native.
 import { createMockStore } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
 import { testSnapshotShallow } from '../../testUtils';
-import MockDate from 'mockdate';
 
 const store = createMockStore({
   impact: {

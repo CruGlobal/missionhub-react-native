@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
-import styles from './styles';
 import theme from '../../theme';
+
+import styles from './styles';
 
 @translate()
 class StepItem extends Component {

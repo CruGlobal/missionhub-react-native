@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
-
 import Header from '../Header';
 import FilterItem from '../../components/FilterItem';
-import styles from './styles';
 import { trackSearchFilter, trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 function setSelected(items = [], id) {
   return items.map((i) => ({

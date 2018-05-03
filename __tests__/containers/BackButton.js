@@ -1,11 +1,10 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16/build/index';
-
-// Note: test renderer must be required after react-native.
-import { BackButton } from '../../src/containers/BackButton';
-import { createMockStore } from '../../testUtils/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
+
+import { BackButton } from '../../src/containers/BackButton';
+import { createMockStore } from '../../testUtils/index';
 import * as navigation from '../../src/actions/navigation';
 import IconButton from '../../src/components/IconButton';
 
@@ -22,10 +21,10 @@ describe('back button', () => {
       <BackButton dispatch={jest.fn()} />,
       { context: { store: store } }
     );
-  
+
     shallowScreen = shallowScreen.dive();
   });
-  
+
   it('renders normally', () => {
     expect(shallowScreen.dive()).toMatchSnapshot();
   });
@@ -45,10 +44,10 @@ describe('back button absolute', () => {
       <BackButton absolute={true} dispatch={jest.fn()} />,
       { context: { store: store } }
     );
-  
+
     shallowScreen = shallowScreen.dive();
   });
-  
+
   it('renders with absolute', () => {
     expect(shallowScreen.dive()).toMatchSnapshot();
   });
@@ -63,7 +62,7 @@ describe('back button customNavigate', () => {
       <BackButton customNavigate={mockCustomNav} dispatch={jest.fn()} />,
       { context: { store: store } }
     );
-  
+
     shallowScreen = shallowScreen.dive();
   });
 

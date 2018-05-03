@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { INTERACTION_TYPES, UPDATE_PEOPLE_INTERACTION_REPORT } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 export function getGlobalImpact() {
   return (dispatch) => {

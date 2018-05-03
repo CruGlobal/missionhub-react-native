@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Separator, Touchable, Icon } from '../common';
+
 import styles from './styles';
 
 export default class StepsList extends Component {

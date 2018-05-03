@@ -1,19 +1,19 @@
 import i18next from 'i18next';
 
-import callApi, { REQUESTS } from './api';
 import {
   REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
 } from '../constants';
 import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
-import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { navigatePush, navigateBack } from './navigation';
+import callApi, { REQUESTS } from './api';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 

@@ -1,7 +1,7 @@
 import { ScrollView } from 'react-native';
 import React from 'react';
-import { renderShallow } from '../../testUtils';
 
+import { renderShallow } from '../../testUtils';
 import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
 jest.mock('../../src/selectors/steps');

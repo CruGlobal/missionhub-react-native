@@ -8,12 +8,13 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
-import styles from './styles';
 import { Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('addContact')
 class AddContactScreen extends Component {

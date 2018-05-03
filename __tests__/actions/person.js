@@ -1,13 +1,15 @@
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
+
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../src/constants';
 import {
   getMe, getPersonDetails, updateFollowupStatus, updatePerson, createContactAssignment, deleteContactAssignment,
   getPersonJourneyDetails, savePersonNote, getPersonNote,
 } from '../../src/actions/person';
 import callApi, { REQUESTS } from '../../src/actions/api';
-jest.mock('../../src/actions/api');
 import * as analytics from '../../src/actions/analytics';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
+
+jest.mock('../../src/actions/api');
 
 const store = configureStore([ thunk ])({});
 const dispatch = jest.fn((response) => Promise.resolve(response));

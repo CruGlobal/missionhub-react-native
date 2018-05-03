@@ -1,4 +1,5 @@
 import configureStore from 'redux-mock-store';
+
 import {
   ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
   NAVIGATE_RESET,

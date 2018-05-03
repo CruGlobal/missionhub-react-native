@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
+
 import { Flex } from '../common';
+
 import styles from './styles';
 
 export default class LoadingWheel extends Component {

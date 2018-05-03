@@ -1,7 +1,6 @@
 import 'react-native';
 import React from 'react';
 
-// Note: test renderer must be required after react-native.
 import PersonSelectStepScreen from '../../src/containers/PersonSelectStepScreen';
 import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
 

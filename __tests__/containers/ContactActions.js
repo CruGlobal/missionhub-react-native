@@ -4,11 +4,10 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-// Note: test renderer must be required after react-native.
 import * as navigation from '../../src/actions/navigation';
 import * as interactions from '../../src/actions/interactions';
-import { Provider } from 'react-redux';
 import { createMockNavState, testSnapshot } from '../../testUtils';
 import { ContactActions } from '../../src/containers/ContactActions';
 

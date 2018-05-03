@@ -3,11 +3,12 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
 import { Flex, Text, Input, Button } from '../../components/common';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import LoadingWheel from '../../components/LoadingWheel';
 import BackButton from '../../containers/BackButton';
+
+import styles from './styles';
 
 @translate('mfaLogin')
 export default class MFACodeComponent extends Component {

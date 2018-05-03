@@ -1,11 +1,9 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
-jest.mock('react-native-push-notification');
-jest.mock('react-native-config', () => ({
-  GCM_SENDER_ID: 'Test GCM Sender ID',
-  APNS_MODE: 'APNS',
-}));
+import { PushNotificationIOS } from 'react-native';
+import i18next from 'i18next';
+import MockDate from 'mockdate';
 
 import {
   enableAskPushNotification,
@@ -26,12 +24,15 @@ import {
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
-jest.mock('../../src/actions/api');
 import { getPersonDetails } from '../../src/actions/person';
+
 jest.mock('../../src/actions/person');
-import { PushNotificationIOS } from 'react-native';
-import i18next from 'i18next';
-import MockDate from 'mockdate';
+jest.mock('../../src/actions/api');
+jest.mock('react-native-push-notification');
+jest.mock('react-native-config', () => ({
+  GCM_SENDER_ID: 'Test GCM Sender ID',
+  APNS_MODE: 'APNS',
+}));
 
 const mockStore = configureStore([ thunk ]);
 const store = mockStore({

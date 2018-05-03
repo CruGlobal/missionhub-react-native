@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
 import { translate } from 'react-i18next';
-import styles from './SetupScreen/styles';
+
 import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../components/common';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/onboardingProfile';
 import { createPerson, updateOnboardingPerson } from '../actions/onboardingProfile';
-import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import { disableBack } from '../utils/common';
+
+import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
+import styles from './SetupScreen/styles';
 
 @translate()
 class SetupPersonScreen extends Component {

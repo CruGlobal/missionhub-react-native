@@ -1,8 +1,9 @@
+import * as RNOmniture from 'react-native-omniture';
+
 import {
   ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
   NOT_LOGGED_IN,
 } from '../constants';
-import * as RNOmniture from 'react-native-omniture';
 import { isCustomStep } from '../utils/common';
 
 export function updateAnalyticsContext(analyticsContext) {

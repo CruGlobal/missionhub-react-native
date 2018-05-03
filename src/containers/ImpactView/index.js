@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { getGlobalImpact, getPeopleInteractionsReport, getImpactById } from '../../actions/impact';
-
-import styles from './styles';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
+
+import styles from './styles';
 
 const reportPeriods = [
   {

@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import SelectStepScreen from './SelectStepScreen';
 import { getFourRandomItems } from '../utils/common';
+
+import SelectStepScreen from './SelectStepScreen';
 
 @translate('selectStep')
 class PersonSelectStepScreen extends Component {

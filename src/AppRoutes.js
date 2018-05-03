@@ -28,11 +28,9 @@ import SearchPeopleFilterRefineScreen, { SEARCH_REFINE_SCREEN } from './containe
 import LoginOptionsScreen, { LOGIN_OPTIONS_SCREEN } from './containers/LoginOptionsScreen';
 import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
-
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
-
 import theme from './theme';
 import { MAIN_TABS } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';

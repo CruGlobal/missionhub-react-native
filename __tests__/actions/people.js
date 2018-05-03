@@ -1,9 +1,10 @@
-import { searchPeople, getMyPeople } from '../../src/actions/people';
-import callApi, { REQUESTS } from '../../src/actions/api';
-jest.mock('../../src/actions/api');
-
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+
+import { searchPeople, getMyPeople } from '../../src/actions/people';
+import callApi, { REQUESTS } from '../../src/actions/api';
+
+jest.mock('../../src/actions/api');
 
 const mockStore = configureStore([ thunk ]);
 let store;

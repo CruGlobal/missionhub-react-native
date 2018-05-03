@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { Flex } from '../common';
 import i18next from 'i18next';
 
+import { Flex } from '../common';
 import Text from '../Text';
+
 import styles from './styles';
 
 export default class LoadingGuy extends Component {

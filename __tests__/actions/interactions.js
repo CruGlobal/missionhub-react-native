@@ -1,11 +1,11 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import { addNewInteraction, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as impact from '../../src/actions/impact';
-
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
 import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 

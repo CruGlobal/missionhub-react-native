@@ -1,3 +1,6 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import {
   getGlobalImpact,
   getMyImpact,
@@ -6,10 +9,8 @@ import {
   refreshImpact,
 } from '../../src/actions/impact';
 import callApi, { REQUESTS } from '../../src/actions/api';
-jest.mock('../../src/actions/api');
 
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+jest.mock('../../src/actions/api');
 
 const store = configureStore([ thunk ])();
 

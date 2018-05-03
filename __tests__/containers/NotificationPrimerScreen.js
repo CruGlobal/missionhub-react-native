@@ -2,10 +2,9 @@ import 'react-native';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
-// Note: test renderer must be required after react-native.
-import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { Provider } from 'react-redux';
+
+import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
 import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
 

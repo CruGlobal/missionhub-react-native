@@ -1,11 +1,12 @@
-import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as RNOmniture from 'react-native-omniture';
+
 import {
   trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
   logInAnalytics,
 } from '../../src/actions/analytics';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as RNOmniture from 'react-native-omniture';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
 
 jest.mock('react-native-omniture', () => {
   return {
