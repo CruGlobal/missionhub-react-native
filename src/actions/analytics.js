@@ -19,7 +19,7 @@ export function trackStepsAdded(steps) {
       let trackedStep = `${step.challenge_type} | ${step.self_step ? 'Y' : 'N'} | ${step.locale}`;
 
       if (isCustomStep(step)) {
-        dispatch(trackAction(ACTIONS.STEP_CREATED));
+        dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
 
       } else {
         trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
@@ -34,11 +34,18 @@ export function trackStepsAdded(steps) {
 
 export function trackSearchFilter(label) {
   return (dispatch) => {
-    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED.name, {
+      [ACTIONS.SEARCH_FILTER.key]: label,
+      [ACTIONS.FILTER_ENGAGED.key]: null,
+    }));
   };
 }
 
-export function trackAction(action, data = {}) {
+export function trackActionWithoutData(action) {
+  return trackAction(action.name, { [action.key]: null });
+}
+
+export function trackAction(action, data) {
   return () => RNOmniture.trackAction(action, data);
 }
 

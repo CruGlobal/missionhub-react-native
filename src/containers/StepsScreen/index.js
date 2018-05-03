@@ -21,12 +21,13 @@ import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
 const MAX_REMINDERS = 3;
+const NAME = 'Steps';
 
 function isCloseToBottom({ layoutMeasurement, contentOffset, contentSize }) {
   const paddingToBottom = 20;
@@ -87,7 +88,7 @@ export class StepsScreen extends Component {
 
   handleSetReminder(step) {
     const { dispatch, t } = this.props;
-    dispatch(trackAction(ACTIONS.STEP_PRIORITIZED));
+    dispatch(trackActionWithoutData(ACTIONS.STEP_PRIORITIZED));
 
     if (this.hasMaxReminders()) {
       return;
@@ -104,16 +105,16 @@ export class StepsScreen extends Component {
 
   handleRemoveReminder(step) {
     const { dispatch } = this.props;
-    dispatch(trackAction(ACTIONS.STEP_DEPRIORITIZED));
+    dispatch(trackActionWithoutData(ACTIONS.STEP_DEPRIORITIZED));
     dispatch(setStepFocus(step, false));
   }
 
   handleCompleteReminder(step) {
-    this.props.dispatch(completeStepReminder(step));
+    this.props.dispatch(completeStepReminder(step, NAME));
   }
 
   handleDeleteReminder(step) {
-    this.props.dispatch(deleteStepWithTracking(step));
+    this.props.dispatch(deleteStepWithTracking(step, NAME));
   }
 
   handleRefresh() {
@@ -239,7 +240,7 @@ export class StepsScreen extends Component {
             onBumpComplete={showStepBump && index === 0 ? this.completeStepBump : undefined}
             key={item.id}
             onDelete={() => this.handleDeleteReminder(item)}
-            onComplete={() => this.handleCompleteReminder(item)}
+            onComplete={() => this.handleCompleteReminder(item, 'Steps')}
           >
             <StepItem
               step={item}

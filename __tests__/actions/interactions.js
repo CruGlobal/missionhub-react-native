@@ -36,7 +36,7 @@ describe('add comment', () => {
   };
 
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, interaction.tracking);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.INTERACTION.name, { [interaction.tracking]: null } );
     mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
   });
 
@@ -142,7 +142,7 @@ describe('edit comment', () => {
 
   beforeEach(() => {
     mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.JOURNEY_EDITED);
+    mockFnWithParams(analytics, 'trackActionWithoutData', trackActionResult, ACTIONS.JOURNEY_EDITED);
   });
 
   it('should edit a comment', async() => {

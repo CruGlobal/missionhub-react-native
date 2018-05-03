@@ -194,6 +194,8 @@ describe('complete challenge', () => {
 
   const removeReminderResponse = { type: REMOVE_STEP_REMINDER, step };
 
+  const screen = 'contact steps';
+
   beforeEach(() => {
     store = mockStore({
       auth: {
@@ -208,14 +210,18 @@ describe('complete challenge', () => {
       'trackState',
       trackStateResult,
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
+    mockFnWithParams(analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_COMPLETED.key]: null });
 
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
   });
 
   it('completes step', async() => {
-    await store.dispatch(completeStep(step));
+    await store.dispatch(completeStep(step, screen));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
@@ -230,7 +236,7 @@ describe('complete challenge', () => {
   });
 
   it('completes step reminder', async() => {
-    await store.dispatch(completeStepReminder(step));
+    await store.dispatch(completeStepReminder(step, screen));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
