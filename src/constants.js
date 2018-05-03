@@ -100,8 +100,14 @@ export const ACTIONS = {
   SELF_STAGE_SELECTED: 'cru.selfselectedstage',
   PERSON_STAGE_SELECTED: 'cru.personselectedstage',
   STAGE_SELECTED: 'cru.stageselected',
-  STEP_DETAIL: 'cru.stepoffaithdetail',
-  STEPS_ADDED: 'cru.stepoffaithadded',
+  STEP_DETAIL: {
+    name: 'Step of Faith Detail',
+    key: 'cru.stepoffaithdetail',
+  },
+  STEPS_ADDED: {
+    name: 'Step of Faith Added',
+    key: 'cru.stepoffaithadded',
+  },
   STEP_CREATED: 'cru.stepoffaithcreated',
   ALLOW: 'cru.notificationsallowed',
   NOT_NOW: 'cru.notificationsnotallowed',
