@@ -20,8 +20,8 @@ export function onSuccessfulLogin() {
     if (mePerson.user.pathway_stage_id) {
 
       if (hasPersonWithStageSelected(mePerson)) {
-        dispatch(completeOnboarding());
         nextScreen = MAIN_TABS;
+        dispatch(completeOnboarding());
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;
       }
