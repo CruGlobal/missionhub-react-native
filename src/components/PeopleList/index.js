@@ -10,9 +10,10 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 import PeopleItem from '../../containers/PeopleItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
+import IconButton from '../IconButton';
 
 import styles from './styles';
-import IconButton from '../IconButton';
+
 
 @translate('peopleScreen')
 export default class PeopleList extends Component {
