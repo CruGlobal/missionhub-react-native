@@ -165,22 +165,61 @@ describe('showReminderScreen', () => {
 });
 
 describe('reregisterNotificationHandler', () => {
+
+  beforeEach(() => {
+    jest.mock('../../src/actions/notifications');
+    registerNotificationHandler.mockReturnValue({ type: 'register notifications' });
+    showReminderScreen.mockReturnValue({ type: 'show reminder screen' });
+  });
+
   it('should register android notifications', () => {
     common.isAndroid = true;
     store.dispatch(reregisterNotificationHandler());
 
     expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
-    expect(PushNotification.configure).toHaveBeenCalled();
+    expect(registerNotificationHandler).toHaveBeenCalled();
   });
 
-  it('should not register notifications if app doesn\'t have permissions', () => {
+  it('should not register notifications if app doesn\'t have permissions and doesn\'t have reminders', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminder: true,
+        hasAsked: false,
+      },
+      steps: {
+        reminders: [],
+      },
+    });
+
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
 
     store.dispatch(reregisterNotificationHandler());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(PushNotification.configure).not.toHaveBeenCalled();
+    expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
+  });
+
+  it('should show reminder screen if app doesn\'t have permissions and has reminders', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminder: true,
+        hasAsked: false,
+      },
+      steps: {
+        reminders: [ { id: 1 } ],
+      },
+    });
+
+    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
+
+    store.dispatch(reregisterNotificationHandler());
+
+    expect(PushNotification.checkPermissions).toHaveBeenCalled();
+    expect(registerNotificationHandler).not.toHaveBeenCalled();
+    expect(NavigatePush).toHaveBeenCalled();
   });
 
   it('should register notifications if app has permissions', () => {
@@ -189,7 +228,7 @@ describe('reregisterNotificationHandler', () => {
     store.dispatch(reregisterNotificationHandler());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(PushNotification.configure).toHaveBeenCalled();
+    expect(notifications.registerNotificationHandler).toHaveBeenCalled();
   });
 });
 
