@@ -79,14 +79,14 @@ describe('button presses', () => {
     componentInstance.toggleSection = jest.fn();
   });
 
-  it('onAddContact', () => {
+  it('onAddContact is called when add contact icon is pressed', () => {
     const addContactButton = component.find({ name: 'addContactIcon' }).first();
     addContactButton.simulate('press');
 
     expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(undefined);
   });
 
-  it('toggleSection', () => {
+  it('toggleSection is called when arrow icon is pressed', () => {
     const arrowButton = component.find({ name: 'upArrowIcon' }).first();
     arrowButton.simulate('press');
 
