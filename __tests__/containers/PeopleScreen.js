@@ -31,6 +31,7 @@ const orgs = [
   },
   {
     id: 10,
+    name: 'org 1',
     type: 'organization',
     people: [
       {
@@ -41,6 +42,7 @@ const orgs = [
   },
   {
     id: 20,
+    name: 'org 2',
     type: 'organization',
     people: [
       {
@@ -75,7 +77,7 @@ describe('PeopleScreen', () => {
   });
   it('renders correctly as Casey', () => {
     testSnapshotShallow(
-      <PeopleScreen {...props} />
+      <PeopleScreen {...props} isJean={false} />
     );
   });
 

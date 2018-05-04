@@ -24,6 +24,7 @@ Object {
     },
     Object {
       "id": 10,
+      "name": "org 1",
       "people": Array [
         Object {
           "id": 11,
@@ -34,6 +35,7 @@ Object {
     },
     Object {
       "id": 20,
+      "name": "org 2",
       "people": Array [
         Object {
           "id": 21,
@@ -65,12 +67,13 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     }
     right={
       <IconButton
-        name="searchIcon"
+        name="addContactIcon"
         onPress={[Function]}
+        size={24}
         type="MissionHub"
       />
     }
-    shadow={false}
+    shadow={true}
     title="PEOPLE"
   />
   <Translate(PeopleList)
@@ -96,6 +99,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
         },
         Object {
           "id": 10,
+          "name": "org 1",
           "people": Array [
             Object {
               "id": 11,
@@ -106,6 +110,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
         },
         Object {
           "id": 20,
+          "name": "org 2",
           "people": Array [
             Object {
               "id": 21,
@@ -120,7 +125,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     onRefresh={[Function]}
     onSelect={[Function]}
     refreshing={false}
-    sections={true}
+    sections={false}
   />
 </Component>
 `;
@@ -175,6 +180,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
         },
         Object {
           "id": 10,
+          "name": "org 1",
           "people": Array [
             Object {
               "id": 11,
@@ -185,6 +191,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
         },
         Object {
           "id": 20,
+          "name": "org 2",
           "people": Array [
             Object {
               "id": 21,

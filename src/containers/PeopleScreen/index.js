@@ -88,8 +88,9 @@ export class PeopleScreen extends Component {
                 onPress={this.handleSearch} />
             ) : (
               <IconButton
-                name="plusIcon"
+                name="addContactIcon"
                 type="MissionHub"
+                size={24}
                 onPress={() => this.handleAddContact()} />
             )
           }
