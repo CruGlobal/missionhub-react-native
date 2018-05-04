@@ -18,7 +18,18 @@ jest.mock('../../src/actions/notifications', () => ({
   disableAskPushNotification: jest.fn(),
 }));
 
-it('renders correctly', () => {
+it('renders correctly for onboarding', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <NotificationPrimerScreen navigation={createMockNavState({
+        onComplete: jest.fn(),
+        isOnboarding: true,
+      })} />
+    </Provider>
+  );
+});
+
+it('renders correctly for focused step', () => {
   testSnapshot(
     <Provider store={store}>
       <NotificationPrimerScreen navigation={createMockNavState({
