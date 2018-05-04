@@ -170,6 +170,8 @@ describe('reregisterNotificationHandler', () => {
     jest.mock('../../src/actions/notifications');
     registerNotificationHandler.mockReturnValue({ type: 'register notifications' });
     showReminderScreen.mockReturnValue({ type: 'show reminder screen' });
+
+    store.dispatch(configureNotificationHandler());
   });
 
   it('should register android notifications', () => {
@@ -232,9 +234,9 @@ describe('reregisterNotificationHandler', () => {
   });
 });
 
-describe('registerNotificationHandler', () => {
+describe('configureNotificaitonHandler', () => {
   it('should configure notifications', () => {
-    store.dispatch(registerNotificationHandler());
+    store.dispatch(configureNotificationHandler());
 
     expect(PushNotification.configure).toHaveBeenCalledWith({
       onRegister: expect.any(Function),
@@ -242,9 +244,10 @@ describe('registerNotificationHandler', () => {
       senderID: GCM_SENDER_ID,
       requestPermissions: false,
     });
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
   });
+});
 
+describe('registerNotificationHandler', () => {
   describe('onRegister', () => {
     const oldToken = 'Old Token';
     const newToken = 'New Token';
@@ -260,10 +263,10 @@ describe('registerNotificationHandler', () => {
       PushNotification.configure.mockImplementation((config) => config.onRegister({ token: newToken }));
       callApi.mockReturnValue({ type: REQUESTS.SET_PUSH_TOKEN.SUCCESS });
       store.clearActions();
-      store.dispatch(configureNotificationHandler());
     });
 
     it('should update notification token for iOS devices', () => {
+      store.dispatch(configureNotificationHandler());
       store.dispatch(registerNotificationHandler());
 
       expect(callApi.mock.calls).toMatchSnapshot();
@@ -272,6 +275,7 @@ describe('registerNotificationHandler', () => {
 
     it('should update notification token for android devices', () => {
       common.isAndroid = true;
+      store.dispatch(configureNotificationHandler());
       store.dispatch(registerNotificationHandler());
 
       expect(callApi.mock.calls).toMatchSnapshot();
