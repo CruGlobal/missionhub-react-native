@@ -22,7 +22,7 @@ import {
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
-  DISABLE_WELCOME_NOTIFICATION,
+  DISABLE_WELCOME_NOTIFICATION, NAVIGATE_FORWARD,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
@@ -32,6 +32,7 @@ jest.mock('../../src/actions/person');
 import { PushNotificationIOS } from 'react-native';
 import i18next from 'i18next';
 import MockDate from 'mockdate';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
 
 const mockStore = configureStore([ thunk ]);
 const store = mockStore({
@@ -167,10 +168,6 @@ describe('showReminderScreen', () => {
 describe('reregisterNotificationHandler', () => {
 
   beforeEach(() => {
-    jest.mock('../../src/actions/notifications');
-    registerNotificationHandler.mockReturnValue({ type: 'register notifications' });
-    showReminderScreen.mockReturnValue({ type: 'show reminder screen' });
-
     store.dispatch(configureNotificationHandler());
   });
 
@@ -178,9 +175,9 @@ describe('reregisterNotificationHandler', () => {
     common.isAndroid = true;
     store.dispatch(reregisterNotificationHandler());
 
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
-    expect(registerNotificationHandler).toHaveBeenCalled();
+    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
+    expect(PushNotification.requestPermissions).toHaveBeenCalled();
   });
 
   it('should not register notifications if app doesn\'t have permissions and doesn\'t have reminders', () => {
@@ -220,8 +217,16 @@ describe('reregisterNotificationHandler', () => {
     store.dispatch(reregisterNotificationHandler());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(registerNotificationHandler).not.toHaveBeenCalled();
-    expect(NavigatePush).toHaveBeenCalled();
+    expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      {
+        params: {
+          onComplete: expect.any(Function),
+        },
+        routeName: NOTIFICATION_PRIMER_SCREEN,
+        type: NAVIGATE_FORWARD,
+      },
+    ]);
   });
 
   it('should register notifications if app has permissions', () => {
@@ -230,7 +235,7 @@ describe('reregisterNotificationHandler', () => {
     store.dispatch(reregisterNotificationHandler());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(notifications.registerNotificationHandler).toHaveBeenCalled();
+    expect(PushNotification.requestPermissions).toHaveBeenCalled();
   });
 });
 
