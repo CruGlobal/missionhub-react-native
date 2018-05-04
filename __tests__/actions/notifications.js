@@ -15,7 +15,7 @@ import {
   reregisterNotificationHandler,
   registerNotificationHandler,
   deletePushToken,
-  showWelcomeNotification,
+  showWelcomeNotification, configureNotificationHandler,
 } from '../../src/actions/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
@@ -260,6 +260,7 @@ describe('registerNotificationHandler', () => {
       PushNotification.configure.mockImplementation((config) => config.onRegister({ token: newToken }));
       callApi.mockReturnValue({ type: REQUESTS.SET_PUSH_TOKEN.SUCCESS });
       store.clearActions();
+      store.dispatch(configureNotificationHandler());
     });
 
     it('should update notification token for iOS devices', () => {
@@ -279,6 +280,7 @@ describe('registerNotificationHandler', () => {
 
     it('should do nothing if the token hasn\'t changed', () => {
       PushNotification.configure.mockImplementation((config) => config.onRegister({ token: oldToken }));
+      store.dispatch(configureNotificationHandler());
       store.dispatch(registerNotificationHandler());
 
       expect(callApi).not.toHaveBeenCalled();
@@ -314,6 +316,7 @@ describe('registerNotificationHandler', () => {
           resolve();
         })
       );
+      store.dispatch(configureNotificationHandler());
       store.dispatch(registerNotificationHandler());
       return await deepLinkComplete;
     }
