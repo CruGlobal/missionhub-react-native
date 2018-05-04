@@ -1,8 +1,8 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
-import theme from '../src/theme';
 
+import theme from '../src/theme';
 import { createMockStore, testSnapshot } from '../testUtils';
 import { MainTabRoutes, navItem } from '../src/AppRoutes';
 

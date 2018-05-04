@@ -3,7 +3,6 @@ import React from 'react';
 
 import { PeopleScreen, mapStateToProps } from '../../src/containers/PeopleScreen';
 import { testSnapshotShallow } from '../../testUtils';
-
 import { peopleByOrgSelector } from '../../src/selectors/people';
 jest.mock('../../src/selectors/people');
 

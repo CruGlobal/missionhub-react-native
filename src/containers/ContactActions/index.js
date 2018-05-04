@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+
 import { INTERACTION_TYPES } from '../../constants';
 import { addNewInteraction } from '../../actions/interactions';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, Icon, Text, Touchable } from '../../components/common';
-import styles from './styles';
 import { reloadJourney } from '../../actions/journey';
+
+import styles from './styles';
 
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter((i) => i.isOnAction);
 

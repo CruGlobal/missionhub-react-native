@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AddContactFields from '../../src/containers/AddContactFields';
 import { createMockStore, testSnapshotShallow } from '../../testUtils';
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { Button, Icon } from '../common';
+
 import styles from './styles';
 // import theme from '../../theme';
 

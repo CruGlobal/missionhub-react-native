@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import styles from './styles';
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
 import { isAndroid, disableBack } from '../../utils/common';
+
+import styles from './styles';
 
 class CelebrationScreen extends Component {
 

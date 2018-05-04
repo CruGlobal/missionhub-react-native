@@ -10,6 +10,7 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 import PeopleItem from '../../containers/PeopleItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
+
 import styles from './styles';
 import IconButton from '../IconButton';
 

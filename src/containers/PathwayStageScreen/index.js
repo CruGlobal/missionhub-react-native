@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image, Keyboard } from 'react-native';
-import { getStages } from '../../actions/stages';
-
 import Carousel from 'react-native-snap-carousel';
-import styles from './styles';
+import PropTypes from 'prop-types';
+
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
@@ -13,12 +12,13 @@ import CURIOUS from '../../../assets/images/curiousIcon.png';
 import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
-import PropTypes from 'prop-types';
-
+import { getStages } from '../../actions/stages';
 import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 const screenMargin = 60;
 const sliderWidth = theme.fullWidth;

@@ -4,7 +4,6 @@ import { Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
 
 import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
@@ -12,6 +11,8 @@ import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 const characterLimit = 255;
 

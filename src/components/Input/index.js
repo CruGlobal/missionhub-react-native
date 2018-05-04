@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 
-import styles from './styles';
 import theme from '../../theme';
+
+import styles from './styles';
 
 // See https://facebook.github.io/react-native/docs/textinput.html for properties
 

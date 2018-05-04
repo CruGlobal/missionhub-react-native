@@ -1,12 +1,12 @@
 import 'react-native';
 import React from 'react';
-import { renderShallow, testSnapshotShallow } from '../../testUtils';
+import { Alert } from 'react-native';
 
+import { renderShallow, testSnapshotShallow } from '../../testUtils';
 import { ContactScreen, mapStateToProps } from '../../src/containers/ContactScreen';
 import { contactAssignmentSelector, personSelector, orgPermissionSelector } from '../../src/selectors/people';
 import { organizationSelector } from '../../src/selectors/organizations';
 import * as navigation from '../../src/actions/navigation';
-import { Alert } from 'react-native';
 
 jest.mock('../../src/selectors/people');
 jest.mock('../../src/selectors/organizations');

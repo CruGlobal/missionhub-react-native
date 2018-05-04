@@ -1,10 +1,9 @@
 import 'react-native';
 import React from 'react';
+import { Provider } from 'react-redux';
 
-// Note: test renderer must be required after react-native.
 import SecondaryTabBar from '../../src/components/SecondaryTabBar/index';
 import { testSnapshot } from '../../testUtils/index';
-import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 const mockState = {
   steps: {
@@ -29,6 +28,11 @@ const tabArray = [
     tabLabel: 'My Steps',
   },
   {
+    page: 'actions',
+    iconName: 'actionsIcon',
+    tabLabel: 'My Actions',
+  },
+  {
     page: 'journey',
     iconName: 'journeyIcon',
     tabLabel: 'Our Journey',
@@ -37,6 +41,11 @@ const tabArray = [
     page: 'notes',
     iconName: 'notesIcon',
     tabLabel: 'My Notes',
+  },
+  {
+    page: 'userImpact',
+    iconName: 'impactIcon',
+    tabLabel: 'Impact',
   },
 ];
 

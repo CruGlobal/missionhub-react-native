@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 import { trackAction } from './analytics';
 
 const personInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+
 import theme from '../../theme';
 
 export default class MyText extends Component {

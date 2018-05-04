@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { navigatePush } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
+import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
 import { Flex, Button, Separator, Text, LoadingGuy } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
@@ -18,6 +17,8 @@ import { removeSwipeJourney } from '../../actions/swipe';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { updateChallengeNote } from '../../actions/steps';
+
+import styles from './styles';
 
 @translate('contactJourney')
 class ContactJourney extends Component {

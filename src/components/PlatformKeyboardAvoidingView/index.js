@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { KeyboardAvoidingView } from 'react-native';
 
-import styles from './styles';
 import { isAndroid } from '../../utils/common';
+
+import styles from './styles';
 
 export default class PlatformKeyboardAvoidingView extends Component {
   render() {

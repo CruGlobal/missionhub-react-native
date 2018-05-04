@@ -13,8 +13,6 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../selectors/steps';
-
-import styles from './styles';
 import { Flex, Text, Icon, IconButton, RefreshControl, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
@@ -25,6 +23,8 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { trackAction } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 const MAX_REMINDERS = 3;
 

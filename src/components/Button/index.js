@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import debounce from 'lodash/debounce';
 
-import styles from './styles';
 
 import { Touchable, Text } from '../common';
 import { exists } from '../../utils/common';
+
+import styles from './styles';
 
 const TYPES = [ 'transparent', 'primary', 'secondary' ];
 // Return the styles.TYPE if it exists or just the default button style

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { navigatePush } from '../../actions/navigation';
 
-import styles from './styles';
+import { navigatePush } from '../../actions/navigation';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
+
+import styles from './styles';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 
 export default class Separator extends Component {

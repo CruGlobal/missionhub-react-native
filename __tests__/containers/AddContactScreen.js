@@ -1,6 +1,6 @@
 import React from 'react';
-import { createMockStore, createMockNavState, renderShallow, testSnapshotShallow } from '../../testUtils';
 
+import { createMockStore, createMockNavState, renderShallow, testSnapshotShallow } from '../../testUtils';
 import AddContactScreen from '../../src/containers/AddContactScreen';
 import { addNewContact } from '../../src/actions/organizations';
 import { updatePerson } from '../../src/actions/person';

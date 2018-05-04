@@ -1,12 +1,10 @@
 import 'react-native';
 import React from 'react';
+import MockDate from 'mockdate';
 
-// Note: test renderer must be required after react-native.
-import { Provider } from 'react-redux';
 import { createMockStore } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
-import { testSnapshot } from '../../testUtils';
-import MockDate from 'mockdate';
+import { testSnapshotShallow } from '../../testUtils';
 
 const store = createMockStore({
   impact: {
@@ -20,6 +18,12 @@ const store = createMockStore({
       receivers_count: 52,
       step_owners_count: 32,
       pathway_moved_count: 46,
+    },
+  },
+  auth: {
+    person: {
+      id: '123',
+      first_name: 'Fname',
     },
   },
 });
@@ -36,10 +40,9 @@ describe('Impact Screen', () => {
   });
 
   it('renders correctly', () => {
-    testSnapshot(
-      <Provider store={store}>
-        <ImpactScreen />
-      </Provider>
+    testSnapshotShallow(
+      <ImpactScreen />,
+      store
     );
   });
 });

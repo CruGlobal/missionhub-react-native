@@ -1,8 +1,7 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
+
 import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import PeopleItem from '../../src/containers/PeopleItem';
 import { navigatePush } from '../../src/actions/navigation';

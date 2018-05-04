@@ -4,12 +4,13 @@ import { Platform } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialIcons';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from '../../../assets/icoMoonConfig.json';
-import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FAGlyphs from 'react-native-vector-icons/glyphmaps/FontAwesome.json';
 import MaterialGlyphs from 'react-native-vector-icons/glyphmaps/MaterialIcons.json';
 import IoniconsGlyphs from 'react-native-vector-icons/glyphmaps/Ionicons.json';
+
+import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
+import icoMoonConfig from '../../../assets/icoMoonConfig.json';
 
 import PLATFORM_MAP from './mapping';
 import styles from './styles';

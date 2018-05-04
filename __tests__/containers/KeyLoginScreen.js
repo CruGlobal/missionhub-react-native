@@ -1,14 +1,15 @@
 import 'react-native';
 import React from 'react';
+import { Provider } from 'react-redux';
 
-// Note: test renderer must be required after react-native.
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
-import { Provider } from 'react-redux';
 import * as auth from '../../src/actions/auth';
 import { trackAction } from '../../src/actions/analytics';
-import { ACTIONS } from '../../src/constants';
+import { ACTIONS, MFA_REQUIRED } from '../../src/constants';
 import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
+import { navigatePush } from '../../src/actions/navigation';
+import { MFA_CODE_SCREEN } from '../../src/containers/MFACodeScreen';
 
 let store;
 
@@ -67,6 +68,7 @@ describe('a login button is clicked', () => {
     screen = renderShallow(
       <KeyLoginScreen
         navigation={createMockNavState({ })}
+        upgradeAccount={true}
       />,
       store
     );
@@ -101,11 +103,13 @@ describe('a login button is clicked', () => {
       expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
     };
 
+    const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+
     beforeEach(() => {
-      const credentials = { email: 'klas&jflk@lkjasdf.com', password: 'this&is=unsafe' };
+
       screen.setState(credentials);
       auth.keyLogin.mockImplementation((email, password) => {
-        return email === encodeURIComponent(credentials.email) && password === encodeURIComponent(credentials.password) ? loginResult : undefined;
+        return email === credentials.email && password === credentials.password ? loginResult : undefined;
       });
 
       trackAction.mockReset();
@@ -118,8 +122,8 @@ describe('a login button is clicked', () => {
       expect(store.dispatch).toHaveBeenLastCalledWith(loginResult);
     });
 
-    it('loading wheel appears', async() => {
-      await clickLoginButton();
+    it('loading wheel appears', () => {
+      clickLoginButton();
 
       screen.update();
       expect(screen).toMatchSnapshot();
@@ -162,6 +166,27 @@ describe('a login button is clicked', () => {
 
       expectTrackAction(ACTIONS.SYSTEM_ERROR);
     });
+
+    describe('mfa_required is returned from the Key', () => {
+      beforeEach(() => auth.keyLogin.mockReturnValue(Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } })));
+
+      it('should send user to MFA screen', async() => {
+        await clickLoginButton();
+
+        expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
+          email: credentials.email,
+          password: credentials.password,
+          upgradeAccount: true,
+        });
+      });
+
+      it('should clear username and password', async() => {
+        await clickLoginButton();
+
+        screen.update();
+        expect(screen).toMatchSnapshot();
+      });
+    });
   });
 
   describe('forgot password button is pressed', () => {
@@ -170,7 +195,7 @@ describe('a login button is clicked', () => {
     });
 
     it('forgot password is called', () => {
-      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, undefined);
+      expect(auth.openKeyURL).toHaveBeenCalledWith('service/selfservice?target=displayForgotPassword', screen.instance().startLoad, true);
     });
     it('loading wheel to be rendered', () => {
       screen.instance().startLoad();

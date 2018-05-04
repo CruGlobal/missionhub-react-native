@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Touchable } from '../common';
+
 import styles from './styles';
 
 export default class SearchPeopleItem extends Component {

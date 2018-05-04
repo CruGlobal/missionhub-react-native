@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Touchable, Icon, Text } from '../common';
+
 import styles from './styles';
 
 const OPTION_WIDTH = 75;
