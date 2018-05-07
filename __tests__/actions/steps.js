@@ -5,7 +5,7 @@ import i18next from 'i18next';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
-  addSteps, completeStepReminder,
+  addSteps, completeStepReminder, deleteStepWithTracking,
 } from '../../src/actions/steps';
 import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
@@ -321,5 +321,26 @@ describe('Set Focus', () => {
     await store.dispatch(setStepFocus(step, false));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
     expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
+  });
+});
+
+describe('deleteStepWithTracking', () => {
+  const step = { id: '123124' };
+  const screen = 'steps';
+  const trackActionResult = { type: 'hello world' };
+
+  it('should delete a step', async() => {
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    mockFnWithParams(analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_REMOVED.key]: null });
+
+    await store.dispatch(deleteStepWithTracking(step, screen));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE, { challenge_id: step.id }, {});
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
+    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step }, trackActionResult ]);
   });
 });
