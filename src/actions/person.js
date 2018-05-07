@@ -1,7 +1,7 @@
 import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
-import { trackAction } from './analytics';
+import { trackActionWithoutData } from './analytics';
 
 const personInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -168,7 +168,7 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
     };
     await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId: person.id }, data));
 
-    dispatch(trackAction(ACTIONS.STATUS_CHANGED));
+    dispatch(trackActionWithoutData(ACTIONS.STATUS_CHANGED));
 
     return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status } : orgPermission) }));
   };

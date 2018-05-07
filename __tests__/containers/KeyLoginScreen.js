@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import KeyLoginScreen from '../../src/containers/KeyLoginScreen';
 import { createMockNavState, createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import * as auth from '../../src/actions/auth';
-import { trackAction } from '../../src/actions/analytics';
+import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../src/constants';
 import { facebookLoginWithUsernamePassword } from '../../src/actions/facebook';
 import { navigatePush } from '../../src/actions/navigation';
@@ -32,7 +32,7 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
 jest.mock('../../src/actions/analytics', () => ({
-  trackAction: jest.fn(),
+  trackActionWithoutData: jest.fn(),
 }));
 
 beforeEach(() => {
@@ -99,7 +99,7 @@ describe('a login button is clicked', () => {
 
     const mockTrackActionResult = { type: 'tracked action' };
     const expectTrackAction = (expected) => {
-      expect(trackAction).toHaveBeenCalledWith(expected);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(expected);
       expect(store.dispatch).toHaveBeenLastCalledWith(mockTrackActionResult);
     };
 
@@ -112,8 +112,8 @@ describe('a login button is clicked', () => {
         return email === credentials.email && password === credentials.password ? loginResult : undefined;
       });
 
-      trackAction.mockReset();
-      trackAction.mockReturnValue(mockTrackActionResult);
+      trackActionWithoutData.mockReset();
+      trackActionWithoutData.mockReturnValue(mockTrackActionResult);
     });
 
     it('key login is called', async() => {

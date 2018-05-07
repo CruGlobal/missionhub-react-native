@@ -7,7 +7,7 @@ import { Button, Text, PlatformKeyboardAvoidingView, Flex, Icon, LoadingWheel } 
 import Input from '../../components/Input/index';
 import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
@@ -112,7 +112,7 @@ class KeyLoginScreen extends Component {
         action = ACTIONS.SYSTEM_ERROR;
       }
 
-      dispatch(trackAction(action));
+      dispatch(trackActionWithoutData(action));
 
     } finally {
       this.setState({ isLoading: false });

@@ -19,6 +19,8 @@ import { trackState } from '../../actions/analytics';
 
 import styles from './styles';
 
+const name = 'Contact Steps';
+
 @translate('contactSteps')
 class ContactSteps extends Component {
 
@@ -55,14 +57,14 @@ class ContactSteps extends Component {
   }
 
   handleRemove(step) {
-    this.props.dispatch(deleteStepWithTracking(step)).then(() => {
+    this.props.dispatch(deleteStepWithTracking(step, name)).then(() => {
       this.getSteps();
     });
   }
 
   async handleComplete(step) {
     const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step));
+    await dispatch(completeStep(step, name));
     this.getSteps();
     dispatch(reloadJourney(person.id, organization ? organization.id : undefined));
   }

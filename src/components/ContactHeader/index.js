@@ -9,7 +9,7 @@ import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
 import { buildTrackingObj } from '../../utils/common';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 
 import styles from './styles';
 
@@ -116,7 +116,7 @@ class ContactHeader extends Component {
       } else {
         Linking.openURL(url)
           .then(() => {
-            this.props.dispatch(trackAction(action));
+            this.props.dispatch(trackActionWithoutData(action));
           })
           .catch((err) => {
             if (url.includes('telprompt')) {

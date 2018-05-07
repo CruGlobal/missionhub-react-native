@@ -5,7 +5,7 @@ import i18next from 'i18next';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
-  addSteps, completeStepReminder,
+  addSteps, completeStepReminder, deleteStepWithTracking,
 } from '../../src/actions/steps';
 import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
@@ -194,6 +194,8 @@ describe('complete challenge', () => {
 
   const removeReminderResponse = { type: REMOVE_STEP_REMINDER, step };
 
+  const screen = 'contact steps';
+
   beforeEach(() => {
     store = mockStore({
       auth: {
@@ -208,14 +210,18 @@ describe('complete challenge', () => {
       'trackState',
       trackStateResult,
       buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
+    mockFnWithParams(analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_COMPLETED.key]: null });
 
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
   });
 
   it('completes step', async() => {
-    await store.dispatch(completeStep(step));
+    await store.dispatch(completeStep(step, screen));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
@@ -230,7 +236,7 @@ describe('complete challenge', () => {
   });
 
   it('completes step reminder', async() => {
-    await store.dispatch(completeStepReminder(step));
+    await store.dispatch(completeStepReminder(step, screen));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
     expect(store.getActions()).toEqual([
@@ -315,5 +321,26 @@ describe('Set Focus', () => {
     await store.dispatch(setStepFocus(step, false));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
     expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
+  });
+});
+
+describe('deleteStepWithTracking', () => {
+  const step = { id: '123124' };
+  const screen = 'steps';
+  const trackActionResult = { type: 'hello world' };
+
+  it('should delete a step', async() => {
+    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    mockFnWithParams(analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_REMOVED.key]: null });
+
+    await store.dispatch(deleteStepWithTracking(step, screen));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE, { challenge_id: step.id }, {});
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
+    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step }, trackActionResult ]);
   });
 });

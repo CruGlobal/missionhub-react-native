@@ -14,8 +14,6 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -60,7 +58,6 @@ export class PeopleScreen extends Component {
 
   handleSearch() {
     this.props.dispatch(navigatePush(SEARCH_SCREEN));
-    this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED));
   }
 
   handleRowSelect(person, org) {

@@ -8,7 +8,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { enableAskPushNotification } from '../../actions/notifications';
 import { isAndroid } from '../../utils/common';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
 import styles from './styles';
@@ -25,12 +25,14 @@ class NotificationOffScreen extends Component {
 
   notNow() {
     this.close();
-    this.props.dispatch(trackAction(ACTIONS.NO_REMINDERS));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   }
 
   close(shouldAsk) {
-    this.props.onClose(shouldAsk);
-    this.props.dispatch(navigateBack());
+    const { onClose, dispatch } = this.props;
+
+    onClose(shouldAsk);
+    dispatch(navigateBack());
   }
 
   goToSettings() {
