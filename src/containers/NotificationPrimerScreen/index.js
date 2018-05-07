@@ -21,13 +21,17 @@ class NotificationPrimerScreen extends Component {
   }
 
   notNow() {
-    this.props.dispatch(disableAskPushNotification());
+    const { isOnboarding, dispatch } = this.props;
+    if (isOnboarding) {
+      dispatch(enableAskPushNotification());
+    } else {
+      dispatch(disableAskPushNotification());
+    }
     this.props.onComplete();
     this.props.dispatch(trackAction(ACTIONS.NOT_NOW));
   }
 
   async allow() {
-    this.props.dispatch(enableAskPushNotification());
     try {
       await this.props.dispatch(registerNotificationHandler());
     } finally {

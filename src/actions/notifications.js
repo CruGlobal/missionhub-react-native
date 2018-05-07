@@ -11,7 +11,6 @@ import { MAIN_TABS } from '../constants';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
 } from '../constants';
@@ -36,23 +35,16 @@ export function enableAskPushNotification() {
   };
 }
 
-export function noNotificationReminder(showReminder = false) {
-  return {
-    type: PUSH_NOTIFICATION_REMINDER,
-    bool: showReminder,
-  };
-}
-
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { hasAsked, pushDevice, showReminder } = getState().notifications;
+    const { hasAsked, pushDevice, shouldAsk } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
       return dispatch(registerNotificationHandler());
     }
 
-    if (pushDevice.token || !showReminder) { return; }
+    if (pushDevice.token || !shouldAsk) { return; }
 
     if (hasAsked) {
       PushNotification.checkPermissions((permission) => {
@@ -65,7 +57,7 @@ export function showReminderScreen() {
               dispatch(enableAskPushNotification());
               dispatch(registerNotificationHandler());
             } else {
-              dispatch(noNotificationReminder());
+              dispatch(disableAskPushNotification());
             }
             dispatch(navigateBack());
           },

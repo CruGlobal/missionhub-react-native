@@ -308,7 +308,6 @@ export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
   steps: steps.mine && nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
   areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
-  showNotificationReminder: notifications.showReminder,
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,
   hasMoreSteps: steps.pagination.hasNextPage,
