@@ -230,7 +230,7 @@ Array [
   },
   Object {
     "bool": false,
-    "type": "app/PUSH_NOTIFICATION_REMINDER",
+    "type": "app/PUSH_NOTIFICATION_SHOULD_ASK",
   },
   Object {
     "immediate": undefined,

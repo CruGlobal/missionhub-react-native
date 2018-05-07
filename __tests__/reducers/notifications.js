@@ -2,7 +2,6 @@ import notifications from '../../src/reducers/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
@@ -21,14 +20,6 @@ it('updates hasAsked', () => {
     type: PUSH_NOTIFICATION_ASKED,
   });
   expect(state.hasAsked).toBe(true);
-});
-
-it('updates showReminder', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_REMINDER,
-    bool: false,
-  });
-  expect(state.showReminder).toBe(false);
 });
 
 it('should update push device', () => {
@@ -54,7 +45,6 @@ it('resets state on logout', () => {
     pushDevice: {},
     hasAsked: false,
     shouldAsk: true,
-    showReminder: true,
     hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {

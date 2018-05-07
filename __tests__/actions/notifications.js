@@ -10,7 +10,6 @@ jest.mock('react-native-config', () => ({
 import {
   enableAskPushNotification,
   disableAskPushNotification,
-  noNotificationReminder,
   showReminderScreen,
   reregisterNotificationHandler,
   registerNotificationHandler,
@@ -21,7 +20,6 @@ import {
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
   NAVIGATE_FORWARD,
@@ -64,17 +62,6 @@ describe('enableAskPushNotification', () => {
   });
 });
 
-describe('noNotificationReminder', () => {
-  it('should dispatch action to turn off notification reminders', () => {
-    store.dispatch(noNotificationReminder(false));
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_REMINDER, bool: false } ]);
-  });
-  it('should dispatch action to turn on notification reminders', () => {
-    store.dispatch(noNotificationReminder(true));
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_REMINDER, bool: true } ]);
-  });
-});
-
 describe('showReminderScreen', () => {
   it('should setup android notifications', () => {
     const store = mockStore({
@@ -102,7 +89,7 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: false,
+        shouldAsk: false,
       },
     });
     store.dispatch(showReminderScreen());
@@ -112,7 +99,7 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: true,
       },
     });
@@ -125,7 +112,7 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: true,
       },
     });
@@ -140,7 +127,7 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: true,
       },
     });
@@ -155,7 +142,7 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: false,
       },
     });
@@ -186,7 +173,7 @@ describe('reregisterNotificationHandler', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: false,
       },
       steps: {
@@ -206,7 +193,7 @@ describe('reregisterNotificationHandler', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
+        shouldAsk: true,
         hasAsked: false,
       },
       steps: {
