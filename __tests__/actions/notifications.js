@@ -25,11 +25,7 @@ import {
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import { getPersonDetails } from '../../src/actions/person';
-
 jest.mock('../../src/actions/person');
-import { PushNotificationIOS } from 'react-native';
-import i18next from 'i18next';
-import MockDate from 'mockdate';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
 jest.mock('../../src/actions/api');
 jest.mock('react-native-push-notification');

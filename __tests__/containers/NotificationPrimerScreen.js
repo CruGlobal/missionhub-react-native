@@ -1,10 +1,11 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
-import { createMockStore, createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
+import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
 import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
@@ -61,7 +62,7 @@ describe('notification primer methods', () => {
 
   beforeEach(() => {
     mockComplete.mockReset();
-  })
+  });
 
   const createComponent = (props = {}) => {
     const screen = renderShallow(
@@ -93,6 +94,7 @@ describe('notification primer methods', () => {
 
     expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(store.getActions()).toEqual([ enableResult, trackActionResult ]);
   });
 
   it('runs allow', async() => {
@@ -103,6 +105,6 @@ describe('notification primer methods', () => {
     expect(registerNotificationHandler).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-    expect(store.getActions()).toEqual([ enableResult, registerResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([ registerResult, trackActionResult ]);
   });
 });
