@@ -105,7 +105,7 @@ export function registerNotificationHandler() {
 }
 
 export function configureNotificationHandler() {
-  return async(dispatch, getState) => {
+  return (dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
         const { pushDevice } = getState().notifications;
@@ -127,8 +127,6 @@ export function configureNotificationHandler() {
       // we manually call this after to have access to a promise for the iOS prompt
       requestPermissions: false,
     });
-
-    return Promise.resolve();
   };
 }
 

@@ -56,10 +56,9 @@ export class StepsScreen extends Component {
     this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
-  componentWillMount() {
-    this.getSteps().then(() => {
-      this.props.dispatch(loadHome());
-    });
+  async componentWillMount() {
+    await this.getSteps();
+    this.props.dispatch(loadHome());
   }
 
   async getSteps() {

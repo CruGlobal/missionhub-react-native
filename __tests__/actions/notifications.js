@@ -15,14 +15,16 @@ import {
   reregisterNotificationHandler,
   registerNotificationHandler,
   deletePushToken,
-  showWelcomeNotification, configureNotificationHandler,
+  showWelcomeNotification,
+  configureNotificationHandler,
 } from '../../src/actions/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,
   PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
-  DISABLE_WELCOME_NOTIFICATION, NAVIGATE_FORWARD,
+  DISABLE_WELCOME_NOTIFICATION,
+  NAVIGATE_FORWARD,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
