@@ -72,12 +72,8 @@ export default class App extends Component {
   initializeAnalytics() { //TODO add tests
     this.collectLifecycleData();
 
-    this.dispatchAnalyticsContextUpdate({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language });
-
-    RNOmniture.loadMarketingCloudId((result) => {
-      const updatedContext = { [ANALYTICS.MCID]: result };
-      this.dispatchAnalyticsContextUpdate(updatedContext);
-    });
+    //todo include rest of analytics obj?
+    store.dispatch(updateAnalyticsContext({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language }));
   }
 
   initializeErrorHandling() {
@@ -141,10 +137,6 @@ export default class App extends Component {
       Alert.alert(title, message, buttons, { onDismiss: () => this.showingErrorModal = false });
     }
   };
-
-  dispatchAnalyticsContextUpdate(context) {
-    store.dispatch(updateAnalyticsContext(context));
-  }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this.handleAppStateChange);

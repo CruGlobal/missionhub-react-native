@@ -55,13 +55,28 @@ export function trackState(trackingObj) {
       return;
     }
     const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
-
     const updatedContext = buildUpdatedContext(newTrackingObj, getState);
 
-    RNOmniture.trackState(newTrackingObj.name, updatedContext);
-
-    return dispatch(updateAnalyticsContext(updatedContext));
+    dispatch(updateAnalyticsContext(updatedContext));
+    return dispatch(trackStateWithMCID(updatedContext));
   };
+}
+
+function trackStateWithMCID(context) {
+  return (dispatch) => {
+    if (context[ANALYTICS.MCID]) {
+      RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
+
+    } else {
+      RNOmniture.loadMarketingCloudId((result) => {
+        const updatedContext = { ...context, [ANALYTICS.MCID]: result };
+
+        RNOmniture.trackState(updatedContext[ANALYTICS.SCREENNAME], updatedContext);
+        dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
+  };
+
 }
 
 function buildUpdatedContext(trackingObj, getState) {
