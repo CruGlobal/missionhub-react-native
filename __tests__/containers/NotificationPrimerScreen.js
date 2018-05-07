@@ -1,12 +1,10 @@
 import 'react-native';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
 // Note: test renderer must be required after react-native.
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { Provider } from 'react-redux';
-import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
+import { createMockStore, createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
 import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
 
 const store = createMockStore();
@@ -43,27 +41,46 @@ it('renders correctly for focused step', () => {
 describe('notification primer methods', () => {
   let component;
   const mockComplete = jest.fn();
+
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = shallow(
+    mockComplete.mockClear();
+  })
+
+  const createComponent = (props = {}) => {
+    const screen = renderShallow(
       <NotificationPrimerScreen navigation={createMockNavState({
         onComplete: mockComplete,
+        ...props,
       })} />,
-      { context: { store } },
+      store,
     );
 
-    component = screen.dive().dive().dive().instance();
-  });
+    return screen.instance();
+  };
 
   it('runs not now', () => {
+    component = createComponent();
+
     component.notNow();
+
     expect(disableAskPushNotification).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 
-  it('runs allow', () => {
-    component.allow();
+  it('runs not now for onboarding', () => {
+    component = createComponent({ isOnboarding: true });
+
+    component.notNow();
+
     expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
+    expect(mockComplete).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs allow', async() => {
+    component = createComponent();
+
+    await component.allow();
+
     expect(registerNotificationHandler).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
