@@ -8,7 +8,7 @@ import theme from '../../src/theme';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 import { showReminderScreen, showWelcomeNotification, toast } from '../../src/actions/notifications';
-import { setStepFocus } from '../../src/actions/steps';
+import { completeStepReminder, deleteStepWithTracking, setStepFocus } from '../../src/actions/steps';
 
 jest.mock('../../src/selectors/steps');
 jest.mock('../../src/actions/analytics');
@@ -251,6 +251,34 @@ describe('StepsScreen', () => {
 
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_DEPRIORITIZED);
       expect(setStepFocus).toHaveBeenCalledWith(step, false);
+    });
+  });
+
+  describe('completing a step', () => {
+    it('should complete the step', () => {
+      const step = 'some step';
+      const component = createComponent({
+        ...propsWithSteps,
+        reminders: [ step ],
+      });
+
+      component.instance().handleCompleteReminder(step);
+
+      expect(completeStepReminder).toHaveBeenCalledWith(step, 'Steps');
+    });
+  });
+
+  describe('deleting a step', () => {
+    it('should delete the step', () => {
+      const step = 'some step';
+      const component = createComponent({
+        ...propsWithSteps,
+        reminders: [ step ],
+      });
+
+      component.instance().handleDeleteReminder(step);
+
+      expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Steps');
     });
   });
 });

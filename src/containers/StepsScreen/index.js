@@ -240,7 +240,7 @@ export class StepsScreen extends Component {
             onBumpComplete={showStepBump && index === 0 ? this.completeStepBump : undefined}
             key={item.id}
             onDelete={() => this.handleDeleteReminder(item)}
-            onComplete={() => this.handleCompleteReminder(item, 'Steps')}
+            onComplete={() => this.handleCompleteReminder(item)}
           >
             <StepItem
               step={item}
