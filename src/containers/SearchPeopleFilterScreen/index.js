@@ -9,15 +9,15 @@ import { getMyOrganizations } from '../../actions/organizations';
 import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
 import { getMyLabels } from '../../actions/labels';
-
 import Header from '../Header';
 import { RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
-import styles from './styles';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter, trackState } from '../../actions/analytics';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {

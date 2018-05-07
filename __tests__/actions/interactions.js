@@ -1,11 +1,11 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import { addNewInteraction, editComment } from '../../src/actions/interactions';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import * as impact from '../../src/actions/impact';
-
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
 import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 
@@ -36,7 +36,7 @@ describe('add comment', () => {
   };
 
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, interaction.tracking);
+    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.INTERACTION.name, { [interaction.tracking]: null } );
     mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
   });
 
@@ -142,7 +142,7 @@ describe('edit comment', () => {
 
   beforeEach(() => {
     mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.JOURNEY_EDITED);
+    mockFnWithParams(analytics, 'trackActionWithoutData', trackActionResult, ACTIONS.JOURNEY_EDITED);
   });
 
   it('should edit a comment', async() => {

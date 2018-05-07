@@ -1,11 +1,11 @@
-import { API_URL, THE_KEY_URL } from './utils';
 import { URL_ENCODED } from '../constants';
+
+import { API_URL, THE_KEY_URL } from './utils';
 
 const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
 const IMPACT_URL = `${API_URL}reports/impact`;
-const REPORTS_URL = `${API_URL}reports/people`;
 
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
@@ -148,17 +148,14 @@ export default {
     endpoint: `${API_URL}organizations`,
     query: { include: 'labels' },
   },
-  'GET_MY_IMPACT': {
-    endpoint: IMPACT_URL,
-  },
   'GET_IMPACT_BY_ID': {
     endpoint: IMPACT_URL,
   },
   'GET_GLOBAL_IMPACT': {
     endpoint: IMPACT_URL,
   },
-  'GET_USER_IMPACT': {
-    endpoint: REPORTS_URL,
+  'GET_PEOPLE_INTERACTIONS_REPORT': {
+    endpoint: `${API_URL}reports/people`,
   },
   'SET_PUSH_TOKEN': {
     endpoint: `${API_URL}push_notification_device_tokens`,

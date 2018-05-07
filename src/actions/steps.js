@@ -1,19 +1,19 @@
 import i18next from 'i18next';
 
-import callApi, { REQUESTS } from './api';
 import {
   REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
 } from '../constants';
 import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
-import { navigatePush, navigateBack } from './navigation';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { navigatePush, navigateBack } from './navigation';
+import callApi, { REQUESTS } from './api';
 import { trackAction, trackState, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 
@@ -137,9 +137,9 @@ export function updateChallengeNote(step, note) {
   };
 }
 
-export function completeStepReminder(step) {
+export function completeStepReminder(step, screen) {
   return (dispatch) => {
-    return dispatch(challengeCompleteAction(step)).then((r) => {
+    return dispatch(challengeCompleteAction(step, screen)).then((r) => {
       dispatch(getMySteps());
       dispatch(setStepFocus(step, false));
       return r;
@@ -147,9 +147,9 @@ export function completeStepReminder(step) {
   };
 }
 
-export function completeStep(step) {
+export function completeStep(step, screen) {
   return (dispatch) => {
-    return dispatch(challengeCompleteAction(step)).then((r) => {
+    return dispatch(challengeCompleteAction(step, screen)).then((r) => {
       dispatch(getMySteps());
       return r;
     });
@@ -165,7 +165,7 @@ function buildChallengeData(attributes) {
   };
 }
 
-function challengeCompleteAction(step) {
+function challengeCompleteAction(step, screen) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
@@ -178,7 +178,7 @@ function challengeCompleteAction(step) {
         type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
-            dispatch(updateChallengeNote(step, text)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
+            dispatch(updateChallengeNote(step, text)).then(() => dispatch(trackAction(ACTIONS.INTERACTION.name, { [ACTIONS.INTERACTION.COMMENT]: null })));
           }
 
           const count = getState().steps.userStepCount[step.receiver.id];
@@ -240,23 +240,23 @@ function challengeCompleteAction(step) {
       const subsection = getAnalyticsSubsection( step.receiver.id, myId );
       const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
       dispatch(trackState(trackingObj));
-      dispatch(trackAction(ACTIONS.STEP_COMPLETED));
+      dispatch(trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, { [ACTIONS.STEP_COMPLETED.key]: null }));
 
       return challengeCompleteResult;
     });
   };
 }
 
-export function deleteStepWithTracking(step) {
+export function deleteStepWithTracking(step, screen) {
   return (dispatch) => {
     return dispatch(deleteStep(step)).then((r) => {
-      dispatch(trackAction(ACTIONS.STEP_REMOVED));
+      dispatch(trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, { [ACTIONS.STEP_REMOVED.key]: null }));
       return r;
     });
   };
 }
 
-export function deleteStep(step) {
+function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {

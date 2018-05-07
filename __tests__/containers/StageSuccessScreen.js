@@ -1,8 +1,7 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
+
 import StageSuccessScreen from '../../src/containers/StageSuccessScreen';
 import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
 

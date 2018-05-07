@@ -1,11 +1,12 @@
-import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
-import {
-  trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
-  logInAnalytics,
-} from '../../src/actions/analytics';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
+
+import {
+  trackAction, trackState, trackStepsAdded, updateAnalyticsContext,
+  logInAnalytics, trackActionWithoutData, trackSearchFilter,
+} from '../../src/actions/analytics';
+import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
 
 jest.mock('react-native-omniture', () => {
   return {
@@ -56,6 +57,29 @@ describe('updateAnalyticsContext', () => {
 
     expect(result.analyticsContext).toEqual(context);
     expect(result.type).toBe(ANALYTICS_CONTEXT_CHANGED);
+  });
+});
+
+describe('trackActionWithoutData', () => {
+  it('should send the key with a null value', () => {
+    const action = { name: 'hello world', key: 'cru.helloworld' };
+
+    store.dispatch(trackActionWithoutData(action));
+
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(action.name, { [action.key]: null });
+  });
+});
+
+describe('trackSearchFilter', () => {
+  it('should track label and two keys', () => {
+    const label = 'hello label';
+
+    store.dispatch(trackSearchFilter(label));
+
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.FILTER_ENGAGED.name, {
+      [ACTIONS.SEARCH_FILTER.key]: label,
+      [ACTIONS.FILTER_ENGAGED.key]: null,
+    });
   });
 });
 
@@ -125,22 +149,14 @@ describe('trackStepsAdded', () => {
 
     expect(store.getActions()).toEqual([]);
     expect(RNOmniture.trackAction).toHaveBeenCalledTimes(4);
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
-      [ACTIONS.STEP_FIELDS.ID]: step1.id,
-      [ACTIONS.STEP_FIELDS.STAGE]: step1.pathway_stage.id,
-      [ACTIONS.STEP_FIELDS.TYPE]: step1.challenge_type,
-      [ACTIONS.STEP_FIELDS.SELF]: 'N',
-      [ACTIONS.STEP_FIELDS.LOCALE]: step1.locale,
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
+      [ACTIONS.STEP_DETAIL.key]: `${step1.challenge_type} | N | ${step1.locale} | ${step1.id} | ${step1.pathway_stage.id}`,
     });
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED, {});
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL, {
-      [ACTIONS.STEP_FIELDS.ID]: undefined,
-      [ACTIONS.STEP_FIELDS.STAGE]: undefined,
-      [ACTIONS.STEP_FIELDS.TYPE]: CUSTOM_STEP_TYPE,
-      [ACTIONS.STEP_FIELDS.SELF]: 'Y',
-      [ACTIONS.STEP_FIELDS.LOCALE]: step2.locale,
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED.name, { [ACTIONS.STEP_CREATED.key]: null });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
+      [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step2.locale}`,
     });
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED, { 'steps': steps.length });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEPS_ADDED.name, { [ACTIONS.STEPS_ADDED.key]: steps.length });
   });
 });
 

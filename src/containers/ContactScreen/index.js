@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
-
-import styles from './styles';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
@@ -19,6 +17,8 @@ import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
 import { isMissionhubUser } from '../../utils/common';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {

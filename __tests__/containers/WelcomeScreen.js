@@ -3,7 +3,6 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
-// Note: test renderer must be required after react-native.
 
 import WelcomeScreen from '../../src/containers/WelcomeScreen';
 import { testSnapshot, createMockStore } from '../../testUtils';

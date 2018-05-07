@@ -7,16 +7,15 @@ import { translate } from 'react-i18next';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
-import styles from './styles';
 import { Flex, IconButton, Input, Text } from '../../components/common';
 import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
-import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
@@ -48,8 +47,6 @@ export class SearchPeopleScreen extends Component {
       onFilter: this.handleChangeFilter,
       filters: this.state.filters,
     }));
-
-    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
   }
 
   handleChangeFilter(filters) {

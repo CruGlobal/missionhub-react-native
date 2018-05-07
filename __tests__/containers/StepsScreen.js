@@ -1,17 +1,18 @@
 import { ScrollView } from 'react-native';
 import React from 'react';
-import { renderShallow } from '../../testUtils';
 
+import { renderShallow } from '../../testUtils';
 import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
 import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
-jest.mock('../../src/selectors/steps');
 import theme from '../../src/theme';
-import { trackAction } from '../../src/actions/analytics';
-jest.mock('../../src/actions/analytics');
+import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 import { showReminderScreen, showWelcomeNotification, toast } from '../../src/actions/notifications';
+import { completeStepReminder, deleteStepWithTracking, setStepFocus } from '../../src/actions/steps';
+
+jest.mock('../../src/selectors/steps');
+jest.mock('../../src/actions/analytics');
 jest.mock('../../src/actions/notifications');
-import { setStepFocus } from '../../src/actions/steps';
 jest.mock('../../src/actions/steps');
 
 const dispatch = jest.fn(async() => {});
@@ -200,7 +201,7 @@ describe('StepsScreen', () => {
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).toHaveBeenCalled();
@@ -215,7 +216,7 @@ describe('StepsScreen', () => {
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).not.toHaveBeenCalled();
@@ -230,7 +231,7 @@ describe('StepsScreen', () => {
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
       expect(showReminderScreen).not.toHaveBeenCalled();
@@ -248,8 +249,36 @@ describe('StepsScreen', () => {
 
       component.instance().handleRemoveReminder(step);
 
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DEPRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_DEPRIORITIZED);
       expect(setStepFocus).toHaveBeenCalledWith(step, false);
+    });
+  });
+
+  describe('completing a step', () => {
+    it('should complete the step', () => {
+      const step = 'some step';
+      const component = createComponent({
+        ...propsWithSteps,
+        reminders: [ step ],
+      });
+
+      component.instance().handleCompleteReminder(step);
+
+      expect(completeStepReminder).toHaveBeenCalledWith(step, 'Steps');
+    });
+  });
+
+  describe('deleting a step', () => {
+    it('should delete the step', () => {
+      const step = 'some step';
+      const component = createComponent({
+        ...propsWithSteps,
+        reminders: [ step ],
+      });
+
+      component.instance().handleDeleteReminder(step);
+
+      expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Steps');
     });
   });
 });

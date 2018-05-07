@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { enableAskPushNotification } from '../../actions/notifications';
 import { isAndroid } from '../../utils/common';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
@@ -24,12 +25,14 @@ class NotificationOffScreen extends Component {
 
   notNow() {
     this.close();
-    this.props.dispatch(trackAction(ACTIONS.NO_REMINDERS));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   }
 
   close(shouldAsk) {
-    this.props.onClose(shouldAsk);
-    this.props.dispatch(navigateBack());
+    const { onClose, dispatch } = this.props;
+
+    onClose(shouldAsk);
+    dispatch(navigateBack());
   }
 
   goToSettings() {

@@ -7,8 +7,6 @@ import { getMyPeople } from '../../actions/people';
 import { peopleByOrgSelector } from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
-
-import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
@@ -16,8 +14,8 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
@@ -60,7 +58,6 @@ export class PeopleScreen extends Component {
 
   handleSearch() {
     this.props.dispatch(navigatePush(SEARCH_SCREEN));
-    this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED));
   }
 
   handleRowSelect(person, org) {
@@ -88,8 +85,9 @@ export class PeopleScreen extends Component {
                 onPress={this.handleSearch} />
             ) : (
               <IconButton
-                name="plusIcon"
+                name="addContactIcon"
                 type="MissionHub"
+                size={24}
                 onPress={() => this.handleAddContact()} />
             )
           }

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
-import styles from './styles';
 import { INTERACTION_TYPES } from '../../constants';
+
+import styles from './styles';
 
 const interactionsArr = Object.keys(INTERACTION_TYPES).map((key) => INTERACTION_TYPES[key]);
 

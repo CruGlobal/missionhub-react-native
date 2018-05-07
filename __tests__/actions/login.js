@@ -1,14 +1,15 @@
-import * as person from '../../src/actions/person';
-import * as navigation from '../../src/actions/navigation';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Crashlytics } from 'react-native-fabric';
+
+import * as person from '../../src/actions/person';
+import * as navigation from '../../src/actions/navigation';
 import { onSuccessfulLogin } from '../../src/actions/login';
 import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { MAIN_TABS } from '../../src/constants';
-import { Crashlytics } from 'react-native-fabric';
 import * as onboardingProfile from '../../src/actions/onboardingProfile';
 
 const mockStore = configureStore([ thunk ]);

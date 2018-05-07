@@ -119,6 +119,12 @@ export default {
     errorVerify: 'Verify your account via Email',
     facebookLogin: 'Log In With Facebook',
   },
+  mfaLogin: {
+    mfaHeader: 'two-step verification',
+    mfaDescription: 'Enter verification code from your authenticator app.',
+    mfaLabel: 'Verification Code',
+    mfaIncorrect: 'Incorrect verification code',
+  },
   welcome: {
     welcome: 'welcome!',
     welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
@@ -141,6 +147,7 @@ export default {
     editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
     editJourneyButton: 'Save',
+    makeShorter: 'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',

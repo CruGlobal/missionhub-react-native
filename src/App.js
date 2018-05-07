@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
@@ -9,14 +8,11 @@ import { Alert } from 'react-native';
 // eslint-disable-next-line import/default
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
+import { Crashlytics } from 'react-native-fabric';
 
 import { store, persistor } from './store';
 import i18n from './i18n';
-
-import { Crashlytics } from 'react-native-fabric';
-
 import './utils/globals';
-
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
 import { updateAnalyticsContext } from './actions/analytics';
@@ -26,6 +22,8 @@ import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 @codePush({ deploymentKey: isAndroid ? Config.CODEPUSH_ANDROID_KEY : Config.CODEPUSH_IOS_KEY })
 export default class App extends Component {

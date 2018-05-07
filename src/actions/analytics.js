@@ -1,8 +1,9 @@
+import * as RNOmniture from 'react-native-omniture';
+
 import {
   ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
   NOT_LOGGED_IN,
 } from '../constants';
-import * as RNOmniture from 'react-native-omniture';
 import { isCustomStep } from '../utils/common';
 
 export function updateAnalyticsContext(analyticsContext) {
@@ -15,34 +16,36 @@ export function updateAnalyticsContext(analyticsContext) {
 export function trackStepsAdded(steps) {
   return (dispatch) => {
     steps.forEach((step) => {
-      const trackedStep = {
-        [ACTIONS.STEP_FIELDS.TYPE]: step.challenge_type,
-        [ACTIONS.STEP_FIELDS.SELF]: step.self_step ? 'Y' : 'N',
-        [ACTIONS.STEP_FIELDS.LOCALE]: step.locale,
-      };
+      let trackedStep = `${step.challenge_type} | ${step.self_step ? 'Y' : 'N'} | ${step.locale}`;
 
       if (isCustomStep(step)) {
-        dispatch(trackAction(ACTIONS.STEP_CREATED));
+        dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
 
       } else {
-        trackedStep[ACTIONS.STEP_FIELDS.ID] = step.id;
-        trackedStep[ACTIONS.STEP_FIELDS.STAGE] = step.pathway_stage.id;
+        trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
       }
 
-      dispatch(trackAction(ACTIONS.STEP_DETAIL, trackedStep));
+      dispatch(trackAction(ACTIONS.STEP_DETAIL.name, { [ACTIONS.STEP_DETAIL.key]: trackedStep } ));
     });
 
-    dispatch(trackAction(ACTIONS.STEPS_ADDED, { 'steps': steps.length }));
+    dispatch(trackAction(ACTIONS.STEPS_ADDED.name, { [ACTIONS.STEPS_ADDED.key]: steps.length }));
   };
 }
 
 export function trackSearchFilter(label) {
   return (dispatch) => {
-    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED.name, {
+      [ACTIONS.SEARCH_FILTER.key]: label,
+      [ACTIONS.FILTER_ENGAGED.key]: null,
+    }));
   };
 }
 
-export function trackAction(action, data = {}) {
+export function trackActionWithoutData(action) {
+  return trackAction(action.name, { [action.key]: null });
+}
+
+export function trackAction(action, data) {
   return () => RNOmniture.trackAction(action, data);
 }
 

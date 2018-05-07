@@ -1,20 +1,38 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
-import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+
+import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockStore, createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
 import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
+import { trackActionWithoutData } from '../../src/actions/analytics';
+import { ACTIONS } from '../../src/constants';
 
-const store = createMockStore();
+const mockStore = configureStore([ thunk ]);
+let store;
 
 jest.mock('react-native-device-info');
-jest.mock('../../src/actions/notifications', () => ({
-  registerNotificationHandler: jest.fn(() => Promise.resolve()),
-  enableAskPushNotification: jest.fn(),
-  disableAskPushNotification: jest.fn(),
-}));
+jest.mock('../../src/actions/notifications');
+jest.mock('../../src/actions/analytics');
+
+const enableResult = { type: 'test enable' };
+const disableResult = { type: 'test disable' };
+const registerResult = { type: 'register' };
+const trackActionResult = { type: 'tracked action' };
+
+beforeEach(() => {
+  registerNotificationHandler.mockReturnValue((dispatch) => {
+    dispatch(registerResult);
+    return Promise.resolve();
+  });
+  enableAskPushNotification.mockReturnValue(enableResult);
+  disableAskPushNotification.mockReturnValue(disableResult);
+
+  trackActionWithoutData.mockReturnValue(trackActionResult);
+
+  store = mockStore();
+});
 
 it('renders correctly for onboarding', () => {
   testSnapshot(
@@ -37,13 +55,12 @@ it('renders correctly for focused step', () => {
   );
 });
 
-
 describe('notification primer methods', () => {
   let component;
   const mockComplete = jest.fn();
 
   beforeEach(() => {
-    mockComplete.mockClear();
+    mockComplete.mockReset();
   })
 
   const createComponent = (props = {}) => {
@@ -65,6 +82,8 @@ describe('notification primer methods', () => {
 
     expect(disableAskPushNotification).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
+    expect(store.getActions()).toEqual([ disableResult, trackActionResult ]);
   });
 
   it('runs not now for onboarding', () => {
@@ -83,5 +102,7 @@ describe('notification primer methods', () => {
 
     expect(registerNotificationHandler).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+    expect(store.getActions()).toEqual([ enableResult, registerResult, trackActionResult ]);
   });
 });

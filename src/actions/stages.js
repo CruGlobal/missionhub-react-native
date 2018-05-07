@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { UPDATE_STAGES } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 export function getStagesIfNotExists() {
   return (dispatch, getState) => {

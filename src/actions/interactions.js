@@ -1,6 +1,7 @@
-import callApi, { REQUESTS } from './api';
 import { ACTIONS } from '../constants';
-import { trackAction } from './analytics';
+
+import callApi, { REQUESTS } from './api';
+import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
 
 export function addNewInteraction(personId, interaction, comment, organizationId) {
@@ -48,7 +49,7 @@ export function addNewInteraction(personId, interaction, comment, organizationId
     };
     return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData))
       .then((r) => {
-        dispatch(trackAction(interaction.tracking));
+        dispatch(trackAction(ACTIONS.INTERACTION.name, { [interaction.tracking]: null }));
         dispatch(refreshImpact());
         return r;
       });
@@ -73,6 +74,6 @@ export function editComment(interaction, comment) {
     const query = {
       interactionId: interaction.id,
     };
-    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() => dispatch(trackAction(ACTIONS.JOURNEY_EDITED)));
+    return dispatch(callApi(REQUESTS.EDIT_COMMENT, query, bodyData)).then(() => dispatch(trackActionWithoutData(ACTIONS.JOURNEY_EDITED)));
   };
 }

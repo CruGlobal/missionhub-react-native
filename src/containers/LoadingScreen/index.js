@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import styles from './styles';
 import { Flex } from '../../components/common';
+
+import styles from './styles';
 
 class LoadingScreen extends Component {
   render() {

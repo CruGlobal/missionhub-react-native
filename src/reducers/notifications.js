@@ -1,5 +1,4 @@
 import { REQUESTS } from '../actions/api';
-
 import {
   LOGOUT,
   PUSH_NOTIFICATION_ASKED,

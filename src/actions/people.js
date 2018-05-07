@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 export function getMyPeople() {
   return async(dispatch, getState) => {

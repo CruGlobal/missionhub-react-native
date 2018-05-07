@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { navigatePush } from '../actions/navigation';
 
-import IconMessageScreen from './IconMessageScreen';
-import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
+import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
-import { trackAction } from '../actions/analytics';
+import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
+
+import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
+import IconMessageScreen from './IconMessageScreen';
 
 @translate('addContact')
 class AddSomeoneScreen extends Component {
@@ -24,7 +25,7 @@ class AddSomeoneScreen extends Component {
   handleNavigate = () => {
     disableBack.remove();
     this.props.dispatch(navigatePush(SETUP_PERSON_SCREEN));
-    this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
     Keyboard.dismiss();
   };
 

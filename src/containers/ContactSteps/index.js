@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { navigatePush, navigateBack } from '../../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { removeSwipeStepsContact } from '../../actions/swipe';
 import { getStepsByFilter, completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-
-import styles from './styles';
 import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
@@ -18,6 +16,10 @@ import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import { trackState } from '../../actions/analytics';
+
+import styles from './styles';
+
+const name = 'Contact Steps';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -55,14 +57,14 @@ class ContactSteps extends Component {
   }
 
   handleRemove(step) {
-    this.props.dispatch(deleteStepWithTracking(step)).then(() => {
+    this.props.dispatch(deleteStepWithTracking(step, name)).then(() => {
       this.getSteps();
     });
   }
 
   async handleComplete(step) {
     const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step));
+    await dispatch(completeStep(step, name));
     this.getSteps();
     dispatch(reloadJourney(person.id, organization ? organization.id : undefined));
   }

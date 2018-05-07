@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
+import { Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import styles from './styles';
 
 import { navigateBack } from '../../actions/navigation';
 import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
 import theme from '../../theme';
-import { STEP_NOTE } from '../../constants';
+import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
 import BackButton from '../BackButton';
+
+import styles from './styles';
+
+const characterLimit = 255;
 
 @translate('addStep')
 class AddStepScreen extends Component {
@@ -39,6 +42,16 @@ class AddStepScreen extends Component {
     }
   }
 
+  onChangeText = (text) => {
+    const { t, type } = this.props;
+
+    this.setState({ step: text });
+
+    if (type === CREATE_STEP && text.length >= characterLimit) {
+      Alert.alert('', t('makeShorter'));
+    }
+  };
+
   saveStep() {
     Keyboard.dismiss();
     const text = this.state.step.trim();
@@ -65,14 +78,13 @@ class AddStepScreen extends Component {
 
   getButtonText() {
     const { t, type } = this.props;
-    let text;
+    let text = t('createStep');
     if (type === 'journey' || type === STEP_NOTE || type === 'interaction') {
       text = t('addJourney');
     } else if (type === 'editJourney') {
       text = t('editJourneyButton');
-    } else {
-      text = t('createStep');
     }
+
     return text.toUpperCase();
   }
 
@@ -119,7 +131,7 @@ class AddStepScreen extends Component {
         <Flex value={1} style={styles.fieldWrap}>
           <Input
             ref={(c) => this.stepInput = c}
-            onChangeText={(t) => this.setState({ step: t })}
+            onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
             autoFocus={true}
@@ -128,6 +140,7 @@ class AddStepScreen extends Component {
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
+            maxLength={type === CREATE_STEP ? characterLimit : undefined }
           />
         </Flex>
 
@@ -147,7 +160,7 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, 'interaction' ]),
+  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, CREATE_STEP, 'interaction' ]),
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,

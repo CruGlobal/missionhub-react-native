@@ -10,7 +10,6 @@ import ContactNotes from '../../containers/ContactNotes';
 import ContactActions from '../../containers/ContactActions';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
-
 import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
@@ -67,7 +66,7 @@ export default class SecondaryTabBar extends Component {
     } else if (tab.page === 'userImpact') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ImpactView user={this.props.person} organization={this.props.organization} isContactScreen={true} />
+          <ImpactView person={this.props.person} organization={this.props.organization} />
         </Flex>
       );
     }

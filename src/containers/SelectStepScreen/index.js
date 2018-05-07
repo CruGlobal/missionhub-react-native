@@ -4,21 +4,22 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import i18next from 'i18next';
+import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import i18next from 'i18next';
-
-import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
-import { CUSTOM_STEP_TYPE } from '../../constants';
+import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
-import uuidv4 from 'uuid/v4';
+
+import styles from './styles';
+
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -74,6 +75,7 @@ class SelectStepScreen extends Component {
       disableBack.remove();
     }
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
 

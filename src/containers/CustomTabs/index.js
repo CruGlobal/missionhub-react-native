@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 import Flex from '../../components/Flex';
 import { Text, Icon, Touchable } from '../../components/common';
-import styles from './styles';
 import { trackState } from '../../actions/analytics';
 import theme from '../../theme';
+
+import styles from './styles';
 
 class CustomTabs extends Component {
   goToTab(i, tab) {

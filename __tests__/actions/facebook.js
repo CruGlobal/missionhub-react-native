@@ -1,11 +1,12 @@
+import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import { mockFnWithParams } from '../../testUtils';
 import { REQUESTS } from '../../src/actions/api';
 import * as callApi from '../../src/actions/api';
 import { ANALYTICS } from '../../src/constants';
 import * as analytics from '../../src/actions/analytics';
-import { AccessToken, LoginManager } from 'react-native-fbsdk';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import {
   facebookLoginAction, facebookLoginWithUsernamePassword,
   refreshMissionHubFacebookAccess,

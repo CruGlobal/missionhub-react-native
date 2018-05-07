@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { navigateBack, navigatePush } from '../actions/navigation';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import PathwayStageScreen from './PathwayStageScreen';
+import { navigateBack, navigatePush } from '../actions/navigation';
 import { selectMyStage } from '../actions/selectStage';
+
+import PathwayStageScreen from './PathwayStageScreen';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 

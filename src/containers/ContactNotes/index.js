@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Text, Flex, Button, Input } from '../../components/common';
-import styles from './styles';
 import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
 import theme from '../../theme';
+
+import styles from './styles';
 
 @translate('notes')
 export class ContactNotes extends Component {

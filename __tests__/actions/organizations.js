@@ -1,8 +1,9 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
 import { mockFnWithParams } from '../../testUtils';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { getAssignedOrganizations, getMyOrganizations } from '../../src/actions/organizations';
 
 let store;

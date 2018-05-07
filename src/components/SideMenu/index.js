@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { DRAWER_CLOSE } from '../../constants';
 import { Flex, Button, IconButton } from '../common';
 import { navigatePush } from '../../actions/navigation';
+
 import styles from './styles';
 
 export class SideMenu extends Component {

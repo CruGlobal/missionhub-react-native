@@ -62,6 +62,9 @@
     "space-infix-ops": "error",
     "no-console": 0,
     "no-case-declarations": 0,
+    "import/order": [2, {
+      "newlines-between": "always"
+    }],
     "keyword-spacing": [
       2,
       {

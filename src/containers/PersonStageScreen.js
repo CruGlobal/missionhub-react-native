@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import PathwayStageScreen from './PathwayStageScreen';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
-import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
-import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
-import { trackAction, trackState } from '../actions/analytics';
-import { CELEBRATION_SCREEN } from './CelebrationScreen';
+import { trackActionWithoutData, trackState } from '../actions/analytics';
 import { ACTIONS } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
+
+import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
+import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
+import { CELEBRATION_SCREEN } from './CelebrationScreen';
+import PathwayStageScreen from './PathwayStageScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -29,7 +30,7 @@ class PersonStageScreen extends Component {
     this.celebrateAndFinish();
 
     this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
-    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
   handleNavigate = () => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RefreshControl } from 'react-native';
+
 import theme from '../../theme';
 
 export default class MyRefreshControl extends Component {
