@@ -51,10 +51,12 @@ class PersonStageScreen extends Component {
   complete(stage) {
     const { onComplete, noNav, dispatch, contactId, orgId, name } = this.props;
 
-    onComplete(stage);
     if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        onSaveNewSteps: () => dispatch(navigateBack(2)),
+        onSaveNewSteps: () => {
+          onComplete(stage);
+          dispatch(navigateBack(2));
+        },
         contactStage: stage,
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
         contactName: name,
@@ -62,6 +64,8 @@ class PersonStageScreen extends Component {
         organization: { id: orgId },
       }));
       dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
+    } else {
+      onComplete(stage);
     }
   }
 
