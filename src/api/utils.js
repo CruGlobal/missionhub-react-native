@@ -4,9 +4,9 @@ import Config from 'react-native-config';
 
 const API_VERSION = 'v4';
 
-export const BASE_URL = Config.API_BASE_URL;
+export const BASE_URL = 'https://api.missionhub.com';
 export const API_URL = `${BASE_URL}/apis/${API_VERSION}/`;
-export const THE_KEY_URL = Config.THE_KEY_URL;
+export const THE_KEY_URL = 'https://thekey.me/cas/';
 
 const DEFAULT_HEADERS = {
   Accept: 'application/json',

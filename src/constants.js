@@ -46,7 +46,7 @@ export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
-export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
+export const THE_KEY_CLIENT_ID = '8480288430352167964';
 
 export const CASEY = 'casey';
 export const JEAN = 'jean';
@@ -62,7 +62,7 @@ export const LINKS = {
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
 export const ORG_PERMISSIONS = [ 1, 4 ];
-export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
+export const GCM_SENDER_ID = '208966923006';
 
 export const ANALYTICS = {
   MCID: 'cru.mcid',

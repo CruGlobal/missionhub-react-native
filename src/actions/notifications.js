@@ -180,7 +180,7 @@ function registerPushDevice(token) {
           token,
           platform: isAndroid ?
             'GCM' :
-            Config.APNS_MODE,
+            'APNS',
         },
       },
     };
