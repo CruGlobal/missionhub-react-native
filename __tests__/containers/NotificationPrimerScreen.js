@@ -6,7 +6,10 @@ import configureStore from 'redux-mock-store';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
-import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../src/actions/notifications';
+import {
+  enableAskPushNotification, disableAskPushNotification,
+  askNotificationPermissions,
+} from '../../src/actions/notifications';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 
@@ -23,7 +26,7 @@ const registerResult = { type: 'register' };
 const trackActionResult = { type: 'tracked action' };
 
 beforeEach(() => {
-  registerNotificationHandler.mockReturnValue((dispatch) => {
+  askNotificationPermissions.mockReturnValue((dispatch) => {
     dispatch(registerResult);
     return Promise.resolve();
   });
@@ -102,7 +105,7 @@ describe('notification primer methods', () => {
 
     await component.allow();
 
-    expect(registerNotificationHandler).toHaveBeenCalledTimes(1);
+    expect(askNotificationPermissions).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
     expect(store.getActions()).toEqual([ registerResult, trackActionResult ]);

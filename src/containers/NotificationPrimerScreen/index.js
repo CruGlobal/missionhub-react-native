@@ -5,7 +5,11 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
-import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
+import {
+  enableAskPushNotification,
+  disableAskPushNotification,
+  askNotificationPermissions,
+} from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -34,7 +38,7 @@ class NotificationPrimerScreen extends Component {
 
   async allow() {
     try {
-      await this.props.dispatch(registerNotificationHandler());
+      await this.props.dispatch(askNotificationPermissions());
     } finally {
       this.props.onComplete();
     }
