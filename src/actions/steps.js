@@ -21,7 +21,7 @@ export function getStepSuggestions() {
   return (dispatch) => {
     const language = i18next.language;
     const query = {
-      filters: { locale: language === 'en-US' ? 'en' : language },
+      filters: { locale: language },
     };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
