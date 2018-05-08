@@ -60,7 +60,7 @@
       }
     ],
     "space-infix-ops": "error",
-    "no-console": 0,
+    "no-console": 2,
     "no-case-declarations": 0,
     "import/order": [2, {
       "newlines-between": "always"
