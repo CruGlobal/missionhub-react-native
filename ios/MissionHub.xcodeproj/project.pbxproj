@@ -226,6 +226,13 @@
 			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
 			remoteInfo = ReactNativeConfig;
 		};
+		4F7F779720A0FD36001E331D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24FDDA7C2D9541CBB0E45E2F /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F886647B1F4ADB500036D01B;
+			remoteInfo = "CodePush-tvOS";
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -253,13 +260,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = CodePush;
-		};
-		7D865513208BC7B70091C4E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24FDDA7C2D9541CBB0E45E2F /* CodePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F886647B1F4ADB500036D01B;
-			remoteInfo = "CodePush-tvOS";
 		};
 		7DB61C4720880F16001BF8C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -737,7 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				7D865512208BC7B70091C4E5 /* libCodePush.a */,
-				7D865514208BC7B70091C4E5 /* libCodePush.a */,
+				4F7F779820A0FD36001E331D /* libCodePush.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1252,6 +1252,13 @@
 			remoteRef = 4F729D582062ABB20065151B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		4F7F779820A0FD36001E331D /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 4F7F779720A0FD36001E331D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1587,7 +1594,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
 			};
 			name = Debug;
@@ -1625,7 +1632,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
 			};
 			name = Release;
@@ -1639,7 +1646,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 57;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1673,7 +1680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1691,7 +1698,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1724,7 +1731,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "1351bc70-a16f-40d4-9530-0dfca870610e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.missionhub";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
