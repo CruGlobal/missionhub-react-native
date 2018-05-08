@@ -148,13 +148,16 @@ describe('trackState', () => {
     }));
     expect(store.getActions()).toEqual([
       expect.anything(),
-      expect.objectContaining({
-        analyticsContext: expect.objectContaining({
+      {
+        analyticsContext: {
           [ANALYTICS.SCREENNAME]: nameWithPrefix(trackingObj.name),
+          [ANALYTICS.SITE_SECTION]: trackingObj.section,
+          [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
+          [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
           [ANALYTICS.MCID]: mcid,
-        }),
+        },
         type: ANALYTICS_CONTEXT_CHANGED,
-      }),
+      },
     ]);
   });
 });
