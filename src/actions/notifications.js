@@ -11,7 +11,6 @@ import {
   GCM_SENDER_ID,
 } from '../constants';
 import { isAndroid } from '../utils/common';
-import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
