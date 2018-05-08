@@ -96,10 +96,11 @@ export class StepsScreen extends Component {
 
     dispatch(toast(t('reminderAddedToast')));
 
-    dispatch(setStepFocus(step, true));
     if (!this.hasReminders()) {
       dispatch(showReminderScreen());
     }
+    dispatch(setStepFocus(step, true));
+
     dispatch(showWelcomeNotification());
   }
 
@@ -308,7 +309,6 @@ export class StepsScreen extends Component {
 export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
   steps: steps.mine && nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
-  areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,
   hasMoreSteps: steps.pagination.hasNextPage,

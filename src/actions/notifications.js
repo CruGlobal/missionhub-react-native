@@ -38,14 +38,14 @@ export function enableAskPushNotification() {
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { hasAsked, pushDevice, shouldAsk } = getState().notifications;
+    const { pushDevice } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
       return dispatch(askNotificationPermissions());
     }
 
-    if (pushDevice.token || !shouldAsk) { return; }
+    if (pushDevice.token) { return; }
 
     PushNotification.checkPermissions((permission) => {
       const hasAllowedPermission = permission && permission.alert;
@@ -53,24 +53,10 @@ export function showReminderScreen() {
         return;
       }
 
-      if (hasAsked) {
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
-          onClose: (askUser) => {
-            if (askUser) {
-              dispatch(enableAskPushNotification());
-              dispatch(askNotificationPermissions());
-            } else {
-              dispatch(disableAskPushNotification());
-            }
-            dispatch(navigateBack());
-          },
-        }));
-      } else {
-        // If none of the other cases hit, show allow/not allow page
-        dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: () => dispatch(navigateBack()),
-        }));
-      }
+      // If none of the other cases hit, show allow/not allow page
+      dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+        onComplete: () => dispatch(navigateBack()),
+      }));
     });
   };
 }
