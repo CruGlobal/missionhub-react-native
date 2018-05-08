@@ -1,6 +1,6 @@
 # MissionHub [![Build Status](https://travis-ci.com/CruGlobal/missionhub-react-native.svg?token=qw4zYh6vUTp6WkvVkWCb&branch=master)](https://travis-ci.com/CruGlobal/missionhub-react-native) [![codecov](https://codecov.io/gh/CruGlobal/missionhub-react-native/branch/master/graph/badge.svg?token=5Wgs4elevu)](https://codecov.io/gh/CruGlobal/missionhub-react-native)
 
-MissionHub description goes here
+MissionHub: See God at work and know you are part of it.
 
 
 ## Getting Started
