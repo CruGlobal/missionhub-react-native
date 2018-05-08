@@ -6,13 +6,6 @@ Array [
     "type": "DELETE_PUSH_TOKEN_SUCCESS",
   },
   Object {
-    "analyticsContext": Object {
-      "cru.loggedinstatus": "not logged in",
-      "cru.ssoguid": "",
-    },
-    "type": "app/ANALYTICS_CONTEXT_CHANGED",
-  },
-  Object {
     "type": "app/LOGOUT",
   },
   Object {
@@ -36,13 +29,6 @@ exports[`logout should perform the needed actions for signing out 1`] = `
 Array [
   Object {
     "type": "DELETE_PUSH_TOKEN_SUCCESS",
-  },
-  Object {
-    "analyticsContext": Object {
-      "cru.loggedinstatus": "not logged in",
-      "cru.ssoguid": "",
-    },
-    "type": "app/ANALYTICS_CONTEXT_CHANGED",
   },
   Object {
     "type": "app/LOGOUT",

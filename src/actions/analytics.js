@@ -2,7 +2,6 @@ import * as RNOmniture from 'react-native-omniture';
 
 import {
   ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
-  NOT_LOGGED_IN,
 } from '../constants';
 import { isCustomStep } from '../utils/common';
 
@@ -88,20 +87,6 @@ function addTrackingObjToContext(trackingObj, { analytics, auth }) {
     [ANALYTICS.SITE_SUBSECTION]: newTrackingObj.subsection,
     [ANALYTICS.SITE_SUB_SECTION_3]: newTrackingObj.level3,
     [ANALYTICS.GR_MASTER_PERSON_ID]: auth.person.global_registry_mdm_id,
-  };
-}
-
-export function logOutAnalytics() {
-  return (dispatch, getState) => {
-
-    const context = getState().analytics;
-    const updatedContext = {
-      ...context,
-      [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-      [ANALYTICS.SSO_GUID]: '',
-    };
-
-    return dispatch(updateAnalyticsContext(updatedContext));
   };
 }
 
