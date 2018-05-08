@@ -12,7 +12,8 @@ import {
   reregisterNotificationHandler,
   deletePushToken,
   showWelcomeNotification,
-  configureNotificationHandler, askNotificationPermissions,
+  configureNotificationHandler,
+  askNotificationPermissions,
 } from '../../src/actions/notifications';
 import {
   PUSH_NOTIFICATION_ASKED,
@@ -106,36 +107,6 @@ describe('showReminderScreen', () => {
 
     expect(store.getActions()).toEqual([]);
   });
-  it('should show Notification Off screen and enable notifications', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-        shouldAsk: true,
-        hasAsked: true,
-      },
-    });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
-    store.dispatch(showReminderScreen());
-
-    store.getActions()[0].params.onClose(true);
-
-    expect(store.getActions()).toMatchSnapshot();
-  });
-  it('should show Notification Off screen and disable notifications', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-        shouldAsk: true,
-        hasAsked: true,
-      },
-    });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
-    store.dispatch(showReminderScreen());
-
-    store.getActions()[0].params.onClose(false);
-
-    expect(store.getActions()).toMatchSnapshot();
-  });
   it('should show Notification Primer screen', () => {
     const store = mockStore({
       notifications: {
@@ -144,6 +115,8 @@ describe('showReminderScreen', () => {
         hasAsked: false,
       },
     });
+    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
+
     store.dispatch(showReminderScreen());
 
     store.getActions()[0].params.onComplete();

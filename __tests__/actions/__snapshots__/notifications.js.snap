@@ -219,51 +219,6 @@ Array [
 ]
 `;
 
-exports[`showReminderScreen should show Notification Off screen and disable notifications 1`] = `
-Array [
-  Object {
-    "params": Object {
-      "onClose": [Function],
-    },
-    "routeName": "nav/NOTIFICATION_OFF",
-    "type": "Navigation/NAVIGATE",
-  },
-  Object {
-    "bool": false,
-    "type": "app/PUSH_NOTIFICATION_SHOULD_ASK",
-  },
-  Object {
-    "immediate": undefined,
-    "key": undefined,
-    "type": "Navigation/BACK",
-  },
-]
-`;
-
-exports[`showReminderScreen should show Notification Off screen and enable notifications 1`] = `
-Array [
-  Object {
-    "params": Object {
-      "onClose": [Function],
-    },
-    "routeName": "nav/NOTIFICATION_OFF",
-    "type": "Navigation/NAVIGATE",
-  },
-  Object {
-    "bool": true,
-    "type": "app/PUSH_NOTIFICATION_SHOULD_ASK",
-  },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
-  },
-  Object {
-    "immediate": undefined,
-    "key": undefined,
-    "type": "Navigation/BACK",
-  },
-]
-`;
-
 exports[`showReminderScreen should show Notification Primer screen 1`] = `
 Array [
   Object {
