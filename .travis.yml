@@ -23,7 +23,7 @@ matrix:
         yarn: true
 
     - language: objective-c
-      if: branch = update-build-process and type = push
+      if: branch = master and type = push
       xcode_project: ios/Missionhub.xcodeproj
       os: osx
       osx_image: xcode9.2
