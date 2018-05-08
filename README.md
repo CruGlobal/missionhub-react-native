@@ -1,16 +1,16 @@
-# Mission Hub [![Build Status](https://travis-ci.com/CruGlobal/missionhub-react-native.svg?token=qw4zYh6vUTp6WkvVkWCb&branch=master)](https://travis-ci.com/CruGlobal/missionhub-react-native) [![codecov](https://codecov.io/gh/CruGlobal/missionhub-react-native/branch/master/graph/badge.svg?token=5Wgs4elevu)](https://codecov.io/gh/CruGlobal/missionhub-react-native)
+# MissionHub [![Build Status](https://travis-ci.com/CruGlobal/missionhub-react-native.svg?token=qw4zYh6vUTp6WkvVkWCb&branch=master)](https://travis-ci.com/CruGlobal/missionhub-react-native) [![codecov](https://codecov.io/gh/CruGlobal/missionhub-react-native/branch/master/graph/badge.svg?token=5Wgs4elevu)](https://codecov.io/gh/CruGlobal/missionhub-react-native)
 
-Mission Hub description goes here
+MissionHub description goes here
 
 
 ## Getting Started
 
 To get started running and building the MissionHub application, you need to have a few things installed
 
-- Node and npm
+- Node and Yarn
 - Xcode (for iOS build)
 - Android SDK
-- react-native-cli (Run `npm install -g react-native-cli`)
+- react-native-cli (Run `yarn global add react-native-cli`)
 
 Check out the [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) guides for iOS/Android based on your OS
 
@@ -35,7 +35,7 @@ Plugins:
 
 - Make sure you have the Android build-tools installed from the sdk for version `26.0.1` along with all the other steps from the react-native documentation.
 - Connect your android device or emulator and make sure it shows up in your terminal when you run `adb devices`
-- Run `npm run android`
+- Run `yarn run android`
 - *Note: You can also use Android Studio to run the application instead of the terminal*
 
 
@@ -56,7 +56,7 @@ You can enable **Hot Reloading** by shaking the device and enabling it from ther
 
 For iOS, you can run change the scheme to a `Release` version and run the application in Xcode.
 
-For Android, to build to a local device, check that there is a device connected by running `adb devices`, then you can run `npm run android:build`. Make sure you've uninstalled any existing MissionHub application on the device first. This will create the apk at this location: `/android/app/build/outputs/apk/app-release.apk`
+For Android, to build to a local device, check that there is a device connected by running `adb devices`, then you can run `yarn run android:build`. Make sure you've uninstalled any existing MissionHub application on the device first. This will create the apk at this location: `/android/app/build/outputs/apk/app-release.apk`
 
 
 ## Deploying to Crashlytics
