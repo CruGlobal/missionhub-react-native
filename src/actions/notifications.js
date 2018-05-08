@@ -75,18 +75,9 @@ export function showReminderScreen() {
 
 export function reregisterNotificationHandler() {
   return (dispatch, getState) => {
-    if (isAndroid) {
-      return dispatch(registerNotificationHandler());
+    if (getState().steps.reminders.length > 0) {
+      dispatch(showReminderScreen());
     }
-
-    PushNotification.checkPermissions((permission) => {
-      const hasAllowedPermission = permission && permission.alert;
-      if (hasAllowedPermission) {
-        dispatch(registerNotificationHandler());
-      } else if (getState().steps.reminders.length > 0) {
-        dispatch(showReminderScreen());
-      }
-    });
   };
 }
 
