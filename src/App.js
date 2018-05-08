@@ -15,9 +15,8 @@ import i18n from './i18n';
 import './utils/globals';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
-import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin } from './actions/auth';
-import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
@@ -39,7 +38,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
-    this.initializeAnalytics();
+    this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
 
@@ -67,13 +66,6 @@ export default class App extends Component {
     } else {
       getKey(iOSKey);
     }
-  }
-
-  initializeAnalytics() { //TODO add tests
-    this.collectLifecycleData();
-
-    //todo include rest of analytics obj?
-    store.dispatch(updateAnalyticsContext({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language }));
   }
 
   initializeErrorHandling() {
