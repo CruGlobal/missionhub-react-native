@@ -1,26 +1,9 @@
 import notifications from '../../src/reducers/notifications';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
-
-it('updates shouldAsk', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: true,
-  });
-  expect(state.shouldAsk).toBe(true);
-});
-
-it('updates hasAsked', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_ASKED,
-  });
-  expect(state.hasAsked).toBe(true);
-});
 
 it('should update push device', () => {
   const pushDevice = { id: '9', token: 'some token' };
@@ -43,8 +26,6 @@ it('should disable welcome notification', () => {
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
-    hasAsked: false,
-    shouldAsk: true,
     hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {

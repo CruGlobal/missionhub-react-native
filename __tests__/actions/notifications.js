@@ -6,8 +6,6 @@ import i18next from 'i18next';
 import MockDate from 'mockdate';
 
 import {
-  enableAskPushNotification,
-  disableAskPushNotification,
   showReminderScreen,
   reregisterNotificationHandler,
   deletePushToken,
@@ -16,8 +14,6 @@ import {
   askNotificationPermissions,
 } from '../../src/actions/notifications';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
   NAVIGATE_FORWARD,
@@ -48,31 +44,16 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('disableAskPushNotification', () => {
-  it('should dispatch action to disable notification prompts', () => {
-    store.dispatch(disableAskPushNotification());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_SHOULD_ASK, bool: false } ]);
-  });
-});
-
-describe('enableAskPushNotification', () => {
-  it('should dispatch action to enable notification prompts', () => {
-    store.dispatch(enableAskPushNotification());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_SHOULD_ASK, bool: true } ]);
-  });
-});
-
 describe('showReminderScreen', () => {
   it('should setup android notifications', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
       },
     });
     common.isAndroid = true;
     store.dispatch(showReminderScreen());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
+    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(1);
   });
   it('should do nothing if we already have a token', () => {
     const store = mockStore({
@@ -235,7 +216,6 @@ describe('askNotificationPermissions', () => {
       store.dispatch(askNotificationPermissions());
 
       expect(callApi).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
     });
   });
 
@@ -274,7 +254,6 @@ describe('askNotificationPermissions', () => {
 
     it('should do nothing if user hasn\'t opened the notification; also it should call iOS finish', async() => {
       await testNotification({ screen: 'home' }, false);
-      expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
       expect(finish).toHaveBeenCalledWith(PushNotificationIOS.FetchResult.NoData);
     });
 

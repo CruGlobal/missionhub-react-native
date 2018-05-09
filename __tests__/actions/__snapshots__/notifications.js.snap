@@ -12,9 +12,6 @@ Array [
     "routeName": "nav/CONTACT",
     "type": "Navigation/NAVIGATE",
   },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
-  },
 ]
 `;
 
@@ -30,9 +27,6 @@ Array [
     },
     "routeName": "nav/ADD_CONTACT",
     "type": "Navigation/NAVIGATE",
-  },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
   },
   Object {
     "actions": Array [
@@ -59,9 +53,6 @@ Array [
     "type": "app/LOAD_PERSON_DETAILS",
   },
   Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
-  },
-  Object {
     "params": Object {
       "organization": Object {
         "id": "2",
@@ -85,9 +76,6 @@ Array [
       "type": "person",
     },
     "type": "app/LOAD_PERSON_DETAILS",
-  },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
   },
   Object {
     "params": Object {
@@ -119,9 +107,6 @@ Array [
     "key": undefined,
     "type": "Navigation/RESET",
   },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
-  },
 ]
 `;
 
@@ -138,9 +123,6 @@ Array [
     "index": 0,
     "key": undefined,
     "type": "Navigation/RESET",
-  },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
   },
 ]
 `;
@@ -176,9 +158,6 @@ Array [
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
-  },
 ]
 `;
 
@@ -212,9 +191,6 @@ exports[`askNotificationPermissions onRegister should update notification token 
 Array [
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
-  },
-  Object {
-    "type": "app/PUSH_NOTIFICATION_ASKED",
   },
 ]
 `;

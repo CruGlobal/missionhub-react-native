@@ -5,8 +5,6 @@ import i18next from 'i18next';
 
 import { MAIN_TABS } from '../constants';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
 } from '../constants';
@@ -19,21 +17,6 @@ import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi from './api';
 import { REQUESTS } from './api';
-
-
-export function disableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: false,
-  };
-}
-
-export function enableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: true,
-  };
-}
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
@@ -70,7 +53,6 @@ export function reregisterNotificationHandler() {
 
 export function askNotificationPermissions() {
   return async(dispatch) => {
-    dispatch({ type: PUSH_NOTIFICATION_ASKED });
     return await PushNotification.requestPermissions();
   };
 }

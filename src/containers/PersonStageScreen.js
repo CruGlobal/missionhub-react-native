@@ -39,7 +39,7 @@ class PersonStageScreen extends Component {
       return;
     }
     // Android doesn't need a primer for notifications the way iOS does
-    if (!isAndroid && !this.props.hasAskedPushNotifications) {
+    if (!isAndroid) {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
         onComplete: this.celebrateAndFinishOnboarding,
         isOnboarding: true,

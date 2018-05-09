@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
 import {
-  enableAskPushNotification,
-  disableAskPushNotification,
   askNotificationPermissions,
 } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
@@ -26,12 +24,6 @@ class NotificationPrimerScreen extends Component {
   }
 
   notNow() {
-    const { isOnboarding, dispatch } = this.props;
-    if (isOnboarding) {
-      dispatch(enableAskPushNotification());
-    } else {
-      dispatch(disableAskPushNotification());
-    }
     this.props.onComplete();
     this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   }

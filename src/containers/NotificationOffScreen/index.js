@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
-import { enableAskPushNotification } from '../../actions/notifications';
 import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
@@ -47,12 +46,7 @@ class NotificationOffScreen extends Component {
         this.close(true);
       });
     } else {
-      // Android link to settings not needed
-      this.props.dispatch(enableAskPushNotification()).then(() => {
-        this.close(true);
-      }).catch(() => {
-        this.close(true);
-      });
+      this.close(true);
     }
   }
 

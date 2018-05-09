@@ -8,23 +8,11 @@ import {
 
 const initialState = {
   pushDevice: {},
-  hasAsked: false,
-  shouldAsk: true,
   hasShownWelcomeNotification: false,
 };
 
 function notificationReducer(state = initialState, action) {
   switch (action.type) {
-    case PUSH_NOTIFICATION_SHOULD_ASK:
-      return {
-        ...state,
-        shouldAsk: action.bool,
-      };
-    case PUSH_NOTIFICATION_ASKED:
-      return {
-        ...state,
-        hasAsked: true,
-      };
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
       return {
         ...state,

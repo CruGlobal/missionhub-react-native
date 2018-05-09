@@ -6,10 +6,7 @@ import configureStore from 'redux-mock-store';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
-import {
-  enableAskPushNotification, disableAskPushNotification,
-  askNotificationPermissions,
-} from '../../src/actions/notifications';
+import { askNotificationPermissions } from '../../src/actions/notifications';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 
@@ -20,8 +17,6 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/notifications');
 jest.mock('../../src/actions/analytics');
 
-const enableResult = { type: 'test enable' };
-const disableResult = { type: 'test disable' };
 const registerResult = { type: 'register' };
 const trackActionResult = { type: 'tracked action' };
 
@@ -30,8 +25,6 @@ beforeEach(() => {
     dispatch(registerResult);
     return Promise.resolve();
   });
-  enableAskPushNotification.mockReturnValue(enableResult);
-  disableAskPushNotification.mockReturnValue(disableResult);
 
   trackActionWithoutData.mockReturnValue(trackActionResult);
 
@@ -84,10 +77,9 @@ describe('notification primer methods', () => {
 
     component.notNow();
 
-    expect(disableAskPushNotification).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
-    expect(store.getActions()).toEqual([ disableResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([ trackActionResult ]);
   });
 
   it('runs not now for onboarding', () => {
@@ -95,9 +87,8 @@ describe('notification primer methods', () => {
 
     component.notNow();
 
-    expect(enableAskPushNotification).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
-    expect(store.getActions()).toEqual([ enableResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([ trackActionResult ]);
   });
 
   it('runs allow', async() => {
