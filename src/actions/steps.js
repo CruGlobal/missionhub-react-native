@@ -60,11 +60,15 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}, include = '') {
+export function getContactSteps(personId, orgId) {
   return (dispatch) => {
     const query = {
-      filters,
-      include,
+      filters: {
+        completed: false,
+        receiver_ids: personId,
+        organization_ids: orgId || 'personal',
+      },
+      include: 'receiver',
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
