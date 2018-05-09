@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { removeSwipeStepsContact } from '../../actions/swipe';
-import { getStepsByFilter, completeStep, deleteStepWithTracking } from '../../actions/steps';
+import { getContactSteps, completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
 import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
@@ -27,10 +27,6 @@ class ContactSteps extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      steps: [],
-    };
-
     this.bumpComplete = this.bumpComplete.bind(this);
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
@@ -39,7 +35,7 @@ class ContactSteps extends Component {
     this.getSteps = this.getSteps.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getSteps();
   }
 
@@ -47,19 +43,15 @@ class ContactSteps extends Component {
     this.props.dispatch(removeSwipeStepsContact());
   }
 
-  async getSteps() {
-    const { dispatch, person, organization } = this.props;
-    const filters = { completed: false, receiver_ids: person.id, organization_ids: organization && organization.id || 'personal' };
+  getSteps() {
+    const { dispatch, person, organization = {} } = this.props;
 
-    const { response: steps } = await dispatch(getStepsByFilter(filters, 'receiver'));
-    this.setState({ steps });
-    return steps;
+    dispatch(getContactSteps(person.id, organization.id));
   }
 
-  handleRemove(step) {
-    this.props.dispatch(deleteStepWithTracking(step, name)).then(() => {
-      this.getSteps();
-    });
+  async handleRemove(step) {
+    await this.props.dispatch(deleteStepWithTracking(step, name));
+    this.getSteps();
   }
 
   async handleComplete(step) {
@@ -69,10 +61,9 @@ class ContactSteps extends Component {
     dispatch(reloadJourney(person.id, organization ? organization.id : undefined));
   }
 
-  handleSaveNewSteps() {
-    this.getSteps().then(() => {
-      this.list && this.list.scrollToEnd();
-    });
+  async handleSaveNewSteps() {
+    await this.getSteps();
+    this.list && this.list.scrollToEnd();
     this.props.dispatch(navigateBack());
   }
 
@@ -136,7 +127,7 @@ class ContactSteps extends Component {
   }
 
   renderList() {
-    const { steps } = this.state;
+    const { steps } = this.props;
     return (
       <FlatList
         ref={(c) => this.list = c}
@@ -164,12 +155,12 @@ class ContactSteps extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, steps } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Flex align="center" justify="center" value={1} style={styles.container}>
           {
-            this.state.steps.length > 0 ? this.renderList() : this.renderNull()
+            steps.length > 0 ? this.renderList() : this.renderNull()
           }
         </Flex>
         <Flex justify="end">
@@ -191,9 +182,10 @@ ContactSteps.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ swipe, auth }) => ({
+const mapStateToProps = ({ swipe, auth, steps }, { person, organization = {} }) => ({
   showBump: swipe.stepsContact,
   myId: auth.person.id,
+  steps: steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
 });
 
 export default connect(mapStateToProps)(ContactSteps);

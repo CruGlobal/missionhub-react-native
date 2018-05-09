@@ -1,10 +1,9 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
 
 import SecondaryTabBar from '../../src/components/SecondaryTabBar/index';
-import { testSnapshot } from '../../testUtils/index';
 import { createMockStore } from '../../testUtils/index';
+import { testSnapshotShallow } from '../../testUtils';
 const mockState = {
   steps: {
     mine: [],
@@ -57,9 +56,8 @@ jest.mock('Platform', () => {
 });
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <SecondaryTabBar person={{ first_name: 'ben', id: 1 }} tabs={tabArray} />
-    </Provider>
+  testSnapshotShallow(
+    <SecondaryTabBar person={{ first_name: 'ben', id: 1 }} tabs={tabArray} />,
+    store,
   );
 });
