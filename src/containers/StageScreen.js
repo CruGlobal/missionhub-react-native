@@ -22,7 +22,9 @@ class StageScreen extends Component {
     const { onComplete, noNav, dispatch } = this.props;
 
     if (onComplete) {
-      if (!noNav) {
+      if (noNav) {
+        onComplete(stage);
+      } else {
         dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
           onSaveNewSteps: () => {
             onComplete(stage);
@@ -31,8 +33,6 @@ class StageScreen extends Component {
           enableBackButton: true,
           contactStage: stage,
         }));
-      } else {
-        onComplete(stage);
       }
     } else {
       dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
