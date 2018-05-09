@@ -1,8 +1,6 @@
 import { REQUESTS } from '../actions/api';
 import {
   LOGOUT,
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
   DISABLE_WELCOME_NOTIFICATION,
 } from '../constants';
 

@@ -52,7 +52,7 @@ export function reregisterNotificationHandler() {
 }
 
 export function askNotificationPermissions() {
-  return async(dispatch) => {
+  return async() => {
     return await PushNotification.requestPermissions();
   };
 }
