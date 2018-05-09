@@ -25,9 +25,7 @@ Push a new release build to the App Store
 ```
 fastlane ios beta
 ```
-Description of what the lane does
-
-Push a new (beta) release build to Crashlytics
+Push a new (beta) release build to TestFlight
 ### ios cru_download_localizations
 ```
 fastlane ios cru_download_localizations
