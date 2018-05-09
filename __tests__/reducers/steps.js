@@ -97,3 +97,26 @@ it('receives reminders', () => {
   expect(state.mine.length).toEqual(2);
   expect(state.reminders).toEqual([ { id: '1', focus: true } ]);
 });
+
+it('receives contact steps', () => {
+  const state = steps(
+    {
+      contactSteps: {
+        '123-456': [ { id: '3' } ],
+        '987-': [],
+      },
+    },
+    {
+      type: REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS,
+      results: {
+        response: [ { id: '1' }, { id: '2' } ],
+      },
+      query: { filters: { receiver_ids: '123', organization_ids: '456' } },
+    },
+  );
+
+  expect(state.contactSteps).toEqual({
+    '123-456': [ { id: '1' }, { id: '2' } ],
+    '987-': [],
+  });
+});

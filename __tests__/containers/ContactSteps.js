@@ -9,12 +9,19 @@ jest.mock('../../src/actions/navigation');
 import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
-import { getStepsByFilter } from '../../src/actions/steps';
+import { getContactSteps } from '../../src/actions/steps';
 jest.mock('../../src/actions/steps');
+
+const steps = [
+  { id: '1', title: 'Test Step' },
+];
 
 const mockState = {
   steps: {
     mine: [],
+    contactSteps: {
+      '1-personal': steps,
+    },
   },
   swipe: {
     stepsContact: true,
@@ -41,8 +48,7 @@ const mockContactAssignment = {
   id: 333,
 };
 
-const steps = [ { id: '1', title: 'Test Step' } ];
-getStepsByFilter.mockReturnValue({ response: steps });
+getContactSteps.mockReturnValue({ response: steps });
 
 const store = createMockStore(mockState);
 
@@ -72,7 +78,20 @@ let handleSaveNewSteps;
 jest.mock('react-native-device-info');
 
 
-it('renders correctly', () => {
+it('renders correctly with no steps', () => {
+  testSnapshotShallow(
+    <ContactSteps isMe={false} person={mockPerson} navigation={createMockNavState()} />,
+    createMockStore({
+      ...mockState,
+      steps: {
+        ...mockState.steps,
+        contactSteps: {},
+      },
+    }),
+  );
+});
+
+it('renders correctly with steps', () => {
   testSnapshotShallow(
     <ContactSteps isMe={false} person={mockPerson} navigation={createMockNavState()} />,
     store,
@@ -81,18 +100,13 @@ it('renders correctly', () => {
 
 describe('getSteps', () => {
   it('should get steps for a personal org', async() => {
-    const component = createComponent();
-    const loadedSteps = await component.getSteps();
-    expect(getStepsByFilter).toHaveBeenCalledWith({ completed: false, receiver_ids: mockPerson.id, organization_ids: 'personal' }, 'receiver');
-    expect(component.state).toEqual({ steps });
-    expect(loadedSteps).toEqual(steps);
+    createComponent();
+    expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, undefined);
   });
   it('should get steps for a ministry org', async() => {
-    const component = createComponent(false, undefined, undefined, undefined, { id: '4' });
-    const loadedSteps = await component.getSteps();
-    expect(getStepsByFilter).toHaveBeenCalledWith({ completed: false, receiver_ids: mockPerson.id, organization_ids: '4' }, 'receiver');
-    expect(component.state).toEqual({ steps });
-    expect(loadedSteps).toEqual(steps);
+    const org = { id: '4' };
+    createComponent(false, undefined, undefined, undefined, org);
+    expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, org.id);
   });
 });
 
