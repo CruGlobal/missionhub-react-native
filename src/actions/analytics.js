@@ -99,7 +99,6 @@ export function logInAnalytics() {
       [ANALYTICS.LOGGED_IN_STATUS]: LOGGED_IN,
     };
 
-    RNOmniture.syncIdentifier(updatedContext[ANALYTICS.SSO_GUID]);
     return dispatch(updateAnalyticsContext(updatedContext));
   };
 }

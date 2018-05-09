@@ -186,10 +186,6 @@ describe('trackStepsAdded', () => {
 describe('logInAnalytics', () => {
   beforeEach(() => store.dispatch(logInAnalytics()));
 
-  it('should sync marketing cloud id', () => {
-    expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
-  });
-
   it('should update analytics context', () => {
     const action = store.getActions()[0];
     expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
