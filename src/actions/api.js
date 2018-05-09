@@ -4,7 +4,7 @@ import API_CALLS from '../api';
 // import { logoutAction, toastAction } from './auth';
 import apiRoutes from '../api/routes';
 import { isObject } from '../utils/common';
-import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, UPDATE_TOKEN } from '../constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, UPDATE_TOKEN } from '../constants';
 
 import { logout, refreshAccessToken, refreshAnonymousLogin } from './auth';
 import { refreshMissionHubFacebookAccess } from './facebook';
@@ -82,7 +82,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         const { apiError } = err;
 
         if (apiError) {
-          if (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN) {
+          if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
             if (authState.refreshToken) {
               dispatch(refreshAccessToken());
             } else if (authState.isFirstTime) {
