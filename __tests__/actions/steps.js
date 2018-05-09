@@ -4,7 +4,7 @@ import i18next from 'i18next';
 
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
-  completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
+  completeStep, getStepSuggestions, getMyStepsNextPage, getContactSteps, setStepFocus,
   addSteps, completeStepReminder, deleteStepWithTracking,
 } from '../../src/actions/steps';
 import { refreshImpact } from '../../src/actions/impact';
@@ -22,8 +22,9 @@ import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 const mockStore = configureStore([ thunk ]);
 let store;
 
-const personId = 2123;
-const receiverId = 983547;
+const personId = '2123';
+const receiverId = '983547';
+const orgId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
@@ -73,21 +74,26 @@ describe('get steps page', () => {
   });
 });
 
-describe('getStepsByFilter', () => {
+describe('getContactSteps', () => {
   it('should get filtered steps for a person', () => {
-    const stepsFilter = {
-      completed: true,
-      receiver_ids: '1',
-      organization_ids: '2',
-    };
-    const include = 'receiver';
     const apiResult = { type: 'done' };
 
     callApi.mockReturnValue(apiResult);
 
-    store.dispatch(getStepsByFilter(stepsFilter, include));
+    store.dispatch(getContactSteps(personId, orgId));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 }, include: include });
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_CHALLENGES_BY_FILTER,
+      {
+        filters: {
+          completed: false,
+          receiver_ids: personId,
+          organization_ids: orgId,
+        },
+        page: { limit: 1000 },
+        include: 'receiver',
+      },
+    );
     expect(store.getActions()).toEqual([ apiResult ]);
   });
 });

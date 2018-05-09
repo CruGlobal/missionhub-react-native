@@ -4,6 +4,19 @@ import { REQUESTS } from '../../src/actions/api';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
+jest.mock('../../src/i18n', () => ({
+  language: 'fr-FR',
+  t: jest.fn(),
+}));
+
+describe('initial state', () => {
+  it('should have language set', () => {
+    const result = analyticsReducer(undefined, { type: 'none' });
+
+    expect(result[ANALYTICS.CONTENT_LANGUAGE]).toEqual('fr-FR');
+  });
+});
+
 describe('key login success', () => {
   it('should save sso guid', () => {
     const state = {};
