@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../../actions/navigation';
 import Header from '../Header';
 import FilterItem from '../../components/FilterItem';
-import { trackSearchFilter, trackState } from '../../actions/analytics';
+import { trackSearchFilter } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import BackButton from '../BackButton';
 
@@ -48,10 +48,9 @@ export class SearchPeopleFilterRefineScreen extends Component {
       this.props.dispatch(navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleFilterSelect,
         options: item.drilldown,
+        trackingObj: buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id),
       }));
 
-      const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
-      this.props.dispatch(trackState(trackingObj));
       this.props.dispatch(trackSearchFilter(item.id));
 
     } else {

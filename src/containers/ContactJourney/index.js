@@ -11,7 +11,6 @@ import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { trackState } from '../../actions/analytics';
 import { addNewInteraction, editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
@@ -89,14 +88,13 @@ class ContactJourney extends Component {
   }
 
   handleCreateInteraction() {
+    const subsection = getAnalyticsSubsection(this.props.person.id, this.props.myId);
+
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       onComplete: this.handleAddComment,
       type: 'journey',
+      trackingObj: buildTrackingObj(`people : ${subsection} : journey : edit`, 'people', subsection, 'journey'),
     }));
-
-    const subsection = getAnalyticsSubsection(this.props.person.id, this.props.myId);
-    const trackingObj = buildTrackingObj(`people : ${subsection} : journey : edit`, 'people', subsection, 'journey');
-    this.props.dispatch(trackState(trackingObj));
   }
 
   renderRow({ item }) {

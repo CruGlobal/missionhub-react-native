@@ -30,6 +30,9 @@ export default function tracking({ dispatch, getState }) {
           } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
             newAction = trackState(buildTrackingObj('menu', 'menu'));
           }
+        } else if (action.params && action.params.trackingObj) {
+          //todo test trackingObj is ignored if screen is in trackableScreens
+          newAction = trackState(action.params.trackingObj);
         }
         break;
 
