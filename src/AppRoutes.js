@@ -71,32 +71,51 @@ const buildTrackedScreen = (screen, tracking, navOptions) => {
 };
 
 const stepsTab = buildTrackingObj('steps', 'steps');
-const tabs = {
-  StepsTab: buildTrackedScreen(
-    StepsScreen,
-    stepsTab,
-    {
-      tabBarLabel: navItem('steps'),
-    },
-  ),
-  PeopleTab: buildTrackedScreen(
-    PeopleScreen,
-    buildTrackingObj('people', 'people'),
-    {
-      tabBarLabel: navItem('people'),
-    }
-  ),
-  ImpactTab: buildTrackedScreen(
-    ImpactScreen,
-    buildTrackingObj('impact', 'impact'),
-    {
-      tabBarLabel: navItem('impact'),
-    },
-  ),
+const tabs = (groupsEnabled = false) => {
+  const baseTabs = {
+    StepsTab: buildTrackedScreen(
+      StepsScreen,
+      stepsTab,
+      {
+        tabBarLabel: navItem('steps'),
+      },
+    ),
+    PeopleTab: buildTrackedScreen(
+      PeopleScreen,
+      buildTrackingObj('people', 'people'),
+      {
+        tabBarLabel: navItem('people'),
+      }
+    ),
+  };
+
+  if (groupsEnabled) {
+    return {
+      ...baseTabs,
+      GroupsTab: buildTrackedScreen(
+        ImpactScreen,
+        buildTrackingObj('impact', 'impact'),
+        {
+          tabBarLabel: navItem('groups'),
+        },
+      ),
+    };
+  }
+
+  return {
+    ...baseTabs,
+    ImpactTab: buildTrackedScreen(
+      ImpactScreen,
+      buildTrackingObj('impact', 'impact'),
+      {
+        tabBarLabel: navItem('impact'),
+      },
+    ),
+  };
 };
 
 export const MainTabRoutes = TabNavigator(
-  tabs, {
+  tabs(), {
     // initialRouteName: 'ImpactTab',
     tabBarOptions: {
       showIcon: false,
