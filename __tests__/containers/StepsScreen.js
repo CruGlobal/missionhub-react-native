@@ -26,8 +26,6 @@ const store = {
   },
   people: {},
   notifications: {
-    hasAsked: false,
-    shouldAsk: false,
     token: '',
     showReminder: true,
   },

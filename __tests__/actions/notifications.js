@@ -70,7 +70,6 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: false,
       },
     });
     store.dispatch(showReminderScreen());
@@ -80,7 +79,6 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
       },
     });
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: true }));
@@ -92,8 +90,6 @@ describe('showReminderScreen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
-        hasAsked: false,
       },
     });
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
@@ -116,8 +112,6 @@ describe('reregisterNotificationHandler', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
-        hasAsked: false,
       },
       steps: {
         reminders: [],
@@ -136,8 +130,6 @@ describe('reregisterNotificationHandler', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
-        hasAsked: false,
       },
       steps: {
         reminders: [ { id: 1 } ],
