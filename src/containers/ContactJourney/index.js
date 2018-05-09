@@ -81,7 +81,7 @@ class ContactJourney extends Component {
     const { person, dispatch, organization } = this.props;
     const orgId = organization && organization.id;
 
-    dispatch(addNewInteraction(person.id, INTERACTION_TYPES.MHInteractionTypeNote, text, orgId)).then(() => {
+    dispatch(addNewInteraction(person.id, INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened, text, orgId)).then(() => {
       // Add new comment to journey
       this.getInteractions();
     });
