@@ -278,7 +278,7 @@ export default {
   },
   notificationPrimer: {
     onboardingDescription: 'MissionHub will send you reminders to help you take your steps.',
-    reminderDescription: 'We\'re excited you focused this step! We\'d like to send you handcrafted reminders so it doesn\'t get forgotten.',
+    reminderDescription: 'We\'re excited you\'ve focused a step! We\'d like to send you handcrafted reminders so it doesn\'t get forgotten.',
     allow: 'Allow Notifications',
     notNow: 'Not Now',
   },
