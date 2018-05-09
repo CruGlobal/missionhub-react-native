@@ -18,7 +18,7 @@ class WelcomeScreen extends Component {
   componentDidMount() {
     disableBack.add();
 
-    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED.name));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 
   componentWillUnmount() {
