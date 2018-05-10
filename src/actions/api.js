@@ -82,13 +82,17 @@ export default function callApi(requestObject, query = {}, data = {}) {
         const { apiError } = err;
 
         if (apiError) {
-          if (apiError.errors && (apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN || apiError.errors[0].detail === INVALID_ACCESS_TOKEN)) {
-            if (authState.refreshToken) {
-              dispatch(refreshAccessToken());
-            } else if (authState.isFirstTime) {
-              dispatch(refreshAnonymousLogin());
-            } else {
-              dispatch(refreshMissionHubFacebookAccess());
+          if (apiError.errors && apiError.errors[0].detail) {
+            const errorDetail = apiError.errors[0].detail;
+            const tokenError = errorDetail === EXPIRED_ACCESS_TOKEN || errorDetail === INVALID_ACCESS_TOKEN;
+            if (tokenError) {
+              if (authState.refreshToken) {
+                dispatch(refreshAccessToken());
+              } else if (authState.isFirstTime) {
+                dispatch(refreshAnonymousLogin());
+              } else {
+                dispatch(refreshMissionHubFacebookAccess());
+              }
             }
           } else if (apiError.error === INVALID_GRANT && action.name === REQUESTS.KEY_REFRESH_TOKEN.name) {
             dispatch(logout(true));
