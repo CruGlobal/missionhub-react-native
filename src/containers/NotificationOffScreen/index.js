@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Linking, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
@@ -27,11 +26,8 @@ class NotificationOffScreen extends Component {
     this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   }
 
-  close(shouldAsk) {
-    const { onClose, dispatch } = this.props;
-
-    onClose(shouldAsk);
-    dispatch(navigateBack());
+  close() {
+    this.props.dispatch(navigateBack());
   }
 
   goToSettings() {
@@ -90,10 +86,6 @@ class NotificationOffScreen extends Component {
     );
   }
 }
-
-NotificationOffScreen.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),

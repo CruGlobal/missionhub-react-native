@@ -3,13 +3,14 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { MAIN_TABS } from '../constants';
+import { ALLOW_NOTIFICATIONS, MAIN_TABS } from '../constants';
 import {
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
 } from '../constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
 
@@ -20,7 +21,7 @@ import { REQUESTS } from './api';
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { pushDevice } = getState().notifications;
+    const { pushDevice, hasAllowed } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
@@ -30,15 +31,19 @@ export function showReminderScreen() {
     if (pushDevice.token) { return; }
 
     PushNotification.checkPermissions((permission) => {
-      const hasAllowedPermission = permission && permission.alert;
-      if (hasAllowedPermission) {
+      const permissionsEnabled = permission && permission.alert;
+      if (permissionsEnabled) {
         return;
       }
 
-      // If none of the other cases hit, show allow/not allow page
-      dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-        onComplete: () => dispatch(navigateBack()),
-      }));
+      if (hasAllowed) {
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+      } else {
+        // If none of the other cases hit, show allow/not allow page
+        dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          onComplete: () => dispatch(navigateBack()),
+        }));
+      }
     });
   };
 }
@@ -52,7 +57,8 @@ export function reregisterNotificationHandler() {
 }
 
 export function askNotificationPermissions() {
-  return async() => {
+  return async(dispatch) => {
+    dispatch({ type: ALLOW_NOTIFICATIONS });
     return await PushNotification.requestPermissions();
   };
 }
