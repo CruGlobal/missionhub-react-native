@@ -7,66 +7,69 @@ import { buildTrackingObj } from '../utils/common';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
-    let newAction;
+    let newState;
     const returnValue = next(action);
+    const { nav: navState, auth: authState } = getState();
 
     switch (action.type) {
       case NAVIGATE_FORWARD:
-        const routeName = action.routeName;
-        const trackedRoute = trackableScreens[routeName];
-
-        if (trackedRoute) {
-          newAction = trackState(trackedRoute.tracking);
-
-        } else if (routeName === CONTACT_SCREEN) {
-          newAction = trackContactScreen(action, getState);
-
-        } else if (routeName === DRAWER_OPEN) {
-          const { params: actionParams = {} } = action;
-
-          if (actionParams.drawer === CONTACT_MENU_DRAWER) {
-            newAction = trackContactMenu(actionParams.isCurrentUser);
-
-          } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
-            newAction = trackState(buildTrackingObj('menu', 'menu'));
-          }
-        } else if (action.params && action.params.trackingObj) {
-          //todo test trackingObj is ignored if screen is in trackableScreens
-          newAction = trackState(action.params.trackingObj);
-        }
+        newState = getNextTrackState(action, authState);
         break;
 
       case 'Navigation/BACK':
-        // const screen = getState().analytics[ANALYTICS.PREVIOUS_SCREENNAME];
-        // dispatch(trackState(screen));
+      case 'Navigation/POP':
+        const routes = navState.routes;
+        newState = getNextTrackState(routes[routes.length - 1], authState);
         break;
 
       case NAVIGATE_RESET:
-        newAction = trackRoute(action.actions[0]);
+        newState = trackRoute(action.actions[0]);
         break;
     }
 
-    newAction && dispatch(newAction);
+    newState && dispatch(trackState(newState));
     return returnValue;
   };
+}
+
+function getNextTrackState(action, authState) {
+  const routeName = action.routeName;
+  const trackedRoute = trackableScreens[routeName];
+
+  if (trackedRoute) {
+    return trackedRoute.tracking;
+
+  } else if (routeName === CONTACT_SCREEN) {
+    return trackContactScreen(action, authState);
+
+  } else if (routeName === DRAWER_OPEN) {
+    const { params: actionParams = {} } = action;
+
+    if (actionParams.drawer === CONTACT_MENU_DRAWER) {
+      return trackContactMenu(actionParams.isCurrentUser);
+
+    } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
+      return buildTrackingObj('menu', 'menu');
+    }
+
+  } else if (action.params && action.params.trackingObj) {
+    //todo test trackingObj is ignored if screen is in trackableScreens
+    return action.params.trackingObj;
+  }
 }
 
 function trackRoute(route) {
   const trackedRoute = trackableScreens[route.routeName];
   if (trackedRoute) {
-    return trackState(trackedRoute.tracking);
+    return trackedRoute.tracking;
   }
 }
 
-function trackContactScreen(action, getState) { //steps tab is shown when ContactScreen first loads
-  if (action.params.person.id === getState().auth.person.id) {
-    return trackState(SELF_STEPS);
-  }
-
-  return trackState(PERSON_STEPS);
+function trackContactScreen(action, authState) { //steps tab is shown when ContactScreen first loads
+  return action.params.person.id === authState.person.id ? SELF_STEPS : PERSON_STEPS;
 }
 
 function trackContactMenu(isCurrentUser) {
-  return isCurrentUser ? trackState(buildTrackingObj('people : self : menu', 'people', 'self', 'menu'))
-    : trackState(buildTrackingObj('people : person : menu', 'people', 'person', 'menu'));
+  return isCurrentUser ? buildTrackingObj('people : self : menu', 'people', 'self', 'menu')
+    : buildTrackingObj('people : person : menu', 'people', 'person', 'menu');
 }
