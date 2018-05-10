@@ -54,25 +54,39 @@ export function trackState(trackingObj) {
     if (!trackingObj) {
       return;
     }
-    const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
-    const updatedContext = buildUpdatedContext(newTrackingObj, getState);
+    const updatedContext = addTrackingObjToContext(trackingObj, getState());
 
-    RNOmniture.trackState(newTrackingObj.name, updatedContext);
-
-    return dispatch(updateAnalyticsContext(updatedContext));
+    dispatch(updateAnalyticsContext(updatedContext));
+    return dispatch(trackStateWithMCID(updatedContext));
   };
 }
 
-function buildUpdatedContext(trackingObj, getState) {
-  const { analytics, auth } = getState();
+function trackStateWithMCID(context) {
+  return (dispatch) => {
+    if (context[ANALYTICS.MCID]) {
+      RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
+
+    } else {
+      RNOmniture.loadMarketingCloudId((result) => {
+        const updatedContext = { ...context, [ANALYTICS.MCID]: result };
+
+        RNOmniture.trackState(updatedContext[ANALYTICS.SCREENNAME], updatedContext);
+        dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
+  };
+}
+
+function addTrackingObjToContext(trackingObj, { analytics, auth }) {
+  const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
   return {
     ...analytics,
-    [ANALYTICS.SCREENNAME]: trackingObj.name,
-    [ANALYTICS.SITE_SECTION]: trackingObj.section,
-    [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
-    [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
+    [ANALYTICS.SCREENNAME]: newTrackingObj.name,
+    [ANALYTICS.SITE_SECTION]: newTrackingObj.section,
+    [ANALYTICS.SITE_SUBSECTION]: newTrackingObj.subsection,
+    [ANALYTICS.SITE_SUB_SECTION_3]: newTrackingObj.level3,
     [ANALYTICS.GR_MASTER_PERSON_ID]: auth.person.global_registry_mdm_id,
   };
 }

@@ -1,5 +1,6 @@
 import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN } from '../constants';
 import { REQUESTS } from '../actions/api';
+import i18n from '../i18n';
 
 const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
@@ -15,7 +16,7 @@ const initialAnalyticsState = {
   ['cru.appname']: 'MissionHub App',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
-  [ANALYTICS.CONTENT_LANGUAGE]: '',
+  [ANALYTICS.CONTENT_LANGUAGE]: i18n.language,
 };
 
 function analyticsReducer(state = initialAnalyticsState, action) {
