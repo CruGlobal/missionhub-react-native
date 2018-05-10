@@ -24,6 +24,8 @@ Plugins:
 - `eslint`
 - `react` (for javascript files with `jsx` syntax)
 
+You'll also need to create a .env file in your project root directory. The easiest way to do this is to copy .env.production to .env and modify the contents of .env accordingly. This file is ignored by Git so no need to worry about accidentally commititing changes that will impact another developer.
+
 ## Running the application
 
 #### For iOS:
@@ -69,3 +71,17 @@ For Android, after you have followed the steps above to create a build file, you
 ## Notes
 
 iOS builds can only be run on a Mac.
+
+## About env files
+
+This project has three `.env` files in two different locations. Their purpose is described here:
+
+### Project root directory
+These files 
+- .env.production - this file has the Production API URL, Production authentication server (TheKey) URL, as well as Production keys for code push. This file is meant to be used with any Release build to the Play Store or App Store.
+- .env.beta - this file has the Production API URL, Production authentication server (TheKey) URL as well as Staging keys for code push. This file is meant to be kept around for the scenarios when we need to release a Beta build against the Production APIs with CodePush changes that we want to test. This process will be manual, for now.
+- .env - this file is ignored by Git, but developers should use this file to build and run the project locally. It is recommended to copy and paste one of the .env files listed above to this file name and modify as needed.
+
+### iOS directory ({ROOT}/ios
+- .env.default - this file has the variables necessary for FastLane to build iOS Archives and Android APK files. It is completely independent from the root level .env files. It is necessary because FastLane does not detect .env files in a location above the native iOS/Android project root directories, which are sub-root to the overall project root directory.
+
