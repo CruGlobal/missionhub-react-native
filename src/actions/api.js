@@ -84,8 +84,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         if (apiError) {
           if (apiError.errors && apiError.errors[0].detail) {
             const errorDetail = apiError.errors[0].detail;
-            const tokenError = errorDetail === EXPIRED_ACCESS_TOKEN || errorDetail === INVALID_ACCESS_TOKEN;
-            if (tokenError) {
+            if (errorDetail === EXPIRED_ACCESS_TOKEN || errorDetail === INVALID_ACCESS_TOKEN) {
               if (authState.refreshToken) {
                 dispatch(refreshAccessToken());
               } else if (authState.isFirstTime) {
