@@ -54,7 +54,10 @@ class PersonStageScreen extends Component {
     onComplete(stage);
     if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        onSaveNewSteps: () => dispatch(navigateBack(2)),
+        onSaveNewSteps: () => {
+          onComplete(stage);
+          dispatch(navigateBack(2));
+        },
         contactStage: stage,
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
         contactName: name,
