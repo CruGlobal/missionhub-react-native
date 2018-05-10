@@ -51,9 +51,8 @@ class PersonStageScreen extends Component {
   complete(stage) {
     const { onComplete, noNav, dispatch, contactId, orgId, name } = this.props;
 
-    if (noNav) {
-      onComplete(stage);
-    } else {
+    onComplete(stage);
+    if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
         onSaveNewSteps: () => {
           onComplete(stage);
