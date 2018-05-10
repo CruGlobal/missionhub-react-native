@@ -24,6 +24,8 @@ Plugins:
 - `eslint`
 - `react` (for javascript files with `jsx` syntax)
 
+You'll also need to create a .env file in your project root directory. The easiest way to do this is to copy .env.production to .env and modify the contents of .env accordingly. This file is ignored by Git so no need to worry about accidentally commititing changes that will impact another developer.
+
 ## Running the application
 
 #### For iOS:
