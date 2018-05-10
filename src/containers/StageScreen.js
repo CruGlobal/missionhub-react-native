@@ -22,9 +22,8 @@ class StageScreen extends Component {
     const { onComplete, noNav, dispatch } = this.props;
 
     if (onComplete) {
-      if (noNav) {
-        onComplete(stage);
-      } else {
+      onComplete(stage);
+      if (!noNav) {
         dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
           onSaveNewSteps: () => {
             onComplete(stage);
