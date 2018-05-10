@@ -12,6 +12,9 @@ Array [
     "routeName": "nav/CONTACT",
     "type": "Navigation/NAVIGATE",
   },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
+  },
 ]
 `;
 
@@ -27,6 +30,9 @@ Array [
     },
     "routeName": "nav/ADD_CONTACT",
     "type": "Navigation/NAVIGATE",
+  },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
   },
   Object {
     "actions": Array [
@@ -53,6 +59,9 @@ Array [
     "type": "app/LOAD_PERSON_DETAILS",
   },
   Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
+  },
+  Object {
     "params": Object {
       "organization": Object {
         "id": "2",
@@ -76,6 +85,9 @@ Array [
       "type": "person",
     },
     "type": "app/LOAD_PERSON_DETAILS",
+  },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
   },
   Object {
     "params": Object {
@@ -107,6 +119,9 @@ Array [
     "key": undefined,
     "type": "Navigation/RESET",
   },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
+  },
 ]
 `;
 
@@ -123,6 +138,9 @@ Array [
     "index": 0,
     "key": undefined,
     "type": "Navigation/RESET",
+  },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
   },
 ]
 `;
@@ -158,6 +176,9 @@ Array [
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
+  },
 ]
 `;
 
@@ -191,6 +212,9 @@ exports[`askNotificationPermissions onRegister should update notification token 
 Array [
   Object {
     "type": "SET_PUSH_TOKEN_SUCCESS",
+  },
+  Object {
+    "type": "app/ALLOW_NOTIFICATIONS",
   },
 ]
 `;

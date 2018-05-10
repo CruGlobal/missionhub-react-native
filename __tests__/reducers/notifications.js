@@ -1,7 +1,7 @@
 import notifications from '../../src/reducers/notifications';
 import {
   LOGOUT,
-  DISABLE_WELCOME_NOTIFICATION,
+  DISABLE_WELCOME_NOTIFICATION, ALLOW_NOTIFICATIONS,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -23,9 +23,17 @@ it('should disable welcome notification', () => {
   expect(state.hasShownWelcomeNotification).toEqual(true);
 });
 
+it('should set hasAllowed to true', () => {
+  const state = notifications({}, {
+    type: ALLOW_NOTIFICATIONS,
+  });
+  expect(state.hasAllowed).toEqual(true);
+});
+
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
+    hasAllowed: false,
     hasShownWelcomeNotification: false,
   };
   const state = notifications({}, {
