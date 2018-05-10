@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
 import {
-  REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
+  TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
 } from '../constants';
 import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
@@ -31,7 +31,7 @@ export function getStepSuggestions() {
 export function getMySteps(query = {}) {
   return (dispatch) => {
     const queryObj = {
-      order: '-accepted_at',
+      order: '-focused_at,-accepted_at',
       ...query,
       filters: {
         ...(query.filters || {}),
@@ -105,7 +105,7 @@ export function addSteps(steps, receiverId, organization) {
 }
 
 export function setStepFocus(step, isFocus) {
-  return (dispatch) => {
+  return async(dispatch) => {
     const query = { challenge_id: step.id };
     const data = {
       data: {
@@ -125,10 +125,10 @@ export function setStepFocus(step, isFocus) {
       },
     };
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
-      if (isFocus) return dispatch({ type: ADD_STEP_REMINDER, step });
-      return dispatch({ type: REMOVE_STEP_REMINDER, step });
-    });
+    const { response } = await dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data));
+    if (step.focus !== response.focus) {
+      dispatch({ type: TOGGLE_STEP_FOCUS, step });
+    }
   };
 }
 
@@ -263,7 +263,6 @@ function deleteStep(step) {
   return (dispatch) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch({ type: REMOVE_STEP_REMINDER, step });
       dispatch(getMySteps());
       return r;
     });
