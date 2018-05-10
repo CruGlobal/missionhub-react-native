@@ -28,7 +28,7 @@ matrix:
       os: osx
       osx_image: xcode9.2
       env:
-      - ENVFILE=.env.beta
+      - ENVFILE=.env.production
       install:
       - brew install yarn
       - yarn install
@@ -90,7 +90,7 @@ matrix:
       - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       - bundler install
       script:
-      - fastlane ios release version:$TRAVIS_TAG submit:true auto_release:false
+      - fastlane ios release submit:true auto_release:false
 
 env:
   global:

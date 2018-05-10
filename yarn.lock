@@ -6051,9 +6051,9 @@ react-native-fbsdk@^0.7.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
-"react-native-omniture@https://github.com/dsgoers/react-native-omniture":
+"react-native-omniture@https://github.com/CruGlobal/react-native-omniture":
   version "0.0.1"
-  resolved "https://github.com/dsgoers/react-native-omniture#f84db30a526c5efd73de81dde018c744d4845583"
+  resolved "https://github.com/CruGlobal/react-native-omniture#d52d0637e0bb758bff92c3896dd7b07e37be6239"
 
 react-native-parallax-scroll-view@^0.21.0:
   version "0.21.0"
