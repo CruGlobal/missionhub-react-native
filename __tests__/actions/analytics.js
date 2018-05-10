@@ -8,13 +8,7 @@ import {
 } from '../../src/actions/analytics';
 import { ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, CUSTOM_STEP_TYPE, LOGGED_IN } from '../../src/constants';
 
-jest.mock('react-native-omniture', () => {
-  return {
-    trackState: jest.fn(),
-    trackAction: jest.fn(),
-    syncIdentifier: jest.fn(),
-  };
-});
+jest.mock('react-native-omniture');
 
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
@@ -43,12 +37,6 @@ beforeEach(() => {
       person: { global_registry_mdm_id: grMasterPersonId },
     },
   });
-});
-
-it('should not track state', () => {
-  store.dispatch(trackState());
-
-  expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
 });
 
 describe('updateAnalyticsContext', () => {
@@ -117,6 +105,12 @@ describe('trackState', () => {
     trackingObj = { name: newScreenName, section: section, subsection: subsection, level3: level3 };
   });
 
+  it('should not track state with no argument', () => {
+    store.dispatch(trackState());
+
+    expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
+  });
+
   it('should track state', () => {
     store.dispatch(trackState(trackingObj));
 
@@ -136,6 +130,35 @@ describe('trackState', () => {
     store.dispatch(trackState(trackingObj));
 
     expect(trackingObj.name).toEqual(newScreenName);
+  });
+
+  it('should load MCID before sending request if MCID is not set', () => {
+    const mcid = '100';
+    RNOmniture.loadMarketingCloudId.mockImplementation((callback) => callback(mcid));
+    store = mockStore({
+      analytics: {},
+      auth: { person: {} },
+    });
+
+    store.dispatch(trackState(trackingObj));
+
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(nameWithPrefix(trackingObj.name), expect.objectContaining({
+      [ANALYTICS.SCREENNAME]: nameWithPrefix(trackingObj.name),
+      [ANALYTICS.MCID]: mcid,
+    }));
+    expect(store.getActions()).toEqual([
+      expect.anything(),
+      {
+        analyticsContext: {
+          [ANALYTICS.SCREENNAME]: nameWithPrefix(trackingObj.name),
+          [ANALYTICS.SITE_SECTION]: trackingObj.section,
+          [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
+          [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
+          [ANALYTICS.MCID]: mcid,
+        },
+        type: ANALYTICS_CONTEXT_CHANGED,
+      },
+    ]);
   });
 });
 
@@ -162,10 +185,6 @@ describe('trackStepsAdded', () => {
 
 describe('logInAnalytics', () => {
   beforeEach(() => store.dispatch(logInAnalytics()));
-
-  it('should sync marketing cloud id', () => {
-    expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
-  });
 
   it('should update analytics context', () => {
     const action = store.getActions()[0];

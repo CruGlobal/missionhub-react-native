@@ -17,7 +17,6 @@ import { getMe } from './person';
 import { reregisterNotificationHandler, deletePushToken } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
-import { logOutAnalytics } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { getAssignedOrganizations } from './organizations';
 import { resetPerson } from './onboardingProfile';
@@ -116,7 +115,6 @@ export function refreshAnonymousLogin() {
 export function logout(forcedLogout = false) {
   return (dispatch) => {
     dispatch(deletePushToken());
-    dispatch(logOutAnalytics());
     dispatch({ type: LOGOUT });
     dispatch(forcedLogout ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout }) : navigateReset(LOGIN_SCREEN));
   };
