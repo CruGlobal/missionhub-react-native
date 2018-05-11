@@ -11,7 +11,6 @@ import * as selectStage from '../../src/actions/selectStage';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
-import { buildTrackingObj } from '../../src/utils/common';
 import { completeOnboarding } from '../../src/actions/onboardingProfile';
 
 const mockState = {
@@ -103,7 +102,6 @@ describe('person stage screen methods with onComplete prop', () => {
 
     expect(navigation.navigateBack).toHaveBeenCalledWith(2);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps'));
   });
 
   it('runs celebrate and finish', () => {
@@ -126,7 +124,6 @@ describe('person stage screen methods with onComplete prop but without add conta
     await component.handleSelectStage(mockStage, false);
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('onboarding : add person : steps : add', 'onboarding', 'add person', 'steps'));
     expect(completeOnboarding).toHaveBeenCalled();
   });
 });
@@ -163,7 +160,6 @@ describe('person stage screen methods with add contact flow', () => {
     await component.handleSelectStage(mockStage, false);
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps'));
   });
 
   it('runs celebrate and finish with on complete', () => {

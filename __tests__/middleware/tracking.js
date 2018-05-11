@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 
 import {
-  ANALYTICS, CONTACT_MENU_DRAWER, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_FORWARD,
+  CONTACT_MENU_DRAWER, CONTACT_TAB_CHANGED, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_BACK, NAVIGATE_FORWARD,
   NAVIGATE_RESET,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
@@ -11,6 +11,7 @@ import { trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
 import { buildTrackingObj } from '../../src/utils/common';
+import { SEARCH_SCREEN } from '../../src/containers/SearchPeopleScreen';
 
 const mockStore = configureStore([ tracking ]);
 let store;
@@ -18,7 +19,7 @@ let store;
 const routeName = 'test route';
 let navigationAction;
 
-const back = { type: 'Navigation/BACK' };
+const back = { type: NAVIGATE_BACK };
 
 const trackStateResult = { type: 'tracked state' };
 
@@ -54,7 +55,7 @@ describe('navigate forward', () => {
       });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
 
-      test(PERSON_STEPS);
+      test(PERSON_STEPS, [ { type: CONTACT_TAB_CHANGED, newActiveTab: PERSON_STEPS }, trackStateResult ]);
     });
 
 
@@ -69,7 +70,7 @@ describe('navigate forward', () => {
       });
       navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
 
-      test(SELF_STEPS);
+      test(SELF_STEPS, [ { type: CONTACT_TAB_CHANGED, newActiveTab: SELF_STEPS }, trackStateResult ]);
     });
   });
 
@@ -117,13 +118,14 @@ describe('navigate reset', () => {
   });
 });
 
-it('tracks previous screenname when navigating back', () => {
-  const prevScreenName = 'prev screen';
-  store = mockStore({ analytics: { [ANALYTICS.PREVIOUS_SCREENNAME]: prevScreenName } });
-  mockFnWithParams(analytics, 'trackState', trackStateResult, prevScreenName);
+it('tracks screen when navigating back', () => {
+  store = mockStore({ nav: {
+    routes: [ { routeName: SEARCH_SCREEN } ],
+  } });
+  mockFnWithParams(analytics, 'trackState', trackStateResult, trackableScreens[SEARCH_SCREEN].tracking);
 
   store.dispatch(back);
 
-  // expect(store.getActions()).toEqual([ back, trackStateResult ]);
+  expect(store.getActions()).toEqual([ back, trackStateResult ]);
 });
 
