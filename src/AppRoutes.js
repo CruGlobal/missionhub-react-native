@@ -32,7 +32,7 @@ import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
-import { MAIN_TABS } from './constants';
+import { IMPACT_TAB, MAIN_TABS, PEOPLE_TAB, STEPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
@@ -70,23 +70,23 @@ const buildTrackedScreen = (screen, tracking, navOptions) => {
   };
 };
 
-const stepsTab = buildTrackingObj('steps', 'steps');
+export const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
-  StepsTab: buildTrackedScreen(
+  [STEPS_TAB]: buildTrackedScreen(
     StepsScreen,
     stepsTab,
     {
       tabBarLabel: navItem('steps'),
     },
   ),
-  PeopleTab: buildTrackedScreen(
+  [PEOPLE_TAB]: buildTrackedScreen(
     PeopleScreen,
     buildTrackingObj('people', 'people'),
     {
       tabBarLabel: navItem('people'),
     }
   ),
-  ImpactTab: buildTrackedScreen(
+  [IMPACT_TAB]: buildTrackedScreen(
     ImpactScreen,
     buildTrackingObj('impact', 'impact'),
     {
