@@ -55,9 +55,9 @@ matrix:
         licenses:
         - android-sdk-license-.+
 
-      if: branch = master and type = push
+      if: branch = android-build-process and type = push
       env:
-      - ENVFILE=.env.beta
+      - ENVFILE=.env.production
       before_install:
       - git fetch --unshallow
       - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
