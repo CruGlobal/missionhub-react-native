@@ -117,7 +117,7 @@ export const MainTabRoutes = TabNavigator(
     // lazy: false, // Load all tabs right away
     lazy: true,
     paths: {
-      StepsTab: '/steps',
+      StepsTab: '/steps', //should these use the STEPS/PEOPLE/IMPACT_TAB constants?
       PeopleTab: '/people',
       ImpactTab: '/impact',
     },
