@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "api-8463147393072671252-623729",
+  "private_key_id": "1aa6b318bce57f0d1d3b32d3bc13d66f257d81bd",
+  "private_key": "",
+  "client_email": "travis-fastlane@api-8463147393072671252-623729.iam.gserviceaccount.com",
+  "client_id": "109386446021617046126",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/travis-fastlane%40api-8463147393072671252-623729.iam.gserviceaccount.com"
+}
