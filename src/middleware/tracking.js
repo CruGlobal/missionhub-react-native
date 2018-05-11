@@ -11,6 +11,7 @@ import {
   NAVIGATE_RESET, PEOPLE_TAB, STEPS_TAB,
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
+import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -39,6 +40,11 @@ export default function tracking({ dispatch, getState }) {
 
         if (topRoute.routeName === CONTACT_SCREEN) {
           newState = tabsState.activeContactTab;
+          break;
+        }
+
+        if (topRoute.routeName === LOGIN_SCREEN) {
+          newState = tabsState.activeLoginTab;
           break;
         }
 

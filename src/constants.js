@@ -72,6 +72,7 @@ export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 export const ORG_PERMISSIONS = [ 1, 4 ];
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
+export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
 export const ANALYTICS = {
