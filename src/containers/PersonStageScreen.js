@@ -7,7 +7,7 @@ import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
-import { ACTIONS } from '../constants';
+import { ACTIONS, PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
@@ -17,6 +17,10 @@ import PathwayStageScreen from './PathwayStageScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
+
+  onScrollToStage = (trackingObj) => {
+    this.props.dispatch({ type: PERSON_VIEWED_STAGE_CHANGED, newActiveTab: trackingObj });
+  };
 
   celebrateAndFinish = () => {
     let celebrationProps = { trackingObj: buildTrackingObj('onboarding : complete', 'onboarding') };
@@ -105,6 +109,7 @@ class PersonStageScreen extends Component {
         activeButtonText={t('stillHere').toUpperCase()}
         questionText={questionText || t('personQuestion', { name: personName })}
         onSelect={this.handleSelectStage}
+        onScrollToStage={this.onScrollToStage}
         firstItem={firstItem}
         section={section}
         subsection={subsection}

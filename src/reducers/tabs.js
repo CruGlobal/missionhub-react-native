@@ -1,6 +1,6 @@
 import {
   MAIN_TAB_CHANGED,
-  CONTACT_TAB_CHANGED, LOGIN_TAB_CHANGED,
+  CONTACT_TAB_CHANGED, LOGIN_TAB_CHANGED, PERSON_VIEWED_STAGE_CHANGED, SELF_VIEWED_STAGE_CHANGED,
 } from '../constants';
 import { stepsTab } from '../AppRoutes';
 
@@ -8,6 +8,8 @@ const initialTabsState = {
   activeLoginTab: '',
   activeMainTab: stepsTab,
   activeContactTab: '',
+  activePersonStageTab: '',
+  activeSelfStageTab: '',
 };
 
 export default function tabsReducer(state = initialTabsState, action) {
@@ -26,6 +28,16 @@ export default function tabsReducer(state = initialTabsState, action) {
       return {
         ...state,
         activeContactTab: action.newActiveTab,
+      };
+    case PERSON_VIEWED_STAGE_CHANGED:
+      return {
+        ...state,
+        activePersonStageTab: action.newActiveTab,
+      };
+    case SELF_VIEWED_STAGE_CHANGED:
+      return {
+        ...state,
+        activeSelfStageTab: action.newActiveTab,
       };
     default:
       return state;

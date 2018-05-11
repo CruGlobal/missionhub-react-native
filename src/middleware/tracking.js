@@ -12,6 +12,8 @@ import {
 } from '../constants';
 import { buildTrackingObj } from '../utils/common';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { STAGE_ONBOARDING_SCREEN, STAGE_SCREEN } from '../containers/StageScreen';
+import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 
 export default function tracking({ dispatch, getState }) {
   return (next) => (action) => {
@@ -45,6 +47,16 @@ export default function tracking({ dispatch, getState }) {
 
         if (topRoute.routeName === LOGIN_SCREEN) {
           newState = tabsState.activeLoginTab;
+          break;
+        }
+
+        if (topRoute.routeName === PERSON_STAGE_SCREEN) {
+          newState = tabsState.activePersonStageTab;
+          break;
+        }
+
+        if (topRoute.routeName === STAGE_SCREEN || topRoute.routeName === STAGE_ONBOARDING_SCREEN) {
+          newState = tabsState.activeSelfStageTab;
           break;
         }
 

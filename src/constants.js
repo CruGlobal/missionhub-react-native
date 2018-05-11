@@ -75,6 +75,8 @@ export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
+export const PERSON_VIEWED_STAGE_CHANGED = 'analytics/PERSON_VIEWED_STAGE_CHANGED';
+export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
