@@ -13,7 +13,7 @@ Array [
     "type": "Navigation/NAVIGATE",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;
@@ -32,7 +32,7 @@ Array [
     "type": "Navigation/NAVIGATE",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
   Object {
     "actions": Array [
@@ -59,7 +59,7 @@ Array [
     "type": "app/LOAD_PERSON_DETAILS",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
   Object {
     "params": Object {
@@ -87,7 +87,7 @@ Array [
     "type": "app/LOAD_PERSON_DETAILS",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
   Object {
     "params": Object {
@@ -120,7 +120,7 @@ Array [
     "type": "Navigation/RESET",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;
@@ -140,7 +140,7 @@ Array [
     "type": "Navigation/RESET",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;
@@ -177,7 +177,7 @@ Array [
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;
@@ -214,7 +214,7 @@ Array [
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
-    "type": "app/ALLOW_NOTIFICATIONS",
+    "type": "app/REQUEST_NOTIFICATIONS",
   },
 ]
 `;

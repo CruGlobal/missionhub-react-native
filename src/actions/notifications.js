@@ -3,7 +3,7 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { ALLOW_NOTIFICATIONS, MAIN_TABS } from '../constants';
+import { MAIN_TABS, REQUEST_NOTIFICATIONS } from '../constants';
 import {
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
@@ -21,11 +21,11 @@ import { REQUESTS } from './api';
 
 export function showReminderScreen() {
   return (dispatch, getState) => {
-    const { pushDevice, hasAllowed } = getState().notifications;
+    const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
-      return dispatch(askNotificationPermissions());
+      return;
     }
 
     if (pushDevice.token) { return; }
@@ -36,7 +36,7 @@ export function showReminderScreen() {
         return;
       }
 
-      if (hasAllowed) {
+      if (requestedNativePermissions) {
         dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
       } else {
         // If none of the other cases hit, show allow/not allow page
@@ -56,9 +56,9 @@ export function reregisterNotificationHandler() {
   };
 }
 
-export function askNotificationPermissions() {
+export function requestNativePermissions() {
   return async(dispatch) => {
-    dispatch({ type: ALLOW_NOTIFICATIONS });
+    dispatch({ type: REQUEST_NOTIFICATIONS });
     return await PushNotification.requestPermissions();
   };
 }

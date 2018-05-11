@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
-import { askNotificationPermissions } from '../../src/actions/notifications';
+import { requestNativePermissions } from '../../src/actions/notifications';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 
@@ -17,11 +17,11 @@ jest.mock('react-native-device-info');
 jest.mock('../../src/actions/notifications');
 jest.mock('../../src/actions/analytics');
 
-const registerResult = { type: 'register' };
+const registerResult = { type: 'request permissions' };
 const trackActionResult = { type: 'tracked action' };
 
 beforeEach(() => {
-  askNotificationPermissions.mockReturnValue((dispatch) => {
+  requestNativePermissions.mockReturnValue((dispatch) => {
     dispatch(registerResult);
     return Promise.resolve();
   });
@@ -96,7 +96,7 @@ describe('notification primer methods', () => {
 
     await component.allow();
 
-    expect(askNotificationPermissions).toHaveBeenCalledTimes(1);
+    expect(requestNativePermissions).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
     expect(store.getActions()).toEqual([ registerResult, trackActionResult ]);

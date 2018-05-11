@@ -11,7 +11,7 @@ import {
   deletePushToken,
   showWelcomeNotification,
   configureNotificationHandler,
-  askNotificationPermissions,
+  requestNativePermissions,
 } from '../../src/actions/notifications';
 import {
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
@@ -45,7 +45,7 @@ beforeEach(() => {
 });
 
 describe('showReminderScreen', () => {
-  it('should setup android notifications', () => {
+  it('should do nothing for Android', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
@@ -53,7 +53,7 @@ describe('showReminderScreen', () => {
     });
     common.isAndroid = true;
     store.dispatch(showReminderScreen());
-    expect(PushNotification.requestPermissions).toHaveBeenCalledTimes(1);
+    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
   });
   it('should do nothing if we already have a token', () => {
     const store = mockStore({
@@ -187,7 +187,7 @@ describe('askNotificationPermissions', () => {
 
     it('should update notification token for iOS devices', () => {
       store.dispatch(configureNotificationHandler());
-      store.dispatch(askNotificationPermissions());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
@@ -196,7 +196,7 @@ describe('askNotificationPermissions', () => {
     it('should update notification token for android devices', () => {
       common.isAndroid = true;
       store.dispatch(configureNotificationHandler());
-      store.dispatch(askNotificationPermissions());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
@@ -205,7 +205,7 @@ describe('askNotificationPermissions', () => {
     it('should do nothing if the token hasn\'t changed', () => {
       PushNotification.configure.mockImplementation((config) => config.onRegister({ token: oldToken }));
       store.dispatch(configureNotificationHandler());
-      store.dispatch(askNotificationPermissions());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi).not.toHaveBeenCalled();
     });
@@ -240,7 +240,7 @@ describe('askNotificationPermissions', () => {
         })
       );
       store.dispatch(configureNotificationHandler());
-      store.dispatch(askNotificationPermissions());
+      store.dispatch(requestNativePermissions());
       return await deepLinkComplete;
     }
 

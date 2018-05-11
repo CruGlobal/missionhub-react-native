@@ -5,9 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
-import {
-  askNotificationPermissions,
-} from '../../actions/notifications';
+import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -30,7 +28,7 @@ class NotificationPrimerScreen extends Component {
 
   async allow() {
     try {
-      await this.props.dispatch(askNotificationPermissions());
+      await this.props.dispatch(requestNativePermissions());
     } finally {
       this.props.onComplete();
     }

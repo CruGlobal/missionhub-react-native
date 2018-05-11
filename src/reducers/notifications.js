@@ -1,12 +1,13 @@
 import { REQUESTS } from '../actions/api';
 import {
   LOGOUT,
-  DISABLE_WELCOME_NOTIFICATION, ALLOW_NOTIFICATIONS,
+  DISABLE_WELCOME_NOTIFICATION,
+  REQUEST_NOTIFICATIONS,
 } from '../constants';
 
 const initialState = {
   pushDevice: {},
-  hasAllowed: false,
+  requestedNativePermissions: false,
   hasShownWelcomeNotification: false,
 };
 
@@ -17,10 +18,10 @@ function notificationReducer(state = initialState, action) {
         ...state,
         pushDevice: action.results.response,
       };
-    case ALLOW_NOTIFICATIONS:
+    case REQUEST_NOTIFICATIONS:
       return {
         ...state,
-        hasAllowed: true,
+        requestedNativePermissions: true,
       };
     case DISABLE_WELCOME_NOTIFICATION:
       return {
@@ -28,7 +29,10 @@ function notificationReducer(state = initialState, action) {
         hasShownWelcomeNotification: true,
       };
     case LOGOUT:
-      return initialState;
+      return {
+        ...initialState,
+        requestedNativePermissions: state.requestedNativePermissions,
+      };
     default:
       return state;
   }

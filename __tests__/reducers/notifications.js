@@ -1,7 +1,8 @@
 import notifications from '../../src/reducers/notifications';
 import {
   LOGOUT,
-  DISABLE_WELCOME_NOTIFICATION, ALLOW_NOTIFICATIONS,
+  DISABLE_WELCOME_NOTIFICATION,
+  REQUEST_NOTIFICATIONS,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -23,20 +24,22 @@ it('should disable welcome notification', () => {
   expect(state.hasShownWelcomeNotification).toEqual(true);
 });
 
-it('should set hasAllowed to true', () => {
+it('should set requestedNativePermissions to true', () => {
   const state = notifications({}, {
-    type: ALLOW_NOTIFICATIONS,
+    type: REQUEST_NOTIFICATIONS,
   });
-  expect(state.hasAllowed).toEqual(true);
+  expect(state.requestedNativePermissions).toEqual(true);
 });
 
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
-    hasAllowed: false,
+    requestedNativePermissions: true,
     hasShownWelcomeNotification: false,
   };
-  const state = notifications({}, {
+  const state = notifications({
+    requestedNativePermissions: true,
+  }, {
     type: LOGOUT,
   });
   expect(state).toEqual(expectedState);
