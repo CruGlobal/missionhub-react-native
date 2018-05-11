@@ -14,7 +14,7 @@ import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
-import { reregisterNotificationHandler, deletePushToken } from './notifications';
+import { deletePushToken, showReminderOnLoad } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
 import { logOutAnalytics } from './analytics';
@@ -164,7 +164,7 @@ export function loadHome() {
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(reregisterNotificationHandler());
+    dispatch(showReminderOnLoad());
     dispatch(resetPerson());
   };
 }

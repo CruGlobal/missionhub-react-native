@@ -7,16 +7,15 @@ import MockDate from 'mockdate';
 
 import {
   showReminderScreen,
-  reregisterNotificationHandler,
   deletePushToken,
   showWelcomeNotification,
   configureNotificationHandler,
-  requestNativePermissions,
+  requestNativePermissions, showReminderOnLoad,
 } from '../../src/actions/notifications';
 import {
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
-  NAVIGATE_FORWARD,
+  NAVIGATE_FORWARD, LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
@@ -102,7 +101,7 @@ describe('showReminderScreen', () => {
   });
 });
 
-describe('reregisterNotificationHandler', () => {
+describe('showReminderOnLoad', () => {
 
   beforeEach(() => {
     store.dispatch(configureNotificationHandler());
@@ -112,24 +111,43 @@ describe('reregisterNotificationHandler', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
+        showReminderOnLoad: true,
       },
       steps: {
         reminders: [],
       },
     });
 
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
-
-    store.dispatch(reregisterNotificationHandler());
+    store.dispatch(showReminderOnLoad());
 
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
-    expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      { type: LOAD_HOME_NOTIFICATION_REMINDER },
+    ]);
   });
 
-  it('should show reminder screen if app has reminders', () => {
+  it('should not show reminder screen if showReminderOnLoad is false', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
+        showReminderOnLoad: false,
+      },
+      steps: {
+        reminders: [ { id: 1 } ],
+      },
+    });
+
+    store.dispatch(showReminderOnLoad());
+
+    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('should show reminder screen if app has reminders and showReminderOnLoad is true', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminderOnLoad: true,
       },
       steps: {
         reminders: [ { id: 1 } ],
@@ -138,11 +156,12 @@ describe('reregisterNotificationHandler', () => {
 
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
 
-    store.dispatch(reregisterNotificationHandler());
+    store.dispatch(showReminderOnLoad());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
     expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([
+      { type: LOAD_HOME_NOTIFICATION_REMINDER },
       {
         params: {
           onComplete: expect.any(Function),

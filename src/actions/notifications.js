@@ -3,7 +3,7 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { MAIN_TABS, REQUEST_NOTIFICATIONS } from '../constants';
+import { LOAD_HOME_NOTIFICATION_REMINDER, MAIN_TABS, REQUEST_NOTIFICATIONS } from '../constants';
 import {
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
@@ -48,10 +48,13 @@ export function showReminderScreen() {
   };
 }
 
-export function reregisterNotificationHandler() {
+export function showReminderOnLoad() {
   return (dispatch, getState) => {
-    if (getState().steps.reminders.length > 0) {
-      dispatch(showReminderScreen());
+    if (getState().notifications.showReminderOnLoad) {
+      dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
+      if (getState().steps.reminders.length > 0) {
+        dispatch(showReminderScreen());
+      }
     }
   };
 }

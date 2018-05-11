@@ -235,7 +235,7 @@ describe('loadHome', () => {
   const getAssignedOrgsResult = { type: 'got orgs' };
   const getStagesResult = { type: 'got stages' };
   const updateUserResult = { type: 'updated locale and TZ' };
-  const notificationsResult = { type: 'notifications result' };
+  const notificationsResult = { type: 'show notification reminder' };
   const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 
   const userSettings = {
@@ -252,7 +252,7 @@ describe('loadHome', () => {
     mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
     mockFnWithParams(callApi, 'default', updateUserResult, REQUESTS.UPDATE_ME_USER, {}, userSettings);
-    mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
+    mockFnWithParams(notifications, 'showReminderOnLoad', notificationsResult);
     mockFnWithParams(onboardingProfile, 'resetPerson', resetOnboardingPersonResult);
 
     store.dispatch(auth.loadHome());

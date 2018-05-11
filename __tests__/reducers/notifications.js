@@ -2,7 +2,7 @@ import notifications from '../../src/reducers/notifications';
 import {
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
-  REQUEST_NOTIFICATIONS,
+  REQUEST_NOTIFICATIONS, LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -31,10 +31,18 @@ it('should set requestedNativePermissions to true', () => {
   expect(state.requestedNativePermissions).toEqual(true);
 });
 
+it('should set showReminderOnLoad to false', () => {
+  const state = notifications({}, {
+    type: LOAD_HOME_NOTIFICATION_REMINDER,
+  });
+  expect(state.showReminderOnLoad).toEqual(false);
+});
+
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
     requestedNativePermissions: true,
+    showReminderOnLoad: true,
     hasShownWelcomeNotification: false,
   };
   const state = notifications({
