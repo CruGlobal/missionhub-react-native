@@ -9,6 +9,8 @@ import { navigatePush } from '../actions/navigation';
 import { personFirstNameChanged, personLastNameChanged } from '../actions/onboardingProfile';
 import { createPerson, updateOnboardingPerson } from '../actions/onboardingProfile';
 import { disableBack } from '../utils/common';
+import { trackActionWithoutData } from '../actions/analytics';
+import { ACTIONS } from '../constants';
 
 import { PERSON_STAGE_SCREEN } from './PersonStageScreen';
 import styles from './SetupScreen/styles';
@@ -48,6 +50,7 @@ class SetupPersonScreen extends Component {
         this.navigate();
       } else {
         const { response: person } = await dispatch(createPerson(personFirstName, personLastName, myId));
+        dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
         this.setState({ personId: person.id });
         this.navigate();
       }
