@@ -24,7 +24,7 @@ platform :android do
                          skip_upload_screenshots: true,
                          skip_upload_images: true)
 
-    cru_notify_users(message: "MissionHub Android Beta Build released to Play Store Beta Channel.")
+    cru_notify_users(message: "#{ENV['CRU_PROJECT_NAME']} Android Beta Build released to Play Store Beta Channel.")
   end
 
   lane :cru_build_app do
@@ -34,7 +34,7 @@ platform :android do
   lane :cru_notify_users do |options|
     hipchat(
         message: options[:message],
-        channel: "MissionHub - Engineering",
+        channel: ENV['HIPCHAT_CHANNEL'],
         version: "2",
         custom_color: "green"
     )
