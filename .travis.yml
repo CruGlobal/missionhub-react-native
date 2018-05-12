@@ -75,23 +75,16 @@ matrix:
       script:
       - fastlane android beta
 
-    - language: objective-c
+    - language: node_js
+      node_js:
+      - '9'
       if: tag =~ ^v(\d+\.){1,}\d+
-      xcode_project: ios/Missionhub.xcodeproj
-      os: osx
-      osx_image: xcode9.2
-      env:
-      - ENVFILE=.env.production
       install:
-      - brew install yarn
-      - yarn install
-      - yarn run onesky:download
-      - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
       - cd ios
-      - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       - bundler install
-      script:
       - fastlane ios release submit:true auto_release:false
+      - cd ../android
+      - fastlane android release
 
 env:
   global:
