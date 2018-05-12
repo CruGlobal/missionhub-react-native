@@ -110,10 +110,6 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
-// Get the properties file to read the keystore
-def props = new Properties()
-props.load(new FileInputStream(rootProject.file("mh-test.properties")))
-
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
