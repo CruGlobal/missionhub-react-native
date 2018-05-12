@@ -5,7 +5,6 @@
 #
 #     https://docs.fastlane.tools/actions
 #
-require 'json'
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
@@ -19,12 +18,8 @@ platform :android do
 
     cru_build_app
 
-    api_json_file = File.read('GooglePlayAPI.json')
-    api_json_hash = JSON.parse(api_json_file)
-    api_json_hash['private_key'] = ENV['GOOGLE_PLAY_API_PRIVATE_KEY']
-
     upload_to_play_store(track: 'beta',
-                         json_key_data: api_json_hash.to_json,
+                         json_key: './fastlane/GooglePlayAPI.json',
                          skip_upload_metadata: true,
                          skip_upload_screenshots: true,
                          skip_upload_images: true)
