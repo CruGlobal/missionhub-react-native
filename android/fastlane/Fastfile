@@ -1,49 +1,5 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
-default_platform(:android)
-
-platform :android do
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-
-    cru_build_app
-
-    upload_to_play_store(track: 'beta',
-                         json_key: './fastlane/GooglePlayAPI.json',
-                         skip_upload_metadata: true,
-                         skip_upload_screenshots: true,
-                         skip_upload_images: true)
-
-    cru_notify_users(message: "#{ENV['CRU_PROJECT_NAME']} Android Beta Build released to Play Store Beta Channel.")
-  end
-
-  lane :cru_build_app do
-    gradle(task: "clean assembleRelease")
-  end
-
-  lane :cru_notify_users do |options|
-    hipchat(
-        message: options[:message],
-        channel: ENV['HIPCHAT_CHANNEL'],
-        version: "2",
-        custom_color: "green"
-    )
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease",
-           print_command: false)
-    upload_to_play_store
-  end
-end
+import_from_git(
+    url: 'git@github.com:CruGlobal/cru-fastlane-files.git',
+    branch: 'master',
+    path: 'android/Fastfile'
+)
