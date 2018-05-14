@@ -35,12 +35,14 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
       + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 
-    Linking.addEventListener('url', (event) => {
-      Linking.removeAllListeners('url');
+    function onLinkBack(event) {
+      Linking.removeEventListener('url', onLinkBack);
       const code = event.url.split('code=')[1];
       onReturn();
       return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
-    });
+    }
+
+    Linking.addEventListener('url', onLinkBack);
 
     Linking.openURL(uri);
     return dispatch({ type: OPEN_URL });
