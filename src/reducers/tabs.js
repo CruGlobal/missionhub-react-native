@@ -4,6 +4,7 @@ import {
 } from '../constants';
 import { stepsTab } from '../AppRoutes';
 
+//These are used to indicate what tab/stage the user will view when navigating back.
 const initialTabsState = {
   activeLoginTab: '',
   activeMainTab: stepsTab,
