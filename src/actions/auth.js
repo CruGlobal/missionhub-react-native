@@ -36,6 +36,7 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
       + `&code_challenge=${codeChallenge}`;
 
     Linking.addEventListener('url', (event) => {
+      Linking.removeAllListeners('url');
       const code = event.url.split('code=')[1];
       onReturn();
       return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
