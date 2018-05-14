@@ -1,11 +1,12 @@
 import configureStore from 'redux-mock-store';
 
 import {
-  CONTACT_MENU_DRAWER, CONTACT_TAB_CHANGED, DRAWER_OPEN, MAIN_MENU_DRAWER, NAVIGATE_BACK, NAVIGATE_FORWARD,
-  NAVIGATE_RESET,
+  CONTACT_MENU_DRAWER, CONTACT_TAB_CHANGED, DRAWER_OPEN, IMPACT_TAB, MAIN_MENU_DRAWER, MAIN_TAB_CHANGED, NAVIGATE_BACK,
+  NAVIGATE_FORWARD,
+  NAVIGATE_RESET, PEOPLE_TAB, STEPS_TAB,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
-import { trackableScreens } from '../../src/AppRoutes';
+import { stepsTab, trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
 import { buildTrackingObj } from '../../src/utils/common';
@@ -78,6 +79,36 @@ describe('navigate forward', () => {
       expect(trackState).toHaveBeenCalledWith(SELF_STEPS);
       expect(store.getActions()).toEqual([ navigationAction,
         { type: CONTACT_TAB_CHANGED, newActiveTab: SELF_STEPS },
+        trackStateResult ]);
+    });
+
+    it('updates active main tab for steps tab', () => {
+      navigationAction = { type: NAVIGATE_FORWARD, routeName: STEPS_TAB };
+
+      store.dispatch(navigationAction);
+
+      expect(store.getActions()).toEqual([ navigationAction,
+        { type: MAIN_TAB_CHANGED, newActiveTab: stepsTab },
+        trackStateResult ]);
+    });
+
+    it('updates active main tab for people tab', () => {
+      navigationAction = { type: NAVIGATE_FORWARD, routeName: PEOPLE_TAB };
+
+      store.dispatch(navigationAction);
+
+      expect(store.getActions()).toEqual([ navigationAction,
+        { type: MAIN_TAB_CHANGED, newActiveTab: buildTrackingObj('people', 'people') },
+        trackStateResult ]);
+    });
+
+    it('updates active main tab for impact tab', () => {
+      navigationAction = { type: NAVIGATE_FORWARD, routeName: IMPACT_TAB };
+
+      store.dispatch(navigationAction);
+
+      expect(store.getActions()).toEqual([ navigationAction,
+        { type: MAIN_TAB_CHANGED, newActiveTab: buildTrackingObj('impact', 'impact') },
         trackStateResult ]);
     });
   });
