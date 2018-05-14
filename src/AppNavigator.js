@@ -32,7 +32,7 @@ class AppWithNavigationState extends React.Component {
   render() {
     const { dispatch, nav } = this.props;
     const navigation = addNavigationHelpers({ dispatch, state: nav, addListener });
-    return <MainRoutes navigation={navigation} screenProps={{ groups: true }} />;
+    return <MainRoutes navigation={navigation} />;
   }
 }
 
