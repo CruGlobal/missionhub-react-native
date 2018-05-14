@@ -208,7 +208,6 @@ function challengeCompleteAction(step, screen) {
               let stageProps = {
                 section: 'people',
                 subsection: subsection,
-                //todo trackingObj: ?
                 onComplete: () => {
                   dispatch(navigatePush(CELEBRATION_SCREEN, {
                     onComplete: () => {
