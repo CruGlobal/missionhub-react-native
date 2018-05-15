@@ -52,10 +52,6 @@ class LoginOptionsScreen extends Component {
     this.props.dispatch(openKeyURL('login?action=signup', this.startLoad, this.props.upgradeAccount));
   }
 
-  componentWillUnmount() {
-    Linking.removeEventListener('url', this.handleOpenURL);
-  }
-
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
     dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
