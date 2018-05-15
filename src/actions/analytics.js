@@ -45,7 +45,9 @@ export function trackActionWithoutData(action) {
 }
 
 export function trackAction(action, data) {
-  return () => RNOmniture.trackAction(action, data);
+  const newData = Object.keys(data).reduce((acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }), {});
+
+  return () => RNOmniture.trackAction(action, newData);
 }
 
 export function trackState(trackingObj) {
