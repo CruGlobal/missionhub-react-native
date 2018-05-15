@@ -77,7 +77,7 @@ function authReducer(state = initialAuthState, action) {
       };
     case REQUESTS.GET_ME.SUCCESS:
       const person = results.response;
-
+      
       return {
         ...state,
         person: {
@@ -85,6 +85,7 @@ function authReducer(state = initialAuthState, action) {
           stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
         },
         isJean: person.organizational_permissions.length > 0,
+        groupsFeature: person.user.groups_feature,
       };
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
