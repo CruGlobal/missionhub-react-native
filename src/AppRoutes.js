@@ -32,7 +32,7 @@ import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
-import { MAIN_TABS } from './constants';
+import MainTabs, { MAIN_TABS } from './containers/MainTabs';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
@@ -71,51 +71,44 @@ const buildTrackedScreen = (screen, tracking, navOptions) => {
 };
 
 const stepsTab = buildTrackingObj('steps', 'steps');
-const tabs = (groups = false) => {
-  const baseTabs = {
-    StepsTab: buildTrackedScreen(
-      StepsScreen,
-      stepsTab,
-      {
-        tabBarLabel: navItem('steps'),
-      },
-    ),
-    PeopleTab: buildTrackedScreen(
-      PeopleScreen,
-      buildTrackingObj('people', 'people'),
-      {
-        tabBarLabel: navItem('people'),
-      }
-    ),
-  };
-
-  if (groups) {
-    return {
-      ...baseTabs,
-      GroupsTab: buildTrackedScreen(
-        ImpactScreen,
-        buildTrackingObj('impact', 'impact'),
-        {
-          tabBarLabel: navItem('groups'),
-        },
-      ),
-    };
-  }
-
-  return {
-    ...baseTabs,
-    ImpactTab: buildTrackedScreen(
-      ImpactScreen,
-      buildTrackingObj('impact', 'impact'),
-      {
-        tabBarLabel: navItem('impact'),
-      },
-    ),
-  };
+const tabs = {
+  StepsTab: buildTrackedScreen(
+    StepsScreen,
+    stepsTab,
+    {
+      tabBarLabel: navItem('steps'),
+    },
+  ),
+  PeopleTab: buildTrackedScreen(
+    PeopleScreen,
+    buildTrackingObj('people', 'people'),
+    {
+      tabBarLabel: navItem('people'),
+    }
+  ),
+  ImpactTab: buildTrackedScreen(
+    ImpactScreen,
+    buildTrackingObj('impact', 'impact'),
+    {
+      tabBarLabel: navItem('impact'),
+    },
+  ),
+  GroupsTab: buildTrackedScreen(
+    ImpactScreen,
+    buildTrackingObj('impact', 'impact'),
+    {
+      tabBarLabel: navItem('groups'),
+    },
+  ),
 };
 
-export const MainTabRoutes = TabNavigator(
-  tabs(), {
+export const MainTabBar = TabNavigator(
+  {
+    StepsTab: tabs.StepsTab,
+    PeopleTab: tabs.PeopleTab,
+    ImpactTab: tabs.ImpactTab,
+  },
+  {
     // initialRouteName: 'ImpactTab',
     tabBarOptions: {
       showIcon: false,
@@ -140,11 +133,46 @@ export const MainTabRoutes = TabNavigator(
       PeopleTab: '/people',
       ImpactTab: '/impact',
     },
-  });
+  }
+);
+
+export const MainTabBarGroups = TabNavigator(
+  {
+    StepsTab: tabs.StepsTab,
+    PeopleTab: tabs.PeopleTab,
+    GroupsTab: tabs.GroupsTab,
+  },
+  {
+    // initialRouteName: 'ImpactTab',
+    tabBarOptions: {
+      showIcon: false,
+      showLabel: true,
+      style: { backgroundColor: theme.white },
+      activeTintColor: theme.primaryColor,
+      inactiveTintColor: theme.inactiveColor,
+      tabStyle: { backgroundColor: theme.lightBackgroundColor },
+      indicatorStyle: { backgroundColor: 'transparent' } ,
+      upperCaseLabel: false,
+
+      // Android
+      scrollEnabled: false,
+    },
+    swipeEnabled: false,
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    // lazy: false, // Load all tabs right away
+    lazy: true,
+    paths: {
+      StepsTab: '/steps',
+      PeopleTab: '/people',
+      ImpactTab: '/impact',
+    },
+  }
+);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
-    Main: { screen: MainTabRoutes },
+    Main: { screen: MainTabs },
   }, {
     contentComponent: SettingsMenu,
     navigationOptions: { drawerLockMode: 'locked-closed' },
@@ -175,7 +203,7 @@ const screens = {
 
 export const trackableScreens = {
   ...screens,
-  ...tabs(),
+  ...tabs,
 };
 
 export const MainStackRoutes = StackNavigator({
