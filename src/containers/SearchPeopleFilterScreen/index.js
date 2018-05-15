@@ -14,7 +14,7 @@ import { RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
-import { trackSearchFilter, trackState } from '../../actions/analytics';
+import { trackSearchFilter } from '../../actions/analytics';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -148,11 +148,10 @@ export class SearchPeopleFilterScreen extends Component {
       title: item.text,
       options,
       filters: this.state.filters,
+      trackingObj: buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id),
     }));
     this.setState({ selectedFilterId: item.id });
 
-    const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
-    this.props.dispatch(trackState(trackingObj));
     this.props.dispatch(trackSearchFilter(item.id));
   }
 

@@ -14,7 +14,7 @@ import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack } from './navigation';
 import callApi, { REQUESTS } from './api';
-import { trackAction, trackState, trackStepsAdded } from './analytics';
+import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 
 export function getStepSuggestions() {
@@ -176,9 +176,12 @@ function challengeCompleteAction(step, screen) {
     const { person: { id: myId } } = getState().auth;
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
+      const subsection = getAnalyticsSubsection( step.receiver.id, myId );
+
       dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
       dispatch(refreshImpact());
       dispatch(navigatePush(ADD_STEP_SCREEN, {
+        trackingObj: buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps'),
         type: STEP_NOTE,
         onComplete: (text) => {
           if (text) {
@@ -190,7 +193,7 @@ function challengeCompleteAction(step, screen) {
 
           const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
           const subsection = isMe ? 'self' : 'person';
-          const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
+          const celebrationTrackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
 
           if (count % 3 === 0) {
             dispatch(getPersonDetails(step.receiver.id, step.organization && step.organization.id)).then((getPersonDetailsResult) => {
@@ -210,11 +213,11 @@ function challengeCompleteAction(step, screen) {
                     onComplete: () => {
                       dispatch(navigateBack(3));
                     },
+                    trackingObj: celebrationTrackingObj,
                   }));
 
 
                   dispatch(reloadJourney(step.receiver.id, step.organization && step.organization.id));
-                  dispatch(trackState(trackingObj));
                 },
                 contactId: isMe ? myId : step.receiver.id,
                 firstItem: firstItemIndex,
@@ -234,16 +237,12 @@ function challengeCompleteAction(step, screen) {
               onComplete: () => {
                 dispatch(navigateBack(2));
               },
+              trackingObj: celebrationTrackingObj,
             }));
-
-            dispatch(trackState(trackingObj));
           }
         },
       }));
 
-      const subsection = getAnalyticsSubsection( step.receiver.id, myId );
-      const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
-      dispatch(trackState(trackingObj));
       dispatch(trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, { [ACTIONS.STEP_COMPLETED.key]: null }));
 
       return challengeCompleteResult;

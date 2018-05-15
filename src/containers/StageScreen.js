@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { selectMyStage } from '../actions/selectStage';
+import { SELF_VIEWED_STAGE_CHANGED } from '../constants';
 
 import PathwayStageScreen from './PathwayStageScreen';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
@@ -12,11 +13,10 @@ import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 
 @translate('selectStage')
 class StageScreen extends Component {
-  constructor(props) {
-    super(props);
 
-    this.handleSelectStage = this.handleSelectStage.bind(this);
-  }
+  onScrollToStage = (trackingObj) => {
+    this.props.dispatch({ type: SELF_VIEWED_STAGE_CHANGED, newActiveTab: trackingObj });
+  };
 
   complete(stage) {
     const { onComplete, noNav, dispatch } = this.props;
@@ -38,7 +38,7 @@ class StageScreen extends Component {
     }
   }
 
-  handleSelectStage(stage, isAlreadySelected) {
+  handleSelectStage = (stage, isAlreadySelected) => {
     if (isAlreadySelected) {
       this.complete(stage);
     } else {
@@ -46,18 +46,18 @@ class StageScreen extends Component {
         this.complete(stage);
       });
     }
-  }
+  };
 
   render() {
     const { t, enableBackButton, firstName, firstItem, questionText, section, subsection } = this.props;
-    const name = firstName;
 
     return (
       <PathwayStageScreen
         buttonText={t('iAmHere').toUpperCase()}
         activeButtonText={t('stillHere').toUpperCase()}
-        questionText={questionText || t('meQuestion', { name })}
+        questionText={questionText || t('meQuestion', { name: firstName })}
         onSelect={this.handleSelectStage}
+        onScrollToStage={this.onScrollToStage}
         section={section}
         firstItem={firstItem}
         subsection={subsection}

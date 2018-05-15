@@ -17,6 +17,7 @@ import analytics from './analytics';
 import swipe from './swipe';
 import drawer from './drawer';
 import journey from './journey';
+import tabs from './tabs';
 
 export default combineReducers({
   analytics,
@@ -26,6 +27,7 @@ export default combineReducers({
   impact,
   journey,
   labels,
+  tabs,
   nav,
   notifications,
   organizations,
