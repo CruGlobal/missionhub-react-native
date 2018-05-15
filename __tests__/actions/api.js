@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi, { REQUESTS } from '../../src/actions/api';
 import API_CALLS from '../../src/api';
-import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, UPDATE_TOKEN } from '../../src/constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, UPDATE_TOKEN } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';
 import * as auth from '../../src/actions/auth';
 import * as facebook from '../../src/actions/facebook';
@@ -23,6 +23,7 @@ const getMeRequest = REQUESTS.GET_ME;
 const refreshRequest = REQUESTS.KEY_REFRESH_TOKEN;
 
 const expiredTokenError = { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] };
+const invalidTokenError = { errors: [ { detail: INVALID_ACCESS_TOKEN } ] };
 const invalidGrantError = { error: INVALID_GRANT };
 
 global.APILOG = jest.fn();
@@ -48,16 +49,25 @@ async function test(state, obj, request, error, method, methodParams, apiResult,
   }
 }
 
-it('should refresh key access token if user is logged in with TheKey', () => {
+it('should refresh key access token if user is logged in with TheKey with expired token', () => {
   return test({ refreshToken: 'refresh' }, auth, getMeRequest, expiredTokenError, 'refreshAccessToken', [], { type: 'refreshed token' }, accessTokenQuery, {});
 });
-
-it('should refresh anonymous login if user is Try It Now', async() => {
-  return test({ isFirstTime: true }, auth, getMeRequest, expiredTokenError, 'refreshAnonymousLogin', [], { type: 'refreshed anonymous token' }, accessTokenQuery, {});
+it('should refresh key access token if user is logged in with TheKey with invalid token', () => {
+  return test({ refreshToken: 'refresh' }, auth, getMeRequest, invalidTokenError, 'refreshAccessToken', [], { type: 'refreshed token' }, accessTokenQuery, {});
 });
 
-it('should refresh facebook login if user is not logged in with TheKey or Try It Now', async() => {
+it('should refresh anonymous login if user is Try It Now with expired token', async() => {
+  return test({ isFirstTime: true }, auth, getMeRequest, expiredTokenError, 'refreshAnonymousLogin', [], { type: 'refreshed anonymous token' }, accessTokenQuery, {});
+});
+it('should refresh anonymous login if user is Try It Now with invalid token', async() => {
+  return test({ isFirstTime: true }, auth, getMeRequest, invalidTokenError, 'refreshAnonymousLogin', [], { type: 'refreshed anonymous token' }, accessTokenQuery, {});
+});
+
+it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', async() => {
   return test({}, facebook, getMeRequest, expiredTokenError, 'refreshMissionHubFacebookAccess', [], { type: 'refreshed fb login' }, accessTokenQuery, {});
+});
+it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', async() => {
+  return test({}, facebook, getMeRequest, invalidTokenError, 'refreshMissionHubFacebookAccess', [], { type: 'refreshed fb login' }, accessTokenQuery, {});
 });
 
 it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async() => {

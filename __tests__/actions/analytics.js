@@ -49,12 +49,12 @@ describe('updateAnalyticsContext', () => {
 });
 
 describe('trackActionWithoutData', () => {
-  it('should send the key with a null value', () => {
+  it('should send the key with a value of 1', () => {
     const action = { name: 'hello world', key: 'cru.helloworld' };
 
     store.dispatch(trackActionWithoutData(action));
 
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(action.name, { [action.key]: null });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(action.name, { [action.key]: '1' });
   });
 });
 
@@ -66,7 +66,7 @@ describe('trackSearchFilter', () => {
 
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.FILTER_ENGAGED.name, {
       [ACTIONS.SEARCH_FILTER.key]: label,
-      [ACTIONS.FILTER_ENGAGED.key]: null,
+      [ACTIONS.FILTER_ENGAGED.key]: '1',
     });
   });
 });
@@ -79,6 +79,15 @@ describe('trackAction', () => {
     store.dispatch(trackAction(action, data));
 
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(action, data);
+  });
+
+  it('should convert null values to 1', () => {
+    const action = 'test action';
+    const data = { property1: null, property2: 'hello', property3: null };
+
+    store.dispatch(trackAction(action, data));
+
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(action, { property1: '1', property2: 'hello', property3: '1' });
   });
 });
 
@@ -175,7 +184,7 @@ describe('trackStepsAdded', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
       [ACTIONS.STEP_DETAIL.key]: `${step1.challenge_type} | N | ${step1.locale} | ${step1.id} | ${step1.pathway_stage.id}`,
     });
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED.name, { [ACTIONS.STEP_CREATED.key]: null });
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_CREATED.name, { [ACTIONS.STEP_CREATED.key]: '1' });
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(ACTIONS.STEP_DETAIL.name, {
       [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step2.locale}`,
     });
@@ -185,10 +194,6 @@ describe('trackStepsAdded', () => {
 
 describe('logInAnalytics', () => {
   beforeEach(() => store.dispatch(logInAnalytics()));
-
-  it('should sync marketing cloud id', () => {
-    expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(ssoGuid);
-  });
 
   it('should update analytics context', () => {
     const action = store.getActions()[0];

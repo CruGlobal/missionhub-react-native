@@ -2,7 +2,6 @@ import * as RNOmniture from 'react-native-omniture';
 
 import {
   ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
-  NOT_LOGGED_IN,
 } from '../constants';
 import { isCustomStep } from '../utils/common';
 
@@ -46,7 +45,9 @@ export function trackActionWithoutData(action) {
 }
 
 export function trackAction(action, data) {
-  return () => RNOmniture.trackAction(action, data);
+  const newData = Object.keys(data).reduce((acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }), {});
+
+  return () => RNOmniture.trackAction(action, newData);
 }
 
 export function trackState(trackingObj) {
@@ -91,20 +92,6 @@ function addTrackingObjToContext(trackingObj, { analytics, auth }) {
   };
 }
 
-export function logOutAnalytics() {
-  return (dispatch, getState) => {
-
-    const context = getState().analytics;
-    const updatedContext = {
-      ...context,
-      [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-      [ANALYTICS.SSO_GUID]: '',
-    };
-
-    return dispatch(updateAnalyticsContext(updatedContext));
-  };
-}
-
 export function logInAnalytics() {
   return (dispatch, getState) => {
 
@@ -114,7 +101,6 @@ export function logInAnalytics() {
       [ANALYTICS.LOGGED_IN_STATUS]: LOGGED_IN,
     };
 
-    RNOmniture.syncIdentifier(updatedContext[ANALYTICS.SSO_GUID]);
     return dispatch(updateAnalyticsContext(updatedContext));
   };
 }
