@@ -438,7 +438,7 @@ exports[`renders remove/complete actions correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

@@ -204,7 +204,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -415,7 +415,7 @@ exports[`renders org user correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -626,7 +626,7 @@ exports[`renders permission user correctly 1`] = `
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
