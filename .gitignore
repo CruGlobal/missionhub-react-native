@@ -69,3 +69,5 @@ coverage/
 .env.default
 .env.local
 .env.bkup
+
+ios/Index

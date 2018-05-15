@@ -1,6 +1,5 @@
 import React from 'react';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
-import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
@@ -115,12 +114,8 @@ const tabs = (groups = false) => {
   };
 };
 
-const mapStateToProps = ({ auth }) => {
-  return { groups: auth.groupFeature }
-};
-
-export const MainTabRoutes = connect(mapStateToProps)((props) => TabNavigator(
-  tabs(props.groups), {
+export const MainTabRoutes = TabNavigator(
+  tabs(), {
     // initialRouteName: 'ImpactTab',
     tabBarOptions: {
       showIcon: false,
@@ -145,7 +140,7 @@ export const MainTabRoutes = connect(mapStateToProps)((props) => TabNavigator(
       PeopleTab: '/people',
       ImpactTab: '/impact',
     },
-  }));
+  });
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
@@ -180,7 +175,7 @@ const screens = {
 
 export const trackableScreens = {
   ...screens,
-  ...tabs,
+  ...tabs(),
 };
 
 export const MainStackRoutes = StackNavigator({

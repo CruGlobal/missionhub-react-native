@@ -8,6 +8,7 @@ const initialAuthState = {
   person: { user: {} },
   isJean: false,
   upgradeToken: null,
+  groupsFeature: false,
 };
 
 function authReducer(state = initialAuthState, action) {
