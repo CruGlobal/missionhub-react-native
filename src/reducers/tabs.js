@@ -4,7 +4,10 @@ import {
 } from '../constants';
 import { stepsTab } from '../AppRoutes';
 
-//These are used to indicate what tab/stage the user will view when navigating back.
+/*
+These are used by analytics to indicate what tab/stage the user will view when navigating back since we can't get this
+data from the navigation state.  See src/middleware/tracking.js for more context.
+ */
 const initialTabsState = {
   activeLoginTab: '',
   activeMainTab: stepsTab,
