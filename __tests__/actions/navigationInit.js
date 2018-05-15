@@ -1,4 +1,4 @@
-import { MAIN_TABS } from '../../src/constants';
+import { MAIN_TABS } from '../../src/containers/MainTabs';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { initialRoute } from '../../src/actions/navigationInit';

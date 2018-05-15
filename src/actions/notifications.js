@@ -3,7 +3,7 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { MAIN_TABS } from '../constants';
+import { MAIN_TABS } from '../containers/MainTabs';
 import {
   PUSH_NOTIFICATION_ASKED,
   PUSH_NOTIFICATION_SHOULD_ASK,

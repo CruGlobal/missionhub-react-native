@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
-import { MAIN_TABS } from '../../constants';
+import { MAIN_TABS } from '../../containers/MainTabs';
 import { isAndroid, disableBack } from '../../utils/common';
 
 import styles from './styles';
