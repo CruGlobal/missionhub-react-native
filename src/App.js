@@ -15,9 +15,8 @@ import i18n from './i18n';
 import './utils/globals';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
-import { updateAnalyticsContext } from './actions/analytics';
 import { codeLogin } from './actions/auth';
-import { ANALYTICS, EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
@@ -39,7 +38,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
-    this.initializeAnalytics();
+    this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
 
@@ -69,17 +68,6 @@ export default class App extends Component {
     }
   }
 
-  initializeAnalytics() { //TODO add tests
-    this.collectLifecycleData();
-
-    this.dispatchAnalyticsContextUpdate({ [ANALYTICS.CONTENT_LANGUAGE]: i18n.language });
-
-    RNOmniture.loadMarketingCloudId((result) => {
-      const updatedContext = { [ANALYTICS.MCID]: result };
-      this.dispatchAnalyticsContextUpdate(updatedContext);
-    });
-  }
-
   initializeErrorHandling() {
     window.onunhandledrejection = ({ reason }) => {
       this.handleError(reason);
@@ -93,7 +81,12 @@ export default class App extends Component {
     const { apiError } = e;
 
     if (apiError) {
-      if (apiError.error === INVALID_GRANT || (apiError.errors && apiError.errors[0].detail === EXPIRED_ACCESS_TOKEN)) {
+      if (apiError.errors && apiError.errors[0].detail) {
+        const errorDetail = apiError.errors[0].detail;
+        if (errorDetail === EXPIRED_ACCESS_TOKEN || errorDetail === INVALID_ACCESS_TOKEN) {
+          return;
+        }
+      } else if (apiError.error === INVALID_GRANT) {
         return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
@@ -141,10 +134,6 @@ export default class App extends Component {
       Alert.alert(title, message, buttons, { onDismiss: () => this.showingErrorModal = false });
     }
   };
-
-  dispatchAnalyticsContextUpdate(context) {
-    store.dispatch(updateAnalyticsContext(context));
-  }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this.handleAppStateChange);

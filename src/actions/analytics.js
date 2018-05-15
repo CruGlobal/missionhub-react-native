@@ -2,7 +2,6 @@ import * as RNOmniture from 'react-native-omniture';
 
 import {
   ACTIONS, ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGGED_IN,
-  NOT_LOGGED_IN,
 } from '../constants';
 import { isCustomStep } from '../utils/common';
 
@@ -19,7 +18,7 @@ export function trackStepsAdded(steps) {
       let trackedStep = `${step.challenge_type} | ${step.self_step ? 'Y' : 'N'} | ${step.locale}`;
 
       if (isCustomStep(step)) {
-        dispatch(trackAction(ACTIONS.STEP_CREATED));
+        dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
 
       } else {
         trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
@@ -34,12 +33,21 @@ export function trackStepsAdded(steps) {
 
 export function trackSearchFilter(label) {
   return (dispatch) => {
-    dispatch(trackAction(ACTIONS.FILTER_ENGAGED, { [ACTIONS.SEARCH_FILTER]: label }));
+    dispatch(trackAction(ACTIONS.FILTER_ENGAGED.name, {
+      [ACTIONS.SEARCH_FILTER.key]: label,
+      [ACTIONS.FILTER_ENGAGED.key]: null,
+    }));
   };
 }
 
-export function trackAction(action, data = {}) {
-  return () => RNOmniture.trackAction(action, data);
+export function trackActionWithoutData(action) {
+  return trackAction(action.name, { [action.key]: null });
+}
+
+export function trackAction(action, data) {
+  const newData = Object.keys(data).reduce((acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }), {});
+
+  return () => RNOmniture.trackAction(action, newData);
 }
 
 export function trackState(trackingObj) {
@@ -47,40 +55,40 @@ export function trackState(trackingObj) {
     if (!trackingObj) {
       return;
     }
-    const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
-    const updatedContext = buildUpdatedContext(newTrackingObj, getState);
+    const updatedContext = addTrackingObjToContext(trackingObj, getState());
 
-    RNOmniture.trackState(newTrackingObj.name, updatedContext);
-
-    return dispatch(updateAnalyticsContext(updatedContext));
+    dispatch(updateAnalyticsContext(updatedContext));
+    return dispatch(trackStateWithMCID(updatedContext));
   };
 }
 
-function buildUpdatedContext(trackingObj, getState) {
-  const { analytics, auth } = getState();
+function trackStateWithMCID(context) {
+  return (dispatch) => {
+    if (context[ANALYTICS.MCID]) {
+      RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
+
+    } else {
+      RNOmniture.loadMarketingCloudId((result) => {
+        const updatedContext = { ...context, [ANALYTICS.MCID]: result };
+
+        RNOmniture.trackState(updatedContext[ANALYTICS.SCREENNAME], updatedContext);
+        dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
+  };
+}
+
+function addTrackingObjToContext(trackingObj, { analytics, auth }) {
+  const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
   return {
     ...analytics,
-    [ANALYTICS.SCREENNAME]: trackingObj.name,
-    [ANALYTICS.SITE_SECTION]: trackingObj.section,
-    [ANALYTICS.SITE_SUBSECTION]: trackingObj.subsection,
-    [ANALYTICS.SITE_SUB_SECTION_3]: trackingObj.level3,
+    [ANALYTICS.SCREENNAME]: newTrackingObj.name,
+    [ANALYTICS.SITE_SECTION]: newTrackingObj.section,
+    [ANALYTICS.SITE_SUBSECTION]: newTrackingObj.subsection,
+    [ANALYTICS.SITE_SUB_SECTION_3]: newTrackingObj.level3,
     [ANALYTICS.GR_MASTER_PERSON_ID]: auth.person.global_registry_mdm_id,
-  };
-}
-
-export function logOutAnalytics() {
-  return (dispatch, getState) => {
-
-    const context = getState().analytics;
-    const updatedContext = {
-      ...context,
-      [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-      [ANALYTICS.SSO_GUID]: '',
-    };
-
-    return dispatch(updateAnalyticsContext(updatedContext));
   };
 }
 
@@ -93,7 +101,6 @@ export function logInAnalytics() {
       [ANALYTICS.LOGGED_IN_STATUS]: LOGGED_IN,
     };
 
-    RNOmniture.syncIdentifier(updatedContext[ANALYTICS.SSO_GUID]);
     return dispatch(updateAnalyticsContext(updatedContext));
   };
 }

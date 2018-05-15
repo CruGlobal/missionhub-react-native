@@ -7,7 +7,7 @@ import theme from '../../theme';
 import { Flex, Text, Button } from '../../components/common';
 import { SETUP_SCREEN } from '../SetupScreen';
 import { disableBack } from '../../utils/common';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
 import styles from './styles';
@@ -18,7 +18,7 @@ class WelcomeScreen extends Component {
   componentDidMount() {
     disableBack.add();
 
-    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_STARTED));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 
   componentWillUnmount() {

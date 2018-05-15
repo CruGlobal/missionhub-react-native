@@ -15,6 +15,7 @@ const initialState = {
     hasNextPage: true,
     page: 1,
   },
+  contactSteps: {},
 };
 
 export function getPagination(state, action, steps) {
@@ -60,6 +61,15 @@ function stepsReducer(state = initialState, action) {
         mine: mySteps,
         reminders: myReminders,
         pagination: getPagination(state, action, mySteps),
+      };
+    case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
+      const { receiver_ids: personId, organization_ids: orgId } = action.query.filters;
+      return {
+        ...state,
+        contactSteps: {
+          ...state.contactSteps,
+          [`${personId}-${orgId}`]: action.results.response,
+        },
       };
     case ADD_STEP_REMINDER:
       const newMine = state.mine.map((s) => {

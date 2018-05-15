@@ -103,7 +103,7 @@ repositories {
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = true
+def enableSeparateBuildPerCPUArchitecture = false
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
@@ -123,7 +123,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         
-        versionName "4.1.3"
+        versionName "4.1.6"
         versionCode grgit.log(includes:['HEAD']).size() + 358
         
         ndk {

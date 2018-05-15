@@ -11,7 +11,7 @@ import { updatePerson } from '../../actions/person';
 import { Button, PlatformKeyboardAvoidingView, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
 import styles from './styles';
@@ -78,7 +78,7 @@ class AddContactScreen extends Component {
         orgId: organization && organization.id,
       }));
 
-      this.props.dispatch(trackAction(ACTIONS.PERSON_ADDED));
+      this.props.dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
     }
   }
 

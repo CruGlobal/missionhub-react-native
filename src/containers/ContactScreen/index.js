@@ -17,6 +17,7 @@ import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
 import { isMissionhubUser } from '../../utils/common';
 import BackButton from '../BackButton';
+import { getContactSteps } from '../../actions/steps';
 
 import styles from './styles';
 
@@ -34,12 +35,12 @@ export class ContactScreen extends Component {
   }
 
   componentDidMount() {
-    const { person, organization } = this.props;
-    this.props.dispatch(getPersonDetails(person.id, organization && organization.id));
+    const { person, organization = {} } = this.props;
+    this.props.dispatch(getPersonDetails(person.id, organization.id));
   }
 
   async handleChangeStage(noNav = false, onComplete = null) {
-    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages, organization } = this.props;
+    const { dispatch, personIsCurrentUser, person, contactAssignment, contactStage, stages, organization = {} } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
       let firstItemIndex = stages.findIndex((s) => contactStage && `${s.id}` === `${contactStage.id}`);
       firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
@@ -47,7 +48,8 @@ export class ContactScreen extends Component {
         dispatch(navigatePush(STAGE_SCREEN, {
           onComplete: (stage) => {
             dispatch(updatePersonAttributes(person.id, { user: { pathway_stage_id: stage.id } }));
-            dispatch(reloadJourney(person.id, organization && organization.id));
+            dispatch(getContactSteps(person.id, organization.id));
+            dispatch(reloadJourney(person.id, organization.id));
             onComplete && onComplete(stage);
           },
           firstItem: firstItemIndex,
@@ -66,15 +68,16 @@ export class ContactScreen extends Component {
                   assignment.id === contactAssignment.id ? { ...assignment, pathway_stage_id: stage.id } : assignment
                 ),
               })) :
-              dispatch(getPersonDetails(person.id, organization && organization.id));
-            dispatch(reloadJourney(person.id, organization && organization.id));
+              dispatch(getPersonDetails(person.id, organization.id));
+            dispatch(getContactSteps(person.id, organization.id));
+            dispatch(reloadJourney(person.id, organization.id));
             onComplete && onComplete(stage);
           },
           firstItem: firstItemIndex,
           name: person.first_name,
           contactId: person.id,
           contactAssignmentId: contactAssignment && contactAssignment.id,
-          orgId: organization && organization.id,
+          orgId: organization.id,
           section: 'people',
           subsection: 'person',
           noNav,

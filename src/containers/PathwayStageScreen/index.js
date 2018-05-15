@@ -76,7 +76,10 @@ class PathwayStageScreen extends Component {
     this.props.onSelect(stage, isAlreadySelected);
 
     const action = this.props.isSelf ? ACTIONS.SELF_STAGE_SELECTED : ACTIONS.PERSON_STAGE_SELECTED;
-    this.props.dispatch(trackAction(action, { [ACTIONS.STAGE_SELECTED]: stage.id }));
+    this.props.dispatch(trackAction(action.name, {
+      [action.key]: stage.id,
+      [ACTIONS.STAGE_SELECTED.key]: null,
+    }));
   }
 
   handleScroll(e) {

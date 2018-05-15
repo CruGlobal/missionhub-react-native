@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
-import { trackAction, trackState } from '../actions/analytics';
+import { trackActionWithoutData, trackState } from '../actions/analytics';
 import { ACTIONS } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
@@ -30,7 +30,7 @@ class PersonStageScreen extends Component {
     this.celebrateAndFinish();
 
     this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
-    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_COMPLETE));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
   handleNavigate = () => {
@@ -54,7 +54,10 @@ class PersonStageScreen extends Component {
     onComplete(stage);
     if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        onSaveNewSteps: () => dispatch(navigateBack(2)),
+        onSaveNewSteps: () => {
+          onComplete(stage);
+          dispatch(navigateBack(2));
+        },
         contactStage: stage,
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
         contactName: name,
