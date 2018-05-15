@@ -2,7 +2,7 @@ import { Crashlytics } from 'react-native-fabric';
 
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import { MAIN_TABS } from '../containers/MainTabs';
+import { MAIN_TABS } from '../constants';
 
 import { getMe } from './person';
 import { navigateReset } from './navigation';

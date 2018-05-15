@@ -9,7 +9,7 @@ import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import { MAIN_TABS } from '../../src/containers/MainTabs';
+import { MAIN_TABS } from '../../src/constants';
 import * as onboardingProfile from '../../src/actions/onboardingProfile';
 
 const mockStore = configureStore([ thunk ]);

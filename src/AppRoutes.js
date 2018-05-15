@@ -30,9 +30,9 @@ import NotificationOffScreen, { NOTIFICATION_OFF_SCREEN } from './containers/Not
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
-import MainTabs, { MAIN_TABS } from './containers/MainTabs';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
+import MainTabs, { MAIN_TABS } from './containers/MainTabs';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
@@ -95,7 +95,7 @@ const tabs = {
   ),
   GroupsTab: buildTrackedScreen(
     ImpactScreen,
-    buildTrackingObj('groups', 'groups'),
+    buildTrackingObj('impact', 'impact'),
     {
       tabBarLabel: navItem('groups'),
     },
@@ -165,7 +165,7 @@ export const MainTabBarGroups = TabNavigator(
     paths: {
       StepsTab: '/steps',
       PeopleTab: '/people',
-      GroupsTab: '/groups',
+      ImpactTab: '/impact',
     },
   }
 );

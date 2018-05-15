@@ -1,7 +1,7 @@
 import { isAuthenticated } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import { MAIN_TABS } from '../containers/MainTabs';
+import { MAIN_TABS } from '../constants';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export function initialRoute({ auth, personProfile, people }) {
