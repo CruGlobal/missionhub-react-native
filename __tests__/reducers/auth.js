@@ -69,7 +69,7 @@ it('sets new token after refreshing anonymous login', () => {
   expect(state).toEqual({ ...initialState, token });
 });
 
-it('sets isJean and groupsFeature after loading me', () => {
+it('sets isJean after loading me', () => {
   const response = {
     type: 'person',
     organizational_permissions: [
@@ -83,7 +83,6 @@ it('sets isJean and groupsFeature after loading me', () => {
   const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
 
   expect(state.isJean).toBe(true);
-  expect(state.groupsFeature).toBe(true);
 });
 
 it('sets user time zone', () => {
