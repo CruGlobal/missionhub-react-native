@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getPeopleInteractionsReport, getImpactById } from '../../actions/impact';
+import { getGlobalImpact, getPeopleInteractionsReport, getImpactSummary } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
+import { impactInteractionsSelector, impactSummarySelector } from '../../selectors/impact';
 
 import styles from './styles';
 
@@ -45,18 +46,20 @@ export class ImpactView extends Component {
   };
 
   componentDidMount() {
-    const { dispatch, personId, isContactScreen } = this.props;
+    const { dispatch, person = {}, organization = {}, isMe } = this.props;
 
-    dispatch(getImpactById(personId));
-    if (isContactScreen) {
-      this.getInteractionReport();
-    } else {
+    // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
+    // The summary sentence should include what the user has done in all of their orgs
+    dispatch(getImpactSummary(person.id, person.id ? undefined : organization.id));
+    if (isMe) {
       dispatch(getGlobalImpact());
+    } else {
+      this.getInteractionReport();
     }
   }
 
   getInteractionReport() {
-    const { dispatch, person, organization = {} } = this.props;
+    const { dispatch, person = {}, organization = {} } = this.props;
 
     dispatch(getPeopleInteractionsReport(person.id, organization.id, this.state.period));
   }
@@ -68,22 +71,27 @@ export class ImpactView extends Component {
   }
 
   buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
-    const { t, isContactScreen, person } = this.props;
-    const initiator = global ? '$t(users)' : isContactScreen ? person.first_name : '$t(you)';
-    const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
+    const { t, person = {}, isMe } = this.props;
+    const initiator = global ?
+      '$t(users)' :
+      isMe ?
+        '$t(you)' :
+        person.id ? person.first_name : '$t(we)';
+    const context = (count) => count === 0 ? global ? 'emptyGlobal' : 'empty' : '';
 
     const stepsSentenceOptions = {
       context: context(steps_count),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
+      initiatorSuffix: global || isMe || !person.id ? '$t(haveSuffix)' : '$t(hasSuffix)',
       stepsCount: steps_count,
       receiversCount: receivers_count,
     };
 
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
-      initiator: initiator,
+      initiator: initiator === '$t(users)' || initiator === '$t(we)' ? '$t(allOfUs)' : initiator,
       pathwayMovedCount: pathway_moved_count,
     };
 
@@ -137,7 +145,7 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isContactScreen } = this.props;
+    const { globalImpact, impact, isMe } = this.props;
     return (
       <ScrollView
         style={{ flex: 1 }}
@@ -149,13 +157,13 @@ export class ImpactView extends Component {
           </Text>
         </Flex>
         <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
-        <Flex style={isContactScreen ? styles.interactionSection : styles.bottomSection}>
+        <Flex style={isMe ? styles.bottomSection : styles.interactionSection}>
           {
-            isContactScreen ?
-              this.renderContactReport() :
+            isMe ?
               <Text style={[ styles.text, styles.bottomText ]}>
                 {this.buildImpactSentence(globalImpact, true)}
-              </Text>
+              </Text> :
+              this.renderContactReport()
           }
         </Flex>
       </ScrollView>
@@ -164,22 +172,16 @@ export class ImpactView extends Component {
 }
 
 ImpactView.propTypes = {
-  person: PropTypes.object.isRequired,
+  person: PropTypes.object,
   organization: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact, auth }, { person, organization = {} }) => {
-  const isContactScreen = person.id !== auth.person.id;
-  const personId = person.id;
-  const orgId = organization.id || '';
-
-  return {
-    isContactScreen,
-    personId,
-    impact: impact.people[personId] || {},
-    interactions: impact.interactions[`${personId}-${orgId}`] || {},
-    globalImpact: impact.global,
-  };
-};
+export const mapStateToProps = ({ impact, auth }, { person = {}, organization }) => ({
+  isMe: person.id === auth.person.id,
+  // Impact summary isn't scoped by org unless showing org summary. See above comment
+  impact: impactSummarySelector({ impact }, { person, organization: person.id ? undefined : organization }),
+  interactions: impactInteractionsSelector({ impact }, { person, organization }),
+  globalImpact: impactSummarySelector({ impact }),
+});
 
 export default connect(mapStateToProps)(ImpactView);

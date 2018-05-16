@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should migrate impact reducer to use summary key 1`] = `
+Object {
+  "auth": Object {},
+  "impact": Object {
+    "global": undefined,
+    "interactions": Object {
+      "123-": Object {},
+    },
+    "people": undefined,
+    "summary": Object {
+      "-": "globalImpact",
+      "123-": "personImpact1",
+      "456-": "personImpact2",
+    },
+  },
+}
+`;

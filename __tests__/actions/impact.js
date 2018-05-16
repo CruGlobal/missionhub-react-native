@@ -3,8 +3,7 @@ import thunk from 'redux-thunk';
 
 import {
   getGlobalImpact,
-  getMyImpact,
-  getImpactById,
+  getImpactSummary,
   getPeopleInteractionsReport,
   refreshImpact,
 } from '../../src/actions/impact';
@@ -26,15 +25,7 @@ describe('getGlobalImpact', () => {
   it('should make api request', async() => {
     await store.dispatch(getGlobalImpact());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GLOBAL_IMPACT);
-  });
-});
-
-describe('getMyImpact', () => {
-  it('should make api request', async() => {
-    await store.dispatch(getMyImpact());
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_BY_ID, { person_id: 'me' });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: undefined, organization_id: undefined });
   });
 });
 
@@ -42,22 +33,27 @@ describe('refreshImpact', () => {
   it('should get my impact and global impact', async() => {
     await store.dispatch(refreshImpact());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_BY_ID, { person_id: 'me' });
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GLOBAL_IMPACT);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: 'me', organization_id: undefined });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: undefined, organization_id: undefined });
     expect(store.getActions()).toEqual([ apiResponse, apiResponse ]);
   });
 });
 
-describe('getImpactById', () => {
+describe('getImpactSummary', () => {
   it('should make api request', async() => {
-    await store.dispatch(getImpactById('2'));
+    await store.dispatch(getImpactSummary('2'));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_BY_ID, { person_id: '2' });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: '2', organization_id: undefined });
+  });
+  it('should make api request with org id', async() => {
+    await store.dispatch(getImpactSummary('2', '4'));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: '2', organization_id: '4' });
   });
 });
 
 describe('getPeopleInteractionsReport', () => {
-  it('should make api request', async() => {
+  beforeEach(() => {
     callApi.mockReturnValue({
       type: REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT.SUCCESS,
       response: [ {
@@ -85,13 +81,29 @@ describe('getPeopleInteractionsReport', () => {
         _type: 'person_report',
       } ],
     });
+  });
 
+  it('should make api request for person report', async() => {
     await store.dispatch(getPeopleInteractionsReport('2', '3', 'P1W'));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
       {
         people_ids: '2',
+        organization_ids: '3',
+        period: 'P1W',
+      },
+    );
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('should make api request for group report', async() => {
+    await store.dispatch(getPeopleInteractionsReport(undefined, '3', 'P1W'));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
+      {
+        people_ids: undefined,
         organization_ids: '3',
         period: 'P1W',
       },
