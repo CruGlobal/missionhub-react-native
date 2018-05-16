@@ -58,7 +58,6 @@ export class StepsScreen extends Component {
   }
 
   async componentWillMount() {
-    await this.getSteps();
     this.props.dispatch(loadHome());
   }
 
