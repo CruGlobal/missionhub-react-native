@@ -23,97 +23,16 @@
     "ErrorUtils": true
   },
   "rules": {
+    "prettier/prettier": "error",
     "strict": 0,
-    "indent": [
-      2,
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "quotes": [
-      2,
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "comma-dangle": [
-      2,
-      "always-multiline"
-    ],
-    "no-multi-spaces": 2,
-    "space-before-function-paren": [
-      2,
-      "never"
-    ],
-    "space-before-blocks": [
-      2,
-      {
-        "functions": "always",
-        "keywords": "always",
-        "classes": "always"
-      }
-    ],
-    "space-infix-ops": "error",
     "no-console": 2,
     "no-case-declarations": 0,
     "import/order": [2, {
       "newlines-between": "always"
     }],
-    "keyword-spacing": [
-      2,
-      {
-        "after": true
-      }
-    ],
-    "key-spacing": [
-      2,
-      {
-        "afterColon": true
-      }
-    ],
-    "arrow-parens": 2,
-    "arrow-spacing": 2,
     "react/jsx-no-undef": 2,
     "react/jsx-uses-vars": 2,
-    "jsx-quotes": [
-      2,
-      "prefer-double"
-    ],
-    "prefer-template": 2,
     "react/jsx-uses-react": 2,
-    "react/jsx-tag-spacing": [
-      2,
-      {
-        "closingSlash": "never",
-        "beforeSelfClosing": "always",
-        "afterOpening": "never"
-      }
-    ],
-    "no-mixed-spaces-and-tabs": [
-      "error"
-    ],
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
-    "array-bracket-spacing": [
-      "error",
-      "always"
-    ],
-    "react/jsx-indent": [
-      "error",
-      2
-    ],
-    "react/jsx-indent-props": [
-      2,
-      2
-    ],
     "import/no-unresolved": 2,
     "import/named": 2,
     "import/default": 2
@@ -129,9 +48,10 @@
       }
     }
   },
-  "extends": "eslint:recommended",
+  "extends": "plugin:prettier/recommended",
   "plugins": [
     "react",
-    "import"
+    "import",
+    "prettier"
   ]
 }
