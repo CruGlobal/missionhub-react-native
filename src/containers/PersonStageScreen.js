@@ -6,8 +6,8 @@ import { translate } from 'react-i18next';
 import { selectPersonStage, updateUserStage } from '../actions/selectStage';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { buildTrackingObj, isAndroid } from '../utils/common';
-import { trackActionWithoutData, trackState } from '../actions/analytics';
-import { ACTIONS } from '../constants';
+import { trackActionWithoutData } from '../actions/analytics';
+import { ACTIONS, PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
@@ -18,8 +18,12 @@ import PathwayStageScreen from './PathwayStageScreen';
 @translate('selectStage')
 class PersonStageScreen extends Component {
 
+  onScrollToStage = (trackingObj) => {
+    this.props.dispatch({ type: PERSON_VIEWED_STAGE_CHANGED, newActiveTab: trackingObj });
+  };
+
   celebrateAndFinish = () => {
-    let celebrationProps = {};
+    let celebrationProps = { trackingObj: buildTrackingObj('onboarding : complete', 'onboarding') };
     if (this.props.onCompleteCelebration) {
       celebrationProps.onComplete = this.props.onCompleteCelebration;
     }
@@ -29,7 +33,6 @@ class PersonStageScreen extends Component {
   celebrateAndFinishOnboarding = () => {
     this.celebrateAndFinish();
 
-    this.props.dispatch(trackState(buildTrackingObj('onboarding : complete', 'onboarding')));
     this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   };
 
@@ -55,14 +58,17 @@ class PersonStageScreen extends Component {
     onComplete(stage);
     if (!noNav) {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        onSaveNewSteps: () => dispatch(navigateBack(2)),
+        onSaveNewSteps: () => {
+          onComplete(stage);
+          dispatch(navigateBack(2));
+        },
         contactStage: stage,
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
         contactName: name,
         contactId: contactId,
         organization: { id: orgId },
+        trackingObj: buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps'),
       }));
-      dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
     }
   }
 
@@ -87,14 +93,13 @@ class PersonStageScreen extends Component {
           contactName: this.props.name,
           contactId: this.props.contactId,
           organization: { id: this.props.orgId },
+          trackingObj: buildTrackingObj(`${trackingScreen} : add person : steps : add`, trackingScreen, 'add person', 'steps'),
         }));
 
         if (!this.props.addingContactFlow) {
           this.props.dispatch(completeOnboarding());
         }
       });
-
-      this.props.dispatch(trackState(buildTrackingObj(`${trackingScreen} : add person : steps : add`, trackingScreen, 'add person', 'steps')));
     }
   };
 
@@ -108,6 +113,7 @@ class PersonStageScreen extends Component {
         activeButtonText={t('stillHere').toUpperCase()}
         questionText={questionText || t('personQuestion', { name: personName })}
         onSelect={this.handleSelectStage}
+        onScrollToStage={this.onScrollToStage}
         firstItem={firstItem}
         section={section}
         subsection={subsection}

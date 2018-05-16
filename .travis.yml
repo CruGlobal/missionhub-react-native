@@ -28,7 +28,7 @@ matrix:
       os: osx
       osx_image: xcode9.2
       env:
-      - ENVFILE=.env.beta
+      - ENVFILE=.env.production
       install:
       - brew install yarn
       - yarn install
@@ -57,9 +57,10 @@ matrix:
 
       if: branch = master and type = push
       env:
-      - ENVFILE=.env.beta
+      - ENVFILE=.env.production
       before_install:
       - git fetch --unshallow
+      - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
       - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
       - sudo apt-get install nodejs
       - echo yes | sdkmanager "build-tools;26.0.1" # Android platform required by app
@@ -74,23 +75,17 @@ matrix:
       script:
       - fastlane android beta
 
-    - language: objective-c
+    - language: node_js
+      node_js:
+      - '9'
       if: tag =~ ^v(\d+\.){1,}\d+
-      xcode_project: ios/Missionhub.xcodeproj
-      os: osx
-      osx_image: xcode9.2
-      env:
-      - ENVFILE=.env.production
       install:
-      - brew install yarn
-      - yarn install
-      - yarn run onesky:download
-      - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc
       - cd ios
-      - unzip fastlane/lib/FacebookSDKs-iOS-4.31.1.zip -d ~/Documents/FacebookSDK
       - bundler install
-      script:
-      - fastlane ios release version:$TRAVIS_TAG submit:true auto_release:false
+      - fastlane ios release submit:true auto_release:false
+      - cd ../android
+      - bundler install
+      - fastlane android release
 
 env:
   global:

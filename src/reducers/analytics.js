@@ -1,4 +1,4 @@
-import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN } from '../constants';
+import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN, LOGOUT } from '../constants';
 import { REQUESTS } from '../actions/api';
 import i18n from '../i18n';
 
@@ -30,6 +30,14 @@ function analyticsReducer(state = initialAnalyticsState, action) {
       return {
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        [ANALYTICS.SSO_GUID]: '',
+        [ANALYTICS.GR_MASTER_PERSON_ID]: '',
+        [ANALYTICS.FACEBOOK_ID]: '',
+        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
       };
     default:
       return state;

@@ -126,13 +126,18 @@ describe('the key', () => {
     const expectedUrlResult = { type: OPEN_URL };
 
     it('should open key URL', () => {
-      Linking.addEventListener = jest.fn();
+      Linking.addEventListener = jest.fn((_, onComplete) => {
+        onComplete({ url: 'testcode=result' });
+      });
+      Linking.removeEventListener = jest.fn();
       Linking.openURL = jest.fn();
       const onReturn = jest.fn();
 
       store.dispatch(openKeyURL('login?action=signup', onReturn, false));
 
       expect(Linking.addEventListener).toHaveBeenCalledWith('url', expect.any(Function));
+      expect(Linking.removeEventListener).toHaveBeenCalledWith('url', expect.any(Function));
+      expect(onReturn).toHaveBeenCalledTimes(1);
       expect(store.getActions()).toEqual([ expectedUrlResult ]);
       expect(Linking.openURL).toHaveBeenCalledWith(expect.any(String));
     });

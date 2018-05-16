@@ -193,7 +193,6 @@ describe('complete challenge', () => {
     },
   };
 
-  const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
 
   const impactResponse = { type: 'test impact' };
@@ -213,10 +212,6 @@ describe('complete challenge', () => {
     });
 
     mockFnWithParams(analytics,
-      'trackState',
-      trackStateResult,
-      buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
-    mockFnWithParams(analytics,
       'trackAction',
       trackActionResult,
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
@@ -235,8 +230,11 @@ describe('complete challenge', () => {
       impactResponse,
       { type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
-        params: { type: STEP_NOTE, onComplete: expect.anything() } },
-      trackStateResult,
+        params: {
+          type: STEP_NOTE,
+          onComplete: expect.anything(),
+          trackingObj: buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'),
+        } },
       trackActionResult,
     ]);
   });
@@ -250,8 +248,11 @@ describe('complete challenge', () => {
       impactResponse,
       { type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
-        params: { type: STEP_NOTE, onComplete: expect.anything() } },
-      trackStateResult,
+        params: {
+          type: STEP_NOTE,
+          onComplete: expect.anything() ,
+          trackingObj: buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'),
+        } },
       trackActionResult,
       removeReminderResponse,
     ]);

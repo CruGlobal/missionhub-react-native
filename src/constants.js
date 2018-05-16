@@ -32,8 +32,14 @@ export const LOAD_HOME_NOTIFICATION_REMINDER = 'app/LOAD_HOME_NOTIFICATION_REMIN
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
+export const STEPS_TAB = 'StepsTab';
+export const PEOPLE_TAB = 'PeopleTab';
+export const IMPACT_TAB = 'ImpactTab';
+
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
+export const NAVIGATE_BACK = 'Navigation/BACK';
+export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
@@ -65,6 +71,11 @@ export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 export const ORG_PERMISSIONS = [ 1, 4 ];
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
+export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
+export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
+export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
+export const PERSON_VIEWED_STAGE_CHANGED = 'analytics/PERSON_VIEWED_STAGE_CHANGED';
+export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',

@@ -17,7 +17,6 @@ import { getMe } from './person';
 import { deletePushToken, showReminderOnLoad } from './notifications';
 import { getStagesIfNotExists } from './stages';
 import callApi, { REQUESTS } from './api';
-import { logOutAnalytics } from './analytics';
 import { onSuccessfulLogin } from './login';
 import { getAssignedOrganizations } from './organizations';
 import { resetPerson } from './onboardingProfile';
@@ -36,11 +35,14 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
       + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
       + `&code_challenge=${codeChallenge}`;
 
-    Linking.addEventListener('url', (event) => {
+    function onLinkBack(event) {
+      Linking.removeEventListener('url', onLinkBack);
       const code = event.url.split('code=')[1];
       onReturn();
       return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
-    });
+    }
+
+    Linking.addEventListener('url', onLinkBack);
 
     Linking.openURL(uri);
     return dispatch({ type: OPEN_URL });
@@ -116,7 +118,6 @@ export function refreshAnonymousLogin() {
 export function logout(forcedLogout = false) {
   return (dispatch) => {
     dispatch(deletePushToken());
-    dispatch(logOutAnalytics());
     dispatch({ type: LOGOUT });
     dispatch(forcedLogout ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout }) : navigateReset(LOGIN_SCREEN));
   };

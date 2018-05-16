@@ -25,10 +25,20 @@ Push a new release build to the App Store
 ```
 fastlane ios beta
 ```
-Push a new (beta) release build to Crashlytics
-### ios cru_increment_build_number
+Push a new (beta) release build to TestFlight
+### ios cru_download_localizations
 ```
-fastlane ios cru_increment_build_number
+fastlane ios cru_download_localizations
+```
+Download latest localization files from Onesky
+### ios cru_commit_localization_files
+```
+fastlane ios cru_commit_localization_files
+```
+Commit downloaded localization files to default branch and push to remote
+### ios cru_set_build_number
+```
+fastlane ios cru_set_build_number
 ```
 
 ### ios cru_build_app

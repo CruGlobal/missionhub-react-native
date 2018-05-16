@@ -5,7 +5,7 @@ import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 
 import App from '../src/App';
-import { EXPIRED_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from '../src/constants';
+import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from '../src/constants';
 import * as auth from '../src/actions/auth';
 import locale from '../src/i18n/locales/en-US';
 
@@ -56,6 +56,12 @@ it('shows offline alert if network request failed', () => {
 
 it('should not show alert for expired access token', () => {
   test({ apiError: { errors: [ { detail: EXPIRED_ACCESS_TOKEN } ] } });
+
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+});
+
+it('should not show alert for invalid access token', () => {
+  test({ apiError: { errors: [ { detail: INVALID_ACCESS_TOKEN } ] } });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });

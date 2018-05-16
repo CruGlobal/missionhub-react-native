@@ -1,4 +1,5 @@
 import { Crashlytics } from 'react-native-fabric';
+import * as RNOmniture from 'react-native-omniture';
 
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
@@ -17,6 +18,7 @@ export function onSuccessfulLogin() {
     Crashlytics.setUserIdentifier(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
+    RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
 
     let nextScreen = GET_STARTED_SCREEN;
     if (mePerson.user.pathway_stage_id) {
