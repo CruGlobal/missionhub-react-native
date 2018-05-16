@@ -1,5 +1,6 @@
 import { ScrollView } from 'react-native';
 import React from 'react';
+import i18next from 'i18next';
 
 import { renderShallow } from '../../testUtils';
 import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
@@ -202,7 +203,7 @@ describe('StepsScreen', () => {
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).toHaveBeenCalled();
+      expect(showReminderScreen).toHaveBeenCalledWith(i18next.t('notificationPrimer:focusDescription'));
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
+import i18next from 'i18next';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
 import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
@@ -36,7 +37,7 @@ it('renders correctly for onboarding', () => {
     <Provider store={store}>
       <NotificationPrimerScreen navigation={createMockNavState({
         onComplete: jest.fn(),
-        isOnboarding: true,
+        descriptionText: i18next.t('notificationPrimer:onboardingDescription'),
       })} />
     </Provider>
   );
@@ -47,6 +48,18 @@ it('renders correctly for focused step', () => {
     <Provider store={store}>
       <NotificationPrimerScreen navigation={createMockNavState({
         onComplete: jest.fn(),
+        descriptionText: i18next.t('notificationPrimer:focusDescription'),
+      })} />
+    </Provider>
+  );
+});
+
+it('renders correctly for after login', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <NotificationPrimerScreen navigation={createMockNavState({
+        onComplete: jest.fn(),
+        descriptionText: i18next.t('notificationPrimer:loginDescription'),
       })} />
     </Provider>
   );

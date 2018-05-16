@@ -223,6 +223,7 @@ exports[`showReminderScreen should show Notification Primer screen 1`] = `
 Array [
   Object {
     "params": Object {
+      "descriptionText": "test description",
       "onComplete": [Function],
     },
     "routeName": "nav/NOTIFICATION_PRIMER",

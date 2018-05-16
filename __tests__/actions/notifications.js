@@ -44,6 +44,8 @@ beforeEach(() => {
 });
 
 describe('showReminderScreen', () => {
+  const descriptionText = 'test description';
+
   it('should do nothing for Android', () => {
     const store = mockStore({
       notifications: {
@@ -62,7 +64,7 @@ describe('showReminderScreen', () => {
         },
       },
     });
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
     expect(store.getActions()).toEqual([]);
   });
   it('should do nothing if reminders are disabled', () => {
@@ -71,7 +73,7 @@ describe('showReminderScreen', () => {
         pushDevice: {},
       },
     });
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
     expect(store.getActions()).toEqual([]);
   });
   it('should do nothing if permissions are already granted', () => {
@@ -81,7 +83,7 @@ describe('showReminderScreen', () => {
       },
     });
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: true }));
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
 
     expect(store.getActions()).toEqual([]);
   });
@@ -93,7 +95,7 @@ describe('showReminderScreen', () => {
     });
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
 
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
 
     store.getActions()[0].params.onComplete();
 
@@ -165,6 +167,7 @@ describe('showReminderOnLoad', () => {
       {
         params: {
           onComplete: expect.any(Function),
+          descriptionText: i18next.t('notificationPrimer:loginDescription'),
         },
         routeName: NOTIFICATION_PRIMER_SCREEN,
         type: NAVIGATE_FORWARD,
