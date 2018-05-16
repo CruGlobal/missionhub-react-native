@@ -97,7 +97,7 @@ export class StepsScreen extends Component {
     dispatch(toast(t('reminderAddedToast')));
 
     if (!this.hasReminders()) {
-      dispatch(showReminderScreen());
+      dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));
     }
     dispatch(setStepFocus(step, true));
 

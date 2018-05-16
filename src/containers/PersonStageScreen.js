@@ -45,7 +45,7 @@ class PersonStageScreen extends Component {
     if (!isAndroid) {
       this.props.dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
         onComplete: this.celebrateAndFinishOnboarding,
-        isOnboarding: true,
+        descriptionText: this.props.t('notificationPrimer:onboardingDescription'),
       }));
     } else {
       this.celebrateAndFinishOnboarding();
