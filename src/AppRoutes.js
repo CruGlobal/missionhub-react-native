@@ -32,7 +32,8 @@ import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
-import MainTabs, { MAIN_TABS } from './containers/MainTabs';
+import MainTabs from './containers/MainTabs';
+import { MAIN_TABS } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
