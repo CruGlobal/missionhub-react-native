@@ -13,7 +13,7 @@ class MainTabs extends Component {
 }
 
 const mapStateToProps = ({ auth }) => ({
-  groups: auth.groupsFeature,
+  groups: auth.person.user.groups_feature,
 });
 
 export default connect(mapStateToProps)(MainTabs);

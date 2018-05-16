@@ -33,7 +33,7 @@ import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import MainTabs from './containers/MainTabs';
-import { IMPACT_TAB, MAIN_TABS, PEOPLE_TAB, STEPS_TAB } from './constants';
+import { IMPACT_TAB, MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
@@ -94,7 +94,7 @@ const tabs = {
       tabBarLabel: navItem('impact'),
     },
   ),
-  GroupsTab: buildTrackedScreen(
+  [GROUPS_TAB]: buildTrackedScreen(
     ImpactScreen,
     buildTrackingObj('impact', 'impact'),
     {
@@ -139,9 +139,9 @@ const createTabs = (tabKey, tabComponent, tabPath) => {
   );
 };
 
-export const MainTabBar = createTabs('ImpactTab', tabs.ImpactTab, '/impact');
+export const MainTabBar = createTabs(IMPACT_TAB, tabs[IMPACT_TAB], '/impact');
 
-export const MainTabBarGroups = createTabs('GroupsTab', tabs.GroupsTab, '/groups');
+export const MainTabBarGroups = createTabs(GROUPS_TAB, tabs[GROUPS_TAB], '/groups');
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
