@@ -91,11 +91,11 @@ class PathwayStageScreen extends Component {
   }
 
   trackStageState(number) {
-    const trackingObj = buildTrackingObj(`${this.props.section} : ${this.props.subsection} : stage : ${number}`,
-      this.props.section,
-      this.props.subsection,
-      'stage');
-    this.props.dispatch(trackState(trackingObj));
+    const { section, subsection, dispatch, onScrollToStage } = this.props;
+    const trackingObj = buildTrackingObj(`${section} : ${subsection} : stage : ${number}`, section, subsection, 'stage');
+
+    onScrollToStage(trackingObj);
+    dispatch(trackState(trackingObj));
   }
 
   renderStage({ item, index }) {
@@ -157,6 +157,7 @@ class PathwayStageScreen extends Component {
 
 PathwayStageScreen.propTypes = {
   onSelect: PropTypes.func.isRequired,
+  onScrollToStage: PropTypes.func.isRequired,
   section: PropTypes.string.isRequired,
   subsection: PropTypes.string.isRequired,
   questionText: PropTypes.string,

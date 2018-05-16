@@ -181,7 +181,7 @@ exports[`renders home screen with tab bar correctly 1`] = `
                         ]
                       }
                     >
-                      
+                      
                     </Text>
                   </View>
                 </View>
@@ -449,7 +449,7 @@ exports[`renders home screen with tab bar correctly 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               accessible={true}
@@ -557,7 +557,7 @@ exports[`renders home screen with tab bar correctly 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               accessible={true}
@@ -665,7 +665,7 @@ exports[`renders home screen with tab bar correctly 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
             <Text
               accessible={true}

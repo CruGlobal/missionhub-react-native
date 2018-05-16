@@ -77,12 +77,13 @@ describe('renderBackButton', () => {
 describe('Navigation', () => {
   navigation.navigatePush = jest.fn();
 
+  const createStepTracking = 'this is a test tracking property';
   const createComponent = () => {
     const screen = renderShallow(
       <SelectStepScreen
         steps={[ { id: '1', body: 'Test Step' } ]}
         onComplete={jest.fn()}
-        createStepTracking={{}} />,
+        createStepTracking={createStepTracking} />,
       store,
     );
 
@@ -96,7 +97,7 @@ describe('Navigation', () => {
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(
       ADD_STEP_SCREEN,
-      { type: CREATE_STEP, onComplete: expect.any(Function) }
+      { type: CREATE_STEP, onComplete: expect.any(Function), trackingObj: createStepTracking }
     );
   });
 });

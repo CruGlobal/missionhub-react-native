@@ -13,6 +13,7 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
+import { LOGIN_TAB_CHANGED } from '../../constants';
 
 import styles from './styles';
 
@@ -79,7 +80,11 @@ class LoginScreen extends Component {
   }
 
   trackSplashState(index) {
-    this.props.dispatch(trackState(buildTrackingObj(`splash : ${index}`, 'splash')));
+    const { dispatch } = this.props;
+    const trackingObj = buildTrackingObj(`splash : ${index}`, 'splash');
+
+    dispatch({ type: LOGIN_TAB_CHANGED, newActiveTab: trackingObj });
+    dispatch(trackState(trackingObj));
   }
 
   handleScroll(e) {

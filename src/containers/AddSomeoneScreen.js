@@ -5,8 +5,6 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
-import { trackActionWithoutData } from '../actions/analytics';
-import { ACTIONS } from '../constants';
 
 import { SETUP_PERSON_SCREEN } from './SetupPersonScreen';
 import IconMessageScreen from './IconMessageScreen';
@@ -25,7 +23,6 @@ class AddSomeoneScreen extends Component {
   handleNavigate = () => {
     disableBack.remove();
     this.props.dispatch(navigatePush(SETUP_PERSON_SCREEN));
-    this.props.dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
     Keyboard.dismiss();
   };
 
