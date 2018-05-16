@@ -8,7 +8,7 @@ exports[`renders correctly for after login 1`] = `
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
-        "paddingHorizontal": 60,
+        "paddingHorizontal": 40,
       },
       Object {},
     ]
@@ -90,7 +90,7 @@ exports[`renders correctly for after login 1`] = `
           ]
         }
       >
-        We noticed you have accepted some steps with people you care about. We'd like to send you handcrafted reminders so what is important to you doesn't get forgotten.
+        We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.
       </Text>
     </View>
     <View
@@ -299,7 +299,7 @@ exports[`renders correctly for focused step 1`] = `
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
-        "paddingHorizontal": 60,
+        "paddingHorizontal": 40,
       },
       Object {},
     ]
@@ -590,7 +590,7 @@ exports[`renders correctly for onboarding 1`] = `
         "backgroundColor": "#007398",
         "flex": 1,
         "justifyContent": "center",
-        "paddingHorizontal": 60,
+        "paddingHorizontal": 40,
       },
       Object {},
     ]
