@@ -10,12 +10,14 @@ import {
   deletePushToken,
   showWelcomeNotification,
   configureNotificationHandler,
-  requestNativePermissions, showReminderOnLoad,
+  requestNativePermissions,
+  showReminderOnLoad,
 } from '../../src/actions/notifications';
 import {
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
-  NAVIGATE_FORWARD, LOAD_HOME_NOTIFICATION_REMINDER,
+  NAVIGATE_FORWARD,
+  LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';

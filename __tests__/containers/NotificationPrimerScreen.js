@@ -95,15 +95,6 @@ describe('notification primer methods', () => {
     expect(store.getActions()).toEqual([ trackActionResult ]);
   });
 
-  it('runs not now for onboarding', () => {
-    component = createComponent({ isOnboarding: true });
-
-    component.notNow();
-
-    expect(mockComplete).toHaveBeenCalledTimes(1);
-    expect(store.getActions()).toEqual([ trackActionResult ]);
-  });
-
   it('runs allow', async() => {
     component = createComponent();
 
