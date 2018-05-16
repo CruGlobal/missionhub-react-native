@@ -5,12 +5,13 @@ import React from 'react';
 import ContactSteps from '../../src/containers/ContactSteps';
 import { createMockStore, createMockNavState, testSnapshotShallow, renderShallow } from '../../testUtils';
 import { navigatePush } from '../../src/actions/navigation';
-jest.mock('../../src/actions/navigation');
 import { SELECT_MY_STEP_SCREEN } from '../../src/containers/SelectMyStepScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
 import { buildTrackingObj } from '../../src/utils/common';
 import { getContactSteps } from '../../src/actions/steps';
+
 jest.mock('../../src/actions/steps');
+jest.mock('../../src/actions/navigation');
 
 const steps = [
   { id: '1', title: 'Test Step' },
@@ -47,6 +48,8 @@ const mockStage = {
 const mockContactAssignment = {
   id: 333,
 };
+
+const trackingObj = buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps');
 
 getContactSteps.mockReturnValue({ response: steps });
 
@@ -123,7 +126,7 @@ describe('handleCreateStep', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(
       SELECT_MY_STEP_SCREEN,
-      { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: mockStage }
+      { onSaveNewSteps: expect.any(Function), enableBackButton: true, contactStage: mockStage, trackingObj }
     );
   });
 
@@ -147,6 +150,7 @@ describe('handleCreateStep', () => {
         organization: undefined,
         onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
+        trackingObj,
       },
     );
   });
@@ -174,6 +178,7 @@ describe('handleSaveNewStage', () => {
         onSaveNewSteps: expect.any(Function),
         enableBackButton: true,
         contactStage: mockStage,
+        trackingObj,
       },
     );
   });
@@ -191,6 +196,7 @@ describe('handleSaveNewStage', () => {
         contactStage: mockStage,
         onSaveNewSteps: expect.any(Function),
         createStepTracking: buildTrackingObj('people : person : steps : create', 'people', 'person', 'steps'),
+        trackingObj,
       },
     );
   });

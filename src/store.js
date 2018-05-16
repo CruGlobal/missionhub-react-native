@@ -44,6 +44,7 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
   transforms: [ myTransform ],
   getStoredState: getStoredStateMigrateV4({ storage: AsyncStorage, transforms: [ myTransform ] }),
+  blacklist: [ 'tabs' ],
 };
 
 export const store = createStore(

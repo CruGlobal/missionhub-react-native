@@ -33,8 +33,14 @@ export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
+export const STEPS_TAB = 'StepsTab';
+export const PEOPLE_TAB = 'PeopleTab';
+export const IMPACT_TAB = 'ImpactTab';
+
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
+export const NAVIGATE_BACK = 'Navigation/BACK';
+export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
@@ -66,6 +72,11 @@ export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 export const ORG_PERMISSIONS = [ 1, 4 ];
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
+export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
+export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
+export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
+export const PERSON_VIEWED_STAGE_CHANGED = 'analytics/PERSON_VIEWED_STAGE_CHANGED';
+export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
@@ -186,6 +197,7 @@ export const ACTIONS = {
   INTERACTION: {
     name: 'Action Taken on Person',
     COMMENT: 'cru.commentadded',
+    SOMETHING_COOL_HAPPENED: 'cru.somethingcoolhappenedadded',
     SPIRITUAL_CONVERSATION: 'cru.initiatinggospelconversations',
     GOSPEL_PRESENTATION: 'cru.presentingthegospel',
     PERSONAL_DECISION: 'cru.newprofessingbelievers',
@@ -200,6 +212,7 @@ export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'uncontactedIcon', translationKey: 'interactionUncontacted' },
   MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.INTERACTION.COMMENT },
+  MHInteractionTypeSomethingCoolHappened: { id: 11, iconName: 'celebrateIcon', translationKey: 'interactionSomethingCoolHappened', hideReport: true, tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED },
   MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION },
   MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION },
   MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: ACTIONS.INTERACTION.PERSONAL_DECISION },

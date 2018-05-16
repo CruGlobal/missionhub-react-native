@@ -1,52 +1,5 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
-default_platform(:android)
-
-platform :android do
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-
-    cru_build_app
-
-    changelog_message = 'Beta build for MissionHub Android. See Jira board for issues that are "Ready for QA"'
-    sh('cd .. && touch changelog.txt')
-    File.write('./changelog.txt', changelog_message)
-
-    crashlytics(
-        apk_path: ENV['GRADLE_APK_OUTPUT_PATH'],
-        groups: 'missionhub-android',
-        notes_path: 'fastlane/changelog.txt'
-    )
-
-    cru_notify_users(message: "MissionHub Android Beta Build released to Crashlytics.")
-  end
-
-  lane :cru_build_app do
-    gradle(task: "clean assembleRelease")
-  end
-
-  lane :cru_notify_users do |options|
-    hipchat(
-        message: options[:message],
-        channel: "MissionHub - Engineering",
-        version: "2",
-        custom_color: "green"
-    )
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
-end
+import_from_git(
+    url: 'git@github.com:CruGlobal/cru-fastlane-files.git',
+    branch: 'master',
+    path: 'android/Fastfile'
+)

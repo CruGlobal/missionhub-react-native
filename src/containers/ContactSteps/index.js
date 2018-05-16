@@ -15,7 +15,6 @@ import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
-import { trackState } from '../../actions/analytics';
 
 import styles from './styles';
 
@@ -78,9 +77,11 @@ class ContactSteps extends Component {
   handleNavToSteps(stage, onComplete = null) {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
+    const trackingParams = { trackingObj: buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps') };
 
     if (isMe) {
       dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
+        ...trackingParams,
         onSaveNewSteps: () => {
           this.handleSaveNewSteps();
           onComplete && onComplete();
@@ -91,6 +92,7 @@ class ContactSteps extends Component {
       }));
     } else {
       dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        ...trackingParams,
         contactName: person.first_name,
         contactId: person.id,
         contact: person,
@@ -102,7 +104,6 @@ class ContactSteps extends Component {
         },
         createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
       }));
-      this.props.dispatch(trackState(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps')));
     }
   }
 

@@ -12,7 +12,6 @@ import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
-import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
@@ -76,6 +75,7 @@ class SelectStepScreen extends Component {
     }
     this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
+      trackingObj: this.props.createStepTracking,
       onComplete: (newStepText) => {
         const addedSteps = this.state.addedSteps;
 
@@ -97,8 +97,6 @@ class SelectStepScreen extends Component {
         }
       },
     }));
-
-    this.props.dispatch(trackState(this.props.createStepTracking));
   }
 
   async saveAllSteps() {
