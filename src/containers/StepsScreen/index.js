@@ -41,7 +41,7 @@ export class StepsScreen extends Component {
     super(props);
     this.state = {
       refreshing: false,
-      addedReminder: props.reminders.length > 0,
+      addedReminder: props.reminders && props.reminders.length > 0,
       overscrollUp: false,
       paging: false,
     };
@@ -307,7 +307,7 @@ export class StepsScreen extends Component {
 }
 
 export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
-  steps: steps.mine && nonReminderStepsSelector({ steps, people }),
+  steps: nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,

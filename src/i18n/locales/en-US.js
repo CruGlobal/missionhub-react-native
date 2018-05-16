@@ -198,6 +198,7 @@ export default {
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',
     stageStartSelf: 'You added yourself to MissionHub as {{newStage}}',
     interactionNote: 'Comment',
+    interactionSomethingCoolHappened: '$t(contactJourney:somethingCool)',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
     interactionDecision: 'Personal Decisions',
