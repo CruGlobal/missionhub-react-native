@@ -3,29 +3,20 @@ import { INTERACTION_TYPES, UPDATE_PEOPLE_INTERACTION_REPORT } from '../constant
 import callApi, { REQUESTS } from './api';
 
 export function getGlobalImpact() {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.GET_GLOBAL_IMPACT));
-  };
-}
-
-export function getMyImpact() {
-  return (dispatch) => {
-    const query = { person_id: 'me' };
-    return dispatch(callApi(REQUESTS.GET_IMPACT_BY_ID, query));
-  };
+  return getImpactSummary();
 }
 
 export function refreshImpact() {
   return (dispatch) => {
-    dispatch(getMyImpact());
+    dispatch(getImpactSummary('me'));
     return dispatch(getGlobalImpact());
   };
 }
 
-export function getImpactById(id) {
+export function getImpactSummary(personId, orgId) {
   return (dispatch) => {
-    const query = { person_id: id };
-    return dispatch(callApi(REQUESTS.GET_IMPACT_BY_ID, query));
+    const query = { person_id: personId, organization_id: orgId };
+    return dispatch(callApi(REQUESTS.GET_IMPACT_SUMMARY, query));
   };
 }
 
@@ -36,7 +27,9 @@ export function getPeopleInteractionsReport(personId, organizationId, period) {
       organization_ids: organizationId,
       period,
     };
-    const { response: [ report = {} ] } = await dispatch(callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, query));
+    const { response: [ report = {} ] } = personId ?
+      await dispatch(callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, query)) :
+      await dispatch(callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, query));
 
     const interactions = report ? report.interactions : [];
     const interactionReport = Object.values(INTERACTION_TYPES)

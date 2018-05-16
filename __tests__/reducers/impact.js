@@ -5,11 +5,29 @@ import { UPDATE_PEOPLE_INTERACTION_REPORT } from '../../src/constants';
 it('should update person impact reports', () => {
   const state = impact(undefined,
     {
-      type: REQUESTS.GET_IMPACT_BY_ID.SUCCESS,
+      type: REQUESTS.GET_IMPACT_SUMMARY.SUCCESS,
       results: {
         response: {
           type: 'impact_report',
           person_id: '123',
+          organization_id: null,
+        },
+      },
+    },
+  );
+
+  expect(state).toMatchSnapshot();
+});
+
+it('should update group impact reports', () => {
+  const state = impact(undefined,
+    {
+      type: REQUESTS.GET_IMPACT_SUMMARY.SUCCESS,
+      results: {
+        response: {
+          type: 'impact_report',
+          person_id: null,
+          organization_id: '1234',
         },
       },
     },
@@ -21,10 +39,12 @@ it('should update person impact reports', () => {
 it('should update global impact reports', () => {
   const state = impact(undefined,
     {
-      type: REQUESTS.GET_GLOBAL_IMPACT.SUCCESS,
+      type: REQUESTS.GET_IMPACT_SUMMARY.SUCCESS,
       results: {
         response: {
           type: 'impact_report',
+          person_id: null,
+          organization_id: null,
         },
       },
     },

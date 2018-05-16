@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { persistStore, persistReducer, createTransform } from 'redux-persist';
+import { persistStore, persistReducer, createTransform, createMigrate } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import getStoredStateMigrateV4 from 'redux-persist/lib/integration/getStoredStateMigrateV4';
 import jsan from 'jsan';
@@ -10,6 +10,7 @@ import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-hel
 import reducers from './reducers';
 import tracking from './middleware/tracking';
 import steps from './middleware/steps';
+import { migrations } from './storeMigrations';
 
 const navMiddleware = createReactNavigationReduxMiddleware(
   'root',
@@ -45,6 +46,8 @@ const persistConfig = {
   transforms: [ myTransform ],
   getStoredState: getStoredStateMigrateV4({ storage: AsyncStorage, transforms: [ myTransform ] }),
   blacklist: [ 'tabs' ],
+  version: Math.max(...Object.keys(migrations)),
+  migrate: createMigrate(migrations),
 };
 
 export const store = createStore(
