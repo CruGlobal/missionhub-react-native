@@ -103,12 +103,12 @@ const tabs = {
   ),
 };
 
-const createTabs = (tabKey, tabComponent, tabPath) => {
+const createTabs = (tabKey, tabPath) => {
   return TabNavigator(
     {
       StepsTab: tabs.StepsTab,
       PeopleTab: tabs.PeopleTab,
-      [tabKey]: tabComponent,
+      [tabKey]: tabs[tabKey],
     },
     {
       // initialRouteName: 'ImpactTab',
@@ -139,9 +139,9 @@ const createTabs = (tabKey, tabComponent, tabPath) => {
   );
 };
 
-export const MainTabBar = createTabs(IMPACT_TAB, tabs[IMPACT_TAB], '/impact');
+export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
 
-export const MainTabBarGroups = createTabs(GROUPS_TAB, tabs[GROUPS_TAB], '/groups');
+export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
