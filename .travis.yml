@@ -84,6 +84,7 @@ matrix:
       - bundler install
       - fastlane ios release submit:true auto_release:false
       - cd ../android
+      - bundler install
       - fastlane android release
 
 env:
