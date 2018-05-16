@@ -103,73 +103,45 @@ const tabs = {
   ),
 };
 
-export const MainTabBar = TabNavigator(
-  {
-    StepsTab: tabs.StepsTab,
-    PeopleTab: tabs.PeopleTab,
-    ImpactTab: tabs.ImpactTab,
-  },
-  {
-    // initialRouteName: 'ImpactTab',
-    tabBarOptions: {
-      showIcon: false,
-      showLabel: true,
-      style: { backgroundColor: theme.white },
-      activeTintColor: theme.primaryColor,
-      inactiveTintColor: theme.inactiveColor,
-      tabStyle: { backgroundColor: theme.lightBackgroundColor },
-      indicatorStyle: { backgroundColor: 'transparent' } ,
-      upperCaseLabel: false,
+const createTabs = (tabKey, tabComponent, tabPath) => {
+  return TabNavigator(
+    {
+      StepsTab: tabs.StepsTab,
+      PeopleTab: tabs.PeopleTab,
+      [tabKey]: tabComponent,
+    },
+    {
+      // initialRouteName: 'ImpactTab',
+      tabBarOptions: {
+        showIcon: false,
+        showLabel: true,
+        style: { backgroundColor: theme.white },
+        activeTintColor: theme.primaryColor,
+        inactiveTintColor: theme.inactiveColor,
+        tabStyle: { backgroundColor: theme.lightBackgroundColor },
+        indicatorStyle: { backgroundColor: 'transparent' } ,
+        upperCaseLabel: false,
 
-      // Android
-      scrollEnabled: false,
-    },
-    swipeEnabled: false,
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
-    // lazy: false, // Load all tabs right away
-    lazy: true,
-    paths: {
-      StepsTab: '/steps',
-      PeopleTab: '/people',
-      ImpactTab: '/impact',
-    },
-  }
-);
+        // Android
+        scrollEnabled: false,
+      },
+      swipeEnabled: false,
+      tabBarPosition: 'bottom',
+      animationEnabled: false,
+      // lazy: false, // Load all tabs right away
+      lazy: true,
+      paths: {
+        StepsTab: '/steps',
+        PeopleTab: '/people',
+        [tabKey]: tabPath,
+      },
+    }
+  );
+};
 
-export const MainTabBarGroups = TabNavigator(
-  {
-    StepsTab: tabs.StepsTab,
-    PeopleTab: tabs.PeopleTab,
-    GroupsTab: tabs.GroupsTab,
-  },
-  {
-    // initialRouteName: 'ImpactTab',
-    tabBarOptions: {
-      showIcon: false,
-      showLabel: true,
-      style: { backgroundColor: theme.white },
-      activeTintColor: theme.primaryColor,
-      inactiveTintColor: theme.inactiveColor,
-      tabStyle: { backgroundColor: theme.lightBackgroundColor },
-      indicatorStyle: { backgroundColor: 'transparent' } ,
-      upperCaseLabel: false,
+export const MainTabBar = createTabs('ImpactTab', tabs.ImpactTab, '/impact');
 
-      // Android
-      scrollEnabled: false,
-    },
-    swipeEnabled: false,
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
-    // lazy: false, // Load all tabs right away
-    lazy: true,
-    paths: {
-      StepsTab: '/steps',
-      PeopleTab: '/people',
-      ImpactTab: '/impact',
-    },
-  }
-);
+export const MainTabBarGroups = createTabs('GroupsTab', tabs.GroupsTab, '/groups');
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
