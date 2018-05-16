@@ -96,7 +96,7 @@ const tabs = {
   ),
   [GROUPS_TAB]: buildTrackedScreen(
     ImpactScreen,
-    buildTrackingObj('impact', 'impact'),
+    buildTrackingObj('groups', 'groups'),
     {
       tabBarLabel: navItem('groups'),
     },
