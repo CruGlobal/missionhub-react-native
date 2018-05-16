@@ -13,7 +13,7 @@ import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
 import { buildTrackingObj } from '../../src/utils/common';
 import {
-  ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER,
+  ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
 } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
@@ -54,7 +54,7 @@ describe('get step suggestions', () => {
 
 describe('get steps page', () => {
   const stepsPageQuery = {
-    order: '-accepted_at',
+    order: '-focused_at,-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
@@ -180,7 +180,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
-    order: '-accepted_at',
+    order: '-focused_at,-accepted_at',
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
   };
@@ -196,8 +196,6 @@ describe('complete challenge', () => {
   const trackActionResult = { type: 'tracked action' };
 
   const impactResponse = { type: 'test impact' };
-
-  const removeReminderResponse = { type: REMOVE_STEP_REMINDER, step };
 
   const screen = 'contact steps';
 
@@ -254,7 +252,6 @@ describe('complete challenge', () => {
           trackingObj: buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'),
         } },
       trackActionResult,
-      removeReminderResponse,
     ]);
   });
 });
@@ -262,9 +259,14 @@ describe('complete challenge', () => {
 
 describe('Set Focus', () => {
   const stepId = 102;
-  const step = {
+  const unfocusedStep = {
     id: stepId,
     receiver: { id: receiverId },
+    focus: false,
+  };
+  const focusedStep = {
+    ...unfocusedStep,
+    focus: true,
   };
 
   const query = { challenge_id: stepId };
@@ -314,20 +316,24 @@ describe('Set Focus', () => {
       },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
-
-    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
   });
 
   it('Focus set to true', async() => {
-    await store.dispatch(setStepFocus(step, true));
+    callApi.mockReturnValue(() => ({ response: { focus: true } }));
+
+    await store.dispatch(setStepFocus(unfocusedStep, true));
+
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, focusData);
-    expect(store.getActions()).toEqual([ { type: ADD_STEP_REMINDER, step: step } ]);
+    expect(store.getActions()).toEqual([ { type: TOGGLE_STEP_FOCUS, step: unfocusedStep } ]);
   });
 
   it('Focus set to false', async() => {
-    await store.dispatch(setStepFocus(step, false));
+    callApi.mockReturnValue(() => ({ response: { focus: false } }));
+
+    await store.dispatch(setStepFocus(focusedStep, false));
+
     expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
-    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
+    expect(store.getActions()).toEqual([ { type: TOGGLE_STEP_FOCUS, step: focusedStep } ]);
   });
 });
 
@@ -348,6 +354,6 @@ describe('deleteStepWithTracking', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CHALLENGE, { challenge_id: step.id }, {});
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
-    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step }, trackActionResult ]);
+    expect(store.getActions()).toEqual([ trackActionResult ]);
   });
 });

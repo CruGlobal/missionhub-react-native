@@ -9,6 +9,7 @@ export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
 export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
+export const TOGGLE_STEP_FOCUS = 'app/TOGGLE_STEP_FOCUS';
 export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const SWIPE_REMINDER_STEPS_HOME = 'app/SWIPE_REMINDER_STEPS_HOME';
@@ -196,6 +197,7 @@ export const ACTIONS = {
   INTERACTION: {
     name: 'Action Taken on Person',
     COMMENT: 'cru.commentadded',
+    SOMETHING_COOL_HAPPENED: 'cru.somethingcoolhappenedadded',
     SPIRITUAL_CONVERSATION: 'cru.initiatinggospelconversations',
     GOSPEL_PRESENTATION: 'cru.presentingthegospel',
     PERSONAL_DECISION: 'cru.newprofessingbelievers',
@@ -210,6 +212,7 @@ export const INTERACTION_TYPES = {
   MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
   MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'uncontactedIcon', translationKey: 'interactionUncontacted' },
   MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.INTERACTION.COMMENT },
+  MHInteractionTypeSomethingCoolHappened: { id: 11, iconName: 'celebrateIcon', translationKey: 'interactionSomethingCoolHappened', hideReport: true, tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED },
   MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION },
   MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION },
   MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: ACTIONS.INTERACTION.PERSONAL_DECISION },
