@@ -76,7 +76,7 @@ function authReducer(state = initialAuthState, action) {
       };
     case REQUESTS.GET_ME.SUCCESS:
       const person = results.response;
-
+      
       return {
         ...state,
         person: {
