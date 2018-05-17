@@ -2,14 +2,10 @@ import { INTERACTION_TYPES, UPDATE_PEOPLE_INTERACTION_REPORT } from '../constant
 
 import callApi, { REQUESTS } from './api';
 
-export function getGlobalImpact() {
-  return getImpactSummary();
-}
-
 export function refreshImpact() {
   return (dispatch) => {
     dispatch(getImpactSummary('me'));
-    return dispatch(getGlobalImpact());
+    return dispatch(getImpactSummary());
   };
 }
 

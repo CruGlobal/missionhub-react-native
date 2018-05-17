@@ -2,7 +2,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
-  getGlobalImpact,
   getImpactSummary,
   getPeopleInteractionsReport,
   refreshImpact,
@@ -19,14 +18,6 @@ callApi.mockReturnValue(apiResponse);
 beforeEach(() => {
   callApi.mockClear();
   store.clearActions();
-});
-
-describe('getGlobalImpact', () => {
-  it('should make api request', async() => {
-    await store.dispatch(getGlobalImpact());
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: undefined, organization_id: undefined });
-  });
 });
 
 describe('refreshImpact', () => {
@@ -49,6 +40,11 @@ describe('getImpactSummary', () => {
     await store.dispatch(getImpactSummary('2', '4'));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: '2', organization_id: '4' });
+  });
+  it('should make api request without person org id to load global impact', async() => {
+    await store.dispatch(getImpactSummary());
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, { person_id: undefined, organization_id: undefined });
   });
 });
 
