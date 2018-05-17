@@ -13,14 +13,19 @@ export default class LoadingGuy extends Component {
       <Flex align="center" justify="center" style={styles.container}>
         <Flex value={2} />
         <Flex value={10}>
-          <Image source={require('../../../assets/gifs/HappyBlueLoop.gif')} resizeMode="contain" style={styles.gif} />
+          <Image
+            source={require('../../../assets/gifs/HappyBlueLoop.gif')}
+            resizeMode="contain"
+            style={styles.gif}
+          />
         </Flex>
         <Flex value={2}>
-          <Text type="header" style={styles.loadText}>{i18next.t('common:loading').toUpperCase()}</Text>
+          <Text type="header" style={styles.loadText}>
+            {i18next.t('common:loading').toUpperCase()}
+          </Text>
         </Flex>
         <Flex value={2} />
       </Flex>
     );
   }
 }
-

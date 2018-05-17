@@ -1,13 +1,16 @@
 import 'react-native';
 import React from 'react';
 
-import { PeopleScreen, mapStateToProps } from '../../src/containers/PeopleScreen';
+import {
+  PeopleScreen,
+  mapStateToProps,
+} from '../../src/containers/PeopleScreen';
 import { testSnapshotShallow } from '../../testUtils';
 import { peopleByOrgSelector } from '../../src/selectors/people';
 jest.mock('../../src/selectors/people');
 
 jest.mock('../../src/actions/people', () => ({
-  getMyPeople: () => { },
+  getMyPeople: () => {},
 }));
 
 const orgs = [
@@ -56,7 +59,7 @@ const orgs = [
 const props = {
   isJean: true,
   orgs: orgs,
-  dispatch: jest.fn((response) => Promise.resolve(response)),
+  dispatch: jest.fn(response => Promise.resolve(response)),
 };
 
 jest.mock('react-native-device-info');
@@ -65,25 +68,21 @@ describe('PeopleScreen', () => {
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
       peopleByOrgSelector.mockReturnValue(orgs);
-      expect(mapStateToProps(
-        {
+      expect(
+        mapStateToProps({
           auth: {
             isJean: true,
           },
           people: {},
-        },
-      )).toMatchSnapshot();
+        }),
+      ).toMatchSnapshot();
     });
   });
   it('renders correctly as Casey', () => {
-    testSnapshotShallow(
-      <PeopleScreen {...props} isJean={false} />
-    );
+    testSnapshotShallow(<PeopleScreen {...props} isJean={false} />);
   });
 
   it('renders correctly as Jean', () => {
-    testSnapshotShallow(
-      <PeopleScreen { ...props} isJean={true} />
-    );
+    testSnapshotShallow(<PeopleScreen {...props} isJean={true} />);
   });
 });

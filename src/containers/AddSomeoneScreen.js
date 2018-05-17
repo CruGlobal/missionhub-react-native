@@ -11,7 +11,6 @@ import IconMessageScreen from './IconMessageScreen';
 
 @translate('addContact')
 class AddSomeoneScreen extends Component {
-
   componentDidMount() {
     disableBack.add();
   }

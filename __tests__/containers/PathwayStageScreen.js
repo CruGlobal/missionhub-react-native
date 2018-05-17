@@ -31,7 +31,7 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PathwayStageScreen {...mockProps} />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -39,7 +39,7 @@ it('renders firstItem correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PathwayStageScreen {...mockProps} firstItem={1} />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -47,7 +47,7 @@ it('renders correctly without stages', () => {
   testSnapshot(
     <Provider store={createMockStore({ stages: {} })}>
       <PathwayStageScreen {...mockProps} />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -55,10 +55,9 @@ it('renders back button correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PathwayStageScreen {...mockProps} enableBackButton={true} />
-    </Provider>
+    </Provider>,
   );
 });
-
 
 describe('pathway stage screen methods', () => {
   let component;
@@ -66,10 +65,7 @@ describe('pathway stage screen methods', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <PathwayStageScreen
-        {...mockProps}
-        onSelect={mockSelect}
-      />,
+      <PathwayStageScreen {...mockProps} onSelect={mockSelect} />,
       { context: { store } },
     );
 
@@ -82,16 +78,12 @@ describe('pathway stage screen methods', () => {
   });
 });
 
-
 describe('pathway stage screen methods without back', () => {
   let component;
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <PathwayStageScreen
-        {...mockProps}
-        enableBackButton={false}
-      />,
+      <PathwayStageScreen {...mockProps} enableBackButton={false} />,
       { context: { store } },
     );
 

@@ -24,7 +24,11 @@ const store = createMockStore(mockState);
 const onSelect = jest.fn();
 
 const mockOrganization = { id: '1' };
-const mockContactAssignment = { id: '90', assigned_to: { id: '1' }, pathway_stage_id: '1' };
+const mockContactAssignment = {
+  id: '90',
+  assigned_to: { id: '1' },
+  pathway_stage_id: '1',
+};
 const mockPerson = {
   id: '123',
   first_name: 'John',
@@ -46,7 +50,7 @@ const mockPerson = {
   organizational_permissions: [
     { organization_id: mockOrganization.id, followup_status: 'uncontacted' },
   ],
-  reverse_contact_assignments: [ mockContactAssignment ],
+  reverse_contact_assignments: [mockContactAssignment],
 };
 
 const mockNavigatePushResult = { type: 'navigated' };
@@ -65,29 +69,45 @@ jest.mock('../../src/actions/navigation', () => ({
   }),
 }));
 
-beforeEach(() => shallowScreen = renderShallow(<PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />, store));
+beforeEach(() =>
+  (shallowScreen = renderShallow(
+    <PeopleItem
+      onSelect={onSelect}
+      person={mockPerson}
+      organization={mockOrganization}
+    />,
+    store,
+  )));
 
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PeopleItem onSelect={onSelect} person={mockPerson} />
-    </Provider>
+    </Provider>,
   );
 });
 
 it('renders personal user correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem onSelect={onSelect} person={mockPerson} organization={{ id: 'personal' }} />
-    </Provider>
+      <PeopleItem
+        onSelect={onSelect}
+        person={mockPerson}
+        organization={{ id: 'personal' }}
+      />
+    </Provider>,
   );
 });
 
 it('renders org user correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <PeopleItem onSelect={onSelect} person={mockPerson} organization={mockOrganization} />
-    </Provider>
+      <PeopleItem
+        onSelect={onSelect}
+        person={mockPerson}
+        organization={mockOrganization}
+      />
+    </Provider>,
   );
 });
 
@@ -99,17 +119,26 @@ it('renders permission user correctly', () => {
         person={{
           ...mockPerson,
           organizational_permissions: [
-            { organization_id: mockOrganization.id, followup_status: 'uncontacted', permission_id: 1 },
+            {
+              organization_id: mockOrganization.id,
+              followup_status: 'uncontacted',
+              permission_id: 1,
+            },
           ],
         }}
-        organization={mockOrganization} />
-    </Provider>
+        organization={mockOrganization}
+      />
+    </Provider>,
   );
 });
 
 describe('handleChangeStage', () => {
   it('navigates to person stage screen', () => {
-    shallowScreen.childAt(0).childAt(1).props().onPress();
+    shallowScreen
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onPress();
 
     expect(store.dispatch).toHaveBeenCalledWith(mockGetPeopleResult);
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {

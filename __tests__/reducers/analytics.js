@@ -1,5 +1,10 @@
 import analyticsReducer from '../../src/reducers/analytics';
-import { ANALYTICS, ANALYTICS_CONTEXT_CHANGED, LOGOUT, NOT_LOGGED_IN } from '../../src/constants';
+import {
+  ANALYTICS,
+  ANALYTICS_CONTEXT_CHANGED,
+  LOGOUT,
+  NOT_LOGGED_IN,
+} from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';

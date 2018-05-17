@@ -9,7 +9,6 @@ import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 export default class StepItemDraggable extends Component {
-
   constructor(props) {
     super(props);
 
@@ -27,7 +26,7 @@ export default class StepItemDraggable extends Component {
   componentWillMount() {
     if (!isAndroid) {
       this._val = { x: 0, y: 0 };
-      this.state.pan.addListener((value) => this._val = value);
+      this.state.pan.addListener(value => (this._val = value));
       this.panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponderCapture: () => this.state.longPress,
@@ -36,7 +35,10 @@ export default class StepItemDraggable extends Component {
           this.state.pan.setValue({ x: 0, y: 0 });
           this.toggleMove(true);
         },
-        onPanResponderMove: Animated.event([ null, { dx: 0, dy: this.state.pan.y } ]),
+        onPanResponderMove: Animated.event([
+          null,
+          { dx: 0, dy: this.state.pan.y },
+        ]),
         onPanResponderTerminationRequest: () => true,
         onPanResponderReject: (...args) => this.snapBack(...args),
         onPanResponderRelease: (...args) => this.snapBack(...args),
@@ -88,10 +90,7 @@ export default class StepItemDraggable extends Component {
     const panStyle = {
       transform: this.state.pan.getTranslateTransform(),
     };
-    let style = [
-      panStyle,
-      { zIndex: longPress ? 10 : undefined },
-    ];
+    let style = [panStyle, { zIndex: longPress ? 10 : undefined }];
     let itemType = 'draggable';
     if (longPress) {
       itemType = 'dragging';
@@ -106,7 +105,8 @@ export default class StepItemDraggable extends Component {
         <Touchable
           onPress={this.handleSelect}
           style={{}}
-          onLongPress={this.handleLongPress}>
+          onLongPress={this.handleLongPress}
+        >
           <StepItem step={step} type={itemType} isMe={isMe} />
         </Touchable>
       </Animated.View>

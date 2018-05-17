@@ -3,11 +3,22 @@ import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Text, PlatformKeyboardAvoidingView, Flex } from '../components/common';
+import {
+  Button,
+  Text,
+  PlatformKeyboardAvoidingView,
+  Flex,
+} from '../components/common';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
-import { personFirstNameChanged, personLastNameChanged } from '../actions/onboardingProfile';
-import { createPerson, updateOnboardingPerson } from '../actions/onboardingProfile';
+import {
+  personFirstNameChanged,
+  personLastNameChanged,
+} from '../actions/onboardingProfile';
+import {
+  createPerson,
+  updateOnboardingPerson,
+} from '../actions/onboardingProfile';
 import { disableBack } from '../utils/common';
 import { trackActionWithoutData } from '../actions/analytics';
 import { ACTIONS } from '../constants';
@@ -17,7 +28,6 @@ import styles from './SetupScreen/styles';
 
 @translate()
 class SetupPersonScreen extends Component {
-
   state = { personId: null };
 
   componentDidMount() {
@@ -29,13 +39,15 @@ class SetupPersonScreen extends Component {
   }
 
   navigate = () => {
-    this.props.dispatch(navigatePush(PERSON_STAGE_SCREEN, {
-      section: 'onboarding',
-      subsection: 'add person',
-    }));
+    this.props.dispatch(
+      navigatePush(PERSON_STAGE_SCREEN, {
+        section: 'onboarding',
+        subsection: 'add person',
+      }),
+    );
   };
 
-  saveAndGoToGetStarted = async() => {
+  saveAndGoToGetStarted = async () => {
     const { dispatch, personFirstName, personLastName, myId } = this.props;
     if (personFirstName) {
       Keyboard.dismiss();
@@ -49,7 +61,9 @@ class SetupPersonScreen extends Component {
         await dispatch(updateOnboardingPerson(data));
         this.navigate();
       } else {
-        const { response: person } = await dispatch(createPerson(personFirstName, personLastName, myId));
+        const { response: person } = await dispatch(
+          createPerson(personFirstName, personLastName, myId),
+        );
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
         this.setState({ personId: person.id });
         this.navigate();
@@ -69,10 +83,12 @@ class SetupPersonScreen extends Component {
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text style={styles.label}>{t('profileLabels.firstNameNickname')}</Text>
+            <Text style={styles.label}>
+              {t('profileLabels.firstNameNickname')}
+            </Text>
             <Input
-              ref={(c) => this.personFirstName = c}
-              onChangeText={(t) => dispatch(personFirstNameChanged(t))}
+              ref={c => (this.personFirstName = c)}
+              onChangeText={t => dispatch(personFirstNameChanged(t))}
               value={personFirstName}
               autoFocus={true}
               returnKeyType="next"
@@ -85,8 +101,8 @@ class SetupPersonScreen extends Component {
 
           <View style={{ paddingTop: 30 }}>
             <Input
-              ref={(c) => this.personLastName = c}
-              onChangeText={(t) => dispatch(personLastNameChanged(t))}
+              ref={c => (this.personLastName = c)}
+              onChangeText={t => dispatch(personLastNameChanged(t))}
               value={personLastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastNameOptional')}

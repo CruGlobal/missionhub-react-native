@@ -11,7 +11,6 @@ import { isAndroid, disableBack } from '../../utils/common';
 import styles from './styles';
 
 class CelebrationScreen extends Component {
-
   constructor(props) {
     super(props);
     this.timeoutId = null;
@@ -30,7 +29,10 @@ class CelebrationScreen extends Component {
 
   startTimer() {
     clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
+    this.timeoutId = setTimeout(
+      () => this.navigateToNext(),
+      isAndroid ? 2880 : 3350,
+    );
   }
 
   navigateToNext() {
@@ -62,7 +64,12 @@ class CelebrationScreen extends Component {
   render() {
     return (
       <Flex style={styles.container} value={1} justify="center">
-        <Image source={CelebrationScreen.shuffleGif()} resizeMode="contain" style={styles.gif} onLoad={this.startTimer} />
+        <Image
+          source={CelebrationScreen.shuffleGif()}
+          resizeMode="contain"
+          style={styles.gif}
+          onLoad={this.startTimer}
+        />
       </Flex>
     );
   }
@@ -75,7 +82,6 @@ CelebrationScreen.propTypes = {
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
-
 
 export default connect(mapStateToProps)(CelebrationScreen);
 export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

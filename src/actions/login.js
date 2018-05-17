@@ -11,10 +11,12 @@ import { logInAnalytics } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
 export function onSuccessfulLogin() {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
-    const { person: { id: personId } } = getState().auth;
+    const {
+      person: { id: personId },
+    } = getState().auth;
     Crashlytics.setUserIdentifier(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
@@ -22,7 +24,6 @@ export function onSuccessfulLogin() {
 
     let nextScreen = GET_STARTED_SCREEN;
     if (mePerson.user.pathway_stage_id) {
-
       if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
         dispatch(completeOnboarding());
@@ -36,5 +37,5 @@ export function onSuccessfulLogin() {
 }
 
 function hasPersonWithStageSelected(person) {
-  return person.contact_assignments.some((contact) => contact.pathway_stage_id);
+  return person.contact_assignments.some(contact => contact.pathway_stage_id);
 }

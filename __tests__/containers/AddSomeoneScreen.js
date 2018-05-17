@@ -19,10 +19,7 @@ const navigateResult = { type: 'navigated' };
 beforeEach(() => {
   store = mockStore();
 
-  screen = renderShallow(
-    <AddSomeoneScreen />,
-    store
-  );
+  screen = renderShallow(<AddSomeoneScreen />, store);
 
   navigatePush.mockReturnValue(navigateResult);
 });
@@ -35,8 +32,7 @@ describe('onComplete prop', () => {
   it('navigates to the next screen', () => {
     screen.props().onComplete();
 
-    expect(store.getActions()).toEqual([ navigateResult ]);
+    expect(store.getActions()).toEqual([navigateResult]);
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 });
-

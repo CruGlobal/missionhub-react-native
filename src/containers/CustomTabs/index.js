@@ -28,21 +28,43 @@ class CustomTabs extends Component {
   render() {
     const { activeTab, tabArray, style, isHidden } = this.props;
     return (
-      <View style={[ styles.tabs, style, isHidden ? styles.tabsHidden : undefined ]}>
+      <View
+        style={[styles.tabs, style, isHidden ? styles.tabsHidden : undefined]}
+      >
         {tabArray.map((tab, i) => {
           return (
-            <Touchable isAndroidOpacity={true} key={tab.iconName} onPress={() => this.goToTab(i, tab)} style={styles.tab}>
-              <Flex value={1} align="center" justify="center" >
+            <Touchable
+              isAndroidOpacity={true}
+              key={tab.iconName}
+              onPress={() => this.goToTab(i, tab)}
+              style={styles.tab}
+            >
+              <Flex value={1} align="center" justify="center">
                 <Flex value={1} align="center" justify="center">
                   <Icon
                     name={tab.iconName}
                     type="MissionHub"
                     size={tab.iconName === 'actionsIcon' ? 26 : 32}
-                    style={{ color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor }}
+                    style={{
+                      color:
+                        activeTab === i
+                          ? theme.contactHeaderIconActiveColor
+                          : theme.contactHeaderIconInactiveColor,
+                    }}
                   />
                 </Flex>
                 <Flex align="center" justify="center">
-                  <Text style={[ styles.tabText, { color: activeTab === i ? theme.contactHeaderIconActiveColor : theme.contactHeaderIconInactiveColor } ]}>
+                  <Text
+                    style={[
+                      styles.tabText,
+                      {
+                        color:
+                          activeTab === i
+                            ? theme.contactHeaderIconActiveColor
+                            : theme.contactHeaderIconInactiveColor,
+                      },
+                    ]}
+                  >
                     {tab.tabLabel}
                   </Text>
                 </Flex>

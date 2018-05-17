@@ -10,9 +10,10 @@ beforeEach(() => {
 });
 
 const request = REQUESTS.GET_ME;
-const sessionHeader = 'alknaskpfsdksadnsakdfpajsdfkpasfdpoasmokfnosafonpiwqijoijojiojiosadmosafpnosdfniopsadfmioasdf';
+const sessionHeader =
+  'alknaskpfsdksadnsakdfpajsdfkpasfdpoasmokfnosafonpiwqijoijojiojiosadmosafpnosdfniopsadfmioasdf';
 
-it('should return apiError object for api errors', async() => {
+it('should return apiError object for api errors', async () => {
   const response = { error: 'test' };
   utils.default = () => Promise.reject(response);
 
@@ -29,7 +30,7 @@ it('should return apiError object for api errors', async() => {
   }
 });
 
-it('should return session header with empty response', async() => {
+it('should return session header with empty response', async () => {
   utils.default = () => Promise.resolve({ jsonResponse: null, sessionHeader });
 
   const response = await API_CALLS[request.name]({}, {});
@@ -37,7 +38,7 @@ it('should return session header with empty response', async() => {
 });
 
 describe('response is not empty', () => {
-  it('should sync with JsonApiDataStore if the request prescribes', async() => {
+  it('should sync with JsonApiDataStore if the request prescribes', async () => {
     const jsonResponse = {
       data: {},
       meta: 'some meta',

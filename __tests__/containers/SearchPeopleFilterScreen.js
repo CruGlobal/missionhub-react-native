@@ -33,6 +33,6 @@ it('renders correctly', () => {
           filters: mockFilters,
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });

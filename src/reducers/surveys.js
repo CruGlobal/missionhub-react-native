@@ -9,7 +9,10 @@ function surveysReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
     case REQUESTS.GET_MY_SURVEYS.SUCCESS:
-      const surveys = (results.findAll('survey') || []).map((s) => ({ text: s.title, ...s }));
+      const surveys = (results.findAll('survey') || []).map(s => ({
+        text: s.title,
+        ...s,
+      }));
       return {
         ...state,
         all: surveys,

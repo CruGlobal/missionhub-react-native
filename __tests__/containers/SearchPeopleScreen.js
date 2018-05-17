@@ -4,7 +4,9 @@ import Enzyme, { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import Adapter from 'enzyme-adapter-react-16';
 
-import SearchPeopleScreenConnected, { SearchPeopleScreen } from '../../src/containers/SearchPeopleScreen';
+import SearchPeopleScreenConnected, {
+  SearchPeopleScreen,
+} from '../../src/containers/SearchPeopleScreen';
 import { testSnapshot, createMockStore } from '../../testUtils';
 
 const store = createMockStore();
@@ -15,16 +17,13 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <SearchPeopleScreenConnected />
-    </Provider>
+    </Provider>,
   );
 });
 
 it('renders with searching state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <SearchPeopleScreen />,
-    { context: { store: store } }
-  );
+  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
 
   screen.setState({ isSearching: true });
   expect(screen.dive().dive()).toMatchSnapshot();
@@ -32,10 +31,7 @@ it('renders with searching state', () => {
 
 it('renders with no results state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <SearchPeopleScreen />,
-    { context: { store: store } }
-  );
+  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
 
   screen.setState({ text: 'test' });
   expect(screen.dive().dive()).toMatchSnapshot();
@@ -43,27 +39,38 @@ it('renders with no results state', () => {
 
 it('renders with results state', () => {
   Enzyme.configure({ adapter: new Adapter() });
-  const screen = shallow(
-    <SearchPeopleScreen />,
-    { context: { store: store } }
-  );
+  const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
 
-  screen.setState({ results: [
-    { id: '1', full_name: 'Ron Swanson', organization: { name: 'Cru at Harvard' } },
-    { id: '2', full_name: 'Leslie Knope', organization: { name: 'Cru at Harvard' } },
-    { id: '3', full_name: 'Ben Wyatt', organization: { name: 'Cru at Harvard' } },
-  ] });
+  screen.setState({
+    results: [
+      {
+        id: '1',
+        full_name: 'Ron Swanson',
+        organization: { name: 'Cru at Harvard' },
+      },
+      {
+        id: '2',
+        full_name: 'Leslie Knope',
+        organization: { name: 'Cru at Harvard' },
+      },
+      {
+        id: '3',
+        full_name: 'Ben Wyatt',
+        organization: { name: 'Cru at Harvard' },
+      },
+    ],
+  });
   expect(screen.dive().dive()).toMatchSnapshot();
 });
-   
+
 describe('renders filtered with organization people', () => {
   let screen;
 
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     screen = shallow(
-      <SearchPeopleScreen dispatch={(r) => Promise.resolve(r)} />,
-      { context: { store: store } }
+      <SearchPeopleScreen dispatch={r => Promise.resolve(r)} />,
+      { context: { store: store } },
     );
   });
 
@@ -72,15 +79,15 @@ describe('renders filtered with organization people', () => {
     const mockOrg2 = { organization: { id: '101', name: 'Test Org' } };
     let mockPerson = {
       id: 1,
-      organizational_permissions: [
-        mockOrg1,
-        mockOrg2,
-      ],
+      organizational_permissions: [mockOrg1, mockOrg2],
     };
-    const instance = screen.dive().dive().instance();
-  
+    const instance = screen
+      .dive()
+      .dive()
+      .instance();
+
     const results = instance.getPeopleByOrg({
-      findAll: () => [ mockPerson ],
+      findAll: () => [mockPerson],
     });
     expect(results).toEqual([
       {
@@ -95,5 +102,4 @@ describe('renders filtered with organization people', () => {
       },
     ]);
   });
-
 });

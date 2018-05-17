@@ -20,11 +20,8 @@ const defaultProps = {
 const renderAndTest = (props = {}) => {
   testSnapshot(
     <Provider store={store}>
-      <IconMessageScreen
-        {...defaultProps}
-        {...props}
-      />
-    </Provider>
+      <IconMessageScreen {...defaultProps} {...props} />
+    </Provider>,
   );
 };
 

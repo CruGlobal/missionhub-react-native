@@ -20,6 +20,7 @@ export function getAssignedOrganizations() {
 }
 
 function getOrganizations(requestObject, query) {
+<<<<<<< HEAD
   return async(dispatch) => {
     const { response } = await dispatch(callApi(requestObject, query));
     response.forEach((o) => dispatch(getOrganizationContacts(o.id)));
@@ -35,11 +36,16 @@ function getOrganizationContacts(orgId) {
   return (dispatch) => dispatch(callApi(REQUESTS.GET_ORGANIZATION_CONTACTS, query)).then((result) => {
     return result;
   });
+=======
+  return dispatch => dispatch(callApi(requestObject, query));
+>>>>>>> develop
 }
 
 export function addNewContact(data) {
   return (dispatch, getState) => {
-    const { person: { id: myId } } = getState().auth;
+    const {
+      person: { id: myId },
+    } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject('InvalidData', data);
     }

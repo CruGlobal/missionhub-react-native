@@ -10,7 +10,7 @@ it('renders loading', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={true}
-    />
+    />,
   );
 });
 
@@ -21,7 +21,7 @@ it('renders not loading', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={false}
-    />
+    />,
   );
 });
 
@@ -34,8 +34,13 @@ it('calls onChangeText prop', () => {
       value="Roge"
       onSubmit={jest.fn()}
       isLoading={true}
-    />
-  ).childAt(1).childAt(2).childAt(1).props().onChangeText();
+    />,
+  )
+    .childAt(1)
+    .childAt(2)
+    .childAt(1)
+    .props()
+    .onChangeText();
 
   expect(onChangeText).toHaveBeenCalled();
 });
@@ -49,8 +54,12 @@ it('submits when DONE button is pressed', () => {
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
-    />
-  ).childAt(0).childAt(1).props().onPress();
+    />,
+  )
+    .childAt(0)
+    .childAt(1)
+    .props()
+    .onPress();
 
   expect(onSubmit).toHaveBeenCalled();
 });
@@ -64,8 +73,13 @@ it('submits when done on keyboard is pressed', () => {
       value="Roge"
       onSubmit={onSubmit}
       isLoading={true}
-    />
-  ).childAt(1).childAt(2).childAt(1).props().onSubmitEditing();
+    />,
+  )
+    .childAt(1)
+    .childAt(2)
+    .childAt(1)
+    .props()
+    .onSubmitEditing();
 
   expect(onSubmit).toHaveBeenCalled();
 });

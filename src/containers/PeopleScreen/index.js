@@ -19,7 +19,6 @@ import styles from './styles';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -45,15 +44,17 @@ export class PeopleScreen extends Component {
   }
 
   handleAddContact(org) {
-    this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
-      organization: org && org.id ? org : undefined,
-      isJean: this.props.isJean,
-      onComplete: () => {
-        // You go through 4 screens for adding a person, so pop back to the first one
-        this.props.dispatch(navigateBack(4));
-        this.getPeople();
-      },
-    }));
+    this.props.dispatch(
+      navigatePush(ADD_CONTACT_SCREEN, {
+        organization: org && org.id ? org : undefined,
+        isJean: this.props.isJean,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          this.props.dispatch(navigateBack(4));
+          this.getPeople();
+        },
+      }),
+    );
   }
 
   handleSearch() {
@@ -75,20 +76,26 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={() => dispatch(openMainMenu())}
+            />
           }
           right={
             isJean ? (
               <IconButton
                 name="searchIcon"
                 type="MissionHub"
-                onPress={this.handleSearch} />
+                onPress={this.handleSearch}
+              />
             ) : (
               <IconButton
                 name="addContactIcon"
                 type="MissionHub"
                 size={24}
-                onPress={() => this.handleAddContact()} />
+                onPress={() => this.handleAddContact()}
+              />
             )
           }
           title={t('header').toUpperCase()}

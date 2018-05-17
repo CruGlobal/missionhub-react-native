@@ -6,7 +6,5 @@ import { Separator } from '../src/components/common';
 import { testSnapshot } from '../testUtils';
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Separator />
-  );
+  testSnapshot(<Separator />);
 });

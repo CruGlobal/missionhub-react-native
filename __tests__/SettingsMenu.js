@@ -11,8 +11,5 @@ const mockState = {
 
 const store = createMockStore(mockState);
 it('renders correctly', () => {
-  testSnapshotShallow(
-    <SettingsMenu />,
-    store
-  );
+  testSnapshotShallow(<SettingsMenu />, store);
 });

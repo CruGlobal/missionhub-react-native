@@ -1,71 +1,80 @@
 import notifications from '../../src/reducers/notifications';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
+  REQUEST_NOTIFICATIONS,
+  LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
-it('updates shouldAsk', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: true,
-  });
-  expect(state.shouldAsk).toBe(true);
-});
-
-it('updates hasAsked', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_ASKED,
-  });
-  expect(state.hasAsked).toBe(true);
-});
-
-it('updates showReminder', () => {
-  const state = notifications({}, {
-    type: PUSH_NOTIFICATION_REMINDER,
-    bool: false,
-  });
-  expect(state.showReminder).toBe(false);
-});
-
 it('should update push device', () => {
   const pushDevice = { id: '9', token: 'some token' };
-  const state = notifications({}, {
-    type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
-    results: {
-      response: pushDevice,
+  const state = notifications(
+    {},
+    {
+      type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
+      results: {
+        response: pushDevice,
+      },
     },
-  });
+  );
   expect(state.pushDevice).toEqual(pushDevice);
 });
 
 it('should disable welcome notification', () => {
-  const state = notifications({}, {
-    type: DISABLE_WELCOME_NOTIFICATION,
-  });
+  const state = notifications(
+    {},
+    {
+      type: DISABLE_WELCOME_NOTIFICATION,
+    },
+  );
   expect(state.hasShownWelcomeNotification).toEqual(true);
+});
+
+it('should set requestedNativePermissions to true', () => {
+  const state = notifications(
+    {},
+    {
+      type: REQUEST_NOTIFICATIONS,
+    },
+  );
+  expect(state.requestedNativePermissions).toEqual(true);
+});
+
+it('should set showReminderOnLoad to false', () => {
+  const state = notifications(
+    {},
+    {
+      type: LOAD_HOME_NOTIFICATION_REMINDER,
+    },
+  );
+  expect(state.showReminderOnLoad).toEqual(false);
 });
 
 it('resets state on logout', () => {
   let expectedState = {
     pushDevice: {},
-    hasAsked: false,
-    shouldAsk: true,
-    showReminder: true,
+    requestedNativePermissions: true,
+    showReminderOnLoad: true,
     hasShownWelcomeNotification: false,
   };
-  const state = notifications({}, {
-    type: LOGOUT,
-  });
+  const state = notifications(
+    {
+      requestedNativePermissions: true,
+    },
+    {
+      type: LOGOUT,
+    },
+  );
   expect(state).toEqual(expectedState);
 });
 
 it('resets state on logout', () => {
-  const state = notifications({}, {
-    type: null,
-  });
+  const state = notifications(
+    {},
+    {
+      type: null,
+    },
+  );
   expect(state).toEqual({});
 });
