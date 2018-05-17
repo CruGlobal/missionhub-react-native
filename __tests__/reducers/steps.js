@@ -1,6 +1,6 @@
 import { REQUESTS } from '../../src/actions/api';
 import steps, { getPagination } from '../../src/reducers/steps';
-import { COMPLETED_STEP_COUNT, FILTERED_CHALLENGES } from '../../src/constants';
+import { COMPLETED_STEP_COUNT, FILTERED_CHALLENGES, TOGGLE_STEP_FOCUS } from '../../src/constants';
 
 it('creates a new user step count', () => {
   const state = steps(undefined, {
@@ -80,6 +80,8 @@ it('get pagination works for total', () => {
 });
 
 it('receives reminders', () => {
+  const stepsResponse = [ { id: '1', focus: true }, { id: '2', focus: false } ];
+
   const state = steps(
     {
       mine: [],
@@ -88,14 +90,13 @@ it('receives reminders', () => {
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
       results: {
-        response: [ { id: '1', focus: true }, { id: '2', focus: false } ],
+        response: stepsResponse,
       },
       query: { page: { offset: 0 } },
     },
   );
 
-  expect(state.mine.length).toEqual(2);
-  expect(state.reminders).toEqual([ { id: '1', focus: true } ]);
+  expect(state.mine).toEqual(stepsResponse);
 });
 
 it('receives contact steps', () => {
@@ -118,5 +119,49 @@ it('receives contact steps', () => {
   expect(state.contactSteps).toEqual({
     '123-456': [ { id: '1' }, { id: '2' } ],
     '987-': [],
+  });
+});
+
+describe('it should toggle step focus', () => {
+  const existingSteps = [
+    { id: '1', focus: false },
+    { id: '2', focus: true },
+    { id: '3', focus: false },
+  ];
+
+  it('should toggle from false to true', () => {
+    const state = steps(
+      {
+        mine: existingSteps,
+      },
+      {
+        type: TOGGLE_STEP_FOCUS,
+        step: existingSteps[ 2 ],
+      },
+    );
+
+    expect(state.mine).toEqual([
+      { id: '1', focus: false },
+      { id: '2', focus: true },
+      { id: '3', focus: true },
+    ]);
+  });
+
+  it('should toggle from true to false', () => {
+    const state = steps(
+      {
+        mine: existingSteps,
+      },
+      {
+        type: TOGGLE_STEP_FOCUS,
+        step: existingSteps[ 1 ],
+      },
+    );
+
+    expect(state.mine).toEqual([
+      { id: '1', focus: false },
+      { id: '2', focus: false },
+      { id: '3', focus: false },
+    ]);
   });
 });
