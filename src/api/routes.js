@@ -139,14 +139,10 @@ export default {
   GET_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
-<<<<<<< HEAD
-  'GET_ORGANIZATION_CONTACTS': {
+  GET_ORGANIZATION_CONTACTS: {
     endpoint: `${FILTER_STATS_URL}people`,
   },
-  'GET_MY_GROUPS': {
-=======
   GET_MY_GROUPS: {
->>>>>>> develop
     endpoint: `${API_URL}groups`,
   },
   GET_MY_SURVEYS: {
