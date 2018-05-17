@@ -3479,7 +3479,7 @@ exports[`ImpactView group impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018,  we have taken 1 step of faith with 1 person.
+      In 2018,  we have taken 1 step of faith with 1 person at Test Org.
 
 1 person reached a new stage on their spiritual journey.
     </MyText>

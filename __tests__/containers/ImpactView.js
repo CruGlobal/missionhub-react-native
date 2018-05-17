@@ -241,7 +241,7 @@ describe('ImpactView', () => {
       testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
-          perorganizationson={organization}
+          organization={organization}
           impact={{
             ...personImpact,
             steps_count: 1,
