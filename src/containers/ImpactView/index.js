@@ -71,22 +71,24 @@ export class ImpactView extends Component {
   }
 
   buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
-    const { t, person = {}, isMe } = this.props;
+    const { t, person = {}, organization = {}, isMe } = this.props;
     const initiator = global ?
       '$t(users)' :
       isMe ?
         '$t(you)' :
         person.id ? person.first_name : '$t(we)';
     const context = (count) => count === 0 ? global ? 'emptyGlobal' : 'empty' : '';
+    const isSpecificContact = !global && !isMe && person.id;
 
     const stepsSentenceOptions = {
       context: context(steps_count),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
-      initiatorSuffix: global || isMe || !person.id ? '$t(haveSuffix)' : '$t(hasSuffix)',
+      initiatorSuffix: !isSpecificContact ? '$t(haveSuffix)' : '$t(hasSuffix)',
       stepsCount: steps_count,
       receiversCount: receivers_count,
+      scope: isSpecificContact ? '$t(inTheirLife)' : !global && !person.id && organization.name ? t('atOrgName', { orgName: organization.name }) : '',
     };
 
     const stageSentenceOptions = {

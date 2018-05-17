@@ -217,7 +217,7 @@ export default {
   },
   impact: {
     header: 'Impact',
-    stepsSentence: "In {{year}}, {{numInitiators}} {{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }).",
+    stepsSentence: "In {{year}}, {{numInitiators}} {{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{scope}}.",
     stepsSentence_empty: 'Here you will see all the steps {{initiator}} {{initiatorSuffix}} taken.',
     stepsSentence_emptyGlobal: 'You will see the steps other users have taken here shortly.',
     stageSentence: "$t(people, {'count': {{pathwayMovedCount}} }) reached a new stage on their spiritual journey.",
@@ -233,6 +233,8 @@ export default {
     allOfUs: 'all of us',
     haveSuffix: 'have',
     hasSuffix: 'has',
+    inTheirLife: ' in their life',
+    atOrgName: ' at {{orgName}}',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
     interactionDecision: 'Personal Decisions',
