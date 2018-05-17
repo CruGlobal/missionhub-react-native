@@ -6,27 +6,24 @@ import i18next from 'i18next';
 import MockDate from 'mockdate';
 
 import {
-  enableAskPushNotification,
-  disableAskPushNotification,
-  noNotificationReminder,
   showReminderScreen,
-  reregisterNotificationHandler,
-  registerNotificationHandler,
   deletePushToken,
   showWelcomeNotification,
+  configureNotificationHandler,
+  requestNativePermissions,
+  showReminderOnLoad,
 } from '../../src/actions/notifications';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   GCM_SENDER_ID, LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
+  NAVIGATE_FORWARD,
+  LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import { getPersonDetails } from '../../src/actions/person';
-
 jest.mock('../../src/actions/person');
+import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
 jest.mock('../../src/actions/api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
@@ -48,42 +45,18 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('disableAskPushNotification', () => {
-  it('should dispatch action to disable notification prompts', () => {
-    store.dispatch(disableAskPushNotification());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_SHOULD_ASK, bool: false } ]);
-  });
-});
-
-describe('enableAskPushNotification', () => {
-  it('should dispatch action to enable notification prompts', () => {
-    store.dispatch(enableAskPushNotification());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_SHOULD_ASK, bool: true } ]);
-  });
-});
-
-describe('noNotificationReminder', () => {
-  it('should dispatch action to turn off notification reminders', () => {
-    store.dispatch(noNotificationReminder(false));
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_REMINDER, bool: false } ]);
-  });
-  it('should dispatch action to turn on notification reminders', () => {
-    store.dispatch(noNotificationReminder(true));
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_REMINDER, bool: true } ]);
-  });
-});
-
 describe('showReminderScreen', () => {
-  it('should setup android notifications', () => {
+  const descriptionText = 'test description';
+
+  it('should do nothing for Android', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        shouldAsk: true,
       },
     });
     common.isAndroid = true;
     store.dispatch(showReminderScreen());
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
+    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
   });
   it('should do nothing if we already have a token', () => {
     const store = mockStore({
@@ -93,71 +66,38 @@ describe('showReminderScreen', () => {
         },
       },
     });
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
     expect(store.getActions()).toEqual([]);
   });
   it('should do nothing if reminders are disabled', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: false,
       },
     });
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
     expect(store.getActions()).toEqual([]);
   });
   it('should do nothing if permissions are already granted', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
-        hasAsked: true,
       },
     });
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: true }));
-    store.dispatch(showReminderScreen());
+    store.dispatch(showReminderScreen(descriptionText));
 
     expect(store.getActions()).toEqual([]);
-  });
-  it('should show Notification Off screen and enable notifications', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-        showReminder: true,
-        hasAsked: true,
-      },
-    });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
-    store.dispatch(showReminderScreen());
-
-    store.getActions()[0].params.onClose(true);
-
-    expect(store.getActions()).toMatchSnapshot();
-  });
-  it('should show Notification Off screen and disable notifications', () => {
-    const store = mockStore({
-      notifications: {
-        pushDevice: {},
-        showReminder: true,
-        hasAsked: true,
-      },
-    });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
-    store.dispatch(showReminderScreen());
-
-    store.getActions()[0].params.onClose(false);
-
-    expect(store.getActions()).toMatchSnapshot();
   });
   it('should show Notification Primer screen', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
-        showReminder: true,
-        hasAsked: false,
       },
     });
-    store.dispatch(showReminderScreen());
+    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
+
+    store.dispatch(showReminderScreen(descriptionText));
 
     store.getActions()[0].params.onComplete();
 
@@ -165,38 +105,82 @@ describe('showReminderScreen', () => {
   });
 });
 
-describe('reregisterNotificationHandler', () => {
-  it('should register android notifications', () => {
-    common.isAndroid = true;
-    store.dispatch(reregisterNotificationHandler());
+describe('showReminderOnLoad', () => {
 
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
-    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
-    expect(PushNotification.configure).toHaveBeenCalled();
+  beforeEach(() => {
+    store.dispatch(configureNotificationHandler());
   });
 
-  it('should not register notifications if app doesn\'t have permissions', () => {
+  it('should not show reminder screen if app doesn\'t have reminders', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminderOnLoad: true,
+      },
+      steps: {
+        reminders: [],
+      },
+    });
+
+    store.dispatch(showReminderOnLoad());
+
+    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      { type: LOAD_HOME_NOTIFICATION_REMINDER },
+    ]);
+  });
+
+  it('should not show reminder screen if showReminderOnLoad is false', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminderOnLoad: false,
+      },
+      steps: {
+        reminders: [ { id: 1 } ],
+      },
+    });
+
+    store.dispatch(showReminderOnLoad());
+
+    expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('should show reminder screen if app has reminders and showReminderOnLoad is true', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+        showReminderOnLoad: true,
+      },
+      steps: {
+        reminders: [ { id: 1 } ],
+      },
+    });
+
     PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
 
-    store.dispatch(reregisterNotificationHandler());
+    store.dispatch(showReminderOnLoad());
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(PushNotification.configure).not.toHaveBeenCalled();
-  });
-
-  it('should register notifications if app has permissions', () => {
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: true }));
-
-    store.dispatch(reregisterNotificationHandler());
-
-    expect(PushNotification.checkPermissions).toHaveBeenCalled();
-    expect(PushNotification.configure).toHaveBeenCalled();
+    expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([
+      { type: LOAD_HOME_NOTIFICATION_REMINDER },
+      {
+        params: {
+          onComplete: expect.any(Function),
+          descriptionText: i18next.t('notificationPrimer:loginDescription'),
+        },
+        routeName: NOTIFICATION_PRIMER_SCREEN,
+        type: NAVIGATE_FORWARD,
+      },
+    ]);
   });
 });
 
-describe('registerNotificationHandler', () => {
+describe('configureNotificaitonHandler', () => {
   it('should configure notifications', () => {
-    store.dispatch(registerNotificationHandler());
+    store.dispatch(configureNotificationHandler());
 
     expect(PushNotification.configure).toHaveBeenCalledWith({
       onRegister: expect.any(Function),
@@ -204,9 +188,10 @@ describe('registerNotificationHandler', () => {
       senderID: GCM_SENDER_ID,
       requestPermissions: false,
     });
-    expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
   });
+});
 
+describe('askNotificationPermissions', () => {
   describe('onRegister', () => {
     const oldToken = 'Old Token';
     const newToken = 'New Token';
@@ -225,7 +210,8 @@ describe('registerNotificationHandler', () => {
     });
 
     it('should update notification token for iOS devices', () => {
-      store.dispatch(registerNotificationHandler());
+      store.dispatch(configureNotificationHandler());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
@@ -233,7 +219,8 @@ describe('registerNotificationHandler', () => {
 
     it('should update notification token for android devices', () => {
       common.isAndroid = true;
-      store.dispatch(registerNotificationHandler());
+      store.dispatch(configureNotificationHandler());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
@@ -241,10 +228,10 @@ describe('registerNotificationHandler', () => {
 
     it('should do nothing if the token hasn\'t changed', () => {
       PushNotification.configure.mockImplementation((config) => config.onRegister({ token: oldToken }));
-      store.dispatch(registerNotificationHandler());
+      store.dispatch(configureNotificationHandler());
+      store.dispatch(requestNativePermissions());
 
       expect(callApi).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
     });
   });
 
@@ -276,13 +263,13 @@ describe('registerNotificationHandler', () => {
           resolve();
         })
       );
-      store.dispatch(registerNotificationHandler());
+      store.dispatch(configureNotificationHandler());
+      store.dispatch(requestNativePermissions());
       return await deepLinkComplete;
     }
 
     it('should do nothing if user hasn\'t opened the notification; also it should call iOS finish', async() => {
       await testNotification({ screen: 'home' }, false);
-      expect(store.getActions()).toEqual([ { type: PUSH_NOTIFICATION_ASKED } ]);
       expect(finish).toHaveBeenCalledWith(PushNotificationIOS.FetchResult.NoData);
     });
 

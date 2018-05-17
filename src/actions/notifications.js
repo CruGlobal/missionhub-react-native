@@ -3,17 +3,14 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { MAIN_TABS } from '../constants';
+import { LOAD_HOME_NOTIFICATION_REMINDER, MAIN_TABS, REQUEST_NOTIFICATIONS } from '../constants';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
 } from '../constants';
 import { isAndroid } from '../utils/common';
-import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
 
@@ -22,82 +19,56 @@ import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi from './api';
 import { REQUESTS } from './api';
 
-
-export function disableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: false,
-  };
-}
-
-export function enableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: true,
-  };
-}
-
-export function noNotificationReminder(showReminder = false) {
-  return {
-    type: PUSH_NOTIFICATION_REMINDER,
-    bool: showReminder,
-  };
-}
-
-export function showReminderScreen() {
+export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {
-    const { hasAsked, pushDevice, showReminder } = getState().notifications;
+    const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
-      return dispatch(registerNotificationHandler());
-    }
-
-    if (pushDevice.token || !showReminder) { return; }
-
-    if (hasAsked) {
-      PushNotification.checkPermissions((permission) => {
-        const hasAllowedPermission = permission && permission.alert;
-        if (hasAllowedPermission) { return; }
-
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
-          onClose: (askUser) => {
-            if (askUser) {
-              dispatch(enableAskPushNotification());
-              dispatch(registerNotificationHandler());
-            } else {
-              dispatch(noNotificationReminder());
-            }
-            dispatch(navigateBack());
-          },
-        }));
-      });
       return;
     }
-    // If none of the other cases hit, show allow/not allow page
-    dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-      onComplete: () => dispatch(navigateBack()),
-    }));
-  };
-}
 
-export function reregisterNotificationHandler() {
-  return (dispatch) => {
-    if (isAndroid) {
-      return dispatch(registerNotificationHandler());
-    }
+    if (pushDevice.token) { return; }
 
     PushNotification.checkPermissions((permission) => {
-      const hasAllowedPermission = permission && permission.alert;
-      if (hasAllowedPermission) {
-        dispatch(registerNotificationHandler());
+      const permissionsEnabled = permission && permission.alert;
+      if (permissionsEnabled) {
+        return;
+      }
+
+      if (requestedNativePermissions) {
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+      } else {
+        // If none of the other cases hit, show allow/not allow page
+        dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          onComplete: () => dispatch(navigateBack()),
+          descriptionText,
+        }));
       }
     });
   };
 }
 
-export function registerNotificationHandler() {
-  return async(dispatch, getState) => {
+export function showReminderOnLoad() {
+  return (dispatch, getState) => {
+    if (getState().notifications.showReminderOnLoad) {
+      dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
+      if (getState().steps.reminders.length > 0) {
+        dispatch(showReminderScreen(i18next.t('notificationPrimer:loginDescription')));
+      }
+    }
+  };
+}
+
+export function requestNativePermissions() {
+  return async(dispatch) => {
+    dispatch({ type: REQUEST_NOTIFICATIONS });
+    return await PushNotification.requestPermissions();
+  };
+}
+
+export function configureNotificationHandler() {
+  return (dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
         const { pushDevice } = getState().notifications;
@@ -119,10 +90,6 @@ export function registerNotificationHandler() {
       // we manually call this after to have access to a promise for the iOS prompt
       requestPermissions: false,
     });
-
-    dispatch({ type: PUSH_NOTIFICATION_ASKED });
-
-    return await PushNotification.requestPermissions();
   };
 }
 

@@ -14,8 +14,9 @@ import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
-import { reregisterNotificationHandler, deletePushToken } from './notifications';
+import { deletePushToken, showReminderOnLoad } from './notifications';
 import { getStagesIfNotExists } from './stages';
+import { getMySteps } from './steps';
 import callApi, { REQUESTS } from './api';
 import { onSuccessfulLogin } from './login';
 import { getAssignedOrganizations } from './organizations';
@@ -159,13 +160,14 @@ export function updateLocaleAndTimezone() {
 }
 
 export function loadHome() {
-  return (dispatch) => {
+  return async(dispatch) => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(reregisterNotificationHandler());
     dispatch(resetPerson());
+    await dispatch(getMySteps());
+    dispatch(showReminderOnLoad());
   };
 }

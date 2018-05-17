@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
-import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
+import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 
@@ -22,15 +22,13 @@ class NotificationPrimerScreen extends Component {
   }
 
   notNow() {
-    this.props.dispatch(disableAskPushNotification());
     this.props.onComplete();
     this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   }
 
   async allow() {
-    this.props.dispatch(enableAskPushNotification());
     try {
-      await this.props.dispatch(registerNotificationHandler());
+      await this.props.dispatch(requestNativePermissions());
     } finally {
       this.props.onComplete();
     }
@@ -38,7 +36,7 @@ class NotificationPrimerScreen extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, descriptionText } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={.3} />
@@ -48,7 +46,7 @@ class NotificationPrimerScreen extends Component {
           </Flex>
           <Flex value={.6} align="center" justify="center">
             <Text style={styles.text}>
-              {t('description')}
+              {descriptionText}
             </Text>
           </Flex>
           <Flex value={1} align="center" justify="center">

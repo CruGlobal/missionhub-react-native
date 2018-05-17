@@ -13,6 +13,7 @@ import * as auth from '../../src/actions/auth';
 import * as person from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as stages from '../../src/actions/stages';
+import * as steps from '../../src/actions/steps';
 import * as notifications from '../../src/actions/notifications';
 import { keyLogin, refreshAccessToken, updateLocaleAndTimezone, codeLogin, logout, upgradeAccount, openKeyURL } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
@@ -237,10 +238,11 @@ describe('on upgrade account', () => {
 
 describe('loadHome', () => {
   const getMeResult = { type: 'got me successfully' };
+  const getStepsResult = { type: 'got steps successfully' };
   const getAssignedOrgsResult = { type: 'got orgs' };
   const getStagesResult = { type: 'got stages' };
   const updateUserResult = { type: 'updated locale and TZ' };
-  const notificationsResult = { type: 'notifications result' };
+  const notificationsResult = { type: 'show notification reminder' };
   const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 
   const userSettings = {
@@ -252,23 +254,25 @@ describe('loadHome', () => {
     },
   };
 
-  it('loads me, organizations, stages, timezone, and notifications', () => {
+  it('loads me, organizations, stages, timezone, and notifications', async() => {
     mockFnWithParams(person, 'getMe', getMeResult);
+    mockFnWithParams(steps, 'getMySteps', getStepsResult);
     mockFnWithParams(organizations, 'getAssignedOrganizations', getAssignedOrgsResult);
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
     mockFnWithParams(callApi, 'default', updateUserResult, REQUESTS.UPDATE_ME_USER, {}, userSettings);
-    mockFnWithParams(notifications, 'reregisterNotificationHandler', notificationsResult);
+    mockFnWithParams(notifications, 'showReminderOnLoad', notificationsResult);
     mockFnWithParams(onboardingProfile, 'resetPerson', resetOnboardingPersonResult);
 
-    store.dispatch(auth.loadHome());
+    await store.dispatch(auth.loadHome());
 
     expect(store.getActions()).toEqual([
       getMeResult,
       getAssignedOrgsResult,
       getStagesResult,
       updateUserResult,
-      notificationsResult,
       resetOnboardingPersonResult,
+      getStepsResult,
+      notificationsResult,
     ]);
   });
 });

@@ -23,8 +23,6 @@ const store = createMockStore({
   },
   notifications: {
     token: '',
-    hasAsked: false,
-    shouldAsk: true,
     showReminder: true,
     pushDeviceId: '',
   },

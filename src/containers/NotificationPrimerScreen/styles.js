@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,
-    paddingHorizontal: 60,
+    paddingHorizontal: 40,
     justifyContent: 'center',
   },
   text: {

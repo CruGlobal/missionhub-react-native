@@ -20,6 +20,7 @@ import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQU
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
+import { configureNotificationHandler } from './actions/notifications';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -38,6 +39,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };

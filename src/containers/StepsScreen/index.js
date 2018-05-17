@@ -59,10 +59,9 @@ export class StepsScreen extends Component {
 
   componentWillMount() {
     this.props.dispatch(loadHome());
-    this.getSteps();
   }
 
-  async getSteps() {
+  getSteps() {
     this.props.dispatch(getMySteps());
   }
 
@@ -96,10 +95,11 @@ export class StepsScreen extends Component {
 
     dispatch(toast(t('reminderAddedToast')));
 
-    dispatch(setStepFocus(step, true));
     if (!this.hasReminders()) {
-      dispatch(showReminderScreen());
+      dispatch(showReminderScreen(t('notificationPrimer:focusDescription')));
     }
+    dispatch(setStepFocus(step, true));
+
     dispatch(showWelcomeNotification());
   }
 
@@ -308,8 +308,6 @@ export class StepsScreen extends Component {
 export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
   steps: nonReminderStepsSelector({ steps, people }),
   reminders: reminderStepsSelector({ steps, people }),
-  areNotificationsOff: !notifications.hasAsked && !notifications.shouldAsk && !notifications.token,
-  showNotificationReminder: notifications.showReminder,
   showStepBump: swipe.stepsHome,
   showStepReminderBump: swipe.stepsReminder,
   hasMoreSteps: steps.pagination.hasNextPage,
