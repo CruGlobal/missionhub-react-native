@@ -19,7 +19,7 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <WelcomeScreen />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -27,12 +27,15 @@ describe('welcome screen methods', () => {
   let component;
 
   beforeEach(() => {
-    const screen = shallow(
-      <WelcomeScreen dispatch={() => { }} />,
-      { context: { store } },
-    );
+    const screen = shallow(<WelcomeScreen dispatch={() => {}} />, {
+      context: { store },
+    });
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
   it('navigates', () => {
@@ -52,7 +55,9 @@ describe('welcome screen methods', () => {
 
   describe('component will mount', () => {
     it('tracks an action', () => {
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ONBOARDING_STARTED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.ONBOARDING_STARTED,
+      );
     });
   });
 });

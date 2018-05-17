@@ -15,10 +15,12 @@ import icoMoonConfig from '../../../assets/icoMoonConfig.json';
 import PLATFORM_MAP from './mapping';
 import styles from './styles';
 
-const ICON_TYPES = [ 'Material', 'FontAwesome', 'Ionicons', 'MissionHub' ];
+const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons', 'MissionHub'];
 const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 export default class Icon extends Component {
-  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+  setNativeProps(nProps) {
+    this._view.setNativeProps(nProps);
+  }
   render() {
     const { name, type, size = 18, style = {} } = this.props;
     // Default style options
@@ -40,9 +42,9 @@ export default class Icon extends Component {
 
     return (
       <Tag
-        ref={(c) => this._view = c}
+        ref={c => (this._view = c)}
         name={iconName}
-        style={[ styles.icon, { fontSize: size }, style ]}
+        style={[styles.icon, { fontSize: size }, style]}
       />
     );
   }
@@ -55,7 +57,11 @@ Icon.propTypes = {
     ...Object.keys(IoniconsGlyphs),
     ...Object.keys(MissionHubIconGlyphs),
   ]).isRequired,
-  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   type: PropTypes.oneOf(ICON_TYPES),
   size: PropTypes.number,
 };

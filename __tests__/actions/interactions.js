@@ -11,15 +11,17 @@ import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 
 let store;
 
-const mockApi = (result, ...expectedParams) => mockFnWithParams(api, 'default', result, ...expectedParams);
+const mockApi = (result, ...expectedParams) =>
+  mockFnWithParams(api, 'default', result, ...expectedParams);
 
-beforeEach(() => store = configureStore([ thunk ])({
-  auth: {
-    person: {
-      id: '123',
+beforeEach(() =>
+  (store = configureStore([thunk])({
+    auth: {
+      person: {
+        id: '123',
+      },
     },
-  },
-}));
+  })));
 
 const comment = 'new comment';
 const personId = 1;
@@ -30,13 +32,19 @@ const refreshImpactResult = { type: 'refreshed impact' };
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
-  const action = (dispatch) => {
+  const action = dispatch => {
     dispatch(addCommentResult);
     return Promise.resolve();
   };
 
   beforeEach(() => {
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.INTERACTION.name, { [interaction.tracking]: null } );
+    mockFnWithParams(
+      analytics,
+      'trackAction',
+      trackActionResult,
+      ACTIONS.INTERACTION.name,
+      { [interaction.tracking]: null },
+    );
     mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
   });
 
@@ -68,12 +76,16 @@ describe('add comment', () => {
       included: [],
     };
 
-    it('should add a new comment', async() => {
+    it('should add a new comment', async () => {
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
       await store.dispatch(addNewInteraction(personId, interaction, comment));
 
-      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult, refreshImpactResult ]);
+      expect(store.getActions()).toEqual([
+        addCommentResult,
+        trackActionResult,
+        refreshImpactResult,
+      ]);
     });
   });
 
@@ -111,18 +123,24 @@ describe('add comment', () => {
       included: [],
     };
 
-    it('should add a new comment', async() => {
+    it('should add a new comment', async () => {
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
-      await store.dispatch(addNewInteraction(personId, interaction, comment, orgId));
-      expect(store.getActions()).toEqual([ addCommentResult, trackActionResult, refreshImpactResult ]);
+      await store.dispatch(
+        addNewInteraction(personId, interaction, comment, orgId),
+      );
+      expect(store.getActions()).toEqual([
+        addCommentResult,
+        trackActionResult,
+        refreshImpactResult,
+      ]);
     });
   });
 });
 
 describe('edit comment', () => {
   const editCommentResult = { type: 'edited comment' };
-  const action = (dispatch) => {
+  const action = dispatch => {
     dispatch(editCommentResult);
     return Promise.resolve();
   };
@@ -142,12 +160,17 @@ describe('edit comment', () => {
 
   beforeEach(() => {
     mockApi(action, REQUESTS.EDIT_COMMENT, expectedQuery, expectedBody);
-    mockFnWithParams(analytics, 'trackActionWithoutData', trackActionResult, ACTIONS.JOURNEY_EDITED);
+    mockFnWithParams(
+      analytics,
+      'trackActionWithoutData',
+      trackActionResult,
+      ACTIONS.JOURNEY_EDITED,
+    );
   });
 
-  it('should edit a comment', async() => {
+  it('should edit a comment', async () => {
     await store.dispatch(editComment({ id: interaction.id }, comment));
 
-    expect(store.getActions()).toEqual([ editCommentResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([editCommentResult, trackActionResult]);
   });
 });

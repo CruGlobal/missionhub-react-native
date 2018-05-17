@@ -9,10 +9,7 @@ class LoadingScreen extends Component {
   render() {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <ActivityIndicator
-          size="large"
-          color="rgba(0, 0, 0, 1)"
-        />
+        <ActivityIndicator size="large" color="rgba(0, 0, 0, 1)" />
       </Flex>
     );
   }

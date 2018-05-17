@@ -11,7 +11,7 @@ import i18n from '../../src/i18n';
 
 jest.mock('../../src/actions/auth');
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 const store = mockStore({});
 
 const email = 'roger@test.com';
@@ -21,7 +21,9 @@ const upgradeAccount = true;
 const navigation = {
   state: {
     params: {
-      email, password, upgradeAccount,
+      email,
+      password,
+      upgradeAccount,
     },
   },
 };
@@ -29,10 +31,7 @@ const navigation = {
 let screen;
 
 beforeEach(() => {
-  screen = renderShallow(
-    <MFACodeScreen navigation={navigation} />,
-    store
-  );
+  screen = renderShallow(<MFACodeScreen navigation={navigation} />, store);
 });
 
 it('renders correctly', () => {
@@ -49,25 +48,30 @@ it('changes text', () => {
 describe('onSubmit', () => {
   const clickLoginButton = () => screen.props().onSubmit();
 
-  it('logs in with email, password, mfa code, and upgrade account', async() => {
+  it('logs in with email, password, mfa code, and upgrade account', async () => {
     const mockKeyLoginResult = { type: 'logged in with the Key' };
     keyLogin.mockReturnValue(mockKeyLoginResult);
 
     await clickLoginButton();
 
-    expect(store.getActions()).toEqual([ mockKeyLoginResult ]);
+    expect(store.getActions()).toEqual([mockKeyLoginResult]);
   });
 
-  it('shows error modal if mfa code is incorrect', async() => {
+  it('shows error modal if mfa code is incorrect', async () => {
     Alert.alert = jest.fn();
-    keyLogin.mockReturnValue(() => Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }));
+    keyLogin.mockReturnValue(() =>
+      Promise.reject({ apiError: { thekey_authn_error: MFA_REQUIRED } }),
+    );
 
     await clickLoginButton();
 
-    expect(Alert.alert).toHaveBeenCalledWith(i18n.t('mfaLogin:mfaIncorrect'), i18n.t('ok'));
+    expect(Alert.alert).toHaveBeenCalledWith(
+      i18n.t('mfaLogin:mfaIncorrect'),
+      i18n.t('ok'),
+    );
   });
 
-  it('it throws unexpected errors', async() => {
+  it('it throws unexpected errors', async () => {
     expect.assertions(1);
     const error = { apiError: { message: 'some error' } };
     keyLogin.mockReturnValue(() => Promise.reject(error));
@@ -79,11 +83,11 @@ describe('onSubmit', () => {
     }
   });
 
-  it('changes loading property', () => { //this test is synchronous on purpose 😁
+  it('changes loading property', () => {
+    //this test is synchronous on purpose 😁
     clickLoginButton();
 
     screen.update();
     expect(screen).toMatchSnapshot();
   });
 });
-

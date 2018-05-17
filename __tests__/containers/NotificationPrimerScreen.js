@@ -6,12 +6,16 @@ import configureStore from 'redux-mock-store';
 import i18next from 'i18next';
 
 import NotificationPrimerScreen from '../../src/containers/NotificationPrimerScreen';
-import { createMockNavState, testSnapshot, renderShallow } from '../../testUtils';
+import {
+  createMockNavState,
+  testSnapshot,
+  renderShallow,
+} from '../../testUtils';
 import { requestNativePermissions } from '../../src/actions/notifications';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 let store;
 
 jest.mock('react-native-device-info');
@@ -22,7 +26,7 @@ const registerResult = { type: 'request permissions' };
 const trackActionResult = { type: 'tracked action' };
 
 beforeEach(() => {
-  requestNativePermissions.mockReturnValue((dispatch) => {
+  requestNativePermissions.mockReturnValue(dispatch => {
     dispatch(registerResult);
     return Promise.resolve();
   });
@@ -35,33 +39,41 @@ beforeEach(() => {
 it('renders correctly for onboarding', () => {
   testSnapshot(
     <Provider store={store}>
-      <NotificationPrimerScreen navigation={createMockNavState({
-        onComplete: jest.fn(),
-        descriptionText: i18next.t('notificationPrimer:onboardingDescription'),
-      })} />
-    </Provider>
+      <NotificationPrimerScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          descriptionText: i18next.t(
+            'notificationPrimer:onboardingDescription',
+          ),
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders correctly for focused step', () => {
   testSnapshot(
     <Provider store={store}>
-      <NotificationPrimerScreen navigation={createMockNavState({
-        onComplete: jest.fn(),
-        descriptionText: i18next.t('notificationPrimer:focusDescription'),
-      })} />
-    </Provider>
+      <NotificationPrimerScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          descriptionText: i18next.t('notificationPrimer:focusDescription'),
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders correctly for after login', () => {
   testSnapshot(
     <Provider store={store}>
-      <NotificationPrimerScreen navigation={createMockNavState({
-        onComplete: jest.fn(),
-        descriptionText: i18next.t('notificationPrimer:loginDescription'),
-      })} />
-    </Provider>
+      <NotificationPrimerScreen
+        navigation={createMockNavState({
+          onComplete: jest.fn(),
+          descriptionText: i18next.t('notificationPrimer:loginDescription'),
+        })}
+      />
+    </Provider>,
   );
 });
 
@@ -75,10 +87,12 @@ describe('notification primer methods', () => {
 
   const createComponent = (props = {}) => {
     const screen = renderShallow(
-      <NotificationPrimerScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-        ...props,
-      })} />,
+      <NotificationPrimerScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          ...props,
+        })}
+      />,
       store,
     );
 
@@ -92,10 +106,10 @@ describe('notification primer methods', () => {
 
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
-    expect(store.getActions()).toEqual([ trackActionResult ]);
+    expect(store.getActions()).toEqual([trackActionResult]);
   });
 
-  it('runs allow', async() => {
+  it('runs allow', async () => {
     component = createComponent();
 
     await component.allow();
@@ -103,6 +117,6 @@ describe('notification primer methods', () => {
     expect(requestNativePermissions).toHaveBeenCalledTimes(1);
     expect(mockComplete).toHaveBeenCalledTimes(1);
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-    expect(store.getActions()).toEqual([ registerResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([registerResult, trackActionResult]);
   });
 });

@@ -1,6 +1,8 @@
 import people from '../../src/reducers/people';
 import {
-  DELETE_PERSON, LOAD_PERSON_DETAILS, PEOPLE_WITH_ORG_SECTIONS,
+  DELETE_PERSON,
+  LOAD_PERSON_DETAILS,
+  PEOPLE_WITH_ORG_SECTIONS,
   UPDATE_PERSON_ATTRIBUTES,
 } from '../../src/constants';
 
@@ -13,7 +15,7 @@ const orgs = {
       '2': { id: '2', first_name: 'Fname', last_name: 'Lname' },
     },
   },
-  'personal': {
+  personal: {
     id: 'personal',
     people: {
       '2': { id: '2', first_name: 'Fname', last_name: 'Lname' },
@@ -103,7 +105,7 @@ it('should save people allByOrg', () => {
     {
       type: PEOPLE_WITH_ORG_SECTIONS,
       orgs: orgs,
-    }
+    },
   );
 
   expect(state.allByOrg).toEqual(orgs);

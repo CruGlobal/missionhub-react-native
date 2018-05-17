@@ -11,14 +11,18 @@ export default class PillButton extends Component {
     return (
       <Button
         {...rest}
-        style={[ styles.button, filled ? null : styles.empty, style ]}
-        buttonTextStyle={[ styles.buttonText, filled ? null : styles.emptyText, buttonTextStyle ]}
+        style={[styles.button, filled ? null : styles.empty, style]}
+        buttonTextStyle={[
+          styles.buttonText,
+          filled ? null : styles.emptyText,
+          buttonTextStyle,
+        ]}
       />
     );
   }
 }
 
-const styleTypes = [ PropTypes.array, PropTypes.object, PropTypes.number ];
+const styleTypes = [PropTypes.array, PropTypes.object, PropTypes.number];
 PillButton.propTypes = {
   filled: PropTypes.bool,
   style: PropTypes.oneOfType(styleTypes),

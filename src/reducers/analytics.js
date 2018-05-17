@@ -1,4 +1,9 @@
-import { ANALYTICS_CONTEXT_CHANGED, ANALYTICS, NOT_LOGGED_IN, LOGOUT } from '../constants';
+import {
+  ANALYTICS_CONTEXT_CHANGED,
+  ANALYTICS,
+  NOT_LOGGED_IN,
+  LOGOUT,
+} from '../constants';
 import { REQUESTS } from '../actions/api';
 import i18n from '../i18n';
 

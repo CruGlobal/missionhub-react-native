@@ -44,9 +44,9 @@ export default {
   //   Don't use jsonDataApiStore
   //   useJsonDataApiStore: false
   // },
-  'KEY_LOGIN': KEY_TOKEN,
-  'KEY_REFRESH_TOKEN': KEY_TOKEN,
-  'KEY_GET_TICKET': {
+  KEY_LOGIN: KEY_TOKEN,
+  KEY_REFRESH_TOKEN: KEY_TOKEN,
+  KEY_GET_TICKET: {
     endpoint: `${THE_KEY_OAUTH_URL}ticket?service=${AUTH_URL}thekey`,
     method: 'get',
     extra: {
@@ -54,148 +54,148 @@ export default {
     },
     useJsonDataApiStore: false,
   },
-  'TICKET_LOGIN': {
+  TICKET_LOGIN: {
     endpoint: `${AUTH_URL}thekey`,
     method: 'post',
     useJsonDataApiStore: false,
   },
-  'FACEBOOK_LOGIN': {
+  FACEBOOK_LOGIN: {
     endpoint: `${AUTH_URL}facebook`,
     method: 'post',
     useJsonDataApiStore: false,
     anonymous: true,
   },
-  'GET_ME': {
+  GET_ME: {
     endpoint: `${PEOPLE_URL}me`,
   },
-  'GET_PERSON': {
+  GET_PERSON: {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
-  'GET_PERSON_FEED': {
+  GET_PERSON_FEED: {
     endpoint: `${API_URL}person_feed`,
   },
-  'GET_STAGES': {
+  GET_STAGES: {
     endpoint: `${API_URL}pathway_stages`,
     anonymous: true,
   },
-  'GET_CHALLENGE_SUGGESTIONS': {
+  GET_CHALLENGE_SUGGESTIONS: {
     endpoint: `${API_URL}challenge_suggestions`,
     anonymous: true,
   },
-  'ADD_CHALLENGES': {
+  ADD_CHALLENGES: {
     endpoint: `${PEOPLE_URL}:person_id`,
     method: 'put',
   },
-  'GET_MY_CHALLENGES': {
+  GET_MY_CHALLENGES: {
     endpoint: CHALLENGES_URL,
   },
-  'DELETE_CHALLENGE': {
+  DELETE_CHALLENGE: {
     endpoint: `${CHALLENGES_URL}:challenge_id`,
     method: 'delete',
   },
-  'GET_CHALLENGES_BY_FILTER': {
+  GET_CHALLENGES_BY_FILTER: {
     endpoint: CHALLENGES_URL,
   },
-  'CHALLENGE_COMPLETE': {
+  CHALLENGE_COMPLETE: {
     endpoint: `${CHALLENGES_URL}:challenge_id`,
     method: 'put',
   },
-  'CHALLENGE_SET_FOCUS': {
+  CHALLENGE_SET_FOCUS: {
     endpoint: `${CHALLENGES_URL}:challenge_id`,
     method: 'put',
   },
-  'GET_PEOPLE_LIST': {
+  GET_PEOPLE_LIST: {
     endpoint: PEOPLE_URL,
   },
-  'CREATE_MY_PERSON': {
+  CREATE_MY_PERSON: {
     endpoint: `${AUTH_URL}client_token`,
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
   },
-  'REFRESH_ANONYMOUS_LOGIN': {
+  REFRESH_ANONYMOUS_LOGIN: {
     endpoint: `${AUTH_URL}client_token`,
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
   },
-  'UPDATE_ME_USER': {
+  UPDATE_ME_USER: {
     endpoint: `${API_URL}users/me`,
     method: 'put',
   },
-  'ADD_NEW_PERSON': {
+  ADD_NEW_PERSON: {
     endpoint: PEOPLE_URL,
     method: 'post',
   },
-  'UPDATE_PERSON': {
+  UPDATE_PERSON: {
     endpoint: `${PEOPLE_URL}:personId`,
     method: 'put',
   },
-  'GET_MY_ORGANIZATIONS': {
+  GET_MY_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
-  'GET_ORGANIZATIONS': {
+  GET_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
-  'GET_MY_GROUPS': {
+  GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
-  'GET_MY_SURVEYS': {
+  GET_MY_SURVEYS: {
     endpoint: `${API_URL}surveys`,
   },
-  'GET_MY_LABELS': {
+  GET_MY_LABELS: {
     endpoint: `${API_URL}organizations`,
     query: { include: 'labels' },
   },
-  'GET_IMPACT_SUMMARY': {
+  GET_IMPACT_SUMMARY: {
     endpoint: `${API_URL}reports/impact`,
   },
-  'GET_PEOPLE_INTERACTIONS_REPORT': {
+  GET_PEOPLE_INTERACTIONS_REPORT: {
     endpoint: `${API_URL}reports/people`,
   },
-  'GET_ORGANIZATION_INTERACTIONS_REPORT': {
+  GET_ORGANIZATION_INTERACTIONS_REPORT: {
     endpoint: `${API_URL}reports/organizations`,
   },
-  'SET_PUSH_TOKEN': {
+  SET_PUSH_TOKEN: {
     endpoint: `${API_URL}push_notification_device_tokens`,
     method: 'post',
   },
-  'DELETE_PUSH_TOKEN': {
+  DELETE_PUSH_TOKEN: {
     endpoint: `${API_URL}push_notification_device_tokens/:deviceId`,
     method: 'delete',
   },
-  'CREATE_CONTACT_ASSIGNMENT': {
+  CREATE_CONTACT_ASSIGNMENT: {
     endpoint: `${API_URL}contact_assignments`,
     method: 'post',
   },
-  'UPDATE_CONTACT_ASSIGNMENT': {
+  UPDATE_CONTACT_ASSIGNMENT: {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'put',
   },
-  'DELETE_CONTACT_ASSIGNMENT': {
+  DELETE_CONTACT_ASSIGNMENT: {
     endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
     method: 'delete',
   },
-  'ADD_NEW_INTERACTION': {
+  ADD_NEW_INTERACTION: {
     endpoint: `${API_URL}interactions`,
     method: 'post',
   },
-  'EDIT_COMMENT': {
+  EDIT_COMMENT: {
     endpoint: `${API_URL}interactions/:interactionId`,
     method: 'put',
   },
-  'SEARCH': {
+  SEARCH: {
     endpoint: `${API_URL}search`,
   },
-  'ADD_PERSON_NOTE': {
+  ADD_PERSON_NOTE: {
     endpoint: `${API_URL}person_notes`,
     method: 'post',
   },
-  'UPDATE_PERSON_NOTE': {
+  UPDATE_PERSON_NOTE: {
     endpoint: `${API_URL}person_notes/:noteId`,
     method: 'put',
   },
-  'GET_PERSON_NOTE': {
+  GET_PERSON_NOTE: {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
 };

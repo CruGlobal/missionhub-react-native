@@ -24,7 +24,7 @@ export class SideMenu extends Component {
       this.props.dispatch(navigatePush(DRAWER_CLOSE));
       return true;
     }
-    
+
     return false;
   };
 
@@ -33,13 +33,27 @@ export class SideMenu extends Component {
     return (
       <SafeAreaView style={styles.background}>
         <Flex style={styles.buttonContainer}>
-          <IconButton style={styles.button} onPress={() => this.props.dispatch(navigatePush(DRAWER_CLOSE))} name="close" type="Material" size={20} />
+          <IconButton
+            style={styles.button}
+            onPress={() => this.props.dispatch(navigatePush(DRAWER_CLOSE))}
+            name="close"
+            type="Material"
+            size={20}
+          />
         </Flex>
-        {menuItems.map(({ label, action, selected }, index) =>
+        {menuItems.map(({ label, action, selected }, index) => (
           <Flex key={index} style={styles.buttonContainer}>
-            <Button style={styles.button} buttonTextStyle={[ styles.buttonText, selected && styles.buttonTextSelected ]} text={label.toUpperCase()} onPress={action} />
+            <Button
+              style={styles.button}
+              buttonTextStyle={[
+                styles.buttonText,
+                selected && styles.buttonTextSelected,
+              ]}
+              text={label.toUpperCase()}
+              onPress={action}
+            />
           </Flex>
-        )}
+        ))}
       </SafeAreaView>
     );
   }
@@ -50,7 +64,7 @@ SideMenu.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       action: PropTypes.func,
-    })
+    }),
   ),
 };
 

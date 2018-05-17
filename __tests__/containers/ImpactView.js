@@ -4,7 +4,7 @@ import React from 'react';
 import { testSnapshotShallow } from '../../testUtils';
 import { ImpactView, mapStateToProps } from '../../src/containers/ImpactView';
 
-const dispatch = jest.fn((response) => Promise.resolve(response));
+const dispatch = jest.fn(response => Promise.resolve(response));
 
 const me = { id: '1', type: 'person', first_name: 'ME' };
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
@@ -31,101 +31,113 @@ const globalImpact = {
   pathway_moved_count: 50,
 };
 const personInteractions = {
-  P1W: [ {
-    id: '100',
-    requestFieldName: 'contact_count',
-    iconName: 'peopleIcon',
-    translationKey: 'interactionAssignedContacts',
-    num: 1,
-  }, {
-    id: '101',
-    requestFieldName: 'uncontacted_count',
-    iconName: 'uncontactedIcon',
-    translationKey: 'interactionUncontacted',
-    num: 0,
-  }, {
-    id: '2',
-    iconName: 'spiritualConversationIcon',
-    translationKey: 'interactionSpiritualConversation',
-    isOnAction: true,
-    tracking: 'cru.initiatinggospelconversations',
-    num: 0,
-  }, {
-    id: '3',
-    iconName: 'gospelIcon',
-    translationKey: 'interactionGospel',
-    isOnAction: true,
-    tracking: 'cru.presentingthegospel',
-    num: 0,
-  }, {
-    id: '4',
-    iconName: 'decisionIcon',
-    translationKey: 'interactionDecision',
-    isOnAction: true,
-    tracking: 'cru.newprofessingbelievers',
-    num: 0,
-  }, {
-    id: '5',
-    iconName: 'spiritIcon',
-    translationKey: 'interactionSpirit',
-    isOnAction: true,
-    tracking: 'cru.presentingtheholyspirit',
-    num: 0,
-  }, {
-    id: '9',
-    iconName: 'discipleshipConversationIcon',
-    translationKey: 'interactionDiscipleshipConversation',
-    isOnAction: true,
-    tracking: 'cru.discipleshipconversation',
-    num: 0,
-  } ],
+  P1W: [
+    {
+      id: '100',
+      requestFieldName: 'contact_count',
+      iconName: 'peopleIcon',
+      translationKey: 'interactionAssignedContacts',
+      num: 1,
+    },
+    {
+      id: '101',
+      requestFieldName: 'uncontacted_count',
+      iconName: 'uncontactedIcon',
+      translationKey: 'interactionUncontacted',
+      num: 0,
+    },
+    {
+      id: '2',
+      iconName: 'spiritualConversationIcon',
+      translationKey: 'interactionSpiritualConversation',
+      isOnAction: true,
+      tracking: 'cru.initiatinggospelconversations',
+      num: 0,
+    },
+    {
+      id: '3',
+      iconName: 'gospelIcon',
+      translationKey: 'interactionGospel',
+      isOnAction: true,
+      tracking: 'cru.presentingthegospel',
+      num: 0,
+    },
+    {
+      id: '4',
+      iconName: 'decisionIcon',
+      translationKey: 'interactionDecision',
+      isOnAction: true,
+      tracking: 'cru.newprofessingbelievers',
+      num: 0,
+    },
+    {
+      id: '5',
+      iconName: 'spiritIcon',
+      translationKey: 'interactionSpirit',
+      isOnAction: true,
+      tracking: 'cru.presentingtheholyspirit',
+      num: 0,
+    },
+    {
+      id: '9',
+      iconName: 'discipleshipConversationIcon',
+      translationKey: 'interactionDiscipleshipConversation',
+      isOnAction: true,
+      tracking: 'cru.discipleshipconversation',
+      num: 0,
+    },
+  ],
 };
 const organization = { id: '34', _type: 'organization', name: 'Test Org' };
 
 describe('ImpactView', () => {
   describe('mapStateToProps', () => {
     it('should provide the necessary props when viewing ME person', () => {
-      expect(mapStateToProps(
-        {
-          impact: {
-            summary: {
-              [`${me.id}-`]: myImpact,
-              '-': globalImpact,
+      expect(
+        mapStateToProps(
+          {
+            impact: {
+              summary: {
+                [`${me.id}-`]: myImpact,
+                '-': globalImpact,
+              },
+              interactions: {
+                [`${me.id}-`]: personInteractions,
+              },
             },
-            interactions: {
-              [`${me.id}-`]: personInteractions,
+            auth: {
+              person: me,
             },
           },
-          auth: {
+          {
             person: me,
           },
-        },
-        {
-          person: me,
-        }
-      )).toMatchSnapshot();
+        ),
+      ).toMatchSnapshot();
     });
     it('should provide the necessary props when not viewing ME person', () => {
-      expect(mapStateToProps(
-        {
-          impact: {
-            summary: {
-              [`${person.id}-`]: personImpact,
-              '-': globalImpact,
+      expect(
+        mapStateToProps(
+          {
+            impact: {
+              summary: {
+                [`${person.id}-`]: personImpact,
+                '-': globalImpact,
+              },
+              interactions: {
+                [`${person.id}-${organization.id}`]: personInteractions,
+              },
             },
-            interactions: {
-              [`${person.id}-${organization.id}`]: personInteractions,
+            auth: {
+              person,
             },
           },
-          auth: {
+          {
             person,
+            organization,
           },
-        },
-        {
-          person,
-          organization,
-        }
-      )).toMatchSnapshot();
+        ),
+      ).toMatchSnapshot();
     });
   });
   describe('ME person impact view', () => {
@@ -145,7 +157,7 @@ describe('ImpactView', () => {
             steps_count: 0,
             pathway_moved_count: 0,
           }}
-        />
+        />,
       );
     });
     it('renders singular state', () => {
@@ -166,7 +178,7 @@ describe('ImpactView', () => {
             receivers_count: 1,
             pathway_moved_count: 1,
           }}
-        />
+        />,
       );
     });
     it('renders plural state', () => {
@@ -177,7 +189,7 @@ describe('ImpactView', () => {
           isMe={true}
           impact={myImpact}
           globalImpact={globalImpact}
-        />
+        />,
       );
     });
   });
@@ -193,7 +205,7 @@ describe('ImpactView', () => {
             pathway_moved_count: 0,
           }}
           interactions={personInteractions}
-        />
+        />,
       );
     });
     it('renders singular state', () => {
@@ -208,7 +220,7 @@ describe('ImpactView', () => {
             pathway_moved_count: 1,
           }}
           interactions={personInteractions}
-        />
+        />,
       );
     });
     it('renders plural state', () => {
@@ -218,7 +230,7 @@ describe('ImpactView', () => {
           person={person}
           impact={personImpact}
           interactions={personInteractions}
-        />
+        />,
       );
     });
   });
@@ -234,7 +246,7 @@ describe('ImpactView', () => {
             pathway_moved_count: 0,
           }}
           interactions={personInteractions}
-        />
+        />,
       );
     });
     it('renders singular state', () => {
@@ -249,7 +261,7 @@ describe('ImpactView', () => {
             pathway_moved_count: 1,
           }}
           interactions={personInteractions}
-        />
+        />,
       );
     });
     it('renders plural state', () => {
@@ -259,7 +271,7 @@ describe('ImpactView', () => {
           organization={organization}
           impact={personImpact}
           interactions={personInteractions}
-        />
+        />,
       );
     });
   });

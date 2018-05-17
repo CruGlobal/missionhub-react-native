@@ -4,9 +4,24 @@ import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 
 export default class Flex extends Component {
-  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+  setNativeProps(nProps) {
+    this._view.setNativeProps(nProps);
+  }
   render() {
-    const { value, direction, align, justify, self: flexSelf, grow, wrap, children, style = {}, animation, animated, ...rest } = this.props;
+    const {
+      value,
+      direction,
+      align,
+      justify,
+      self: flexSelf,
+      grow,
+      wrap,
+      children,
+      style = {},
+      animation,
+      animated,
+      ...rest
+    } = this.props;
     let styleObj = {};
     if (value) styleObj.flex = value;
     if (direction) styleObj.flexDirection = direction;
@@ -36,22 +51,18 @@ export default class Flex extends Component {
     if (animation || animated) {
       return (
         <Animatable.View
-          ref={(c) => this._view = c}
+          ref={c => (this._view = c)}
           duration={400}
           animation={animation}
           {...rest}
-          style={[ style, styleObj ]}
+          style={[style, styleObj]}
         >
           {children}
         </Animatable.View>
       );
     }
     return (
-      <View
-        ref={(c) => this._view = c}
-        {...rest}
-        style={[ style, styleObj ]}
-      >
+      <View ref={c => (this._view = c)} {...rest} style={[style, styleObj]}>
         {children}
       </View>
     );
@@ -60,13 +71,17 @@ export default class Flex extends Component {
 
 Flex.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   value: PropTypes.number,
   grow: PropTypes.number,
-  direction: PropTypes.oneOf([ 'row', 'column' ]),
-  wrap: PropTypes.oneOf([ 'wrap', 'wrap-reverse', 'nowrap' ]),
-  align: PropTypes.oneOf([ 'start', 'center', 'end', 'stretch' ]),
-  justify: PropTypes.oneOf([ 'start', 'center', 'end', 'around', 'between' ]),
-  self: PropTypes.oneOf([ 'start', 'center', 'end', 'stretch' ]),
+  direction: PropTypes.oneOf(['row', 'column']),
+  wrap: PropTypes.oneOf(['wrap', 'wrap-reverse', 'nowrap']),
+  align: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
+  justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
+  self: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
   animated: PropTypes.bool,
 };

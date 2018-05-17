@@ -1,6 +1,8 @@
 import { REQUESTS } from '../actions/api';
 import {
-  LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT,
+  LOGOUT,
+  TOGGLE_STEP_FOCUS,
+  COMPLETED_STEP_COUNT,
   FILTERED_CHALLENGES,
 } from '../constants';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
@@ -19,10 +21,13 @@ const initialState = {
 
 export function getPagination(state, action, steps) {
   const totalSteps = steps.length;
-  const offset = action.query.page && action.query.page.offset ? action.query.page.offset : 0;
+  const offset =
+    action.query.page && action.query.page.offset
+      ? action.query.page.offset
+      : 0;
   const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
   const total = action.meta ? action.meta.total || 0 : 0;
-  const hasNextPage = total > (offset + totalSteps);
+  const hasNextPage = total > offset + totalSteps;
 
   return {
     ...state.pagination,
@@ -43,12 +48,10 @@ export default function stepsReducer(state = initialState, action) {
       const newSteps = action.results.response;
 
       // If we're doing paging, concat the old steps with the new ones
-      const allSteps = action.query.page && action.query.page.offset > 0 ?
-        [
-          ...state.mine || [],
-          ...newSteps,
-        ] :
-        newSteps;
+      const allSteps =
+        action.query.page && action.query.page.offset > 0
+          ? [...(state.mine || []), ...newSteps]
+          : newSteps;
 
       return {
         ...state,
@@ -56,7 +59,10 @@ export default function stepsReducer(state = initialState, action) {
         pagination: getPagination(state, action, allSteps),
       };
     case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
-      const { receiver_ids: personId, organization_ids: orgId } = action.query.filters;
+      const {
+        receiver_ids: personId,
+        organization_ids: orgId,
+      } = action.query.filters;
       return {
         ...state,
         contactSteps: {
@@ -73,7 +79,10 @@ export default function stepsReducer(state = initialState, action) {
       const currentCount = state.userStepCount[action.userId] || 0;
       return {
         ...state,
-        userStepCount: { ...state.userStepCount, [action.userId]: currentCount + 1 },
+        userStepCount: {
+          ...state.userStepCount,
+          [action.userId]: currentCount + 1,
+        },
       };
     case LOGOUT:
       return initialState;
@@ -83,7 +92,7 @@ export default function stepsReducer(state = initialState, action) {
 }
 
 const toggleStepReminder = (steps, step) =>
-  steps.map((s) => ({
+  steps.map(s => ({
     ...s,
     focus: s.id === step.id ? !s.focus : s.focus,
   }));

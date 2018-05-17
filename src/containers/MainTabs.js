@@ -3,12 +3,9 @@ import { connect } from 'react-redux';
 
 import { MainTabBar, MainTabBarGroups } from '../AppRoutes';
 
-
-
 class MainTabs extends Component {
-
   render() {
-    return (this.props.groups ? <MainTabBarGroups /> : <MainTabBar />);
+    return this.props.groups ? <MainTabBarGroups /> : <MainTabBar />;
   }
 }
 

@@ -4,19 +4,30 @@ import i18next from 'i18next';
 
 import { renderShallow } from '../../testUtils';
 import { StepsScreen, mapStateToProps } from '../../src/containers/StepsScreen';
-import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
+import {
+  reminderStepsSelector,
+  nonReminderStepsSelector,
+} from '../../src/selectors/steps';
 import theme from '../../src/theme';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { ACTIONS } from '../../src/constants';
-import { showReminderScreen, showWelcomeNotification, toast } from '../../src/actions/notifications';
-import { completeStepReminder, deleteStepWithTracking, setStepFocus } from '../../src/actions/steps';
+import {
+  showReminderScreen,
+  showWelcomeNotification,
+  toast,
+} from '../../src/actions/notifications';
+import {
+  completeStepReminder,
+  deleteStepWithTracking,
+  setStepFocus,
+} from '../../src/actions/steps';
 
 jest.mock('../../src/selectors/steps');
 jest.mock('../../src/actions/analytics');
 jest.mock('../../src/actions/notifications');
 jest.mock('../../src/actions/steps');
 
-const dispatch = jest.fn(async() => {});
+const dispatch = jest.fn(async () => {});
 
 const store = {
   steps: {
@@ -84,16 +95,15 @@ describe('StepsScreen', () => {
 
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
-      reminderStepsSelector.mockReturnValue([ { id: 1, reminder: true } ]);
-      nonReminderStepsSelector.mockReturnValue([ { id: 2 }, { id: 3 } ]);
+      reminderStepsSelector.mockReturnValue([{ id: 1, reminder: true }]);
+      nonReminderStepsSelector.mockReturnValue([{ id: 2 }, { id: 3 }]);
       expect(mapStateToProps(store)).toMatchSnapshot();
     });
   });
 
-  const createComponent = (props) =>
-    renderShallow(<StepsScreen {...props} />);
+  const createComponent = props => renderShallow(<StepsScreen {...props} />);
 
-  const stopLoad = (component) => {
+  const stopLoad = component => {
     component.instance().setState({ loading: false });
     component.update();
     return component;
@@ -119,7 +129,9 @@ describe('StepsScreen', () => {
 
   it('renders correctly with max reminders', () => {
     const reminders = [
-      { id: 11, reminder: true }, { id: 12, reminder: true }, { id: 13, reminder: true },
+      { id: 11, reminder: true },
+      { id: 12, reminder: true },
+      { id: 13, reminder: true },
     ];
 
     component = createComponent({ ...propsWithSteps, reminders });
@@ -133,12 +145,14 @@ describe('StepsScreen', () => {
       component = stopLoad(component);
     });
 
-    const getBackgroundColor = (component) => {
-      return component.find(ScrollView).props().style.find((element) => {
-        return element.backgroundColor;
-      }).backgroundColor;
+    const getBackgroundColor = component => {
+      return component
+        .find(ScrollView)
+        .props()
+        .style.find(element => {
+          return element.backgroundColor;
+        }).backgroundColor;
     };
-
 
     it('Starts with white background', () => {
       expect(getBackgroundColor(component)).toBe(theme.white);
@@ -188,7 +202,6 @@ describe('StepsScreen', () => {
 
       expect(component.state('paging')).toBe(true);
     });
-
   });
 
   describe('handleSetReminder', () => {
@@ -200,22 +213,28 @@ describe('StepsScreen', () => {
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.STEP_PRIORITIZED,
+      );
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showReminderScreen).toHaveBeenCalledWith(i18next.t('notificationPrimer:focusDescription'));
+      expect(showReminderScreen).toHaveBeenCalledWith(
+        i18next.t('notificationPrimer:focusDescription'),
+      );
       expect(showWelcomeNotification).toHaveBeenCalled();
     });
 
     it('should focus a step and not show notification reminder screen if reminders already exist', () => {
       const component = createComponent({
         ...propsWithSteps,
-        reminders: [ 'someStep' ],
+        reminders: ['someStep'],
       });
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.STEP_PRIORITIZED,
+      );
       expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).not.toHaveBeenCalled();
@@ -225,12 +244,14 @@ describe('StepsScreen', () => {
     it('should not focus a step when reminders slots are filled', () => {
       const component = createComponent({
         ...propsWithSteps,
-        reminders: [ 'step1', 'step2', 'step3' ],
+        reminders: ['step1', 'step2', 'step3'],
       });
 
       component.instance().handleSetReminder('testStep');
 
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_PRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.STEP_PRIORITIZED,
+      );
       expect(toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
       expect(showReminderScreen).not.toHaveBeenCalled();
@@ -243,12 +264,14 @@ describe('StepsScreen', () => {
       const step = 'some step';
       const component = createComponent({
         ...propsWithSteps,
-        reminders: [ step ],
+        reminders: [step],
       });
 
       component.instance().handleRemoveReminder(step);
 
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STEP_DEPRIORITIZED);
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.STEP_DEPRIORITIZED,
+      );
       expect(setStepFocus).toHaveBeenCalledWith(step, false);
     });
   });
@@ -258,7 +281,7 @@ describe('StepsScreen', () => {
       const step = 'some step';
       const component = createComponent({
         ...propsWithSteps,
-        reminders: [ step ],
+        reminders: [step],
       });
 
       component.instance().handleCompleteReminder(step);
@@ -272,7 +295,7 @@ describe('StepsScreen', () => {
       const step = 'some step';
       const component = createComponent({
         ...propsWithSteps,
-        reminders: [ step ],
+        reminders: [step],
       });
 
       component.instance().handleDeleteReminder(step);
@@ -281,4 +304,3 @@ describe('StepsScreen', () => {
     });
   });
 });
-

@@ -13,7 +13,6 @@ import styles from './styles';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -39,15 +38,15 @@ class NotificationPrimerScreen extends Component {
     const { t, descriptionText } = this.props;
     return (
       <Flex style={styles.container}>
-        <Flex value={.3} />
+        <Flex value={0.3} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            <Image source={require('../../../assets/images/notificationPrimer.png')} />
+            <Image
+              source={require('../../../assets/images/notificationPrimer.png')}
+            />
           </Flex>
-          <Flex value={.6} align="center" justify="center">
-            <Text style={styles.text}>
-              {descriptionText}
-            </Text>
+          <Flex value={0.6} align="center" justify="center">
+            <Text style={styles.text}>{descriptionText}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -67,7 +66,7 @@ class NotificationPrimerScreen extends Component {
             />
           </Flex>
         </Flex>
-        <Flex value={.3} />
+        <Flex value={0.3} />
       </Flex>
     );
   }

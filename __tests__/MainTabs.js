@@ -34,19 +34,20 @@ const store = createMockStore({
   },
 });
 
-
 it('renders home screen with tab bar with impact tab correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <MainTabBar />
-    </Provider>);
+    </Provider>,
+  );
 });
 
 it('renders home screen with tab bar with groups tab correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <MainTabBarGroups />
-    </Provider>);
+    </Provider>,
+  );
 });
 
 it('renders navItem correctly', () => {

@@ -4,7 +4,8 @@ import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
 import { initialRoute } from '../../src/actions/navigationInit';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
-const token = 'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
+const token =
+  'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
 
 const test = (store, route) => {
@@ -109,7 +110,7 @@ describe('initialRoute', () => {
               },
             },
           },
-          ADD_SOMEONE_SCREEN
+          ADD_SOMEONE_SCREEN,
         );
       });
 
@@ -142,7 +143,7 @@ describe('initialRoute', () => {
               },
             },
           },
-          GET_STARTED_SCREEN
+          GET_STARTED_SCREEN,
         );
       });
 

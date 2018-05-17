@@ -2,7 +2,8 @@ import { REQUESTS } from '../actions/api';
 import {
   LOGOUT,
   DISABLE_WELCOME_NOTIFICATION,
-  REQUEST_NOTIFICATIONS, LOAD_HOME_NOTIFICATION_REMINDER,
+  REQUEST_NOTIFICATIONS,
+  LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../constants';
 
 const initialState = {

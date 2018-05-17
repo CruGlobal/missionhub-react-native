@@ -58,6 +58,6 @@ jest.mock('NativeAnimatedHelper');
 it('renders correctly', () => {
   testSnapshotShallow(
     <SecondaryTabBar person={{ first_name: 'ben', id: 1 }} tabs={tabArray} />,
-    store
+    store,
   );
 });

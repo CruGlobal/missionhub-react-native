@@ -24,7 +24,7 @@ beforeEach(() => {
 
   screen = renderShallow(
     <NotificationOffScreen navigation={{ state: {} }} onClose={onClose} />,
-    store
+    store,
   );
 
   trackActionWithoutData.mockReturnValue(trackActionResult);
@@ -37,10 +37,15 @@ it('renders', () => {
 
 describe('not now button', () => {
   it('should call onClose callback, navigate back, and track an action', () => {
-    screen.childAt(1).childAt(2).childAt(1).props().onPress();
+    screen
+      .childAt(1)
+      .childAt(2)
+      .childAt(1)
+      .props()
+      .onPress();
 
     expect(navigateBack).toHaveBeenCalledWith();
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
-    expect(store.getActions()).toEqual([ navigateResult, trackActionResult ]);
+    expect(store.getActions()).toEqual([navigateResult, trackActionResult]);
   });
 });

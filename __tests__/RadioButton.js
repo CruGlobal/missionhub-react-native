@@ -12,13 +12,9 @@ const props = {
 };
 
 it('renders correctly', () => {
-  testSnapshot(
-    <RadioButton {...props} />
-  );
+  testSnapshot(<RadioButton {...props} />);
 });
 
 it('renders not checked correctly', () => {
-  testSnapshot(
-    <RadioButton {...props} checked={false} />
-  );
+  testSnapshot(<RadioButton {...props} checked={false} />);
 });

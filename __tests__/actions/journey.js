@@ -7,7 +7,7 @@ import { getJourney, reloadJourney } from '../../src/actions/journey';
 
 jest.mock('../../src/actions/api');
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 
 const personId = '2';
 const myId = '1';
@@ -33,10 +33,7 @@ const feed = [
     id: '1',
     _type: 'interaction',
     comment: 'Interaction in org',
-    initiators: [
-      { id: '3' },
-      { id: myId },
-    ],
+    initiators: [{ id: '3' }, { id: myId }],
     organization: { id: orgId },
     created_at: '2018-02-01T00:00:00',
   },
@@ -44,9 +41,7 @@ const feed = [
     id: '2',
     _type: 'interaction',
     comment: 'Interaction in another org',
-    initiators: [
-      { id: myId },
-    ],
+    initiators: [{ id: myId }],
     organization: { id: '2' },
     created_at: '2018-02-02T00:00:00',
   },
@@ -54,9 +49,7 @@ const feed = [
     id: '3',
     _type: 'interaction',
     comment: 'Interaction by someone else',
-    initiators: [
-      { id: '3' },
-    ],
+    initiators: [{ id: '3' }],
     organization: { id: orgId },
     created_at: '2018-02-03T00:00:00',
   },
@@ -64,9 +57,7 @@ const feed = [
     id: '4',
     _type: 'interaction',
     comment: 'Comment in personal org',
-    initiators: [
-      { id: myId },
-    ],
+    initiators: [{ id: myId }],
     organization: null,
     created_at: '2018-02-12T00:00:00',
   },
@@ -76,7 +67,11 @@ const feed = [
     comment: 'Stage change in org',
     assigned_to: { id: myId },
     organization: { id: orgId },
-    old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+    old_pathway_stage: {
+      id: '1',
+      _type: 'pathway_stage',
+      name: 'Uninterested',
+    },
     new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
     created_at: '2018-02-04T00:00:00',
     person: { id: personId },
@@ -87,7 +82,11 @@ const feed = [
     comment: 'Stage change in another org',
     assigned_to: { id: myId },
     organization: { id: '2' },
-    old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+    old_pathway_stage: {
+      id: '1',
+      _type: 'pathway_stage',
+      name: 'Uninterested',
+    },
     new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
     created_at: '2018-02-05T00:00:00',
     person: { id: personId },
@@ -98,7 +97,11 @@ const feed = [
     comment: 'Stage change by someone else',
     assigned_to: { id: '3' },
     organization: { id: orgId },
-    old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+    old_pathway_stage: {
+      id: '1',
+      _type: 'pathway_stage',
+      name: 'Uninterested',
+    },
     new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
     created_at: '2018-02-06T00:00:00',
     person: { id: personId },
@@ -109,7 +112,11 @@ const feed = [
     comment: 'Stage change in personal org',
     assigned_to: { id: myId },
     organization: null,
-    old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+    old_pathway_stage: {
+      id: '1',
+      _type: 'pathway_stage',
+      name: 'Uninterested',
+    },
     new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
     created_at: '2018-02-11T00:00:00',
     person: { id: personId },
@@ -137,24 +144,24 @@ const feed = [
 callApi.mockReturnValue(() => Promise.resolve({ response: { all: feed } }));
 
 describe('reload journey', () => {
-  it('should not load if journey has not been fetched for org', async() => {
-    store = mockStore({ journey: { 'personal': {} } });
+  it('should not load if journey has not been fetched for org', async () => {
+    store = mockStore({ journey: { personal: {} } });
 
     await store.dispatch(reloadJourney(personId, orgId));
 
     expect(store.getActions()).toEqual([]);
   });
 
-  it('should not load if journey has not been fetched for person', async() => {
-    store = mockStore({ journey: { 'personal': {}, [orgId]: {} } });
+  it('should not load if journey has not been fetched for person', async () => {
+    store = mockStore({ journey: { personal: {}, [orgId]: {} } });
 
     await store.dispatch(reloadJourney(personId, orgId));
 
     expect(store.getActions()).toEqual([]);
   });
 
-  it('should reload if journey has been fetched for person', async() => {
-    store = mockStore({ journey: { 'personal': { [personId]: [] } } });
+  it('should reload if journey has been fetched for person', async () => {
+    store = mockStore({ journey: { personal: { [personId]: [] } } });
 
     await store.dispatch(reloadJourney(personId));
 
@@ -173,24 +180,23 @@ describe('get journey', () => {
 
   async function test(orgId, expectedOrgId) {
     expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_PERSON_FEED,
-      {
-        include: 'all.answers.question,all.survey,all.person,all.old_pathway_stage,all.new_pathway_stage',
-        filters: {
-          person_id: personId,
-          organization_ids: expectedOrgId,
-          starting_at: '2011-01-01T00:00:00Z',
-          ending_at: '2018-04-17T00:00:00Z',
-        },
-      });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
+      include:
+        'all.answers.question,all.survey,all.person,all.old_pathway_stage,all.new_pathway_stage',
+      filters: {
+        person_id: personId,
+        organization_ids: expectedOrgId,
+        starting_at: '2011-01-01T00:00:00Z',
+        ending_at: '2018-04-17T00:00:00Z',
+      },
+    });
   }
 
-  it('should get a person\'s journey without an org (personal ministry)', async() => {
+  it("should get a person's journey without an org (personal ministry)", async () => {
     test(undefined, 'null');
   });
 
-  it('should get a person\'s journey with an org', async() => {
+  it("should get a person's journey with an org", async () => {
     test(orgId, orgId);
   });
 });

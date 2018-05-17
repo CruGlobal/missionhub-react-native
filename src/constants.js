@@ -14,13 +14,15 @@ export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const SWIPE_REMINDER_STEPS_HOME = 'app/SWIPE_REMINDER_STEPS_HOME';
 export const SWIPE_REMINDER_STEPS_CONTACT = 'app/SWIPE_REMINDER_STEPS_CONTACT';
-export const SWIPE_REMINDER_STEPS_REMINDER = 'app/SWIPE_REMINDER_STEPS_REMINDER';
+export const SWIPE_REMINDER_STEPS_REMINDER =
+  'app/SWIPE_REMINDER_STEPS_REMINDER';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
-export const UPDATE_PEOPLE_INTERACTION_REPORT = 'app/UPDATE_PEOPLE_INTERACTION_REPORT';
+export const UPDATE_PEOPLE_INTERACTION_REPORT =
+  'app/UPDATE_PEOPLE_INTERACTION_REPORT';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
@@ -28,7 +30,8 @@ export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
 export const REQUEST_NOTIFICATIONS = 'app/REQUEST_NOTIFICATIONS';
-export const LOAD_HOME_NOTIFICATION_REMINDER = 'app/LOAD_HOME_NOTIFICATION_REMINDER';
+export const LOAD_HOME_NOTIFICATION_REMINDER =
+  'app/LOAD_HOME_NOTIFICATION_REMINDER';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
@@ -70,13 +73,14 @@ export const LINKS = {
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
-export const ORG_PERMISSIONS = [ 1, 4 ];
+export const ORG_PERMISSIONS = [1, 4];
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
 export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
 export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
 export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
-export const PERSON_VIEWED_STAGE_CHANGED = 'analytics/PERSON_VIEWED_STAGE_CHANGED';
+export const PERSON_VIEWED_STAGE_CHANGED =
+  'analytics/PERSON_VIEWED_STAGE_CHANGED';
 export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
@@ -210,15 +214,68 @@ export const ACTIONS = {
 export const CUSTOM_STEP_TYPE = 'user created step';
 
 export const INTERACTION_TYPES = {
-  MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
-  MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'uncontactedIcon', translationKey: 'interactionUncontacted' },
-  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.INTERACTION.COMMENT },
-  MHInteractionTypeSomethingCoolHappened: { id: 11, iconName: 'celebrateIcon', translationKey: 'interactionSomethingCoolHappened', hideReport: true, tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED },
-  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION },
-  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION },
-  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: ACTIONS.INTERACTION.PERSONAL_DECISION },
-  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit', isOnAction: true, tracking: ACTIONS.INTERACTION.HOLY_SPIRIT_PRESENTATION },
-  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation', isOnAction: true, tracking: ACTIONS.INTERACTION.DISCIPLESHIP },
+  MHInteractionTypeAssignedContacts: {
+    id: 100,
+    requestFieldName: 'contact_count',
+    iconName: 'peopleIcon',
+    translationKey: 'interactionAssignedContacts',
+  },
+  MHInteractionTypeUncontacted: {
+    id: 101,
+    requestFieldName: 'uncontacted_count',
+    iconName: 'uncontactedIcon',
+    translationKey: 'interactionUncontacted',
+  },
+  MHInteractionTypeNote: {
+    id: 1,
+    iconName: 'commentIcon',
+    translationKey: 'interactionNote',
+    hideReport: true,
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.COMMENT,
+  },
+  MHInteractionTypeSomethingCoolHappened: {
+    id: 11,
+    iconName: 'celebrateIcon',
+    translationKey: 'interactionSomethingCoolHappened',
+    hideReport: true,
+    tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED,
+  },
+  MHInteractionTypeSpiritualConversation: {
+    id: 2,
+    iconName: 'spiritualConversationIcon',
+    translationKey: 'interactionSpiritualConversation',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION,
+  },
+  MHInteractionTypeGospelPresentation: {
+    id: 3,
+    iconName: 'gospelIcon',
+    translationKey: 'interactionGospel',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION,
+  },
+  MHInteractionTypePersonalDecision: {
+    id: 4,
+    iconName: 'decisionIcon',
+    translationKey: 'interactionDecision',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.PERSONAL_DECISION,
+  },
+  MHInteractionTypeHolySpiritConversation: {
+    id: 5,
+    iconName: 'spiritIcon',
+    translationKey: 'interactionSpirit',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.HOLY_SPIRIT_PRESENTATION,
+  },
+  MHInteractionTypeDiscipleshipConversation: {
+    id: 9,
+    iconName: 'discipleshipConversationIcon',
+    translationKey: 'interactionDiscipleshipConversation',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.DISCIPLESHIP,
+  },
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;

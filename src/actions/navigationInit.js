@@ -6,22 +6,30 @@ import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export function initialRoute({ auth, personProfile, people }) {
   if (auth && isAuthenticated(auth)) {
-    if (personProfile.hasCompletedOnboarding || hasContactWithPathwayStage(auth.person.id, people)) {
+    if (
+      personProfile.hasCompletedOnboarding ||
+      hasContactWithPathwayStage(auth.person.id, people)
+    ) {
       return MAIN_TABS;
     }
 
-    return auth.person.user.pathway_stage_id ? ADD_SOMEONE_SCREEN : GET_STARTED_SCREEN;
+    return auth.person.user.pathway_stage_id
+      ? ADD_SOMEONE_SCREEN
+      : GET_STARTED_SCREEN;
   }
 
   return LOGIN_SCREEN;
 }
 
 function hasContactWithPathwayStage(myId, people) {
-  return Object.values(people.allByOrg).some((org) =>
-    Object.values(org.people).some((person) =>
-      person.id !== myId && person.reverse_contact_assignments.some((assignment) =>
-        assignment.assigned_to.id === myId && assignment.pathway_stage_id
-      )
-    )
+  return Object.values(people.allByOrg).some(org =>
+    Object.values(org.people).some(
+      person =>
+        person.id !== myId &&
+        person.reverse_contact_assignments.some(
+          assignment =>
+            assignment.assigned_to.id === myId && assignment.pathway_stage_id,
+        ),
+    ),
   );
 }

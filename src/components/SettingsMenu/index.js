@@ -23,7 +23,8 @@ export class SettingsMenu extends Component {
       },
       {
         label: t('review'),
-        action: () => Linking.openURL(isAndroid ? LINKS.playStore : LINKS.appleStore),
+        action: () =>
+          Linking.openURL(isAndroid ? LINKS.playStore : LINKS.appleStore),
       },
       {
         label: t('terms'),
@@ -41,9 +42,7 @@ export class SettingsMenu extends Component {
       },
     ];
 
-    return (
-      <SideMenu menuItems={menuItems} />
-    );
+    return <SideMenu menuItems={menuItems} />;
   }
 }
 

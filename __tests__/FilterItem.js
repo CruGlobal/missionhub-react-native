@@ -16,24 +16,29 @@ jest.mock('Switch');
 
 it('renders single item correctly', () => {
   testSnapshot(
-    <FilterItem item={mockItem} onSelect={onSelect} type="single" />
+    <FilterItem item={mockItem} onSelect={onSelect} type="single" />,
   );
 });
 
 it('renders drilldown item correctly', () => {
   testSnapshot(
-    <FilterItem item={mockItem} onSelect={onSelect} type="drilldown" />
+    <FilterItem item={mockItem} onSelect={onSelect} type="drilldown" />,
   );
 });
 
 it('renders switch item correctly', () => {
   testSnapshot(
-    <FilterItem item={mockItem} onSelect={onSelect} type="switch" />
+    <FilterItem item={mockItem} onSelect={onSelect} type="switch" />,
   );
 });
 
 it('renders selected switch item correctly', () => {
   testSnapshot(
-    <FilterItem item={mockItem} onSelect={onSelect} type="switch" isSelected={true} />
+    <FilterItem
+      item={mockItem}
+      onSelect={onSelect}
+      type="switch"
+      isSelected={true}
+    />,
   );
 });

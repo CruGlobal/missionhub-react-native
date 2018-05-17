@@ -12,7 +12,6 @@ import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
-
   componentDidMount() {
     disableBack.add();
   }
@@ -23,37 +22,52 @@ class StageSuccessScreen extends Component {
 
   handleNavigate = () => {
     this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-  }
+  };
 
   handleNavigateToStep = () => {
     disableBack.remove();
-    this.props.dispatch(navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN,
-      { onboarding: true,
+    this.props.dispatch(
+      navigatePush(SELECT_MY_STEP_ONBOARDING_SCREEN, {
+        onboarding: true,
         contactStage: this.props.selectedStage,
         onSaveNewSteps: this.handleNavigate,
         enableBackButton: false,
-      }));
-  }
+      }),
+    );
+  };
 
   getMessage() {
     const { t } = this.props;
 
-    let followUpText = this.props.selectedStage && this.props.selectedStage.self_followup_description ? this.props.selectedStage.self_followup_description : t('backupMessage');
-    followUpText = followUpText.replace('<<user>>', this.props.firstName ? this.props.firstName : t('friend'));
+    let followUpText =
+      this.props.selectedStage &&
+      this.props.selectedStage.self_followup_description
+        ? this.props.selectedStage.self_followup_description
+        : t('backupMessage');
+    followUpText = followUpText.replace(
+      '<<user>>',
+      this.props.firstName ? this.props.firstName : t('friend'),
+    );
     return followUpText;
   }
 
   render() {
     const { t } = this.props;
     const message = this.getMessage();
-    return <IconMessageScreen mainText={message} buttonText={t('chooseSteps').toUpperCase()} onComplete={this.handleNavigateToStep} iconPath={require('../../assets/images/pathFinder.png')} />;
+    return (
+      <IconMessageScreen
+        mainText={message}
+        buttonText={t('chooseSteps').toUpperCase()}
+        onComplete={this.handleNavigateToStep}
+        iconPath={require('../../assets/images/pathFinder.png')}
+      />
+    );
   }
 }
 
 StageSuccessScreen.propTypes = {
   selectedStage: PropTypes.object,
 };
-
 
 const mapStateToProps = ({ profile }, { navigation }) => ({
   ...(navigation.state.params || {}),

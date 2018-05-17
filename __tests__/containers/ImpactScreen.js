@@ -40,9 +40,6 @@ describe('Impact Screen', () => {
   });
 
   it('renders correctly', () => {
-    testSnapshotShallow(
-      <ImpactScreen />,
-      store
-    );
+    testSnapshotShallow(<ImpactScreen />, store);
   });
 });

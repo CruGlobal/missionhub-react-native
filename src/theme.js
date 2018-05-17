@@ -6,7 +6,17 @@ import { exists, isAndroid, isiPhoneX } from './utils/common';
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window');
 
 // See https://github.com/qix-/color for help
-function colorConvert({ color, alpha, lighten, darken, negate, rotate, whiten, blacken, hex }) {
+function colorConvert({
+  color,
+  alpha,
+  lighten,
+  darken,
+  negate,
+  rotate,
+  whiten,
+  blacken,
+  hex,
+}) {
   if (!color) LOG('Pass in a color!');
   let col = Color(color);
   // Lots of things you can do with color stuff

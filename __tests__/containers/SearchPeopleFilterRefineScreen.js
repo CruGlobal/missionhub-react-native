@@ -20,10 +20,7 @@ const options = [
   {
     id: 'test10',
     text: 'Test 10',
-    options: [
-      { id: 'test2', text: 'Test 2' },
-      { id: 'test3', text: 'Test 3' },
-    ],
+    options: [{ id: 'test2', text: 'Test 2' }, { id: 'test3', text: 'Test 3' }],
   },
 ];
 
@@ -36,7 +33,7 @@ it('renders correctly', () => {
           options,
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -50,6 +47,6 @@ it('renders title correctly', () => {
           title: 'Test',
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });
