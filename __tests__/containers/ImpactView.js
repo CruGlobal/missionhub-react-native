@@ -80,7 +80,7 @@ const personInteractions = {
     num: 0,
   } ],
 };
-const organization = { id: '34', _type: 'organization' };
+const organization = { id: '34', _type: 'organization', name: 'Test Org' };
 
 describe('ImpactView', () => {
   describe('mapStateToProps', () => {
@@ -221,46 +221,46 @@ describe('ImpactView', () => {
         />
       );
     });
-    describe('group impact', () => {
-      it('renders empty state', () => {
-        testSnapshotShallow(
-          <ImpactView
-            dispatch={dispatch}
-            organization={organization}
-            impact={{
-              ...personImpact,
-              steps_count: 0,
-              pathway_moved_count: 0,
-            }}
-            interactions={personInteractions}
-          />
-        );
-      });
-      it('renders singular state', () => {
-        testSnapshotShallow(
-          <ImpactView
-            dispatch={dispatch}
-            perorganizationson={organization}
-            impact={{
-              ...personImpact,
-              steps_count: 1,
-              receivers_count: 1,
-              pathway_moved_count: 1,
-            }}
-            interactions={personInteractions}
-          />
-        );
-      });
-      it('renders plural state', () => {
-        testSnapshotShallow(
-          <ImpactView
-            dispatch={dispatch}
-            organization={organization}
-            impact={personImpact}
-            interactions={personInteractions}
-          />
-        );
-      });
+  });
+  describe('group impact', () => {
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          organization={organization}
+          impact={{
+            ...personImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
+        />
+      );
+    });
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          perorganizationson={organization}
+          impact={{
+            ...personImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
+        />
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          organization={organization}
+          impact={personImpact}
+          interactions={personInteractions}
+        />
+      );
     });
   });
 });
