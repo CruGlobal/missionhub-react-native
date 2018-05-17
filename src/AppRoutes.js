@@ -32,7 +32,8 @@ import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
-import { IMPACT_TAB, MAIN_TABS, PEOPLE_TAB, STEPS_TAB } from './constants';
+import MainTabs from './containers/MainTabs';
+import { IMPACT_TAB, MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 
 // Do custom animations between pages
@@ -93,39 +94,58 @@ const tabs = {
       tabBarLabel: navItem('impact'),
     },
   ),
+  [GROUPS_TAB]: buildTrackedScreen(
+    ImpactScreen,
+    buildTrackingObj('groups', 'groups'),
+    {
+      tabBarLabel: navItem('groups'),
+    },
+  ),
 };
 
-export const MainTabRoutes = TabNavigator(
-  tabs, {
-    // initialRouteName: 'ImpactTab',
-    tabBarOptions: {
-      showIcon: false,
-      showLabel: true,
-      style: { backgroundColor: theme.white },
-      activeTintColor: theme.primaryColor,
-      inactiveTintColor: theme.inactiveColor,
-      tabStyle: { backgroundColor: theme.lightBackgroundColor },
-      indicatorStyle: { backgroundColor: 'transparent' } ,
-      upperCaseLabel: false,
+const createTabs = (tabKey, tabPath) => {
+  return TabNavigator(
+    {
+      StepsTab: tabs.StepsTab,
+      PeopleTab: tabs.PeopleTab,
+      [tabKey]: tabs[tabKey],
+    },
+    {
+      // initialRouteName: 'ImpactTab',
+      tabBarOptions: {
+        showIcon: false,
+        showLabel: true,
+        style: { backgroundColor: theme.white },
+        activeTintColor: theme.primaryColor,
+        inactiveTintColor: theme.inactiveColor,
+        tabStyle: { backgroundColor: theme.lightBackgroundColor },
+        indicatorStyle: { backgroundColor: 'transparent' } ,
+        upperCaseLabel: false,
 
-      // Android
-      scrollEnabled: false,
-    },
-    swipeEnabled: false,
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
-    // lazy: false, // Load all tabs right away
-    lazy: true,
-    paths: {
-      StepsTab: '/steps', //should these use the STEPS/PEOPLE/IMPACT_TAB constants?
-      PeopleTab: '/people',
-      ImpactTab: '/impact',
-    },
-  });
+        // Android
+        scrollEnabled: false,
+      },
+      swipeEnabled: false,
+      tabBarPosition: 'bottom',
+      animationEnabled: false,
+      // lazy: false, // Load all tabs right away
+      lazy: true,
+      paths: {
+        StepsTab: '/steps',
+        PeopleTab: '/people',
+        [tabKey]: tabPath,
+      },
+    }
+  );
+};
+
+export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
+
+export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   DrawerNavigator({
-    Main: { screen: MainTabRoutes },
+    Main: { screen: MainTabs },
   }, {
     contentComponent: SettingsMenu,
     navigationOptions: { drawerLockMode: 'locked-closed' },

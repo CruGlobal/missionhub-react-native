@@ -330,6 +330,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
+    groups: 'Groups',
   },
   onboarding: {
     screen1: {
