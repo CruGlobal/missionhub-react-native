@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getPeopleInteractionsReport, getImpactSummary } from '../../actions/impact';
+import { getPeopleInteractionsReport, getImpactSummary } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { impactInteractionsSelector, impactSummarySelector } from '../../selectors/impact';
@@ -52,7 +52,7 @@ export class ImpactView extends Component {
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(getImpactSummary(person.id, person.id ? undefined : organization.id));
     if (isMe) {
-      dispatch(getGlobalImpact());
+      dispatch(getImpactSummary()); // Get global impact by calling without person or org
     } else {
       this.getInteractionReport();
     }
