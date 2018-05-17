@@ -20,7 +20,21 @@ export function getAssignedOrganizations() {
 }
 
 function getOrganizations(requestObject, query) {
-  return (dispatch) => dispatch(callApi(requestObject, query));
+  return async(dispatch) => {
+    const { response } = await dispatch(callApi(requestObject, query));
+    response.forEach((o) => dispatch(getOrganizationContacts(o.id)));
+    return response;
+  };
+}
+
+function getOrganizationContacts(orgId) {
+  const query = {
+    organization_id: orgId,
+    include_unassigned: true,
+  };
+  return (dispatch) => dispatch(callApi(REQUESTS.GET_ORGANIZATION_CONTACTS, query)).then((result) => {
+    return result;
+  });
 }
 
 export function addNewContact(data) {

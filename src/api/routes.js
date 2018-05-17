@@ -10,6 +10,8 @@ const IMPACT_URL = `${API_URL}reports/impact`;
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
 
+const FILTER_STATS_URL = `${API_URL}filter_stats/`;
+
 const KEY_TOKEN = {
   endpoint: `${THE_KEY_OAUTH_URL}token`,
   method: 'post',
@@ -137,6 +139,9 @@ export default {
   },
   'GET_ORGANIZATIONS': {
     endpoint: `${API_URL}organizations`,
+  },
+  'GET_ORGANIZATION_CONTACTS': {
+    endpoint: `${FILTER_STATS_URL}people`,
   },
   'GET_MY_GROUPS': {
     endpoint: `${API_URL}groups`,
