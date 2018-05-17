@@ -1,4 +1,7 @@
-import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
+import {
+  reminderStepsSelector,
+  nonReminderStepsSelector,
+} from '../../src/selectors/steps';
 
 const people = {
   allByOrg: {

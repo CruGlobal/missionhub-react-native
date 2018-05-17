@@ -5,7 +5,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
-import { createMockStore, createMockNavState, testSnapshot } from '../../testUtils';
+import {
+  createMockStore,
+  createMockNavState,
+  testSnapshot,
+} from '../../testUtils';
 import CelebrationScreen from '../../src/containers/CelebrationScreen';
 import * as navigation from '../../src/actions/navigation';
 import * as common from '../../src/utils/common';
@@ -22,10 +26,9 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <CelebrationScreen navigation={createMockNavState()} />
-    </Provider>
+    </Provider>,
   );
 });
-
 
 describe('celebration screen methods', () => {
   let component;
@@ -33,9 +36,11 @@ describe('celebration screen methods', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <CelebrationScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-      })} />,
+      <CelebrationScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+        })}
+      />,
       { context: { store } },
     );
 

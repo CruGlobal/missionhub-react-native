@@ -10,26 +10,26 @@ import MFACodeComponent from '../../components/MFACodeComponent';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {
-
   state = {
     mfaCode: '',
     isLoading: false,
   };
 
-  mfaCodeChanged = (mfaCode) => {
+  mfaCodeChanged = mfaCode => {
     this.setState({ mfaCode });
   };
 
-  completeMfa = async() => {
+  completeMfa = async () => {
     const { email, password, upgradeAccount } = this.props;
     const { dispatch, t } = this.props;
 
     this.setState({ isLoading: true });
 
     try {
-      await dispatch(keyLogin(email, password, this.state.mfaCode, upgradeAccount));
+      await dispatch(
+        keyLogin(email, password, this.state.mfaCode, upgradeAccount),
+      );
       Keyboard.dismiss();
-
     } catch (error) {
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
         Alert.alert(t('mfaIncorrect'), t('ok'));
@@ -37,7 +37,6 @@ class MFACodeScreen extends Component {
       }
 
       throw error;
-
     } finally {
       this.setState({ isLoading: false });
     }
@@ -46,12 +45,14 @@ class MFACodeScreen extends Component {
   render() {
     const { mfaCode, isLoading } = this.state;
 
-    return <MFACodeComponent
-      onChangeText={this.mfaCodeChanged}
-      value={mfaCode}
-      onSubmit={this.completeMfa}
-      isLoading={isLoading}
-    />;
+    return (
+      <MFACodeComponent
+        onChangeText={this.mfaCodeChanged}
+        value={mfaCode}
+        onSubmit={this.completeMfa}
+        isLoading={isLoading}
+      />
+    );
   }
 }
 

@@ -6,7 +6,5 @@ import { DateComponent } from '../src/components/common';
 import { testSnapshot } from '../testUtils';
 
 it('renders correctly', () => {
-  testSnapshot(
-    <DateComponent date="2017-11-20" />
-  );
+  testSnapshot(<DateComponent date="2017-11-20" />);
 });

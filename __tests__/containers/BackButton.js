@@ -13,14 +13,12 @@ let shallowScreen;
 
 jest.mock('react-native-device-info');
 
-
 describe('back button', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
-    shallowScreen = shallow(
-      <BackButton dispatch={jest.fn()} />,
-      { context: { store: store } }
-    );
+    shallowScreen = shallow(<BackButton dispatch={jest.fn()} />, {
+      context: { store: store },
+    });
 
     shallowScreen = shallowScreen.dive();
   });
@@ -31,7 +29,10 @@ describe('back button', () => {
 
   it('calls navigate back once', () => {
     navigation.navigateBack = jest.fn();
-    shallowScreen.find(IconButton).props().onPress();
+    shallowScreen
+      .find(IconButton)
+      .props()
+      .onPress();
 
     expect(navigation.navigateBack).toHaveBeenCalledTimes(1);
   });
@@ -42,7 +43,7 @@ describe('back button absolute', () => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(
       <BackButton absolute={true} dispatch={jest.fn()} />,
-      { context: { store: store } }
+      { context: { store: store } },
     );
 
     shallowScreen = shallowScreen.dive();
@@ -60,16 +61,18 @@ describe('back button customNavigate', () => {
     Enzyme.configure({ adapter: new Adapter() });
     shallowScreen = shallow(
       <BackButton customNavigate={mockCustomNav} dispatch={jest.fn()} />,
-      { context: { store: store } }
+      { context: { store: store } },
     );
 
     shallowScreen = shallowScreen.dive();
   });
 
-
   it('custom navigation function is called', () => {
     navigation.navigateBack = jest.fn();
-    shallowScreen.find(IconButton).props().onPress();
+    shallowScreen
+      .find(IconButton)
+      .props()
+      .onPress();
 
     expect(mockCustomNav).toHaveBeenCalledTimes(1);
   });

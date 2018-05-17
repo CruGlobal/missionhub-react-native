@@ -14,7 +14,7 @@ export default StyleSheet.create({
     paddingHorizontal: 36,
     marginTop: 30,
     paddingBottom: 30,
-    borderBottomWidth: 0,    
+    borderBottomWidth: 0,
   },
   nullHeader: {
     fontSize: 42,

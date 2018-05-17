@@ -6,7 +6,11 @@ import { translate } from 'react-i18next';
 
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { removeSwipeStepsContact } from '../../actions/swipe';
-import { getContactSteps, completeStep, deleteStepWithTracking } from '../../actions/steps';
+import {
+  getContactSteps,
+  completeStep,
+  deleteStepWithTracking,
+} from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
 import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
@@ -22,7 +26,6 @@ const name = 'Contact Steps';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
-
   constructor(props) {
     super(props);
 
@@ -57,7 +60,9 @@ class ContactSteps extends Component {
     const { dispatch, person, organization } = this.props;
     await dispatch(completeStep(step, name));
     this.getSteps();
-    dispatch(reloadJourney(person.id, organization ? organization.id : undefined));
+    dispatch(
+      reloadJourney(person.id, organization ? organization.id : undefined),
+    );
   }
 
   async handleSaveNewSteps() {
@@ -77,40 +82,57 @@ class ContactSteps extends Component {
   handleNavToSteps(stage, onComplete = null) {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
-    const trackingParams = { trackingObj: buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps') };
+    const trackingParams = {
+      trackingObj: buildTrackingObj(
+        'people : person : steps : add',
+        'people',
+        'person',
+        'steps',
+      ),
+    };
 
     if (isMe) {
-      dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-        ...trackingParams,
-        onSaveNewSteps: () => {
-          this.handleSaveNewSteps();
-          onComplete && onComplete();
-        },
-        enableBackButton: true,
-        contactStage: stage,
-        organization,
-      }));
+      dispatch(
+        navigatePush(SELECT_MY_STEP_SCREEN, {
+          ...trackingParams,
+          onSaveNewSteps: () => {
+            this.handleSaveNewSteps();
+            onComplete && onComplete();
+          },
+          enableBackButton: true,
+          contactStage: stage,
+          organization,
+        }),
+      );
     } else {
-      dispatch(navigatePush(PERSON_SELECT_STEP_SCREEN, {
-        ...trackingParams,
-        contactName: person.first_name,
-        contactId: person.id,
-        contact: person,
-        organization,
-        contactStage: stage,
-        onSaveNewSteps: () => {
-          this.handleSaveNewSteps();
-          onComplete && onComplete();
-        },
-        createStepTracking: buildTrackingObj(`people : ${subsection} : steps : create`, 'people', subsection, 'steps'),
-      }));
+      dispatch(
+        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          ...trackingParams,
+          contactName: person.first_name,
+          contactId: person.id,
+          contact: person,
+          organization,
+          contactStage: stage,
+          onSaveNewSteps: () => {
+            this.handleSaveNewSteps();
+            onComplete && onComplete();
+          },
+          createStepTracking: buildTrackingObj(
+            `people : ${subsection} : steps : create`,
+            'people',
+            subsection,
+            'steps',
+          ),
+        }),
+      );
     }
   }
 
   handleCreateStep() {
-    this.props.contactStage ? this.handleNavToSteps(this.props.contactStage) : this.handleNavToStage();
+    this.props.contactStage
+      ? this.handleNavToSteps(this.props.contactStage)
+      : this.handleNavToStage();
   }
-
 
   renderRow({ item, index }) {
     const { showBump } = this.props;
@@ -131,10 +153,10 @@ class ContactSteps extends Component {
     const { steps } = this.props;
     return (
       <FlatList
-        ref={(c) => this.list = c}
+        ref={c => (this.list = c)}
         style={styles.list}
         data={steps}
-        keyExtractor={(i) => i.id}
+        keyExtractor={i => i.id}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
@@ -149,7 +171,9 @@ class ContactSteps extends Component {
     return (
       <Flex align="center" justify="center">
         <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
+        <Text type="header" style={styles.nullHeader}>
+          {t('header').toUpperCase()}
+        </Text>
         <Text style={styles.nullText}>{t('stepNull', { name })}</Text>
       </Flex>
     );
@@ -159,10 +183,13 @@ class ContactSteps extends Component {
     const { t, steps } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <Flex align="center" justify="center" value={1} style={styles.container}>
-          {
-            steps.length > 0 ? this.renderList() : this.renderNull()
-          }
+        <Flex
+          align="center"
+          justify="center"
+          value={1}
+          style={styles.container}
+        >
+          {steps.length > 0 ? this.renderList() : this.renderNull()}
         </Flex>
         <Flex justify="end">
           <Button
@@ -176,17 +203,20 @@ class ContactSteps extends Component {
   }
 }
 
-
 ContactSteps.propTypes = {
   person: PropTypes.object,
   contactAssignment: PropTypes.object,
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ swipe, auth, steps }, { person, organization = {} }) => ({
+const mapStateToProps = (
+  { swipe, auth, steps },
+  { person, organization = {} },
+) => ({
   showBump: swipe.stepsContact,
   myId: auth.person.id,
-  steps: steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+  steps:
+    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
 });
 
 export default connect(mapStateToProps)(ContactSteps);

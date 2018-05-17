@@ -6,7 +6,13 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
-import { Flex, Button, Separator, Text, LoadingGuy } from '../../components/common';
+import {
+  Flex,
+  Button,
+  Separator,
+  Text,
+  LoadingGuy,
+} from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -21,7 +27,6 @@ import styles from './styles';
 
 @translate('contactJourney')
 class ContactJourney extends Component {
-
   constructor(props) {
     super(props);
 
@@ -56,19 +61,27 @@ class ContactJourney extends Component {
 
   handleEditInteraction(interaction) {
     this.setState({ editingInteraction: interaction });
-    const text = interaction._type === 'accepted_challenge' ? interaction.note : interaction.comment;
+    const text =
+      interaction._type === 'accepted_challenge'
+        ? interaction.note
+        : interaction.comment;
 
-    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
-      onComplete: this.handleEditComment,
-      type: 'editJourney',
-      isEdit: true,
-      text,
-    }));
+    this.props.dispatch(
+      navigatePush(ADD_STEP_SCREEN, {
+        onComplete: this.handleEditComment,
+        type: 'editJourney',
+        isEdit: true,
+        text,
+      }),
+    );
   }
 
   handleEditComment(text) {
     const { editingInteraction } = this.state;
-    const action = editingInteraction._type === 'accepted_challenge' ? updateChallengeNote(editingInteraction, text) : editComment(editingInteraction, text);
+    const action =
+      editingInteraction._type === 'accepted_challenge'
+        ? updateChallengeNote(editingInteraction, text)
+        : editComment(editingInteraction, text);
 
     this.props.dispatch(action).then(() => {
       // Refresh the journey list after editing a comment
@@ -81,33 +94,57 @@ class ContactJourney extends Component {
     const { person, dispatch, organization } = this.props;
     const orgId = organization && organization.id;
 
-    dispatch(addNewInteraction(person.id, INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened, text, orgId)).then(() => {
+    dispatch(
+      addNewInteraction(
+        person.id,
+        INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened,
+        text,
+        orgId,
+      ),
+    ).then(() => {
       // Add new comment to journey
       this.getInteractions();
     });
   }
 
   handleCreateInteraction() {
-    const subsection = getAnalyticsSubsection(this.props.person.id, this.props.myId);
+    const subsection = getAnalyticsSubsection(
+      this.props.person.id,
+      this.props.myId,
+    );
 
-    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
-      onComplete: this.handleAddComment,
-      type: 'journey',
-      trackingObj: buildTrackingObj(`people : ${subsection} : journey : edit`, 'people', subsection, 'journey'),
-    }));
+    this.props.dispatch(
+      navigatePush(ADD_STEP_SCREEN, {
+        onComplete: this.handleAddComment,
+        type: 'journey',
+        trackingObj: buildTrackingObj(
+          `people : ${subsection} : journey : edit`,
+          'people',
+          subsection,
+          'journey',
+        ),
+      }),
+    );
   }
 
   renderRow({ item }) {
     const { showReminder, myId } = this.props;
     const content = <JourneyItem item={item} myId={myId} />;
 
-    if (item._type !== 'answer_sheet' && item._type !== 'pathway_progression_audit') {
+    if (
+      item._type !== 'answer_sheet' &&
+      item._type !== 'pathway_progression_audit'
+    ) {
       return (
         <RowSwipeable
           key={item.id}
           onEdit={() => this.handleEditInteraction(item)}
           bump={showReminder && item.isFirstInteraction}
-          onBumpComplete={showReminder && item.isFirstInteraction ? this.completeBump : undefined}
+          onBumpComplete={
+            showReminder && item.isFirstInteraction
+              ? this.completeBump
+              : undefined
+          }
         >
           {content}
         </RowSwipeable>
@@ -120,10 +157,10 @@ class ContactJourney extends Component {
     const { journeyItems } = this.props;
     return (
       <FlatList
-        ref={(c) => this.list = c}
+        ref={c => (this.list = c)}
         style={styles.list}
         data={journeyItems}
-        keyExtractor={(i) => i.id}
+        keyExtractor={i => i.id}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
@@ -138,7 +175,9 @@ class ContactJourney extends Component {
     return (
       <Flex align="center" justify="center" value={1}>
         <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>{t('ourJourney').toUpperCase()}</Text>
+        <Text type="header" style={styles.nullHeader}>
+          {t('ourJourney').toUpperCase()}
+        </Text>
         <Text style={styles.nullText}>{t('journeyNull')}</Text>
       </Flex>
     );
@@ -179,7 +218,10 @@ ContactJourney.propTypes = {
   organization: PropTypes.object,
 };
 
-const mapStateToProps = ({ auth, swipe, journey }, { person, organization }) => {
+const mapStateToProps = (
+  { auth, swipe, journey },
+  { person, organization },
+) => {
   const organizationId = organization ? organization.id : 'personal';
   const journeyOrg = journey[organizationId];
   const journeyItems = journeyOrg ? journeyOrg[person.id] : undefined;

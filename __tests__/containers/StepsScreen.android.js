@@ -6,7 +6,7 @@ import { testSnapshotShallow } from '../../testUtils';
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/utils/common', () => ({
-  exists: (v) => typeof v !== 'undefined',
+  exists: v => typeof v !== 'undefined',
   isAndroid: true,
   isiPhoneX: jest.fn(),
   buildTrackingObj: jest.fn(),
@@ -36,22 +36,16 @@ const props = {
 };
 
 it('renders android correctly', () => {
-  testSnapshotShallow(
-    <StepsScreen
-      {...props}
-    />
-  );
+  testSnapshotShallow(<StepsScreen {...props} />);
 });
 
 it('renders loading on Android correctly', () => {
   testSnapshotShallow(
     <StepsScreen
-      {
-      ...{
+      {...{
         ...props,
         steps: null,
-      }
-      }
-    />
+      }}
+    />,
   );
 });

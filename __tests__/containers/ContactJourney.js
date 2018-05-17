@@ -6,7 +6,11 @@ import { Provider } from 'react-redux';
 
 import * as navigation from '../../src/actions/navigation';
 import ContactJourney from '../../src/containers/ContactJourney';
-import { createMockNavState, renderShallow, testSnapshot } from '../../testUtils';
+import {
+  createMockNavState,
+  renderShallow,
+  testSnapshot,
+} from '../../testUtils';
 
 const personId = '123';
 const organizationId = 2;
@@ -14,9 +18,7 @@ const organizationId = 2;
 const mockPerson = {
   id: personId,
   first_name: 'ben',
-  organizational_permissions: [
-    { organization_id: organizationId },
-  ],
+  organizational_permissions: [{ organization_id: organizationId }],
 };
 
 const mockJourneyList = [
@@ -46,17 +48,19 @@ const createMockStore = (id, personalJourney) => {
       journey: false,
     },
     journey: {
-      'personal': personalJourney,
+      personal: personalJourney,
     },
   };
 
-  return configureStore([ thunk ])(mockState);
+  return configureStore([thunk])(mockState);
 };
 
 const createComponent = () => {
-  return renderShallow(<ContactJourney person={mockPerson} navigation={createMockNavState()} />, store);
+  return renderShallow(
+    <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
+    store,
+  );
 };
-
 
 describe('ContactJourney', () => {
   it('renders loading screen correctly', () => {
@@ -147,7 +151,7 @@ describe('journey methods', () => {
   });
 
   it('handles edit interaction', () => {
-    navigation.navigatePush = jest.fn((screen) => ({ type: screen }));
+    navigation.navigatePush = jest.fn(screen => ({ type: screen }));
     component.handleEditInteraction({ id: 1 });
 
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
@@ -156,8 +160,14 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   testSnapshot(
-    <Provider store={createMockStore(personId, { [personId]: mockJourneyList })}>
-      <ContactJourney person={mockPerson} organization={{ id: 1 }} navigation={createMockNavState()} />
-    </Provider>
+    <Provider
+      store={createMockStore(personId, { [personId]: mockJourneyList })}
+    >
+      <ContactJourney
+        person={mockPerson}
+        organization={{ id: 1 }}
+        navigation={createMockNavState()}
+      />
+    </Provider>,
   );
 });

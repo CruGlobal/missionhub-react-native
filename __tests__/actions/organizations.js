@@ -4,12 +4,15 @@ import thunk from 'redux-thunk';
 import { mockFnWithParams } from '../../testUtils';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
-import { getAssignedOrganizations, getMyOrganizations } from '../../src/actions/organizations';
+import {
+  getAssignedOrganizations,
+  getMyOrganizations,
+} from '../../src/actions/organizations';
 
 let store;
 const apiResponse = { type: 'successful' };
 
-beforeEach(() => store = configureStore([ thunk ])());
+beforeEach(() => (store = configureStore([thunk])()));
 
 describe('getMyOrganizations', () => {
   const query = {
@@ -18,11 +21,17 @@ describe('getMyOrganizations', () => {
   };
 
   it('should get my organizations', () => {
-    mockFnWithParams(api, 'default', apiResponse, REQUESTS.GET_MY_ORGANIZATIONS, query);
+    mockFnWithParams(
+      api,
+      'default',
+      apiResponse,
+      REQUESTS.GET_MY_ORGANIZATIONS,
+      query,
+    );
 
     store.dispatch(getMyOrganizations());
 
-    expect(store.getActions()).toEqual([ apiResponse ]);
+    expect(store.getActions()).toEqual([apiResponse]);
   });
 });
 
@@ -36,10 +45,16 @@ describe('getAssignedOrganizations', () => {
   };
 
   it('should get my assigned organizations', () => {
-    mockFnWithParams(api, 'default', apiResponse, REQUESTS.GET_ORGANIZATIONS, query);
+    mockFnWithParams(
+      api,
+      'default',
+      apiResponse,
+      REQUESTS.GET_ORGANIZATIONS,
+      query,
+    );
 
     store.dispatch(getAssignedOrganizations());
 
-    expect(store.getActions()).toEqual([ apiResponse ]);
+    expect(store.getActions()).toEqual([apiResponse]);
   });
 });

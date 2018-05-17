@@ -22,10 +22,13 @@ export default i18n
     fallbackLng: 'en-US',
 
     // Use downloaded translations if available but use en-US from source to make development easier
-    resources: { ...mapValues(translations, 'translation'), ...{ 'en-US': en_US } },
+    resources: {
+      ...mapValues(translations, 'translation'),
+      ...{ 'en-US': en_US },
+    },
 
     // have a common namespace used around the full app
-    ns: [ 'common' ],
+    ns: ['common'],
     defaultNS: 'common',
     fallbackNS: 'common',
 

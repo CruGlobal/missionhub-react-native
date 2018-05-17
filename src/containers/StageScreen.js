@@ -13,9 +13,11 @@ import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 
 @translate('selectStage')
 class StageScreen extends Component {
-
-  onScrollToStage = (trackingObj) => {
-    this.props.dispatch({ type: SELF_VIEWED_STAGE_CHANGED, newActiveTab: trackingObj });
+  onScrollToStage = trackingObj => {
+    this.props.dispatch({
+      type: SELF_VIEWED_STAGE_CHANGED,
+      newActiveTab: trackingObj,
+    });
   };
 
   complete(stage) {
@@ -24,14 +26,16 @@ class StageScreen extends Component {
     if (onComplete) {
       onComplete(stage);
       if (!noNav) {
-        dispatch(navigatePush(SELECT_MY_STEP_SCREEN, {
-          onSaveNewSteps: () => {
-            onComplete(stage);
-            dispatch(navigateBack(2));
-          },
-          enableBackButton: true,
-          contactStage: stage,
-        }));
+        dispatch(
+          navigatePush(SELECT_MY_STEP_SCREEN, {
+            onSaveNewSteps: () => {
+              onComplete(stage);
+              dispatch(navigateBack(2));
+            },
+            enableBackButton: true,
+            contactStage: stage,
+          }),
+        );
       }
     } else {
       dispatch(navigatePush(STAGE_SUCCESS_SCREEN, { selectedStage: stage }));
@@ -49,7 +53,15 @@ class StageScreen extends Component {
   };
 
   render() {
-    const { t, enableBackButton, firstName, firstItem, questionText, section, subsection } = this.props;
+    const {
+      t,
+      enableBackButton,
+      firstName,
+      firstItem,
+      questionText,
+      section,
+      subsection,
+    } = this.props;
 
     return (
       <PathwayStageScreen
@@ -66,7 +78,6 @@ class StageScreen extends Component {
       />
     );
   }
-
 }
 
 StageScreen.propTypes = {
@@ -80,7 +91,7 @@ StageScreen.propTypes = {
   noNav: PropTypes.bool,
 };
 
-const mapStateToProps = ({ profile }, { navigation } ) => ({
+const mapStateToProps = ({ profile }, { navigation }) => ({
   ...(navigation.state.params || {}),
   firstName: profile.firstName,
 });

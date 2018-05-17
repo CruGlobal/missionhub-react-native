@@ -3,7 +3,7 @@ import { PEOPLE_WITH_ORG_SECTIONS } from '../constants';
 import callApi, { REQUESTS } from './api';
 
 export function getMyPeople() {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     const peopleQuery = {
       filters: {
         assigned_tos: 'me',
@@ -11,35 +11,52 @@ export function getMyPeople() {
       page: {
         limit: 1000,
       },
-      include: 'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+      include:
+        'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
     };
 
-    const people = (await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery))).response;
+    const people = (await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, peopleQuery),
+    )).response;
     const authPerson = getState().auth.person;
     const initOrgs = {
       personal: { id: 'personal', people: { [authPerson.id]: authPerson } },
     };
 
     const orgs = people.reduce((orgs, person) => {
-      return person.reverse_contact_assignments
-        .filter((contactAssignment) => contactAssignment.assigned_to && contactAssignment.assigned_to.id === authPerson.id)
-        .map((contactAssignment) => contactAssignment.organization)
-        // Verify contact assignment is in personal org or person has an org permission in current org
-        .filter((org) => !org || person.organizational_permissions.find((orgPermission) => orgPermission.organization && orgPermission.organization.id === org.id))
-        .reduce((orgs, org) => {
-          const orgId = org && org.id || 'personal';
-          const orgData = orgs[orgId] || org;
-          return {
-            ...orgs,
-            [orgId]: {
-              ...orgData,
-              people: {
-                ...orgData.people || {},
-                [person.id]: person,
+      return (
+        person.reverse_contact_assignments
+          .filter(
+            contactAssignment =>
+              contactAssignment.assigned_to &&
+              contactAssignment.assigned_to.id === authPerson.id,
+          )
+          .map(contactAssignment => contactAssignment.organization)
+          // Verify contact assignment is in personal org or person has an org permission in current org
+          .filter(
+            org =>
+              !org ||
+              person.organizational_permissions.find(
+                orgPermission =>
+                  orgPermission.organization &&
+                  orgPermission.organization.id === org.id,
+              ),
+          )
+          .reduce((orgs, org) => {
+            const orgId = (org && org.id) || 'personal';
+            const orgData = orgs[orgId] || org;
+            return {
+              ...orgs,
+              [orgId]: {
+                ...orgData,
+                people: {
+                  ...(orgData.people || {}),
+                  [person.id]: person,
+                },
               },
-            },
-          };
-        }, orgs);
+            };
+          }, orgs)
+      );
     }, initOrgs);
 
     return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, orgs });
@@ -47,7 +64,7 @@ export function getMyPeople() {
 }
 
 export function searchPeople(text, filters = {}) {
-  return (dispatch) => {
+  return dispatch => {
     if (!text) {
       return Promise.reject('NoText');
     }

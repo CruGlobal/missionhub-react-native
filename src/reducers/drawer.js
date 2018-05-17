@@ -1,8 +1,4 @@
-import {
-  LOGOUT,
-  DRAWER_OPEN,
-  DRAWER_CLOSE,
-} from '../constants';
+import { LOGOUT, DRAWER_OPEN, DRAWER_CLOSE } from '../constants';
 
 // Keep track of all the swipeable rows and whether or not to show a reminder
 const initialState = {

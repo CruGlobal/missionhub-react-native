@@ -76,7 +76,9 @@ class LoginScreen extends Component {
 
     this.trackSplashState(index + 1);
 
-    if (index === ONBOARDING.length - 1) { this.disableAutoPlay(); }
+    if (index === ONBOARDING.length - 1) {
+      this.disableAutoPlay();
+    }
   }
 
   trackSplashState(index) {
@@ -101,7 +103,9 @@ class LoginScreen extends Component {
         <TouchableWithoutFeedback onPressIn={this.disableAutoPlay}>
           <Flex direction="column">
             <Flex value={1.5} justify="center">
-              <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
+              <Text type="header" style={styles.onboardHeader}>
+                {item.name.toLowerCase()}
+              </Text>
             </Flex>
             <Flex value={1} />
           </Flex>
@@ -113,7 +117,7 @@ class LoginScreen extends Component {
   render() {
     const { t } = this.props;
 
-    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
+    let leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex style={styles.container}>
@@ -156,13 +160,16 @@ class LoginScreen extends Component {
             />
             <Image
               source={LANDSCAPE}
-              style={[
-                styles.footerImage,
-                { left: leftMargin },
-              ]}
+              style={[styles.footerImage, { left: leftMargin }]}
             />
           </Flex>
-          <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
+          <Flex
+            value={1}
+            align="center"
+            justify="start"
+            self="stretch"
+            style={styles.buttonWrapper}
+          >
             <Flex direction="column" self="stretch" align="center">
               <Button
                 pill={true}
@@ -172,7 +179,9 @@ class LoginScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               />
               <Flex direction="row" align="center">
-                <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
+                <Text style={styles.signInText}>
+                  {t('member').toUpperCase()}
+                </Text>
                 <Button
                   text={t('signIn').toUpperCase()}
                   type="transparent"

@@ -14,7 +14,8 @@ import {
   showReminderOnLoad,
 } from '../../src/actions/notifications';
 import {
-  GCM_SENDER_ID, LOAD_PERSON_DETAILS,
+  GCM_SENDER_ID,
+  LOAD_PERSON_DETAILS,
   DISABLE_WELCOME_NOTIFICATION,
   NAVIGATE_FORWARD,
   LOAD_HOME_NOTIFICATION_REMINDER,
@@ -31,7 +32,7 @@ jest.mock('react-native-config', () => ({
   APNS_MODE: 'APNS',
 }));
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 const store = mockStore({
   notifications: {
     pushDevice: {},
@@ -84,7 +85,9 @@ describe('showReminderScreen', () => {
         pushDevice: {},
       },
     });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: true }));
+    PushNotification.checkPermissions.mockImplementation(cb =>
+      cb({ alert: true }),
+    );
     store.dispatch(showReminderScreen(descriptionText));
 
     expect(store.getActions()).toEqual([]);
@@ -95,7 +98,9 @@ describe('showReminderScreen', () => {
         pushDevice: {},
       },
     });
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
+    PushNotification.checkPermissions.mockImplementation(cb =>
+      cb({ alert: false }),
+    );
 
     store.dispatch(showReminderScreen(descriptionText));
 
@@ -106,12 +111,11 @@ describe('showReminderScreen', () => {
 });
 
 describe('showReminderOnLoad', () => {
-
   beforeEach(() => {
     store.dispatch(configureNotificationHandler());
   });
 
-  it('should not show reminder screen if app doesn\'t have reminders', () => {
+  it("should not show reminder screen if app doesn't have reminders", () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
@@ -137,7 +141,7 @@ describe('showReminderOnLoad', () => {
         showReminderOnLoad: false,
       },
       steps: {
-        reminders: [ { id: 1 } ],
+        reminders: [{ id: 1 }],
       },
     });
 
@@ -154,11 +158,13 @@ describe('showReminderOnLoad', () => {
         showReminderOnLoad: true,
       },
       steps: {
-        reminders: [ { id: 1 } ],
+        reminders: [{ id: 1 }],
       },
     });
 
-    PushNotification.checkPermissions.mockImplementation((cb) => cb({ alert: false }));
+    PushNotification.checkPermissions.mockImplementation(cb =>
+      cb({ alert: false }),
+    );
 
     store.dispatch(showReminderOnLoad());
 
@@ -204,7 +210,9 @@ describe('askNotificationPermissions', () => {
     });
 
     beforeEach(() => {
-      PushNotification.configure.mockImplementation((config) => config.onRegister({ token: newToken }));
+      PushNotification.configure.mockImplementation(config =>
+        config.onRegister({ token: newToken }),
+      );
       callApi.mockReturnValue({ type: REQUESTS.SET_PUSH_TOKEN.SUCCESS });
       store.clearActions();
     });
@@ -226,8 +234,10 @@ describe('askNotificationPermissions', () => {
       expect(store.getActions()).toMatchSnapshot();
     });
 
-    it('should do nothing if the token hasn\'t changed', () => {
-      PushNotification.configure.mockImplementation((config) => config.onRegister({ token: oldToken }));
+    it("should do nothing if the token hasn't changed", () => {
+      PushNotification.configure.mockImplementation(config =>
+        config.onRegister({ token: oldToken }),
+      );
       store.dispatch(configureNotificationHandler());
       store.dispatch(requestNativePermissions());
 
@@ -253,24 +263,26 @@ describe('askNotificationPermissions', () => {
     });
 
     async function testNotification(notification, userInteraction = true) {
-      const deepLinkComplete = new Promise((resolve) =>
-        PushNotification.configure.mockImplementation(async(config) => {
+      const deepLinkComplete = new Promise(resolve =>
+        PushNotification.configure.mockImplementation(async config => {
           await config.onNotification({
             ...notification,
             userInteraction,
             finish,
           });
           resolve();
-        })
+        }),
       );
       store.dispatch(configureNotificationHandler());
       store.dispatch(requestNativePermissions());
       return await deepLinkComplete;
     }
 
-    it('should do nothing if user hasn\'t opened the notification; also it should call iOS finish', async() => {
+    it("should do nothing if user hasn't opened the notification; also it should call iOS finish", async () => {
       await testNotification({ screen: 'home' }, false);
-      expect(finish).toHaveBeenCalledWith(PushNotificationIOS.FetchResult.NoData);
+      expect(finish).toHaveBeenCalledWith(
+        PushNotificationIOS.FetchResult.NoData,
+      );
     });
 
     it('should deep link to home screen', () => {
@@ -283,28 +295,46 @@ describe('askNotificationPermissions', () => {
       expect(store.getActions()).toMatchSnapshot();
     });
 
-    it('should deep link to contact screen', async() => {
+    it('should deep link to contact screen', async () => {
       getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
-      await testNotification({ screen: 'person_steps', person_id: '1', organization_id: '2' });
+      await testNotification({
+        screen: 'person_steps',
+        person_id: '1',
+        organization_id: '2',
+      });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
     });
 
-    it('should deep link to contact screen on iOS', async() => {
+    it('should deep link to contact screen on iOS', async () => {
       common.isAndroid = false;
       getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
-      await testNotification({ data: { link: { data: { screen: 'person_steps', person_id: '1', organization_id: '2' } } } });
+      await testNotification({
+        data: {
+          link: {
+            data: {
+              screen: 'person_steps',
+              person_id: '1',
+              organization_id: '2',
+            },
+          },
+        },
+      });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(store.getActions()).toMatchSnapshot();
     });
 
-    it('should deep link to ME user\'s contact screen', () => {
+    it("should deep link to ME user's contact screen", () => {
       testNotification({ screen: 'my_steps' });
       expect(store.getActions()).toMatchSnapshot();
     });
 
     it('should deep link to add contact screen', () => {
-      testNotification({ screen: 'add_a_person', person_id: '1', organization_id: '2' });
+      testNotification({
+        screen: 'add_a_person',
+        person_id: '1',
+        organization_id: '2',
+      });
       store.getActions()[0].params.onComplete();
       expect(store.getActions()).toMatchSnapshot();
     });
@@ -336,8 +366,14 @@ describe('deletePushToken', () => {
 
     store.dispatch(deletePushToken());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_PUSH_TOKEN, { deviceId: '1' } , {});
-    expect(store.getActions()).toEqual([ { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS } ]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_PUSH_TOKEN,
+      { deviceId: '1' },
+      {},
+    );
+    expect(store.getActions()).toEqual([
+      { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS },
+    ]);
   });
 });
 
@@ -368,9 +404,11 @@ describe('showWelcomeNotification', () => {
       message: i18next.t('welcomeNotification:message'),
       date: new Date(`${mockDate}T00:00:03.000Z`),
     });
-    expect(store.getActions()).toEqual([ {
-      type: DISABLE_WELCOME_NOTIFICATION,
-    } ]);
+    expect(store.getActions()).toEqual([
+      {
+        type: DISABLE_WELCOME_NOTIFICATION,
+      },
+    ]);
 
     MockDate.reset();
   });

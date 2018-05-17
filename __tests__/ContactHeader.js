@@ -24,7 +24,12 @@ const mockState = {
 
 const store = createMockStore(mockState);
 
-const person = { first_name: 'ben', id: '1', email_addresses: [], phone_numbers: [] };
+const person = {
+  first_name: 'ben',
+  id: '1',
+  email_addresses: [],
+  phone_numbers: [],
+};
 const organization = { name: 'Test Org', id: '10' };
 
 jest.mock('NativeAnimatedHelper');
@@ -45,9 +50,22 @@ it('renders jean with a missionhub user as contact', () => {
   testContactHeader({ ...person }, JEAN, false, organization, true);
 });
 
-const testContactHeader = (person, type, isMe = false, organization, isMissionhubUser = false) => {
+const testContactHeader = (
+  person,
+  type,
+  isMe = false,
+  organization,
+  isMissionhubUser = false,
+) => {
   testSnapshotShallow(
-    <ContactHeader isMe={isMe} person={person} organization={organization} isMissionhubUser={isMissionhubUser} type={type} onChangeStage={() => {}} />,
-    store
+    <ContactHeader
+      isMe={isMe}
+      person={person}
+      organization={organization}
+      isMissionhubUser={isMissionhubUser}
+      type={type}
+      onChangeStage={() => {}}
+    />,
+    store,
   );
 };

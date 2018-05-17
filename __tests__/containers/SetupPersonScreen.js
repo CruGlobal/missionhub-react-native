@@ -20,7 +20,7 @@ jest.mock('../../src/actions/analytics');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 let store;
 
 const mockState = {
@@ -42,7 +42,7 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={mockStore(mockState)}>
       <SetupPersonScreen />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -58,14 +58,17 @@ describe('setup person screen methods', () => {
       },
     });
 
-    const screen = shallow(
-      <SetupPersonScreen />,
-      { context: { store } },
-    );
+    const screen = shallow(<SetupPersonScreen />, { context: { store } });
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
 
-    profile.createPerson = jest.fn().mockReturnValue(() => Promise.resolve({ response: { id: '2' } }));
+    profile.createPerson = jest
+      .fn()
+      .mockReturnValue(() => Promise.resolve({ response: { id: '2' } }));
     profile.updateOnboardingPerson = jest.fn();
     person.resetPerson = jest.fn();
     navigation.navigatePush = jest.fn().mockReturnValue(navigationResult);
@@ -91,10 +94,10 @@ describe('setup person screen methods', () => {
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
   });
 
-  it('tracks an action', async() => {
+  it('tracks an action', async () => {
     await component.saveAndGoToGetStarted();
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
-    expect(store.getActions()).toEqual([ trackActionResult, navigationResult ]);
+    expect(store.getActions()).toEqual([trackActionResult, navigationResult]);
   });
 });

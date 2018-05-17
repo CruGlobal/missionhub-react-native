@@ -12,8 +12,8 @@ export default class SearchPeopleItem extends Component {
     if (person && person.organization) {
       org = person.organization;
     }
-    this.props.onSelect(this.props.person, org );
-  }
+    this.props.onSelect(this.props.person, org);
+  };
 
   render() {
     const { person } = this.props;
@@ -30,9 +30,7 @@ export default class SearchPeopleItem extends Component {
             {person.first_name}
             {person.last_name ? ` ${person.last_name}` : null}
           </Text>
-          <Text style={styles.organization}>
-            {orgName}
-          </Text>
+          <Text style={styles.organization}>{orgName}</Text>
         </Flex>
       </Touchable>
     );

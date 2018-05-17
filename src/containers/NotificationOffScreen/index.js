@@ -13,7 +13,6 @@ import styles from './styles';
 
 @translate('notificationOff')
 class NotificationOffScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -33,7 +32,7 @@ class NotificationOffScreen extends Component {
   goToSettings() {
     if (!isAndroid) {
       const APP_SETTINGS_URL = 'app-settings:';
-      Linking.canOpenURL(APP_SETTINGS_URL).then((isSupported) => {
+      Linking.canOpenURL(APP_SETTINGS_URL).then(isSupported => {
         if (isSupported) {
           return Linking.openURL(APP_SETTINGS_URL).then(() => {
             setTimeout(() => this.close(true), 500);
@@ -50,18 +49,16 @@ class NotificationOffScreen extends Component {
     const { t } = this.props;
     return (
       <Flex style={styles.container}>
-        <Flex value={.3} />
+        <Flex value={0.3} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            <Image source={require('../../../assets/images/notificationOff.png')} />
+            <Image
+              source={require('../../../assets/images/notificationOff.png')}
+            />
           </Flex>
-          <Flex value={.6} align="center" justify="center">
-            <Text style={styles.title}>
-              {t('title')}
-            </Text>
-            <Text style={styles.text}>
-              {t('description')}
-            </Text>
+          <Flex value={0.6} align="center" justify="center">
+            <Text style={styles.title}>{t('title')}</Text>
+            <Text style={styles.text}>{t('description')}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -70,7 +67,7 @@ class NotificationOffScreen extends Component {
               onPress={this.goToSettings}
               text={t('settings').toUpperCase()}
               style={styles.allowButton}
-              buttonTextStyle={[ styles.buttonText, styles.allowButtonText ]}
+              buttonTextStyle={[styles.buttonText, styles.allowButtonText]}
             />
             <Button
               pill={true}
@@ -81,7 +78,7 @@ class NotificationOffScreen extends Component {
             />
           </Flex>
         </Flex>
-        <Flex value={.3} />
+        <Flex value={0.3} />
       </Flex>
     );
   }

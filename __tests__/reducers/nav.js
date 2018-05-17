@@ -11,19 +11,18 @@ describe('navReducer', () => {
       params: { person: { id: '123', type: 'person' } },
     };
 
-    const state = nav(
-      undefined,
-      NavigationActions.navigate(newRoute),
-    );
+    const state = nav(undefined, NavigationActions.navigate(newRoute));
 
-    expect(state).toEqual(expect.objectContaining({
-      isTransitioning: true,
-      routes: [
-        expect.objectContaining({
-          routeName: LOGIN_SCREEN,
-        }),
-        expect.objectContaining(newRoute),
-      ],
-    }));
+    expect(state).toEqual(
+      expect.objectContaining({
+        isTransitioning: true,
+        routes: [
+          expect.objectContaining({
+            routeName: LOGIN_SCREEN,
+          }),
+          expect.objectContaining(newRoute),
+        ],
+      }),
+    );
   });
 });

@@ -3,9 +3,19 @@ import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
-import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
+import {
+  Button,
+  Text,
+  PlatformKeyboardAvoidingView,
+  Flex,
+  Input,
+} from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import { createMyPerson, firstNameChanged, lastNameChanged } from '../../actions/onboardingProfile';
+import {
+  createMyPerson,
+  firstNameChanged,
+  lastNameChanged,
+} from '../../actions/onboardingProfile';
 import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
 
@@ -25,10 +35,12 @@ class SetupScreen extends Component {
     if (this.props.firstName) {
       Keyboard.dismiss();
 
-      this.props.dispatch(createMyPerson(this.props.firstName, this.props.lastName)).then(() => {
-        disableBack.remove();
-        this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
-      });
+      this.props
+        .dispatch(createMyPerson(this.props.firstName, this.props.lastName))
+        .then(() => {
+          disableBack.remove();
+          this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
+        });
     }
   }
 
@@ -39,16 +51,22 @@ class SetupScreen extends Component {
       <PlatformKeyboardAvoidingView>
         <Flex value={1} />
         <Flex value={2} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>{t('firstThing')}</Text>
-          <Text type="header" style={styles.headerTwo}>{t('namePrompt')}</Text>
+          <Text type="header" style={styles.header}>
+            {t('firstThing')}
+          </Text>
+          <Text type="header" style={styles.headerTwo}>
+            {t('namePrompt')}
+          </Text>
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
-            <Text style={styles.label}>{t('profileLabels.firstNameRequired')}</Text>
+            <Text style={styles.label}>
+              {t('profileLabels.firstNameRequired')}
+            </Text>
             <Input
-              ref={(c) => this.firstName = c}
-              onChangeText={(t) => this.props.dispatch(firstNameChanged(t))}
+              ref={c => (this.firstName = c)}
+              onChangeText={t => this.props.dispatch(firstNameChanged(t))}
               value={this.props.firstName}
               autoFocus={true}
               returnKeyType="next"
@@ -61,8 +79,8 @@ class SetupScreen extends Component {
 
           <View style={{ paddingTop: 30 }}>
             <Input
-              ref={(c) => this.lastName = c}
-              onChangeText={(t) => this.props.dispatch(lastNameChanged(t))}
+              ref={c => (this.lastName = c)}
+              onChangeText={t => this.props.dispatch(lastNameChanged(t))}
               value={this.props.lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}

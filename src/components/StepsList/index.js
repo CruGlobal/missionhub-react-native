@@ -18,7 +18,11 @@ export default class StepsList extends Component {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
-          <Icon type="MissionHub" name={item.selected ? 'removeStepIcon' : 'addStepIcon'} style={styles.addIcon} />
+          <Icon
+            type="MissionHub"
+            name={item.selected ? 'removeStepIcon' : 'addStepIcon'}
+            style={styles.addIcon}
+          />
           <Text style={styles.stepName}>{item.body}</Text>
         </Flex>
       </Touchable>
@@ -28,8 +32,18 @@ export default class StepsList extends Component {
   renderCreateStep() {
     return (
       <Touchable onPress={this.props.onCreateStep}>
-        <Flex direction="row" align="center" justify="start" value={1} style={styles.separatorWrap}>
-          <Icon name="createStepIcon" type="MissionHub" style={styles.addIcon} />
+        <Flex
+          direction="row"
+          align="center"
+          justify="start"
+          value={1}
+          style={styles.separatorWrap}
+        >
+          <Icon
+            name="createStepIcon"
+            type="MissionHub"
+            style={styles.addIcon}
+          />
           <Text style={styles.stepName}>{this.props.createStepText}</Text>
         </Flex>
       </Touchable>
@@ -43,8 +57,8 @@ export default class StepsList extends Component {
   render() {
     return (
       <FlatList
-        ref={(c) => this.listView = c}
-        keyExtractor={(item) => item.id}
+        ref={c => (this.listView = c)}
+        keyExtractor={item => item.id}
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}
@@ -56,11 +70,13 @@ export default class StepsList extends Component {
 }
 
 StepsList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    selected: PropTypes.bool,
-  })).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      selected: PropTypes.bool,
+    }),
+  ).isRequired,
   onSelectStep: PropTypes.func.isRequired,
   onCreateStep: PropTypes.func.isRequired,
 };

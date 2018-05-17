@@ -2,7 +2,7 @@ import { REQUESTS } from './api';
 import callApi from './api';
 
 export function getMyGroups() {
-  return (dispatch) => {
+  return dispatch => {
     const query = {
       limit: 100,
     };

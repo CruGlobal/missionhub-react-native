@@ -48,7 +48,6 @@ global.WARN = function() {
   }
 };
 
-
 global.APILOG = function() {
   if (__DEV__) {
     const args = getArgs(arguments);

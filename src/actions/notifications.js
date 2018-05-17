@@ -3,11 +3,12 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { LOAD_HOME_NOTIFICATION_REMINDER, MAIN_TABS, REQUEST_NOTIFICATIONS } from '../constants';
 import {
-  DISABLE_WELCOME_NOTIFICATION,
-  GCM_SENDER_ID,
+  LOAD_HOME_NOTIFICATION_REMINDER,
+  MAIN_TABS,
+  REQUEST_NOTIFICATIONS,
 } from '../constants';
+import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
@@ -28,9 +29,11 @@ export function showReminderScreen(descriptionText) {
       return;
     }
 
-    if (pushDevice.token) { return; }
+    if (pushDevice.token) {
+      return;
+    }
 
-    PushNotification.checkPermissions((permission) => {
+    PushNotification.checkPermissions(permission => {
       const permissionsEnabled = permission && permission.alert;
       if (permissionsEnabled) {
         return;
@@ -40,10 +43,12 @@ export function showReminderScreen(descriptionText) {
         dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
       } else {
         // If none of the other cases hit, show allow/not allow page
-        dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          onComplete: () => dispatch(navigateBack()),
-          descriptionText,
-        }));
+        dispatch(
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+            onComplete: () => dispatch(navigateBack()),
+            descriptionText,
+          }),
+        );
       }
     });
   };
@@ -54,14 +59,16 @@ export function showReminderOnLoad() {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
       if (getState().steps.reminders.length > 0) {
-        dispatch(showReminderScreen(i18next.t('notificationPrimer:loginDescription')));
+        dispatch(
+          showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
+        );
       }
     }
   };
 }
 
 export function requestNativePermissions() {
-  return async(dispatch) => {
+  return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
     return await PushNotification.requestPermissions();
   };
@@ -94,8 +101,7 @@ export function configureNotificationHandler() {
 }
 
 function handleNotification(notification) {
-  return async(dispatch, getState) => {
-
+  return async (dispatch, getState) => {
     if (!notification.userInteraction) {
       // notification was not opened by the user from the notification area
       // so we do not need to navigate anywhere
@@ -104,7 +110,9 @@ function handleNotification(notification) {
 
     const { isJean, person: me } = getState().auth;
 
-    const { screen, person, organization } = parseNotificationData(notification);
+    const { screen, person, organization } = parseNotificationData(
+      notification,
+    );
 
     switch (screen) {
       case 'home':
@@ -112,14 +120,27 @@ function handleNotification(notification) {
         return dispatch(navigateReset(MAIN_TABS));
       case 'person_steps':
         if (person) {
-          const { person: loadedPerson } = await dispatch(getPersonDetails(person, organization));
-          return dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
+          const { person: loadedPerson } = await dispatch(
+            getPersonDetails(person, organization),
+          );
+          return dispatch(
+            navigatePush(CONTACT_SCREEN, {
+              person: loadedPerson,
+              organization: { id: organization },
+            }),
+          );
         }
         return;
       case 'my_steps':
         return dispatch(navigatePush(CONTACT_SCREEN, { person: me }));
       case 'add_a_person':
-        return dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
+        return dispatch(
+          navigatePush(ADD_CONTACT_SCREEN, {
+            isJean,
+            organization: { id: organization },
+            onComplete: () => dispatch(navigateReset(MAIN_TABS)),
+          }),
+        );
     }
   };
 }
@@ -139,16 +160,13 @@ function parseNotificationData(notification) {
 }
 
 function registerPushDevice(token) {
-  return (dispatch) => {
-
+  return dispatch => {
     const data = {
       data: {
         type: 'push_notification_device_token',
         attributes: {
           token,
-          platform: isAndroid ?
-            'GCM' :
-            Config.APNS_MODE,
+          platform: isAndroid ? 'GCM' : Config.APNS_MODE,
         },
       },
     };
@@ -193,7 +211,8 @@ export function showWelcomeNotification() {
 export function toast(text, duration) {
   return () => {
     if (isAndroid) {
-      const toastDuration = duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
+      const toastDuration =
+        duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
       ToastAndroid.show(text, toastDuration);
     }
   };

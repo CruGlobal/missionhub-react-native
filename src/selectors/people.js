@@ -3,11 +3,12 @@ import { createSelector } from 'reselect';
 export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
-  (orgs, authUser) => Object.values(orgs)
-    .map((org) => ({
-      ...org,
-      people: Object.values(org.people)
-        .sort((a, b) => { // Sort people in org by first name, then last name
+  (orgs, authUser) =>
+    Object.values(orgs)
+      .map(org => ({
+        ...org,
+        people: Object.values(org.people).sort((a, b) => {
+          // Sort people in org by first name, then last name
           // Keep "ME" person in front
           if (a.id === authUser.id) {
             return -1;
@@ -15,19 +16,23 @@ export const peopleByOrgSelector = createSelector(
           if (b.id === authUser.id) {
             return 1;
           }
-          return a.first_name.localeCompare(b.first_name) || a.last_name.localeCompare(b.last_name);
+          return (
+            a.first_name.localeCompare(b.first_name) ||
+            a.last_name.localeCompare(b.last_name)
+          );
         }),
-    }))
-    .sort((a, b) => { // Sort orgs by name
-      // Keep Personal Ministry org in front
-      if (a.id === 'personal') {
-        return -1;
-      }
-      if (b.id === 'personal') {
-        return 1;
-      }
-      return a.name ? a.name.localeCompare(b.name) : 1;
-    })
+      }))
+      .sort((a, b) => {
+        // Sort orgs by name
+        // Keep Personal Ministry org in front
+        if (a.id === 'personal') {
+          return -1;
+        }
+        if (b.id === 'personal') {
+          return 1;
+        }
+        return a.name ? a.name.localeCompare(b.name) : 1;
+      }),
 );
 export const personSelector = createSelector(
   ({ people }) => people.allByOrg,
@@ -36,7 +41,7 @@ export const personSelector = createSelector(
   (orgs, orgId, personId) => {
     const org = orgs[orgId || 'personal'];
     return org && org.people[personId];
-  }
+  },
 );
 
 export const contactAssignmentSelector = createSelector(
@@ -44,18 +49,26 @@ export const contactAssignmentSelector = createSelector(
   (_, { orgId }) => orgId,
   ({ auth }) => auth.person.id,
   (person, orgId, authUserId) =>
-    person.reverse_contact_assignments && person.reverse_contact_assignments
-      .find((assignment) => assignment.assigned_to && assignment.assigned_to.id === authUserId
-        && (!assignment.organization || orgId === assignment.organization.id)
-        && (!orgId || person.organizational_permissions.some((org_permission) => org_permission.organization_id === assignment.organization.id)
-        )
-      )
+    person.reverse_contact_assignments &&
+    person.reverse_contact_assignments.find(
+      assignment =>
+        assignment.assigned_to &&
+        assignment.assigned_to.id === authUserId &&
+        (!assignment.organization || orgId === assignment.organization.id) &&
+        (!orgId ||
+          person.organizational_permissions.some(
+            org_permission =>
+              org_permission.organization_id === assignment.organization.id,
+          )),
+    ),
 );
 
 export const orgPermissionSelector = createSelector(
   (_, { person }) => person,
   (_, { organization }) => organization,
   (person, organization) =>
-    organization && person.organizational_permissions
-      .find((orgPermission) => orgPermission.organization_id === organization.id)
+    organization &&
+    person.organizational_permissions.find(
+      orgPermission => orgPermission.organization_id === organization.id,
+    ),
 );
