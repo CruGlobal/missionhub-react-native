@@ -1,8 +1,6 @@
 import { REQUESTS } from './api';
 import callApi from './api';
 
-import { DEFAULT_PAGE_LIMIT } from '../constants';
-
 const getOrganizationsQuery = {
   limit: 100,
   include: '',
@@ -42,11 +40,10 @@ function getOrganizationContactsCount(orgId) {
 function getOrganizationPeople(orgId) {
   const query = {
     organization_id: orgId,
-    include: '',
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
-  return async dispatch => {
-    dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
-  };
+  return dispatch => dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
 }
 
 export function addNewContact(data) {
