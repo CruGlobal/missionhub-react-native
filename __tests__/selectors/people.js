@@ -1,4 +1,9 @@
-import { peopleByOrgSelector, personSelector, contactAssignmentSelector, orgPermissionSelector } from '../../src/selectors/people';
+import {
+  peopleByOrgSelector,
+  personSelector,
+  contactAssignmentSelector,
+  orgPermissionSelector,
+} from '../../src/selectors/people';
 
 const auth = {
   person: {
@@ -104,10 +109,14 @@ describe('peopleByOrgSelector', () => {
 
 describe('personSelector', () => {
   it('should get a person in the personal org', () => {
-    expect(personSelector({ people }, { orgId: null, personId: '22' })).toMatchSnapshot();
+    expect(
+      personSelector({ people }, { orgId: null, personId: '22' }),
+    ).toMatchSnapshot();
   });
   it('should get a person in another org', () => {
-    expect(personSelector({ people }, { orgId: organizationOne.id, personId: '31' })).toMatchSnapshot();
+    expect(
+      personSelector({ people }, { orgId: organizationOne.id, personId: '31' }),
+    ).toMatchSnapshot();
   });
 });
 
@@ -115,91 +124,97 @@ describe('contactAssignmentSelector', () => {
   const organizationOne = { id: '100' };
   const organizationTwo = { id: '101' };
 
-  it('should get a person\'s contactAssignment for that is assigned to the current user\'s org ministry', () => {
-    expect(contactAssignmentSelector(
-      { auth },
-      {
-        person: {
-          reverse_contact_assignments: [
-            {
-              assigned_to: {
-                id: '5',
+  it("should get a person's contactAssignment for that is assigned to the current user's org ministry", () => {
+    expect(
+      contactAssignmentSelector(
+        { auth },
+        {
+          person: {
+            reverse_contact_assignments: [
+              {
+                assigned_to: {
+                  id: '5',
+                },
+                organization: organizationOne,
               },
-              organization: organizationOne,
-            },
-            {
-              assigned_to: {
-                id: auth.person.id,
+              {
+                assigned_to: {
+                  id: auth.person.id,
+                },
+                organization: organizationTwo,
               },
-              organization: organizationTwo,
-            },
-            {
-              assigned_to: {
-                id: auth.person.id,
+              {
+                assigned_to: {
+                  id: auth.person.id,
+                },
+                organization: { id: '102' },
               },
-              organization: { id: '102' },
-            },
-            {
-              assigned_to: {
-                id: auth.person.id,
+              {
+                assigned_to: {
+                  id: auth.person.id,
+                },
+                organization: organizationOne,
               },
-              organization: organizationOne,
-            },
-          ],
-          organizational_permissions: [
-            {
-              organization_id: organizationOne.id,
-            },
-            {
-              organization_id: organizationTwo.id,
-            },
-          ],
+            ],
+            organizational_permissions: [
+              {
+                organization_id: organizationOne.id,
+              },
+              {
+                organization_id: organizationTwo.id,
+              },
+            ],
+          },
+          orgId: organizationOne.id,
         },
-        orgId: organizationOne.id,
-      },
-    )).toMatchSnapshot();
+      ),
+    ).toMatchSnapshot();
   });
 
-  it('should get a person\'s contactAssignment for that is assigned to the current user\'s personal ministry', () => {
-    expect(contactAssignmentSelector(
-      { auth },
-      {
-        person: {
-          reverse_contact_assignments: [
-            {
-              assigned_to: {
-                id: auth.person.id,
+  it("should get a person's contactAssignment for that is assigned to the current user's personal ministry", () => {
+    expect(
+      contactAssignmentSelector(
+        { auth },
+        {
+          person: {
+            reverse_contact_assignments: [
+              {
+                assigned_to: {
+                  id: auth.person.id,
+                },
+                organization: null,
               },
-              organization: null,
-            },
-          ],
-          organizational_permissions: [],
+            ],
+            organizational_permissions: [],
+          },
+          orgId: undefined,
         },
-        orgId: undefined,
-      }
-    )).toMatchSnapshot();
+      ),
+    ).toMatchSnapshot();
   });
 });
 
 describe('orgPermissionSelector', () => {
-  it('should get a person\'s organizationalPermission for the current org', () => {
-    expect(orgPermissionSelector(
-      {},
-      {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: organizationOne.id,
-            },
-            {
-              organization_id: organizationTwo.id,
-            },
-          ],
+  it("should get a person's organizationalPermission for the current org", () => {
+    expect(
+      orgPermissionSelector(
+        {},
+        {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: organizationOne.id,
+              },
+              {
+                organization_id: organizationTwo.id,
+              },
+            ],
+          },
+          organization: {
+            id: organizationTwo.id,
+          },
         },
-        organization: {
-          id: organizationTwo.id,
-        },
-      }
-    )).toMatchSnapshot();
+      ),
+    ).toMatchSnapshot();
   });
 });

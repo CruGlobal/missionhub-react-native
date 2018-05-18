@@ -2,16 +2,20 @@ import 'react-native';
 import React from 'react';
 
 import SelectMyStepScreen from '../../src/containers/SelectMyStepScreen';
-import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
+import {
+  createMockNavState,
+  createMockStore,
+  testSnapshotShallow,
+} from '../../testUtils';
 
 jest.mock('react-native-device-info');
 
 const store = createMockStore({
   steps: {
     suggestedForMe: {
-      3: [ { id: '1', body: 'test' } ],
-      4: [ { id: '2', body: 'test' } ],
-      5: [ { id: '3', body: 'test' } ],
+      3: [{ id: '1', body: 'test' }],
+      4: [{ id: '2', body: 'test' }],
+      5: [{ id: '3', body: 'test' }],
     },
   },
   auth: {
@@ -34,7 +38,7 @@ const test = () => {
         contactStage: { id: 4 },
       })}
     />,
-    store
+    store,
   );
 };
 

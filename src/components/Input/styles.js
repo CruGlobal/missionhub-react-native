@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
@@ -12,6 +11,6 @@ export default StyleSheet.create({
     color: theme.white,
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
-    letterSpacing: .25,
+    letterSpacing: 0.25,
   },
 });

@@ -16,7 +16,6 @@ import styles from './styles';
 
 @translate('notes')
 export class ContactNotes extends Component {
-
   constructor(props) {
     super(props);
 
@@ -43,7 +42,7 @@ export class ContactNotes extends Component {
 
   async getNote() {
     const { person, myId } = this.props;
-    this.props.dispatch(getPersonNote(person.id, myId)).then((results) => {
+    this.props.dispatch(getPersonNote(person.id, myId)).then(results => {
       const text = results ? results.content : undefined;
       const noteId = results ? results.id : null;
       this.setState({ noteId, text });
@@ -58,12 +57,14 @@ export class ContactNotes extends Component {
     Keyboard.dismiss();
 
     if (this.state.editing) {
-      this.props.dispatch(savePersonNote(
-        this.props.person.id,
-        this.state.text,
-        this.state.noteId,
-        this.props.myId,
-      ));
+      this.props.dispatch(
+        savePersonNote(
+          this.props.person.id,
+          this.state.text,
+          this.state.noteId,
+          this.props.myId,
+        ),
+      );
     }
 
     this.setState({ editing: false });
@@ -77,7 +78,17 @@ export class ContactNotes extends Component {
       this.setState({ editing: true }, () => {
         this.notesInput.focus();
       });
-      this.props.dispatch(trackState(buildTrackingObj('people : person : notes : edit', 'people', 'person', 'notes', 'edit')));
+      this.props.dispatch(
+        trackState(
+          buildTrackingObj(
+            'people : person : notes : edit',
+            'people',
+            'person',
+            'notes',
+            'edit',
+          ),
+        ),
+      );
       this.props.onNotesActive();
     }
   }
@@ -99,7 +110,7 @@ export class ContactNotes extends Component {
       return (
         <Flex value={1} style={styles.container}>
           <Input
-            ref={(c) => this.notesInput = c}
+            ref={c => (this.notesInput = c)}
             onChangeText={this.onTextChanged}
             editable={this.state.editing}
             value={this.state.text}
@@ -128,7 +139,9 @@ export class ContactNotes extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Image source={NOTES} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>{t('header').toUpperCase()}</Text>
+        <Text type="header" style={styles.nullHeader}>
+          {t('header').toUpperCase()}
+        </Text>
         <Text style={styles.nullText}>{text}</Text>
       </Flex>
     );
@@ -137,7 +150,9 @@ export class ContactNotes extends Component {
   render() {
     return (
       <PlatformKeyboardAvoidingView offset={theme.headerHeight}>
-        { (this.state.text || this.state.editing) ? this.renderNotes() : this.renderEmpty() }
+        {this.state.text || this.state.editing
+          ? this.renderNotes()
+          : this.renderEmpty()}
         <Flex justify="end">
           <Button
             type="secondary"

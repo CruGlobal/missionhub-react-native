@@ -14,7 +14,15 @@ import styles from './styles';
 export default class MFACodeComponent extends Component {
   render() {
     const { t, onSubmit, onChangeText, isLoading, value } = this.props;
-    const { backButton, doneButton, doneButtonText, container, mfaHeader, mfaDescription, label } = styles;
+    const {
+      backButton,
+      doneButton,
+      doneButtonText,
+      container,
+      mfaHeader,
+      mfaDescription,
+      label,
+    } = styles;
 
     return (
       <PlatformKeyboardAvoidingView>
@@ -31,8 +39,9 @@ export default class MFACodeComponent extends Component {
         </Flex>
 
         <Flex justify="center" value={1} style={container}>
-
-          <Text type="header" style={mfaHeader}>{t('mfaHeader').toLowerCase()}</Text>
+          <Text type="header" style={mfaHeader}>
+            {t('mfaHeader').toLowerCase()}
+          </Text>
 
           <Text style={mfaDescription}>{t('mfaDescription')}</Text>
 
@@ -53,7 +62,7 @@ export default class MFACodeComponent extends Component {
           </View>
         </Flex>
 
-        {isLoading ? <LoadingWheel /> : null }
+        {isLoading ? <LoadingWheel /> : null}
       </PlatformKeyboardAvoidingView>
     );
   }

@@ -15,7 +15,6 @@ import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import IconButton from './IconButton';
 import RadioButton from './RadioButton';
 
-
 export {
   Button,
   DateComponent,

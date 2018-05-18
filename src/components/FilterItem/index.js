@@ -10,7 +10,9 @@ import styles from './styles';
 
 @translate('searchFilterRefine')
 export default class FilterItem extends Component {
-  handleSelect = () => { this.props.onSelect(this.props.item); }
+  handleSelect = () => {
+    this.props.onSelect(this.props.item);
+  };
   renderRight() {
     const { item, type, isSelected, t } = this.props;
 
@@ -20,7 +22,11 @@ export default class FilterItem extends Component {
           <Text style={styles.anyText} numberOfLines={1}>
             {item.preview || t('any')}
           </Text>
-          <Icon name="rightArrowIcon" type="MissionHub" style={styles.anyIcon} />
+          <Icon
+            name="rightArrowIcon"
+            type="MissionHub"
+            style={styles.anyIcon}
+          />
         </Flex>
       );
     }
@@ -46,13 +52,9 @@ export default class FilterItem extends Component {
       <Flex
         direction="row"
         align="center"
-        style={[
-          styles.row,
-          type === 'switch' ? styles.switchRow : null,
-        ]}>
-        <Text style={styles.name}>
-          {item.text}
-        </Text>
+        style={[styles.row, type === 'switch' ? styles.switchRow : null]}
+      >
+        <Text style={styles.name}>{item.text}</Text>
         {this.renderRight()}
       </Flex>
     );
@@ -66,7 +68,6 @@ export default class FilterItem extends Component {
     }
     return content;
   }
-
 }
 
 FilterItem.propTypes = {
@@ -76,6 +77,6 @@ FilterItem.propTypes = {
     preview: PropTypes.string,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'drilldown', 'single', 'switch' ]).isRequired,
+  type: PropTypes.oneOf(['drilldown', 'single', 'switch']).isRequired,
   isSelected: PropTypes.bool,
 };

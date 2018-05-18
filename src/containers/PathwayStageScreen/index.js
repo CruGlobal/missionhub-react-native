@@ -26,13 +26,7 @@ const stageWidth = theme.fullWidth - screenMargin * 2;
 const stageMargin = theme.fullWidth / 30;
 const overScrollMargin = 120;
 
-const stageIcons = [
-  UNINTERESTED,
-  CURIOUS,
-  FORGIVEN,
-  GROWING,
-  GUIDING,
-];
+const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
 
 const fallbackIndex = 0;
 
@@ -52,7 +46,9 @@ class PathwayStageScreen extends Component {
   async componentWillMount() {
     await this.props.dispatch(getStages());
 
-    const initialIndex = this.props.firstItem ? this.props.firstItem : fallbackIndex;
+    const initialIndex = this.props.firstItem
+      ? this.props.firstItem
+      : fallbackIndex;
     this.trackStageState(this.props.stages[initialIndex].id);
     Keyboard.dismiss();
   }
@@ -75,11 +71,15 @@ class PathwayStageScreen extends Component {
     }
     this.props.onSelect(stage, isAlreadySelected);
 
-    const action = this.props.isSelf ? ACTIONS.SELF_STAGE_SELECTED : ACTIONS.PERSON_STAGE_SELECTED;
-    this.props.dispatch(trackAction(action.name, {
-      [action.key]: stage.id,
-      [ACTIONS.STAGE_SELECTED.key]: null,
-    }));
+    const action = this.props.isSelf
+      ? ACTIONS.SELF_STAGE_SELECTED
+      : ACTIONS.PERSON_STAGE_SELECTED;
+    this.props.dispatch(
+      trackAction(action.name, {
+        [action.key]: stage.id,
+        [ACTIONS.STAGE_SELECTED.key]: null,
+      }),
+    );
   }
 
   handleScroll(e) {
@@ -92,7 +92,12 @@ class PathwayStageScreen extends Component {
 
   trackStageState(number) {
     const { section, subsection, dispatch, onScrollToStage } = this.props;
-    const trackingObj = buildTrackingObj(`${section} : ${subsection} : stage : ${number}`, section, subsection, 'stage');
+    const trackingObj = buildTrackingObj(
+      `${section} : ${subsection} : stage : ${number}`,
+      section,
+      subsection,
+      'stage',
+    );
 
     onScrollToStage(trackingObj);
     dispatch(trackState(trackingObj));
@@ -105,7 +110,9 @@ class PathwayStageScreen extends Component {
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
-          <Text type="header" style={styles.cardHeader}>{item.name.toLowerCase()}</Text>
+          <Text type="header" style={styles.cardHeader}>
+            {item.name.toLowerCase()}
+          </Text>
           <Text style={styles.cardText}>{item.description}</Text>
         </View>
         <Button
@@ -118,41 +125,35 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
-    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
+    let leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
         <Text style={styles.title}>{this.props.questionText}</Text>
-        {
-          this.props.stages ? (
-            <Carousel
-              firstItem={this.props.firstItem || fallbackIndex}
-              data={this.props.stages}
-              inactiveSlideOpacity={1}
-              inactiveSlideScale={1}
-              renderItem={this.renderStage}
-              sliderWidth={sliderWidth + 75}
-              itemWidth={stageWidth + stageMargin * 2}
-              onScroll={this.handleScroll}
-              scrollEventThrottle={5}
-              onSnapToItem={this.handleSnapToItem}
-              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
-            />
-          ) : null
-        }
+        {this.props.stages ? (
+          <Carousel
+            firstItem={this.props.firstItem || fallbackIndex}
+            data={this.props.stages}
+            inactiveSlideOpacity={1}
+            inactiveSlideScale={1}
+            renderItem={this.renderStage}
+            sliderWidth={sliderWidth + 75}
+            itemWidth={stageWidth + stageMargin * 2}
+            onScroll={this.handleScroll}
+            scrollEventThrottle={5}
+            onSnapToItem={this.handleSnapToItem}
+            containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+          />
+        ) : null}
         <Image
           resizeMode="contain"
           source={LANDSCAPE}
-          style={[
-            styles.footerImage,
-            { left: leftMargin },
-          ]}
+          style={[styles.footerImage, { left: leftMargin }]}
         />
       </Flex>
     );
   }
-
 }
 
 PathwayStageScreen.propTypes = {

@@ -16,8 +16,13 @@ jest.mock('react-native-device-info');
 beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
   shallowScreen = shallow(
-    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />,
-    { context: { store: store } }
+    <ContactNotes
+      person={{ first_name: 'Roger' }}
+      dispatch={jest.fn()}
+      onNotesActive={jest.fn()}
+      onNotesInactive={jest.fn()}
+    />,
+    { context: { store: store } },
   );
 
   shallowScreen = shallowScreen.dive().dive();
@@ -57,7 +62,9 @@ describe('contact notes', () => {
 
   it('editing is set to true when button is pressed', () => {
     const mockFocus = jest.fn();
-    Object.defineProperty(shallowScreen.instance(), 'notesInput', { value: { focus: mockFocus } });
+    Object.defineProperty(shallowScreen.instance(), 'notesInput', {
+      value: { focus: mockFocus },
+    });
 
     shallowScreen.find(Button).simulate('press');
 

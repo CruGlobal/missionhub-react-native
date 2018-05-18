@@ -22,12 +22,14 @@ class GetStartedScreen extends Component {
 
   navigateNext = () => {
     disableBack.remove();
-    this.props.dispatch(navigatePush(STAGE_ONBOARDING_SCREEN, {
-      section: 'onboarding',
-      subsection: 'self',
-      enableBackButton: false,
-    }));
-  }
+    this.props.dispatch(
+      navigatePush(STAGE_ONBOARDING_SCREEN, {
+        section: 'onboarding',
+        subsection: 'self',
+        enableBackButton: false,
+      }),
+    );
+  };
 
   render() {
     const { t, firstName } = this.props;
@@ -35,8 +37,10 @@ class GetStartedScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Flex align="start" justify="center" value={4} >
-          <Text type="header" style={styles.headerTitle}>{t('hi', { name })}</Text>
+        <Flex align="start" justify="center" value={4}>
+          <Text type="header" style={styles.headerTitle}>
+            {t('hi', { name })}
+          </Text>
           <Text style={styles.text}>{t('tagline')}</Text>
         </Flex>
 

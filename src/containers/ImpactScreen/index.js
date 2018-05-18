@@ -10,14 +10,17 @@ import { openMainMenu } from '../../utils/common';
 
 @translate('impact')
 class ImpactScreen extends Component {
-
   render() {
     const { t, dispatch, person } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={() => dispatch(openMainMenu())}
+            />
           }
           title={t('header').toUpperCase()}
         />

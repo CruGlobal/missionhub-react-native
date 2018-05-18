@@ -33,7 +33,7 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <CustomTabs tabArray={tabArray} activeTab={1} goToPage={() => {}} />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -41,16 +41,27 @@ it('renders tab 0 correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <CustomTabs tabArray={tabArray} activeTab={0} goToPage={() => {}} />
-    </Provider>
+    </Provider>,
   );
 });
 
 it('goes to tab when clicked', () => {
   const onChangeTab = jest.fn();
   const goToPage = jest.fn();
-  const shallowScreen = shallow(<CustomTabs store={store} tabArray={tabArray} activeTab={0} onChangeTab={onChangeTab} goToPage={goToPage} />);
+  const shallowScreen = shallow(
+    <CustomTabs
+      store={store}
+      tabArray={tabArray}
+      activeTab={0}
+      onChangeTab={onChangeTab}
+      goToPage={goToPage}
+    />,
+  );
 
-  shallowScreen.dive().childAt(1).simulate('press');
+  shallowScreen
+    .dive()
+    .childAt(1)
+    .simulate('press');
 
   expect(onChangeTab).toHaveBeenCalledWith(1, tabArray[1].page);
   expect(goToPage).toHaveBeenCalledWith(1);

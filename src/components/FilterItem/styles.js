@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
@@ -33,6 +32,5 @@ export default StyleSheet.create({
     fontSize: 18,
     color: theme.primaryColor,
   },
-  switch: {
-  },
+  switch: {},
 });

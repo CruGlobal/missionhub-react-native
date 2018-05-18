@@ -1,4 +1,7 @@
-import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
+import {
+  reminderStepsSelector,
+  nonReminderStepsSelector,
+} from '../../src/selectors/steps';
 
 const people = {
   allByOrg: {
@@ -36,14 +39,14 @@ const reminders = [
     receiver: {
       id: '20',
     },
-    reminder: true,
+    focus: true,
   },
   {
     id: '2',
     receiver: {
       id: '20',
     },
-    reminder: true,
+    focus: true,
   },
   {
     id: '3',
@@ -53,12 +56,11 @@ const reminders = [
     receiver: {
       id: '30',
     },
-    reminder: true,
+    focus: true,
   },
 ];
 
 const steps = {
-  reminders,
   mine: [
     ...reminders,
     {

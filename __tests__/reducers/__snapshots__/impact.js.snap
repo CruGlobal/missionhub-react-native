@@ -2,17 +2,32 @@
 
 exports[`should update global impact reports 1`] = `
 Object {
-  "global": Object {
-    "type": "impact_report",
-  },
   "interactions": Object {},
-  "people": Object {},
+  "summary": Object {
+    "-": Object {
+      "organization_id": null,
+      "person_id": null,
+      "type": "impact_report",
+    },
+  },
+}
+`;
+
+exports[`should update group impact reports 1`] = `
+Object {
+  "interactions": Object {},
+  "summary": Object {
+    "-1234": Object {
+      "organization_id": "1234",
+      "person_id": null,
+      "type": "impact_report",
+    },
+  },
 }
 `;
 
 exports[`should update interaction reports 1`] = `
 Object {
-  "global": Object {},
   "interactions": Object {
     "123-456": Object {
       "P1W": Array [
@@ -26,16 +41,16 @@ Object {
       ],
     },
   },
-  "people": Object {},
+  "summary": Object {},
 }
 `;
 
 exports[`should update person impact reports 1`] = `
 Object {
-  "global": Object {},
   "interactions": Object {},
-  "people": Object {
-    "123": Object {
+  "summary": Object {
+    "123-": Object {
+      "organization_id": null,
       "person_id": "123",
       "type": "impact_report",
     },

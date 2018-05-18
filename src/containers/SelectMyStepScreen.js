@@ -17,7 +17,15 @@ class SelectMyStepScreen extends Component {
   };
 
   render() {
-    const { t, enableBackButton, me, suggestedForMe, personId, contactStage, organization } = this.props;
+    const {
+      t,
+      enableBackButton,
+      me,
+      suggestedForMe,
+      personId,
+      contactStage,
+      organization,
+    } = this.props;
 
     let steps = [];
     if (contactStage) {
@@ -35,15 +43,19 @@ class SelectMyStepScreen extends Component {
         useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
-        createStepTracking={buildTrackingObj(`${section} : self : steps : create`, section, 'self', 'steps')}
+        createStepTracking={buildTrackingObj(
+          `${section} : self : steps : create`,
+          section,
+          'self',
+          'steps',
+        )}
         enableBackButton={enableBackButton}
       />
     );
   }
-
 }
 
-const mapStateToProps = ({ steps, auth }, { navigation } ) => ({
+const mapStateToProps = ({ steps, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   me: auth.person,
   suggestedForMe: steps.suggestedForMe,

@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 import { isiPhoneX } from '../../utils/common';

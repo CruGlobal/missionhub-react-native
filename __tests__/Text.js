@@ -6,25 +6,17 @@ import { Text } from '../src/components/common';
 import { testSnapshot } from '../testUtils';
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Text>Hello</Text>
-  );
+  testSnapshot(<Text>Hello</Text>);
 });
 
 it('renders style correctly', () => {
-  testSnapshot(
-    <Text style={{ color: 'red' }}>Hello</Text>
-  );
+  testSnapshot(<Text style={{ color: 'red' }}>Hello</Text>);
 });
 
 it('renders animation correctly', () => {
-  testSnapshot(
-    <Text animation="bounce">Hello</Text>
-  );
+  testSnapshot(<Text animation="bounce">Hello</Text>);
 });
 
 it('renders header font family correctly', () => {
-  testSnapshot(
-    <Text type="header">Hello</Text>
-  );
+  testSnapshot(<Text type="header">Hello</Text>);
 });

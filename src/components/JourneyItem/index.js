@@ -7,15 +7,29 @@ import { INTERACTION_TYPES } from '../../constants';
 
 import styles from './styles';
 
-const interactionsArr = Object.keys(INTERACTION_TYPES).map((key) => INTERACTION_TYPES[key]);
+const interactionsArr = Object.keys(INTERACTION_TYPES).map(
+  key => INTERACTION_TYPES[key],
+);
 
 @translate('journeyItem')
 export default class JourneyItem extends Component {
-  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+  setNativeProps(nProps) {
+    this._view.setNativeProps(nProps);
+  }
 
   renderDate() {
     const { item } = this.props;
-    return <DateComponent date={item._type === 'accepted_challenge' ? item.completed_at : item.created_at} style={styles.date} format="LL" />;
+    return (
+      <DateComponent
+        date={
+          item._type === 'accepted_challenge'
+            ? item.completed_at
+            : item.created_at
+        }
+        style={styles.date}
+        format="LL"
+      />
+    );
   }
 
   oldStage(item) {
@@ -23,7 +37,11 @@ export default class JourneyItem extends Component {
   }
 
   translatableStage(item) {
-    return { personName: item.person.first_name, oldStage: this.oldStage(item), newStage: item.new_pathway_stage.name };
+    return {
+      personName: item.person.first_name,
+      oldStage: this.oldStage(item),
+      newStage: item.new_pathway_stage.name,
+    };
   }
 
   isSelfPathwayProgressionAudit(item) {
@@ -31,11 +49,19 @@ export default class JourneyItem extends Component {
   }
 
   renderTitle() {
-    const { t, item, item: { _type } } = this.props;
+    const {
+      t,
+      item,
+      item: { _type },
+    } = this.props;
     let title;
     if (_type === 'accepted_challenge') {
-      const pathwayStage = item.challenge_suggestion && item.challenge_suggestion.pathway_stage && item.challenge_suggestion.pathway_stage.name ?
-        ` ${item.challenge_suggestion.pathway_stage.name} ` : ' ';
+      const pathwayStage =
+        item.challenge_suggestion &&
+        item.challenge_suggestion.pathway_stage &&
+        item.challenge_suggestion.pathway_stage.name
+          ? ` ${item.challenge_suggestion.pathway_stage.name} `
+          : ' ';
       title = t('stepTitle', { stageName: pathwayStage });
     } else if (_type === 'pathway_progression_audit') {
       if (this.oldStage(item)) {
@@ -46,24 +72,25 @@ export default class JourneyItem extends Component {
     } else if (_type === 'answer_sheet' && item.survey) {
       title = item.survey.title;
     } else if (_type === 'interaction') {
-      const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
+      const interaction = interactionsArr.find(
+        i => i.id === item.interaction_type_id,
+      );
       if (interaction) {
-        //Todo: once comment interactions are separated from "something cool happened" notes, title should always equal t(interaction.interactionKey)
-        title = interaction.translationKey === 'interactionNote' ? null : t(interaction.translationKey);
+        title = t(interaction.translationKey);
       }
     }
 
     if (!title) return null;
 
-    return (
-      <Text style={styles.title}>
-        {title}
-      </Text>
-    );
+    return <Text style={styles.title}>{title}</Text>;
   }
 
   renderText() {
-    const { t, item, item: { _type } } = this.props;
+    const {
+      t,
+      item,
+      item: { _type },
+    } = this.props;
     let text;
     if (_type === 'accepted_challenge') {
       text = item.title;
@@ -88,15 +115,14 @@ export default class JourneyItem extends Component {
       text = item.comment;
     }
 
-    return (
-      <Text style={styles.text}>
-        {text}
-      </Text>
-    );
+    return <Text style={styles.text}>{text}</Text>;
   }
 
   renderIcon() {
-    const { item, item: { _type } } = this.props;
+    const {
+      item,
+      item: { _type },
+    } = this.props;
     let iconType;
     if (_type === 'accepted_challenge') {
       iconType = 'stepsIcon';
@@ -105,7 +131,9 @@ export default class JourneyItem extends Component {
     } else if (_type === 'answer_sheet') {
       iconType = 'surveyIcon';
     } else if (_type === 'interaction') {
-      const interaction = interactionsArr.find((i) => i.id === item.interaction_type_id);
+      const interaction = interactionsArr.find(
+        i => i.id === item.interaction_type_id,
+      );
       if (interaction) {
         iconType = interaction.iconName;
       }
@@ -114,12 +142,15 @@ export default class JourneyItem extends Component {
     if (!iconType) return null;
 
     return (
-      <Flex value={1} >
+      <Flex value={1}>
         <Icon
           name={iconType}
           type="MissionHub"
           size={32}
-          style={[ styles.icon, iconType === 'commentIcon' ? styles.commentIcon : {} ]}
+          style={[
+            styles.icon,
+            iconType === 'commentIcon' ? styles.commentIcon : {},
+          ]}
         />
       </Flex>
     );
@@ -142,14 +173,12 @@ export default class JourneyItem extends Component {
       <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
-        {
-          answers.map((a) => (
-            <Flex direction="column" key={a.id}>
-              <Text style={styles.question}>{a.question.label}</Text>
-              <Text style={styles.text}>{a.value}</Text>
-            </Flex>
-          ))
-        }
+        {answers.map(a => (
+          <Flex direction="column" key={a.id}>
+            <Text style={styles.question}>{a.question.label}</Text>
+            <Text style={styles.text}>{a.value}</Text>
+          </Flex>
+        ))}
       </Flex>
     );
   }
@@ -157,7 +186,7 @@ export default class JourneyItem extends Component {
   render() {
     return (
       <Flex
-        ref={(c) => this._view = c}
+        ref={c => (this._view = c)}
         direction="row"
         align="center"
         style={styles.row}
@@ -167,13 +196,17 @@ export default class JourneyItem extends Component {
       </Flex>
     );
   }
-
 }
 
 JourneyItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    _type: PropTypes.oneOf([ 'accepted_challenge', 'pathway_progression_audit', 'answer_sheet', 'interaction' ]),
+    _type: PropTypes.oneOf([
+      'accepted_challenge',
+      'pathway_progression_audit',
+      'answer_sheet',
+      'interaction',
+    ]),
     text: PropTypes.string,
     title: PropTypes.string,
     completed_at: PropTypes.date,
