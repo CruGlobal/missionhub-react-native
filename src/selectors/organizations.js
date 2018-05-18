@@ -22,5 +22,5 @@ export const unassignedSelector = createSelector(
   (_, { contacts }) => contacts,
   (_, { orgId }) => orgId,
   (contacts, orgId) =>
-    contacts.filter(person => person.reverse_contact_assignments > 0),
+    contacts.filter(person => person.reverse_contact_assignments.length === 0),
 );
