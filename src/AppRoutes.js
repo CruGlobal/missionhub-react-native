@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   createStackNavigator,
-  createTabNavigator,
+  createBottomTabNavigator,
   createDrawerNavigator,
 } from 'react-navigation';
 import i18next from 'i18next';
@@ -144,21 +144,22 @@ const tabs = {
 };
 
 const createTabs = (tabKey, tabPath) => {
-  return createTabNavigator(
+  return createBottomTabNavigator(
     {
       StepsTab: tabs.StepsTab,
       PeopleTab: tabs.PeopleTab,
       [tabKey]: tabs[tabKey],
     },
     {
-      // initialRouteName: 'ImpactTab',
       tabBarOptions: {
         showIcon: false,
         showLabel: true,
-        style: { backgroundColor: theme.white },
+        style: {
+          backgroundColor: theme.white,
+          paddingTop: 4,
+        },
         activeTintColor: theme.primaryColor,
         inactiveTintColor: theme.inactiveColor,
-        tabStyle: { backgroundColor: theme.lightBackgroundColor },
         indicatorStyle: { backgroundColor: 'transparent' },
         upperCaseLabel: false,
 
@@ -166,9 +167,7 @@ const createTabs = (tabKey, tabPath) => {
         scrollEnabled: false,
       },
       swipeEnabled: false,
-      tabBarPosition: 'bottom',
       animationEnabled: false,
-      // lazy: false, // Load all tabs right away
       lazy: true,
       paths: {
         StepsTab: '/steps',
