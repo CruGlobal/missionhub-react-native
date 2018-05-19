@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BackHandler } from 'react-native';
-import { addNavigationHelpers } from 'react-navigation';
 import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
 import { MainRoutes } from './AppRoutes';
@@ -30,11 +29,11 @@ class AppWithNavigationState extends React.Component {
 
   render() {
     const { dispatch, nav } = this.props;
-    const navigation = addNavigationHelpers({
+    const navigation = {
       dispatch,
       state: nav,
       addListener,
-    });
+    };
     return <MainRoutes navigation={navigation} />;
   }
 }

@@ -3,8 +3,8 @@ import { BackHandler } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { DrawerActions } from 'react-navigation';
 
-import { DRAWER_CLOSE } from '../../constants';
 import { Flex, Button, IconButton } from '../common';
 import { navigatePush } from '../../actions/navigation';
 
@@ -21,7 +21,7 @@ export class SideMenu extends Component {
 
   onBackPress = () => {
     if (this.props.isOpen) {
-      this.props.dispatch(navigatePush(DRAWER_CLOSE));
+      this.props.dispatch(DrawerActions.closeDrawer());
       return true;
     }
 
@@ -35,7 +35,7 @@ export class SideMenu extends Component {
         <Flex style={styles.buttonContainer}>
           <IconButton
             style={styles.button}
-            onPress={() => this.props.dispatch(navigatePush(DRAWER_CLOSE))}
+            onPress={() => this.props.dispatch(DrawerActions.closeDrawer())}
             name="close"
             type="Material"
             size={20}

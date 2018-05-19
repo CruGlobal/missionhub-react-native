@@ -1,12 +1,11 @@
 import moment from 'moment';
 import { BackHandler, Platform } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 
-import { navigatePush } from '../actions/navigation';
 import {
   CUSTOM_STEP_TYPE,
-  DRAWER_OPEN,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
 } from '../constants';
@@ -39,7 +38,7 @@ export const locale = DeviceInfo.getDeviceLocale();
 export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
 export const openMainMenu = () =>
-  navigatePush(DRAWER_OPEN, { drawer: MAIN_MENU_DRAWER });
+  DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER });
 export const buildTrackingObj = (name, section, subsection, level3) => {
   return {
     name: name,

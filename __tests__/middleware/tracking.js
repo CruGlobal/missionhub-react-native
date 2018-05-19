@@ -1,9 +1,9 @@
+import { DrawerActions } from 'react-navigation';
 import configureStore from 'redux-mock-store';
 
 import {
   CONTACT_MENU_DRAWER,
   CONTACT_TAB_CHANGED,
-  DRAWER_OPEN,
   IMPACT_TAB,
   MAIN_MENU_DRAWER,
   MAIN_TAB_CHANGED,
@@ -148,14 +148,16 @@ describe('navigate forward', () => {
   describe('to drawer', () => {
     beforeEach(() => {
       navigationAction = {
-        type: NAVIGATE_FORWARD,
-        routeName: DRAWER_OPEN,
-        params: { drawer: MAIN_MENU_DRAWER },
+        type: DrawerActions.OPEN_DRAWER,
+        drawer: MAIN_MENU_DRAWER,
       };
     });
 
-    it('tracks nothing if actionParams are missing', () => {
-      navigationAction.params = undefined;
+    it('tracks nothing if drawer is not specified', () => {
+      navigationAction = {
+        ...navigationAction,
+        drawer: undefined,
+      };
 
       store.dispatch(navigationAction);
 
@@ -163,7 +165,10 @@ describe('navigate forward', () => {
     });
 
     it('tracks main menu drawer', () => {
-      navigationAction.params = { drawer: MAIN_MENU_DRAWER };
+      navigationAction = {
+        ...navigationAction,
+        drawer: MAIN_MENU_DRAWER,
+      };
 
       store.dispatch(navigationAction);
 
@@ -173,7 +178,8 @@ describe('navigate forward', () => {
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
-        navigationAction.params = {
+        navigationAction = {
+          ...navigationAction,
           drawer: CONTACT_MENU_DRAWER,
           isCurrentUser: false,
         };
@@ -195,7 +201,8 @@ describe('navigate forward', () => {
       });
 
       it('tracks person menu', () => {
-        navigationAction.params = {
+        navigationAction = {
+          ...navigationAction,
           drawer: CONTACT_MENU_DRAWER,
           isCurrentUser: true,
         };
