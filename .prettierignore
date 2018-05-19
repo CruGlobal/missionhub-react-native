@@ -1,0 +1,5 @@
+.prettierignore
+ios
+android
+coverage
+*.snap

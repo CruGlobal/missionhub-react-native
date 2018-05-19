@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  StackNavigator,
-  TabNavigator,
-  DrawerNavigator,
+  createStackNavigator,
+  createTabNavigator,
+  createDrawerNavigator,
 } from 'react-navigation';
 import i18next from 'i18next';
 
@@ -144,7 +144,7 @@ const tabs = {
 };
 
 const createTabs = (tabKey, tabPath) => {
-  return TabNavigator(
+  return createTabNavigator(
     {
       StepsTab: tabs.StepsTab,
       PeopleTab: tabs.PeopleTab,
@@ -184,7 +184,7 @@ export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
 export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
-  DrawerNavigator(
+  createDrawerNavigator(
     {
       Main: { screen: MainTabs },
     },
@@ -290,7 +290,7 @@ export const trackableScreens = {
   ...tabs,
 };
 
-export const MainStackRoutes = StackNavigator(
+export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LOGIN_SCREEN]: { screen: LoginScreen },
@@ -318,7 +318,7 @@ export const MainStackRoutes = StackNavigator(
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_SCREEN]: {
-      screen: DrawerNavigator(
+      screen: createDrawerNavigator(
         {
           Main: { screen: ContactScreen },
         },
