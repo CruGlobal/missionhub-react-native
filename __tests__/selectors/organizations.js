@@ -56,6 +56,14 @@ it('should not return an org when undefined is passed', () => {
   expect(result).toBe(undefined);
 });
 
-it('should select uncontacted from contacts', () => {});
+it('should select uncontacted from contacts', () => {
+  const result = uncontactedSelector(null, { contacts, orgId });
 
-it('should select unassigned from contacts', () => {});
+  expect(result).toMatchSnapshot();
+});
+
+it('should select unassigned from contacts', () => {
+  const result = unassignedSelector(null, { contacts, orgId });
+
+  expect(result).toMatchSnapshot();
+});
