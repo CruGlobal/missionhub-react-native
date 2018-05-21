@@ -13,13 +13,12 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(times, backParams) {
+export function navigateBack(times) {
   return dispatch => {
     if (times && times > 1) {
       dispatch(StackActions.pop({ n: times, immediate: true }));
     } else {
-      // backParams can contain { key: string, immediate: bool }
-      dispatch(NavigationActions.back(backParams));
+      dispatch(NavigationActions.back());
     }
   };
 }

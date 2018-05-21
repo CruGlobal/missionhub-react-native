@@ -327,7 +327,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
         "paddingBottom": 0,
         "paddingLeft": 0,
         "paddingRight": 0,
-        "paddingTop": 0,
+        "paddingTop": 4,
       }
     }
   >
@@ -956,7 +956,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
         "paddingBottom": 0,
         "paddingLeft": 0,
         "paddingRight": 0,
-        "paddingTop": 0,
+        "paddingTop": 4,
       }
     }
   >
