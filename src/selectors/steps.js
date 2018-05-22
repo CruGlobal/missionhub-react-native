@@ -1,10 +1,14 @@
 import { createSelector } from 'reselect';
 
+const filterFocus = (steps, focused) =>
+  steps.mine && steps.mine.filter(s => (focused ? s.focus : !s.focus));
+
+const filterOutMissingReceivers = steps =>
+  steps && steps.filter(s => s.receiver && s.receiver.id);
+
 const mapSteps = (steps, orgs) =>
   steps &&
-  steps
-    .filter(s => s.receiver && s.receiver.id)
-    .map(step => replaceStepReceiver(step, orgs));
+  filterOutMissingReceivers(steps).map(step => replaceStepReceiver(step, orgs));
 
 const replaceStepReceiver = (step, orgs) => {
   const currentOrg =
@@ -17,14 +21,19 @@ const replaceStepReceiver = (step, orgs) => {
   };
 };
 
+export const hasReminderStepsSelector = createSelector(
+  ({ steps }) => filterFocus(steps, true),
+  steps => filterOutMissingReceivers(steps).length > 0,
+);
+
 export const reminderStepsSelector = createSelector(
-  ({ steps }) => steps.mine && steps.mine.filter(s => s.focus),
+  ({ steps }) => filterFocus(steps, true),
   ({ people }) => people.allByOrg,
   mapSteps,
 );
 
 export const nonReminderStepsSelector = createSelector(
-  ({ steps }) => steps.mine && steps.mine.filter(s => !s.focus),
+  ({ steps }) => filterFocus(steps, false),
   ({ people }) => people.allByOrg,
   mapSteps,
 );
