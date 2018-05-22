@@ -1,7 +1,7 @@
 import lodash from 'lodash';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT } from '../constants';
+import { LOGOUT, GET_ORGANIZATION_CONTACTS } from '../constants';
 
 const initialState = {
   all: [],
@@ -48,9 +48,8 @@ function organizationsReducer(state = initialState, action) {
             )
           : state.all,
       };
-    case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
-      orgId = action.query.organization_id;
-      const contacts = results.response;
+    case GET_ORGANIZATION_CONTACTS:
+      const { orgId, contacts } = action;
       return {
         ...state,
         all: orgId
