@@ -27,7 +27,7 @@ export class SettingsMenu extends Component {
           Linking.openURL(isAndroid ? LINKS.playStore : LINKS.appleStore),
       },
       {
-        label: t('terms'),
+        label: t('privacy'),
         action: () => Linking.openURL(LINKS.terms),
       },
       {
