@@ -75,9 +75,10 @@ matrix:
       script:
       - fastlane android beta
 
-    - language: node_js
-      node_js:
-      - '9'
+    - language: objective-c
+      xcode_project: godtools.xcworkspace
+      os: osx
+      osx_image: xcode9.2
       if: tag =~ ^v(\d+\.){1,}\d+
       install:
       - cd ios
