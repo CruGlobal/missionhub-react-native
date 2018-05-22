@@ -80,12 +80,13 @@ matrix:
       os: osx
       osx_image: xcode9.2
       if: tag =~ ^v(\d+\.){1,}\d+
+      before_install:
+      - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
       install:
       - cd ios
       - bundler install
       - fastlane ios release submit:true auto_release:false
       - cd ../android
-      - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
       - bundler install
       - fastlane android release
 
