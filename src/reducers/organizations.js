@@ -9,7 +9,6 @@ const initialState = {
 
 function organizationsReducer(state = initialState, action) {
   const results = action.results;
-  let orgId;
   switch (action.type) {
     case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
       const myOrgs = (results.findAll('organization') || []).map(o => ({
@@ -30,23 +29,6 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: allOrgs,
-      };
-    case REQUESTS.GET_CONTACTS_COUNT.SUCCESS:
-      orgId = action.query.organization_id;
-      let contactCount = 0;
-      let unassignedCount = 0;
-      results.response.assigned_tos.forEach(a => {
-        contactCount += a.count;
-        unassignedCount += a.person_id === 'unassigned' ? a.count : 0;
-      });
-      return {
-        ...state,
-        all: orgId
-          ? state.all.map(
-              o =>
-                o.id === orgId ? { ...o, unassignedCount, contactCount } : o,
-            )
-          : state.all,
       };
     case GET_ORGANIZATION_CONTACTS:
       const { orgId, contacts } = action;

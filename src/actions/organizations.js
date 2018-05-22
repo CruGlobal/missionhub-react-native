@@ -21,11 +21,7 @@ export function getAssignedOrganizations() {
 }
 
 function getOrganizations(requestObject, query) {
-  return async dispatch => {
-    const { response } = await dispatch(callApi(requestObject, query));
-    response.forEach(o => dispatch(getOrganizationContacts(o.id)));
-    return response;
-  };
+  return dispatch => dispatch(callApi(requestObject, query));
 }
 
 function getOrganizationContacts(orgId) {
