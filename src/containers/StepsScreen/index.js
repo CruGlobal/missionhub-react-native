@@ -84,7 +84,7 @@ export class StepsScreen extends Component {
   }
 
   getSteps() {
-    this.props.dispatch(getMySteps());
+    return this.props.dispatch(getMySteps());
   }
 
   completeStepBump() {
