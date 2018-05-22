@@ -3,8 +3,6 @@ import { organizationSelector } from '../../src/selectors/organizations';
 const orgOne = { id: '95' };
 const orgTwo = { id: '96' };
 
-const orgId = '123';
-
 const organizations = {
   all: [orgOne, orgTwo],
 };
