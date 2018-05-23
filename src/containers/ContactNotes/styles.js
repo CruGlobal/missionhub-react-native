@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 
 export default StyleSheet.create({
@@ -13,7 +14,7 @@ export default StyleSheet.create({
     paddingHorizontal: 36,
     marginTop: 30,
     paddingBottom: 30,
-    borderBottomWidth: 0,    
+    borderBottomWidth: 0,
   },
   nullHeader: {
     fontSize: 42,

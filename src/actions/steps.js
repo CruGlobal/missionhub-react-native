@@ -1,27 +1,35 @@
 import i18next from 'i18next';
 
-import callApi, { REQUESTS } from './api';
 import {
-  REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT, STEP_NOTE, ACTIONS,
+  TOGGLE_STEP_FOCUS,
+  COMPLETED_STEP_COUNT,
+  STEP_NOTE,
+  ACTIONS,
 } from '../constants';
-import { buildTrackingObj, formatApiDate, getAnalyticsSubsection, isCustomStep } from '../utils/common';
-import { navigatePush, navigateBack } from './navigation';
+import {
+  buildTrackingObj,
+  formatApiDate,
+  getAnalyticsSubsection,
+  isCustomStep,
+} from '../utils/common';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
-import { DEFAULT_PAGE_LIMIT } from '../constants';
-import { trackAction, trackState, trackStepsAdded } from './analytics';
+import { navigatePush, navigateBack } from './navigation';
+import callApi, { REQUESTS } from './api';
+import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 
 export function getStepSuggestions() {
-  return (dispatch) => {
+  return dispatch => {
     const language = i18next.language;
     const query = {
-      filters: { locale: language === 'en-US' ? 'en' : language },
+      filters: { locale: language },
     };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
@@ -29,9 +37,9 @@ export function getStepSuggestions() {
 }
 
 export function getMySteps(query = {}) {
-  return (dispatch) => {
+  return dispatch => {
     const queryObj = {
-      order: '-accepted_at',
+      order: '-focused_at,-accepted_at',
       ...query,
       filters: {
         ...(query.filters || {}),
@@ -60,11 +68,15 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getStepsByFilter(filters = {}, include = '') {
-  return (dispatch) => {
+export function getContactSteps(personId, orgId) {
+  return dispatch => {
     const query = {
-      filters,
-      include,
+      filters: {
+        completed: false,
+        receiver_ids: personId,
+        organization_ids: orgId || 'personal',
+      },
+      include: 'receiver',
       page: { limit: 1000 },
     };
     return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
@@ -72,18 +84,18 @@ export function getStepsByFilter(filters = {}, include = '') {
 }
 
 export function addSteps(steps, receiverId, organization) {
-  return (dispatch) => {
+  return dispatch => {
     const query = {
       person_id: receiverId,
     };
-    let newSteps = steps.map((s) => ({
+    let newSteps = steps.map(s => ({
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
         challenge_suggestion_id: isCustomStep(s) ? null : s.id,
-        ...organization && organization.id !== 'personal' ?
-          { organization_id: organization.id } :
-          {},
+        ...(organization && organization.id !== 'personal'
+          ? { organization_id: organization.id }
+          : {}),
       },
     }));
 
@@ -91,7 +103,7 @@ export function addSteps(steps, receiverId, organization) {
       included: newSteps,
       include: 'received_challenges',
     };
-    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then((r) => {
+    return dispatch(callApi(REQUESTS.ADD_CHALLENGES, query, data)).then(r => {
       dispatch(getMySteps());
       dispatch(trackStepsAdded(steps));
 
@@ -101,7 +113,7 @@ export function addSteps(steps, receiverId, organization) {
 }
 
 export function setStepFocus(step, isFocus) {
-  return (dispatch) => {
+  return async dispatch => {
     const query = { challenge_id: step.id };
     const data = {
       data: {
@@ -121,15 +133,17 @@ export function setStepFocus(step, isFocus) {
       },
     };
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data)).then(() => {
-      if (isFocus) return dispatch({ type: ADD_STEP_REMINDER, step });
-      return dispatch({ type: REMOVE_STEP_REMINDER, step });
-    });
+    const { response } = await dispatch(
+      callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data),
+    );
+    if (step.focus !== response.focus) {
+      dispatch({ type: TOGGLE_STEP_FOCUS, step });
+    }
   };
 }
 
 export function updateChallengeNote(step, note) {
-  return (dispatch) => {
+  return dispatch => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ note });
 
@@ -137,9 +151,9 @@ export function updateChallengeNote(step, note) {
   };
 }
 
-export function completeStepReminder(step) {
-  return (dispatch) => {
-    return dispatch(challengeCompleteAction(step)).then((r) => {
+export function completeStepReminder(step, screen) {
+  return dispatch => {
+    return dispatch(challengeCompleteAction(step, screen)).then(r => {
       dispatch(getMySteps());
       dispatch(setStepFocus(step, false));
       return r;
@@ -147,9 +161,9 @@ export function completeStepReminder(step) {
   };
 }
 
-export function completeStep(step) {
-  return (dispatch) => {
-    return dispatch(challengeCompleteAction(step)).then((r) => {
+export function completeStep(step, screen) {
+  return dispatch => {
+    return dispatch(challengeCompleteAction(step, screen)).then(r => {
       dispatch(getMySteps());
       return r;
     });
@@ -165,102 +179,156 @@ function buildChallengeData(attributes) {
   };
 }
 
-function challengeCompleteAction(step) {
+function challengeCompleteAction(step, screen) {
   return (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
-    const { person: { id: myId } } = getState().auth;
+    const {
+      person: { id: myId },
+    } = getState().auth;
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then((challengeCompleteResult) => {
-      dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
-      dispatch(refreshImpact());
-      dispatch(navigatePush(ADD_STEP_SCREEN, {
-        type: STEP_NOTE,
-        onComplete: (text) => {
-          if (text) {
-            dispatch(updateChallengeNote(step, text)).then(() => dispatch(trackAction(ACTIONS.COMMENT_ADDED)));
-          }
+    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
+      challengeCompleteResult => {
+        const subsection = getAnalyticsSubsection(step.receiver.id, myId);
 
-          const count = getState().steps.userStepCount[step.receiver.id];
-          const isMe = myId === `${step.receiver.id}`;
-
-          const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-          const subsection = isMe ? 'self' : 'person';
-          const trackingObj = buildTrackingObj(`people : ${subsection} : steps : gif`, 'people', subsection, 'steps');
-
-          if (count % 3 === 0) {
-            dispatch(getPersonDetails(step.receiver.id, step.organization && step.organization.id)).then((getPersonDetailsResult) => {
-              const assignment = getPersonDetailsResult.person.reverse_contact_assignments
-                .find((a) => a && a.assigned_to ? `${a.assigned_to.id}` === myId : false);
-
-              const stages = getState().stages.stages;
-              const pathwayStageId = assignment && assignment.pathway_stage_id;
-              let firstItemIndex = stages.findIndex((s) => `${s.id}` === `${pathwayStageId}`);
-              firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
-
-              let stageProps = {
-                section: 'people',
-                subsection: subsection,
-                onComplete: () => {
-                  dispatch(navigatePush(CELEBRATION_SCREEN, {
-                    onComplete: () => {
-                      dispatch(navigateBack(3));
-                    },
-                  }));
-
-
-                  dispatch(reloadJourney(step.receiver.id, step.organization && step.organization.id));
-                  dispatch(trackState(trackingObj));
-                },
-                contactId: isMe ? myId : step.receiver.id,
-                firstItem: firstItemIndex,
-                enableBackButton: false,
-                noNav: true,
-                questionText: isMe ? i18next.t('selectStage:completed3StepsMe') : i18next.t('selectStage:completed3Steps', { name: step.receiver.first_name }),
-              };
-              if (!isMe) {
-                stageProps.contactAssignmentId = assignment && assignment.id;
-                stageProps.name = step.receiver.first_name;
+        dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+        dispatch(refreshImpact());
+        dispatch(
+          navigatePush(ADD_STEP_SCREEN, {
+            trackingObj: buildTrackingObj(
+              `people : ${subsection} : steps : complete comment`,
+              'people',
+              subsection,
+              'steps',
+            ),
+            type: STEP_NOTE,
+            onComplete: text => {
+              if (text) {
+                dispatch(updateChallengeNote(step, text)).then(() =>
+                  dispatch(
+                    trackAction(ACTIONS.INTERACTION.name, {
+                      [ACTIONS.INTERACTION.COMMENT]: null,
+                    }),
+                  ),
+                );
               }
 
-              dispatch(navigatePush(nextStageScreen, stageProps));
-            });
-          } else {
-            dispatch(navigatePush(CELEBRATION_SCREEN, {
-              onComplete: () => {
-                dispatch(navigateBack(2));
-              },
-            }));
+              const count = getState().steps.userStepCount[step.receiver.id];
+              const isMe = myId === `${step.receiver.id}`;
 
-            dispatch(trackState(trackingObj));
-          }
-        },
-      }));
+              const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
+              const subsection = isMe ? 'self' : 'person';
+              const celebrationTrackingObj = buildTrackingObj(
+                `people : ${subsection} : steps : gif`,
+                'people',
+                subsection,
+                'steps',
+              );
 
-      const subsection = getAnalyticsSubsection( step.receiver.id, myId );
-      const trackingObj = buildTrackingObj(`people : ${subsection} : steps : complete comment`, 'people', subsection, 'steps');
-      dispatch(trackState(trackingObj));
-      dispatch(trackAction(ACTIONS.STEP_COMPLETED));
+              if (count % 3 === 0) {
+                dispatch(
+                  getPersonDetails(
+                    step.receiver.id,
+                    step.organization && step.organization.id,
+                  ),
+                ).then(getPersonDetailsResult => {
+                  const assignment = getPersonDetailsResult.person.reverse_contact_assignments.find(
+                    a =>
+                      a && a.assigned_to
+                        ? `${a.assigned_to.id}` === myId
+                        : false,
+                  );
 
-      return challengeCompleteResult;
-    });
+                  const stages = getState().stages.stages;
+                  const pathwayStageId =
+                    assignment && assignment.pathway_stage_id;
+                  let firstItemIndex = stages.findIndex(
+                    s => `${s.id}` === `${pathwayStageId}`,
+                  );
+                  firstItemIndex =
+                    firstItemIndex >= 0 ? firstItemIndex : undefined;
+
+                  let stageProps = {
+                    section: 'people',
+                    subsection: subsection,
+                    onComplete: () => {
+                      dispatch(
+                        navigatePush(CELEBRATION_SCREEN, {
+                          onComplete: () => {
+                            dispatch(navigateBack(3));
+                          },
+                          trackingObj: celebrationTrackingObj,
+                        }),
+                      );
+
+                      dispatch(
+                        reloadJourney(
+                          step.receiver.id,
+                          step.organization && step.organization.id,
+                        ),
+                      );
+                    },
+                    contactId: isMe ? myId : step.receiver.id,
+                    firstItem: firstItemIndex,
+                    enableBackButton: false,
+                    noNav: true,
+                    questionText: isMe
+                      ? i18next.t('selectStage:completed3StepsMe')
+                      : i18next.t('selectStage:completed3Steps', {
+                          name: step.receiver.first_name,
+                        }),
+                  };
+                  if (!isMe) {
+                    stageProps.contactAssignmentId =
+                      assignment && assignment.id;
+                    stageProps.name = step.receiver.first_name;
+                  }
+
+                  dispatch(navigatePush(nextStageScreen, stageProps));
+                });
+              } else {
+                dispatch(
+                  navigatePush(CELEBRATION_SCREEN, {
+                    onComplete: () => {
+                      dispatch(navigateBack(2));
+                    },
+                    trackingObj: celebrationTrackingObj,
+                  }),
+                );
+              }
+            },
+          }),
+        );
+
+        dispatch(
+          trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, {
+            [ACTIONS.STEP_COMPLETED.key]: null,
+          }),
+        );
+
+        return challengeCompleteResult;
+      },
+    );
   };
 }
 
-export function deleteStepWithTracking(step) {
-  return (dispatch) => {
-    return dispatch(deleteStep(step)).then((r) => {
-      dispatch(trackAction(ACTIONS.STEP_REMOVED));
+export function deleteStepWithTracking(step, screen) {
+  return dispatch => {
+    return dispatch(deleteStep(step)).then(r => {
+      dispatch(
+        trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
+          [ACTIONS.STEP_REMOVED.key]: null,
+        }),
+      );
       return r;
     });
   };
 }
 
-export function deleteStep(step) {
-  return (dispatch) => {
+function deleteStep(step) {
+  return dispatch => {
     const query = { challenge_id: step.id };
-    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then((r) => {
-      dispatch({ type: REMOVE_STEP_REMINDER, step });
+    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {})).then(r => {
       dispatch(getMySteps());
       return r;
     });

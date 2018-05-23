@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getGlobalImpact, getPeopleInteractionsReport, getImpactById } from '../../actions/impact';
-
-import styles from './styles';
+import {
+  getPeopleInteractionsReport,
+  getImpactSummary,
+} from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
+import {
+  impactInteractionsSelector,
+  impactSummarySelector,
+} from '../../selectors/impact';
+
+import styles from './styles';
 
 const reportPeriods = [
   {
@@ -45,20 +52,30 @@ export class ImpactView extends Component {
   };
 
   componentDidMount() {
-    const { dispatch, personId, isContactScreen } = this.props;
+    const { dispatch, person = {}, organization = {}, isMe } = this.props;
 
-    dispatch(getImpactById(personId));
-    if (isContactScreen) {
-      this.getInteractionReport();
+    // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
+    // The summary sentence should include what the user has done in all of their orgs
+    dispatch(
+      getImpactSummary(person.id, person.id ? undefined : organization.id),
+    );
+    if (isMe) {
+      dispatch(getImpactSummary()); // Get global impact by calling without person or org
     } else {
-      dispatch(getGlobalImpact());
+      this.getInteractionReport();
     }
   }
 
   getInteractionReport() {
-    const { dispatch, person, organization = {} } = this.props;
+    const { dispatch, person = {}, organization = {} } = this.props;
 
-    dispatch(getPeopleInteractionsReport(person.id, organization.id, this.state.period));
+    dispatch(
+      getPeopleInteractionsReport(
+        person.id,
+        organization.id,
+        this.state.period,
+      ),
+    );
   }
 
   handleChangePeriod(period) {
@@ -67,27 +84,55 @@ export class ImpactView extends Component {
     });
   }
 
-  buildImpactSentence({ steps_count = 0, receivers_count = 0, step_owners_count = 0, pathway_moved_count = 0 }, global = false) {
-    const { t, isContactScreen, person } = this.props;
-    const initiator = global ? '$t(users)' : isContactScreen ? person.first_name : '$t(you)';
-    const context = (count) => count === 0 ? global ? 'emptyGlobal' : isContactScreen ? 'emptyContact' : 'empty' : '';
+  buildImpactSentence(
+    {
+      steps_count = 0,
+      receivers_count = 0,
+      step_owners_count = 0,
+      pathway_moved_count = 0,
+    },
+    global = false,
+  ) {
+    const { t, person = {}, organization = {}, isMe } = this.props;
+    const initiator = global
+      ? '$t(users)'
+      : isMe
+        ? '$t(you)'
+        : person.id
+          ? person.first_name
+          : '$t(we)';
+    const context = count =>
+      count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
+    const isSpecificContact = !global && !isMe && person.id;
 
     const stepsSentenceOptions = {
       context: context(steps_count),
       year: new Date().getFullYear(),
       numInitiators: global ? step_owners_count : '',
       initiator: initiator,
+      initiatorSuffix: !isSpecificContact ? '$t(haveSuffix)' : '$t(hasSuffix)',
       stepsCount: steps_count,
       receiversCount: receivers_count,
+      scope: isSpecificContact
+        ? '$t(inTheirLife)'
+        : !global && !person.id && organization.name
+          ? t('atOrgName', { orgName: organization.name })
+          : '',
     };
 
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
-      initiator: initiator,
+      initiator:
+        initiator === '$t(users)' || initiator === '$t(we)'
+          ? '$t(allOfUs)'
+          : initiator,
       pathwayMovedCount: pathway_moved_count,
     };
 
-    return `${t('stepsSentence', stepsSentenceOptions)}\n\n${t('stageSentence', stageSentenceOptions)}`;
+    return `${t('stepsSentence', stepsSentenceOptions)}\n\n${t(
+      'stageSentence',
+      stageSentenceOptions,
+    )}`;
   }
 
   renderContactReport() {
@@ -95,68 +140,79 @@ export class ImpactView extends Component {
 
     const interactionsReport =
       interactions[this.state.period] ||
-      Object.values(INTERACTION_TYPES)
-        .filter((type) => !type.hideReport);
+      Object.values(INTERACTION_TYPES).filter(type => !type.hideReport);
 
     return (
       <Flex style={styles.interactionsWrap} direction="column">
-        <Flex style={{ paddingBottom: 30 }} align="center" justify="center" direction="row">
-          {
-            reportPeriods.map((p) => {
-              return (
-                <Button
-                  key={p.id}
-                  text={p.text}
-                  onPress={() => this.handleChangePeriod(p.period)}
-                  style={this.state.period === p.period ? styles.activeButton : styles.periodButton}
-                  buttonTextStyle={styles.buttonText}
-                />
-              );
-            })
-          }
-        </Flex>
-        {
-          interactionsReport.map((i) => {
+        <Flex
+          style={{ paddingBottom: 30 }}
+          align="center"
+          justify="center"
+          direction="row"
+        >
+          {reportPeriods.map(p => {
             return (
-              <Flex align="center" style={styles.interactionRow} key={i.id} direction="row">
-                <Flex value={1}>
-                  <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
-                </Flex>
-                <Flex value={4}>
-                  <Text style={styles.interactionText}>{t(i.translationKey)}</Text>
-                </Flex>
-                <Flex value={1} justify="center" align="end">
-                  <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
-                </Flex>
-              </Flex>
+              <Button
+                key={p.id}
+                text={p.text}
+                onPress={() => this.handleChangePeriod(p.period)}
+                style={
+                  this.state.period === p.period
+                    ? styles.activeButton
+                    : styles.periodButton
+                }
+                buttonTextStyle={styles.buttonText}
+              />
             );
-          })
-        }
+          })}
+        </Flex>
+        {interactionsReport.map(i => {
+          return (
+            <Flex
+              align="center"
+              style={styles.interactionRow}
+              key={i.id}
+              direction="row"
+            >
+              <Flex value={1}>
+                <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
+              </Flex>
+              <Flex value={4}>
+                <Text style={styles.interactionText}>
+                  {t(i.translationKey)}
+                </Text>
+              </Flex>
+              <Flex value={1} justify="center" align="end">
+                <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
+              </Flex>
+            </Flex>
+          );
+        })}
       </Flex>
     );
   }
 
   render() {
-    const { globalImpact, impact, isContactScreen } = this.props;
+    const { globalImpact, impact, isMe } = this.props;
     return (
-      <ScrollView
-        style={{ flex: 1 }}
-        bounces={false}
-      >
+      <ScrollView style={{ flex: 1 }} bounces={false}>
         <Flex style={styles.topSection}>
-          <Text style={[ styles.text, styles.topText ]}>
+          <Text style={[styles.text, styles.topText]}>
             {this.buildImpactSentence(impact)}
           </Text>
         </Flex>
-        <Image style={styles.image} source={require('../../../assets/images/impactBackground.png')} />
-        <Flex style={isContactScreen ? styles.interactionSection : styles.bottomSection}>
-          {
-            isContactScreen ?
-              this.renderContactReport() :
-              <Text style={[ styles.text, styles.bottomText ]}>
-                {this.buildImpactSentence(globalImpact, true)}
-              </Text>
-          }
+        <Image
+          style={styles.image}
+          source={require('../../../assets/images/impactBackground.png')}
+        />
+        <Flex style={isMe ? styles.bottomSection : styles.interactionSection}>
+          {isMe ? (
+            <Text style={[styles.text, styles.bottomText]}>
+              {this.buildImpactSentence(globalImpact, true)}
+            </Text>
+          ) : (
+            this.renderContactReport()
+          )}
         </Flex>
       </ScrollView>
     );
@@ -164,21 +220,25 @@ export class ImpactView extends Component {
 }
 
 ImpactView.propTypes = {
-  isContactScreen: PropTypes.bool,
   person: PropTypes.object,
   organization: PropTypes.object,
 };
 
-export const mapStateToProps = ({ impact, auth }, { isContactScreen, person, organization = {} }) => {
-  const personId = isContactScreen ? person.id : auth.person.id;
-  const orgId = organization.id || '';
-
-  return {
-    personId,
-    impact: impact.people[personId] || {},
-    interactions: impact.interactions[`${personId}-${orgId}`] || {},
-    globalImpact: impact.global,
-  };
-};
+export const mapStateToProps = (
+  { impact, auth },
+  { person = {}, organization },
+) => ({
+  isMe: person.id === auth.person.id,
+  // Impact summary isn't scoped by org unless showing org summary. See above comment
+  impact: impactSummarySelector(
+    { impact },
+    { person, organization: person.id ? undefined : organization },
+  ),
+  interactions: impactInteractionsSelector(
+    { impact },
+    { person, organization },
+  ),
+  globalImpact: impactSummarySelector({ impact }),
+});
 
 export default connect(mapStateToProps)(ImpactView);

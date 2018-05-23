@@ -1,24 +1,29 @@
 import { Crashlytics } from 'react-native-fabric';
-import { getMe } from './person';
-import { navigateReset } from './navigation';
-import { logInAnalytics } from './analytics';
+import * as RNOmniture from 'react-native-omniture';
+
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
+
+import { getMe } from './person';
+import { navigateReset } from './navigation';
+import { logInAnalytics } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
 export function onSuccessfulLogin() {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
-    const { person: { id: personId } } = getState().auth;
+    const {
+      person: { id: personId },
+    } = getState().auth;
     Crashlytics.setUserIdentifier(personId);
 
     const mePerson = await dispatch(getMe('contact_assignments'));
+    RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
 
     let nextScreen = GET_STARTED_SCREEN;
     if (mePerson.user.pathway_stage_id) {
-
       if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
         dispatch(completeOnboarding());
@@ -32,5 +37,5 @@ export function onSuccessfulLogin() {
 }
 
 function hasPersonWithStageSelected(person) {
-  return person.contact_assignments.some((contact) => contact.pathway_stage_id);
+  return person.contact_assignments.some(contact => contact.pathway_stage_id);
 }

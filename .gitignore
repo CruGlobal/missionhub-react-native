@@ -66,6 +66,9 @@ coverage/
 # The app will need to be resigned with the REAL keystore when released
 !mh-test.keystore
 
-.env.default
 .env.local
 .env.bkup
+.env
+
+ios/Index
+.env

@@ -8,7 +8,6 @@ import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 import { MainRoutes } from './AppRoutes';
 import { navigateBack } from './actions/navigation';
 
-
 const addListener = createReduxBoundAddListener('root');
 
 class AppWithNavigationState extends React.Component {
@@ -31,7 +30,11 @@ class AppWithNavigationState extends React.Component {
 
   render() {
     const { dispatch, nav } = this.props;
-    const navigation = addNavigationHelpers({ dispatch, state: nav, addListener });
+    const navigation = addNavigationHelpers({
+      dispatch,
+      state: nav,
+      addListener,
+    });
     return <MainRoutes navigation={navigation} />;
   }
 }

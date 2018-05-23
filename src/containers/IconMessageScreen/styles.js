@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 
 export default StyleSheet.create({
@@ -19,6 +20,5 @@ export default StyleSheet.create({
     width: 80,
     height: 80,
     resizeMode: 'contain',
-
   },
 });

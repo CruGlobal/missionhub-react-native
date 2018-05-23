@@ -10,12 +10,10 @@ import ContactNotes from '../../containers/ContactNotes';
 import ContactActions from '../../containers/ContactActions';
 import ContactJourney from '../../containers/ContactJourney';
 import ImpactView from '../../containers/ImpactView';
-
 import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 export default class SecondaryTabBar extends Component {
-
   state = {
     page: 0,
     notesAreActive: false,
@@ -39,35 +37,56 @@ export default class SecondaryTabBar extends Component {
     this.setState({ hideTabBar: false });
   };
 
-  renderTabs = (tab) => {
+  renderTabs = tab => {
     if (tab.page === 'steps') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactSteps isMe={this.props.isMe} person={this.props.person} contactAssignment={this.props.contactAssignment} organization={this.props.organization} contactStage={this.props.contactStage} onChangeStage={this.props.onChangeStage} />
+          <ContactSteps
+            isMe={this.props.isMe}
+            person={this.props.person}
+            contactAssignment={this.props.contactAssignment}
+            organization={this.props.organization}
+            contactStage={this.props.contactStage}
+            onChangeStage={this.props.onChangeStage}
+          />
         </Flex>
       );
     } else if (tab.page === 'journey') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactJourney person={this.props.person} organization={this.props.organization} />
+          <ContactJourney
+            person={this.props.person}
+            organization={this.props.organization}
+          />
         </Flex>
       );
     } else if (tab.page === 'notes') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactNotes person={this.props.person} isActiveTab={this.state.notesAreActive} onNotesActive={this.shrinkHeader} onNotesInactive={this.openHeader} />
+          <ContactNotes
+            person={this.props.person}
+            isActiveTab={this.state.notesAreActive}
+            onNotesActive={this.shrinkHeader}
+            onNotesInactive={this.openHeader}
+          />
         </Flex>
       );
     } else if (tab.page === 'actions') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ContactActions person={this.props.person} organization={this.props.organization} />
+          <ContactActions
+            person={this.props.person}
+            organization={this.props.organization}
+          />
         </Flex>
       );
     } else if (tab.page === 'userImpact') {
       return (
         <Flex key={tab.iconName} style={{ backgroundColor: 'white' }} value={1}>
-          <ImpactView person={this.props.person} organization={this.props.organization} isContactScreen={true} />
+          <ImpactView
+            person={this.props.person}
+            organization={this.props.organization}
+          />
         </Flex>
       );
     }
@@ -75,7 +94,10 @@ export default class SecondaryTabBar extends Component {
 
   render() {
     const { tabs } = this.props;
-    const style = { backgroundColor: theme.white, ...isAndroid ? { flex: 1 } : {} };
+    const style = {
+      backgroundColor: theme.white,
+      ...(isAndroid ? { flex: 1 } : {}),
+    };
 
     return (
       <Flex value={1} self="stretch">
@@ -86,11 +108,15 @@ export default class SecondaryTabBar extends Component {
           page={isAndroid ? this.state.page : undefined}
           locked={true}
           prerenderingSiblingsNumber={0}
-          renderTabBar={() => <CustomTabs isHidden={this.state.hideTabBar} tabArray={tabs} onChangeTab={this.onChangeTab} />}
+          renderTabBar={() => (
+            <CustomTabs
+              isHidden={this.state.hideTabBar}
+              tabArray={tabs}
+              onChangeTab={this.onChangeTab}
+            />
+          )}
         >
-          {
-            tabs.map(this.renderTabs)
-          }
+          {tabs.map(this.renderTabs)}
         </ScrollableTabView>
       </Flex>
     );

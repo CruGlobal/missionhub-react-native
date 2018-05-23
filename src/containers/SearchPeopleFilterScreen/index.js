@@ -9,19 +9,18 @@ import { getMyOrganizations } from '../../actions/organizations';
 import { getMyGroups } from '../../actions/groups';
 import { getMySurveys } from '../../actions/surveys';
 import { getMyLabels } from '../../actions/labels';
-
 import Header from '../Header';
 import { RefreshControl } from '../../components/common';
 import FilterItem from '../../components/FilterItem';
-import styles from './styles';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
-import { trackSearchFilter, trackState } from '../../actions/analytics';
+import { trackSearchFilter } from '../../actions/analytics';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 @translate('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
-
   constructor(props) {
     super(props);
     const { t, filters } = props;
@@ -31,7 +30,9 @@ export class SearchPeopleFilterScreen extends Component {
         id: 'ministry',
         text: t('ministry'),
         options: 'organizations',
-        preview: props.filters.ministry ? props.filters.ministry.text : undefined,
+        preview: props.filters.ministry
+          ? props.filters.ministry.text
+          : undefined,
       },
       {
         id: 'labels',
@@ -112,11 +113,13 @@ export class SearchPeopleFilterScreen extends Component {
       this.loadGroups(),
       this.loadSurveys(),
       this.loadLabels(),
-    ]).then(() => {
-      this.setState({ refreshing: false });
-    }).catch(() => {
-      this.setState({ refreshing: false });
-    });
+    ])
+      .then(() => {
+        this.setState({ refreshing: false });
+      })
+      .catch(() => {
+        this.setState({ refreshing: false });
+      });
   }
 
   loadOrgs() {
@@ -142,17 +145,26 @@ export class SearchPeopleFilterScreen extends Component {
 
   handleDrillDown(item) {
     // Pull the options from the props that were not loaded when this was initialized
-    const options = isString(item.options) && this.props[item.options] ? this.props[item.options] : item.options;
-    this.props.dispatch(navigatePush(SEARCH_REFINE_SCREEN, {
-      onFilter: this.handleSelectFilter,
-      title: item.text,
-      options,
-      filters: this.state.filters,
-    }));
+    const options =
+      isString(item.options) && this.props[item.options]
+        ? this.props[item.options]
+        : item.options;
+    this.props.dispatch(
+      navigatePush(SEARCH_REFINE_SCREEN, {
+        onFilter: this.handleSelectFilter,
+        title: item.text,
+        options,
+        filters: this.state.filters,
+        trackingObj: buildTrackingObj(
+          `search : refine : ${item.id}`,
+          'search',
+          'refine',
+          item.id,
+        ),
+      }),
+    );
     this.setState({ selectedFilterId: item.id });
 
-    const trackingObj = buildTrackingObj(`search : refine : ${item.id}`, 'search', 'refine', item.id);
-    this.props.dispatch(trackState(trackingObj));
     this.props.dispatch(trackSearchFilter(item.id));
   }
 
@@ -162,7 +174,7 @@ export class SearchPeopleFilterScreen extends Component {
     const field = item.id;
     const newValue = !item.selected;
     newFilter[field] = newValue ? item : undefined;
-    const toggleOptions = this.state.toggleOptions.map((o) => ({
+    const toggleOptions = this.state.toggleOptions.map(o => ({
       ...o,
       selected: o.id === item.id ? newValue : o.selected,
     }));
@@ -171,7 +183,7 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   handleSelectFilter(item) {
-    const newOptions = this.state.options.map((o) => ({
+    const newOptions = this.state.options.map(o => ({
       ...o,
       preview: o.id === this.state.selectedFilterId ? item.text : o.preview,
     }));
@@ -190,40 +202,33 @@ export class SearchPeopleFilterScreen extends Component {
     const { t } = this.props;
     return (
       <View style={styles.pageContainer}>
-        <Header
-          left={
-            <BackButton />
-          }
-          title={t('title')}
-        />
+        <Header left={<BackButton />} title={t('title')} />
         <ScrollView
           style={{ flex: 1 }}
-          refreshControl={<RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.reloadAll}
-          />}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.reloadAll}
+            />
+          }
         >
-          {
-            this.state.options.map((o) => (
-              <FilterItem
-                key={o.id}
-                item={o}
-                onSelect={this.handleDrillDown}
-                type="drilldown"
-              />
-            ))
-          }
-          {
-            this.state.toggleOptions.map((o) => (
-              <FilterItem
-                key={o.id}
-                item={o}
-                onSelect={this.handleToggle}
-                type="switch"
-                isSelected={o.selected}
-              />
-            ))
-          }
+          {this.state.options.map(o => (
+            <FilterItem
+              key={o.id}
+              item={o}
+              onSelect={this.handleDrillDown}
+              type="drilldown"
+            />
+          ))}
+          {this.state.toggleOptions.map(o => (
+            <FilterItem
+              key={o.id}
+              item={o}
+              onSelect={this.handleToggle}
+              type="switch"
+              isSelected={o.selected}
+            />
+          ))}
         </ScrollView>
       </View>
     );
@@ -235,7 +240,10 @@ SearchPeopleFilterScreen.propTypes = {
   filters: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations, groups, surveys, labels }, { navigation }) => ({
+const mapStateToProps = (
+  { organizations, groups, surveys, labels },
+  { navigation },
+) => ({
   ...(navigation.state.params || {}),
   organizations: organizations.all,
   groups: groups.all,

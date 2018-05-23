@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
-
-import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import { SETUP_SCREEN } from '../SetupScreen';
 import { disableBack } from '../../utils/common';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('welcome')
 class WelcomeScreen extends Component {
-
   componentDidMount() {
     disableBack.add();
 
-    this.props.dispatch(trackAction(ACTIONS.ONBOARDING_STARTED));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 
   componentWillUnmount() {
@@ -37,7 +37,9 @@ class WelcomeScreen extends Component {
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
         <Flex value={4} align="start" justify="center">
-          <Text type="header" style={styles.headerText}>{t('welcome')}</Text>
+          <Text type="header" style={styles.headerText}>
+            {t('welcome')}
+          </Text>
           <Text style={styles.descriptionText}>{t('welcomeDescription')}</Text>
         </Flex>
 

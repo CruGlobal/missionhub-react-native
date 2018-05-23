@@ -1,5 +1,6 @@
-import callApi, { REQUESTS } from './api';
 import { UPDATE_STAGES } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 export function getStagesIfNotExists() {
   return (dispatch, getState) => {
@@ -16,7 +17,7 @@ export function getStagesIfNotExists() {
 }
 
 export function getStages() {
-  return (dispatch) => {
+  return dispatch => {
     return dispatch(callApi(REQUESTS.GET_STAGES, { include: '' }));
   };
 }

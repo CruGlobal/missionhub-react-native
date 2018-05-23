@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Image, TouchableWithoutFeedback } from 'react-native';
 import { translate } from 'react-i18next';
-import i18next from '../../i18n';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
-import styles from './styles';
+import i18next from '../../i18n';
 import { Text, Button, Flex } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
@@ -14,6 +13,9 @@ import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
+import { LOGIN_TAB_CHANGED } from '../../constants';
+
+import styles from './styles';
 
 const overScrollMargin = 120;
 
@@ -74,11 +76,17 @@ class LoginScreen extends Component {
 
     this.trackSplashState(index + 1);
 
-    if (index === ONBOARDING.length - 1) { this.disableAutoPlay(); }
+    if (index === ONBOARDING.length - 1) {
+      this.disableAutoPlay();
+    }
   }
 
   trackSplashState(index) {
-    this.props.dispatch(trackState(buildTrackingObj(`splash : ${index}`, 'splash')));
+    const { dispatch } = this.props;
+    const trackingObj = buildTrackingObj(`splash : ${index}`, 'splash');
+
+    dispatch({ type: LOGIN_TAB_CHANGED, newActiveTab: trackingObj });
+    dispatch(trackState(trackingObj));
   }
 
   handleScroll(e) {
@@ -95,7 +103,9 @@ class LoginScreen extends Component {
         <TouchableWithoutFeedback onPressIn={this.disableAutoPlay}>
           <Flex direction="column">
             <Flex value={1.5} justify="center">
-              <Text type="header" style={styles.onboardHeader}>{item.name.toLowerCase()}</Text>
+              <Text type="header" style={styles.onboardHeader}>
+                {item.name.toLowerCase()}
+              </Text>
             </Flex>
             <Flex value={1} />
           </Flex>
@@ -107,7 +117,7 @@ class LoginScreen extends Component {
   render() {
     const { t } = this.props;
 
-    let leftMargin = (this.state.scrollPosition / -1) - overScrollMargin;
+    let leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex style={styles.container}>
@@ -150,13 +160,16 @@ class LoginScreen extends Component {
             />
             <Image
               source={LANDSCAPE}
-              style={[
-                styles.footerImage,
-                { left: leftMargin },
-              ]}
+              style={[styles.footerImage, { left: leftMargin }]}
             />
           </Flex>
-          <Flex value={1} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
+          <Flex
+            value={1}
+            align="center"
+            justify="start"
+            self="stretch"
+            style={styles.buttonWrapper}
+          >
             <Flex direction="column" self="stretch" align="center">
               <Button
                 pill={true}
@@ -166,7 +179,9 @@ class LoginScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               />
               <Flex direction="row" align="center">
-                <Text style={styles.signInText}>{t('member').toUpperCase()}</Text>
+                <Text style={styles.signInText}>
+                  {t('member').toUpperCase()}
+                </Text>
                 <Button
                   text={t('signIn').toUpperCase()}
                   type="transparent"

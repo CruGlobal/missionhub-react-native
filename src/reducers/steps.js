@@ -1,6 +1,8 @@
 import { REQUESTS } from '../actions/api';
 import {
-  LOGOUT, REMOVE_STEP_REMINDER, ADD_STEP_REMINDER, COMPLETED_STEP_COUNT,
+  LOGOUT,
+  TOGGLE_STEP_FOCUS,
+  COMPLETED_STEP_COUNT,
   FILTERED_CHALLENGES,
 } from '../constants';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
@@ -9,20 +11,23 @@ const initialState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
-  reminders: [],
   userStepCount: {},
   pagination: {
     hasNextPage: true,
     page: 1,
   },
+  contactSteps: {},
 };
 
 export function getPagination(state, action, steps) {
   const totalSteps = steps.length;
-  const offset = action.query.page && action.query.page.offset ? action.query.page.offset : 0;
+  const offset =
+    action.query.page && action.query.page.offset
+      ? action.query.page.offset
+      : 0;
   const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
   const total = action.meta ? action.meta.total || 0 : 0;
-  const hasNextPage = total > (offset + totalSteps);
+  const hasNextPage = total > offset + totalSteps;
 
   return {
     ...state.pagination,
@@ -31,7 +36,7 @@ export function getPagination(state, action, steps) {
   };
 }
 
-function stepsReducer(state = initialState, action) {
+export default function stepsReducer(state = initialState, action) {
   switch (action.type) {
     case FILTERED_CHALLENGES:
       return {
@@ -40,52 +45,44 @@ function stepsReducer(state = initialState, action) {
         suggestedForOthers: action.suggestedForOthers,
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      let mySteps = action.results.response;
-      let myReminders = [];
-      mySteps = mySteps.map((s) => {
-        if (s.focus) {
-          myReminders.push(s);
-          return { ...s, reminder: true };
-        }
-        return s;
-      });
+      const newSteps = action.results.response;
 
       // If we're doing paging, concat the old steps with the new ones
-      if (action.query.page && action.query.page.offset > 0) {
-        mySteps = state.mine ? state.mine.concat(mySteps) : mySteps;
-      }
+      const allSteps =
+        action.query.page && action.query.page.offset > 0
+          ? [...(state.mine || []), ...newSteps]
+          : newSteps;
 
       return {
         ...state,
-        mine: mySteps,
-        reminders: myReminders,
-        pagination: getPagination(state, action, mySteps),
+        mine: allSteps,
+        pagination: getPagination(state, action, allSteps),
       };
-    case ADD_STEP_REMINDER:
-      const newMine = state.mine.map((s) => {
-        if (s.id === action.step.id) return { ...s, reminder: true };
-        return s;
-      });
+    case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
+      const {
+        receiver_ids: personId,
+        organization_ids: orgId,
+      } = action.query.filters;
       return {
         ...state,
-        mine: newMine,
-        reminders: [ ...state.reminders, action.step ],
+        contactSteps: {
+          ...state.contactSteps,
+          [`${personId}-${orgId}`]: action.results.response,
+        },
       };
-    case REMOVE_STEP_REMINDER:
-      const newRemove = state.mine.map((s) => {
-        if (s.id === action.step.id) return { ...s, reminder: undefined };
-        return s;
-      });
+    case TOGGLE_STEP_FOCUS:
       return {
         ...state,
-        mine: newRemove,
-        reminders: state.reminders.filter((s) => s.id !== action.step.id),
+        mine: toggleStepReminder(state.mine, action.step),
       };
     case COMPLETED_STEP_COUNT:
       const currentCount = state.userStepCount[action.userId] || 0;
       return {
         ...state,
-        userStepCount: { ...state.userStepCount, [action.userId]: currentCount + 1 },
+        userStepCount: {
+          ...state.userStepCount,
+          [action.userId]: currentCount + 1,
+        },
       };
     case LOGOUT:
       return initialState;
@@ -94,4 +91,8 @@ function stepsReducer(state = initialState, action) {
   }
 }
 
-export default stepsReducer;
+const toggleStepReminder = (steps, step) =>
+  steps.map(s => ({
+    ...s,
+    focus: s.id === step.id ? !s.focus : s.focus,
+  }));

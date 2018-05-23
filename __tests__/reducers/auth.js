@@ -9,12 +9,10 @@ const initialState = {
 };
 
 const callAuth = (type, results) => {
-  return auth(
-    initialState,
-    {
-      type: type,
-      results: results,
-    });
+  return auth(initialState, {
+    type: type,
+    results: results,
+  });
 };
 
 it('returns access token and refresh token after successful key login', () => {
@@ -72,9 +70,10 @@ it('sets new token after refreshing anonymous login', () => {
 it('sets isJean after loading me', () => {
   const response = {
     type: 'person',
-    organizational_permissions: [
-      { id: 1, type: 'organizational_permission' },
-    ],
+    organizational_permissions: [{ id: 1, type: 'organizational_permission' }],
+    user: {
+      groups_feature: true,
+    },
   };
 
   const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
@@ -121,21 +120,20 @@ it('updates a users stage', () => {
     },
     {
       type: UPDATE_STAGES,
-      stages: [
-        { id: '2' },
-      ],
-    }
+      stages: [{ id: '2' }],
+    },
   );
 
   expect(state.person.stage.id).toBe('2');
 });
 
 it('updates a user token', () => {
-  const state = auth({},
+  const state = auth(
+    {},
     {
       token,
       type: UPDATE_TOKEN,
-    }
+    },
   );
 
   expect(state).toEqual({ token });

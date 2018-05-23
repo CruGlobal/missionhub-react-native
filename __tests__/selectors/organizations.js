@@ -4,7 +4,7 @@ const orgOne = { id: '95' };
 const orgTwo = { id: '96' };
 
 const organizations = {
-  all: [ orgOne, orgTwo ],
+  all: [orgOne, orgTwo],
 };
 
 it('should return org', () => {

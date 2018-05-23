@@ -7,8 +7,6 @@ import { getMyPeople } from '../../actions/people';
 import { peopleByOrgSelector } from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { getStagesIfNotExists } from '../../actions/stages';
-
-import styles from './styles';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
@@ -16,12 +14,11 @@ import { openMainMenu, refresh } from '../../utils/common';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
-import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('peopleScreen')
 export class PeopleScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -47,20 +44,21 @@ export class PeopleScreen extends Component {
   }
 
   handleAddContact(org) {
-    this.props.dispatch(navigatePush(ADD_CONTACT_SCREEN, {
-      organization: org && org.id ? org : undefined,
-      isJean: this.props.isJean,
-      onComplete: () => {
-        // You go through 4 screens for adding a person, so pop back to the first one
-        this.props.dispatch(navigateBack(4));
-        this.getPeople();
-      },
-    }));
+    this.props.dispatch(
+      navigatePush(ADD_CONTACT_SCREEN, {
+        organization: org && org.id ? org : undefined,
+        isJean: this.props.isJean,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          this.props.dispatch(navigateBack(4));
+          this.getPeople();
+        },
+      }),
+    );
   }
 
   handleSearch() {
     this.props.dispatch(navigatePush(SEARCH_SCREEN));
-    this.props.dispatch(trackAction(ACTIONS.SEARCH_CLICKED));
   }
 
   handleRowSelect(person, org) {
@@ -78,19 +76,26 @@ export class PeopleScreen extends Component {
       <View style={styles.pageContainer}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={() => dispatch(openMainMenu())}
+            />
           }
           right={
             isJean ? (
               <IconButton
                 name="searchIcon"
                 type="MissionHub"
-                onPress={this.handleSearch} />
+                onPress={this.handleSearch}
+              />
             ) : (
               <IconButton
-                name="plusIcon"
+                name="addContactIcon"
                 type="MissionHub"
-                onPress={() => this.handleAddContact()} />
+                size={24}
+                onPress={() => this.handleAddContact()}
+              />
             )
           }
           title={t('header').toUpperCase()}

@@ -1,8 +1,7 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
+
 import { createMockStore } from '../../testUtils/index';
 import SearchPeopleFilterRefineScreen from '../../src/containers/SearchPeopleFilterRefineScreen';
 import { createMockNavState, testSnapshot } from '../../testUtils';
@@ -21,10 +20,7 @@ const options = [
   {
     id: 'test10',
     text: 'Test 10',
-    options: [
-      { id: 'test2', text: 'Test 2' },
-      { id: 'test3', text: 'Test 3' },
-    ],
+    options: [{ id: 'test2', text: 'Test 2' }, { id: 'test3', text: 'Test 3' }],
   },
 ];
 
@@ -37,7 +33,7 @@ it('renders correctly', () => {
           options,
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -51,6 +47,6 @@ it('renders title correctly', () => {
           title: 'Test',
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });

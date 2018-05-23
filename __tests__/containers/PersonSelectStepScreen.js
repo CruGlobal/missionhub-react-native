@@ -1,9 +1,12 @@
 import 'react-native';
 import React from 'react';
 
-// Note: test renderer must be required after react-native.
 import PersonSelectStepScreen from '../../src/containers/PersonSelectStepScreen';
-import { createMockNavState, createMockStore, testSnapshotShallow } from '../../testUtils';
+import {
+  createMockNavState,
+  createMockStore,
+  testSnapshotShallow,
+} from '../../testUtils';
 
 const myId = '14312';
 const contactId = '123';
@@ -11,9 +14,9 @@ let personStageId;
 const mockState = {
   steps: {
     suggestedForOthers: {
-      1: [ { id: '1', body: '<<name>> test step 1' } ],
-      2: [ { id: '2', body: '<<name>> test step 2' } ],
-      3: [ { id: '3', body: '<<name>> test step 3' } ],
+      1: [{ id: '1', body: '<<name>> test step 1' }],
+      2: [{ id: '2', body: '<<name>> test step 2' }],
+      3: [{ id: '3', body: '<<name>> test step 3' }],
     },
   },
   personProfile: {},

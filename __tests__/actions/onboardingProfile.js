@@ -1,21 +1,28 @@
+import { Crashlytics } from 'react-native-fabric';
+
 import {
   firstNameChanged,
   lastNameChanged,
   createMyPerson,
   personFirstNameChanged,
   personLastNameChanged,
-  createPerson, resetPerson, completeOnboarding,
+  createPerson,
+  resetPerson,
+  completeOnboarding,
 } from '../../src/actions/onboardingProfile';
 import {
   COMPLETE_ONBOARDING,
-  FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
+  FIRST_NAME_CHANGED,
+  LAST_NAME_CHANGED,
+  PERSON_FIRST_NAME_CHANGED,
+  PERSON_LAST_NAME_CHANGED,
   RESET_ONBOARDING_PERSON,
 } from '../../src/constants';
-import { Crashlytics } from 'react-native-fabric';
 import callApi, { REQUESTS } from '../../src/actions/api';
+
 jest.mock('../../src/actions/api');
 
-const dispatch = jest.fn((response) => Promise.resolve(response));
+const dispatch = jest.fn(response => Promise.resolve(response));
 
 beforeEach(() => {
   dispatch.mockClear();
@@ -47,14 +54,18 @@ describe('lastNameChanged', () => {
 });
 
 describe('createMyPerson', () => {
-  it('should send the correct API request', async() => {
+  it('should send the correct API request', async () => {
     callApi.mockReturnValue({ person_id: 123456 });
     await createMyPerson('Roger', 'Goers')(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CREATE_MY_PERSON, {}, {
-      code: expect.any(String),
-      first_name: 'Roger',
-      last_name: 'Goers',
-    });
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CREATE_MY_PERSON,
+      {},
+      {
+        code: expect.any(String),
+        first_name: 'Roger',
+        last_name: 'Goers',
+      },
+    );
     expect(dispatch).toHaveBeenCalled();
     expect(Crashlytics.setUserIdentifier).toHaveBeenCalledWith('123456');
   });
@@ -63,23 +74,27 @@ describe('createMyPerson', () => {
 describe('createPerson', () => {
   it('should send the correct API request', () => {
     createPerson('Roger', 'Goers', '1')(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: 'Roger',
-          last_name: 'Goers',
-        },
-      },
-      included: [
-        {
-          type: 'contact_assignment',
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_NEW_PERSON,
+      {},
+      {
+        data: {
+          type: 'person',
           attributes: {
-            assigned_to_id: '1',
+            first_name: 'Roger',
+            last_name: 'Goers',
           },
         },
-      ],
-    });
+        included: [
+          {
+            type: 'contact_assignment',
+            attributes: {
+              assigned_to_id: '1',
+            },
+          },
+        ],
+      },
+    );
     expect(dispatch).toHaveBeenCalled();
   });
 });
@@ -101,7 +116,6 @@ describe('personLastNameChanged', () => {
     });
   });
 });
-
 
 describe('resetPerson', () => {
   it('should return the correct action', () => {

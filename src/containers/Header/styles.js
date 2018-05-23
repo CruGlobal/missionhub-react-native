@@ -1,5 +1,5 @@
-
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 import { isAndroid, isiPhoneX } from '../../utils/common';
 

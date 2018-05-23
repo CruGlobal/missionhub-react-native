@@ -1,26 +1,41 @@
-import callApi, { REQUESTS } from './api';
-import { UPDATE_PERSON_ATTRIBUTES, DELETE_PERSON, ACTIONS, LOAD_PERSON_DETAILS } from '../constants';
-import { trackAction } from './analytics';
+import {
+  UPDATE_PERSON_ATTRIBUTES,
+  DELETE_PERSON,
+  ACTIONS,
+  LOAD_PERSON_DETAILS,
+} from '../constants';
 
-const personInclude = 'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+import callApi, { REQUESTS } from './api';
+import { trackActionWithoutData } from './analytics';
+
+const personInclude =
+  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 export function getMe(extraInclude) {
-  const include = extraInclude ? `${personInclude},${extraInclude}` : personInclude;
+  const include = extraInclude
+    ? `${personInclude},${extraInclude}`
+    : personInclude;
 
-  return async(dispatch) => {
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_ME, { include }));
+  return async dispatch => {
+    const { response: person } = await dispatch(
+      callApi(REQUESTS.GET_ME, { include }),
+    );
     return person;
   };
 }
 
 export function getPersonDetails(id, orgId) {
-  return async(dispatch) => {
+  return async dispatch => {
     const query = {
       person_id: id,
       include: personInclude,
     };
-    const { response: person } = await dispatch(callApi(REQUESTS.GET_PERSON, query));
-    const orgPermission = orgId && person.organizational_permissions.find((o) => o.organization_id === orgId);
+    const { response: person } = await dispatch(
+      callApi(REQUESTS.GET_PERSON, query),
+    );
+    const orgPermission =
+      orgId &&
+      person.organizational_permissions.find(o => o.organization_id === orgId);
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,
@@ -31,7 +46,7 @@ export function getPersonDetails(id, orgId) {
 }
 
 export function savePersonNote(personId, notes, noteId, myId) {
-  return (dispatch) => {
+  return dispatch => {
     if (!personId) {
       return Promise.reject('InvalidData');
     }
@@ -67,25 +82,30 @@ export function savePersonNote(personId, notes, noteId, myId) {
 }
 
 export function getPersonNote(personId, myId) {
-  return async(dispatch) => {
+  return async dispatch => {
     const query = { person_id: personId, include: 'person_notes' };
 
-    return await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then((results) => {
-      const person = results.find('person', personId);
-      if (person && person.person_notes) {
-        const notes = person.person_notes;
-        return notes.find((element) => { return element.user_id == myId; });
-      }
-      return Promise.reject('PersonNotFound');
-    });
+    return await dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(
+      results => {
+        const person = results.find('person', personId);
+        if (person && person.person_notes) {
+          const notes = person.person_notes;
+          return notes.find(element => {
+            return element.user_id == myId;
+          });
+        }
+        return Promise.reject('PersonNotFound');
+      },
+    );
   };
 }
 
 export function getPersonJourneyDetails(id) {
-  return (dispatch) => {
+  return dispatch => {
     const query = {
       person_id: id,
-      include: 'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
+      include:
+        'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
     return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, query));
   };
@@ -97,13 +117,18 @@ export function updatePersonAttributes(personId, personAttributes) {
     updatedPersonAttributes: {
       id: personId,
       ...personAttributes,
-    } };
+    },
+  };
 }
 
 export function updatePerson(data) {
-  return async(dispatch) => {
+  return async dispatch => {
     if (!data || !data.firstName) {
-      return dispatch({ type: 'UPDATE_PERSON_FAIL', error: 'InvalidData', data });
+      return dispatch({
+        type: 'UPDATE_PERSON_FAIL',
+        error: 'InvalidData',
+        data,
+      });
     }
     const bodyData = {
       data: {
@@ -114,84 +139,121 @@ export function updatePerson(data) {
           gender: data.gender,
         },
       },
-      ...data.email || data.phone ? {
-        included: [
-          ...data.email ? [ {
-            id: data.emailId,
-            type: 'email',
-            attributes: { email: data.email },
-          } ] : [],
-          ...data.phone ? [ {
-            id: data.phoneId,
-            type: 'phone_number',
-            attributes: {
-              number: data.phone,
-            },
-          } ] : [],
-        ],
-      } : {},
+      ...(data.email || data.phone
+        ? {
+            included: [
+              ...(data.email
+                ? [
+                    {
+                      id: data.emailId,
+                      type: 'email',
+                      attributes: { email: data.email },
+                    },
+                  ]
+                : []),
+              ...(data.phone
+                ? [
+                    {
+                      id: data.phoneId,
+                      type: 'phone_number',
+                      attributes: {
+                        number: data.phone,
+                      },
+                    },
+                  ]
+                : []),
+            ],
+          }
+        : {}),
     };
     const query = {
       personId: data.id,
       include: 'email_addresses,phone_numbers,reverse_contact_assignments',
     };
-    const results = await dispatch(callApi(REQUESTS.UPDATE_PERSON, query, bodyData));
+    const results = await dispatch(
+      callApi(REQUESTS.UPDATE_PERSON, query, bodyData),
+    );
     const person = results.response;
 
-    dispatch(updatePersonAttributes(data.id, {
-      first_name: person.first_name,
-      last_name: person.last_name,
-      gender: person.gender,
-      full_name: person.full_name,
-      email_addresses: person.email_addresses,
-      phone_numbers: person.phone_numbers,
-    }));
+    dispatch(
+      updatePersonAttributes(data.id, {
+        first_name: person.first_name,
+        last_name: person.last_name,
+        gender: person.gender,
+        full_name: person.full_name,
+        email_addresses: person.email_addresses,
+        phone_numbers: person.phone_numbers,
+      }),
+    );
 
     return results;
   };
 }
 
 export function updateFollowupStatus(person, orgPermissionId, status) {
-  return async(dispatch) => {
+  return async dispatch => {
     const data = {
       data: {
         type: 'person',
       },
-      included: [ {
-        id: orgPermissionId,
-        type: 'organizational_permission',
-        attributes: {
-          followup_status: status,
+      included: [
+        {
+          id: orgPermissionId,
+          type: 'organizational_permission',
+          attributes: {
+            followup_status: status,
+          },
         },
-      } ],
+      ],
     };
-    await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId: person.id }, data));
+    await dispatch(
+      callApi(REQUESTS.UPDATE_PERSON, { personId: person.id }, data),
+    );
 
-    dispatch(trackAction(ACTIONS.STATUS_CHANGED));
+    dispatch(trackActionWithoutData(ACTIONS.STATUS_CHANGED));
 
-    return dispatch(updatePersonAttributes(person.id, { organizational_permissions: person.organizational_permissions.map((orgPermission) => orgPermission.id === orgPermissionId ? { ...orgPermission, followup_status: status } : orgPermission) }));
+    return dispatch(
+      updatePersonAttributes(person.id, {
+        organizational_permissions: person.organizational_permissions.map(
+          orgPermission =>
+            orgPermission.id === orgPermissionId
+              ? { ...orgPermission, followup_status: status }
+              : orgPermission,
+        ),
+      }),
+    );
   };
 }
 
-export function createContactAssignment(organizationId, personAssignedToId, personReceiverId) {
-  return async(dispatch) => {
+export function createContactAssignment(
+  organizationId,
+  personAssignedToId,
+  personReceiverId,
+) {
+  return async dispatch => {
     const data = {
-      included: [ {
-        type: 'contact_assignment',
-        attributes: {
-          assigned_to_id: personAssignedToId,
-          organization_id: organizationId,
+      included: [
+        {
+          type: 'contact_assignment',
+          attributes: {
+            assigned_to_id: personAssignedToId,
+            organization_id: organizationId,
+          },
         },
-      } ],
+      ],
     };
-    await dispatch(callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data));
+    await dispatch(
+      callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
+    );
     dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }
 
 export function deleteContactAssignment(id, personId, personOrgId) {
-  return async(dispatch) => {
-    await dispatch(callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }));
+  return async dispatch => {
+    await dispatch(
+      callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }),
+    );
     return dispatch({
       type: DELETE_PERSON,
       personId,

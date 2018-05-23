@@ -11,7 +11,10 @@ class TouchableIOS extends Component {
       return (
         <TouchableHighlight
           accessibilityTraits="button"
-          underlayColor={theme.convert({ color: theme.primaryColor, alpha: 0.3 })}
+          underlayColor={theme.convert({
+            color: theme.primaryColor,
+            alpha: 0.3,
+          })}
           {...rest}
         />
       );

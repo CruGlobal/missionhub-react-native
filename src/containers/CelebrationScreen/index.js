@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-import styles from './styles';
 import { Flex } from '../../components/common';
 import { navigateReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
 import { isAndroid, disableBack } from '../../utils/common';
 
-class CelebrationScreen extends Component {
+import styles from './styles';
 
+class CelebrationScreen extends Component {
   constructor(props) {
     super(props);
     this.timeoutId = null;
@@ -29,7 +29,10 @@ class CelebrationScreen extends Component {
 
   startTimer() {
     clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(() => this.navigateToNext(), isAndroid ? 2880 : 3350);
+    this.timeoutId = setTimeout(
+      () => this.navigateToNext(),
+      isAndroid ? 2880 : 3350,
+    );
   }
 
   navigateToNext() {
@@ -61,7 +64,12 @@ class CelebrationScreen extends Component {
   render() {
     return (
       <Flex style={styles.container} value={1} justify="center">
-        <Image source={CelebrationScreen.shuffleGif()} resizeMode="contain" style={styles.gif} onLoad={this.startTimer} />
+        <Image
+          source={CelebrationScreen.shuffleGif()}
+          resizeMode="contain"
+          style={styles.gif}
+          onLoad={this.startTimer}
+        />
       </Flex>
     );
   }
@@ -74,7 +82,6 @@ CelebrationScreen.propTypes = {
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
-
 
 export default connect(mapStateToProps)(CelebrationScreen);
 export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

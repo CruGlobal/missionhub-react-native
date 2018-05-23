@@ -1,16 +1,15 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { shallow } from 'enzyme';
 import { TouchableWithoutFeedback } from 'react-native';
 import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
+import Carousel from 'react-native-snap-carousel';
+
 import { createMockStore } from '../../testUtils/index';
 import LoginScreen from '../../src/containers/LoginScreen';
 import { renderShallow } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
-import renderer from 'react-test-renderer';
-import Carousel from 'react-native-snap-carousel';
 
 const store = createMockStore({});
 let screen;
@@ -46,7 +45,10 @@ it('disables autoplay when reaches last page', () => {
 it('disables autoplay when user touches onboarding page', () => {
   const page = shallow(carouselProps.renderItem({ item }));
 
-  page.find(TouchableWithoutFeedback).props().onPressIn();
+  page
+    .find(TouchableWithoutFeedback)
+    .props()
+    .onPressIn();
   screen.update();
 
   expect(screen.find(Carousel).props().autoplay).toEqual(false);

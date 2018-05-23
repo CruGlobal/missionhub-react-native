@@ -4,20 +4,23 @@ import { Platform } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialIcons';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from '../../../assets/icoMoonConfig.json';
-import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FAGlyphs from 'react-native-vector-icons/glyphmaps/FontAwesome.json';
 import MaterialGlyphs from 'react-native-vector-icons/glyphmaps/MaterialIcons.json';
 import IoniconsGlyphs from 'react-native-vector-icons/glyphmaps/Ionicons.json';
 
+import MissionHubIconGlyphs from '../../../assets/MissionHubIconGlyphs.json';
+import icoMoonConfig from '../../../assets/icoMoonConfig.json';
+
 import PLATFORM_MAP from './mapping';
 import styles from './styles';
 
-const ICON_TYPES = [ 'Material', 'FontAwesome', 'Ionicons', 'MissionHub' ];
+const ICON_TYPES = ['Material', 'FontAwesome', 'Ionicons', 'MissionHub'];
 const MissionHub = createIconSetFromIcoMoon(icoMoonConfig);
 export default class Icon extends Component {
-  setNativeProps(nProps) { this._view.setNativeProps(nProps); }
+  setNativeProps(nProps) {
+    this._view.setNativeProps(nProps);
+  }
   render() {
     const { name, type, size = 18, style = {} } = this.props;
     // Default style options
@@ -39,9 +42,9 @@ export default class Icon extends Component {
 
     return (
       <Tag
-        ref={(c) => this._view = c}
+        ref={c => (this._view = c)}
         name={iconName}
-        style={[ styles.icon, { fontSize: size }, style ]}
+        style={[styles.icon, { fontSize: size }, style]}
       />
     );
   }
@@ -54,7 +57,11 @@ Icon.propTypes = {
     ...Object.keys(IoniconsGlyphs),
     ...Object.keys(MissionHubIconGlyphs),
   ]).isRequired,
-  style: PropTypes.oneOfType([ PropTypes.object, PropTypes.number, PropTypes.array ]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   type: PropTypes.oneOf(ICON_TYPES),
   size: PropTypes.number,
 };

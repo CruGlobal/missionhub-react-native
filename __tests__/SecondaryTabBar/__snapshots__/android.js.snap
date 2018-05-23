@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<Component
   style={
     Array [
       Object {},
@@ -12,641 +12,119 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <View
-    onLayout={[Function]}
-    style={
-      Array [
-        Object {
+  <ScrollableTabView
+    contentProps={
+      Object {
+        "keyboardShouldPersistTaps": "handled",
+        "style": Object {
+          "backgroundColor": "#ffffff",
           "flex": 1,
         },
-        undefined,
-      ]
+      }
     }
+    initialPage={0}
+    locked={true}
+    onChangeTab={[Function]}
+    onScroll={[Function]}
+    page={0}
+    prerenderingSiblingsNumber={0}
+    renderTabBar={[Function]}
+    scrollWithoutAnimation={false}
+    tabBarPosition="top"
   >
-    <View
+    <Flex
+      key="stepsIcon"
       style={
-        Array [
-          Object {
-            "flexDirection": "row",
-            "height": 50,
-            "marginVertical": 10,
-          },
-          undefined,
-          undefined,
-        ]
+        Object {
+          "backgroundColor": "white",
+        }
       }
+      value={1}
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
+      <Connect(Translate(ContactSteps))
+        person={
           Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-            "opacity": 1,
-            "paddingBottom": 0,
+            "first_name": "ben",
+            "id": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 32,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,1)",
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 11,
-                      "paddingTop": 3,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,1)",
-                    },
-                  ],
-                ]
-              }
-            >
-              My Steps
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-            "opacity": 1,
-            "paddingBottom": 0,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 32,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,0.4)",
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 11,
-                      "paddingTop": 3,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,0.4)",
-                    },
-                  ],
-                ]
-              }
-            >
-              Our Journey
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits="button"
-        accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-            "opacity": 1,
-            "paddingBottom": 0,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={false}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 32,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,0.4)",
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <View
-            style={
-              Array [
-                Object {},
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "fontSize": 11,
-                      "paddingTop": 3,
-                    },
-                    Object {
-                      "color": "rgba(255,255,255,0.4)",
-                    },
-                  ],
-                ]
-              }
-            >
-              My Notes
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
+      />
+    </Flex>
+    <Flex
+      key="actionsIcon"
       style={
-        Array [
-          Object {
-            "alignSelf": "flex-start",
-            "borderColor": "red",
-            "borderWidth": 1,
-          },
-          Object {
-            "backgroundColor": "#ffffff",
-            "flex": 1,
-          },
-        ]
+        Object {
+          "backgroundColor": "white",
+        }
       }
+      value={1}
     >
-      <View
-        style={
+      <Connect(Translate(ContactActions))
+        person={
           Object {
-            "width": 750,
+            "first_name": "ben",
+            "id": 1,
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "white",
-              },
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "#ffffff",
-                    "flex": 1,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Image
-                  resizeMode="contain"
-                  source={
-                    Object {
-                      "testUri": "../../../assets/images/footprints.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "flexShrink": 1,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "AmaticSC-Bold",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 42,
-                        "paddingTop": 10,
-                      },
-                    ]
-                  }
-                >
-                  steps of faith
-                </Text>
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "paddingHorizontal": 70,
-                        "paddingVertical": 10,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Your Steps of Faith with ben appear here.
-                </Text>
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {},
-                  Object {
-                    "justifyContent": "flex-end",
-                  },
-                ]
-              }
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits="button"
-                accessible={true}
-                collapsable={undefined}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
-                isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID={undefined}
-                tvParallaxProperties={undefined}
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "#52C5DC",
-                        "height": 60,
-                        "justifyContent": "center",
-                      },
-                      null,
-                      Object {},
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "backgroundColor": "rgba(0,0,0,0)",
-                            "color": "#ffffff",
-                            "fontSize": 18,
-                            "fontWeight": "500",
-                            "letterSpacing": 1.5,
-                            "textAlign": "center",
-                          },
-                          Object {},
-                        ],
-                      ]
-                    }
-                  >
-                    ADD A STEP OF FAITH
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
+      />
+    </Flex>
+    <Flex
+      key="journeyIcon"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+      value={1}
+    >
+      <Connect(Translate(ContactJourney))
+        person={
           Object {
-            "width": 750,
+            "first_name": "ben",
+            "id": 1,
           }
         }
-      >
-        <View
-          tabLabel={undefined}
-        />
-      </View>
-      <View
-        style={
+      />
+    </Flex>
+    <Flex
+      key="notesIcon"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+      value={1}
+    >
+      <Connect(Translate(ContactNotes))
+        isActiveTab={false}
+        onNotesActive={[Function]}
+        onNotesInactive={[Function]}
+        person={
           Object {
-            "width": 750,
+            "first_name": "ben",
+            "id": 1,
           }
         }
-      >
-        <View
-          tabLabel={undefined}
-        />
-      </View>
-    </View>
-  </View>
-</View>
+      />
+    </Flex>
+    <Flex
+      key="impactIcon"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+      value={1}
+    >
+      <Connect(Translate(ImpactView))
+        person={
+          Object {
+            "first_name": "ben",
+            "id": 1,
+          }
+        }
+      />
+    </Flex>
+  </ScrollableTabView>
+</Component>
 `;

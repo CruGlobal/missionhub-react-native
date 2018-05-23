@@ -6,7 +6,11 @@ import { Provider } from 'react-redux';
 
 // Note: test renderer must be required after react-native.
 import AddStepScreen from '../../src/containers/AddStepScreen/index';
-import { createMockNavState, testSnapshot, createMockStore } from '../../testUtils';
+import {
+  createMockNavState,
+  testSnapshot,
+  createMockStore,
+} from '../../testUtils';
 import { CREATE_STEP, STEP_NOTE } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import locale from '../../src/i18n/locales/en-US';
@@ -18,71 +22,83 @@ jest.mock('react-native-device-info');
 it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: CREATE_STEP,
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: CREATE_STEP,
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders journey correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: 'journey',
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: 'journey',
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders edit journey correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: 'editJourney',
-        isEdit: true,
-        text: 'Comment',
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: 'editJourney',
+          isEdit: true,
+          text: 'Comment',
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders step note correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: STEP_NOTE,
-        text: 'Comment',
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: STEP_NOTE,
+          text: 'Comment',
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders interaction without skip correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: 'interaction',
-        hideSkip: true,
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: 'interaction',
+          hideSkip: true,
+        })}
+      />
+    </Provider>,
   );
 });
 
 it('renders interaction with skip correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: () => {},
-        type: 'interaction',
-        hideSkip: false,
-      })} />
-    </Provider>
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: () => {},
+          type: 'interaction',
+          hideSkip: false,
+        })}
+      />
+    </Provider>,
   );
 });
 
@@ -92,16 +108,22 @@ describe('add step methods', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-        type: 'editJourney',
-        isEdit: true,
-        text: 'Comment',
-      })} />,
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          type: 'editJourney',
+          isEdit: true,
+          text: 'Comment',
+        })}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
   it('saves a step', () => {
@@ -116,15 +138,21 @@ describe('add step methods for stepNote', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-        type: STEP_NOTE,
-        text: 'Comment',
-      })} />,
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          type: STEP_NOTE,
+          text: 'Comment',
+        })}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
   it('runs skip', () => {
@@ -145,14 +173,20 @@ describe('add step methods without edit', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-        type: 'journey',
-      })} />,
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          type: 'journey',
+        })}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
   it('doesnt save a step', () => {
@@ -170,17 +204,24 @@ describe('Caps create step at 255 characters', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <AddStepScreen navigation={createMockNavState({
-        onComplete: mockComplete,
-        type: CREATE_STEP,
-      })} />,
+      <AddStepScreen
+        navigation={createMockNavState({
+          onComplete: mockComplete,
+          type: CREATE_STEP,
+        })}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
-  const twoFiftyFour = '254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254char';
+  const twoFiftyFour =
+    '254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254characters254char';
   const twoFiftyFive = `${twoFiftyFour}a`;
 
   it('Allows 254 characters', () => {

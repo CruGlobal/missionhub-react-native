@@ -19,6 +19,6 @@ it('renders correctly', () => {
       onSelectStep={() => {}}
       onCreateStep={() => {}}
       onLoadMoreSteps={() => {}}
-    />
+    />,
   );
 });

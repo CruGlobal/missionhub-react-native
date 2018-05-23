@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
 import mapValues from 'lodash/mapValues';
+
 import { locale } from '../utils/common';
 
 import translations from './locales/translations.json';
@@ -21,10 +22,13 @@ export default i18n
     fallbackLng: 'en-US',
 
     // Use downloaded translations if available but use en-US from source to make development easier
-    resources: { ...mapValues(translations, 'translation'), ...{ 'en-US': en_US } },
+    resources: {
+      ...mapValues(translations, 'translation'),
+      ...{ 'en-US': en_US },
+    },
 
     // have a common namespace used around the full app
-    ns: [ 'common' ],
+    ns: ['common'],
     defaultNS: 'common',
     fallbackNS: 'common',
 

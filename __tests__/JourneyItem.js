@@ -26,26 +26,21 @@ describe('step', () => {
   };
 
   it('is rendered correctly without comment', () => {
-    testSnapshotShallow(
-      <JourneyItem
-        item={mockStep}
-        myId={myId} />
-    );
+    testSnapshotShallow(<JourneyItem item={mockStep} myId={myId} />);
   });
 
   it('is rendered correctly with comment', () => {
     testSnapshotShallow(
       <JourneyItem
         item={{ ...mockStep, note: 'test comment on completed step' }}
-        myId={myId} />
+        myId={myId}
+      />,
     );
   });
 
   it('is rendered correctly with pathway stage', () => {
     testSnapshotShallow(
-      <JourneyItem
-        item={{ ...mockStep, challenge_suggestion }}
-        myId={myId} />
+      <JourneyItem item={{ ...mockStep, challenge_suggestion }} myId={myId} />,
     );
   });
 });
@@ -55,7 +50,11 @@ describe('stage', () => {
     id: '3',
     _type: 'pathway_progression_audit',
     comment: 'Test Stage Change',
-    old_pathway_stage: { id: '1', _type: 'pathway_stage', name: 'Uninterested' },
+    old_pathway_stage: {
+      id: '1',
+      _type: 'pathway_stage',
+      name: 'Uninterested',
+    },
     new_pathway_stage: { id: '2', _type: 'pathway_stage', name: 'Curious' },
     created_at: date,
     person,
@@ -63,17 +62,13 @@ describe('stage', () => {
 
   it('is rendered correctly with old stage for a contact', () => {
     testSnapshotShallow(
-      <JourneyItem
-        item={mockStageProgression}
-        myId={myId} />
+      <JourneyItem item={mockStageProgression} myId={myId} />,
     );
   });
 
   it('is rendered correctly with old stage for self', () => {
     testSnapshotShallow(
-      <JourneyItem
-        item={mockStageProgression}
-        myId={person.id} />
+      <JourneyItem item={mockStageProgression} myId={person.id} />,
     );
   });
 
@@ -84,8 +79,8 @@ describe('stage', () => {
           ...mockStageProgression,
           old_pathway_stage: {},
         }}
-        myId={myId} />
-
+        myId={myId}
+      />,
     );
   });
 
@@ -96,8 +91,8 @@ describe('stage', () => {
           ...mockStageProgression,
           old_pathway_stage: {},
         }}
-        myId={person.id} />
-
+        myId={person.id}
+      />,
     );
   });
 });
@@ -116,7 +111,8 @@ it('renders survey correctly', () => {
         ],
         created_at: date,
       }}
-      myId={myId} />
+      myId={myId}
+    />,
   );
 });
 
@@ -128,12 +124,11 @@ it('renders interaction correctly', () => {
         _type: 'interaction',
         interaction_type_id: 1,
         comment: 'Test Interaction',
-        initiators: [
-          { id: myId },
-        ],
+        initiators: [{ id: myId }],
         organization: null,
         created_at: date,
       }}
-      myId={myId} />
+      myId={myId}
+    />,
   );
 });

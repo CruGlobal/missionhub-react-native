@@ -1,42 +1,34 @@
 import { REQUESTS } from '../actions/api';
-
 import {
   LOGOUT,
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
   DISABLE_WELCOME_NOTIFICATION,
+  REQUEST_NOTIFICATIONS,
+  LOAD_HOME_NOTIFICATION_REMINDER,
 } from '../constants';
 
 const initialState = {
   pushDevice: {},
-  hasAsked: false,
-  shouldAsk: true,
-  showReminder: true,
+  requestedNativePermissions: false,
+  showReminderOnLoad: true,
   hasShownWelcomeNotification: false,
 };
 
 function notificationReducer(state = initialState, action) {
   switch (action.type) {
-    case PUSH_NOTIFICATION_SHOULD_ASK:
-      return {
-        ...state,
-        shouldAsk: action.bool,
-      };
-    case PUSH_NOTIFICATION_REMINDER:
-      return {
-        ...state,
-        showReminder: action.bool,
-      };
-    case PUSH_NOTIFICATION_ASKED:
-      return {
-        ...state,
-        hasAsked: true,
-      };
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:
       return {
         ...state,
         pushDevice: action.results.response,
+      };
+    case REQUEST_NOTIFICATIONS:
+      return {
+        ...state,
+        requestedNativePermissions: true,
+      };
+    case LOAD_HOME_NOTIFICATION_REMINDER:
+      return {
+        ...state,
+        showReminderOnLoad: false,
       };
     case DISABLE_WELCOME_NOTIFICATION:
       return {
@@ -44,7 +36,11 @@ function notificationReducer(state = initialState, action) {
         hasShownWelcomeNotification: true,
       };
     case LOGOUT:
-      return initialState;
+      //persist requestedNativePermissions on logout because notifications will remain enabled/disabled on device
+      return {
+        ...initialState,
+        requestedNativePermissions: state.requestedNativePermissions,
+      };
     default:
       return state;
   }

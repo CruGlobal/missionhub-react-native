@@ -4,15 +4,12 @@ import PropTypes from 'prop-types';
 
 // import { logout } from '../../actions/auth';
 // import { navigatePush } from '../../actions/navigation';
-import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 
+import styles from './styles';
+
 export const HeaderIcon = ({ ...rest }) => (
-  <Button
-    type="transparent"
-    style={styles.headerIcon}
-    {...rest}
-  />
+  <Button type="transparent" style={styles.headerIcon} {...rest} />
 );
 
 class Header extends Component {
@@ -28,7 +25,12 @@ class Header extends Component {
     const { title, title2, center } = this.props;
     if (title && title2) {
       return (
-        <Flex value={2} direction="column" align="center" style={styles.headerTwoLine}>
+        <Flex
+          value={2}
+          direction="column"
+          align="center"
+          style={styles.headerTwoLine}
+        >
           <Text style={styles.headerTwoLine1} numberOfLines={1}>
             {title2}
           </Text>
@@ -66,10 +68,7 @@ class Header extends Component {
     return (
       <Flex
         direction="row"
-        style={[
-          styles.header,
-          shadow ? styles.shadow : null,
-        ]}
+        style={[styles.header, shadow ? styles.shadow : null]}
       >
         {this.renderLeft()}
         {this.renderCenter()}

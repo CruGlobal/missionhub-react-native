@@ -4,15 +4,15 @@ import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import styles from './styles';
 import { Text, Button, Flex } from '../../components/common';
-import { registerNotificationHandler, enableAskPushNotification, disableAskPushNotification } from '../../actions/notifications';
-import { trackAction } from '../../actions/analytics';
+import { requestNativePermissions } from '../../actions/notifications';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+
+import styles from './styles';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -21,34 +21,32 @@ class NotificationPrimerScreen extends Component {
   }
 
   notNow() {
-    this.props.dispatch(disableAskPushNotification());
     this.props.onComplete();
-    this.props.dispatch(trackAction(ACTIONS.NOT_NOW));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   }
 
   async allow() {
-    this.props.dispatch(enableAskPushNotification());
     try {
-      await this.props.dispatch(registerNotificationHandler());
+      await this.props.dispatch(requestNativePermissions());
     } finally {
       this.props.onComplete();
     }
-    this.props.dispatch(trackAction(ACTIONS.ALLOW));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   }
 
   render() {
-    const { t } = this.props;
+    const { t, descriptionText } = this.props;
     return (
       <Flex style={styles.container}>
-        <Flex value={.3} />
+        <Flex value={0.3} />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
-            <Image source={require('../../../assets/images/notificationPrimer.png')} />
+            <Image
+              source={require('../../../assets/images/notificationPrimer.png')}
+            />
           </Flex>
-          <Flex value={.6} align="center" justify="center">
-            <Text style={styles.text}>
-              {t('description')}
-            </Text>
+          <Flex value={0.6} align="center" justify="center">
+            <Text style={styles.text}>{descriptionText}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -68,7 +66,7 @@ class NotificationPrimerScreen extends Component {
             />
           </Flex>
         </Flex>
-        <Flex value={.3} />
+        <Flex value={0.3} />
       </Flex>
     );
   }

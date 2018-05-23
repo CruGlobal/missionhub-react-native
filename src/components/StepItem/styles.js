@@ -1,5 +1,5 @@
-
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 
 export default StyleSheet.create({
@@ -17,7 +17,10 @@ export default StyleSheet.create({
     borderBottomColor: theme.separatorColor,
   },
   reminder: {
-    backgroundColor: theme.convert({ color: theme.secondaryColor, lighten: 0.4 }),
+    backgroundColor: theme.convert({
+      color: theme.secondaryColor,
+      lighten: 0.4,
+    }),
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },

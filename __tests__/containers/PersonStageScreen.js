@@ -1,18 +1,21 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
-
-// Note: test renderer must be required after react-native.
-import PersonStageScreen from '../../src/containers/PersonStageScreen';
-import { testSnapshot, createMockNavState, createMockStore, renderShallow } from '../../testUtils';
-import * as navigation from '../../src/actions/navigation';
-import * as selectStage from '../../src/actions/selectStage';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+
+import PersonStageScreen from '../../src/containers/PersonStageScreen';
+import {
+  testSnapshot,
+  createMockNavState,
+  createMockStore,
+  renderShallow,
+} from '../../testUtils';
+import * as navigation from '../../src/actions/navigation';
+import * as selectStage from '../../src/actions/selectStage';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_SELECT_STEP_SCREEN } from '../../src/containers/PersonSelectStepScreen';
-import { buildTrackingObj } from '../../src/utils/common';
 import { completeOnboarding } from '../../src/actions/onboardingProfile';
 
 const mockState = {
@@ -46,15 +49,15 @@ const trackStateResult = { type: 'tracked state' };
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/actions/onboardingProfile', () => ({
-  completeOnboarding: jest.fn().mockReturnValue({ type: 'onboarding complete' }),
+  completeOnboarding: jest
+    .fn()
+    .mockReturnValue({ type: 'onboarding complete' }),
 }));
 
 function buildScreen(mockNavState, store) {
   const screen = renderShallow(
-    <PersonStageScreen
-      navigation={createMockNavState(mockNavState)}
-    />,
-    store
+    <PersonStageScreen navigation={createMockNavState(mockNavState)} />,
+    store,
   );
 
   return screen.instance();
@@ -68,7 +71,7 @@ beforeEach(() => {
   navigation.navigatePush.mockReturnValue({ type: 'navigated forward' });
 
   navigation.navigateBack.mockReset();
-  analytics.trackState = jest.fn(() => (trackStateResult));
+  analytics.trackState = jest.fn(() => trackStateResult);
 });
 
 it('renders correctly', () => {
@@ -81,7 +84,7 @@ it('renders correctly', () => {
           enableBackButton: true,
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -90,13 +93,16 @@ describe('person stage screen methods with onComplete prop', () => {
   const mockComplete = jest.fn();
 
   beforeEach(() => {
-    component = buildScreen({
-      ...mockNavState,
-      onComplete: mockComplete,
-    }, store);
+    component = buildScreen(
+      {
+        ...mockNavState,
+        onComplete: mockComplete,
+      },
+      store,
+    );
   });
 
-  it('runs select stage', async() => {
+  it('runs select stage', async () => {
     selectStage.updateUserStage = jest.fn();
     navigation.navigatePush = jest.fn((_, params) => params.onSaveNewSteps());
 
@@ -104,7 +110,6 @@ describe('person stage screen methods with onComplete prop', () => {
 
     expect(navigation.navigateBack).toHaveBeenCalledWith(2);
     expect(selectStage.updateUserStage).toHaveBeenCalledTimes(1);
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : person : steps : add', 'people', 'person', 'steps'));
   });
 
   it('runs celebrate and finish', () => {
@@ -115,19 +120,24 @@ describe('person stage screen methods with onComplete prop', () => {
 });
 
 describe('person stage screen methods with onComplete prop but without add contact flow', () => {
-  it('runs update stage', async() => {
-    const mockStore = configureStore([ thunk ])(mockState);
-    const component = buildScreen({
-      onCompleteCelebration: jest.fn(),
-      addingContactFlow: false,
-      ...mockNavState,
-    }, mockStore);
+  it('runs update stage', async () => {
+    const mockStore = configureStore([thunk])(mockState);
+    const component = buildScreen(
+      {
+        onCompleteCelebration: jest.fn(),
+        addingContactFlow: false,
+        ...mockNavState,
+      },
+      mockStore,
+    );
     selectStage.updateUserStage = () => () => Promise.resolve();
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('onboarding : add person : steps : add', 'onboarding', 'add person', 'steps'));
+    expect(navigatePush).toHaveBeenCalledWith(
+      PERSON_SELECT_STEP_SCREEN,
+      expect.anything(),
+    );
     expect(completeOnboarding).toHaveBeenCalled();
   });
 });
@@ -137,11 +147,14 @@ describe('person stage screen methods with add contact flow', () => {
   const mockComplete = jest.fn();
 
   beforeEach(() => {
-    component = buildScreen({
-      onCompleteCelebration: mockComplete,
-      addingContactFlow: true,
-      ...mockNavState,
-    }, store);
+    component = buildScreen(
+      {
+        onCompleteCelebration: mockComplete,
+        addingContactFlow: true,
+        ...mockNavState,
+      },
+      store,
+    );
   });
 
   it('runs handle navigate', () => {
@@ -152,19 +165,24 @@ describe('person stage screen methods with add contact flow', () => {
     expect(component.celebrateAndFinish).toHaveBeenCalledTimes(1);
   });
 
-  it('runs update stage', async() => {
-    const mockStore = configureStore([ thunk ])(mockState);
-    component = buildScreen({
-      onCompleteCelebration: mockComplete,
-      addingContactFlow: true,
-      ...mockNavState,
-    }, mockStore);
+  it('runs update stage', async () => {
+    const mockStore = configureStore([thunk])(mockState);
+    component = buildScreen(
+      {
+        onCompleteCelebration: mockComplete,
+        addingContactFlow: true,
+        ...mockNavState,
+      },
+      mockStore,
+    );
     selectStage.updateUserStage = () => () => Promise.resolve();
 
     await component.handleSelectStage(mockStage, false);
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, expect.anything());
-    expect(analytics.trackState).toHaveBeenCalledWith(buildTrackingObj('people : add person : steps : add', 'people', 'add person', 'steps'));
+    expect(navigatePush).toHaveBeenCalledWith(
+      PERSON_SELECT_STEP_SCREEN,
+      expect.anything(),
+    );
   });
 
   it('runs celebrate and finish with on complete', () => {
@@ -179,11 +197,14 @@ describe('person stage screen methods', () => {
   const mockComplete = jest.fn();
 
   beforeEach(() => {
-    component = buildScreen({
-      onComplete: mockComplete,
-      noNav: true,
-      ...mockNavState,
-    }, store);
+    component = buildScreen(
+      {
+        onComplete: mockComplete,
+        noNav: true,
+        ...mockNavState,
+      },
+      store,
+    );
   });
 
   it('runs select stage with active', () => {
@@ -192,4 +213,3 @@ describe('person stage screen methods', () => {
     expect(mockComplete).toHaveBeenCalledTimes(1);
   });
 });
-

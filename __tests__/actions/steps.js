@@ -1,27 +1,39 @@
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import i18next from 'i18next';
+
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
-  completeStep, getStepSuggestions, getMyStepsNextPage, getStepsByFilter, setStepFocus,
-  addSteps, completeStepReminder,
+  completeStep,
+  getStepSuggestions,
+  getMyStepsNextPage,
+  getContactSteps,
+  setStepFocus,
+  addSteps,
+  completeStepReminder,
+  deleteStepWithTracking,
 } from '../../src/actions/steps';
 import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
 import * as common from '../../src/utils/common';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { buildTrackingObj } from '../../src/utils/common';
 import {
-  ACTIONS, COMPLETED_STEP_COUNT, NAVIGATE_FORWARD, STEP_NOTE, ADD_STEP_REMINDER, REMOVE_STEP_REMINDER,
+  ACTIONS,
+  COMPLETED_STEP_COUNT,
+  NAVIGATE_FORWARD,
+  STEP_NOTE,
+  TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
 } from '../../src/constants';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
-import i18next from 'i18next';
 
-const mockStore = configureStore([ thunk ]);
+const mockStore = configureStore([thunk]);
 let store;
 
-const personId = 2123;
-const receiverId = 983547;
+const personId = '2123';
+const receiverId = '983547';
+const orgId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
@@ -44,14 +56,17 @@ describe('get step suggestions', () => {
 
     store.dispatch(getStepSuggestions());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGE_SUGGESTIONS, stepSuggestionsQuery);
-    expect(store.getActions()).toEqual([ apiResult ]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_CHALLENGE_SUGGESTIONS,
+      stepSuggestionsQuery,
+    );
+    expect(store.getActions()).toEqual([apiResult]);
   });
 });
 
 describe('get steps page', () => {
   const stepsPageQuery = {
-    order: '-accepted_at',
+    order: '-focused_at,-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
@@ -66,27 +81,32 @@ describe('get steps page', () => {
 
     store.dispatch(getMyStepsNextPage());
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsPageQuery);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      stepsPageQuery,
+    );
     expect(store.getActions()[0]).toEqual(apiResult);
   });
 });
 
-describe('getStepsByFilter', () => {
+describe('getContactSteps', () => {
   it('should get filtered steps for a person', () => {
-    const stepsFilter = {
-      completed: true,
-      receiver_ids: '1',
-      organization_ids: '2',
-    };
-    const include = 'receiver';
     const apiResult = { type: 'done' };
 
     callApi.mockReturnValue(apiResult);
 
-    store.dispatch(getStepsByFilter(stepsFilter, include));
+    store.dispatch(getContactSteps(personId, orgId));
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, { filters: stepsFilter, page: { limit: 1000 }, include: include });
-    expect(store.getActions()).toEqual([ apiResult ]);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
+      filters: {
+        completed: false,
+        receiver_ids: personId,
+        organization_ids: orgId,
+      },
+      page: { limit: 1000 },
+      include: 'receiver',
+    });
+    expect(store.getActions()).toEqual([apiResult]);
   });
 });
 
@@ -105,7 +125,7 @@ describe('addSteps', () => {
     body: 'another custom step',
     challenge_type: CUSTOM_STEP_TYPE,
   };
-  const steps = [ step1, step2, step3 ];
+  const steps = [step1, step2, step3];
 
   const acceptedChallenges = [
     {
@@ -133,7 +153,7 @@ describe('addSteps', () => {
 
   const stepAddedResult = { type: 'added steps tracked' };
 
-  const test = async(organization, expectedIncluded) => {
+  const test = async (organization, expectedIncluded) => {
     const expectedApiParam = {
       included: expectedIncluded,
       include: 'received_challenges',
@@ -141,9 +161,16 @@ describe('addSteps', () => {
 
     await store.dispatch(addSteps(steps, receiverId, organization));
 
-    expect(store.getActions()).toEqual([ stepAddedResult ]);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_CHALLENGES, { person_id: receiverId }, expectedApiParam);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, expect.anything());
+    expect(store.getActions()).toEqual([stepAddedResult]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_CHALLENGES,
+      { person_id: receiverId },
+      expectedApiParam,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      expect.anything(),
+    );
   };
 
   beforeEach(() => {
@@ -151,13 +178,16 @@ describe('addSteps', () => {
     callApi.mockReturnValue(() => Promise.resolve());
   });
 
-  it('creates steps without org', async() => {
+  it('creates steps without org', async () => {
     return test(null, acceptedChallenges);
   });
 
-  it('creates steps with org', async() => {
+  it('creates steps with org', async () => {
     const organization = { id: '200' };
-    const expectedIncluded = acceptedChallenges.map((c) => ({ ...c, attributes: { ...c.attributes, organization_id: organization.id } }));
+    const expectedIncluded = acceptedChallenges.map(c => ({
+      ...c,
+      attributes: { ...c.attributes, organization_id: organization.id },
+    }));
 
     return test(organization, expectedIncluded);
   });
@@ -172,7 +202,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
-    order: '-accepted_at',
+    order: '-focused_at,-accepted_at',
     filters: { completed: false },
     include: 'receiver.reverse_contact_assignments',
   };
@@ -185,12 +215,11 @@ describe('complete challenge', () => {
     },
   };
 
-  const trackStateResult = { type: 'tracked state' };
   const trackActionResult = { type: 'tracked action' };
 
   const impactResponse = { type: 'test impact' };
 
-  const removeReminderResponse = { type: REMOVE_STEP_REMINDER, step };
+  const screen = 'contact steps';
 
   beforeEach(() => {
     store = mockStore({
@@ -202,54 +231,93 @@ describe('complete challenge', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
-    mockFnWithParams(analytics,
-      'trackState',
-      trackStateResult,
-      buildTrackingObj('people : person : steps : complete comment', 'people', 'person', 'steps'));
-    mockFnWithParams(analytics, 'trackAction', trackActionResult, ACTIONS.STEP_COMPLETED);
+    mockFnWithParams(
+      analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_COMPLETED.key]: null },
+    );
 
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
   });
 
-  it('completes step', async() => {
-    await store.dispatch(completeStep(step));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
+  it('completes step', async () => {
+    await store.dispatch(completeStep(step, screen));
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      stepsQuery,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
-      { type: NAVIGATE_FORWARD,
+      {
+        type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
-        params: { type: STEP_NOTE, onComplete: expect.anything() } },
-      trackStateResult,
+        params: {
+          type: STEP_NOTE,
+          onComplete: expect.anything(),
+          trackingObj: buildTrackingObj(
+            'people : person : steps : complete comment',
+            'people',
+            'person',
+            'steps',
+          ),
+        },
+      },
       trackActionResult,
     ]);
   });
 
-  it('completes step reminder', async() => {
-    await store.dispatch(completeStepReminder(step));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, stepsQuery);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_COMPLETE, challengeCompleteQuery, data);
+  it('completes step reminder', async () => {
+    await store.dispatch(completeStepReminder(step, screen));
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      stepsQuery,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
-      { type: NAVIGATE_FORWARD,
+      {
+        type: NAVIGATE_FORWARD,
         routeName: ADD_STEP_SCREEN,
-        params: { type: STEP_NOTE, onComplete: expect.anything() } },
-      trackStateResult,
+        params: {
+          type: STEP_NOTE,
+          onComplete: expect.anything(),
+          trackingObj: buildTrackingObj(
+            'people : person : steps : complete comment',
+            'people',
+            'person',
+            'steps',
+          ),
+        },
+      },
       trackActionResult,
-      removeReminderResponse,
     ]);
   });
 });
 
-
 describe('Set Focus', () => {
   const stepId = 102;
-  const step = {
+  const unfocusedStep = {
     id: stepId,
     receiver: { id: receiverId },
+    focus: false,
+  };
+  const focusedStep = {
+    ...unfocusedStep,
+    focus: true,
   };
 
   const query = { challenge_id: stepId };
@@ -299,19 +367,65 @@ describe('Set Focus', () => {
       },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
+  });
 
+  it('Focus set to true', async () => {
+    callApi.mockReturnValue(() => ({ response: { focus: true } }));
+
+    await store.dispatch(setStepFocus(unfocusedStep, true));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_SET_FOCUS,
+      query,
+      focusData,
+    );
+    expect(store.getActions()).toEqual([
+      { type: TOGGLE_STEP_FOCUS, step: unfocusedStep },
+    ]);
+  });
+
+  it('Focus set to false', async () => {
+    callApi.mockReturnValue(() => ({ response: { focus: false } }));
+
+    await store.dispatch(setStepFocus(focusedStep, false));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_SET_FOCUS,
+      query,
+      unfocusData,
+    );
+    expect(store.getActions()).toEqual([
+      { type: TOGGLE_STEP_FOCUS, step: focusedStep },
+    ]);
+  });
+});
+
+describe('deleteStepWithTracking', () => {
+  const step = { id: '123124' };
+  const screen = 'steps';
+  const trackActionResult = { type: 'hello world' };
+
+  it('should delete a step', async () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
-  });
+    mockFnWithParams(
+      analytics,
+      'trackAction',
+      trackActionResult,
+      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
+      { [ACTIONS.STEP_REMOVED.key]: null },
+    );
 
-  it('Focus set to true', async() => {
-    await store.dispatch(setStepFocus(step, true));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, focusData);
-    expect(store.getActions()).toEqual([ { type: ADD_STEP_REMINDER, step: step } ]);
-  });
+    await store.dispatch(deleteStepWithTracking(step, screen));
 
-  it('Focus set to false', async() => {
-    await store.dispatch(setStepFocus(step, false));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.CHALLENGE_SET_FOCUS, query, unfocusData);
-    expect(store.getActions()).toEqual([ { type: REMOVE_STEP_REMINDER, step: step } ]);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CHALLENGE,
+      { challenge_id: step.id },
+      {},
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      expect.anything(),
+    );
+    expect(store.getActions()).toEqual([trackActionResult]);
   });
 });

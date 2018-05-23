@@ -9,32 +9,42 @@ export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
 export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
-export const PUSH_NOTIFICATION_SHOULD_ASK = 'app/PUSH_NOTIFICATION_SHOULD_ASK';
-export const PUSH_NOTIFICATION_ASKED = 'app/PUSH_NOTIFICATION_ASKED';
-export const PUSH_NOTIFICATION_REMINDER = 'app/PUSH_NOTIFICATION_REMINDER';
+export const TOGGLE_STEP_FOCUS = 'app/TOGGLE_STEP_FOCUS';
 export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const SWIPE_REMINDER_STEPS_HOME = 'app/SWIPE_REMINDER_STEPS_HOME';
 export const SWIPE_REMINDER_STEPS_CONTACT = 'app/SWIPE_REMINDER_STEPS_CONTACT';
-export const SWIPE_REMINDER_STEPS_REMINDER = 'app/SWIPE_REMINDER_STEPS_REMINDER';
+export const SWIPE_REMINDER_STEPS_REMINDER =
+  'app/SWIPE_REMINDER_STEPS_REMINDER';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
-export const UPDATE_PEOPLE_INTERACTION_REPORT = 'app/UPDATE_PEOPLE_INTERACTION_REPORT';
+export const UPDATE_PEOPLE_INTERACTION_REPORT =
+  'app/UPDATE_PEOPLE_INTERACTION_REPORT';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
+export const REQUEST_NOTIFICATIONS = 'app/REQUEST_NOTIFICATIONS';
+export const LOAD_HOME_NOTIFICATION_REMINDER =
+  'app/LOAD_HOME_NOTIFICATION_REMINDER';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
 
+export const STEPS_TAB = 'StepsTab';
+export const PEOPLE_TAB = 'PeopleTab';
+export const IMPACT_TAB = 'ImpactTab';
+export const GROUPS_TAB = 'GroupsTab';
+
 export const NAVIGATE_FORWARD = 'Navigation/NAVIGATE';
 export const NAVIGATE_RESET = 'Navigation/RESET';
+export const NAVIGATE_BACK = 'Navigation/BACK';
+export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
 export const DRAWER_OPEN = 'DrawerOpen';
 export const DRAWER_CLOSE = 'DrawerClose';
@@ -45,6 +55,7 @@ export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';
 export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
+export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
@@ -62,9 +73,15 @@ export const LINKS = {
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
 
-export const ORG_PERMISSIONS = [ 1, 4 ];
+export const ORG_PERMISSIONS = [1, 4];
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
+export const LOGIN_TAB_CHANGED = 'analytics/LOGIN_TAB_CHANGED';
+export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
+export const CONTACT_TAB_CHANGED = 'analytics/CONTACT_TAB_CHANGED';
+export const PERSON_VIEWED_STAGE_CHANGED =
+  'analytics/PERSON_VIEWED_STAGE_CHANGED';
+export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
@@ -84,53 +101,181 @@ export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 
 export const ACTIONS = {
-  PERSON_ADDED: 'cru.personadded',
-  STATUS_CHANGED: 'cru.contactstatuschanged',
-  EMAIL_ENGAGED: 'cru.emailiconengaged',
-  CALL_ENGAGED: 'cru.calliconengaged',
-  TEXT_ENGAGED: 'cru.texticonengaged',
-  SEARCH_CLICKED: 'cru.searchbuttonclicked',
-  FILTER_ENGAGED: 'cru.searchfilterengaged',
-  SEARCH_FILTER: 'cru.searchfilter',
-  USER_ERROR: 'cru.usersigninerror',
-  SYSTEM_ERROR: 'cru.systemsigninerror',
-  ONBOARDING_STARTED: 'cru.onboardingstarted',
-  ONBOARDING_COMPLETE: 'cru.onboardingcomplete',
-  SELF_STAGE_SELECTED: 'cru.selfselectedstage',
-  PERSON_STAGE_SELECTED: 'cru.personselectedstage',
-  STAGE_SELECTED: 'cru.stageselected',
-  STEP_DETAIL: 'cru.stepoffaithdetail',
-  STEPS_ADDED: 'cru.stepoffaithadded',
-  STEP_CREATED: 'cru.stepoffaithcreated',
-  ALLOW: 'cru.notificationsallowed',
-  NOT_NOW: 'cru.notificationsnotallowed',
-  NO_REMINDERS: 'cru.notoreminders',
-  STEP_PRIORITIZED: 'cru.stepprioritized',
-  STEP_DEPRIORITIZED: 'cru.stepdeprioritized',
-  STEP_REMOVED: 'cru.stepremoved',
-  STEP_COMPLETED: 'cru.stepcompleted',
-  COMMENT_ADDED: 'cru.commentadded',
-  JOURNEY_EDITED: 'cru.journeyedit',
-  STEP_FIELDS: {
-    ID: 'Step ID',
-    STAGE: 'Stage',
-    TYPE: 'Challenge Type',
-    SELF: 'Self Step',
-    LOCALE: 'Locale',
+  PERSON_ADDED: {
+    name: 'Person Added',
+    key: 'cru.personadded',
+  },
+  STATUS_CHANGED: {
+    name: 'Contact Status Changed',
+    key: 'cru.contactstatuschanged',
+  },
+  EMAIL_ENGAGED: {
+    name: 'Contact Engaged by Email',
+    key: 'cru.emailiconengaged',
+  },
+  CALL_ENGAGED: {
+    name: 'Contact Engaged by Phone',
+    key: 'cru.calliconengaged',
+  },
+  TEXT_ENGAGED: {
+    name: 'Contact Engaged by Text',
+    key: 'cru.texticonengaged',
+  },
+  FILTER_ENGAGED: {
+    name: 'Search Filter Engaged',
+    key: 'cru.searchfilterengaged',
+  },
+  SEARCH_FILTER: {
+    key: 'cru.searchfilter',
+  },
+  USER_ERROR: {
+    name: 'User Signin Error',
+    key: 'cru.usersigninerror',
+  },
+  SYSTEM_ERROR: {
+    name: 'System Signin Error',
+    key: 'cru.systemsigninerror',
+  },
+  ONBOARDING_STARTED: {
+    name: 'Onboarding Started',
+    key: 'cru.onboardingstarted',
+  },
+  ONBOARDING_COMPLETE: {
+    name: 'Onboarding Complete',
+    key: 'cru.onboardingcomplete',
+  },
+  SELF_STAGE_SELECTED: {
+    name: 'Self Stage Selected',
+    key: 'cru.selfselectedstage',
+  },
+  PERSON_STAGE_SELECTED: {
+    name: 'Person Stage Selected',
+    key: 'cru.personselectedstage',
+  },
+  STAGE_SELECTED: {
+    key: 'cru.stageselected',
+  },
+  STEP_DETAIL: {
+    name: 'Step of Faith Detail',
+    key: 'cru.stepoffaithdetail',
+  },
+  STEPS_ADDED: {
+    name: 'Step of Faith Added',
+    key: 'cru.stepoffaithadded',
+  },
+  STEP_CREATED: {
+    name: 'Step of Faith Created',
+    key: 'cru.stepoffaithcreated',
+  },
+  ALLOW: {
+    name: 'Notification Permissions',
+    key: 'cru.notificationsallowed',
+  },
+  NOT_NOW: {
+    name: 'Notification Permissions',
+    key: 'cru.notificationsnotallowed',
+  },
+  NO_REMINDERS: {
+    name: 'Notification Reminders',
+    key: 'cru.notoreminders',
+  },
+  STEP_PRIORITIZED: {
+    name: 'Step Prioritized',
+    key: 'cru.stepprioritized',
+  },
+  STEP_DEPRIORITIZED: {
+    name: 'Step Deprioritized',
+    key: 'cru.stepdeprioritized',
+  },
+  STEP_REMOVED: {
+    name: 'Step Removed',
+    key: 'cru.stepremoved',
+  },
+  STEP_COMPLETED: {
+    name: 'Step Completed',
+    key: 'cru.stepcompleted',
+  },
+  JOURNEY_EDITED: {
+    name: 'Edit on Person Journey',
+    key: 'cru.journeyedit',
+  },
+  INTERACTION: {
+    name: 'Action Taken on Person',
+    COMMENT: 'cru.commentadded',
+    SOMETHING_COOL_HAPPENED: 'cru.somethingcoolhappenedadded',
+    SPIRITUAL_CONVERSATION: 'cru.initiatinggospelconversations',
+    GOSPEL_PRESENTATION: 'cru.presentingthegospel',
+    PERSONAL_DECISION: 'cru.newprofessingbelievers',
+    HOLY_SPIRIT_PRESENTATION: 'cru.presentingtheholyspirit',
+    DISCIPLESHIP: 'cru.discipleshipconversation',
   },
 };
 
 export const CUSTOM_STEP_TYPE = 'user created step';
 
 export const INTERACTION_TYPES = {
-  MHInteractionTypeAssignedContacts: { id: 100, requestFieldName: 'contact_count', iconName: 'peopleIcon', translationKey: 'interactionAssignedContacts' },
-  MHInteractionTypeUncontacted: { id: 101, requestFieldName: 'uncontacted_count', iconName: 'uncontactedIcon', translationKey: 'interactionUncontacted' },
-  MHInteractionTypeNote: { id: 1, iconName: 'commentIcon', translationKey: 'interactionNote', hideReport: true, isOnAction: true, tracking: ACTIONS.COMMENT_ADDED },
-  MHInteractionTypeSpiritualConversation: { id: 2, iconName: 'spiritualConversationIcon', translationKey: 'interactionSpiritualConversation', isOnAction: true, tracking: 'cru.initiatinggospelconversations' },
-  MHInteractionTypeGospelPresentation: { id: 3, iconName: 'gospelIcon', translationKey: 'interactionGospel', isOnAction: true, tracking: 'cru.presentingthegospel' },
-  MHInteractionTypePersonalDecision: { id: 4, iconName: 'decisionIcon', translationKey: 'interactionDecision', isOnAction: true, tracking: 'cru.newprofessingbelievers' },
-  MHInteractionTypeHolySpiritConversation: { id: 5, iconName: 'spiritIcon', translationKey: 'interactionSpirit', isOnAction: true, tracking: 'cru.presentingtheholyspirit' },
-  MHInteractionTypeDiscipleshipConversation: { id: 9, iconName: 'discipleshipConversationIcon', translationKey: 'interactionDiscipleshipConversation', isOnAction: true, tracking: 'cru.discipleshipconversation' },
+  MHInteractionTypeAssignedContacts: {
+    id: 100,
+    requestFieldName: 'contact_count',
+    iconName: 'peopleIcon',
+    translationKey: 'interactionAssignedContacts',
+  },
+  MHInteractionTypeUncontacted: {
+    id: 101,
+    requestFieldName: 'uncontacted_count',
+    iconName: 'uncontactedIcon',
+    translationKey: 'interactionUncontacted',
+  },
+  MHInteractionTypeNote: {
+    id: 1,
+    iconName: 'commentIcon',
+    translationKey: 'interactionNote',
+    hideReport: true,
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.COMMENT,
+  },
+  MHInteractionTypeSomethingCoolHappened: {
+    id: 11,
+    iconName: 'celebrateIcon',
+    translationKey: 'interactionSomethingCoolHappened',
+    hideReport: true,
+    tracking: ACTIONS.INTERACTION.SOMETHING_COOL_HAPPENED,
+  },
+  MHInteractionTypeSpiritualConversation: {
+    id: 2,
+    iconName: 'spiritualConversationIcon',
+    translationKey: 'interactionSpiritualConversation',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.SPIRITUAL_CONVERSATION,
+  },
+  MHInteractionTypeGospelPresentation: {
+    id: 3,
+    iconName: 'gospelIcon',
+    translationKey: 'interactionGospel',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.GOSPEL_PRESENTATION,
+  },
+  MHInteractionTypePersonalDecision: {
+    id: 4,
+    iconName: 'decisionIcon',
+    translationKey: 'interactionDecision',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.PERSONAL_DECISION,
+  },
+  MHInteractionTypeHolySpiritConversation: {
+    id: 5,
+    iconName: 'spiritIcon',
+    translationKey: 'interactionSpirit',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.HOLY_SPIRIT_PRESENTATION,
+  },
+  MHInteractionTypeDiscipleshipConversation: {
+    id: 9,
+    iconName: 'discipleshipConversationIcon',
+    translationKey: 'interactionDiscipleshipConversation',
+    isOnAction: true,
+    tracking: ACTIONS.INTERACTION.DISCIPLESHIP,
+  },
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;

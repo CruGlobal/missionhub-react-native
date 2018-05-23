@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 import { isiPhoneX } from '../../utils/common';
 
@@ -24,7 +25,7 @@ export default StyleSheet.create({
   errorMessage: {
     color: theme.white,
     fontSize: 16,
-    marginTop: isiPhoneX() ? 25 : 0,
+    marginTop: isiPhoneX() ? 28 : 12,
   },
   facebookButton: {
     backgroundColor: theme.transparent,

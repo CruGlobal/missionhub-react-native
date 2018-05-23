@@ -18,6 +18,13 @@ exports[`Impact Screen renders correctly 1`] = `
     }
     title="IMPACT"
   />
-  <Connect(Translate(ImpactView)) />
+  <Connect(Translate(ImpactView))
+    person={
+      Object {
+        "first_name": "Fname",
+        "id": "123",
+      }
+    }
+  />
 </Component>
 `;

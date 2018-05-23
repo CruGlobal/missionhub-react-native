@@ -1,10 +1,8 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
-import IconMessageScreen from '../../src/containers/IconMessageScreen/index';
 import { Provider } from 'react-redux';
 
+import IconMessageScreen from '../../src/containers/IconMessageScreen/index';
 import { createMockStore } from '../../testUtils/index';
 import { testSnapshot } from '../../testUtils';
 
@@ -22,11 +20,8 @@ const defaultProps = {
 const renderAndTest = (props = {}) => {
   testSnapshot(
     <Provider store={store}>
-      <IconMessageScreen
-        {...defaultProps}
-        {...props}
-      />
-    </Provider>
+      <IconMessageScreen {...defaultProps} {...props} />
+    </Provider>,
   );
 };
 

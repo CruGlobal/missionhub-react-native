@@ -2,23 +2,32 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 
-import styles from './styles';
 import theme from '../../theme';
+
+import styles from './styles';
 
 // See https://facebook.github.io/react-native/docs/textinput.html for properties
 
 export default class Input extends Component {
-  focus() { this.input.focus(); }
-  blur() { this.input.blur(); }
-  clear() { this.input.clear(); }
-  isFocused() { return this.input.isFocused(); }
+  focus() {
+    this.input.focus();
+  }
+  blur() {
+    this.input.blur();
+  }
+  clear() {
+    this.input.clear();
+  }
+  isFocused() {
+    return this.input.isFocused();
+  }
 
   render() {
     const { style = {}, ...rest } = this.props;
 
     return (
       <TextInput
-        ref={(c) => this.input = c}
+        ref={c => (this.input = c)}
         autoCorrect={false}
         autoFocus={false}
         multiline={false}
@@ -26,7 +35,7 @@ export default class Input extends Component {
         underlineColorAndroid="rgba(0,0,0,0)"
         placeholderTextColor={theme.textColor}
         {...rest}
-        style={[ styles.input, style ]}
+        style={[styles.input, style]}
       />
     );
   }
@@ -34,5 +43,9 @@ export default class Input extends Component {
 
 Input.propTypes = {
   onChangeText: PropTypes.func.isRequired,
-  style: PropTypes.oneOfType([ PropTypes.array, PropTypes.object, PropTypes.number ]),
+  style: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
 };

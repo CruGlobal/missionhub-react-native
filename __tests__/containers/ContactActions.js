@@ -4,11 +4,10 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-// Note: test renderer must be required after react-native.
 import * as navigation from '../../src/actions/navigation';
 import * as interactions from '../../src/actions/interactions';
-import { Provider } from 'react-redux';
 import { createMockNavState, testSnapshot } from '../../testUtils';
 import { ContactActions } from '../../src/containers/ContactActions';
 
@@ -17,31 +16,36 @@ const personId = '123';
 const mockPerson = {
   id: personId,
   first_name: 'ben',
-  organizational_permissions: [
-    { organization_id: 2 },
-  ],
+  organizational_permissions: [{ organization_id: 2 }],
 };
 it('renders dummy view', () => {
   testSnapshot(
     <Provider store={store}>
       <ContactActions />
-    </Provider>
+    </Provider>,
   );
 });
 
 let store;
-beforeEach(() => store = configureStore([ thunk ])());
+beforeEach(() => (store = configureStore([thunk])()));
 
 describe('action methods', () => {
   let component;
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <ContactActions person={mockPerson} navigation={createMockNavState()} dispatch={() => {}} />,
+      <ContactActions
+        person={mockPerson}
+        navigation={createMockNavState()}
+        dispatch={() => {}}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .instance();
   });
 
   // it('renders a journey row', () => {
@@ -56,7 +60,10 @@ describe('action methods', () => {
   it('handles create interaction', () => {
     const comment = 'test';
     navigation.navigatePush = jest.fn();
-    component.handleCreateInteraction({ id: 1, iconName: 'commentIcon' }, comment);
+    component.handleCreateInteraction(
+      { id: 1, iconName: 'commentIcon' },
+      comment,
+    );
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
   });
 
@@ -66,5 +73,4 @@ describe('action methods', () => {
     component.handleInteraction({ id: 1, iconName: 'commentIcon' }, comment);
     expect(interactions.addNewInteraction).toHaveBeenCalledTimes(1);
   });
-
 });

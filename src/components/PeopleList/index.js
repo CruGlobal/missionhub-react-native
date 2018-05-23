@@ -5,20 +5,22 @@ import { translate } from 'react-i18next';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
-UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 
 import PeopleItem from '../../containers/PeopleItem';
-import { Flex, Text, Icon, Touchable, RefreshControl } from '../common';
+import { Flex, Text, RefreshControl } from '../common';
 import { merge } from '../../utils/common';
+import IconButton from '../IconButton';
+
 import styles from './styles';
 
 @translate('peopleScreen')
 export default class PeopleList extends Component {
-
   constructor(props) {
     super(props);
 
-    const items = (props.items || []).map((s) => ({ ...s, expanded: true }));
+    const items = (props.items || []).map(s => ({ ...s, expanded: true }));
     this.state = {
       items,
     };
@@ -42,7 +44,9 @@ export default class PeopleList extends Component {
   }
 
   toggleSection(id) {
-    const items = this.state.items.map((org) => org.id === id ? { ...org, expanded: !org.expanded } : org);
+    const items = this.state.items.map(
+      org => (org.id === id ? { ...org, expanded: !org.expanded } : org),
+    );
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });
   }
@@ -54,18 +58,22 @@ export default class PeopleList extends Component {
       <FlatList
         style={styles.list}
         data={items}
-        keyExtractor={(i) => i.id}
+        keyExtractor={i => i.id}
         scrollEnabled={!sections}
         renderItem={({ item }) => (
           <PeopleItem
             onSelect={onSelect}
             person={item}
-            organization={organization} />
+            organization={organization}
+          />
         )}
-        refreshControl={!sections ? <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-        /> : undefined}
+        refreshControl={
+          !sections ? (
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          ) : (
+            undefined
+          )
+        }
       />
     );
   }
@@ -78,18 +86,20 @@ export default class PeopleList extends Component {
           {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end" align="center">
-          <Touchable isAndroidOpacity={true} onPress={() => onAddContact(org && org.id !== 'personal' ? org : undefined)}>
-            <Icon name="plusIcon" type="MissionHub" size={20} style={styles.icon} />
-          </Touchable>
-          <Touchable isAndroidOpacity={true} onPress={() => this.toggleSection(org.id)}>
-            <Icon
-              name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
-              type="MissionHub"
-              size={10}
-              style={[
-                styles.icon,
-              ]} />
-          </Touchable>
+          <IconButton
+            name="addContactIcon"
+            type="MissionHub"
+            size={24}
+            onPress={() =>
+              onAddContact(org && org.id !== 'personal' ? org : undefined)
+            }
+          />
+          <IconButton
+            name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
+            type="MissionHub"
+            size={10}
+            onPress={() => this.toggleSection(org.id)}
+          />
         </Flex>
       </Flex>
     );
@@ -101,27 +111,21 @@ export default class PeopleList extends Component {
       return (
         <ScrollView
           style={styles.sectionWrap}
-          refreshControl={<RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-          />}
-        >
-          {
-            this.state.items.map((org) => (
-              <Flex key={org.id}>
-                {this.renderSectionHeader(org)}
-                {
-                  org.expanded ? this.renderList(org.people, org) : null
-                }
-              </Flex>
-            ))
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
+        >
+          {this.state.items.map(org => (
+            <Flex key={org.id}>
+              {this.renderSectionHeader(org)}
+              {org.expanded ? this.renderList(org.people, org) : null}
+            </Flex>
+          ))}
         </ScrollView>
       );
     }
     return this.renderList(items[0].people);
   }
-
 }
 
 PeopleList.propTypes = {

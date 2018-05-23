@@ -1,5 +1,5 @@
-
 import { StyleSheet } from 'react-native';
+
 import { isiPhoneX } from '../../utils/common';
 
 const margin = 25;

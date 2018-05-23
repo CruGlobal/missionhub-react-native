@@ -1,3 +1,4 @@
+/*eslint no-console: 0 */
 
 const ENABLE_LOGS = true;
 const ENABLE_WARN = false;
@@ -46,7 +47,6 @@ global.WARN = function() {
     }
   }
 };
-
 
 global.APILOG = function() {
   if (__DEV__) {

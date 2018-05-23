@@ -2,17 +2,18 @@ import merge from 'lodash/merge';
 import lodashForEach from 'lodash/forEach';
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
-import request from './utils';
-import apiRoutes from './routes';
 import { exists } from '../utils/common';
 import { URL_ENCODED } from '../constants';
 
-const VALID_METHODS = [ 'get', 'put', 'post', 'delete' ];
+import request from './utils';
+import apiRoutes from './routes';
+
+const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
 // Setup API call
 let API_CALLS = {};
 lodashForEach(apiRoutes, (routeData, key) => {
-  API_CALLS[key] = (q, d) => (
+  API_CALLS[key] = (q, d) =>
     new Promise((resolve, reject) => {
       const method = routeData.method || 'get';
 
@@ -49,7 +50,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
       // Only do this for endpoints that have query parameters
       if (endpoint.includes('/:')) {
         // Replace all `:orgId` with the query param
-        Object.keys(query).forEach((k) => {
+        Object.keys(query).forEach(k => {
           if (query[k] && endpoint.includes(`:${k}`)) {
             endpoint = endpoint.replace(`:${k}`, query[k]);
             delete query[k];
@@ -65,33 +66,49 @@ lodashForEach(apiRoutes, (routeData, key) => {
         query,
         method === 'get' ? undefined : data,
         extra,
-      ).then(({ jsonResponse, sessionHeader }) => {
-        APILOG(`${key} SUCCESS`, jsonResponse);
-        if (!jsonResponse) {
-          resolve({ sessionHeader });
-          return;
-        }
+      )
+        .then(({ jsonResponse, sessionHeader }) => {
+          APILOG(`${key} SUCCESS`, jsonResponse);
+          if (!jsonResponse) {
+            resolve({ sessionHeader });
+            return;
+          }
 
-        if (exists(routeData.useJsonDataApiStore) && !routeData.useJsonDataApiStore) {
-          resolve({ results: jsonResponse });
-        } else {
-          const jsonApiStore = new JsonApiDataStore();
-          const response = jsonApiStore.sync(jsonResponse);
-          resolve({ meta: jsonResponse.meta, results: jsonApiStore, response, sessionHeader });
-        }
-      }).catch((apiError) => {
-        LOG('request error or error in logic that handles the request', key, apiError);
-        APILOG(`${key} FAIL`, apiError);
+          if (
+            exists(routeData.useJsonDataApiStore) &&
+            !routeData.useJsonDataApiStore
+          ) {
+            resolve({ results: jsonResponse });
+          } else {
+            const jsonApiStore = new JsonApiDataStore();
+            const response = jsonApiStore.sync(jsonResponse);
+            resolve({
+              meta: jsonResponse.meta,
+              results: jsonApiStore,
+              response,
+              sessionHeader,
+            });
+          }
+        })
+        .catch(apiError => {
+          LOG(
+            'request error or error in logic that handles the request',
+            key,
+            apiError,
+          );
+          APILOG(`${key} FAIL`, apiError);
 
-        return reject({ key, endpoint, method, query, apiError });
-      });
-    })
-  );
+          return reject({ key, endpoint, method, query, apiError });
+        });
+    });
 });
 
-const isUrlEncoded = (routeData) => {
-  return routeData.extra && routeData.extra.headers && routeData.extra.headers['Content-Type'] === URL_ENCODED;
+const isUrlEncoded = routeData => {
+  return (
+    routeData.extra &&
+    routeData.extra.headers &&
+    routeData.extra.headers['Content-Type'] === URL_ENCODED
+  );
 };
-
 
 export default API_CALLS;

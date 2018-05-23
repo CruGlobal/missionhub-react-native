@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import SelectStepScreen from './SelectStepScreen';
 import { getFourRandomItems } from '../utils/common';
+
+import SelectStepScreen from './SelectStepScreen';
 
 @translate('selectStep')
 class PersonSelectStepScreen extends Component {
@@ -13,9 +14,14 @@ class PersonSelectStepScreen extends Component {
   }
 
   insertName(steps) {
-    return steps.map((step) => ({
+    return steps.map(step => ({
       ...step,
-      body: step.body.replace('<<name>>', this.props.contactName ? this.props.contactName : this.props.personFirstName),
+      body: step.body.replace(
+        '<<name>>',
+        this.props.contactName
+          ? this.props.contactName
+          : this.props.personFirstName,
+      ),
     }));
   }
 
@@ -24,17 +30,23 @@ class PersonSelectStepScreen extends Component {
   };
 
   render() {
-    const name = this.props.contactName ? this.props.contactName : this.props.personFirstName;
+    const name = this.props.contactName
+      ? this.props.contactName
+      : this.props.personFirstName;
 
     let contextualizedSteps = [];
     if (this.props.contactStage) {
-      contextualizedSteps = getFourRandomItems(this.props.suggestedForOthers[this.props.contactStage.id]);
+      contextualizedSteps = getFourRandomItems(
+        this.props.suggestedForOthers[this.props.contactStage.id],
+      );
     }
 
     return (
       <SelectStepScreen
         steps={this.insertName(contextualizedSteps)}
-        receiverId={this.props.contactId ? this.props.contactId : this.props.personId}
+        receiverId={
+          this.props.contactId ? this.props.contactId : this.props.personId
+        }
         useOthersSteps={true}
         headerText={this.props.t('personHeader', { name })}
         contact={this.props.contact ? this.props.contact : null}
@@ -45,7 +57,6 @@ class PersonSelectStepScreen extends Component {
       />
     );
   }
-
 }
 
 PersonSelectStepScreen.propTypes = {
@@ -64,7 +75,6 @@ const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
 });
-
 
 export default connect(mapStateToProps)(PersonSelectStepScreen);
 export const PERSON_SELECT_STEP_SCREEN = 'nav/PERSON_SELECT_STEP';

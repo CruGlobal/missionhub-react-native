@@ -3,15 +3,20 @@ import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Separator, Touchable, Icon } from '../common';
-import styles from './styles';
 import Button from '../Button';
+
+import styles from './styles';
 
 export default class StepsList extends Component {
   renderRow({ item }) {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
-          <Icon type="MissionHub" name={item.selected ? 'removeStepIcon' : 'addStepIcon'} style={styles.addIcon} />
+          <Icon
+            type="MissionHub"
+            name={item.selected ? 'removeStepIcon' : 'addStepIcon'}
+            style={styles.addIcon}
+          />
           <Text style={styles.stepName}>{item.body}</Text>
         </Flex>
       </Touchable>
@@ -19,13 +24,30 @@ export default class StepsList extends Component {
   }
 
   renderFooter = () => {
-    const { onCreateStep, onLoadMoreSteps, createStepText, loadMoreStepsText } = this.props;
-    const { separatorWrap, addIcon, stepName, loadMoreStepsButton, loadMoreStepsButtonText } = styles;
+    const {
+      onCreateStep,
+      onLoadMoreSteps,
+      createStepText,
+      loadMoreStepsText,
+    } = this.props;
+    const {
+      separatorWrap,
+      addIcon,
+      stepName,
+      loadMoreStepsButton,
+      loadMoreStepsButtonText,
+    } = styles;
 
     return (
       <Flex align="center">
         <Touchable onPress={onCreateStep} style={{ alignSelf: 'stretch' }}>
-          <Flex direction="row" align="center" justify="start" value={1} style={separatorWrap}>
+          <Flex
+            direction="row"
+            align="center"
+            justify="start"
+            value={1}
+            style={separatorWrap}
+          >
             <Icon name="createStepIcon" type="MissionHub" style={addIcon} />
             <Text style={stepName}>{createStepText}</Text>
           </Flex>
@@ -49,8 +71,8 @@ export default class StepsList extends Component {
   render() {
     return (
       <FlatList
-        ref={(c) => this.listView = c}
-        keyExtractor={(item) => item.id}
+        ref={c => (this.listView = c)}
+        keyExtractor={item => item.id}
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}
@@ -62,11 +84,13 @@ export default class StepsList extends Component {
 }
 
 StepsList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    selected: PropTypes.bool,
-  })).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      selected: PropTypes.bool,
+    }),
+  ).isRequired,
   createStepText: PropTypes.string.isRequired,
   loadMoreStepsText: PropTypes.string.isRequired,
   onSelectStep: PropTypes.func.isRequired,

@@ -93,7 +93,9 @@ function authReducer(state = initialAuthState, action) {
         ...state,
         person: {
           ...state.person,
-          stage: stages.find((s) => s.id === `${state.person.user.pathway_stage_id}`),
+          stage: stages.find(
+            s => s.id === `${state.person.user.pathway_stage_id}`,
+          ),
         },
       };
     case UPDATE_TOKEN:

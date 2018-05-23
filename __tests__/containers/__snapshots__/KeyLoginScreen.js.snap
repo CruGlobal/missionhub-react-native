@@ -463,6 +463,174 @@ exports[`a login button is clicked key login button is pressed loading wheel app
 </PlatformKeyboardAvoidingView>
 `;
 
+exports[`a login button is clicked key login button is pressed mfa_required is returned from the Key should clear username and password 1`] = `
+<PlatformKeyboardAvoidingView>
+  <Connect(BackButton)
+    style={
+      Object {
+        "marginLeft": 5,
+        "marginTop": 25,
+      }
+    }
+  />
+  <Flex
+    align="center"
+    justify="center"
+    value={1}
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/missionHubLogoWords.png",
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+    value={3}
+  >
+    <Component>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Email
+      </MyText>
+      <Input
+        autoCapitalize="none"
+        blurOnSubmit={false}
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        value=""
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "paddingVertical": 30,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 12,
+          }
+        }
+      >
+        Password
+      </MyText>
+      <Input
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        returnKeyType="next"
+        secureTextEntry={true}
+        value=""
+      />
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 16,
+            "fontWeight": "normal",
+            "letterSpacing": 0,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          }
+        }
+        name="forgotPasswordButton"
+        onPress={[Function]}
+        style={
+          Object {
+            "width": 130,
+          }
+        }
+        text="Forgot Password?"
+        type="transparent"
+      />
+    </Component>
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
+        }
+      }
+      name="facebookButton"
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
+        }
+      }
+    >
+      <Flex
+        direction="row"
+      >
+        <Icon
+          name="facebookIcon"
+          size={21}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          type="MissionHub"
+        />
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "paddingTop": 2,
+            }
+          }
+        >
+          LOG IN WITH FACEBOOK
+        </MyText>
+      </Flex>
+    </Button>
+  </Flex>
+</PlatformKeyboardAvoidingView>
+`;
+
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
 <PlatformKeyboardAvoidingView>
   <Component
@@ -483,7 +651,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
         Object {
           "color": "#ffffff",
           "fontSize": 16,
-          "marginTop": 0,
+          "marginTop": 12,
         }
       }
     >
@@ -632,7 +800,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
-          "marginTop": 0,
+          "marginTop": 12,
         }
       }
     >
@@ -781,7 +949,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
-          "marginTop": 0,
+          "marginTop": 12,
         }
       }
     >

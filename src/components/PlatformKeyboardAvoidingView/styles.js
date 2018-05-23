@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import { PRIMARY_BACKGROUND_COLOR, PRIMARY_HEADER_COLOR } from '../../theme';
 
 export default StyleSheet.create({
@@ -17,7 +18,7 @@ export default StyleSheet.create({
     color: 'white',
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
-    letterSpacing: .25,
+    letterSpacing: 0.25,
     borderBottomColor: PRIMARY_HEADER_COLOR,
   },
 });

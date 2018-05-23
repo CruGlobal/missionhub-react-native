@@ -4,16 +4,21 @@ import { Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
-
 import { Flex } from '../../components/common';
-import styles from './styles';
 import IconButton from '../../components/IconButton';
+
+import styles from './styles';
 
 export class BackButton extends Component {
   render() {
     const { dispatch, customNavigate, absolute, style } = this.props;
     return (
-      <Flex self="start" align="start" justify="center" style={[ style || null, absolute ? styles.absoluteTopLeft : null ]}>
+      <Flex
+        self="start"
+        align="start"
+        justify="center"
+        style={[style || null, absolute ? styles.absoluteTopLeft : null]}
+      >
         <IconButton
           name="backIcon"
           type="MissionHub"

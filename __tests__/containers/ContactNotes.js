@@ -1,12 +1,11 @@
 import ReactNative from 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
-import { ContactNotes } from '../../src/containers/ContactNotes';
-import { createMockStore } from '../../testUtils/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
+
+import { createMockStore } from '../../testUtils/index';
+import { ContactNotes } from '../../src/containers/ContactNotes';
 import Button from '../../src/components/Button';
 
 const store = createMockStore();
@@ -17,8 +16,13 @@ jest.mock('react-native-device-info');
 beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
   shallowScreen = shallow(
-    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} onNotesActive={jest.fn()} onNotesInactive={jest.fn()} />,
-    { context: { store: store } }
+    <ContactNotes
+      person={{ first_name: 'Roger' }}
+      dispatch={jest.fn()}
+      onNotesActive={jest.fn()}
+      onNotesInactive={jest.fn()}
+    />,
+    { context: { store: store } },
   );
 
   shallowScreen = shallowScreen.dive().dive();
@@ -58,7 +62,9 @@ describe('contact notes', () => {
 
   it('editing is set to true when button is pressed', () => {
     const mockFocus = jest.fn();
-    Object.defineProperty(shallowScreen.instance(), 'notesInput', { value: { focus: mockFocus } });
+    Object.defineProperty(shallowScreen.instance(), 'notesInput', {
+      value: { focus: mockFocus },
+    });
 
     shallowScreen.find(Button).simulate('press');
 

@@ -1,12 +1,18 @@
+import uuidv4 from 'uuid/v4';
+import { Crashlytics } from 'react-native-fabric';
+
 import {
   COMPLETE_ONBOARDING,
-  FIRST_NAME_CHANGED, LAST_NAME_CHANGED, PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED,
-  RESET_ONBOARDING_PERSON, UPDATE_ONBOARDING_PERSON,
+  FIRST_NAME_CHANGED,
+  LAST_NAME_CHANGED,
+  PERSON_FIRST_NAME_CHANGED,
+  PERSON_LAST_NAME_CHANGED,
+  RESET_ONBOARDING_PERSON,
+  UPDATE_ONBOARDING_PERSON,
 } from '../constants';
+
 import callApi, { REQUESTS } from './api';
-import uuidv4 from 'uuid/v4';
 import { updatePerson } from './person';
-import { Crashlytics } from 'react-native-fabric';
 
 /*
 A user is considered to have completed onboarding once they've:
@@ -38,7 +44,7 @@ export function createMyPerson(firstName, lastName) {
     last_name: lastName,
   };
 
-  return async(dispatch) => {
+  return async dispatch => {
     const me = await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
     Crashlytics.setUserIdentifier(`${me.person_id}`);
     return me;
@@ -78,14 +84,14 @@ export function createPerson(firstName, lastName, myId) {
     ],
   };
 
-  return (dispatch) => {
+  return dispatch => {
     return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, {}, data));
   };
 }
 
 export function updateOnboardingPerson(data) {
-  return (dispatch) => {
-    return dispatch(updatePerson(data)).then((r) => {
+  return dispatch => {
+    return dispatch(updatePerson(data)).then(r => {
       dispatch({ type: UPDATE_ONBOARDING_PERSON, results: r });
       return r;
     });

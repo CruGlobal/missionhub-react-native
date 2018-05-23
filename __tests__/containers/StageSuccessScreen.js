@@ -1,10 +1,13 @@
 import 'react-native';
 import React from 'react';
-
-// Note: test renderer must be required after react-native.
 import { Provider } from 'react-redux';
+
 import StageSuccessScreen from '../../src/containers/StageSuccessScreen';
-import { testSnapshot, createMockNavState, createMockStore } from '../../testUtils';
+import {
+  testSnapshot,
+  createMockNavState,
+  createMockStore,
+} from '../../testUtils';
 
 const mockState = {
   profile: {},
@@ -25,16 +28,14 @@ it('renders correctly', () => {
           },
         })}
       />
-    </Provider>
+    </Provider>,
   );
 });
 
 it('renders correctly with default state', () => {
   testSnapshot(
     <Provider store={store}>
-      <StageSuccessScreen
-        navigation={createMockNavState()}
-      />
-    </Provider>
+      <StageSuccessScreen navigation={createMockNavState()} />
+    </Provider>,
   );
 });

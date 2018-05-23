@@ -10,21 +10,30 @@ import { openMainMenu } from '../../utils/common';
 
 @translate('impact')
 class ImpactScreen extends Component {
-
   render() {
-    const { t, dispatch } = this.props;
+    const { t, dispatch, person } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           left={
-            <IconButton name="menuIcon" type="MissionHub" onPress={() => dispatch(openMainMenu())} />
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={() => dispatch(openMainMenu())}
+            />
           }
           title={t('header').toUpperCase()}
         />
-        <ImpactView />
+        <ImpactView person={person} />
       </View>
     );
   }
 }
 
-export default connect()(ImpactScreen);
+export const mapStateToProps = ({ auth }) => {
+  const person = auth.person;
+
+  return { person };
+};
+
+export default connect(mapStateToProps)(ImpactScreen);

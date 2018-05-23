@@ -30,32 +30,37 @@ export default {
       uninterested: {
         label: 'Uninterested',
         description: 'Content with beliefs and not interested in Jesus.',
-        followup: 'We\'re glad you\'re still here, {{name}}. We hope the following steps will help you on your spiritual journey.',
+        followup:
+          "We're glad you're still here, {{name}}. We hope the following steps will help you on your spiritual journey.",
       },
       curious: {
         label: 'Curious',
-        description: 'Open to spiritual conversations or seeking to know who Jesus is.',
-        followup: '{{name}}, we\'re glad to be part of your journey. We hope the following steps will help you know more about Jesus.',
+        description:
+          'Open to spiritual conversations or seeking to know who Jesus is.',
+        followup:
+          "{{name}}, we're glad to be part of your journey. We hope the following steps will help you know more about Jesus.",
       },
       forgiven: {
         label: 'Forgiven',
-        description: 'Believes in Jesus as Savior, but not growing spiritually.',
-        followup: 'We\'re so glad you\'re here, {{name}}. We\'d like to offer some steps to help you grow spiritually.',
+        description:
+          'Believes in Jesus as Savior, but not growing spiritually.',
+        followup:
+          "We're so glad you're here, {{name}}. We'd like to offer some steps to help you grow spiritually.",
       },
       growing: {
         label: 'Growing',
         description: 'Learning to follow Jesus as a way of life.',
-        followup: 'We\'re so excited you\'re following Jesus, {{name}}! We\'d like to offer some steps to help you grow closer to God and help others experience Him.',
+        followup:
+          "We're so excited you're following Jesus, {{name}}! We'd like to offer some steps to help you grow closer to God and help others experience Him.",
       },
       guiding: {
         label: 'Guiding',
         description: 'Committed to helping others know and follow Jesus.',
-        followup: 'Awesome! We hope MissionHub helps you serve those God has placed in your life.',
+        followup:
+          'Awesome! We hope MissionHub helps you serve those God has placed in your life.',
       },
     },
-    steps: {
-
-    },
+    steps: {},
     done: 'DONE',
     next: 'Next',
     ok: 'Ok',
@@ -70,15 +75,18 @@ export default {
   error: {
     error: 'Error',
     unexpectedErrorMessage: 'There was an unexpected error.',
-    baseErrorMessage: 'Please email support@missionhub.com if the issue persists.',
+    baseErrorMessage:
+      'Please email support@missionhub.com if the issue persists.',
     ADD_NEW_PERSON: 'There was an error adding a new person.',
   },
   offline: {
-    youreOffline: 'You\'re currently offline',
-    connectToInternet: 'Connect to the internet and you can continue to use MissionHub.',
+    youreOffline: "You're currently offline",
+    connectToInternet:
+      'Connect to the internet and you can continue to use MissionHub.',
   },
   forcedLogout: {
-    message: 'It\'s been a while since you\'ve signed in.\nPlease sign in so we know it\'s you.',
+    message:
+      "It's been a while since you've signed in.\nPlease sign in so we know it's you.",
   },
   settingsMenu: {
     about: 'About',
@@ -119,19 +127,27 @@ export default {
     errorVerify: 'Verify your account via Email',
     facebookLogin: 'Log In With Facebook',
   },
+  mfaLogin: {
+    mfaHeader: 'two-step verification',
+    mfaDescription: 'Enter verification code from your authenticator app.',
+    mfaLabel: 'Verification Code',
+    mfaIncorrect: 'Incorrect verification code',
+  },
   welcome: {
     welcome: 'welcome!',
-    welcomeDescription: 'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
+    welcomeDescription:
+      'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
   setup: {
     firstThing: '-first things first-',
-    namePrompt: 'what\'s your name?',
+    namePrompt: "what's your name?",
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
-    message: 'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
+    message:
+      'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -141,7 +157,8 @@ export default {
     editJourneyHeader: 'Edit your comment',
     addJourney: 'Add to Our Journey',
     editJourneyButton: 'Save',
-    makeShorter: 'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+    makeShorter:
+      'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
   },
   selectStep: {
     meHeader: 'How do you want to move forward on your spiritual journey?',
@@ -152,10 +169,14 @@ export default {
     stepsOfFaith: 'Steps of Faith',
   },
   selectStage: {
-    meQuestion: '{{name}}, which stage best describes where you are on your journey?',
-    personQuestion: 'Which stage best describes where {{name}} is on their journey?',
-    completed3Steps: 'You completed 3 steps with {{name}}. Any changes spiritually?',
-    completed3StepsMe: 'You completed 3 of your steps. Any changes spiritually?',
+    meQuestion:
+      '{{name}}, which stage best describes where you are on your journey?',
+    personQuestion:
+      'Which stage best describes where {{name}} is on their journey?',
+    completed3Steps:
+      'You completed 3 steps with {{name}}. Any changes spiritually?',
+    completed3StepsMe:
+      'You completed 3 of your steps. Any changes spiritually?',
     iAmHere: 'I AM HERE',
     stillHere: 'STILL HERE',
     here: 'HERE',
@@ -183,7 +204,8 @@ export default {
     loading: 'Loading Journey Items',
     somethingCool: 'Something Cool Happened',
     ourJourney: 'Our Journey',
-    journeyNull: 'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
+    journeyNull:
+      'This is where MissionHub saves all of your completed steps and any notes you added along the way.',
   },
   journeyItem: {
     stepTitle: 'Completed{{stageName}}Step of Faith',
@@ -193,6 +215,7 @@ export default {
     stageStart: 'You added {{personName}} to MissionHub as {{newStage}}',
     stageStartSelf: 'You added yourself to MissionHub as {{newStage}}',
     interactionNote: 'Comment',
+    interactionSomethingCoolHappened: '$t(contactJourney:somethingCool)',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
     interactionDecision: 'Personal Decisions',
@@ -203,7 +226,8 @@ export default {
   },
   getStarted: {
     hi: 'hi {{name}}!',
-    tagline: "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",
+    tagline:
+      "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.\n\nLet's figure out where you are on your journey.",
     getStarted: "Let's get started",
   },
   history: {
@@ -211,20 +235,29 @@ export default {
   },
   impact: {
     header: 'Impact',
-    stepsSentence: "In {{year}}, {{numInitiators}} {{initiator}} took $t(impact:steps, {'count': {{stepsCount}} }) of faith with $t(impact:people, {'count': {{receiversCount}} }).",
-    stepsSentence_empty: "Here you will see all the steps you've taken.",
-    stepsSentence_emptyContact: 'Here you will see all the steps {{initiator}} has taken.',
-    stepsSentence_emptyGlobal: 'You will see the steps other users have taken here shortly.',
-    stageSentence: "$t(impact:people, {'count': {{pathwayMovedCount}} }) reached a new stage on their spiritual journey.",
-    stageSentence_empty: 'See what God is doing through all of us below.',
-    stageSentence_emptyContact: 'See what God is doing through {{initiator}} below.',
-    stageSentence_emptyGlobal: 'You will see how others have moved on their spiritual journey here shortly.',
+    stepsSentence:
+      "In {{year}}, {{numInitiators}} {{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{scope}}.",
+    stepsSentence_empty:
+      'Here you will see all the steps {{initiator}} {{initiatorSuffix}} taken.',
+    stepsSentence_emptyGlobal:
+      'You will see the steps other users have taken here shortly.',
+    stageSentence:
+      "$t(people, {'count': {{pathwayMovedCount}} }) reached a new stage on their spiritual journey.",
+    stageSentence_empty: 'See what God has done through {{initiator}} below.',
+    stageSentence_emptyGlobal:
+      'You will see how others have moved on their spiritual journey here shortly.',
     steps: '{{count}} step',
     steps_plural: '{{count}} steps',
     people: '{{count}} person',
     people_plural: '{{count}} people',
     you: 'you',
+    we: 'we',
     users: 'users',
+    allOfUs: 'all of us',
+    haveSuffix: 'have',
+    hasSuffix: 'has',
+    inTheirLife: ' in their life',
+    atOrgName: ' at {{orgName}}',
     interactionSpiritualConversation: 'Spiritual Conversations',
     interactionGospel: 'Gospel Presentations',
     interactionDecision: 'Personal Decisions',
@@ -245,7 +278,8 @@ export default {
     header: 'MY NOTES',
     add: 'ADD PRIVATE NOTES',
     edit: 'EDIT PRIVATE NOTES',
-    prompt: 'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
+    prompt:
+      'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
   },
   search: {
     inputPlaceholder: 'Search',
@@ -272,25 +306,34 @@ export default {
     any: 'Any',
   },
   notificationPrimer: {
-    description: 'MissionHub will send you reminders to help you take your steps.',
+    onboardingDescription:
+      'MissionHub will send you reminders to help you take your steps.',
+    focusDescription:
+      "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
+    loginDescription:
+      "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
     allow: 'Allow Notifications',
     notNow: 'Not Now',
   },
   notificationOff: {
     title: 'Notifications are off',
-    description: 'To receive reminders to take steps of faith, please turn notifications on.',
+    description:
+      'To receive reminders to take steps of faith, please turn notifications on.',
     allow: 'Allow Notifications',
     settings: 'Go To Settings',
-    noReminders: 'I Don\'t Want Reminders',
+    noReminders: "I Don't Want Reminders",
   },
   stepsTab: {
     nullHeader: 'STEPS OF FAITH',
     nullWithReminders: 'Choose a person in People view and add some new steps.',
-    nullNoReminders: 'You don\'t have any steps of faith.\nChoose a person in People view and add some new steps.',
+    nullNoReminders:
+      "You don't have any steps of faith.\nChoose a person in People view and add some new steps.",
     title: 'Steps of Faith',
     reminderTitle: 'Focus your week',
-    reminderDescription: 'Star up to three steps and get weekly handcrafted reminders.',
-    holdDescription: 'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
+    reminderDescription:
+      'Star up to three steps and get weekly handcrafted reminders.',
+    holdDescription:
+      'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
     reminderAddedToast: '✔ Reminder Added',
   },
   contactSideMenu: {
@@ -322,6 +365,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
+    groups: 'Groups',
   },
   onboarding: {
     screen1: {
@@ -331,11 +375,12 @@ export default {
       name: 'Take steps to help them experience God',
     },
     screen3: {
-      name: 'See God work and know you\'re part of it',
+      name: "See God work and know you're part of it",
     },
   },
   welcomeNotification: {
     title: 'Great job focusing a step!',
-    message: "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
+    message:
+      "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
 };

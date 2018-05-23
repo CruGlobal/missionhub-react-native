@@ -4,25 +4,23 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import i18next from 'i18next';
+import uuidv4 from 'uuid/v4';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import i18next from 'i18next';
-
-import styles from './styles';
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
-import { trackState } from '../../actions/analytics';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
-import uuidv4 from 'uuid/v4';
+
+import styles from './styles';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -54,11 +52,13 @@ class SelectStepScreen extends Component {
   }
 
   filterSelected() {
-    return this.state.steps.filter((s) => s.selected);
+    return this.state.steps.filter(s => s.selected);
   }
 
-  handleSelectStep = (item) => {
-    const steps = this.state.steps.map((s) => s.id === item.id ? { ...s, selected: !s.selected } : s);
+  handleSelectStep = item => {
+    const steps = this.state.steps.map(
+      s => (s.id === item.id ? { ...s, selected: !s.selected } : s),
+    );
     this.setState({ steps });
   };
 
@@ -69,49 +69,58 @@ class SelectStepScreen extends Component {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
-    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
-      type: CREATE_STEP,
-      onComplete: (newStepText) => {
-        const addedSteps = this.state.addedSteps;
+    this.props.dispatch(
+      navigatePush(ADD_STEP_SCREEN, {
+        type: CREATE_STEP,
+        trackingObj: this.props.createStepTracking,
+        onComplete: newStepText => {
+          const addedSteps = this.state.addedSteps;
 
-        const newStep = {
-          id: uuidv4(),
-          body: newStepText,
-          selected: true,
-          locale: i18next.language,
-          challenge_type: CUSTOM_STEP_TYPE,
-          self_step: this.props.myId === this.props.receiverId,
-        };
+          const newStep = {
+            id: uuidv4(),
+            body: newStepText,
+            selected: true,
+            locale: i18next.language,
+            challenge_type: CUSTOM_STEP_TYPE,
+            self_step: this.props.myId === this.props.receiverId,
+          };
 
-        this.setState({
-          steps: this.state.steps.concat([ newStep ]),
-          addedSteps: addedSteps.concat([ newStep ]),
-        });
-        if (this.stepsList && this.stepsList.onScrollToEnd) {
-          this.stepsList.onScrollToEnd();
-        }
-      },
-    }));
-
-    this.props.dispatch(trackState(this.props.createStepTracking));
+          this.setState({
+            steps: this.state.steps.concat([newStep]),
+            addedSteps: addedSteps.concat([newStep]),
+          });
+          if (this.stepsList && this.stepsList.onScrollToEnd) {
+            this.stepsList.onScrollToEnd();
+          }
+        },
+      }),
+    );
   };
 
   handleLoadMoreSteps = () => {
     console.log('load more steps');
   };
 
-  saveAllSteps = () => {
+  async saveAllSteps() {
+    const { dispatch, receiverId, organization, onComplete } = this.props;
     const selectedSteps = this.filterSelected();
 
-    this.props.dispatch(addSteps(selectedSteps, this.props.receiverId, this.props.organization))
-      .then(() => this.props.onComplete());
-  };
+    await dispatch(addSteps(selectedSteps, receiverId, organization));
+    onComplete();
+  }
 
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
-    return enableBackButton ?
-      (<BackButton customNavigate={contact || this.state.contact ? undefined : () => this.props.dispatch(navigateBack(2))} absolute={true} />)
-      : null;
+    return enableBackButton ? (
+      <BackButton
+        customNavigate={
+          contact || this.state.contact
+            ? undefined
+            : () => this.props.dispatch(navigateBack(2))
+        }
+        absolute={true}
+      />
+    ) : null;
   }
 
   renderTitle() {
@@ -119,26 +128,26 @@ class SelectStepScreen extends Component {
 
     return (
       <Flex value={1.5} align="center" justify="center">
-        <Text type="header" style={styles.headerTitle}>{t('stepsOfFaith')}</Text>
-        <Text style={styles.headerText}>
-          {this.props.headerText}
+        <Text type="header" style={styles.headerTitle}>
+          {t('stepsOfFaith')}
         </Text>
+        <Text style={styles.headerText}>{this.props.headerText}</Text>
       </Flex>
     );
   }
 
   renderSaveButton() {
     const { t } = this.props;
-    return this.filterSelected().length > 0 ?
-      (<Flex align="center" justify="end">
+    return this.filterSelected().length > 0 ? (
+      <Flex align="center" justify="end">
         <Button
           type="secondary"
           onPress={this.saveAllSteps}
           text={t('addStep').toUpperCase()}
           style={styles.addButton}
         />
-      </Flex>)
-      : null;
+      </Flex>
+    ) : null;
   }
 
   render() {
@@ -149,22 +158,26 @@ class SelectStepScreen extends Component {
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           parallaxHeaderHeight={215}
-          renderForeground={() =>
+          renderForeground={() => (
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}
             </Flex>
-          }
+          )}
           stickyHeaderHeight={theme.headerHeight}
-          renderStickyHeader={() =>
-            <Flex align="center" justify="center" style={styles.collapsedHeader}>
+          renderStickyHeader={() => (
+            <Flex
+              align="center"
+              justify="center"
+              style={styles.collapsedHeader}
+            >
               <Text style={styles.collapsedHeaderTitle}>
                 {t('stepsOfFaith').toUpperCase()}
               </Text>
             </Flex>
-          }
+          )}
         >
           <StepsList
-            ref={(c) => this.stepsList = c}
+            ref={c => (this.stepsList = c)}
             personFirstName={this.props.personFirstName}
             items={this.state.steps}
             createStepText={t('createStep')}

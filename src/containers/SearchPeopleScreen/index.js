@@ -7,20 +7,18 @@ import { translate } from 'react-i18next';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
-import styles from './styles';
 import { Flex, IconButton, Input, Text } from '../../components/common';
 import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
-import { trackAction } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
 import BackButton from '../BackButton';
+
+import styles from './styles';
 
 @translate('search')
 export class SearchPeopleScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -44,12 +42,12 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleFilter() {
-    this.props.dispatch(navigatePush(SEARCH_FILTER_SCREEN, {
-      onFilter: this.handleChangeFilter,
-      filters: this.state.filters,
-    }));
-
-    this.props.dispatch(trackAction(ACTIONS.FILTER_ENGAGED));
+    this.props.dispatch(
+      navigatePush(SEARCH_FILTER_SCREEN, {
+        onFilter: this.handleChangeFilter,
+        filters: this.state.filters,
+      }),
+    );
   }
 
   handleChangeFilter(filters) {
@@ -64,9 +62,9 @@ export class SearchPeopleScreen extends Component {
   getPeopleByOrg(results) {
     let people = results.findAll('person') || [];
     let orgPeople = [];
-    people.forEach((p) => {
+    people.forEach(p => {
       if (p && p.organizational_permissions) {
-        p.organizational_permissions.forEach((o) => {
+        p.organizational_permissions.forEach(o => {
           if (o.organization) {
             orgPeople.push({
               ...p,
@@ -90,13 +88,16 @@ export class SearchPeopleScreen extends Component {
       this.setState({ isSearching: true });
     }
 
-    this.props.dispatch(searchPeople(text, this.state.filters)).then((results) => {
-      const people = this.getPeopleByOrg(results);
-      this.setState({ isSearching: false, results: people });
-    }).catch((err) => {
-      this.setState({ isSearching: false });
-      LOG('error getting search results', err);
-    });
+    this.props
+      .dispatch(searchPeople(text, this.state.filters))
+      .then(results => {
+        const people = this.getPeopleByOrg(results);
+        this.setState({ isSearching: false, results: people });
+      })
+      .catch(err => {
+        this.setState({ isSearching: false });
+        LOG('error getting search results', err);
+      });
   }
 
   clearSearch() {
@@ -114,9 +115,14 @@ export class SearchPeopleScreen extends Component {
     const { t } = this.props;
     const { text } = this.state;
     return (
-      <Flex direction="row" align="center" style={styles.searchWrap} self="stretch">
+      <Flex
+        direction="row"
+        align="center"
+        style={styles.searchWrap}
+        self="stretch"
+      >
         <Input
-          ref={(c) => this.searchInput = c}
+          ref={c => (this.searchInput = c)}
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
@@ -128,41 +134,41 @@ export class SearchPeopleScreen extends Component {
           placeholder={t('inputPlaceholder')}
           placeholderTextColor={theme.white}
         />
-        {
-          this.state.text ? (
-            <IconButton
-              name="cancelIcon"
-              type="MissionHub"
-              onPress={this.clearSearch}
-              style={styles.clearIcon} />
-          ) : null
-        }
+        {this.state.text ? (
+          <IconButton
+            name="cancelIcon"
+            type="MissionHub"
+            onPress={this.clearSearch}
+            style={styles.clearIcon}
+          />
+        ) : null}
       </Flex>
     );
   }
 
   renderFilters() {
     const { filters } = this.state;
-    const keys = Object.keys(filters).filter((k) => filters[k]);
+    const keys = Object.keys(filters).filter(k => filters[k]);
     if (keys.length === 0) return null;
 
     return (
       <Flex direction="column" style={styles.activeFilterWrap}>
-        {
-          keys.map((k) => (
-            <Flex key={filters[k].id} direction="row" align="center" style={styles.activeFilterRow}>
-              <Text style={styles.activeFilterText}>
-                {filters[k].text}
-              </Text>
-              <IconButton
-                style={styles.activeFilterIcon}
-                name="deleteIcon"
-                type="MissionHub"
-                onPress={() => this.removeFilter(k)}
-              />
-            </Flex>
-          ))
-        }
+        {keys.map(k => (
+          <Flex
+            key={filters[k].id}
+            direction="row"
+            align="center"
+            style={styles.activeFilterRow}
+          >
+            <Text style={styles.activeFilterText}>{filters[k].text}</Text>
+            <IconButton
+              style={styles.activeFilterIcon}
+              name="deleteIcon"
+              type="MissionHub"
+              onPress={() => this.removeFilter(k)}
+            />
+          </Flex>
+        ))}
       </Flex>
     );
   }
@@ -173,18 +179,14 @@ export class SearchPeopleScreen extends Component {
     if (isSearching && results.length === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
-          <Text style={styles.nullText}>
-            {t('loading')}
-          </Text>
+          <Text style={styles.nullText}>{t('loading')}</Text>
         </Flex>
       );
     }
     if (text && results.length === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
-          <Text style={styles.nullText}>
-            {t('noResults')}
-          </Text>
+          <Text style={styles.nullText}>{t('noResults')}</Text>
         </Flex>
       );
     }
@@ -195,9 +197,7 @@ export class SearchPeopleScreen extends Component {
           <Text type="header" style={styles.nullHeader}>
             {t('nullHeader')}
           </Text>
-          <Text style={styles.nullText}>
-            {t('nullDescription')}
-          </Text>
+          <Text style={styles.nullText}>{t('nullDescription')}</Text>
         </Flex>
       );
     }
@@ -205,11 +205,9 @@ export class SearchPeopleScreen extends Component {
       <FlatList
         style={styles.list}
         data={results}
-        keyExtractor={(i) => i.unique_key || i.id}
+        keyExtractor={i => i.unique_key || i.id}
         renderItem={({ item }) => (
-          <SearchPeopleItem
-            onSelect={this.handleSelectPerson}
-            person={item} />
+          <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
         )}
       />
     );
@@ -219,14 +217,13 @@ export class SearchPeopleScreen extends Component {
     return (
       <View style={styles.pageContainer}>
         <Header
-          left={
-            <BackButton />
-          }
+          left={<BackButton />}
           right={
             <IconButton
               name="filterIcon"
               type="MissionHub"
-              onPress={this.handleFilter} />
+              onPress={this.handleFilter}
+            />
           }
           center={this.renderCenter()}
         />
