@@ -69,6 +69,7 @@ export const LINKS = {
   playStore: 'market://details?id=com.missionhub',
   appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
   terms: 'https://get.missionhub.com/terms-of-service/',
+  privacy: 'https://get.missionhub.com/privacy',
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
