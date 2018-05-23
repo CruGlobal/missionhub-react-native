@@ -18,7 +18,7 @@ exports[`renders correctly 1`] = `
       },
       Object {
         "action": [Function],
-        "label": "Terms of Service",
+        "label": "Privacy Policy",
       },
       Object {
         "action": [Function],
