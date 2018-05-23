@@ -22,7 +22,7 @@ exports[`renders correctly 1`] = `
       },
       Object {
         "action": [Function],
-        "label": "Terms of Use",
+        "label": "Terms of Service",
       },
       Object {
         "action": [Function],
