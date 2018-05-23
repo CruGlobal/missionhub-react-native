@@ -7,6 +7,7 @@ import { REQUESTS } from '../../src/actions/api';
 import {
   getAssignedOrganizations,
   getMyOrganizations,
+  getOrganizationContacts,
 } from '../../src/actions/organizations';
 
 let store;
@@ -56,5 +57,44 @@ describe('getAssignedOrganizations', () => {
     store.dispatch(getAssignedOrganizations());
 
     expect(store.getActions()).toEqual([apiResponse]);
+  });
+});
+
+describe('getOrganizationContacts', () => {
+  const orgId = '123';
+  const query = {
+    organization_id: orgId,
+    filters: {
+      permissions: 'no_permission',
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
+  const contactResponse = {
+    type: 'successful',
+    response: [
+      {
+        name: 'person',
+        id: '1',
+      },
+      {
+        name: 'person',
+        id: '2',
+      },
+    ],
+  };
+
+  it('should get contacts in organization', () => {
+    mockFnWithParams(
+      api,
+      'default',
+      contactResponse,
+      REQUESTS.GET_PEOPLE_LIST,
+      query,
+    );
+
+    store.dispatch(getOrganizationContacts(orgId));
+
+    expect(store.getActions()).toEqual([contactResponse]);
   });
 });

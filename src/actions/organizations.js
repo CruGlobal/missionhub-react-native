@@ -24,7 +24,7 @@ function getOrganizations(requestObject, query) {
   return dispatch => dispatch(callApi(requestObject, query));
 }
 
-function getOrganizationContacts(orgId) {
+export function getOrganizationContacts(orgId) {
   const query = {
     organization_id: orgId,
     filters: {
