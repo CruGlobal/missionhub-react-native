@@ -101,13 +101,13 @@ class SelectStepScreen extends Component {
     console.log('load more steps');
   };
 
-  async saveAllSteps() {
+  saveAllSteps = async () => {
     const { dispatch, receiverId, organization, onComplete } = this.props;
     const selectedSteps = this.filterSelected();
 
     await dispatch(addSteps(selectedSteps, receiverId, organization));
     onComplete();
-  }
+  };
 
   renderBackButton() {
     const { enableBackButton, contact } = this.props;

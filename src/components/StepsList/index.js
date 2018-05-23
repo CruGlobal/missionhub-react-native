@@ -8,7 +8,11 @@ import Button from '../Button';
 import styles from './styles';
 
 export default class StepsList extends Component {
-  renderRow({ item }) {
+  constructor(props) {
+    super(props);
+  }
+
+  renderRow = ({ item }) => {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
@@ -21,7 +25,7 @@ export default class StepsList extends Component {
         </Flex>
       </Touchable>
     );
-  }
+  };
 
   renderFooter = () => {
     const {
