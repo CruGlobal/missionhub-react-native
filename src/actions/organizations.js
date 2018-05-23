@@ -1,6 +1,6 @@
-import { REQUESTS } from './api';
-import callApi from './api';
 import { GET_ORGANIZATION_CONTACTS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
   limit: 100,
