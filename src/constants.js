@@ -47,8 +47,6 @@ export const NAVIGATE_RESET = 'Navigation/RESET';
 export const NAVIGATE_BACK = 'Navigation/BACK';
 export const NAVIGATE_POP = 'Navigation/POP';
 export const MAIN_TABS = 'nav/MAIN_TABS';
-export const DRAWER_OPEN = 'DrawerOpen';
-export const DRAWER_CLOSE = 'DrawerClose';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const CONTACT_MENU_DRAWER = 'nav/drawer/contact';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
@@ -70,6 +68,7 @@ export const LINKS = {
   playStore: 'market://details?id=com.missionhub',
   appleStore: 'itms://itunes.apple.com/us/app/apple-store/id447869440?mt=8',
   terms: 'https://get.missionhub.com/terms-of-service/',
+  privacy: 'https://get.missionhub.com/privacy',
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';

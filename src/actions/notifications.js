@@ -14,6 +14,7 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScre
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
+import { hasReminderStepsSelector } from '../selectors/steps';
 
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
@@ -58,7 +59,7 @@ export function showReminderOnLoad() {
   return (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      if (getState().steps.reminders.length > 0) {
+      if (hasReminderStepsSelector({ steps: getState().steps })) {
         dispatch(
           showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
         );

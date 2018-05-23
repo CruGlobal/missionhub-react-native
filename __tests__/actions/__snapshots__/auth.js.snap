@@ -19,7 +19,6 @@ Array [
       },
     ],
     "index": 0,
-    "key": undefined,
     "type": "Navigation/RESET",
   },
 ]
@@ -42,7 +41,6 @@ Array [
       },
     ],
     "index": 0,
-    "key": undefined,
     "type": "Navigation/RESET",
   },
 ]

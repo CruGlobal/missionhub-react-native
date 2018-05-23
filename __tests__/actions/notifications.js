@@ -111,6 +111,10 @@ describe('showReminderScreen', () => {
 });
 
 describe('showReminderOnLoad', () => {
+  const steps = (hasReminders = false) => [
+    { id: '1', focus: hasReminders, receiver: { id: '2' } },
+  ];
+
   beforeEach(() => {
     store.dispatch(configureNotificationHandler());
   });
@@ -122,7 +126,7 @@ describe('showReminderOnLoad', () => {
         showReminderOnLoad: true,
       },
       steps: {
-        reminders: [],
+        mine: steps(false),
       },
     });
 
@@ -141,7 +145,7 @@ describe('showReminderOnLoad', () => {
         showReminderOnLoad: false,
       },
       steps: {
-        reminders: [{ id: 1 }],
+        mine: steps(true),
       },
     });
 
@@ -158,7 +162,7 @@ describe('showReminderOnLoad', () => {
         showReminderOnLoad: true,
       },
       steps: {
-        reminders: [{ id: 1 }],
+        mine: steps(true),
       },
     });
 

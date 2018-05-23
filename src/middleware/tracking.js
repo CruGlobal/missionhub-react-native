@@ -1,3 +1,5 @@
+import { DrawerActions } from 'react-navigation';
+
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import { CONTACT_SCREEN } from '../containers/ContactScreen';
@@ -5,7 +7,6 @@ import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import {
   CONTACT_MENU_DRAWER,
   CONTACT_TAB_CHANGED,
-  DRAWER_OPEN,
   IMPACT_TAB,
   MAIN_MENU_DRAWER,
   MAIN_TAB_CHANGED,
@@ -32,6 +33,7 @@ export default function tracking({ dispatch, getState }) {
     const { nav: navState, auth: authState, tabs: tabsState } = getState();
 
     switch (action.type) {
+      case DrawerActions.OPEN_DRAWER:
       case NAVIGATE_FORWARD:
         newState = getNextTrackState(action, authState, dispatch);
 
@@ -98,12 +100,10 @@ function getNextTrackState(action, authState, dispatch) {
     return trackedRoute.tracking;
   } else if (routeName === CONTACT_SCREEN) {
     return trackContactScreen(action, authState, dispatch);
-  } else if (routeName === DRAWER_OPEN) {
-    const { params: actionParams = {} } = action;
-
-    if (actionParams.drawer === CONTACT_MENU_DRAWER) {
-      return trackContactMenu(actionParams.isCurrentUser);
-    } else if (actionParams.drawer === MAIN_MENU_DRAWER) {
+  } else if (action.type === DrawerActions.OPEN_DRAWER) {
+    if (action.drawer === CONTACT_MENU_DRAWER) {
+      return trackContactMenu(action.isCurrentUser);
+    } else if (action.drawer === MAIN_MENU_DRAWER) {
       return buildTrackingObj('menu', 'menu');
     }
   } else if (action.params && action.params.trackingObj) {

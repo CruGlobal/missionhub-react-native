@@ -1,6 +1,11 @@
-import 'react-native';
-import { Alert } from 'react-native';
 import React from 'react';
+import { Alert } from 'react-native';
+import { DrawerActions } from 'react-navigation';
+jest.mock('react-navigation', () => ({
+  DrawerActions: {
+    closeDrawer: jest.fn(),
+  },
+}));
 
 import {
   ContactSideMenu,
@@ -19,7 +24,6 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../src/selectors/people';
-import { DRAWER_CLOSE } from '../src/constants';
 jest.mock('../src/actions/navigation');
 jest.mock('../src/actions/person');
 jest.mock('../src/actions/steps');
@@ -321,7 +325,7 @@ function testUnassignClick(component, deleteMode = false) {
   //Manually call onPress
   Alert.alert.mock.calls[0][2][1].onPress();
   expect(component.instance().deleteOnUnmount).toEqual(true);
-  expect(navigatePush).toHaveBeenCalledWith(DRAWER_CLOSE);
+  expect(DrawerActions.closeDrawer).toHaveBeenCalled();
   expect(navigateBack).toHaveBeenCalledTimes(1);
 }
 
