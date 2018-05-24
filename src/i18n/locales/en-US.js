@@ -366,6 +366,13 @@ export default {
     impact: 'Impact',
     groups: 'Groups',
   },
+  groupTabs: {
+    celebrate: 'Celebrate',
+    members: 'Members',
+    impact: 'Impact',
+    contacts: 'Contacts',
+    surveys: 'Surveys',
+  },
   onboarding: {
     screen1: {
       name: 'Focus on the people in your life',
