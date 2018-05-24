@@ -1,5 +1,6 @@
-import { REQUESTS } from './api';
-import callApi from './api';
+import { GET_ORGANIZATION_CONTACTS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -21,6 +22,24 @@ export function getAssignedOrganizations() {
 
 function getOrganizations(requestObject, query) {
   return dispatch => dispatch(callApi(requestObject, query));
+}
+
+export function getOrganizationContacts(orgId) {
+  const query = {
+    organization_id: orgId,
+    filters: {
+      permissions: 'no_permission',
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, query),
+    );
+    dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
+    return response;
+  };
 }
 
 export function addNewContact(data) {
