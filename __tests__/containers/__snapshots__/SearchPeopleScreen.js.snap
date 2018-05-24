@@ -15,17 +15,15 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#007398",
-            "height": 60,
-            "paddingTop": 10,
+            "height": 65,
+            "paddingTop": 20,
           },
           Object {
             "elevation": 4,
           },
         ],
         Object {
-          "alignItems": "center",
           "flexDirection": "row",
-          "justifyContent": "center",
         },
       ]
     }
@@ -34,6 +32,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
+            "marginTop": 0,
             "paddingLeft": 5,
           },
           Object {
@@ -137,7 +136,9 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "marginTop": 0,
+          },
           Object {
             "alignItems": "center",
             "flex": 5,
@@ -202,6 +203,7 @@ exports[`renders correctly 1`] = `
       style={
         Array [
           Object {
+            "marginTop": 0,
             "paddingRight": 5,
           },
           Object {

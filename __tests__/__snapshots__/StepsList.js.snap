@@ -416,9 +416,8 @@ exports[`renders correctly 1`] = `
                   "backgroundColor": "#ffffff",
                   "borderColor": "#52C5DC",
                   "borderWidth": 1,
-                  "height": 40,
-                  "marginTop": 18,
-                  "width": 650,
+                  "height": 48,
+                  "width": 670,
                 },
                 Object {
                   "borderRadius": 50,

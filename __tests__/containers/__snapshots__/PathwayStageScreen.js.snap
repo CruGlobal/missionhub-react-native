@@ -24,7 +24,7 @@ exports[`renders back button correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 18,
+            "top": 25,
           },
         ],
         Object {

@@ -7,7 +7,7 @@ export default StyleSheet.create({
   header: {
     height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
-    paddingTop: isAndroid ? 0 : theme.topOffset,
+    paddingTop: isAndroid ? 0 : theme.notchHeight,
   },
   shadow: {
     elevation: 4,

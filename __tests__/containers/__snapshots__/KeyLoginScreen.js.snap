@@ -6,7 +6,7 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -175,7 +175,7 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -344,7 +344,7 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -469,7 +469,7 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -638,9 +638,8 @@ exports[`a login button is clicked key login button is pressed shows email verif
       Object {
         "alignItems": "center",
         "backgroundColor": "#FF5532",
-        "height": 70,
+        "height": 60,
         "justifyContent": "center",
-        "paddingTop": 10,
       }
     }
   >
@@ -652,6 +651,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 12,
         }
       }
     >
@@ -662,7 +662,7 @@ exports[`a login button is clicked key login button is pressed shows email verif
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -787,9 +787,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Object {
         "alignItems": "center",
         "backgroundColor": "#FF5532",
-        "height": 70,
+        "height": 60,
         "justifyContent": "center",
-        "paddingTop": 10,
       }
     }
   >
@@ -801,6 +800,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 12,
         }
       }
     >
@@ -811,7 +811,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -936,9 +936,8 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       Object {
         "alignItems": "center",
         "backgroundColor": "#FF5532",
-        "height": 70,
+        "height": 60,
         "justifyContent": "center",
-        "paddingTop": 10,
       }
     }
   >
@@ -950,6 +949,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
         Object {
           "color": "#ffffff",
           "fontSize": 16,
+          "marginTop": 12,
         }
       }
     >
@@ -960,7 +960,7 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
     style={
       Object {
         "marginLeft": 5,
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />
@@ -1103,7 +1103,7 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "marginLeft": 5,
-            "marginTop": 35,
+            "marginTop": 25,
           },
           null,
         ],
@@ -1560,7 +1560,7 @@ exports[`renders correctly for forced logout 1`] = `
   <View
     style={
       Object {
-        "marginTop": 35,
+        "marginTop": 25,
       }
     }
   />

@@ -17,14 +17,14 @@ export default StyleSheet.create({
   },
   errorBar: {
     backgroundColor: '#FF5532',
-    height: 60 + theme.topOffset,
-    paddingTop: theme.topOffset,
+    height: 60 + theme.notchHeight,
     justifyContent: 'center',
     alignItems: 'center',
   },
   errorMessage: {
     color: theme.white,
     fontSize: 16,
+    marginTop: 12 + theme.notchHeight,
   },
   facebookButton: {
     backgroundColor: theme.transparent,
