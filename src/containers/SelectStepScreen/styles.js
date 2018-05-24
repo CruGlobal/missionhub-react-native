@@ -16,7 +16,7 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   collapsedHeader: {
-    paddingTop: theme.notchHeight,
+    paddingTop: theme.topOffset,
     height: '100%',
   },
   collapsedHeaderTitle: {

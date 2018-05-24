@@ -24,7 +24,7 @@ exports[`StageScreen renders correctly with back button 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {

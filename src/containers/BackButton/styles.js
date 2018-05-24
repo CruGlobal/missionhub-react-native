@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   absoluteTopLeft: {
     position: 'absolute',
-    top: 8 + theme.notchHeight,
+    top: 8 + theme.topOffset,
     left: 5,
   },
 });

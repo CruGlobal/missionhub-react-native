@@ -132,7 +132,7 @@ class SelectStepScreen extends Component {
         value={1}
         align="center"
         justify="center"
-        style={{ marginTop: theme.notchHeight }}
+        style={{ marginTop: theme.topOffset }}
       >
         <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
@@ -164,7 +164,7 @@ class SelectStepScreen extends Component {
       <Flex style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215 + theme.notchHeight}
+          parallaxHeaderHeight={215 + theme.topOffset}
           renderForeground={() => (
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}

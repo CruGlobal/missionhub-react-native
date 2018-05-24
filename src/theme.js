@@ -60,7 +60,7 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 50;
-const notchHeight = isiPhoneX() ? 30 : 0;
+const topOffset = isAndroid ? 0 : isiPhoneX() ? 30 : 10;
 
 export default {
   // base theme
@@ -98,6 +98,6 @@ export default {
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
 
-  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
-  notchHeight,
+  headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + topOffset,
+  topOffset,
 };

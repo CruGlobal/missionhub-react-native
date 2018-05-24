@@ -25,7 +25,7 @@ export default StyleSheet.create({
     width: theme.fullWidth,
   },
   skipBtn: {
-    marginTop: theme.notchHeight,
+    marginTop: theme.topOffset,
     padding: 30,
   },
   skipBtnText: {

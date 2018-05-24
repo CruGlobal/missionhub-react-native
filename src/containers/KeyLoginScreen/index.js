@@ -172,7 +172,7 @@ class KeyLoginScreen extends Component {
 
   render() {
     const { t, forcedLogout } = this.props;
-    const marginTop = 25 + theme.notchHeight;
+    const marginTop = 25 + theme.topOffset;
 
     return (
       <PlatformKeyboardAvoidingView>

@@ -190,7 +190,7 @@ exports[`renders correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {
@@ -470,7 +470,7 @@ exports[`renders edit journey correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {
@@ -621,7 +621,7 @@ exports[`renders interaction with skip correctly 1`] = `
             },
             null,
             Object {
-              "marginTop": 0,
+              "marginTop": 10,
               "padding": 30,
             },
             null,
@@ -836,7 +836,7 @@ exports[`renders interaction with skip correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {
@@ -1116,7 +1116,7 @@ exports[`renders interaction without skip correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {
@@ -1396,7 +1396,7 @@ exports[`renders journey correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {
@@ -1547,7 +1547,7 @@ exports[`renders step note correctly 1`] = `
             },
             null,
             Object {
-              "marginTop": 0,
+              "marginTop": 10,
               "padding": 30,
             },
             null,

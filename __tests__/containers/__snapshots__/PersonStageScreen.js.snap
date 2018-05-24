@@ -24,7 +24,7 @@ exports[`renders correctly 1`] = `
           Object {
             "left": 5,
             "position": "absolute",
-            "top": 25,
+            "top": 18,
           },
         ],
         Object {

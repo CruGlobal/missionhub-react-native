@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-const marginTop = 25 + theme.notchHeight;
+const marginTop = 25 + theme.topOffset;
 
 export default StyleSheet.create({
   container: {

@@ -9,7 +9,7 @@ exports[`back button absolute renders with absolute 1`] = `
         Object {
           "left": 5,
           "position": "absolute",
-          "top": 25,
+          "top": 18,
         },
       ],
       Object {

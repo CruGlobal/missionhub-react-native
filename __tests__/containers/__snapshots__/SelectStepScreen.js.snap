@@ -17,13 +17,13 @@ exports[`SelectStepScreen should render correctly 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={215}
+    parallaxHeaderHeight={225}
     renderBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
+    stickyHeaderHeight={60}
   >
     <StepsList
       createStepText="Create your own step..."
@@ -53,8 +53,23 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
   <Flex
     align="center"
     justify="center"
-    value={1.5}
+    style={
+      Object {
+        "marginTop": 10,
+      }
+    }
+    value={1}
   >
+    <Icon
+      name="addStepIcon"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+        }
+      }
+      type="MissionHub"
+    />
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -80,7 +95,7 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
           "fontSize": 16,
           "lineHeight": 24,
           "paddingHorizontal": 50,
-          "paddingVertical": 20,
+          "paddingVertical": 10,
           "textAlign": "center",
         }
       }
@@ -95,7 +110,7 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
     Array [
       Object {
         "height": "100%",
-        "paddingTop": 0,
+        "paddingTop": 10,
       },
       Object {
         "alignItems": "center",
@@ -137,13 +152,13 @@ exports[`renderBackButton should render back button 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={215}
+    parallaxHeaderHeight={225}
     renderBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
+    stickyHeaderHeight={60}
   >
     <StepsList
       createStepText="Create your own step..."
@@ -185,13 +200,13 @@ exports[`renderSaveButton should not render save button 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={215}
+    parallaxHeaderHeight={225}
     renderBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
+    stickyHeaderHeight={60}
   >
     <StepsList
       createStepText="Create your own step..."
@@ -229,13 +244,13 @@ exports[`renderSaveButton should render save button 1`] = `
     fadeOutForeground={true}
     onChangeHeaderVisibility={[Function]}
     outputScaleValue={5}
-    parallaxHeaderHeight={215}
+    parallaxHeaderHeight={225}
     renderBackground={[Function]}
     renderForeground={[Function]}
     renderParallaxHeader={[Function]}
     renderScrollComponent={[Function]}
     renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
+    stickyHeaderHeight={60}
   >
     <StepsList
       createStepText="Create your own step..."
