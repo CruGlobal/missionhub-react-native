@@ -22,10 +22,11 @@ export default StyleSheet.create({
   },
   loadMoreStepsButton: {
     backgroundColor: theme.white,
-    height: 48,
-    width: theme.fullWidth - 80,
+    height: 40,
+    width: theme.fullWidth - 100,
     borderColor: theme.secondaryColor,
     borderWidth: theme.buttonBorderWidth,
+    marginTop: 18,
   },
   loadMoreStepsButtonText: {
     color: theme.secondaryColor,

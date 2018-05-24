@@ -10,10 +10,10 @@ import uuidv4 from 'uuid/v4';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack } from '../../utils/common';
+import { disableBack, isiPhoneX } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 
@@ -127,7 +127,13 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex value={1.5} align="center" justify="center">
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={{ marginTop: theme.notchHeight }}
+      >
+        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
@@ -157,7 +163,7 @@ class SelectStepScreen extends Component {
       <Flex style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215}
+          parallaxHeaderHeight={215 + theme.notchHeight}
           renderForeground={() => (
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}
