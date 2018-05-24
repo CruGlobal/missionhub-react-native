@@ -10,20 +10,26 @@ import { GROUP_SCREEN } from './GroupScreen';
 @connect()
 @translate('groupsList')
 export default class GroupsListScreen extends Component {
+  // TODO: Remove this
+  componentDidMount() {
+    this.handlePress();
+  }
+
+  handlePress = () => {
+    this.props.dispatch(
+      navigatePush(GROUP_SCREEN, {
+        organization: { id: '728', name: 'DPS Org' },
+      }),
+    );
+  };
+
   render() {
-    const { dispatch } = this.props;
     return (
       <Button
         text={'Navigate to Group 728'}
         style={{ marginTop: 20 }}
         buttonTextStyle={{ color: 'black' }}
-        onPress={() =>
-          dispatch(
-            navigatePush(GROUP_SCREEN, {
-              organization: { id: '728', name: 'DPS Org' },
-            }),
-          )
-        }
+        onPress={this.handlePress}
       />
     );
   }

@@ -151,6 +151,7 @@ export const generateSwipeTabMenuNavigator = (tabs, HeaderComponent) =>
       {},
     ),
     {
+      backBehavior: 'none',
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>

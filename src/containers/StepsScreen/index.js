@@ -81,6 +81,9 @@ export class StepsScreen extends Component {
 
   componentWillMount() {
     this.props.dispatch(loadHome());
+
+    // TODO: Remove this
+    this.props.navigation.navigate('GroupsTab');
   }
 
   getSteps() {

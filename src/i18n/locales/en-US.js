@@ -389,4 +389,20 @@ export default {
     message:
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
+  groupsCelebrate: {
+    title: '',
+  },
+  groupsMembers: {
+    title: '',
+  },
+  groupsImpact: {
+    title: '',
+  },
+  groupsContacts: {
+    title: '',
+    searchPlaceholder: 'Search Contacts',
+  },
+  groupsSurveys: {
+    title: '',
+  },
 };
