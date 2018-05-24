@@ -168,6 +168,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-view-overflow')
     compile project(':react-native-code-push')
     compile project(':react-native-config')
     compile project(':react-native-default-preference')

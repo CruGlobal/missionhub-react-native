@@ -16,15 +16,11 @@
     "lint": "eslint ./*.js ./src ./__tests__",
     "lint:fix": "eslint ./*.js ./src ./__tests__ --fix",
     "android": "react-native run-android",
-    "android:install:dev":
-      "adb install android/app/build/outputs/apk/app-debug.apk",
-    "android:install:release":
-      "adb install android/app/build/outputs/apk/app-release.apk",
+    "android:install:dev": "adb install android/app/build/outputs/apk/app-debug.apk",
+    "android:install:release": "adb install android/app/build/outputs/apk/app-release.apk",
     "android:build": "react-native run-android --variant=release",
-    "codepush-ios-staging":
-      "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
-    "codepush-android-staging":
-      "appcenter codepush release-react -a Cru/MissionHub-Android",
+    "codepush-ios-staging": "appcenter codepush release-react -a Cru/MissionHub-iOS --plist-file ios/MissionHub/Info.plist",
+    "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
     "onesky:download": "babel-node ./bin/oneskyDownload.js",
     "precommit": "pretty-quick --staged"
@@ -54,14 +50,13 @@
     "react-native-device-info": "^0.21.5",
     "react-native-fabric": "^0.5.1",
     "react-native-fbsdk": "^0.7.0",
-    "react-native-omniture":
-      "https://github.com/CruGlobal/react-native-omniture",
+    "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
     "react-native-parallax-scroll-view": "^0.21.0",
-    "react-native-push-notification":
-      "https://github.com/CruGlobal/react-native-push-notification",
+    "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-snap-carousel": "^3.7.0",
     "react-native-vector-icons": "^4.6.0",
+    "react-native-view-overflow": "^0.0.3",
     "react-navigation": "^2.0.1",
     "react-navigation-redux-helpers": "^1.1.1",
     "react-redux": "^5.0.7",
@@ -106,14 +101,20 @@
       "<rootDir>/__mock__/react-native-fabric.js",
       "<rootDir>/__mock__/react-native-code-push.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-navigation)"
     ],
     "coverageDirectory": "./coverage/",
-    "collectCoverageFrom": ["src/**/*.js"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   },
   "rnpm": {
-    "assets": ["./assets/fonts"]
+    "assets": [
+      "./assets/fonts"
+    ]
   }
 }
