@@ -59,8 +59,8 @@ const SECONDARY = COLORS.BLUE;
 const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
-const iPhoneHeaderHeight = 65;
-const notchHeight = isiPhoneX() ? 20 : 0;
+const iPhoneHeaderHeight = 50;
+const notchHeight = isiPhoneX() ? 30 : 0;
 
 export default {
   // base theme

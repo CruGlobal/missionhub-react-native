@@ -42,7 +42,7 @@ class Header extends Component {
     }
     if (title) {
       return (
-        <Flex value={4} align="center" justify="center" style={styles.center}>
+        <Flex value={4} align="center" justify="center">
           <Text style={styles.title} numberOfLines={1}>
             {title}
           </Text>
@@ -68,6 +68,8 @@ class Header extends Component {
     return (
       <Flex
         direction="row"
+        justify="center"
+        align="center"
         style={[styles.header, shadow ? styles.shadow : null]}
       >
         {this.renderLeft()}

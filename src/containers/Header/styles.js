@@ -1,31 +1,22 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isAndroid, isiPhoneX } from '../../utils/common';
-
-function getMarginTop() {
-  return isiPhoneX() ? 17 : 0;
-}
+import { isAndroid } from '../../utils/common';
 
 export default StyleSheet.create({
   header: {
     height: theme.headerHeight,
     backgroundColor: theme.primaryColor,
-    paddingTop: isAndroid ? 0 : 20,
+    paddingTop: isAndroid ? 0 : theme.notchHeight,
   },
   shadow: {
     elevation: 4,
   },
-  center: {
-    marginTop: getMarginTop(),
-  },
   left: {
     paddingLeft: 5,
-    marginTop: getMarginTop(),
   },
   right: {
     paddingRight: 5,
-    marginTop: getMarginTop(),
   },
   title: {
     color: 'white',

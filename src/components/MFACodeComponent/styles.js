@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
-import { isiPhoneX } from '../../utils/common';
 
-const marginTop = isiPhoneX() ? 50 : 25;
+const marginTop = 25 + theme.notchHeight;
 
 export default StyleSheet.create({
   container: {

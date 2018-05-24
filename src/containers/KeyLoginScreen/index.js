@@ -16,13 +16,14 @@ import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { isAndroid, isiPhoneX } from '../../utils/common';
+import { isAndroid } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
 import i18n from '../../i18n';
 import { navigatePush } from '../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -171,7 +172,7 @@ class KeyLoginScreen extends Component {
 
   render() {
     const { t, forcedLogout } = this.props;
-    const marginTop = isiPhoneX() ? 50 : 25;
+    const marginTop = 25 + theme.notchHeight;
 
     return (
       <PlatformKeyboardAvoidingView>
