@@ -73,11 +73,18 @@ export class SwipeTabMenu extends Component {
 
   offsetToIndex(x) {
     // Doing the math on Android doesn't result in integers so we round
-    return Math.round(x / this.state.maxMenuItemWidth);
+    // Android isn't using contentInset so we don't have to account for it
+    return Math.round(
+      (x + (isAndroid ? 0 : this.getScrollInsetDistance())) /
+        this.state.maxMenuItemWidth,
+    );
   }
 
   indexToOffset(index) {
-    return index * this.state.maxMenuItemWidth;
+    return (
+      index * this.state.maxMenuItemWidth -
+      (isAndroid ? 0 : this.getScrollInsetDistance())
+    );
   }
 
   getScrollInsetDistance() {
@@ -98,11 +105,17 @@ export class SwipeTabMenu extends Component {
           ref={ref => (this.scrollView = ref)}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
+          contentInset={{
+            left: insetDistance,
+            right: insetDistance,
+            top: 0,
+            bottom: 0,
+          }}
           contentOffset={{ x: this.indexToOffset(previousIndex) || 0, y: 0 }}
           automaticallyAdjustContentInsets={false}
           contentContainerStyle={[
             styles.scrollContainer,
-            { paddingHorizontal: insetDistance }, // Use padding instead of contentInset since it isn't supported on Android
+            isAndroid && { paddingHorizontal: insetDistance }, // Use padding instead of contentInset since it isn't supported on Android
           ]}
           snapToAlignment={'center'}
           snapToInterval={maxMenuItemWidth}
