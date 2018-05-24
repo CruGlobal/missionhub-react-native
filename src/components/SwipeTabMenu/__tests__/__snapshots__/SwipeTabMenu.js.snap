@@ -59,10 +59,16 @@ exports[`should render correctly 1`] = `
           "alignItems": "stretch",
           "height": 48,
         },
-        Object {
-          "paddingHorizontal": NaN,
-        },
+        false,
       ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": NaN,
+        "right": NaN,
+        "top": 0,
+      }
     }
     contentOffset={
       Object {
@@ -202,14 +208,20 @@ exports[`should render correctly 2`] = `
           "alignItems": "stretch",
           "height": 48,
         },
-        Object {
-          "paddingHorizontal": 335,
-        },
+        false,
       ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
     }
     contentOffset={
       Object {
-        "x": 0,
+        "x": -335,
         "y": 0,
       }
     }
@@ -346,14 +358,20 @@ exports[`should render second tab based off of previousIndex 1`] = `
           "alignItems": "stretch",
           "height": 48,
         },
-        Object {
-          "paddingHorizontal": 335,
-        },
+        false,
       ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
     }
     contentOffset={
       Object {
-        "x": 80,
+        "x": -255,
         "y": 0,
       }
     }
