@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
@@ -10,11 +10,7 @@ import { navigateReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
 import ImpactView from '../ImpactView';
 
-@connect((_, { navigation }) => {
-  return {
-    ...(navigation.state.params || {}),
-  };
-})
+@connect()
 export class GroupScreenHeader extends Component {
   customNavigate = () => {
     const { dispatch } = this.props;
@@ -22,7 +18,7 @@ export class GroupScreenHeader extends Component {
   };
 
   render() {
-    const { organization } = this.props;
+    const { organization } = this.props.navigation.state.params || {};
     return (
       <Header
         left={<BackButton customNavigate={this.customNavigate} />}
