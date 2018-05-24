@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
+<Component
+  style={
+    Object {
+      "zIndex": 100,
+    }
+  }
+>
+  <[object Object]
+    navigation={
+      Object {
+        "state": Object {
+          "index": 0,
+        },
+      }
+    }
+  />
+  <Connect(SwipeTabMenu)
+    navigation={
+      Object {
+        "state": Object {
+          "index": 0,
+        },
+      }
+    }
+    tabs={
+      Array [
+        Object {
+          "component": [Function],
+          "name": "Tab 1",
+          "navigationAction": "nav/TAB_1",
+        },
+        Object {
+          "component": [Function],
+          "name": "Tab 2",
+          "navigationAction": "nav/TAB_2",
+        },
+      ]
+    }
+  />
+</Component>
+`;
+
+exports[`should render correctly 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        Object {
+          "paddingHorizontal": NaN,
+        },
+      ]
+    }
+    contentOffset={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+  >
+    <TouchableWithoutFeedback
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": undefined,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          Tab 1
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": undefined,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              false,
+            ]
+          }
+        >
+          Tab 2
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+  </ScrollView>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#005A7F",
+          "borderBottomWidth": 9,
+          "borderLeftColor": "transparent",
+          "borderLeftWidth": 7,
+          "borderRightColor": "transparent",
+          "borderRightWidth": 7,
+          "borderStyle": "solid",
+          "height": 0,
+          "transform": Array [
+            Object {
+              "rotate": "180deg",
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render correctly 2`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        Object {
+          "paddingHorizontal": 335,
+        },
+      ]
+    }
+    contentOffset={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    <TouchableWithoutFeedback
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          Tab 1
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              false,
+            ]
+          }
+        >
+          Tab 2
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+  </ScrollView>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#005A7F",
+          "borderBottomWidth": 9,
+          "borderLeftColor": "transparent",
+          "borderLeftWidth": 7,
+          "borderRightColor": "transparent",
+          "borderRightWidth": 7,
+          "borderStyle": "solid",
+          "height": 0,
+          "transform": Array [
+            Object {
+              "rotate": "180deg",
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render second tab based off of previousIndex 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        Object {
+          "paddingHorizontal": 335,
+        },
+      ]
+    }
+    contentOffset={
+      Object {
+        "x": 80,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    <TouchableWithoutFeedback
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          Tab 1
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#66D9F0",
+              },
+              false,
+            ]
+          }
+        >
+          Tab 2
+        </Text>
+      </Component>
+    </TouchableWithoutFeedback>
+  </ScrollView>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#005A7F",
+          "borderBottomWidth": 9,
+          "borderLeftColor": "transparent",
+          "borderLeftWidth": 7,
+          "borderRightColor": "transparent",
+          "borderRightWidth": 7,
+          "borderStyle": "solid",
+          "height": 0,
+          "transform": Array [
+            Object {
+              "rotate": "180deg",
+            },
+          ],
+          "width": 0,
+        }
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;

@@ -98,7 +98,7 @@ export class SwipeTabMenu extends Component {
           ref={ref => (this.scrollView = ref)}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          contentOffset={{ x: this.indexToOffset(previousIndex), y: 0 }}
+          contentOffset={{ x: this.indexToOffset(previousIndex) || 0, y: 0 }}
           automaticallyAdjustContentInsets={false}
           contentContainerStyle={[
             styles.scrollContainer,
