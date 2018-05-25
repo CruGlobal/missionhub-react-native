@@ -39,6 +39,24 @@ it('renders filters', () => {
   );
 });
 
+it('renders text in search box', () => {
+  const component = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{}}
+      placeholder={'placeholder'}
+    />,
+  );
+  component.setState({ text: 'test' });
+
+  expect(component).toMatchSnapshot();
+});
+
 it('calls onSearch prop', () => {
   const onSearch = jest.fn(() => Promise.resolve());
 

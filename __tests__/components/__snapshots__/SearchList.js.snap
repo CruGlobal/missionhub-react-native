@@ -414,3 +414,113 @@ exports[`renders search list 1`] = `
   </Flex>
 </Component>
 `;
+
+exports[`renders text in search box 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#B2B0B2",
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingTop": 15,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 25,
+            "paddingLeft": 13,
+            "paddingRight": 5,
+          }
+        }
+        value={1}
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value="test"
+        />
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 16,
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#4E4C4E",
+          }
+        }
+        type="MissionHub"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "paddingTop": 15,
+      }
+    }
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      No Results.
+    </MyText>
+  </Flex>
+</Component>
+`;

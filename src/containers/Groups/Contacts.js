@@ -10,17 +10,11 @@ import ContactItem from '../../components/ContactItem';
 @connect()
 @translate('groupsContacts')
 export default class Contacts extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    filters: {},
+  };
 
-    this.state = {
-      filters: {},
-    };
-
-    this.handleRemoveFilter = this.handleRemoveFilter.bind(this);
-  }
-
-  async handleRemoveFilter(key) {
+  handleRemoveFilter = async key => {
     const newFilters = { ...this.state.filters };
     delete newFilters[key];
     return await new Promise(resolve =>
@@ -28,7 +22,7 @@ export default class Contacts extends Component {
         resolve();
       }),
     );
-  }
+  };
 
   handleFilterPress = () => {
     // TODO: Navigate to the filters page, then change state when something is selected
