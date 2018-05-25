@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
-import { ScrollView, View } from 'react-native';
+import { FlatList, ScrollView, View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Text } from '../../components/common';
+import { Separator } from '../../components/common';
+import GroupMemberItem from '../../components/GroupMemberItem';
+import LoadMore from '../../components/LoadMore';
+import theme from '../../theme';
 
-@connect()
 @translate('groupsMembers')
-export default class Members extends Component {
+class Members extends Component {
+  handleSelect = person => {
+    LOG('selected person', person);
+  };
+
+  handleLoadMore = () => {
+    LOG('load more');
+  };
+
   render() {
+    const { members, hasMore } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: theme.white }}>
         <ScrollView style={{ flex: 1 }}>
-          <Text>Members List</Text>
-          <Text>Load More</Text>
+          <FlatList
+            data={members}
+            keyExtractor={i => i.id}
+            renderItem={({ item }) => (
+              <GroupMemberItem person={item} onSelect={this.handleSelect} />
+            )}
+            ItemSeparatorComponent={(sectionID, rowID) => (
+              <Separator key={rowID} />
+            )}
+            ListFooterComponent={
+              hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
+            }
+          />
         </ScrollView>
       </View>
     );
   }
 }
+
+const mapStateToProps = () => ({
+  members: [
+    { id: '123', full_name: 'Full Name1', assignedNum: 2, uncontactedNum: 3 },
+    { id: '223', full_name: 'Full Name2', assignedNum: 2, uncontactedNum: 0 },
+    { id: '323', full_name: 'Full Name3', assignedNum: 12, uncontactedNum: 2 },
+  ],
+  hasMore: true,
+});
+
+export default connect(mapStateToProps)(Members);
