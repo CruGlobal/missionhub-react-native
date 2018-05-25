@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, View } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -8,7 +9,7 @@ import { navigatePush } from '../../actions/navigation';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
-import { CASEY, CONTACT_MENU_DRAWER, DRAWER_OPEN, JEAN } from '../../constants';
+import { CASEY, CONTACT_MENU_DRAWER, JEAN } from '../../constants';
 import { STAGE_SCREEN } from '../StageScreen';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
@@ -174,7 +175,7 @@ export class ContactScreen extends Component {
               type="MissionHub"
               onPress={() =>
                 dispatch(
-                  navigatePush(DRAWER_OPEN, {
+                  DrawerActions.openDrawer({
                     drawer: CONTACT_MENU_DRAWER,
                     isCurrentUser: personIsCurrentUser,
                   }),

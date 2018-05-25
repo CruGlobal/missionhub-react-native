@@ -28,6 +28,10 @@ export class SettingsMenu extends Component {
       },
       {
         label: t('privacy'),
+        action: () => Linking.openURL(LINKS.privacy),
+      },
+      {
+        label: t('terms'),
         action: () => Linking.openURL(LINKS.terms),
       },
       {

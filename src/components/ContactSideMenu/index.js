@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -16,7 +17,6 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../selectors/people';
-import { DRAWER_CLOSE } from '../../constants';
 import { isMissionhubUser } from '../../utils/common';
 
 @translate('contactSideMenu')
@@ -39,7 +39,7 @@ export class ContactSideMenu extends Component {
             style: 'destructive',
             onPress: () => {
               this.deleteOnUnmount = true;
-              dispatch(navigatePush(DRAWER_CLOSE));
+              dispatch(DrawerActions.closeDrawer());
               dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
             },
           },

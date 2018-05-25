@@ -1,4 +1,4 @@
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 // Performance issues: https://github.com/react-community/react-navigation/issues/608#issuecomment-328635042
 
@@ -13,13 +13,12 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(times, backParams) {
+export function navigateBack(times) {
   return dispatch => {
     if (times && times > 1) {
-      dispatch(NavigationActions.pop({ n: times, immediate: true }));
+      dispatch(StackActions.pop({ n: times, immediate: true }));
     } else {
-      // backParams can contain { key: string, immediate: bool }
-      dispatch(NavigationActions.back(backParams));
+      dispatch(NavigationActions.back());
     }
   };
 }
@@ -27,7 +26,7 @@ export function navigateBack(times, backParams) {
 export function navigateReset(screen, props = {}) {
   return dispatch => {
     dispatch(
-      NavigationActions.reset({
+      StackActions.reset({
         index: 0,
         actions: [
           NavigationActions.navigate({ routeName: screen, params: props }),
