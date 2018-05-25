@@ -13,7 +13,7 @@ import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack, isiPhoneX } from '../../utils/common';
+import { disableBack, getFourRandomItems } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 
@@ -25,7 +25,7 @@ class SelectStepScreen extends Component {
     super(props);
 
     this.state = {
-      steps: props.steps,
+      steps: [],
       addedSteps: [],
       contact: null,
     };
@@ -35,14 +35,14 @@ class SelectStepScreen extends Component {
     this.props.dispatch(getStepSuggestions());
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
-  }
-
   componentDidMount() {
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
+  }
+
+  componentWillReceiveProps() {
+    this.handleLoadMoreSteps();
   }
 
   componentWillUnmount() {
@@ -50,6 +50,19 @@ class SelectStepScreen extends Component {
       disableBack.remove();
     }
   }
+
+  handleLoadMoreSteps = () => {
+    const { contactStage, stepSuggestions } = this.props;
+    let newSteps = [];
+    if (contactStage) {
+      newSteps = getFourRandomItems(
+        stepSuggestions[contactStage.id],
+        this.state.steps,
+      );
+    }
+    console.log(newSteps);
+    this.setState({ steps: [].concat(newSteps, this.state.addedSteps) });
+  };
 
   filterSelected() {
     return this.state.steps.filter(s => s.selected);
@@ -95,10 +108,6 @@ class SelectStepScreen extends Component {
         },
       }),
     );
-  };
-
-  handleLoadMoreSteps = () => {
-    console.log('load more steps');
   };
 
   saveAllSteps = async () => {

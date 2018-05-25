@@ -27,16 +27,12 @@ class SelectMyStepScreen extends Component {
       organization,
     } = this.props;
 
-    let steps = [];
-    if (contactStage) {
-      steps = getFourRandomItems(suggestedForMe[contactStage.id]);
-    }
-
     const section = this.props.onboarding ? 'onboarding' : 'people';
 
     return (
       <SelectStepScreen
-        steps={steps}
+        stepSuggestions={suggestedForMe}
+        contactStage={contactStage}
         receiverId={personId}
         contact={me}
         organization={organization}
