@@ -14,7 +14,12 @@ import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
 import { disableBack, getFourRandomItems } from '../../utils/common';
-import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
+import {
+  CREATE_STEP,
+  CUSTOM_STEP_TYPE,
+  REMOVE_MY_SUGGESTIONS,
+  REMOVE_OTHER_SUGGESTIONS,
+} from '../../constants';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -31,18 +36,11 @@ class SelectStepScreen extends Component {
     };
   }
 
-  componentWillMount() {
-    this.props.dispatch(getStepSuggestions());
-  }
-
   componentDidMount() {
+    this.handleLoadSteps();
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
-  }
-
-  componentWillReceiveProps() {
-    this.handleLoadMoreSteps();
   }
 
   componentWillUnmount() {
@@ -51,17 +49,43 @@ class SelectStepScreen extends Component {
     }
   }
 
-  handleLoadMoreSteps = () => {
-    const { contactStage, stepSuggestions } = this.props;
+  handleLoadSteps = async () => {
+    const {
+      contactStage,
+      stepSuggestions,
+      contact,
+      myId,
+      dispatch,
+    } = this.props;
+
+    await dispatch(getStepSuggestions());
+
     let newSteps = [];
     if (contactStage) {
-      newSteps = getFourRandomItems(
-        stepSuggestions[contactStage.id],
-        this.state.steps,
-      );
+      newSteps = getFourRandomItems(stepSuggestions[contactStage.id]);
     }
     console.log(newSteps);
-    this.setState({ steps: [].concat(newSteps, this.state.addedSteps) });
+
+    this.setState({
+      steps: [].concat(this.state.steps, newSteps, this.state.addedSteps),
+    });
+
+    if (newSteps.length === 0) {
+      return;
+    }
+
+    if (contact.id === myId) {
+      return dispatch({
+        type: REMOVE_MY_SUGGESTIONS,
+        contactStage,
+        newSteps,
+      });
+    }
+    return dispatch({
+      type: REMOVE_OTHER_SUGGESTIONS,
+      contactStage,
+      newSteps,
+    });
   };
 
   filterSelected() {
@@ -199,7 +223,7 @@ class SelectStepScreen extends Component {
             loadMoreStepsText={t('loadMoreSteps')}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
-            onLoadMoreSteps={this.handleLoadMoreSteps}
+            onLoadMoreSteps={this.handleLoadSteps}
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}

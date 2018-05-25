@@ -10,20 +10,17 @@ import {
   ORG_PERMISSIONS,
 } from '../constants';
 
-export const getFourRandomItems = (arr, currentItems = []) => {
+export const getFourRandomItems = arr => {
   if (!arr) {
     return [];
   }
-  let searchArray = arr;
-  if (currentItems.length > 0) {
-    searchArray = arr.filter(o => !currentItems.includes(o));
-  }
-  const items = currentItems;
-  const numItems = searchArray.length >= 4 ? 4 : searchArray.length;
+
+  const items = [];
+  const numItems = arr.length >= 4 ? 4 : arr.length;
 
   let x = 0;
   while (x < numItems) {
-    const item = searchArray[Math.floor(Math.random() * arr.length)];
+    const item = arr[Math.floor(Math.random() * arr.length)];
 
     if (!items.includes(item)) {
       items.push(item);

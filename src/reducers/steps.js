@@ -4,6 +4,8 @@ import {
   TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
   FILTERED_CHALLENGES,
+  REMOVE_MY_SUGGESTIONS,
+  REMOVE_OTHER_SUGGESTIONS,
 } from '../constants';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
@@ -37,6 +39,7 @@ export function getPagination(state, action, steps) {
 }
 
 export default function stepsReducer(state = initialState, action) {
+  let contactStage, newSteps;
   switch (action.type) {
     case FILTERED_CHALLENGES:
       return {
@@ -44,8 +47,26 @@ export default function stepsReducer(state = initialState, action) {
         suggestedForMe: action.suggestedForMe,
         suggestedForOthers: action.suggestedForOthers,
       };
+    case REMOVE_MY_SUGGESTIONS:
+      contactStage = action.contactStage;
+      newSteps = action.newSteps;
+      return {
+        ...state,
+        suggestedForMe: state.suggestedForMe[contactStage.id].filter(
+          o => !newSteps.includes(o),
+        ),
+      };
+    case REMOVE_OTHER_SUGGESTIONS:
+      contactStage = action.contactStage;
+      newSteps = action.newSteps;
+      return {
+        ...state,
+        suggestedForOthers: state.suggestedForOthers[contactStage.id].filter(
+          o => !newSteps.includes(o),
+        ),
+      };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      const newSteps = action.results.response;
+      newSteps = action.results.response;
 
       // If we're doing paging, concat the old steps with the new ones
       const allSteps =
