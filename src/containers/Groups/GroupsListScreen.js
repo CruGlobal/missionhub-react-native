@@ -11,9 +11,9 @@ import { GROUP_SCREEN } from './GroupScreen';
 @translate('groupsList')
 export default class GroupsListScreen extends Component {
   // TODO: Remove this
-  componentDidMount() {
-    this.handlePress();
-  }
+  // componentDidMount() {
+  //   this.handlePress();
+  // }
 
   handlePress = () => {
     this.props.dispatch(

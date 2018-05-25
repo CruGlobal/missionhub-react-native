@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Translate(SearchList)
+    filters={Object {}}
+    listProps={
+      Object {
+        "renderItem": [Function],
+      }
+    }
+    onFilterPress={[Function]}
+    onRemoveFilter={[Function]}
+    onSearch={[Function]}
+    placeholder="Search Contacts"
+  />
+</Component>
+`;

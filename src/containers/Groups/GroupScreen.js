@@ -14,7 +14,7 @@ import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
 
-@connect((_, { navigation }) => ({ ...(navigation.state.params || {}) }))
+@connect()
 export class GroupScreen extends Component {
   customNavigate = () => {
     const { dispatch } = this.props;
@@ -22,7 +22,7 @@ export class GroupScreen extends Component {
   };
 
   render() {
-    const { organization } = this.props;
+    const { organization } = this.props.navigation.state.params || {};
     return (
       <Header
         left={<BackButton customNavigate={this.customNavigate} />}
