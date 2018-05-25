@@ -31,21 +31,20 @@ export default class Contacts extends Component {
   }
 
   handleFilterPress = () => {
-    LOG('press filter button');
+    // TODO: Navigate to the filters page, then change state when something is selected
     // TESTING
     this.setState({
       filters: {
-        test: { id: 'filter1', text: 'Last 30 days' },
-        test2: { id: 'filter2', text: 'Last 7 days' },
-        test3: { id: 'filter3', text: 'Filter 3' },
-        test4: { id: 'filter4', text: 'Filter 4' },
-        test5: { id: 'filter5', text: 'Filter 5' },
+        filter1: { id: 'filter1', text: 'Last 30 days' },
+        filter2: { id: 'filter2', text: 'Last 7 days' },
+        filter3: { id: 'filter3', text: 'Filter 3' },
+        filter4: { id: 'filter4', text: 'Filter 4' },
+        filter5: { id: 'filter5', text: 'Filter 5' },
       },
     });
   };
 
   handleSearch = text => {
-    LOG('searching', text);
     // TODO: Implement this
     return Promise.resolve([
       { id: '1', full_name: 'full name 1', isAssigned: false },
