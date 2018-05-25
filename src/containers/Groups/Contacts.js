@@ -3,8 +3,9 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Text } from '../../components/common';
+import { Separator } from '../../components/common';
 import SearchList from '../../components/SearchList';
+import ContactItem from '../../components/ContactItem';
 
 @connect()
 @translate('groupsContacts')
@@ -45,12 +46,17 @@ export default class Contacts extends Component {
 
   handleSearch = text => {
     LOG('searching', text);
+    // TODO: Implement this
     return Promise.resolve([
-      { id: 1, text: 'number 1' },
-      { id: 2, text: 'number 2' },
-      { id: 3, text: 'number 3' },
-      { id: 4, text: 'number 4' },
+      { id: '1', full_name: 'full name 1', isAssigned: false },
+      { id: '2', full_name: 'full name 2', isAssigned: false },
+      { id: '3', full_name: 'full name 3', isAssigned: true },
+      { id: '4', full_name: 'full name 4', isAssigned: false },
     ]);
+  };
+
+  handleSelect = item => {
+    LOG('selected item', item);
   };
 
   render() {
@@ -61,7 +67,12 @@ export default class Contacts extends Component {
         <SearchList
           onFilterPress={this.handleFilterPress}
           listProps={{
-            renderItem: ({ item }) => <Text>{item.text}</Text>,
+            renderItem: ({ item }) => (
+              <ContactItem contact={item} onSelect={this.handleSelect} />
+            ),
+            ItemSeparatorComponent: (sectionID, rowID) => (
+              <Separator key={rowID} />
+            ),
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}

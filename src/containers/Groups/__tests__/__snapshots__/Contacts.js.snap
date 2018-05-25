@@ -12,6 +12,7 @@ exports[`should render correctly 1`] = `
     filters={Object {}}
     listProps={
       Object {
+        "ItemSeparatorComponent": [Function],
         "renderItem": [Function],
       }
     }

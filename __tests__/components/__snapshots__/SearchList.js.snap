@@ -36,7 +36,8 @@ exports[`renders filters 1`] = `
           Object {
             "backgroundColor": "#ffffff",
             "borderRadius": 25,
-            "paddingHorizontal": 13,
+            "paddingLeft": 13,
+            "paddingRight": 5,
           }
         }
         value={1}
@@ -328,7 +329,8 @@ exports[`renders search list 1`] = `
           Object {
             "backgroundColor": "#ffffff",
             "borderRadius": 25,
-            "paddingHorizontal": 13,
+            "paddingLeft": 13,
+            "paddingRight": 5,
           }
         }
         value={1}

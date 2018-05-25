@@ -405,4 +405,7 @@ export default {
   groupsSurveys: {
     title: '',
   },
+  contactItem: {
+    unassigned: 'Unassigned',
+  },
 };

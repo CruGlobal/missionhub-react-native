@@ -17,7 +17,8 @@ export default StyleSheet.create({
     paddingRight: 5,
   },
   inputWrap: {
-    paddingHorizontal: 13,
+    paddingRight: 5,
+    paddingLeft: 13,
     backgroundColor: theme.white,
     borderRadius: 25,
   },
@@ -29,8 +30,8 @@ export default StyleSheet.create({
     color: theme.grey2,
   },
   clearIcon: {
-    paddingHorizontal: 5,
     fontSize: 16,
+    color: theme.grey2,
   },
   filterButton: {
     color: theme.grey2,

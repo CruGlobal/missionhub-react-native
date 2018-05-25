@@ -84,7 +84,7 @@ class SearchList extends Component {
           placeholder={placeholder || t('inputPlaceholder')}
           placeholderTextColor={theme.grey1}
         />
-        {this.state.text ? (
+        {text ? (
           <IconButton
             name="cancelIcon"
             type="MissionHub"
@@ -124,7 +124,7 @@ class SearchList extends Component {
   }
 
   renderContent() {
-    const { t } = this.props;
+    const { t, listProps } = this.props;
     const { results, text, isSearching } = this.state;
     if (isSearching && results.length === 0) {
       return (
@@ -156,7 +156,7 @@ class SearchList extends Component {
         style={styles.list}
         data={results}
         keyExtractor={i => i.unique_key || i.id}
-        {...this.props.listProps}
+        {...listProps}
       />
     );
   }
