@@ -166,7 +166,7 @@ export default {
     addStep: 'ADD TO MY STEPS',
     createStep: 'Create your own step...',
     loadMoreSteps: 'SHOW MORE STEPS',
-    stepsOfFaith: 'Steps of Faith',
+    stepsOfFaith: 'Add Steps of Faith',
   },
   selectStage: {
     meQuestion:
