@@ -13,7 +13,12 @@ export class BackButton extends Component {
   render() {
     const { dispatch, customNavigate, absolute, style } = this.props;
     return (
-      <Flex self="start" align="start" justify="center" style={[ style || null, absolute ? styles.absoluteTopLeft : null ]}>
+      <Flex
+        self="start"
+        align="start"
+        justify="center"
+        style={[style || null, absolute ? styles.absoluteTopLeft : null]}
+      >
         <IconButton
           name="backIcon"
           type="MissionHub"

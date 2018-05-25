@@ -18,7 +18,7 @@ export default StyleSheet.create({
     color: 'white',
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
-    letterSpacing: .25,
+    letterSpacing: 0.25,
     borderBottomColor: PRIMARY_HEADER_COLOR,
   },
 });

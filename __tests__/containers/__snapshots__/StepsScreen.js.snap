@@ -2,7 +2,6 @@
 
 exports[`StepsScreen mapStateToProps should provide the necessary props 1`] = `
 Object {
-  "areNotificationsOff": true,
   "hasMoreSteps": true,
   "pushtoken": "",
   "reminders": Array [
@@ -11,7 +10,6 @@ Object {
       "reminder": true,
     },
   ],
-  "showNotificationReminder": true,
   "showStepBump": true,
   "showStepReminderBump": true,
   "steps": Array [

@@ -11,47 +11,75 @@ import { reloadJourney } from '../../actions/journey';
 
 import styles from './styles';
 
-const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter((i) => i.isOnAction);
+const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(i => i.isOnAction);
 
 @translate('actions')
 export class ContactActions extends Component {
-
-  handleInteraction = async(item, text) => {
+  handleInteraction = async (item, text) => {
     const { dispatch, person, organization } = this.props;
-    await dispatch(addNewInteraction(person.id, item, text, organization && organization.id));
+    await dispatch(
+      addNewInteraction(person.id, item, text, organization && organization.id),
+    );
     dispatch(reloadJourney(person.id, organization.id));
   };
 
-  handleCreateInteraction = (item) => {
-    this.props.dispatch(navigatePush(ADD_STEP_SCREEN, {
-      onComplete: (text) => this.handleInteraction(item, text),
-      type: 'interaction',
-      hideSkip: item.id === INTERACTION_TYPES.MHInteractionTypeNote.id,
-    }));
+  handleCreateInteraction = item => {
+    this.props.dispatch(
+      navigatePush(ADD_STEP_SCREEN, {
+        onComplete: text => this.handleInteraction(item, text),
+        type: 'interaction',
+        hideSkip: item.id === INTERACTION_TYPES.MHInteractionTypeNote.id,
+      }),
+    );
   };
 
-  renderIcons = (item) => {
+  renderIcons = item => {
     const { t } = this.props;
 
     return (
-      <Flex key={item.id} direction="column" align="center" justify="start" style={styles.rowWrap}>
-        <Touchable onPress={() => this.handleCreateInteraction(item)} style={styles.iconBtn}>
-          <Flex self="stretch" align="center" justify="center" style={styles.iconWrap}>
-            <Icon name={item.iconName} type="MissionHub" style={[ styles.icon, item.iconName === 'commentIcon' ? styles.commentIcon : {} ]} />
+      <Flex
+        key={item.id}
+        direction="column"
+        align="center"
+        justify="start"
+        style={styles.rowWrap}
+      >
+        <Touchable
+          onPress={() => this.handleCreateInteraction(item)}
+          style={styles.iconBtn}
+        >
+          <Flex
+            self="stretch"
+            align="center"
+            justify="center"
+            style={styles.iconWrap}
+          >
+            <Icon
+              name={item.iconName}
+              type="MissionHub"
+              style={[
+                styles.icon,
+                item.iconName === 'commentIcon' ? styles.commentIcon : {},
+              ]}
+            />
           </Flex>
         </Touchable>
         <Text style={styles.text}>{t(item.translationKey)}</Text>
       </Flex>
     );
-  }
+  };
 
   render() {
     return (
-      <Flex direction="row" wrap="wrap" align="center" justify="center" style={styles.container}>
-        <Flex direction="row" wrap="wrap" align="start" justify="center" >
-          {
-            ACTION_ITEMS.map(this.renderIcons)
-          }
+      <Flex
+        direction="row"
+        wrap="wrap"
+        align="center"
+        justify="center"
+        style={styles.container}
+      >
+        <Flex direction="row" wrap="wrap" align="start" justify="center">
+          {ACTION_ITEMS.map(this.renderIcons)}
         </Flex>
       </Flex>
     );

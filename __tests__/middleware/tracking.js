@@ -1,9 +1,17 @@
+import { DrawerActions } from 'react-navigation';
 import configureStore from 'redux-mock-store';
 
 import {
-  CONTACT_MENU_DRAWER, CONTACT_TAB_CHANGED, DRAWER_OPEN, IMPACT_TAB, MAIN_MENU_DRAWER, MAIN_TAB_CHANGED, NAVIGATE_BACK,
+  CONTACT_MENU_DRAWER,
+  CONTACT_TAB_CHANGED,
+  IMPACT_TAB,
+  MAIN_MENU_DRAWER,
+  MAIN_TAB_CHANGED,
+  NAVIGATE_BACK,
   NAVIGATE_FORWARD,
-  NAVIGATE_RESET, PEOPLE_TAB, STEPS_TAB,
+  NAVIGATE_RESET,
+  PEOPLE_TAB,
+  STEPS_TAB,
 } from '../../src/constants';
 import tracking from '../../src/middleware/tracking';
 import { stepsTab, trackableScreens } from '../../src/AppRoutes';
@@ -15,7 +23,7 @@ import { trackState } from '../../src/actions/analytics';
 
 jest.mock('../../src/actions/analytics');
 
-const mockStore = configureStore([ tracking ]);
+const mockStore = configureStore([tracking]);
 let store;
 
 const routeName = 'test route';
@@ -31,7 +39,7 @@ beforeEach(() => {
 });
 
 describe('navigate forward', () => {
-  beforeEach(() => store = mockStore());
+  beforeEach(() => (store = mockStore()));
 
   it('tracks screenname when navigating', () => {
     const tracking = { name: 'test : forward' };
@@ -41,7 +49,7 @@ describe('navigate forward', () => {
     store.dispatch(navigationAction);
 
     expect(trackState).toHaveBeenCalledWith(tracking);
-    expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+    expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
   });
 
   describe('to contact screen', () => {
@@ -53,14 +61,20 @@ describe('navigate forward', () => {
           },
         },
       });
-      navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: 1 } } };
+      navigationAction = {
+        type: NAVIGATE_FORWARD,
+        routeName: CONTACT_SCREEN,
+        params: { person: { id: 1 } },
+      };
 
       store.dispatch(navigationAction);
 
       expect(trackState).toHaveBeenCalledWith(PERSON_STEPS);
-      expect(store.getActions()).toEqual([ navigationAction,
+      expect(store.getActions()).toEqual([
+        navigationAction,
         { type: CONTACT_TAB_CHANGED, newActiveTab: PERSON_STEPS },
-        trackStateResult ]);
+        trackStateResult,
+      ]);
     });
 
     it('tracks self steps', () => {
@@ -72,14 +86,20 @@ describe('navigate forward', () => {
           },
         },
       });
-      navigationAction = { type: NAVIGATE_FORWARD, routeName: CONTACT_SCREEN, params: { person: { id: id } } };
+      navigationAction = {
+        type: NAVIGATE_FORWARD,
+        routeName: CONTACT_SCREEN,
+        params: { person: { id: id } },
+      };
 
       store.dispatch(navigationAction);
 
       expect(trackState).toHaveBeenCalledWith(SELF_STEPS);
-      expect(store.getActions()).toEqual([ navigationAction,
+      expect(store.getActions()).toEqual([
+        navigationAction,
         { type: CONTACT_TAB_CHANGED, newActiveTab: SELF_STEPS },
-        trackStateResult ]);
+        trackStateResult,
+      ]);
     });
 
     it('updates active main tab for steps tab', () => {
@@ -87,9 +107,11 @@ describe('navigate forward', () => {
 
       store.dispatch(navigationAction);
 
-      expect(store.getActions()).toEqual([ navigationAction,
+      expect(store.getActions()).toEqual([
+        navigationAction,
         { type: MAIN_TAB_CHANGED, newActiveTab: stepsTab },
-        trackStateResult ]);
+        trackStateResult,
+      ]);
     });
 
     it('updates active main tab for people tab', () => {
@@ -97,9 +119,14 @@ describe('navigate forward', () => {
 
       store.dispatch(navigationAction);
 
-      expect(store.getActions()).toEqual([ navigationAction,
-        { type: MAIN_TAB_CHANGED, newActiveTab: buildTrackingObj('people', 'people') },
-        trackStateResult ]);
+      expect(store.getActions()).toEqual([
+        navigationAction,
+        {
+          type: MAIN_TAB_CHANGED,
+          newActiveTab: buildTrackingObj('people', 'people'),
+        },
+        trackStateResult,
+      ]);
     });
 
     it('updates active main tab for impact tab', () => {
@@ -107,19 +134,30 @@ describe('navigate forward', () => {
 
       store.dispatch(navigationAction);
 
-      expect(store.getActions()).toEqual([ navigationAction,
-        { type: MAIN_TAB_CHANGED, newActiveTab: buildTrackingObj('impact', 'impact') },
-        trackStateResult ]);
+      expect(store.getActions()).toEqual([
+        navigationAction,
+        {
+          type: MAIN_TAB_CHANGED,
+          newActiveTab: buildTrackingObj('impact', 'impact'),
+        },
+        trackStateResult,
+      ]);
     });
   });
 
   describe('to drawer', () => {
     beforeEach(() => {
-      navigationAction = { type: NAVIGATE_FORWARD, routeName: DRAWER_OPEN, params: { drawer: MAIN_MENU_DRAWER } };
+      navigationAction = {
+        type: DrawerActions.OPEN_DRAWER,
+        drawer: MAIN_MENU_DRAWER,
+      };
     });
 
-    it('tracks nothing if actionParams are missing', () => {
-      navigationAction.params = undefined;
+    it('tracks nothing if drawer is not specified', () => {
+      navigationAction = {
+        ...navigationAction,
+        drawer: undefined,
+      };
 
       store.dispatch(navigationAction);
 
@@ -127,33 +165,57 @@ describe('navigate forward', () => {
     });
 
     it('tracks main menu drawer', () => {
-      navigationAction.params = { drawer: MAIN_MENU_DRAWER };
+      navigationAction = {
+        ...navigationAction,
+        drawer: MAIN_MENU_DRAWER,
+      };
 
       store.dispatch(navigationAction);
 
       expect(trackState).toHaveBeenCalledWith(buildTrackingObj('menu', 'menu'));
-      expect(store.getActions()).toEqual([ navigationAction,
-        trackStateResult,
-      ]);
+      expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
     });
 
     describe('contact drawer', () => {
       it('tracks self menu', () => {
-        navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: false };
+        navigationAction = {
+          ...navigationAction,
+          drawer: CONTACT_MENU_DRAWER,
+          isCurrentUser: false,
+        };
 
         store.dispatch(navigationAction);
 
-        expect(trackState).toHaveBeenCalledWith(buildTrackingObj('people : person : menu', 'people', 'person', 'menu'));
-        expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+        expect(trackState).toHaveBeenCalledWith(
+          buildTrackingObj(
+            'people : person : menu',
+            'people',
+            'person',
+            'menu',
+          ),
+        );
+        expect(store.getActions()).toEqual([
+          navigationAction,
+          trackStateResult,
+        ]);
       });
 
       it('tracks person menu', () => {
-        navigationAction.params = { drawer: CONTACT_MENU_DRAWER, isCurrentUser: true };
+        navigationAction = {
+          ...navigationAction,
+          drawer: CONTACT_MENU_DRAWER,
+          isCurrentUser: true,
+        };
 
         store.dispatch(navigationAction);
 
-        expect(trackState).toHaveBeenCalledWith(buildTrackingObj('people : self : menu', 'people', 'self', 'menu'));
-        expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+        expect(trackState).toHaveBeenCalledWith(
+          buildTrackingObj('people : self : menu', 'people', 'self', 'menu'),
+        );
+        expect(store.getActions()).toEqual([
+          navigationAction,
+          trackStateResult,
+        ]);
       });
     });
   });
@@ -163,24 +225,30 @@ describe('navigate reset', () => {
   it('tracks screen', () => {
     store = mockStore();
     const tracking = { name: 'test : reset' };
-    navigationAction = { type: NAVIGATE_RESET, actions: [ { routeName: routeName } ] };
+    navigationAction = {
+      type: NAVIGATE_RESET,
+      actions: [{ routeName: routeName }],
+    };
     trackableScreens[routeName] = { tracking: tracking };
 
     store.dispatch(navigationAction);
 
     expect(trackState).toHaveBeenCalledWith(tracking);
-    expect(store.getActions()).toEqual([ navigationAction, trackStateResult ]);
+    expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
   });
 });
 
 it('tracks screen when navigating back', () => {
-  store = mockStore({ nav: {
-    routes: [ { routeName: SEARCH_SCREEN } ],
-  } });
+  store = mockStore({
+    nav: {
+      routes: [{ routeName: SEARCH_SCREEN }],
+    },
+  });
 
   store.dispatch(back);
 
-  expect(trackState).toHaveBeenCalledWith(trackableScreens[SEARCH_SCREEN].tracking);
-  expect(store.getActions()).toEqual([ back, trackStateResult ]);
+  expect(trackState).toHaveBeenCalledWith(
+    trackableScreens[SEARCH_SCREEN].tracking,
+  );
+  expect(store.getActions()).toEqual([back, trackStateResult]);
 });
-

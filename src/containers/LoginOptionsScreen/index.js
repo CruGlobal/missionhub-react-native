@@ -4,7 +4,13 @@ import { Image, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { firstTime, openKeyURL } from '../../actions/auth';
-import { Text, Button, Flex, Icon, LoadingWheel } from '../../components/common';
+import {
+  Text,
+  Button,
+  Flex,
+  Icon,
+  LoadingWheel,
+} from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
@@ -14,7 +20,6 @@ import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
 import styles from './styles';
-
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -32,7 +37,9 @@ class LoginOptionsScreen extends Component {
   }
 
   login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN, { upgradeAccount: this.props.upgradeAccount });
+    this.navigateToNext(KEY_LOGIN_SCREEN, {
+      upgradeAccount: this.props.upgradeAccount,
+    });
   }
 
   tryItNow() {
@@ -40,7 +47,7 @@ class LoginOptionsScreen extends Component {
     this.navigateToNext(WELCOME_SCREEN);
   }
 
-  navigateToNext(nextScreen, props = {} ) {
+  navigateToNext(nextScreen, props = {}) {
     this.props.dispatch(navigatePush(nextScreen, props));
   }
 
@@ -49,12 +56,24 @@ class LoginOptionsScreen extends Component {
   };
 
   emailSignUp() {
-    this.props.dispatch(openKeyURL('login?action=signup', this.startLoad, this.props.upgradeAccount));
+    this.props.dispatch(
+      openKeyURL(
+        'login?action=signup',
+        this.startLoad,
+        this.props.upgradeAccount,
+      ),
+    );
   }
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
-    dispatch(facebookLoginWithUsernamePassword(upgradeAccount || false, this.startLoad, onSuccessfulLogin)).then((result) => {
+    dispatch(
+      facebookLoginWithUsernamePassword(
+        upgradeAccount || false,
+        this.startLoad,
+        onSuccessfulLogin,
+      ),
+    ).then(result => {
       if (result) {
         this.setState({ isLoading: true });
       } else {
@@ -72,7 +91,13 @@ class LoginOptionsScreen extends Component {
           <Flex value={1} align="center" justify="center">
             <Image source={LOGO} />
           </Flex>
-          <Flex value={1.2} align="center" justify="start" self="stretch" style={styles.buttonWrapper}>
+          <Flex
+            value={1.2}
+            align="center"
+            justify="start"
+            self="stretch"
+            style={styles.buttonWrapper}
+          >
             <Flex value={4} direction="column" self="stretch" align="center">
               <Button
                 name={'facebookButton'}
@@ -82,8 +107,15 @@ class LoginOptionsScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
-                  <Icon name="facebookIcon" size={21} type="MissionHub" style={styles.icon} />
-                  <Text style={styles.buttonText}>{t('facebookSignup').toUpperCase()}</Text>
+                  <Icon
+                    name="facebookIcon"
+                    size={21}
+                    type="MissionHub"
+                    style={styles.icon}
+                  />
+                  <Text style={styles.buttonText}>
+                    {t('facebookSignup').toUpperCase()}
+                  </Text>
                 </Flex>
               </Button>
               <Button
@@ -94,22 +126,27 @@ class LoginOptionsScreen extends Component {
                 buttonTextStyle={styles.buttonText}
               >
                 <Flex direction="row">
-                  <Icon name="emailIcon2" size={21} type="MissionHub" style={styles.icon} />
-                  <Text style={styles.buttonText}>{t('emailSignUp').toUpperCase()}</Text>
+                  <Icon
+                    name="emailIcon2"
+                    size={21}
+                    type="MissionHub"
+                    style={styles.icon}
+                  />
+                  <Text style={styles.buttonText}>
+                    {t('emailSignUp').toUpperCase()}
+                  </Text>
                 </Flex>
               </Button>
-              {
-                upgradeAccount ? null : (
-                  <Button
-                    name={'tryItNowButton'}
-                    pill={true}
-                    onPress={this.tryItNow}
-                    text={t('tryNow').toUpperCase()}
-                    style={styles.tryButton}
-                    buttonTextStyle={styles.buttonText}
-                  />
-                )
-              }
+              {upgradeAccount ? null : (
+                <Button
+                  name={'tryItNowButton'}
+                  pill={true}
+                  onPress={this.tryItNow}
+                  text={t('tryNow').toUpperCase()}
+                  style={styles.tryButton}
+                  buttonTextStyle={styles.buttonText}
+                />
+              )}
               <Flex direction="column">
                 <Text style={styles.termsText}>{t('terms')}</Text>
                 <Flex direction="row" align="center" justify="center">
@@ -128,7 +165,6 @@ class LoginOptionsScreen extends Component {
                   />
                 </Flex>
               </Flex>
-
             </Flex>
 
             <Flex value={1} align="end" direction="row">
@@ -143,7 +179,7 @@ class LoginOptionsScreen extends Component {
             </Flex>
           </Flex>
         </Flex>
-        {this.state.isLoading ? <LoadingWheel /> : null }
+        {this.state.isLoading ? <LoadingWheel /> : null}
       </Flex>
     );
   }
@@ -152,7 +188,6 @@ class LoginOptionsScreen extends Component {
 const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
-
 
 export default connect(mapStateToProps)(LoginOptionsScreen);
 export const LOGIN_OPTIONS_SCREEN = 'nav/LOGIN_OPTIONS';

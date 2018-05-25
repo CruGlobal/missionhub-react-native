@@ -29,7 +29,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     color: theme.white,
     lineHeight: 24,
-    letterSpacing: .25,
+    letterSpacing: 0.25,
   },
   backButton: {
     marginLeft: 5,

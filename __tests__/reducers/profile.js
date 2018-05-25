@@ -1,7 +1,7 @@
 import profile from '../../src/reducers/profile';
 import { REQUESTS } from '../../src/actions/api';
 
-const testNameSaved = (type) => {
+const testNameSaved = type => {
   const firstName = 'Roger';
   const lastName = 'Goers';
 
@@ -13,7 +13,7 @@ const testNameSaved = (type) => {
         first_name: firstName,
         last_name: lastName,
       },
-    }
+    },
   );
 
   expect(state.firstName).toBe(firstName);

@@ -3,101 +3,80 @@ import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
 
-import { MAIN_TABS } from '../constants';
 import {
-  PUSH_NOTIFICATION_ASKED,
-  PUSH_NOTIFICATION_SHOULD_ASK,
-  PUSH_NOTIFICATION_REMINDER,
-  DISABLE_WELCOME_NOTIFICATION,
-  GCM_SENDER_ID,
+  LOAD_HOME_NOTIFICATION_REMINDER,
+  MAIN_TABS,
+  REQUEST_NOTIFICATIONS,
 } from '../constants';
+import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
-import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
+import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
 import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
+import { hasReminderStepsSelector } from '../selectors/steps';
 
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi from './api';
 import { REQUESTS } from './api';
 
-
-export function disableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: false,
-  };
-}
-
-export function enableAskPushNotification() {
-  return {
-    type: PUSH_NOTIFICATION_SHOULD_ASK,
-    bool: true,
-  };
-}
-
-export function noNotificationReminder(showReminder = false) {
-  return {
-    type: PUSH_NOTIFICATION_REMINDER,
-    bool: showReminder,
-  };
-}
-
-export function showReminderScreen() {
+export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {
-    const { hasAsked, pushDevice, showReminder } = getState().notifications;
+    const { pushDevice, requestedNativePermissions } = getState().notifications;
 
     // Android does not need to ask for notification permissions
     if (isAndroid) {
-      return dispatch(registerNotificationHandler());
-    }
-
-    if (pushDevice.token || !showReminder) { return; }
-
-    if (hasAsked) {
-      PushNotification.checkPermissions((permission) => {
-        const hasAllowedPermission = permission && permission.alert;
-        if (hasAllowedPermission) { return; }
-
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN, {
-          onClose: (askUser) => {
-            if (askUser) {
-              dispatch(enableAskPushNotification());
-              dispatch(registerNotificationHandler());
-            } else {
-              dispatch(noNotificationReminder());
-            }
-            dispatch(navigateBack());
-          },
-        }));
-      });
       return;
     }
-    // If none of the other cases hit, show allow/not allow page
-    dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-      onComplete: () => dispatch(navigateBack()),
-    }));
-  };
-}
 
-export function reregisterNotificationHandler() {
-  return (dispatch) => {
-    if (isAndroid) {
-      return dispatch(registerNotificationHandler());
+    if (pushDevice.token) {
+      return;
     }
 
-    PushNotification.checkPermissions((permission) => {
-      const hasAllowedPermission = permission && permission.alert;
-      if (hasAllowedPermission) {
-        dispatch(registerNotificationHandler());
+    PushNotification.checkPermissions(permission => {
+      const permissionsEnabled = permission && permission.alert;
+      if (permissionsEnabled) {
+        return;
+      }
+
+      if (requestedNativePermissions) {
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+      } else {
+        // If none of the other cases hit, show allow/not allow page
+        dispatch(
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+            onComplete: () => dispatch(navigateBack()),
+            descriptionText,
+          }),
+        );
       }
     });
   };
 }
 
-export function registerNotificationHandler() {
-  return async(dispatch, getState) => {
+export function showReminderOnLoad() {
+  return (dispatch, getState) => {
+    if (getState().notifications.showReminderOnLoad) {
+      dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
+      if (hasReminderStepsSelector({ steps: getState().steps })) {
+        dispatch(
+          showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
+        );
+      }
+    }
+  };
+}
+
+export function requestNativePermissions() {
+  return async dispatch => {
+    dispatch({ type: REQUEST_NOTIFICATIONS });
+    return await PushNotification.requestPermissions();
+  };
+}
+
+export function configureNotificationHandler() {
+  return (dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
         const { pushDevice } = getState().notifications;
@@ -119,16 +98,11 @@ export function registerNotificationHandler() {
       // we manually call this after to have access to a promise for the iOS prompt
       requestPermissions: false,
     });
-
-    dispatch({ type: PUSH_NOTIFICATION_ASKED });
-
-    return await PushNotification.requestPermissions();
   };
 }
 
 function handleNotification(notification) {
-  return async(dispatch, getState) => {
-
+  return async (dispatch, getState) => {
     if (!notification.userInteraction) {
       // notification was not opened by the user from the notification area
       // so we do not need to navigate anywhere
@@ -137,7 +111,9 @@ function handleNotification(notification) {
 
     const { isJean, person: me } = getState().auth;
 
-    const { screen, person, organization } = parseNotificationData(notification);
+    const { screen, person, organization } = parseNotificationData(
+      notification,
+    );
 
     switch (screen) {
       case 'home':
@@ -145,14 +121,27 @@ function handleNotification(notification) {
         return dispatch(navigateReset(MAIN_TABS));
       case 'person_steps':
         if (person) {
-          const { person: loadedPerson } = await dispatch(getPersonDetails(person, organization));
-          return dispatch(navigatePush(CONTACT_SCREEN, { person: loadedPerson, organization: { id: organization } }));
+          const { person: loadedPerson } = await dispatch(
+            getPersonDetails(person, organization),
+          );
+          return dispatch(
+            navigatePush(CONTACT_SCREEN, {
+              person: loadedPerson,
+              organization: { id: organization },
+            }),
+          );
         }
         return;
       case 'my_steps':
         return dispatch(navigatePush(CONTACT_SCREEN, { person: me }));
       case 'add_a_person':
-        return dispatch(navigatePush(ADD_CONTACT_SCREEN, { isJean, organization: { id: organization }, onComplete: () => dispatch(navigateReset(MAIN_TABS)) }));
+        return dispatch(
+          navigatePush(ADD_CONTACT_SCREEN, {
+            isJean,
+            organization: { id: organization },
+            onComplete: () => dispatch(navigateReset(MAIN_TABS)),
+          }),
+        );
     }
   };
 }
@@ -172,16 +161,13 @@ function parseNotificationData(notification) {
 }
 
 function registerPushDevice(token) {
-  return (dispatch) => {
-
+  return dispatch => {
     const data = {
       data: {
         type: 'push_notification_device_token',
         attributes: {
           token,
-          platform: isAndroid ?
-            'GCM' :
-            Config.APNS_MODE,
+          platform: isAndroid ? 'GCM' : Config.APNS_MODE,
         },
       },
     };
@@ -226,7 +212,8 @@ export function showWelcomeNotification() {
 export function toast(text, duration) {
   return () => {
     if (isAndroid) {
-      const toastDuration = duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
+      const toastDuration =
+        duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
       ToastAndroid.show(text, toastDuration);
     }
   };

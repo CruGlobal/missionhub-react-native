@@ -1,22 +1,41 @@
-import 'react-native';
-import { Alert } from 'react-native';
 import React from 'react';
+import { Alert } from 'react-native';
+import { DrawerActions } from 'react-navigation';
+jest.mock('react-navigation', () => ({
+  DrawerActions: {
+    closeDrawer: jest.fn(),
+  },
+}));
 
-import { ContactSideMenu, mapStateToProps } from '../src/components/ContactSideMenu';
+import {
+  ContactSideMenu,
+  mapStateToProps,
+} from '../src/components/ContactSideMenu';
 import { renderShallow, testSnapshotShallow } from '../testUtils';
 import { ADD_CONTACT_SCREEN } from '../src/containers/AddContactScreen';
 import { navigatePush, navigateBack } from '../src/actions/navigation';
-import { updateFollowupStatus, createContactAssignment, deleteContactAssignment } from '../src/actions/person';
-import { personSelector, contactAssignmentSelector, orgPermissionSelector } from '../src/selectors/people';
-import { DRAWER_CLOSE } from '../src/constants';
+import {
+  updateFollowupStatus,
+  createContactAssignment,
+  deleteContactAssignment,
+} from '../src/actions/person';
+import {
+  personSelector,
+  contactAssignmentSelector,
+  orgPermissionSelector,
+} from '../src/selectors/people';
 jest.mock('../src/actions/navigation');
 jest.mock('../src/actions/person');
 jest.mock('../src/actions/steps');
 jest.mock('../src/selectors/people');
 
-const dispatch = jest.fn((response) => Promise.resolve(response));
+const dispatch = jest.fn(response => Promise.resolve(response));
 const person = { id: 2, type: 'person', first_name: 'Test Fname' };
-const orgPermission = { id: 4, type: 'organizational_permission', followup_status: 'uncontacted' };
+const orgPermission = {
+  id: 4,
+  type: 'organizational_permission',
+  followup_status: 'uncontacted',
+};
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment' };
 const organization = { id: 1, type: 'organization' };
 
@@ -33,67 +52,69 @@ describe('contactSideMenu', () => {
       personSelector.mockReturnValue(person);
       contactAssignmentSelector.mockReturnValue(contactAssignment);
       orgPermissionSelector.mockReturnValue(orgPermission);
-      expect(mapStateToProps(
-        {
-          auth: {
-            isJean: true,
-            person: {
-              id: '1',
+      expect(
+        mapStateToProps(
+          {
+            auth: {
+              isJean: true,
+              person: {
+                id: '1',
+              },
             },
+            people: {},
           },
-          people: {},
-        },
-        {
-          navigation: {
-            state: {
-              params: {
-                person: {},
-                organization: organization,
+          {
+            navigation: {
+              state: {
+                params: {
+                  person: {},
+                  organization: organization,
+                },
               },
             },
           },
-        }
-      )).toMatchSnapshot();
+        ),
+      ).toMatchSnapshot();
     });
   });
 
   describe('componentWillUnmount', () => {
     beforeEach(() => {
-      deleteContactAssignment.mockImplementation((response) => Promise.resolve(response));
+      deleteContactAssignment.mockImplementation(response =>
+        Promise.resolve(response),
+      );
     });
-    it('should delete person if deleteOnUnmount is set', async() => {
+    it('should delete person if deleteOnUnmount is set', async () => {
       const instance = renderShallow(
         <ContactSideMenu
           dispatch={dispatch}
           person={{
             ...person,
-            received_challenges: [
-              { id: 1 },
-              { id: 2 },
-            ],
+            received_challenges: [{ id: 1 }, { id: 2 }],
           }}
           contactAssignment={contactAssignment}
           organization={organization}
-        />
+        />,
       ).instance();
       instance.deleteOnUnmount = true;
       await instance.componentWillUnmount();
-      expect(deleteContactAssignment).toHaveBeenCalledWith(contactAssignment.id, person.id, organization.id);
+      expect(deleteContactAssignment).toHaveBeenCalledWith(
+        contactAssignment.id,
+        person.id,
+        organization.id,
+      );
     });
-    it('should do nothing if deleteOnUnmount is not set', async() => {
+    it('should do nothing if deleteOnUnmount is not set', async () => {
       const instance = renderShallow(
         <ContactSideMenu
           dispatch={dispatch}
           person={{
             ...person,
-            received_challenges: [
-              { id: 1 },
-              { id: 2 },
-            ],
+            received_challenges: [{ id: 1 }, { id: 2 }],
           }}
           contactAssignment={contactAssignment}
           organization={organization}
-        />
+        />,
       ).instance();
       await instance.componentWillUnmount();
       expect(deleteContactAssignment).not.toHaveBeenCalled();
@@ -109,7 +130,7 @@ describe('contactSideMenu', () => {
           personIsCurrentUser={false}
           person={person}
           contactAssignment={contactAssignment}
-        />
+        />,
       );
 
       testEditClick(component, false);
@@ -124,7 +145,7 @@ describe('contactSideMenu', () => {
           personIsCurrentUser={false}
           person={person}
           organization={organization}
-        />
+        />,
       );
 
       testEditClick(component, false);
@@ -137,7 +158,7 @@ describe('contactSideMenu', () => {
           isJean={false}
           personIsCurrentUser={true}
           person={person}
-        />
+        />,
       );
 
       testEditClick(component, false);
@@ -152,7 +173,7 @@ describe('contactSideMenu', () => {
           isJean={true}
           personIsCurrentUser={true}
           person={person}
-        />
+        />,
       );
 
       testEditClick(component, true);
@@ -165,7 +186,7 @@ describe('contactSideMenu', () => {
           personIsCurrentUser={false}
           person={person}
           contactAssignment={contactAssignment}
-        />
+        />,
       );
 
       testEditClick(component, true);
@@ -180,7 +201,7 @@ describe('contactSideMenu', () => {
           person={person}
           contactAssignment={contactAssignment}
           orgPermission={orgPermission}
-        />
+        />,
       );
 
       testEditClick(component, true);
@@ -195,7 +216,7 @@ describe('contactSideMenu', () => {
           personIsCurrentUser={false}
           person={person}
           organization={organization}
-        />
+        />,
       );
 
       testEditClick(component, true);
@@ -212,16 +233,46 @@ describe('contactSideMenu', () => {
           person={person}
           orgPermission={orgPermission}
           organization={organization}
-        />
+        />,
       );
 
       testEditClick(component, true);
       testAssignClick(component);
-      testFollowupStatusClick(component, 'Attempted Contact', person, orgPermission.id, 'attempted_contact');
-      testFollowupStatusClick(component, 'Completed', person, orgPermission.id, 'completed');
-      testFollowupStatusClick(component, 'Contacted', person, orgPermission.id, 'contacted');
-      testFollowupStatusClick(component, 'Do Not Contact', person, orgPermission.id, 'do_not_contact');
-      testFollowupStatusClick(component, 'Uncontacted', person, orgPermission.id, 'uncontacted');
+      testFollowupStatusClick(
+        component,
+        'Attempted Contact',
+        person,
+        orgPermission.id,
+        'attempted_contact',
+      );
+      testFollowupStatusClick(
+        component,
+        'Completed',
+        person,
+        orgPermission.id,
+        'completed',
+      );
+      testFollowupStatusClick(
+        component,
+        'Contacted',
+        person,
+        orgPermission.id,
+        'contacted',
+      );
+      testFollowupStatusClick(
+        component,
+        'Do Not Contact',
+        person,
+        orgPermission.id,
+        'do_not_contact',
+      );
+      testFollowupStatusClick(
+        component,
+        'Uncontacted',
+        person,
+        orgPermission.id,
+        'uncontacted',
+      );
     });
 
     it('should hide followup status for Missionhub users', () => {
@@ -234,7 +285,7 @@ describe('contactSideMenu', () => {
           person={person}
           isMissionhubUser={false}
           organization={organization}
-        />
+        />,
       );
     });
   });
@@ -242,7 +293,7 @@ describe('contactSideMenu', () => {
 
 function testEditClick(component, isJean) {
   const props = component.props();
-  props.menuItems.filter((item) => item.label === 'Edit')[0].action();
+  props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
     isJean: isJean,
@@ -253,20 +304,28 @@ function testEditClick(component, isJean) {
 
 function testAssignClick(component) {
   const props = component.props();
-  props.menuItems.filter((item) => item.label === 'Assign')[0].action();
-  expect(createContactAssignment).toHaveBeenCalledWith(organization.id, 1, person.id);
+  props.menuItems.filter(item => item.label === 'Assign')[0].action();
+  expect(createContactAssignment).toHaveBeenCalledWith(
+    organization.id,
+    1,
+    person.id,
+  );
 }
 
 function testUnassignClick(component, deleteMode = false) {
   const props = component.props();
   Alert.alert = jest.fn();
-  props.menuItems.filter((item) => item.label === (deleteMode ? 'Delete Person' : 'Unassign'))[0].action();
+  props.menuItems
+    .filter(
+      item => item.label === (deleteMode ? 'Delete Person' : 'Unassign'),
+    )[0]
+    .action();
   expect(Alert.alert).toHaveBeenCalledTimes(1);
 
   //Manually call onPress
   Alert.alert.mock.calls[0][2][1].onPress();
   expect(component.instance().deleteOnUnmount).toEqual(true);
-  expect(navigatePush).toHaveBeenCalledWith(DRAWER_CLOSE);
+  expect(DrawerActions.closeDrawer).toHaveBeenCalled();
   expect(navigateBack).toHaveBeenCalledTimes(1);
 }
 
@@ -274,8 +333,18 @@ function testDeleteClick(component) {
   testUnassignClick(component, true);
 }
 
-function testFollowupStatusClick(component, label, person, orgPermissionId, serverValue) {
+function testFollowupStatusClick(
+  component,
+  label,
+  person,
+  orgPermissionId,
+  serverValue,
+) {
   const props = component.props();
-  props.menuItems.filter((item) => item.label === label)[0].action();
-  expect(updateFollowupStatus).toHaveBeenCalledWith(person, orgPermissionId, serverValue);
+  props.menuItems.filter(item => item.label === label)[0].action();
+  expect(updateFollowupStatus).toHaveBeenCalledWith(
+    person,
+    orgPermissionId,
+    serverValue,
+  );
 }

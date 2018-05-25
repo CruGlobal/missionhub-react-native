@@ -3,7 +3,11 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import SelectStepScreen from '../../src/containers/SelectStepScreen';
-import { renderShallow, createMockStore, testSnapshotShallow } from '../../testUtils';
+import {
+  renderShallow,
+  createMockStore,
+  testSnapshotShallow,
+} from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
 import { addSteps } from '../../src/actions/steps';
@@ -24,8 +28,12 @@ describe('SelectStepScreen', () => {
   let component, parallaxProps;
   beforeEach(() => {
     component = renderShallow(
-      <SelectStepScreen steps={[]} createStepTracking={{}} onComplete={() => {}} />,
-      store
+      <SelectStepScreen
+        steps={[]}
+        createStepTracking={{}}
+        onComplete={() => {}}
+      />,
+      store,
     );
     parallaxProps = component.find('ParallaxScrollView').props();
   });
@@ -38,15 +46,18 @@ describe('SelectStepScreen', () => {
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
   });
-
 });
 
 describe('renderSaveButton', () => {
   let component;
   beforeEach(() => {
     component = renderShallow(
-      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} />,
-      store
+      <SelectStepScreen
+        steps={[{ id: '1', selected: false }]}
+        createStepTracking={{}}
+        onComplete={() => {}}
+      />,
+      store,
     );
   });
   it('should not render save button', () => {
@@ -63,16 +74,19 @@ describe('renderBackButton', () => {
   let component;
   beforeEach(() => {
     component = renderShallow(
-      <SelectStepScreen steps={[ { id: '1', selected: false } ]} createStepTracking={{}} onComplete={() => {}} enableBackButton={true} />,
-      store
+      <SelectStepScreen
+        steps={[{ id: '1', selected: false }]}
+        createStepTracking={{}}
+        onComplete={() => {}}
+        enableBackButton={true}
+      />,
+      store,
     );
   });
   it('should render back button', () => {
     expect(component).toMatchSnapshot();
   });
 });
-
-
 
 describe('Navigation', () => {
   navigation.navigatePush = jest.fn();
@@ -81,9 +95,10 @@ describe('Navigation', () => {
   const createComponent = () => {
     const screen = renderShallow(
       <SelectStepScreen
-        steps={[ { id: '1', body: 'Test Step' } ]}
+        steps={[{ id: '1', body: 'Test Step' }]}
         onComplete={jest.fn()}
-        createStepTracking={createStepTracking} />,
+        createStepTracking={createStepTracking}
+      />,
       store,
     );
 
@@ -95,15 +110,16 @@ describe('Navigation', () => {
 
     component.handleCreateStep();
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(
-      ADD_STEP_SCREEN,
-      { type: CREATE_STEP, onComplete: expect.any(Function), trackingObj: createStepTracking }
-    );
+    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      onComplete: expect.any(Function),
+      trackingObj: createStepTracking,
+    });
   });
 });
 
 describe('saveAllSteps', () => {
-  it('should add the selected steps', async() => {
+  it('should add the selected steps', async () => {
     const onComplete = jest.fn();
     addSteps.mockReturnValue(Promise.resolve());
     const component = renderShallow(
@@ -124,7 +140,7 @@ describe('saveAllSteps', () => {
         onComplete={onComplete}
         createStepTracking={{}}
       />,
-      store
+      store,
     );
     const instance = component.instance();
     await instance.saveAllSteps();
@@ -137,7 +153,8 @@ describe('saveAllSteps', () => {
         },
       ],
       1,
-      { id: 2 });
+      { id: 2 },
+    );
     expect(onComplete).toHaveBeenCalled();
   });
 });

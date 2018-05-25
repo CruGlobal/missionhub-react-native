@@ -11,7 +11,8 @@ const requestObj = {
   },
 };
 
-const mockSessionHeader = 'afkljasdflasdfjkllkasdflkladsfnkjnldskjnlsdjoapjopfpjosadpjoadsjfojoadfsojpdsafjodasklnasdf';
+const mockSessionHeader =
+  'afkljasdflasdfjkllkasdflkladsfnkjnldskjnlsdjoapjopfpjosadpjoadsjfojoadfsojpdsafjodasklnasdf';
 let mockResponseBody;
 const mockResponse = {
   text: jest.fn(() => Promise.resolve(mockResponseBody)),
@@ -26,24 +27,42 @@ beforeEach(() => {
   mockResponse.headers.get.mockClear();
 });
 
-it('should return session header and empty response object if there was no body', async() => {
+it('should return session header and empty response object if there was no body', async () => {
   mockResponseBody = null;
 
-  const response = await request(requestObj.type, requestObj.url, requestObj.query, requestObj.data, undefined);
+  const response = await request(
+    requestObj.type,
+    requestObj.url,
+    requestObj.query,
+    requestObj.data,
+    undefined,
+  );
 
-  expect(response).toEqual({ jsonResponse: null, sessionHeader: mockSessionHeader });
+  expect(response).toEqual({
+    jsonResponse: null,
+    sessionHeader: mockSessionHeader,
+  });
   expect(mockResponse.text).toHaveBeenCalled();
   expect(mockResponse.headers.get).toHaveBeenCalledWith(sessionKey);
 });
 
-it('should return session header and response object if there was a body', async() => {
+it('should return session header and response object if there was a body', async () => {
   const responseField = 'newPerson';
   const responseValue = 'roger';
   mockResponseBody = `{ "${responseField}": "${responseValue}" }`;
 
-  const response = await request(requestObj.type, requestObj.url, requestObj.query, requestObj.data, undefined);
+  const response = await request(
+    requestObj.type,
+    requestObj.url,
+    requestObj.query,
+    requestObj.data,
+    undefined,
+  );
 
-  expect(response).toEqual({ jsonResponse: { [responseField]: responseValue }, sessionHeader: mockSessionHeader });
+  expect(response).toEqual({
+    jsonResponse: { [responseField]: responseValue },
+    sessionHeader: mockSessionHeader,
+  });
   expect(mockResponse.text).toHaveBeenCalled();
   expect(mockResponse.headers.get).toHaveBeenCalledWith(sessionKey);
 });

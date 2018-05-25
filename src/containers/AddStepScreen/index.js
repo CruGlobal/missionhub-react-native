@@ -4,9 +4,14 @@ import { Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-
 import { navigateBack } from '../../actions/navigation';
-import { Button, Text, PlatformKeyboardAvoidingView, Flex, Input } from '../../components/common';
+import {
+  Button,
+  Text,
+  PlatformKeyboardAvoidingView,
+  Flex,
+  Input,
+} from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
@@ -18,7 +23,6 @@ const characterLimit = 255;
 
 @translate('addStep')
 class AddStepScreen extends Component {
-
   constructor(props) {
     super(props);
 
@@ -42,7 +46,7 @@ class AddStepScreen extends Component {
     }
   }
 
-  onChangeText = (text) => {
+  onChangeText = text => {
     const { t, type } = this.props;
 
     this.setState({ step: text });
@@ -111,26 +115,24 @@ class AddStepScreen extends Component {
 
     return (
       <PlatformKeyboardAvoidingView>
-        {
-          type === STEP_NOTE || type === 'interaction' && !hideSkip ? (
-            <Flex align="end" justify="center">
-              <Button
-                type="transparent"
-                onPress={this.skip}
-                text={t('skip')}
-                style={styles.skipBtn}
-                buttonTextStyle={styles.skipBtnText}
-              />
-            </Flex>
-          ) : null
-        }
+        {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
+          <Flex align="end" justify="center">
+            <Button
+              type="transparent"
+              onPress={this.skip}
+              text={t('skip')}
+              style={styles.skipBtn}
+              buttonTextStyle={styles.skipBtnText}
+            />
+          </Flex>
+        ) : null}
         <Flex value={1.5} align="center" justify="center">
           {this.renderTitle()}
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
           <Input
-            ref={(c) => this.stepInput = c}
+            ref={c => (this.stepInput = c)}
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
@@ -140,7 +142,7 @@ class AddStepScreen extends Component {
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder=""
-            maxLength={type === CREATE_STEP ? characterLimit : undefined }
+            maxLength={type === CREATE_STEP ? characterLimit : undefined}
           />
         </Flex>
 
@@ -160,7 +162,13 @@ class AddStepScreen extends Component {
 
 AddStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
-  type: PropTypes.oneOf([ 'journey', 'editJourney', STEP_NOTE, CREATE_STEP, 'interaction' ]),
+  type: PropTypes.oneOf([
+    'journey',
+    'editJourney',
+    STEP_NOTE,
+    CREATE_STEP,
+    'interaction',
+  ]),
   isEdit: PropTypes.bool,
   hideSkip: PropTypes.bool,
   text: PropTypes.string,

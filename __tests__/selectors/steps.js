@@ -1,4 +1,8 @@
-import { reminderStepsSelector, nonReminderStepsSelector } from '../../src/selectors/steps';
+import {
+  reminderStepsSelector,
+  nonReminderStepsSelector,
+  hasReminderStepsSelector,
+} from '../../src/selectors/steps';
 
 const people = {
   allByOrg: {
@@ -36,14 +40,14 @@ const reminders = [
     receiver: {
       id: '20',
     },
-    reminder: true,
+    focus: true,
   },
   {
     id: '2',
     receiver: {
       id: '20',
     },
-    reminder: true,
+    focus: true,
   },
   {
     id: '3',
@@ -53,37 +57,52 @@ const reminders = [
     receiver: {
       id: '30',
     },
-    reminder: true,
+    focus: true,
+  },
+];
+
+const nonReminders = [
+  {
+    id: '4',
+    receiver: {
+      id: '20',
+    },
+  },
+  {
+    id: '5',
+    receiver: {
+      id: '20',
+    },
+  },
+  {
+    id: '6',
+    organization: {
+      id: '100',
+    },
+    receiver: {
+      id: '30',
+    },
   },
 ];
 
 const steps = {
-  reminders,
-  mine: [
-    ...reminders,
-    {
-      id: '4',
-      receiver: {
-        id: '20',
-      },
-    },
-    {
-      id: '5',
-      receiver: {
-        id: '20',
-      },
-    },
-    {
-      id: '6',
-      organization: {
-        id: '100',
-      },
-      receiver: {
-        id: '30',
-      },
-    },
-  ],
+  mine: [...reminders, ...nonReminders],
 };
+
+describe('hasReminderStepsSelector', () => {
+  it('should return true if reminder steps exist', () => {
+    expect(hasReminderStepsSelector({ steps })).toEqual(true);
+  });
+  it('should return false if no reminder steps exist', () => {
+    expect(
+      hasReminderStepsSelector({
+        steps: {
+          mine: nonReminders,
+        },
+      }),
+    ).toEqual(false);
+  });
+});
 
 describe('reminderStepsSelector', () => {
   it('should get reminder steps', () => {

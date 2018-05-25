@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import theme from '../src/theme';
 import { createMockStore, testSnapshot } from '../testUtils';
-import { MainTabRoutes, navItem } from '../src/AppRoutes';
+import { MainTabBar, MainTabBarGroups, navItem } from '../src/AppRoutes';
 
 const store = createMockStore({
   steps: {
@@ -23,8 +23,6 @@ const store = createMockStore({
   },
   notifications: {
     token: '',
-    hasAsked: false,
-    shouldAsk: true,
     showReminder: true,
     pushDeviceId: '',
   },
@@ -36,12 +34,20 @@ const store = createMockStore({
   },
 });
 
-
-it('renders home screen with tab bar correctly', () => {
+it('renders home screen with tab bar with impact tab correctly', () => {
   testSnapshot(
     <Provider store={store}>
-      <MainTabRoutes />
-    </Provider>);
+      <MainTabBar />
+    </Provider>,
+  );
+});
+
+it('renders home screen with tab bar with groups tab correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <MainTabBarGroups />
+    </Provider>,
+  );
 });
 
 it('renders navItem correctly', () => {

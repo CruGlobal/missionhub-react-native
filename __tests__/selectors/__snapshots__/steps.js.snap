@@ -38,6 +38,7 @@ Array [
 exports[`reminderStepsSelector should get reminder steps 1`] = `
 Array [
   Object {
+    "focus": true,
     "id": "1",
     "receiver": Object {
       "first_name": "Fname2",
@@ -45,9 +46,9 @@ Array [
       "last_name": "Lname",
       "type": "person",
     },
-    "reminder": true,
   },
   Object {
+    "focus": true,
     "id": "2",
     "receiver": Object {
       "first_name": "Fname2",
@@ -55,9 +56,9 @@ Array [
       "last_name": "Lname",
       "type": "person",
     },
-    "reminder": true,
   },
   Object {
+    "focus": true,
     "id": "3",
     "organization": Object {
       "id": "100",
@@ -68,7 +69,6 @@ Array [
       "last_name": "Lname2",
       "type": "person",
     },
-    "reminder": true,
   },
 ]
 `;

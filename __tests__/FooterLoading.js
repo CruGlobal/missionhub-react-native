@@ -6,7 +6,5 @@ import FooterLoading from '../src/components/FooterLoading';
 import { testSnapshot } from '../testUtils';
 
 it('renders correctly', () => {
-  testSnapshot(
-    <FooterLoading />
-  );
+  testSnapshot(<FooterLoading />);
 });

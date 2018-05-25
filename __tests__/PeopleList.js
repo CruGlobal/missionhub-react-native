@@ -50,16 +50,15 @@ const orgs = [
 
 it('renders correctly as Casey', () => {
   testSnapshotShallow(
-    <PeopleList sections={false} items={orgs} onSelect={() => {}} />
+    <PeopleList sections={false} items={orgs} onSelect={() => {}} />,
   );
 });
 
 it('renders correctly as Jean', () => {
   testSnapshotShallow(
-    <PeopleList sections={true} items={orgs} onSelect={() => {}} />
+    <PeopleList sections={true} items={orgs} onSelect={() => {}} />,
   );
 });
-
 
 describe('button presses', () => {
   let component;
@@ -72,7 +71,8 @@ describe('button presses', () => {
         items={orgs}
         onSelect={jest.fn()}
         onAddContact={jest.fn()}
-      />);
+      />,
+    );
 
     componentInstance = component.instance();
 
@@ -83,7 +83,9 @@ describe('button presses', () => {
     const addContactButton = component.find({ name: 'addContactIcon' }).first();
     addContactButton.simulate('press');
 
-    expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(undefined);
+    expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(
+      undefined,
+    );
   });
 
   it('toggleSection is called when arrow icon is pressed', () => {

@@ -5,7 +5,8 @@ import {
   PERSON_LAST_NAME_CHANGED,
   UPDATE_ONBOARDING_PERSON,
   RESET_ONBOARDING_PERSON,
-  LOGOUT, COMPLETE_ONBOARDING,
+  LOGOUT,
+  COMPLETE_ONBOARDING,
 } from '../../src/constants';
 
 const person = {
@@ -27,13 +28,15 @@ it('updates from API call', () => {
       results: {
         response: person,
       },
-    }
+    },
   );
 
   expect(state.id).toBe(person.id);
   expect(state.personFirstName).toBe(person.first_name);
   expect(state.personLastName).toBe(person.last_name);
-  expect(state.contactAssignmentId).toBe(person.reverse_contact_assignments[0].id);
+  expect(state.contactAssignmentId).toBe(
+    person.reverse_contact_assignments[0].id,
+  );
 });
 
 it('updates from update API call', () => {
@@ -44,13 +47,15 @@ it('updates from update API call', () => {
       results: {
         response: person,
       },
-    }
+    },
   );
 
   expect(state.id).toBe(person.id);
   expect(state.personFirstName).toBe(person.first_name);
   expect(state.personLastName).toBe(person.last_name);
-  expect(state.contactAssignmentId).toBe(person.reverse_contact_assignments[0].id);
+  expect(state.contactAssignmentId).toBe(
+    person.reverse_contact_assignments[0].id,
+  );
 });
 
 it('updates first name', () => {
@@ -60,7 +65,7 @@ it('updates first name', () => {
     {
       type: PERSON_FIRST_NAME_CHANGED,
       personFirstName: firstName,
-    }
+    },
   );
 
   expect(state.personFirstName).toBe(firstName);
@@ -73,19 +78,16 @@ it('updates last name', () => {
     {
       type: PERSON_LAST_NAME_CHANGED,
       personLastName: lastName,
-    }
+    },
   );
 
   expect(state.personLastName).toBe(lastName);
 });
 
 it('resets onboarding person and sets completed to true', () => {
-  const state = personProfile(
-    undefined,
-    {
-      type: RESET_ONBOARDING_PERSON,
-    }
-  );
+  const state = personProfile(undefined, {
+    type: RESET_ONBOARDING_PERSON,
+  });
 
   expect(state).toEqual({
     hasCompletedOnboarding: true,
@@ -95,12 +97,11 @@ it('resets onboarding person and sets completed to true', () => {
 });
 
 it('completes onboarding', () => {
-
   const state = personProfile(
     {},
     {
       type: COMPLETE_ONBOARDING,
-    }
+    },
   );
 
   expect(state).toEqual({
@@ -109,12 +110,9 @@ it('completes onboarding', () => {
 });
 
 it('resets state on logout', () => {
-  const state = personProfile(
-    undefined,
-    {
-      type: LOGOUT,
-    }
-  );
+  const state = personProfile(undefined, {
+    type: LOGOUT,
+  });
 
   expect(state).toEqual({
     hasCompletedOnboarding: false,

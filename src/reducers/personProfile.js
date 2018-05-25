@@ -1,6 +1,10 @@
 import {
-  PERSON_FIRST_NAME_CHANGED, PERSON_LAST_NAME_CHANGED, UPDATE_ONBOARDING_PERSON, RESET_ONBOARDING_PERSON,
-  COMPLETE_ONBOARDING, LOGOUT,
+  PERSON_FIRST_NAME_CHANGED,
+  PERSON_LAST_NAME_CHANGED,
+  UPDATE_ONBOARDING_PERSON,
+  RESET_ONBOARDING_PERSON,
+  COMPLETE_ONBOARDING,
+  LOGOUT,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -31,7 +35,9 @@ function personProfileReducer(state = initialPersonProfileState, action) {
         id: person.id,
         personFirstName: person.first_name,
         personLastName: person.last_name,
-        contactAssignmentId: contactAssignment ? contactAssignment.id : state.contactAssignmentId,
+        contactAssignmentId: contactAssignment
+          ? contactAssignment.id
+          : state.contactAssignmentId,
       };
     case RESET_ONBOARDING_PERSON:
       return {

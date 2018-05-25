@@ -14,6 +14,6 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <SetupScreen />
-    </Provider>
+    </Provider>,
   );
 });

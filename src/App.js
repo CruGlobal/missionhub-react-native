@@ -16,14 +16,24 @@ import './utils/globals';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
 import { codeLogin } from './actions/auth';
-import { EXPIRED_ACCESS_TOKEN, INVALID_ACCESS_TOKEN, INVALID_GRANT, NETWORK_REQUEST_FAILED } from './constants';
+import {
+  EXPIRED_ACCESS_TOKEN,
+  INVALID_ACCESS_TOKEN,
+  INVALID_GRANT,
+  NETWORK_REQUEST_FAILED,
+} from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
+import { configureNotificationHandler } from './actions/notifications';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
-@codePush({ deploymentKey: isAndroid ? Config.CODEPUSH_ANDROID_KEY : Config.CODEPUSH_IOS_KEY })
+@codePush({
+  deploymentKey: isAndroid
+    ? Config.CODEPUSH_ANDROID_KEY
+    : Config.CODEPUSH_IOS_KEY,
+})
 export default class App extends Component {
   showingErrorModal = false;
   state = {
@@ -38,6 +48,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
@@ -46,23 +57,28 @@ export default class App extends Component {
     const iOSKey = 'org.cru.missionhub.clientIdKey'; // key from the old iOS app
     const androidKey = 'account.guest.secret'; // key from the old android app
 
-    const getKey = (key) => {
-      DefaultPreference.get(key).then((value) => {
+    const getKey = key => {
+      DefaultPreference.get(key).then(value => {
         if (value) {
-          store.dispatch(codeLogin(value)).then(() => {
-            // If we successfully logged in with the user's guest code, clear it out now
-            DefaultPreference.clear(key);
-          }).catch(() => {
-            // This happens when there is a problem with the code from the API call
-            // We don't want to clear out the key here
-          });
+          store
+            .dispatch(codeLogin(value))
+            .then(() => {
+              // If we successfully logged in with the user's guest code, clear it out now
+              DefaultPreference.clear(key);
+            })
+            .catch(() => {
+              // This happens when there is a problem with the code from the API call
+              // We don't want to clear out the key here
+            });
         }
       });
     };
     if (isAndroid) {
-      DefaultPreference.setName('com.missionhub.accounts.AccountManager').then(() => {
-        getKey(androidKey);
-      });
+      DefaultPreference.setName('com.missionhub.accounts.AccountManager').then(
+        () => {
+          getKey(androidKey);
+        },
+      );
     } else {
       getKey(iOSKey);
     }
@@ -83,25 +99,30 @@ export default class App extends Component {
     if (apiError) {
       if (apiError.errors && apiError.errors[0].detail) {
         const errorDetail = apiError.errors[0].detail;
-        if (errorDetail === EXPIRED_ACCESS_TOKEN || errorDetail === INVALID_ACCESS_TOKEN) {
+        if (
+          errorDetail === EXPIRED_ACCESS_TOKEN ||
+          errorDetail === INVALID_ACCESS_TOKEN
+        ) {
           return;
         }
       } else if (apiError.error === INVALID_GRANT) {
         return;
       } else if (apiError.message === NETWORK_REQUEST_FAILED) {
         this.showOfflineAlert();
-
       } else {
         this.showApiErrorAlert(e.key);
         crashlyticsError = {
           title: `API Error: ${e.key} ${e.method.toUpperCase()} ${e.endpoint}`,
-          message: `\n\nQuery Params:\n${JSON.stringify(e.query, null, 2)}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
+          message: `\n\nQuery Params:\n${JSON.stringify(
+            e.query,
+            null,
+            2,
+          )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
         };
       }
-
     } else {
       crashlyticsError = {
-        title: e.message.split('\n')[ 0 ],
+        title: e.message.split('\n')[0],
         message: e.message,
       };
     }
@@ -110,17 +131,27 @@ export default class App extends Component {
       LOG(e);
 
       if (!__DEV__) {
-        Crashlytics.recordCustomExceptionName(crashlyticsError.title, crashlyticsError.message, []);
+        Crashlytics.recordCustomExceptionName(
+          crashlyticsError.title,
+          crashlyticsError.message,
+          [],
+        );
       }
     }
   }
 
   showOfflineAlert = () => {
-    this.showAlert(i18n.t('offline:youreOffline'), i18n.t('offline:connectToInternet'));
+    this.showAlert(
+      i18n.t('offline:youreOffline'),
+      i18n.t('offline:connectToInternet'),
+    );
   };
 
-  showApiErrorAlert = (key) => {
-    const specificError = i18n.t([ `error:${key}`, 'error:unexpectedErrorMessage' ]);
+  showApiErrorAlert = key => {
+    const specificError = i18n.t([
+      `error:${key}`,
+      'error:unexpectedErrorMessage',
+    ]);
     const errorMessage = `${specificError} ${i18n.t('error:baseErrorMessage')}`;
 
     this.showAlert(i18n.t('error:error'), errorMessage);
@@ -130,8 +161,12 @@ export default class App extends Component {
     if (!this.showingErrorModal) {
       this.showingErrorModal = true;
 
-      const buttons = [ { text: i18n.t('ok'), onPress: () => this.showingErrorModal = false } ];
-      Alert.alert(title, message, buttons, { onDismiss: () => this.showingErrorModal = false });
+      const buttons = [
+        { text: i18n.t('ok'), onPress: () => (this.showingErrorModal = false) },
+      ];
+      Alert.alert(title, message, buttons, {
+        onDismiss: () => (this.showingErrorModal = false),
+      });
     }
   };
 
@@ -139,8 +174,11 @@ export default class App extends Component {
     AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
-  handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+  handleAppStateChange = nextAppState => {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
       this.collectLifecycleData();
     }
 
@@ -158,7 +196,8 @@ export default class App extends Component {
           <PersistGate
             loading={<LoadingScreen />}
             onBeforeLift={this.onBeforeLift}
-            persistor={persistor}>
+            persistor={persistor}
+          >
             <AppWithNavigationState />
           </PersistGate>
         </I18nextProvider>

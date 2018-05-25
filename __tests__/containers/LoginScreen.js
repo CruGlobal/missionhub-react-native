@@ -45,7 +45,10 @@ it('disables autoplay when reaches last page', () => {
 it('disables autoplay when user touches onboarding page', () => {
   const page = shallow(carouselProps.renderItem({ item }));
 
-  page.find(TouchableWithoutFeedback).props().onPressIn();
+  page
+    .find(TouchableWithoutFeedback)
+    .props()
+    .onPressIn();
   screen.update();
 
   expect(screen.find(Carousel).props().autoplay).toEqual(false);

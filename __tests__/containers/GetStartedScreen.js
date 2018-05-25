@@ -6,7 +6,11 @@ import { Provider } from 'react-redux';
 // Note: test renderer must be required after react-native.
 
 import GetStartedScreen from '../../src/containers/GetStartedScreen';
-import { createMockNavState, testSnapshot, createMockStore } from '../../testUtils';
+import {
+  createMockNavState,
+  testSnapshot,
+  createMockStore,
+} from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import * as common from '../../src/utils/common';
 
@@ -24,7 +28,7 @@ it('renders correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <GetStartedScreen navigation={createMockNavState()} />
-    </Provider>
+    </Provider>,
   );
 });
 
@@ -33,11 +37,18 @@ describe('get started methods', () => {
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <GetStartedScreen navigation={createMockNavState()} dispatch={() => {}} />,
+      <GetStartedScreen
+        navigation={createMockNavState()}
+        dispatch={() => {}}
+      />,
       { context: { store } },
     );
 
-    component = screen.dive().dive().dive().instance();
+    component = screen
+      .dive()
+      .dive()
+      .dive()
+      .instance();
   });
 
   it('saves a step', () => {

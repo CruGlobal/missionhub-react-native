@@ -1,7 +1,7 @@
 import { LOGOUT, UPDATE_JOURNEY_ITEMS } from '../constants';
 
 const initialState = {
-  'personal': {},
+  personal: {},
 };
 
 function journeyReducer(state = initialState, action) {

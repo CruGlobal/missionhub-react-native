@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
@@ -12,7 +11,7 @@ export default StyleSheet.create({
     width: theme.fullWidth,
     // Android was cutting off the top part of the clouds in the image.
     // Take the image scale and multiple it by the width to get the height
-    height: (205 / 375) * theme.fullWidth,
+    height: 205 / 375 * theme.fullWidth,
   },
   text: {
     fontSize: 28,
@@ -37,8 +36,7 @@ export default StyleSheet.create({
     paddingBottom: 40,
     backgroundColor: theme.impactBlue,
   },
-  topText: {
-  },
+  topText: {},
   icon: {
     fontSize: 28,
   },

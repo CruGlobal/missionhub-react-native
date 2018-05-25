@@ -1,8 +1,6 @@
-import {
-  LOGOUT,
-  DRAWER_OPEN,
-  DRAWER_CLOSE,
-} from '../constants';
+import { DrawerActions } from 'react-navigation';
+
+import { LOGOUT } from '../constants';
 
 // Keep track of all the swipeable rows and whether or not to show a reminder
 const initialState = {
@@ -10,9 +8,9 @@ const initialState = {
 };
 
 function drawerReducer(state = initialState, action) {
-  if (action.routeName === DRAWER_OPEN) {
+  if (action.type === DrawerActions.OPEN_DRAWER) {
     return { ...state, isOpen: true };
-  } else if (action.routeName === DRAWER_CLOSE) {
+  } else if (action.type === DrawerActions.CLOSE_DRAWER) {
     return { ...state, isOpen: false };
   }
   switch (action.type) {

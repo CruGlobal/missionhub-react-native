@@ -14,32 +14,45 @@ import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
-import { reregisterNotificationHandler, deletePushToken } from './notifications';
+import { deletePushToken, showReminderOnLoad } from './notifications';
 import { getStagesIfNotExists } from './stages';
+import { getMySteps } from './steps';
 import callApi, { REQUESTS } from './api';
 import { onSuccessfulLogin } from './login';
 import { getAssignedOrganizations } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
-
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
-  return (dispatch) => {
+  return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
-    const string = randomString({ length: 50, numeric: true, letters: true, special: false });
+    const string = randomString({
+      length: 50,
+      numeric: true,
+      letters: true,
+      special: false,
+    });
     const codeVerifier = base64url.encode(string);
     const codeChallenge = base64url.encode(sha256.array(codeVerifier));
     const redirectUri = 'https://missionhub.com/auth';
 
-    const uri = `${THE_KEY_URL}${baseURL}&client_id=${THE_KEY_CLIENT_ID}&response_type=code`
-      + `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256`
-      + `&code_challenge=${codeChallenge}`;
+    const uri =
+      `${THE_KEY_URL}${baseURL}&client_id=${THE_KEY_CLIENT_ID}&response_type=code` +
+      `&redirect_uri=${redirectUri}&scope=fullticket%20extended&code_challenge_method=S256` +
+      `&code_challenge=${codeChallenge}`;
 
     function onLinkBack(event) {
       Linking.removeEventListener('url', onLinkBack);
       const code = event.url.split('code=')[1];
       onReturn();
-      return dispatch(createAccountAndLogin(code, codeVerifier, redirectUri, upgradeAccount ? upgradeAccount : null));
+      return dispatch(
+        createAccountAndLogin(
+          code,
+          codeVerifier,
+          redirectUri,
+          upgradeAccount ? upgradeAccount : null,
+        ),
+      );
     }
 
     Linking.addEventListener('url', onLinkBack);
@@ -55,8 +68,10 @@ export function createAccountAndLogin(code, verifier, redirectUri, isUpgrade) {
 }
 
 export function refreshAccessToken() {
-  return async(dispatch, getState) => {
-    const data = `grant_type=refresh_token&refresh_token=${getState().auth.refreshToken}`;
+  return async (dispatch, getState) => {
+    const data = `grant_type=refresh_token&refresh_token=${
+      getState().auth.refreshToken
+    }`;
 
     await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
     dispatch(getTicketAndLogin());
@@ -64,8 +79,11 @@ export function refreshAccessToken() {
 }
 
 export function keyLogin(email, password, mfaCode, isUpgrade = false) {
-  let data = `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended`
-    + `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+  let data =
+    `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended` +
+    `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(
+      password,
+    )}`;
 
   if (mfaCode) {
     data = `${data}&thekey_mfa_token=${mfaCode}`;
@@ -75,7 +93,7 @@ export function keyLogin(email, password, mfaCode, isUpgrade = false) {
 }
 
 function getTokenAndLogin(data, isUpgrade) {
-  return async(dispatch) => {
+  return async dispatch => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
 
@@ -84,9 +102,11 @@ function getTokenAndLogin(data, isUpgrade) {
 }
 
 function getTicketAndLogin(isUpgrade) {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     const upgradeToken = getState().auth.upgradeToken;
-    const keyTicketResult = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
+    const keyTicketResult = await dispatch(
+      callApi(REQUESTS.KEY_GET_TICKET, {}, {}),
+    );
     const data = { code: keyTicketResult.ticket };
     if (isUpgrade) {
       data.client_token = upgradeToken;
@@ -97,13 +117,14 @@ function getTicketAndLogin(isUpgrade) {
 }
 
 export function codeLogin(code) {
-  return (dispatch) => {
-    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code }))
-      .then(() => {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code })).then(
+      () => {
         // Make sure this is set to FIRST_TIME so we know we're in the tryItNow flow
         dispatch(firstTime());
         return dispatch(onSuccessfulLogin());
-      });
+      },
+    );
   };
 }
 
@@ -116,21 +137,25 @@ export function refreshAnonymousLogin() {
 }
 
 export function logout(forcedLogout = false) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(deletePushToken());
     dispatch({ type: LOGOUT });
-    dispatch(forcedLogout ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout }) : navigateReset(LOGIN_SCREEN));
+    dispatch(
+      forcedLogout
+        ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout })
+        : navigateReset(LOGIN_SCREEN),
+    );
   };
 }
 
 export function upgradeAccount() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
   };
 }
 
 export function firstTime() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: FIRST_TIME });
   };
 }
@@ -141,7 +166,9 @@ export function getTimezoneString() {
 
 export function updateLocaleAndTimezone() {
   return (dispatch, getState) => {
-    const { person: { user } } = getState().auth;
+    const {
+      person: { user },
+    } = getState().auth;
     const timezone = getTimezoneString();
     const language = i18next.language;
     if (user.timezone !== timezone || user.mobile_language !== language) {
@@ -159,13 +186,14 @@ export function updateLocaleAndTimezone() {
 }
 
 export function loadHome() {
-  return (dispatch) => {
+  return async dispatch => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
     dispatch(getAssignedOrganizations());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(reregisterNotificationHandler());
     dispatch(resetPerson());
+    await dispatch(getMySteps());
+    dispatch(showReminderOnLoad());
   };
 }
