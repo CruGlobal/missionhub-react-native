@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Button, Flex, Text } from '../../components/common';
+import { Text } from '../../components/common';
 import SearchList from '../../components/SearchList';
 
 @connect()

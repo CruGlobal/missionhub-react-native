@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders filters 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#B2B0B2",
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingTop": 15,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 25,
+            "paddingHorizontal": 13,
+          }
+        }
+        value={1}
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+      </Flex>
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#4E4C4E",
+          }
+        }
+        type="MissionHub"
+      />
+    </Flex>
+    <ScrollView
+      horizontal={true}
+      style={
+        Object {
+          "marginTop": 7,
+          "paddingHorizontal": 6,
+          "paddingVertical": 5,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        key="1"
+        style={
+          Object {
+            "backgroundColor": "#4E4C4E",
+            "borderRadius": 5,
+            "marginRight": 5,
+            "marginTop": 1,
+            "paddingHorizontal": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+            }
+          }
+        >
+          filter 1
+        </MyText>
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="2"
+        style={
+          Object {
+            "backgroundColor": "#4E4C4E",
+            "borderRadius": 5,
+            "marginRight": 5,
+            "marginTop": 1,
+            "paddingHorizontal": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+            }
+          }
+        >
+          filter 2
+        </MyText>
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="3"
+        style={
+          Object {
+            "backgroundColor": "#4E4C4E",
+            "borderRadius": 5,
+            "marginRight": 5,
+            "marginTop": 1,
+            "paddingHorizontal": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+            }
+          }
+        >
+          filter 3
+        </MyText>
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        key="4"
+        style={
+          Object {
+            "backgroundColor": "#4E4C4E",
+            "borderRadius": 5,
+            "marginRight": 5,
+            "marginTop": 1,
+            "paddingHorizontal": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+            }
+          }
+        >
+          filter 4
+        </MyText>
+        <IconButton
+          name="deleteIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </ScrollView>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 40,
+      }
+    }
+    value={1}
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 84,
+          "letterSpacing": 2,
+        }
+      }
+      type="header"
+    >
+      Search
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Search results will appear here.
+    </MyText>
+  </Flex>
+</Component>
+`;
+
+exports[`renders search list 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#B2B0B2",
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingTop": 15,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "paddingRight": 5,
+        }
+      }
+    >
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 25,
+            "paddingHorizontal": 13,
+          }
+        }
+        value={1}
+      >
+        <Input
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+      </Flex>
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#4E4C4E",
+          }
+        }
+        type="MissionHub"
+      />
+    </Flex>
+  </Flex>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 40,
+      }
+    }
+    value={1}
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 84,
+          "letterSpacing": 2,
+        }
+      }
+      type="header"
+    >
+      Search
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Search results will appear here.
+    </MyText>
+  </Flex>
+</Component>
+`;

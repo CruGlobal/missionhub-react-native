@@ -21,7 +21,7 @@ class SearchList extends Component {
       isSearching: false,
     };
 
-    this.handleSearch = debounce(this.handleSearch.bind(this), 300);
+    this.handleSearchDebounced = debounce(this.handleSearch.bind(this), 300);
   }
 
   handleFilter = () => {
@@ -30,7 +30,7 @@ class SearchList extends Component {
 
   handleTextChange = t => {
     this.setState({ text: t, isSearching: true });
-    this.handleSearch(t);
+    this.handleSearchDebounced(t);
   };
 
   handleSearch(text) {
@@ -56,7 +56,7 @@ class SearchList extends Component {
 
   removeFilter(key) {
     this.props.onRemoveFilter(key).then(() => {
-      this.handleSearch(this.state.text);
+      this.handleSearchDebounced(this.state.text);
     });
   }
 
