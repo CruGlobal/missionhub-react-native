@@ -41,4 +41,13 @@ describe('Contacts', () => {
       text: 'Last 7 days',
     });
   });
+
+  it('should handleSelect correctly', async () => {
+    const instance = renderShallow(component).instance();
+    const item = { test: true };
+    instance.handleSelect = jest.fn();
+    instance.handleSelect(item);
+
+    expect(instance.handleSelect).toHaveBeenCalledWith(item);
+  });
 });

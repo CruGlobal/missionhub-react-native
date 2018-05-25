@@ -51,9 +51,6 @@ global.WARN = function() {
 global.APILOG = function() {
   if (__DEV__) {
     const args = getArgs(arguments);
-    if (ENABLE_LOGS) {
-      console.log.apply(console, args);
-    }
 
     if (console.tron) {
       console.tron.display({
