@@ -18,15 +18,14 @@ describe('Members', () => {
 
   it('should handleSelect correctly', () => {
     const instance = renderShallow(component, store).instance();
-    instance.handleSelect = jest.fn();
-    instance.handleSelect();
-    expect(instance.handleSelect).toHaveBeenCalled();
+    const person = { id: '1' };
+    const result = instance.handleSelect(person);
+    expect(result).toBe(person);
   });
 
   it('should handleLoadMore correctly', () => {
     const instance = renderShallow(component, store).instance();
-    instance.handleLoadMore = jest.fn();
-    instance.handleLoadMore();
-    expect(instance.handleLoadMore).toHaveBeenCalled();
+    const result = instance.handleLoadMore();
+    expect(result).toBe(true);
   });
 });

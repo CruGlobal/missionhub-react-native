@@ -12,11 +12,11 @@ import styles from './styles';
 @translate('groupsMembers')
 class Members extends Component {
   handleSelect = person => {
-    LOG('selected person', person);
+    return person;
   };
 
   handleLoadMore = () => {
-    LOG('load more');
+    return true;
   };
 
   render() {
