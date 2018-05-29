@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 0 assigned 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginTop": 1,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 14,
+          }
+        }
+      >
+        0 Assigned
+      </MyText>
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+            ·  
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
+      </React.Fragment>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`render 0 uncontacted 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginTop": 1,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 14,
+          }
+        }
+      >
+        5 Assigned
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`render member 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginTop": 1,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 14,
+          }
+        }
+      >
+        5 Assigned
+      </MyText>
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+            ·  
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
+      </React.Fragment>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
