@@ -39,6 +39,24 @@ it('renders filters', () => {
   );
 });
 
+it('renders text in search box', () => {
+  const component = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{}}
+      placeholder={'placeholder'}
+    />,
+  );
+  component.setState({ text: 'test' });
+
+  expect(component).toMatchSnapshot();
+});
+
 it('calls onSearch prop', () => {
   const onSearch = jest.fn(() => Promise.resolve());
 
@@ -81,4 +99,67 @@ it('calls onFilterPress prop', () => {
     .handleFilter('test');
 
   expect(onFilterPress).toHaveBeenCalled();
+});
+
+it('calls clearSearch', () => {
+  const component = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{
+        filter1: { id: '1', text: 'filter 1' },
+      }}
+      placeholder={'placeholder'}
+    />,
+  ).instance();
+  component.clearSearch();
+
+  expect(component.state.text).toBe('');
+});
+
+it('calls removeFilter', () => {
+  const onRemoveFilter = jest.fn(() => Promise.resolve());
+
+  const component = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={onRemoveFilter}
+      filters={{
+        filter1: { id: '1', text: 'filter 1' },
+      }}
+      placeholder={'placeholder'}
+    />,
+  ).instance();
+  component.removeFilter('test');
+
+  expect(onRemoveFilter).toHaveBeenCalled();
+});
+
+it('calls handleTextChange', () => {
+  const component = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{
+        filter1: { id: '1', text: 'filter 1' },
+      }}
+      placeholder={'placeholder'}
+    />,
+  ).instance();
+  component.handleSearchDebounced = jest.fn();
+  component.handleTextChange('test');
+
+  expect(component.handleSearchDebounced).toHaveBeenCalled();
 });

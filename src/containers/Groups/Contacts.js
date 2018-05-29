@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Separator } from '../../components/common';
+import { Separator, Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 
 @connect()
 @translate('groupsContacts')
 export default class Contacts extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    filters: {},
+  };
 
-    this.state = {
-      filters: {},
-    };
-
-    this.handleRemoveFilter = this.handleRemoveFilter.bind(this);
-  }
-
-  async handleRemoveFilter(key) {
-    const newFilters = { ...this.state.filters };
+  handleRemoveFilter = async key => {
+    let newFilters = { ...this.state.filters };
     delete newFilters[key];
     return await new Promise(resolve =>
-      this.setState({ filters: newFilters }, () => {
-        resolve();
-      }),
+      this.setState({ filters: newFilters }, () => resolve()),
     );
-  }
+  };
 
   handleFilterPress = () => {
     // TODO: Navigate to the filters page, then change state when something is selected
@@ -62,7 +53,7 @@ export default class Contacts extends Component {
     const { t } = this.props;
     const { filters } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <Flex value={1}>
         <SearchList
           onFilterPress={this.handleFilterPress}
           listProps={{
@@ -78,7 +69,7 @@ export default class Contacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </View>
+      </Flex>
     );
   }
 }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { FlatList, ScrollView, View } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Separator } from '../../components/common';
+import { Separator, Flex } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
-import theme from '../../theme';
+
+import styles from './styles';
 
 @translate('groupsMembers')
 class Members extends Component {
@@ -21,7 +22,7 @@ class Members extends Component {
   render() {
     const { members, hasMore } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: theme.white }}>
+      <Flex value={1} style={styles.members}>
         <ScrollView style={{ flex: 1 }}>
           <FlatList
             data={members}
@@ -37,7 +38,7 @@ class Members extends Component {
             }
           />
         </ScrollView>
-      </View>
+      </Flex>
     );
   }
 }

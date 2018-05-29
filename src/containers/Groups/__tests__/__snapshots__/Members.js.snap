@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<Flex
+  value={1}
 >
   <ScrollView
     style={
@@ -30,5 +26,5 @@ exports[`should render correctly 1`] = `
       Load More
     </MyText>
   </ScrollView>
-</Component>
+</Flex>
 `;

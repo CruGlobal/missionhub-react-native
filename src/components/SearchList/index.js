@@ -21,7 +21,7 @@ class SearchList extends Component {
       isSearching: false,
     };
 
-    this.handleSearchDebounced = debounce(this.handleSearch.bind(this), 300);
+    this.handleSearchDebounced = debounce(this.handleSearch, 300);
   }
 
   handleFilter = () => {
@@ -33,31 +33,27 @@ class SearchList extends Component {
     this.handleSearchDebounced(t);
   };
 
-  handleSearch(text) {
+  handleSearch = async text => {
     if (!text) return this.clearSearch();
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
 
-    this.props
-      .onSearch(text)
-      .then(results => {
-        this.setState({ isSearching: false, results: results || [] });
-      })
-      .catch(err => {
-        this.setState({ isSearching: false });
-        LOG('error getting search results', err);
-      });
-  }
+    try {
+      const results = await this.props.onSearch(text);
+      this.setState({ isSearching: false, results: results || [] });
+    } catch (err) {
+      this.setState({ isSearching: false });
+    }
+  };
 
   clearSearch = () => {
     this.setState({ text: '', results: [], isSearching: false });
   };
 
-  removeFilter(key) {
-    this.props.onRemoveFilter(key).then(() => {
-      this.handleSearchDebounced(this.state.text);
-    });
+  async removeFilter(key) {
+    await this.props.onRemoveFilter(key);
+    this.handleSearchDebounced(this.state.text);
   }
 
   renderCenter() {

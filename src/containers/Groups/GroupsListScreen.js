@@ -10,11 +10,6 @@ import { GROUP_SCREEN } from './GroupScreen';
 @connect()
 @translate('groupsList')
 export default class GroupsListScreen extends Component {
-  // TODO: Remove this
-  // componentDidMount() {
-  //   this.handlePress();
-  // }
-
   handlePress = () => {
     this.props.dispatch(
       navigatePush(GROUP_SCREEN, {
