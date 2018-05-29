@@ -13,40 +13,36 @@ class PersonSelectStepScreen extends Component {
     super(props);
   }
 
-  insertName(steps) {
-    return steps.map(step => ({
-      ...step,
-      body: step.body.replace(
-        '<<name>>',
-        this.props.contactName
-          ? this.props.contactName
-          : this.props.personFirstName,
-      ),
-    }));
-  }
-
   handleNavigate = () => {
     this.props.onSaveNewSteps();
   };
 
   render() {
-    const name = this.props.contactName
-      ? this.props.contactName
-      : this.props.personFirstName;
+    const {
+      contactName,
+      personFirstName,
+      contactStage,
+      contactId,
+      personId,
+      t,
+      contact,
+      organization,
+      createStepTracking,
+    } = this.props;
+
+    const name = contactName ? contactName : personFirstName;
 
     return (
       <SelectStepScreen
         isMe={false}
-        contactStage={this.props.contactStage}
-        receiverId={
-          this.props.contactId ? this.props.contactId : this.props.personId
-        }
-        useOthersSteps={true}
-        headerText={this.props.t('personHeader', { name })}
-        contact={this.props.contact ? this.props.contact : null}
-        organization={this.props.organization}
+        contactStage={contactStage}
+        receiverId={contactId ? contactId : personId}
+        contactName={name}
+        headerText={t('personHeader', { name })}
+        contact={contact ? contact : null}
+        organization={organization}
         onComplete={this.handleNavigate}
-        createStepTracking={this.props.createStepTracking}
+        createStepTracking={createStepTracking}
         enableBackButton
       />
     );

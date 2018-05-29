@@ -7,6 +7,7 @@ import {
   REMOVE_MY_SUGGESTIONS,
   REMOVE_OTHER_SUGGESTIONS,
 } from '../constants';
+import { shuffleArray } from '../utils/common';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
@@ -43,7 +44,11 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
       const isMe = action.query.filters.self_step;
-      const suggestions = action.results.findAll('challenge_suggestion');
+      const suggestions = shuffleArray(
+        action.results.findAll('challenge_suggestion'),
+      );
+      console.log(isMe);
+      console.log(suggestions);
       return {
         ...state,
         suggestedForMe: {

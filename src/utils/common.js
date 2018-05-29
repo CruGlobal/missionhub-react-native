@@ -31,6 +31,23 @@ export const getFourRandomItems = arr => {
   return items;
 };
 
+export const shuffleArray = arr => {
+  let currentIndex = arr.length,
+    temporaryValue,
+    randomIndex;
+
+  while (0 != currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = arr[currentIndex];
+    arr[currentIndex] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
+  }
+
+  return arr;
+};
+
 export const isAndroid = Platform.OS === 'android';
 export const isiPhoneX = () => DeviceInfo.getModel() === 'iPhone X';
 export const locale = DeviceInfo.getDeviceLocale();

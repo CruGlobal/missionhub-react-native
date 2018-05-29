@@ -36,12 +36,32 @@ class SelectStepScreen extends Component {
     };
   }
 
+  insertName(steps) {
+    return steps.map(step => ({
+      ...step,
+      body: step.body.replace(
+        '<<name>>',
+        this.props.contactName
+          ? this.props.contactName
+          : this.props.personFirstName,
+      ),
+    }));
+  }
+
   componentDidMount() {
     const { dispatch, isMe, contactStage } = this.props;
     dispatch(getStepSuggestions(isMe, contactStage.id));
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let { suggestions } = nextProps;
+    if (!nextProps.isMe) {
+      suggestions = this.insertName(suggestions);
+    }
+    this.setState({ steps: [].concat(suggestions, this.state.addedSteps) });
   }
 
   componentWillUnmount() {
@@ -181,7 +201,6 @@ class SelectStepScreen extends Component {
         >
           <StepsList
             ref={c => (this.stepsList = c)}
-            personFirstName={this.props.personFirstName}
             items={this.state.steps}
             createStepText={t('createStep')}
             loadMoreStepsText={t('loadMoreSteps')}
@@ -200,6 +219,7 @@ class SelectStepScreen extends Component {
 SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
+  personFirstName: PropTypes.string,
   contact: PropTypes.object,
   receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
@@ -208,9 +228,11 @@ SelectStepScreen.propTypes = {
   isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth, steps }, { isMe }) => ({
+const mapStateToProps = ({ auth, steps }, { isMe, contactStage }) => ({
   myId: auth.person.id,
-  suggestions: isMe ? steps.suggestedForMe : steps.suggestedForOthers,
+  suggestions: isMe
+    ? steps.suggestedForMe[contactStage.id]
+    : steps.suggestedForOthers[contactStage.id],
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);
