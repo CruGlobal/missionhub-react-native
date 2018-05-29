@@ -37,7 +37,8 @@ class SelectStepScreen extends Component {
   }
 
   componentDidMount() {
-    this.handleLoadSteps();
+    const { dispatch, isMe, contactStage } = this.props;
+    dispatch(getStepSuggestions(isMe, contactStage.id));
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
@@ -49,44 +50,7 @@ class SelectStepScreen extends Component {
     }
   }
 
-  handleLoadSteps = async () => {
-    const {
-      contactStage,
-      stepSuggestions,
-      contact,
-      myId,
-      dispatch,
-    } = this.props;
-
-    await dispatch(getStepSuggestions());
-
-    let newSteps = [];
-    if (contactStage) {
-      newSteps = getFourRandomItems(stepSuggestions[contactStage.id]);
-    }
-    console.log(newSteps);
-
-    this.setState({
-      steps: [].concat(this.state.steps, newSteps, this.state.addedSteps),
-    });
-
-    if (newSteps.length === 0) {
-      return;
-    }
-
-    if (contact.id === myId) {
-      return dispatch({
-        type: REMOVE_MY_SUGGESTIONS,
-        contactStage,
-        newSteps,
-      });
-    }
-    return dispatch({
-      type: REMOVE_OTHER_SUGGESTIONS,
-      contactStage,
-      newSteps,
-    });
-  };
+  handleLoadSteps = () => {};
 
   filterSelected() {
     return this.state.steps.filter(s => s.selected);
@@ -240,10 +204,13 @@ SelectStepScreen.propTypes = {
   receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
+  contactStage: PropTypes.object.isRequired,
+  isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, steps }, { isMe }) => ({
   myId: auth.person.id,
+  suggestions: isMe ? steps.suggestedForMe : steps.suggestedForOthers,
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

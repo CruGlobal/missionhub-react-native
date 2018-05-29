@@ -34,16 +34,10 @@ class PersonSelectStepScreen extends Component {
       ? this.props.contactName
       : this.props.personFirstName;
 
-    let contextualizedSteps = [];
-    if (this.props.contactStage) {
-      contextualizedSteps = getFourRandomItems(
-        this.props.suggestedForOthers[this.props.contactStage.id],
-      );
-    }
-
     return (
       <SelectStepScreen
-        steps={this.insertName(contextualizedSteps)}
+        isMe={false}
+        contactStage={this.props.contactStage}
         receiverId={
           this.props.contactId ? this.props.contactId : this.props.personId
         }

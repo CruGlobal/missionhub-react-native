@@ -21,7 +21,6 @@ class SelectMyStepScreen extends Component {
       t,
       enableBackButton,
       me,
-      suggestedForMe,
       personId,
       contactStage,
       organization,
@@ -31,7 +30,7 @@ class SelectMyStepScreen extends Component {
 
     return (
       <SelectStepScreen
-        stepSuggestions={suggestedForMe}
+        isMe={true}
         contactStage={contactStage}
         receiverId={personId}
         contact={me}

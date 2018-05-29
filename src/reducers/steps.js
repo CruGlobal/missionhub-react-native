@@ -39,34 +39,28 @@ export function getPagination(state, action, steps) {
 }
 
 export default function stepsReducer(state = initialState, action) {
-  let contactStage, newSteps;
   switch (action.type) {
-    case FILTERED_CHALLENGES:
+    case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
+      const contactStageId = action.query.filters.pathway_stage_id;
+      const isMe = action.query.filters.self_step;
+      const suggestions = action.results.findAll('challenge_suggestion');
       return {
         ...state,
-        suggestedForMe: action.suggestedForMe,
-        suggestedForOthers: action.suggestedForOthers,
-      };
-    case REMOVE_MY_SUGGESTIONS:
-      contactStage = action.contactStage;
-      newSteps = action.newSteps;
-      return {
-        ...state,
-        suggestedForMe: state.suggestedForMe[contactStage.id].filter(
-          o => !newSteps.includes(o),
-        ),
-      };
-    case REMOVE_OTHER_SUGGESTIONS:
-      contactStage = action.contactStage;
-      newSteps = action.newSteps;
-      return {
-        ...state,
-        suggestedForOthers: state.suggestedForOthers[contactStage.id].filter(
-          o => !newSteps.includes(o),
-        ),
+        suggestedForMe: {
+          ...state.suggestedForMe,
+          [contactStageId]: isMe
+            ? suggestions
+            : state.suggestedForMe[contactStageId],
+        },
+        suggestedForOthers: {
+          ...state.suggestedForOthers,
+          [contactStageId]: isMe
+            ? state.suggestedForOthers[contactStageId]
+            : suggestions,
+        },
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      newSteps = action.results.response;
+      const newSteps = action.results.response;
 
       // If we're doing paging, concat the old steps with the new ones
       const allSteps =
