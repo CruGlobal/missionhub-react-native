@@ -1,12 +1,5 @@
 import { REQUESTS } from '../actions/api';
-import {
-  LOGOUT,
-  TOGGLE_STEP_FOCUS,
-  COMPLETED_STEP_COUNT,
-  FILTERED_CHALLENGES,
-  REMOVE_MY_SUGGESTIONS,
-  REMOVE_OTHER_SUGGESTIONS,
-} from '../constants';
+import { LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT } from '../constants';
 import { shuffleArray } from '../utils/common';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
@@ -47,8 +40,6 @@ export default function stepsReducer(state = initialState, action) {
       const suggestions = shuffleArray(
         action.results.findAll('challenge_suggestion'),
       );
-      console.log(isMe);
-      console.log(suggestions);
       return {
         ...state,
         suggestedForMe: {

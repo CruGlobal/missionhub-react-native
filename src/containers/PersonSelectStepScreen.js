@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getFourRandomItems } from '../utils/common';
-
 import SelectStepScreen from './SelectStepScreen';
 
 @translate('selectStep')
@@ -19,12 +17,12 @@ class PersonSelectStepScreen extends Component {
 
   render() {
     const {
+      t,
       contactName,
       personFirstName,
       contactStage,
       contactId,
       personId,
-      t,
       contact,
       organization,
       createStepTracking,
@@ -58,10 +56,9 @@ PersonSelectStepScreen.propTypes = {
   onSaveNewSteps: PropTypes.func,
 };
 
-const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
+const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   myId: auth.person.id,
-  suggestedForOthers: steps.suggestedForOthers,
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
 });

@@ -10,33 +10,12 @@ import {
   ORG_PERMISSIONS,
 } from '../constants';
 
-export const getFourRandomItems = arr => {
-  if (!arr) {
-    return [];
-  }
-
-  const items = [];
-  const numItems = arr.length >= 4 ? 4 : arr.length;
-
-  let x = 0;
-  while (x < numItems) {
-    const item = arr[Math.floor(Math.random() * arr.length)];
-
-    if (!items.includes(item)) {
-      items.push(item);
-      x++;
-    }
-  }
-
-  return items;
-};
-
 export const shuffleArray = arr => {
   let currentIndex = arr.length,
     temporaryValue,
     randomIndex;
 
-  while (0 != currentIndex) {
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 

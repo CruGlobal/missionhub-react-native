@@ -13,13 +13,8 @@ import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack, getFourRandomItems } from '../../utils/common';
-import {
-  CREATE_STEP,
-  CUSTOM_STEP_TYPE,
-  REMOVE_MY_SUGGESTIONS,
-  REMOVE_OTHER_SUGGESTIONS,
-} from '../../constants';
+import { disableBack } from '../../utils/common';
+import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 
 import styles from './styles';
