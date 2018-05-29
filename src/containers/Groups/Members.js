@@ -23,21 +23,19 @@ class Members extends Component {
     const { members, hasMore } = this.props;
     return (
       <Flex value={1} style={styles.members}>
-        <ScrollView style={{ flex: 1 }}>
-          <FlatList
-            data={members}
-            keyExtractor={i => i.id}
-            renderItem={({ item }) => (
-              <GroupMemberItem person={item} onSelect={this.handleSelect} />
-            )}
-            ItemSeparatorComponent={(sectionID, rowID) => (
-              <Separator key={rowID} />
-            )}
-            ListFooterComponent={
-              hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
-            }
-          />
-        </ScrollView>
+        <FlatList
+          data={members}
+          keyExtractor={i => i.id}
+          renderItem={({ item }) => (
+            <GroupMemberItem person={item} onSelect={this.handleSelect} />
+          )}
+          ItemSeparatorComponent={(sectionID, rowID) => (
+            <Separator key={rowID} />
+          )}
+          ListFooterComponent={
+            hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
+          }
+        />
       </Flex>
     );
   }

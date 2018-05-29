@@ -412,6 +412,11 @@ export default {
     assigned: '{{number}} Assigned',
     uncontacted: '{{number}} Uncontacted',
   },
+  groupSurveyItem: {
+    contacts: '{{number}} Contacts',
+    unassigned: '{{number}} Unassigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
   loadMore: {
     load: 'Load More',
   },

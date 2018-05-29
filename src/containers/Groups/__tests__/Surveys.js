@@ -1,8 +1,10 @@
 import React from 'react';
 
 import Surveys from '../Surveys';
-import { testSnapshotShallow } from '../../../../testUtils';
+import { createMockStore, testSnapshotShallow } from '../../../../testUtils';
+
+const store = createMockStore({});
 
 it('should render correctly', () => {
-  testSnapshotShallow(<Surveys />);
+  testSnapshotShallow(<Surveys />, store);
 });
