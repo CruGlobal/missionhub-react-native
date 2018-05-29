@@ -405,6 +405,9 @@ export default {
   groupsSurveys: {
     title: '',
   },
+  groupsSurveyContacts: {
+    searchPlaceholder: 'Search Contacts',
+  },
   contactItem: {
     unassigned: 'Unassigned',
   },

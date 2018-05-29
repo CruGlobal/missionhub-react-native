@@ -12,7 +12,7 @@ exports[`renders filters 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#B2B0B2",
+        "backgroundColor": "#E6E8EC",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }
@@ -92,7 +92,7 @@ exports[`renders filters 1`] = `
             "borderRadius": 5,
             "marginRight": 5,
             "marginTop": 1,
-            "paddingHorizontal": 10,
+            "paddingLeft": 10,
           }
         }
       >
@@ -111,12 +111,12 @@ exports[`renders filters 1`] = `
           filter 1
         </MyText>
         <IconButton
-          name="deleteIcon"
+          name="cancelIcon"
           onPress={[Function]}
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
+              "fontSize": 16,
             }
           }
           type="MissionHub"
@@ -132,7 +132,7 @@ exports[`renders filters 1`] = `
             "borderRadius": 5,
             "marginRight": 5,
             "marginTop": 1,
-            "paddingHorizontal": 10,
+            "paddingLeft": 10,
           }
         }
       >
@@ -151,12 +151,12 @@ exports[`renders filters 1`] = `
           filter 2
         </MyText>
         <IconButton
-          name="deleteIcon"
+          name="cancelIcon"
           onPress={[Function]}
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
+              "fontSize": 16,
             }
           }
           type="MissionHub"
@@ -172,7 +172,7 @@ exports[`renders filters 1`] = `
             "borderRadius": 5,
             "marginRight": 5,
             "marginTop": 1,
-            "paddingHorizontal": 10,
+            "paddingLeft": 10,
           }
         }
       >
@@ -191,12 +191,12 @@ exports[`renders filters 1`] = `
           filter 3
         </MyText>
         <IconButton
-          name="deleteIcon"
+          name="cancelIcon"
           onPress={[Function]}
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
+              "fontSize": 16,
             }
           }
           type="MissionHub"
@@ -212,7 +212,7 @@ exports[`renders filters 1`] = `
             "borderRadius": 5,
             "marginRight": 5,
             "marginTop": 1,
-            "paddingHorizontal": 10,
+            "paddingLeft": 10,
           }
         }
       >
@@ -231,12 +231,12 @@ exports[`renders filters 1`] = `
           filter 4
         </MyText>
         <IconButton
-          name="deleteIcon"
+          name="cancelIcon"
           onPress={[Function]}
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
+              "fontSize": 16,
             }
           }
           type="MissionHub"
@@ -304,7 +304,7 @@ exports[`renders search list 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#B2B0B2",
+        "backgroundColor": "#E6E8EC",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }
@@ -425,7 +425,7 @@ exports[`renders text in search box 1`] = `
   <Flex
     style={
       Object {
-        "backgroundColor": "#B2B0B2",
+        "backgroundColor": "#E6E8EC",
         "paddingLeft": 15,
         "paddingVertical": 15,
       }

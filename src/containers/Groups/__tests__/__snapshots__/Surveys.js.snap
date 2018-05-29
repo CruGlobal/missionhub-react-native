@@ -4,6 +4,12 @@ exports[`should render correctly 1`] = `
 <Translate(Surveys)
   dispatch={[MockFunction]}
   hasMore={true}
+  organization={
+    Object {
+      "id": "1",
+      "name": "Test Org",
+    }
+  }
   surveys={
     Array [
       Object {

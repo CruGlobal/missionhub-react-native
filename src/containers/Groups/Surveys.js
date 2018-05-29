@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
-import { Flex, Separator } from '../../components/common';
+import { Flex } from '../../components/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
+import { navigatePush } from '../../actions/navigation';
 
+import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
 
 @connect()
 @translate('groupsSurveys')
 class Surveys extends Component {
   handleSelect = survey => {
-    LOG('selected survey', survey);
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUPS_SURVEY_CONTACTS, { organization, survey }));
   };
 
   handleLoadMore = () => {
@@ -38,6 +42,10 @@ class Surveys extends Component {
     );
   }
 }
+
+Surveys.propTypes = {
+  organization: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = () => ({
   surveys: [

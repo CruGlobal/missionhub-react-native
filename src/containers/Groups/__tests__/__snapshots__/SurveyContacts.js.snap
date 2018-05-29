@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SurveyContacts should render correctly 1`] = `
+<Translate(SurveyContacts)
+  contacts={
+    Array [
+      Object {
+        "full_name": "full name 1",
+        "id": "1",
+        "isAssigned": false,
+      },
+      Object {
+        "full_name": "full name 2",
+        "id": "2",
+        "isAssigned": false,
+      },
+      Object {
+        "full_name": "full name 3",
+        "id": "3",
+        "isAssigned": true,
+      },
+      Object {
+        "full_name": "full name 4",
+        "id": "4",
+        "isAssigned": false,
+      },
+    ]
+  }
+  dispatch={[MockFunction]}
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "organization": Object {
+            "id": "1",
+            "name": "Test Org",
+          },
+          "survey": Object {
+            "id": "11",
+          },
+        },
+      },
+    }
+  }
+  organization={
+    Object {
+      "id": "1",
+      "name": "Test Org",
+    }
+  }
+  survey={
+    Object {
+      "id": "11",
+    }
+  }
+/>
+`;

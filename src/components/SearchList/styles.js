@@ -8,7 +8,7 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   searchWrap: {
-    backgroundColor: theme.grey1,
+    backgroundColor: theme.lightGrey,
     paddingLeft: 15,
     paddingVertical: 15,
   },
@@ -59,7 +59,7 @@ export default StyleSheet.create({
     paddingHorizontal: 6,
   },
   activeFilterRow: {
-    paddingHorizontal: 10,
+    paddingLeft: 10,
     marginTop: 1,
     borderRadius: 5,
     marginRight: 5,
@@ -71,7 +71,7 @@ export default StyleSheet.create({
     color: theme.white,
   },
   activeFilterIcon: {
-    fontSize: 14,
+    fontSize: 16,
     color: theme.white,
   },
 });

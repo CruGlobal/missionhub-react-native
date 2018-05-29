@@ -109,7 +109,7 @@ class SearchList extends Component {
             <Text style={styles.activeFilterText}>{filters[k].text}</Text>
             <IconButton
               style={styles.activeFilterIcon}
-              name="deleteIcon"
+              name="cancelIcon"
               type="MissionHub"
               onPress={() => this.removeFilter(k)}
             />
