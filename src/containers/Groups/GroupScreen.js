@@ -37,12 +37,12 @@ const tabs = [
   {
     name: i18next.t('groupTabs:celebrate'),
     navigationAction: 'nav/GROUP_CELEBRATE',
-    component: () => <Celebrate />,
+    component: Celebrate,
   },
   {
     name: i18next.t('groupTabs:members'),
     navigationAction: 'nav/GROUP_MEMBERS',
-    component: () => <Members />,
+    component: Members,
   },
   {
     name: i18next.t('groupTabs:impact'),
@@ -58,12 +58,12 @@ const tabs = [
   {
     name: i18next.t('groupTabs:contacts'),
     navigationAction: 'nav/GROUP_CONTACTS',
-    component: () => <Contacts />,
+    component: Contacts,
   },
   {
     name: i18next.t('groupTabs:surveys'),
     navigationAction: 'nav/GROUP_SURVEYS',
-    component: () => <Surveys />,
+    component: Surveys,
   },
 ];
 

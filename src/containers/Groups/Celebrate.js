@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -10,7 +10,7 @@ import { Button, Flex, Text } from '../../components/common';
 export default class Celebrate extends Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <Flex value={1}>
         <ScrollView style={{ flex: 1 }}>
           <Text>Load More</Text>
           <Text>LONG LIST</Text>
@@ -22,7 +22,7 @@ export default class Celebrate extends Component {
             text={'Input goes here'}
           />
         </Flex>
-      </View>
+      </Flex>
     );
   }
 }

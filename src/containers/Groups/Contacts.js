@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Separator } from '../../components/common';
+import { Separator, Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 
@@ -15,12 +14,10 @@ export default class Contacts extends Component {
   };
 
   handleRemoveFilter = async key => {
-    const newFilters = { ...this.state.filters };
+    let newFilters = { ...this.state.filters };
     delete newFilters[key];
     return await new Promise(resolve =>
-      this.setState({ filters: newFilters }, () => {
-        resolve();
-      }),
+      this.setState({ filters: newFilters }, () => resolve()),
     );
   };
 
@@ -56,7 +53,7 @@ export default class Contacts extends Component {
     const { t } = this.props;
     const { filters } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <Flex value={1}>
         <SearchList
           onFilterPress={this.handleFilterPress}
           listProps={{
@@ -72,7 +69,7 @@ export default class Contacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </View>
+      </Flex>
     );
   }
 }

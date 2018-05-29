@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contacts should render correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<Flex
+  value={1}
 >
   <Translate(SearchList)
     filters={Object {}}
@@ -21,5 +17,5 @@ exports[`Contacts should render correctly 1`] = `
     onSearch={[Function]}
     placeholder="Search Contacts"
   />
-</Component>
+</Flex>
 `;

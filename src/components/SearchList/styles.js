@@ -10,8 +10,7 @@ export default StyleSheet.create({
   searchWrap: {
     backgroundColor: theme.grey1,
     paddingLeft: 15,
-    paddingTop: 15,
-    paddingBottom: 10,
+    paddingVertical: 15,
   },
   searchFilterWrap: {
     paddingRight: 5,
@@ -56,7 +55,7 @@ export default StyleSheet.create({
   },
   activeFilterWrap: {
     marginTop: 7,
-    paddingVertical: 5,
+    paddingTop: 5,
     paddingHorizontal: 6,
   },
   activeFilterRow: {
