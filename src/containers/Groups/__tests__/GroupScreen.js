@@ -1,20 +1,19 @@
 import React from 'react';
 
-import { GroupScreenHeader } from '../GroupScreen';
+import { GroupScreen } from '../GroupScreen';
 import {
   testSnapshotShallow,
   createMockNavState,
   renderShallow,
 } from '../../../../testUtils';
-import { navigateReset } from '../../../actions/navigation';
+import { navigateBack } from '../../../actions/navigation';
 jest.mock('../../../actions/navigation', () => ({
-  navigateReset: jest.fn(() => ({ type: 'test' })),
+  navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
-import { MAIN_TABS } from '../../../constants';
 
-describe('GroupScreenHeader', () => {
+describe('GroupScreen', () => {
   const header = (
-    <GroupScreenHeader
+    <GroupScreen
       navigation={createMockNavState({
         organization: { id: '5', name: 'Test  Org' },
       })}
@@ -28,6 +27,6 @@ describe('GroupScreenHeader', () => {
     renderShallow(header)
       .props()
       .left.props.customNavigate();
-    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS);
+    expect(navigateBack).toHaveBeenCalled();
   });
 });

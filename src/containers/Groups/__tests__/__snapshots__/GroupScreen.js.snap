@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GroupScreenHeader should render header correctly 1`] = `
+exports[`GroupScreen should render header correctly 1`] = `
 <Connect(Header)
   left={
     <Connect(BackButton)

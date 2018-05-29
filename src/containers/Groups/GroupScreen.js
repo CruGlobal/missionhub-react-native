@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import Header from '../Header/index';
 import BackButton from '../BackButton/index';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import { navigateReset } from '../../actions/navigation';
-import { MAIN_TABS } from '../../constants';
+import { navigateBack } from '../../actions/navigation';
+// import { MAIN_TABS } from '../../constants';
 import ImpactView from '../ImpactView';
 
+import Celebrate from './Celebrate';
+import Members from './Members';
+import Contacts from './Contacts';
+import Surveys from './Surveys';
+
 @connect()
-export class GroupScreenHeader extends Component {
+export class GroupScreen extends Component {
   customNavigate = () => {
     const { dispatch } = this.props;
-    dispatch(navigateReset(MAIN_TABS));
+    dispatch(navigateBack());
   };
 
   render() {
@@ -33,12 +37,12 @@ const tabs = [
   {
     name: i18next.t('groupTabs:celebrate'),
     navigationAction: 'nav/GROUP_CELEBRATE',
-    component: () => <Text>Group Celebrate</Text>,
+    component: Celebrate,
   },
   {
     name: i18next.t('groupTabs:members'),
     navigationAction: 'nav/GROUP_MEMBERS',
-    component: () => <Text>Group Members</Text>,
+    component: Members,
   },
   {
     name: i18next.t('groupTabs:impact'),
@@ -54,18 +58,18 @@ const tabs = [
   {
     name: i18next.t('groupTabs:contacts'),
     navigationAction: 'nav/GROUP_CONTACTS',
-    component: () => <Text>Group Contacts</Text>,
+    component: Contacts,
   },
   {
     name: i18next.t('groupTabs:surveys'),
     navigationAction: 'nav/GROUP_SURVEYS',
-    component: () => <Text>Group Surveys</Text>,
+    component: Surveys,
   },
 ];
 
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   tabs,
-  GroupScreenHeader,
+  GroupScreen,
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
