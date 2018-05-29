@@ -33,6 +33,7 @@ class SelectStepScreen extends Component {
       steps: [],
       addedSteps: [],
       contact: null,
+      suggestionIndex: 0,
     };
   }
 
@@ -48,20 +49,13 @@ class SelectStepScreen extends Component {
     }));
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { dispatch, isMe, contactStage } = this.props;
-    dispatch(getStepSuggestions(isMe, contactStage.id));
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    let { suggestions } = nextProps;
-    if (!nextProps.isMe) {
-      suggestions = this.insertName(suggestions);
-    }
-    this.setState({ steps: [].concat(suggestions, this.state.addedSteps) });
+    await dispatch(getStepSuggestions(isMe, contactStage.id));
+    this.handleLoadSteps();
   }
 
   componentWillUnmount() {
@@ -70,7 +64,33 @@ class SelectStepScreen extends Component {
     }
   }
 
-  handleLoadSteps = () => {};
+  handleLoadSteps = () => {
+    const { suggestionIndex } = this.state;
+    const { suggestions, isMe } = this.props;
+
+    if (suggestionIndex >= suggestions.length) {
+      return;
+    }
+
+    let suggestionIndexMax = suggestionIndex + 4;
+    if (suggestionIndexMax > suggestions.length) {
+      suggestionIndexMax = suggestionIndexMax.length;
+    }
+
+    let newSuggestions = this.props.suggestions.slice(
+      suggestionIndex,
+      suggestionIndexMax,
+    );
+
+    if (!isMe) {
+      newSuggestions = this.insertName(newSuggestions);
+    }
+
+    this.setState({
+      steps: [].concat(this.state.steps, newSuggestions, this.state.addedSteps),
+      suggestionIndex: suggestionIndexMax,
+    });
+  };
 
   filterSelected() {
     return this.state.steps.filter(s => s.selected);
