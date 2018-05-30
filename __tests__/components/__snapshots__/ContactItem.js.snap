@@ -10,7 +10,8 @@ exports[`render assigned contact 1`] = `
     direction="row"
     style={
       Object {
-        "marginTop": 1,
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
         "width": 750,
@@ -50,7 +51,8 @@ exports[`render unassigned contact 1`] = `
     direction="row"
     style={
       Object {
-        "marginTop": 1,
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
         "width": 750,
