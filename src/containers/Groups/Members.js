@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Separator, Flex } from '../../components/common';
+import { Flex } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 
@@ -12,11 +12,11 @@ import styles from './styles';
 @translate('groupsMembers')
 class Members extends Component {
   handleSelect = person => {
-    LOG('selected person', person);
+    return person;
   };
 
   handleLoadMore = () => {
-    LOG('load more');
+    return true;
   };
 
   render() {
@@ -28,9 +28,6 @@ class Members extends Component {
           keyExtractor={i => i.id}
           renderItem={({ item }) => (
             <GroupMemberItem person={item} onSelect={this.handleSelect} />
-          )}
-          ItemSeparatorComponent={(sectionID, rowID) => (
-            <Separator key={rowID} />
           )}
           ListFooterComponent={
             hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined

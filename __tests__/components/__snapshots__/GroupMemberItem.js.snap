@@ -10,6 +10,8 @@ exports[`render 0 assigned 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
         "paddingLeft": 24,
         "paddingRight": 13,
         "paddingVertical": 16,
@@ -96,6 +98,8 @@ exports[`render 0 uncontacted 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
         "paddingLeft": 24,
         "paddingRight": 13,
         "paddingVertical": 16,
@@ -154,6 +158,8 @@ exports[`render member 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
         "paddingLeft": 24,
         "paddingRight": 13,
         "paddingVertical": 16,

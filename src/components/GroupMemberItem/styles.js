@@ -9,6 +9,8 @@ export default StyleSheet.create({
     paddingRight: 13,
     width: theme.fullWidth,
     backgroundColor: theme.white,
+    borderBottomColor: theme.separatorColor,
+    borderBottomWidth: theme.separatorHeight,
   },
   detailsWrap: {
     marginTop: 1,
