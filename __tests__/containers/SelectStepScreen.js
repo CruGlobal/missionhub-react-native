@@ -14,6 +14,8 @@ import { addSteps } from '../../src/actions/steps';
 import { CREATE_STEP } from '../../src/constants';
 jest.mock('../../src/actions/steps');
 
+const testName = 'Bill';
+
 const stageId = 5;
 const contactStage = { id: stageId };
 
@@ -24,7 +26,13 @@ const store = createMockStore({
     },
   },
   steps: {
-    suggestedForOthers: [{ id: 1 }, { id: 2 }, { id: 3 }],
+    suggestedForOthers: {
+      [stageId]: [
+        { id: '1', body: 'test 1' },
+        { id: '2', body: 'test 2 <<name>>' },
+        { id: '3', body: 'test 3' },
+      ],
+    },
   },
 });
 
@@ -61,16 +69,18 @@ describe('SelectStepScreen', () => {
 
 describe('renderSaveButton', () => {
   let component;
-  beforeEach(() => {
+  beforeEach(async () => {
     component = renderShallow(
       <SelectStepScreen
         isMe={false}
         contactStage={contactStage}
         createStepTracking={{}}
         onComplete={() => {}}
+        personFirstName={testName}
       />,
       store,
     );
+    await component.instance().componentDidMount();
     component.update();
   });
   it('should not render save button', () => {
@@ -149,9 +159,11 @@ describe('saveAllSteps', () => {
       store,
     );
     const instance = component.instance();
+    instance.componentDidMount();
+    component.update();
 
-    instance.handleSelectStep({ id: 1 });
-    instance.handleSelectStep({ id: 3 });
+    instance.handleSelectStep({ id: '1' });
+    instance.handleSelectStep({ id: '3' });
     component.update();
     await instance.saveAllSteps();
 

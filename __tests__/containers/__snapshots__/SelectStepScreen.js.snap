@@ -203,7 +203,22 @@ exports[`renderSaveButton should not render save button 1`] = `
   >
     <StepsList
       createStepText="Create your own step..."
-      items={Array []}
+      items={
+        Array [
+          Object {
+            "body": "test 1",
+            "id": "1",
+          },
+          Object {
+            "body": "test 2 Bill",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+        ]
+      }
       loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
       onLoadMoreSteps={[Function]}
@@ -240,12 +255,43 @@ exports[`renderSaveButton should render save button 1`] = `
   >
     <StepsList
       createStepText="Create your own step..."
-      items={Array []}
+      items={
+        Array [
+          Object {
+            "body": "test 1",
+            "id": "1",
+            "selected": true,
+          },
+          Object {
+            "body": "test 2 Bill",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+        ]
+      }
       loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
       onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
+  <Flex
+    align="center"
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      style={
+        Object {
+          "width": 750,
+        }
+      }
+      text="ADD TO MY STEPS"
+      type="secondary"
+    />
+  </Flex>
 </Flex>
 `;
