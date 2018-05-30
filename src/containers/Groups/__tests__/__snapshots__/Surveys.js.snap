@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`Surveys should render correctly 1`] = `
 <Translate(Surveys)
   dispatch={[MockFunction]}
   hasMore={true}

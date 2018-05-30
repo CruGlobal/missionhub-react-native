@@ -21,7 +21,7 @@ class Surveys extends Component {
   };
 
   handleLoadMore = () => {
-    LOG('load more');
+    return true;
   };
 
   render() {

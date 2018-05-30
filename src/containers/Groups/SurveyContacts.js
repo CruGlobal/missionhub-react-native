@@ -50,11 +50,11 @@ class SurveyContacts extends Component {
   };
 
   handleSelect = item => {
-    LOG('selected item', item);
+    return item;
   };
 
   render() {
-    const { t, organization, survey } = this.props;
+    const { t, organization } = this.props;
     const { filters } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
@@ -65,9 +65,6 @@ class SurveyContacts extends Component {
           listProps={{
             renderItem: ({ item }) => (
               <ContactItem contact={item} onSelect={this.handleSelect} />
-            ),
-            ItemSeparatorComponent: (sectionID, rowID) => (
-              <Separator key={rowID} />
             ),
           }}
           onSearch={this.handleSearch}

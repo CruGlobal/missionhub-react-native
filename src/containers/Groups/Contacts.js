@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Separator, Flex } from '../../components/common';
+import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 
@@ -59,9 +59,6 @@ export default class Contacts extends Component {
           listProps={{
             renderItem: ({ item }) => (
               <ContactItem contact={item} onSelect={this.handleSelect} />
-            ),
-            ItemSeparatorComponent: (sectionID, rowID) => (
-              <Separator key={rowID} />
             ),
           }}
           onSearch={this.handleSearch}

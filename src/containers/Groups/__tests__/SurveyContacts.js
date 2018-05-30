@@ -76,10 +76,9 @@ describe('SurveyContacts', () => {
       .dive()
       .dive()
       .instance();
-    const item = { test: true };
-    instance.handleSelect = jest.fn();
-    instance.handleSelect(item);
+    const item = { id: '1' };
+    const result = instance.handleSelect(item);
 
-    expect(instance.handleSelect).toHaveBeenCalledWith(item);
+    expect(result).toBe(item);
   });
 });
