@@ -7,6 +7,11 @@ exports[`renders correctly for onboarding 1`] = `
       "id": "1234",
     }
   }
+  contactStage={
+    Object {
+      "id": 4,
+    }
+  }
   createStepTracking={
     Object {
       "level3": "steps",
@@ -17,17 +22,9 @@ exports[`renders correctly for onboarding 1`] = `
   }
   enableBackButton={false}
   headerText="How do you want to move forward on your spiritual journey?"
+  isMe={true}
   onComplete={[Function]}
   receiverId="1234"
-  steps={
-    Array [
-      Object {
-        "body": "test",
-        "id": "2",
-      },
-    ]
-  }
-  useOthersSteps={false}
 />
 `;
 
@@ -36,6 +33,11 @@ exports[`renders correctly with back button 1`] = `
   contact={
     Object {
       "id": "1234",
+    }
+  }
+  contactStage={
+    Object {
+      "id": 4,
     }
   }
   createStepTracking={
@@ -48,17 +50,9 @@ exports[`renders correctly with back button 1`] = `
   }
   enableBackButton={true}
   headerText="How do you want to move forward on your spiritual journey?"
+  isMe={true}
   onComplete={[Function]}
   receiverId="1234"
-  steps={
-    Array [
-      Object {
-        "body": "test",
-        "id": "2",
-      },
-    ]
-  }
-  useOthersSteps={false}
 />
 `;
 
@@ -67,6 +61,11 @@ exports[`renders correctly without back button 1`] = `
   contact={
     Object {
       "id": "1234",
+    }
+  }
+  contactStage={
+    Object {
+      "id": 4,
     }
   }
   createStepTracking={
@@ -79,16 +78,8 @@ exports[`renders correctly without back button 1`] = `
   }
   enableBackButton={false}
   headerText="How do you want to move forward on your spiritual journey?"
+  isMe={true}
   onComplete={[Function]}
   receiverId="1234"
-  steps={
-    Array [
-      Object {
-        "body": "test",
-        "id": "2",
-      },
-    ]
-  }
-  useOthersSteps={false}
 />
 `;

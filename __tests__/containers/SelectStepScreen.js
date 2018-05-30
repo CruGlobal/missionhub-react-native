@@ -159,7 +159,7 @@ describe('saveAllSteps', () => {
       store,
     );
     const instance = component.instance();
-    instance.componentDidMount();
+    await instance.componentDidMount();
     component.update();
 
     instance.handleSelectStep({ id: '1' });
@@ -171,7 +171,12 @@ describe('saveAllSteps', () => {
       [
         {
           id: '1',
-          body: 'Selected',
+          body: 'test 1',
+          selected: true,
+        },
+        {
+          id: '3',
+          body: 'test 3',
           selected: true,
         },
       ],

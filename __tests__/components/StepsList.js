@@ -2,8 +2,8 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import StepsList from '../src/components/StepsList';
-import { testSnapshot } from '../testUtils';
+import StepsList from '../../src/components/StepsList/index';
+import { testSnapshot } from '../../testUtils/index';
 
 const items = [
   { id: '1', body: 'I feel great', selected: true },
