@@ -4,8 +4,16 @@ import { COMPLETED_STEP_COUNT, TOGGLE_STEP_FOCUS } from '../../src/constants';
 
 it('loads step suggestions for me', () => {
   const stageId = 5;
-  const oldSuggestions = [{ id: 1 }, { id: 2 }, { id: 3 }];
-  const newSuggestions = [{ id: 4 }, { id: 5 }, { id: 6 }];
+  const oldSuggestions = [
+    { id: 1, type: 'challenge_suggestion' },
+    { id: 2, type: 'challenge_suggestion' },
+    { id: 3, type: 'challenge_suggestion' },
+  ];
+  const newSuggestions = [
+    { id: 4, type: 'challenge_suggestion' },
+    { id: 5, type: 'challenge_suggestion' },
+    { id: 6, type: 'challenge_suggestion' },
+  ];
   newSuggestions.findAll = () => newSuggestions;
 
   const state = steps(

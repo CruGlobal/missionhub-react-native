@@ -243,7 +243,7 @@ SelectStepScreen.propTypes = {
   isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth, steps }, { isMe, contactStage }) => ({
+export const mapStateToProps = ({ auth, steps }, { isMe, contactStage }) => ({
   myId: auth.person.id,
   suggestions: isMe
     ? steps.suggestedForMe[contactStage.id]

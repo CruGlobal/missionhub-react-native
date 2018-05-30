@@ -135,6 +135,30 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
 </View>
 `;
 
+exports[`mapStateToProps should provide necessary props for me 1`] = `
+Object {
+  "myId": "123",
+  "suggestions": Array [
+    Object {
+      "body": "test 1",
+      "id": "1",
+    },
+  ],
+}
+`;
+
+exports[`mapStateToProps should provide necessary props for others 1`] = `
+Object {
+  "myId": "123",
+  "suggestions": Array [
+    Object {
+      "body": "test 1",
+      "id": "1",
+    },
+  ],
+}
+`;
+
 exports[`renderBackButton should render back button 1`] = `
 <Flex
   style={
@@ -176,58 +200,6 @@ exports[`renderBackButton should render back button 1`] = `
 </Flex>
 `;
 
-exports[`renderSaveButton should not render save button 1`] = `
-<Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={215}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <StepsList
-      createStepText="Create your own step..."
-      items={
-        Array [
-          Object {
-            "body": "test 1",
-            "id": "1",
-          },
-          Object {
-            "body": "test 2 Bill",
-            "id": "2",
-          },
-          Object {
-            "body": "test 3",
-            "id": "3",
-          },
-        ]
-      }
-      loadMoreStepsText="SHOW MORE STEPS"
-      onCreateStep={[Function]}
-      onLoadMoreSteps={[Function]}
-      onSelectStep={[Function]}
-    />
-  </ParallaxScrollView>
-</Flex>
-`;
-
 exports[`renderSaveButton should render save button 1`] = `
 <Flex
   style={
@@ -263,12 +235,16 @@ exports[`renderSaveButton should render save button 1`] = `
             "selected": true,
           },
           Object {
-            "body": "test 2 Bill",
+            "body": "test 2",
             "id": "2",
           },
           Object {
             "body": "test 3",
             "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
           },
         ]
       }
