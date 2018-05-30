@@ -72,7 +72,7 @@ class SearchList extends Component {
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
-          autoFocus={true}
+          autoFocus={false}
           selectionColor="white"
           returnKeyType="done"
           blurOnSubmit={true}

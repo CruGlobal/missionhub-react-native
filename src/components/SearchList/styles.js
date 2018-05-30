@@ -44,6 +44,7 @@ export default StyleSheet.create({
   },
   nullWrap: {
     marginBottom: 40,
+    minHeight: theme.fullHeight - 250,
   },
   nullHeader: {
     fontSize: 84,
