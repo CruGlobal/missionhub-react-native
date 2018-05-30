@@ -71,4 +71,5 @@ coverage/
 .env
 
 ios/Index
-.env
+
+.vscode/

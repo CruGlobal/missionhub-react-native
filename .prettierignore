@@ -3,3 +3,4 @@ ios
 android
 coverage
 *.snap
+package.json

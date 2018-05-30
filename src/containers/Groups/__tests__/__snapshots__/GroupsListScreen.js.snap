@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contacts should render correctly 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "color": "black",
+    }
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "marginTop": 20,
+    }
+  }
+  text="Navigate to Group 728"
+/>
+`;

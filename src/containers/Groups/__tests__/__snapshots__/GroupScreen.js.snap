@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupScreen should render header correctly 1`] = `
+<Connect(Header)
+  left={
+    <Connect(BackButton)
+      customNavigate={[Function]}
+    />
+  }
+  shadow={false}
+  title="Test  Org"
+/>
+`;
