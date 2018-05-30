@@ -408,4 +408,11 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  groupMemberItem: {
+    assigned: '{{number}} Assigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
+  loadMore: {
+    load: 'Load More',
+  },
 };

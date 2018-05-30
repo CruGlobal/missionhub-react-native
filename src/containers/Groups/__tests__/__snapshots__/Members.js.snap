@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`Members should render correctly 1`] = `
 <Flex
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
   value={1}
 >
   <ScrollView
@@ -11,20 +17,46 @@ exports[`should render correctly 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Members List
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Load More
-    </MyText>
+    <FlatList
+      ListFooterComponent={
+        <Translate(LoadMore)
+          onPress={[Function]}
+        />
+      }
+      data={
+        Array [
+          Object {
+            "assignedNum": 2,
+            "full_name": "Full Name1",
+            "id": "123",
+            "uncontactedNum": 3,
+          },
+          Object {
+            "assignedNum": 2,
+            "full_name": "Full Name2",
+            "id": "223",
+            "uncontactedNum": 0,
+          },
+          Object {
+            "assignedNum": 12,
+            "full_name": "Full Name3",
+            "id": "323",
+            "uncontactedNum": 2,
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
   </ScrollView>
 </Flex>
 `;
