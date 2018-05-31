@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Button } from '../../components/common';
+import Header from '../../containers/Header';
+import Card from '../../components/Card';
+import { Button, IconButton } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
+import { openMainMenu } from '../../utils/common';
 
 import { GROUP_SCREEN } from './GroupScreen';
 
 @connect()
 @translate('groupsList')
-export default class GroupsListScreen extends Component {
+export class GroupsListScreen extends Component {
   handlePress = () => {
     this.props.dispatch(
       navigatePush(GROUP_SCREEN, {
@@ -19,13 +23,43 @@ export default class GroupsListScreen extends Component {
   };
 
   render() {
+    const { dispatch, t } = this.props;
     return (
-      <Button
-        text={'Navigate to Group 728'}
-        style={{ marginTop: 20 }}
-        buttonTextStyle={{ color: 'black' }}
-        onPress={this.handlePress}
-      />
+      <View style={{ flex: 1 }}>
+        <Header
+          left={
+            <IconButton
+              name="menuIcon"
+              type="MissionHub"
+              onPress={() => dispatch(openMainMenu())}
+            />
+          }
+          title={t('header').toUpperCase()}
+        />
+        <View style={{ flex: 1, margin: 20 }}>
+          <Card />
+          <Card />
+        </View>
+      </View>
     );
   }
 }
+
+export const mapStateToProps = () => ({
+  groups: [
+    {
+      name: 'Cru at Boston University',
+      contacts: 768,
+      unassigned: 13,
+      uncontacted: 43,
+    },
+    {
+      name: 'Cru at Boston University Northeast Branch',
+      contacts: 768,
+      unassigned: 13,
+      uncontacted: 43,
+    },
+  ],
+});
+
+export default connect(mapStateToProps)(GroupsListScreen);
