@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import GroupsContactList from '../../components/GroupsContactList';
 import Header from '../Header';
 import BackButton from '../BackButton';
@@ -28,6 +27,13 @@ class Contact extends Component {
           person={person}
           onAssign={this.handleAssign}
         />
+        <Flex justify="end">
+          <Button
+            type="secondary"
+            onPress={() => {}}
+            text={'Input goes here'}
+          />
+        </Flex>
       </Flex>
     );
   }
@@ -46,18 +52,24 @@ const mapStateToProps = (state, { navigation }) => ({
       created_at: '2018-05-29T17:02:02Z',
       text: 'Someone had a spiritual conversation',
       comment: 'Some comment',
+      type: 'interaction',
+      interaction_type_id: 2,
     },
     {
       id: '2',
       created_at: '2018-05-29T17:02:02Z',
       text: 'Someone else had a spiritual conversation',
       comment: '',
+      type: 'interaction',
+      interaction_type_id: 2,
     },
     {
       id: '3',
       created_at: '2018-05-29T17:02:02Z',
-      text: 'Someone else had a spiritual conversation',
+      text: 'Someone else had a gospel conversation',
       comment: '',
+      type: 'interaction',
+      interaction_type_id: 3,
     },
     {
       id: '4',

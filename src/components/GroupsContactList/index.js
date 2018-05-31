@@ -12,39 +12,46 @@ import {
   DateComponent,
   Card,
 } from '../../components/common';
+import { getIconName } from '../../utils/common';
 
 import styles from './styles';
 
 @translate('groupsContactList')
 class GroupsContactList extends Component {
-  renderItem({ item }) {
+  renderIcon(item) {
+    let iconType =
+      getIconName(item.type, item.interaction_type_id) || 'surveyIcon';
+
+    return (
+      <Flex value={1} align="center">
+        <Icon name={iconType} type="MissionHub" size={32} style={styles.icon} />
+      </Flex>
+    );
+  }
+
+  renderItem = ({ item }) => {
     if (item.survey) {
       return <Text>Survey Item</Text>;
     }
     return (
-      <Card style={styles.row}>
-        <Flex value={1}>
-          <Icon
-            name="surveyIcon"
-            type="MissionHub"
-            size={32}
-            style={styles.icon}
-          />
-        </Flex>
-        <Flex value={3.5} style={styles.rowContent}>
-          <DateComponent
-            date={item.created_at}
-            style={styles.date}
-            format="LLL"
-          />
-          <Text style={styles.title}>{item.text}</Text>
-          {item.comment ? (
-            <Text style={styles.comment}>{item.comment}</Text>
-          ) : null}
-        </Flex>
-      </Card>
+      <Flex style={{ marginBottom: 15 }}>
+        <Card style={styles.row}>
+          {this.renderIcon(item)}
+          <Flex value={5} style={styles.rowContent}>
+            <DateComponent
+              date={item.created_at}
+              style={styles.date}
+              format="LLL"
+            />
+            <Text style={styles.title}>{item.text}</Text>
+            {item.comment ? (
+              <Text style={styles.comment}>{item.comment}</Text>
+            ) : null}
+          </Flex>
+        </Card>
+      </Flex>
     );
-  }
+  };
 
   renderContent() {
     const { t, activity } = this.props;
@@ -65,7 +72,7 @@ class GroupsContactList extends Component {
         data={activity}
         keyExtractor={i => i.id}
         renderItem={this.renderItem}
-        style={styles.list}
+        contentContainerStyle={styles.list}
       />
     );
   }
@@ -75,9 +82,15 @@ class GroupsContactList extends Component {
 
     return (
       <Flex value={1}>
-        <Flex style={styles.header}>
-          <Text style={styles.name}>{person.name}</Text>
-          <Button type="primary" onPress={onAssign} text={t('assign')} />
+        <Flex style={styles.header} align="center" justify="center">
+          <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+          <Button
+            type="transparent"
+            onPress={onAssign}
+            text={t('assign').toUpperCase()}
+            style={styles.assignButton}
+            buttonTextStyle={styles.assignButtonText}
+          />
         </Flex>
         <Flex value={1} style={styles.content}>
           {this.renderContent()}

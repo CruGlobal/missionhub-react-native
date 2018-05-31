@@ -4,16 +4,28 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   list: {
-    marginVertical: 15,
+    paddingTop: 15,
   },
   header: {
-    paddingVertical: 25,
+    paddingTop: 5,
+    paddingBottom: 10,
     backgroundColor: theme.primaryColor,
   },
   name: {
     fontSize: 24,
     fontWeight: 'bold',
     color: theme.white,
+  },
+  assignButton: {
+    paddingVertical: 8,
+    backgroundColor: theme.red,
+    borderRadius: 25,
+    minWidth: 200,
+    alignSelf: 'center',
+    marginVertical: 8,
+  },
+  assignButtonText: {
+    fontSize: 14,
   },
   content: {
     borderLeftColor: theme.separatorColor,
@@ -24,12 +36,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 16,
-    paddingLeft: 24,
-    paddingRight: 13,
+    paddingHorizontal: 13,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
-    marginBottom: 15,
+    paddingBottom: 15,
   },
   rowContent: {
     paddingLeft: 15,
@@ -52,6 +63,7 @@ export default StyleSheet.create({
   },
   comment: {
     marginTop: 25,
+    marginBottom: 5,
     fontSize: 14,
   },
 });

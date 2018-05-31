@@ -420,6 +420,9 @@ export default {
     unassigned: '{{number}} Unassigned',
     uncontacted: '{{number}} Uncontacted',
   },
+  groupsContactList: {
+    assign: 'Assign to me',
+  },
   loadMore: {
     load: 'Load More',
   },
