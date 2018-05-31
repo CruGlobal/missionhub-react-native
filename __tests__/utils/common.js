@@ -5,13 +5,13 @@ import {
   openMainMenu,
   shuffleArray,
 } from '../../src/utils/common';
+import { MAIN_MENU_DRAWER } from '../../src/constants';
+
 jest.mock('react-navigation', () => ({
   DrawerActions: {
     openDrawer: jest.fn(),
   },
 }));
-
-import { MAIN_MENU_DRAWER } from '../../src/constants';
 
 describe('isMissionhubUser', () => {
   it('should return true for admins', () => {
