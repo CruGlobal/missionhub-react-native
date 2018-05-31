@@ -414,6 +414,11 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  groupCardItem: {
+    contacts: '{{number}} Contacts',
+    unassigned: '{{number}} Unassigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
   groupMemberItem: {
     assigned: '{{number}} Assigned',
     uncontacted: '{{number}} Uncontacted',

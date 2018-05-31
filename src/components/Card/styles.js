@@ -5,6 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     alignSelf: 'stretch',
+    flexDirection: 'column',
     marginBottom: 20,
     padding: 20,
     backgroundColor: theme.white,

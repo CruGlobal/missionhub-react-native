@@ -8,9 +8,7 @@ import styles from './styles';
 export default class Card extends Component {
   render() {
     return (
-      <Touchable style={styles.container}>
-        <Text style={{ fontSize: 20 }}>TEXTTEXTTEXTTEXTTEXTTEXTTEXT</Text>
-      </Touchable>
+      <Touchable style={styles.container}>{this.props.children}</Touchable>
     );
   }
 }

@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import Header from '../../containers/Header';
-import Card from '../../components/Card';
+import GroupCardItem from '../../components/GroupCardItem';
 import { Button, IconButton } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { openMainMenu } from '../../utils/common';
 
 import { GROUP_SCREEN } from './GroupScreen';
+import styles from './styles';
 
 @connect()
 @translate('groupsList')
@@ -36,9 +37,19 @@ export class GroupsListScreen extends Component {
           }
           title={t('header').toUpperCase()}
         />
-        <View style={{ flex: 1, margin: 20 }}>
-          <Card />
-          <Card />
+        <View style={styles.groupList}>
+          <GroupCardItem
+            name={'Cru at Boston University'}
+            contacts={768}
+            unassigned={13}
+            uncontacted={43}
+          />
+          <GroupCardItem
+            name={'Cru at Boston University Northeast Branch'}
+            contacts={768}
+            unassigned={0}
+            uncontacted={0}
+          />
         </View>
       </View>
     );
