@@ -72,7 +72,7 @@ class SearchList extends Component {
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
-          autoFocus={true}
+          autoFocus={false}
           selectionColor="white"
           returnKeyType="done"
           blurOnSubmit={true}
@@ -109,7 +109,7 @@ class SearchList extends Component {
             <Text style={styles.activeFilterText}>{filters[k].text}</Text>
             <IconButton
               style={styles.activeFilterIcon}
-              name="deleteIcon"
+              name="cancelIcon"
               type="MissionHub"
               onPress={() => this.removeFilter(k)}
             />

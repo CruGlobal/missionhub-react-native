@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -23,18 +23,16 @@ class Members extends Component {
     const { members, hasMore } = this.props;
     return (
       <Flex value={1} style={styles.members}>
-        <ScrollView style={{ flex: 1 }}>
-          <FlatList
-            data={members}
-            keyExtractor={i => i.id}
-            renderItem={({ item }) => (
-              <GroupMemberItem person={item} onSelect={this.handleSelect} />
-            )}
-            ListFooterComponent={
-              hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
-            }
-          />
-        </ScrollView>
+        <FlatList
+          data={members}
+          keyExtractor={i => i.id}
+          renderItem={({ item }) => (
+            <GroupMemberItem person={item} onSelect={this.handleSelect} />
+          )}
+          ListFooterComponent={
+            hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
+          }
+        />
       </Flex>
     );
   }
