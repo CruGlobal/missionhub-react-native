@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
 import Touchable from '../Touchable';
-import { Text } from '../common';
 
 import styles from './styles';
 
 export default class Card extends Component {
+  handlePress = () => {
+    this.props.onPress();
+  };
+
   render() {
     return (
-      <Touchable style={styles.container}>{this.props.children}</Touchable>
+      <Touchable style={styles.container} onPress={this.handlePress}>
+        {this.props.children}
+      </Touchable>
     );
   }
 }

@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 import Header from '../../containers/Header';
 import GroupCardItem from '../../components/GroupCardItem';
-import { Button, IconButton } from '../../components/common';
+import { IconButton } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { openMainMenu } from '../../utils/common';
 
@@ -15,16 +15,16 @@ import styles from './styles';
 @connect()
 @translate('groupsList')
 export class GroupsListScreen extends Component {
-  handlePress = () => {
+  handlePress = organization => {
     this.props.dispatch(
       navigatePush(GROUP_SCREEN, {
-        organization: { id: '728', name: 'DPS Org' },
+        organization,
       }),
     );
   };
 
   render() {
-    const { dispatch, t, groups } = this.props;
+    const { dispatch, t, organizations } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -39,9 +39,11 @@ export class GroupsListScreen extends Component {
         />
         <FlatList
           style={styles.groupList}
-          data={groups}
+          data={organizations}
           keyExtractor={i => i.id}
-          renderItem={({ item }) => <GroupCardItem group={item} />}
+          renderItem={({ item }) => (
+            <GroupCardItem group={item} onPress={this.handlePress} />
+          )}
         />
       </View>
     );
@@ -49,7 +51,7 @@ export class GroupsListScreen extends Component {
 }
 
 export const mapStateToProps = () => ({
-  groups: [
+  organizations: [
     {
       id: '123',
       name: 'Cru at Boston University',

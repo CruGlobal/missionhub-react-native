@@ -6,10 +6,15 @@ import { Text, Flex } from '../common';
 
 @translate('groupCardItem')
 export default class GroupCardItem extends Component {
+  handlePress = () => {
+    const { onPress, group } = this.props;
+    onPress(group);
+  };
+
   render() {
     const { t, group } = this.props;
     return (
-      <Card>
+      <Card onPress={this.handlePress}>
         <Flex>
           <Text style={{ fontSize: 20 }}>{group.name}</Text>
           <Flex align="center" direction="row">
