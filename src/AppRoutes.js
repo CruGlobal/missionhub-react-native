@@ -84,6 +84,9 @@ import {
   groupScreenTabNavigator,
   GROUP_SCREEN,
 } from './containers/Groups/GroupScreen';
+import SurveyContacts, {
+  GROUPS_SURVEY_CONTACTS,
+} from './containers/Groups/SurveyContacts';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -320,6 +323,10 @@ export const MainStackRoutes = createStackNavigator(
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [GROUPS_SURVEY_CONTACTS]: {
+      screen: SurveyContacts,
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_SCREEN]: {

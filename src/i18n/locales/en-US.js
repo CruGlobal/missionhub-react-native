@@ -405,11 +405,19 @@ export default {
   groupsSurveys: {
     title: '',
   },
+  groupsSurveyContacts: {
+    searchPlaceholder: 'Search Contacts',
+  },
   contactItem: {
     unassigned: 'Unassigned',
   },
   groupMemberItem: {
     assigned: '{{number}} Assigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
+  groupSurveyItem: {
+    contacts: '{{number}} Contacts',
+    unassigned: '{{number}} Unassigned',
     uncontacted: '{{number}} Uncontacted',
   },
   loadMore: {
