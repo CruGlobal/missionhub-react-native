@@ -13,6 +13,6 @@ export default StyleSheet.create({
   },
   groupList: {
     flex: 1,
-    margin: 20,
+    padding: 20,
   },
 });

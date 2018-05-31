@@ -7,23 +7,23 @@ import { Text, Flex } from '../common';
 @translate('groupCardItem')
 export default class GroupCardItem extends Component {
   render() {
-    const { t, name, contacts, unassigned, uncontacted } = this.props;
+    const { t, group } = this.props;
     return (
       <Card>
         <Flex>
-          <Text style={{ fontSize: 20 }}>{name}</Text>
+          <Text style={{ fontSize: 20 }}>{group.name}</Text>
           <Flex align="center" direction="row">
-            <Text>{t('contacts', { number: contacts })}</Text>
-            {unassigned ? (
+            <Text>{t('contacts', { number: group.contacts })}</Text>
+            {group.unassigned ? (
               <Fragment>
                 <Text>{'  ·  '}</Text>
-                <Text>{t('unassigned', { number: unassigned })}</Text>
+                <Text>{t('unassigned', { number: group.unassigned })}</Text>
               </Fragment>
             ) : null}
-            {uncontacted ? (
+            {group.uncontacted ? (
               <Fragment>
                 <Text>{'  ·  '}</Text>
-                <Text>{t('uncontacted', { number: uncontacted })}</Text>
+                <Text>{t('uncontacted', { number: group.uncontacted })}</Text>
               </Fragment>
             ) : null}
           </Flex>

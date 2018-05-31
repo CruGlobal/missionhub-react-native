@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -24,7 +24,7 @@ export class GroupsListScreen extends Component {
   };
 
   render() {
-    const { dispatch, t } = this.props;
+    const { dispatch, t, groups } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -37,20 +37,12 @@ export class GroupsListScreen extends Component {
           }
           title={t('header').toUpperCase()}
         />
-        <View style={styles.groupList}>
-          <GroupCardItem
-            name={'Cru at Boston University'}
-            contacts={768}
-            unassigned={13}
-            uncontacted={43}
-          />
-          <GroupCardItem
-            name={'Cru at Boston University Northeast Branch'}
-            contacts={768}
-            unassigned={0}
-            uncontacted={0}
-          />
-        </View>
+        <FlatList
+          style={styles.groupList}
+          data={groups}
+          keyExtractor={i => i.id}
+          renderItem={({ item }) => <GroupCardItem group={item} />}
+        />
       </View>
     );
   }
@@ -59,16 +51,18 @@ export class GroupsListScreen extends Component {
 export const mapStateToProps = () => ({
   groups: [
     {
+      id: '123',
       name: 'Cru at Boston University',
       contacts: 768,
       unassigned: 13,
       uncontacted: 43,
     },
     {
+      id: '456',
       name: 'Cru at Boston University Northeast Branch',
       contacts: 768,
-      unassigned: 13,
-      uncontacted: 43,
+      unassigned: 0,
+      uncontacted: 0,
     },
   ],
 });
