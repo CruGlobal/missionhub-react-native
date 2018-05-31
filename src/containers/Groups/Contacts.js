@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
+import { navigatePush } from '../../actions/navigation';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 
-@connect()
+import { GROUPS_CONTACT } from './Contact';
+
 @translate('groupsContacts')
-export default class Contacts extends Component {
+class Contacts extends Component {
   state = {
     filters: {},
   };
@@ -45,8 +48,9 @@ export default class Contacts extends Component {
     ]);
   };
 
-  handleSelect = item => {
-    LOG('selected item', item);
+  handleSelect = person => {
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
   };
 
   render() {
@@ -70,3 +74,9 @@ export default class Contacts extends Component {
     );
   }
 }
+
+Contacts.propTypes = {
+  organization: PropTypes.object.isRequired,
+};
+
+export default connect()(Contacts);
