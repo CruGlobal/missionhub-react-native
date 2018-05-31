@@ -4,53 +4,13 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
-import {
-  Flex,
-  Text,
-  Icon,
-  Button,
-  DateComponent,
-  Card,
-} from '../../components/common';
-import { getIconName } from '../../utils/common';
+import { Flex, Text, Button } from '../../components/common';
+import GroupsContactItem from '../../components/GroupsContactItem';
 
 import styles from './styles';
 
 @translate('groupsContactList')
 class GroupsContactList extends Component {
-  renderItem = ({ item }) => {
-    if (item.survey) {
-      return <Text>Survey Item</Text>;
-    }
-    let iconType =
-      getIconName(item.type, item.interaction_type_id) || 'surveyIcon';
-    return (
-      <Flex style={{ marginBottom: 15 }}>
-        <Card style={styles.row}>
-          <Flex value={1} align="center">
-            <Icon
-              name={iconType}
-              type="MissionHub"
-              size={32}
-              style={styles.icon}
-            />
-          </Flex>
-          <Flex value={5} style={styles.rowContent}>
-            <DateComponent
-              date={item.created_at}
-              style={styles.date}
-              format="LLL"
-            />
-            <Text style={styles.title}>{item.text}</Text>
-            {item.comment ? (
-              <Text style={styles.comment}>{item.comment}</Text>
-            ) : null}
-          </Flex>
-        </Card>
-      </Flex>
-    );
-  };
-
   renderContent() {
     const { t, activity } = this.props;
 
@@ -69,7 +29,7 @@ class GroupsContactList extends Component {
       <FlatList
         data={activity}
         keyExtractor={i => i.id}
-        renderItem={this.renderItem}
+        renderItem={({ item }) => <GroupsContactItem item={item} />}
         contentContainerStyle={styles.list}
       />
     );
