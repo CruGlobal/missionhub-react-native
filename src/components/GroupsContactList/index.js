@@ -18,25 +18,23 @@ import styles from './styles';
 
 @translate('groupsContactList')
 class GroupsContactList extends Component {
-  renderIcon(item) {
-    let iconType =
-      getIconName(item.type, item.interaction_type_id) || 'surveyIcon';
-
-    return (
-      <Flex value={1} align="center">
-        <Icon name={iconType} type="MissionHub" size={32} style={styles.icon} />
-      </Flex>
-    );
-  }
-
   renderItem = ({ item }) => {
     if (item.survey) {
       return <Text>Survey Item</Text>;
     }
+    let iconType =
+      getIconName(item.type, item.interaction_type_id) || 'surveyIcon';
     return (
       <Flex style={{ marginBottom: 15 }}>
         <Card style={styles.row}>
-          {this.renderIcon(item)}
+          <Flex value={1} align="center">
+            <Icon
+              name={iconType}
+              type="MissionHub"
+              size={32}
+              style={styles.icon}
+            />
+          </Flex>
           <Flex value={5} style={styles.rowContent}>
             <DateComponent
               date={item.created_at}

@@ -6,11 +6,17 @@ import {
   createMockStore,
   testSnapshotShallow,
 } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'test' })),
+}));
 
 const store = createMockStore({});
 
+const organization = { id: '1', name: 'Test Org' };
+
 describe('Members', () => {
-  const component = <Members />;
+  const component = <Members organization={organization} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
@@ -18,9 +24,8 @@ describe('Members', () => {
 
   it('should handleSelect correctly', () => {
     const instance = renderShallow(component, store).instance();
-    const person = { id: '1' };
-    const result = instance.handleSelect(person);
-    expect(result).toBe(person);
+    instance.handleSelect({ id: '1' });
+    expect(navigatePush).toHaveBeenCalled();
   });
 
   it('should handleLoadMore correctly', () => {

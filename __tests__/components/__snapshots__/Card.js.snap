@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render load more button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderRadius": 5,
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;

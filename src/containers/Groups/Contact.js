@@ -12,7 +12,6 @@ import BackButton from '../BackButton';
 @translate('groupsContact')
 class Contact extends Component {
   handleAssign = () => {
-    LOG('handle assign');
     return true;
   };
 

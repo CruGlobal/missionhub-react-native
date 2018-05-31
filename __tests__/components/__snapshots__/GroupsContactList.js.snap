@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders activity list 1`] = `
+<Flex
+  value={1}
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingBottom": 10,
+        "paddingTop": 5,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+        }
+      }
+      onPress={[MockFunction]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#FF5532",
+          "borderRadius": 25,
+          "marginVertical": 8,
+          "minWidth": 200,
+          "paddingVertical": 8,
+        }
+      }
+      text="ASSIGN TO ME"
+      type="transparent"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      contentContainerStyle={
+        Object {
+          "paddingTop": 15,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "comment": "Some comment",
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "interaction_type_id": 2,
+            "text": "Someone had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "2",
+            "interaction_type_id": 2,
+            "text": "Someone else had a spiritual conversation",
+            "type": "interaction",
+          },
+          Object {
+            "comment": "",
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "3",
+            "interaction_type_id": 3,
+            "text": "Someone else had a gospel conversation",
+            "type": "interaction",
+          },
+          Object {
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "4",
+            "text": "Someone else had a spiritual conversation",
+          },
+          Object {
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "5",
+            "text": "Someone else had a spiritual conversation",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`renders empty list 1`] = `
+<Flex
+  value={1}
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingBottom": 10,
+        "paddingTop": 5,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+        }
+      }
+      onPress={[MockFunction]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#FF5532",
+          "borderRadius": 25,
+          "marginVertical": 8,
+          "minWidth": 200,
+          "paddingVertical": 8,
+        }
+      }
+      text="ASSIGN TO ME"
+      type="transparent"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+      }
+    }
+    value={1}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/searchNull.png",
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        type="header"
+      >
+        nullHeader
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        nullDescription
+      </MyText>
+    </Flex>
+  </Flex>
+</Flex>
+`;
