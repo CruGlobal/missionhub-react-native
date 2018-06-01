@@ -129,14 +129,6 @@ android {
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
     }
-    signingConfigs {
-        release {
-            keyAlias System.getenv('GOOGLE_PLAY_UPLOAD_KEY_ALIAS')
-            keyPassword System.getenv('GOOGLE_PLAY_UPLOAD_KEY_PASSWORD')
-            storeFile rootProject.file(System.getenv('GOOGLE_PLAY_UPLOAD_KEYSTORE'))
-            storePassword System.getenv('GOOGLE_PLAY_UPLOAD_KEY_PASSWORD')
-        }
-    }
     splits {
         abi {
             reset()
@@ -149,7 +141,6 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -168,6 +159,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-view-overflow')
     compile project(':react-native-code-push')
     compile project(':react-native-config')
     compile project(':react-native-default-preference')

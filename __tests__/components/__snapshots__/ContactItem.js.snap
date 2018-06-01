@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render assigned contact 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": 13,
+          }
+        }
+      >
+        Full Name
+      </MyText>
+    </Flex>
+  </Flex>
+</TouchableIOS>
+`;
+
+exports[`render unassigned contact 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      justify="center"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": undefined,
+            "fontSize": 13,
+          }
+        }
+      >
+        Full Name
+      </MyText>
+    </Flex>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#FF5532",
+          "fontSize": 13,
+        }
+      }
+    >
+      Unassigned
+    </MyText>
+  </Flex>
+</TouchableIOS>
+`;

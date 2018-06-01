@@ -25,11 +25,15 @@ import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 
-export function getStepSuggestions() {
+export function getStepSuggestions(isMe, contactStageId) {
   return dispatch => {
     const language = i18next.language;
     const query = {
-      filters: { locale: language },
+      filters: {
+        locale: language,
+        self_step: isMe,
+        pathway_stage_id: contactStageId,
+      },
     };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));

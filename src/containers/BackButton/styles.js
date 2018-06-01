@@ -1,13 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import { isiPhoneX } from '../../utils/common';
-
-const margin = 25;
+import theme from '../../theme';
 
 export default StyleSheet.create({
   absoluteTopLeft: {
     position: 'absolute',
-    top: isiPhoneX() ? margin + 25 : margin,
+    top: 25 + theme.notchHeight,
     left: 5,
   },
 });

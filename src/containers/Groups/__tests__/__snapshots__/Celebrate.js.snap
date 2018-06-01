@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<Flex
+  value={1}
+>
+  <ScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Load More
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      LONG LIST
+    </MyText>
+  </ScrollView>
+  <Flex
+    justify="end"
+  >
+    <Button
+      onPress={[Function]}
+      text="Input goes here"
+      type="secondary"
+    />
+  </Flex>
+</Flex>
+`;

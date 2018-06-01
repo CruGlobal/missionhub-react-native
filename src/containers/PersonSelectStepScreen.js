@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { getFourRandomItems } from '../utils/common';
-
 import SelectStepScreen from './SelectStepScreen';
 
 @translate('selectStep')
@@ -13,46 +11,36 @@ class PersonSelectStepScreen extends Component {
     super(props);
   }
 
-  insertName(steps) {
-    return steps.map(step => ({
-      ...step,
-      body: step.body.replace(
-        '<<name>>',
-        this.props.contactName
-          ? this.props.contactName
-          : this.props.personFirstName,
-      ),
-    }));
-  }
-
   handleNavigate = () => {
     this.props.onSaveNewSteps();
   };
 
   render() {
-    const name = this.props.contactName
-      ? this.props.contactName
-      : this.props.personFirstName;
+    const {
+      t,
+      contactName,
+      personFirstName,
+      contactStage,
+      contactId,
+      personId,
+      contact,
+      organization,
+      createStepTracking,
+    } = this.props;
 
-    let contextualizedSteps = [];
-    if (this.props.contactStage) {
-      contextualizedSteps = getFourRandomItems(
-        this.props.suggestedForOthers[this.props.contactStage.id],
-      );
-    }
+    const name = contactName ? contactName : personFirstName;
 
     return (
       <SelectStepScreen
-        steps={this.insertName(contextualizedSteps)}
-        receiverId={
-          this.props.contactId ? this.props.contactId : this.props.personId
-        }
-        useOthersSteps={true}
-        headerText={this.props.t('personHeader', { name })}
-        contact={this.props.contact ? this.props.contact : null}
-        organization={this.props.organization}
+        isMe={false}
+        contactStage={contactStage}
+        receiverId={contactId ? contactId : personId}
+        contactName={name}
+        headerText={t('personHeader', { name })}
+        contact={contact ? contact : null}
+        organization={organization}
         onComplete={this.handleNavigate}
-        createStepTracking={this.props.createStepTracking}
+        createStepTracking={createStepTracking}
         enableBackButton
       />
     );
@@ -68,10 +56,9 @@ PersonSelectStepScreen.propTypes = {
   onSaveNewSteps: PropTypes.func,
 };
 
-const mapStateToProps = ({ steps, personProfile, auth }, { navigation }) => ({
+const mapStateToProps = ({ personProfile, auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   myId: auth.person.id,
-  suggestedForOthers: steps.suggestedForOthers,
   personFirstName: personProfile.personFirstName,
   personId: personProfile.id,
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectStepScreen should render correctly 1`] = `
+exports[`SelectStepScreen renders correctly 1`] = `
 <Flex
   style={
     Object {
@@ -27,8 +27,29 @@ exports[`SelectStepScreen should render correctly 1`] = `
   >
     <StepsList
       createStepText="Create your own step..."
-      items={Array []}
+      items={
+        Array [
+          Object {
+            "body": "test 1",
+            "id": "1",
+          },
+          Object {
+            "body": "test 2",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
+          },
+        ]
+      }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
@@ -51,8 +72,23 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
   <Flex
     align="center"
     justify="center"
-    value={1.5}
+    style={
+      Object {
+        "marginTop": 0,
+      }
+    }
+    value={1}
   >
+    <Icon
+      name="addStepIcon"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 36,
+        }
+      }
+      type="MissionHub"
+    />
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -65,7 +101,7 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
       }
       type="header"
     >
-      Steps of Faith
+      Add Steps of Faith
     </MyText>
     <MyText
       accessible={true}
@@ -78,7 +114,7 @@ exports[`SelectStepScreen should render foreground header correctly 1`] = `
           "fontSize": 16,
           "lineHeight": 24,
           "paddingHorizontal": 50,
-          "paddingVertical": 20,
+          "paddingVertical": 10,
           "textAlign": "center",
         }
       }
@@ -113,9 +149,33 @@ exports[`SelectStepScreen should render sticky header correctly 1`] = `
       }
     }
   >
-    STEPS OF FAITH
+    ADD STEPS OF FAITH
   </MyText>
 </View>
+`;
+
+exports[`mapStateToProps should provide necessary props for me 1`] = `
+Object {
+  "myId": "123",
+  "suggestions": Array [
+    Object {
+      "body": "test 1",
+      "id": "1",
+    },
+  ],
+}
+`;
+
+exports[`mapStateToProps should provide necessary props for others 1`] = `
+Object {
+  "myId": "123",
+  "suggestions": Array [
+    Object {
+      "body": "test 1",
+      "id": "1",
+    },
+  ],
+}
 `;
 
 exports[`renderBackButton should render back button 1`] = `
@@ -148,12 +208,26 @@ exports[`renderBackButton should render back button 1`] = `
       items={
         Array [
           Object {
+            "body": "test 1",
             "id": "1",
-            "selected": false,
+          },
+          Object {
+            "body": "test 2",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
           },
         ]
       }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>
@@ -161,48 +235,6 @@ exports[`renderBackButton should render back button 1`] = `
     absolute={true}
     customNavigate={[Function]}
   />
-</Flex>
-`;
-
-exports[`renderSaveButton should not render save button 1`] = `
-<Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <ParallaxScrollView
-    backgroundColor="#007398"
-    backgroundScrollSpeed={5}
-    contentBackgroundColor="#fff"
-    contentContainerStyle={null}
-    fadeOutForeground={true}
-    onChangeHeaderVisibility={[Function]}
-    outputScaleValue={5}
-    parallaxHeaderHeight={215}
-    renderBackground={[Function]}
-    renderForeground={[Function]}
-    renderParallaxHeader={[Function]}
-    renderScrollComponent={[Function]}
-    renderStickyHeader={[Function]}
-    stickyHeaderHeight={65}
-  >
-    <StepsList
-      createStepText="Create your own step..."
-      items={
-        Array [
-          Object {
-            "id": "1",
-            "selected": false,
-          },
-        ]
-      }
-      onCreateStep={[Function]}
-      onSelectStep={[Function]}
-    />
-  </ParallaxScrollView>
 </Flex>
 `;
 
@@ -236,12 +268,27 @@ exports[`renderSaveButton should render save button 1`] = `
       items={
         Array [
           Object {
+            "body": "test 1",
             "id": "1",
             "selected": true,
           },
+          Object {
+            "body": "test 2",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
+          },
         ]
       }
+      loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
+      onLoadMoreSteps={[Function]}
       onSelectStep={[Function]}
     />
   </ParallaxScrollView>

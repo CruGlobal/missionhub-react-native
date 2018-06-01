@@ -7,6 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  headerIcon: {
+    fontSize: 36,
+    color: theme.secondaryColor,
+  },
   headerTitle: {
     fontSize: 36,
     color: theme.secondaryColor,
@@ -23,7 +27,7 @@ export default StyleSheet.create({
     fontSize: 16,
     color: theme.white,
     paddingHorizontal: 50,
-    paddingVertical: 20,
+    paddingVertical: 10,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
     lineHeight: 24,

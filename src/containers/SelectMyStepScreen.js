@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { buildTrackingObj, getFourRandomItems } from '../utils/common';
+import { buildTrackingObj } from '../utils/common';
 
 import SelectStepScreen from './SelectStepScreen';
 
@@ -21,26 +21,20 @@ class SelectMyStepScreen extends Component {
       t,
       enableBackButton,
       me,
-      suggestedForMe,
       personId,
       contactStage,
       organization,
     } = this.props;
 
-    let steps = [];
-    if (contactStage) {
-      steps = getFourRandomItems(suggestedForMe[contactStage.id]);
-    }
-
     const section = this.props.onboarding ? 'onboarding' : 'people';
 
     return (
       <SelectStepScreen
-        steps={steps}
+        isMe={true}
+        contactStage={contactStage}
         receiverId={personId}
         contact={me}
         organization={organization}
-        useOthersSteps={false}
         onComplete={this.handleNavigate}
         headerText={t('meHeader')}
         createStepTracking={buildTrackingObj(
@@ -55,10 +49,9 @@ class SelectMyStepScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ steps, auth }, { navigation }) => ({
+const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   me: auth.person,
-  suggestedForMe: steps.suggestedForMe,
   personId: auth.person.id,
 });
 
