@@ -1,6 +1,5 @@
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT } from '../constants';
-import { shuffleArray } from '../utils/common';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
@@ -37,7 +36,7 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
       const isMe = action.query.filters.self_step;
-      const suggestions = shuffleArray(action.results.response);
+      const suggestions = action.results.response;
       return {
         ...state,
         suggestedForMe: {

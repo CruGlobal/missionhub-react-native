@@ -13,7 +13,7 @@ import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack } from '../../utils/common';
+import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 
@@ -27,6 +27,7 @@ class SelectStepScreen extends Component {
     this.state = {
       steps: [],
       addedSteps: [],
+      suggestions: [],
       contact: null,
       suggestionIndex: 0,
     };
@@ -46,10 +47,19 @@ class SelectStepScreen extends Component {
 
   async componentDidMount() {
     const { dispatch, isMe, contactStage } = this.props;
+    let { suggestions } = this.props;
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
-    await dispatch(getStepSuggestions(isMe, contactStage.id));
+
+    if (!suggestions) {
+      const { response } = await dispatch(
+        getStepSuggestions(isMe, contactStage.id),
+      );
+      suggestions = response;
+    }
+    this.setState({ suggestions: shuffleArray(suggestions) });
+
     this.handleLoadSteps();
   }
 
