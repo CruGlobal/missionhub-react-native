@@ -55,7 +55,7 @@ matrix:
         licenses:
         - android-sdk-license-.+
 
-      if: branch = master and type = push
+      if: branch = fastlane_changes and type = push
       env:
       - ENVFILE=.env.production
       before_install:
