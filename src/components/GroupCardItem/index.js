@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import Card from '../Card';
 import { Text, Flex } from '../common';
@@ -45,3 +46,12 @@ export default class GroupCardItem extends Component {
     );
   }
 }
+
+GroupCardItem.PropTypes = {
+  group: {
+    name: PropTypes.string.isRequired,
+    contacts: PropTypes.number.isRequired,
+    unassigned: PropTypes.number,
+    uncontacted: PropTypes.number,
+  }.isRequired,
+};
