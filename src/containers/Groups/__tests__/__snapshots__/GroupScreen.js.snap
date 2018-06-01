@@ -2,11 +2,7 @@
 
 exports[`GroupScreen should render header correctly 1`] = `
 <Connect(Header)
-  left={
-    <Connect(BackButton)
-      customNavigate={[Function]}
-    />
-  }
+  left={<Connect(BackButton) />}
   shadow={false}
   title="Test  Org"
 />

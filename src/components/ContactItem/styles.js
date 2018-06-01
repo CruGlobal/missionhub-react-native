@@ -7,7 +7,8 @@ export default StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 20,
     width: theme.fullWidth,
-    marginTop: 1,
+    borderBottomColor: theme.separatorColor,
+    borderBottomWidth: theme.separatorHeight,
   },
   name: {
     fontSize: 13,

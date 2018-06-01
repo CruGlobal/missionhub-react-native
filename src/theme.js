@@ -94,6 +94,7 @@ export default {
   impactBlue: COLORS.IMPACT_BLUE,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
+  lightGrey: COLORS.LIGHT_GREY,
 
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
