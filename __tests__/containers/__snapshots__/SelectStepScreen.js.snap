@@ -27,7 +27,26 @@ exports[`SelectStepScreen renders correctly 1`] = `
   >
     <StepsList
       createStepText="Create your own step..."
-      items={Array []}
+      items={
+        Array [
+          Object {
+            "body": "test 1",
+            "id": "1",
+          },
+          Object {
+            "body": "test 2",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
+          },
+        ]
+      }
       loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
       onLoadMoreSteps={[Function]}
@@ -186,7 +205,26 @@ exports[`renderBackButton should render back button 1`] = `
   >
     <StepsList
       createStepText="Create your own step..."
-      items={Array []}
+      items={
+        Array [
+          Object {
+            "body": "test 1",
+            "id": "1",
+          },
+          Object {
+            "body": "test 2",
+            "id": "2",
+          },
+          Object {
+            "body": "test 3",
+            "id": "3",
+          },
+          Object {
+            "body": "test 4",
+            "id": "4",
+          },
+        ]
+      }
       loadMoreStepsText="SHOW MORE STEPS"
       onCreateStep={[Function]}
       onLoadMoreSteps={[Function]}

@@ -12,9 +12,14 @@ import {
 } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
-import { addSteps } from '../../src/actions/steps';
+import { addSteps, getStepSuggestions } from '../../src/actions/steps';
+import { shuffleArray } from '../../src/utils/common';
 import { CREATE_STEP } from '../../src/constants';
+
+jest.mock('react-native-device-info');
 jest.mock('../../src/actions/steps');
+jest.mock('../../src/utils/common');
+shuffleArray.mockImplementation(arr => arr);
 
 const testName = 'Bill';
 
@@ -33,18 +38,45 @@ const suggestions = [
   { id: '9', body: 'test 9' },
 ];
 
-const store = createMockStore({
-  auth: {
-    person: {
-      id: '123',
-    },
+const auth = {
+  person: {
+    id: '123',
   },
-  steps: {
-    suggestedForOthers: {
-      [stageId]: suggestions,
-    },
+};
+
+const steps = {
+  suggestedForOthers: {
+    [stageId]: suggestions,
   },
+};
+
+let store = createMockStore({
+  auth,
+  steps,
 });
+
+let component, parallaxProps, instance;
+let onComplete = () => {};
+let createStepTracking = {};
+let enableBackButton = false;
+
+const createComponent = async () => {
+  component = renderShallow(
+    <SelectStepScreen
+      isMe={false}
+      contactStage={contactStage}
+      createStepTracking={createStepTracking}
+      onComplete={onComplete}
+      personFirstName={testName}
+      enableBackButton={enableBackButton}
+      receiverId={1}
+      organization={{ id: 2 }}
+    />,
+    store,
+  );
+  parallaxProps = component.find('ParallaxScrollView').props();
+  instance = component.instance();
+};
 
 describe('mapStateToProps', () => {
   it('should provide necessary props for me', () => {
@@ -96,31 +128,6 @@ describe('mapStateToProps', () => {
   });
 });
 
-jest.mock('react-native-device-info');
-
-let component, parallaxProps, instance;
-let onComplete = () => {};
-let createStepTracking = {};
-let enableBackButton = false;
-
-const createComponent = async () => {
-  component = renderShallow(
-    <SelectStepScreen
-      isMe={false}
-      contactStage={contactStage}
-      createStepTracking={createStepTracking}
-      onComplete={onComplete}
-      personFirstName={testName}
-      enableBackButton={enableBackButton}
-      receiverId={1}
-      organization={{ id: 2 }}
-    />,
-    store,
-  );
-  parallaxProps = component.find('ParallaxScrollView').props();
-  instance = component.instance();
-};
-
 describe('SelectStepScreen', () => {
   beforeEach(async () => {
     await createComponent();
@@ -136,6 +143,22 @@ describe('SelectStepScreen', () => {
 
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
+  });
+});
+
+describe('componentDidMount', () => {
+  it('should not call getStepSuggestions if Redux has suggestions', async () => {
+    await createComponent();
+
+    expect(getStepSuggestions).not.toHaveBeenCalled();
+  });
+
+  it('should call getStepSuggestions if Redux has no suggestions', async () => {
+    store = createMockStore({ auth, steps: { suggestedForOthers: {} } });
+    await createComponent();
+
+    expect(getStepSuggestions).toHaveBeenCalled();
+    store = createMockStore({ auth, steps });
   });
 });
 
@@ -155,6 +178,7 @@ describe('renderBackButton', () => {
     await createComponent();
 
     expect(component).toMatchSnapshot();
+    enableBackButton = false;
   });
 });
 
@@ -172,6 +196,8 @@ describe('Navigation', () => {
       onComplete: expect.any(Function),
       trackingObj: createStepTracking,
     });
+    createStepTracking = {};
+    onComplete = () => {};
   });
 });
 

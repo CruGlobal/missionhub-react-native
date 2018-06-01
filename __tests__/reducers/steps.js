@@ -33,7 +33,9 @@ it('loads step suggestions for me', () => {
           pathway_stage_id: stageId,
         },
       },
-      results: newSuggestions,
+      results: {
+        response: newSuggestions,
+      },
     },
   );
 
@@ -71,7 +73,9 @@ it('loads step suggestions for others', () => {
           pathway_stage_id: stageId,
         },
       },
-      results: newSuggestions,
+      results: {
+        response: newSuggestions,
+      },
     },
   );
 
