@@ -1,10 +1,5 @@
 import { REQUESTS } from '../actions/api';
-import {
-  LOGOUT,
-  TOGGLE_STEP_FOCUS,
-  COMPLETED_STEP_COUNT,
-  FILTERED_CHALLENGES,
-} from '../constants';
+import { LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT } from '../constants';
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 const initialState = {
@@ -38,11 +33,24 @@ export function getPagination(state, action, steps) {
 
 export default function stepsReducer(state = initialState, action) {
   switch (action.type) {
-    case FILTERED_CHALLENGES:
+    case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
+      const contactStageId = action.query.filters.pathway_stage_id;
+      const isMe = action.query.filters.self_step;
+      const suggestions = action.results.response;
       return {
         ...state,
-        suggestedForMe: action.suggestedForMe,
-        suggestedForOthers: action.suggestedForOthers,
+        suggestedForMe: {
+          ...state.suggestedForMe,
+          [contactStageId]: isMe
+            ? suggestions
+            : state.suggestedForMe[contactStageId],
+        },
+        suggestedForOthers: {
+          ...state.suggestedForOthers,
+          [contactStageId]: isMe
+            ? state.suggestedForOthers[contactStageId]
+            : suggestions,
+        },
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       const newSteps = action.results.response;

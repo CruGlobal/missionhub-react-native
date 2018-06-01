@@ -4,13 +4,15 @@ import {
   isMissionhubUser,
   openMainMenu,
   getIconName,
+  shuffleArray,
 } from '../../src/utils/common';
+import { MAIN_MENU_DRAWER } from '../../src/constants';
+
 jest.mock('react-navigation', () => ({
   DrawerActions: {
     openDrawer: jest.fn(),
   },
 }));
-import { MAIN_MENU_DRAWER } from '../../src/constants';
 
 describe('isMissionhubUser', () => {
   it('should return true for admins', () => {
@@ -61,5 +63,17 @@ describe('getIconName', () => {
     const item = { type: 'something_else' };
     const result = getIconName(item.type);
     expect(result).toBe(null);
+  });
+});
+
+describe('shuffleArray', () => {
+  const inArray = ['Alpha', 'Bravo', 'Charlie', 'Delta'];
+  const expectedOutArray = ['Alpha', 'Delta', 'Bravo', 'Charlie'];
+
+  Math.random = jest.fn().mockReturnValue(0.5);
+
+  it('reorders array and calls random for each item', () => {
+    expect(shuffleArray(inArray)).toEqual(expectedOutArray);
+    expect(Math.random).toHaveBeenCalledTimes(inArray.length);
   });
 });

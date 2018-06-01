@@ -60,7 +60,7 @@ const BACKGROUND = COLORS.LIGHT_BLUE;
 const ACCENT = COLORS.ACCENT_BLUE;
 
 const iPhoneHeaderHeight = 65;
-const notchHeight = isiPhoneX() ? 20 : 0; // This should be 44 (or use SafeAreaView everywhere)
+const notchHeight = isiPhoneX() ? 20 : 0;
 
 export default {
   // base theme
