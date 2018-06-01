@@ -89,7 +89,7 @@ class SelectStepScreen extends Component {
     }
 
     this.setState({
-      steps: [...this.state.steps, ...newSuggestions, ...this.state.addedSteps],
+      steps: [...this.state.steps, ...newSuggestions],
       suggestionIndex: suggestionIndexMax,
     });
   };
