@@ -1,18 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contacts should render correctly 1`] = `
-<Button
-  buttonTextStyle={
-    Object {
-      "color": "black",
-    }
+<Translate(GroupsListScreen)
+  dispatch={[MockFunction]}
+  organizations={
+    Array [
+      Object {
+        "contacts": 768,
+        "id": "123",
+        "name": "Cru at Boston University",
+        "unassigned": 13,
+        "uncontacted": 43,
+      },
+      Object {
+        "contacts": 768,
+        "id": "456",
+        "name": "Cru at Boston University Northeast Branch",
+        "unassigned": 0,
+        "uncontacted": 0,
+      },
+    ]
   }
-  onPress={[Function]}
-  style={
-    Object {
-      "marginTop": 20,
-    }
-  }
-  text="Navigate to Group 728"
 />
 `;

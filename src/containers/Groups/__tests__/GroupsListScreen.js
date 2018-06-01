@@ -1,17 +1,26 @@
 import React from 'react';
 
 import GroupsListScreen from '../GroupsListScreen';
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import {
+  renderShallow,
+  testSnapshotShallow,
+  createMockStore,
+} from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
+const store = createMockStore({});
+
 describe('Contacts', () => {
-  const component = <GroupsListScreen />;
+  let component;
+  beforeEach(() => {
+    component = renderShallow(<GroupsListScreen />, store);
+  });
 
   it('should render correctly', () => {
-    testSnapshotShallow(component);
+    expect(component).toMatchSnapshot();
   });
 
   it('should handlePress correctly', () => {
