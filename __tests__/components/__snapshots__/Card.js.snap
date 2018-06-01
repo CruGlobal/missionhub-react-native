@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders correctly 1`] = `
+<TouchableOpacity
+  accessibilityTraits="button"
+  activeOpacity={0.6}
+  onPress={[Function]}
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 5,
+      "flexDirection": "column",
+      "marginBottom": 20,
+      "padding": 20,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 1,
+      },
+      "shadowOpacity": 0.5,
+      "shadowRadius": 3,
+    }
+  }
+/>
+`;
