@@ -20,4 +20,18 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     borderBottomColor: theme.separatorColor,
   },
+  loadMoreStepsButton: {
+    backgroundColor: theme.white,
+    height: 40,
+    borderColor: theme.secondaryColor,
+    borderWidth: theme.buttonBorderWidth,
+    marginTop: 18,
+    marginHorizontal: 50,
+  },
+  loadMoreStepsButtonText: {
+    color: theme.secondaryColor,
+    fontSize: 14,
+    letterSpacing: 2,
+    lineHeight: 24,
+  },
 });

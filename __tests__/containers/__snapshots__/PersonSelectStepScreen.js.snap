@@ -1,42 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders steps if person has stage set 1`] = `
+exports[`renders correctly 1`] = `
 <Connect(Translate(SelectStepScreen))
   contact={
     Object {
       "id": "123",
     }
   }
-  createStepTracking={Object {}}
-  enableBackButton={true}
-  headerText="What will you do to help Ron experience God?"
-  onComplete={[Function]}
-  receiverId="123"
-  steps={
-    Array [
-      Object {
-        "body": "Ron test step 2",
-        "id": "2",
-      },
-    ]
-  }
-  useOthersSteps={true}
-/>
-`;
-
-exports[`sends empty array of steps if person does not have stage set 1`] = `
-<Connect(Translate(SelectStepScreen))
-  contact={
+  contactName="Ron"
+  contactStage={
     Object {
-      "id": "123",
+      "id": 2,
     }
   }
   createStepTracking={Object {}}
   enableBackButton={true}
   headerText="What will you do to help Ron experience God?"
+  isMe={false}
   onComplete={[Function]}
   receiverId="123"
-  steps={Array []}
-  useOthersSteps={true}
 />
 `;

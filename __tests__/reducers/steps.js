@@ -1,10 +1,86 @@
 import { REQUESTS } from '../../src/actions/api';
 import steps, { getPagination } from '../../src/reducers/steps';
-import {
-  COMPLETED_STEP_COUNT,
-  FILTERED_CHALLENGES,
-  TOGGLE_STEP_FOCUS,
-} from '../../src/constants';
+import { COMPLETED_STEP_COUNT, TOGGLE_STEP_FOCUS } from '../../src/constants';
+
+it('loads step suggestions for me', () => {
+  const stageId = 5;
+  const oldSuggestions = [
+    { id: 1, type: 'challenge_suggestion' },
+    { id: 2, type: 'challenge_suggestion' },
+    { id: 3, type: 'challenge_suggestion' },
+  ];
+  const newSuggestions = [
+    { id: 4, type: 'challenge_suggestion' },
+    { id: 5, type: 'challenge_suggestion' },
+    { id: 6, type: 'challenge_suggestion' },
+  ];
+  newSuggestions.findAll = () => newSuggestions;
+
+  const state = steps(
+    {
+      suggestedForMe: {
+        [stageId]: oldSuggestions,
+      },
+      suggestedForOthers: {
+        [stageId]: [],
+      },
+    },
+    {
+      type: REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS,
+      query: {
+        filters: {
+          self_step: true,
+          pathway_stage_id: stageId,
+        },
+      },
+      results: {
+        response: newSuggestions,
+      },
+    },
+  );
+
+  expect(state.suggestedForMe[stageId]).toEqual(newSuggestions);
+});
+
+it('loads step suggestions for others', () => {
+  const stageId = 5;
+  const oldSuggestions = [
+    { id: 1, type: 'challenge_suggestion' },
+    { id: 2, type: 'challenge_suggestion' },
+    { id: 3, type: 'challenge_suggestion' },
+  ];
+  const newSuggestions = [
+    { id: 4, type: 'challenge_suggestion' },
+    { id: 5, type: 'challenge_suggestion' },
+    { id: 6, type: 'challenge_suggestion' },
+  ];
+  newSuggestions.findAll = () => newSuggestions;
+
+  const state = steps(
+    {
+      suggestedForMe: {
+        [stageId]: [],
+      },
+      suggestedForOthers: {
+        [stageId]: oldSuggestions,
+      },
+    },
+    {
+      type: REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS,
+      query: {
+        filters: {
+          self_step: false,
+          pathway_stage_id: stageId,
+        },
+      },
+      results: {
+        response: newSuggestions,
+      },
+    },
+  );
+
+  expect(state.suggestedForOthers[stageId]).toEqual(newSuggestions);
+});
 
 it('creates a new user step count', () => {
   const state = steps(undefined, {
@@ -25,23 +101,6 @@ it('increments existing user step count', () => {
     },
   );
   expect(state.userStepCount[1]).toBe(2);
-});
-
-it('saves filtered challenges', () => {
-  const suggestedForMe = ['these are the steps for me'];
-  const suggestedForOthers = ['these are the steps for others'];
-
-  const state = steps(
-    {},
-    {
-      type: FILTERED_CHALLENGES,
-      suggestedForMe,
-      suggestedForOthers,
-    },
-  );
-
-  expect(state.suggestedForMe).toEqual(suggestedForMe);
-  expect(state.suggestedForOthers).toEqual(suggestedForOthers);
 });
 
 it('adds new items to existing mine array', () => {
