@@ -366,6 +366,13 @@ export default {
     impact: 'Impact',
     groups: 'Groups',
   },
+  groupTabs: {
+    celebrate: 'Celebrate',
+    members: 'Members',
+    impact: 'Impact',
+    contacts: 'Contacts',
+    surveys: 'Surveys',
+  },
   onboarding: {
     screen1: {
       name: 'Focus on the people in your life',
@@ -381,5 +388,39 @@ export default {
     title: 'Great job focusing a step!',
     message:
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
+  },
+  groupsCelebrate: {
+    title: '',
+  },
+  groupsMembers: {
+    title: '',
+  },
+  groupsImpact: {
+    title: '',
+  },
+  groupsContacts: {
+    title: '',
+    searchPlaceholder: 'Search Contacts',
+  },
+  groupsSurveys: {
+    title: '',
+  },
+  groupsSurveyContacts: {
+    searchPlaceholder: 'Search Contacts',
+  },
+  contactItem: {
+    unassigned: 'Unassigned',
+  },
+  groupMemberItem: {
+    assigned: '{{number}} Assigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
+  groupSurveyItem: {
+    contacts: '{{number}} Contacts',
+    unassigned: '{{number}} Unassigned',
+    uncontacted: '{{number}} Uncontacted',
+  },
+  loadMore: {
+    load: 'Load More',
   },
 };

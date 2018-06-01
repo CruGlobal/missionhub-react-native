@@ -79,6 +79,14 @@ import {
   GROUPS_TAB,
 } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
+import GroupsListScreen from './containers/Groups/GroupsListScreen';
+import {
+  groupScreenTabNavigator,
+  GROUP_SCREEN,
+} from './containers/Groups/GroupScreen';
+import SurveyContacts, {
+  GROUPS_SURVEY_CONTACTS,
+} from './containers/Groups/SurveyContacts';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -135,7 +143,7 @@ const tabs = {
     },
   ),
   [GROUPS_TAB]: buildTrackedScreen(
-    ImpactScreen,
+    GroupsListScreen,
     buildTrackingObj('groups', 'groups'),
     {
       tabBarLabel: navItem('groups'),
@@ -281,6 +289,7 @@ const screens = {
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
+  [GROUP_SCREEN]: { screen: groupScreenTabNavigator },
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
@@ -314,6 +323,10 @@ export const MainStackRoutes = createStackNavigator(
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [GROUPS_SURVEY_CONTACTS]: {
+      screen: SurveyContacts,
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_SCREEN]: {

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render load more button 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "color": "#B2B0B2",
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Object {
+      "alignSelf": "center",
+      "borderColor": "#B2B0B2",
+      "borderRadius": 25,
+      "borderWidth": 1,
+      "marginVertical": 20,
+      "minWidth": 200,
+      "paddingVertical": 7,
+    }
+  }
+  text="LOAD MORE"
+  type="transparent"
+/>
+`;
