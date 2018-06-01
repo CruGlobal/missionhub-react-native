@@ -77,20 +77,20 @@ class SelectStepScreen extends Component {
       return;
     }
 
-    let newIndex = suggestionIndex + 4;
-    if (newIndex > suggestions.length) {
-      newIndex = suggestions.length;
+    let suggestionIndexMax = suggestionIndex + 4;
+    if (suggestionIndexMax > suggestions.length) {
+      suggestionIndexMax = suggestions.length;
     }
 
-    let newSuggestions = suggestions.slice(0, newIndex);
+    let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
 
     if (!isMe) {
       newSuggestions = this.insertName(newSuggestions);
     }
 
     this.setState({
-      steps: [...newSuggestions, ...this.state.addedSteps],
-      suggestionIndex: newIndex,
+      steps: [...this.state.steps, ...newSuggestions],
+      suggestionIndex: suggestionIndexMax,
     });
   };
 
