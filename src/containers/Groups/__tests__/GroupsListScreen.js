@@ -24,7 +24,7 @@ describe('Contacts', () => {
   });
 
   it('should handlePress correctly', () => {
-    const instance = renderShallow(component).instance();
+    const instance = component.instance();
     instance.handlePress();
     expect(navigatePush).toHaveBeenCalled();
   });

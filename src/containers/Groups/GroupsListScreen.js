@@ -12,7 +12,6 @@ import { openMainMenu } from '../../utils/common';
 import { GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
 
-@connect()
 @translate('groupsList')
 export class GroupsListScreen extends Component {
   handlePress = organization => {
