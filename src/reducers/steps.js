@@ -37,9 +37,7 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
       const isMe = action.query.filters.self_step;
-      const suggestions = shuffleArray(
-        action.results.findAll('challenge_suggestion'),
-      );
+      const suggestions = shuffleArray(action.results.response);
       return {
         ...state,
         suggestedForMe: {

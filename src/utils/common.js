@@ -11,16 +11,13 @@ import {
 } from '../constants';
 
 export const shuffleArray = arr => {
-  let currentIndex = arr.length,
-    temporaryValue,
-    randomIndex;
+  let i, temporaryValue, randomIndex;
 
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+  for (i = arr.length; i > 0; i -= 1) {
+    randomIndex = Math.floor(Math.random() * i);
 
-    temporaryValue = arr[currentIndex];
-    arr[currentIndex] = arr[randomIndex];
+    temporaryValue = arr[i - 1];
+    arr[i - 1] = arr[randomIndex];
     arr[randomIndex] = temporaryValue;
   }
 

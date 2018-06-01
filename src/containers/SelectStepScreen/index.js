@@ -72,10 +72,7 @@ class SelectStepScreen extends Component {
       suggestionIndexMax = suggestionIndexMax.length;
     }
 
-    let newSuggestions = this.props.suggestions.slice(
-      suggestionIndex,
-      suggestionIndexMax,
-    );
+    let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
 
     if (!isMe) {
       newSuggestions = this.insertName(newSuggestions);
