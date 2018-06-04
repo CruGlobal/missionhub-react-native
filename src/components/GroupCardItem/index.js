@@ -47,11 +47,11 @@ export default class GroupCardItem extends Component {
   }
 }
 
-GroupCardItem.PropTypes = {
-  group: {
+GroupCardItem.propTypes = {
+  group: PropTypes.shape({
     name: PropTypes.string.isRequired,
     contacts: PropTypes.number.isRequired,
     unassigned: PropTypes.number,
     uncontacted: PropTypes.number,
-  }.isRequired,
+  }).isRequired,
 };
