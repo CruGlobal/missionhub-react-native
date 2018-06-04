@@ -1,9 +1,8 @@
 import React from 'react';
 
 import GroupCardItem from '../../src/components/GroupCardItem';
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-let component;
 let group = {
   name: 'Group Name',
   contacts: 768,
@@ -52,5 +51,16 @@ describe('GroupCardItem', () => {
     };
 
     test();
+  });
+
+  it('calls props.onPress when pressed', () => {
+    const onPress = jest.fn();
+    const component = renderShallow(
+      <GroupCardItem group={group} onPress={onPress} />,
+    );
+
+    component.simulate('press');
+
+    expect(onPress).toHaveBeenCalled();
   });
 });
