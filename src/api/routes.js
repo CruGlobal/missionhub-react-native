@@ -137,6 +137,9 @@ export default {
   GET_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
+  GET_GROUP_CELEBRATE_FEED: {
+    endpoint: `${API_URL}organizations/:orgId/celebration_items`,
+  },
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
