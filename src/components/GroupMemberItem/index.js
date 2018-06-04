@@ -20,7 +20,7 @@ class GroupMemberItem extends Component {
           <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.detailsWrap}>
             <Text style={styles.assigned}>
-              {t('numAssigned', { number: person.assignedNum })}
+              {t('numAssigned', { number: person.contact_assignments.length })}
             </Text>
             {person.uncontactedNum ? (
               <Fragment>

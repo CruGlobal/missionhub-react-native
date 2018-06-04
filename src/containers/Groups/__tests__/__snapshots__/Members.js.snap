@@ -17,26 +17,11 @@ exports[`Members should render correctly 1`] = `
       />
     }
     data={
-      Array [
-        Object {
-          "assignedNum": 2,
-          "full_name": "Full Name1",
-          "id": "123",
-          "uncontactedNum": 3,
-        },
-        Object {
-          "assignedNum": 2,
-          "full_name": "Full Name2",
-          "id": "223",
-          "uncontactedNum": 0,
-        },
-        Object {
-          "assignedNum": 12,
-          "full_name": "Full Name3",
-          "id": "323",
-          "uncontactedNum": 2,
-        },
-      ]
+      Object {
+        "contact_assignments": Array [],
+        "full_name": "Test User 2",
+        "id": "2",
+      }
     }
     disableVirtualization={false}
     horizontal={false}

@@ -1,4 +1,8 @@
-import { GET_ORGANIZATION_CONTACTS } from '../constants';
+import {
+  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATION_MEMBERS,
+  DEFAULT_PAGE_LIMIT,
+} from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -39,6 +43,46 @@ export function getOrganizationContacts(orgId) {
     );
     dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
     return response;
+  };
+}
+
+export function getOrganizationMembers(orgId, query = {}) {
+  const newQuery = {
+    ...query,
+    organization_id: orgId,
+    filters: {
+      permissions: 'admin,user',
+    },
+    include: 'contact_assignments,organizational_permissions',
+  };
+  return async dispatch => {
+    const { response, meta } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
+    );
+    dispatch({
+      type: GET_ORGANIZATION_MEMBERS,
+      orgId,
+      members: response,
+      query: newQuery,
+      meta,
+    });
+    return response;
+  };
+}
+
+export function getOrganizationMembersNextPage(orgId) {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().groups.membersPagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
+    const query = {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
+    };
+    return dispatch(getOrganizationMembers(orgId, query));
   };
 }
 
