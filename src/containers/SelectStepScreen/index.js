@@ -10,10 +10,10 @@ import uuidv4 from 'uuid/v4';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack } from '../../utils/common';
+import { disableBack, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 
@@ -25,28 +25,42 @@ class SelectStepScreen extends Component {
     super(props);
 
     this.state = {
-      steps: props.steps,
+      steps: [],
       addedSteps: [],
+      suggestions: [],
       contact: null,
+      suggestionIndex: 0,
     };
-
-    this.handleSelectStep = this.handleSelectStep.bind(this);
-    this.handleCreateStep = this.handleCreateStep.bind(this);
-    this.saveAllSteps = this.saveAllSteps.bind(this);
   }
 
-  componentWillMount() {
-    this.props.dispatch(getStepSuggestions());
+  insertName(steps) {
+    return steps.map(step => ({
+      ...step,
+      body: step.body.replace(
+        '<<name>>',
+        this.props.contactName
+          ? this.props.contactName
+          : this.props.personFirstName,
+      ),
+    }));
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ steps: [].concat(nextProps.steps, this.state.addedSteps) });
-  }
-
-  componentDidMount() {
+  async componentDidMount() {
+    const { dispatch, isMe, contactStage } = this.props;
+    let { suggestions } = this.props;
     if (!this.props.enableBackButton) {
       disableBack.add();
     }
+
+    if (!suggestions) {
+      const { response } = await dispatch(
+        getStepSuggestions(isMe, contactStage.id),
+      );
+      suggestions = response;
+    }
+    this.setState({ suggestions: shuffleArray(suggestions) });
+
+    this.handleLoadSteps();
   }
 
   componentWillUnmount() {
@@ -55,18 +69,43 @@ class SelectStepScreen extends Component {
     }
   }
 
+  handleLoadSteps = () => {
+    const { suggestionIndex } = this.state;
+    const { suggestions, isMe } = this.props;
+
+    if (suggestionIndex >= suggestions.length) {
+      return;
+    }
+
+    let suggestionIndexMax = suggestionIndex + 4;
+    if (suggestionIndexMax > suggestions.length) {
+      suggestionIndexMax = suggestions.length;
+    }
+
+    let newSuggestions = suggestions.slice(suggestionIndex, suggestionIndexMax);
+
+    if (!isMe) {
+      newSuggestions = this.insertName(newSuggestions);
+    }
+
+    this.setState({
+      steps: [...this.state.steps, ...newSuggestions],
+      suggestionIndex: suggestionIndexMax,
+    });
+  };
+
   filterSelected() {
     return this.state.steps.filter(s => s.selected);
   }
 
-  handleSelectStep(item) {
+  handleSelectStep = item => {
     const steps = this.state.steps.map(
       s => (s.id === item.id ? { ...s, selected: !s.selected } : s),
     );
     this.setState({ steps });
-  }
+  };
 
-  handleCreateStep() {
+  handleCreateStep = () => {
     if (this.props.contact) {
       this.setState({ contact: this.props.contact });
     }
@@ -99,15 +138,15 @@ class SelectStepScreen extends Component {
         },
       }),
     );
-  }
+  };
 
-  async saveAllSteps() {
+  saveAllSteps = async () => {
     const { dispatch, receiverId, organization, onComplete } = this.props;
     const selectedSteps = this.filterSelected();
 
     await dispatch(addSteps(selectedSteps, receiverId, organization));
     onComplete();
-  }
+  };
 
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
@@ -127,7 +166,13 @@ class SelectStepScreen extends Component {
     const { t } = this.props;
 
     return (
-      <Flex value={1.5} align="center" justify="center">
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={{ marginTop: theme.notchHeight }}
+      >
+        <Icon name="addStepIcon" type="MissionHub" style={styles.headerIcon} />
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
@@ -157,7 +202,7 @@ class SelectStepScreen extends Component {
       <Flex style={styles.container}>
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
-          parallaxHeaderHeight={215}
+          parallaxHeaderHeight={215 + theme.notchHeight}
           renderForeground={() => (
             <Flex value={1} align="center" justify="center">
               {this.renderTitle()}
@@ -178,11 +223,12 @@ class SelectStepScreen extends Component {
         >
           <StepsList
             ref={c => (this.stepsList = c)}
-            personFirstName={this.props.personFirstName}
             items={this.state.steps}
             createStepText={t('createStep')}
+            loadMoreStepsText={t('loadMoreSteps')}
             onSelectStep={this.handleSelectStep}
             onCreateStep={this.handleCreateStep}
+            onLoadMoreSteps={this.handleLoadSteps}
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
@@ -195,14 +241,20 @@ class SelectStepScreen extends Component {
 SelectStepScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   createStepTracking: PropTypes.object.isRequired,
+  personFirstName: PropTypes.string,
   contact: PropTypes.object,
   receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
+  contactStage: PropTypes.object.isRequired,
+  isMe: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ auth }) => ({
+export const mapStateToProps = ({ auth, steps }, { isMe, contactStage }) => ({
   myId: auth.person.id,
+  suggestions: isMe
+    ? steps.suggestedForMe[contactStage.id]
+    : steps.suggestedForOthers[contactStage.id],
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

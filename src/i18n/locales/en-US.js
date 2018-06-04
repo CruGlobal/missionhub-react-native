@@ -165,7 +165,8 @@ export default {
     personHeader: 'What will you do to help {{name}} experience God?',
     addStep: 'ADD TO MY STEPS',
     createStep: 'Create your own step...',
-    stepsOfFaith: 'Steps of Faith',
+    loadMoreSteps: 'SHOW MORE STEPS',
+    stepsOfFaith: 'Add Steps of Faith',
   },
   selectStage: {
     meQuestion:
@@ -415,10 +416,14 @@ export default {
     unassigned: 'Unassigned',
   },
   groupItem: {
-    contacts: '{{number}} Contacts',
-    assigned: '{{number}} Assigned',
-    unassigned: '{{number}} Unassigned',
-    uncontacted: '{{number}} Uncontacted',
+    numContacts: '{{number}} Contacts',
+    numAssigned: '{{number}} Assigned',
+    numUnassigned: '{{number}} Unassigned',
+    unassigned: 'Unassigned',
+    numUncontacted: '{{number}} Uncontacted',
+  },
+  groupsContactList: {
+    assign: 'Assign to me',
   },
   loadMore: {
     load: 'Load More',

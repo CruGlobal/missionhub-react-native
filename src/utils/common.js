@@ -8,27 +8,21 @@ import {
   CUSTOM_STEP_TYPE,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
+  INTERACTION_TYPES,
 } from '../constants';
 
-export const getFourRandomItems = arr => {
-  if (!arr) {
-    return [];
+export const shuffleArray = arr => {
+  let i, temporaryValue, randomIndex;
+
+  for (i = arr.length; i > 0; i -= 1) {
+    randomIndex = Math.floor(Math.random() * i);
+
+    temporaryValue = arr[i - 1];
+    arr[i - 1] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
   }
 
-  const items = [];
-  const numItems = arr.length >= 4 ? 4 : arr.length;
-
-  let x = 0;
-  while (x < numItems) {
-    const item = arr[Math.floor(Math.random() * arr.length)];
-
-    if (!items.includes(item)) {
-      items.push(item);
-      x++;
-    }
-  }
-
-  return items;
+  return arr;
 };
 
 export const isAndroid = Platform.OS === 'android';
@@ -138,4 +132,24 @@ export const isEquivalentObject = (a, b) => {
   // If we made it this far, objects
   // are considered equivalent
   return true;
+};
+
+const interactionsArr = Object.keys(INTERACTION_TYPES).map(
+  key => INTERACTION_TYPES[key],
+);
+// For journey items, feed items, etc.
+export const getIconName = (type, interaction_type_id) => {
+  if (type === 'accepted_challenge') {
+    return 'stepsIcon';
+  } else if (type === 'pathway_progression_audit') {
+    return 'journeyIcon';
+  } else if (type === 'answer_sheet') {
+    return 'surveyIcon';
+  } else if (type === 'interaction') {
+    const interaction = interactionsArr.find(i => i.id === interaction_type_id);
+    if (interaction) {
+      return interaction.iconName;
+    }
+  }
+  return null;
 };

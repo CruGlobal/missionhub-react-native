@@ -3,18 +3,16 @@ import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex, Text, Separator, Touchable, Icon } from '../common';
+import Button from '../Button';
 
 import styles from './styles';
 
 export default class StepsList extends Component {
   constructor(props) {
     super(props);
-
-    this.renderRow = this.renderRow.bind(this);
-    this.renderCreateStep = this.renderCreateStep.bind(this);
   }
 
-  renderRow({ item }) {
+  renderRow = ({ item }) => {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>
         <Flex direction="row" align="center" justify="start" value={1}>
@@ -27,28 +25,48 @@ export default class StepsList extends Component {
         </Flex>
       </Touchable>
     );
-  }
+  };
 
-  renderCreateStep() {
+  renderFooter = () => {
+    const {
+      onCreateStep,
+      onLoadMoreSteps,
+      createStepText,
+      loadMoreStepsText,
+    } = this.props;
+    const {
+      separatorWrap,
+      addIcon,
+      stepName,
+      loadMoreStepsButton,
+      loadMoreStepsButtonText,
+    } = styles;
+
     return (
-      <Touchable onPress={this.props.onCreateStep}>
-        <Flex
-          direction="row"
-          align="center"
-          justify="start"
-          value={1}
-          style={styles.separatorWrap}
-        >
-          <Icon
-            name="createStepIcon"
-            type="MissionHub"
-            style={styles.addIcon}
-          />
-          <Text style={styles.stepName}>{this.props.createStepText}</Text>
-        </Flex>
-      </Touchable>
+      <Flex align="center">
+        <Touchable onPress={onCreateStep} style={{ alignSelf: 'stretch' }}>
+          <Flex
+            direction="row"
+            align="center"
+            justify="start"
+            value={1}
+            style={separatorWrap}
+          >
+            <Icon name="createStepIcon" type="MissionHub" style={addIcon} />
+            <Text style={stepName}>{createStepText}</Text>
+          </Flex>
+        </Touchable>
+
+        <Button
+          pill={true}
+          text={loadMoreStepsText.toUpperCase()}
+          onPress={onLoadMoreSteps}
+          style={loadMoreStepsButton}
+          buttonTextStyle={loadMoreStepsButtonText}
+        />
+      </Flex>
     );
-  }
+  };
 
   onScrollToEnd() {
     setTimeout(() => this.listView.scrollToEnd(), 200);
@@ -62,7 +80,7 @@ export default class StepsList extends Component {
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}
-        ListFooterComponent={this.renderCreateStep}
+        ListFooterComponent={this.renderFooter}
         ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
       />
     );
@@ -77,6 +95,9 @@ StepsList.propTypes = {
       selected: PropTypes.bool,
     }),
   ).isRequired,
+  createStepText: PropTypes.string.isRequired,
+  loadMoreStepsText: PropTypes.string.isRequired,
   onSelectStep: PropTypes.func.isRequired,
   onCreateStep: PropTypes.func.isRequired,
+  onLoadMoreSteps: PropTypes.func.isRequired,
 };

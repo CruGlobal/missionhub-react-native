@@ -2,7 +2,9 @@ import 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
-import SelectStepScreen from '../../src/containers/SelectStepScreen';
+import SelectStepScreen, {
+  mapStateToProps,
+} from '../../src/containers/SelectStepScreen';
 import {
   renderShallow,
   createMockStore,
@@ -10,60 +12,160 @@ import {
 } from '../../testUtils';
 import * as navigation from '../../src/actions/navigation';
 import { ADD_STEP_SCREEN } from '../../src/containers/AddStepScreen';
-import { addSteps } from '../../src/actions/steps';
+import { addSteps, getStepSuggestions } from '../../src/actions/steps';
+import { shuffleArray } from '../../src/utils/common';
 import { CREATE_STEP } from '../../src/constants';
-jest.mock('../../src/actions/steps');
-
-const store = createMockStore({
-  auth: {
-    person: {
-      id: '123',
-    },
-  },
-});
 
 jest.mock('react-native-device-info');
+jest.mock('../../src/actions/steps');
+jest.mock('../../src/utils/common');
+shuffleArray.mockImplementation(arr => arr);
+
+const testName = 'Bill';
+
+const stageId = 5;
+const contactStage = { id: stageId };
+
+const suggestions = [
+  { id: '1', body: 'test 1' },
+  { id: '2', body: 'test 2' },
+  { id: '3', body: 'test 3' },
+  { id: '4', body: 'test 4' },
+  { id: '5', body: 'test 5' },
+  { id: '6', body: 'test 6' },
+  { id: '7', body: 'test 7' },
+  { id: '8', body: 'test 8' },
+  { id: '9', body: 'test 9' },
+];
+
+const auth = {
+  person: {
+    id: '123',
+  },
+};
+
+const steps = {
+  suggestedForOthers: {
+    [stageId]: suggestions,
+  },
+};
+
+let store = createMockStore({
+  auth,
+  steps,
+});
+
+let component, parallaxProps, instance;
+let onComplete = () => {};
+let createStepTracking = {};
+let enableBackButton = false;
+
+const createComponent = async () => {
+  component = renderShallow(
+    <SelectStepScreen
+      isMe={false}
+      contactStage={contactStage}
+      createStepTracking={createStepTracking}
+      onComplete={onComplete}
+      personFirstName={testName}
+      enableBackButton={enableBackButton}
+      receiverId={1}
+      organization={{ id: 2 }}
+    />,
+    store,
+  );
+  parallaxProps = component.find('ParallaxScrollView').props();
+  instance = component.instance();
+};
+
+describe('mapStateToProps', () => {
+  it('should provide necessary props for me', () => {
+    expect(
+      mapStateToProps(
+        {
+          auth: {
+            person: {
+              id: '123',
+            },
+          },
+          steps: {
+            suggestedForMe: {
+              [stageId]: [{ id: '1', body: 'test 1' }],
+            },
+            suggestedForOthers: {},
+          },
+        },
+        {
+          isMe: true,
+          contactStage,
+        },
+      ),
+    ).toMatchSnapshot();
+  });
+
+  it('should provide necessary props for others', () => {
+    expect(
+      mapStateToProps(
+        {
+          auth: {
+            person: {
+              id: '123',
+            },
+          },
+          steps: {
+            suggestedForMe: {},
+            suggestedForOthers: {
+              [stageId]: [{ id: '1', body: 'test 1' }],
+            },
+          },
+        },
+        {
+          isMe: false,
+          contactStage,
+        },
+      ),
+    ).toMatchSnapshot();
+  });
+});
 
 describe('SelectStepScreen', () => {
-  let component, parallaxProps;
-  beforeEach(() => {
-    component = renderShallow(
-      <SelectStepScreen
-        steps={[]}
-        createStepTracking={{}}
-        onComplete={() => {}}
-      />,
-      store,
-    );
-    parallaxProps = component.find('ParallaxScrollView').props();
+  beforeEach(async () => {
+    await createComponent();
   });
-  it('should render correctly', () => {
+
+  it('renders correctly', () => {
     expect(component).toMatchSnapshot();
   });
+
   it('should render foreground header correctly', () => {
     testSnapshotShallow(parallaxProps.renderForeground());
   });
+
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
   });
 });
 
+describe('componentDidMount', () => {
+  it('should not call getStepSuggestions if Redux has suggestions', async () => {
+    await createComponent();
+
+    expect(getStepSuggestions).not.toHaveBeenCalled();
+  });
+
+  it('should call getStepSuggestions if Redux has no suggestions', async () => {
+    store = createMockStore({ auth, steps: { suggestedForOthers: {} } });
+    await createComponent();
+
+    expect(getStepSuggestions).toHaveBeenCalled();
+    store = createMockStore({ auth, steps });
+  });
+});
+
 describe('renderSaveButton', () => {
-  let component;
-  beforeEach(() => {
-    component = renderShallow(
-      <SelectStepScreen
-        steps={[{ id: '1', selected: false }]}
-        createStepTracking={{}}
-        onComplete={() => {}}
-      />,
-      store,
-    );
-  });
-  it('should not render save button', () => {
-    expect(component).toMatchSnapshot();
-  });
-  it('should render save button', () => {
+  it('should render save button', async () => {
+    await createComponent();
+
     component.instance().handleSelectStep({ id: '1' });
     component.update();
     expect(component).toMatchSnapshot();
@@ -71,84 +173,80 @@ describe('renderSaveButton', () => {
 });
 
 describe('renderBackButton', () => {
-  let component;
-  beforeEach(() => {
-    component = renderShallow(
-      <SelectStepScreen
-        steps={[{ id: '1', selected: false }]}
-        createStepTracking={{}}
-        onComplete={() => {}}
-        enableBackButton={true}
-      />,
-      store,
-    );
-  });
-  it('should render back button', () => {
+  it('should render back button', async () => {
+    enableBackButton = true;
+    await createComponent();
+
     expect(component).toMatchSnapshot();
+    enableBackButton = false;
   });
 });
 
 describe('Navigation', () => {
-  navigation.navigatePush = jest.fn();
+  it('navigates to add step screen', async () => {
+    navigation.navigatePush = jest.fn();
+    createStepTracking = 'this is a test tracking property';
+    onComplete = jest.fn();
+    await createComponent();
 
-  const createStepTracking = 'this is a test tracking property';
-  const createComponent = () => {
-    const screen = renderShallow(
-      <SelectStepScreen
-        steps={[{ id: '1', body: 'Test Step' }]}
-        onComplete={jest.fn()}
-        createStepTracking={createStepTracking}
-      />,
-      store,
-    );
-
-    return screen.instance();
-  };
-
-  it('navigates to add step screen', () => {
-    const component = createComponent(true);
-
-    component.handleCreateStep();
+    instance.handleCreateStep();
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       onComplete: expect.any(Function),
       trackingObj: createStepTracking,
     });
+    createStepTracking = {};
+    onComplete = () => {};
+  });
+});
+
+describe('handleLoadSteps', () => {
+  beforeAll(async () => {
+    await createComponent();
+  });
+
+  it('Initially displays four suggestions', () => {
+    expect(instance.state.steps).toEqual(suggestions.slice(0, 4));
+  });
+  it('Loads four more suggestions', () => {
+    instance.handleLoadSteps();
+    component.update();
+    expect(instance.state.steps).toEqual(suggestions.slice(0, 8));
+  });
+  it('Loads last suggestion', () => {
+    instance.handleLoadSteps();
+    component.update();
+    expect(instance.state.steps).toEqual(suggestions);
+  });
+  it('loads no more because all suggestions are displayed', () => {
+    instance.handleLoadSteps();
+    component.update();
+    expect(instance.state.steps).toEqual(suggestions);
   });
 });
 
 describe('saveAllSteps', () => {
   it('should add the selected steps', async () => {
-    const onComplete = jest.fn();
+    onComplete = jest.fn();
     addSteps.mockReturnValue(Promise.resolve());
-    const component = renderShallow(
-      <SelectStepScreen
-        steps={[
-          {
-            id: '1',
-            body: 'Selected',
-            selected: true,
-          },
-          {
-            id: '2',
-            body: 'Unselected',
-          },
-        ]}
-        receiverId={1}
-        organization={{ id: 2 }}
-        onComplete={onComplete}
-        createStepTracking={{}}
-      />,
-      store,
-    );
-    const instance = component.instance();
+    await createComponent();
+
+    instance.handleSelectStep({ id: '1' });
+    instance.handleSelectStep({ id: '3' });
+    component.update();
     await instance.saveAllSteps();
+
     expect(addSteps).toHaveBeenCalledWith(
       [
         {
           id: '1',
-          body: 'Selected',
+          body: 'test 1',
+          selected: true,
+        },
+        {
+          id: '3',
+          body: 'test 3',
           selected: true,
         },
       ],

@@ -119,7 +119,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         
-        versionName "4.1.6"
+        versionName "4.1.7"
         versionCode grgit.log(includes:['HEAD']).size() + 358
         
         ndk {
@@ -128,14 +128,6 @@ android {
 
         // Enable multidex for apps with over 64K lines
         multiDexEnabled true
-    }
-    signingConfigs {
-        release {
-            keyAlias System.getenv('GOOGLE_PLAY_UPLOAD_KEY_ALIAS')
-            keyPassword System.getenv('GOOGLE_PLAY_UPLOAD_KEY_PASSWORD')
-            storeFile rootProject.file(System.getenv('GOOGLE_PLAY_UPLOAD_KEYSTORE'))
-            storePassword System.getenv('GOOGLE_PLAY_UPLOAD_KEY_PASSWORD')
-        }
     }
     splits {
         abi {
@@ -149,7 +141,6 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

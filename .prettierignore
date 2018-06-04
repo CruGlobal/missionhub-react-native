@@ -4,3 +4,5 @@ android
 coverage
 *.snap
 package.json
+assets
+README.md

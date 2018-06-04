@@ -3,10 +3,6 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    paddingRight: 30,
-  },
-
   row: {
     marginHorizontal: 15,
     flexDirection: 'row',
@@ -18,20 +14,28 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     marginBottom: 15,
   },
-  groupName: {
-    fontSize: 16,
-    fontWeight: 'bold',
+  rowContent: {
+    paddingLeft: 15,
+    borderLeftColor: theme.separatorColor,
+    borderLeftWidth: 1,
+  },
+  icon: {
+    textAlign: 'center',
+    alignSelf: 'center',
     color: theme.primaryColor,
   },
-  contactRow: {
-    paddingTop: 4,
-  },
-  contacts: {
-    fontSize: 12,
+  date: {
+    marginBottom: 5,
+    fontSize: 14,
     color: theme.grey1,
   },
-  unassigned: {
-    fontSize: 12,
-    color: theme.red,
+  title: {
+    fontSize: 16,
+    color: theme.primaryColor,
+  },
+  comment: {
+    marginTop: 25,
+    marginBottom: 5,
+    fontSize: 14,
   },
 });

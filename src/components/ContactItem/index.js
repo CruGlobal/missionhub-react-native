@@ -6,7 +6,7 @@ import { Flex, Text, Touchable } from '../common';
 
 import styles from './styles';
 
-@translate('contactItem')
+@translate('groupItem')
 class ContactItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.contact);

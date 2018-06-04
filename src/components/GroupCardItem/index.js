@@ -17,18 +17,18 @@ export default class GroupCardItem extends Component {
   render() {
     const { t, group } = this.props;
     return (
-      <Card onPress={this.handlePress}>
-        <Flex style={styles.container}>
+      <Card onPress={this.handlePress} style={styles.row}>
+        <Flex>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.contactRow}>
             <Text style={styles.contacts}>
-              {t('contacts', { number: group.contacts })}
+              {t('numContacts', { number: group.contacts })}
             </Text>
             {group.unassigned ? (
               <Fragment>
                 <Text style={styles.contact}>{'  ·  '}</Text>
                 <Text style={styles.unassigned}>
-                  {t('unassigned', { number: group.unassigned })}
+                  {t('numUnassigned', { number: group.unassigned })}
                 </Text>
               </Fragment>
             ) : null}
@@ -36,7 +36,7 @@ export default class GroupCardItem extends Component {
               <Fragment>
                 <Text style={styles.contact}>{'  ·  '}</Text>
                 <Text style={styles.unassigned}>
-                  {t('uncontacted', { number: group.uncontacted })}
+                  {t('numUncontacted', { number: group.uncontacted })}
                 </Text>
               </Fragment>
             ) : null}

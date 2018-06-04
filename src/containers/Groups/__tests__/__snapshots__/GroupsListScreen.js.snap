@@ -49,7 +49,7 @@ exports[`Contacts should render correctly 1`] = `
     style={
       Object {
         "flex": 1,
-        "padding": 20,
+        "paddingTop": 15,
       }
     }
     updateCellsBatchingPeriod={50}

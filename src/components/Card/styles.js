@@ -3,16 +3,12 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    flexDirection: 'column',
-    marginBottom: 20,
-    padding: 20,
-    backgroundColor: theme.white,
-    borderRadius: 5,
-    shadowRadius: 3,
+  card: {
     shadowColor: theme.black,
-    shadowOpacity: 0.5,
-    shadowOffset: { width: 1, height: 2 },
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 4,
+    borderRadius: 5,
   },
 });

@@ -7,6 +7,10 @@ import {
   testSnapshotShallow,
   createMockNavState,
 } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'test' })),
+}));
 
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
@@ -76,9 +80,8 @@ describe('SurveyContacts', () => {
       .dive()
       .dive()
       .instance();
-    const item = { id: '1' };
-    const result = instance.handleSelect(item);
+    instance.handleSelect({ id: '1' });
 
-    expect(result).toBe(item);
+    expect(navigatePush).toHaveBeenCalled();
   });
 });

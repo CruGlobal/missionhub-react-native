@@ -3,14 +3,21 @@
 exports[`GroupCardItem renders with no unassigned and no uncontacted 1`] = `
 <Card
   onPress={[Function]}
->
-  <Flex
-    style={
-      Object {
-        "paddingRight": 30,
-      }
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
     }
-  >
+  }
+>
+  <Flex>
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -55,14 +62,21 @@ exports[`GroupCardItem renders with no unassigned and no uncontacted 1`] = `
 exports[`GroupCardItem renders with unassigned and no uncontacted 1`] = `
 <Card
   onPress={[Function]}
->
-  <Flex
-    style={
-      Object {
-        "paddingRight": 30,
-      }
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
     }
-  >
+  }
+>
+  <Flex>
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -129,14 +143,21 @@ exports[`GroupCardItem renders with unassigned and no uncontacted 1`] = `
 exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
 <Card
   onPress={[Function]}
->
-  <Flex
-    style={
-      Object {
-        "paddingRight": 30,
-      }
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
     }
-  >
+  }
+>
+  <Flex>
     <MyText
       accessible={true}
       allowFontScaling={true}
@@ -225,14 +246,21 @@ exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
 exports[`GroupCardItem renders with uncontacted and no unassigned 1`] = `
 <Card
   onPress={[Function]}
->
-  <Flex
-    style={
-      Object {
-        "paddingRight": 30,
-      }
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
     }
-  >
+  }
+>
+  <Flex>
     <MyText
       accessible={true}
       allowFontScaling={true}
