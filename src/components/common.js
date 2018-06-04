@@ -14,6 +14,7 @@ import RefreshControl from './RefreshControl';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import IconButton from './IconButton';
 import RadioButton from './RadioButton';
+import Card from './Card';
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   PlatformKeyboardAvoidingView,
   IconButton,
   RadioButton,
+  Card,
 };

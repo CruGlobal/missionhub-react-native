@@ -8,6 +8,7 @@ import {
   CUSTOM_STEP_TYPE,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
+  INTERACTION_TYPES,
 } from '../constants';
 
 export const shuffleArray = arr => {
@@ -131,4 +132,24 @@ export const isEquivalentObject = (a, b) => {
   // If we made it this far, objects
   // are considered equivalent
   return true;
+};
+
+const interactionsArr = Object.keys(INTERACTION_TYPES).map(
+  key => INTERACTION_TYPES[key],
+);
+// For journey items, feed items, etc.
+export const getIconName = (type, interaction_type_id) => {
+  if (type === 'accepted_challenge') {
+    return 'stepsIcon';
+  } else if (type === 'pathway_progression_audit') {
+    return 'journeyIcon';
+  } else if (type === 'answer_sheet') {
+    return 'surveyIcon';
+  } else if (type === 'interaction') {
+    const interaction = interactionsArr.find(i => i.id === interaction_type_id);
+    if (interaction) {
+      return interaction.iconName;
+    }
+  }
+  return null;
 };
