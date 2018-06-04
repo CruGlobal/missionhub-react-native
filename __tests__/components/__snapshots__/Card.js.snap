@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render load more button 1`] = `
+exports[`render card 1`] = `
 <View
   style={
     Array [
@@ -19,4 +19,93 @@ exports[`render load more button 1`] = `
     ]
   }
 />
+`;
+
+exports[`render card with children 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderRadius": 5,
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Testing
+    </MyText>
+  </Component>
+</View>
+`;
+
+exports[`render touchable card 1`] = `
+<TouchableOpacity
+  accessibilityTraits="button"
+  activeOpacity={0.6}
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "borderRadius": 5,
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`render touchable card with children 1`] = `
+<TouchableOpacity
+  accessibilityTraits="button"
+  activeOpacity={0.6}
+  onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "borderRadius": 5,
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <Component>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Testing
+    </MyText>
+  </Component>
+</TouchableOpacity>
 `;

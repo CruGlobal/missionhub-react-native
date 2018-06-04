@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
+import { Touchable } from '../common';
+
 import styles from './styles';
 
 class Card extends Component {
@@ -8,7 +10,17 @@ class Card extends Component {
     this._view.setNativeProps(nProps);
   }
   render() {
-    const { style, ...rest } = this.props;
+    const { style, onPress, ...rest } = this.props;
+    if (onPress) {
+      return (
+        <Touchable
+          ref={c => (this._view = c)}
+          {...rest}
+          onPress={onPress}
+          style={[styles.card, style]}
+        />
+      );
+    }
     return (
       <View
         ref={c => (this._view = c)}
