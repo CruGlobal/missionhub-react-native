@@ -7,7 +7,7 @@ import { Text, Flex } from '../common';
 
 import styles from './styles';
 
-@translate('groupCardItem')
+@translate('groupItem')
 export default class GroupCardItem extends Component {
   handlePress = () => {
     const { onPress, group } = this.props;
