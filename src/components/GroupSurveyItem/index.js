@@ -6,7 +6,7 @@ import { Flex, Text, Touchable, Icon } from '../common';
 
 import styles from './styles';
 
-@translate('groupSurveyItem')
+@translate('groupItem')
 class GroupSurveyItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.survey);
@@ -31,13 +31,13 @@ class GroupSurveyItem extends Component {
             </Text>
             <Text direction="row" align="center">
               <Text style={[styles.text, styles.contacts]}>
-                {t('contacts', { number: survey.contactNum })}
+                {t('numContacts', { number: survey.contactNum })}
               </Text>
               {survey.unassignedNum ? (
                 <Text>
                   <Text style={styles.text}>{'  ·  '}</Text>
                   <Text style={[styles.text, styles.unassigned]}>
-                    {t('unassigned', { number: survey.unassignedNum })}
+                    {t('numUnassigned', { number: survey.unassignedNum })}
                   </Text>
                 </Text>
               ) : null}
@@ -45,7 +45,7 @@ class GroupSurveyItem extends Component {
                 <Text>
                   <Text style={styles.text}>{'  ·  '}</Text>
                   <Text style={[styles.text, styles.uncontacted]}>
-                    {t('uncontacted', { number: survey.uncontactedNum })}
+                    {t('numUncontacted', { number: survey.uncontactedNum })}
                   </Text>
                 </Text>
               ) : null}
