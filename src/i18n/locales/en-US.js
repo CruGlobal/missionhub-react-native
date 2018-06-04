@@ -427,4 +427,7 @@ export default {
   loadMore: {
     load: 'Load More',
   },
+  commentBox: {
+    placeholder: 'Comment',
+  },
 };

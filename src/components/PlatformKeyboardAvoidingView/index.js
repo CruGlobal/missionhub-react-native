@@ -7,10 +7,11 @@ import styles from './styles';
 
 export default class PlatformKeyboardAvoidingView extends Component {
   render() {
+    const { style } = this.props;
     return (
       <KeyboardAvoidingView
         keyboardVerticalOffset={this.props.offset}
-        style={styles.container}
+        style={[styles.container, style]}
         behavior={this.getBehavior()}
       >
         {this.props.children}
