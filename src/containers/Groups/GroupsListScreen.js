@@ -23,7 +23,7 @@ export class GroupsListScreen extends Component {
   };
 
   render() {
-    const { dispatch, t, organizations } = this.props;
+    const { dispatch, t, orgs } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -38,7 +38,7 @@ export class GroupsListScreen extends Component {
         />
         <FlatList
           style={styles.groupList}
-          data={organizations}
+          data={orgs}
           keyExtractor={i => i.id}
           renderItem={({ item }) => (
             <GroupCardItem group={item} onPress={this.handlePress} />
@@ -49,23 +49,8 @@ export class GroupsListScreen extends Component {
   }
 }
 
-export const mapStateToProps = () => ({
-  organizations: [
-    {
-      id: '123',
-      name: 'Cru at Boston University',
-      contacts: 768,
-      unassigned: 13,
-      uncontacted: 43,
-    },
-    {
-      id: '456',
-      name: 'Cru at Boston University Northeast Branch',
-      contacts: 768,
-      unassigned: 0,
-      uncontacted: 0,
-    },
-  ],
+export const mapStateToProps = ({ organizations }) => ({
+  orgs: organizations.all,
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);
