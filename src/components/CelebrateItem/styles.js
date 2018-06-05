@@ -18,4 +18,8 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
     marginBottom: 15,
   },
+  icon: {
+    color: theme.grey1,
+    fontSize: 24,
+  },
 });
