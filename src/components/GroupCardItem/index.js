@@ -17,7 +17,7 @@ export default class GroupCardItem extends Component {
   render() {
     const { t, group } = this.props;
     return (
-      <Card onPress={this.handlePress} style={styles.row}>
+      <Card onPress={this.handlePress} style={styles.card}>
         <Flex>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.contactRow}>

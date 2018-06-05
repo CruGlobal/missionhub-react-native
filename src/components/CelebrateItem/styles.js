@@ -6,13 +6,11 @@ export default StyleSheet.create({
   container: {
     paddingRight: 30,
   },
-
-  row: {
+  card: {
     marginHorizontal: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 13,
+    padding: 16,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
@@ -20,6 +18,27 @@ export default StyleSheet.create({
   },
   icon: {
     color: theme.grey1,
-    fontSize: 24,
+    fontSize: 30,
+    margin: 0,
+    marginLeft: 4,
+  },
+  name: {
+    color: theme.primaryColor,
+    fontSize: 16,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+  },
+  time: {
+    color: theme.grey1,
+    fontSize: 12,
+  },
+  description: {
+    paddingTop: 12,
+    fontSize: 14,
+  },
+  likeCount: {
+    fontSize: 14,
+    color: theme.primaryColor,
+    fontWeight: 'bold',
   },
 });
