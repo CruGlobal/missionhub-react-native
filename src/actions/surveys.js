@@ -1,5 +1,6 @@
-import { REQUESTS } from './api';
-import callApi from './api';
+import { GET_GROUP_SURVEYS } from '../constants';
+
+import callApi, { REQUESTS } from './api';
 
 export function getMySurveys() {
   return dispatch => {
@@ -7,6 +8,20 @@ export function getMySurveys() {
       limit: 100,
       include: '',
     };
-    return dispatch(callApi(REQUESTS.GET_MY_SURVEYS, query));
+    return dispatch(callApi(REQUESTS.GET_SURVEYS, query));
+  };
+}
+
+export function getOrgSurveys(orgId) {
+  const query = {
+    organization_id: orgId,
+    include: '',
+  };
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_GROUP_SURVEYS, query),
+    );
+    dispatch({ type: GET_GROUP_SURVEYS, orgId, surveys: response });
+    return response;
   };
 }

@@ -1,8 +1,9 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT } from '../constants';
+import { LOGOUT, GET_GROUP_SURVEYS } from '../constants';
 
 const initialState = {
   all: [],
+  surveys: {}, // All surveys split up by orgId
 };
 
 function groupsReducer(state = initialState, action) {
@@ -16,6 +17,14 @@ function groupsReducer(state = initialState, action) {
       return {
         ...state,
         all: groups,
+      };
+    case GET_GROUP_SURVEYS:
+      return {
+        ...state,
+        surveys: {
+          ...state.surveys,
+          [action.orgId]: action.surveys,
+        },
       };
     case LOGOUT:
       return initialState;
