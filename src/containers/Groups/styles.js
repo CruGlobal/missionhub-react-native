@@ -3,16 +3,19 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  members: {
+  flatList: {
     flex: 1,
     backgroundColor: theme.white,
   },
-  surveys: {
+  cardList: {
     flex: 1,
-    backgroundColor: theme.white,
+    paddingVertical: 8,
   },
-  groupList: {
-    flex: 1,
-    paddingTop: 15,
+  cardSectionHeader: {
+    paddingVertical: 8,
+  },
+  cardSectionText: {
+    fontSize: 14,
+    alignContent: 'center',
   },
 });

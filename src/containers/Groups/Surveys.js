@@ -27,10 +27,11 @@ class Surveys extends Component {
   render() {
     const { surveys, hasMore } = this.props;
     return (
-      <Flex value={1} style={styles.surveys}>
+      <Flex value={1}>
         <FlatList
           data={surveys}
           keyExtractor={i => i.id}
+          style={styles.flatList}
           renderItem={({ item }) => (
             <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
           )}

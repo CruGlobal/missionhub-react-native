@@ -26,10 +26,11 @@ class Members extends Component {
   render() {
     const { members, hasMore } = this.props;
     return (
-      <Flex value={1} style={styles.members}>
+      <Flex value={1}>
         <FlatList
           data={members}
           keyExtractor={i => i.id}
+          style={styles.flatList}
           renderItem={({ item }) => (
             <GroupMemberItem person={item} onSelect={this.handleSelect} />
           )}

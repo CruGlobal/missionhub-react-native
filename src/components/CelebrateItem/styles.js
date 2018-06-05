@@ -7,14 +7,14 @@ export default StyleSheet.create({
     paddingRight: 30,
   },
   card: {
-    marginHorizontal: 15,
+    marginHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
-    marginBottom: 15,
+    marginVertical: 8,
   },
   icon: {
     color: theme.grey1,
