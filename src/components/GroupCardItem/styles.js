@@ -22,7 +22,6 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: theme.primaryColor,
-    letterSpacing: 1,
   },
   contactRow: {
     paddingTop: 4,

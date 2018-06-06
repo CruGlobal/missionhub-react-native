@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -17,10 +17,10 @@ export class Celebrate extends Component {
 
   renderSection(item) {
     return (
-      <Flex align="center" justify="center" style={styles.cardSectionHeader}>
+      <Flex align="center" justify="center">
         <DateComponent
           date={item.date}
-          style={styles.cardSectionText}
+          style={styles.cardSectionHeader}
           format="dddd, MMMM D"
         />
         {item.events
@@ -58,7 +58,7 @@ export class Celebrate extends Component {
 const mapStateToProps = () => ({
   items: [
     {
-      date: '2018-04-11 19:06:00 UTC',
+      date: '2018-04-11 UTC',
       id: '1',
       events: [
         {
@@ -71,7 +71,7 @@ const mapStateToProps = () => ({
       ],
     },
     {
-      date: '2018-04-10 07:06:00 UTC',
+      date: '2018-04-10 UTC',
       id: '2',
       events: [
         {
@@ -91,7 +91,7 @@ const mapStateToProps = () => ({
       ],
     },
     {
-      date: '2018-04-09 15:23:00 UTC',
+      date: '2018-04-09 UTC',
       id: '3',
       events: [
         {

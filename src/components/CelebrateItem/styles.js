@@ -8,13 +8,13 @@ export default StyleSheet.create({
   },
   card: {
     marginHorizontal: 16,
+    marginVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
-    marginVertical: 8,
   },
   icon: {
     color: theme.grey1,
@@ -26,7 +26,6 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     fontSize: 16,
     fontWeight: 'bold',
-    letterSpacing: 1,
   },
   time: {
     color: theme.grey1,

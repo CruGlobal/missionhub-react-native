@@ -12,9 +12,7 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   cardSectionHeader: {
-    paddingVertical: 8,
-  },
-  cardSectionText: {
+    marginVertical: 8,
     fontSize: 14,
     alignContent: 'center',
   },
