@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-import { Card, Text, Flex, IconButton } from '../../components/common';
+import {
+  Card,
+  Text,
+  Flex,
+  IconButton,
+  DateComponent,
+} from '../../components/common';
 
 import styles from './styles';
 
@@ -19,7 +25,11 @@ export default class Celebrate extends Component {
         <Flex value={1} direction={'row'}>
           <Flex value={1} direction={'column'}>
             <Text style={styles.name}>{full_name.toUpperCase()}</Text>
-            <Text style={styles.time}>{changed_attribute_value}</Text>
+            <DateComponent
+              style={styles.time}
+              date={changed_attribute_value}
+              format={'LT'}
+            />
             <Text style={styles.description}>{title}</Text>
           </Flex>
           <Flex direction={'column'} align="start">
