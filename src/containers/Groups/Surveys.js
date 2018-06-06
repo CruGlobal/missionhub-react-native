@@ -25,10 +25,10 @@ class Surveys extends Component {
     this.load();
   }
 
-  load() {
+  load = () => {
     const { dispatch, organization } = this.props;
     return dispatch(getOrgSurveys(organization.id));
-  }
+  };
 
   handleRefresh = () => {
     refresh(this, this.load);
