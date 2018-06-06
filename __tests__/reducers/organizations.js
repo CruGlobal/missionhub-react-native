@@ -1,5 +1,4 @@
 import organizations from '../../src/reducers/organizations';
-import { REQUESTS } from '../../src/actions/api';
 import { GET_ORGANIZATION_CONTACTS } from '../../src/constants';
 
 const orgId = '123';

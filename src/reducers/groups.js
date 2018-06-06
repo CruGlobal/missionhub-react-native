@@ -1,5 +1,5 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, GET_GROUP_SURVEYS } from '../constants';
+import { LOGOUT } from '../constants';
 
 import { getPagination } from './steps';
 
