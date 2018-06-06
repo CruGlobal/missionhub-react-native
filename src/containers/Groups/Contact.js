@@ -8,7 +8,6 @@ import GroupsContactList from '../../components/GroupsContactList';
 import Header from '../Header';
 import BackButton from '../BackButton';
 
-@connect()
 @translate('groupsContact')
 class Contact extends Component {
   handleAssign = () => {

@@ -15,7 +15,6 @@ import { organizationSelector } from '../../selectors/organizations';
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
 
-@connect()
 @translate('groupsSurveys')
 class Surveys extends Component {
   state = {

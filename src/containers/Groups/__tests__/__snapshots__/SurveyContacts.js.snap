@@ -1,57 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SurveyContacts should render correctly 1`] = `
-<Translate(SurveyContacts)
-  contacts={
-    Array [
+<Flex
+  value={1}
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    title="Test Org"
+  />
+  <Translate(SearchList)
+    filters={
       Object {
-        "full_name": "full name 1",
-        "id": "1",
-        "isAssigned": false,
-      },
-      Object {
-        "full_name": "full name 2",
-        "id": "2",
-        "isAssigned": false,
-      },
-      Object {
-        "full_name": "full name 3",
-        "id": "3",
-        "isAssigned": true,
-      },
-      Object {
-        "full_name": "full name 4",
-        "id": "4",
-        "isAssigned": false,
-      },
-    ]
-  }
-  dispatch={[MockFunction]}
-  navigation={
-    Object {
-      "state": Object {
-        "params": Object {
-          "organization": Object {
-            "id": "1",
-            "name": "Test Org",
-          },
-          "survey": Object {
-            "id": "11",
-          },
+        "filter1": Object {
+          "id": "filter1",
+          "text": "Last 30 days",
         },
-      },
+        "filter2": Object {
+          "id": "filter2",
+          "text": "Last 7 days",
+        },
+        "filter3": Object {
+          "id": "filter3",
+          "text": "Filter 3",
+        },
+        "filter4": Object {
+          "id": "filter4",
+          "text": "Filter 4",
+        },
+        "filter5": Object {
+          "id": "filter5",
+          "text": "Filter 5",
+        },
+      }
     }
-  }
-  organization={
-    Object {
-      "id": "1",
-      "name": "Test Org",
+    listProps={
+      Object {
+        "renderItem": [Function],
+      }
     }
-  }
-  survey={
-    Object {
-      "id": "11",
-    }
-  }
-/>
+    onFilterPress={[Function]}
+    onRemoveFilter={[Function]}
+    onSearch={[Function]}
+    placeholder="Search Contacts"
+  />
+</Flex>
 `;

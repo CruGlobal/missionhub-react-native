@@ -1,43 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Surveys should render correctly 1`] = `
-<Translate(Surveys)
-  dispatch={[MockFunction]}
-  organization={
+<Flex
+  style={
     Object {
-      "id": "1",
-      "name": "Test Org",
+      "backgroundColor": "#ffffff",
+      "flex": 1,
     }
   }
-  pagination={
-    Object {
-      "hasNextPage": true,
+  value={1}
+>
+  <FlatList
+    ListFooterComponent={
+      <Translate(LoadMore)
+        onPress={[Function]}
+      />
     }
-  }
-  surveys={
-    Array [
-      Object {
-        "contacts_count": 5,
-        "id": "1",
-        "title": "Test Survey 1",
-        "unassigned_contacts_count": 5,
-        "uncontacted_contacts_count": 5,
-      },
-      Object {
-        "contacts_count": 5,
-        "id": "2",
-        "title": "Test Survey 2",
-        "unassigned_contacts_count": 5,
-        "uncontacted_contacts_count": 5,
-      },
-      Object {
-        "contacts_count": 5,
-        "id": "3",
-        "title": "Test Survey 3",
-        "unassigned_contacts_count": 5,
-        "uncontacted_contacts_count": 5,
-      },
-    ]
-  }
-/>
+    data={
+      Array [
+        Object {
+          "contacts_count": 5,
+          "id": "1",
+          "title": "Test Survey 1",
+          "unassigned_contacts_count": 5,
+          "uncontacted_contacts_count": 5,
+        },
+        Object {
+          "contacts_count": 5,
+          "id": "2",
+          "title": "Test Survey 2",
+          "unassigned_contacts_count": 5,
+          "uncontacted_contacts_count": 5,
+        },
+        Object {
+          "contacts_count": 5,
+          "id": "3",
+          "title": "Test Survey 3",
+          "unassigned_contacts_count": 5,
+          "uncontacted_contacts_count": 5,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</Flex>
 `;

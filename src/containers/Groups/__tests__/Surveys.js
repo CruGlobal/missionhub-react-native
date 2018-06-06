@@ -65,41 +65,25 @@ describe('Surveys', () => {
   });
 
   it('should mount correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(getOrgSurveys).toHaveBeenCalled();
   });
 
   it('should handleSelect correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
     expect(navigatePush).toHaveBeenCalled();
   });
 
   it('should handleLoadMore correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.handleLoadMore();
     expect(getOrgSurveysNextPage).toHaveBeenCalled();
   });
 
   it('should handleRefresh correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.handleRefresh();
     expect(common.refresh).toHaveBeenCalled();
   });
