@@ -72,7 +72,7 @@ export function getOrganizationMembers(orgId, query = {}) {
 
 export function getOrganizationMembersNextPage(orgId) {
   return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().groups.membersPagination;
+    const { page, hasNextPage } = getState().organizations.membersPagination;
     if (!hasNextPage) {
       return Promise.reject('NoMoreData');
     }

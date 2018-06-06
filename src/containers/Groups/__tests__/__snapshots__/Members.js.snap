@@ -17,11 +17,23 @@ exports[`Members should render correctly 1`] = `
       />
     }
     data={
-      Object {
-        "contact_assignments": Array [],
-        "full_name": "Test User 2",
-        "id": "2",
-      }
+      Array [
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
+        },
+      ]
     }
     disableVirtualization={false}
     horizontal={false}
@@ -30,6 +42,20 @@ exports[`Members should render correctly 1`] = `
     maxToRenderPerBatch={10}
     numColumns={1}
     onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     renderItem={[Function]}
     scrollEventThrottle={50}
     updateCellsBatchingPeriod={50}

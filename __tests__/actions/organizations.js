@@ -194,7 +194,7 @@ describe('getOrganizationMembersNextPage', () => {
 
   it('should get members in organization', async () => {
     store = configureStore([thunk])({
-      groups: { membersPagination: { hasNextPage: true, page: 1 } },
+      organizations: { membersPagination: { hasNextPage: true, page: 1 } },
     });
 
     mockFnWithParams(

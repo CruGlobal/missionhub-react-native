@@ -5,23 +5,39 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { Flex } from '../../components/common';
+import { Flex, RefreshControl } from '../../components/common';
+import { refresh } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../actions/organizations';
+import { organizationSelector } from '../../selectors/organizations';
 
 import styles from './styles';
 import { GROUPS_CONTACT } from './Contact';
 
 @translate('groupsMembers')
 class Members extends Component {
+  state = {
+    refreshing: false,
+  };
+
   componentDidMount() {
-    const { dispatch, organization } = this.props;
-    dispatch(getOrganizationMembers(organization.id));
+    if (this.props.members.length === 0) {
+      this.load();
+    }
   }
+
+  load() {
+    const { dispatch, organization } = this.props;
+    return dispatch(getOrganizationMembers(organization.id));
+  }
+
+  handleRefresh = () => {
+    refresh(this, this.load);
+  };
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
@@ -43,6 +59,12 @@ class Members extends Component {
           renderItem={({ item }) => (
             <GroupMemberItem person={item} onSelect={this.handleSelect} />
           )}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+            />
+          }
           ListFooterComponent={
             pagination.hasNextPage ? (
               <LoadMore onPress={this.handleLoadMore} />
@@ -60,9 +82,15 @@ Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ groups }, { organization }) => ({
-  members: groups.members[organization.id] || [],
-  pagination: groups.membersPagination,
-});
+const mapStateToProps = ({ organizations }, { organization }) => {
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
+  return {
+    members: (selectorOrg || {}).members || [],
+    pagination: organizations.membersPagination,
+  };
+};
 
 export default connect(mapStateToProps)(Members);

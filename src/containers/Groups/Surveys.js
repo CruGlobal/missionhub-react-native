@@ -22,7 +22,9 @@ class Surveys extends Component {
   };
 
   componentDidMount() {
-    this.load();
+    if (this.props.surveys.length === 0) {
+      this.load();
+    }
   }
 
   load() {

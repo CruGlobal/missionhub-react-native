@@ -18,13 +18,20 @@ jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
   getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
 }));
+import * as common from '../../../utils/common';
+common.refresh = jest.fn();
 
-const store = createMockStore({
-  groups: {
-    members: [
-      { id: '1', full_name: 'Test User 1', contact_assignments: [] },
-      { id: '2', full_name: 'Test User 2', contact_assignments: [] },
-      { id: '3', full_name: 'Test User 3', contact_assignments: [] },
+let store = createMockStore({
+  organizations: {
+    all: [
+      {
+        id: '1',
+        members: [
+          { id: '1', full_name: 'Test User 1', contact_assignments: [] },
+          { id: '2', full_name: 'Test User 2', contact_assignments: [] },
+          { id: '3', full_name: 'Test User 3', contact_assignments: [] },
+        ],
+      },
     ],
     membersPagination: { hasNextPage: true },
   },
@@ -40,6 +47,17 @@ describe('Members', () => {
   });
 
   it('should mount correctly', () => {
+    const store = createMockStore({
+      organizations: {
+        all: [
+          {
+            id: '1',
+            members: [],
+          },
+        ],
+        membersPagination: { hasNextPage: true },
+      },
+    });
     const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(getOrganizationMembers).toHaveBeenCalled();
@@ -55,5 +73,11 @@ describe('Members', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleLoadMore();
     expect(getOrganizationMembersNextPage).toHaveBeenCalled();
+  });
+
+  it('should handleRefresh correctly', () => {
+    const instance = renderShallow(component, store).instance();
+    instance.handleRefresh();
+    expect(common.refresh).toHaveBeenCalled();
   });
 });

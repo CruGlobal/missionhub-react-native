@@ -1,15 +1,8 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, GET_ORGANIZATION_MEMBERS } from '../constants';
-
-import { getPagination } from './steps';
+import { LOGOUT } from '../constants';
 
 const initialState = {
   all: [],
-  members: {}, // The key is the orgId and then it has an array of members
-  membersPagination: {
-    hasNextPage: true,
-    page: 1,
-  },
 };
 
 function groupsReducer(state = initialState, action) {
@@ -23,25 +16,6 @@ function groupsReducer(state = initialState, action) {
       return {
         ...state,
         all: groups,
-      };
-    case GET_ORGANIZATION_MEMBERS:
-      const { orgId, members } = action;
-      // If we're doing paging, concat the old steps with the new ones
-      const allMembers =
-        action.query &&
-        action.query.page &&
-        action.query.page.offset > 0 &&
-        state.members[orgId]
-          ? [...state.members[orgId], ...members]
-          : members;
-
-      return {
-        ...state,
-        members: {
-          ...state.members,
-          [orgId]: allMembers,
-        },
-        membersPagination: getPagination(action, allMembers.length),
       };
     case LOGOUT:
       return initialState;
