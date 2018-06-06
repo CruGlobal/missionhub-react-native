@@ -155,7 +155,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
 
           // Add data to the results to be used by followup actions
           actionResults.meta = meta;
-          actionResults.query = newQuery;
           resolve(actionResults);
         })
         .catch(handleError);

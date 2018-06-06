@@ -28,11 +28,7 @@ describe('Contact', () => {
   });
 
   it('should handleAssign correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     const result = instance.handleAssign();
     expect(result).toBe(true);
   });
