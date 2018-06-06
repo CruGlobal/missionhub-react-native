@@ -15,13 +15,29 @@ exports[`Surveys should render correctly 1`] = `
     }
   }
   surveys={
-    Object {
-      "contacts_count": 5,
-      "id": "2",
-      "title": "Test Survey 2",
-      "unassigned_contacts_count": 5,
-      "uncontacted_contacts_count": 5,
-    }
+    Array [
+      Object {
+        "contacts_count": 5,
+        "id": "1",
+        "title": "Test Survey 1",
+        "unassigned_contacts_count": 5,
+        "uncontacted_contacts_count": 5,
+      },
+      Object {
+        "contacts_count": 5,
+        "id": "2",
+        "title": "Test Survey 2",
+        "unassigned_contacts_count": 5,
+        "uncontacted_contacts_count": 5,
+      },
+      Object {
+        "contacts_count": 5,
+        "id": "3",
+        "title": "Test Survey 3",
+        "unassigned_contacts_count": 5,
+        "uncontacted_contacts_count": 5,
+      },
+    ]
   }
 />
 `;

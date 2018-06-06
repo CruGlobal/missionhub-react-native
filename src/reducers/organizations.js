@@ -1,10 +1,20 @@
 import lodash from 'lodash';
 
+import {
+  LOGOUT,
+  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATION_SURVEYS,
+} from '../constants';
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, GET_ORGANIZATION_CONTACTS } from '../constants';
+
+import { getPagination } from './steps';
 
 const initialState = {
   all: [],
+  surveysPagination: {
+    hasNextPage: true,
+    page: 1,
+  },
 };
 
 function organizationsReducer(state = initialState, action) {
@@ -37,6 +47,24 @@ function organizationsReducer(state = initialState, action) {
         all: orgId
           ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
           : state.all,
+      };
+    case GET_ORGANIZATION_SURVEYS:
+      const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
+      const currentOrg = state.all.find(o => o.id === surveyOrgId);
+      if (!currentOrg) return state; // Return if the organization does not exist
+      const existingSurveys = currentOrg.surveys || [];
+      const allSurveys =
+        surveyQuery.page && surveyQuery.page.offset > 0
+          ? [...existingSurveys, ...surveys]
+          : surveys;
+      return {
+        ...state,
+        all: surveyOrgId
+          ? state.all.map(
+              o => (o.id === surveyOrgId ? { ...o, surveys: allSurveys } : o),
+            )
+          : state.all,
+        surveysPagination: getPagination(action, allSurveys.length),
       };
     case LOGOUT:
       return initialState;

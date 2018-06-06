@@ -1,4 +1,4 @@
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { DEFAULT_PAGE_LIMIT, GET_ORGANIZATION_SURVEYS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -17,8 +17,17 @@ export function getOrgSurveys(orgId, query = {}) {
     ...query,
     organization_id: orgId,
   };
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.GET_GROUP_SURVEYS, newQuery));
+  return async dispatch => {
+    const { response, meta } = await dispatch(
+      callApi(REQUESTS.GET_GROUP_SURVEYS, newQuery),
+    );
+    dispatch({
+      type: GET_ORGANIZATION_SURVEYS,
+      orgId,
+      surveys: response,
+      query: newQuery,
+      meta,
+    });
   };
 }
 

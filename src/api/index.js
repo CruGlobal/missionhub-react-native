@@ -78,7 +78,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
             exists(routeData.useJsonDataApiStore) &&
             !routeData.useJsonDataApiStore
           ) {
-            resolve({ results: jsonResponse });
+            resolve({ results: jsonResponse, meta: jsonResponse.meta });
           } else {
             const jsonApiStore = new JsonApiDataStore();
             const response = jsonApiStore.sync(jsonResponse);

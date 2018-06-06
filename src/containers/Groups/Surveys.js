@@ -10,6 +10,7 @@ import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
 import { getOrgSurveys, getOrgSurveysNextPage } from '../../actions/surveys';
+import { organizationSelector } from '../../selectors/organizations';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
@@ -77,9 +78,15 @@ Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ groups }, { organization }) => ({
-  surveys: groups.surveys[organization.id] || [],
-  pagination: groups.surveysPagination,
-});
+const mapStateToProps = ({ organizations }, { organization }) => {
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
+  return {
+    surveys: (selectorOrg || {}).surveys || [],
+    pagination: organizations.surveysPagination,
+  };
+};
 
 export default connect(mapStateToProps)(Surveys);

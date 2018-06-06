@@ -19,35 +19,43 @@ jest.mock('../../../actions/surveys', () => ({
 common.refresh = jest.fn();
 
 const store = createMockStore({
-  groups: {
-    surveys: [
+  organizations: {
+    all: [
       {
         id: '1',
-        title: 'Test Survey 1',
-        contacts_count: 5,
-        unassigned_contacts_count: 5,
-        uncontacted_contacts_count: 5,
-      },
-      {
-        id: '2',
-        title: 'Test Survey 2',
-        contacts_count: 5,
-        unassigned_contacts_count: 5,
-        uncontacted_contacts_count: 5,
-      },
-      {
-        id: '3',
-        title: 'Test Survey 3',
-        contacts_count: 5,
-        unassigned_contacts_count: 5,
-        uncontacted_contacts_count: 5,
+        surveys: [
+          {
+            id: '1',
+            title: 'Test Survey 1',
+            contacts_count: 5,
+            unassigned_contacts_count: 5,
+            uncontacted_contacts_count: 5,
+          },
+          {
+            id: '2',
+            title: 'Test Survey 2',
+            contacts_count: 5,
+            unassigned_contacts_count: 5,
+            uncontacted_contacts_count: 5,
+          },
+          {
+            id: '3',
+            title: 'Test Survey 3',
+            contacts_count: 5,
+            unassigned_contacts_count: 5,
+            uncontacted_contacts_count: 5,
+          },
+        ],
       },
     ],
     surveysPagination: { hasNextPage: true },
   },
 });
 
-const organization = { id: '1', name: 'Test Org' };
+const organization = {
+  id: '1',
+  name: 'Test Org',
+};
 
 describe('Surveys', () => {
   const component = <Surveys organization={organization} />;

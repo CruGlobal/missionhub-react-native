@@ -9,6 +9,7 @@ import {
   getOrgSurveys,
   getOrgSurveysNextPage,
 } from '../../src/actions/surveys';
+import { GET_ORGANIZATION_SURVEYS } from '../../src/constants';
 
 let store;
 const apiResponse = { type: 'successful' };
@@ -50,8 +51,15 @@ describe('getOrgSurveys', () => {
     response: surveys,
     meta: { total: 50 },
   };
+  const getSurveysAction = {
+    type: GET_ORGANIZATION_SURVEYS,
+    orgId,
+    surveys,
+    query,
+    meta: { total: 50 },
+  };
 
-  it('should get surveys in organization', () => {
+  it('should get surveys in organization', async () => {
     mockFnWithParams(
       api,
       'default',
@@ -60,8 +68,8 @@ describe('getOrgSurveys', () => {
       query,
     );
 
-    store.dispatch(getOrgSurveys(orgId));
-    expect(store.getActions()).toEqual([surveysResponse]);
+    await store.dispatch(getOrgSurveys(orgId));
+    expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
   });
 });
 
@@ -95,8 +103,15 @@ describe('getOrgSurveysNextPage', () => {
     response: surveys,
     meta: { total: 50 },
   };
+  const getSurveysAction = {
+    type: GET_ORGANIZATION_SURVEYS,
+    orgId,
+    surveys,
+    query,
+    meta: { total: 50 },
+  };
 
-  it('should get surveys next page in organization', () => {
+  it('should get surveys next page in organization', async () => {
     store = configureStore([thunk])({
       groups: { surveysPagination: { hasNextPage: true, page: 1 } },
     });
@@ -109,7 +124,7 @@ describe('getOrgSurveysNextPage', () => {
       query,
     );
 
-    store.dispatch(getOrgSurveysNextPage(orgId));
-    expect(store.getActions()).toEqual([surveysResponse]);
+    await store.dispatch(getOrgSurveysNextPage(orgId));
+    expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
   });
 });
