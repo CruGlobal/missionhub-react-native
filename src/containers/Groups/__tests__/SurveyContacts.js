@@ -31,11 +31,7 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleFilterPress correctly', () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.handleFilterPress();
     expect(instance.state.filters.filter1).toMatchObject({
       id: 'filter1',
@@ -44,21 +40,13 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleSearch correctly', async () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     const result = await instance.handleSearch('test');
     expect(result).toHaveLength(4);
   });
 
   it('should handleRemoveFilter correctly', async () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.setState({
       filters: {
         filter1: { id: '1', text: 'Last 30 days' },
@@ -75,11 +63,7 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleSelect correctly', async () => {
-    const instance = renderShallow(component, store)
-      .dive()
-      .dive()
-      .dive()
-      .instance();
+    const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
 
     expect(navigatePush).toHaveBeenCalled();

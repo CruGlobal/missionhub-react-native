@@ -150,12 +150,11 @@ it('adds new items to existing mine array', () => {
 
 it('get pagination works', () => {
   const result = getPagination(
-    { pagination: {} },
     {
       query: { page: { offset: 25 } },
       meta: { total: 51 },
     },
-    new Array(25),
+    25,
   );
 
   expect(result).toEqual({ page: 2, hasNextPage: true });
@@ -163,12 +162,11 @@ it('get pagination works', () => {
 
 it('get pagination works for total', () => {
   const result = getPagination(
-    { pagination: {} },
     {
       query: { page: { offset: 25 } },
       meta: { total: 50 },
     },
-    new Array(25),
+    25,
   );
 
   expect(result).toEqual({ page: 2, hasNextPage: false });
