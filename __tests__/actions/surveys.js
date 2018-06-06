@@ -113,7 +113,7 @@ describe('getOrgSurveysNextPage', () => {
 
   it('should get surveys next page in organization', async () => {
     store = configureStore([thunk])({
-      groups: { surveysPagination: { hasNextPage: true, page: 1 } },
+      organizations: { surveysPagination: { hasNextPage: true, page: 1 } },
     });
 
     mockFnWithParams(

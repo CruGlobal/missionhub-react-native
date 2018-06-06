@@ -33,7 +33,7 @@ export function getOrgSurveys(orgId, query = {}) {
 
 export function getOrgSurveysNextPage(orgId) {
   return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().groups.surveysPagination;
+    const { page, hasNextPage } = getState().organizations.surveysPagination;
     if (!hasNextPage) {
       return Promise.reject('NoMoreData');
     }
