@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex } from '../../components/common';
+import { Flex, RefreshControl } from '../../components/common';
+import { refresh } from '../../utils/common';
 import GroupSurveyItem from '../../components/GroupSurveyItem';
 import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
-import { getOrgSurveys } from '../../actions/surveys';
+import { getOrgSurveys, getOrgSurveysNextPage } from '../../actions/surveys';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
@@ -16,10 +17,22 @@ import styles from './styles';
 @connect()
 @translate('groupsSurveys')
 class Surveys extends Component {
+  state = {
+    refreshing: false,
+  };
+
   componentDidMount() {
-    const { dispatch, organization } = this.props;
-    dispatch(getOrgSurveys(organization.id));
+    this.load();
   }
+
+  load() {
+    const { dispatch, organization } = this.props;
+    return dispatch(getOrgSurveys(organization.id));
+  }
+
+  handleRefresh = () => {
+    refresh(this, this.load);
+  };
 
   handleSelect = survey => {
     const { dispatch, organization } = this.props;
@@ -27,11 +40,12 @@ class Surveys extends Component {
   };
 
   handleLoadMore = () => {
-    return true;
+    const { dispatch, organization } = this.props;
+    dispatch(getOrgSurveysNextPage(organization.id));
   };
 
   render() {
-    const { surveys, hasMore } = this.props;
+    const { surveys, pagination } = this.props;
     return (
       <Flex value={1} style={styles.surveys}>
         <FlatList
@@ -40,8 +54,18 @@ class Surveys extends Component {
           renderItem={({ item }) => (
             <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
           )}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+            />
+          }
           ListFooterComponent={
-            hasMore ? <LoadMore onPress={this.handleLoadMore} /> : undefined
+            pagination.hasNextPage ? (
+              <LoadMore onPress={this.handleLoadMore} />
+            ) : (
+              undefined
+            )
           }
         />
       </Flex>
@@ -53,9 +77,9 @@ Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ groups }) => ({
-  surveys: groups.surveys,
-  hasMore: true,
+const mapStateToProps = ({ groups }, { organization }) => ({
+  surveys: groups.surveys[organization.id] || [],
+  pagination: groups.surveysPagination,
 });
 
 export default connect(mapStateToProps)(Surveys);

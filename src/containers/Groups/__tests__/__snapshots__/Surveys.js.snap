@@ -3,56 +3,25 @@
 exports[`Surveys should render correctly 1`] = `
 <Translate(Surveys)
   dispatch={[MockFunction]}
-  hasMore={true}
   organization={
     Object {
       "id": "1",
       "name": "Test Org",
     }
   }
+  pagination={
+    Object {
+      "hasNextPage": true,
+    }
+  }
   surveys={
-    Array [
-      Object {
-        "contactNum": 2,
-        "created_at": "2018-05-29T17:02:02Z",
-        "id": "1",
-        "survey": Object {
-          "title": "Winter Conference 2018",
-        },
-        "unassignedNum": 5,
-        "uncontactedNum": 3,
-      },
-      Object {
-        "contactNum": 50,
-        "created_at": "2018-05-28T17:02:02Z",
-        "id": "2",
-        "survey": Object {
-          "title": "Freshmen Week 17",
-        },
-        "unassignedNum": 0,
-        "uncontactedNum": 0,
-      },
-      Object {
-        "contactNum": 50,
-        "created_at": "2018-05-28T17:02:02Z",
-        "id": "3",
-        "survey": Object {
-          "title": "Freshmen Week 18",
-        },
-        "unassignedNum": 38,
-        "uncontactedNum": 0,
-      },
-      Object {
-        "contactNum": 50,
-        "created_at": "2018-05-28T17:02:02Z",
-        "id": "4",
-        "survey": Object {
-          "title": "Another Conference for Cru, number 4",
-        },
-        "unassignedNum": 0,
-        "uncontactedNum": 30,
-      },
-    ]
+    Object {
+      "contacts_count": 5,
+      "id": "2",
+      "title": "Test Survey 2",
+      "unassigned_contacts_count": 5,
+      "uncontacted_contacts_count": 5,
+    }
   }
 />
 `;

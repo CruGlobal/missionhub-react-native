@@ -1,4 +1,4 @@
-import { GET_GROUP_SURVEYS } from '../constants';
+import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -12,16 +12,28 @@ export function getMySurveys() {
   };
 }
 
-export function getOrgSurveys(orgId) {
-  const query = {
+export function getOrgSurveys(orgId, query = {}) {
+  const newQuery = {
+    ...query,
     organization_id: orgId,
-    include: '',
   };
-  return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_GROUP_SURVEYS, query),
-    );
-    dispatch({ type: GET_GROUP_SURVEYS, orgId, surveys: response });
-    return response;
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.GET_GROUP_SURVEYS, newQuery));
+  };
+}
+
+export function getOrgSurveysNextPage(orgId) {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().groups.surveysPagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
+    const query = {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
+    };
+    return dispatch(getOrgSurveys(orgId, query));
   };
 }

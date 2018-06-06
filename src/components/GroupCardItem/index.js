@@ -50,7 +50,7 @@ export default class GroupCardItem extends Component {
 GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    contacts: PropTypes.number.isRequired,
+    contacts: PropTypes.number,
     unassigned: PropTypes.number,
     uncontacted: PropTypes.number,
   }).isRequired,
