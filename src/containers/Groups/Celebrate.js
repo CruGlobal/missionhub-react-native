@@ -31,7 +31,9 @@ export class Celebrate extends Component {
             <Flex key={date.id}>
               {this.renderSectionHeader(date.date)}
               {date.events
-                ? date.events.map(event => <CelebrateItem key={event.id} />)
+                ? date.events.map(event => (
+                    <CelebrateItem key={event.id} event={event} />
+                  ))
                 : null}
             </Flex>
           ))}
