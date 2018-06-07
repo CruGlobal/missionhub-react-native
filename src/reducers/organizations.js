@@ -14,6 +14,10 @@ const initialState = {
     hasNextPage: true,
     page: 1,
   },
+  celebratePagination: {
+    hasNextPage: true,
+    page: 1,
+  },
 };
 
 function organizationsReducer(state = initialState, action) {
@@ -64,6 +68,28 @@ function organizationsReducer(state = initialState, action) {
             )
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
+      };
+    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+      const newItems = action.results.response;
+      const celebrateOrgId = action.query.orgId;
+      console.log(newItems);
+
+      const allItems =
+        action.query.page && action.query.page.offset > 0
+          ? [...(state.items || []), ...newItems]
+          : newItems;
+
+      return {
+        ...state,
+        all: celebrateOrgId
+          ? state.all.map(
+              o =>
+                o.id === celebrateOrgId
+                  ? { ...o, celebrateItems: allItems }
+                  : o,
+            )
+          : state.all,
+        celebratePagination: getPagination(action, allItems.length),
       };
     case LOGOUT:
       return initialState;
