@@ -6,8 +6,7 @@ import {
   GET_ORGANIZATION_SURVEYS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-
-import { getPagination } from './steps';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   all: [],
