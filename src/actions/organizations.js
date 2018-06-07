@@ -1,5 +1,6 @@
 import { GET_ORGANIZATION_CONTACTS } from '../constants';
 
+import { getPeopleInteractionsReport } from './impact';
 import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
@@ -8,7 +9,8 @@ const getOrganizationsQuery = {
 };
 
 export function getMyOrganizations() {
-  return getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
+  getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
+  return getPeopleInteractionsReport({}, {}, 'P1W');
 }
 
 export function getAssignedOrganizations() {

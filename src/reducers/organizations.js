@@ -38,6 +38,9 @@ function organizationsReducer(state = initialState, action) {
           ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
           : state.all,
       };
+    case REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT.SUCCESS:
+      console.log(results);
+      return state;
     case LOGOUT:
       return initialState;
     default:
