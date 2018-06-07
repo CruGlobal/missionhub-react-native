@@ -33,7 +33,7 @@ export function getOrganizationsContactReports() {
       callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
     );
 
-    return dispatch({
+    dispatch({
       type: GET_ORGANIZATIONS_CONTACTS_REPORT,
       reports: response.map(r => ({
         id: `${r.organization_id}`,
@@ -42,6 +42,7 @@ export function getOrganizationsContactReports() {
         uncontactedCount: r.uncontacted_count,
       })),
     });
+    return response;
   };
 }
 
