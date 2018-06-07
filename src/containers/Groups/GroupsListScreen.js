@@ -49,8 +49,10 @@ export class GroupsListScreen extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }) => ({
-  orgs: organizations.all,
-});
+export const mapStateToProps = ({ organizations }) => {
+  return {
+    orgs: organizations.all,
+  };
+};
 
 export default connect(mapStateToProps)(GroupsListScreen);

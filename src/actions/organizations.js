@@ -36,7 +36,7 @@ export function getOrganizationsContactReports() {
     return dispatch({
       type: GET_ORGANIZATIONS_CONTACTS_REPORT,
       reports: response.map(r => ({
-        id: r.organization_id,
+        id: `${r.organization_id}`,
         contactsCount: r.contact_count,
         unassignedCount: r.unassigned_count,
         uncontactedCount: r.uncontacted_count,
