@@ -14,18 +14,16 @@ const initialState = {
   contactSteps: {},
 };
 
-export function getPagination(state, action, steps) {
-  const totalSteps = steps.length;
+export function getPagination(action, length) {
   const offset =
-    action.query.page && action.query.page.offset
+    action.query && action.query.page && action.query.page.offset
       ? action.query.page.offset
       : 0;
   const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
   const total = action.meta ? action.meta.total || 0 : 0;
-  const hasNextPage = total > offset + totalSteps;
+  const hasNextPage = total > offset + length;
 
   return {
-    ...state.pagination,
     page: pageNum,
     hasNextPage,
   };
@@ -64,7 +62,7 @@ export default function stepsReducer(state = initialState, action) {
       return {
         ...state,
         mine: allSteps,
-        pagination: getPagination(state, action, allSteps),
+        pagination: getPagination(action, allSteps.length),
       };
     case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
       const {

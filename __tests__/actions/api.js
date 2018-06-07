@@ -204,7 +204,7 @@ it('should update token if present in response', async () => {
       data: {},
       query: accessTokenQuery,
       type: getMeRequest.SUCCESS,
-      results: { response: undefined },
+      results: { response: undefined, meta: undefined },
     },
     {
       type: UPDATE_TOKEN,
