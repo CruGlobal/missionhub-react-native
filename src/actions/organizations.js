@@ -1,6 +1,8 @@
-import { GET_ORGANIZATION_CONTACTS } from '../constants';
+import {
+  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
+} from '../constants';
 
-import { getPeopleInteractionsReport } from './impact';
 import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
@@ -9,8 +11,7 @@ const getOrganizationsQuery = {
 };
 
 export function getMyOrganizations() {
-  getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
-  return getPeopleInteractionsReport({}, {}, 'P1W');
+  return getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
 }
 
 export function getAssignedOrganizations() {
@@ -24,6 +25,23 @@ export function getAssignedOrganizations() {
 
 function getOrganizations(requestObject, query) {
   return dispatch => dispatch(callApi(requestObject, query));
+}
+
+export function getOrganizationsContactReports() {
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
+    );
+
+    return dispatch({
+      type: GET_ORGANIZATIONS_CONTACTS_REPORT,
+      reports: response.map(r => ({
+        contactsCount: r.contact_count,
+        unassignedCount: r.unassigned_count,
+        uncontactedCount: r.uncontacted_count,
+      })),
+    });
+  };
 }
 
 export function getOrganizationContacts(orgId) {

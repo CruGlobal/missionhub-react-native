@@ -1,7 +1,11 @@
 import lodash from 'lodash';
 
 import { REQUESTS } from '../actions/api';
-import { LOGOUT, GET_ORGANIZATION_CONTACTS } from '../constants';
+import {
+  LOGOUT,
+  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
+} from '../constants';
 
 const initialState = {
   all: [],
@@ -38,8 +42,8 @@ function organizationsReducer(state = initialState, action) {
           ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
           : state.all,
       };
-    case REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT.SUCCESS:
-      console.log(results);
+    case GET_ORGANIZATIONS_CONTACTS_REPORT:
+      console.log(action);
       return state;
     case LOGOUT:
       return initialState;
