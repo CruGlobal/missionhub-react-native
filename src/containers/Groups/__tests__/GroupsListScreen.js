@@ -1,17 +1,26 @@
 import React from 'react';
 
 import GroupsListScreen from '../GroupsListScreen';
-import {
-  renderShallow,
-  testSnapshotShallow,
-  createMockStore,
-} from '../../../../testUtils';
+import { renderShallow, createMockStore } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
-const store = createMockStore({});
+const store = createMockStore({
+  organizations: {
+    all: [
+      {
+        id: '1',
+        name: 'Test Org 1',
+      },
+      {
+        id: '2',
+        name: 'Test Org 2',
+      },
+    ],
+  },
+});
 
 describe('Contacts', () => {
   let component;

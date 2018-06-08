@@ -22,18 +22,12 @@ exports[`Contacts should render correctly 1`] = `
     data={
       Array [
         Object {
-          "contacts": 768,
-          "id": "123",
-          "name": "Cru at Boston University",
-          "unassigned": 13,
-          "uncontacted": 43,
+          "id": "1",
+          "name": "Test Org 1",
         },
         Object {
-          "contacts": 768,
-          "id": "456",
-          "name": "Cru at Boston University Northeast Branch",
-          "unassigned": 0,
-          "uncontacted": 0,
+          "id": "2",
+          "name": "Test Org 2",
         },
       ]
     }
