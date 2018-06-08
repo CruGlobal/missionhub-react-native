@@ -21,7 +21,7 @@ export class Celebrate extends Component {
         <DateComponent
           date={item.date}
           style={styles.cardSectionHeader}
-          format="dddd, MMMM D"
+          format="relative"
         />
         {item.events
           ? item.events.map(event => (
@@ -58,7 +58,7 @@ export class Celebrate extends Component {
 const mapStateToProps = () => ({
   items: [
     {
-      date: '2018-04-11 UTC',
+      date: '2018-06-08 19:06:00 UTC',
       id: '1',
       events: [
         {
@@ -71,7 +71,7 @@ const mapStateToProps = () => ({
       ],
     },
     {
-      date: '2018-04-10 UTC',
+      date: '2018-06-07 17:32:00 UTC',
       id: '2',
       events: [
         {
@@ -91,8 +91,73 @@ const mapStateToProps = () => ({
       ],
     },
     {
-      date: '2018-04-09 UTC',
+      date: '2018-06-02 15:23:00 UTC',
       id: '3',
+      events: [
+        {
+          id: '4',
+          full_name: 'Leah Brooks',
+          changed_attribute_value: '2018-04-09 15:23:00 UTC',
+          title: 'Leah completed a Step of Faith with a Curious person',
+          likes_count: '0',
+        },
+      ],
+    },
+    {
+      date: '2018-06-01 15:23:00 UTC',
+      id: '4',
+      events: [
+        {
+          id: '4',
+          full_name: 'Leah Brooks',
+          changed_attribute_value: '2018-04-09 15:23:00 UTC',
+          title: 'Leah completed a Step of Faith with a Curious person',
+          likes_count: '0',
+        },
+      ],
+    },
+    {
+      date: '2018-05-31 15:23:00 UTC',
+      id: '6',
+      events: [
+        {
+          id: '4',
+          full_name: 'Leah Brooks',
+          changed_attribute_value: '2018-04-09 15:23:00 UTC',
+          title: 'Leah completed a Step of Faith with a Curious person',
+          likes_count: '0',
+        },
+      ],
+    },
+    {
+      date: '2018-03-23 15:23:00 UTC',
+      id: '7',
+      events: [
+        {
+          id: '4',
+          full_name: 'Leah Brooks',
+          changed_attribute_value: '2018-04-09 15:23:00 UTC',
+          title: 'Leah completed a Step of Faith with a Curious person',
+          likes_count: '0',
+        },
+      ],
+    },
+    {
+      date: '2017-12-31 15:23:00 UTC',
+      id: '9',
+      events: [
+        {
+          id: '4',
+          full_name: 'Leah Brooks',
+          changed_attribute_value: '2018-04-09 15:23:00 UTC',
+          title: 'Leah completed a Step of Faith with a Curious person',
+          likes_count: '0',
+        },
+      ],
+    },
+    {
+      date: '2017-6-08 15:23:00 UTC',
+      id: '10',
       events: [
         {
           id: '4',
