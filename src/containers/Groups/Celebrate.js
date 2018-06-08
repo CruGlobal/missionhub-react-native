@@ -4,15 +4,23 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
-import { getGroupCelebrateFeed } from '../../actions/celebration';
+import {
+  getGroupCelebrateFeed,
+  getGroupCelebrateNextPage,
+} from '../../actions/celebration';
+import { organizationSelector } from '../../selectors/organizations';
 
-@connect()
 @translate('groupsCelebrate')
-export default class Celebrate extends Component {
+class Celebrate extends Component {
   componentDidMount() {
     const { dispatch, organization } = this.props;
     dispatch(getGroupCelebrateFeed(organization.id));
   }
+
+  handleLoadMore = () => {
+    const { dispatch, organization } = this.props;
+    dispatch(getGroupCelebrateNextPage(organization.id));
+  };
 
   render() {
     return (
@@ -24,7 +32,7 @@ export default class Celebrate extends Component {
         <Flex justify="end">
           <Button
             type="secondary"
-            onPress={() => {}}
+            onPress={this.handleLoadMore}
             text={'Input goes here'}
           />
         </Flex>
@@ -32,3 +40,17 @@ export default class Celebrate extends Component {
     );
   }
 }
+
+export const mapStateToProps = ({ organizations }, { organization }) => {
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
+  console.log(selectorOrg);
+  return {
+    celebrateItems: (selectorOrg || {}).celebrateItems || [],
+    pagination: organizations.celebratePagination,
+  };
+};
+
+export default connect(mapStateToProps)(Celebrate);

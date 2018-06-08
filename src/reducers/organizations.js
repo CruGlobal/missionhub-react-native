@@ -72,7 +72,6 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
       const newItems = action.results.response;
       const celebrateOrgId = action.query.orgId;
-      console.log(newItems);
 
       const allItems =
         action.query.page && action.query.page.offset > 0

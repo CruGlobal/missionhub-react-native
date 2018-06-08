@@ -18,7 +18,7 @@ export function getGroupCelebrateFeed(orgId, query = {}) {
 
 export function getGroupCelebrateNextPage(orgId) {
   return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().organization.celebratePagination;
+    const { page, hasNextPage } = getState().organizations.celebratePagination;
     if (!hasNextPage) {
       return Promise.reject('NoMoreData');
     }
