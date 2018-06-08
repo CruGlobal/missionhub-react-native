@@ -17,12 +17,8 @@ const store = createMockStore({
       {
         id: '2',
         name: 'Test Org 2',
-      },
-    ],
-  },
-});
 
-describe('Contacts', () => {
+describe('GroupsListScreen', () => {
   let component;
   beforeEach(() => {
     component = renderShallow(<GroupsListScreen />, store);

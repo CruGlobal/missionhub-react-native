@@ -12,7 +12,6 @@ import BackButton from '../BackButton';
 
 import { GROUPS_CONTACT } from './Contact';
 
-@connect()
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
   state = {

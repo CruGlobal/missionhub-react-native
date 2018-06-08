@@ -8,6 +8,7 @@ const CHALLENGES_URL = `${API_URL}challenges/`;
 
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
+const SURVEY_URL = `${API_URL}surveys`;
 
 const KEY_TOKEN = {
   endpoint: `${THE_KEY_OAUTH_URL}token`,
@@ -143,8 +144,11 @@ export default {
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
-  GET_MY_SURVEYS: {
-    endpoint: `${API_URL}surveys`,
+  GET_SURVEYS: {
+    endpoint: SURVEY_URL,
+  },
+  GET_GROUP_SURVEYS: {
+    endpoint: SURVEY_URL,
   },
   GET_MY_LABELS: {
     endpoint: `${API_URL}organizations`,
