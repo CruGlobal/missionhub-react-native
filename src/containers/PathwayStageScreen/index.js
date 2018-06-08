@@ -129,6 +129,11 @@ class PathwayStageScreen extends Component {
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
+        <Image
+          resizeMode="contain"
+          source={LANDSCAPE}
+          style={[styles.footerImage, { left: leftMargin }]}
+        />
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
         <Text style={styles.title}>{this.props.questionText}</Text>
         {this.props.stages ? (
@@ -146,11 +151,6 @@ class PathwayStageScreen extends Component {
             containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
           />
         ) : null}
-        <Image
-          resizeMode="contain"
-          source={LANDSCAPE}
-          style={[styles.footerImage, { left: leftMargin }]}
-        />
       </Flex>
     );
   }
