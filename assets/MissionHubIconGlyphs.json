@@ -24,6 +24,8 @@
   "impactIcon": true,
   "journeyIcon": true,
   "leftArrowIcon": true,
+  "likeActiveIcon": true,
+  "likeDisabledIcon": true,
   "loadingIcon": true,
   "menuCloseIcon": true,
   "menuIcon": true,

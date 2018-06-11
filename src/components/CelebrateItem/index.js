@@ -38,10 +38,10 @@ export default class Celebrate extends Component {
                 {likes_count > 0 ? likes_count : null}
               </Text>
               <IconButton
-                name="starIcon"
+                name="likeActiveIcon"
                 type="MissionHub"
                 onPress={this.onPressLikeIcon}
-                style={styles.icon}
+                style={[styles.icon, styles.likeActive]}
               />
             </Flex>
           </Flex>

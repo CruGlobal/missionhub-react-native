@@ -22,6 +22,9 @@ export default StyleSheet.create({
     margin: 0,
     marginLeft: 4,
   },
+  likeActive: {
+    color: theme.primaryColor,
+  },
   name: {
     color: theme.primaryColor,
     fontSize: 16,

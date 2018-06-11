@@ -15,14 +15,19 @@
         "grid": 0,
         "tags": [
           "actionsIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 59,
-        "id": 45,
+        "order": 15,
+        "id": 47,
         "name": "actionsIcon",
         "prevSize": 32,
         "code": 59648
@@ -44,14 +49,19 @@
         "grid": 0,
         "tags": [
           "addContactIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 60,
-        "id": 44,
+        "order": 3,
+        "id": 46,
         "name": "addContactIcon",
         "prevSize": 32,
         "code": 59649
@@ -73,14 +83,19 @@
         "grid": 0,
         "tags": [
           "addStepIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 61,
-        "id": 43,
+        "order": 4,
+        "id": 45,
         "name": "addStepIcon",
         "prevSize": 32,
         "code": 59650
@@ -102,14 +117,19 @@
         "grid": 0,
         "tags": [
           "backIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 62,
-        "id": 42,
+        "order": 17,
+        "id": 44,
         "name": "backIcon",
         "prevSize": 32,
         "code": 59651
@@ -131,14 +151,19 @@
         "grid": 0,
         "tags": [
           "bellIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 63,
-        "id": 41,
+        "order": 18,
+        "id": 43,
         "name": "bellIcon",
         "prevSize": 32,
         "code": 59652
@@ -160,14 +185,19 @@
         "grid": 0,
         "tags": [
           "callIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 64,
-        "id": 40,
+        "order": 19,
+        "id": 42,
         "name": "callIcon",
         "prevSize": 32,
         "code": 59653
@@ -189,14 +219,19 @@
         "grid": 0,
         "tags": [
           "cancelIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 65,
-        "id": 39,
+        "order": 20,
+        "id": 41,
         "name": "cancelIcon",
         "prevSize": 32,
         "code": 59654
@@ -219,14 +254,19 @@
         "grid": 0,
         "tags": [
           "carrotIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 66,
-        "id": 38,
+        "order": 21,
+        "id": 40,
         "name": "carrotIcon",
         "prevSize": 32,
         "code": 59655
@@ -249,14 +289,19 @@
         "grid": 0,
         "tags": [
           "celebrateIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 67,
-        "id": 37,
+        "order": 22,
+        "id": 39,
         "name": "celebrateIcon",
         "prevSize": 32,
         "code": 59656
@@ -278,14 +323,19 @@
         "grid": 0,
         "tags": [
           "checkIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 68,
-        "id": 36,
+        "order": 23,
+        "id": 38,
         "name": "checkIcon",
         "prevSize": 32,
         "code": 59657
@@ -308,14 +358,19 @@
         "grid": 0,
         "tags": [
           "commentIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 69,
-        "id": 35,
+        "order": 24,
+        "id": 37,
         "name": "commentIcon",
         "prevSize": 32,
         "code": 59658
@@ -338,14 +393,19 @@
         "grid": 0,
         "tags": [
           "createStepIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 70,
-        "id": 34,
+        "order": 25,
+        "id": 36,
         "name": "createStepIcon",
         "prevSize": 32,
         "code": 59659
@@ -367,14 +427,19 @@
         "grid": 0,
         "tags": [
           "decisionIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 71,
-        "id": 33,
+        "order": 26,
+        "id": 35,
         "name": "decisionIcon",
         "prevSize": 32,
         "code": 59660
@@ -396,14 +461,19 @@
         "grid": 0,
         "tags": [
           "deleteIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 72,
-        "id": 32,
+        "order": 27,
+        "id": 34,
         "name": "deleteIcon",
         "prevSize": 32,
         "code": 59661
@@ -425,14 +495,19 @@
         "grid": 0,
         "tags": [
           "discipleshipConversationIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 73,
-        "id": 31,
+        "order": 16,
+        "id": 33,
         "name": "discipleshipConversationIcon",
         "prevSize": 32,
         "code": 59662
@@ -455,14 +530,19 @@
         "grid": 0,
         "tags": [
           "downArrowIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 74,
-        "id": 30,
+        "order": 5,
+        "id": 32,
         "name": "downArrowIcon",
         "prevSize": 32,
         "code": 59663
@@ -485,14 +565,19 @@
         "grid": 0,
         "tags": [
           "emailIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 75,
-        "id": 29,
+        "order": 6,
+        "id": 31,
         "name": "emailIcon",
         "prevSize": 32,
         "code": 59664
@@ -515,14 +600,19 @@
         "grid": 0,
         "tags": [
           "emailIcon2"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 76,
-        "id": 28,
+        "order": 29,
+        "id": 30,
         "name": "emailIcon2",
         "prevSize": 32,
         "code": 59665
@@ -544,14 +634,19 @@
         "grid": 0,
         "tags": [
           "facebookIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 77,
-        "id": 27,
+        "order": 30,
+        "id": 29,
         "name": "facebookIcon",
         "prevSize": 32,
         "code": 59666
@@ -573,14 +668,19 @@
         "grid": 0,
         "tags": [
           "filterIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 78,
-        "id": 26,
+        "order": 31,
+        "id": 28,
         "name": "filterIcon",
         "prevSize": 32,
         "code": 59667
@@ -603,14 +703,19 @@
         "grid": 0,
         "tags": [
           "gospelIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 79,
-        "id": 25,
+        "order": 32,
+        "id": 27,
         "name": "gospelIcon",
         "prevSize": 32,
         "code": 59668
@@ -633,14 +738,19 @@
         "grid": 0,
         "tags": [
           "groupsIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 80,
-        "id": 24,
+        "order": 33,
+        "id": 26,
         "name": "groupsIcon",
         "prevSize": 32,
         "code": 59669
@@ -663,14 +773,19 @@
         "grid": 0,
         "tags": [
           "impactIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 81,
-        "id": 23,
+        "order": 34,
+        "id": 25,
         "name": "impactIcon",
         "prevSize": 32,
         "code": 59670
@@ -692,14 +807,19 @@
         "grid": 0,
         "tags": [
           "journeyIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 82,
-        "id": 22,
+        "order": 35,
+        "id": 24,
         "name": "journeyIcon",
         "prevSize": 32,
         "code": 59671
@@ -722,14 +842,19 @@
         "grid": 0,
         "tags": [
           "leftArrowIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 83,
-        "id": 21,
+        "order": 36,
+        "id": 23,
         "name": "leftArrowIcon",
         "prevSize": 32,
         "code": 59672
@@ -737,6 +862,114 @@
       "setIdx": 0,
       "setId": 0,
       "iconIdx": 24
+    },
+    {
+      "icon": {
+        "paths": [
+          "M504.314 291.854c2.851-31.957-63.453-194.987-90.577-225.323-58.565-65.365-132.851-92.075-201.68-36.181-59.461 48.341-102.102 166.699-76.444 261.333 56.814 209.621 175.452 547.371 337.871 627.925 208.196 103.339 363.203-238.251 481.148-420.608 164.211-253.867 22.033-597.803-270.468-376.107-39.342 60.843-165.636 197.632-179.85 168.96z",
+          "M938.667 298.325c0-119.381-71.381-190.635-190.976-190.635-125.312 0-232.021 103.168-298.453 187.733-16.128-20.395-30.464-38.571-43.264-54.912-103.339-131.499-121.984-155.179-199.723-155.179-135.424 0-206.251 138.411-206.251 275.115 0 240.64 253.867 503.979 471.211 656.384 6.869 4.821 14.293 7.168 21.632 7.168 12.587 0 25.003-6.912 34.176-19.883 30.848-43.819 68.821-92.928 108.971-144.896 148.821-192.597 302.677-391.68 302.677-560.896zM843.733 298.325c0 113.152-157.739 317.269-272.896 466.347-30.891 39.936-60.416 78.165-86.955 114.219-193.877-144.043-388.949-366.379-388.949-518.443 0-72.192 34.389-145.067 111.317-145.067 40.448 0 40.448 0 135.125 120.491 21.163 26.923 46.421 59.093 77.141 97.451 19.157 23.851 48.725 22.4 66.517-3.413 84.096-122.112 179.84-192.171 262.656-192.171 35.883 0 96.043 7.893 96.043 60.587z"
+        ],
+        "attrs": [
+          {
+            "fill": "rgb(102, 217, 240)"
+          },
+          {
+            "fill": "rgb(0, 115, 152)"
+          }
+        ],
+        "isMulticolor": true,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "likeActiveIcon"
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {
+              "f": 1
+            },
+            {
+              "f": 0
+            }
+          ]
+        }
+      },
+      "attrs": [
+        {
+          "fill": "rgb(102, 217, 240)"
+        },
+        {
+          "fill": "rgb(0, 115, 152)"
+        }
+      ],
+      "properties": {
+        "order": 37,
+        "id": 22,
+        "name": "likeActiveIcon",
+        "prevSize": 32,
+        "code": 59673,
+        "codes": [
+          59673,
+          59674
+        ]
+      },
+      "setIdx": 0,
+      "setId": 0,
+      "iconIdx": 25
+    },
+    {
+      "icon": {
+        "paths": [
+          "M504.314 291.854c2.851-31.957-63.453-194.987-90.577-225.323-58.565-65.365-132.851-92.075-201.68-36.181-59.461 48.341-102.102 166.699-76.444 261.333 56.814 209.621 175.452 547.371 337.871 627.925 208.196 103.339 363.203-238.251 481.148-420.608 164.211-253.867 22.033-597.803-270.468-376.107-39.342 60.843-165.636 197.632-179.85 168.96z",
+          "M938.667 298.325c0-119.381-71.381-190.635-190.976-190.635-125.312 0-232.021 103.168-298.453 187.733-16.128-20.395-30.464-38.571-43.264-54.912-103.339-131.499-121.984-155.179-199.723-155.179-135.424 0-206.251 138.411-206.251 275.115 0 240.64 253.867 503.979 471.211 656.384 6.869 4.821 14.293 7.168 21.632 7.168 12.587 0 25.003-6.912 34.176-19.883 30.848-43.819 68.821-92.928 108.971-144.896 148.821-192.597 302.677-391.68 302.677-560.896zM843.733 298.325c0 113.152-157.739 317.269-272.896 466.347-30.891 39.936-60.416 78.165-86.955 114.219-193.877-144.043-388.949-366.379-388.949-518.443 0-72.192 34.389-145.067 111.317-145.067 40.448 0 40.448 0 135.125 120.491 21.163 26.923 46.421 59.093 77.141 97.451 19.157 23.851 48.725 22.4 66.517-3.413 84.096-122.112 179.84-192.171 262.656-192.171 35.883 0 96.043 7.893 96.043 60.587z"
+        ],
+        "attrs": [
+          {
+            "fill": "rgb(220, 222, 226)"
+          },
+          {
+            "fill": "rgb(180, 182, 186)"
+          }
+        ],
+        "isMulticolor": true,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "likeDisabledIcon"
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {
+              "f": 3
+            },
+            {
+              "f": 2
+            }
+          ]
+        }
+      },
+      "attrs": [
+        {
+          "fill": "rgb(220, 222, 226)"
+        },
+        {
+          "fill": "rgb(180, 182, 186)"
+        }
+      ],
+      "properties": {
+        "order": 38,
+        "id": 21,
+        "name": "likeDisabledIcon",
+        "prevSize": 32,
+        "code": 59675,
+        "codes": [
+          59675,
+          59676
+        ]
+      },
+      "setIdx": 0,
+      "setId": 0,
+      "iconIdx": 26
     },
     {
       "icon": {
@@ -751,21 +984,26 @@
         "grid": 0,
         "tags": [
           "loadingIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 84,
+        "order": 39,
         "id": 20,
         "name": "loadingIcon",
         "prevSize": 32,
-        "code": 59673
+        "code": 59677
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 25
+      "iconIdx": 27
     },
     {
       "icon": {
@@ -780,21 +1018,26 @@
         "grid": 0,
         "tags": [
           "menuCloseIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 85,
+        "order": 28,
         "id": 19,
         "name": "menuCloseIcon",
         "prevSize": 32,
-        "code": 59674
+        "code": 59678
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 26
+      "iconIdx": 28
     },
     {
       "icon": {
@@ -810,21 +1053,26 @@
         "grid": 0,
         "tags": [
           "menuIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 86,
+        "order": 14,
         "id": 18,
         "name": "menuIcon",
         "prevSize": 32,
-        "code": 59675
+        "code": 59679
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 27
+      "iconIdx": 29
     },
     {
       "icon": {
@@ -840,21 +1088,26 @@
         "grid": 0,
         "tags": [
           "moreIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 87,
+        "order": 7,
         "id": 17,
         "name": "moreIcon",
         "prevSize": 32,
-        "code": 59676
+        "code": 59680
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 28
+      "iconIdx": 30
     },
     {
       "icon": {
@@ -870,21 +1123,26 @@
         "grid": 0,
         "tags": [
           "notesIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 88,
+        "order": 8,
         "id": 16,
         "name": "notesIcon",
         "prevSize": 32,
-        "code": 59677
+        "code": 59681
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 29
+      "iconIdx": 31
     },
     {
       "icon": {
@@ -900,21 +1158,26 @@
         "grid": 0,
         "tags": [
           "peopleIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 89,
+        "order": 9,
         "id": 15,
         "name": "peopleIcon",
         "prevSize": 32,
-        "code": 59678
+        "code": 59682
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 30
+      "iconIdx": 32
     },
     {
       "icon": {
@@ -929,21 +1192,26 @@
         "grid": 0,
         "tags": [
           "plusIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 90,
+        "order": 40,
         "id": 14,
         "name": "plusIcon",
         "prevSize": 32,
-        "code": 59679
+        "code": 59683
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 31
+      "iconIdx": 33
     },
     {
       "icon": {
@@ -958,21 +1226,26 @@
         "grid": 0,
         "tags": [
           "removeStepIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 91,
+        "order": 41,
         "id": 13,
         "name": "removeStepIcon",
         "prevSize": 32,
-        "code": 59680
+        "code": 59684
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 32
+      "iconIdx": 34
     },
     {
       "icon": {
@@ -988,21 +1261,26 @@
         "grid": 0,
         "tags": [
           "rightArrowIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 92,
+        "order": 42,
         "id": 12,
         "name": "rightArrowIcon",
         "prevSize": 32,
-        "code": 59681
+        "code": 59685
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 33
+      "iconIdx": 35
     },
     {
       "icon": {
@@ -1017,21 +1295,26 @@
         "grid": 0,
         "tags": [
           "searchIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 93,
+        "order": 43,
         "id": 11,
         "name": "searchIcon",
         "prevSize": 32,
-        "code": 59682
+        "code": 59686
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 34
+      "iconIdx": 36
     },
     {
       "icon": {
@@ -1046,21 +1329,26 @@
         "grid": 0,
         "tags": [
           "setPathIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 94,
+        "order": 44,
         "id": 10,
         "name": "setPathIcon",
         "prevSize": 32,
-        "code": 59683
+        "code": 59687
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 35
+      "iconIdx": 37
     },
     {
       "icon": {
@@ -1075,21 +1363,26 @@
         "grid": 0,
         "tags": [
           "spiritIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 95,
+        "order": 45,
         "id": 9,
         "name": "spiritIcon",
         "prevSize": 32,
-        "code": 59684
+        "code": 59688
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 36
+      "iconIdx": 38
     },
     {
       "icon": {
@@ -1104,21 +1397,26 @@
         "grid": 0,
         "tags": [
           "spiritualConversationIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 96,
+        "order": 46,
         "id": 8,
         "name": "spiritualConversationIcon",
         "prevSize": 32,
-        "code": 59685
+        "code": 59689
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 37
+      "iconIdx": 39
     },
     {
       "icon": {
@@ -1134,21 +1432,26 @@
         "grid": 0,
         "tags": [
           "starGroupIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 97,
+        "order": 47,
         "id": 7,
         "name": "starGroupIcon",
         "prevSize": 32,
-        "code": 59686
+        "code": 59690
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 38
+      "iconIdx": 40
     },
     {
       "icon": {
@@ -1163,21 +1466,26 @@
         "grid": 0,
         "tags": [
           "starIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 98,
+        "order": 48,
         "id": 6,
         "name": "starIcon",
         "prevSize": 32,
-        "code": 59687
+        "code": 59691
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 39
+      "iconIdx": 41
     },
     {
       "icon": {
@@ -1192,21 +1500,26 @@
         "grid": 0,
         "tags": [
           "starIconFilled"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 99,
+        "order": 49,
         "id": 5,
         "name": "starIconFilled",
         "prevSize": 32,
-        "code": 59688
+        "code": 59692
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 40
+      "iconIdx": 42
     },
     {
       "icon": {
@@ -1221,21 +1534,26 @@
         "grid": 0,
         "tags": [
           "stepsIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 100,
+        "order": 50,
         "id": 4,
         "name": "stepsIcon",
         "prevSize": 32,
-        "code": 59689
+        "code": 59693
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 41
+      "iconIdx": 43
     },
     {
       "icon": {
@@ -1251,21 +1569,26 @@
         "grid": 0,
         "tags": [
           "surveyIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 101,
+        "order": 13,
         "id": 3,
         "name": "surveyIcon",
         "prevSize": 32,
-        "code": 59690
+        "code": 59694
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 42
+      "iconIdx": 44
     },
     {
       "icon": {
@@ -1281,21 +1604,26 @@
         "grid": 0,
         "tags": [
           "textIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 102,
+        "order": 10,
         "id": 2,
         "name": "textIcon",
         "prevSize": 32,
-        "code": 59691
+        "code": 59695
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 43
+      "iconIdx": 45
     },
     {
       "icon": {
@@ -1310,21 +1638,26 @@
         "grid": 0,
         "tags": [
           "uncontactedIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 103,
+        "order": 11,
         "id": 1,
         "name": "uncontactedIcon",
         "prevSize": 32,
-        "code": 59692
+        "code": 59696
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 44
+      "iconIdx": 46
     },
     {
       "icon": {
@@ -1340,21 +1673,26 @@
         "grid": 0,
         "tags": [
           "upArrowIcon"
-        ]
+        ],
+        "colorPermutations": {
+          "1022172401115152118018218612202222261": [
+            {}
+          ]
+        }
       },
       "attrs": [
         {}
       ],
       "properties": {
-        "order": 104,
+        "order": 12,
         "id": 0,
         "name": "upArrowIcon",
         "prevSize": 32,
-        "code": 59693
+        "code": 59697
       },
       "setIdx": 0,
       "setId": 0,
-      "iconIdx": 45
+      "iconIdx": 47
     }
   ],
   "height": 1024,
