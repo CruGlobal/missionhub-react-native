@@ -49,7 +49,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
     style={
       Object {
         "flex": 1,
-        "paddingTop": 15,
+        "paddingVertical": 8,
       }
     }
     updateCellsBatchingPeriod={50}

@@ -47,7 +47,7 @@ exports[`renders interaction correctly 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -131,7 +131,7 @@ exports[`renders survey correctly 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -296,7 +296,7 @@ exports[`stage is rendered correctly with old stage for a contact 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -380,7 +380,7 @@ exports[`stage is rendered correctly with old stage for self 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -464,7 +464,7 @@ exports[`stage is rendered correctly without old stage for a contact 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -548,7 +548,7 @@ exports[`stage is rendered correctly without old stage for self 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -632,7 +632,7 @@ exports[`step is rendered correctly with comment 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -718,7 +718,7 @@ exports[`step is rendered correctly with pathway stage 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={
@@ -802,7 +802,7 @@ exports[`step is rendered correctly without comment 1`] = `
     }
     value={3.5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2017-12-06T14:24:52Z"
       format="LL"
       style={

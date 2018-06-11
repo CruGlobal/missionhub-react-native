@@ -51,19 +51,14 @@ const relativeFormat = date => {
   if (other.isSame(today, 'year')) {
     if (other.isBetween(lastWeek, today, 'day', '[]')) {
       if (other.isSame(yesterday, 'day')) {
-        console.log('it was yesterday');
         return 'yesterday';
       }
       if (other.isSame(today, 'day')) {
-        console.log('it was today');
         return 'today';
       }
-      console.log('it was this week');
       return 'dddd';
     }
-    console.log('it was this year');
     return 'dddd, MMMM D';
   }
-  console.log('it was last year');
   return 'dddd, MMMM D YYYY';
 };

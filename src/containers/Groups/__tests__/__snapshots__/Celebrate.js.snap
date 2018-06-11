@@ -4,28 +4,146 @@ exports[`should render correctly 1`] = `
 <Flex
   value={1}
 >
-  <ScrollView
+  <FlatList
+    ListFooterComponent={
+      <Translate(LoadMore)
+        onPress={[Function]}
+      />
+    }
+    data={
+      Array [
+        Object {
+          "date": "2018-06-08 19:06:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-11 19:06:00 UTC",
+              "full_name": "Matt Watts",
+              "id": "1",
+              "likes_count": "3",
+              "title": "Matt had a Discipleship Conversation",
+            },
+          ],
+          "id": "1",
+        },
+        Object {
+          "date": "2018-06-07 17:32:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-10 17:32:00 UTC",
+              "full_name": "Emma Frost",
+              "id": "2",
+              "likes_count": "5",
+              "title": "Matt added a Curious person",
+            },
+            Object {
+              "changed_attribute_value": "2018-04-10 07:06:00 UTC",
+              "full_name": "Emma Frost",
+              "id": "3",
+              "likes_count": "3",
+              "title": "Emma had a Spiritual Conversation",
+            },
+          ],
+          "id": "2",
+        },
+        Object {
+          "date": "2018-06-02 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "3",
+        },
+        Object {
+          "date": "2018-06-01 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "4",
+        },
+        Object {
+          "date": "2018-05-31 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "6",
+        },
+        Object {
+          "date": "2018-03-23 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "7",
+        },
+        Object {
+          "date": "2017-12-31 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "9",
+        },
+        Object {
+          "date": "2017-6-08 15:23:00 UTC",
+          "events": Array [
+            Object {
+              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
+              "full_name": "Leah Brooks",
+              "id": "4",
+              "likes_count": "0",
+              "title": "Leah completed a Step of Faith with a Curious person",
+            },
+          ],
+          "id": "10",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    inverted={true}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
     style={
       Object {
         "flex": 1,
+        "paddingVertical": 8,
       }
     }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Load More
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      LONG LIST
-    </MyText>
-  </ScrollView>
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
   <Flex
     justify="end"
   >

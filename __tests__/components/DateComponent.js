@@ -1,10 +1,15 @@
 import React from 'react';
+import 'react-native';
 import moment from 'moment';
 
 import { DateComponent } from '../../src/components/common';
-import { renderShallow, mockFnWithParams } from '../../testUtils';
+import { testSnapshot, renderShallow, mockFnWithParams } from '../../testUtils';
 
 mockFnWithParams(moment, 'default', '2018-06-11 00:00:00 UTC');
+
+it('renders correctly', () => {
+  testSnapshot(<DateComponent date="2017-11-20" />);
+});
 
 describe('relative formatting', () => {
   const testDateFormat = (date, formattedText) => {

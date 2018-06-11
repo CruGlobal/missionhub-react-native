@@ -10,8 +10,8 @@ exports[`GroupCardItem renders with no unassigned and no uncontacted 1`] = `
       "borderBottomColor": "#E6E8EC",
       "borderBottomWidth": 1,
       "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "paddingHorizontal": 13,
       "paddingVertical": 16,
     }
@@ -69,8 +69,8 @@ exports[`GroupCardItem renders with unassigned and no uncontacted 1`] = `
       "borderBottomColor": "#E6E8EC",
       "borderBottomWidth": 1,
       "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "paddingHorizontal": 13,
       "paddingVertical": 16,
     }
@@ -150,8 +150,8 @@ exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
       "borderBottomColor": "#E6E8EC",
       "borderBottomWidth": 1,
       "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "paddingHorizontal": 13,
       "paddingVertical": 16,
     }
@@ -253,8 +253,8 @@ exports[`GroupCardItem renders with uncontacted and no unassigned 1`] = `
       "borderBottomColor": "#E6E8EC",
       "borderBottomWidth": 1,
       "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "paddingHorizontal": 13,
       "paddingVertical": 16,
     }
