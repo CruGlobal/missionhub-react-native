@@ -17,6 +17,10 @@ const store = createMockStore({
       {
         id: '2',
         name: 'Test Org 2',
+      },
+    ],
+  },
+});
 
 describe('GroupsListScreen', () => {
   let component;

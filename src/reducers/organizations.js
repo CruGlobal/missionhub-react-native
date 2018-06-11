@@ -3,14 +3,10 @@ import lodash from 'lodash';
 import {
   LOGOUT,
   GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-import {
-  LOGOUT,
-  GET_ORGANIZATION_CONTACTS,
-  GET_ORGANIZATIONS_CONTACTS_REPORT,
-} from '../constants';
 
 import { getPagination } from './steps';
 
@@ -61,6 +57,7 @@ function organizationsReducer(state = initialState, action) {
           const contactReport = reports.find(r => r.id === o.id);
           return contactReport ? { ...o, contactReport } : o;
         }),
+      };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
       const currentOrg = state.all.find(o => o.id === surveyOrgId);
