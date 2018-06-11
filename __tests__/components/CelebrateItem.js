@@ -1,6 +1,6 @@
 import React from 'react';
-import CelebrateItem from '../../src/components/CelebrateItem';
 
+import CelebrateItem from '../../src/components/CelebrateItem';
 import { testSnapshot } from '../../testUtils';
 
 it('renders correctly', () => {
