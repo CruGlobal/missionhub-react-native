@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
+import { searchPeople } from '../../actions/people';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -11,17 +12,12 @@ import Header from '../Header';
 import BackButton from '../BackButton';
 
 import { GROUPS_CONTACT } from './Contact';
+import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
   state = {
-    filters: {
-      filter1: { id: 'filter1', text: 'Last 30 days' },
-      filter2: { id: 'filter2', text: 'Last 7 days' },
-      filter3: { id: 'filter3', text: 'Filter 3' },
-      filter4: { id: 'filter4', text: 'Filter 4' },
-      filter5: { id: 'filter5', text: 'Filter 5' },
-    },
+    filters: {},
   };
 
   handleRemoveFilter = async key => {
@@ -33,22 +29,33 @@ class SurveyContacts extends Component {
   };
 
   handleFilterPress = () => {
-    // TODO: Navigate to the filters page, then change state when something is selected
-    // TESTING
-    this.setState({
-      filters: {
-        filter1: { id: 'filter1', text: 'Last 30 days' },
-        filter2: { id: 'filter2', text: 'Last 7 days' },
-        filter3: { id: 'filter3', text: 'Filter 3' },
-        filter4: { id: 'filter4', text: 'Filter 4' },
-        filter5: { id: 'filter5', text: 'Filter 5' },
-      },
+    const { dispatch, survey } = this.props;
+    const { filters } = this.state;
+    dispatch(
+      navigatePush(SEARCH_SURVEY_CONTACTS_FILTER_SCREEN, {
+        survey,
+        onFilter: this.handleChangeFilter,
+        filters,
+      }),
+    );
+  };
+
+  handleChangeFilter = filters => {
+    this.setState({ filters }, () => {
+      // Run the search every time a filter option changes
+      if (this.searchList && this.searchList.getWrappedInstance) {
+        this.searchList.getWrappedInstance().search();
+      }
     });
   };
 
-  handleSearch = text => {
-    // TODO: Implement this
-    return Promise.resolve(this.props.contacts);
+  handleSearch = async text => {
+    const { dispatch } = this.props;
+    const { filters } = this.state;
+
+    const results = await dispatch(searchPeople(text, filters));
+    // Get the results from the search endpoint
+    return results.findAll('person') || [];
   };
 
   handleSelect = person => {
@@ -64,6 +71,7 @@ class SurveyContacts extends Component {
       <Flex value={1}>
         <Header left={<BackButton />} title={orgName} />
         <SearchList
+          ref={c => (this.searchList = c)}
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (

@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('search')
+@translate('search', { withRef: true })
 class SearchList extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +22,12 @@ class SearchList extends Component {
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
-    setTimeout(() => this.handleTextChange('test'), 1000);
   }
+
+  // Kick off search from an outer component using refs
+  search = () => {
+    this.handleSearch(this.state.text);
+  };
 
   handleFilter = () => {
     this.props.onFilterPress();
@@ -35,7 +39,7 @@ class SearchList extends Component {
   };
 
   handleSearch = async text => {
-    if (!text) return this.clearSearch();
+    // if (!text) return this.clearSearch();
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }

@@ -88,6 +88,9 @@ import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
 import GroupsContact, { GROUPS_CONTACT } from './containers/Groups/Contact';
+import SurveyContactsFilter, {
+  SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
+} from './containers/Groups/SurveyContactsFilter';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -332,6 +335,10 @@ export const MainStackRoutes = createStackNavigator(
     },
     [GROUPS_CONTACT]: {
       screen: GroupsContact,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {
+      screen: SurveyContactsFilter,
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_SCREEN]: {
