@@ -6,9 +6,6 @@ export function getGroupCelebrateFeed(orgId, query = {}) {
   return dispatch => {
     const queryObj = {
       ...query,
-      filters: {
-        ...(query.filters || {}),
-      },
       orgId,
     };
 
