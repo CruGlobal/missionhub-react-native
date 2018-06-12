@@ -26,7 +26,9 @@ class GroupSurveyItem extends Component {
             />
           </Flex>
           <Flex value={3.5} style={styles.content}>
-            <Text style={styles.title}>{survey.title.toUpperCase()}</Text>
+            <Text style={styles.title}>
+              {(survey.title || '').toUpperCase()}
+            </Text>
             <Text direction="row" align="center">
               <Text style={[styles.text, styles.contacts]}>
                 {t('numContacts', { number: survey.contacts_count })}
