@@ -30,10 +30,10 @@ class Members extends Component {
     }
   }
 
-  load() {
+  load = () => {
     const { dispatch, organization } = this.props;
     return dispatch(getOrganizationMembers(organization.id));
-  }
+  };
 
   handleRefresh = () => {
     refresh(this, this.load);

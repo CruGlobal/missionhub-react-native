@@ -55,6 +55,34 @@ exports[`render 0 assigned 1`] = `
       >
         0 Assigned
       </MyText>
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+            ·  
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
+      </React.Fragment>
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -113,7 +141,7 @@ exports[`render 0 uncontacted 1`] = `
           }
         }
       >
-        1 Assigned
+        5 Assigned
       </MyText>
     </Flex>
   </Flex>
@@ -173,8 +201,36 @@ exports[`render member 1`] = `
           }
         }
       >
-        1 Assigned
+        5 Assigned
       </MyText>
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+            ·  
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#FF5532",
+              "fontSize": 14,
+            }
+          }
+        >
+          3 Uncontacted
+        </MyText>
+      </React.Fragment>
     </Flex>
   </Flex>
 </TouchableIOS>

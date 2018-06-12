@@ -56,17 +56,45 @@ export function getOrganizationMembers(orgId, query = {}) {
     include: 'contact_assignments,organizational_permissions',
   };
   return async dispatch => {
-    const { response, meta } = await dispatch(
+    const { response: members, meta } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
     );
+
+    const memberIds = members.map(m => m.id);
+    const reportQuery = {
+      people_ids: memberIds.join(','),
+      period: 'P1Y',
+    };
+    const { response: reportResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
+    );
+
+    // Get an object with { [key = person_id]: [value = { counts }] }
+    const reportsCountObj = reportResponse.reduce(
+      (p, n) => ({
+        ...p,
+        [`${n.person_id}`]: {
+          contact_count: n.contact_count,
+          uncontacted_count: n.uncontacted_count,
+          contacts_with_interaction_count: n.contacts_with_interaction_count,
+        },
+      }),
+      {},
+    );
+    // Merge the counts into the members array
+    const membersWithCounts = members.map(m => ({
+      ...m,
+      ...(reportsCountObj[m.id] || {}),
+    }));
+
     dispatch({
       type: GET_ORGANIZATION_MEMBERS,
       orgId,
-      members: response,
+      members: membersWithCounts,
       query: newQuery,
       meta,
     });
-    return response;
+    return membersWithCounts;
   };
 }
 

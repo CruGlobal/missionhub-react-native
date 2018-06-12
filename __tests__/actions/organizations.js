@@ -129,83 +129,63 @@ describe('getOrganizationMembers', () => {
       id: '2',
     },
   ];
-  const peopleListResponse = {
-    type: 'successful',
-    response: members,
-    meta: { total: 50 },
+
+  // Get reports endpoint
+  const reportsQuery = {
+    people_ids: members.map(m => m.id).join(','),
+    period: 'P1Y',
   };
+  const finalMembers = members.map(m => ({
+    ...m,
+    contact_count: 1,
+    uncontacted_count: 1,
+    contacts_with_interaction_count: 1,
+  }));
+
+  // Final action to be run
   const getMembersAction = {
     type: GET_ORGANIZATION_MEMBERS,
-    members,
+    members: finalMembers,
     orgId,
     meta: { total: 50 },
     query: query,
   };
 
   it('should get members in organization', async () => {
-    mockFnWithParams(
-      api,
-      'default',
-      peopleListResponse,
-      REQUESTS.GET_PEOPLE_LIST,
-      query,
-    );
+    store.dispatch(getOrganizationMembers(orgId)).then(() => {
+      expect(api.default).toHaveBeenCalledWith(
+        REQUESTS.GET_PEOPLE_LIST,
+        query,
+        {},
+      );
+      expect(api.default).toHaveBeenCalledWith(
+        REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
+        reportsQuery,
+        {},
+      );
 
-    await store.dispatch(getOrganizationMembers(orgId));
-    expect(store.getActions()).toEqual([peopleListResponse, getMembersAction]);
+      expect(store.getActions()).toEqual([getMembersAction]);
+    });
   });
-});
 
-describe('getOrganizationMembersNextPage', () => {
-  const orgId = '123';
-  const query = {
-    page: {
-      limit: 25,
-      offset: 25,
-    },
-    organization_id: orgId,
-    filters: {
-      permissions: 'admin,user',
-    },
-    include: 'contact_assignments,organizational_permissions',
-  };
-  const members = [
-    {
-      name: 'person',
-      id: '1',
-    },
-    {
-      name: 'person',
-      id: '2',
-    },
-  ];
-  const peopleListResponse = {
-    type: 'successful',
-    response: members,
-    meta: { total: 50 },
-  };
-  const getMembersAction = {
-    type: GET_ORGANIZATION_MEMBERS,
-    members,
-    orgId,
-    meta: { total: 50 },
-    query: query,
-  };
-
-  it('should get members in organization', async () => {
+  it('should get members next page in organization', async () => {
     store = configureStore([thunk])({
       organizations: { membersPagination: { hasNextPage: true, page: 1 } },
     });
 
-    mockFnWithParams(
-      api,
-      'default',
-      peopleListResponse,
-      REQUESTS.GET_PEOPLE_LIST,
-      query,
-    );
+    store.dispatch(getOrganizationMembersNextPage(orgId)).then(() => {
+      expect(api.default).toHaveBeenCalledWith(
+        REQUESTS.GET_PEOPLE_LIST,
+        query,
+        {},
+      );
+      expect(api.default).toHaveBeenCalledWith(
+        REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
+        reportsQuery,
+        {},
+      );
 
-    await store.dispatch(getOrganizationMembersNextPage(orgId));
-    expect(store.getActions()).toEqual([peopleListResponse, getMembersAction]);
+      expect(store.getActions()).toEqual([getMembersAction]);
+    });
   });
 });

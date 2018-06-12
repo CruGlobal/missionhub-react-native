@@ -6,7 +6,8 @@ import GroupMemberItem from '../../src/components/GroupMemberItem';
 const member = {
   id: '123',
   full_name: 'Full Name',
-  contact_assignments: [{ id: '1' }],
+  contact_count: 5,
+  uncontacted_count: 3,
 };
 
 it('render member', () => {
@@ -17,7 +18,7 @@ it('render 0 assigned', () => {
   testSnapshotShallow(
     <GroupMemberItem
       onSelect={jest.fn()}
-      person={{ ...member, contact_assignments: [] }}
+      person={{ ...member, contact_count: 0 }}
     />,
   );
 });
@@ -26,7 +27,7 @@ it('render 0 uncontacted', () => {
   testSnapshotShallow(
     <GroupMemberItem
       onSelect={jest.fn()}
-      person={{ ...member, uncontactedNum: 0 }}
+      person={{ ...member, uncontacted_count: 0 }}
     />,
   );
 });
