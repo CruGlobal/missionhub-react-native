@@ -9,6 +9,7 @@ import {
   getGroupCelebrateNextPage,
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
+import { celebrationSelector } from '../../selectors/celebration';
 
 @translate('groupsCelebrate')
 class Celebrate extends Component {
@@ -46,9 +47,13 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
     { organizations },
     { orgId: organization.id },
   );
-  console.log(selectorOrg);
-  return {
+
+  const celebrateItems = celebrationSelector({
     celebrateItems: (selectorOrg || {}).celebrateItems || [],
+  });
+
+  return {
+    celebrateItems,
     pagination: organizations.celebratePagination,
   };
 };
