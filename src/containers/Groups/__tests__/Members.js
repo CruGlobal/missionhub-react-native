@@ -21,16 +21,18 @@ jest.mock('../../../actions/organizations', () => ({
 import * as common from '../../../utils/common';
 common.refresh = jest.fn();
 
+const members = [
+  { id: '1', full_name: 'Test User 1', contact_assignments: [] },
+  { id: '2', full_name: 'Test User 2', contact_assignments: [] },
+  { id: '3', full_name: 'Test User 3', contact_assignments: [] },
+];
+
 let store = createMockStore({
   organizations: {
     all: [
       {
         id: '1',
-        members: [
-          { id: '1', full_name: 'Test User 1', contact_assignments: [] },
-          { id: '2', full_name: 'Test User 2', contact_assignments: [] },
-          { id: '3', full_name: 'Test User 3', contact_assignments: [] },
-        ],
+        members,
       },
     ],
     membersPagination: { hasNextPage: true },
@@ -56,6 +58,23 @@ describe('Members', () => {
           },
         ],
         membersPagination: { hasNextPage: true },
+      },
+    });
+    const instance = renderShallow(component, store).instance();
+    instance.componentDidMount();
+    expect(getOrganizationMembers).toHaveBeenCalled();
+  });
+
+  it('should not render load more correctly', () => {
+    const store = createMockStore({
+      organizations: {
+        all: [
+          {
+            id: '1',
+            members,
+          },
+        ],
+        membersPagination: { hasNextPage: false },
       },
     });
     const instance = renderShallow(component, store).instance();

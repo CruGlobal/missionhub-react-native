@@ -135,6 +135,20 @@ describe('getOrganizationMembers', () => {
     people_ids: members.map(m => m.id).join(','),
     period: 'P1Y',
   };
+  const reports = [
+    {
+      person_id: '1',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      person_id: '2',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+  ];
   const finalMembers = members.map(m => ({
     ...m,
     contact_count: 1,
@@ -151,21 +165,37 @@ describe('getOrganizationMembers', () => {
     query: query,
   };
 
-  it('should get members in organization', async () => {
-    store.dispatch(getOrganizationMembers(orgId)).then(() => {
-      expect(api.default).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_LIST,
-        query,
-        {},
-      );
-      expect(api.default).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
-        reportsQuery,
-        {},
-      );
+  const peopleListResponse = {
+    type: 'successful',
+    response: members,
+    meta: { total: 50 },
+  };
 
-      expect(store.getActions()).toEqual([getMembersAction]);
+  const reportsListResponse = {
+    type: 'successful',
+    response: reports,
+  };
+
+  it('should get members in organization', async () => {
+    // Mock out the api.default to return different results based on the 2 API calls being made
+    api.default = jest.fn().mockImplementation((...actualParams) => {
+      if (actualParams[0].name === REQUESTS.GET_PEOPLE_LIST.name) {
+        return peopleListResponse;
+      } else if (
+        actualParams[0].name === REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT.name
+      ) {
+        return reportsListResponse;
+      }
+      return undefined;
     });
+
+    await store.dispatch(getOrganizationMembers(orgId));
+
+    expect(store.getActions()).toEqual([
+      peopleListResponse,
+      reportsListResponse,
+      getMembersAction,
+    ]);
   });
 
   it('should get members next page in organization', async () => {
@@ -187,5 +217,17 @@ describe('getOrganizationMembers', () => {
 
       expect(store.getActions()).toEqual([getMembersAction]);
     });
+  });
+
+  it('should get members next page in organization', async () => {
+    store = configureStore([thunk])({
+      organizations: { membersPagination: { hasNextPage: false, page: 1 } },
+    });
+
+    try {
+      await store.dispatch(getOrganizationMembersNextPage(orgId));
+    } catch (e) {
+      expect(e).toEqual('NoMoreData');
+    }
   });
 });
