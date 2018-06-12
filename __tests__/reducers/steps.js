@@ -1,5 +1,6 @@
 import { REQUESTS } from '../../src/actions/api';
-import steps, { getPagination } from '../../src/reducers/steps';
+import steps from '../../src/reducers/steps';
+import { getPagination } from '../../src/utils/common';
 import { COMPLETED_STEP_COUNT, TOGGLE_STEP_FOCUS } from '../../src/constants';
 
 it('loads step suggestions for me', () => {
