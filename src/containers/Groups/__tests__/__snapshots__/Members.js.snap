@@ -19,22 +19,19 @@ exports[`Members should render correctly 1`] = `
     data={
       Array [
         Object {
-          "assignedNum": 2,
-          "full_name": "Full Name1",
-          "id": "123",
-          "uncontactedNum": 3,
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
         },
         Object {
-          "assignedNum": 2,
-          "full_name": "Full Name2",
-          "id": "223",
-          "uncontactedNum": 0,
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
         },
         Object {
-          "assignedNum": 12,
-          "full_name": "Full Name3",
-          "id": "323",
-          "uncontactedNum": 2,
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
         },
       ]
     }
@@ -45,6 +42,20 @@ exports[`Members should render correctly 1`] = `
     maxToRenderPerBatch={10}
     numColumns={1}
     onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
     renderItem={[Function]}
     scrollEventThrottle={50}
     updateCellsBatchingPeriod={50}

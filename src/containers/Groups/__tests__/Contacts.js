@@ -7,8 +7,10 @@ jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
+const organization = { id: '1', name: 'Test Org' };
+
 describe('Contacts', () => {
-  const component = <Contacts />;
+  const component = <Contacts organization={organization} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component);
