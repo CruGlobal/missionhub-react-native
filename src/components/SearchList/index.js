@@ -22,6 +22,7 @@ class SearchList extends Component {
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
+    setTimeout(() => this.handleTextChange('test'), 1000);
   }
 
   handleFilter = () => {

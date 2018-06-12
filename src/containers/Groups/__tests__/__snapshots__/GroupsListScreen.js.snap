@@ -1,18 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Contacts should render correctly 1`] = `
-<Button
-  buttonTextStyle={
-    Object {
-      "color": "black",
-    }
-  }
-  onPress={[Function]}
+exports[`GroupsListScreen should render correctly 1`] = `
+<Component
   style={
     Object {
-      "marginTop": 20,
+      "flex": 1,
     }
   }
-  text="Navigate to Group 728"
-/>
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="GROUPS"
+  />
+  <FlatList
+    data={
+      Array [
+        Object {
+          "contacts": 768,
+          "id": "123",
+          "name": "Cru at Boston University",
+          "unassigned": 13,
+          "uncontacted": 43,
+        },
+        Object {
+          "contacts": 768,
+          "id": "456",
+          "name": "Cru at Boston University Northeast Branch",
+          "unassigned": 0,
+          "uncontacted": 0,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    style={
+      Object {
+        "flex": 1,
+        "paddingTop": 15,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</Component>
 `;

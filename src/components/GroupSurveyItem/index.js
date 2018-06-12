@@ -6,7 +6,7 @@ import { Flex, Text, Touchable, Icon } from '../common';
 
 import styles from './styles';
 
-@translate('groupSurveyItem')
+@translate('groupItem')
 class GroupSurveyItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.survey);
@@ -27,25 +27,29 @@ class GroupSurveyItem extends Component {
           </Flex>
           <Flex value={3.5} style={styles.content}>
             <Text style={styles.title}>
-              {survey.survey.title.toUpperCase()}
+              {(survey.title || '').toUpperCase()}
             </Text>
             <Text direction="row" align="center">
               <Text style={[styles.text, styles.contacts]}>
-                {t('contacts', { number: survey.contactNum })}
+                {t('numContacts', { number: survey.contacts_count })}
               </Text>
-              {survey.unassignedNum ? (
+              {survey.unassigned_contacts_count ? (
                 <Text>
                   <Text style={styles.text}>{'  ·  '}</Text>
                   <Text style={[styles.text, styles.unassigned]}>
-                    {t('unassigned', { number: survey.unassignedNum })}
+                    {t('numUnassigned', {
+                      number: survey.unassigned_contacts_count,
+                    })}
                   </Text>
                 </Text>
               ) : null}
-              {survey.uncontactedNum ? (
+              {survey.uncontacted_contacts_count ? (
                 <Text>
                   <Text style={styles.text}>{'  ·  '}</Text>
                   <Text style={[styles.text, styles.uncontacted]}>
-                    {t('uncontacted', { number: survey.uncontactedNum })}
+                    {t('numUncontacted', {
+                      number: survey.uncontacted_contacts_count,
+                    })}
                   </Text>
                 </Text>
               ) : null}
@@ -61,10 +65,10 @@ GroupSurveyItem.propTypes = {
   survey: PropTypes.shape({
     id: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
-    survey: PropTypes.object.isRequired,
-    contactNum: PropTypes.number,
-    uncontactedNum: PropTypes.number,
-    unassignedNum: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    contacts_count: PropTypes.number,
+    unassigned_contacts_count: PropTypes.number,
+    uncontacted_contacts_count: PropTypes.number,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
 };

@@ -390,6 +390,9 @@ export default {
     message:
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
+  groupsList: {
+    header: 'Groups',
+  },
   groupsCelebrate: {
     title: '',
   },
@@ -412,14 +415,15 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
-  groupMemberItem: {
-    assigned: '{{number}} Assigned',
-    uncontacted: '{{number}} Uncontacted',
+  groupItem: {
+    numContacts: '{{number}} Contacts',
+    numAssigned: '{{number}} Assigned',
+    numUnassigned: '{{number}} Unassigned',
+    unassigned: 'Unassigned',
+    numUncontacted: '{{number}} Uncontacted',
   },
-  groupSurveyItem: {
-    contacts: '{{number}} Contacts',
-    unassigned: '{{number}} Unassigned',
-    uncontacted: '{{number}} Uncontacted',
+  groupsContactList: {
+    assign: 'Assign to me',
   },
   loadMore: {
     load: 'Load More',

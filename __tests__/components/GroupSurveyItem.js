@@ -6,10 +6,10 @@ import GroupSurveyItem from '../../src/components/GroupSurveyItem';
 const survey = {
   id: '1',
   created_at: '2018-05-29T17:02:02Z',
-  survey: { title: 'Winter Conference 2018' },
-  contactNum: 50,
-  uncontactedNum: 30,
-  unassignedNum: 25,
+  title: 'Winter Conference 2018',
+  contacts_count: 50,
+  uncontacted_contacts_count: 30,
+  unassigned_contacts_count: 25,
 };
 
 it('render survey', () => {
@@ -20,7 +20,7 @@ it('render 0 contacts', () => {
   testSnapshotShallow(
     <GroupSurveyItem
       onSelect={jest.fn()}
-      survey={{ ...survey, contactNum: 0 }}
+      survey={{ ...survey, contacts_count: 0 }}
     />,
   );
 });
@@ -29,7 +29,7 @@ it('render 0 uncontacted', () => {
   testSnapshotShallow(
     <GroupSurveyItem
       onSelect={jest.fn()}
-      survey={{ ...survey, uncontactedNum: 0 }}
+      survey={{ ...survey, uncontacted_contacts_count: 0 }}
     />,
   );
 });
@@ -38,7 +38,7 @@ it('render 0 unassigned', () => {
   testSnapshotShallow(
     <GroupSurveyItem
       onSelect={jest.fn()}
-      survey={{ ...survey, unassignedNum: 0 }}
+      survey={{ ...survey, unassigned_contacts_count: 0 }}
     />,
   );
 });
@@ -47,7 +47,11 @@ it('render 0 unassigned and 0 uncontacted', () => {
   testSnapshotShallow(
     <GroupSurveyItem
       onSelect={jest.fn()}
-      survey={{ ...survey, unassignedNum: 0, uncontactedNum: 0 }}
+      survey={{
+        ...survey,
+        unassigned_contacts_count: 0,
+        uncontacted_contacts_count: 0,
+      }}
     />,
   );
 });

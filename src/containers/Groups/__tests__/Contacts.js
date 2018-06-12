@@ -2,6 +2,10 @@ import React from 'react';
 
 import Contacts from '../Contacts';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'test' })),
+}));
 
 describe('Contacts', () => {
   const component = <Contacts />;
@@ -44,10 +48,8 @@ describe('Contacts', () => {
 
   it('should handleSelect correctly', async () => {
     const instance = renderShallow(component).instance();
-    const item = { test: true };
-    instance.handleSelect = jest.fn();
-    instance.handleSelect(item);
+    instance.handleSelect({ id: '1' });
 
-    expect(instance.handleSelect).toHaveBeenCalledWith(item);
+    expect(navigatePush).toHaveBeenCalled();
   });
 });

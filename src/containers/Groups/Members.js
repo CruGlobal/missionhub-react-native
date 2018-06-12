@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
+import { navigatePush } from '../../actions/navigation';
 import { Flex } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 
 import styles from './styles';
+import { GROUPS_CONTACT } from './Contact';
 
 @translate('groupsMembers')
 class Members extends Component {
   handleSelect = person => {
-    return person;
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
   };
 
   handleLoadMore = () => {
@@ -37,6 +41,10 @@ class Members extends Component {
     );
   }
 }
+
+Members.propTypes = {
+  organization: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = () => ({
   members: [

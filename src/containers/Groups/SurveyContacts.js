@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Separator, Flex, IconButton } from '../../components/common';
+import { navigatePush } from '../../actions/navigation';
+import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import Header from '../Header';
 import BackButton from '../BackButton';
 
-@connect()
+import { GROUPS_CONTACT } from './Contact';
+
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
   state = {
@@ -49,8 +51,9 @@ class SurveyContacts extends Component {
     return Promise.resolve(this.props.contacts);
   };
 
-  handleSelect = item => {
-    return item;
+  handleSelect = person => {
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
   };
 
   render() {
