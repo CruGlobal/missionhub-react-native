@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import { getMySurveys } from '../../../actions/surveys';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../../utils/common';
@@ -13,62 +12,62 @@ import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
 
+export const getFilterOptions = (t, filters) => ({
+  gender: {
+    id: 'gender',
+    text: t('searchFilter:gender'),
+    options: [
+      { id: 'm', text: t('searchFilter:male') },
+      { id: 'f', text: t('searchFilter:female') },
+      { id: 'o', text: t('searchFilter:other') },
+    ],
+    preview: filters.gender ? filters.gender.text : undefined,
+  },
+  time: {
+    id: 'time',
+    text: t('searchFilter:time'),
+    options: [
+      { id: 'time7', text: t('searchFilter:time7') },
+      { id: 'time30', text: t('searchFilter:time30') },
+      { id: 'time60', text: t('searchFilter:time60') },
+      { id: 'time90', text: t('searchFilter:time90') },
+      { id: 'time180', text: t('searchFilter:time180') },
+      { id: 'time270', text: t('searchFilter:time270') },
+      { id: 'time365', text: t('searchFilter:time365') },
+    ],
+    preview: filters.time ? filters.time.text : undefined,
+  },
+  uncontacted: {
+    id: 'uncontacted',
+    text: t('searchFilter:uncontacted'),
+    selected: !!filters.uncontacted,
+  },
+  unassigned: {
+    id: 'unassigned',
+    text: t('searchFilter:unassigned'),
+    selected: !!filters.unassigned,
+  },
+  archived: {
+    id: 'archived',
+    text: t('searchFilter:archived'),
+    selected: !!filters.archived,
+  },
+});
+
 import styles from './styles';
 
 @translate('searchFilter')
-export class SurveyContactsFilter extends Component {
+export class ContactsFilter extends Component {
   constructor(props) {
     super(props);
     const { t, filters } = props;
 
-    const options = [
-      {
-        id: 'questions',
-        text: t('surveyQuestions'),
-        options: 'questions',
-        preview: filters.questions ? filters.questions.text : undefined,
-      },
-      {
-        id: 'gender',
-        text: t('gender'),
-        options: [
-          { id: 'm', text: t('male') },
-          { id: 'f', text: t('female') },
-          { id: 'o', text: t('other') },
-        ],
-        preview: filters.gender ? filters.gender.text : undefined,
-      },
-      {
-        id: 'time',
-        text: t('time'),
-        options: [
-          { id: 'time7', text: t('time7') },
-          { id: 'time30', text: t('time30') },
-          { id: 'time60', text: t('time60') },
-          { id: 'time90', text: t('time90') },
-          { id: 'time180', text: t('time180') },
-          { id: 'time270', text: t('time270') },
-          { id: 'time365', text: t('time365') },
-        ],
-        preview: filters.time ? filters.time.text : undefined,
-      },
-    ];
+    const filterOptions = getFilterOptions(t, filters);
+    const options = [filterOptions.gender, filterOptions.time];
     const toggleOptions = [
-      {
-        id: 'uncontacted',
-        text: t('uncontacted'),
-        selected: !!filters.uncontacted,
-      },
-      {
-        id: 'unassigned',
-        text: t('unassigned'),
-        selected: !!filters.unassigned,
-      },
-      {
-        id: 'archived',
-        text: t('archived'),
-        selected: !!filters.archived,
-      },
+      filterOptions.uncontacted,
+      filterOptions.unassigned,
+      filterOptions.archived,
     ];
     this.state = {
       filters: filters,
@@ -84,10 +83,6 @@ export class SurveyContactsFilter extends Component {
     //   this.props.dispatch(getSurveyQuestions());
     // }
     Keyboard.dismiss();
-  }
-
-  loadSurveys() {
-    return this.props.dispatch(getMySurveys());
   }
 
   setFilter(filters = {}) {
@@ -182,16 +177,14 @@ export class SurveyContactsFilter extends Component {
   }
 }
 
-SurveyContactsFilter.propTypes = {
+ContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
-  survey: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(SurveyContactsFilter);
-export const SEARCH_SURVEY_CONTACTS_FILTER_SCREEN =
-  'nav/SEARCH_SURVEY_CONTACTS_FILTER';
+export default connect(mapStateToProps)(ContactsFilter);
+export const SEARCH_CONTACTS_FILTER_SCREEN = 'nav/SEARCH_CONTACTS_FILTER';

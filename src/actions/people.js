@@ -63,7 +63,7 @@ export function getMyPeople() {
   };
 }
 
-export function searchPeople(text, filters = {}) {
+export function searchPeople(text = '', filters = {}) {
   return dispatch => {
     // if (!text) {
     //   return Promise.reject('NoText');

@@ -50,10 +50,14 @@ class SurveyContacts extends Component {
   };
 
   handleSearch = async text => {
-    const { dispatch } = this.props;
+    const { dispatch, organization, survey } = this.props;
     const { filters } = this.state;
-
-    const results = await dispatch(searchPeople(text, filters));
+    const searchFilters = {
+      ...filters,
+      ministry: { id: organization.id },
+      surveys: { id: survey.id },
+    };
+    const results = await dispatch(searchPeople(text, searchFilters));
     // Get the results from the search endpoint
     return results.findAll('person') || [];
   };
@@ -95,12 +99,6 @@ SurveyContacts.propTypes = {
 
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
-  contacts: [
-    { id: '1', full_name: 'full name 1', isAssigned: false },
-    { id: '2', full_name: 'full name 2', isAssigned: false },
-    { id: '3', full_name: 'full name 3', isAssigned: true },
-    { id: '4', full_name: 'full name 4', isAssigned: false },
-  ],
 });
 
 export default connect(mapStateToProps)(SurveyContacts);
