@@ -147,7 +147,7 @@ export default {
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     message:
-      'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
+      'Growing closer to God involves helping others experience Him.\nTake a moment and pray. Who do you want to take steps of faith with?',
   },
   addStep: {
     header: 'My Step of Faith',
