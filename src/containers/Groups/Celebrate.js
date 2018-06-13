@@ -4,23 +4,19 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import { Button, Flex, Text } from '../../components/common';
-import {
-  getGroupCelebrateFeed,
-  getGroupCelebrateNextPage,
-} from '../../actions/celebration';
+import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 
 @translate('groupsCelebrate')
 class Celebrate extends Component {
   componentDidMount() {
-    const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateFeed(organization.id));
+    this.loadItems();
   }
 
-  handleLoadMore = () => {
+  loadItems = () => {
     const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateNextPage(organization.id));
+    dispatch(getGroupCelebrateFeed(organization.id));
   };
 
   render() {
@@ -33,7 +29,7 @@ class Celebrate extends Component {
         <Flex justify="end">
           <Button
             type="secondary"
-            onPress={this.handleLoadMore}
+            onPress={this.loadItems}
             text={'Input goes here'}
           />
         </Flex>

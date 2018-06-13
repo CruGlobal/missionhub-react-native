@@ -2,18 +2,7 @@ import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
-export function getGroupCelebrateFeed(orgId, query = {}) {
-  return dispatch => {
-    const queryObj = {
-      ...query,
-      orgId,
-    };
-
-    dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, queryObj));
-  };
-}
-
-export function getGroupCelebrateNextPage(orgId) {
+export function getGroupCelebrateFeed(orgId) {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.celebratePagination;
     if (!hasNextPage) {
@@ -24,9 +13,9 @@ export function getGroupCelebrateNextPage(orgId) {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * page,
       },
-      include: '',
+      orgId,
     };
 
-    return dispatch(getGroupCelebrateFeed(orgId, query));
+    dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
   };
 }

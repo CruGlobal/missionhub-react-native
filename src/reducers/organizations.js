@@ -16,7 +16,7 @@ const initialState = {
   },
   celebratePagination: {
     hasNextPage: true,
-    page: 1,
+    page: 0,
   },
 };
 
@@ -53,13 +53,14 @@ function organizationsReducer(state = initialState, action) {
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
-      const currentOrg = state.all.find(o => o.id === surveyOrgId);
-      if (!currentOrg) return state; // Return if the organization does not exist
-      const existingSurveys = currentOrg.surveys || [];
+      const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
+      if (!curSurveyOrg) return state; // Return if the organization does not exist
+      const existingSurveys = curSurveyOrg.surveys || [];
       const allSurveys =
         surveyQuery.page && surveyQuery.page.offset > 0
           ? [...existingSurveys, ...surveys]
           : surveys;
+
       return {
         ...state,
         all: surveyOrgId
@@ -70,12 +71,15 @@ function organizationsReducer(state = initialState, action) {
         surveysPagination: getPagination(action, allSurveys.length),
       };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+      const celebrateQuery = action.query;
       const newItems = action.results.response;
-      const celebrateOrgId = action.query.orgId;
-
+      const celebrateOrgId = celebrateQuery.orgId;
+      const curCelebrateOrg = state.all.find(o => o.id === celebrateOrgId);
+      if (!curCelebrateOrg) return state; // Return if the organization does not exist
+      const existingItems = curCelebrateOrg.celebrateItems || [];
       const allItems =
-        action.query.page && action.query.page.offset > 0
-          ? [...(state.items || []), ...newItems]
+        celebrateQuery.page && celebrateQuery.page.offset > 0
+          ? [...existingItems, ...newItems]
           : newItems;
 
       return {

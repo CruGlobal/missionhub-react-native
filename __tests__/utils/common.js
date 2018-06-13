@@ -120,7 +120,7 @@ describe('getPagination', () => {
     expect(pagination).toEqual({ hasNextPage: true, page: 3 });
   });
 
-  it('does not paginate', () => {
+  it('does not paginate when total is reached', () => {
     action = {
       ...action,
       query: {

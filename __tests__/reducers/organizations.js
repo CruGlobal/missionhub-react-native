@@ -31,6 +31,7 @@ it('should load contacts to an organization', () => {
 it('loads surveys for org with paging', () => {
   const orgId = '1';
   const oldSurveys = [
+    { id: '0', title: 'Title 0' },
     { id: '1', title: 'Title 1' },
     { id: '2', title: 'Title 2' },
     { id: '3', title: 'Title 3' },
@@ -98,6 +99,7 @@ it('loads surveys for org with paging', () => {
 it('loads celebrate items with pagination', () => {
   const orgId = '1';
   const oldItems = [
+    { id: '0', title: 'Title 0' },
     { id: '1', title: 'Title 1' },
     { id: '2', title: 'Title 2' },
     { id: '3', title: 'Title 3' },
@@ -134,7 +136,7 @@ it('loads celebrate items with pagination', () => {
       all: [
         {
           id: orgId,
-          surveys: oldItems,
+          celebrateItems: oldItems,
         },
       ],
       celebratePagination: {
