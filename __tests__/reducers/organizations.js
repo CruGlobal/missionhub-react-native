@@ -2,6 +2,7 @@ import organizations from '../../src/reducers/organizations';
 import {
   GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATION_SURVEYS,
+  GET_ORGANIZATION_MEMBERS,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -128,7 +129,6 @@ it('loads celebrate items with pagination', () => {
   const newItems = [
     { id: '25', title: 'Title 25' },
     { id: '26', title: 'Title 26' },
-    { id: '27', title: 'Title 27' },
   ];
 
   const state = organizations(
@@ -164,4 +164,210 @@ it('loads celebrate items with pagination', () => {
   );
 
   expect(state.celebratePagination).toEqual({ hasNextPage: false, page: 2 });
+});
+
+it('loads members for org with paging', () => {
+  const orgId = '1';
+  const oldMembers = [
+    {
+      id: '1',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '2',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '3',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '4',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '5',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '6',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '7',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '8',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '9',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '10',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '11',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '12',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '13',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '14',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '15',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '16',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '17',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '18',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '19',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '20',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '21',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '22',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '23',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '24',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+  ];
+  const newMembers = [
+    {
+      id: '25',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '26',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '27',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          members: oldMembers,
+        },
+      ],
+      membersPagination: {
+        hasNextPage: true,
+        page: 1,
+      },
+    },
+    {
+      type: GET_ORGANIZATION_MEMBERS,
+      orgId: orgId,
+      query: {
+        page: {
+          limit: 25,
+          offset: 25,
+        },
+        organization_id: orgId,
+        filters: {
+          permissions: 'admin,user',
+        },
+        include: 'contact_assignments,organizational_permissions',
+      },
+      meta: {
+        total: 28,
+      },
+      members: newMembers,
+    },
+  );
+
+  expect(state.membersPagination).toEqual({ hasNextPage: false, page: 2 });
 });

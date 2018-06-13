@@ -4,6 +4,7 @@ import {
   LOGOUT,
   GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATION_SURVEYS,
+  GET_ORGANIZATION_MEMBERS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -17,6 +18,10 @@ const initialState = {
   celebratePagination: {
     hasNextPage: true,
     page: 0,
+  },
+  membersPagination: {
+    hasNextPage: true,
+    page: 1,
   },
 };
 
@@ -93,6 +98,24 @@ function organizationsReducer(state = initialState, action) {
             )
           : state.all,
         celebratePagination: getPagination(action, allItems.length),
+      };
+    case GET_ORGANIZATION_MEMBERS:
+      const { orgId: memberOrgId, query: memberQuery, members } = action;
+      const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
+      if (!currentMemberOrg) return state; // Return if the organization does not exist
+      const existingMembers = currentMemberOrg.members || [];
+      const allMembers =
+        memberQuery.page && memberQuery.page.offset > 0
+          ? [...existingMembers, ...members]
+          : members;
+      return {
+        ...state,
+        all: memberOrgId
+          ? state.all.map(
+              o => (o.id === memberOrgId ? { ...o, members: allMembers } : o),
+            )
+          : state.all,
+        membersPagination: getPagination(action, allMembers.length),
       };
     case LOGOUT:
       return initialState;
