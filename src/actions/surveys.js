@@ -12,20 +12,12 @@ export function getMySurveys() {
   };
 }
 
-export function getOrgSurveys(orgId) {
-  return async (dispatch, getState) => {
-    const { page, hasNextPage } = getState().organizations.surveysPagination;
-    if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
-    }
-    const newQuery = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * page,
-      },
-      organization_id: orgId,
-    };
-
+export function getOrgSurveys(orgId, query = {}) {
+  const newQuery = {
+    ...query,
+    organization_id: orgId,
+  };
+  return async dispatch => {
     const { response, meta } = await dispatch(
       callApi(REQUESTS.GET_GROUP_SURVEYS, newQuery),
     );

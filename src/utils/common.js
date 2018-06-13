@@ -155,14 +155,14 @@ export const getIconName = (type, interaction_type_id) => {
   return null;
 };
 
-export function getPagination(action, currentLength) {
+export function getPagination(action, length) {
   const offset =
     action.query && action.query.page && action.query.page.offset
       ? action.query.page.offset
       : 0;
   const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
   const total = action.meta ? action.meta.total || 0 : 0;
-  const hasNextPage = total > currentLength;
+  const hasNextPage = total > offset + length;
 
   return {
     page: pageNum,

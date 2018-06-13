@@ -9,7 +9,7 @@ const initialState = {
   userStepCount: {},
   pagination: {
     hasNextPage: true,
-    page: 0,
+    page: 1,
   },
   contactSteps: {},
 };
@@ -37,6 +37,7 @@ export default function stepsReducer(state = initialState, action) {
       };
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       const newSteps = action.results.response;
+
       // If we're doing paging, concat the old steps with the new ones
       const allSteps =
         action.query.page && action.query.page.offset > 0

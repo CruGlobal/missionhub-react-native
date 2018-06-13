@@ -12,11 +12,11 @@ const initialState = {
   all: [],
   surveysPagination: {
     hasNextPage: true,
-    page: 0,
+    page: 1,
   },
   celebratePagination: {
     hasNextPage: true,
-    page: 0,
+    page: 1,
   },
 };
 
