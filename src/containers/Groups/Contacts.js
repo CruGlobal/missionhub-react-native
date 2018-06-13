@@ -9,6 +9,7 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { organizationSelector } from '../../selectors/organizations';
+import { searchRemoveFilter } from '../../utils/common';
 
 import { GROUPS_CONTACT } from './Contact';
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
@@ -29,7 +30,7 @@ class Contacts extends Component {
         },
         time: { id: 'time30', text: t('searchFilter:time30') },
       },
-      defaultContacts: [],
+      defaultResults: [],
     };
   }
 
@@ -41,20 +42,11 @@ class Contacts extends Component {
 
   loadContactsWithFilters = async () => {
     const contacts = await this.handleSearch('');
-    this.setState({ defaultContacts: contacts });
+    this.setState({ defaultResults: contacts });
   };
 
-  handleRemoveFilter = async key => {
-    let newFilters = { ...this.state.filters };
-    delete newFilters[key];
-    let newState = { filters: newFilters };
-    // If one of the default filters is removed, remove the default contacts to show
-    if (key === 'unassigned' || key === 'time') {
-      newState.defaultContacts = [];
-    }
-    return await new Promise(resolve =>
-      this.setState(newState, () => resolve()),
-    );
+  handleRemoveFilter = key => {
+    return searchRemoveFilter(this, key, ['unassigned', 'time']);
   };
 
   handleFilterPress = () => {
@@ -97,12 +89,12 @@ class Contacts extends Component {
 
   render() {
     const { t } = this.props;
-    const { filters, defaultContacts } = this.state;
+    const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
         <SearchList
           ref={c => (this.searchList = c)}
-          defaultData={defaultContacts}
+          defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (

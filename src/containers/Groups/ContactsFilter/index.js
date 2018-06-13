@@ -7,52 +7,16 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../../../actions/navigation';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
-import { buildTrackingObj, isString } from '../../../utils/common';
+import {
+  buildTrackingObj,
+  isString,
+  getFilterOptions,
+  searchHandleToggle,
+  searchSelectFilter,
+} from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
-
-export const getFilterOptions = (t, filters) => ({
-  gender: {
-    id: 'gender',
-    text: t('searchFilter:gender'),
-    options: [
-      { id: 'm', text: t('searchFilter:male') },
-      { id: 'f', text: t('searchFilter:female') },
-      { id: 'o', text: t('searchFilter:other') },
-    ],
-    preview: filters.gender ? filters.gender.text : undefined,
-  },
-  time: {
-    id: 'time',
-    text: t('searchFilter:time'),
-    options: [
-      { id: 'time7', text: t('searchFilter:time7') },
-      { id: 'time30', text: t('searchFilter:time30') },
-      { id: 'time60', text: t('searchFilter:time60') },
-      { id: 'time90', text: t('searchFilter:time90') },
-      { id: 'time180', text: t('searchFilter:time180') },
-      { id: 'time270', text: t('searchFilter:time270') },
-      { id: 'time365', text: t('searchFilter:time365') },
-    ],
-    preview: filters.time ? filters.time.text : undefined,
-  },
-  uncontacted: {
-    id: 'uncontacted',
-    text: t('searchFilter:uncontacted'),
-    selected: !!filters.uncontacted,
-  },
-  unassigned: {
-    id: 'unassigned',
-    text: t('searchFilter:unassigned'),
-    selected: !!filters.unassigned,
-  },
-  archived: {
-    id: 'archived',
-    text: t('searchFilter:archived'),
-    selected: !!filters.archived,
-  },
-});
 
 import styles from './styles';
 
@@ -70,7 +34,7 @@ export class ContactsFilter extends Component {
       filterOptions.archived,
     ];
     this.state = {
-      filters: filters,
+      filters,
       options,
       toggleOptions,
       selectedFilterId: '',
@@ -116,35 +80,11 @@ export class ContactsFilter extends Component {
   };
 
   handleToggle = item => {
-    const { toggleOptions, filters } = this.state;
-    if (!item) return;
-    let newFilter = { ...filters };
-    const field = item.id;
-    const newValue = !item.selected;
-    newFilter[field] = newValue ? item : undefined;
-    const newToggleOptions = toggleOptions.map(o => ({
-      ...o,
-      selected: o.id === item.id ? newValue : o.selected,
-    }));
-    this.setState({ toggleOptions: newToggleOptions });
-    this.setFilter(newFilter);
+    searchHandleToggle(this, item);
   };
 
   handleSelectFilter = item => {
-    const { options, selectedFilterId, filters } = this.state;
-    const newOptions = options.map(o => ({
-      ...o,
-      preview: o.id === selectedFilterId ? item.text : o.preview,
-    }));
-    let newFilters = {
-      ...filters,
-      [selectedFilterId]: item,
-    };
-    if (item.id === 'any') {
-      delete newFilters[selectedFilterId];
-    }
-    this.setState({ options: newOptions });
-    this.setFilter(newFilters);
+    searchSelectFilter(this, item);
   };
 
   render() {
@@ -152,7 +92,7 @@ export class ContactsFilter extends Component {
     const { options, toggleOptions } = this.state;
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('titleSurvey')} />
+        <Header left={<BackButton />} title={t('title')} />
         <ScrollView style={{ flex: 1 }}>
           {options.map(o => (
             <FilterItem

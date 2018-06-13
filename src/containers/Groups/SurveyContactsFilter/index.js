@@ -8,7 +8,13 @@ import { navigatePush } from '../../../actions/navigation';
 import { getMySurveys } from '../../../actions/surveys';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
-import { buildTrackingObj, isString } from '../../../utils/common';
+import {
+  buildTrackingObj,
+  isString,
+  getFilterOptions,
+  searchHandleToggle,
+  searchSelectFilter,
+} from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
@@ -21,57 +27,20 @@ export class SurveyContactsFilter extends Component {
     super(props);
     const { t, filters } = props;
 
+    const filterOptions = getFilterOptions(t, filters);
     const options = [
-      {
-        id: 'questions',
-        text: t('surveyQuestions'),
-        options: 'questions',
-        preview: filters.questions ? filters.questions.text : undefined,
-      },
-      {
-        id: 'gender',
-        text: t('gender'),
-        options: [
-          { id: 'm', text: t('male') },
-          { id: 'f', text: t('female') },
-          { id: 'o', text: t('other') },
-        ],
-        preview: filters.gender ? filters.gender.text : undefined,
-      },
-      {
-        id: 'time',
-        text: t('time'),
-        options: [
-          { id: 'time7', text: t('time7') },
-          { id: 'time30', text: t('time30') },
-          { id: 'time60', text: t('time60') },
-          { id: 'time90', text: t('time90') },
-          { id: 'time180', text: t('time180') },
-          { id: 'time270', text: t('time270') },
-          { id: 'time365', text: t('time365') },
-        ],
-        preview: filters.time ? filters.time.text : undefined,
-      },
+      filterOptions.questions,
+      filterOptions.gender,
+      filterOptions.time,
     ];
     const toggleOptions = [
-      {
-        id: 'uncontacted',
-        text: t('uncontacted'),
-        selected: !!filters.uncontacted,
-      },
-      {
-        id: 'unassigned',
-        text: t('unassigned'),
-        selected: !!filters.unassigned,
-      },
-      {
-        id: 'archived',
-        text: t('archived'),
-        selected: !!filters.archived,
-      },
+      filterOptions.uncontacted,
+      filterOptions.unassigned,
+      filterOptions.archived,
     ];
+
     this.state = {
-      filters: filters,
+      filters,
       options,
       toggleOptions,
       selectedFilterId: '',
@@ -121,35 +90,11 @@ export class SurveyContactsFilter extends Component {
   };
 
   handleToggle = item => {
-    const { toggleOptions, filters } = this.state;
-    if (!item) return;
-    let newFilter = { ...filters };
-    const field = item.id;
-    const newValue = !item.selected;
-    newFilter[field] = newValue ? item : undefined;
-    const newToggleOptions = toggleOptions.map(o => ({
-      ...o,
-      selected: o.id === item.id ? newValue : o.selected,
-    }));
-    this.setState({ toggleOptions: newToggleOptions });
-    this.setFilter(newFilter);
+    searchHandleToggle(this, item);
   };
 
   handleSelectFilter = item => {
-    const { options, selectedFilterId, filters } = this.state;
-    const newOptions = options.map(o => ({
-      ...o,
-      preview: o.id === selectedFilterId ? item.text : o.preview,
-    }));
-    let newFilters = {
-      ...filters,
-      [selectedFilterId]: item,
-    };
-    if (item.id === 'any') {
-      delete newFilters[selectedFilterId];
-    }
-    this.setState({ options: newOptions });
-    this.setFilter(newFilters);
+    searchSelectFilter(this, item);
   };
 
   render() {

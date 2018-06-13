@@ -8,6 +8,7 @@ import { searchPeople } from '../../actions/people';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
+import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 
@@ -16,16 +17,36 @@ import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @translate('groupsSurveyContacts')
 class SurveyContacts extends Component {
-  state = {
-    filters: {},
+  constructor(props) {
+    super(props);
+    const { t } = props;
+
+    this.state = {
+      filters: {
+        // Default filters
+        unassigned: {
+          id: 'unassigned',
+          selected: true,
+          text: t('searchFilter:unassigned'),
+        },
+        time: { id: 'time30', text: t('searchFilter:time30') },
+      },
+      defaultResults: [],
+    };
+  }
+
+  componentDidMount() {
+    // Use the default filters to load in these people
+    this.loadContactsWithFilters();
+  }
+
+  loadContactsWithFilters = async () => {
+    const contacts = await this.handleSearch('');
+    this.setState({ defaultResults: contacts });
   };
 
-  handleRemoveFilter = async key => {
-    let newFilters = { ...this.state.filters };
-    delete newFilters[key];
-    return await new Promise(resolve =>
-      this.setState({ filters: newFilters }, () => resolve()),
-    );
+  handleRemoveFilter = key => {
+    return searchRemoveFilter(this, key, ['unassigned', 'time']);
   };
 
   handleFilterPress = () => {
@@ -69,13 +90,14 @@ class SurveyContacts extends Component {
 
   render() {
     const { t, organization } = this.props;
-    const { filters } = this.state;
+    const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
       <Flex value={1}>
         <Header left={<BackButton />} title={orgName} />
         <SearchList
           ref={c => (this.searchList = c)}
+          defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (
