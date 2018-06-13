@@ -129,6 +129,7 @@ it('loads celebrate items with pagination', () => {
   const newItems = [
     { id: '25', title: 'Title 25' },
     { id: '26', title: 'Title 26' },
+    { id: '27', title: 'Title 27' },
   ];
 
   const state = organizations(
@@ -169,6 +170,12 @@ it('loads celebrate items with pagination', () => {
 it('loads members for org with paging', () => {
   const orgId = '1';
   const oldMembers = [
+    {
+      id: '0',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
     {
       id: '1',
       contact_count: 1,
