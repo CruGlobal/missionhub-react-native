@@ -163,6 +163,8 @@ describe('getOrganizationsContactReports', () => {
       contactReportsAction,
     ]);
   });
+});
+
 describe('getOrganizationMembers', () => {
   const orgId = '123';
   const query = {
