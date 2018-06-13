@@ -40,17 +40,24 @@ export function getStepSuggestions(isMe, contactStageId) {
   };
 }
 
-export function getMySteps(query = {}) {
-  return dispatch => {
+export function getMySteps() {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().steps.pagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
     const queryObj = {
       order: '-focused_at,-accepted_at',
-      ...query,
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
       filters: {
-        ...(query.filters || {}),
         completed: false,
       },
       include: 'receiver.reverse_contact_assignments',
     };
+
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
 }

@@ -176,7 +176,7 @@ export class StepsScreen extends Component {
     }
 
     this.setState({ paging: true });
-    dispatch(getMyStepsNextPage())
+    dispatch(getMySteps())
       .then(() => {
         // Put a slight delay on stopping the paging so that the new items can populate in the list
         setTimeout(() => this.setState({ paging: false }), 500);

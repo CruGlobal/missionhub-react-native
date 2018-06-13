@@ -41,7 +41,7 @@ class Surveys extends Component {
 
   handleLoadMore = () => {
     const { dispatch, organization } = this.props;
-    dispatch(getOrgSurveysNextPage(organization.id));
+    dispatch(getOrgSurveys(organization.id));
   };
 
   render() {

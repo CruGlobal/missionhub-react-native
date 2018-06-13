@@ -20,7 +20,7 @@ class Celebrate extends Component {
 
   handleLoadMore = () => {
     const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateNextPage(organization.id));
+    dispatch(getGroupCelebrateFeed(organization.id));
   };
 
   render() {
