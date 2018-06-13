@@ -3,9 +3,9 @@ import React from 'react';
 import GroupCardItem from '../../src/components/GroupCardItem';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const contactsCount = 768,
-  unassignedCount = 13,
-  uncontactedCount = 56;
+const contactsCount = 768;
+const unassignedCount = 13;
+const uncontactedCount = 56;
 
 let group = {
   name: 'Group Name',

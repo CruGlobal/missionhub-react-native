@@ -24,6 +24,7 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
       const myOrgs = (results.findAll('organization') || []).map(o => ({
         text: o.name,
+        contactReport: {},
         ...o,
       }));
       return {
@@ -33,6 +34,7 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
       const orgs = (results.findAll('organization') || []).map(o => ({
         text: o.name,
+        contactReport: {},
         ...o,
       }));
       const allOrgs = lodash.uniqBy([].concat(state.all, orgs), 'id');

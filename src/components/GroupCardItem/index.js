@@ -64,6 +64,6 @@ export default class GroupCardItem extends Component {
 GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    contactReport: PropTypes.object,
+    contactReport: PropTypes.object.isRequired,
   }).isRequired,
 };
