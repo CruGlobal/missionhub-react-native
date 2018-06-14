@@ -9,6 +9,7 @@ import {
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
+  DEFAULT_PAGE_LIMIT,
 } from '../constants';
 
 export const shuffleArray = arr => {
@@ -153,3 +154,18 @@ export const getIconName = (type, interaction_type_id) => {
   }
   return null;
 };
+
+export function getPagination(action, currentLength) {
+  const offset =
+    action.query && action.query.page && action.query.page.offset
+      ? action.query.page.offset
+      : 0;
+  const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
+  const total = action.meta ? action.meta.total || 0 : 0;
+  const hasNextPage = total > currentLength;
+
+  return {
+    page: pageNum,
+    hasNextPage,
+  };
+}

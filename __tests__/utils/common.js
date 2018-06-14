@@ -5,8 +5,9 @@ import {
   openMainMenu,
   getIconName,
   shuffleArray,
+  getPagination,
 } from '../../src/utils/common';
-import { MAIN_MENU_DRAWER } from '../../src/constants';
+import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
 jest.mock('react-navigation', () => ({
   DrawerActions: {
@@ -75,5 +76,52 @@ describe('shuffleArray', () => {
   it('reorders array and calls random for each item', () => {
     expect(shuffleArray(inArray)).toEqual(expectedOutArray);
     expect(Math.random).toHaveBeenCalledTimes(inArray.length);
+  });
+});
+
+describe('getPagination', () => {
+  let pagination = {
+    hasNextPage: true,
+    page: 0,
+  };
+
+  let action = {
+    query: {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * pagination.page,
+      },
+    },
+    meta: {
+      total: 56,
+    },
+  };
+
+  it('gets pagination first page', () => {
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
+
+    expect(pagination).toEqual({ hasNextPage: true, page: 1 });
+  });
+
+  it('gets pagination second page', () => {
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
+
+    expect(pagination).toEqual({ hasNextPage: true, page: 2 });
+  });
+
+  it('does not paginate when total is reached', () => {
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+    pagination = getPagination(action, action.meta.total);
+
+    expect(pagination).toEqual({ hasNextPage: false, page: 3 });
   });
 });
