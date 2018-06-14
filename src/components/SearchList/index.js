@@ -39,7 +39,6 @@ class SearchList extends Component {
   };
 
   handleSearch = async text => {
-    // if (!text) return this.clearSearch();
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
