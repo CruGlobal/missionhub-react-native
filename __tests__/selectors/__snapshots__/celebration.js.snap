@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sorts items into sections by date 1`] = `
+Array [
+  Object {
+    "date": "2018-01-07 00:00:00 UTC",
+    "events": Array [
+      Object {
+        "changed_attribute_value": "2018-01-07 00:00:00 UTC",
+        "id": "4",
+      },
+    ],
+    "id": 0,
+  },
+  Object {
+    "date": "2018-01-05 00:00:00 UTC",
+    "events": Array [
+      Object {
+        "changed_attribute_value": "2018-01-05 00:00:00 UTC",
+        "id": "5",
+      },
+    ],
+    "id": 1,
+  },
+  Object {
+    "date": "2018-01-02 00:23:00 UTC",
+    "events": Array [
+      Object {
+        "changed_attribute_value": "2018-01-02 00:23:00 UTC",
+        "id": "6",
+      },
+      Object {
+        "changed_attribute_value": "2018-01-02 00:07:00 UTC",
+        "id": "3",
+      },
+      Object {
+        "changed_attribute_value": "2018-01-02 00:00:00 UTC",
+        "id": "7",
+      },
+    ],
+    "id": 2,
+  },
+  Object {
+    "date": "2018-01-01 00:00:00 UTC",
+    "events": Array [
+      Object {
+        "changed_attribute_value": "2018-01-01 00:00:00 UTC",
+        "id": "1",
+      },
+    ],
+    "id": 3,
+  },
+  Object {
+    "date": "2017-01-01 00:00:00 UTC",
+    "events": Array [
+      Object {
+        "changed_attribute_value": "2017-01-01 00:00:00 UTC",
+        "id": "2",
+      },
+    ],
+    "id": 4,
+  },
+]
+`;

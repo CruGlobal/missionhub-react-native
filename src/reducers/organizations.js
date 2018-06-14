@@ -8,14 +8,17 @@ import {
   GET_ORGANIZATION_MEMBERS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-
-import { getPagination } from './steps';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   all: [],
   surveysPagination: {
     hasNextPage: true,
     page: 1,
+  },
+  celebratePagination: {
+    hasNextPage: true,
+    page: 0,
   },
   membersPagination: {
     hasNextPage: true,
@@ -67,13 +70,14 @@ function organizationsReducer(state = initialState, action) {
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
-      const currentOrg = state.all.find(o => o.id === surveyOrgId);
-      if (!currentOrg) return state; // Return if the organization does not exist
-      const existingSurveys = currentOrg.surveys || [];
+      const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
+      if (!curSurveyOrg) return state; // Return if the organization does not exist
+      const existingSurveys = curSurveyOrg.surveys || [];
       const allSurveys =
         surveyQuery.page && surveyQuery.page.offset > 0
           ? [...existingSurveys, ...surveys]
           : surveys;
+
       return {
         ...state,
         all: surveyOrgId
@@ -82,6 +86,30 @@ function organizationsReducer(state = initialState, action) {
             )
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
+      };
+    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+      const celebrateQuery = action.query;
+      const newItems = action.results.response;
+      const celebrateOrgId = celebrateQuery.orgId;
+      const curCelebrateOrg = state.all.find(o => o.id === celebrateOrgId);
+      if (!curCelebrateOrg) return state; // Return if the organization does not exist
+      const existingItems = curCelebrateOrg.celebrateItems || [];
+      const allItems =
+        celebrateQuery.page && celebrateQuery.page.offset > 0
+          ? [...existingItems, ...newItems]
+          : newItems;
+
+      return {
+        ...state,
+        all: celebrateOrgId
+          ? state.all.map(
+              o =>
+                o.id === celebrateOrgId
+                  ? { ...o, celebrateItems: allItems }
+                  : o,
+            )
+          : state.all,
+        celebratePagination: getPagination(action, allItems.length),
       };
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
