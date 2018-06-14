@@ -43,9 +43,6 @@ export class ContactsFilter extends Component {
 
   componentWillMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
-    // if (!this.props.surveys.length) {
-    //   this.props.dispatch(getSurveyQuestions());
-    // }
     Keyboard.dismiss();
   }
 

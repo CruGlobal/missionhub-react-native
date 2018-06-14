@@ -115,15 +115,4 @@ Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization }) => {
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
-  return {
-    contacts: (selectorOrg || {}).contacts || [],
-    pagination: organizations.surveysPagination,
-  };
-};
-
-export default connect(mapStateToProps)(Contacts);
+export default connect()(Contacts);

@@ -208,7 +208,7 @@ export const searchHandleToggle = (scope, item) => {
   let newFilter = { ...filters };
   const field = item.id;
   const newValue = !item.selected;
-  newFilter[field] = newValue ? item : undefined;
+  newFilter[field] = newValue ? { ...item, selected: true } : undefined;
   const newToggleOptions = toggleOptions.map(o => ({
     ...o,
     selected: o.id === item.id ? newValue : o.selected,

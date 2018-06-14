@@ -12,6 +12,14 @@ jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
+const people = [{ id: '1' }, { id: '2' }];
+jest.mock('../../../actions/people', () => ({
+  searchPeople: jest.fn(() => ({
+    type: 'test',
+    findAll: () => [{ id: '1' }, { id: '2' }],
+  })),
+}));
+
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
 const survey = { id: '11' };
@@ -30,19 +38,33 @@ describe('SurveyContacts', () => {
     testSnapshotShallow(component, store);
   });
 
+  it('should load contacts with filter', async () => {
+    const instance = renderShallow(component, store).instance();
+    instance.handleSearch = jest.fn(() => Promise.resolve(people));
+    await instance.loadContactsWithFilters();
+    expect(instance.state.defaultResults).toEqual(people);
+  });
+
   it('should handleFilterPress correctly', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleFilterPress();
-    expect(instance.state.filters.filter1).toMatchObject({
-      id: 'filter1',
-      text: 'Last 30 days',
-    });
+    expect(navigatePush).toHaveBeenCalled();
+  });
+
+  it('should handleChangeFilter correctly', () => {
+    const instance = renderShallow(component, store).instance();
+    const newFilters = {
+      filter1: { id: '1' },
+    };
+    instance.handleChangeFilter(newFilters);
+    expect(instance.state.filters).toEqual(newFilters);
   });
 
   it('should handleSearch correctly', async () => {
     const instance = renderShallow(component, store).instance();
+
     const result = await instance.handleSearch('test');
-    expect(result).toHaveLength(4);
+    expect(result).toEqual(people);
   });
 
   it('should handleRemoveFilter correctly', async () => {
