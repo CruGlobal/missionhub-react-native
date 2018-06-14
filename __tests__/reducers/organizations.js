@@ -6,7 +6,6 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
 } from '../../src/constants';
-import { REQUESTS } from '../../src/actions/api';
 
 const org1Id = '123';
 const org2Id = '234';
