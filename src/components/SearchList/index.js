@@ -80,7 +80,7 @@ class SearchList extends Component {
           value={text}
           style={styles.input}
           autoFocus={false}
-          selectionColor="white"
+          selectionColor={theme.grey2}
           returnKeyType="done"
           blurOnSubmit={true}
           style={styles.input}

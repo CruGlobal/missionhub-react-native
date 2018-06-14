@@ -34,7 +34,9 @@ describe('getMySurveys', () => {
 describe('getOrgSurveys', () => {
   const orgId = '123';
   const query = {
-    organization_ids: orgId,
+    filters: {
+      organization_ids: orgId,
+    },
   };
   const surveys = [
     {
@@ -80,7 +82,9 @@ describe('getOrgSurveysNextPage', () => {
       limit: 25,
       offset: 25,
     },
-    organization_ids: orgId,
+    filters: {
+      organization_ids: orgId,
+    },
   };
   const surveys = [
     {
