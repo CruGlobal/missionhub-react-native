@@ -82,14 +82,14 @@ describe('shuffleArray', () => {
 describe('getPagination', () => {
   let pagination = {
     hasNextPage: true,
-    page: 1,
+    page: 0,
   };
 
   let action = {
     query: {
       page: {
         limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * pagination.page,
       },
     },
     meta: {
@@ -98,42 +98,30 @@ describe('getPagination', () => {
   };
 
   it('gets pagination first page', () => {
-    pagination = getPagination(action, DEFAULT_PAGE_LIMIT * pagination.page);
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
+
+    expect(pagination).toEqual({ hasNextPage: true, page: 1 });
+  });
+
+  it('gets pagination second page', () => {
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
 
     expect(pagination).toEqual({ hasNextPage: true, page: 2 });
   });
 
-  it('gets pagination second page', () => {
-    action = {
-      ...action,
-      query: {
-        ...action.query,
-        page: {
-          ...action.query.page,
-          offset: DEFAULT_PAGE_LIMIT * pagination.page,
-        },
-      },
-    };
-
-    pagination = getPagination(action, DEFAULT_PAGE_LIMIT * pagination.page);
-
-    expect(pagination).toEqual({ hasNextPage: true, page: 3 });
-  });
-
   it('does not paginate when total is reached', () => {
-    action = {
-      ...action,
-      query: {
-        ...action.query,
-        page: {
-          ...action.query.page,
-          offset: DEFAULT_PAGE_LIMIT * pagination.page,
-        },
-      },
-    };
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
 
     pagination = getPagination(action, action.meta.total);
 
-    expect(pagination).toEqual({ hasNextPage: false, page: 4 });
+    expect(pagination).toEqual({ hasNextPage: false, page: 3 });
   });
 });
