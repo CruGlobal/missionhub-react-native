@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GroupCardItem renders with no unassigned and no uncontacted 1`] = `
+exports[`GroupCardItem renders with all report counts 1`] = `
 <Card
   onPress={[Function]}
   style={
@@ -41,106 +41,71 @@ exports[`GroupCardItem renders with no unassigned and no uncontacted 1`] = `
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      >
-        768 Contacts
-      </MyText>
-    </Flex>
-  </Flex>
-</Card>
-`;
-
-exports[`GroupCardItem renders with unassigned and no uncontacted 1`] = `
-<Card
-  onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
-      "paddingHorizontal": 13,
-      "paddingVertical": 16,
-    }
-  }
->
-  <Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      GROUP NAME
-    </MyText>
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "paddingTop": 4,
-        }
-      }
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      >
-        768 Contacts
-      </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-            ·  
-        </MyText>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#FF5532",
+              "color": "#B2B0B2",
               "fontSize": 12,
             }
           }
         >
-          13 Unassigned
+          768 Contacts
         </MyText>
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+              ·  
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 12,
+              }
+            }
+          >
+            13 Unassigned
+          </MyText>
+        </React.Fragment>
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+              ·  
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 12,
+              }
+            }
+          >
+            56 Uncontacted
+          </MyText>
+        </React.Fragment>
       </React.Fragment>
     </Flex>
   </Flex>
 </Card>
 `;
 
-exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
+exports[`GroupCardItem renders with contacts and unassigned, no uncontacted 1`] = `
 <Card
   onPress={[Function]}
   style={
@@ -181,61 +146,185 @@ exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      >
-        768 Contacts
-      </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-            ·  
-        </MyText>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#FF5532",
+              "color": "#B2B0B2",
               "fontSize": 12,
             }
           }
         >
-          13 Unassigned
+          768 Contacts
         </MyText>
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+              ·  
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 12,
+              }
+            }
+          >
+            13 Unassigned
+          </MyText>
+        </React.Fragment>
       </React.Fragment>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`GroupCardItem renders with contacts and uncontacted, no unassigned 1`] = `
+<Card
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      GROUP NAME
+    </MyText>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "paddingTop": 4,
+        }
+      }
+    >
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-            ·  
-        </MyText>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#FF5532",
+              "color": "#B2B0B2",
               "fontSize": 12,
             }
           }
         >
-          56 Uncontacted
+          768 Contacts
+        </MyText>
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+              ·  
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 12,
+              }
+            }
+          >
+            56 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </React.Fragment>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`GroupCardItem renders with contacts, no unassigned and no uncontacted 1`] = `
+<Card
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      GROUP NAME
+    </MyText>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "paddingTop": 4,
+        }
+      }
+    >
+      <React.Fragment>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            }
+          }
+        >
+          768 Contacts
         </MyText>
       </React.Fragment>
     </Flex>
@@ -243,7 +332,7 @@ exports[`GroupCardItem renders with unassigned and uncontacted 1`] = `
 </Card>
 `;
 
-exports[`GroupCardItem renders with uncontacted and no unassigned 1`] = `
+exports[`GroupCardItem renders with no report counts 1`] = `
 <Card
   onPress={[Function]}
   style={
@@ -283,43 +372,7 @@ exports[`GroupCardItem renders with uncontacted and no unassigned 1`] = `
           "paddingTop": 4,
         }
       }
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          }
-        }
-      >
-        768 Contacts
-      </MyText>
-      <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-            ·  
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 12,
-            }
-          }
-        >
-          56 Uncontacted
-        </MyText>
-      </React.Fragment>
-    </Flex>
+    />
   </Flex>
 </Card>
 `;

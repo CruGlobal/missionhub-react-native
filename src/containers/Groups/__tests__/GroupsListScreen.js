@@ -11,18 +11,12 @@ const store = createMockStore({
   organizations: {
     all: [
       {
-        id: '123',
-        name: 'Cru at Boston University',
-        contacts: 768,
-        unassigned: 13,
-        uncontacted: 43,
+        id: '1',
+        name: 'Test Org 1',
       },
       {
-        id: '456',
-        name: 'Cru at Boston University Northeast Branch',
-        contacts: 768,
-        unassigned: 0,
-        uncontacted: 0,
+        id: '2',
+        name: 'Test Org 2',
       },
     ],
   },

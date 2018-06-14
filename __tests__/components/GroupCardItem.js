@@ -3,9 +3,13 @@ import React from 'react';
 import GroupCardItem from '../../src/components/GroupCardItem';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
+const contactsCount = 768;
+const unassignedCount = 13;
+const uncontactedCount = 56;
+
 let group = {
   name: 'Group Name',
-  contacts: 768,
+  contactReport: {},
 };
 
 const test = () => {
@@ -13,41 +17,53 @@ const test = () => {
 };
 
 describe('GroupCardItem', () => {
-  it('renders with unassigned and uncontacted', () => {
+  it('renders with no report counts', () => {
+    test();
+  });
+
+  it('renders with all report counts', () => {
     group = {
       ...group,
-      unassigned: 13,
-      uncontacted: 56,
+      contactReport: {
+        contactsCount,
+        unassignedCount,
+        uncontactedCount,
+      },
     };
 
     test();
   });
 
-  it('renders with unassigned and no uncontacted', () => {
+  it('renders with contacts and unassigned, no uncontacted', () => {
     group = {
       ...group,
-      unassigned: 13,
-      uncontacted: 0,
+      contactReport: {
+        contactsCount,
+        unassignedCount,
+      },
     };
 
     test();
   });
 
-  it('renders with uncontacted and no unassigned', () => {
+  it('renders with contacts and uncontacted, no unassigned', () => {
     group = {
       ...group,
-      unassigned: 0,
-      uncontacted: 56,
+      contactReport: {
+        contactsCount,
+        uncontactedCount,
+      },
     };
 
     test();
   });
 
-  it('renders with no unassigned and no uncontacted', () => {
+  it('renders with contacts, no unassigned and no uncontacted', () => {
     group = {
       ...group,
-      unassigned: 0,
-      uncontacted: 0,
+      contactReport: {
+        contactsCount,
+      },
     };
 
     test();

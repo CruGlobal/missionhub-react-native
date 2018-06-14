@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import {
   GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
 } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';
@@ -12,6 +13,7 @@ import {
   getAssignedOrganizations,
   getMyOrganizations,
   getOrganizationContacts,
+  getOrganizationsContactReports,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../src/actions/organizations';
@@ -107,6 +109,59 @@ describe('getOrganizationContacts', () => {
 
     await store.dispatch(getOrganizationContacts(orgId));
     expect(store.getActions()).toEqual([peopleListResponse, getContactsAction]);
+  });
+});
+
+describe('getOrganizationsContactReports', () => {
+  const contactReportsResponse = {
+    type: 'successful',
+    response: [
+      {
+        organization_id: '123',
+        contact_count: 23,
+        unassigned_count: 45,
+        uncontacted_count: 67,
+      },
+      {
+        organization_id: '456',
+        contact_count: 89,
+        unassigned_count: 10,
+        uncontacted_count: 23,
+      },
+    ],
+  };
+  const contactReportsAction = {
+    type: GET_ORGANIZATIONS_CONTACTS_REPORT,
+    reports: [
+      {
+        id: contactReportsResponse.response[0].organization_id,
+        contactsCount: contactReportsResponse.response[0].contact_count,
+        unassignedCount: contactReportsResponse.response[0].unassigned_count,
+        uncontactedCount: contactReportsResponse.response[0].uncontacted_count,
+      },
+      {
+        id: contactReportsResponse.response[1].organization_id,
+        contactsCount: contactReportsResponse.response[1].contact_count,
+        unassignedCount: contactReportsResponse.response[1].unassigned_count,
+        uncontactedCount: contactReportsResponse.response[1].uncontacted_count,
+      },
+    ],
+  };
+
+  it('should get contact reports and dispatch to API', async () => {
+    mockFnWithParams(
+      api,
+      'default',
+      contactReportsResponse,
+      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
+      { period: 'P1W' },
+    );
+
+    await store.dispatch(getOrganizationsContactReports());
+    expect(store.getActions()).toEqual([
+      contactReportsResponse,
+      contactReportsAction,
+    ]);
   });
 });
 

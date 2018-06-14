@@ -19,7 +19,10 @@ import { getStagesIfNotExists } from './stages';
 import { getMySteps } from './steps';
 import callApi, { REQUESTS } from './api';
 import { onSuccessfulLogin } from './login';
-import { getAssignedOrganizations } from './organizations';
+import {
+  getMyOrganizations,
+  getOrganizationsContactReports,
+} from './organizations';
 import { resetPerson } from './onboardingProfile';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
@@ -189,7 +192,8 @@ export function loadHome() {
   return async dispatch => {
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
-    dispatch(getAssignedOrganizations());
+    dispatch(getMyOrganizations());
+    dispatch(getOrganizationsContactReports());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());

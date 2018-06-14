@@ -1,5 +1,6 @@
 import {
   GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
@@ -26,6 +27,25 @@ export function getAssignedOrganizations() {
 
 function getOrganizations(requestObject, query) {
   return dispatch => dispatch(callApi(requestObject, query));
+}
+
+export function getOrganizationsContactReports() {
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
+    );
+
+    dispatch({
+      type: GET_ORGANIZATIONS_CONTACTS_REPORT,
+      reports: response.map(r => ({
+        id: `${r.organization_id}`,
+        contactsCount: r.contact_count,
+        unassignedCount: r.unassigned_count,
+        uncontactedCount: r.uncontacted_count,
+      })),
+    });
+    return response;
+  };
 }
 
 export function getOrganizationContacts(orgId) {
