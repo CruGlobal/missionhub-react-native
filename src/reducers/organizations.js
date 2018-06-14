@@ -3,7 +3,9 @@ import lodash from 'lodash';
 import {
   LOGOUT,
   GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
+  GET_ORGANIZATION_MEMBERS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 
@@ -15,6 +17,10 @@ const initialState = {
     hasNextPage: true,
     page: 1,
   },
+  membersPagination: {
+    hasNextPage: true,
+    page: 1,
+  },
 };
 
 function organizationsReducer(state = initialState, action) {
@@ -23,6 +29,7 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
       const myOrgs = (results.findAll('organization') || []).map(o => ({
         text: o.name,
+        contactReport: {},
         ...o,
       }));
       return {
@@ -32,6 +39,7 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
       const orgs = (results.findAll('organization') || []).map(o => ({
         text: o.name,
+        contactReport: {},
         ...o,
       }));
       const allOrgs = lodash.uniqBy([].concat(state.all, orgs), 'id');
@@ -47,6 +55,15 @@ function organizationsReducer(state = initialState, action) {
         all: orgId
           ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
           : state.all,
+      };
+    case GET_ORGANIZATIONS_CONTACTS_REPORT:
+      const { reports } = action;
+      return {
+        ...state,
+        all: state.all.map(o => {
+          const contactReport = reports.find(r => r.id === o.id);
+          return contactReport ? { ...o, contactReport } : o;
+        }),
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
@@ -65,6 +82,24 @@ function organizationsReducer(state = initialState, action) {
             )
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
+      };
+    case GET_ORGANIZATION_MEMBERS:
+      const { orgId: memberOrgId, query: memberQuery, members } = action;
+      const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
+      if (!currentMemberOrg) return state; // Return if the organization does not exist
+      const existingMembers = currentMemberOrg.members || [];
+      const allMembers =
+        memberQuery.page && memberQuery.page.offset > 0
+          ? [...existingMembers, ...members]
+          : members;
+      return {
+        ...state,
+        all: memberOrgId
+          ? state.all.map(
+              o => (o.id === memberOrgId ? { ...o, members: allMembers } : o),
+            )
+          : state.all,
+        membersPagination: getPagination(action, allMembers.length),
       };
     case LOGOUT:
       return initialState;

@@ -1,12 +1,16 @@
 import organizations from '../../src/reducers/organizations';
+import { REQUESTS } from '../../src/actions/api';
 import {
   GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
+  GET_ORGANIZATION_MEMBERS,
 } from '../../src/constants';
 
-const orgId = '123';
+const org1Id = '123';
+const org2Id = '234';
 const initialState = {
-  all: [{ id: orgId, name: 'test org' }],
+  all: [{ id: org1Id, name: 'test org 1' }, { id: org2Id, name: 'test org 2' }],
 };
 const contacts = [
   {
@@ -17,11 +21,35 @@ const contacts = [
   },
 ];
 
+const reports = [
+  {
+    id: org1Id,
+    contactsCount: 12,
+    unassignedCount: 10,
+    uncontactedCount: 10,
+  },
+  {
+    id: org2Id,
+    contactsCount: 23,
+    unassignedCount: 10,
+    uncontactedCount: 14,
+  },
+];
+
 it('should load contacts to an organization', () => {
   const state = organizations(initialState, {
     type: GET_ORGANIZATION_CONTACTS,
     contacts,
-    orgId,
+    orgId: org1Id,
+  });
+
+  expect(state).toMatchSnapshot();
+});
+
+it('should load contact reports for all organizations', () => {
+  const state = organizations(initialState, {
+    type: GET_ORGANIZATIONS_CONTACTS_REPORT,
+    reports,
   });
 
   expect(state).toMatchSnapshot();
@@ -92,4 +120,210 @@ it('loads surveys for org with paging', () => {
   );
 
   expect(state.surveysPagination).toEqual({ hasNextPage: false, page: 2 });
+});
+
+it('loads members for org with paging', () => {
+  const orgId = '1';
+  const oldMembers = [
+    {
+      id: '1',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '2',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '3',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '4',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '5',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '6',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '7',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '8',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '9',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '10',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '11',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '12',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '13',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '14',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '15',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '16',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '17',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '18',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '19',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '20',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '21',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '22',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '23',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '24',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+  ];
+  const newMembers = [
+    {
+      id: '25',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '26',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+    {
+      id: '27',
+      contact_count: 1,
+      uncontacted_count: 1,
+      contacts_with_interaction_count: 1,
+    },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          members: oldMembers,
+        },
+      ],
+      membersPagination: {
+        hasNextPage: true,
+        page: 1,
+      },
+    },
+    {
+      type: GET_ORGANIZATION_MEMBERS,
+      orgId: orgId,
+      query: {
+        page: {
+          limit: 25,
+          offset: 25,
+        },
+        organization_id: orgId,
+        filters: {
+          permissions: 'admin,user',
+        },
+        include: 'contact_assignments,organizational_permissions',
+      },
+      meta: {
+        total: 28,
+      },
+      members: newMembers,
+    },
+  );
+
+  expect(state.membersPagination).toEqual({ hasNextPage: false, page: 2 });
 });

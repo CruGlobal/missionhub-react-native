@@ -19,6 +19,7 @@ jest.mock('../../../actions/people', () => ({
 }));
 
 const store = createMockStore({});
+
 const organization = { id: '1', name: 'Test Org' };
 
 describe('Contacts', () => {
