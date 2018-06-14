@@ -15,7 +15,9 @@ export function getMySurveys() {
 export function getOrgSurveys(orgId, query = {}) {
   const newQuery = {
     ...query,
-    organization_id: orgId,
+    filters: {
+      organization_ids: orgId,
+    },
   };
   return async dispatch => {
     const { response, meta } = await dispatch(

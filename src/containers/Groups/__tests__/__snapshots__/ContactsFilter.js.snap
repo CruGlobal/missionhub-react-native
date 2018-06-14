@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactsFilter should render correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    title="Filter"
+  />
+  <ScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Translate(FilterItem)
+      item={
+        Object {
+          "id": "gender",
+          "options": Array [
+            Object {
+              "id": "m",
+              "text": "Male",
+            },
+            Object {
+              "id": "f",
+              "text": "Female",
+            },
+            Object {
+              "id": "o",
+              "text": "Other",
+            },
+          ],
+          "preview": undefined,
+          "text": "Gender",
+        }
+      }
+      key="gender"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <Translate(FilterItem)
+      item={
+        Object {
+          "id": "time",
+          "options": Array [
+            Object {
+              "id": "time7",
+              "text": "Last 7 days",
+            },
+            Object {
+              "id": "time30",
+              "text": "Last 30 days",
+            },
+            Object {
+              "id": "time60",
+              "text": "Last 60 days",
+            },
+            Object {
+              "id": "time90",
+              "text": "Last 90 days",
+            },
+            Object {
+              "id": "time180",
+              "text": "Last 6 Months",
+            },
+            Object {
+              "id": "time270",
+              "text": "Last 9 Months",
+            },
+            Object {
+              "id": "time365",
+              "text": "Last 12 Months",
+            },
+          ],
+          "preview": "Last 30 days",
+          "text": "Time Period",
+        }
+      }
+      key="time"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <Translate(FilterItem)
+      isSelected={false}
+      item={
+        Object {
+          "id": "uncontacted",
+          "selected": false,
+          "text": "Uncontacted",
+        }
+      }
+      key="uncontacted"
+      onSelect={[Function]}
+      type="switch"
+    />
+    <Translate(FilterItem)
+      isSelected={true}
+      item={
+        Object {
+          "id": "unassigned",
+          "selected": true,
+          "text": "Unassigned",
+        }
+      }
+      key="unassigned"
+      onSelect={[Function]}
+      type="switch"
+    />
+    <Translate(FilterItem)
+      isSelected={false}
+      item={
+        Object {
+          "id": "archived",
+          "selected": false,
+          "text": "Include Archived Contacts",
+        }
+      }
+      key="archived"
+      onSelect={[Function]}
+      type="switch"
+    />
+  </ScrollView>
+</Component>
+`;

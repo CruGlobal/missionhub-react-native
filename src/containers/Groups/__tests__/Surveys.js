@@ -76,6 +76,7 @@ describe('Surveys', () => {
         surveysPagination: { hasNextPage: true },
       },
     });
+
     const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(getOrgSurveys).toHaveBeenCalled();
