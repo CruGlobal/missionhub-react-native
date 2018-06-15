@@ -5,6 +5,7 @@ import {
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
+  DEFAULT_PAGE_LIMIT,
 } from '../constants';
 import {
   buildTrackingObj,
@@ -16,7 +17,6 @@ import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import { DEFAULT_PAGE_LIMIT } from '../constants';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';

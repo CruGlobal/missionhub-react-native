@@ -8,7 +8,9 @@ exports[`renders correctly 1`] = `
       "testUri": "../../../assets/images/add_someone.png",
     }
   }
-  mainText="Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?"
+  mainText="Growing closer to God involves helping others experience Him.
+
+Take a moment and pray. Who do you want to take steps of faith with?"
   onComplete={[Function]}
 />
 `;

@@ -1,4 +1,9 @@
-import { GET_ORGANIZATION_CONTACTS } from '../constants';
+import {
+  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATIONS_CONTACTS_REPORT,
+  GET_ORGANIZATION_MEMBERS,
+  DEFAULT_PAGE_LIMIT,
+} from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -24,6 +29,25 @@ function getOrganizations(requestObject, query) {
   return dispatch => dispatch(callApi(requestObject, query));
 }
 
+export function getOrganizationsContactReports() {
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, { period: 'P1W' }),
+    );
+
+    dispatch({
+      type: GET_ORGANIZATIONS_CONTACTS_REPORT,
+      reports: response.map(r => ({
+        id: `${r.organization_id}`,
+        contactsCount: r.contact_count,
+        unassignedCount: r.unassigned_count,
+        uncontactedCount: r.uncontacted_count,
+      })),
+    });
+    return response;
+  };
+}
+
 export function getOrganizationContacts(orgId) {
   const query = {
     organization_id: orgId,
@@ -39,6 +63,74 @@ export function getOrganizationContacts(orgId) {
     );
     dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
     return response;
+  };
+}
+
+export function getOrganizationMembers(orgId, query = {}) {
+  const newQuery = {
+    ...query,
+    organization_id: orgId,
+    filters: {
+      permissions: 'admin,user',
+    },
+    include: 'contact_assignments,organizational_permissions',
+  };
+  return async dispatch => {
+    const { response: members, meta } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
+    );
+
+    const memberIds = members.map(m => m.id);
+    const reportQuery = {
+      people_ids: memberIds.join(','),
+      period: 'P1Y',
+    };
+    const { response: reportResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
+    );
+
+    // Get an object with { [key = person_id]: [value = { counts }] }
+    const reportsCountObj = reportResponse.reduce(
+      (p, n) => ({
+        ...p,
+        [`${n.person_id}`]: {
+          contact_count: n.contact_count,
+          uncontacted_count: n.uncontacted_count,
+          contacts_with_interaction_count: n.contacts_with_interaction_count,
+        },
+      }),
+      {},
+    );
+    // Merge the counts into the members array
+    const membersWithCounts = members.map(m => ({
+      ...m,
+      ...(reportsCountObj[m.id] || {}),
+    }));
+
+    dispatch({
+      type: GET_ORGANIZATION_MEMBERS,
+      orgId,
+      members: membersWithCounts,
+      query: newQuery,
+      meta,
+    });
+    return membersWithCounts;
+  };
+}
+
+export function getOrganizationMembersNextPage(orgId) {
+  return (dispatch, getState) => {
+    const { page, hasNextPage } = getState().organizations.membersPagination;
+    if (!hasNextPage) {
+      return Promise.reject('NoMoreData');
+    }
+    const query = {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * page,
+      },
+    };
+    return dispatch(getOrganizationMembers(orgId, query));
   };
 }
 

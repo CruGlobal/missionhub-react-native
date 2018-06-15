@@ -65,6 +65,18 @@ describe('Surveys', () => {
   });
 
   it('should mount correctly', () => {
+    const store = createMockStore({
+      organizations: {
+        all: [
+          {
+            id: '1',
+            surveys: [],
+          },
+        ],
+        surveysPagination: { hasNextPage: true },
+      },
+    });
+
     const instance = renderShallow(component, store).instance();
     instance.componentDidMount();
     expect(getOrgSurveys).toHaveBeenCalled();

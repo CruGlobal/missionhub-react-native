@@ -5,7 +5,20 @@ exports[`Contacts should render correctly 1`] = `
   value={1}
 >
   <Translate(SearchList)
-    filters={Object {}}
+    defaultData={Array []}
+    filters={
+      Object {
+        "time": Object {
+          "id": "time30",
+          "text": "Last 30 days",
+        },
+        "unassigned": Object {
+          "id": "unassigned",
+          "selected": true,
+          "text": "Unassigned",
+        },
+      }
+    }
     listProps={
       Object {
         "renderItem": [Function],

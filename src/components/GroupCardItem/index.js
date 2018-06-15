@@ -16,28 +16,42 @@ export default class GroupCardItem extends Component {
 
   render() {
     const { t, group } = this.props;
+    const {
+      contactsCount,
+      unassignedCount,
+      uncontactedCount,
+    } = group.contactReport;
+
     return (
       <Card onPress={this.handlePress} style={styles.row}>
         <Flex>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.contactRow}>
-            <Text style={styles.contacts}>
-              {t('numContacts', { number: group.contacts })}
-            </Text>
-            {group.unassigned ? (
+            {contactsCount ? (
               <Fragment>
-                <Text style={styles.contact}>{'  ·  '}</Text>
-                <Text style={styles.unassigned}>
-                  {t('numUnassigned', { number: group.unassigned })}
+                <Text style={styles.contacts}>
+                  {t('numContacts', { number: contactsCount })}
                 </Text>
-              </Fragment>
-            ) : null}
-            {group.uncontacted ? (
-              <Fragment>
-                <Text style={styles.contact}>{'  ·  '}</Text>
-                <Text style={styles.unassigned}>
-                  {t('numUncontacted', { number: group.uncontacted })}
-                </Text>
+                {unassignedCount ? (
+                  <Fragment>
+                    <Text style={styles.contact}>{'  ·  '}</Text>
+                    <Text style={styles.unassigned}>
+                      {t('numUnassigned', {
+                        number: unassignedCount,
+                      })}
+                    </Text>
+                  </Fragment>
+                ) : null}
+                {uncontactedCount ? (
+                  <Fragment>
+                    <Text style={styles.contact}>{'  ·  '}</Text>
+                    <Text style={styles.unassigned}>
+                      {t('numUncontacted', {
+                        number: uncontactedCount,
+                      })}
+                    </Text>
+                  </Fragment>
+                ) : null}
               </Fragment>
             ) : null}
           </Flex>
@@ -50,8 +64,6 @@ export default class GroupCardItem extends Component {
 GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    contacts: PropTypes.number,
-    unassigned: PropTypes.number,
-    uncontacted: PropTypes.number,
+    contactReport: PropTypes.object.isRequired,
   }).isRequired,
 };

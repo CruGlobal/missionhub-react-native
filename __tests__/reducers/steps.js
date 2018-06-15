@@ -1,5 +1,5 @@
 import { REQUESTS } from '../../src/actions/api';
-import steps, { getPagination } from '../../src/reducers/steps';
+import steps from '../../src/reducers/steps';
 import { COMPLETED_STEP_COUNT, TOGGLE_STEP_FOCUS } from '../../src/constants';
 
 it('loads step suggestions for me', () => {
@@ -146,30 +146,6 @@ it('adds new items to existing mine array', () => {
 
   expect(state.mine.length).toEqual(26);
   expect(state.pagination).toEqual({ page: 2, hasNextPage: false });
-});
-
-it('get pagination works', () => {
-  const result = getPagination(
-    {
-      query: { page: { offset: 25 } },
-      meta: { total: 51 },
-    },
-    25,
-  );
-
-  expect(result).toEqual({ page: 2, hasNextPage: true });
-});
-
-it('get pagination works for total', () => {
-  const result = getPagination(
-    {
-      query: { page: { offset: 25 } },
-      meta: { total: 50 },
-    },
-    25,
-  );
-
-  expect(result).toEqual({ page: 2, hasNextPage: false });
 });
 
 it('receives reminders', () => {

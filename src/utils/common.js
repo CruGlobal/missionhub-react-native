@@ -9,6 +9,7 @@ import {
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
+  DEFAULT_PAGE_LIMIT,
 } from '../constants';
 
 export const shuffleArray = arr => {
@@ -153,3 +154,115 @@ export const getIconName = (type, interaction_type_id) => {
   }
   return null;
 };
+
+export const getFilterOptions = (t, filters) => ({
+  questions: {
+    id: 'questions',
+    text: t('searchFilter:surveyQuestions'),
+    options: 'questions',
+    preview: filters.questions ? filters.questions.text : undefined,
+  },
+  gender: {
+    id: 'gender',
+    text: t('searchFilter:gender'),
+    options: [
+      { id: 'm', text: t('searchFilter:male') },
+      { id: 'f', text: t('searchFilter:female') },
+      { id: 'o', text: t('searchFilter:other') },
+    ],
+    preview: filters.gender ? filters.gender.text : undefined,
+  },
+  time: {
+    id: 'time',
+    text: t('searchFilter:time'),
+    options: [
+      { id: 'time7', text: t('searchFilter:time7') },
+      { id: 'time30', text: t('searchFilter:time30') },
+      { id: 'time60', text: t('searchFilter:time60') },
+      { id: 'time90', text: t('searchFilter:time90') },
+      { id: 'time180', text: t('searchFilter:time180') },
+      { id: 'time270', text: t('searchFilter:time270') },
+      { id: 'time365', text: t('searchFilter:time365') },
+    ],
+    preview: filters.time ? filters.time.text : undefined,
+  },
+  uncontacted: {
+    id: 'uncontacted',
+    text: t('searchFilter:uncontacted'),
+    selected: !!filters.uncontacted,
+  },
+  unassigned: {
+    id: 'unassigned',
+    text: t('searchFilter:unassigned'),
+    selected: !!filters.unassigned,
+  },
+  archived: {
+    id: 'archived',
+    text: t('searchFilter:archived'),
+    selected: !!filters.archived,
+  },
+});
+
+export const searchHandleToggle = (scope, item) => {
+  const { toggleOptions, filters } = scope.state;
+  if (!item) return;
+  let newFilter = { ...filters };
+  const field = item.id;
+  const newValue = !item.selected;
+  newFilter[field] = newValue ? { ...item, selected: true } : undefined;
+  const newToggleOptions = toggleOptions.map(o => ({
+    ...o,
+    selected: o.id === item.id ? newValue : o.selected,
+  }));
+  scope.setState({ toggleOptions: newToggleOptions });
+  scope.setFilter(newFilter);
+};
+
+export const searchSelectFilter = (scope, item) => {
+  const { options, selectedFilterId, filters } = scope.state;
+  const newOptions = options.map(o => ({
+    ...o,
+    preview: o.id === selectedFilterId ? item.text : o.preview,
+  }));
+  let newFilters = {
+    ...filters,
+    [selectedFilterId]: item,
+  };
+  if (item.id === 'any') {
+    delete newFilters[selectedFilterId];
+  }
+  scope.setState({ options: newOptions });
+  scope.setFilter(newFilters);
+};
+
+export const searchRemoveFilter = async (
+  scope,
+  key,
+  defaultFilterKeys = [],
+) => {
+  let newFilters = { ...scope.state.filters };
+  delete newFilters[key];
+  let newState = { filters: newFilters };
+  // If one of the default filters is removed, remove the default contacts to show
+  if (defaultFilterKeys.includes(key)) {
+    newState.defaultResults = [];
+  }
+  return await new Promise(resolve =>
+    scope.setState(newState, () => resolve()),
+  );
+};
+
+export function getPagination(action, currentLength) {
+  const offset =
+    action.query && action.query.page && action.query.page.offset
+      ? action.query.page.offset
+      : 0;
+  const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
+  const total = action.meta ? action.meta.total || 0 : 0;
+  const hasNextPage = total > currentLength;
+
+  return {
+    page: pageNum,
+    hasNextPage,
+  };
+}

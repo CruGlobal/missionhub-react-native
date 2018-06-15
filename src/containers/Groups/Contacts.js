@@ -4,48 +4,82 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
+import { searchPeople } from '../../actions/people';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
+import { organizationSelector } from '../../selectors/organizations';
+import { searchRemoveFilter } from '../../utils/common';
 
 import { GROUPS_CONTACT } from './Contact';
+import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
 @translate('groupsContacts')
 class Contacts extends Component {
-  state = {
-    filters: {},
+  constructor(props) {
+    super(props);
+    const { t } = props;
+
+    this.state = {
+      filters: {
+        // Default filters
+        unassigned: {
+          id: 'unassigned',
+          selected: true,
+          text: t('searchFilter:unassigned'),
+        },
+        time: { id: 'time30', text: t('searchFilter:time30') },
+      },
+      defaultResults: [],
+    };
+  }
+
+  componentDidMount() {
+    // TODO: Only do this when this tab is focused to improve performance
+    // Use the default filters to load in these people
+    this.loadContactsWithFilters();
+  }
+
+  loadContactsWithFilters = async () => {
+    const contacts = await this.handleSearch('');
+    this.setState({ defaultResults: contacts });
   };
 
-  handleRemoveFilter = async key => {
-    let newFilters = { ...this.state.filters };
-    delete newFilters[key];
-    return await new Promise(resolve =>
-      this.setState({ filters: newFilters }, () => resolve()),
-    );
+  handleRemoveFilter = key => {
+    return searchRemoveFilter(this, key, ['unassigned', 'time']);
   };
 
   handleFilterPress = () => {
-    // TODO: Navigate to the filters page, then change state when something is selected
-    // TESTING
-    this.setState({
-      filters: {
-        filter1: { id: 'filter1', text: 'Last 30 days' },
-        filter2: { id: 'filter2', text: 'Last 7 days' },
-        filter3: { id: 'filter3', text: 'Filter 3' },
-        filter4: { id: 'filter4', text: 'Filter 4' },
-        filter5: { id: 'filter5', text: 'Filter 5' },
-      },
+    const { dispatch } = this.props;
+    const { filters } = this.state;
+    dispatch(
+      navigatePush(SEARCH_CONTACTS_FILTER_SCREEN, {
+        onFilter: this.handleChangeFilter,
+        filters,
+      }),
+    );
+  };
+
+  handleChangeFilter = filters => {
+    this.setState({ filters }, () => {
+      // Run the search every time a filter option changes
+      if (this.searchList && this.searchList.getWrappedInstance) {
+        this.searchList.getWrappedInstance().search();
+      }
     });
   };
 
-  handleSearch = text => {
-    // TODO: Implement this
-    return Promise.resolve([
-      { id: '1', full_name: 'full name 1', isAssigned: false },
-      { id: '2', full_name: 'full name 2', isAssigned: false },
-      { id: '3', full_name: 'full name 3', isAssigned: true },
-      { id: '4', full_name: 'full name 4', isAssigned: false },
-    ]);
+  handleSearch = async text => {
+    const { dispatch, organization } = this.props;
+    const { filters } = this.state;
+    const searchFilters = {
+      ...filters,
+      ministry: { id: organization.id },
+    };
+
+    const results = await dispatch(searchPeople(text, searchFilters));
+    // Get the results from the search endpoint
+    return results.findAll('person') || [];
   };
 
   handleSelect = person => {
@@ -55,10 +89,12 @@ class Contacts extends Component {
 
   render() {
     const { t } = this.props;
-    const { filters } = this.state;
+    const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
         <SearchList
+          ref={c => (this.searchList = c)}
+          defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (

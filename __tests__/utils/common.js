@@ -5,8 +5,13 @@ import {
   openMainMenu,
   getIconName,
   shuffleArray,
+  searchHandleToggle,
+  searchSelectFilter,
+  searchRemoveFilter,
+  getFilterOptions,
+  getPagination,
 } from '../../src/utils/common';
-import { MAIN_MENU_DRAWER } from '../../src/constants';
+import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
 jest.mock('react-navigation', () => ({
   DrawerActions: {
@@ -75,5 +80,190 @@ describe('shuffleArray', () => {
   it('reorders array and calls random for each item', () => {
     expect(shuffleArray(inArray)).toEqual(expectedOutArray);
     expect(Math.random).toHaveBeenCalledTimes(inArray.length);
+  });
+});
+
+describe('searchHandleToggle', () => {
+  const setState = jest.fn();
+  const setFilter = jest.fn();
+  const scope = {
+    state: {
+      toggleOptions: [
+        { id: 'option1', selected: false },
+        { id: 'option2', selected: true },
+      ],
+      filters: { filter1: { id: 'filter1' } },
+    },
+    setState,
+    setFilter,
+  };
+  const item = { id: 'option1', selected: false };
+
+  it('toggles the selected option', () => {
+    searchHandleToggle(scope, item);
+
+    expect(setState).toHaveBeenCalledWith({
+      toggleOptions: [
+        { id: 'option1', selected: true },
+        { id: 'option2', selected: true },
+      ],
+    });
+    expect(setFilter).toHaveBeenCalledWith({
+      filter1: { id: 'filter1' },
+      option1: { id: 'option1', selected: true },
+    });
+  });
+});
+
+describe('searchSelectFilter', () => {
+  const setState = jest.fn();
+  const setFilter = jest.fn();
+  const scope = {
+    state: {
+      options: [
+        { id: 'gender', text: 'Gender' },
+        { id: 'option2', text: 'Option 2' },
+      ],
+      filters: { gender: { id: 'gender' } },
+      selectedFilterId: 'gender',
+    },
+    setState,
+    setFilter,
+  };
+
+  it('sets the preview on the selected option', () => {
+    const item = { id: 'gender', text: 'Male' };
+    searchSelectFilter(scope, item);
+
+    expect(setState).toHaveBeenCalledWith({
+      options: [
+        { id: 'gender', text: 'Gender', preview: 'Male' },
+        { id: 'option2', text: 'Option 2' },
+      ],
+    });
+    expect(setFilter).toHaveBeenCalledWith({
+      gender: item,
+    });
+  });
+
+  it('removes the preview on the selected option', () => {
+    const item = { id: 'any' };
+    searchSelectFilter(scope, item);
+
+    expect(setState).toHaveBeenCalledWith({
+      options: [
+        { id: 'gender', text: 'Gender' },
+        { id: 'option2', text: 'Option 2' },
+      ],
+    });
+    expect(setFilter).toHaveBeenCalledWith({});
+  });
+});
+
+describe('searchRemoveFilter', () => {
+  const setState = jest.fn(function(a, b) {
+    this.state = a;
+    b();
+  });
+  const scope = {
+    state: {
+      filters: { gender: { id: 'gender' }, unassigned: { id: 'unassigned' } },
+    },
+    setState,
+  };
+
+  it('removes the filter', async () => {
+    await searchRemoveFilter(scope, 'gender');
+
+    expect(setState).toHaveBeenCalled();
+    expect(scope.state).toEqual({
+      filters: { unassigned: { id: 'unassigned' } },
+    });
+  });
+
+  it('removes the filter and clears default results', async () => {
+    await searchRemoveFilter(scope, 'gender', ['gender']);
+
+    expect(setState).toHaveBeenCalled();
+    expect(scope.state).toEqual({
+      filters: { unassigned: { id: 'unassigned' } },
+      defaultResults: [],
+    });
+  });
+});
+
+describe('getFilterOptions', () => {
+  const t = jest.fn();
+
+  it('sets the preview', () => {
+    const filters = {
+      questions: { text: 'test' },
+      gender: { text: 'male' },
+    };
+    const results = getFilterOptions(t, filters);
+
+    expect(results.questions.preview).toBe('test');
+    expect(results.gender.preview).toBe('male');
+    expect(results.time.preview).toBe(undefined);
+  });
+
+  it('sets the selected value', () => {
+    const filters = {
+      uncontacted: true,
+      unassigned: true,
+      archived: false,
+    };
+    const results = getFilterOptions(t, filters);
+
+    expect(results.uncontacted.selected).toBe(true);
+    expect(results.unassigned.selected).toBe(true);
+    expect(results.archived.selected).toBe(false);
+  });
+});
+
+describe('getPagination', () => {
+  let pagination = {
+    hasNextPage: true,
+    page: 0,
+  };
+
+  let action = {
+    query: {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * pagination.page,
+      },
+    },
+    meta: {
+      total: 56,
+    },
+  };
+
+  it('gets pagination first page', () => {
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
+
+    expect(pagination).toEqual({ hasNextPage: true, page: 1 });
+  });
+
+  it('gets pagination second page', () => {
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+    pagination = getPagination(
+      action,
+      DEFAULT_PAGE_LIMIT * (pagination.page + 1),
+    );
+
+    expect(pagination).toEqual({ hasNextPage: true, page: 2 });
+  });
+
+  it('does not paginate when total is reached', () => {
+    action.query.page.offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+    pagination = getPagination(action, action.meta.total);
+
+    expect(pagination).toEqual({ hasNextPage: false, page: 3 });
   });
 });

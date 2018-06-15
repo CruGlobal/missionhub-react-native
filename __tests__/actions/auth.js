@@ -304,7 +304,8 @@ describe('on upgrade account', () => {
 describe('loadHome', () => {
   const getMeResult = { type: 'got me successfully' };
   const getStepsResult = { type: 'got steps successfully' };
-  const getAssignedOrgsResult = { type: 'got orgs' };
+  const getMyOrgsResult = { type: 'got orgs' };
+  const getOrgsContactResult = { type: 'got contact reports' };
   const getStagesResult = { type: 'got stages' };
   const updateUserResult = { type: 'updated locale and TZ' };
   const notificationsResult = { type: 'show notification reminder' };
@@ -322,10 +323,11 @@ describe('loadHome', () => {
   it('loads me, organizations, stages, timezone, and notifications', async () => {
     mockFnWithParams(person, 'getMe', getMeResult);
     mockFnWithParams(steps, 'getMySteps', getStepsResult);
+    mockFnWithParams(organizations, 'getMyOrganizations', getMyOrgsResult);
     mockFnWithParams(
       organizations,
-      'getAssignedOrganizations',
-      getAssignedOrgsResult,
+      'getOrganizationsContactReports',
+      getOrgsContactResult,
     );
     mockFnWithParams(stages, 'getStagesIfNotExists', getStagesResult);
     mockFnWithParams(
@@ -347,7 +349,8 @@ describe('loadHome', () => {
 
     expect(store.getActions()).toEqual([
       getMeResult,
-      getAssignedOrgsResult,
+      getMyOrgsResult,
+      getOrgsContactResult,
       getStagesResult,
       updateUserResult,
       resetOnboardingPersonResult,
