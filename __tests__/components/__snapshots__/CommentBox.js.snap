@@ -654,7 +654,7 @@ exports[`renders with actions and selected action 1`] = `
           value={4}
         >
           <DateComponent
-            date={2018-06-18T18:01:46.190Z}
+            date={2017-06-18T00:00:00.000Z}
             format="LL"
             style={
               Object {
@@ -1286,7 +1286,7 @@ exports[`renders without actions and selected action 1`] = `
           value={4}
         >
           <DateComponent
-            date={2018-06-18T18:01:46.218Z}
+            date={2017-06-18T00:00:00.000Z}
             format="LL"
             style={
               Object {

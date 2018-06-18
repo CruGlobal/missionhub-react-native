@@ -7,12 +7,15 @@ exports[`renders correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },

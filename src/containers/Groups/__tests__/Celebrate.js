@@ -1,4 +1,5 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import Celebrate, { mapStateToProps } from '../Celebrate';
 import {
@@ -12,6 +13,7 @@ import { celebrationSelector } from '../../../selectors/celebration';
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 
+MockDate.set('2017-06-18');
 const celebrate1 = {
   id: '10',
   celebrateable_type: 'interaction',

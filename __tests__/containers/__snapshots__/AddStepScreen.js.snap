@@ -7,12 +7,15 @@ exports[`renders correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },
@@ -285,12 +288,15 @@ exports[`renders edit journey correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },
@@ -565,12 +571,15 @@ exports[`renders interaction with skip correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },
@@ -931,12 +940,15 @@ exports[`renders interaction without skip correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },
@@ -1211,12 +1223,15 @@ exports[`renders journey correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },
@@ -1491,12 +1506,15 @@ exports[`renders step note correctly 1`] = `
   onLayout={[Function]}
   style={
     Array [
-      Object {
-        "backgroundColor": "#007398",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
       Object {
         "paddingBottom": 0,
       },

@@ -1,7 +1,10 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 import CommentBox from '../../src/components/CommentBox';
+
+MockDate.set('2017-06-18');
 
 const action = {
   id: 2,
