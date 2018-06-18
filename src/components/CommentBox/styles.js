@@ -7,7 +7,7 @@ export default StyleSheet.create({
     paddingVertical: 5,
     width: theme.fullWidth,
     backgroundColor: theme.white,
-    borderTopColor: theme.grey2,
+    borderTopColor: theme.grey1,
     borderTopWidth: theme.separatorHeight,
   },
   actionSelectionWrap: {
@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
   actionRowWrap: {
     padding: 0,
-    marginBottom: 50,
+    marginBottom: 15,
     alignItems: 'center',
     flex: 1,
   },
@@ -51,8 +51,9 @@ export default StyleSheet.create({
   inputBoxWrap: {
     backgroundColor: theme.white,
     borderRadius: 20,
-    borderColor: theme.grey2,
+    borderColor: theme.grey1,
     borderWidth: 1,
+    marginHorizontal: 10,
   },
   inputWrap: {
     paddingRight: 5,
@@ -60,7 +61,8 @@ export default StyleSheet.create({
   },
   input: {
     borderBottomWidth: 0,
-    paddingVertical: 5,
+    paddingLeft: 5,
+    paddingVertical: 7,
     flex: 1,
     fontSize: 16,
     color: theme.grey2,
@@ -70,7 +72,7 @@ export default StyleSheet.create({
   },
   actions: {
     justifyContent: 'space-around',
-    minHeight: 50,
+    minHeight: 30,
   },
   activeAction: {
     paddingVertical: 13,

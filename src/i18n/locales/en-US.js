@@ -406,6 +406,7 @@ export default {
   },
   groupsCelebrate: {
     title: '',
+    placeholder: 'Share something to be celebrated...',
   },
   groupsMembers: {
     title: '',

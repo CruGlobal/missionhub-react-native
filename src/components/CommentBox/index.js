@@ -159,6 +159,7 @@ class CommentBox extends Component {
             value={text}
             style={styles.input}
             autoFocus={false}
+            autoCorrect={true}
             returnKeyType="done"
             blurOnSubmit={true}
             placeholder={placeholder || t('placeholder')}
@@ -178,7 +179,7 @@ class CommentBox extends Component {
   }
 
   render() {
-    const { hideActions } = this.state;
+    const { hideActions } = this.props;
     const { showActions, action } = this.state;
     return (
       <Flex direction="column" style={styles.container}>
