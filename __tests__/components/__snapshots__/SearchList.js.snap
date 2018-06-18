@@ -48,7 +48,7 @@ exports[`renders filters 1`] = `
           placeholder="placeholder"
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
-          selectionColor="white"
+          selectionColor="#4E4C4E"
           style={
             Object {
               "borderBottomWidth": 0,
@@ -341,7 +341,7 @@ exports[`renders search list 1`] = `
           placeholder="placeholder"
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
-          selectionColor="white"
+          selectionColor="#4E4C4E"
           style={
             Object {
               "borderBottomWidth": 0,
@@ -463,7 +463,7 @@ exports[`renders text in search box 1`] = `
           placeholder="placeholder"
           placeholderTextColor="#B2B0B2"
           returnKeyType="done"
-          selectionColor="white"
+          selectionColor="#4E4C4E"
           style={
             Object {
               "borderBottomWidth": 0,

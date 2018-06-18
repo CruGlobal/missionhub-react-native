@@ -33,9 +33,7 @@ exports[`render assigned contact 1`] = `
             "fontSize": 13,
           }
         }
-      >
-        Full Name
-      </MyText>
+      />
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -74,9 +72,7 @@ exports[`render unassigned contact 1`] = `
             "fontSize": 13,
           }
         }
-      >
-        Full Name
-      </MyText>
+      />
     </Flex>
     <MyText
       accessible={true}

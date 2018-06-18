@@ -37,11 +37,14 @@ class GroupsContactList extends Component {
 
   render() {
     const { t, person, onAssign } = this.props;
+    const name =
+      person.full_name ||
+      `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
 
     return (
       <Flex value={1}>
         <Flex style={styles.header} align="center" justify="center">
-          <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+          <Text style={styles.name}>{name.toUpperCase()}</Text>
           <Button
             type="transparent"
             onPress={onAssign}
