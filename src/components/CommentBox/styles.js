@@ -36,6 +36,9 @@ export default StyleSheet.create({
     width: 45,
     borderRadius: 25,
   },
+  actionIconActive: {
+    backgroundColor: theme.grey1,
+  },
   actionText: {
     fontSize: 12,
     color: theme.grey2,
@@ -45,13 +48,15 @@ export default StyleSheet.create({
     paddingHorizontal: 5,
     marginBottom: 5,
   },
+  inputBoxWrap: {
+    backgroundColor: theme.white,
+    borderRadius: 20,
+    borderColor: theme.grey2,
+    borderWidth: 1,
+  },
   inputWrap: {
     paddingRight: 5,
     paddingLeft: 13,
-    backgroundColor: theme.white,
-    borderRadius: 25,
-    borderColor: theme.grey2,
-    borderWidth: 1,
   },
   input: {
     borderBottomWidth: 0,
@@ -60,8 +65,47 @@ export default StyleSheet.create({
     fontSize: 16,
     color: theme.grey2,
   },
+  submitIcon: {
+    color: theme.primaryColor,
+  },
   actions: {
     justifyContent: 'space-around',
     minHeight: 50,
+  },
+  activeAction: {
+    paddingVertical: 13,
+    borderBottomColor: theme.grey2,
+    borderBottomWidth: 1,
+    position: 'relative',
+  },
+  activeIcon: {
+    textAlign: 'center',
+    alignSelf: 'center',
+    color: theme.primaryColor,
+  },
+  activeTextWrap: {
+    borderLeftColor: theme.separatorColor,
+    borderLeftWidth: 1,
+    paddingLeft: 20,
+    paddingBottom: 5,
+  },
+  activeDate: {
+    marginBottom: 5,
+    fontSize: 13,
+    color: theme.grey1,
+  },
+  activeText: {
+    color: theme.primaryColor,
+    fontSize: 15,
+  },
+  clearAction: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
+  clearActionButton: {
+    backgroundColor: theme.grey1,
+    borderRadius: 25,
+    padding: 8,
   },
 });

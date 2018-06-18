@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { INTERACTION_TYPES } from '../../constants';
-import { Flex, Text, IconButton, Input, Touchable, Icon } from '../common';
+import {
+  Flex,
+  Text,
+  IconButton,
+  Input,
+  Touchable,
+  Icon,
+  Button,
+  DateComponent,
+} from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -22,7 +31,8 @@ class CommentBox extends Component {
   };
 
   submit = () => {
-    const data = {};
+    const { action, text } = this.state;
+    let data = { action, text };
     this.props.onSubmit(data);
   };
 
@@ -35,7 +45,7 @@ class CommentBox extends Component {
   };
 
   focus = () => {
-    this.setState({ isFocused: true, showActions: false });
+    this.setState({ isFocused: true });
   };
 
   blur = () => {
@@ -44,10 +54,16 @@ class CommentBox extends Component {
 
   selectAction = item => {
     LOG('item', item);
+    this.setState({ action: item });
+  };
+
+  clearAction = () => {
+    this.setState({ action: null });
   };
 
   renderIcons = item => {
     const { t } = this.props;
+    const { action } = this.state;
 
     return (
       <Touchable
@@ -55,9 +71,14 @@ class CommentBox extends Component {
         onPress={() => this.selectAction(item)}
         style={styles.actionRowWrap}
       >
-        <Flex style={styles.actionIconButton}>
+        <Flex
+          style={[
+            styles.actionIconButton,
+            action && item.id === action.id ? styles.actionIconActive : null,
+          ]}
+        >
           <Icon
-            size={22}
+            size={16}
             style={styles.actionIcon}
             name={item.iconName}
             type="MissionHub"
@@ -83,39 +104,82 @@ class CommentBox extends Component {
     return (
       <Flex
         value={1}
-        direction="row"
+        direction="column"
         align="center"
         justify="center"
-        style={styles.inputWrap}
+        style={styles.inputBoxWrap}
         self="stretch"
       >
-        <Input
-          ref={c => (this.searchInput = c)}
-          onFocus={this.focus}
-          onBlur={this.blur}
-          onChangeText={this.handleTextChange}
-          value={text}
-          style={styles.input}
-          autoFocus={false}
-          returnKeyType="done"
-          blurOnSubmit={true}
-          placeholder={placeholder || t('placeholder')}
-          placeholderTextColor={theme.grey1}
-        />
-        {text || action ? (
-          <IconButton
-            name="cancelIcon"
-            type="MissionHub"
-            onPress={this.submit}
-            style={styles.submitIcon}
-          />
+        {action ? (
+          <Flex
+            direction="row"
+            align="center"
+            self="stretch"
+            style={styles.activeAction}
+          >
+            <Flex value={1} align="center">
+              <Icon
+                name={action.iconName}
+                type="MissionHub"
+                size={24}
+                style={styles.activeIcon}
+              />
+            </Flex>
+            <Flex value={4} justify="center" style={styles.activeTextWrap}>
+              <DateComponent
+                date={new Date()}
+                format="LL"
+                style={styles.activeDate}
+              />
+              <Text style={styles.activeText}>{t(action.translationKey)}</Text>
+            </Flex>
+            <Flex style={styles.clearAction}>
+              <Button
+                type="transparent"
+                onPress={this.clearAction}
+                style={styles.clearActionButton}
+              >
+                <Icon name="deleteIcon" type="MissionHub" size={10} />
+              </Button>
+            </Flex>
+          </Flex>
         ) : null}
+        <Flex
+          direction="row"
+          align="center"
+          justify="center"
+          self="stretch"
+          style={styles.inputWrap}
+        >
+          <Input
+            ref={c => (this.searchInput = c)}
+            onFocus={this.focus}
+            onBlur={this.blur}
+            onChangeText={this.handleTextChange}
+            value={text}
+            style={styles.input}
+            autoFocus={false}
+            returnKeyType="done"
+            blurOnSubmit={true}
+            placeholder={placeholder || t('placeholder')}
+            placeholderTextColor={theme.grey1}
+          />
+          {text || action ? (
+            <IconButton
+              name="cancelIcon"
+              type="MissionHub"
+              onPress={this.submit}
+              style={styles.submitIcon}
+            />
+          ) : null}
+        </Flex>
       </Flex>
     );
   }
 
   render() {
-    const { isFocused, showActions, action } = this.state;
+    const { hideActions } = this.state;
+    const { showActions, action } = this.state;
     return (
       <Flex direction="column" style={styles.container}>
         <Flex
@@ -124,7 +188,7 @@ class CommentBox extends Component {
           justify="center"
           style={styles.boxWrap}
         >
-          {!isFocused && !action ? (
+          {!hideActions && !action ? (
             <Flex
               align="center"
               justify="center"
@@ -155,6 +219,7 @@ class CommentBox extends Component {
 
 CommentBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  hideActions: PropTypes.bool,
   placeholder: PropTypes.string,
 };
 

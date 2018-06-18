@@ -5,7 +5,6 @@ import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
 import {
-  Button,
   Flex,
   Text,
   PlatformKeyboardAvoidingView,
@@ -40,11 +39,6 @@ class Celebrate extends Component {
         </ScrollView>
         <Flex justify="end">
           <CommentBox onSubmit={this.submit} />
-          <Button
-            type="secondary"
-            onPress={this.loadItems}
-            text={'Input goes here'}
-          />
         </Flex>
       </PlatformKeyboardAvoidingView>
     );
