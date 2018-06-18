@@ -15,4 +15,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  groupList: {
+    flex: 1,
+    paddingTop: 15,
+  },
 });

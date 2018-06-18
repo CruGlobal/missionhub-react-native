@@ -3,21 +3,34 @@ import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import CommentBox from '../../components/CommentBox';
 import {
+  Button,
   Flex,
   Text,
   PlatformKeyboardAvoidingView,
 } from '../../components/common';
-import CommentBox from '../../components/CommentBox';
+import { getGroupCelebrateFeed } from '../../actions/celebration';
+import { organizationSelector } from '../../selectors/organizations';
+import { celebrationSelector } from '../../selectors/celebration';
 
 import styles from './styles';
 
-@connect()
 @translate('groupsCelebrate')
-export default class Celebrate extends Component {
+class Celebrate extends Component {
+  componentDidMount() {
+    this.loadItems();
+  }
+
+  loadItems = () => {
+    const { dispatch, organization } = this.props;
+    dispatch(getGroupCelebrateFeed(organization.id));
+  };
+
   submit = data => {
     LOG('submitting', data);
   };
+
   render() {
     return (
       <PlatformKeyboardAvoidingView style={styles.celebrate}>
@@ -27,8 +40,31 @@ export default class Celebrate extends Component {
         </ScrollView>
         <Flex justify="end">
           <CommentBox onSubmit={this.submit} />
+          <Button
+            type="secondary"
+            onPress={this.loadItems}
+            text={'Input goes here'}
+          />
         </Flex>
       </PlatformKeyboardAvoidingView>
     );
   }
 }
+
+export const mapStateToProps = ({ organizations }, { organization }) => {
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
+
+  const celebrateItems = celebrationSelector({
+    celebrateItems: (selectorOrg || {}).celebrateItems || [],
+  });
+
+  return {
+    celebrateItems,
+    pagination: organizations.celebratePagination,
+  };
+};
+
+export default connect(mapStateToProps)(Celebrate);

@@ -6,7 +6,7 @@ import { Flex, Text, Touchable } from '../common';
 
 import styles from './styles';
 
-@translate('groupMemberItem')
+@translate('groupItem')
 class GroupMemberItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.person);
@@ -20,13 +20,13 @@ class GroupMemberItem extends Component {
           <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.detailsWrap}>
             <Text style={styles.assigned}>
-              {t('assigned', { number: person.assignedNum })}
+              {t('numAssigned', { number: person.contact_count || 0 })}
             </Text>
-            {person.uncontactedNum ? (
+            {person.uncontacted_count ? (
               <Fragment>
                 <Text style={styles.assigned}>{'  ·  '}</Text>
                 <Text style={styles.uncontacted}>
-                  {t('uncontacted', { number: person.uncontactedNum })}
+                  {t('numUncontacted', { number: person.uncontacted_count })}
                 </Text>
               </Fragment>
             ) : null}
@@ -41,8 +41,8 @@ GroupMemberItem.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     full_name: PropTypes.string.isRequired,
-    assignedNum: PropTypes.number,
-    uncontactedNum: PropTypes.number,
+    contact_count: PropTypes.number,
+    uncontacted_count: PropTypes.number,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
 };

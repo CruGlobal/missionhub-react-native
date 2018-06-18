@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import Card from '../../src/components/Card';
 import Text from '../../src/components/Text';
 
@@ -25,4 +25,13 @@ it('render touchable card', () => {
 
 it('render touchable card with children', () => {
   testSnapshotShallow(<Card onPress={jest.fn()}>{children}</Card>);
+});
+
+it('calls props.onPress when pressed', () => {
+  const onPress = jest.fn();
+  const component = renderShallow(<Card onPress={onPress} />);
+
+  component.simulate('press');
+
+  expect(onPress).toHaveBeenCalled();
 });

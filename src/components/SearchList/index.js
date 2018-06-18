@@ -10,7 +10,7 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-@translate('search')
+@translate('search', { withRef: true, wait: true })
 class SearchList extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +22,12 @@ class SearchList extends Component {
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
-    setTimeout(() => this.handleTextChange('test'), 1000);
   }
+
+  // Kick off search from an outer component using refs
+  search = () => {
+    this.handleSearch(this.state.text);
+  };
 
   handleFilter = () => {
     this.props.onFilterPress();
@@ -35,7 +39,6 @@ class SearchList extends Component {
   };
 
   handleSearch = async text => {
-    if (!text) return this.clearSearch();
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
@@ -49,7 +52,9 @@ class SearchList extends Component {
   };
 
   clearSearch = () => {
-    this.setState({ text: '', results: [], isSearching: false });
+    this.setState({ text: '', results: [], isSearching: false }, () =>
+      this.handleSearchDebounced(),
+    );
   };
 
   async removeFilter(key) {
@@ -74,7 +79,7 @@ class SearchList extends Component {
           value={text}
           style={styles.input}
           autoFocus={false}
-          selectionColor="white"
+          selectionColor={theme.grey2}
           returnKeyType="done"
           blurOnSubmit={true}
           style={styles.input}
@@ -121,23 +126,24 @@ class SearchList extends Component {
   }
 
   renderContent() {
-    const { t, listProps } = this.props;
+    const { t, listProps, defaultData = [] } = this.props;
     const { results, text, isSearching } = this.state;
-    if (isSearching && results.length === 0) {
+    const resultsLength = results.length;
+    if (isSearching && resultsLength === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('loading')}</Text>
         </Flex>
       );
     }
-    if (text && results.length === 0) {
+    if (text && resultsLength === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('noResults')}</Text>
         </Flex>
       );
     }
-    if (results.length === 0) {
+    if (defaultData.length === 0 && resultsLength === 0) {
       return (
         <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
           <Image source={SEARCH_NULL} style={styles.nullImage} />
@@ -151,7 +157,7 @@ class SearchList extends Component {
     return (
       <FlatList
         style={styles.list}
-        data={results}
+        data={resultsLength === 0 ? defaultData : results}
         keyExtractor={i => i.unique_key || i.id}
         {...listProps}
       />

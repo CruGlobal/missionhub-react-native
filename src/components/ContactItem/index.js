@@ -6,7 +6,7 @@ import { Flex, Text, Touchable } from '../common';
 
 import styles from './styles';
 
-@translate('contactItem')
+@translate('groupItem')
 class ContactItem extends Component {
   handleSelect = () => {
     this.props.onSelect(this.props.contact);
@@ -17,7 +17,10 @@ class ContactItem extends Component {
       <Touchable onPress={this.handleSelect} highlight={true}>
         <Flex align="center" direction="row" style={styles.row}>
           <Flex value={1} justify="center" direction="column">
-            <Text style={styles.name}>{contact.full_name}</Text>
+            <Text style={styles.name}>
+              {contact.first_name}
+              {contact.last_name ? ` ${contact.last_name}` : null}
+            </Text>
           </Flex>
           {contact.isAssigned ? null : (
             <Text style={styles.unassigned}>{t('unassigned')}</Text>
@@ -31,7 +34,8 @@ class ContactItem extends Component {
 ContactItem.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    full_name: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string,
     isAssigned: PropTypes.bool,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,

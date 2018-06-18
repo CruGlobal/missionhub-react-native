@@ -147,7 +147,7 @@ export default {
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     message:
-      'Growing closer to God involves helping others experience Him. Who do you want to take steps of faith with?',
+      'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -290,6 +290,7 @@ export default {
   },
   searchFilter: {
     title: 'Filter',
+    titleSurvey: 'Filter Survey',
     ministry: 'Ministry',
     labels: 'Labels',
     groups: 'Groups',
@@ -298,6 +299,16 @@ export default {
     male: 'Male',
     female: 'Female',
     other: 'Other',
+    time: 'Time Period',
+    time7: 'Last 7 days',
+    time30: 'Last 30 days',
+    time60: 'Last 60 days',
+    time90: 'Last 90 days',
+    time180: 'Last 6 Months',
+    time270: 'Last 9 Months',
+    time365: 'Last 12 Months',
+    surveyQuestions: 'Questions/Answers',
+    uncontacted: 'Uncontacted',
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
   },
@@ -390,6 +401,9 @@ export default {
     message:
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
+  groupsList: {
+    header: 'Groups',
+  },
   groupsCelebrate: {
     title: '',
   },
@@ -412,14 +426,12 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
-  groupMemberItem: {
-    assigned: '{{number}} Assigned',
-    uncontacted: '{{number}} Uncontacted',
-  },
-  groupSurveyItem: {
-    contacts: '{{number}} Contacts',
-    unassigned: '{{number}} Unassigned',
-    uncontacted: '{{number}} Uncontacted',
+  groupItem: {
+    numContacts: '{{number}} Contacts',
+    numAssigned: '{{number}} Assigned',
+    numUnassigned: '{{number}} Unassigned',
+    unassigned: 'Unassigned',
+    numUncontacted: '{{number}} Uncontacted',
   },
   groupsContactList: {
     assign: 'Assign to me',

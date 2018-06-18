@@ -1,6 +1,6 @@
 import { REQUESTS } from '../actions/api';
 import { LOGOUT, TOGGLE_STEP_FOCUS, COMPLETED_STEP_COUNT } from '../constants';
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
@@ -13,23 +13,6 @@ const initialState = {
   },
   contactSteps: {},
 };
-
-export function getPagination(state, action, steps) {
-  const totalSteps = steps.length;
-  const offset =
-    action.query.page && action.query.page.offset
-      ? action.query.page.offset
-      : 0;
-  const pageNum = Math.floor(offset / DEFAULT_PAGE_LIMIT) + 1;
-  const total = action.meta ? action.meta.total || 0 : 0;
-  const hasNextPage = total > offset + totalSteps;
-
-  return {
-    ...state.pagination,
-    page: pageNum,
-    hasNextPage,
-  };
-}
 
 export default function stepsReducer(state = initialState, action) {
   switch (action.type) {
@@ -64,7 +47,7 @@ export default function stepsReducer(state = initialState, action) {
       return {
         ...state,
         mine: allSteps,
-        pagination: getPagination(state, action, allSteps),
+        pagination: getPagination(action, allSteps.length),
       };
     case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
       const {

@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should load contact reports for all organizations 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "contactReport": Object {
+        "contactsCount": 12,
+        "id": "123",
+        "unassignedCount": 10,
+        "uncontactedCount": 10,
+      },
+      "id": "123",
+      "name": "test org 1",
+    },
+    Object {
+      "contactReport": Object {
+        "contactsCount": 23,
+        "id": "234",
+        "unassignedCount": 10,
+        "uncontactedCount": 14,
+      },
+      "id": "234",
+      "name": "test org 2",
+    },
+  ],
+}
+`;
+
 exports[`should load contacts to an organization 1`] = `
 Object {
   "all": Array [
@@ -13,7 +40,11 @@ Object {
         },
       ],
       "id": "123",
-      "name": "test org",
+      "name": "test org 1",
+    },
+    Object {
+      "id": "234",
+      "name": "test org 2",
     },
   ],
 }
