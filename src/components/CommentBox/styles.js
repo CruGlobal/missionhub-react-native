@@ -16,7 +16,7 @@ export default StyleSheet.create({
     marginRight: 15,
   },
   actionsOpen: {
-    backgroundColor: theme.grey2,
+    backgroundColor: theme.grey1,
   },
   actionSelectionIcon: {
     backgroundColor: theme.transparent,
@@ -47,16 +47,15 @@ export default StyleSheet.create({
   boxWrap: {
     paddingHorizontal: 5,
     marginBottom: 5,
+    marginHorizontal: 10,
   },
   inputBoxWrap: {
     backgroundColor: theme.white,
     borderRadius: 20,
     borderColor: theme.grey1,
     borderWidth: 1,
-    marginHorizontal: 10,
   },
   inputWrap: {
-    paddingRight: 5,
     paddingLeft: 13,
   },
   input: {
@@ -76,7 +75,7 @@ export default StyleSheet.create({
   },
   activeAction: {
     paddingVertical: 13,
-    borderBottomColor: theme.grey2,
+    borderBottomColor: theme.grey1,
     borderBottomWidth: 1,
     position: 'relative',
   },

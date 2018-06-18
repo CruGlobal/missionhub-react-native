@@ -1,7 +1,11 @@
 import React from 'react';
 
 import Celebrate, { mapStateToProps } from '../Celebrate';
-import { testSnapshotShallow, createMockStore } from '../../../../testUtils';
+import {
+  renderShallow,
+  testSnapshotShallow,
+  createMockStore,
+} from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 
@@ -70,4 +74,14 @@ it('should render correctly', () => {
   testSnapshotShallow(
     <Celebrate organization={org} store={createMockStore(store)} />,
   );
+});
+
+it('should submit correctly', () => {
+  const data = { id: 'test' };
+  const instance = renderShallow(
+    <Celebrate organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+  const result = instance.submit(data);
+  expect(result).toBe(data);
 });

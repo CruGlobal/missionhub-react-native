@@ -53,7 +53,6 @@ class CommentBox extends Component {
   };
 
   selectAction = item => {
-    LOG('item', item);
     this.setState({ action: item });
   };
 
@@ -201,7 +200,7 @@ class CommentBox extends Component {
               <IconButton
                 name={showActions ? 'deleteIcon' : 'plusIcon'}
                 type="MissionHub"
-                size={16}
+                size={13}
                 onPress={this.handleActionPress}
                 style={[
                   styles.actionSelection,

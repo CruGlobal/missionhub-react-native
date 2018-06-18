@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<Flex
-  value={1}
+<PlatformKeyboardAvoidingView
+  offset={113}
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+      "flex": 1,
+    }
+  }
 >
   <ScrollView
     style={
@@ -26,14 +32,10 @@ exports[`should render correctly 1`] = `
       LONG LIST
     </MyText>
   </ScrollView>
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="Input goes here"
-      type="secondary"
-    />
-  </Flex>
-</Flex>
+  <Translate(CommentBox)
+    hideActions={true}
+    onSubmit={[Function]}
+    placeholder="Share something to be celebrated..."
+  />
+</PlatformKeyboardAvoidingView>
 `;

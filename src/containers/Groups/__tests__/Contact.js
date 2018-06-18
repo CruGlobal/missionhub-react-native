@@ -32,4 +32,11 @@ describe('Contact', () => {
     const result = instance.handleAssign();
     expect(result).toBe(true);
   });
+
+  it('should submit correctly', () => {
+    const data = { id: 'test' };
+    const instance = renderShallow(component, store).instance();
+    const result = instance.submit(data);
+    expect(result).toBe(data);
+  });
 });

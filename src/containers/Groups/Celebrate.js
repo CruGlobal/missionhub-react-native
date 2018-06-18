@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { ScrollView, View, KeyboardAvoidingView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
-import {
-  Flex,
-  Input,
-  Text,
-  PlatformKeyboardAvoidingView,
-} from '../../components/common';
+import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
@@ -29,7 +24,7 @@ class Celebrate extends Component {
   };
 
   submit = data => {
-    LOG('submitting', data);
+    return data;
   };
 
   render() {

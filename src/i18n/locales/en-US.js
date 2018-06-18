@@ -418,6 +418,9 @@ export default {
     title: '',
     searchPlaceholder: 'Search Contacts',
   },
+  groupsContact: {
+    placeholder: 'Share something to be celebrated...',
+  },
   groupsSurveys: {
     title: '',
   },
