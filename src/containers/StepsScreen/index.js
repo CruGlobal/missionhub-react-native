@@ -214,26 +214,29 @@ export class StepsScreen extends Component {
     if (this.hasReminders()) {
       return (
         <Flex align="center" style={[styles.top]}>
-          {reminders.map((s, index) => (
-            <RowSwipeable
-              key={s.id}
-              bump={showStepReminderBump && index === 0}
-              onBumpComplete={
-                showStepReminderBump && index === 0
-                  ? this.completeReminderBump
-                  : undefined
-              }
-              onDelete={() => this.handleDeleteReminder(s)}
-              onComplete={() => this.handleCompleteReminder(s)}
-            >
-              <StepItem
-                step={s}
-                type="reminder"
-                onSelect={this.handleRowSelect}
-                onAction={this.handleRemoveReminder}
-              />
-            </RowSwipeable>
-          ))}
+          {reminders.map(
+            (s, index) =>
+              s ? (
+                <RowSwipeable
+                  key={s.id}
+                  bump={showStepReminderBump && index === 0}
+                  onBumpComplete={
+                    showStepReminderBump && index === 0
+                      ? this.completeReminderBump
+                      : undefined
+                  }
+                  onDelete={() => this.handleDeleteReminder(s)}
+                  onComplete={() => this.handleCompleteReminder(s)}
+                >
+                  <StepItem
+                    step={s}
+                    type="reminder"
+                    onSelect={this.handleRowSelect}
+                    onAction={this.handleRemoveReminder}
+                  />
+                </RowSwipeable>
+              ) : null,
+          )}
         </Flex>
       );
     }
