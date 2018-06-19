@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: theme.accentColor,
   },
   scrollContainer: {
-    height: 48,
+    height: theme.swipeTabHeight,
     alignItems: 'stretch',
   },
   menuItem: {

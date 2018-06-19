@@ -1,4 +1,5 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import Contact from '../Contact';
 import {
@@ -8,6 +9,7 @@ import {
   createMockNavState,
 } from '../../../../testUtils';
 
+MockDate.set('2017-06-18');
 const store = createMockStore({});
 
 const organization = { id: '1', name: 'Test Org' };
@@ -31,5 +33,12 @@ describe('Contact', () => {
     const instance = renderShallow(component, store).instance();
     const result = instance.handleAssign();
     expect(result).toBe(true);
+  });
+
+  it('should submit correctly', () => {
+    const data = { id: 'test' };
+    const instance = renderShallow(component, store).instance();
+    const result = instance.submit(data);
+    expect(result).toBe(data);
   });
 });
