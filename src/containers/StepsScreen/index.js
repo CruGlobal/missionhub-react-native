@@ -215,7 +215,7 @@ export class StepsScreen extends Component {
     if (this.hasReminders()) {
       return (
         <Flex align="center" style={[styles.top]}>
-          {reminders.map((s, index) => (
+          {focusedSteps.map((s, index) => (
             <RowSwipeable
               key={s.id}
               bump={showStepReminderBump && index === 0}
