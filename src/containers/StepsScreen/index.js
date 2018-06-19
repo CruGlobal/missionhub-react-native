@@ -210,7 +210,7 @@ export class StepsScreen extends Component {
 
   renderReminders() {
     const { reminders, showStepReminderBump } = this.props;
-    let focusedSteps = reminders.map(r => r && r.id);
+    let focusedSteps = reminders.filter(r => r && r.id);
 
     if (this.hasReminders()) {
       return (

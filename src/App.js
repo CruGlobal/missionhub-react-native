@@ -127,7 +127,7 @@ export default class App extends Component {
       };
     } else {
       crashlyticsError = {
-        title: 'unknown error',
+        title: 'Unknown Error',
         message: JSON.stringify(e),
       };
     }
