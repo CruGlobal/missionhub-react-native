@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<Flex
-  value={1}
+<PlatformKeyboardAvoidingView
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+      "flex": 1,
+    }
+  }
 >
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -58,14 +63,9 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   />
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="Input goes here"
-      type="secondary"
-    />
-  </Flex>
-</Flex>
+  <Translate(CommentBox)
+    onSubmit={[Function]}
+    placeholder="Share something to be celebrated..."
+  />
+</PlatformKeyboardAvoidingView>
 `;

@@ -1,0 +1,1388 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders focused 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        style={
+          Array [
+            undefined,
+            null,
+          ]
+        }
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with actions 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        style={
+          Array [
+            undefined,
+            null,
+          ]
+        }
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with actions 2`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          Object {
+            "backgroundColor": "#B2B0B2",
+          },
+        ]
+      }
+    >
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        size={13}
+        style={
+          Array [
+            undefined,
+            undefined,
+          ]
+        }
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "justifyContent": "space-around",
+        "minHeight": 30,
+      }
+    }
+  >
+    <TouchableIOS
+      key="2"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="spiritualConversationIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Spiritual Conversation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="3"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="gospelIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Gospel Presentation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="4"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="decisionIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Personal Decision
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="5"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="spiritIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Holy Spirit Presentation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="9"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="discipleshipConversationIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Discipleship Conversation
+      </MyText>
+    </TouchableIOS>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with actions and selected action 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "borderBottomColor": "#B2B0B2",
+            "borderBottomWidth": 1,
+            "paddingVertical": 13,
+            "position": "relative",
+          }
+        }
+      >
+        <Flex
+          align="center"
+          value={1}
+        >
+          <Icon
+            name="spiritualConversationIcon"
+            size={24}
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "textAlign": "center",
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          justify="center"
+          style={
+            Object {
+              "borderLeftColor": "#E6E8EC",
+              "borderLeftWidth": 1,
+              "paddingBottom": 5,
+              "paddingLeft": 20,
+            }
+          }
+          value={4}
+        >
+          <DateComponent
+            date={2017-06-18T00:00:00.000Z}
+            format="LL"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 13,
+                "marginBottom": 5,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 15,
+              }
+            }
+          >
+            Spiritual Conversation
+          </MyText>
+        </Flex>
+        <Flex
+          style={
+            Object {
+              "position": "absolute",
+              "right": 8,
+              "top": 8,
+            }
+          }
+        >
+          <Button
+            onPress={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#B2B0B2",
+                "borderRadius": 25,
+                "padding": 8,
+              }
+            }
+            type="transparent"
+          >
+            <Icon
+              name="deleteIcon"
+              size={10}
+              type="MissionHub"
+            />
+          </Button>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    style={
+      Object {
+        "justifyContent": "space-around",
+        "minHeight": 30,
+      }
+    }
+  >
+    <TouchableIOS
+      key="2"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            Object {
+              "backgroundColor": "#B2B0B2",
+            },
+          ]
+        }
+      >
+        <Icon
+          name="spiritualConversationIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Spiritual Conversation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="3"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="gospelIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Gospel Presentation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="4"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="decisionIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Personal Decision
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="5"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="spiritIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Holy Spirit Presentation
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      key="9"
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "padding": 0,
+        }
+      }
+    >
+      <Flex
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Icon
+          name="discipleshipConversationIcon"
+          size={16}
+          type="MissionHub"
+        />
+      </Flex>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4E4C4E",
+            "fontSize": 12,
+            "textAlign": "center",
+          }
+        }
+      >
+        Discipleship Conversation
+      </MyText>
+    </TouchableIOS>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders with text 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <IconButton
+        name="plusIcon"
+        onPress={[Function]}
+        size={13}
+        style={
+          Array [
+            undefined,
+            null,
+          ]
+        }
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value="test"
+        />
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders without actions 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders without actions and selected action 1`] = `
+<Flex
+  direction="column"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderTopColor": "#B2B0B2",
+      "borderTopWidth": 1,
+      "paddingVertical": 5,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "marginBottom": 5,
+        "marginHorizontal": 10,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="column"
+      justify="center"
+      self="stretch"
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+        }
+      }
+      value={1}
+    >
+      <Flex
+        align="center"
+        direction="row"
+        self="stretch"
+        style={
+          Object {
+            "borderBottomColor": "#B2B0B2",
+            "borderBottomWidth": 1,
+            "paddingVertical": 13,
+            "position": "relative",
+          }
+        }
+      >
+        <Flex
+          align="center"
+          value={1}
+        >
+          <Icon
+            name="spiritualConversationIcon"
+            size={24}
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "textAlign": "center",
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+        <Flex
+          justify="center"
+          style={
+            Object {
+              "borderLeftColor": "#E6E8EC",
+              "borderLeftWidth": 1,
+              "paddingBottom": 5,
+              "paddingLeft": 20,
+            }
+          }
+          value={4}
+        >
+          <DateComponent
+            date={2017-06-18T00:00:00.000Z}
+            format="LL"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 13,
+                "marginBottom": 5,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 15,
+              }
+            }
+          >
+            Spiritual Conversation
+          </MyText>
+        </Flex>
+        <Flex
+          style={
+            Object {
+              "position": "absolute",
+              "right": 8,
+              "top": 8,
+            }
+          }
+        >
+          <Button
+            onPress={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#B2B0B2",
+                "borderRadius": 25,
+                "padding": 8,
+              }
+            }
+            type="transparent"
+          >
+            <Icon
+              name="deleteIcon"
+              size={10}
+              type="MissionHub"
+            />
+          </Button>
+        </Flex>
+      </Flex>
+      <Flex
+        align="center"
+        direction="row"
+        justify="center"
+        self="stretch"
+        style={
+          Object {
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <Input
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="placeholder"
+          placeholderTextColor="#B2B0B2"
+          returnKeyType="done"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingLeft": 5,
+              "paddingVertical": 7,
+            }
+          }
+          value=""
+        />
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+          type="MissionHub"
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>
+`;
