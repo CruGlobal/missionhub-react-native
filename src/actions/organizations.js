@@ -50,9 +50,9 @@ export function getOrganizationsContactReports() {
 
 export function getOrganizationContacts(orgId) {
   const query = {
-    organization_id: orgId,
     filters: {
       permissions: 'no_permission',
+      organization_ids: orgId,
     },
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
@@ -69,9 +69,9 @@ export function getOrganizationContacts(orgId) {
 export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
-    organization_id: orgId,
     filters: {
       permissions: 'admin,user',
+      organization_ids: orgId,
     },
     include: 'contact_assignments,organizational_permissions',
   };

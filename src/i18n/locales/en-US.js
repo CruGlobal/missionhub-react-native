@@ -406,6 +406,7 @@ export default {
   },
   groupsCelebrate: {
     title: '',
+    placeholder: 'Share something to be celebrated...',
   },
   groupsMembers: {
     title: '',
@@ -416,6 +417,9 @@ export default {
   groupsContacts: {
     title: '',
     searchPlaceholder: 'Search Contacts',
+  },
+  groupsContact: {
+    placeholder: 'Share something to be celebrated...',
   },
   groupsSurveys: {
     title: '',
@@ -438,5 +442,8 @@ export default {
   },
   loadMore: {
     load: 'Load More',
+  },
+  commentBox: {
+    placeholder: 'Comment',
   },
 };

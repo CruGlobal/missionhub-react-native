@@ -71,9 +71,9 @@ describe('getAssignedOrganizations', () => {
 describe('getOrganizationContacts', () => {
   const orgId = '123';
   const query = {
-    organization_id: orgId,
     filters: {
       permissions: 'no_permission',
+      organization_ids: orgId,
     },
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
@@ -168,9 +168,9 @@ describe('getOrganizationsContactReports', () => {
 describe('getOrganizationMembers', () => {
   const orgId = '123';
   const query = {
-    organization_id: orgId,
     filters: {
       permissions: 'admin,user',
+      organization_ids: orgId,
     },
     include: 'contact_assignments,organizational_permissions',
   };

@@ -3,36 +3,36 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, Button } from '../../components/common';
+import { PlatformKeyboardAvoidingView } from '../../components/common';
 import GroupsContactList from '../../components/GroupsContactList';
+import CommentBox from '../../components/CommentBox';
 import Header from '../Header';
 import BackButton from '../BackButton';
 
+import styles from './styles';
+
 @translate('groupsContact')
 class Contact extends Component {
+  submit = data => {
+    return data;
+  };
   handleAssign = () => {
     return true;
   };
 
   render() {
-    const { organization, activity, person } = this.props;
+    const { t, organization, activity, person } = this.props;
     const orgName = organization ? organization.name : undefined;
     return (
-      <Flex value={1}>
+      <PlatformKeyboardAvoidingView style={styles.contact}>
         <Header left={<BackButton />} title={orgName} shadow={false} />
         <GroupsContactList
           activity={activity}
           person={person}
           onAssign={this.handleAssign}
         />
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={() => {}}
-            text={'Input goes here'}
-          />
-        </Flex>
-      </Flex>
+        <CommentBox placeholder={t('placeholder')} onSubmit={this.submit} />
+      </PlatformKeyboardAvoidingView>
     );
   }
 }

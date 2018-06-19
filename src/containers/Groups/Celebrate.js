@@ -3,10 +3,14 @@ import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Button, Flex, Text } from '../../components/common';
+import CommentBox from '../../components/CommentBox';
+import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
+import theme from '../../theme';
+
+import styles from './styles';
 
 @translate('groupsCelebrate')
 class Celebrate extends Component {
@@ -19,21 +23,27 @@ class Celebrate extends Component {
     dispatch(getGroupCelebrateFeed(organization.id));
   };
 
+  submit = data => {
+    return data;
+  };
+
   render() {
+    const { t } = this.props;
     return (
-      <Flex value={1}>
+      <PlatformKeyboardAvoidingView
+        style={styles.celebrate}
+        offset={theme.headerHeight + theme.swipeTabHeight}
+      >
         <ScrollView style={{ flex: 1 }}>
           <Text>Load More</Text>
           <Text>LONG LIST</Text>
         </ScrollView>
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.loadItems}
-            text={'Input goes here'}
-          />
-        </Flex>
-      </Flex>
+        <CommentBox
+          placeholder={t('placeholder')}
+          hideActions={true}
+          onSubmit={this.submit}
+        />
+      </PlatformKeyboardAvoidingView>
     );
   }
 }
