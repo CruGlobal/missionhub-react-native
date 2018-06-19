@@ -435,6 +435,8 @@ export default {
   },
   groupsContactList: {
     assign: 'Assign to me',
+    nullHeader: 'Activity Feed',
+    nullDescription: 'No activity to display.',
   },
   loadMore: {
     load: 'Load More',

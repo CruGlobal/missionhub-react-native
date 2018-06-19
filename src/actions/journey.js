@@ -1,4 +1,4 @@
-import { UPDATE_JOURNEY_ITEMS } from '../constants';
+import { UPDATE_JOURNEY_ITEMS, ORGANIZATION_CONTACT_FEED } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -8,6 +8,32 @@ export function reloadJourney(personId, orgId) {
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
     return personFeed && (await dispatch(getJourney(personId, orgId)));
+  };
+}
+
+export function getGroupJourney(personId, orgId, isAdmin = false) {
+  return async dispatch => {
+    try {
+      let include;
+      // If I have admin permission, get me everything
+      // Otherwise, just get me survey information
+      if (!isAdmin) {
+        include = 'all.answers.question,all.survey';
+      }
+      const {
+        response: { all: feed },
+      } = await dispatch(getPersonFeed(personId, orgId, include));
+
+      // dispatch({
+      //   type: ORGANIZATION_CONTACT_FEED,
+      //   personId,
+      //   orgId,
+      //   feed,
+      // });
+      return feed;
+    } catch (e) {
+      return [];
+    }
   };
 }
 
@@ -36,10 +62,11 @@ export function getJourney(personId, orgId) {
   };
 }
 
-function getPersonFeed(personId, orgId) {
+function getPersonFeed(personId, orgId, include) {
   return dispatch => {
     const query = {
       include:
+        include ||
         'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person',
       filters: {
         person_id: personId,
