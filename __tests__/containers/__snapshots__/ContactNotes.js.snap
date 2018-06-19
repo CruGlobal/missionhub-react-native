@@ -6,12 +6,15 @@ exports[`contact notes and editing is set to true button message changes to DONE
   enabled={true}
   keyboardVerticalOffset={65}
   style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
+    Array [
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -61,12 +64,15 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
   enabled={true}
   keyboardVerticalOffset={65}
   style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
+    Array [
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+      undefined,
+    ]
   }
 >
   <Flex
@@ -143,12 +149,15 @@ exports[`contact notes notes are shown 1`] = `
   enabled={true}
   keyboardVerticalOffset={65}
   style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "space-between",
-    }
+    Array [
+      Object {
+        "backgroundColor": "#007398",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+      },
+      undefined,
+    ]
   }
 >
   <Flex
