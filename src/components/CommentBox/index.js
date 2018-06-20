@@ -21,14 +21,16 @@ const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
   i => i.isOnAction && i.translationKey !== 'interactionNote',
 );
 
+const initialState = {
+  text: '',
+  isFocused: false,
+  showActions: false,
+  action: null,
+};
+
 @translate('actions')
 class CommentBox extends Component {
-  state = {
-    text: '',
-    isFocused: false,
-    showActions: false,
-    action: null,
-  };
+  state = initialState;
 
   submit = () => {
     const { action, text } = this.state;
@@ -42,6 +44,8 @@ class CommentBox extends Component {
 
     let data = { interaction, text };
     this.props.onSubmit(data);
+
+    this.setState(initialState);
   };
 
   handleTextChange = t => {
