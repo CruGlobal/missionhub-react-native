@@ -3,6 +3,7 @@ import ReactNative from 'react-native';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
+import { Crashlytics } from 'react-native-fabric';
 
 import App from '../src/App';
 import {
@@ -15,6 +16,8 @@ import * as auth from '../src/actions/auth';
 import locale from '../src/i18n/locales/en-US';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('react-native-fabric');
 
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
@@ -107,4 +110,20 @@ it('should show generic error message if request does not have it', () => {
     `${unexpectedErrorMessage} ${baseErrorMessage}`,
     ...lastTwoArgs,
   );
+});
+
+it('should not show alert if not ApiError', () => {
+  const message = 'some message\nwith break';
+
+  test({ key: 'test', method: '', message });
+
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+});
+
+it('should not show alert if no error message', () => {
+  const unknownError = { key: 'test', method: '' };
+
+  test(unknownError);
+
+  expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
