@@ -96,7 +96,7 @@ export function addSteps(steps, receiverId, organization) {
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
-        challenge_suggestion_id: isCustomStep(s) ? null : s.id,
+        challenge_suggestion_id: s && isCustomStep(s) ? null : (s || {}).id,
         ...(organization && organization.id !== 'personal'
           ? { organization_id: organization.id }
           : {}),
@@ -247,7 +247,7 @@ function challengeCompleteAction(step, screen) {
                   const pathwayStageId =
                     assignment && assignment.pathway_stage_id;
                   let firstItemIndex = stages.findIndex(
-                    s => `${s.id}` === `${pathwayStageId}`,
+                    s => s && `${s.id}` === `${pathwayStageId}`,
                   );
                   firstItemIndex =
                     firstItemIndex >= 0 ? firstItemIndex : undefined;
