@@ -66,6 +66,7 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+import PersonScreen, { PERSON_SCREEN } from './containers/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
@@ -352,6 +353,20 @@ export const MainStackRoutes = createStackNavigator(
       screen: createDrawerNavigator(
         {
           Main: { screen: ContactScreen },
+        },
+        {
+          contentComponent: ContactSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: PersonScreen },
         },
         {
           contentComponent: ContactSideMenu,
