@@ -14,10 +14,6 @@ import BackButton from '../BackButton';
 
 import styles from './styles';
 
-const COMMENT_ACTION = Object.values(INTERACTION_TYPES).find(
-  i => i.isOnAction && i.translationKey === 'interactionNote',
-);
-
 @translate('groupsContact')
 class Contact extends Component {
   submit = async data => {
@@ -26,7 +22,7 @@ class Contact extends Component {
     let interaction = action;
 
     if (!interaction) {
-      interaction = COMMENT_ACTION;
+      interaction = INTERACTION_TYPES.MHInteractionTypeNote;
     }
 
     await dispatch(
