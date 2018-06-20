@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
+import { INTERACTION_TYPES } from '../../constants';
 import { addNewInteraction } from '../../actions/interactions';
 import { reloadJourney } from '../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../components/common';
@@ -13,11 +14,21 @@ import BackButton from '../BackButton';
 
 import styles from './styles';
 
+const COMMENT_ACTION = Object.values(INTERACTION_TYPES).find(
+  i => i.isOnAction && i.translationKey === 'interactionNote',
+);
+
 @translate('groupsContact')
 class Contact extends Component {
   submit = async data => {
     const { person, organization, dispatch } = this.props;
-    const { interaction, text } = data;
+    const { action, text } = data;
+    let interaction = action;
+
+    if (!interaction) {
+      interaction = COMMENT_ACTION;
+    }
+
     await dispatch(
       addNewInteraction(person.id, interaction, text, organization.id),
     );
