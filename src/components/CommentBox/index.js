@@ -18,7 +18,7 @@ import theme from '../../theme';
 import styles from './styles';
 
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
-  i => i.isOnAction && i.iconName !== 'commentIcon',
+  i => i.isOnAction && i.translationKey !== 'interactionNote',
 );
 
 @translate('actions')
@@ -32,7 +32,15 @@ class CommentBox extends Component {
 
   submit = () => {
     const { action, text } = this.state;
-    let data = { action, text };
+    let interaction = action;
+
+    if (!interaction) {
+      interaction = INTERACTION_TYPES.find(
+        i => i.translationKey === 'interactionNote',
+      );
+    }
+
+    let data = { interaction, text };
     this.props.onSubmit(data);
   };
 

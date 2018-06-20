@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
+import { addNewInteraction } from '../../actions/interactions';
+import { reloadJourney } from '../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../components/common';
 import GroupsContactList from '../../components/GroupsContactList';
 import CommentBox from '../../components/CommentBox';
@@ -13,9 +15,15 @@ import styles from './styles';
 
 @translate('groupsContact')
 class Contact extends Component {
-  submit = data => {
-    return data;
+  submit = async data => {
+    const { person, organization, dispatch } = this.props;
+    const { interaction, text } = data;
+    await dispatch(
+      addNewInteraction(person.id, interaction, text, organization.id),
+    );
+    dispatch(reloadJourney(person.id, organization.id));
   };
+
   handleAssign = () => {
     return true;
   };
