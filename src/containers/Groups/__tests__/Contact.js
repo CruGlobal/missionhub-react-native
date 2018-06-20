@@ -8,6 +8,11 @@ import {
   testSnapshotShallow,
   createMockNavState,
 } from '../../../../testUtils';
+import { addNewInteraction } from '../../../actions/interactions';
+import { reloadJourney } from '../../../actions/journey';
+
+jest.mock('../../../actions/interactions');
+jest.mock('../../../actions/journey');
 
 MockDate.set('2017-06-18');
 const store = createMockStore({});
@@ -35,10 +40,17 @@ describe('Contact', () => {
     expect(result).toBe(true);
   });
 
-  it('should submit correctly', () => {
-    const data = { id: 'test' };
+  it('should submit correctly', async () => {
+    const data = { interaction: { id: 1 }, text: 'text' };
     const instance = renderShallow(component, store).instance();
-    const result = instance.submit(data);
-    expect(result).toBe(data);
+
+    await instance.submit(data);
+    expect(addNewInteraction).toHaveBeenCalledWith(
+      person.id,
+      data.interaction,
+      data.text,
+      organization.id,
+    );
+    expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
   });
 });

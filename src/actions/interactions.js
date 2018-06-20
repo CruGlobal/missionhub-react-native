@@ -54,7 +54,7 @@ export function addNewInteraction(
       },
       included: [],
     };
-    const { response } = await dispatch(
+    const response = await dispatch(
       callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData),
     );
 
