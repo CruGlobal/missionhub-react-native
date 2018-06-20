@@ -100,7 +100,7 @@ class SelectStepScreen extends Component {
 
   handleSelectStep = item => {
     const steps = this.state.steps.map(
-      s => (s.id === item.id ? { ...s, selected: !s.selected } : s),
+      s => (s && s.id === item.id ? { ...s, selected: !s.selected } : s),
     );
     this.setState({ steps });
   };

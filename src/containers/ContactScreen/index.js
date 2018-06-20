@@ -55,7 +55,7 @@ export class ContactScreen extends Component {
     } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
       let firstItemIndex = stages.findIndex(
-        s => contactStage && `${s.id}` === `${contactStage.id}`,
+        s => contactStage && s && `${s.id}` === `${contactStage.id}`,
       );
       firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
       if (personIsCurrentUser) {

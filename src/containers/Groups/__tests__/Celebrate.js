@@ -1,13 +1,19 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import Celebrate, { mapStateToProps } from '../Celebrate';
-import { testSnapshotShallow, createMockStore } from '../../../../testUtils';
+import {
+  renderShallow,
+  testSnapshotShallow,
+  createMockStore,
+} from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
 
+MockDate.set('2017-06-18');
 const celebrate1 = {
   id: '10',
   celebrateable_type: 'interaction',
@@ -70,4 +76,14 @@ it('should render correctly', () => {
   testSnapshotShallow(
     <Celebrate organization={org} store={createMockStore(store)} />,
   );
+});
+
+it('should submit correctly', () => {
+  const data = { id: 'test' };
+  const instance = renderShallow(
+    <Celebrate organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+  const result = instance.submit(data);
+  expect(result).toBe(data);
 });

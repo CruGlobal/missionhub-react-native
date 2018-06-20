@@ -85,5 +85,5 @@ export default function stepsReducer(state = initialState, action) {
 const toggleStepReminder = (steps, step) =>
   steps.map(s => ({
     ...s,
-    focus: s.id === step.id ? !s.focus : s.focus,
+    focus: s && s.id === step.id ? !s.focus : s.focus,
   }));

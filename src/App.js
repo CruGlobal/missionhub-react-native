@@ -120,10 +120,15 @@ export default class App extends Component {
           )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
         };
       }
-    } else {
+    } else if (e.message) {
       crashlyticsError = {
         title: e.message.split('\n')[0],
         message: e.message,
+      };
+    } else {
+      crashlyticsError = {
+        title: 'Unknown Error',
+        message: JSON.stringify(e),
       };
     }
 

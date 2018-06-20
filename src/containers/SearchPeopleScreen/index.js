@@ -65,7 +65,7 @@ export class SearchPeopleScreen extends Component {
     people.forEach(p => {
       if (p && p.organizational_permissions) {
         p.organizational_permissions.forEach(o => {
-          if (o.organization) {
+          if (o.organization && o.organization.id) {
             orgPeople.push({
               ...p,
               unique_key: `${o.organization.id}_${p.id}`,
@@ -130,7 +130,6 @@ export class SearchPeopleScreen extends Component {
           selectionColor="white"
           returnKeyType="done"
           blurOnSubmit={true}
-          style={styles.input}
           placeholder={t('inputPlaceholder')}
           placeholderTextColor={theme.white}
         />
