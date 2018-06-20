@@ -20,6 +20,9 @@ import styles from './styles';
 const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
   i => i.isOnAction && i.translationKey !== 'interactionNote',
 );
+const COMMENT_ACTION = Object.values(INTERACTION_TYPES).find(
+  i => i.isOnAction && i.translationKey === 'interactionNote',
+);
 
 const initialState = {
   text: '',
@@ -37,9 +40,7 @@ class CommentBox extends Component {
     let interaction = action;
 
     if (!interaction) {
-      interaction = INTERACTION_TYPES.find(
-        i => i.translationKey === 'interactionNote',
-      );
+      interaction = COMMENT_ACTION;
     }
 
     let data = { interaction, text };
