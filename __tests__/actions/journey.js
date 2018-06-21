@@ -3,7 +3,11 @@ import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
 import callApi, { REQUESTS } from '../../src/actions/api';
-import { getJourney, reloadJourney } from '../../src/actions/journey';
+import {
+  getJourney,
+  reloadJourney,
+  getGroupJourney,
+} from '../../src/actions/journey';
 
 jest.mock('../../src/actions/api');
 
@@ -198,5 +202,22 @@ describe('get journey', () => {
 
   it("should get a person's journey with an org", async () => {
     test(orgId, orgId);
+  });
+});
+
+describe('get group journey', () => {
+  const orgId = '1';
+  beforeEach(() => {
+    MockDate.set('2018-04-17');
+  });
+
+  afterEach(() => {
+    MockDate.reset();
+  });
+
+  it('should get a persons group journey', async () => {
+    expect(
+      await store.dispatch(getGroupJourney(personId, orgId)),
+    ).toMatchSnapshot();
   });
 });

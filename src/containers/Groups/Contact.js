@@ -12,14 +12,17 @@ import BackButton from '../BackButton';
 @translate('groupsContact')
 class Contact extends Component {
   state = { activity: [] };
+
   componentDidMount() {
-    const { dispatch, me, person, organization } = this.props;
-    LOG('person', person);
-    // TODO: Find out if auth user is an admin of this org
-    // const isAdmin = person.organizational_permissions
-    const isAdmin = false;
-    dispatch(getGroupJourney(person.id, organization.id, isAdmin));
+    this.loadFeed();
   }
+
+  loadFeed = async () => {
+    const { dispatch, person, organization } = this.props;
+    const results = await dispatch(getGroupJourney(person.id, organization.id));
+    this.setState({ activity: results });
+    LOG('results', results);
+  };
 
   handleAssign = () => {
     return true;
@@ -56,7 +59,7 @@ Contact.propTypes = {
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
-  me: auth.user,
+  me: auth.person,
   // activity: [
   //   {
   //     id: '1',

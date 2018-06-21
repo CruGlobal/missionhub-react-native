@@ -146,6 +146,12 @@ export const getIconName = (type, interaction_type_id) => {
     return 'journeyIcon';
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
+  } else if (type === 'contact_assignment') {
+    return 'warningIcon';
+  } else if (type === 'contact_unassignment') {
+    return 'warningIcon';
+  } else if (type === 'contact_unassignment') {
+    return 'warningIcon';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {

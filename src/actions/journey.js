@@ -1,4 +1,5 @@
-import { UPDATE_JOURNEY_ITEMS, ORGANIZATION_CONTACT_FEED } from '../constants';
+import { UPDATE_JOURNEY_ITEMS } from '../constants';
+import { isMissionhubUser } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 
@@ -11,10 +12,20 @@ export function reloadJourney(personId, orgId) {
   };
 }
 
-export function getGroupJourney(personId, orgId, isAdmin = false) {
-  return async dispatch => {
+export function getGroupJourney(personId, orgId) {
+  return async (dispatch, getState) => {
     try {
-      let include;
+      // Find out if I am an admin for this organization
+      const me = getState().auth.person;
+      const orgPermission = me.organizational_permissions.find(
+        o => o.organization_id === orgId,
+      );
+      let isAdmin = false;
+      if (isMissionhubUser(orgPermission)) {
+        isAdmin = true;
+      }
+      let include =
+        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment';
       // If I have admin permission, get me everything
       // Otherwise, just get me survey information
       if (!isAdmin) {
@@ -24,12 +35,6 @@ export function getGroupJourney(personId, orgId, isAdmin = false) {
         response: { all: feed },
       } = await dispatch(getPersonFeed(personId, orgId, include));
 
-      // dispatch({
-      //   type: ORGANIZATION_CONTACT_FEED,
-      //   personId,
-      //   orgId,
-      //   feed,
-      // });
       return feed;
     } catch (e) {
       return [];

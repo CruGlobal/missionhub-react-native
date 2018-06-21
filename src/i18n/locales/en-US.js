@@ -426,6 +426,11 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  groupsContactItem: {
+    status: 'Status: {{status}}',
+    assigned: '{{name1}} has assigned {{name2}} to {{name3}}',
+    unassigned: '{{name1}} has been Unassigned by {{name2}}',
+  },
   groupItem: {
     numContacts: '{{number}} Contacts',
     numAssigned: '{{number}} Assigned',
