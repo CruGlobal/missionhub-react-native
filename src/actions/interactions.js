@@ -10,7 +10,7 @@ export function addNewInteraction(
   comment,
   organizationId,
 ) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const {
       person: { id: myId },
     } = getState().auth;
@@ -54,17 +54,18 @@ export function addNewInteraction(
       },
       included: [],
     };
-    return dispatch(callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData)).then(
-      r => {
-        dispatch(
-          trackAction(ACTIONS.INTERACTION.name, {
-            [interaction.tracking]: null,
-          }),
-        );
-        dispatch(refreshImpact());
-        return r;
-      },
+    const response = await dispatch(
+      callApi(REQUESTS.ADD_NEW_INTERACTION, {}, bodyData),
     );
+
+    dispatch(
+      trackAction(ACTIONS.INTERACTION.name, {
+        [interaction.tracking]: null,
+      }),
+    );
+    dispatch(refreshImpact());
+
+    return response;
   };
 }
 
