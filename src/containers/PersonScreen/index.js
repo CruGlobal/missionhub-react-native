@@ -91,7 +91,7 @@ export class PersonScreen extends Component {
     const { person, organization } = this.props.navigation.state.params;
 
     return (
-      <View style={{ flex: 1 }}>
+      <View>
         <Header
           left={<BackButton />}
           right={
@@ -132,9 +132,15 @@ PersonScreen.propTypes = {
   }).isRequired,
 };
 
+export const mapStateToProps = (state, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
+
 export const personScreenTabNavigator = generateSwipeTabMenuNavigator(
   tabs,
-  PersonScreen,
+  connectedPersonScreen,
 );
 
 export const PERSON_SCREEN = 'nav/PERSON';
