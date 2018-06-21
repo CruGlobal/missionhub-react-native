@@ -105,9 +105,7 @@ export class PersonScreen extends Component {
           title={organization.name}
         />
         <Flex
-          value={1}
           style={styles.wrap}
-          direction="column"
           align="center"
           justify="center"
           self="stretch"
