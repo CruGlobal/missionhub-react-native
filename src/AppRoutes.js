@@ -66,7 +66,10 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
-import PersonScreen, { PERSON_SCREEN } from './containers/PersonScreen';
+import {
+  personScreenTabNavigator,
+  PERSON_SCREEN,
+} from './containers/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
@@ -366,7 +369,7 @@ export const MainStackRoutes = createStackNavigator(
     [PERSON_SCREEN]: {
       screen: createDrawerNavigator(
         {
-          Main: { screen: PersonScreen },
+          Main: { screen: personScreenTabNavigator },
         },
         {
           contentComponent: ContactSideMenu,
