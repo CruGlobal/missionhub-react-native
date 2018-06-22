@@ -26,7 +26,6 @@ class Contact extends Component {
     const { dispatch, person, organization } = this.props;
     const results = await dispatch(getGroupJourney(person.id, organization.id));
     this.setState({ activity: results });
-    LOG('results', results);
   };
 
   submit = async data => {

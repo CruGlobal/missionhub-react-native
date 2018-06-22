@@ -206,7 +206,6 @@ describe('get journey', () => {
 });
 
 describe('get group journey', () => {
-  const orgId = '1';
   beforeEach(() => {
     MockDate.set('2018-04-17');
   });
@@ -216,6 +215,15 @@ describe('get group journey', () => {
   });
 
   it('should get a persons group journey', async () => {
+    store = mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            { organization_id: orgId, permission_id: 1 },
+          ],
+        },
+      },
+    });
     expect(
       await store.dispatch(getGroupJourney(personId, orgId)),
     ).toMatchSnapshot();

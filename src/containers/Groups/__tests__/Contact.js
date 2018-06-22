@@ -10,13 +10,17 @@ import {
   createMockNavState,
 } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
-import { reloadJourney } from '../../../actions/journey';
+import { getGroupJourney } from '../../../actions/journey';
 
 jest.mock('../../../actions/interactions');
-jest.mock('../../../actions/journey');
+jest.mock('../../../actions/journey', () => ({
+  getGroupJourney: jest.fn(() => [{ id: '1' }]),
+}));
 
 MockDate.set('2017-06-18');
-const store = createMockStore({});
+const store = createMockStore({
+  auth: { person: { id: 'me' } },
+});
 
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
@@ -51,6 +55,7 @@ describe('Contact', () => {
   it('should submit comment correctly', async () => {
     const data = { action: null, text: 'text' };
     const instance = renderShallow(component, store).instance();
+    instance.loadFeed = jest.fn();
 
     await instance.submit(data);
     expect(addNewInteraction).toHaveBeenCalledWith(
@@ -59,12 +64,13 @@ describe('Contact', () => {
       data.text,
       organization.id,
     );
-    expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
+    expect(instance.loadFeed).toHaveBeenCalled();
   });
 
   it('should submit action correctly', async () => {
     const data = { action: spiritualConversationAction, text: 'text' };
     const instance = renderShallow(component, store).instance();
+    instance.loadFeed = jest.fn();
 
     await instance.submit(data);
     expect(addNewInteraction).toHaveBeenCalledWith(
@@ -73,6 +79,15 @@ describe('Contact', () => {
       data.text,
       organization.id,
     );
-    expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
+    expect(instance.loadFeed).toHaveBeenCalled();
+  });
+
+  it('should load the feed', async () => {
+    const data = { action: spiritualConversationAction, text: 'text' };
+    const instance = renderShallow(component, store).instance();
+
+    await instance.loadFeed(data);
+    expect(getGroupJourney).toHaveBeenCalledWith(person.id, organization.id);
+    expect(instance.state.activity).toEqual([{ id: '1' }]);
   });
 });
