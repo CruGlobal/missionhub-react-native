@@ -446,4 +446,20 @@ export default {
   commentBox: {
     placeholder: 'Comment',
   },
+  statusSelect: {
+    header: 'Status',
+    cancel: 'Cancel',
+    done: 'Done',
+    uncontacted: 'Uncontacted',
+    attempted: 'Attempted Contact',
+    contacted: 'Contacted',
+    completed: 'Completed',
+    doNotContact: 'Do Not Contact',
+  },
+  statusComplete: {
+    done: 'Done',
+    continue: `Great job {{name1}}!\nWould you like to continue journeying with {{name2}}?`,
+    totally: 'Totally',
+    nope: 'No Thanks',
+  },
 };
