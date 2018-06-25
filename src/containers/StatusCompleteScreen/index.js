@@ -5,18 +5,32 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
+import { deleteContactAssignment } from '../../actions/person';
+import { navigatePush } from '../../actions/navigation';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
 
 @translate('statusComplete')
 class StatusCompleteScreen extends Component {
   cancel = () => {
-    return false;
+    const { dispatch, person, contactAssignment, organization } = this.props;
+    // TODO: Find out how to get the contact assignment to remove them when someone says "no thanks"
+    // await dispatch(
+    //   deleteContactAssignment(
+    //     contactAssignment.id,
+    //     person.id,
+    //     organization && organization.id,
+    //   ),
+    // );
+    dispatch(navigatePush(STATUS_REASON_SCREEN, { person, organization }));
   };
 
   complete = () => {
+    // const { dispatch } = this.props;
+    // dispatch(navigatePush(SEARCH_CONTACTS_FILTER_SCREEN));
     return false;
   };
 
@@ -56,6 +70,7 @@ class StatusCompleteScreen extends Component {
 
 StatusCompleteScreen.propTypes = {
   person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => ({

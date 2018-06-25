@@ -19,21 +19,14 @@ class StatusReasonScreen extends Component {
     this.setState({ text: t });
   };
 
-  cancel = () => {
-    return false;
-  };
-
-  complete = () => {
-    return false;
-  };
-
   submit = () => {
     const { text } = this.state;
     if (!text) {
       // No reason filled in
-      return;
+      return false;
     }
     // TODO: Add a reason to the status change
+    return true;
   };
 
   render() {
@@ -76,6 +69,7 @@ class StatusReasonScreen extends Component {
 
 StatusReasonScreen.propTypes = {
   person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => ({
