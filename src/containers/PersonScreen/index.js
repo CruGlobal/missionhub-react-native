@@ -7,72 +7,88 @@ import i18next from 'i18next';
 
 import Header from '../Header';
 import BackButton from '../BackButton';
+import MemberCelebrate from '../MemberCelebrate';
+import ContactSteps from '../ContactSteps';
+import ContactNotes from '../ContactNotes';
+import ContactJourney from '../ContactJourney';
 import ImpactView from '../ImpactView';
-import Celebrate from '../Groups/Celebrate';
-import Members from '../Groups/Members';
-import Contacts from '../Groups/Contacts';
-import Surveys from '../Groups/Surveys';
+import MemberContacts from '../MemberContacts';
 import { Flex, IconButton, Text } from '../../components/common';
 import { CONTACT_MENU_DRAWER } from '../../constants';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 
 import styles from './styles';
 
-const tabs = [
+const GROUP_CONTACT_TABS = [
   {
-    name: i18next.t('groupTabs:celebrate'),
-    navigationAction: 'nav/GROUP_CELEBRATE',
+    name: i18next.t('personTabs:steps'),
+    navigationAction: 'nav/PERSON_STEPS',
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { organization, person },
         },
       },
-    }) => <Celebrate organization={organization} />,
+    }) => <ContactSteps organization={organization} person={person} />,
   },
   {
-    name: i18next.t('groupTabs:members'),
-    navigationAction: 'nav/GROUP_MEMBERS',
+    name: i18next.t('personTabs:notes'),
+    navigationAction: 'nav/PERSON_NOTES',
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { organization, person },
         },
       },
-    }) => <Members organization={organization} />,
+    }) => <ContactNotes organization={organization} person={person} />,
   },
   {
-    name: i18next.t('groupTabs:impact'),
-    navigationAction: 'nav/GROUP_IMPACT',
+    name: i18next.t('personTabs:journey'),
+    navigationAction: 'nav/PERSON_JOURNEY',
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { organization, person },
         },
       },
-    }) => <ImpactView organization={organization} />,
+    }) => <ContactJourney organization={organization} person={person} />,
+  },
+];
+
+const GROUP_MEMBER_TABS = [
+  {
+    name: i18next.t('personTabs:celebrate'),
+    navigationAction: 'nav/PERSON_CELEBRATE',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <MemberCelebrate organization={organization} person={person} />,
+  },
+  ...GROUP_CONTACT_TABS,
+  {
+    name: i18next.t('personTabs:Impact'),
+    navigationAction: 'nav/PERSON_IMPACT',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <ImpactView organization={organization} person={person} />,
   },
   {
-    name: i18next.t('groupTabs:contacts'),
-    navigationAction: 'nav/GROUP_CONTACTS',
+    name: i18next.t('personTabs:assignedContacts'),
+    navigationAction: 'nav/PERSON_ASSIGNED_CONTACTS',
     component: ({
       navigation: {
         state: {
-          params: { organization },
+          params: { organization, person },
         },
       },
-    }) => <Contacts organization={organization} />,
-  },
-  {
-    name: i18next.t('groupTabs:surveys'),
-    navigationAction: 'nav/GROUP_SURVEYS',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization },
-        },
-      },
-    }) => <Surveys organization={organization} />,
+    }) => <MemberContacts organization={organization} person={person} />,
   },
 ];
 
@@ -137,7 +153,7 @@ export const mapStateToProps = (state, { navigation }) => ({
 export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 
 export const personScreenTabNavigator = generateSwipeTabMenuNavigator(
-  tabs,
+  GROUP_MEMBER_TABS,
   connectedPersonScreen,
 );
 
