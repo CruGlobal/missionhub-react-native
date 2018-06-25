@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,45 +13,53 @@ import styles from './styles';
 @translate('statusComplete')
 class StatusCompleteScreen extends Component {
   cancel = () => {
-    LOG('complete');
+    return false;
   };
 
   complete = () => {
-    LOG('complete');
+    return false;
   };
 
   render() {
-    const { t } = this.props;
+    const { t, me, person } = this.props;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
+      <View style={styles.container}>
         <Header left={<BackButton />} shadow={false} />
 
-        <Text style={styles.text}>
-          {t('continue', { name1: 'Name 1', name2: 'Name 2' })}
-        </Text>
-        <Button
-          type="secondary"
-          onPress={this.complete}
-          text={t('totally')}
-          style={styles.button}
-        />
-        <Button
-          type="secondary"
-          onPress={this.cancel}
-          text={t('nope')}
-          style={styles.button}
-        />
-      </Flex>
+        <Flex value={1} align="stretch" style={styles.content}>
+          <Text style={styles.text}>
+            {t('continue', {
+              userName: me.first_name,
+              statusName: person.first_name,
+            })}
+          </Text>
+          <Button
+            type="transparent"
+            onPress={this.complete}
+            text={t('totally').toUpperCase()}
+            style={styles.button}
+            buttonTextStyle={styles.buttonText}
+          />
+          <Button
+            type="transparent"
+            onPress={this.cancel}
+            text={t('nope').toUpperCase()}
+            style={styles.button}
+            buttonTextStyle={styles.buttonText}
+          />
+        </Flex>
+      </View>
     );
   }
 }
 
 StatusCompleteScreen.propTypes = {
-  person: PropTypes.func.isRequired,
+  person: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth }, { navigation }) => ({
+  ...(navigation.state.params || {}),
   me: auth.person,
 });
 

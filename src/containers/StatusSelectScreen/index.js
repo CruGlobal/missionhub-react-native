@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -11,7 +12,9 @@ import {
   // deleteContactAssignment,
   updateFollowupStatus,
 } from '../../actions/person';
-import { navigateBack } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
+import { STATUS_COMPLETE_SCREEN } from '../StatusCompleteScreen';
+import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
 
@@ -28,22 +31,52 @@ class StatusSelectScreen extends Component {
     this.setState({ selected: status });
   };
 
-  submit = () => {
-    const { dispatch, person, orgPermission, status } = this.props;
+  submit = async () => {
+    const {
+      dispatch,
+      person,
+      organization,
+      orgPermission,
+      status,
+    } = this.props;
     const { selected } = this.state;
     if (status === selected) {
       dispatch(navigateBack());
       return;
     }
-    dispatch(updateFollowupStatus(person, orgPermission.id, selected));
+    await dispatch(updateFollowupStatus(person, orgPermission.id, selected));
+    if (selected === 'completed') {
+      dispatch(navigatePush(STATUS_COMPLETE_SCREEN, { organization, person }));
+    } else if (selected === 'do_not_contact') {
+      dispatch(navigatePush(STATUS_REASON_SCREEN, { organization, person }));
+    }
   };
+
+  renderItem(type) {
+    const { t } = this.props;
+    const { selected } = this.state;
+    return (
+      <Touchable onPress={() => this.select(type)} style={styles.row}>
+        <Text style={[styles.text, selected === type ? styles.selected : null]}>
+          {t(type)}
+        </Text>
+        {selected === type ? (
+          <Icon
+            name="checkIcon"
+            size={16}
+            type="MissionHub"
+            style={styles.icon}
+          />
+        ) : null}
+      </Touchable>
+    );
+  }
 
   render() {
     const { t, dispatch } = this.props;
-    const { selected } = this.state;
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={
             <Button
@@ -51,7 +84,10 @@ class StatusSelectScreen extends Component {
               type="transparent"
               onPress={() => dispatch(navigateBack())}
               style={styles.headerButton}
-              buttonTextStyle={styles.headerButtonText}
+              buttonTextStyle={[
+                styles.headerButtonText,
+                styles.headerButtonTextCancel,
+              ]}
             />
           }
           right={
@@ -60,36 +96,23 @@ class StatusSelectScreen extends Component {
               type="transparent"
               onPress={this.submit}
               style={styles.headerButton}
-              buttonTextStyle={styles.headerButtonText}
+              buttonTextStyle={[
+                styles.headerButtonText,
+                styles.headerButtonTextDone,
+              ]}
             />
           }
           title={t('header')}
         />
 
-        <Flex value={1} align="stretch" justify="end">
-          <Touchable
-            onPress={() => this.select('uncontacted')}
-            style={styles.row}
-          >
-            <Text
-              style={[
-                styles.text,
-                selected === 'uncontacted' ? styles.selected : null,
-              ]}
-            >
-              {t('uncontacted')}
-            </Text>
-            {selected === 'uncontacted' ? (
-              <Icon
-                name="checkIcon"
-                size={22}
-                type="MissionHub"
-                style={styles.icon}
-              />
-            ) : null}
-          </Touchable>
+        <Flex value={1} align="stretch">
+          {this.renderItem('uncontacted')}
+          {this.renderItem('attempted_contact')}
+          {this.renderItem('contacted')}
+          {this.renderItem('completed')}
+          {this.renderItem('do_not_contact')}
         </Flex>
-      </Flex>
+      </View>
     );
   }
 }
@@ -102,14 +125,16 @@ StatusSelectScreen.propTypes = {
 export const mapStateToProps = (reduxState, { navigation }) => {
   const navParams = navigation.state.params || {};
   const person = navParams.person;
+  const organization = navParams.organization;
   const orgPermission = orgPermissionSelector(null, {
     person,
-    organization: navParams.organization,
+    organization,
   });
 
   return {
     ...navParams,
     person,
+    organization,
     orgPermission: orgPermission,
     status: orgPermission.followup_status,
   };

@@ -451,15 +451,20 @@ export default {
     cancel: 'Cancel',
     done: 'Done',
     uncontacted: 'Uncontacted',
-    attempted: 'Attempted Contact',
+    attempted_contact: 'Attempted Contact',
     contacted: 'Contacted',
     completed: 'Completed',
-    doNotContact: 'Do Not Contact',
+    do_not_contact: 'Do Not Contact',
   },
   statusComplete: {
     done: 'Done',
-    continue: `Great job {{name1}}!\nWould you like to continue journeying with {{name2}}?`,
+    continue: `Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?`,
     totally: 'Totally',
     nope: 'No Thanks',
+  },
+  statusReason: {
+    done: 'Done',
+    placeholder: 'Admin note',
+    important: `Anything important the admins at {{organization}} should know?`,
   },
 };
