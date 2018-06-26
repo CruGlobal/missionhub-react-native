@@ -12,7 +12,9 @@ class ContactItem extends Component {
     this.props.onSelect(this.props.contact);
   };
   render() {
-    const { contact, t } = this.props;
+    const { contact, organization, t } = this.props;
+    // TODO: Figure out how someone is assigned/unassigned
+    const isAssigned = false;
     return (
       <Touchable onPress={this.handleSelect} highlight={true}>
         <Flex align="center" direction="row" style={styles.row}>
@@ -22,7 +24,7 @@ class ContactItem extends Component {
               {contact.last_name ? ` ${contact.last_name}` : null}
             </Text>
           </Flex>
-          {contact.isAssigned ? null : (
+          {isAssigned ? null : (
             <Text style={styles.unassigned}>{t('unassigned')}</Text>
           )}
         </Flex>
@@ -38,6 +40,7 @@ ContactItem.propTypes = {
     last_name: PropTypes.string,
     isAssigned: PropTypes.bool,
   }).isRequired,
+  organization: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
 };
 
