@@ -432,8 +432,10 @@ export default {
   },
   groupsContactItem: {
     status: 'Status: {{status}}',
-    assigned: '{{name1}} has assigned {{name2}} to {{name3}}',
-    unassigned: '{{name1}} has been Unassigned by {{name2}}',
+    assigned: '{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}',
+    unassigned: '{{unassigner}} has been Unassigned by {{unassignedBy}}',
+    stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',
+    stageStart: '{{personName}} has been to MissionHub as {{newStage}}',
   },
   groupItem: {
     numContacts: '{{number}} Contacts',

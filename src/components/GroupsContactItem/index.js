@@ -34,16 +34,29 @@ class GroupsContactItem extends Component {
     } else if (item._type === 'contact_assignment') {
       // TODO: Fill in the correct names
       title = t('assigned', {
-        name1: 'Name 1',
-        name2: person.full_name,
-        name3: 'Name 3',
+        assigner: 'Name 1',
+        assignedContact: person.full_name,
+        assignedTo: 'Name 3',
       });
     } else if (item._type === 'contact_unassignment') {
       // TODO: Fill in the correct names
-      title = t('unassigned', { name1: 'Name 1', name2: person.full_name });
-    } else if (item._type === 'status') {
-      // TODO: Figure out the "_type" for status changes
-      title = t('status', { status: item.status });
+      title = t('unassigned', {
+        unassigner: 'Name 1',
+        unassignedBy: person.full_name,
+      });
+    } else if (item._type === 'pathway_progression_audit') {
+      if (item.old_pathway_stage) {
+        title = t('stageChange', {
+          personName: item.person.first_name,
+          oldStage: item.old_pathway_stage.name,
+          newStage: item.new_pathway_stage.name,
+        });
+      } else {
+        title = t('stageStart', {
+          personName: item.person.first_name,
+          newStage: item.new_pathway_stage.name,
+        });
+      }
     }
     return (
       <Card style={styles.row}>
