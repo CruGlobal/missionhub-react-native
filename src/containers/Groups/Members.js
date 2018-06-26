@@ -13,6 +13,7 @@ import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../actions/organizations';
+import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 
 import styles from './styles';
@@ -41,7 +42,9 @@ class Members extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(MEMBER_PERSON_SCREEN, { organization, person }));
+    const isMember = true;
+    const isAssignedToMe = false;
+    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
   };
 
   handleLoadMore = () => {

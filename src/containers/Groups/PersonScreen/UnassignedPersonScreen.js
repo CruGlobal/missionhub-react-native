@@ -24,7 +24,7 @@ class UnassignedPersonScreen extends Component {
     const { t, organization, activity, person } = this.props;
     const orgName = organization ? organization.name : undefined;
     return (
-      <PlatformKeyboardAvoidingView style={styles.contact}>
+      <PlatformKeyboardAvoidingView style={styles.container}>
         <Header left={<BackButton />} title={orgName} shadow={false} />
         <GroupsContactList
           activity={activity}

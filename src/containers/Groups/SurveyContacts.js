@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
+import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -85,7 +86,9 @@ class SurveyContacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(UNASSIGNED_PERSON_SCREEN, { organization, person }));
+    const isMember = false;
+    const isAssignedToMe = false;
+    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
   };
 
   render() {

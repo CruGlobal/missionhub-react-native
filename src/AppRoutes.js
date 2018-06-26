@@ -344,10 +344,6 @@ export const MainStackRoutes = createStackNavigator(
       screen: SurveyContacts,
       navigationOptions: { gesturesEnabled: true },
     },
-    [UNASSIGNED_PERSON_SCREEN]: {
-      screen: UnassignedPersonScreen,
-      navigationOptions: { gesturesEnabled: true },
-    },
     [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {
       screen: SurveyContactsFilter,
       navigationOptions: { gesturesEnabled: true },
@@ -369,6 +365,10 @@ export const MainStackRoutes = createStackNavigator(
         },
       ),
       navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [UNASSIGNED_PERSON_SCREEN]: {
+      screen: UnassignedPersonScreen,
+      navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_PERSON_SCREEN]: {
       screen: createDrawerNavigator(
