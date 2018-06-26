@@ -68,10 +68,10 @@ import NotificationOffScreen, {
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import ContactPersonScreen, {
   CONTACT_PERSON_SCREEN,
-} from './containers/PersonScreen/ContactPersonScreen';
+} from './containers/Groups/PersonScreen/ContactPersonScreen';
 import MemberPersonScreen, {
   MEMBER_PERSON_SCREEN,
-} from './containers/PersonScreen/MemberPersonScreen';
+} from './containers/Groups/PersonScreen/MemberPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
@@ -93,7 +93,9 @@ import {
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
-import GroupsContact, { GROUPS_CONTACT } from './containers/Groups/Contact';
+import UnassignedPersonScreen, {
+  UNASSIGNED_PERSON_SCREEN,
+} from './containers/Groups/PersonScreen/UnassignedPersonScreen';
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/SurveyContactsFilter';
@@ -342,8 +344,8 @@ export const MainStackRoutes = createStackNavigator(
       screen: SurveyContacts,
       navigationOptions: { gesturesEnabled: true },
     },
-    [GROUPS_CONTACT]: {
-      screen: GroupsContact,
+    [UNASSIGNED_PERSON_SCREEN]: {
+      screen: UnassignedPersonScreen,
       navigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {

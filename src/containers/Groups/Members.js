@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { MEMBER_PERSON_SCREEN } from '../PersonScreen/MemberPersonScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, RefreshControl } from '../../components/common';
 import { refresh } from '../../utils/common';
@@ -17,6 +16,7 @@ import {
 import { organizationSelector } from '../../selectors/organizations';
 
 import styles from './styles';
+import { MEMBER_PERSON_SCREEN } from './PersonScreen/MemberPersonScreen';
 
 @translate('groupsMembers')
 class Members extends Component {

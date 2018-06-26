@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { PlatformKeyboardAvoidingView } from '../../components/common';
-import GroupsContactList from '../../components/GroupsContactList';
-import CommentBox from '../../components/CommentBox';
-import Header from '../Header';
-import BackButton from '../BackButton';
+import { PlatformKeyboardAvoidingView } from '../../../components/common';
+import GroupsContactList from '../../../components/GroupsContactList';
+import CommentBox from '../../../components/CommentBox';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
 
 import styles from './styles';
 
 @translate('groupsContact')
-class Contact extends Component {
+class UnassignedPersonScreen extends Component {
   submit = data => {
     return data;
   };
@@ -37,7 +37,7 @@ class Contact extends Component {
   }
 }
 
-Contact.propTypes = {
+UnassignedPersonScreen.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
 };
@@ -84,5 +84,5 @@ const mapStateToProps = (state, { navigation }) => ({
   ],
 });
 
-export default connect(mapStateToProps)(Contact);
-export const GROUPS_CONTACT = 'nav/GROUPS_CONTACT';
+export default connect(mapStateToProps)(UnassignedPersonScreen);
+export const UNASSIGNED_PERSON_SCREEN = 'nav/UNASSIGNED_PERSON';

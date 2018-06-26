@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-import Header from '../Header';
-import BackButton from '../BackButton';
-import MemberCelebrate from '../MemberCelebrate';
-import ContactSteps from '../ContactSteps';
-import ContactNotes from '../ContactNotes';
-import ContactJourney from '../ContactJourney';
-import ImpactView from '../ImpactView';
-import MemberContacts from '../MemberContacts';
-import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import { Flex, IconButton, Text } from '../../components/common';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
+import MemberCelebrate from '../../MemberCelebrate';
+import ContactSteps from '../../ContactSteps';
+import ContactNotes from '../../ContactNotes';
+import ContactJourney from '../../ContactJourney';
+import ImpactView from '../../ImpactView';
+import MemberContacts from '../../MemberContacts';
+import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
+import { Flex, IconButton, Text } from '../../../components/common';
 
 import styles from './styles';
 

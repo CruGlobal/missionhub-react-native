@@ -11,7 +11,7 @@ import ContactItem from '../../components/ContactItem';
 import { organizationSelector } from '../../selectors/organizations';
 import { searchRemoveFilter } from '../../utils/common';
 
-import { GROUPS_CONTACT } from './Contact';
+import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
 @translate('groupsContacts')
@@ -84,7 +84,7 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
+    dispatch(navigatePush(UNASSIGNED_PERSON_SCREEN, { organization, person }));
   };
 
   render() {
