@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { PERSON_SCREEN } from '../PersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../PersonScreen/MemberPersonScreen';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, RefreshControl } from '../../components/common';
 import { refresh } from '../../utils/common';
@@ -41,7 +41,7 @@ class Members extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(PERSON_SCREEN, { organization, person }));
+    dispatch(navigatePush(MEMBER_PERSON_SCREEN, { organization, person }));
   };
 
   handleLoadMore = () => {

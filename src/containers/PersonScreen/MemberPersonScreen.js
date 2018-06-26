@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation';
-import i18next from 'i18next';
+import PropTypes from 'prop-types';
 
 import Header from '../Header';
 import BackButton from '../BackButton';
@@ -13,16 +13,26 @@ import ContactNotes from '../ContactNotes';
 import ContactJourney from '../ContactJourney';
 import ImpactView from '../ImpactView';
 import MemberContacts from '../MemberContacts';
-import { Flex, IconButton, Text } from '../../components/common';
-import { CONTACT_MENU_DRAWER } from '../../constants';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
+import { Flex, IconButton, Text } from '../../components/common';
 
 import styles from './styles';
 
-const GROUP_CONTACT_TABS = [
+const MEMBER_PERSON_TABS = [
+  {
+    name: i18next.t('personTabs:celebrate'),
+    navigationAction: 'nav/MEMBER_CELEBRATE',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <MemberCelebrate organization={organization} person={person} />,
+  },
   {
     name: i18next.t('personTabs:steps'),
-    navigationAction: 'nav/PERSON_STEPS',
+    navigationAction: 'nav/MEMBER_STEPS',
     component: ({
       navigation: {
         state: {
@@ -33,7 +43,7 @@ const GROUP_CONTACT_TABS = [
   },
   {
     name: i18next.t('personTabs:notes'),
-    navigationAction: 'nav/PERSON_NOTES',
+    navigationAction: 'nav/MEMBER_NOTES',
     component: ({
       navigation: {
         state: {
@@ -44,7 +54,7 @@ const GROUP_CONTACT_TABS = [
   },
   {
     name: i18next.t('personTabs:journey'),
-    navigationAction: 'nav/PERSON_JOURNEY',
+    navigationAction: 'nav/MEMBER_JOURNEY',
     component: ({
       navigation: {
         state: {
@@ -53,24 +63,9 @@ const GROUP_CONTACT_TABS = [
       },
     }) => <ContactJourney organization={organization} person={person} />,
   },
-];
-
-const GROUP_MEMBER_TABS = [
-  {
-    name: i18next.t('personTabs:celebrate'),
-    navigationAction: 'nav/PERSON_CELEBRATE',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <MemberCelebrate organization={organization} person={person} />,
-  },
-  ...GROUP_CONTACT_TABS,
   {
     name: i18next.t('personTabs:Impact'),
-    navigationAction: 'nav/PERSON_IMPACT',
+    navigationAction: 'nav/MEMBER_IMPACT',
     component: ({
       navigation: {
         state: {
@@ -81,7 +76,7 @@ const GROUP_MEMBER_TABS = [
   },
   {
     name: i18next.t('personTabs:assignedContacts'),
-    navigationAction: 'nav/PERSON_ASSIGNED_CONTACTS',
+    navigationAction: 'nav/MEMBER_ASSIGNED_CONTACTS',
     component: ({
       navigation: {
         state: {
@@ -93,7 +88,7 @@ const GROUP_MEMBER_TABS = [
 ];
 
 @connect()
-export class PersonScreen extends Component {
+export class MemberPersonScreen extends Component {
   openDrawer = () => {
     this.props.dispatch(
       DrawerActions.openDrawer({
@@ -135,7 +130,7 @@ export class PersonScreen extends Component {
   }
 }
 
-PersonScreen.propTypes = {
+MemberPersonScreen.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
@@ -150,11 +145,13 @@ export const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
+export const connectedPersonScreen = connect(mapStateToProps)(
+  MemberPersonScreen,
+);
 
-export const personScreenTabNavigator = generateSwipeTabMenuNavigator(
-  GROUP_MEMBER_TABS,
+export default generateSwipeTabMenuNavigator(
+  MEMBER_PERSON_TABS,
   connectedPersonScreen,
 );
 
-export const PERSON_SCREEN = 'nav/PERSON';
+export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';

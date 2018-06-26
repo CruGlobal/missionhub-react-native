@@ -66,10 +66,12 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
-import {
-  personScreenTabNavigator,
-  PERSON_SCREEN,
-} from './containers/PersonScreen';
+import ContactPersonScreen, {
+  CONTACT_PERSON_SCREEN,
+} from './containers/PersonScreen/ContactPersonScreen';
+import MemberPersonScreen, {
+  MEMBER_PERSON_SCREEN,
+} from './containers/PersonScreen/MemberPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
@@ -366,10 +368,24 @@ export const MainStackRoutes = createStackNavigator(
       ),
       navigationOptions: { gesturesEnabled: isAndroid ? false : true },
     },
-    [PERSON_SCREEN]: {
+    [CONTACT_PERSON_SCREEN]: {
       screen: createDrawerNavigator(
         {
-          Main: { screen: personScreenTabNavigator },
+          Main: { screen: ContactPersonScreen },
+        },
+        {
+          contentComponent: ContactSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [MEMBER_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: MemberPersonScreen },
         },
         {
           contentComponent: ContactSideMenu,
