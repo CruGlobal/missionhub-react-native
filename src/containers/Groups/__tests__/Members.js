@@ -18,6 +18,10 @@ jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
   getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
 }));
+import { navToPersonScreen } from '../../../actions/person';
+jest.mock('../../../actions/person', () => ({
+  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
+}));
 import * as common from '../../../utils/common';
 common.refresh = jest.fn();
 
@@ -85,7 +89,7 @@ describe('Members', () => {
   it('should handleSelect correctly', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
-    expect(navigatePush).toHaveBeenCalled();
+    expect(navToPersonScreen).toHaveBeenCalled();
   });
 
   it('should handleLoadMore correctly', () => {

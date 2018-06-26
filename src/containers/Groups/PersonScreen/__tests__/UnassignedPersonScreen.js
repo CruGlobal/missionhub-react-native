@@ -1,13 +1,13 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import Contact from '../Contact';
+import UnassignedPersonScreen from '../UnassignedPersonScreen';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
   createMockNavState,
-} from '../../../../testUtils';
+} from '../../../../../testUtils';
 
 MockDate.set('2017-06-18');
 const store = createMockStore({});
@@ -17,7 +17,7 @@ const person = { id: '1', full_name: 'Test Person' };
 
 describe('Contact', () => {
   const component = (
-    <Contact
+    <UnassignedPersonScreen
       navigation={createMockNavState({
         organization,
         person,

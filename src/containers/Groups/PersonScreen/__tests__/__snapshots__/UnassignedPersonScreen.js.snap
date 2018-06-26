@@ -5,7 +5,6 @@ exports[`Contact should render correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#E6E8EC",
-      "flex": 1,
     }
   }
 >
