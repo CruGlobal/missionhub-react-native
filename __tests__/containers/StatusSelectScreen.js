@@ -9,6 +9,8 @@ import {
 } from '../../testUtils';
 import { updateFollowupStatus } from '../../src/actions/person';
 import * as navigation from '../../src/actions/navigation';
+import { STATUS_COMPLETE_SCREEN } from '../../src/containers/StatusCompleteScreen';
+import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
 jest.mock('../../src/actions/person', () => ({
   updateFollowupStatus: jest.fn(() => Promise.resolve()),
 }));
@@ -32,6 +34,19 @@ describe('StatusSelectScreen', () => {
       })}
     />
   );
+  navigation.navigateBack = jest.fn();
+  navigation.navigatePush = jest.fn();
+
+  const testSubmit = async type => {
+    const instance = renderShallow(component, store).instance();
+    instance.setState({ selected: type });
+    await instance.submit();
+    expect(updateFollowupStatus).toHaveBeenCalledWith(
+      person,
+      orgPermission.id,
+      type,
+    );
+  };
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
@@ -39,46 +54,32 @@ describe('StatusSelectScreen', () => {
 
   it('should navigate back', async () => {
     const instance = renderShallow(component, store).instance();
-    navigation.navigateBack = jest.fn();
     await instance.submit();
     expect(navigation.navigateBack).toHaveBeenCalled();
   });
 
   it('should update status to attempted_contact', async () => {
-    const instance = renderShallow(component, store).instance();
-    instance.setState({ selected: 'attempted_contact' });
-    await instance.submit();
-    expect(updateFollowupStatus).toHaveBeenCalledWith(
-      person,
-      orgPermission.id,
-      'attempted_contact',
-    );
+    await testSubmit('attempted_contact');
   });
 
   it('should update status to completed', async () => {
-    const instance = renderShallow(component, store).instance();
-    instance.setState({ selected: 'completed' });
-    navigation.navigatePush = jest.fn();
-    await instance.submit();
-    expect(updateFollowupStatus).toHaveBeenCalledWith(
-      person,
-      orgPermission.id,
-      'completed',
+    await testSubmit('completed');
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      STATUS_COMPLETE_SCREEN,
+      {
+        organization,
+        person,
+      },
     );
-    expect(navigation.navigatePush).toHaveBeenCalled();
   });
 
   it('should update status to do_not_contact', async () => {
-    const instance = renderShallow(component, store).instance();
-    instance.setState({ selected: 'do_not_contact' });
-    navigation.navigatePush = jest.fn();
-    await instance.submit();
-    expect(updateFollowupStatus).toHaveBeenCalledWith(
+    await testSubmit('do_not_contact');
+    expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
+      organization,
       person,
-      orgPermission.id,
-      'do_not_contact',
-    );
-    expect(navigation.navigatePush).toHaveBeenCalled();
+    });
   });
 
   it('set the state to contacted', () => {
