@@ -12,11 +12,17 @@ import {
   getPersonJourneyDetails,
   savePersonNote,
   getPersonNote,
+  navToPersonScreen,
 } from '../../src/actions/person';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
+import { navigatePush } from '../../src/actions/navigation';
+import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/UnassignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/ContactPersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/MemberPersonScreen';
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/navigation');
 
 const store = configureStore([thunk])({});
 const dispatch = jest.fn(response => Promise.resolve(response));
@@ -27,6 +33,7 @@ beforeEach(() => {
   store.clearActions();
   dispatch.mockClear();
   callApi.mockClear();
+  navigatePush.mockClear();
 });
 
 describe('get me', () => {
@@ -425,5 +432,36 @@ describe('GetPersonNote', () => {
       expectedQuery,
     );
     expect(store.getActions()[0]).toBe(action);
+  });
+});
+
+describe('navToPersonScreen', () => {
+  const person = { id: '1' };
+  const organization = { id: '111' };
+
+  beforeEach(() => {
+    navigatePush.mockReturnValue({ type: 'test' });
+  });
+
+  it('navigates to unassigned person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, false, false));
+    expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+  it('navigates to contact person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, false, true));
+    expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+  it('navigates to member person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, true, false));
+    expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
+      person,
+      organization,
+    });
   });
 });

@@ -6,9 +6,9 @@ import {
   createMockStore,
   testSnapshotShallow,
 } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-jest.mock('../../../actions/navigation', () => ({
-  navigatePush: jest.fn(() => ({ type: 'test' })),
+import { navToPersonScreen } from '../../../actions/person';
+jest.mock('../../../actions/person', () => ({
+  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
 import {
   getOrganizationMembers,
@@ -17,10 +17,6 @@ import {
 jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
   getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
-}));
-import { navToPersonScreen } from '../../../actions/person';
-jest.mock('../../../actions/person', () => ({
-  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
 import * as common from '../../../utils/common';
 common.refresh = jest.fn();
@@ -44,6 +40,10 @@ let store = createMockStore({
 });
 
 const organization = { id: '1', name: 'Test Org' };
+
+beforeEach(() => {
+  navToPersonScreen.mockClear();
+});
 
 describe('Members', () => {
   const component = <Members organization={organization} />;
