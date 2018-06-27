@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact should render PersonScreen correctly 1`] = `
+<Component>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    />
+  </Flex>
+</Component>
+`;
