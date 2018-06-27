@@ -35,7 +35,12 @@ export function getGroupJourney(personId, orgId) {
         response: { all: feed },
       } = await dispatch(getPersonFeed(personId, orgId, include));
 
-      return feed;
+      // TODO: Once the API is ready, stop filtering out the contact assignments/unassignments
+      return feed.filter(
+        f =>
+          f._type !== 'contact_assignment' &&
+          f._type !== 'contact_unassignment',
+      );
     } catch (e) {
       return [];
     }
