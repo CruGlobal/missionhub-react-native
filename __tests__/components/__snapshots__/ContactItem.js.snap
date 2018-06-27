@@ -35,6 +35,19 @@ exports[`render assigned contact 1`] = `
         }
       />
     </Flex>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#FF5532",
+          "fontSize": 13,
+        }
+      }
+    >
+      Unassigned
+    </MyText>
   </Flex>
 </TouchableIOS>
 `;

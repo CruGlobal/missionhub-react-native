@@ -88,7 +88,7 @@ class Contacts extends Component {
   };
 
   render() {
-    const { t } = this.props;
+    const { t, organization } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
@@ -98,7 +98,11 @@ class Contacts extends Component {
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (
-              <ContactItem contact={item} onSelect={this.handleSelect} />
+              <ContactItem
+                organization={organization}
+                contact={item}
+                onSelect={this.handleSelect}
+              />
             ),
           }}
           onSearch={this.handleSearch}

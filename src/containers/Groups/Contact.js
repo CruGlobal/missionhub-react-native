@@ -7,10 +7,12 @@ import { getGroupJourney } from '../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { addNewInteraction } from '../../actions/interactions';
+import { createContactAssignment } from '../../actions/person';
 import GroupsContactList from '../../components/GroupsContactList';
 import CommentBox from '../../components/CommentBox';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -44,8 +46,11 @@ class Contact extends Component {
     this.loadFeed();
   };
 
-  handleAssign = () => {
-    return true;
+  handleAssign = async () => {
+    const { dispatch, organization, me, person } = this.props;
+    await dispatch(createContactAssignment(organization.id, me.id, person.id));
+    // TODO: Navigate away after a person is assigned to me
+    // dispatch(navigatePush(GROUP_PERSON_VIEW));
   };
 
   render() {

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusCompleteScreen should render correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
+  />
+  <Flex
+    align="stretch"
+    style={
+      Object {
+        "marginTop": 50,
+        "paddingHorizontal": 35,
+      }
+    }
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "marginBottom": 25,
+        }
+      }
+    >
+      Great job Me!
+Would you like to continue journeying with Person?
+    </MyText>
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+        }
+      }
+      onPress={[Function]}
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "borderColor": "#52C5DC",
+          "borderRadius": 25,
+          "borderWidth": 1,
+          "marginTop": 15,
+          "padding": 13,
+        }
+      }
+      text="TOTALLY"
+      type="transparent"
+    />
+    <Button
+      buttonTextStyle={
+        Object {
+          "fontSize": 14,
+        }
+      }
+      onPress={[Function]}
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "borderColor": "#52C5DC",
+          "borderRadius": 25,
+          "borderWidth": 1,
+          "marginTop": 15,
+          "padding": 13,
+        }
+      }
+      text="NO THANKS"
+      type="transparent"
+    />
+  </Flex>
+</Component>
+`;
