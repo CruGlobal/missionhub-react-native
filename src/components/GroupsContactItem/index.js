@@ -41,7 +41,7 @@ class GroupsContactItem extends Component {
     } else if (item._type === 'contact_unassignment') {
       // TODO: Fill in the correct names
       title = t('unassigned', {
-        unassigner: 'Name 1',
+        unassignedContact: 'Name 1',
         unassignedBy: person.full_name,
       });
     } else if (item._type === 'pathway_progression_audit') {

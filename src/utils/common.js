@@ -150,8 +150,6 @@ export const getIconName = (type, interaction_type_id) => {
     return 'warningIcon';
   } else if (type === 'contact_unassignment') {
     return 'warningIcon';
-  } else if (type === 'contact_unassignment') {
-    return 'warningIcon';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {
