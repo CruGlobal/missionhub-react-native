@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 
 import { INTERACTION_TYPES } from '../../constants';
 import { addNewInteraction } from '../../actions/interactions';
+import { createContactAssignment } from '../../actions/person';
 import { reloadJourney } from '../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../components/common';
 import GroupsContactList from '../../components/GroupsContactList';
 import CommentBox from '../../components/CommentBox';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -31,8 +33,11 @@ class Contact extends Component {
     dispatch(reloadJourney(person.id, organization.id));
   };
 
-  handleAssign = () => {
-    return true;
+  handleAssign = async () => {
+    const { dispatch, organization, me, person } = this.props;
+    await dispatch(createContactAssignment(organization.id, me.id, person.id));
+    // TODO: Navigate away after a person is assigned to me
+    // dispatch(navigatePush(GROUP_PERSON_VIEW));
   };
 
   render() {
@@ -57,8 +62,9 @@ Contact.propTypes = {
   person: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state, { navigation }) => ({
+const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
+  me: auth.person,
   activity: [
     {
       id: '1',
