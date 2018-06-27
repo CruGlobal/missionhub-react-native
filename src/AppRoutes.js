@@ -66,12 +66,14 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
-import ContactPersonScreen, {
+import {
+  ContactPersonScreen,
   CONTACT_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen/ContactPersonScreen';
-import MemberPersonScreen, {
+} from './containers/Groups/PersonScreen/PersonScreen';
+import {
+  MemberPersonScreen,
   MEMBER_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen/MemberPersonScreen';
+} from './containers/Groups/PersonScreen/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';

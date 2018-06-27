@@ -18,8 +18,8 @@ import callApi, { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/ContactPersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/MemberPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/navigation');

@@ -17,7 +17,6 @@ import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 
 import styles from './styles';
-import { MEMBER_PERSON_SCREEN } from './PersonScreen/MemberPersonScreen';
 
 @translate('groupsMembers')
 class Members extends Component {

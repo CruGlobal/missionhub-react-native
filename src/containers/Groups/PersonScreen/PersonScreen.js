@@ -18,6 +18,42 @@ import { Flex, IconButton, Text } from '../../../components/common';
 
 import styles from './styles';
 
+const CONTACT_PERSON_TABS = [
+  {
+    name: i18next.t('personTabs:steps'),
+    navigationAction: 'nav/PERSON_STEPS',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <ContactSteps organization={organization} person={person} />,
+  },
+  {
+    name: i18next.t('personTabs:notes'),
+    navigationAction: 'nav/PERSON_NOTES',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <ContactNotes organization={organization} person={person} />,
+  },
+  {
+    name: i18next.t('personTabs:journey'),
+    navigationAction: 'nav/PERSON_JOURNEY',
+    component: ({
+      navigation: {
+        state: {
+          params: { organization, person },
+        },
+      },
+    }) => <ContactJourney organization={organization} person={person} />,
+  },
+];
+
 const MEMBER_PERSON_TABS = [
   {
     name: i18next.t('personTabs:celebrate'),
@@ -30,39 +66,7 @@ const MEMBER_PERSON_TABS = [
       },
     }) => <MemberCelebrate organization={organization} person={person} />,
   },
-  {
-    name: i18next.t('personTabs:steps'),
-    navigationAction: 'nav/MEMBER_STEPS',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactSteps organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:notes'),
-    navigationAction: 'nav/MEMBER_NOTES',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactNotes organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:journey'),
-    navigationAction: 'nav/MEMBER_JOURNEY',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactJourney organization={organization} person={person} />,
-  },
+  ...CONTACT_PERSON_TABS,
   {
     name: i18next.t('personTabs:Impact'),
     navigationAction: 'nav/MEMBER_IMPACT',
@@ -88,7 +92,7 @@ const MEMBER_PERSON_TABS = [
 ];
 
 @connect()
-export class MemberPersonScreen extends Component {
+export class PersonScreen extends Component {
   openDrawer = () => {
     this.props.dispatch(
       DrawerActions.openDrawer({
@@ -130,7 +134,7 @@ export class MemberPersonScreen extends Component {
   }
 }
 
-MemberPersonScreen.propTypes = {
+PersonScreen.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
@@ -145,13 +149,16 @@ export const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export const connectedPersonScreen = connect(mapStateToProps)(
-  MemberPersonScreen,
-);
+export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 
-export default generateSwipeTabMenuNavigator(
+export const ContactPersonScreen = generateSwipeTabMenuNavigator(
+  CONTACT_PERSON_TABS,
+  connectedPersonScreen,
+);
+export const MemberPersonScreen = generateSwipeTabMenuNavigator(
   MEMBER_PERSON_TABS,
   connectedPersonScreen,
 );
 
+export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
 export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';

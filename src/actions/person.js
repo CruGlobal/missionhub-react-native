@@ -1,6 +1,6 @@
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/ContactPersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/MemberPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
