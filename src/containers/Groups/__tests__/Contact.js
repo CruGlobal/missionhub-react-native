@@ -11,12 +11,19 @@ import {
 } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
 import { reloadJourney } from '../../../actions/journey';
+import { createContactAssignment } from '../../../actions/person';
 
 jest.mock('../../../actions/interactions');
 jest.mock('../../../actions/journey');
+jest.mock('../../../actions/person', () => ({
+  createContactAssignment: jest.fn(() => Promise.resolve()),
+}));
 
 MockDate.set('2017-06-18');
-const store = createMockStore({});
+const me = { id: 'me' };
+const store = createMockStore({
+  auth: { person: me },
+});
 
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
@@ -42,10 +49,14 @@ describe('Contact', () => {
     testSnapshotShallow(component, store);
   });
 
-  it('should handleAssign correctly', () => {
+  it('should handleAssign correctly', async () => {
     const instance = renderShallow(component, store).instance();
-    const result = instance.handleAssign();
-    expect(result).toBe(true);
+    await instance.handleAssign();
+    expect(createContactAssignment).toHaveBeenCalledWith(
+      organization.id,
+      me.id,
+      person.id,
+    );
   });
 
   it('should submit comment correctly', async () => {
