@@ -2,6 +2,7 @@ import { DrawerActions } from 'react-navigation';
 
 import {
   isMissionhubUser,
+  isAdminForOrg,
   openMainMenu,
   getIconName,
   shuffleArray,
@@ -31,6 +32,21 @@ describe('isMissionhubUser', () => {
   });
   it('should return false if there is no org permission', () => {
     expect(isMissionhubUser()).toEqual(false);
+  });
+});
+
+describe('isAdminForOrg', () => {
+  it('should return true for admins', () => {
+    expect(isAdminForOrg({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return false for users', () => {
+    expect(isAdminForOrg({ permission_id: 4 })).toEqual(false);
+  });
+  it('should return false for contacts', () => {
+    expect(isAdminForOrg({ permission_id: 2 })).toEqual(false);
+  });
+  it('should return false if there is no org permission', () => {
+    expect(isAdminForOrg()).toEqual(false);
   });
 });
 

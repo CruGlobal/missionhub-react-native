@@ -1,5 +1,5 @@
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
-import { isMissionhubUser } from '../utils/common';
+import { isAdminForOrg } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 
@@ -20,10 +20,7 @@ export function getGroupJourney(personId, orgId) {
       const orgPermission = me.organizational_permissions.find(
         o => o.organization_id === orgId,
       );
-      let isAdmin = false;
-      if (isMissionhubUser(orgPermission)) {
-        isAdmin = true;
-      }
+      let isAdmin = isAdminForOrg(orgPermission);
       let include =
         'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.contact_assignment.assigned_to,all.contact_assignment.person';
       // If I have admin permission, get me everything
