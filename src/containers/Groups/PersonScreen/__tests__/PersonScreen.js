@@ -12,10 +12,32 @@ import {
   createMockNavState,
 } from '../../../../../testUtils';
 
+jest.mock('../../../../actions/navigation', () => ({
+  navigateBack: jest.fn(() => ({ type: 'test' })),
+}));
+
 const store = createMockStore({});
 
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
+
+const ContactComponent = (
+  <ContactPersonScreen
+    navigation={createMockNavState({
+      organization,
+      person,
+    })}
+  />
+);
+
+const MemberComponent = (
+  <MemberPersonScreen
+    navigation={createMockNavState({
+      organization,
+      person,
+    })}
+  />
+);
 
 describe('Contact', () => {
   it('should render PersonScreen correctly', () => {
@@ -31,26 +53,10 @@ describe('Contact', () => {
   });
 
   it('should render ContactPersonScreen correctly', () => {
-    testSnapshotShallow(
-      <ContactPersonScreen
-        navigation={createMockNavState({
-          organization,
-          person,
-        })}
-      />,
-      store,
-    );
+    testSnapshotShallow(ContactComponent);
   });
 
   it('should render MemberPersonScreen correctly', () => {
-    testSnapshotShallow(
-      <MemberPersonScreen
-        navigation={createMockNavState({
-          organization,
-          person,
-        })}
-      />,
-      store,
-    );
+    testSnapshotShallow(MemberComponent);
   });
 });
