@@ -32,7 +32,12 @@ class StatusReasonScreen extends Component {
     const { text } = this.state;
 
     dispatch(
-      deleteContactAssignment(contactAssignment.id, person.id, organization.id),
+      deleteContactAssignment(
+        contactAssignment.id,
+        person.id,
+        organization.id,
+        text,
+      ),
     );
     onSumbit ? onSumbit() : dispatch(navigateBack());
   };
