@@ -25,7 +25,13 @@ class StatusCompleteScreen extends Component {
     //     organization && organization.id,
     //   ),
     // );
-    dispatch(navigatePush(STATUS_REASON_SCREEN, { person, organization }));
+    dispatch(
+      navigatePush(STATUS_REASON_SCREEN, {
+        person,
+        organization,
+        contactAssignment,
+      }),
+    );
   };
 
   complete = () => {
