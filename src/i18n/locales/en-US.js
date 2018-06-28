@@ -430,6 +430,13 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  groupsContactItem: {
+    status: 'Status: {{status}}',
+    assigned: '{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}',
+    unassigned: '{{unassignedContact}} has been Unassigned by {{unassignedBy}}',
+    stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',
+    stageStart: '{{personName}} has been to MissionHub as {{newStage}}',
+  },
   groupItem: {
     numContacts: '{{number}} Contacts',
     numAssigned: '{{number}} Assigned',
@@ -439,6 +446,8 @@ export default {
   },
   groupsContactList: {
     assign: 'Assign to me',
+    nullHeader: 'Activity Feed',
+    nullDescription: 'No activity to display.',
   },
   loadMore: {
     load: 'Load More',
