@@ -303,9 +303,29 @@ describe('createContactAssignment', () => {
 describe('deleteContactAssignment', () => {
   it('should send the correct API request', () => {
     deleteContactAssignment(1)(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
-      contactAssignmentId: 1,
-    });
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: '' },
+      },
+    );
+    expect(dispatch).toHaveBeenCalled();
+  });
+
+  it('should send the correct API request with note', () => {
+    const note = 'testNote';
+
+    deleteContactAssignment(1)(dispatch);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: note },
+      },
+    );
     expect(dispatch).toHaveBeenCalled();
   });
 });
