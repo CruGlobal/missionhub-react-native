@@ -1,6 +1,7 @@
 import React from 'react';
 
 import StatusCompleteScreen from '../../src/containers/StatusCompleteScreen';
+import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
 import {
   createMockStore,
   renderShallow,
@@ -26,6 +27,7 @@ const person = {
   organizational_permissions: [orgPermission],
 };
 const organization = { id: '1', name: 'Test Org' };
+const contactAssignment = { id: '4' };
 
 describe('StatusCompleteScreen', () => {
   const component = (
@@ -33,6 +35,7 @@ describe('StatusCompleteScreen', () => {
       navigation={createMockNavState({
         person,
         organization,
+        contactAssignment,
       })}
     />
   );
@@ -44,13 +47,20 @@ describe('StatusCompleteScreen', () => {
   it('should unassign and navigate away', () => {
     const instance = renderShallow(component, store).instance();
     navigation.navigatePush = jest.fn();
+    const onSubmit = instance.onSubmitReason;
     instance.cancel();
-    expect(navigation.navigatePush).toHaveBeenCalled();
+    expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
+      person,
+      organization,
+      contactAssignment,
+      onSubmit,
+    });
   });
 
   it('should complete', () => {
     const instance = renderShallow(component, store).instance();
-    const result = instance.complete();
-    expect(result).toBe(false);
+    navigation.navigateBack = jest.fn();
+    instance.complete();
+    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
   });
 });

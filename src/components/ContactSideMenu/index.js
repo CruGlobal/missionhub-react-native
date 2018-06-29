@@ -7,7 +7,6 @@ import { translate } from 'react-i18next';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
-import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import {
   createContactAssignment,
   deleteContactAssignment,
@@ -24,9 +23,8 @@ import { isMissionhubUser } from '../../utils/common';
 export class ContactSideMenu extends Component {
   unassignAction(deleteMode = false) {
     return () => {
-      const { t, dispatch, person, organization } = this.props;
-      dispatch(navigatePush(STATUS_SELECT_SCREEN, { person, organization }));
-      /*Alert.alert(
+      const { t, dispatch, person } = this.props;
+      Alert.alert(
         t(deleteMode ? 'deleteQuestion' : 'unassignQuestion', {
           name: person.first_name,
         }),
@@ -46,7 +44,7 @@ export class ContactSideMenu extends Component {
             },
           },
         ],
-      );*/
+      );
     };
   }
 

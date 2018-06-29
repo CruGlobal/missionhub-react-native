@@ -15,6 +15,10 @@ import styles from './styles';
 
 @translate('statusComplete')
 class StatusCompleteScreen extends Component {
+  onSubmitReason = () => {
+    this.props.dispatch(navigateBack(4));
+  };
+
   cancel = () => {
     const { dispatch, person, contactAssignment, organization } = this.props;
     dispatch(
@@ -22,7 +26,7 @@ class StatusCompleteScreen extends Component {
         person,
         organization,
         contactAssignment,
-        onSumbit: () => dispatch(navigateBack(4)),
+        onSubmit: this.onSubmitReason,
       }),
     );
   };

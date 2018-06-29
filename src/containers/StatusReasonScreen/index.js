@@ -27,7 +27,7 @@ class StatusReasonScreen extends Component {
       contactAssignment,
       person,
       organization,
-      onSumbit,
+      onSubmit,
     } = this.props;
     const { text } = this.state;
 
@@ -39,7 +39,7 @@ class StatusReasonScreen extends Component {
         text,
       ),
     );
-    onSumbit ? onSumbit() : dispatch(navigateBack());
+    onSubmit ? onSubmit() : dispatch(navigateBack());
   };
 
   render() {

@@ -314,8 +314,8 @@ describe('deleteContactAssignment', () => {
     personOrgId,
   };
 
-  it('should send the correct API request', () => {
-    deleteContactAssignment(1, personId, personOrgId)(dispatch);
+  it('should send the correct API request', async () => {
+    await deleteContactAssignment(1, personId, personOrgId)(dispatch);
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.DELETE_CONTACT_ASSIGNMENT,
@@ -328,10 +328,10 @@ describe('deleteContactAssignment', () => {
     expect(dispatch).toHaveBeenCalledWith(deleteAction);
   });
 
-  it('should send the correct API request with note', () => {
+  it('should send the correct API request with note', async () => {
     const note = 'testNote';
 
-    deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
+    await deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.DELETE_CONTACT_ASSIGNMENT,
