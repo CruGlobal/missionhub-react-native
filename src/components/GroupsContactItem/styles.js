@@ -38,4 +38,12 @@ export default StyleSheet.create({
     marginBottom: 5,
     fontSize: 14,
   },
+  text: {
+    fontSize: 14,
+  },
+  question: {
+    marginTop: 8,
+    color: theme.inactiveColor,
+    fontSize: 14,
+  },
 });

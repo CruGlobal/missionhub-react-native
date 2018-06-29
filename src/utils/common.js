@@ -67,8 +67,12 @@ export const refresh = (obj, method) => {
 };
 
 export const isAuthenticated = authState => authState.token;
+
+const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
-  !!orgPermission && ORG_PERMISSIONS.includes(orgPermission.permission_id);
+  !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
+export const isAdminForOrg = orgPermission =>
+  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
@@ -146,6 +150,10 @@ export const getIconName = (type, interaction_type_id) => {
     return 'journeyIcon';
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
+  } else if (type === 'contact_assignment') {
+    return 'warningIcon';
+  } else if (type === 'contact_unassignment') {
+    return 'warningIcon';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {

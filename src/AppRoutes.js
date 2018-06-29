@@ -104,6 +104,15 @@ import SurveyContactsFilter, {
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
+import StatusSelect, {
+  STATUS_SELECT_SCREEN,
+} from './containers/StatusSelectScreen';
+import StatusComplete, {
+  STATUS_COMPLETE_SCREEN,
+} from './containers/StatusCompleteScreen';
+import StatusReason, {
+  STATUS_REASON_SCREEN,
+} from './containers/StatusReasonScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -352,6 +361,18 @@ export const MainStackRoutes = createStackNavigator(
     },
     [SEARCH_CONTACTS_FILTER_SCREEN]: {
       screen: ContactsFilter,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [STATUS_SELECT_SCREEN]: {
+      screen: StatusSelect,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [STATUS_COMPLETE_SCREEN]: {
+      screen: StatusComplete,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [STATUS_REASON_SCREEN]: {
+      screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_SCREEN]: {
