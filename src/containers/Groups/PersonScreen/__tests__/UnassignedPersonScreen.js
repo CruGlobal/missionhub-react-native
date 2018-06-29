@@ -13,11 +13,11 @@ import { addNewInteraction } from '../../../../actions/interactions';
 import { getGroupJourney } from '../../../../actions/journey';
 import { createContactAssignment } from '../../../../actions/person';
 
-jest.mock('../../../actions/interactions');
-jest.mock('../../../actions/journey', () => ({
+jest.mock('../../../../actions/interactions');
+jest.mock('../../../../actions/journey', () => ({
   getGroupJourney: jest.fn(() => [{ id: '1' }]),
 }));
-jest.mock('../../../actions/person', () => ({
+jest.mock('../../../../actions/person', () => ({
   createContactAssignment: jest.fn(() => Promise.resolve()),
 }));
 
