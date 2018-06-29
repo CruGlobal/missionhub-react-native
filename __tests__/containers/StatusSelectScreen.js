@@ -1,6 +1,8 @@
 import React from 'react';
 
-import StatusSelectScreen from '../../src/containers/StatusSelectScreen';
+import StatusSelectScreen, {
+  mapStateToProps,
+} from '../../src/containers/StatusSelectScreen';
 import {
   createMockStore,
   renderShallow,
@@ -11,12 +13,25 @@ import { updateFollowupStatus } from '../../src/actions/person';
 import * as navigation from '../../src/actions/navigation';
 import { STATUS_COMPLETE_SCREEN } from '../../src/containers/StatusCompleteScreen';
 import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
+import {
+  contactAssignmentSelector,
+  orgPermissionSelector,
+  personSelector,
+} from '../../src/selectors/people';
 jest.mock('../../src/actions/person', () => ({
   updateFollowupStatus: jest.fn(() => Promise.resolve()),
 }));
+jest.mock('../../src/selectors/people');
 
 const store = createMockStore({});
-const orgPermission = { id: 'orgPerm1', organization_id: '1' };
+
+const followupStatus = 'uncontacted';
+const orgPermission = {
+  id: 'orgPerm1',
+  organization_id: '1',
+  followup_status: followupStatus,
+};
+const contactAssignment = { id: 'assignment1' };
 
 const person = {
   id: 'person1',
@@ -24,6 +39,47 @@ const person = {
   organizational_permissions: [orgPermission],
 };
 const organization = { id: '1', name: 'Test Org' };
+
+contactAssignmentSelector.mockReturnValue(contactAssignment);
+orgPermissionSelector.mockReturnValue(orgPermission);
+personSelector.mockReturnValue(person);
+
+describe('mapStateToProps', () => {
+  it('provides props correctly', () => {
+    expect(
+      mapStateToProps(
+        {
+          auth: {
+            person: {
+              id: '1',
+            },
+          },
+          people: {
+            allByOrg: {
+              [organization.id]: person,
+            },
+          },
+        },
+        {
+          navigation: {
+            state: {
+              params: {
+                organization,
+                person,
+              },
+            },
+          },
+        },
+      ),
+    ).toEqual({
+      person,
+      organization,
+      orgPermission,
+      contactAssignment,
+      status: followupStatus,
+    });
+  });
+});
 
 describe('StatusSelectScreen', () => {
   const component = (
@@ -70,6 +126,7 @@ describe('StatusSelectScreen', () => {
       {
         organization,
         person,
+        contactAssignment,
       },
     );
   });
@@ -79,6 +136,7 @@ describe('StatusSelectScreen', () => {
     expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
       organization,
       person,
+      contactAssignment,
     });
   });
 

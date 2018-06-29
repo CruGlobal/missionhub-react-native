@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { navigateBack } from '../../actions/navigation';
+import { deleteContactAssignment } from '../../actions/person';
 import { Flex, Text, Button, Input } from '../../components/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
@@ -20,13 +22,24 @@ class StatusReasonScreen extends Component {
   };
 
   submit = () => {
+    const {
+      dispatch,
+      contactAssignment,
+      person,
+      organization,
+      onSubmit,
+    } = this.props;
     const { text } = this.state;
-    if (!text) {
-      // No reason filled in
-      return false;
-    }
-    // TODO: Add a reason to the status change
-    return true;
+
+    dispatch(
+      deleteContactAssignment(
+        contactAssignment.id,
+        person.id,
+        organization.id,
+        text,
+      ),
+    );
+    onSubmit ? onSubmit() : dispatch(navigateBack());
   };
 
   render() {
@@ -70,6 +83,7 @@ class StatusReasonScreen extends Component {
 StatusReasonScreen.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
+  contactAssignment: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => ({

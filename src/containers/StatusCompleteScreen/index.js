@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
 import { deleteContactAssignment } from '../../actions/person';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
@@ -15,23 +15,25 @@ import styles from './styles';
 
 @translate('statusComplete')
 class StatusCompleteScreen extends Component {
+  onSubmitReason = () => {
+    this.props.dispatch(navigateBack(4));
+  };
+
   cancel = () => {
     const { dispatch, person, contactAssignment, organization } = this.props;
-    // TODO: Find out how to get the contact assignment to remove them when someone says "no thanks"
-    // await dispatch(
-    //   deleteContactAssignment(
-    //     contactAssignment.id,
-    //     person.id,
-    //     organization && organization.id,
-    //   ),
-    // );
-    dispatch(navigatePush(STATUS_REASON_SCREEN, { person, organization }));
+    dispatch(
+      navigatePush(STATUS_REASON_SCREEN, {
+        person,
+        organization,
+        contactAssignment,
+        onSubmit: this.onSubmitReason,
+      }),
+    );
   };
 
   complete = () => {
-    // const { dispatch } = this.props;
-    // dispatch(navigatePush(SEARCH_CONTACTS_FILTER_SCREEN));
-    return false;
+    const { dispatch } = this.props;
+    dispatch(navigateBack(2));
   };
 
   render() {
