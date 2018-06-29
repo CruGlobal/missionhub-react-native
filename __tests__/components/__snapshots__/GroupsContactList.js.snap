@@ -181,6 +181,12 @@ exports[`renders empty list 1`] = `
     <Flex
       align="center"
       justify="center"
+      style={
+        Object {
+          "marginBottom": 40,
+          "minHeight": 1084,
+        }
+      }
       value={1}
     >
       <Image
@@ -194,16 +200,28 @@ exports[`renders empty list 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 84,
+            "letterSpacing": 2,
+          }
+        }
         type="header"
       >
-        nullHeader
+        Activity Feed
       </MyText>
       <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 16,
+          }
+        }
       >
-        nullDescription
+        No activity to display.
       </MyText>
     </Flex>
   </Flex>

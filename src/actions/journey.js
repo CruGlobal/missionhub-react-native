@@ -1,4 +1,5 @@
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
+import { isAdminForOrg } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 
@@ -8,6 +9,38 @@ export function reloadJourney(personId, orgId) {
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
     return personFeed && (await dispatch(getJourney(personId, orgId)));
+  };
+}
+
+export function getGroupJourney(personId, orgId) {
+  return async (dispatch, getState) => {
+    try {
+      // Find out if I am an admin for this organization
+      const me = getState().auth.person;
+      const orgPermission = me.organizational_permissions.find(
+        o => o.organization_id === orgId,
+      );
+      let isAdmin = isAdminForOrg(orgPermission);
+      let include =
+        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.contact_assignment.assigned_to,all.contact_assignment.person';
+      // If I have admin permission, get me everything
+      // Otherwise, just get me survey information
+      if (!isAdmin) {
+        include = 'all.answers.question,all.survey';
+      }
+      const {
+        response: { all: feed },
+      } = await dispatch(getPersonFeed(personId, orgId, include));
+
+      // TODO: Once the API is ready, stop filtering out the contact assignments/unassignments
+      return feed.filter(
+        f =>
+          f._type !== 'contact_assignment' &&
+          f._type !== 'contact_unassignment',
+      );
+    } catch (e) {
+      return [];
+    }
   };
 }
 
@@ -36,10 +69,11 @@ export function getJourney(personId, orgId) {
   };
 }
 
-function getPersonFeed(personId, orgId) {
+function getPersonFeed(personId, orgId, include) {
   return dispatch => {
     const query = {
       include:
+        include ||
         'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person',
       filters: {
         person_id: personId,
