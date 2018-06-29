@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { createElement } from 'react';
 
 import {
   PersonScreen,
-  ContactPersonScreen,
-  MemberPersonScreen,
+  mapStateToProps,
+  CONTACT_PERSON_TABS,
+  MEMBER_PERSON_TABS,
 } from '../PersonScreen';
 import {
   renderShallow,
@@ -16,47 +17,37 @@ jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
 
-const store = createMockStore({});
+const store = createMockStore();
 
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
-
-const ContactComponent = (
-  <ContactPersonScreen
-    navigation={createMockNavState({
-      organization,
-      person,
-    })}
-  />
-);
-
-const MemberComponent = (
-  <MemberPersonScreen
-    navigation={createMockNavState({
-      organization,
-      person,
-    })}
-  />
-);
+const nav = {
+  navigation: {
+    state: {
+      params: {
+        organization,
+        person,
+      },
+    },
+  },
+};
 
 describe('Contact', () => {
+  it('should provide necessary props', () => {
+    expect(mapStateToProps(store, nav)).toEqual({ organization, person });
+  });
+
   it('should render PersonScreen correctly', () => {
     testSnapshotShallow(
-      <PersonScreen
-        navigation={createMockNavState({
-          organization,
-          person,
-        })}
-      />,
-      store,
+      <PersonScreen organization={organization} person={person} />,
     );
   });
 
-  it('should render ContactPersonScreen correctly', () => {
-    testSnapshotShallow(ContactComponent);
+  it('should render contact tabs correctly', () => {
+    expect(CONTACT_PERSON_TABS).toMatchSnapshot();
   });
 
-  it('should render MemberPersonScreen correctly', () => {
-    testSnapshotShallow(MemberComponent);
+  it('should render member tabs correctly', () => {
+    expect(MEMBER_PERSON_TABS).toMatchSnapshot();
   });
 });

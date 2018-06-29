@@ -39,3 +39,58 @@ exports[`Contact should render PersonScreen correctly 1`] = `
   </Flex>
 </Component>
 `;
+
+exports[`Contact should render contact tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "My Steps",
+    "navigationAction": "nav/PERSON_STEPS",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Notes",
+    "navigationAction": "nav/PERSON_NOTES",
+  },
+  Object {
+    "component": [Function],
+    "name": "Our Journey",
+    "navigationAction": "nav/PERSON_JOURNEY",
+  },
+]
+`;
+
+exports[`Contact should render member tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Celebrate",
+    "navigationAction": "nav/MEMBER_CELEBRATE",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Steps",
+    "navigationAction": "nav/PERSON_STEPS",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Notes",
+    "navigationAction": "nav/PERSON_NOTES",
+  },
+  Object {
+    "component": [Function],
+    "name": "Our Journey",
+    "navigationAction": "nav/PERSON_JOURNEY",
+  },
+  Object {
+    "component": [Function],
+    "name": "Impact",
+    "navigationAction": "nav/MEMBER_IMPACT",
+  },
+  Object {
+    "component": [Function],
+    "name": "Assigned Contacts",
+    "navigationAction": "nav/MEMBER_ASSIGNED_CONTACTS",
+  },
+]
+`;

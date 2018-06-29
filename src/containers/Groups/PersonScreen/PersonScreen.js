@@ -18,7 +18,7 @@ import { Flex, IconButton, Text } from '../../../components/common';
 
 import styles from './styles';
 
-const CONTACT_PERSON_TABS = [
+export const CONTACT_PERSON_TABS = [
   {
     name: i18next.t('personTabs:steps'),
     navigationAction: 'nav/PERSON_STEPS',
@@ -54,7 +54,7 @@ const CONTACT_PERSON_TABS = [
   },
 ];
 
-const MEMBER_PERSON_TABS = [
+export const MEMBER_PERSON_TABS = [
   {
     name: i18next.t('personTabs:celebrate'),
     navigationAction: 'nav/MEMBER_CELEBRATE',
@@ -103,7 +103,7 @@ export class PersonScreen extends Component {
   };
 
   render() {
-    const { person, organization } = this.props.navigation.state.params;
+    const { person, organization } = this.props;
 
     return (
       <View>
