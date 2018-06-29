@@ -430,6 +430,13 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  groupsContactItem: {
+    status: 'Status: {{status}}',
+    assigned: '{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}',
+    unassigned: '{{unassignedContact}} has been Unassigned by {{unassignedBy}}',
+    stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',
+    stageStart: '{{personName}} has been to MissionHub as {{newStage}}',
+  },
   groupItem: {
     numContacts: '{{number}} Contacts',
     numAssigned: '{{number}} Assigned',
@@ -439,11 +446,34 @@ export default {
   },
   groupsContactList: {
     assign: 'Assign to me',
+    nullHeader: 'Activity Feed',
+    nullDescription: 'No activity to display.',
   },
   loadMore: {
     load: 'Load More',
   },
   commentBox: {
     placeholder: 'Comment',
+  },
+  statusSelect: {
+    header: 'Status',
+    cancel: 'Cancel',
+    done: 'Done',
+    uncontacted: 'Uncontacted',
+    attempted_contact: 'Attempted Contact',
+    contacted: 'Contacted',
+    completed: 'Completed',
+    do_not_contact: 'Do Not Contact',
+  },
+  statusComplete: {
+    done: 'Done',
+    continue: `Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?`,
+    totally: 'Totally',
+    nope: 'No Thanks',
+  },
+  statusReason: {
+    done: 'Done',
+    placeholder: 'Admin note',
+    important: `Anything important the admins at {{organization}} should know?`,
   },
 };

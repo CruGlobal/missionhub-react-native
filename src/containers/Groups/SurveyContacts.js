@@ -101,7 +101,11 @@ class SurveyContacts extends Component {
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (
-              <ContactItem contact={item} onSelect={this.handleSelect} />
+              <ContactItem
+                organization={organization}
+                contact={item}
+                onSelect={this.handleSelect}
+              />
             ),
           }}
           onSearch={this.handleSearch}

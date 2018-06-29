@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusReasonScreen should render correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "fontSize": 14,
+            "letterSpacing": 2,
+            "textAlign": "right",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "marginHorizontal": 10,
+            "marginTop": 5,
+            "width": 80,
+          }
+        }
+        text="DONE"
+        type="transparent"
+      />
+    }
+    shadow={false}
+  />
+  <Flex
+    align="stretch"
+    style={
+      Object {
+        "marginTop": 50,
+        "paddingHorizontal": 35,
+      }
+    }
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "marginBottom": 40,
+        }
+      }
+    >
+      Anything important the admins at Test Org should know?
+    </MyText>
+    <Input
+      autoCorrect={true}
+      blurOnSubmit={true}
+      onChangeText={[Function]}
+      placeholder="Admin note"
+      placeholderTextColor="#ffffff"
+      style={Object {}}
+      value=""
+    />
+  </Flex>
+</Component>
+`;
