@@ -91,7 +91,6 @@ export const MEMBER_PERSON_TABS = [
   },
 ];
 
-@connect()
 export class PersonScreen extends Component {
   openDrawer = () => {
     this.props.dispatch(
