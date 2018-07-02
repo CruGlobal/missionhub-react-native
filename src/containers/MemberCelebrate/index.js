@@ -12,19 +12,6 @@ import theme from '../../theme';
 
 @translate('groupsCelebrate')
 class MemberCelebrate extends Component {
-  componentDidMount() {
-    this.loadItems();
-  }
-
-  loadItems = () => {
-    const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateFeed(organization.id));
-  };
-
-  submit = data => {
-    return data;
-  };
-
   render() {
     const { t } = this.props;
     return (

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render PersonScreen correctly 1`] = `
-<Component>
+<View>
   <Connect(Header)
     left={<Connect(BackButton) />}
     right={
@@ -37,7 +37,7 @@ exports[`Contact should render PersonScreen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</View>
 `;
 
 exports[`Contact should render contact tabs correctly 1`] = `

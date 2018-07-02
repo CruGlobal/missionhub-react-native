@@ -13,6 +13,7 @@ import ContactNotes from '../../ContactNotes';
 import ContactJourney from '../../ContactJourney';
 import ImpactView from '../../ImpactView';
 import MemberContacts from '../../MemberContacts';
+import { CONTACT_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
 
