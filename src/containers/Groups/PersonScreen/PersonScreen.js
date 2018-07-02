@@ -16,6 +16,11 @@ import MemberContacts from '../../MemberContacts';
 import { CONTACT_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
+import {
+  personSelector,
+  contactAssignmentSelector,
+  orgPermissionSelector,
+} from '../../../selectors/people';
 
 import styles from './styles';
 
@@ -94,10 +99,14 @@ export const MEMBER_PERSON_TABS = [
 
 export class PersonScreen extends Component {
   openDrawer = () => {
+    const { dispatch, contactAssignment, person, organization } = this.props;
     this.props.dispatch(
       DrawerActions.openDrawer({
         drawer: CONTACT_MENU_DRAWER,
-        isCurrentUser: false,
+        isGroups: true,
+        contactAssignment,
+        person,
+        organization,
       }),
     );
   };
@@ -145,9 +154,25 @@ PersonScreen.propTypes = {
   }).isRequired,
 };
 
-export const mapStateToProps = (state, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+export const mapStateToProps = ({ auth, people }, { navigation }) => {
+  const navParams = navigation.state.params;
+  const orgId = navParams.organization && navParams.organization.id;
+  const person =
+    personSelector({ people }, { personId: navParams.person.id, orgId }) ||
+    navParams.person;
+  const orgPermission = orgPermissionSelector(null, {
+    person,
+    organization: navParams.organization,
+  });
+
+  return {
+    ...(navigation.state.params || {}),
+    person,
+    personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
+    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
+    orgPermission,
+  };
+};
 
 export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 
