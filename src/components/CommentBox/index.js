@@ -171,7 +171,7 @@ class CommentBox extends Component {
           />
           {text || action ? (
             <IconButton
-              name="cancelIcon"
+              name="upArrow"
               type="MissionHub"
               onPress={this.submit}
               style={styles.submitIcon}
