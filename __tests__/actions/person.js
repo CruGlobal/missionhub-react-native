@@ -1,7 +1,11 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import { ACTIONS, LOAD_PERSON_DETAILS } from '../../src/constants';
+import {
+  ACTIONS,
+  LOAD_PERSON_DETAILS,
+  DELETE_PERSON,
+} from '../../src/constants';
 import {
   getMe,
   getPersonDetails,
@@ -308,12 +312,43 @@ describe('createContactAssignment', () => {
 });
 
 describe('deleteContactAssignment', () => {
-  it('should send the correct API request', () => {
-    deleteContactAssignment(1)(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
-      contactAssignmentId: 1,
-    });
-    expect(dispatch).toHaveBeenCalled();
+  const personId = '123';
+  const personOrgId = '456';
+
+  const deleteAction = {
+    type: DELETE_PERSON,
+    personId,
+    personOrgId,
+  };
+
+  it('should send the correct API request', async () => {
+    await deleteContactAssignment(1, personId, personOrgId)(dispatch);
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: '' },
+      },
+    );
+    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+  });
+
+  it('should send the correct API request with note', async () => {
+    const note = 'testNote';
+
+    await deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: note },
+      },
+    );
+    expect(dispatch).toHaveBeenCalledWith(deleteAction);
   });
 });
 

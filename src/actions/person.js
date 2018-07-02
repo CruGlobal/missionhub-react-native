@@ -253,10 +253,21 @@ export function createContactAssignment(
   };
 }
 
-export function deleteContactAssignment(id, personId, personOrgId) {
+export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   return async dispatch => {
+    const data = {
+      type: 'contact_assignment',
+      attributes: {
+        unassignment_reason: note,
+      },
+    };
+
     await dispatch(
-      callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, { contactAssignmentId: id }),
+      callApi(
+        REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+        { contactAssignmentId: id },
+        data,
+      ),
     );
     return dispatch({
       type: DELETE_PERSON,
