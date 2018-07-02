@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
+import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -12,7 +13,7 @@ import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 
-import { GROUPS_CONTACT } from './Contact';
+import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @translate('groupsSurveyContacts')
@@ -85,7 +86,9 @@ class SurveyContacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
+    const isMember = false;
+    const isAssignedToMe = false;
+    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
   };
 
   render() {

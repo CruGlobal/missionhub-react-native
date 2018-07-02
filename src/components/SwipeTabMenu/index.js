@@ -19,6 +19,7 @@ import styles from './styles';
 @connect()
 export class SwipeTabMenu extends Component {
   state = {
+    // TODO: tab titles should be equidistant from each other, not equally sized
     maxMenuItemWidth: undefined,
     previousIndex: 0,
   };
