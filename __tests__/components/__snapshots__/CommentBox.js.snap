@@ -740,7 +740,7 @@ exports[`renders with actions and selected action 1`] = `
           value=""
         />
         <IconButton
-          name="cancelIcon"
+          name="upArrow"
           onPress={[Function]}
           style={
             Object {
@@ -1109,7 +1109,7 @@ exports[`renders with text 1`] = `
           value="test"
         />
         <IconButton
-          name="cancelIcon"
+          name="upArrow"
           onPress={[Function]}
           style={
             Object {
@@ -1372,7 +1372,7 @@ exports[`renders without actions and selected action 1`] = `
           value=""
         />
         <IconButton
-          name="cancelIcon"
+          name="upArrow"
           onPress={[Function]}
           style={
             Object {
