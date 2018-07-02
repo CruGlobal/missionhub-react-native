@@ -6,7 +6,11 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Button, Touchable, Icon } from '../../components/common';
 import Header from '../Header';
-import { orgPermissionSelector } from '../../selectors/people';
+import {
+  contactAssignmentSelector,
+  orgPermissionSelector,
+  personSelector,
+} from '../../selectors/people';
 import {
   // createContactAssignment,
   // deleteContactAssignment,
@@ -36,6 +40,7 @@ class StatusSelectScreen extends Component {
       dispatch,
       person,
       organization,
+      contactAssignment,
       orgPermission,
       status,
     } = this.props;
@@ -46,9 +51,21 @@ class StatusSelectScreen extends Component {
     }
     await dispatch(updateFollowupStatus(person, orgPermission.id, selected));
     if (selected === 'completed') {
-      dispatch(navigatePush(STATUS_COMPLETE_SCREEN, { organization, person }));
+      dispatch(
+        navigatePush(STATUS_COMPLETE_SCREEN, {
+          organization,
+          person,
+          contactAssignment,
+        }),
+      );
     } else if (selected === 'do_not_contact') {
-      dispatch(navigatePush(STATUS_REASON_SCREEN, { organization, person }));
+      dispatch(
+        navigatePush(STATUS_REASON_SCREEN, {
+          organization,
+          person,
+          contactAssignment,
+        }),
+      );
     }
   };
 
@@ -122,9 +139,12 @@ StatusSelectScreen.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-export const mapStateToProps = (reduxState, { navigation }) => {
+export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const person = navParams.person;
+  const orgId = navParams.organization && navParams.organization.id;
+  const person =
+    personSelector({ people }, { personId: navParams.person.id, orgId }) ||
+    navParams.person;
   const organization = navParams.organization;
   const orgPermission = orgPermissionSelector(null, {
     person,
@@ -136,6 +156,7 @@ export const mapStateToProps = (reduxState, { navigation }) => {
     person,
     organization,
     orgPermission: orgPermission,
+    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
     status: orgPermission.followup_status,
   };
 };

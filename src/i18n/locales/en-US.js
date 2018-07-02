@@ -385,6 +385,14 @@ export default {
     contacts: 'Contacts',
     surveys: 'Surveys',
   },
+  personTabs: {
+    celebrate: 'Celebrate',
+    steps: 'My Steps',
+    notes: 'My Notes',
+    journey: 'Our Journey',
+    impact: 'Impact',
+    assignedContacts: 'Assigned Contacts',
+  },
   onboarding: {
     screen1: {
       name: 'Focus on the people in your life',

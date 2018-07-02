@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { getGroupJourney } from '../../actions/journey';
-import { PlatformKeyboardAvoidingView } from '../../components/common';
-import { INTERACTION_TYPES } from '../../constants';
-import { addNewInteraction } from '../../actions/interactions';
-import { createContactAssignment } from '../../actions/person';
-import GroupsContactList from '../../components/GroupsContactList';
-import CommentBox from '../../components/CommentBox';
-import Header from '../Header';
-import BackButton from '../BackButton';
-import { navigatePush } from '../../actions/navigation';
+import { getGroupJourney } from '../../../actions/journey';
+import { PlatformKeyboardAvoidingView } from '../../../components/common';
+import { INTERACTION_TYPES } from '../../../constants';
+import { addNewInteraction } from '../../../actions/interactions';
+import { createContactAssignment } from '../../../actions/person';
+import GroupsContactList from '../../../components/GroupsContactList';
+import CommentBox from '../../../components/CommentBox';
+import Header from '../../Header';
+import BackButton from '../../BackButton';
+import { navigatePush } from '../../../actions/navigation';
 
 import styles from './styles';
 
 @translate('groupsContact')
-class Contact extends Component {
+class UnassignedPersonScreen extends Component {
   state = { activity: [] };
 
   componentDidMount() {
@@ -58,7 +58,7 @@ class Contact extends Component {
     const { activity } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <PlatformKeyboardAvoidingView style={styles.contact}>
+      <PlatformKeyboardAvoidingView style={styles.container}>
         <Header left={<BackButton />} title={orgName} shadow={false} />
         <GroupsContactList
           activity={activity}
@@ -71,7 +71,7 @@ class Contact extends Component {
   }
 }
 
-Contact.propTypes = {
+UnassignedPersonScreen.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
 };
@@ -81,5 +81,5 @@ const mapStateToProps = ({ auth }, { navigation }) => ({
   me: auth.person,
 });
 
-export default connect(mapStateToProps)(Contact);
-export const GROUPS_CONTACT = 'nav/GROUPS_CONTACT';
+export default connect(mapStateToProps)(UnassignedPersonScreen);
+export const UNASSIGNED_PERSON_SCREEN = 'nav/UNASSIGNED_PERSON';
