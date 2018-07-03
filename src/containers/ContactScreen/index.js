@@ -177,6 +177,7 @@ export class ContactScreen extends Component {
                 dispatch(
                   DrawerActions.openDrawer({
                     drawer: CONTACT_MENU_DRAWER,
+                    isCurrentUser: personIsCurrentUser,
                   }),
                 )
               }
