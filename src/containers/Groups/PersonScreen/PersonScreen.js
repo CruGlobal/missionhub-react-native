@@ -13,7 +13,7 @@ import ContactNotes from '../../ContactNotes';
 import ContactJourney from '../../ContactJourney';
 import ImpactView from '../../ImpactView';
 import MemberContacts from '../../MemberContacts';
-import { CONTACT_MENU_DRAWER } from '../../../constants';
+import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
 import {
@@ -98,21 +98,8 @@ export const MEMBER_PERSON_TABS = [
 ];
 
 export class PersonScreen extends Component {
-  openDrawer = () => {
-    const { dispatch, contactAssignment, person, organization } = this.props;
-    this.props.dispatch(
-      DrawerActions.openDrawer({
-        drawer: CONTACT_MENU_DRAWER,
-        isGroups: true,
-        contactAssignment,
-        person,
-        organization,
-      }),
-    );
-  };
-
   render() {
-    const { person, organization } = this.props;
+    const { dispatch, person, organization } = this.props;
 
     return (
       <View>
@@ -122,7 +109,14 @@ export class PersonScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={this.openDrawer}
+              onPress={() =>
+                dispatch(
+                  DrawerActions.openDrawer({
+                    drawer: PERSON_MENU_DRAWER,
+                    isGroups: true,
+                  }),
+                )
+              }
             />
           }
           shadow={false}
