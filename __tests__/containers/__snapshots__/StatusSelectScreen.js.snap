@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusSelectScreen should render correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "fontSize": 14,
+              "letterSpacing": 2,
+              "textAlign": "right",
+            },
+            Object {
+              "textAlign": "left",
+            },
+          ]
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "marginHorizontal": 10,
+            "marginTop": 5,
+            "width": 80,
+          }
+        }
+        text="CANCEL"
+        type="transparent"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Array [
+            Object {
+              "fontSize": 14,
+              "letterSpacing": 2,
+              "textAlign": "right",
+            },
+            Object {
+              "textAlign": "right",
+            },
+          ]
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "marginHorizontal": 10,
+            "marginTop": 5,
+            "width": 80,
+          }
+        }
+        text="DONE"
+        type="transparent"
+      />
+    }
+    title="Status"
+  />
+  <Flex
+    align="stretch"
+    value={1}
+  >
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ]
+        }
+      >
+        Uncontacted
+      </MyText>
+      <Icon
+        name="checkIcon"
+        size={16}
+        style={
+          Object {
+            "color": "#52C5DC",
+          }
+        }
+        type="MissionHub"
+      />
+    </TouchableIOS>
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+            },
+            null,
+          ]
+        }
+      >
+        Attempted Contact
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+            },
+            null,
+          ]
+        }
+      >
+        Contacted
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+            },
+            null,
+          ]
+        }
+      >
+        Completed
+      </MyText>
+    </TouchableIOS>
+    <TouchableIOS
+      onPress={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+            },
+            null,
+          ]
+        }
+      >
+        Do Not Contact
+      </MyText>
+    </TouchableIOS>
+  </Flex>
+</Component>
+`;

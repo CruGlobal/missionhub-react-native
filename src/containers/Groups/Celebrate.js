@@ -3,12 +3,20 @@ import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { Button, Flex, DateComponent } from '../../components/common';
+import {
+  Button,
+  Flex,
+  DateComponent,
+  Text,
+  PlatformKeyboardAvoidingView,
+} from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import LoadMore from '../../components/LoadMore';
+import CommentBox from '../../components/CommentBox';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -40,9 +48,14 @@ export class Celebrate extends Component {
     );
   };
 
+  submit = data => {
+    return data;
+  };
+
   render() {
+    const { t } = this.props;
     return (
-      <Flex value={1}>
+      <PlatformKeyboardAvoidingView>
         <FlatList
           data={this.props.celebrateItems}
           keyExtractor={i => i.id}
@@ -51,14 +64,12 @@ export class Celebrate extends Component {
           inverted={true}
           ListFooterComponent={<LoadMore onPress={this.loadItems} />}
         />
-        <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={() => {}}
-            text={'Input goes here'}
-          />
-        </Flex>
-      </Flex>
+        <CommentBox
+          placeholder={t('placeholder')}
+          hideActions={true}
+          onSubmit={this.submit}
+        />
+      </PlatformKeyboardAvoidingView>
     );
   }
 }

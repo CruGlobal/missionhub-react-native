@@ -11,7 +11,10 @@ import { navigatePush } from '../../../actions/navigation';
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-
+import { navToPersonScreen } from '../../../actions/person';
+jest.mock('../../../actions/person', () => ({
+  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
+}));
 const people = [{ id: '1' }, { id: '2' }];
 jest.mock('../../../actions/people', () => ({
   searchPeople: jest.fn(() => ({
@@ -23,6 +26,11 @@ jest.mock('../../../actions/people', () => ({
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
 const survey = { id: '11' };
+
+beforeEach(() => {
+  navigatePush.mockClear();
+  navToPersonScreen.mockClear();
+});
 
 describe('SurveyContacts', () => {
   const component = (
@@ -87,7 +95,6 @@ describe('SurveyContacts', () => {
   it('should handleSelect correctly', async () => {
     const instance = renderShallow(component, store).instance();
     instance.handleSelect({ id: '1' });
-
-    expect(navigatePush).toHaveBeenCalled();
+    expect(navToPersonScreen).toHaveBeenCalled();
   });
 });

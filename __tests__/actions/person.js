@@ -1,7 +1,11 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import { ACTIONS, LOAD_PERSON_DETAILS } from '../../src/constants';
+import {
+  ACTIONS,
+  LOAD_PERSON_DETAILS,
+  DELETE_PERSON,
+} from '../../src/constants';
 import {
   getMe,
   getPersonDetails,
@@ -12,11 +16,17 @@ import {
   getPersonJourneyDetails,
   savePersonNote,
   getPersonNote,
+  navToPersonScreen,
 } from '../../src/actions/person';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
+import { navigatePush } from '../../src/actions/navigation';
+import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/UnassignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/navigation');
 
 const store = configureStore([thunk])({});
 const dispatch = jest.fn(response => Promise.resolve(response));
@@ -27,6 +37,7 @@ beforeEach(() => {
   store.clearActions();
   dispatch.mockClear();
   callApi.mockClear();
+  navigatePush.mockClear();
 });
 
 describe('get me', () => {
@@ -301,12 +312,43 @@ describe('createContactAssignment', () => {
 });
 
 describe('deleteContactAssignment', () => {
-  it('should send the correct API request', () => {
-    deleteContactAssignment(1)(dispatch);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
-      contactAssignmentId: 1,
-    });
-    expect(dispatch).toHaveBeenCalled();
+  const personId = '123';
+  const personOrgId = '456';
+
+  const deleteAction = {
+    type: DELETE_PERSON,
+    personId,
+    personOrgId,
+  };
+
+  it('should send the correct API request', async () => {
+    await deleteContactAssignment(1, personId, personOrgId)(dispatch);
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: '' },
+      },
+    );
+    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+  });
+
+  it('should send the correct API request with note', async () => {
+    const note = 'testNote';
+
+    await deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      { contactAssignmentId: 1 },
+      {
+        type: 'contact_assignment',
+        attributes: { unassignment_reason: note },
+      },
+    );
+    expect(dispatch).toHaveBeenCalledWith(deleteAction);
   });
 });
 
@@ -425,5 +467,36 @@ describe('GetPersonNote', () => {
       expectedQuery,
     );
     expect(store.getActions()[0]).toBe(action);
+  });
+});
+
+describe('navToPersonScreen', () => {
+  const person = { id: '1' };
+  const organization = { id: '111' };
+
+  beforeEach(() => {
+    navigatePush.mockReturnValue({ type: 'test' });
+  });
+
+  it('navigates to unassigned person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, false, false));
+    expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+  it('navigates to contact person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, false, true));
+    expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+  it('navigates to member person screen', () => {
+    store.dispatch(navToPersonScreen(person, organization, true, false));
+    expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
+      person,
+      organization,
+    });
   });
 });

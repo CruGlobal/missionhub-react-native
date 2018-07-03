@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<Flex
-  value={1}
->
+<PlatformKeyboardAvoidingView>
   <FlatList
     ListFooterComponent={
       <Translate(LoadMore)
@@ -13,115 +11,31 @@ exports[`should render correctly 1`] = `
     data={
       Array [
         Object {
-          "date": "2018-06-08 19:06:00 UTC",
+          "date": "2018-06-11 00:00:00 UTC",
           "events": Array [
             Object {
-              "changed_attribute_value": "2018-04-11 19:06:00 UTC",
-              "full_name": "Matt Watts",
-              "id": "1",
-              "likes_count": "3",
-              "title": "Matt had a Discipleship Conversation",
+              "celebrateable_type": "interaction",
+              "changed_attribute_value": "2018-06-11 00:00:00 UTC",
+              "id": "10",
             },
           ],
           "id": "1",
         },
         Object {
-          "date": "2018-06-07 17:32:00 UTC",
+          "date": "2018-06-10 00:00:00 UTC",
           "events": Array [
             Object {
-              "changed_attribute_value": "2018-04-10 17:32:00 UTC",
-              "full_name": "Emma Frost",
-              "id": "2",
-              "likes_count": "5",
-              "title": "Matt added a Curious person",
+              "celebrateable_type": "accepted_challenge",
+              "changed_attribute_value": "2018-06-10 00:00:00 UTC",
+              "id": "20",
             },
             Object {
-              "changed_attribute_value": "2018-04-10 07:06:00 UTC",
-              "full_name": "Emma Frost",
-              "id": "3",
-              "likes_count": "3",
-              "title": "Emma had a Spiritual Conversation",
+              "celebrateable_type": "contact_assignment",
+              "changed_attribute_value": "2018-06-10 00:00:00 UTC",
+              "id": "30",
             },
           ],
           "id": "2",
-        },
-        Object {
-          "date": "2018-06-02 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "3",
-        },
-        Object {
-          "date": "2018-06-01 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "4",
-        },
-        Object {
-          "date": "2018-05-31 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "6",
-        },
-        Object {
-          "date": "2018-03-23 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "7",
-        },
-        Object {
-          "date": "2017-12-31 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "9",
-        },
-        Object {
-          "date": "2017-6-08 15:23:00 UTC",
-          "events": Array [
-            Object {
-              "changed_attribute_value": "2018-04-09 15:23:00 UTC",
-              "full_name": "Leah Brooks",
-              "id": "4",
-              "likes_count": "0",
-              "title": "Leah completed a Step of Faith with a Curious person",
-            },
-          ],
-          "id": "10",
         },
       ]
     }
@@ -137,6 +51,7 @@ exports[`should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
         "paddingVertical": 8,
       }
@@ -144,14 +59,10 @@ exports[`should render correctly 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
-  <Flex
-    justify="end"
-  >
-    <Button
-      onPress={[Function]}
-      text="Input goes here"
-      type="secondary"
-    />
-  </Flex>
-</Flex>
+  <Translate(CommentBox)
+    hideActions={true}
+    onSubmit={[Function]}
+    placeholder="Share something to be celebrated..."
+  />
+</PlatformKeyboardAvoidingView>
 `;

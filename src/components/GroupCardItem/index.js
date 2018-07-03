@@ -16,11 +16,8 @@ export default class GroupCardItem extends Component {
 
   render() {
     const { t, group } = this.props;
-    const {
-      contactsCount,
-      unassignedCount,
-      uncontactedCount,
-    } = group.contactReport;
+    const { contactsCount, unassignedCount, uncontactedCount } =
+      group.contactReport || {};
 
     return (
       <Card onPress={this.handlePress} style={styles.card}>

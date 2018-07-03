@@ -66,6 +66,14 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+import {
+  ContactPersonScreen,
+  CONTACT_PERSON_SCREEN,
+} from './containers/Groups/PersonScreen/PersonScreen';
+import {
+  MemberPersonScreen,
+  MEMBER_PERSON_SCREEN,
+} from './containers/Groups/PersonScreen/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
 import { Flex, Icon, Text } from './components/common';
@@ -87,13 +95,24 @@ import {
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
 } from './containers/Groups/SurveyContacts';
-import GroupsContact, { GROUPS_CONTACT } from './containers/Groups/Contact';
+import UnassignedPersonScreen, {
+  UNASSIGNED_PERSON_SCREEN,
+} from './containers/Groups/PersonScreen/UnassignedPersonScreen';
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/SurveyContactsFilter';
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
+import StatusSelect, {
+  STATUS_SELECT_SCREEN,
+} from './containers/StatusSelectScreen';
+import StatusComplete, {
+  STATUS_COMPLETE_SCREEN,
+} from './containers/StatusCompleteScreen';
+import StatusReason, {
+  STATUS_REASON_SCREEN,
+} from './containers/StatusReasonScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -336,10 +355,6 @@ export const MainStackRoutes = createStackNavigator(
       screen: SurveyContacts,
       navigationOptions: { gesturesEnabled: true },
     },
-    [GROUPS_CONTACT]: {
-      screen: GroupsContact,
-      navigationOptions: { gesturesEnabled: true },
-    },
     [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {
       screen: SurveyContactsFilter,
       navigationOptions: { gesturesEnabled: true },
@@ -348,10 +363,54 @@ export const MainStackRoutes = createStackNavigator(
       screen: ContactsFilter,
       navigationOptions: { gesturesEnabled: true },
     },
+    [STATUS_SELECT_SCREEN]: {
+      screen: StatusSelect,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [STATUS_COMPLETE_SCREEN]: {
+      screen: StatusComplete,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [STATUS_REASON_SCREEN]: {
+      screen: StatusReason,
+      navigationOptions: { gesturesEnabled: true },
+    },
     [CONTACT_SCREEN]: {
       screen: createDrawerNavigator(
         {
           Main: { screen: ContactScreen },
+        },
+        {
+          contentComponent: ContactSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [UNASSIGNED_PERSON_SCREEN]: {
+      screen: UnassignedPersonScreen,
+      navigationOptions: { gesturesEnabled: true },
+    },
+    [CONTACT_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: ContactPersonScreen },
+        },
+        {
+          contentComponent: ContactSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [MEMBER_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: MemberPersonScreen },
         },
         {
           contentComponent: ContactSideMenu,

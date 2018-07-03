@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
+import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { organizationSelector } from '../../selectors/organizations';
 import { searchRemoveFilter } from '../../utils/common';
 
-import { GROUPS_CONTACT } from './Contact';
+import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
 @translate('groupsContacts')
@@ -84,11 +85,13 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(GROUPS_CONTACT, { organization, person }));
+    const isMember = false;
+    const isAssignedToMe = true;
+    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
   };
 
   render() {
-    const { t } = this.props;
+    const { t, organization } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
@@ -98,7 +101,11 @@ class Contacts extends Component {
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (
-              <ContactItem contact={item} onSelect={this.handleSelect} />
+              <ContactItem
+                organization={organization}
+                contact={item}
+                onSelect={this.handleSelect}
+              />
             ),
           }}
           onSearch={this.handleSearch}

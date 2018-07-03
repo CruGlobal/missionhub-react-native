@@ -101,4 +101,5 @@ export default {
 
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
   notchHeight,
+  swipeTabHeight: 48,
 };

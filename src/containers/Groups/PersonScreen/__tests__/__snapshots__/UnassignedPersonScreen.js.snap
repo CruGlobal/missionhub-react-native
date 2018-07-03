@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact should render correctly 1`] = `
+<PlatformKeyboardAvoidingView
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+    }
+  }
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    shadow={false}
+    title="Test Org"
+  />
+  <Translate(GroupsContactList)
+    activity={Array []}
+    onAssign={[Function]}
+    person={
+      Object {
+        "full_name": "Test Person",
+        "id": "1",
+      }
+    }
+  />
+  <Translate(CommentBox)
+    onSubmit={[Function]}
+    placeholder="Share something to be celebrated..."
+  />
+</PlatformKeyboardAvoidingView>
+`;

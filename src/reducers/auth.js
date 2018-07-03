@@ -94,7 +94,7 @@ function authReducer(state = initialAuthState, action) {
         person: {
           ...state.person,
           stage: stages.find(
-            s => s.id === `${state.person.user.pathway_stage_id}`,
+            s => s && s.id === `${state.person.user.pathway_stage_id}`,
           ),
         },
       };

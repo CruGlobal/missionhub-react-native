@@ -1,10 +1,11 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions, createMaterialTopTabNavigator } from 'react-navigation';
 jest.mock('react-navigation', () => ({
   DrawerActions: {
     closeDrawer: jest.fn(),
   },
+  createMaterialTopTabNavigator: jest.fn((_, component) => component),
 }));
 
 import {
