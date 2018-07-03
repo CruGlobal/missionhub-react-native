@@ -82,6 +82,11 @@ describe('mapStateToProps', () => {
 });
 
 describe('StatusSelectScreen', () => {
+  beforeEach(() => {
+    navigation.navigatePush.mockClear();
+  });
+  let instance;
+
   const component = (
     <StatusSelectScreen
       navigation={createMockNavState({
@@ -94,7 +99,7 @@ describe('StatusSelectScreen', () => {
   navigation.navigatePush = jest.fn();
 
   const testSubmit = async type => {
-    const instance = renderShallow(component, store).instance();
+    instance = renderShallow(component, store).instance();
     instance.setState({ selected: type });
     await instance.submit();
     expect(updateFollowupStatus).toHaveBeenCalledWith(
@@ -133,10 +138,12 @@ describe('StatusSelectScreen', () => {
 
   it('should update status to do_not_contact', async () => {
     await testSubmit('do_not_contact');
+
     expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
       organization,
       person,
       contactAssignment,
+      onSubmit: instance.onSubmitReason,
     });
   });
 

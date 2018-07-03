@@ -17,8 +17,6 @@ jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
 
-const store = createMockStore();
-
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
 const nav = {
@@ -27,6 +25,18 @@ const nav = {
       params: {
         organization,
         person,
+      },
+    },
+  },
+};
+
+const store = {
+  people: {
+    allByOrg: {
+      [organization.id]: {
+        people: {
+          [person.id]: person,
+        },
       },
     },
   },

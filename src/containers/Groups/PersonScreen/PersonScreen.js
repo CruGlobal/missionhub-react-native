@@ -16,11 +16,7 @@ import MemberContacts from '../../MemberContacts';
 import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
-import {
-  personSelector,
-  contactAssignmentSelector,
-  orgPermissionSelector,
-} from '../../../selectors/people';
+import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
@@ -148,23 +144,16 @@ PersonScreen.propTypes = {
   }).isRequired,
 };
 
-export const mapStateToProps = ({ auth, people }, { navigation }) => {
+export const mapStateToProps = ({ people }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person =
     personSelector({ people }, { personId: navParams.person.id, orgId }) ||
     navParams.person;
-  const orgPermission = orgPermissionSelector(null, {
-    person,
-    organization: navParams.organization,
-  });
 
   return {
     ...(navigation.state.params || {}),
     person,
-    personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
-    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
-    orgPermission,
   };
 };
 

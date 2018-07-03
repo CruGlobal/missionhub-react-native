@@ -27,6 +27,10 @@ class StatusSelectScreen extends Component {
     };
   }
 
+  onSubmitReason = () => {
+    dispatch(navigateBack(3));
+  };
+
   select = status => {
     this.setState({ selected: status });
   };
@@ -60,7 +64,7 @@ class StatusSelectScreen extends Component {
           organization,
           person,
           contactAssignment,
-          onSubmit: () => dispatch(navigateBack(3)),
+          onSubmit: this.onSubmitReason,
         }),
       );
     }
