@@ -22,17 +22,7 @@ import { isMissionhubUser } from '../../utils/common';
 
 @translate('contactSideMenu')
 export class PersonSideMenu extends Component {
-  groupUnassign = () => {
-    const { dispatch, person, organization, contactAssignment } = this.props;
-    dispatch(
-      navigatePush(STATUS_REASON_SCREEN, {
-        person,
-        organization,
-        contactAssignment,
-        onSubmit: () => dispatch(navigateBack(2)),
-      }),
-    );
-  };
+  onSubmitReason = () => dispatch(navigateBack(2));
 
   render() {
     const {
@@ -65,6 +55,7 @@ export class PersonSideMenu extends Component {
       },
       showAssign
         ? {
+            label: t('assign'),
             action: () =>
               dispatch(
                 createContactAssignment(
@@ -73,13 +64,20 @@ export class PersonSideMenu extends Component {
                   person.id,
                 ),
               ),
-            label: t('assign'),
           }
         : null,
       showUnassign
         ? {
             label: t('unassign'),
-            action: this.groupUnassign,
+            action: () =>
+              dispatch(
+                navigatePush(STATUS_REASON_SCREEN, {
+                  person,
+                  organization,
+                  contactAssignment,
+                  onSubmit: this.onSubmitReason,
+                }),
+              ),
           }
         : null,
     ].filter(Boolean);
