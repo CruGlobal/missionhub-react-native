@@ -1,20 +1,13 @@
 import React from 'react';
-import { DrawerActions } from 'react-navigation';
-jest.mock('react-navigation', () => ({
-  DrawerActions: {
-    closeDrawer: jest.fn(),
-  },
-  createMaterialTopTabNavigator: jest.fn((_, component) => component),
-}));
 
 import {
   PersonSideMenu,
   mapStateToProps,
 } from '../../src/components/PersonSideMenu';
-import { renderShallow, testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 import { ADD_CONTACT_SCREEN } from '../../src/containers/AddContactScreen';
 import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
-import { navigatePush, navigateBack } from '../../src/actions/navigation';
+import { navigatePush } from '../../src/actions/navigation';
 import {
   personSelector,
   orgPermissionSelector,
@@ -39,7 +32,6 @@ const organization = { id: 1, type: 'organization' };
 
 beforeEach(() => {
   dispatch.mockClear();
-  navigateBack.mockClear();
   navigatePush.mockClear();
   createContactAssignment.mockClear();
 });
