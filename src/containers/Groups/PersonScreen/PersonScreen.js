@@ -109,7 +109,6 @@ export class PersonScreen extends Component {
                 dispatch(
                   DrawerActions.openDrawer({
                     drawer: PERSON_MENU_DRAWER,
-                    isGroups: true,
                   }),
                 )
               }

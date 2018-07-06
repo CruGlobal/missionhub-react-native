@@ -1,4 +1,6 @@
 import React, { createElement } from 'react';
+import { DrawerActions } from 'react-navigation';
+import { connect } from 'react-redux';
 
 import {
   PersonScreen,
@@ -6,12 +8,14 @@ import {
   CONTACT_PERSON_TABS,
   MEMBER_PERSON_TABS,
 } from '../PersonScreen';
+import IconButton from '../../../../components/IconButton';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
   createMockNavState,
 } from '../../../../../testUtils';
+import { PERSON_MENU_DRAWER } from '../../../../constants';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
@@ -29,6 +33,9 @@ const nav = {
     },
   },
 };
+
+const dispatch = jest.fn(response => Promise.resolve(response));
+DrawerActions.openDrawer = jest.fn();
 
 const store = {
   people: {
@@ -59,5 +66,23 @@ describe('Contact', () => {
 
   it('should render member tabs correctly', () => {
     expect(MEMBER_PERSON_TABS).toMatchSnapshot();
+  });
+
+  it('opens side menu when menu button is pressed', () => {
+    const component = renderShallow(
+      <PersonScreen
+        dispatch={dispatch}
+        organization={organization}
+        person={person}
+      />,
+    );
+    component
+      .find('Connect(Header)')
+      .props()
+      .right.props.onPress();
+
+    expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
+      drawer: PERSON_MENU_DRAWER,
+    });
   });
 });
