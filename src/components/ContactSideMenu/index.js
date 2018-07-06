@@ -17,7 +17,11 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../selectors/people';
-import { isMissionhubUser } from '../../utils/common';
+import {
+  isMissionhubUser,
+  showAssignButton,
+  showUnassignButton,
+} from '../../utils/common';
 
 @translate('contactSideMenu')
 export class ContactSideMenu extends Component {
@@ -75,11 +79,15 @@ export class ContactSideMenu extends Component {
       isMissionhubUser,
     } = this.props;
 
-    const showAssign = !personIsCurrentUser && !contactAssignment;
+    const showAssign = showAssignButton(personIsCurrentUser, contactAssignment);
+    const showUnassign = showUnassignButton(
+      personIsCurrentUser,
+      contactAssignment,
+      isJean,
+      orgPermission,
+    );
     const showDelete =
       !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
-    const showUnassign =
-      !personIsCurrentUser && contactAssignment && isJean && orgPermission;
 
     const showFollowupStatus =
       !personIsCurrentUser && isJean && orgPermission && !isMissionhubUser;

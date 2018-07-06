@@ -18,7 +18,11 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../selectors/people';
-import { isMissionhubUser } from '../../utils/common';
+import {
+  isMissionhubUser,
+  showAssignButton,
+  showUnassignButton,
+} from '../../utils/common';
 
 @translate('contactSideMenu')
 export class PersonSideMenu extends Component {
@@ -37,9 +41,13 @@ export class PersonSideMenu extends Component {
       organization,
     } = this.props;
 
-    const showAssign = !personIsCurrentUser && !contactAssignment;
-    const showUnassign =
-      !personIsCurrentUser && contactAssignment && isJean && orgPermission;
+    const showAssign = showAssignButton(personIsCurrentUser, contactAssignment);
+    const showUnassign = showUnassignButton(
+      personIsCurrentUser,
+      contactAssignment,
+      isJean,
+      orgPermission,
+    );
 
     const menuItems = [
       {
