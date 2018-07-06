@@ -10,10 +10,12 @@ const item = {
   comment: 'Some comment',
   _type: 'interaction',
   interaction_type_id: 2,
+  assigned_to: { id: '2', first_name: 'Bob' },
+  assigned_by: { id: '2', first_name: 'Bob' },
 };
 
 const person = {
-  full_name: 'Test User',
+  first_name: 'Test User',
 };
 
 it('renders item', () => {

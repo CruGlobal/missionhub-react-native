@@ -21,7 +21,7 @@ exports[`renders contact assignment item 1`] = `
     value={1}
   >
     <Icon
-      name="warningIcon"
+      name="journeyWarning"
       size={32}
       style={
         Object {
@@ -65,7 +65,7 @@ exports[`renders contact assignment item 1`] = `
         }
       }
     >
-      Name 1 has assigned Test User to Name 3
+      Bob assigned Test User to Bob
     </MyText>
     <MyText
       accessible={true}
@@ -106,7 +106,7 @@ exports[`renders contact unassignment item 1`] = `
     value={1}
   >
     <Icon
-      name="warningIcon"
+      name="journeyWarning"
       size={32}
       style={
         Object {
@@ -150,7 +150,7 @@ exports[`renders contact unassignment item 1`] = `
         }
       }
     >
-      Name 1 has been Unassigned by Test User
+      Bob was Unassigned Test User
     </MyText>
     <MyText
       accessible={true}

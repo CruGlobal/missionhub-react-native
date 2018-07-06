@@ -151,9 +151,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
   } else if (type === 'contact_assignment') {
-    return 'warningIcon';
+    return 'journeyWarning';
   } else if (type === 'contact_unassignment') {
-    return 'warningIcon';
+    return 'journeyWarning';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {

@@ -26,7 +26,13 @@ describe('step', () => {
   };
 
   it('is rendered correctly without comment', () => {
-    testSnapshotShallow(<JourneyItem item={mockStep} myId={myId} />);
+    testSnapshotShallow(
+      <JourneyItem
+        item={mockStep}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
+    );
   });
 
   it('is rendered correctly with comment', () => {
@@ -34,13 +40,18 @@ describe('step', () => {
       <JourneyItem
         item={{ ...mockStep, note: 'test comment on completed step' }}
         myId={myId}
+        personFirstName={person.first_name}
       />,
     );
   });
 
   it('is rendered correctly with pathway stage', () => {
     testSnapshotShallow(
-      <JourneyItem item={{ ...mockStep, challenge_suggestion }} myId={myId} />,
+      <JourneyItem
+        item={{ ...mockStep, challenge_suggestion }}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
     );
   });
 });
@@ -62,13 +73,21 @@ describe('stage', () => {
 
   it('is rendered correctly with old stage for a contact', () => {
     testSnapshotShallow(
-      <JourneyItem item={mockStageProgression} myId={myId} />,
+      <JourneyItem
+        item={mockStageProgression}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
     );
   });
 
   it('is rendered correctly with old stage for self', () => {
     testSnapshotShallow(
-      <JourneyItem item={mockStageProgression} myId={person.id} />,
+      <JourneyItem
+        item={mockStageProgression}
+        myId={person.id}
+        personFirstName={person.first_name}
+      />,
     );
   });
 
@@ -80,6 +99,7 @@ describe('stage', () => {
           old_pathway_stage: {},
         }}
         myId={myId}
+        personFirstName={person.first_name}
       />,
     );
   });
@@ -92,6 +112,7 @@ describe('stage', () => {
           old_pathway_stage: {},
         }}
         myId={person.id}
+        personFirstName={person.first_name}
       />,
     );
   });
@@ -112,6 +133,7 @@ it('renders survey correctly', () => {
         created_at: date,
       }}
       myId={myId}
+      personFirstName={person.first_name}
     />,
   );
 });
@@ -129,6 +151,7 @@ it('renders interaction correctly', () => {
         created_at: date,
       }}
       myId={myId}
+      personFirstName={person.first_name}
     />,
   );
 });
