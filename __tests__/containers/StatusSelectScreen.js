@@ -153,4 +153,10 @@ describe('StatusSelectScreen', () => {
     instance.select(status);
     expect(instance.state.selected).toEqual(status);
   });
+
+  it('should navigate back 3 on submit reason', () => {
+    const instance = renderShallow(component, store).instance();
+    instance.onSubmitReason();
+    expect(navigation.navigateBack).toHaveBeenCalledWith(3);
+  });
 });

@@ -27,9 +27,7 @@ class StatusSelectScreen extends Component {
     };
   }
 
-  onSubmitReason = () => {
-    dispatch(navigateBack(3));
-  };
+  onSubmitReason = () => this.props.dispatch(navigateBack(3));
 
   select = status => {
     this.setState({ selected: status });

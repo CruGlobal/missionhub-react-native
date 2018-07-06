@@ -1,10 +1,15 @@
 import React from 'react';
 
-import { PersonSideMenu } from '../../src/components/PersonSideMenu';
-import { testSnapshotShallow } from '../../testUtils';
+import PersonSideMenu from '../../src/components/PersonSideMenu';
+import {
+  testSnapshotShallow,
+  renderShallow,
+  createMockStore,
+  createMockNavState,
+} from '../../testUtils';
 import { ADD_CONTACT_SCREEN } from '../../src/containers/AddContactScreen';
 import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
-import { navigatePush } from '../../src/actions/navigation';
+import { navigatePush, navigateBack } from '../../src/actions/navigation';
 import {
   personSelector,
   orgPermissionSelector,
@@ -16,55 +21,80 @@ jest.mock('../../src/actions/person');
 jest.mock('../../src/actions/steps');
 jest.mock('../../src/selectors/people');
 
-const dispatch = jest.fn(response => Promise.resolve(response));
-const me = { id: 1 };
-const person = { id: 2, type: 'person', first_name: 'Test Fname' };
+const me = { id: '1' };
+const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const orgPermission = {
   id: 4,
   type: 'organizational_permission',
   followup_status: 'uncontacted',
 };
-const contactAssignment = { id: 3, type: 'reverse_contact_assignment' };
-const organization = { id: 1, type: 'organization' };
+const contactAssignment = { id: '3', type: 'reverse_contact_assignment' };
+const organization = { id: '4', type: 'organization' };
+
+const store = createMockStore({
+  auth: {
+    isJean: true,
+    person: me,
+  },
+  people: {
+    allByOrg: {
+      [organization.id]: {
+        people: {
+          [person.id]: person,
+        },
+      },
+    },
+  },
+});
+
+orgPermissionSelector.mockReturnValue(orgPermission);
+personSelector.mockReturnValue(person);
 
 beforeEach(() => {
-  dispatch.mockClear();
   navigatePush.mockClear();
+  navigateBack.mockClear();
   createContactAssignment.mockClear();
+  contactAssignmentSelector.mockClear();
 });
+
+let component;
+
+const createComponent = () => {
+  component = renderShallow(
+    <PersonSideMenu
+      navigation={createMockNavState({
+        person,
+        organization,
+      })}
+    />,
+    store,
+  );
+};
 
 describe('PersonSideMenu', () => {
   it('renders unassign correctly', () => {
-    const component = testSnapshotShallow(
-      <PersonSideMenu
-        dispatch={dispatch}
-        isJean={true}
-        personIsCurrentUser={false}
-        person={person}
-        contactAssignment={contactAssignment}
-        orgPermission={orgPermission}
-        organization={organization}
-      />,
-    );
+    contactAssignmentSelector.mockReturnValue(contactAssignment);
+    createComponent();
 
+    expect(component).toMatchSnapshot();
     testEditClick(component, true);
     navigatePush.mockClear();
     testUnassignClick(component);
   });
   it('renders assign correctly', () => {
-    const component = testSnapshotShallow(
-      <PersonSideMenu
-        dispatch={dispatch}
-        isJean={true}
-        myId={me.id}
-        personIsCurrentUser={false}
-        person={person}
-        organization={organization}
-      />,
-    );
+    contactAssignmentSelector.mockReturnValue(undefined);
+    createComponent();
 
+    expect(component).toMatchSnapshot();
     testEditClick(component, true);
     testAssignClick(component);
+  });
+
+  it('should navigate back 2 on submit reason', () => {
+    createComponent();
+    const instance = component.instance();
+    instance.onSubmitReason();
+    expect(navigateBack).toHaveBeenCalledWith(2);
   });
 });
 

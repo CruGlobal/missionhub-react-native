@@ -26,7 +26,7 @@ import {
 
 @translate('contactSideMenu')
 export class PersonSideMenu extends Component {
-  onSubmitReason = () => dispatch(navigateBack(2));
+  onSubmitReason = () => this.props.dispatch(navigateBack(2));
 
   render() {
     const {
