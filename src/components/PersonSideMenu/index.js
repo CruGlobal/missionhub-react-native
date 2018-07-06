@@ -86,7 +86,7 @@ export class PersonSideMenu extends Component {
   }
 }
 
-export const mapStateToProps = ({ auth, people }, { navigation }) => {
+const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person =

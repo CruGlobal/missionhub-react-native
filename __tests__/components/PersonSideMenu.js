@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  PersonSideMenu,
-  mapStateToProps,
-} from '../../src/components/PersonSideMenu';
+import { PersonSideMenu } from '../../src/components/PersonSideMenu';
 import { testSnapshotShallow } from '../../testUtils';
 import { ADD_CONTACT_SCREEN } from '../../src/containers/AddContactScreen';
 import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
@@ -37,45 +34,6 @@ beforeEach(() => {
 });
 
 describe('PersonSideMenu', () => {
-  describe('mapStateToProps', () => {
-    it('should provide the necessary props', () => {
-      personSelector.mockReturnValue(person);
-      contactAssignmentSelector.mockReturnValue(contactAssignment);
-      orgPermissionSelector.mockReturnValue(orgPermission);
-      expect(
-        mapStateToProps(
-          {
-            auth: {
-              isJean: true,
-              person: {
-                id: '1',
-              },
-            },
-            people: {
-              allByOrg: {
-                [organization.id]: {
-                  people: {
-                    [person.id]: person,
-                  },
-                },
-              },
-            },
-          },
-          {
-            navigation: {
-              state: {
-                params: {
-                  person: person,
-                  organization: organization,
-                },
-              },
-            },
-          },
-        ),
-      ).toMatchSnapshot();
-    });
-  });
-
   it('renders unassign correctly', () => {
     const component = testSnapshotShallow(
       <PersonSideMenu
