@@ -19,15 +19,3 @@ export function getGroupCelebrateFeed(orgId) {
     dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
   };
 }
-
-export function groupCelebrateLike(orgId, itemId) {
-  return dispatch => {
-    dispatch(callApi(REQUESTS.GROUP_CELEBRATE_LIKE, { orgId, itemId }));
-  };
-}
-
-export function groupCelebrateDislike(orgId, itemId) {
-  return dispatch => {
-    dispatch(callApi(REQUESTS.GROUP_CELEBRATE_DISLIKE, { orgId, itemId }));
-  };
-}
