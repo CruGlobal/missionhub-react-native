@@ -65,7 +65,7 @@ exports[`renders contact_assignment correctly 1`] = `
         }
       }
     >
-      Billy assigned Test Person to Roger
+      Test Person was assigned to RogerBilly
     </MyText>
   </Flex>
 </Flex>
@@ -136,7 +136,7 @@ exports[`renders contact_unassignment correctly 1`] = `
         }
       }
     >
-      Roger was Unassigned Test Person
+      Roger was unassigned Test Person
     </MyText>
   </Flex>
 </Flex>

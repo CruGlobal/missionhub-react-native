@@ -286,7 +286,7 @@ export function getAssignedByName(myId, item) {
 
   return assigned_by
     ? myId === assigned_by.id
-      ? 'You'
-      : assigned_by.first_name
-    : 'Someone';
+      ? ' by You'
+      : ` by ${assigned_by.first_name}`
+    : '';
 }

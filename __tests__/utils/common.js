@@ -302,17 +302,17 @@ describe('getAssignedToName', () => {
 });
 
 describe('getAssignedByName', () => {
-  it('should return Someone if assigned_by is not set', () => {
-    expect(getAssignedByName('anything', {})).toEqual('Someone');
+  it('should return nothing if assigned_by is not set', () => {
+    expect(getAssignedByName('anything', {})).toEqual('');
   });
 
   it('should return You if the user is the assigned_by', () => {
-    expect(getAssignedByName(id, { assigned_by: { id } })).toEqual('You');
+    expect(getAssignedByName(id, { assigned_by: { id } })).toEqual(' by You');
   });
 
   it('should return the name of assigned_by if it is not the user', () => {
     expect(
       getAssignedByName('200', { assigned_by: { id: 'anything', first_name } }),
-    ).toEqual(first_name);
+    ).toEqual(` by ${first_name}`);
   });
 });
