@@ -5,6 +5,7 @@ import {
   GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
+  GET_SURVEY_DETAILS,
   GET_ORGANIZATION_MEMBERS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
@@ -87,6 +88,25 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
       };
+    case GET_SURVEY_DETAILS: {
+      const { orgId, newSurvey } = action;
+      const curSurveyOrg = state.all.find(o => o.id === orgId);
+      if (!curSurveyOrg) return state; // Return if the organization does not exist
+      const existingSurveys = curSurveyOrg.surveys || [];
+      const allSurveys = existingSurveys.map(
+        s => (s.id === newSurvey.id ? { ...s, ...newSurvey } : s),
+      );
+
+      return {
+        ...state,
+        all: orgId
+          ? state.all.map(
+              o => (o.id === orgId ? { ...o, surveys: allSurveys } : o),
+            )
+          : state.all,
+        surveysPagination: getPagination(action, allSurveys.length),
+      };
+    }
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
       const celebrateQuery = action.query;
       const newItems = action.results.response;

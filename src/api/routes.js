@@ -144,6 +144,9 @@ export default {
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
+  GET_SURVEY: {
+    endpoint: `${SURVEY_URL}/:surveyId`,
+  },
   GET_SURVEYS: {
     endpoint: SURVEY_URL,
   },

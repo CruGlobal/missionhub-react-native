@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
 import { navToPersonScreen } from '../../actions/person';
+import { getSurveyDetails } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -39,6 +40,7 @@ class SurveyContacts extends Component {
   componentDidMount() {
     // Use the default filters to load in these people
     this.loadContactsWithFilters();
+    this.props.dispatch(getSurveyDetails(this.props.survey.id));
   }
 
   loadContactsWithFilters = async () => {

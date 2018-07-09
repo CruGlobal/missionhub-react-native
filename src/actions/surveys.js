@@ -1,4 +1,8 @@
-import { DEFAULT_PAGE_LIMIT, GET_ORGANIZATION_SURVEYS } from '../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  GET_ORGANIZATION_SURVEYS,
+  GET_SURVEY_DETAILS,
+} from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -46,5 +50,22 @@ export function getOrgSurveysNextPage(orgId) {
       },
     };
     return dispatch(getOrgSurveys(orgId, query));
+  };
+}
+
+export function getSurveyDetails(surveyId) {
+  return async dispatch => {
+    const query = {
+      include: 'active_survey_elements.question',
+      surveyId,
+    };
+    const { response } = await dispatch(callApi(REQUESTS.GET_SURVEY, query));
+    return dispatch({
+      type: GET_SURVEY_DETAILS,
+      surveyId,
+      orgId: `${response.organization.id}`,
+      newSurvey: response,
+      query,
+    });
   };
 }
