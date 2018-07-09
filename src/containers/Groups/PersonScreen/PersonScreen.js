@@ -96,7 +96,7 @@ export const MEMBER_PERSON_TABS = [
 
 export class PersonScreen extends Component {
   render() {
-    const { dispatch, person, organization } = this.props;
+    const { dispatch, person, organization, isMember } = this.props;
 
     return (
       <View>
@@ -127,7 +127,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
-          <GroupsContactHeader />
+          <GroupsContactHeader isMember={isMember} />
         </Flex>
       </View>
     );
@@ -163,10 +163,12 @@ const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   CONTACT_PERSON_TABS,
   connectedPersonScreen,
+  false,
 );
 export const MemberPersonScreen = generateSwipeTabMenuNavigator(
   MEMBER_PERSON_TABS,
   connectedPersonScreen,
+  true,
 );
 
 export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
