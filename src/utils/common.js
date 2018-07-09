@@ -275,6 +275,19 @@ export function getPagination(action, currentLength) {
   };
 }
 
+//showing assign/unassign buttons on side menu
+export function showAssignButton(personIsCurrentUser, contactAssignment) {
+  return !personIsCurrentUser && !contactAssignment;
+}
+export function showUnassignButton(
+  personIsCurrentUser,
+  contactAssignment,
+  isJean,
+  orgPermission,
+) {
+  return !personIsCurrentUser && contactAssignment && isJean && orgPermission;
+}
+
 export function getAssignedToName(myId, item) {
   const assigned_to = item.assigned_to;
 

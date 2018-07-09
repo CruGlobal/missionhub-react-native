@@ -11,11 +11,7 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../selectors/people';
-import {
-  // createContactAssignment,
-  // deleteContactAssignment,
-  updateFollowupStatus,
-} from '../../actions/person';
+import { updateFollowupStatus } from '../../actions/person';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STATUS_COMPLETE_SCREEN } from '../StatusCompleteScreen';
 import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
@@ -30,6 +26,8 @@ class StatusSelectScreen extends Component {
       selected: props.status,
     };
   }
+
+  onSubmitReason = () => this.props.dispatch(navigateBack(3));
 
   select = status => {
     this.setState({ selected: status });
@@ -64,6 +62,7 @@ class StatusSelectScreen extends Component {
           organization,
           person,
           contactAssignment,
+          onSubmit: this.onSubmitReason,
         }),
       );
     }
