@@ -116,7 +116,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <Text
             accessible={true}
