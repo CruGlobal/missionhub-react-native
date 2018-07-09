@@ -17,6 +17,7 @@ import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
 import { personSelector } from '../../../selectors/people';
+import GroupsContactHeader from '../../../components/GroupsContactHeader/index';
 
 import styles from './styles';
 
@@ -126,6 +127,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
+          <GroupsContactHeader />
         </Flex>
       </View>
     );
@@ -156,7 +158,7 @@ export const mapStateToProps = ({ people }, { navigation }) => {
   };
 };
 
-export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
+const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 
 export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   CONTACT_PERSON_TABS,
