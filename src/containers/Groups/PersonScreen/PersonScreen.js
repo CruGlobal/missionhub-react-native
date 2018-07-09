@@ -127,6 +127,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
+          {isMember ? <Text style={styles.stage}>growing</Text> : null}
           <GroupsContactHeader isMember={isMember} />
         </Flex>
       </View>
