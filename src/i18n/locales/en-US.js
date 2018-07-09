@@ -71,6 +71,10 @@ export default {
     delete: 'Delete',
     cancel: 'Cancel',
     continue: 'Continue',
+    contactAssignment:
+      '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
+    contactUnassignment:
+      '{{assignedToName}} was unassigned {{assignedContactName}}',
   },
   error: {
     error: 'Error',
@@ -384,6 +388,14 @@ export default {
     impact: 'Impact',
     contacts: 'Contacts',
     surveys: 'Surveys',
+  },
+  personTabs: {
+    celebrate: 'Celebrate',
+    steps: 'My Steps',
+    notes: 'My Notes',
+    journey: 'Our Journey',
+    impact: 'Impact',
+    assignedContacts: 'Assigned Contacts',
   },
   onboarding: {
     screen1: {

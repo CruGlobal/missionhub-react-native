@@ -1,23 +1,23 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import Contact from '../Contact';
-import { INTERACTION_TYPES } from '../../../constants';
+import UnassignedPersonScreen from '../UnassignedPersonScreen';
+import { INTERACTION_TYPES } from '../../../../constants';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
   createMockNavState,
-} from '../../../../testUtils';
-import { addNewInteraction } from '../../../actions/interactions';
-import { getGroupJourney } from '../../../actions/journey';
-import { createContactAssignment } from '../../../actions/person';
+} from '../../../../../testUtils';
+import { addNewInteraction } from '../../../../actions/interactions';
+import { getGroupJourney } from '../../../../actions/journey';
+import { createContactAssignment } from '../../../../actions/person';
 
-jest.mock('../../../actions/interactions');
-jest.mock('../../../actions/journey', () => ({
+jest.mock('../../../../actions/interactions');
+jest.mock('../../../../actions/journey', () => ({
   getGroupJourney: jest.fn(() => [{ id: '1' }]),
 }));
-jest.mock('../../../actions/person', () => ({
+jest.mock('../../../../actions/person', () => ({
   createContactAssignment: jest.fn(() => Promise.resolve()),
 }));
 
@@ -39,7 +39,7 @@ const spiritualConversationAction = Object.values(INTERACTION_TYPES).find(
 
 describe('Contact', () => {
   const component = (
-    <Contact
+    <UnassignedPersonScreen
       navigation={createMockNavState({
         organization,
         person,

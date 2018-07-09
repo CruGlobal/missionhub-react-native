@@ -91,12 +91,24 @@ exports[`StatusSelectScreen should render correctly 1`] = `
               "flex": 1,
               "fontSize": 16,
             },
-            null,
+            Object {
+              "color": "#52C5DC",
+            },
           ]
         }
       >
         Uncontacted
       </MyText>
+      <Icon
+        name="checkIcon"
+        size={16}
+        style={
+          Object {
+            "color": "#52C5DC",
+          }
+        }
+        type="MissionHub"
+      />
     </TouchableIOS>
     <TouchableIOS
       onPress={[Function]}

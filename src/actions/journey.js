@@ -22,7 +22,7 @@ export function getGroupJourney(personId, orgId) {
       );
       let isAdmin = isAdminForOrg(orgPermission);
       let include =
-        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.contact_assignment.assigned_to,all.contact_assignment.person';
+        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,all.contact_assignment.assigned_to,all.contact_assignment.person';
       // If I have admin permission, get me everything
       // Otherwise, just get me survey information
       if (!isAdmin) {
@@ -32,12 +32,7 @@ export function getGroupJourney(personId, orgId) {
         response: { all: feed },
       } = await dispatch(getPersonFeed(personId, orgId, include));
 
-      // TODO: Once the API is ready, stop filtering out the contact assignments/unassignments
-      return feed.filter(
-        f =>
-          f._type !== 'contact_assignment' &&
-          f._type !== 'contact_unassignment',
-      );
+      return feed;
     } catch (e) {
       return [];
     }
@@ -74,7 +69,7 @@ function getPersonFeed(personId, orgId, include) {
     const query = {
       include:
         include ||
-        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person',
+        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.assigned_to,all.assigned_by',
       filters: {
         person_id: personId,
         organization_ids: orgId || 'null',
