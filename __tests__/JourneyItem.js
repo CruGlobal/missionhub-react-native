@@ -1,8 +1,11 @@
 import 'react-native';
 import React from 'react';
 
+import { getAssignedByName, getAssignedToName } from '../src/utils/common';
 import JourneyItem from '../src/components/JourneyItem';
 import { testSnapshotShallow } from '../testUtils';
+
+jest.mock('../src/utils/common');
 
 const myId = '484893';
 const person = {
@@ -11,6 +14,14 @@ const person = {
   first_name: 'Test Person',
 };
 const date = '2017-12-06T14:24:52Z';
+
+beforeEach(() => {
+  getAssignedToName.mockReset();
+  getAssignedByName.mockReset();
+
+  getAssignedToName.mockReturnValue('Roger');
+  getAssignedByName.mockReturnValue('Billy');
+});
 
 describe('step', () => {
   const mockStep = {
@@ -154,4 +165,33 @@ it('renders interaction correctly', () => {
       personFirstName={person.first_name}
     />,
   );
+});
+
+it('renders contact_assignment correctly', () => {
+  const item = {
+    id: '5',
+    _type: 'contact_assignment',
+    created_at: date,
+  };
+
+  testSnapshotShallow(
+    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
+  );
+
+  expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
+  expect(getAssignedByName).toHaveBeenCalledWith(myId, item);
+});
+
+it('renders contact_unassignment correctly', () => {
+  const item = {
+    id: '6',
+    _type: 'contact_unassignment',
+    created_at: date,
+  };
+
+  testSnapshotShallow(
+    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
+  );
+
+  expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
 });

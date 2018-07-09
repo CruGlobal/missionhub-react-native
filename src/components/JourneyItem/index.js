@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
 import { INTERACTION_TYPES } from '../../constants';
+import { getAssignedByName, getAssignedToName } from '../../utils/common';
 
 import styles from './styles';
 
@@ -116,14 +117,8 @@ export default class JourneyItem extends Component {
     } else if (_type === 'interaction') {
       text = item.comment;
     } else if (_type === 'contact_assignment') {
-      const assignedToName =
-        myId === item.assigned_to.id ? 'you' : item.assigned_to.first_name;
-
-      const assignedByName = item.assigned_by
-        ? myId === item.assigned_by.id
-          ? 'You'
-          : item.assigned_by.first_name
-        : 'Someone';
+      const assignedToName = getAssignedToName(myId, item);
+      const assignedByName = getAssignedByName(myId, item);
 
       text = t('contactAssignment', {
         assignedByName,
@@ -131,8 +126,7 @@ export default class JourneyItem extends Component {
         assignedToName,
       });
     } else if (_type === 'contact_unassignment') {
-      const assignedToName =
-        myId === item.assigned_to.id ? 'you' : item.assigned_to.first_name;
+      const assignedToName = getAssignedToName(myId, item);
 
       text = t('contactUnassignment', {
         assignedContactName: personFirstName,

@@ -11,6 +11,8 @@ import {
   searchRemoveFilter,
   getFilterOptions,
   getPagination,
+  getAssignedByName,
+  getAssignedToName,
 } from '../../src/utils/common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
@@ -19,6 +21,9 @@ jest.mock('react-navigation', () => ({
     openDrawer: jest.fn(),
   },
 }));
+
+const id = '123';
+const first_name = 'Roger';
 
 describe('isMissionhubUser', () => {
   it('should return true for admins', () => {
@@ -281,5 +286,33 @@ describe('getPagination', () => {
     pagination = getPagination(action, action.meta.total);
 
     expect(pagination).toEqual({ hasNextPage: false, page: 3 });
+  });
+});
+
+describe('getAssignedToName', () => {
+  it('should return You if the user is the assigned_to', () => {
+    expect(getAssignedToName(id, { assigned_to: { id } })).toEqual('You');
+  });
+
+  it('should return the name of assigned_to if it is not the user', () => {
+    expect(
+      getAssignedToName('200', { assigned_to: { id: 'anything', first_name } }),
+    ).toEqual(first_name);
+  });
+});
+
+describe('getAssignedByName', () => {
+  it('should return Someone if assigned_by is not set', () => {
+    expect(getAssignedByName('anything', {})).toEqual('Someone');
+  });
+
+  it('should return You if the user is the assigned_by', () => {
+    expect(getAssignedByName(id, { assigned_by: { id } })).toEqual('You');
+  });
+
+  it('should return the name of assigned_by if it is not the user', () => {
+    expect(
+      getAssignedByName('200', { assigned_by: { id: 'anything', first_name } }),
+    ).toEqual(first_name);
   });
 });

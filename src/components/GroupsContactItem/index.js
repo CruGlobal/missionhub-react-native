@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent, Card } from '../../components/common';
-import { getIconName } from '../../utils/common';
+import {
+  getAssignedByName,
+  getAssignedToName,
+  getIconName,
+} from '../../utils/common';
 
 import styles from './styles';
 
@@ -32,14 +36,8 @@ class GroupsContactItem extends Component {
     if (item.survey && item.survey.title) {
       title = item.survey.title;
     } else if (item._type === 'contact_assignment') {
-      const assignedToName =
-        myId === item.assigned_to.id ? 'you' : item.assigned_to.first_name;
-
-      const assignedByName = item.assigned_by
-        ? myId === item.assigned_by.id
-          ? 'You'
-          : item.assigned_by.first_name
-        : 'Someone';
+      const assignedToName = getAssignedToName(myId, item);
+      const assignedByName = getAssignedByName(myId, item);
 
       title = t('contactAssignment', {
         assignedByName,
@@ -47,8 +45,7 @@ class GroupsContactItem extends Component {
         assignedToName,
       });
     } else if (item._type === 'contact_unassignment') {
-      const assignedToName =
-        myId === item.assigned_to.id ? 'you' : item.assigned_to.first_name;
+      const assignedToName = getAssignedToName(myId, item);
 
       title = t('contactUnassignment', {
         assignedContactName: person.first_name,

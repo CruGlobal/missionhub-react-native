@@ -65,7 +65,7 @@ exports[`renders contact assignment item 1`] = `
         }
       }
     >
-      Bob assigned Test User to Bob
+      Captain America assigned Test User to Iron Man
     </MyText>
     <MyText
       accessible={true}
@@ -150,7 +150,7 @@ exports[`renders contact unassignment item 1`] = `
         }
       }
     >
-      Bob was Unassigned Test User
+      Iron Man was Unassigned Test User
     </MyText>
     <MyText
       accessible={true}

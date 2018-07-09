@@ -274,3 +274,19 @@ export function getPagination(action, currentLength) {
     hasNextPage,
   };
 }
+
+export function getAssignedToName(myId, item) {
+  const assigned_to = item.assigned_to;
+
+  return myId === assigned_to.id ? 'You' : assigned_to.first_name;
+}
+
+export function getAssignedByName(myId, item) {
+  const assigned_by = item.assigned_by;
+
+  return assigned_by
+    ? myId === assigned_by.id
+      ? 'You'
+      : assigned_by.first_name
+    : 'Someone';
+}
