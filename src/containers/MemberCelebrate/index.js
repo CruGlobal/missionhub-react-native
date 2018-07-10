@@ -12,6 +12,15 @@ import theme from '../../theme';
 
 @translate('groupsCelebrate')
 class MemberCelebrate extends Component {
+  componentDidMount() {
+    this.loadItems();
+  }
+
+  loadItems = () => {
+    const { dispatch, person, organization } = this.props;
+    dispatch(getGroupCelebrateFeed(organization.id, person.id));
+  };
+
   render() {
     const { t } = this.props;
     return (
