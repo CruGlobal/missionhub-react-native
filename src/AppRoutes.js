@@ -76,6 +76,7 @@ import {
 } from './containers/Groups/PersonScreen/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import ContactSideMenu from './components/ContactSideMenu';
+import PersonSideMenu from './components/PersonSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
 import MainTabs from './containers/MainTabs';
@@ -399,7 +400,7 @@ export const MainStackRoutes = createStackNavigator(
           Main: { screen: ContactPersonScreen },
         },
         {
-          contentComponent: ContactSideMenu,
+          contentComponent: PersonSideMenu,
           drawerPosition: 'right',
           navigationOptions: { drawerLockMode: 'locked-closed' },
           backBehavior: 'none', // We're handling it on our own
@@ -413,7 +414,7 @@ export const MainStackRoutes = createStackNavigator(
           Main: { screen: MemberPersonScreen },
         },
         {
-          contentComponent: ContactSideMenu,
+          contentComponent: PersonSideMenu,
           drawerPosition: 'right',
           navigationOptions: { drawerLockMode: 'locked-closed' },
           backBehavior: 'none', // We're handling it on our own

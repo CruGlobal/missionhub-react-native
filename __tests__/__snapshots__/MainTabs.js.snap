@@ -158,7 +158,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                       ]
                     }
                   >
-                    
+                    
                   </Text>
                 </View>
               </View>
@@ -404,7 +404,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -502,7 +502,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -787,7 +787,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
                       ]
                     }
                   >
-                    
+                    
                   </Text>
                 </View>
               </View>
@@ -1033,7 +1033,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}
@@ -1131,7 +1131,7 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
         <Text
           accessible={true}

@@ -21,7 +21,7 @@ exports[`renders contact assignment item 1`] = `
     value={1}
   >
     <Icon
-      name="warningIcon"
+      name="journeyWarning"
       size={32}
       style={
         Object {
@@ -43,7 +43,7 @@ exports[`renders contact assignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -65,7 +65,7 @@ exports[`renders contact assignment item 1`] = `
         }
       }
     >
-      Name 1 has assigned Test User to Name 3
+      Test User was assigned to Iron ManCaptain America
     </MyText>
     <MyText
       accessible={true}
@@ -106,7 +106,7 @@ exports[`renders contact unassignment item 1`] = `
     value={1}
   >
     <Icon
-      name="warningIcon"
+      name="journeyWarning"
       size={32}
       style={
         Object {
@@ -128,7 +128,7 @@ exports[`renders contact unassignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -150,7 +150,7 @@ exports[`renders contact unassignment item 1`] = `
         }
       }
     >
-      Name 1 has been Unassigned by Test User
+      Iron Man was unassigned Test User
     </MyText>
     <MyText
       accessible={true}
@@ -298,7 +298,7 @@ exports[`renders survey item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={

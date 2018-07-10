@@ -75,6 +75,10 @@ export default {
     delete: 'Delete',
     cancel: 'Cancel',
     continue: 'Continue',
+    contactAssignment:
+      '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
+    contactUnassignment:
+      '{{assignedToName}} was unassigned {{assignedContactName}}',
   },
   error: {
     error: 'Error',

@@ -42,6 +42,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
         "paddingVertical": 8,
       }

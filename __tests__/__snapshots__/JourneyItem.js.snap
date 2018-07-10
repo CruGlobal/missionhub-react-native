@@ -1,5 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders contact_assignment correctly 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="journeyWarning"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <Translate(DateComponent)
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      Test Person was assigned to RogerBilly
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`renders contact_unassignment correctly 1`] = `
+<Flex
+  align="center"
+  direction="row"
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "paddingRight": 24,
+      "paddingVertical": 19,
+      "width": 750,
+    }
+  }
+>
+  <Flex
+    value={1}
+  >
+    <Icon
+      name="journeyWarning"
+      size={32}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#007398",
+            "fontSize": 40,
+            "textAlign": "center",
+          },
+          Object {},
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingBottom": 5,
+        "paddingLeft": 20,
+      }
+    }
+    value={3.5}
+  >
+    <Translate(DateComponent)
+      date="2017-12-06T14:24:52Z"
+      format="LL"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+        }
+      }
+    >
+      Roger was unassigned Test Person
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
 exports[`renders interaction correctly 1`] = `
 <Flex
   align="center"

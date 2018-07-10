@@ -13,9 +13,10 @@ import ContactNotes from '../../ContactNotes';
 import ContactJourney from '../../ContactJourney';
 import ImpactView from '../../ImpactView';
 import MemberContacts from '../../MemberContacts';
-import { CONTACT_MENU_DRAWER } from '../../../constants';
+import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
+import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
@@ -93,17 +94,8 @@ export const MEMBER_PERSON_TABS = [
 ];
 
 export class PersonScreen extends Component {
-  openDrawer = () => {
-    this.props.dispatch(
-      DrawerActions.openDrawer({
-        drawer: CONTACT_MENU_DRAWER,
-        isCurrentUser: false,
-      }),
-    );
-  };
-
   render() {
-    const { person, organization } = this.props;
+    const { dispatch, person, organization } = this.props;
 
     return (
       <View>
@@ -113,7 +105,13 @@ export class PersonScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={this.openDrawer}
+              onPress={() =>
+                dispatch(
+                  DrawerActions.openDrawer({
+                    drawer: PERSON_MENU_DRAWER,
+                  }),
+                )
+              }
             />
           }
           shadow={false}
@@ -145,9 +143,18 @@ PersonScreen.propTypes = {
   }).isRequired,
 };
 
-export const mapStateToProps = (state, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+export const mapStateToProps = ({ people }, { navigation }) => {
+  const navParams = navigation.state.params;
+  const orgId = navParams.organization && navParams.organization.id;
+  const person =
+    personSelector({ people }, { personId: navParams.person.id, orgId }) ||
+    navParams.person;
+
+  return {
+    ...(navigation.state.params || {}),
+    person,
+  };
+};
 
 export const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 

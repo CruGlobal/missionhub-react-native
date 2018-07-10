@@ -51,13 +51,19 @@ it('renders activity list', () => {
       onAssign={jest.fn()}
       activity={activity}
       person={person}
+      myId="1"
     />,
   );
 });
 
 it('renders empty list', () => {
   testSnapshotShallow(
-    <GroupsContactList onAssign={jest.fn()} activity={[]} person={person} />,
+    <GroupsContactList
+      onAssign={jest.fn()}
+      activity={[]}
+      person={person}
+      myId="1"
+    />,
   );
 });
 
@@ -69,6 +75,7 @@ it('calls onAssign prop', () => {
       onAssign={onAssign}
       activity={activity}
       person={person}
+      myId="1"
     />,
   )
     .childAt(0)

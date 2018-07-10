@@ -96,7 +96,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
       <View
@@ -346,7 +346,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
       <View
@@ -488,7 +488,7 @@ exports[`renders tab 0 correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
       <View
@@ -738,7 +738,7 @@ exports[`renders tab 0 correctly 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
       <View

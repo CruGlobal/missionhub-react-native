@@ -23,6 +23,7 @@
   "groupsIcon": true,
   "impactIcon": true,
   "journeyIcon": true,
+  "journeyWarning": true,
   "leftArrowIcon": true,
   "likeActiveIcon": true,
   "likeDisabledIcon": true,
@@ -46,5 +47,6 @@
   "surveyIcon": true,
   "textIcon": true,
   "uncontactedIcon": true,
+  "upArrow": true,
   "upArrowIcon": true
 }

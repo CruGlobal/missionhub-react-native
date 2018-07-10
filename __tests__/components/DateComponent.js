@@ -5,7 +5,7 @@ import moment from 'moment';
 import { DateComponent } from '../../src/components/common';
 import { testSnapshot, renderShallow, mockFnWithParams } from '../../testUtils';
 
-mockFnWithParams(moment, 'default', '2018-06-11 00:00:00 UTC');
+mockFnWithParams(moment, 'default', '2018-06-11 12:00:00 UTC');
 
 it('renders correctly', () => {
   testSnapshot(<DateComponent date="2017-11-20" />);
