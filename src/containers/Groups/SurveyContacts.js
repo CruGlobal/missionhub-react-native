@@ -13,6 +13,7 @@ import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { organizationSelector } from '../../selectors/organizations';
 
 import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
@@ -37,10 +38,13 @@ class SurveyContacts extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { dispatch, survey } = this.props;
     // Use the default filters to load in these people
     this.loadContactsWithFilters();
-    this.props.dispatch(getSurveyDetails(this.props.survey.id));
+
+    const { newSurvey } = await dispatch(getSurveyDetails(survey.id));
+    this.setState({ survey: newSurvey });
   }
 
   loadContactsWithFilters = async () => {
@@ -53,8 +57,8 @@ class SurveyContacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch, survey } = this.props;
-    const { filters } = this.state;
+    const { dispatch } = this.props;
+    const { filters, survey } = this.state;
     dispatch(
       navigatePush(SEARCH_SURVEY_CONTACTS_FILTER_SCREEN, {
         survey,
@@ -128,9 +132,17 @@ SurveyContacts.propTypes = {
   survey: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = ({ organizations }, { navigation }) => {
+  const navParams = navigation.state.params || {};
+  const orgId = navParams.organization.id;
+  const surveyId = navParams.survey.id;
+  const selectorOrg = organizationSelector({ organizations }, { orgId });
+
+  return {
+    ...navParams,
+    survey: ((selectorOrg || {}).surveys || []).find(s => s.id === surveyId),
+  };
+};
 
 export default connect(mapStateToProps)(SurveyContacts);
 export const GROUPS_SURVEY_CONTACTS = 'nav/GROUPS_SURVEY_CONTACTS';

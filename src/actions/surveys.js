@@ -60,6 +60,7 @@ export function getSurveyDetails(surveyId) {
       surveyId,
     };
     const { response } = await dispatch(callApi(REQUESTS.GET_SURVEY, query));
+
     return dispatch({
       type: GET_SURVEY_DETAILS,
       surveyId,
