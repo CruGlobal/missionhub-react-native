@@ -42,8 +42,31 @@ class MemberCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization }) => ({
-  organization,
-});
+export const mapStateToProps = ({ organizations }, { organization }) => {
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
+
+  console.log(selectorOrg);
+  console.log(selectorOrg.celebrateItems);
+
+  const filteredCelebrationItems = ((selectorOrg || {}).celebrateItems || []).filter(
+    item => {
+      return item.subject_person.id === '4205848';
+    },
+  );
+
+  console.log(filteredCelebrationItems);
+
+  const celebrateItems = celebrationSelector({
+    celebrateItems: filteredCelebrationItems,
+  });
+
+  return {
+    celebrateItems,
+    pagination: organizations.celebratePagination,
+  };
+};
 
 export default connect(mapStateToProps)(MemberCelebrate);
