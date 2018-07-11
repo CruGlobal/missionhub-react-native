@@ -43,7 +43,10 @@ class MemberCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization, person }) => {
+export const mapStateToProps = (
+  { organizations },
+  { organization, person },
+) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
