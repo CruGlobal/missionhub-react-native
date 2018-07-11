@@ -54,7 +54,7 @@ export const mapStateToProps = ({ organizations }, { organization, person }) => 
   ).filter(item => {
     return item.subject_person.id === person.id;
   });
-  
+
   const celebrateItems = celebrationSelector({
     celebrateItems: filteredCelebrationItems,
   });
