@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
 import { navToPersonScreen } from '../../actions/person';
-import { getSurveyDetails } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -39,11 +38,8 @@ class SurveyContacts extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch, survey } = this.props;
     // Use the default filters to load in these people
     this.loadContactsWithFilters();
-
-    dispatch(getSurveyDetails(survey.id));
   }
 
   loadContactsWithFilters = async () => {
@@ -56,8 +52,8 @@ class SurveyContacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch } = this.props;
-    const { filters, survey } = this.state;
+    const { dispatch, survey } = this.props;
+    const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_SURVEY_CONTACTS_FILTER_SCREEN, {
         survey,
@@ -131,17 +127,9 @@ SurveyContacts.propTypes = {
   survey: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { navigation }) => {
-  const navParams = navigation.state.params || {};
-  const orgId = navParams.organization.id;
-  const surveyId = navParams.survey.id;
-  const selectorOrg = organizationSelector({ organizations }, { orgId });
-
-  return {
-    ...navParams,
-    survey: ((selectorOrg || {}).surveys || []).find(s => s.id === surveyId),
-  };
-};
+const mapStateToProps = ({ organizations }, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
 
 export default connect(mapStateToProps)(SurveyContacts);
 export const GROUPS_SURVEY_CONTACTS = 'nav/GROUPS_SURVEY_CONTACTS';

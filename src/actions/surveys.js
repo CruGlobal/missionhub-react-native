@@ -53,20 +53,11 @@ export function getOrgSurveysNextPage(orgId) {
   };
 }
 
-export function getSurveyDetails(surveyId) {
+export function getSurveyQuestions(surveyId) {
   return async dispatch => {
-    const query = {
-      include: 'active_survey_elements.question',
-      surveyId,
-    };
-    const { response } = await dispatch(callApi(REQUESTS.GET_SURVEY, query));
-
-    return dispatch({
-      type: GET_SURVEY_DETAILS,
-      surveyId,
-      orgId: `${response.organization.id}`,
-      newSurvey: response,
-      query,
-    });
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }),
+    );
+    return response;
   };
 }

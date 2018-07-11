@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
+import { getSurveyQuestions } from '../../../actions/surveys';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
 import {
@@ -46,10 +47,16 @@ export class SurveyContactsFilter extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     Keyboard.dismiss();
-    // TODO: Load in survey questions/answers to be able to filter on
+    this.loadQuestions();
+  }
+
+  async loadQuestions() {
+    const { dispatch, survey } = this.props;
+    const questions = await dispatch(getSurveyQuestions(survey.id));
+    console.log(questions);
   }
 
   setFilter(filters = {}) {
