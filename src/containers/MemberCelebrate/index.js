@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -22,16 +22,17 @@ class MemberCelebrate extends Component {
   };
 
   render() {
-    const { t } = this.props;
+    const { t, celebrateItems } = this.props;
+
     return (
       <PlatformKeyboardAvoidingView
         style={{ flex: 1, backgroundColor: theme.lightGrey }}
         offset={theme.headerHeight + theme.swipeTabHeight}
       >
-        <ScrollView style={{ flex: 1 }}>
-          <Text>Load More</Text>
-          <Text>MEMBER Celebrate LIST</Text>
-        </ScrollView>
+        <FlatList
+          data={celebrateItems}
+          renderItem={({ item }) => <Text>{item.date}</Text>}
+        />
         <CommentBox
           placeholder={t('placeholder')}
           hideActions={true}
