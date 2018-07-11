@@ -43,8 +43,7 @@ class SurveyContacts extends Component {
     // Use the default filters to load in these people
     this.loadContactsWithFilters();
 
-    const { newSurvey } = await dispatch(getSurveyDetails(survey.id));
-    this.setState({ survey: newSurvey });
+    dispatch(getSurveyDetails(survey.id));
   }
 
   loadContactsWithFilters = async () => {
