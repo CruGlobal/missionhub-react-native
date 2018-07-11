@@ -10,28 +10,20 @@ exports[`MemberCelebrate renders correctly 1`] = `
     }
   }
 >
-  <ScrollView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Load More
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      MEMBER Celebrate LIST
-    </MyText>
-  </ScrollView>
+  <FlatList
+    data={Array []}
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
   <Translate(CommentBox)
     hideActions={true}
     placeholder="Share something to be celebrated..."

@@ -1,10 +1,38 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import MemberCelebrate from '../../src/containers/MemberCelebrate';
-import { testSnapshotShallow, createMockStore } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
+
+const mockState = {
+  organizations: {
+    all: [
+      {
+        id: '123',
+      },
+    ],
+    celebratePagination: {
+      hasNextPage: true,
+      page: 0,
+    },
+  },
+};
+
+const mockStore = configureStore([thunk]);
+
+let store = mockStore(mockState);
 
 describe('MemberCelebrate', () => {
   it('renders correctly', () => {
-    testSnapshotShallow(<MemberCelebrate store={createMockStore()} />);
+    const person = { id: '1' };
+    const organization = { id: '123' };
+    testSnapshotShallow(
+      <MemberCelebrate
+        store={store}
+        person={person}
+        organization={organization}
+      />,
+    );
   });
 });
