@@ -36,7 +36,7 @@ function organizationsReducer(state = initialState, action) {
         ...o,
       }));
       return {
-        ...state,
+        ...initialState,
         all: myOrgs,
       };
     case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
