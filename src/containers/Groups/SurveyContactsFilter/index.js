@@ -27,7 +27,7 @@ export class SurveyContactsFilter extends Component {
     super(props);
     const { t, filters } = props;
 
-    const filterOptions = getFilterOptions(t, filters);
+    const filterOptions = getFilterOptions(t, filters, []);
     const options = [
       filterOptions.questions,
       filterOptions.gender,
@@ -54,9 +54,25 @@ export class SurveyContactsFilter extends Component {
   }
 
   async loadQuestions() {
-    const { dispatch, survey } = this.props;
+    const { t, dispatch, survey } = this.props;
     const questions = await dispatch(getSurveyQuestions(survey.id));
-    console.log(questions);
+    this.createFilters(questions);
+  }
+
+  createFilters(questions) {
+    const { t, filters } = this.props;
+    const filterOptions = getFilterOptions(t, filters, questions);
+    const options = [
+      filterOptions.questions,
+      filterOptions.gender,
+      filterOptions.time,
+    ];
+    const toggleOptions = [
+      filterOptions.uncontacted,
+      filterOptions.unassigned,
+      filterOptions.archived,
+    ];
+    this.setState({ filters, options, toggleOptions });
   }
 
   setFilter(filters = {}) {

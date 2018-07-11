@@ -163,53 +163,61 @@ export const getIconName = (type, interaction_type_id) => {
   return null;
 };
 
-export const getFilterOptions = (t, filters) => ({
-  questions: {
-    id: 'questions',
-    text: t('searchFilter:surveyQuestions'),
-    options: 'questions',
-    preview: filters.questions ? filters.questions.text : undefined,
-  },
-  gender: {
-    id: 'gender',
-    text: t('searchFilter:gender'),
-    options: [
-      { id: 'm', text: t('searchFilter:male') },
-      { id: 'f', text: t('searchFilter:female') },
-      { id: 'o', text: t('searchFilter:other') },
-    ],
-    preview: filters.gender ? filters.gender.text : undefined,
-  },
-  time: {
-    id: 'time',
-    text: t('searchFilter:time'),
-    options: [
-      { id: 'time7', text: t('searchFilter:time7') },
-      { id: 'time30', text: t('searchFilter:time30') },
-      { id: 'time60', text: t('searchFilter:time60') },
-      { id: 'time90', text: t('searchFilter:time90') },
-      { id: 'time180', text: t('searchFilter:time180') },
-      { id: 'time270', text: t('searchFilter:time270') },
-      { id: 'time365', text: t('searchFilter:time365') },
-    ],
-    preview: filters.time ? filters.time.text : undefined,
-  },
-  uncontacted: {
-    id: 'uncontacted',
-    text: t('searchFilter:uncontacted'),
-    selected: !!filters.uncontacted,
-  },
-  unassigned: {
-    id: 'unassigned',
-    text: t('searchFilter:unassigned'),
-    selected: !!filters.unassigned,
-  },
-  archived: {
-    id: 'archived',
-    text: t('searchFilter:archived'),
-    selected: !!filters.archived,
-  },
-});
+export const getFilterOptions = (t, filters, questions = []) => {
+  const choiceQuestions = questions.filter(q => q._type === 'choice_field');
+
+  return {
+    questions: {
+      id: 'questions',
+      text: t('searchFilter:surveyQuestions'),
+      options: choiceQuestions.map(q => ({
+        id: q.id,
+        text: q.label,
+        options: ['option 1', 'option 2'],
+      })),
+      preview: filters.questions ? filters.questions.text : undefined,
+    },
+    gender: {
+      id: 'gender',
+      text: t('searchFilter:gender'),
+      options: [
+        { id: 'm', text: t('searchFilter:male') },
+        { id: 'f', text: t('searchFilter:female') },
+        { id: 'o', text: t('searchFilter:other') },
+      ],
+      preview: filters.gender ? filters.gender.text : undefined,
+    },
+    time: {
+      id: 'time',
+      text: t('searchFilter:time'),
+      options: [
+        { id: 'time7', text: t('searchFilter:time7') },
+        { id: 'time30', text: t('searchFilter:time30') },
+        { id: 'time60', text: t('searchFilter:time60') },
+        { id: 'time90', text: t('searchFilter:time90') },
+        { id: 'time180', text: t('searchFilter:time180') },
+        { id: 'time270', text: t('searchFilter:time270') },
+        { id: 'time365', text: t('searchFilter:time365') },
+      ],
+      preview: filters.time ? filters.time.text : undefined,
+    },
+    uncontacted: {
+      id: 'uncontacted',
+      text: t('searchFilter:uncontacted'),
+      selected: !!filters.uncontacted,
+    },
+    unassigned: {
+      id: 'unassigned',
+      text: t('searchFilter:unassigned'),
+      selected: !!filters.unassigned,
+    },
+    archived: {
+      id: 'archived',
+      text: t('searchFilter:archived'),
+      selected: !!filters.archived,
+    },
+  };
+};
 
 export const searchHandleToggle = (scope, item) => {
   const { toggleOptions, filters } = scope.state;
