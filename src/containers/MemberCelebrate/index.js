@@ -48,17 +48,12 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
     { orgId: organization.id },
   );
 
-  console.log(selectorOrg);
-  console.log(selectorOrg.celebrateItems);
-
-  const filteredCelebrationItems = ((selectorOrg || {}).celebrateItems || []).filter(
-    item => {
-      return item.subject_person.id === '4205848';
-    },
-  );
-
-  console.log(filteredCelebrationItems);
-
+  const filteredCelebrationItems = (
+    (selectorOrg || {}).celebrateItems || []
+  ).filter(item => {
+    return item.subject_person.id === '4205848';
+  });
+  
   const celebrateItems = celebrationSelector({
     celebrateItems: filteredCelebrationItems,
   });
