@@ -26,7 +26,9 @@ function buildQuery(orgId, personId, page) {
   if (personId) {
     query = {
       ...query,
-      person_id: personId,
+      filters: {
+        subject_person_ids: personId,
+      },
     };
   }
 
