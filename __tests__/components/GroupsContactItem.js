@@ -18,6 +18,8 @@ const item = {
   comment: 'Some comment',
   _type: 'interaction',
   interaction_type_id: 2,
+  initiators: [{ full_name: 'Someone' }],
+  receiver: { first_name: 'Contact' },
 };
 
 const person = {

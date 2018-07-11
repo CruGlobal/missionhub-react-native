@@ -235,7 +235,7 @@ exports[`renders item 1`] = `
         }
       }
     >
-      Someone had a spiritual conversation
+      Someone had a spiritual conversation with Contact
     </MyText>
     <MyText
       accessible={true}
