@@ -36,7 +36,7 @@ exports[`Contact should render PersonScreen correctly 1`] = `
         }
       }
     />
-    <GroupsContactHeader />
+    <GroupsPersonHeader />
   </Flex>
 </View>
 `;

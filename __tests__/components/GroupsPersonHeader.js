@@ -1,7 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 
-import GroupsContactHeader from '../../src/components/GroupsContactHeader/index';
+import GroupsPersonHeader from '../../src/components/GroupsPersonHeader/index';
 import { testSnapshotShallow } from '../../testUtils/index';
 
 jest.mock('uuid/v4');
@@ -11,9 +11,9 @@ beforeEach(() => {
 });
 
 it('renders correctly for a member', () => {
-  testSnapshotShallow(<GroupsContactHeader isMember={true} />);
+  testSnapshotShallow(<GroupsPersonHeader isMember={true} />);
 });
 
 it('renders correctly for a contact', () => {
-  testSnapshotShallow(<GroupsContactHeader isMember={false} />);
+  testSnapshotShallow(<GroupsPersonHeader isMember={false} />);
 });

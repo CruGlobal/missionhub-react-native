@@ -17,7 +17,7 @@ import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
 import { personSelector } from '../../../selectors/people';
-import GroupsContactHeader from '../../../components/GroupsContactHeader/index';
+import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 
 import styles from './styles';
 
@@ -128,7 +128,7 @@ export class PersonScreen extends Component {
             {(person.first_name || '').toUpperCase()}
           </Text>
           {isMember ? <Text style={styles.stage}>growing</Text> : null}
-          <GroupsContactHeader isMember={isMember} />
+          <GroupsPersonHeader isMember={isMember} />
         </Flex>
       </View>
     );

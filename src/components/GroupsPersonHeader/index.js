@@ -8,7 +8,7 @@ import { Flex, Text, IconButton } from '../common';
 
 import styles from './styles';
 
-export default class GroupsContactHeader extends Component {
+export default class GroupsPersonHeader extends Component {
   stageButton = this.button('journeyIcon', 'Stage');
   emailButton = this.button('emailIcon', 'Email', styles.emailButton);
 
@@ -50,6 +50,6 @@ export default class GroupsContactHeader extends Component {
   }
 }
 
-GroupsContactHeader.propTypes = {
+GroupsPersonHeader.propTypes = {
   isMember: PropTypes.bool.isRequired,
 };
