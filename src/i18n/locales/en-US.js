@@ -444,8 +444,6 @@ export default {
   },
   groupsContactItem: {
     status: 'Status: {{status}}',
-    assigned: '{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}',
-    unassigned: '{{unassignedContact}} has been Unassigned by {{unassignedBy}}',
     stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',
     stageStart: '{{personName}} has been to MissionHub as {{newStage}}',
     spiritualConversation:
