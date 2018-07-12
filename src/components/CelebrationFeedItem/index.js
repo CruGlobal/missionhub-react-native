@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import DateComponent from '../DateComponent';
+
 /*
 date
 message
@@ -12,7 +14,7 @@ class MemberCelebrate extends Component {
     const { date, message, likes } = this.props;
     return (
       <View>
-        <Text>{date}</Text>
+        <DateComponent date={date} format="hh:mm a" />
         <Text>{message}</Text>
         <Text>{likes} likes</Text>
       </View>
