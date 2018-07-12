@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
+import CelebrationFeedItem from '../../components/CelebrationFeedItem';
 import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
@@ -31,7 +32,9 @@ class MemberCelebrate extends Component {
       >
         <FlatList
           data={celebrateItems}
-          renderItem={({ item }) => <Text>{item.date}</Text>}
+          renderItem={({ item }) => (
+            <CelebrationFeedItem date={item.date} message=" " likes="0" />
+          )}
         />
         <CommentBox
           placeholder={t('placeholder')}
