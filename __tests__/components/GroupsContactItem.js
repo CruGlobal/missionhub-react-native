@@ -2,13 +2,7 @@ import React from 'react';
 
 import { testSnapshotShallow } from '../../testUtils';
 import GroupsContactItem from '../../src/components/GroupsContactItem';
-import {
-  getIconName,
-  getAssignedByName,
-  getAssignedToName,
-} from '../../src/utils/common';
-
-jest.mock('../../src/utils/common');
+import { INTERACTION_TYPES } from '../../src/constants';
 
 const created_at = '2018-05-29T17:02:02Z';
 const item = {
@@ -18,6 +12,10 @@ const item = {
   comment: 'Some comment',
   _type: 'interaction',
   interaction_type_id: 2,
+  initiators: [{ full_name: 'Someone' }],
+  receiver: { first_name: 'Contact' },
+  assigned_to: { id: '10', first_name: 'Iron Man' },
+  assigned_by: { id: '11', first_name: 'Captain America' },
 };
 
 const person = {
@@ -26,25 +24,7 @@ const person = {
 
 const myId = '234234';
 
-beforeEach(() => {
-  getAssignedToName.mockReset();
-  getAssignedByName.mockReset();
-
-  getAssignedByName.mockReturnValue('Captain America');
-  getAssignedToName.mockReturnValue('Iron Man');
-});
-
-it('renders item', () => {
-  getIconName.mockReturnValue('spiritualConversationIcon');
-
-  testSnapshotShallow(
-    <GroupsContactItem person={person} item={item} myId={myId} />,
-  );
-});
-
 it('renders survey item', () => {
-  getIconName.mockReset();
-
   testSnapshotShallow(
     <GroupsContactItem
       person={person}
@@ -65,7 +45,6 @@ it('renders survey item', () => {
 });
 
 it('renders contact assignment item', () => {
-  getIconName.mockReturnValue('journeyWarning');
   const newItem = {
     ...item,
     _type: 'contact_assignment',
@@ -75,13 +54,9 @@ it('renders contact assignment item', () => {
   testSnapshotShallow(
     <GroupsContactItem person={person} item={newItem} myId={myId} />,
   );
-
-  expect(getAssignedToName).toHaveBeenCalledWith(myId, newItem);
-  expect(getAssignedByName).toHaveBeenCalledWith(myId, newItem);
 });
 
 it('renders contact unassignment item', () => {
-  getIconName.mockReturnValue('journeyWarning');
   const newItem = {
     ...item,
     _type: 'contact_unassignment',
@@ -91,6 +66,49 @@ it('renders contact unassignment item', () => {
   testSnapshotShallow(
     <GroupsContactItem person={person} item={newItem} myId={myId} />,
   );
+});
 
-  expect(getAssignedToName).toHaveBeenCalledWith(myId, newItem);
+function testInteraction(id) {
+  testSnapshotShallow(
+    <GroupsContactItem
+      person={person}
+      item={{
+        ...item,
+        interaction_type_id: id,
+      }}
+      myId={myId}
+    />,
+  );
+}
+
+describe('interaction items', () => {
+  it('should render spiritual conversation', () => {
+    testInteraction(
+      INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
+    );
+  });
+  it('should render gospel presentation', () => {
+    testInteraction(INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id);
+  });
+  it('should render personal decision', () => {
+    testInteraction(INTERACTION_TYPES.MHInteractionTypePersonalDecision.id);
+  });
+  it('should render holy spirit conversation', () => {
+    testInteraction(
+      INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
+    );
+  });
+  it('should render discipleship conversation', () => {
+    testInteraction(
+      INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
+    );
+  });
+  it('should render something cool happened', () => {
+    testInteraction(
+      INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
+    );
+  });
+  it('should render note', () => {
+    testInteraction(INTERACTION_TYPES.MHInteractionTypeNote.id);
+  });
 });

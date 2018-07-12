@@ -8,11 +8,36 @@ import {
   getAssignedToName,
   getIconName,
 } from '../../utils/common';
+import { INTERACTION_TYPES } from '../../constants';
 
 import styles from './styles';
 
 @translate('groupsContactItem')
 class GroupsContactItem extends Component {
+  generateInteractionTitle(interaction) {
+    const { t } = this.props;
+    const data = {
+      initiator: (interaction.initiators[0] || {}).full_name,
+      receiver: interaction.receiver.first_name,
+    };
+    switch (interaction.interaction_type_id) {
+      case INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id:
+        return t('spiritualConversation', data);
+      case INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id:
+        return t('gospelPresentation', data);
+      case INTERACTION_TYPES.MHInteractionTypePersonalDecision.id:
+        return t('personalDecision', data);
+      case INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id:
+        return t('holySpiritConversation', data);
+      case INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id:
+        return t('discipleshipConversation', data);
+      case INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id:
+        return t('somethingCoolHappened', data);
+      case INTERACTION_TYPES.MHInteractionTypeNote.id:
+        return t('note', data);
+    }
+  }
+
   renderContent() {
     const { item } = this.props;
     if (item.comment) {
@@ -64,6 +89,8 @@ class GroupsContactItem extends Component {
           newStage: item.new_pathway_stage.name,
         });
       }
+    } else if (item._type === 'interaction') {
+      title = this.generateInteractionTitle(item);
     }
     return (
       <Card style={styles.row}>
