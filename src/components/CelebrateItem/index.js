@@ -14,12 +14,9 @@ export default class Celebrate extends Component {
   onPressLikeIcon = () => {};
 
   render() {
-    const {
-      full_name,
-      changed_attribute_value,
-      title,
-      likes_count,
-    } = this.props.event;
+    const { changed_attribute_value, title, likes_count } = this.props.event;
+    const { full_name } = this.props.person;
+
     return (
       <Card style={styles.card}>
         <Flex value={1} direction={'row'}>

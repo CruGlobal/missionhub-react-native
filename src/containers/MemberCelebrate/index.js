@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
-import CelebrationFeedItem from '../../components/CelebrationFeedItem';
+import CelebrateItem from '../../components/CelebrateItem';
 import { PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
@@ -33,7 +33,7 @@ class MemberCelebrate extends Component {
         <SectionList
           sections={celebrateItems}
           renderItem={({ item }) => (
-            <CelebrationFeedItem celebratable={item} person={person} />
+            <CelebrateItem event={item} person={person} />
           )}
         />
         <CommentBox
