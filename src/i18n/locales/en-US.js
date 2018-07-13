@@ -420,9 +420,15 @@ export default {
   groupsList: {
     header: 'Groups',
   },
-  groupsCelebrate: {
+  celebrateFeeds: {
     title: '',
     placeholder: 'Share something to be celebrated...',
+    stepOfFaith:
+      '{{initiator}} completed a Step of Faith with a {{receiverByStage}} person.',
+    interaction: '{{initiator}} had a {{interactionName}}.',
+    interactionDecision:
+      '{{initiator}} saw a {{receiverByStage}} person make a Personal Decision.',
+    addedContact: '{{initiator}} added a {{receiverByStage}} person.',
   },
   groupsMembers: {
     title: '',
