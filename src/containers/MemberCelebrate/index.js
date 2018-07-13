@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, FlatList } from 'react-native';
+import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
 import CelebrationFeedItem from '../../components/CelebrationFeedItem';
-import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
+import { PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
@@ -23,17 +23,17 @@ class MemberCelebrate extends Component {
   };
 
   render() {
-    const { t, celebrateItems } = this.props;
+    const { t, celebrateItems, person } = this.props;
 
     return (
       <PlatformKeyboardAvoidingView
         style={{ flex: 1, backgroundColor: theme.lightGrey }}
         offset={theme.headerHeight + theme.swipeTabHeight}
       >
-        <FlatList
-          data={celebrateItems}
+        <SectionList
+          sections={celebrateItems}
           renderItem={({ item }) => (
-            <CelebrationFeedItem date={item.date} message=" " likes="0" />
+            <CelebrationFeedItem celebratable={item} person={person} />
           )}
         />
         <CommentBox
