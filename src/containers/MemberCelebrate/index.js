@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { SectionList } from 'react-native';
+import { View, SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
 import CelebrateItem from '../../components/CelebrateItem';
-import { PlatformKeyboardAvoidingView } from '../../components/common';
+import {
+  PlatformKeyboardAvoidingView,
+  DateComponent,
+  Flex,
+} from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import theme from '../../theme';
+import styles from './styles';
 
 @translate('groupsCelebrate')
 class MemberCelebrate extends Component {
@@ -24,7 +29,7 @@ class MemberCelebrate extends Component {
 
   render() {
     const { t, celebrateItems, person } = this.props;
-
+    const { title, header } = styles;
     return (
       <PlatformKeyboardAvoidingView
         style={{ flex: 1, backgroundColor: theme.lightGrey }}
@@ -32,6 +37,13 @@ class MemberCelebrate extends Component {
       >
         <SectionList
           sections={celebrateItems}
+          renderSectionHeader={({ section: { date } }) => (
+            <Flex>
+              <View style={header}>
+                <DateComponent date={date} format={'relative'} style={title} />
+              </View>
+            </Flex>
+          )}
           renderItem={({ item }) => (
             <CelebrateItem event={item} person={person} />
           )}
