@@ -45,6 +45,9 @@ class MemberCelebrate extends Component {
           renderItem={({ item }) => (
             <CelebrateItem event={item} person={person} />
           )}
+          keyExtractor={item => {
+            return item.id;
+          }}
         />
         <CommentBox
           placeholder={t('placeholder')}
