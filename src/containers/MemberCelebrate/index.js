@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SectionList } from 'react-native';
+import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -38,10 +38,8 @@ class MemberCelebrate extends Component {
         <SectionList
           sections={celebrateItems}
           renderSectionHeader={({ section: { date } }) => (
-            <Flex>
-              <View style={header}>
-                <DateComponent date={date} format={'relative'} style={title} />
-              </View>
+            <Flex style={header} align="center">
+              <DateComponent date={date} format={'relative'} style={title} />
             </Flex>
           )}
           renderItem={({ item }) => (
