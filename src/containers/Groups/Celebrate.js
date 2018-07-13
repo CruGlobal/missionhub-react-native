@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import {
+  Button,
+  Flex,
+  DateComponent,
+  Text,
+  PlatformKeyboardAvoidingView,
+} from '../../components/common';
+import CelebrateItem from '../../components/CelebrateItem';
+import LoadMore from '../../components/LoadMore';
 import CommentBox from '../../components/CommentBox';
-import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
@@ -13,7 +21,7 @@ import theme from '../../theme';
 import styles from './styles';
 
 @translate('groupsCelebrate')
-class Celebrate extends Component {
+export class Celebrate extends Component {
   componentDidMount() {
     this.loadItems();
   }
@@ -23,6 +31,23 @@ class Celebrate extends Component {
     dispatch(getGroupCelebrateFeed(organization.id));
   };
 
+  renderSection = item => {
+    return (
+      <Flex align="center" justify="center">
+        <DateComponent
+          date={item.date}
+          style={styles.cardSectionHeader}
+          format="relative"
+        />
+        {item.events
+          ? item.events.map(event => (
+              <CelebrateItem key={event.id} event={event} />
+            ))
+          : null}
+      </Flex>
+    );
+  };
+
   submit = data => {
     return data;
   };
@@ -30,14 +55,15 @@ class Celebrate extends Component {
   render() {
     const { t } = this.props;
     return (
-      <PlatformKeyboardAvoidingView
-        style={styles.celebrate}
-        offset={theme.headerHeight + theme.swipeTabHeight}
-      >
-        <ScrollView style={{ flex: 1 }}>
-          <Text>Load More</Text>
-          <Text>LONG LIST</Text>
-        </ScrollView>
+      <PlatformKeyboardAvoidingView>
+        <FlatList
+          data={this.props.celebrateItems}
+          keyExtractor={i => i.id}
+          renderItem={({ item }) => this.renderSection(item)}
+          style={styles.cardList}
+          inverted={true}
+          ListFooterComponent={<LoadMore onPress={this.loadItems} />}
+        />
         <CommentBox
           placeholder={t('placeholder')}
           hideActions={true}

@@ -43,7 +43,7 @@ exports[`interaction items should render discipleship conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -128,7 +128,7 @@ exports[`interaction items should render gospel presentation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -553,7 +553,7 @@ exports[`interaction items should render spiritual conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -808,7 +808,7 @@ exports[`renders survey item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={

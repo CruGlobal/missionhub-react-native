@@ -60,6 +60,10 @@ export default {
           'Awesome! We hope MissionHub helps you serve those God has placed in your life.',
       },
     },
+    dates: {
+      today: 'Today',
+      yesterday: 'Yesterday',
+    },
     steps: {},
     done: 'DONE',
     next: 'Next',

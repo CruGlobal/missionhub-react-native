@@ -6,32 +6,41 @@ export default StyleSheet.create({
   container: {
     paddingRight: 30,
   },
-
   card: {
     marginHorizontal: 16,
+    marginVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 13,
+    padding: 16,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
-    marginVertical: 8,
   },
-  groupName: {
-    fontSize: 16,
-    fontWeight: 'bold',
+  icon: {
+    color: theme.grey1,
+    fontSize: 30,
+    margin: 0,
+    marginLeft: 4,
+  },
+  likeActive: {
     color: theme.primaryColor,
   },
-  contactRow: {
-    paddingTop: 4,
+  name: {
+    color: theme.primaryColor,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
-  contacts: {
-    fontSize: 12,
+  time: {
     color: theme.grey1,
-  },
-  unassigned: {
     fontSize: 12,
-    color: theme.red,
+  },
+  description: {
+    paddingTop: 12,
+    fontSize: 14,
+  },
+  likeCount: {
+    fontSize: 14,
+    color: theme.primaryColor,
+    fontWeight: 'bold',
   },
 });

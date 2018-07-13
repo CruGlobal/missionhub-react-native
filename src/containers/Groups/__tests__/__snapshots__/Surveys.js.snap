@@ -2,12 +2,6 @@
 
 exports[`Surveys should render correctly 1`] = `
 <Flex
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
   value={1}
 >
   <FlatList
@@ -64,6 +58,12 @@ exports[`Surveys should render correctly 1`] = `
     }
     renderItem={[Function]}
     scrollEventThrottle={50}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
