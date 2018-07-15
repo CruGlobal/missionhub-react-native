@@ -24,7 +24,7 @@ export default class Celebrate extends Component {
       <Card style={styles.card}>
         <Flex value={1} direction={'row'}>
           <Flex value={1} direction={'column'}>
-            <Text style={styles.name}>{full_name.toUpperCase()}</Text>
+            <Text style={styles.name}>{'me'.toUpperCase()}</Text>
             <DateComponent
               style={styles.time}
               date={changed_attribute_value}

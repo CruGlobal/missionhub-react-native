@@ -13,7 +13,10 @@ import {
 import CelebrateItem from '../../components/CelebrateItem';
 import LoadMore from '../../components/LoadMore';
 import CommentBox from '../../components/CommentBox';
-import { getGroupCelebrateFeed } from '../../actions/celebration';
+import {
+  getGroupCelebrateFeed,
+  getGroupCelebrateFeedNextPage,
+} from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import theme from '../../theme';
@@ -29,6 +32,13 @@ export class Celebrate extends Component {
   loadItems = () => {
     const { dispatch, organization } = this.props;
     dispatch(getGroupCelebrateFeed(organization.id));
+  };
+
+  loadMoreItems = () => {
+    const { dispatch, organization, pagination } = this.props;
+    if (pagination.hasNextPage) {
+      dispatch(getGroupCelebrateFeedNextPage(organization.id));
+    }
   };
 
   renderSection = item => {
@@ -62,7 +72,7 @@ export class Celebrate extends Component {
           renderItem={({ item }) => this.renderSection(item)}
           style={styles.cardList}
           inverted={true}
-          ListFooterComponent={<LoadMore onPress={this.loadItems} />}
+          ListFooterComponent={<LoadMore onPress={this.loadMoreItems} />}
         />
         <CommentBox
           placeholder={t('placeholder')}
