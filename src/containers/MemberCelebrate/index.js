@@ -61,7 +61,9 @@ class MemberCelebrate extends Component {
   }
 
   renderEmptyView() {
-    return <EmptyCelebrateFeed />;
+    const { person } = this.props;
+
+    return <EmptyCelebrateFeed person={person} />;
   }
 
   render() {
