@@ -10,6 +10,7 @@ const mockState = {
     all: [
       {
         id: '123',
+        celebrateItems: [],
       },
     ],
     celebratePagination: {
