@@ -1,5 +1,600 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`interaction items should render discipleship conversation 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="discipleshipConversationIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone had a discipleship conversation with Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render gospel presentation 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="gospelIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone shared the gospel with Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render holy spirit conversation 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="spiritIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone had a Holy Spirit conversation with Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render note 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="commentIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone added a note about Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render personal decision 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="decisionIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Contact made a personal decision with Someone
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render something cool happened 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="celebrateIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone saw something cool happen with Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`interaction items should render spiritual conversation 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="spiritualConversationIcon"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <DateComponent
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Someone had a spiritual conversation with Contact
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
 exports[`renders contact assignment item 1`] = `
 <Card
   style={
@@ -65,7 +660,7 @@ exports[`renders contact assignment item 1`] = `
         }
       }
     >
-      Test User was assigned to Iron ManCaptain America
+      Test User was assigned to Iron Man by Captain America
     </MyText>
     <MyText
       accessible={true}
@@ -151,91 +746,6 @@ exports[`renders contact unassignment item 1`] = `
       }
     >
       Iron Man was unassigned Test User
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 14,
-          "marginBottom": 5,
-          "marginTop": 25,
-        }
-      }
-    >
-      Some comment
-    </MyText>
-  </Flex>
-</Card>
-`;
-
-exports[`renders item 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginBottom": 15,
-      "marginHorizontal": 15,
-      "paddingHorizontal": 13,
-      "paddingVertical": 16,
-    }
-  }
->
-  <Flex
-    align="center"
-    value={1}
-  >
-    <Icon
-      name="spiritualConversationIcon"
-      size={32}
-      style={
-        Object {
-          "alignSelf": "center",
-          "color": "#007398",
-          "textAlign": "center",
-        }
-      }
-      type="MissionHub"
-    />
-  </Flex>
-  <Flex
-    style={
-      Object {
-        "borderLeftColor": "#E6E8EC",
-        "borderLeftWidth": 1,
-        "paddingLeft": 15,
-      }
-    }
-    value={5}
-  >
-    <DateComponent
-      date="2018-05-29T17:02:02Z"
-      format="LLL"
-      style={
-        Object {
-          "color": "#B2B0B2",
-          "fontSize": 14,
-          "marginBottom": 5,
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-        }
-      }
-    >
-      Someone had a spiritual conversation
     </MyText>
     <MyText
       accessible={true}
