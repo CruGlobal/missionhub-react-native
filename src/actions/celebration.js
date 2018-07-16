@@ -15,22 +15,12 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
 }
 
 function buildQuery(orgId, personId, page) {
-  let query = {
+  return {
     page: {
       limit: DEFAULT_PAGE_LIMIT,
       offset: DEFAULT_PAGE_LIMIT * page,
     },
     orgId,
+    ...(personId ? { filters: { subject_person_ids: personId } } : {}),
   };
-
-  if (personId) {
-    query = {
-      ...query,
-      filters: {
-        subject_person_ids: personId,
-      },
-    };
-  }
-
-  return query;
 }
