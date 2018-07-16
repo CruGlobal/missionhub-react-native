@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 
 import CommentBox from '../../components/CommentBox';
 import CelebrateItem from '../../components/CelebrateItem';
+import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import {
   PlatformKeyboardAvoidingView,
   DateComponent,
@@ -27,9 +28,10 @@ class MemberCelebrate extends Component {
     dispatch(getGroupCelebrateFeed(organization.id, person.id));
   };
 
-  render() {
+  renderList() {
     const { t, celebrateItems, person } = this.props;
     const { title, header } = styles;
+
     return (
       <PlatformKeyboardAvoidingView
         style={{ flex: 1, backgroundColor: theme.lightGrey }}
@@ -56,6 +58,18 @@ class MemberCelebrate extends Component {
         />
       </PlatformKeyboardAvoidingView>
     );
+  }
+
+  renderEmptyView() {
+    return <EmptyCelebrateFeed />;
+  }
+
+  render() {
+    const { celebrateItems } = this.props;
+
+    return celebrateItems.length === 0
+      ? this.renderEmptyView()
+      : this.renderList();
   }
 }
 
