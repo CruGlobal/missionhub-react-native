@@ -424,11 +424,11 @@ export default {
     title: '',
     placeholder: 'Share something to be celebrated...',
     stepOfFaith:
-      '{{initiator}} completed a Step of Faith with a {{receiverByStage}} person.',
+      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     interaction: '{{initiator}} had a {{interactionName}}.',
     interactionDecision:
       '{{initiator}} saw a {{receiverByStage}} person make a Personal Decision.',
-    addedContact: '{{initiator}} added a {{receiverByStage}} person.',
+    addedContact: '{{initiator}} added a {{receiverStage}} person.',
   },
   groupsMembers: {
     title: '',

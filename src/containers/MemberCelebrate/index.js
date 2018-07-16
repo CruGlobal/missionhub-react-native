@@ -16,7 +16,7 @@ import { celebrationSelector } from '../../selectors/celebration';
 import theme from '../../theme';
 import styles from './styles';
 
-@translate('groupsCelebrate')
+@translate('celebrateFeeds')
 class MemberCelebrate extends Component {
   componentDidMount() {
     this.loadItems();
