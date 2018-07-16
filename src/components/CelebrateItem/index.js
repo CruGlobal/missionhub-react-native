@@ -18,8 +18,6 @@ export default class Celebrate extends Component {
   renderMessage() {
     const { t, event, person, me } = this.props;
 
-    console.log(me);
-
     switch (event.celebrateable_type) {
       case 'V4::ContactAssignment': //TODO: this should be V4::Person ?
         return t('addedContact', {
@@ -49,13 +47,13 @@ export default class Celebrate extends Component {
       case '1':
         return t('stages.uninterested.label');
       case '2':
-        return t('stages.uninterested.label');
+        return t('stages.curious.label');
       case '3':
-        return t('stages.uninterested.label');
+        return t('stages.forgiven.label');
       case '4':
-        return t('stages.uninterested.label');
+        return t('stages.growing.label');
       case '5':
-        return t('stages.uninterested.label');
+        return t('stages.guiding.label');
       default:
         return 'unknown';
     }
