@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import {
@@ -9,35 +10,37 @@ import {
   DateComponent,
 } from '../../components/common';
 
+import { isAppUser } from '../../utils/common';
+
 import styles from './styles';
 
 @translate('celebrateFeeds')
-export default class Celebrate extends Component {
+class Celebrate extends Component {
   onPressLikeIcon = () => {};
 
   renderMessage() {
-    const { t, event, person } = this.props;
+    const { t, event, person, isAppUser } = this.props;
+
+    let firstName = isAppUser ? t('you') : person.first_name;
 
     switch (event.celebrateable_type) {
       case 'V4::ContactAssignment': //TODO: this should be V4::Person ?
         return t('addedContact', {
-          initiator: person.first_name,
+          initiator: firstName,
           receiverStage: this.renderStage(),
-        });
+        }).replace(/^\w/, c => c.toUpperCase());
       case 'V4::AcceptedChallenge':
         return t('stepOfFaith', {
-          initiator: person.first_name,
+          initiator: firstName,
           receiverStage: this.renderStage(),
-        });
+        }).replace(/^\w/, c => c.toUpperCase());
       case 'V4::Interaction':
         return t('interaction', {
-          initiator: person.first_name,
+          initiator: firstName,
           interactionName: this.renderInteraction(),
-        });
+        }).replace(/^\w/, c => c.toUpperCase());
     }
   }
-
-  renderName() {}
 
   renderStage() {
     const { t, event } = this.props;
@@ -113,3 +116,11 @@ export default class Celebrate extends Component {
     );
   }
 }
+
+export const mapStateToProps = ({ auth }, { person }) => {
+  return {
+    isAppUser: isAppUser(person, auth.person),
+  };
+};
+
+export default connect(mapStateToProps)(Celebrate);

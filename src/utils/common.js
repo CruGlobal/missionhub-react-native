@@ -79,6 +79,10 @@ export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
+export const isAppUser = (person, user) => {
+  return person.id === user.id;
+};
+
 // Pull dates out of UTC format into a moment object
 export const momentUtc = time => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
 export const formatApiDate = date =>
