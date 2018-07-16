@@ -16,7 +16,7 @@ export default class Celebrate extends Component {
   onPressLikeIcon = () => {};
 
   renderMessage() {
-    const { t, event, person, me } = this.props;
+    const { t, event, person } = this.props;
 
     switch (event.celebrateable_type) {
       case 'V4::ContactAssignment': //TODO: this should be V4::Person ?
