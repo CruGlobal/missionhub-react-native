@@ -29,25 +29,8 @@ exports[`renders activity list 1`] = `
     >
       FULL NAME
     </MyText>
-    <Button
-      buttonTextStyle={
-        Object {
-          "fontSize": 14,
-        }
-      }
+    <Translate(AssignToMeButton)
       onPress={[MockFunction]}
-      style={
-        Object {
-          "alignSelf": "center",
-          "backgroundColor": "#FF5532",
-          "borderRadius": 25,
-          "marginVertical": 8,
-          "minWidth": 200,
-          "paddingVertical": 8,
-        }
-      }
-      text="ASSIGN TO ME"
-      type="transparent"
     />
   </Flex>
   <Flex
@@ -148,25 +131,8 @@ exports[`renders empty list 1`] = `
     >
       FULL NAME
     </MyText>
-    <Button
-      buttonTextStyle={
-        Object {
-          "fontSize": 14,
-        }
-      }
+    <Translate(AssignToMeButton)
       onPress={[MockFunction]}
-      style={
-        Object {
-          "alignSelf": "center",
-          "backgroundColor": "#FF5532",
-          "borderRadius": 25,
-          "marginVertical": 8,
-          "minWidth": 200,
-          "paddingVertical": 8,
-        }
-      }
-      text="ASSIGN TO ME"
-      type="transparent"
     />
   </Flex>
   <Flex

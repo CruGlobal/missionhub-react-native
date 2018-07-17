@@ -9,13 +9,16 @@ import {
 } from '../PersonScreen';
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
+import { contactAssignmentSelector } from '../../../../selectors/people';
+
+jest.mock('../../../../selectors/people');
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
 
 const organization = { id: '1', name: 'Test Org' };
-const person = { id: '1', full_name: 'Test Person' };
+const person = { id: '1', first_name: 'Test Person' };
 const nav = {
   navigation: {
     state: {
@@ -30,6 +33,14 @@ const nav = {
 const dispatch = jest.fn(response => Promise.resolve(response));
 DrawerActions.openDrawer = jest.fn();
 
+const pathwayStage = { id: '3', name: 'stage 3' };
+const contactAssignment = {
+  id: 'assignment1',
+  pathway_stage_id: pathwayStage.id,
+};
+const myId = '1000';
+const stages = [pathwayStage];
+
 const store = {
   people: {
     allByOrg: {
@@ -40,16 +51,56 @@ const store = {
       },
     },
   },
+  auth: {
+    person: {
+      id: myId,
+      user: { pathway_stage_id: contactAssignment.pathway_stage_id },
+    },
+  },
+  stages: {
+    stages,
+  },
 };
+
+beforeEach(() => {
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
+});
 
 describe('Contact', () => {
   it('should provide necessary props', () => {
-    expect(mapStateToProps(store, nav)).toEqual({ organization, person });
+    expect(mapStateToProps(store, nav)).toEqual({
+      organization,
+      person,
+      contactAssignment,
+      myId,
+      pathwayStage,
+      stages,
+      myStageId: pathwayStage.id,
+    });
   });
 
-  it('should render PersonScreen correctly', () => {
+  it('should render PersonScreen correctly without stage', () => {
     testSnapshotShallow(
-      <PersonScreen organization={organization} person={person} />,
+      <PersonScreen
+        organization={organization}
+        person={person}
+        dispatch={jest.fn()}
+        myId={myId}
+        stages={stages}
+      />,
+    );
+  });
+
+  it('should render PersonScreen correctly with stage', () => {
+    testSnapshotShallow(
+      <PersonScreen
+        organization={organization}
+        person={person}
+        dispatch={jest.fn()}
+        myId={myId}
+        stages={stages}
+        pathwayStage={{ name: 'stage 4' }}
+      />,
     );
   });
 
@@ -67,6 +118,8 @@ describe('Contact', () => {
         dispatch={dispatch}
         organization={organization}
         person={person}
+        myId={myId}
+        stages={stages}
       />,
     );
     component

@@ -20,7 +20,7 @@ import {
 } from '../../selectors/people';
 import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
-import { isMissionhubUser } from '../../utils/common';
+import { isMissionhubUser, getStageIndex } from '../../utils/common';
 import BackButton from '../BackButton';
 import { getContactSteps } from '../../actions/steps';
 
@@ -54,10 +54,8 @@ export class ContactScreen extends Component {
       organization = {},
     } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
-      let firstItemIndex = stages.findIndex(
-        s => contactStage && s && `${s.id}` === `${contactStage.id}`,
-      );
-      firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
+      const firstItemIndex = getStageIndex(stages, contactStage.id);
+
       if (personIsCurrentUser) {
         dispatch(
           navigatePush(STAGE_SCREEN, {
@@ -82,6 +80,7 @@ export class ContactScreen extends Component {
       } else {
         dispatch(
           navigatePush(PERSON_STAGE_SCREEN, {
+            //todo reuse this code somehow...
             onComplete: stage => {
               contactAssignment
                 ? dispatch(

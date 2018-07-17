@@ -3,6 +3,7 @@ import { BackHandler, Platform } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
+import { Linking } from 'react-native';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -11,6 +12,7 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
+import { trackActionWithoutData } from '../actions/analytics';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -302,4 +304,54 @@ export function getAssignedByName(myId, item) {
       ? ' by You'
       : ` by ${assigned_by.first_name}`
     : '';
+}
+
+export function getPersonPhoneNumber(person) {
+  return person.phone_numbers
+    ? person.phone_numbers.find(
+        phone_number => phone_number.primary && !phone_number._placeHolder,
+      ) ||
+        person.phone_numbers.find(phone_number => !phone_number._placeHolder) ||
+        null
+    : null;
+}
+
+export function getPersonEmailAddress(person) {
+  return person.email_addresses
+    ? person.email_addresses.find(
+        email => email.primary && !email._placeHolder,
+      ) ||
+        person.email_addresses.find(email => !email._placeHolder) ||
+        null
+    : null;
+}
+
+export function openCommunicationLink(url, dispatch, action) {
+  //if someone has a better name for this feel free to suggest.
+  Linking.canOpenURL(url)
+    .then(supported => {
+      if (!supported) {
+        WARN("Can't handle url: ", url);
+      } else {
+        Linking.openURL(url)
+          .then(() => {
+            dispatch(trackActionWithoutData(action));
+          })
+          .catch(err => {
+            if (url.includes('telprompt')) {
+              // telprompt was cancelled and Linking openURL method sees this as an error
+              // it is not a true error so ignore it to prevent apps crashing
+            } else {
+              WARN('openURL error', err);
+            }
+          });
+      }
+    })
+    .catch(err => WARN('An unexpected error happened', err));
+}
+
+export function getStageIndex(stages, stageId) {
+  const firstItemIndex = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
+
+  return firstItemIndex >= 0 ? firstItemIndex : undefined;
 }

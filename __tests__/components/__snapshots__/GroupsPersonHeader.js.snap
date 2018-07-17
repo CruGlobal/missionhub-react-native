@@ -1,366 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly for a contact 1`] = `
-<Component
-  style={
-    Array [
-      Object {},
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-      },
-    ]
-  }
->
+<Flex>
+  <Translate(AssignToMeButton)
+    onPress={[Function]}
+  />
   <Flex
     align="center"
+    direction="row"
     justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="journeyIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            undefined,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Stage
-    </MyText>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="journeyWarning"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            undefined,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Status
-    </MyText>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="emailIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            Object {
-              "fontSize": 20,
-            },
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Email
-    </MyText>
-  </Flex>
-</Component>
+  />
+</Flex>
 `;
 
 exports[`renders correctly for a member 1`] = `
-<Component
-  style={
-    Array [
-      Object {},
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-      },
-    ]
-  }
->
+<Flex>
+  <Translate(AssignToMeButton)
+    onPress={[Function]}
+  />
   <Flex
     align="center"
+    direction="row"
     justify="center"
-    key="some key"
   >
-    <Flex
-      align="center"
-      justify="center"
-      style={
+    <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      text="Call"
+    />
+    <CenteredIconButtonWithText
+      buttonStyle={
         Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
+          "fontSize": 20,
         }
       }
-    >
-      <IconButton
-        name="journeyIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            undefined,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Stage
-    </MyText>
+      icon="emailIcon"
+      key="some key"
+      text="Email"
+    />
   </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="textIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            undefined,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Message
-    </MyText>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="callIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            undefined,
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Call
-    </MyText>
-  </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    key="some key"
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 25,
-          "height": 48,
-          "margin": 10,
-          "width": 48,
-        }
-      }
-    >
-      <IconButton
-        name="emailIcon"
-        onPress={[Function]}
-        style={
-          Array [
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 24,
-            },
-            Object {
-              "fontSize": 20,
-            },
-          ]
-        }
-        type="MissionHub"
-      />
-    </Flex>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        }
-      }
-    >
-      Email
-    </MyText>
-  </Flex>
-</Component>
+</Flex>
 `;
