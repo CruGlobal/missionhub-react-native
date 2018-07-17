@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { DrawerActions } from 'react-navigation';
 
 import { Flex, Button, IconButton } from '../common';
-import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 

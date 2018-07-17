@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonSideMenu renders assign correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Assign",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`PersonSideMenu renders unassign correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Unassign",
+      },
+    ]
+  }
+/>
+`;

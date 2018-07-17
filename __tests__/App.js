@@ -3,7 +3,6 @@ import ReactNative from 'react-native';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
-import { Crashlytics } from 'react-native-fabric';
 
 import App from '../src/App';
 import {

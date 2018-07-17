@@ -1,3 +1,6 @@
+import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/PersonScreen/UnassignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
+import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
@@ -7,6 +10,7 @@ import {
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
+import { navigatePush } from './navigation';
 
 const personInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
@@ -270,5 +274,28 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
       personId,
       personOrgId,
     });
+  };
+}
+
+export function navToPersonScreen(
+  person,
+  organization,
+  isMember,
+  isAssignedToMe,
+) {
+  return dispatch => {
+    if (!isMember) {
+      if (isAssignedToMe) {
+        return dispatch(
+          navigatePush(CONTACT_PERSON_SCREEN, { person, organization }),
+        );
+      }
+      return dispatch(
+        navigatePush(UNASSIGNED_PERSON_SCREEN, { person, organization }),
+      );
+    }
+    return dispatch(
+      navigatePush(MEMBER_PERSON_SCREEN, { person, organization }),
+    );
   };
 }

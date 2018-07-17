@@ -151,9 +151,9 @@ export const getIconName = (type, interaction_type_id) => {
   } else if (type === 'answer_sheet') {
     return 'surveyIcon';
   } else if (type === 'contact_assignment') {
-    return 'warningIcon';
+    return 'journeyWarning';
   } else if (type === 'contact_unassignment') {
-    return 'warningIcon';
+    return 'journeyWarning';
   } else if (type === 'interaction') {
     const interaction = interactionsArr.find(i => i.id === interaction_type_id);
     if (interaction) {
@@ -273,4 +273,33 @@ export function getPagination(action, currentLength) {
     page: pageNum,
     hasNextPage,
   };
+}
+
+//showing assign/unassign buttons on side menu
+export function showAssignButton(personIsCurrentUser, contactAssignment) {
+  return !personIsCurrentUser && !contactAssignment;
+}
+export function showUnassignButton(
+  personIsCurrentUser,
+  contactAssignment,
+  isJean,
+  orgPermission,
+) {
+  return !personIsCurrentUser && contactAssignment && isJean && orgPermission;
+}
+
+export function getAssignedToName(myId, item) {
+  const assigned_to = item.assigned_to;
+
+  return myId === assigned_to.id ? 'You' : assigned_to.first_name;
+}
+
+export function getAssignedByName(myId, item) {
+  const assigned_by = item.assigned_by;
+
+  return assigned_by
+    ? myId === assigned_by.id
+      ? ' by You'
+      : ` by ${assigned_by.first_name}`
+    : '';
 }

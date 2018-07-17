@@ -5,7 +5,6 @@ exports[`Contact should render correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#E6E8EC",
-      "flex": 1,
     }
   }
 >
@@ -16,6 +15,7 @@ exports[`Contact should render correctly 1`] = `
   />
   <Translate(GroupsContactList)
     activity={Array []}
+    myId="me"
     onAssign={[Function]}
     person={
       Object {

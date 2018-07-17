@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberCelebrate renders correctly 1`] = `
+<PlatformKeyboardAvoidingView
+  offset={113}
+  style={
+    Object {
+      "backgroundColor": "#E6E8EC",
+      "flex": 1,
+    }
+  }
+>
+  <ScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Load More
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      MEMBER Assigned Contacts LIST
+    </MyText>
+  </ScrollView>
+  <Translate(CommentBox)
+    hideActions={true}
+    placeholder="Share something to be celebrated..."
+  />
+</PlatformKeyboardAvoidingView>
+`;

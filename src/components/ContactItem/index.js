@@ -12,7 +12,7 @@ class ContactItem extends Component {
     this.props.onSelect(this.props.contact);
   };
   render() {
-    const { contact, organization, t } = this.props;
+    const { contact, t } = this.props;
     // TODO: Figure out how someone is assigned/unassigned
     const isAssigned = false;
     return (

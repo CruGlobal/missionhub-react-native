@@ -128,8 +128,14 @@ class ContactJourney extends Component {
   }
 
   renderRow({ item }) {
-    const { showReminder, myId } = this.props;
-    const content = <JourneyItem item={item} myId={myId} />;
+    const { showReminder, myId, person } = this.props;
+    const content = (
+      <JourneyItem
+        item={item}
+        myId={myId}
+        personFirstName={person.first_name}
+      />
+    );
 
     if (
       item._type !== 'answer_sheet' &&
@@ -160,7 +166,7 @@ class ContactJourney extends Component {
         ref={c => (this.list = c)}
         style={styles.list}
         data={journeyItems}
-        keyExtractor={i => i.id}
+        keyExtractor={i => `${i.id}-${i._type}`}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
