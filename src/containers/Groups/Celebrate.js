@@ -4,10 +4,8 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import {
-  Button,
   Flex,
   DateComponent,
-  Text,
   PlatformKeyboardAvoidingView,
 } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
@@ -16,7 +14,6 @@ import CommentBox from '../../components/CommentBox';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
-import theme from '../../theme';
 
 import styles from './styles';
 
