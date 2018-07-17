@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import {
@@ -10,26 +9,26 @@ import {
   DateComponent,
 } from '../../components/common';
 
-import { isAppUser } from '../../utils/common';
-
 import styles from './styles';
 
 @translate('celebrateFeeds')
-class Celebrate extends Component {
+export default class CelebrateItem extends Component {
   onPressLikeIcon = () => {};
 
   renderMessage() {
     const { t, event } = this.props;
 
+    const name = event.subject_person_name.split(' ')[0];
+
     switch (event.celebrateable_type) {
       case 'V4::AcceptedChallenge':
         return t('stepOfFaith', {
-          initiator: event.subject_person_name.split(' ')[0],
+          initiator: name,
           receiverStage: this.renderStage(),
         });
       case 'V4::Interaction':
         return t('interaction', {
-          initiator: event.subject_person_name.split(' ')[0],
+          initiator: name,
           interactionName: this.renderInteraction(),
         });
     }
@@ -112,11 +111,3 @@ class Celebrate extends Component {
     );
   }
 }
-
-export const mapStateToProps = ({ auth }, { person }) => {
-  return {
-    isAppUser: isAppUser(person, auth.person),
-  };
-};
-
-export default connect(mapStateToProps)(Celebrate);
