@@ -19,26 +19,19 @@ class Celebrate extends Component {
   onPressLikeIcon = () => {};
 
   renderMessage() {
-    const { t, event, person, isAppUser } = this.props;
-
-    let firstName = isAppUser ? t('you') : person.first_name;
+    const { t, event } = this.props;
 
     switch (event.celebrateable_type) {
-      case 'V4::ContactAssignment': //TODO: this should be V4::Person ?
-        return t('addedContact', {
-          initiator: firstName,
-          receiverStage: this.renderStage(),
-        }).replace(/^\w/, c => c.toUpperCase());
       case 'V4::AcceptedChallenge':
         return t('stepOfFaith', {
-          initiator: firstName,
+          initiator: event.subject_person_name.split(' ')[0],
           receiverStage: this.renderStage(),
-        }).replace(/^\w/, c => c.toUpperCase());
+        });
       case 'V4::Interaction':
         return t('interaction', {
-          initiator: firstName,
+          initiator: event.subject_person_name.split(' ')[0],
           interactionName: this.renderInteraction(),
-        }).replace(/^\w/, c => c.toUpperCase());
+        });
     }
   }
 
@@ -83,14 +76,17 @@ class Celebrate extends Component {
   }
 
   render() {
-    const { changed_attribute_value, likes_count } = this.props.event;
-    const { full_name } = this.props.person;
+    const {
+      changed_attribute_value,
+      subject_person_name,
+      likes_count,
+    } = this.props.event;
 
     return (
       <Card style={styles.card}>
         <Flex value={1} direction={'row'}>
           <Flex value={1} direction={'column'}>
-            <Text style={styles.name}>{full_name.toUpperCase()}</Text>
+            <Text style={styles.name}>{subject_person_name.toUpperCase()}</Text>
             <DateComponent
               style={styles.time}
               date={changed_attribute_value}
