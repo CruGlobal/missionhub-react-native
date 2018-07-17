@@ -19,6 +19,7 @@ import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
 
+import { SEARCH_QUESTIONS_FILTER_SCREEN } from './SurveyQuestionsFilterScreen';
 import styles from './styles';
 
 @translate('searchFilter')
@@ -87,18 +88,23 @@ export class SurveyContactsFilter extends Component {
         ? this.props[item.options]
         : item.options;
     this.props.dispatch(
-      navigatePush(SEARCH_REFINE_SCREEN, {
-        onFilter: this.handleSelectFilter,
-        title: item.text,
-        options,
-        filters: this.state.filters,
-        trackingObj: buildTrackingObj(
-          `search : refine : ${item.id}`,
-          'search',
-          'refine',
-          item.id,
-        ),
-      }),
+      navigatePush(
+        item.id === 'questions'
+          ? SEARCH_QUESTIONS_FILTER_SCREEN
+          : SEARCH_REFINE_SCREEN,
+        {
+          onFilter: this.handleSelectFilter,
+          title: item.text,
+          options,
+          filters: this.state.filters,
+          trackingObj: buildTrackingObj(
+            `search : refine : ${item.id}`,
+            'search',
+            'refine',
+            item.id,
+          ),
+        },
+      ),
     );
     this.setState({ selectedFilterId: item.id });
 

@@ -101,6 +101,9 @@ import UnassignedPersonScreen, {
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/SurveyContactsFilter';
+import SurveyQuestionsFilterScreen, {
+  SEARCH_QUESTIONS_FILTER_SCREEN,
+} from './containers/Groups/SurveyContactsFilter/SurveyQuestionsFilterScreen';
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
@@ -358,6 +361,10 @@ export const MainStackRoutes = createStackNavigator(
     [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {
       screen: SurveyContactsFilter,
       navigationOptions: { gesturesEnabled: true },
+    },
+    [SEARCH_QUESTIONS_FILTER_SCREEN]: {
+      screen: SurveyQuestionsFilterScreen,
+      navigateOptions: { gesturesEnabled: true },
     },
     [SEARCH_CONTACTS_FILTER_SCREEN]: {
       screen: ContactsFilter,

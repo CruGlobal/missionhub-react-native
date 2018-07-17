@@ -173,7 +173,7 @@ export const getFilterOptions = (t, filters, questions = []) => {
       options: choiceQuestions.map(q => ({
         id: q.id,
         text: q.label,
-        options: ['option 1', 'option 2'],
+        options: [{ id: 1, text: 'option 1' }, { id: 2, text: 'option 2' }],
       })),
       preview: filters.questions ? filters.questions.text : undefined,
     },
