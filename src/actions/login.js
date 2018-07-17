@@ -30,11 +30,11 @@ export function onSuccessfulLogin() {
         dispatch(completeOnboarding());
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;
-        dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+        trackOnboardingStartedAction(dispatch);
       }
     } else {
       nextScreen = GET_STARTED_SCREEN;
-      dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+      trackOnboardingStartedAction(dispatch);
     }
 
     return dispatch(navigateReset(nextScreen));
@@ -43,4 +43,8 @@ export function onSuccessfulLogin() {
 
 function hasPersonWithStageSelected(person) {
   return person.contact_assignments.some(contact => contact.pathway_stage_id);
+}
+
+function trackOnboardingStartedAction(dispatch) {
+  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
 }
