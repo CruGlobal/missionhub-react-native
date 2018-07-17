@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../../actions/navigation';
 import { Flex, RefreshControl } from '../../components/common';
 import { refresh } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
