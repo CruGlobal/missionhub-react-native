@@ -75,20 +75,15 @@ class MemberCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = (
-  { organizations },
-  { organization, person },
-) => {
+const mapStateToProps = ({ organizations }, { organization, person }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
 
-  const filteredCelebrationItems = (
-    (selectorOrg || {}).celebrateItems || []
-  ).filter(item => {
-    return item.subject_person.id === person.id;
-  });
+  const filteredCelebrationItems = selectorOrg.celebrateItems.filter(
+    item => item.subject_person.id === person.id,
+  );
 
   const celebrateItems = celebrationSelector({
     celebrateItems: filteredCelebrationItems,
