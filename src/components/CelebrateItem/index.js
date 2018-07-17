@@ -114,7 +114,6 @@ export default class CelebrateItem extends Component {
               </Text>
               <Button
                 name="likeActiveIcon"
-                type="MissionHub"
                 onPress={this.onPressLikeIcon}
                 style={[styles.icon]}
               >
