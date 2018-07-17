@@ -164,7 +164,9 @@ export const getIconName = (type, interaction_type_id) => {
 };
 
 export const getFilterOptions = (t, filters, questions = []) => {
-  const choiceQuestions = questions.filter(q => q._type === 'choice_field');
+  const choiceQuestions = questions.filter(
+    q => q._type === 'choice_field' && q.content,
+  );
 
   return {
     questions: {
@@ -173,7 +175,7 @@ export const getFilterOptions = (t, filters, questions = []) => {
       options: choiceQuestions.map(q => ({
         id: q.id,
         text: q.label,
-        options: [{ id: 1, text: 'option 1' }, { id: 2, text: 'option 2' }],
+        options: q.content.split('\n').map(o => ({ id: o, text: o })),
       })),
       preview: filters.questions ? filters.questions.text : undefined,
     },

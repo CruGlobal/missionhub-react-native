@@ -53,7 +53,7 @@ export class SearchQuestionsFilterScreen extends Component {
     this.props.dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
-        title: item.text,
+        title: this.props.t('titleAnswers'),
         options,
         filters: this.state.filters,
         trackingObj: buildTrackingObj(
@@ -89,7 +89,7 @@ export class SearchQuestionsFilterScreen extends Component {
     const { t, options } = this.props;
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('surveyQuestions')} />
+        <Header left={<BackButton />} title={t('titleQuestions')} />
         <ScrollView style={{ flex: 1 }}>
           {options.map(q => (
             <FilterItem

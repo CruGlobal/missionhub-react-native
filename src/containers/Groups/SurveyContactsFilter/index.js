@@ -88,23 +88,31 @@ export class SurveyContactsFilter extends Component {
         ? this.props[item.options]
         : item.options;
     this.props.dispatch(
-      navigatePush(
-        item.id === 'questions'
-          ? SEARCH_QUESTIONS_FILTER_SCREEN
-          : SEARCH_REFINE_SCREEN,
-        {
-          onFilter: this.handleSelectFilter,
-          title: item.text,
-          options,
-          filters: this.state.filters,
-          trackingObj: buildTrackingObj(
-            `search : refine : ${item.id}`,
-            'search',
-            'refine',
-            item.id,
-          ),
-        },
-      ),
+      item.id === 'questions'
+        ? navigatePush(SEARCH_QUESTIONS_FILTER_SCREEN, {
+            onFilter: this.handleSelectFilter,
+            title: item.text,
+            options,
+            filters: this.state.filters,
+            trackingObj: buildTrackingObj(
+              `search : refine : ${item.id}`,
+              'search',
+              'refine',
+              item.id,
+            ),
+          })
+        : navigatePush(SEARCH_REFINE_SCREEN, {
+            onFilter: this.handleSelectFilter,
+            title: item.text,
+            options,
+            filters: this.state.filters,
+            trackingObj: buildTrackingObj(
+              `search : refine : ${item.id}`,
+              'search',
+              'refine',
+              item.id,
+            ),
+          }),
     );
     this.setState({ selectedFilterId: item.id });
 
