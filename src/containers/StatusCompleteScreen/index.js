@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
-import { deleteContactAssignment } from '../../actions/person';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import Header from '../Header';
 import BackButton from '../BackButton';

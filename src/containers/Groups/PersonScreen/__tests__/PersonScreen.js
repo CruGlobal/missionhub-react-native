@@ -1,6 +1,5 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import { DrawerActions } from 'react-navigation';
-import { connect } from 'react-redux';
 
 import {
   PersonScreen,
@@ -8,13 +7,7 @@ import {
   CONTACT_PERSON_TABS,
   MEMBER_PERSON_TABS,
 } from '../PersonScreen';
-import IconButton from '../../../../components/IconButton';
-import {
-  renderShallow,
-  createMockStore,
-  testSnapshotShallow,
-  createMockNavState,
-} from '../../../../../testUtils';
+import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
 
 jest.mock('../../../../actions/navigation', () => ({

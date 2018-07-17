@@ -9,7 +9,7 @@ jest.mock('../../src/actions/api');
 
 const orgId = '123';
 
-apiResult = { type: 'done' };
+const apiResult = { type: 'done' };
 
 const createStore = configureStore([thunk]);
 let store;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Linking } from 'react-native';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
