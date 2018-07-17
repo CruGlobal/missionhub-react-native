@@ -3,11 +3,11 @@ import * as RNOmniture from 'react-native-omniture';
 
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import { MAIN_TABS } from '../constants';
+import { ACTIONS, MAIN_TABS } from '../constants';
 
 import { getMe } from './person';
 import { navigateReset } from './navigation';
-import { logInAnalytics } from './analytics';
+import { logInAnalytics, trackActionWithoutData } from './analytics';
 import { completeOnboarding } from './onboardingProfile';
 
 export function onSuccessfulLogin() {
@@ -22,14 +22,19 @@ export function onSuccessfulLogin() {
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
 
-    let nextScreen = GET_STARTED_SCREEN;
+    let nextScreen;
+
     if (mePerson.user.pathway_stage_id) {
       if (hasPersonWithStageSelected(mePerson)) {
         nextScreen = MAIN_TABS;
         dispatch(completeOnboarding());
       } else {
         nextScreen = ADD_SOMEONE_SCREEN;
+        dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
       }
+    } else {
+      nextScreen = GET_STARTED_SCREEN;
+      dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
     }
 
     return dispatch(navigateReset(nextScreen));
