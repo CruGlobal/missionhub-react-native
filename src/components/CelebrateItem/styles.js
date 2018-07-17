@@ -17,13 +17,9 @@ export default StyleSheet.create({
     borderBottomWidth: theme.separatorHeight,
   },
   icon: {
-    color: theme.grey1,
-    fontSize: 30,
     margin: 0,
-    marginLeft: 4,
-  },
-  likeActive: {
-    color: theme.primaryColor,
+    height: 24,
+    width: 24,
   },
   name: {
     color: theme.primaryColor,
@@ -40,7 +36,6 @@ export default StyleSheet.create({
   },
   likeCount: {
     fontSize: 14,
-    color: theme.primaryColor,
-    fontWeight: 'bold',
+    color: theme.textColor,
   },
 });

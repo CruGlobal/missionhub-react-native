@@ -44,6 +44,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.initializeErrorHandling();
+    console.disableYellowBox = true;
   }
 
   onBeforeLift = () => {

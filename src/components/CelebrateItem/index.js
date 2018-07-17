@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import {
   Card,
   Text,
   Flex,
-  IconButton,
+  Button,
   DateComponent,
 } from '../../components/common';
+
+import GREY_HEART from '../../../assets/images/heart-grey.png';
+import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
 import styles from './styles';
 
@@ -80,6 +84,7 @@ export default class CelebrateItem extends Component {
       subject_person_name,
       likes_count,
     } = this.props.event;
+    const isLiked = likes_count > 0;
 
     return (
       <Card style={styles.card}>
@@ -96,14 +101,16 @@ export default class CelebrateItem extends Component {
           <Flex direction={'column'} align="start">
             <Flex direction={'row'} align="center">
               <Text style={styles.likeCount}>
-                {likes_count > 0 ? likes_count : null}
+                {isLiked ? likes_count : null}
               </Text>
-              <IconButton
+              <Button
                 name="likeActiveIcon"
                 type="MissionHub"
                 onPress={this.onPressLikeIcon}
-                style={[styles.icon, styles.likeActive]}
-              />
+                style={[styles.icon]}
+              >
+                <Image source={isLiked ? BLUE_HEART : GREY_HEART} />
+              </Button>
             </Flex>
           </Flex>
         </Flex>
