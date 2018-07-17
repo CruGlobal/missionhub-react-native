@@ -16,10 +16,6 @@ const initialState = {
     hasNextPage: true,
     page: 1,
   },
-  celebratePagination: {
-    hasNextPage: true,
-    page: 0,
-  },
   membersPagination: {
     hasNextPage: true,
     page: 1,
@@ -105,11 +101,17 @@ function organizationsReducer(state = initialState, action) {
           ? state.all.map(
               o =>
                 o.id === celebrateOrgId
-                  ? { ...o, celebrateItems: allItems }
+                  ? {
+                      ...o,
+                      celebrateItems: allItems,
+                      celebratePagination: getPagination(
+                        action,
+                        allItems.length,
+                      ),
+                    }
                   : o,
             )
           : state.all,
-        celebratePagination: getPagination(action, allItems.length),
       };
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;

@@ -4,7 +4,14 @@ import callApi, { REQUESTS } from './api';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
   return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().organizations.celebratePagination;
+    const org = getState().organizations.all.filter(o => {
+      return o.id === orgId;
+    });
+
+    const { page, hasNextPage } = org.celebratePagination
+      ? org.celebratePagination
+      : { page: 0, hasNextPage: true };
+
     if (!hasNextPage) {
       return Promise.reject('NoMoreData');
     }
