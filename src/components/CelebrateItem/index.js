@@ -26,10 +26,7 @@ export default class CelebrateItem extends Component {
 
     switch (event.celebrateable_type) {
       case 'V4::AcceptedChallenge':
-        return t('stepOfFaith', {
-          initiator: name,
-          receiverStage: this.renderStage(),
-        });
+        return this.renderStepOfFaithMessage(t, event, name);
       case 'V4::Interaction':
         return t('interaction', {
           initiator: name,
@@ -38,11 +35,23 @@ export default class CelebrateItem extends Component {
     }
   }
 
-  renderStage() {
-    const { t, event } = this.props;
+  renderStepOfFaithMessage(t, event, name) {
     const { adjective_attribute_value } = event;
 
-    switch (adjective_attribute_value) {
+    if (adjective_attribute_value) {
+      return t('stepOfFaith', {
+        initiator: name,
+        receiverStage: this.renderStage(),
+      });
+    } else {
+      return t('stepOfFaithUnknownStage', {
+        initiator: name,
+      });
+    }
+  }
+
+  renderStage(t, stage) {
+    switch (stage) {
       case '1':
         return t('stages.uninterested.label');
       case '2':
@@ -54,7 +63,7 @@ export default class CelebrateItem extends Component {
       case '5':
         return t('stages.guiding.label');
       default:
-        return 'unknown';
+        return '';
     }
   }
 

@@ -430,6 +430,8 @@ export default {
     emptyFeedGroupNameValue: 'each other',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
+    stepOfFaithUnknownStage:
+      '{{initiator}} completed a Step of Faith with someone.',
     interaction: '{{initiator}} had a {{interactionName}}.',
     interactionDecision:
       '{{initiator}} saw a {{receiverByStage}} person make a Personal Decision.',
