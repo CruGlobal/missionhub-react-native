@@ -426,7 +426,8 @@ export default {
     placeholder: 'Share something to be celebrated...',
     emptyFeedTitle: 'Celebrate!',
     emptyFeedDescription:
-      "You can celebrate {{firstName}}'s Steps of Faith here.",
+      'You can celebrate {{firstName}} Steps of Faith here.',
+    emptyFeedGroupNameValue: 'each other',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     interaction: '{{initiator}} had a {{interactionName}}.',

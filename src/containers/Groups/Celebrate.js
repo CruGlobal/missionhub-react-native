@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CelebrateFeed from '../../components/CelebrateFeed';
+import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import { getGroupCelebrateFeed } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
@@ -24,7 +25,14 @@ export class Celebrate extends Component {
 
   render() {
     const { celebrateItems } = this.props;
-    return <CelebrateFeed items={celebrateItems} />;
+    console.log(this.props);
+    console.log(celebrateItems);
+
+    return celebrateItems.length > 0 ? (
+      <CelebrateFeed items={celebrateItems} />
+    ) : (
+      <EmptyCelebrateFeed />
+    );
   }
 }
 
