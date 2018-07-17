@@ -25,8 +25,6 @@ export class Celebrate extends Component {
 
   render() {
     const { celebrateItems } = this.props;
-    console.log(this.props);
-    console.log(celebrateItems);
 
     return celebrateItems.length > 0 ? (
       <CelebrateFeed items={celebrateItems} />
