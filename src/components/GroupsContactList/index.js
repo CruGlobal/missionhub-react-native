@@ -12,7 +12,7 @@ import styles from './styles';
 @translate('groupsContactList')
 class GroupsContactList extends Component {
   renderContent() {
-    const { t, activity, person } = this.props;
+    const { t, activity, person, myId } = this.props;
 
     if (activity.length === 0) {
       return (
@@ -28,9 +28,9 @@ class GroupsContactList extends Component {
     return (
       <FlatList
         data={activity}
-        keyExtractor={i => i.id}
+        keyExtractor={i => `${i.id}-${i._type}`}
         renderItem={({ item }) => (
-          <GroupsContactItem person={person} item={item} />
+          <GroupsContactItem person={person} item={item} myId={myId} />
         )}
         contentContainerStyle={styles.list}
       />
@@ -67,6 +67,7 @@ GroupsContactList.propTypes = {
   activity: PropTypes.array.isRequired,
   onAssign: PropTypes.func.isRequired,
   person: PropTypes.object.isRequired,
+  myId: PropTypes.string.isRequired,
 };
 
 export default GroupsContactList;

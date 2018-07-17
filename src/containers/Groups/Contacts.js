@@ -9,10 +9,8 @@ import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { organizationSelector } from '../../selectors/organizations';
 import { searchRemoveFilter } from '../../utils/common';
 
-import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
 @translate('groupsContacts')

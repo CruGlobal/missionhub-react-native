@@ -12,7 +12,6 @@ import GroupsContactList from '../../../components/GroupsContactList';
 import CommentBox from '../../../components/CommentBox';
 import Header from '../../Header';
 import BackButton from '../../BackButton';
-import { navigatePush } from '../../../actions/navigation';
 
 import styles from './styles';
 
@@ -54,7 +53,7 @@ class UnassignedPersonScreen extends Component {
   };
 
   render() {
-    const { t, organization, person } = this.props;
+    const { t, organization, person, me } = this.props;
     const { activity } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
@@ -64,6 +63,7 @@ class UnassignedPersonScreen extends Component {
           activity={activity}
           person={person}
           onAssign={this.handleAssign}
+          myId={me.id}
         />
         <CommentBox placeholder={t('placeholder')} onSubmit={this.submit} />
       </PlatformKeyboardAvoidingView>

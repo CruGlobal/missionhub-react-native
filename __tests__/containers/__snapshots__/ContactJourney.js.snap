@@ -188,6 +188,7 @@ exports[`journey methods renders a stage change row 1`] = `
     }
   }
   myId="123"
+  personFirstName="ben"
 />
 `;
 
@@ -206,6 +207,7 @@ exports[`journey methods renders a step row 1`] = `
       }
     }
     myId="123"
+    personFirstName="ben"
   />
 </Translate(RowSwipeable)>
 `;
@@ -220,6 +222,7 @@ exports[`journey methods renders a survey row 1`] = `
     }
   }
   myId="123"
+  personFirstName="ben"
 />
 `;
 
@@ -238,6 +241,7 @@ exports[`journey methods renders an interaction row 1`] = `
       }
     }
     myId="123"
+    personFirstName="ben"
   />
 </Translate(RowSwipeable)>
 `;

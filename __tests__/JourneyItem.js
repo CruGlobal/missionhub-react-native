@@ -1,8 +1,11 @@
 import 'react-native';
 import React from 'react';
 
+import { getAssignedByName, getAssignedToName } from '../src/utils/common';
 import JourneyItem from '../src/components/JourneyItem';
 import { testSnapshotShallow } from '../testUtils';
+
+jest.mock('../src/utils/common');
 
 const myId = '484893';
 const person = {
@@ -11,6 +14,14 @@ const person = {
   first_name: 'Test Person',
 };
 const date = '2017-12-06T14:24:52Z';
+
+beforeEach(() => {
+  getAssignedToName.mockReset();
+  getAssignedByName.mockReset();
+
+  getAssignedToName.mockReturnValue('Roger');
+  getAssignedByName.mockReturnValue('Billy');
+});
 
 describe('step', () => {
   const mockStep = {
@@ -26,7 +37,13 @@ describe('step', () => {
   };
 
   it('is rendered correctly without comment', () => {
-    testSnapshotShallow(<JourneyItem item={mockStep} myId={myId} />);
+    testSnapshotShallow(
+      <JourneyItem
+        item={mockStep}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
+    );
   });
 
   it('is rendered correctly with comment', () => {
@@ -34,13 +51,18 @@ describe('step', () => {
       <JourneyItem
         item={{ ...mockStep, note: 'test comment on completed step' }}
         myId={myId}
+        personFirstName={person.first_name}
       />,
     );
   });
 
   it('is rendered correctly with pathway stage', () => {
     testSnapshotShallow(
-      <JourneyItem item={{ ...mockStep, challenge_suggestion }} myId={myId} />,
+      <JourneyItem
+        item={{ ...mockStep, challenge_suggestion }}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
     );
   });
 });
@@ -62,13 +84,21 @@ describe('stage', () => {
 
   it('is rendered correctly with old stage for a contact', () => {
     testSnapshotShallow(
-      <JourneyItem item={mockStageProgression} myId={myId} />,
+      <JourneyItem
+        item={mockStageProgression}
+        myId={myId}
+        personFirstName={person.first_name}
+      />,
     );
   });
 
   it('is rendered correctly with old stage for self', () => {
     testSnapshotShallow(
-      <JourneyItem item={mockStageProgression} myId={person.id} />,
+      <JourneyItem
+        item={mockStageProgression}
+        myId={person.id}
+        personFirstName={person.first_name}
+      />,
     );
   });
 
@@ -80,6 +110,7 @@ describe('stage', () => {
           old_pathway_stage: {},
         }}
         myId={myId}
+        personFirstName={person.first_name}
       />,
     );
   });
@@ -92,6 +123,7 @@ describe('stage', () => {
           old_pathway_stage: {},
         }}
         myId={person.id}
+        personFirstName={person.first_name}
       />,
     );
   });
@@ -112,6 +144,7 @@ it('renders survey correctly', () => {
         created_at: date,
       }}
       myId={myId}
+      personFirstName={person.first_name}
     />,
   );
 });
@@ -129,6 +162,36 @@ it('renders interaction correctly', () => {
         created_at: date,
       }}
       myId={myId}
+      personFirstName={person.first_name}
     />,
   );
+});
+
+it('renders contact_assignment correctly', () => {
+  const item = {
+    id: '5',
+    _type: 'contact_assignment',
+    created_at: date,
+  };
+
+  testSnapshotShallow(
+    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
+  );
+
+  expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
+  expect(getAssignedByName).toHaveBeenCalledWith(myId, item);
+});
+
+it('renders contact_unassignment correctly', () => {
+  const item = {
+    id: '6',
+    _type: 'contact_unassignment',
+    created_at: date,
+  };
+
+  testSnapshotShallow(
+    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
+  );
+
+  expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
 });

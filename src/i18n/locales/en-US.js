@@ -71,6 +71,10 @@ export default {
     delete: 'Delete',
     cancel: 'Cancel',
     continue: 'Continue',
+    contactAssignment:
+      '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
+    contactUnassignment:
+      '{{assignedToName}} was unassigned {{assignedContactName}}',
   },
   error: {
     error: 'Error',
@@ -442,10 +446,20 @@ export default {
   },
   groupsContactItem: {
     status: 'Status: {{status}}',
-    assigned: '{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}',
-    unassigned: '{{unassignedContact}} has been Unassigned by {{unassignedBy}}',
     stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',
     stageStart: '{{personName}} has been to MissionHub as {{newStage}}',
+    spiritualConversation:
+      '{{initiator}} had a spiritual conversation with {{receiver}}',
+    gospelPresentation: '{{initiator}} shared the gospel with {{receiver}}',
+    personalDecision:
+      '{{receiver}} made a personal decision with {{initiator}}',
+    holySpiritConversation:
+      '{{initiator}} had a Holy Spirit conversation with {{receiver}}',
+    discipleshipConversation:
+      '{{initiator}} had a discipleship conversation with {{receiver}}',
+    somethingCoolHappened:
+      '{{initiator}} saw something cool happen with {{receiver}}',
+    note: '{{initiator}} added a note about {{receiver}}',
   },
   groupItem: {
     numContacts: '{{number}} Contacts',

@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
 import { INTERACTION_TYPES } from '../../constants';
+import { getAssignedByName, getAssignedToName } from '../../utils/common';
 
 import styles from './styles';
 
@@ -90,6 +91,8 @@ export default class JourneyItem extends Component {
       t,
       item,
       item: { _type },
+      myId,
+      personFirstName,
     } = this.props;
     let text;
     if (_type === 'accepted_challenge') {
@@ -113,6 +116,22 @@ export default class JourneyItem extends Component {
       }
     } else if (_type === 'interaction') {
       text = item.comment;
+    } else if (_type === 'contact_assignment') {
+      const assignedToName = getAssignedToName(myId, item);
+      const assignedByName = getAssignedByName(myId, item);
+
+      text = t('contactAssignment', {
+        assignedByName,
+        assignedContactName: personFirstName,
+        assignedToName,
+      });
+    } else if (_type === 'contact_unassignment') {
+      const assignedToName = getAssignedToName(myId, item);
+
+      text = t('contactUnassignment', {
+        assignedContactName: personFirstName,
+        assignedToName,
+      });
     }
 
     return <Text style={styles.text}>{text}</Text>;
@@ -137,6 +156,11 @@ export default class JourneyItem extends Component {
       if (interaction) {
         iconType = interaction.iconName;
       }
+    } else if (
+      _type === 'contact_assignment' ||
+      _type === 'contact_unassignment'
+    ) {
+      iconType = 'journeyWarning';
     }
 
     if (!iconType) return null;
@@ -206,10 +230,13 @@ JourneyItem.propTypes = {
       'pathway_progression_audit',
       'answer_sheet',
       'interaction',
+      'contact_assignment',
+      'contact_unassignment',
     ]),
     text: PropTypes.string,
     title: PropTypes.string,
     completed_at: PropTypes.date,
   }).isRequired,
   myId: PropTypes.string.isRequired,
+  personFirstName: PropTypes.string.isRequired,
 };

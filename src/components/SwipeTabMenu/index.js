@@ -155,7 +155,11 @@ export class SwipeTabMenu extends Component {
   }
 }
 
-export const generateSwipeTabMenuNavigator = (tabs, HeaderComponent) =>
+export const generateSwipeTabMenuNavigator = (
+  tabs,
+  HeaderComponent,
+  isMember,
+) =>
   createMaterialTopTabNavigator(
     tabs.reduce(
       (acc, tab) => ({
@@ -169,7 +173,7 @@ export const generateSwipeTabMenuNavigator = (tabs, HeaderComponent) =>
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
-          <HeaderComponent navigation={navigation} />
+          <HeaderComponent navigation={navigation} isMember={isMember} />
           <SwipeTabMenu navigation={navigation} tabs={tabs} />
         </ViewOverflow>
       ),

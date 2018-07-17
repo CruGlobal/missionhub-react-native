@@ -14,7 +14,6 @@ import Header from '../Header';
 import BackButton from '../BackButton';
 import { organizationSelector } from '../../selectors/organizations';
 
-import { UNASSIGNED_PERSON_SCREEN } from './PersonScreen/UnassignedPersonScreen';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @translate('groupsSurveyContacts')
