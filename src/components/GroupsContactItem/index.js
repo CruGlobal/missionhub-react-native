@@ -42,6 +42,8 @@ class GroupsContactItem extends Component {
     const { item } = this.props;
     if (item.comment) {
       return <Text style={styles.comment}>{item.comment}</Text>;
+    } else if (item.unassignment_reason) {
+      return <Text style={styles.comment}>{item.unassignment_reason}</Text>;
     } else if (item.survey && item.answers) {
       return item.answers.map(a => (
         <Flex direction="column" key={a.id}>
