@@ -72,7 +72,7 @@ export class SearchQuestionsFilterScreen extends Component {
   handleSelectFilter = item => {
     const newOptions = this.state.options.map(o => ({
       ...o,
-      preview: o.id === this.state.selectedFilterId ? item.text : o.preview,
+      preview: o.id === this.state.selectedFilterId ? item.text : null,
     }));
     let filters = {
       ...this.state.filters,
