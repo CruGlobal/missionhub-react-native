@@ -310,9 +310,7 @@ export function getPersonPhoneNumber(person) {
   return person.phone_numbers
     ? person.phone_numbers.find(
         phone_number => phone_number.primary && !phone_number._placeHolder,
-      ) ||
-        person.phone_numbers.find(phone_number => !phone_number._placeHolder) ||
-        null
+      ) || person.phone_numbers.find(phone_number => !phone_number._placeHolder)
     : null;
 }
 
@@ -320,9 +318,7 @@ export function getPersonEmailAddress(person) {
   return person.email_addresses
     ? person.email_addresses.find(
         email => email.primary && !email._placeHolder,
-      ) ||
-        person.email_addresses.find(email => !email._placeHolder) ||
-        null
+      ) || person.email_addresses.find(email => !email._placeHolder)
     : null;
 }
 
