@@ -14,7 +14,6 @@ import {
 import { updateFollowupStatus } from '../../actions/person';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STATUS_COMPLETE_SCREEN } from '../StatusCompleteScreen';
-import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
 
@@ -26,8 +25,6 @@ class StatusSelectScreen extends Component {
       selected: props.status,
     };
   }
-
-  onSubmitReason = () => this.props.dispatch(navigateBack(3));
 
   select = status => {
     this.setState({ selected: status });
@@ -48,21 +45,12 @@ class StatusSelectScreen extends Component {
       return;
     }
     await dispatch(updateFollowupStatus(person, orgPermission.id, selected));
-    if (selected === 'completed') {
+    if (selected === 'completed' || selected === 'do_not_contact') {
       dispatch(
         navigatePush(STATUS_COMPLETE_SCREEN, {
           organization,
           person,
           contactAssignment,
-        }),
-      );
-    } else if (selected === 'do_not_contact') {
-      dispatch(
-        navigatePush(STATUS_REASON_SCREEN, {
-          organization,
-          person,
-          contactAssignment,
-          onSubmit: this.onSubmitReason,
         }),
       );
     }
