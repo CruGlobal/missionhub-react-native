@@ -12,7 +12,6 @@ import GroupsContactList from '../../../components/GroupsContactList';
 import CommentBox from '../../../components/CommentBox';
 import Header from '../../Header';
 import BackButton from '../../BackButton';
-import { navigatePush } from '../../../actions/navigation';
 
 import styles from './styles';
 
