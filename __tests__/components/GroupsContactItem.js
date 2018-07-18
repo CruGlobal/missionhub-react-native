@@ -68,6 +68,19 @@ it('renders contact unassignment item', () => {
   );
 });
 
+it('renders contact unassignment item with note', () => {
+  const newItem = {
+    ...item,
+    _type: 'contact_unassignment',
+    created_at,
+    unassignment_reason: 'unassignment note',
+  };
+
+  testSnapshotShallow(
+    <GroupsContactItem person={person} item={newItem} myId={myId} />,
+  );
+});
+
 function testInteraction(id) {
   testSnapshotShallow(
     <GroupsContactItem

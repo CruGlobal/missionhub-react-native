@@ -134,6 +134,8 @@ export default class JourneyItem extends Component {
       text = item.comment;
     }
 
+    if (!text) return null;
+
     return <Text style={styles.text}>{text}</Text>;
   }
 

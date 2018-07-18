@@ -61,7 +61,8 @@ exports[`renders contact_assignment correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "fontSize": 14,
+          "color": "#007398",
+          "fontSize": 16,
         }
       }
     >
@@ -132,7 +133,8 @@ exports[`renders contact_unassignment correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "fontSize": 14,
+          "color": "#007398",
+          "fontSize": 16,
         }
       }
     >

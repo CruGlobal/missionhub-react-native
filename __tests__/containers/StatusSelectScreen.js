@@ -139,12 +139,14 @@ describe('StatusSelectScreen', () => {
   it('should update status to do_not_contact', async () => {
     await testSubmit('do_not_contact');
 
-    expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
-      organization,
-      person,
-      contactAssignment,
-      onSubmit: instance.onSubmitReason,
-    });
+    expect(navigation.navigatePush).toHaveBeenCalledWith(
+      STATUS_COMPLETE_SCREEN,
+      {
+        organization,
+        person,
+        contactAssignment,
+      },
+    );
   });
 
   it('set the state to contacted', () => {
@@ -152,11 +154,5 @@ describe('StatusSelectScreen', () => {
     const status = 'contacted';
     instance.select(status);
     expect(instance.state.selected).toEqual(status);
-  });
-
-  it('should navigate back 3 on submit reason', () => {
-    const instance = renderShallow(component, store).instance();
-    instance.onSubmitReason();
-    expect(navigation.navigateBack).toHaveBeenCalledWith(3);
   });
 });
