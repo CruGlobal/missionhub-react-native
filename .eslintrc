@@ -38,7 +38,8 @@
     "import/default": 2,
     "no-undef": 2,
     "no-unused-vars": 2,
-    "curly": 2
+    "curly": 2,
+    "no-shadow": 2
   },
   "settings": {
     "import/resolver": {
