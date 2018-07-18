@@ -12,7 +12,6 @@ import {
 import { updateFollowupStatus } from '../../src/actions/person';
 import * as navigation from '../../src/actions/navigation';
 import { STATUS_COMPLETE_SCREEN } from '../../src/containers/StatusCompleteScreen';
-import { STATUS_REASON_SCREEN } from '../../src/containers/StatusReasonScreen';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
