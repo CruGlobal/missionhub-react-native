@@ -91,8 +91,6 @@
     "pretty-quick": "^1.5.0",
     "react-dom": "^16.3.2",
     "react-test-renderer": "^16.3.2",
-    "reactotron-react-native": "^2.0.0",
-    "reactotron-redux": "^2.0.0",
     "redux-mock-store": "^1.5.1"
   },
   "jest": {

@@ -1,8 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import Reactotron from 'reactotron-react-native';
-
 import {
   persistStore,
   persistReducer,
@@ -62,13 +60,11 @@ const persistConfig = {
   migrate: createMigrate(migrations),
 };
 
-export const store = __DEV__
-  ? Reactotron.createStore(
-      persistReducer(persistConfig, reducers),
-      {},
-      storeEnhancers,
-    )
-  : createStore(persistReducer(persistConfig, reducers), {}, storeEnhancers);
+export const store = createStore(
+  persistReducer(persistConfig, reducers),
+  {},
+  storeEnhancers,
+);
 
 export const persistor = persistStore(store);
 

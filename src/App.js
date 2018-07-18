@@ -1,4 +1,3 @@
-import './ReactotronConfig';
 import React, { Component } from 'react';
 import { AppState } from 'react-native';
 import { Provider } from 'react-redux';
