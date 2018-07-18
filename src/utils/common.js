@@ -347,7 +347,7 @@ export function openCommunicationLink(url, dispatch, action) {
 }
 
 export function getStageIndex(stages, stageId) {
-  const firstItemIndex = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
+  const index = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
 
-  return firstItemIndex >= 0 ? firstItemIndex : undefined;
+  return index === -1 ? undefined : index;
 }

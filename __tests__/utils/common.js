@@ -15,6 +15,7 @@ import {
   getAssignedToName,
   getPersonPhoneNumber,
   getPersonEmailAddress,
+  getStageIndex,
 } from '../../src/utils/common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
@@ -377,4 +378,18 @@ describe('getPersonEmailAddress', () => {
 
   it('does not crash if person does not have email addresses', () =>
     expect(getPersonEmailAddress({})).toBe(null));
+});
+
+describe('getStageIndex', () => {
+  const stageOne = { id: '1' };
+  const stageTwo = { id: '2' };
+
+  it('should get index of stage ID', () =>
+    expect(getStageIndex([stageOne], stageOne.id)).toEqual(0));
+
+  it('should skip null/undefined stages', () =>
+    expect(getStageIndex([null, stageTwo], stageTwo.id)).toEqual(1));
+
+  it('returns undefined if not found', () =>
+    expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
 });
