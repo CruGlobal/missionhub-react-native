@@ -24,7 +24,12 @@ class MemberCelebrate extends Component {
   renderList() {
     const { celebrateItems } = this.props;
 
-    return <CelebrateFeed items={celebrateItems} />;
+    return (
+      <CelebrateFeed
+        items={celebrateItems}
+        loadMoreItemsCallback={() => this.loadItems()}
+      />
+    );
   }
 
   renderEmptyView() {
