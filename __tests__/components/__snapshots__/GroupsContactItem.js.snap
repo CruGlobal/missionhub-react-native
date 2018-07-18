@@ -213,7 +213,7 @@ exports[`interaction items should render holy spirit conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -298,7 +298,7 @@ exports[`interaction items should render note 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -383,7 +383,7 @@ exports[`interaction items should render personal decision 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -468,7 +468,7 @@ exports[`interaction items should render something cool happened 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -638,7 +638,7 @@ exports[`renders contact assignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -723,7 +723,7 @@ exports[`renders contact unassignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={

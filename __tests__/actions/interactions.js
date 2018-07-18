@@ -21,6 +21,17 @@ beforeEach(() =>
         id: '123',
       },
     },
+    organizations: {
+      all: [
+        {
+          id: orgId,
+          celebratePagination: {
+            page: 42,
+            hasNextPage: false,
+          },
+        },
+      ],
+    },
   })));
 
 const comment = 'new comment';

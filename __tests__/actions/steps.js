@@ -197,6 +197,7 @@ describe('complete challenge', () => {
   const stepId = 34556;
   const step = {
     id: stepId,
+    organization: { id: '555' },
     receiver: { id: receiverId },
   };
 
@@ -227,6 +228,17 @@ describe('complete challenge', () => {
         person: {
           id: personId,
         },
+      },
+      organizations: {
+        all: [
+          {
+            id: orgId,
+            celebrationPagination: {
+              page: 42,
+              hasNextPage: false,
+            },
+          },
+        ],
       },
       steps: { userStepCount: { [receiverId]: 2 } },
     });
