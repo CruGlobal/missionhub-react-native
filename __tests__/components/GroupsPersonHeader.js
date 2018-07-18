@@ -9,7 +9,6 @@ import GroupsPersonHeader from '../../src/components/GroupsPersonHeader/index';
 import { testSnapshotShallow, renderShallow } from '../../testUtils/index';
 import {
   getPersonEmailAddress,
-  openCommunicationLink,
   getPersonPhoneNumber,
   getStageIndex,
 } from '../../src/utils/common';
@@ -17,13 +16,15 @@ import { navigatePush } from '../../src/actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../src/containers/StatusSelectScreen';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../../src/containers/StageScreen';
+import { openCommunicationLink } from '../../src/actions/misc';
 
 jest.mock('uuid/v4');
 jest.mock('../../src/utils/common');
 jest.mock('../../src/actions/person');
+jest.mock('../../src/actions/misc');
 jest.mock('../../src/actions/navigation');
 
-const store = configureStore([thunk])({});
+const store = configureStore([thunk])();
 
 const person = { id: '1002', first_name: 'Roge' };
 const organization = { id: '50' };
@@ -44,6 +45,7 @@ const props = {
 const phoneNumber = { number: '1800Roge' };
 const emailAddress = { email: 'roge@test.com' };
 const createContactAssignmentResult = { type: 'created contact assignment' };
+const openLinkResult = { type: 'opened link' };
 const navigatePushResult = { type: 'navigated' };
 
 beforeEach(() => {
@@ -53,6 +55,7 @@ beforeEach(() => {
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   navigatePush.mockReturnValue(navigatePushResult);
   getStageIndex.mockReturnValue(myStageId);
+  openCommunicationLink.mockReturnValue(openLinkResult);
   store.clearActions();
 });
 
@@ -137,9 +140,9 @@ describe('isMember', () => {
 
       expect(openCommunicationLink).toHaveBeenCalledWith(
         `sms:${phoneNumber.number}`,
-        dispatch,
         ACTIONS.TEXT_ENGAGED,
       );
+      expect(store.getActions()).toEqual([openLinkResult]);
     });
 
     it('should open call link', () => {
@@ -159,9 +162,9 @@ describe('isMember', () => {
 
       expect(openCommunicationLink).toHaveBeenCalledWith(
         `tel:${phoneNumber.number}`,
-        dispatch,
         ACTIONS.CALL_ENGAGED,
       );
+      expect(store.getActions()).toEqual([openLinkResult]);
     });
 
     it('should open email link', () => {
@@ -181,9 +184,9 @@ describe('isMember', () => {
 
       expect(openCommunicationLink).toHaveBeenCalledWith(
         `mailto:${emailAddress.email}`,
-        dispatch,
         ACTIONS.EMAIL_ENGAGED,
       );
+      expect(store.getActions()).toEqual([openLinkResult]);
     });
   });
 });

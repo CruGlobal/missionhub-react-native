@@ -9,10 +9,10 @@ import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
 import {
   buildTrackingObj,
-  openCommunicationLink,
   getPersonEmailAddress,
   getPersonPhoneNumber,
 } from '../../utils/common';
+import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
 
@@ -185,10 +185,8 @@ class ContactHeader extends Component {
             name="textIcon"
             type="MissionHub"
             onPress={() =>
-              openCommunicationLink(
-                smsNumberUrl,
-                dispatch,
-                ACTIONS.TEXT_ENGAGED,
+              dispatch(
+                openCommunicationLink(smsNumberUrl, ACTIONS.TEXT_ENGAGED),
               )
             }
           />
@@ -202,10 +200,8 @@ class ContactHeader extends Component {
             name="callIcon"
             type="MissionHub"
             onPress={() =>
-              openCommunicationLink(
-                phoneNumberUrl,
-                dispatch,
-                ACTIONS.CALL_ENGAGED,
+              dispatch(
+                openCommunicationLink(phoneNumberUrl, ACTIONS.CALL_ENGAGED),
               )
             }
           />
@@ -222,7 +218,7 @@ class ContactHeader extends Component {
             name="emailIcon"
             type="MissionHub"
             onPress={() =>
-              openCommunicationLink(emailUrl, dispatch, ACTIONS.EMAIL_ENGAGED)
+              dispatch(openCommunicationLink(emailUrl, ACTIONS.EMAIL_ENGAGED))
             }
           />
         </Flex>

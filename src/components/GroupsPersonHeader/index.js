@@ -14,13 +14,13 @@ import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { ACTIONS } from '../../constants';
 import {
   getPersonEmailAddress,
-  openCommunicationLink,
   getPersonPhoneNumber,
   getStageIndex,
 } from '../../utils/common';
 import AssignToMeButton from '../AssignToMeButton/index';
 import CenteredIconWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
+import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
 
@@ -136,10 +136,11 @@ export default class GroupsPersonHeader extends Component {
 
     if (phoneNumber) {
       onClick = () =>
-        openCommunicationLink(
-          `sms:${phoneNumber.number}`,
-          dispatch,
-          ACTIONS.TEXT_ENGAGED,
+        dispatch(
+          openCommunicationLink(
+            `sms:${phoneNumber.number}`,
+            ACTIONS.TEXT_ENGAGED,
+          ),
         );
     }
 
@@ -154,10 +155,11 @@ export default class GroupsPersonHeader extends Component {
 
     if (phoneNumber) {
       onClick = () =>
-        openCommunicationLink(
-          `tel:${phoneNumber.number}`,
-          dispatch,
-          ACTIONS.CALL_ENGAGED,
+        dispatch(
+          openCommunicationLink(
+            `tel:${phoneNumber.number}`,
+            ACTIONS.CALL_ENGAGED,
+          ),
         );
     }
 
@@ -172,10 +174,11 @@ export default class GroupsPersonHeader extends Component {
 
     if (emailAddress) {
       onClick = () =>
-        openCommunicationLink(
-          `mailto:${emailAddress.email}`,
-          dispatch,
-          ACTIONS.EMAIL_ENGAGED,
+        dispatch(
+          openCommunicationLink(
+            `mailto:${emailAddress.email}`,
+            ACTIONS.EMAIL_ENGAGED,
+          ),
         );
     }
 

@@ -3,7 +3,6 @@ import { BackHandler, Platform } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
-import { Linking } from 'react-native';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -12,7 +11,6 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
-import { trackActionWithoutData } from '../actions/analytics';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -320,30 +318,6 @@ export function getPersonEmailAddress(person) {
         email => email.primary && !email._placeHolder,
       ) || person.email_addresses.find(email => !email._placeHolder)
     : null;
-}
-
-export function openCommunicationLink(url, dispatch, action) {
-  //if someone has a better name for this feel free to suggest.
-  Linking.canOpenURL(url)
-    .then(supported => {
-      if (!supported) {
-        WARN("Can't handle url: ", url);
-      } else {
-        Linking.openURL(url)
-          .then(() => {
-            dispatch(trackActionWithoutData(action));
-          })
-          .catch(err => {
-            if (url.includes('telprompt')) {
-              // telprompt was cancelled and Linking openURL method sees this as an error
-              // it is not a true error so ignore it to prevent apps crashing
-            } else {
-              WARN('openURL error', err);
-            }
-          });
-      }
-    })
-    .catch(err => WARN('An unexpected error happened', err));
 }
 
 export function getStageIndex(stages, stageId) {
