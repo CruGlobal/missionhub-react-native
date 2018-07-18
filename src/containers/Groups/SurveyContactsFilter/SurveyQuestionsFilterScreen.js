@@ -76,25 +76,28 @@ export class SearchQuestionsFilterScreen extends Component {
     }));
     let filters = {
       ...this.state.filters,
-      [this.state.selectedFilterId]: item,
+      question_id: this.state.selectedFilterId,
+      answer_value: item.id,
     };
     if (item.id === 'any') {
-      delete filters[this.state.selectedFilterId];
+      delete filters.question_id;
+      delete filters.answer_value;
     }
     this.setState({ options: newOptions });
     this.setFilter(filters);
   };
 
   render() {
-    const { t, options } = this.props;
+    const { t } = this.props;
+    const { options } = this.state;
     return (
       <View style={styles.pageContainer}>
         <Header left={<BackButton />} title={t('titleQuestions')} />
         <ScrollView style={{ flex: 1 }}>
-          {options.map(q => (
+          {options.map(o => (
             <FilterItem
-              key={q.id}
-              item={q}
+              key={o.id}
+              item={o}
               onSelect={this.handleDrillDown}
               type="drilldown"
             />
