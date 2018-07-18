@@ -1,6 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly for a contact 1`] = `
+exports[`is self renders 1`] = `
+<Flex>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  >
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+      icon="journeyIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Stage"
+      wrapperStyle={
+        Object {
+          "backgroundColor": "#FF5532",
+        }
+      }
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`isContact with contact assignment renders 1`] = `
+<Flex>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  >
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+      icon="journeyIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Stage"
+      wrapperStyle={
+        Object {
+          "backgroundColor": "#FF5532",
+        }
+      }
+    />
+    <CenteredIconButtonWithText
+      icon="journeyWarning"
+      key="some key"
+      onClick={[Function]}
+      text="Status"
+    />
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "fontSize": 20,
+        }
+      }
+      icon="emailIcon"
+      key="some key"
+      text="Email"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`isContact with no contact assignment renders with no contact assignment 1`] = `
 <Flex>
   <Translate(AssignToMeButton)
     onPress={[Function]}
@@ -13,7 +83,57 @@ exports[`renders correctly for a contact 1`] = `
 </Flex>
 `;
 
-exports[`renders correctly for a member 1`] = `
+exports[`isMember has contact info and contact assignment renders 1`] = `
+<Flex>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  >
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+      icon="journeyIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Stage"
+      wrapperStyle={
+        Object {
+          "backgroundColor": "#FF5532",
+        }
+      }
+    />
+    <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Call"
+    />
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "fontSize": 20,
+        }
+      }
+      icon="emailIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Email"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
   <Translate(AssignToMeButton)
     onPress={[Function]}

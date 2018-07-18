@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
+import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import { createContactAssignment } from '../../actions/person';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { getContactSteps } from '../../actions/steps';
@@ -22,8 +23,6 @@ import CenteredIconWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
 
 import styles from './styles';
-
-export const STATUS_SELECT_SCREEN = 'nav/STATUS_SELECT';
 
 @translate()
 export default class GroupsPersonHeader extends Component {
