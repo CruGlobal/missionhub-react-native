@@ -9,7 +9,6 @@ import {
   Button,
   DateComponent,
 } from '../../components/common';
-
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 

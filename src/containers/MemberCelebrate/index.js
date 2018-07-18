@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
 import CelebrateFeed from '../../components/CelebrateFeed';
 import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
-
 import {
   getGroupCelebrateFeed,
   reloadGroupCelebrateFeed,

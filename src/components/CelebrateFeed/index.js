@@ -3,6 +3,7 @@ import { SectionList } from 'react-native';
 
 import { DateComponent, Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
+
 import styles from './styles';
 
 export default class CelebrateFeed extends Component {

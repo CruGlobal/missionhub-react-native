@@ -3,8 +3,8 @@ import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Text, Flex } from '../../components/common';
-
 import HEARTS from '../../../assets/images/celebrateHearts.png';
+
 import style from './styles';
 
 @translate('celebrateFeeds')

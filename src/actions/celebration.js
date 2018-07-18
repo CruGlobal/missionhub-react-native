@@ -21,24 +21,6 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
   };
 }
 
-export function getGroupMemberCelebrateFeed(orgId, personId) {
-  const org = getState().organizations.all.filter(o => {
-    return o.id === orgId;
-  })[0];
-
-  const { page, hasNextPage } = org.celebratePagination[personId]
-    ? org.celebratePagination[personId]
-    : { page: 0, hasNextPage: true };
-
-  if (!hasNextPage) {
-    return Promise.reject('NoMoreData');
-  }
-
-  const query = buildQuery(orgId, personId, page);
-
-  dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
-}
-
 export function reloadGroupCelebrateFeed(orgId) {
   return (dispatch, getState) => {
     const org = getState().organizations.all.filter(o => {
