@@ -99,7 +99,9 @@ export default class JourneyItem extends Component {
       });
     }
 
-    if (!title) return null;
+    if (!title) {
+      return null;
+    }
 
     return <Text style={styles.title}>{title}</Text>;
   }
@@ -167,7 +169,9 @@ export default class JourneyItem extends Component {
       iconType = 'journeyWarning';
     }
 
-    if (!iconType) return null;
+    if (!iconType) {
+      return null;
+    }
 
     return (
       <Flex value={1}>
@@ -185,7 +189,9 @@ export default class JourneyItem extends Component {
   }
 
   renderContent() {
-    if (this.props.item._type === 'answer_sheet') return this.renderSurvey();
+    if (this.props.item._type === 'answer_sheet') {
+      return this.renderSurvey();
+    }
     return (
       <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
