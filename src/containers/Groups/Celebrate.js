@@ -27,7 +27,10 @@ export class Celebrate extends Component {
     const { celebrateItems } = this.props;
 
     return celebrateItems.length > 0 ? (
-      <CelebrateFeed items={celebrateItems} />
+      <CelebrateFeed
+        items={celebrateItems}
+        loadMoreItemsCallback={() => this.loadItems()}
+      />
     ) : (
       <EmptyCelebrateFeed />
     );

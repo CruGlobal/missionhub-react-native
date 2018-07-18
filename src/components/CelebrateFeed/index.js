@@ -6,6 +6,25 @@ import CelebrateItem from '../../components/CelebrateItem';
 import styles from './styles';
 
 export default class CelebrateFeed extends Component {
+  constructor(props) {
+    super(props);
+    // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
+    this.state = { ...this.state, isListScrolled: false };
+  }
+
+  handleOnEndReached() {
+    if (this.state.isListScrolled) {
+      this.props.loadMoreItemsCallback();
+      this.setState({ isListScrolled: false });
+    }
+  }
+
+  handleEndDrag() {
+    if (!this.state.isListScrolled) {
+      this.setState({ isListScrolled: true });
+    }
+  }
+
   render() {
     const { title, header } = styles;
     const { items } = this.props;
@@ -22,6 +41,9 @@ export default class CelebrateFeed extends Component {
         keyExtractor={item => {
           return item.id;
         }}
+        onEndReachedThreshold={0.2}
+        onEndReached={() => this.handleOnEndReached()}
+        onScrollEndDrag={() => this.handleEndDrag()}
       />
     );
   }

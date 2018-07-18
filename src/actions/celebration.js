@@ -6,7 +6,7 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
   return (dispatch, getState) => {
     const org = getState().organizations.all.filter(o => {
       return o.id === orgId;
-    });
+    })[0];
 
     const { page, hasNextPage } = org.celebratePagination
       ? org.celebratePagination
