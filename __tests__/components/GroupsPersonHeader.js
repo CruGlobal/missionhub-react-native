@@ -11,9 +11,12 @@ import {
   getPersonEmailAddress,
   openCommunicationLink,
   getPersonPhoneNumber,
+  getStageIndex,
 } from '../../src/utils/common';
 import { navigatePush } from '../../src/actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../src/containers/StatusSelectScreen';
+import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
+import { STAGE_SCREEN } from '../../src/containers/StageScreen';
 
 jest.mock('uuid/v4');
 jest.mock('../../src/utils/common');
@@ -22,12 +25,13 @@ jest.mock('../../src/actions/navigation');
 
 const store = configureStore([thunk])({});
 
-const person = { id: '1002' };
-const organization = {};
+const person = { id: '1002', first_name: 'Roge' };
+const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
 const stages = [];
-const contactAssignment = { id: '500' };
+const contactAssignment = { id: '500', pathway_stage_id: 3 };
+const myStageId = 4;
 
 const props = {
   person,
@@ -35,6 +39,7 @@ const props = {
   dispatch,
   myId,
   stages,
+  myStageId,
 };
 
 const phoneNumber = { number: '1800Roge' };
@@ -48,6 +53,7 @@ beforeEach(() => {
   getPersonPhoneNumber.mockReset();
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   navigatePush.mockReturnValue(navigatePushResult);
+  getStageIndex.mockReturnValue(myStageId);
   store.clearActions();
 });
 
@@ -58,6 +64,34 @@ describe('is self', () => {
     testSnapshotShallow(
       <GroupsPersonHeader {...props} myId={person.id} isMember={true} />,
     );
+  });
+
+  it('should navigate to stage screen', () => {
+    const screen = renderShallow(
+      <GroupsPersonHeader
+        {...props}
+        myId={person.id}
+        isMember={true}
+        contactAssignment={contactAssignment}
+      />,
+    );
+
+    screen
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onClick();
+
+    expect(navigatePush).toHaveBeenCalledWith(STAGE_SCREEN, {
+      onComplete: expect.anything(),
+      firstItem: myStageId,
+      contactId: person.id,
+      section: 'people',
+      subsection: 'self',
+      enableBackButton: true,
+    });
+    expect(store.getActions()).toEqual([navigatePushResult]);
+    expect(getStageIndex).toHaveBeenCalledWith(stages, myStageId);
   });
 });
 
@@ -199,6 +233,38 @@ describe('isContact', () => {
           isMember={false}
           contactAssignment={contactAssignment}
         />,
+      );
+    });
+
+    it('should navigate to person stage screen', () => {
+      const screen = renderShallow(
+        <GroupsPersonHeader
+          {...props}
+          isMember={true}
+          contactAssignment={contactAssignment}
+        />,
+      );
+
+      screen
+        .childAt(0)
+        .childAt(0)
+        .props()
+        .onClick();
+
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+        onComplete: expect.anything(),
+        firstItem: myStageId,
+        name: person.first_name,
+        contactId: person.id,
+        contactAssignmentId: contactAssignment.id,
+        orgId: organization.id,
+        section: 'people',
+        subsection: 'person',
+      });
+      expect(store.getActions()).toEqual([navigatePushResult]);
+      expect(getStageIndex).toHaveBeenCalledWith(
+        stages,
+        contactAssignment.pathway_stage_id,
       );
     });
 

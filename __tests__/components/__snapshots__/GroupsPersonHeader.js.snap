@@ -8,20 +8,10 @@ exports[`is self renders 1`] = `
     justify="center"
   >
     <CenteredIconButtonWithText
-      buttonStyle={
-        Object {
-          "color": "#ffffff",
-        }
-      }
       icon="journeyIcon"
       key="some key"
       onClick={[Function]}
       text="Stage"
-      wrapperStyle={
-        Object {
-          "backgroundColor": "#FF5532",
-        }
-      }
     />
   </Flex>
 </Flex>
@@ -35,20 +25,10 @@ exports[`isContact with contact assignment renders 1`] = `
     justify="center"
   >
     <CenteredIconButtonWithText
-      buttonStyle={
-        Object {
-          "color": "#ffffff",
-        }
-      }
       icon="journeyIcon"
       key="some key"
       onClick={[Function]}
       text="Stage"
-      wrapperStyle={
-        Object {
-          "backgroundColor": "#FF5532",
-        }
-      }
     />
     <CenteredIconButtonWithText
       icon="journeyWarning"
@@ -91,20 +71,10 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
     justify="center"
   >
     <CenteredIconButtonWithText
-      buttonStyle={
-        Object {
-          "color": "#ffffff",
-        }
-      }
       icon="journeyIcon"
       key="some key"
       onClick={[Function]}
       text="Stage"
-      wrapperStyle={
-        Object {
-          "backgroundColor": "#FF5532",
-        }
-      }
     />
     <CenteredIconButtonWithText
       icon="textIcon"
