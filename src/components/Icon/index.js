@@ -35,10 +35,15 @@ export default class Icon extends Component {
 
     // Set the type of icon to be rendered
     let Tag;
-    if (iconType === 'FontAwesome') Tag = FontAwesome;
-    else if (iconType === 'Ionicons') Tag = Ionicons;
-    else if (iconType === 'MissionHub') Tag = MissionHub;
-    else Tag = Material;
+    if (iconType === 'FontAwesome') {
+      Tag = FontAwesome;
+    } else if (iconType === 'Ionicons') {
+      Tag = Ionicons;
+    } else if (iconType === 'MissionHub') {
+      Tag = MissionHub;
+    } else {
+      Tag = Material;
+    }
 
     return (
       <Tag

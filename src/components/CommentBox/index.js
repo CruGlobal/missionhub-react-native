@@ -94,7 +94,9 @@ class CommentBox extends Component {
   };
 
   renderActions() {
-    if (!this.state.showActions) return null;
+    if (!this.state.showActions) {
+      return null;
+    }
     return (
       <Flex direction="row" align="center" style={styles.actions}>
         {ACTION_ITEMS.map(this.renderIcons)}

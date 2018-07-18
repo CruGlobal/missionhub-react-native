@@ -151,9 +151,11 @@ export class StepsScreen extends Component {
   handleScroll({ nativeEvent }) {
     const position = nativeEvent.contentOffset.y;
     const overscrollUp = this.state.overscrollUp;
-    if (position < 0 && !overscrollUp) this.setState({ overscrollUp: true });
-    else if (position >= 0 && overscrollUp)
+    if (position < 0 && !overscrollUp) {
+      this.setState({ overscrollUp: true });
+    } else if (position >= 0 && overscrollUp) {
       this.setState({ overscrollUp: false });
+    }
 
     if (isCloseToBottom(nativeEvent)) {
       this.handleNextPage();

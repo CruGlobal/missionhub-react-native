@@ -71,7 +71,9 @@ function organizationsReducer(state = initialState, action) {
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
       const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
-      if (!curSurveyOrg) return state; // Return if the organization does not exist
+      if (!curSurveyOrg) {
+        return state; // Return if the organization does not exist
+      }
       const existingSurveys = curSurveyOrg.surveys || [];
       const allSurveys =
         surveyQuery.page && surveyQuery.page.offset > 0
@@ -92,7 +94,9 @@ function organizationsReducer(state = initialState, action) {
       const newItems = action.results.response;
       const celebrateOrgId = celebrateQuery.orgId;
       const curCelebrateOrg = state.all.find(o => o.id === celebrateOrgId);
-      if (!curCelebrateOrg) return state; // Return if the organization does not exist
+      if (!curCelebrateOrg) {
+        return state; // Return if the organization does not exist
+      }
       const existingItems = curCelebrateOrg.celebrateItems || [];
       const allItems =
         celebrateQuery.page && celebrateQuery.page.offset > 0
@@ -114,7 +118,9 @@ function organizationsReducer(state = initialState, action) {
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
-      if (!currentMemberOrg) return state; // Return if the organization does not exist
+      if (!currentMemberOrg) {
+        return state; // Return if the organization does not exist
+      }
       const existingMembers = currentMemberOrg.members || [];
       const allMembers =
         memberQuery.page && memberQuery.page.offset > 0
