@@ -83,7 +83,9 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleSearch(text) {
-    if (!text) return this.clearSearch();
+    if (!text) {
+      return this.clearSearch();
+    }
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
@@ -148,7 +150,9 @@ export class SearchPeopleScreen extends Component {
   renderFilters() {
     const { filters } = this.state;
     const keys = Object.keys(filters).filter(k => filters[k]);
-    if (keys.length === 0) return null;
+    if (keys.length === 0) {
+      return null;
+    }
 
     return (
       <Flex direction="column" style={styles.activeFilterWrap}>

@@ -101,7 +101,9 @@ class SearchList extends Component {
   renderFilters() {
     const { filters } = this.props;
     const keys = Object.keys(filters).filter(k => filters[k]);
-    if (keys.length === 0) return null;
+    if (keys.length === 0) {
+      return null;
+    }
 
     return (
       <ScrollView horizontal={true} style={styles.activeFilterWrap}>
