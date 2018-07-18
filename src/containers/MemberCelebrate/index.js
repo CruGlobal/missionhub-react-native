@@ -6,7 +6,10 @@ import { translate } from 'react-i18next';
 import CelebrateFeed from '../../components/CelebrateFeed';
 import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 
-import { getGroupCelebrateFeed } from '../../actions/celebration';
+import {
+  getGroupCelebrateFeed,
+  reloadGroupCelebrateFeed,
+} from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 
@@ -21,6 +24,11 @@ class MemberCelebrate extends Component {
     dispatch(getGroupCelebrateFeed(organization.id, person.id));
   };
 
+  refreshItems = () => {
+    const { dispatch, person, organization } = this.props;
+    dispatch(reloadGroupCelebrateFeed(organization.id, person.id));
+  };
+
   renderList() {
     const { celebrateItems } = this.props;
 
@@ -28,6 +36,7 @@ class MemberCelebrate extends Component {
       <CelebrateFeed
         items={celebrateItems}
         loadMoreItemsCallback={() => this.loadItems()}
+        refreshCallback={() => this.refreshItems()}
       />
     );
   }

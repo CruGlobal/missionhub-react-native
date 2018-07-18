@@ -25,6 +25,10 @@ export default class CelebrateFeed extends Component {
     }
   }
 
+  handleRefreshing() {
+    this.props.refreshCallback();
+  }
+
   render() {
     const { title, header } = styles;
     const { items } = this.props;
@@ -44,6 +48,8 @@ export default class CelebrateFeed extends Component {
         onEndReachedThreshold={0.2}
         onEndReached={() => this.handleOnEndReached()}
         onScrollEndDrag={() => this.handleEndDrag()}
+        onRefresh={() => this.handleRefreshing()}
+        refreshing={false}
       />
     );
   }
