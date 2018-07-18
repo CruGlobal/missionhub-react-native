@@ -45,7 +45,7 @@ export function reloadGroupCelebrateFeed(orgId) {
       return o.id === orgId;
     })[0];
 
-    if (org.celebratePagination) {
+    if (org && org.celebratePagination) {
       org.celebratePagination = { page: 0, hasNextPage: true };
 
       dispatch(getGroupCelebrateFeed(orgId));
