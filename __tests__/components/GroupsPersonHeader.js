@@ -39,7 +39,6 @@ const props = {
   dispatch,
   myId,
   stages,
-  myStageId,
 };
 
 const phoneNumber = { number: '1800Roge' };
@@ -57,8 +56,6 @@ beforeEach(() => {
   store.clearActions();
 });
 
-//todo test with AND without stage?
-
 describe('is self', () => {
   it('renders', () => {
     testSnapshotShallow(
@@ -73,6 +70,7 @@ describe('is self', () => {
         myId={person.id}
         isMember={true}
         contactAssignment={contactAssignment}
+        myStageId={myStageId}
       />,
     );
 
