@@ -40,7 +40,7 @@ export default class CelebrateItem extends Component {
     if (adjective_attribute_value) {
       return t('stepOfFaith', {
         initiator: name,
-        receiverStage: this.renderStage(),
+        receiverStage: this.renderStage(t, adjective_attribute_value),
       });
     } else {
       return t('stepOfFaithUnknownStage', {
