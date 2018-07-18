@@ -45,9 +45,11 @@ export function reloadGroupCelebrateFeed(orgId) {
       return o.id === orgId;
     })[0];
 
-    org.celebratePagination = { page: 0, hasNextPage: true };
+    if (org.celebratePagination) {
+      org.celebratePagination = { page: 0, hasNextPage: true };
 
-    dispatch(getGroupCelebrateFeed(orgId));
+      dispatch(getGroupCelebrateFeed(orgId));
+    }
   };
 }
 
