@@ -34,7 +34,7 @@ exports[`MemberCelebrate renders correctly 1`] = `
   </ScrollView>
   <Translate(CommentBox)
     hideActions={true}
-    placeholder="Share something to be celebrated..."
+    placeholder="placeholder"
   />
 </PlatformKeyboardAvoidingView>
 `;
