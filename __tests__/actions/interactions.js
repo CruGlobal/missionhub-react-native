@@ -8,8 +8,10 @@ import * as analytics from '../../src/actions/analytics';
 import * as impact from '../../src/actions/impact';
 import { mockFnWithParams } from '../../testUtils';
 import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
-
+import { reloadGroupCelebrateFeed } from '../../src/actions/celebration';
 let store;
+
+jest.mock('../../src/actions/celebration');
 
 const mockApi = (result, ...expectedParams) =>
   mockFnWithParams(api, 'default', result, ...expectedParams);
@@ -40,6 +42,7 @@ const orgId = 2;
 const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
 const trackActionResult = { type: 'tracked action' };
 const refreshImpactResult = { type: 'refreshed impact' };
+const celebrationFeedResult = { type: 'refreshed celebration feeed' };
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
@@ -57,6 +60,7 @@ describe('add comment', () => {
       { [interaction.tracking]: null },
     );
     mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
+    reloadGroupCelebrateFeed.mockReturnValue(celebrationFeedResult);
   });
 
   describe('without org', () => {
@@ -96,6 +100,7 @@ describe('add comment', () => {
         addCommentResult,
         trackActionResult,
         refreshImpactResult,
+        celebrationFeedResult,
       ]);
     });
   });
@@ -144,6 +149,7 @@ describe('add comment', () => {
         addCommentResult,
         trackActionResult,
         refreshImpactResult,
+        celebrationFeedResult,
       ]);
     });
   });
