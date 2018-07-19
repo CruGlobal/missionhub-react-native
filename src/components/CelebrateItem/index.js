@@ -25,14 +25,15 @@ export default class CelebrateItem extends Component {
 
   renderMessage() {
     const { t, event } = this.props;
+    const { completedInteraction, completedStep } = CelebrateableTypes;
 
     const name = event.subject_person_name.split(' ')[0];
 
     switch (event.celebrateable_type) {
-      case CelebrateableTypes.completedStep:
+      case completedStep:
         return this.renderStepOfFaithMessage(t, event, name);
-      case CelebrateableTypes.completedInteraction:
-        return t(CelebrateableTypes.completedInteraction, {
+      case completedInteraction:
+        return t(completedInteraction, {
           initiator: name,
           interactionName: this.renderInteraction(),
         });
