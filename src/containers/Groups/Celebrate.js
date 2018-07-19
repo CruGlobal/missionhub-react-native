@@ -18,7 +18,6 @@ export class GroupCelebrate extends Component {
   componentDidMount() {
     if (this.shouldLoadFeed()) {
       this.loadItems();
-      console.log('loading...');
     }
   }
 

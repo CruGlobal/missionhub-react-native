@@ -10,7 +10,6 @@ import {
   DateComponent,
 } from '../../components/common';
 import { INTERACTION_TYPES } from '../../constants';
-
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 

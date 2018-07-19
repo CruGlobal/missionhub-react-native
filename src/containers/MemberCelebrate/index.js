@@ -16,8 +16,6 @@ import { momentUtc } from '../../utils/common';
 @translate('celebrateFeeds')
 class MemberCelebrate extends Component {
   componentDidMount() {
-    const { pagination, celebrateItems } = this.props;
-
     if (this.shouldLoadFeed()) {
       this.loadItems();
     }
