@@ -9,6 +9,8 @@ import {
   Button,
   DateComponent,
 } from '../../components/common';
+import { INTERACTION_TYPES } from '../../constants';
+
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
@@ -26,17 +28,21 @@ export default class CelebrateItem extends Component {
   renderMessage() {
     const { t, event } = this.props;
     const { completedInteraction, completedStep } = CelebrateableTypes;
-
+    const { adjective_attribute_value } = event;
+    const { MHInteractionTypePersonalDecision } = INTERACTION_TYPES;
     const name = event.subject_person_name.split(' ')[0];
 
     switch (event.celebrateable_type) {
       case completedStep:
         return this.renderStepOfFaithMessage(t, event, name);
       case completedInteraction:
-        return t(completedInteraction, {
-          initiator: name,
-          interactionName: this.renderInteraction(),
-        });
+        return parseInt(adjective_attribute_value) ===
+          MHInteractionTypePersonalDecision.id
+          ? t('interactionDecision', { initiator: name })
+          : t(completedInteraction, {
+              initiator: name,
+              interactionName: this.renderInteraction(),
+            });
     }
   }
 
@@ -75,17 +81,21 @@ export default class CelebrateItem extends Component {
   renderInteraction() {
     const { t, event } = this.props;
     const { adjective_attribute_value } = event;
+    const {
+      MHInteractionTypeSpiritualConversation,
+      MHInteractionTypeGospelPresentation,
+      MHInteractionTypeHolySpiritConversation,
+      MHInteractionTypeDiscipleshipConversation,
+    } = INTERACTION_TYPES;
 
-    switch (adjective_attribute_value) {
-      case '2':
+    switch (parseInt(adjective_attribute_value)) {
+      case MHInteractionTypeSpiritualConversation.id:
         return t('actions:interactionSpiritualConversation');
-      case '3':
+      case MHInteractionTypeGospelPresentation.id:
         return t('actions:interactionGospel');
-      case '4':
-        return t('actions:interactionDiscipleshipConversation');
-      case '5':
+      case MHInteractionTypeHolySpiritConversation.id:
         return t('actions:interactionSpirit');
-      case '9':
+      case MHInteractionTypeDiscipleshipConversation.id:
         return t('actions:interactionDiscipleshipConversation');
       default:
         return '';
