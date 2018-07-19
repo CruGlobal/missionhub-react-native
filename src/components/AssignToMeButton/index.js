@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { Button } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
-import styles from './styles';
 import { contactAssignmentSelector } from '../../selectors/people';
 import { createContactAssignment } from '../../actions/person';
+
+import styles from './styles';
 
 @translate()
 class AssignToMeButton extends Component {
@@ -38,7 +39,7 @@ class AssignToMeButton extends Component {
   };
 
   render() {
-    const { onPress, t } = this.props;
+    const { t } = this.props;
 
     return (
       <Button

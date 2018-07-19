@@ -4,7 +4,6 @@ import { translate } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
-import { createContactAssignment } from '../../actions/person';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { getContactSteps } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
@@ -20,7 +19,6 @@ import {
 import AssignToMeButton from '../AssignToMeButton/index';
 import CenteredIconWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
-import { contactAssignmentSelector } from '../../selectors/people';
 import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';

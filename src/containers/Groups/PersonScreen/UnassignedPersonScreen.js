@@ -7,7 +7,6 @@ import { getGroupJourney } from '../../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../../components/common';
 import { INTERACTION_TYPES } from '../../../constants';
 import { addNewInteraction } from '../../../actions/interactions';
-import { createContactAssignment } from '../../../actions/person';
 import GroupsContactList from '../../../components/GroupsContactList';
 import CommentBox from '../../../components/CommentBox';
 import Header from '../../Header';
