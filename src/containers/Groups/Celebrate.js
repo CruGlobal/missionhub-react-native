@@ -12,7 +12,7 @@ import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 
 @translate('groupsCelebrate')
-export class Celebrate extends Component {
+export class GroupCelebrate extends Component {
   componentDidMount() {
     this.loadItems();
   }
@@ -62,4 +62,4 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
   };
 };
 
-export default connect(mapStateToProps)(Celebrate);
+export default connect(mapStateToProps)(GroupCelebrate);

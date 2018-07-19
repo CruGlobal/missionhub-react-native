@@ -1,7 +1,7 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import Celebrate, { mapStateToProps } from '../Celebrate';
+import GroupCelebrate, { mapStateToProps } from '../Celebrate';
 import {
   renderShallow,
   testSnapshotShallow,
@@ -74,14 +74,14 @@ describe('mapStateToProps', () => {
 
 it('should render correctly', () => {
   testSnapshotShallow(
-    <Celebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createMockStore(store)} />,
   );
 });
 
 it('should submit correctly', () => {
   const data = { id: 'test' };
   const instance = renderShallow(
-    <Celebrate organization={org} store={createMockStore(store)} />,
+    <GroupCelebrate organization={org} store={createMockStore(store)} />,
     store,
   ).instance();
   const result = instance.submit(data);
