@@ -4,9 +4,9 @@ import callApi, { REQUESTS } from './api';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.filter(o => {
+    const org = getState().organizations.all.find(o => {
       return o.id === orgId;
-    })[0];
+    });
 
     const { page, hasNextPage } = org.celebratePagination
       ? org.celebratePagination
@@ -23,9 +23,9 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
 
 export function reloadGroupCelebrateFeed(orgId) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.filter(o => {
+    const org = getState().organizations.all.find(o => {
       return o.id === orgId;
-    })[0];
+    });
 
     if (org && org.celebratePagination) {
       org.celebratePagination = { page: 0, hasNextPage: true };
