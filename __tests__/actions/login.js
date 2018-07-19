@@ -10,7 +10,7 @@ import { mockFnWithParams } from '../../testUtils';
 import * as analytics from '../../src/actions/analytics';
 import { ADD_SOMEONE_SCREEN } from '../../src/containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../../src/containers/GetStartedScreen';
-import { MAIN_TABS } from '../../src/constants';
+import { MAIN_TABS, ACTIONS } from '../../src/constants';
 import * as onboardingProfile from '../../src/actions/onboardingProfile';
 
 const mockStore = configureStore([thunk]);
@@ -21,6 +21,7 @@ let user;
 let myContact;
 let myPerson;
 const updateStatusResult = { type: 'now logged in' };
+const trackActionWithoutDataResult = { type: 'tracked plain action' };
 
 jest.mock('react-native-omniture');
 
@@ -45,6 +46,13 @@ describe('onSuccessfulLogin', () => {
     mockFnWithParams(analytics, 'logInAnalytics', updateStatusResult);
 
     mockFnWithParams(
+      analytics,
+      'trackActionWithoutData',
+      trackActionWithoutDataResult,
+      ACTIONS.ONBOARDING_STARTED,
+    );
+
+    mockFnWithParams(
       person,
       'getMe',
       () => Promise.resolve(myPerson),
@@ -60,6 +68,7 @@ describe('onSuccessfulLogin', () => {
 
     expect(store.getActions()).toEqual([
       updateStatusResult,
+      trackActionWithoutDataResult,
       { type: GET_STARTED_SCREEN },
     ]);
   });
@@ -71,6 +80,7 @@ describe('onSuccessfulLogin', () => {
 
     expect(store.getActions()).toEqual([
       updateStatusResult,
+      trackActionWithoutDataResult,
       { type: ADD_SOMEONE_SCREEN },
     ]);
   });

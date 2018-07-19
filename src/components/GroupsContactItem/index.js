@@ -40,7 +40,9 @@ class GroupsContactItem extends Component {
 
   renderContent() {
     const { item } = this.props;
-    if (item.comment) {
+    if (item._type === 'contact_unassignment' && item.unassignment_reason) {
+      return <Text style={styles.comment}>{item.unassignment_reason}</Text>;
+    } else if (item.comment) {
       return <Text style={styles.comment}>{item.comment}</Text>;
     } else if (item.survey && item.answers) {
       return item.answers.map(a => (
