@@ -90,7 +90,7 @@ export class SurveyContactsFilter extends Component {
     this.props.dispatch(
       item.id === 'questions'
         ? navigatePush(SEARCH_QUESTIONS_FILTER_SCREEN, {
-            onFilter: this.handleSelectFilter,
+            onFilter: this.handleSelectQuestionFilter,
             title: item.text,
             options,
             filters: this.state.filters,
@@ -121,6 +121,20 @@ export class SurveyContactsFilter extends Component {
 
   handleToggle = item => {
     searchHandleToggle(this, item);
+  };
+
+  handleSelectQuestionFilter = item => {
+    const { options, selectedFilterId, filters } = this.state;
+    const newOptions = options.map(o => ({
+      ...o,
+      preview: o.id === selectedFilterId ? item.answer_value.text : o.preview,
+    }));
+    let newFilters = {
+      ...filters,
+      ...item,
+    };
+    this.setState({ options: newOptions });
+    this.setFilter(newFilters);
   };
 
   handleSelectFilter = item => {

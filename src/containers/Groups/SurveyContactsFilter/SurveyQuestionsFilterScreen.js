@@ -69,8 +69,8 @@ export class SearchQuestionsFilterScreen extends Component {
     }));
     let filters = {
       ...this.state.filters,
-      question_id: this.state.selectedFilterId,
-      answer_value: item.id,
+      question_id: { id: this.state.selectedFilterId },
+      answer_value: item,
     };
     if (item.id === 'any') {
       delete filters.question_id;
