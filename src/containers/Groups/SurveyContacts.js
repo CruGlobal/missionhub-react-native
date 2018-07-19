@@ -35,7 +35,7 @@ class SurveyContacts extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     // Use the default filters to load in these people
     this.loadContactsWithFilters();
   }
@@ -125,7 +125,7 @@ SurveyContacts.propTypes = {
   survey: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (ReduxState, { navigation }) => ({
+const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 

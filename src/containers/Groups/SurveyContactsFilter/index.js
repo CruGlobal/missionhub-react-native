@@ -123,25 +123,6 @@ export class SurveyContactsFilter extends Component {
     searchHandleToggle(this, item);
   };
 
-  handleSelectQuestionFilter = item => {
-    const { options, selectedFilterId, filters } = this.state;
-    const newOptions = options.map(o => ({
-      ...o,
-      preview:
-        o.id === selectedFilterId
-          ? selectedFilterId === 'question'
-            ? item.answer_value.text
-            : item.id
-          : o.preview,
-    }));
-    let newFilters = {
-      ...filters,
-      ...item,
-    };
-    this.setState({ options: newOptions });
-    this.setFilter(newFilters);
-  };
-
   handleSelectFilter = item => {
     searchSelectFilter(this, item);
   };

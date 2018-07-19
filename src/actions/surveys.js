@@ -1,8 +1,4 @@
-import {
-  DEFAULT_PAGE_LIMIT,
-  GET_ORGANIZATION_SURVEYS,
-  GET_SURVEY_DETAILS,
-} from '../constants';
+import { DEFAULT_PAGE_LIMIT, GET_ORGANIZATION_SURVEYS } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
