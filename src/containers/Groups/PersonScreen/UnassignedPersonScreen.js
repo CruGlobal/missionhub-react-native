@@ -45,13 +45,6 @@ class UnassignedPersonScreen extends Component {
     this.loadFeed();
   };
 
-  handleAssign = async () => {
-    const { dispatch, organization, me, person } = this.props;
-    await dispatch(createContactAssignment(organization.id, me.id, person.id));
-    // TODO: Navigate away after a person is assigned to me
-    // dispatch(navigatePush(GROUP_PERSON_VIEW));
-  };
-
   render() {
     const { t, organization, person, me } = this.props;
     const { activity } = this.state;
@@ -62,7 +55,7 @@ class UnassignedPersonScreen extends Component {
         <GroupsContactList
           activity={activity}
           person={person}
-          onAssign={this.handleAssign}
+          organization={organization}
           myId={me.id}
         />
         <CommentBox placeholder={t('placeholder')} onSubmit={this.submit} />

@@ -39,7 +39,7 @@ class GroupsContactList extends Component {
   }
 
   render() {
-    const { person, onAssign } = this.props;
+    const { person, organization } = this.props;
     const name =
       person.full_name ||
       `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
@@ -48,7 +48,7 @@ class GroupsContactList extends Component {
       <Flex value={1}>
         <Flex style={styles.header} align="center" justify="center">
           <Text style={styles.name}>{name.toUpperCase()}</Text>
-          <AssignToMeButton onPress={onAssign} />
+          <AssignToMeButton personId={person.id} orgId={organization.id} />
         </Flex>
         <Flex value={1} style={styles.content}>
           {this.renderContent()}
@@ -60,7 +60,6 @@ class GroupsContactList extends Component {
 
 GroupsContactList.propTypes = {
   activity: PropTypes.array.isRequired,
-  onAssign: PropTypes.func.isRequired,
   person: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
 };

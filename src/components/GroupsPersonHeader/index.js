@@ -239,38 +239,14 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
-  assignToMe = async () => {
-    const { dispatch, person, organization, myId } = this.props;
-    const { person: resultPerson } = await dispatch(
-      createContactAssignment(organization.id, myId, person.id),
-    );
-
-    const { id: contactAssignmentId } = contactAssignmentSelector(
-      { auth: { person: { id: myId } } },
-      { person: resultPerson, orgId: organization.id },
-    );
-
-    dispatch(
-      navigatePush(PERSON_STAGE_SCREEN, {
-        contactId: resultPerson.id,
-        orgId: organization.id,
-        contactAssignmentId,
-        name: resultPerson.first_name,
-        onComplete: () => {},
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
-
   render() {
     const { buttons } = this.state;
-    const { contactAssignment, myId, person } = this.props;
+    const { contactAssignment, myId, person, organization } = this.props;
 
     return (
       <Flex>
         {contactAssignment || myId === person.id ? null : (
-          <AssignToMeButton onPress={this.assignToMe} />
+          <AssignToMeButton personId={person.id} orgId={organization.id} />
         )}
         <Flex align="center" justify="center" direction="row">
           {buttons}
