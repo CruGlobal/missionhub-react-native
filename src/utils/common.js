@@ -107,7 +107,9 @@ export const capitalize = lodash.capitalize;
 
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {
-    if (exists(args[i])) return args[i];
+    if (exists(args[i])) {
+      return args[i];
+    }
   }
   return null;
 };
@@ -213,7 +215,9 @@ export const getFilterOptions = (t, filters) => ({
 
 export const searchHandleToggle = (scope, item) => {
   const { toggleOptions, filters } = scope.state;
-  if (!item) return;
+  if (!item) {
+    return;
+  }
   let newFilter = { ...filters };
   const field = item.id;
   const newValue = !item.selected;
