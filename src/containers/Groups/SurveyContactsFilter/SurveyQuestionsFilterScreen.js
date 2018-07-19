@@ -73,7 +73,7 @@ export class SearchQuestionsFilterScreen extends Component {
       answer: item,
     };
     if (item.id === 'any') {
-      newFilters = {};
+      newFilters.id = 'any';
     }
     this.setState({ options: newOptions });
     this.setFilter(newFilters);
