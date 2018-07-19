@@ -53,8 +53,8 @@ export class GroupCelebrate extends Component {
     return celebrateItems.length !== 0 ? (
       <CelebrateFeed
         items={celebrateItems}
-        loadMoreItemsCallback={() => this.loadItems()}
-        refreshCallback={() => this.refreshItems()}
+        loadMoreItemsCallback={this.loadItems}
+        refreshCallback={this.refreshItems}
       />
     ) : (
       <EmptyCelebrateFeed />

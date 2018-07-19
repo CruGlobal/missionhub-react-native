@@ -47,9 +47,9 @@ export default class CelebrateFeed extends Component {
           return item.id;
         }}
         onEndReachedThreshold={0.2}
-        onEndReached={() => this.handleOnEndReached()}
-        onScrollEndDrag={() => this.handleEndDrag()}
-        onRefresh={() => this.handleRefreshing()}
+        onEndReached={this.handleOnEndReached}
+        onScrollEndDrag={this.handleEndDrag}
+        onRefresh={this.handleRefreshing}
         refreshing={false}
       />
     );

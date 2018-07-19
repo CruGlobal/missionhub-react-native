@@ -50,8 +50,8 @@ class MemberCelebrate extends Component {
     return (
       <CelebrateFeed
         items={celebrateItems}
-        loadMoreItemsCallback={() => this.loadItems()}
-        refreshCallback={() => this.refreshItems()}
+        loadMoreItemsCallback={this.loadItems}
+        refreshCallback={this.refreshItems}
       />
     );
   }
