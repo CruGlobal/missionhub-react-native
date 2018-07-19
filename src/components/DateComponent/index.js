@@ -6,19 +6,32 @@ import { translate } from 'react-i18next';
 import { isString, momentUtc } from '../../utils/common';
 import Text from '../Text';
 
+const Constants = {
+  today: 'today',
+  yesterday: 'yesterday',
+  relative: 'relative',
+  Formats: {
+    dayOnly: 'dddd',
+    dayMonthDate: 'dddd, MMMM D',
+    fullDate: 'dddd, MMMM D YYYY',
+  },
+};
+
 @translate()
 export default class DateComponent extends Component {
   render() {
     const { t, date, format, ...rest } = this.props;
+    const { relative, yesterday, today } = Constants;
+
     let dateFormat = format;
-    if (format === 'relative') {
+    if (format === relative) {
       dateFormat = relativeFormat(date);
     }
 
     let text;
-    if (dateFormat === 'today') {
+    if (dateFormat === today) {
       text = t('dates.today');
-    } else if (dateFormat === 'yesterday') {
+    } else if (dateFormat === yesterday) {
       text = t('dates.yesterday');
     } else if (isString(date) && date.indexOf('UTC') >= 0) {
       text = momentUtc(date)
@@ -51,14 +64,14 @@ const relativeFormat = date => {
   if (other.isSame(today, 'year')) {
     if (other.isBetween(lastWeek, today, 'day', '[]')) {
       if (other.isSame(yesterday, 'day')) {
-        return 'yesterday';
+        return Constants.yesterday;
       }
       if (other.isSame(today, 'day')) {
-        return 'today';
+        return Constants.today;
       }
-      return 'dddd';
+      return Constants.Formats.dayOnly;
     }
-    return 'dddd, MMMM D';
+    return Constants.Formats.dayMonthDate;
   }
-  return 'dddd, MMMM D YYYY';
+  return Constants.Formats.fullDate;
 };
