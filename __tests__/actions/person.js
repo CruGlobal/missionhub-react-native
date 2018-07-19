@@ -314,6 +314,16 @@ describe('createContactAssignment', () => {
 describe('deleteContactAssignment', () => {
   const personId = '123';
   const personOrgId = '456';
+  const contactAssignmentId = 1;
+
+  const query = { contactAssignmentId };
+
+  let data = {
+    data: {
+      type: 'contact_assignment',
+      attributes: { unassignment_reason: '' },
+    },
+  };
 
   const deleteAction = {
     type: DELETE_PERSON,
@@ -321,34 +331,28 @@ describe('deleteContactAssignment', () => {
     personOrgId,
   };
 
+  const testDelete = () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
+      query,
+      data,
+    );
+    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+  };
+
   it('should send the correct API request', async () => {
     await deleteContactAssignment(1, personId, personOrgId)(dispatch);
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
-      { contactAssignmentId: 1 },
-      {
-        type: 'contact_assignment',
-        attributes: { unassignment_reason: '' },
-      },
-    );
-    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+    testDelete();
   });
 
   it('should send the correct API request with note', async () => {
     const note = 'testNote';
+    data.data.attributes.unassignment_reason = note;
 
     await deleteContactAssignment(1, personId, personOrgId, note)(dispatch);
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.DELETE_CONTACT_ASSIGNMENT,
-      { contactAssignmentId: 1 },
-      {
-        type: 'contact_assignment',
-        attributes: { unassignment_reason: note },
-      },
-    );
-    expect(dispatch).toHaveBeenCalledWith(deleteAction);
+    testDelete();
   });
 });
 

@@ -53,6 +53,8 @@ export default class JourneyItem extends Component {
     const {
       t,
       item,
+      myId,
+      personFirstName,
       item: { _type },
     } = this.props;
     let title;
@@ -79,6 +81,22 @@ export default class JourneyItem extends Component {
       if (interaction) {
         title = t(interaction.translationKey);
       }
+    } else if (_type === 'contact_assignment') {
+      const assignedToName = getAssignedToName(myId, item);
+      const assignedByName = getAssignedByName(myId, item);
+
+      title = t('contactAssignment', {
+        assignedByName,
+        assignedContactName: personFirstName,
+        assignedToName,
+      });
+    } else if (_type === 'contact_unassignment') {
+      const assignedToName = getAssignedToName(myId, item);
+
+      title = t('contactUnassignment', {
+        assignedContactName: personFirstName,
+        assignedToName,
+      });
     }
 
     if (!title) {
@@ -93,8 +111,6 @@ export default class JourneyItem extends Component {
       t,
       item,
       item: { _type },
-      myId,
-      personFirstName,
     } = this.props;
     let text;
     if (_type === 'accepted_challenge') {
@@ -118,22 +134,10 @@ export default class JourneyItem extends Component {
       }
     } else if (_type === 'interaction') {
       text = item.comment;
-    } else if (_type === 'contact_assignment') {
-      const assignedToName = getAssignedToName(myId, item);
-      const assignedByName = getAssignedByName(myId, item);
+    }
 
-      text = t('contactAssignment', {
-        assignedByName,
-        assignedContactName: personFirstName,
-        assignedToName,
-      });
-    } else if (_type === 'contact_unassignment') {
-      const assignedToName = getAssignedToName(myId, item);
-
-      text = t('contactUnassignment', {
-        assignedContactName: personFirstName,
-        assignedToName,
-      });
+    if (!text) {
+      return null;
     }
 
     return <Text style={styles.text}>{text}</Text>;
