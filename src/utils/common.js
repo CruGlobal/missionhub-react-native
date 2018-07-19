@@ -175,7 +175,10 @@ export const getFilterOptions = (t, filters, questions = []) => {
       options: choiceQuestions.map(q => ({
         id: q.id,
         text: q.label,
-        options: q.content.split('\r\n').map(o => ({ id: o, text: o })),
+        options: q.content
+          .split(/\r*\n/)
+          .filter(o => o !== '')
+          .map(o => ({ id: o, text: o })),
       })),
       preview: filters.questions ? filters.questions.text : undefined,
     },

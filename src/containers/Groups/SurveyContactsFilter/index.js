@@ -55,7 +55,7 @@ export class SurveyContactsFilter extends Component {
   }
 
   async loadQuestions() {
-    const { t, dispatch, survey } = this.props;
+    const { dispatch, survey } = this.props;
     const questions = await dispatch(getSurveyQuestions(survey.id));
     this.createFilters(questions);
   }
@@ -127,7 +127,12 @@ export class SurveyContactsFilter extends Component {
     const { options, selectedFilterId, filters } = this.state;
     const newOptions = options.map(o => ({
       ...o,
-      preview: o.id === selectedFilterId ? item.answer_value.text : o.preview,
+      preview:
+        o.id === selectedFilterId
+          ? selectedFilterId === 'question'
+            ? item.answer_value.text
+            : item.id
+          : o.preview,
     }));
     let newFilters = {
       ...filters,

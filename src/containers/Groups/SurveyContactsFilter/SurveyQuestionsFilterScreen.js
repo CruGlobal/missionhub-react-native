@@ -70,6 +70,7 @@ export class SearchQuestionsFilterScreen extends Component {
     }));
     let newFilters = {
       id: selectedFilter.id,
+      text: item.text,
       answer: item,
     };
     if (item.id === 'any') {
