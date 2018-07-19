@@ -12,7 +12,6 @@ import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
-import { organizationSelector } from '../../selectors/organizations';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -126,7 +125,7 @@ SurveyContacts.propTypes = {
   survey: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { navigation }) => ({
+const mapStateToProps = (ReduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 

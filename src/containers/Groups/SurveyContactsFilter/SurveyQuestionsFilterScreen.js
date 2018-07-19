@@ -5,16 +5,9 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import { getSurveyQuestions } from '../../../actions/surveys';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
-import {
-  buildTrackingObj,
-  isString,
-  getFilterOptions,
-  searchHandleToggle,
-  searchSelectFilter,
-} from '../../../utils/common';
+import { buildTrackingObj, isString } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
@@ -25,7 +18,7 @@ import styles from './styles';
 export class SearchQuestionsFilterScreen extends Component {
   constructor(props) {
     super(props);
-    const { t, filters, options } = props;
+    const { filters, options } = props;
 
     this.state = {
       filters,
