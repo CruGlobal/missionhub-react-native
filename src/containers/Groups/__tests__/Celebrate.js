@@ -9,9 +9,14 @@ import {
 } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { celebrationSelector } from '../../../selectors/celebration';
+import {
+  reloadGroupCelebrateFeed,
+  getGroupCelebrateFeed,
+} from '../../../actions/celebration';
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/celebration');
+jest.mock('../../../actions/celebration');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
@@ -86,4 +91,14 @@ it('should submit correctly', () => {
   ).instance();
   const result = instance.submit(data);
   expect(result).toBe(data);
+});
+
+it('should refresh correctly', () => {
+  const instance = renderShallow(
+    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+  instance.refreshItems();
+  expect(getGroupCelebrateFeed).toHaveBeenCalled();
+  expect(reloadGroupCelebrateFeed).toHaveBeenCalled();
 });
