@@ -169,13 +169,13 @@ export const getFilterOptions = (t, filters, questions = []) => {
   );
 
   return {
-    questions: {
-      id: 'questions',
+    question: {
+      id: 'question',
       text: t('searchFilter:surveyQuestions'),
       options: choiceQuestions.map(q => ({
         id: q.id,
         text: q.label,
-        options: q.content.split('\n').map(o => ({ id: o, text: o })),
+        options: q.content.split('\r\n').map(o => ({ id: o, text: o })),
       })),
       preview: filters.questions ? filters.questions.text : undefined,
     },

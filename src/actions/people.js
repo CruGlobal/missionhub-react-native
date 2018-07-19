@@ -97,6 +97,10 @@ export function searchPeople(text = '', filters = {}) {
     if (filters.surveys) {
       query.filters.survey_ids = filters.surveys.id;
     }
+    if (filters.question) {
+      query.filters.question_id = filters.question.id;
+      query.filters.answer_value = filters.question.answer.text;
+    }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
   };
