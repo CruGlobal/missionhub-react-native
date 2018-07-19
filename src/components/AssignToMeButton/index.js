@@ -58,7 +58,6 @@ const mapStateToProps = ({ auth }) => ({
 export default connect(mapStateToProps)(AssignToMeButton);
 
 AssignToMeButton.propTypes = {
-  myId: PropTypes.string.isRequired,
   orgId: PropTypes.string.isRequired,
   personId: PropTypes.string.isRequired,
 };
