@@ -14,6 +14,11 @@ import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
 import styles from './styles';
 
+const CelebrateableTypes = {
+  completedStep: 'accepted_challenge',
+  completedInteraction: 'interaction',
+};
+
 @translate('celebrateFeeds')
 export default class CelebrateItem extends Component {
   onPressLikeIcon = () => {};
@@ -24,10 +29,10 @@ export default class CelebrateItem extends Component {
     const name = event.subject_person_name.split(' ')[0];
 
     switch (event.celebrateable_type) {
-      case 'V4::AcceptedChallenge':
+      case CelebrateableTypes.completedStep:
         return this.renderStepOfFaithMessage(t, event, name);
-      case 'V4::Interaction':
-        return t('interaction', {
+      case CelebrateableTypes.completedInteraction:
+        return t(CelebrateableTypes.completedInteraction, {
           initiator: name,
           interactionName: this.renderInteraction(),
         });
