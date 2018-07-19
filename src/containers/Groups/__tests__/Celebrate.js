@@ -30,9 +30,15 @@ const celebrate3 = {
   changed_attribute_value: '2018-06-10 00:00:00 UTC',
 };
 
+const celebratePagination = {
+  hasNextPage: true,
+  page: 1,
+};
+
 const org = {
   id: '1',
   celebrateItems: [celebrate1, celebrate2, celebrate3],
+  celebratePagination: celebratePagination,
 };
 
 const celebrateSelectorReturnValue = [
@@ -48,15 +54,9 @@ const celebrateSelectorReturnValue = [
   },
 ];
 
-const celebratePagination = {
-  hasNextPage: true,
-  page: 1,
-};
-
 const store = {
   organizations: {
     all: [org],
-    celebratePagination,
   },
 };
 

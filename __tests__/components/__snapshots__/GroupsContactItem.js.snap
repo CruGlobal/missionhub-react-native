@@ -808,7 +808,7 @@ exports[`renders contact unassignment item with note 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
