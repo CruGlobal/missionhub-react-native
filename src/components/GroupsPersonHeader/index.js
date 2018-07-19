@@ -20,6 +20,7 @@ import {
 import AssignToMeButton from '../AssignToMeButton/index';
 import CenteredIconWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
+import { contactAssignmentSelector } from '../../selectors/people';
 import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
@@ -238,9 +239,28 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
-  assignToMe = () => {
+  assignToMe = async () => {
     const { dispatch, person, organization, myId } = this.props;
-    dispatch(createContactAssignment(organization.id, myId, person.id));
+    const { person: resultPerson } = await dispatch(
+      createContactAssignment(organization.id, myId, person.id),
+    );
+
+    const { id: contactAssignmentId } = contactAssignmentSelector(
+      { auth: { person: { id: myId } } },
+      { person: resultPerson, orgId: organization.id },
+    );
+
+    dispatch(
+      navigatePush(PERSON_STAGE_SCREEN, {
+        contactId: resultPerson.id,
+        orgId: organization.id,
+        contactAssignmentId,
+        name: resultPerson.first_name,
+        onComplete: () => {},
+        section: 'people',
+        subsection: 'person',
+      }),
+    );
   };
 
   render() {
