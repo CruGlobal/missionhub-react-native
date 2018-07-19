@@ -23,7 +23,7 @@ export class SearchQuestionsFilterScreen extends Component {
     this.state = {
       filters,
       options,
-      selectedFilterId: '',
+      selectedFilter: {},
       refreshing: false,
     };
   }
@@ -57,27 +57,28 @@ export class SearchQuestionsFilterScreen extends Component {
         ),
       }),
     );
-    this.setState({ selectedFilterId: item.id });
+    this.setState({ selectedFilter: item });
 
     this.props.dispatch(trackSearchFilter(item.id));
   };
 
   handleSelectFilter = item => {
-    const newOptions = this.state.options.map(o => ({
+    const { options, selectedFilter, filters } = this.state;
+    const newOptions = options.map(o => ({
       ...o,
-      preview: o.id === this.state.selectedFilterId ? item.text : null,
+      preview: o.id === selectedFilter.id ? item.text : null,
     }));
-    let filters = {
-      ...this.state.filters,
-      question_id: { id: this.state.selectedFilterId },
+    let newFilters = {
+      ...filters,
+      question_id: selectedFilter,
       answer_value: item,
     };
     if (item.id === 'any') {
-      delete filters.question_id;
-      delete filters.answer_value;
+      delete newFilters.question_id;
+      delete newFilters.answer_value;
     }
     this.setState({ options: newOptions });
-    this.setFilter(filters);
+    this.setFilter(newFilters);
   };
 
   render() {
