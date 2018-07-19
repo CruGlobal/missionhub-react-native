@@ -13,22 +13,22 @@ export default class CelebrateFeed extends Component {
     this.state = { ...this.state, isListScrolled: false };
   }
 
-  handleOnEndReached() {
+  handleOnEndReached = () => {
     if (this.state.isListScrolled) {
       this.props.loadMoreItemsCallback();
       this.setState({ isListScrolled: false });
     }
-  }
+  };
 
-  handleEndDrag() {
+  handleEndDrag = () => {
     if (!this.state.isListScrolled) {
       this.setState({ isListScrolled: true });
     }
-  }
+  };
 
-  handleRefreshing() {
+  handleRefreshing = () => {
     this.props.refreshCallback();
-  }
+  };
 
   render() {
     const { title, header } = styles;
