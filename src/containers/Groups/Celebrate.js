@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import moment from 'moment';
 
 import CelebrateFeed from '../../components/CelebrateFeed';
 import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
@@ -10,12 +11,27 @@ import {
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
+import { momentUtc } from '../../utils/common';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {
   componentDidMount() {
-    this.loadItems();
+    if (this.shouldLoadFeed()) {
+      this.loadItems();
+      console.log('loading...');
+    }
   }
+
+  shouldLoadFeed = () => {
+    const { pagination, celebrateItems } = this.props;
+
+    return (
+      !celebrateItems ||
+      celebrateItems.length === 0 ||
+      pagination.page === 0 ||
+      moment().diff(momentUtc(celebrateItems[0].date), 'days', true > 1)
+    );
+  };
 
   loadItems = () => {
     const { dispatch, organization } = this.props;
@@ -34,7 +50,7 @@ export class GroupCelebrate extends Component {
   render() {
     const { celebrateItems } = this.props;
 
-    return celebrateItems.length > 0 ? (
+    return celebrateItems.length !== 0 ? (
       <CelebrateFeed
         items={celebrateItems}
         loadMoreItemsCallback={() => this.loadItems()}
@@ -58,7 +74,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
 
   return {
     celebrateItems,
-    pagination: organizations.celebratePagination,
+    pagination: selectorOrg.celebratePagination,
   };
 };
 
