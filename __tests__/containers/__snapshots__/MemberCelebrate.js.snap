@@ -1,6 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberCelebrate renders correctly 1`] = `
+<CelebrateFeed
+  items={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "celebrateable_type": "interaction",
+            "changed_attribute_value": "2018-06-11 00:00:00 UTC",
+            "id": "10",
+            "subject_person": Object {
+              "id": "1",
+            },
+          },
+        ],
+        "date": "2018-06-11 00:00:00 UTC",
+        "id": 0,
+      },
+    ]
+  }
+  loadMoreItemsCallback={[Function]}
+  refreshCallback={[Function]}
+/>
+`;
+
+exports[`MemberCelebrate renders empty feed correctly 1`] = `
 <Translate(EmptyCelebrateFeed)
   person={
     Object {
