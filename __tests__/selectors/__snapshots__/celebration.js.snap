@@ -1,5 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`filters out celebrate items it cannot render 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "adjective_attribute_value": 2,
+        "celebrateable_type": "accepted_challenge",
+        "changed_attribute_value": "2018-01-07 00:00:00 UTC",
+        "id": "4",
+      },
+    ],
+    "date": "2018-01-07 00:00:00 UTC",
+    "id": 0,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "adjective_attribute_value": 9,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2018-01-05 00:00:00 UTC",
+        "id": "5",
+      },
+    ],
+    "date": "2018-01-05 00:00:00 UTC",
+    "id": 1,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "adjective_attribute_value": 5,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2018-01-02 00:23:00 UTC",
+        "id": "6",
+      },
+      Object {
+        "adjective_attribute_value": 11,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2018-01-02 00:07:00 UTC",
+        "id": "3",
+      },
+      Object {
+        "adjective_attribute_value": 3,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2018-01-02 00:00:00 UTC",
+        "id": "7",
+      },
+    ],
+    "date": "2018-01-02 00:23:00 UTC",
+    "id": 2,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "adjective_attribute_value": 2,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2018-01-01 00:00:00 UTC",
+        "id": "1",
+      },
+    ],
+    "date": "2018-01-01 00:00:00 UTC",
+    "id": 3,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "adjective_attribute_value": 4,
+        "celebrateable_type": "interaction",
+        "changed_attribute_value": "2017-01-01 00:00:00 UTC",
+        "id": "2",
+      },
+    ],
+    "date": "2017-01-01 00:00:00 UTC",
+    "id": 4,
+  },
+]
+`;
+
 exports[`sorts items into sections by date 1`] = `
 Array [
   Object {
