@@ -4,19 +4,18 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: theme.white,
   },
-  notesText: {
+  header: {
+    fontSize: 42,
+    color: theme.primaryColor,
+    paddingTop: 10,
+  },
+  description: {
     fontSize: 16,
     color: theme.textColor,
-    textAlign: 'left',
-    paddingHorizontal: 36,
-    marginTop: 30,
-    paddingBottom: 30,
-    borderBottomWidth: 0,
-  },
-  list: {
-    backgroundColor: theme.transparent,
+    paddingHorizontal: 70,
+    textAlign: 'center',
+    paddingVertical: 10,
   },
 });

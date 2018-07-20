@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
-import CommentBox from '../../components/CommentBox';
-import { Text, PlatformKeyboardAvoidingView } from '../../components/common';
-import theme from '../../theme';
+import NullStateComponent from '../../components/NullStateComponent';
 
-@translate('groupsCelebrate')
+@translate('memberContacts')
 class MemberContacts extends Component {
   renderEmpty() {
-    <Text>Anyone assigned to this member will appear here.</Text>;
+    const { t, person } = this.props;
+
+    return (
+      <NullStateComponent
+        imageSource={null}
+        headerText={t('peopleScreen:header')}
+        descriptionText={t('nullDescription', {
+          memberName: person.first_name,
+        })}
+      />
+    );
   }
 
   render() {
-    const { t } = this.props;
-    return (
-      <ScrollView style={{ flex: 1 }}>
-        <Text>Load More</Text>
-        <Text>MEMBER Assigned Contacts LIST</Text>
-      </ScrollView>
-    );
+    return this.renderEmpty();
   }
 }
+
+MemberContacts.propTypes = {
+  person: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
+  }).isRequired,
+  organization: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default connect()(MemberContacts);
