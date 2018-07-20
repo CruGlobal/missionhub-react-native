@@ -440,6 +440,8 @@ export default {
     interaction: '{{initiator}} had a {{interactionName}}.',
     interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
     addedContact: '{{initiator}} added a {{receiverStage}} person.',
+    somethingCoolHappened:
+      '{{initiator}} saw something cool happen with someone.',
   },
   groupsMembers: {
     title: '',

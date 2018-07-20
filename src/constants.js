@@ -289,3 +289,16 @@ export const INTERACTION_TYPES = {
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;
+
+export const CELEBRATEABLE_TYPES = {
+  completedStep: 'accepted_challenge',
+  completedInteraction: 'interaction',
+  validInteractionTypes: [
+    INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
+    INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
+    INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
+    INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id,
+    INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
+    INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
+  ],
+};
