@@ -83,12 +83,14 @@ it('should render correctly', () => {
   );
 });
 
-it('should refresh correctly', () => {
+it('should refresh correctly', async () => {
   const instance = renderShallow(
     <GroupCelebrate organization={org} store={createMockStore(store)} />,
     store,
-  ).instance();
-  instance.refreshItems();
+  );
+
+  await instance.props().refreshCallback();
+
   expect(getGroupCelebrateFeed).toHaveBeenCalled();
   expect(reloadGroupCelebrateFeed).toHaveBeenCalled();
 });
