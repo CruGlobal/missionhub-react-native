@@ -9,16 +9,11 @@ import {
   Button,
   DateComponent,
 } from '../../components/common';
-import { INTERACTION_TYPES } from '../../constants';
+import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
 import styles from './styles';
-
-const CelebrateableTypes = {
-  completedStep: 'accepted_challenge',
-  completedInteraction: 'interaction',
-};
 
 @translate('celebrateFeeds')
 export default class CelebrateItem extends Component {
@@ -26,7 +21,7 @@ export default class CelebrateItem extends Component {
 
   renderMessage() {
     const { t, event } = this.props;
-    const { completedInteraction, completedStep } = CelebrateableTypes;
+    const { completedInteraction, completedStep } = CELEBRATEABLE_TYPES;
     const { adjective_attribute_value } = event;
 
     const name = event.subject_person_name.split(' ')[0];
@@ -44,7 +39,7 @@ export default class CelebrateItem extends Component {
       MHInteractionTypePersonalDecision,
       MHInteractionTypeSomethingCoolHappened,
     } = INTERACTION_TYPES;
-    const { completedInteraction } = CelebrateableTypes;
+    const { completedInteraction } = CELEBRATEABLE_TYPES;
 
     switch (parseInt(type)) {
       case MHInteractionTypePersonalDecision.id:
