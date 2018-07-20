@@ -29,6 +29,7 @@ const mockState = {
           {
             id: '10',
             celebrateable_type: 'interaction',
+            adjective_attribute_value: 4,
             changed_attribute_value: '2018-06-11 00:00:00 UTC',
             subject_person: { id: '1' },
           },

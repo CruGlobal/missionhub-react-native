@@ -7,6 +7,7 @@ exports[`MemberCelebrate renders correctly 1`] = `
       Object {
         "data": Array [
           Object {
+            "adjective_attribute_value": 4,
             "celebrateable_type": "interaction",
             "changed_attribute_value": "2018-06-11 00:00:00 UTC",
             "id": "10",
