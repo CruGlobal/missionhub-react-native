@@ -3,6 +3,7 @@ import { ACTIONS } from '../constants';
 import callApi, { REQUESTS } from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
+import { reloadGroupCelebrateFeed } from './celebration';
 
 export function addNewInteraction(
   personId,
@@ -64,6 +65,7 @@ export function addNewInteraction(
       }),
     );
     dispatch(refreshImpact());
+    dispatch(reloadGroupCelebrateFeed(organizationId));
 
     return response;
   };

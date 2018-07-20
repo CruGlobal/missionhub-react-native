@@ -5,7 +5,7 @@ exports[`render load more button 1`] = `
   buttonTextStyle={
     Object {
       "color": "#B2B0B2",
-      "fontSize": 14,
+      "fontSize": 18,
     }
   }
   onPress={[MockFunction]}
@@ -16,8 +16,8 @@ exports[`render load more button 1`] = `
       "borderRadius": 25,
       "borderWidth": 1,
       "marginVertical": 20,
-      "minWidth": 200,
       "paddingVertical": 7,
+      "width": 250,
     }
   }
   text="LOAD MORE"

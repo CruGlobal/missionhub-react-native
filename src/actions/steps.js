@@ -24,6 +24,7 @@ import { navigatePush, navigateBack } from './navigation';
 import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
+import { reloadGroupCelebrateFeed } from './celebration';
 
 export function getStepSuggestions(isMe, contactStageId) {
   return dispatch => {
@@ -169,6 +170,7 @@ export function completeStep(step, screen) {
   return dispatch => {
     return dispatch(challengeCompleteAction(step, screen)).then(r => {
       dispatch(getMySteps());
+      dispatch(reloadGroupCelebrateFeed(step.organization.id));
       return r;
     });
   };

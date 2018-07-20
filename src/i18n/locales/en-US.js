@@ -60,6 +60,10 @@ export default {
           'Awesome! We hope MissionHub helps you serve those God has placed in your life.',
       },
     },
+    dates: {
+      today: 'Today',
+      yesterday: 'Yesterday',
+    },
     steps: {},
     done: 'DONE',
     next: 'Next',
@@ -71,6 +75,7 @@ export default {
     delete: 'Delete',
     cancel: 'Cancel',
     continue: 'Continue',
+    your: 'your',
     contactAssignment:
       '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
     contactUnassignment:
@@ -416,9 +421,20 @@ export default {
   groupsList: {
     header: 'Groups',
   },
-  groupsCelebrate: {
+  celebrateFeeds: {
     title: '',
     placeholder: 'Share something to be celebrated...',
+    emptyFeedTitle: 'Celebrate!',
+    emptyFeedDescription:
+      'You can celebrate {{firstName}} Steps of Faith here.',
+    emptyFeedGroupNameValue: 'each other',
+    stepOfFaith:
+      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
+    stepOfFaithUnknownStage:
+      '{{initiator}} completed a Step of Faith with someone.',
+    interaction: '{{initiator}} had a {{interactionName}}.',
+    interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
+    addedContact: '{{initiator}} added a {{receiverStage}} person.',
   },
   groupsMembers: {
     title: '',

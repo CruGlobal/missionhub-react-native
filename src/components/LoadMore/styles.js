@@ -8,12 +8,12 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.grey1,
     borderRadius: 25,
-    minWidth: 200,
+    width: 250,
     alignSelf: 'center',
     marginVertical: 20,
   },
   text: {
-    fontSize: 14,
+    fontSize: 18,
     color: theme.grey1,
   },
 });

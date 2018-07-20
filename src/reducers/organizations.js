@@ -6,6 +6,7 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
+  RESET_CELEBRATION_PAGINATION,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -15,10 +16,6 @@ const initialState = {
   surveysPagination: {
     hasNextPage: true,
     page: 1,
-  },
-  celebratePagination: {
-    hasNextPage: true,
-    page: 0,
   },
   membersPagination: {
     hasNextPage: true,
@@ -36,7 +33,7 @@ function organizationsReducer(state = initialState, action) {
         ...o,
       }));
       return {
-        ...state,
+        ...initialState,
         all: myOrgs,
       };
     case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
@@ -109,11 +106,30 @@ function organizationsReducer(state = initialState, action) {
           ? state.all.map(
               o =>
                 o.id === celebrateOrgId
-                  ? { ...o, celebrateItems: allItems }
+                  ? {
+                      ...o,
+                      celebrateItems: allItems,
+                      celebratePagination: getPagination(
+                        action,
+                        allItems.length,
+                      ),
+                    }
                   : o,
             )
           : state.all,
-        celebratePagination: getPagination(action, allItems.length),
+      };
+    case RESET_CELEBRATION_PAGINATION:
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === action.orgId
+              ? {
+                  ...o,
+                  celebratePagination: { page: 0, hasNextPage: true },
+                }
+              : o,
+        ),
       };
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
