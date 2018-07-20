@@ -4,7 +4,6 @@ import StatusReasonScreen from '../../src/containers/StatusReasonScreen';
 import {
   createMockStore,
   renderShallow,
-  testSnapshotShallow,
   createMockNavState,
 } from '../../testUtils';
 import { deleteContactAssignment } from '../../src/actions/person';
@@ -75,7 +74,7 @@ describe('StatusReasonScreen', () => {
 
   it('should submit with false', () => {
     const instance = createComponent().instance();
-    const result = instance.submit();
+    instance.submit();
     expect(deleteContactAssignment).toHaveBeenCalledWith(
       contactAssignment.id,
       person.id,
@@ -87,14 +86,14 @@ describe('StatusReasonScreen', () => {
   it('should call onSubmit if exists', () => {
     onSubmit = jest.fn();
     const instance = createComponent().instance();
-    const result = instance.submit();
+    instance.submit();
     expect(onSubmit).toHaveBeenCalled();
   });
 
   it('should call navigateBack if onSubmit does not exist', () => {
     onSubmit = undefined;
     const instance = createComponent().instance();
-    const result = instance.submit();
+    instance.submit();
     expect(navigateBack).toHaveBeenCalled();
   });
 });

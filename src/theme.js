@@ -17,16 +17,32 @@ function colorConvert({
   blacken,
   hex,
 }) {
-  if (!color) LOG('Pass in a color!');
+  if (!color) {
+    LOG('Pass in a color!');
+  }
   let col = Color(color);
   // Lots of things you can do with color stuff
-  if (exists(alpha)) col = Color(col).alpha(alpha);
-  if (exists(lighten)) col = Color(col).lighten(lighten);
-  if (exists(darken)) col = Color(col).darken(darken);
-  if (exists(negate)) col = Color(col).negate();
-  if (exists(rotate)) col = Color(col).rotate(rotate);
-  if (exists(whiten)) col = Color(col).whiten(whiten);
-  if (exists(blacken)) col = Color(col).blacken(blacken);
+  if (exists(alpha)) {
+    col = Color(col).alpha(alpha);
+  }
+  if (exists(lighten)) {
+    col = Color(col).lighten(lighten);
+  }
+  if (exists(darken)) {
+    col = Color(col).darken(darken);
+  }
+  if (exists(negate)) {
+    col = Color(col).negate();
+  }
+  if (exists(rotate)) {
+    col = Color(col).rotate(rotate);
+  }
+  if (exists(whiten)) {
+    col = Color(col).whiten(whiten);
+  }
+  if (exists(blacken)) {
+    col = Color(col).blacken(blacken);
+  }
   if (hex === true) {
     return col.hex().toString();
   }

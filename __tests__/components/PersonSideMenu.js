@@ -2,7 +2,6 @@ import React from 'react';
 
 import PersonSideMenu from '../../src/components/PersonSideMenu';
 import {
-  testSnapshotShallow,
   renderShallow,
   createMockStore,
   createMockNavState,
@@ -119,7 +118,7 @@ function testAssignClick(component) {
   );
 }
 
-function testUnassignClick(component, deleteMode = false) {
+function testUnassignClick(component) {
   const props = component.props();
   const onSubmit = component.instance().onSubmitReason;
 

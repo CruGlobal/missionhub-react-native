@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { navigatePush } from '../../actions/navigation';
 import { Flex, RefreshControl } from '../../components/common';
 import { refresh } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
@@ -54,10 +53,11 @@ class Members extends Component {
   render() {
     const { members, pagination } = this.props;
     return (
-      <Flex value={1} style={styles.members}>
+      <Flex value={1}>
         <FlatList
           data={members}
           keyExtractor={i => i.id}
+          style={styles.flatList}
           renderItem={({ item }) => (
             <GroupMemberItem person={item} onSelect={this.handleSelect} />
           )}

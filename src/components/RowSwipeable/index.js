@@ -17,9 +17,15 @@ class RowSwipeable extends Component {
     super(props);
 
     let numOptions = 0;
-    if (props.onDelete) numOptions++;
-    if (props.onComplete) numOptions++;
-    if (props.onEdit) numOptions++;
+    if (props.onDelete) {
+      numOptions++;
+    }
+    if (props.onComplete) {
+      numOptions++;
+    }
+    if (props.onEdit) {
+      numOptions++;
+    }
 
     this.numOptions = numOptions;
     this.openDistance = numOptions * -1 * OPTION_WIDTH;

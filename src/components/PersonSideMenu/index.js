@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-native';
-import { DrawerActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -8,11 +6,7 @@ import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
-import {
-  createContactAssignment,
-  deleteContactAssignment,
-  updateFollowupStatus,
-} from '../../actions/person';
+import { createContactAssignment } from '../../actions/person';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,

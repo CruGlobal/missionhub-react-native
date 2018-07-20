@@ -5,11 +5,9 @@ import i18next from 'i18next';
 import Header from '../Header/index';
 import BackButton from '../BackButton/index';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import { navigateBack } from '../../actions/navigation';
-// import { MAIN_TABS } from '../../constants';
 import ImpactView from '../ImpactView';
 
-import Celebrate from './Celebrate';
+import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
@@ -34,7 +32,7 @@ const tabs = [
           params: { organization },
         },
       },
-    }) => <Celebrate organization={organization} />,
+    }) => <GroupCelebrate organization={organization} />,
   },
   {
     name: i18next.t('groupTabs:members'),

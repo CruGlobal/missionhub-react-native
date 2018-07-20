@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
@@ -18,11 +19,9 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../../selectors/people';
-import { reloadJourney } from '../../actions/journey';
 import { organizationSelector } from '../../selectors/organizations';
-import { isMissionhubUser } from '../../utils/common';
+import { isMissionhubUser, getStageIndex } from '../../utils/common';
 import BackButton from '../BackButton';
-import { getContactSteps } from '../../actions/steps';
 
 import styles from './styles';
 
@@ -54,10 +53,8 @@ export class ContactScreen extends Component {
       organization = {},
     } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
-      let firstItemIndex = stages.findIndex(
-        s => contactStage && s && `${s.id}` === `${contactStage.id}`,
-      );
-      firstItemIndex = firstItemIndex >= 0 ? firstItemIndex : undefined;
+      const firstItemIndex = getStageIndex(stages, contactStage.id);
+
       if (personIsCurrentUser) {
         dispatch(
           navigatePush(STAGE_SCREEN, {
@@ -67,8 +64,7 @@ export class ContactScreen extends Component {
                   user: { pathway_stage_id: stage.id },
                 }),
               );
-              dispatch(getContactSteps(person.id, organization.id));
-              dispatch(reloadJourney(person.id, organization.id));
+              dispatch(loadStepsAndJourney(person, organization));
               onComplete && onComplete(stage);
             },
             firstItem: firstItemIndex,
@@ -82,6 +78,7 @@ export class ContactScreen extends Component {
       } else {
         dispatch(
           navigatePush(PERSON_STAGE_SCREEN, {
+            //todo reuse this code somehow...
             onComplete: stage => {
               contactAssignment
                 ? dispatch(
@@ -95,8 +92,7 @@ export class ContactScreen extends Component {
                     }),
                   )
                 : dispatch(getPersonDetails(person.id, organization.id));
-              dispatch(getContactSteps(person.id, organization.id));
-              dispatch(reloadJourney(person.id, organization.id));
+              dispatch(loadStepsAndJourney(person, organization));
               onComplete && onComplete(stage);
             },
             firstItem: firstItemIndex,

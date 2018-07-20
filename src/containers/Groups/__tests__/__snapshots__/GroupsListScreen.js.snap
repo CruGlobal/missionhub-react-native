@@ -42,8 +42,9 @@ exports[`GroupsListScreen should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
-        "paddingTop": 15,
+        "paddingVertical": 8,
       }
     }
     updateCellsBatchingPeriod={50}

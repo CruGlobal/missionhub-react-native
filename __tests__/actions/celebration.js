@@ -9,7 +9,7 @@ jest.mock('../../src/actions/api');
 
 const orgId = '123';
 
-apiResult = { type: 'done' };
+const apiResult = { type: 'done' };
 
 const createStore = configureStore([thunk]);
 let store;
@@ -28,10 +28,15 @@ describe('getGroupCelebrateFeed', () => {
   it('gets a page of celebrate feed', () => {
     store = createStore({
       organizations: {
-        celebratePagination: {
-          hasNextPage: true,
-          page: currentPage,
-        },
+        all: [
+          {
+            id: '123',
+            celebratePagination: {
+              hasNextPage: true,
+              page: currentPage,
+            },
+          },
+        ],
       },
     });
 
@@ -52,10 +57,15 @@ describe('getGroupCelebrateFeed', () => {
   it('does not get celebrate items if there is no next page', () => {
     store = createStore({
       organizations: {
-        celebratePagination: {
-          hasNextPage: false,
-          page: currentPage,
-        },
+        all: [
+          {
+            id: '123',
+            celebratePagination: {
+              hasNextPage: false,
+              page: currentPage,
+            },
+          },
+        ],
       },
     });
 

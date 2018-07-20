@@ -37,6 +37,7 @@ export const LOAD_HOME_NOTIFICATION_REMINDER =
 export const GET_ORGANIZATION_CONTACTS = 'app/GET_ORGANIZATION_CONTACTS';
 export const GET_ORGANIZATION_MEMBERS = 'app/GET_ORGANIZATION_MEMBERS';
 export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
+export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
@@ -288,3 +289,16 @@ export const INTERACTION_TYPES = {
 };
 
 export const DEFAULT_PAGE_LIMIT = 25;
+
+export const CELEBRATEABLE_TYPES = {
+  completedStep: 'accepted_challenge',
+  completedInteraction: 'interaction',
+  validInteractionTypes: [
+    INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
+    INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
+    INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
+    INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id,
+    INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
+    INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
+  ],
+};
