@@ -1,8 +1,12 @@
 import { Linking } from 'react-native';
 
-import { trackActionWithoutData } from '../actions/analytics';
-import { getContactSteps } from '../actions/steps';
-import { reloadJourney } from '../actions/journey';
+import { trackActionWithoutData } from './analytics';
+import { getContactSteps } from './steps';
+import { reloadJourney } from './journey';
+import { createContactAssignment } from './person';
+import { contactAssignmentSelector } from '../selectors/people';
+import { navigatePush } from './navigation';
+import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 
 export function openCommunicationLink(url, action) {
   //if someone has a better name for this feel free to suggest.
@@ -34,5 +38,30 @@ export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
   return dispatch => {
     dispatch(getContactSteps(personId, organizationId));
     dispatch(reloadJourney(personId, organizationId));
+  };
+}
+
+export function assignContactAndPickStage(personId, orgId, myId) {
+  return async dispatch => {
+    const { person: resultPerson } = await dispatch(
+      createContactAssignment(orgId, myId, personId),
+    );
+
+    const { id: contactAssignmentId } = contactAssignmentSelector(
+      { auth: { person: { id: myId } } },
+      { person: resultPerson, orgId },
+    );
+
+    dispatch(
+      navigatePush(PERSON_STAGE_SCREEN, {
+        contactId: resultPerson.id,
+        orgId: orgId,
+        contactAssignmentId,
+        name: resultPerson.first_name,
+        onComplete: () => {},
+        section: 'people',
+        subsection: 'person',
+      }),
+    );
   };
 }
