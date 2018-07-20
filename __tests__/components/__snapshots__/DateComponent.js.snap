@@ -115,7 +115,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
               "common": Object {
                 "cancel": "Cancel",
                 "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                 "continue": "Continue",
                 "dates": Object {
                   "today": "Today",
@@ -669,7 +669,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
             "common": Object {
               "cancel": "Cancel",
               "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-              "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+              "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
               "continue": "Continue",
               "dates": Object {
                 "today": "Today",
@@ -1213,7 +1213,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                     "common": Object {
                       "cancel": "Cancel",
                       "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                      "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                      "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                       "continue": "Continue",
                       "dates": Object {
                         "today": "Today",
@@ -1744,7 +1744,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -2285,7 +2285,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -2821,7 +2821,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -3317,7 +3317,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
               "common": Object {
                 "cancel": "Cancel",
                 "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                 "continue": "Continue",
                 "dates": Object {
                   "today": "Today",
@@ -3851,7 +3851,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -4386,7 +4386,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -4940,7 +4940,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -5471,7 +5471,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -6011,7 +6011,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -6554,7 +6554,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                     "common": Object {
                       "cancel": "Cancel",
                       "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                      "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                      "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                       "continue": "Continue",
                       "dates": Object {
                         "today": "Today",
@@ -7085,7 +7085,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -7626,7 +7626,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -9057,7 +9057,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
             "common": Object {
               "cancel": "Cancel",
               "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-              "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+              "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
               "continue": "Continue",
               "dates": Object {
                 "today": "Today",
@@ -9541,7 +9541,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
           "common": Object {
             "cancel": "Cancel",
             "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-            "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+            "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
             "continue": "Continue",
             "dates": Object {
               "today": "Today",
@@ -10073,7 +10073,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                     "common": Object {
                       "cancel": "Cancel",
                       "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                      "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                      "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                       "continue": "Continue",
                       "dates": Object {
                         "today": "Today",
@@ -10604,7 +10604,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -11145,7 +11145,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -11681,7 +11681,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -12177,7 +12177,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
               "common": Object {
                 "cancel": "Cancel",
                 "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                 "continue": "Continue",
                 "dates": Object {
                   "today": "Today",
@@ -12711,7 +12711,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -13246,7 +13246,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -13793,7 +13793,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -14324,7 +14324,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -14865,7 +14865,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                 "common": Object {
                   "cancel": "Cancel",
                   "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                  "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                  "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                   "continue": "Continue",
                   "dates": Object {
                     "today": "Today",
@@ -15401,7 +15401,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
               "common": Object {
                 "cancel": "Cancel",
                 "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                 "continue": "Continue",
                 "dates": Object {
                   "today": "Today",
@@ -15942,7 +15942,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                     "common": Object {
                       "cancel": "Cancel",
                       "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                      "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                      "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                       "continue": "Continue",
                       "dates": Object {
                         "today": "Today",
@@ -16473,7 +16473,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -17014,7 +17014,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
                   "common": Object {
                     "cancel": "Cancel",
                     "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-                    "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+                    "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
                     "continue": "Continue",
                     "dates": Object {
                       "today": "Today",
@@ -18445,7 +18445,7 @@ Take a moment and pray. Who do you want to take steps of faith with?",
             "common": Object {
               "cancel": "Cancel",
               "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
-              "contactUnassignment": "{{assignedToName}} was unassigned {{assignedContactName}}",
+              "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
               "continue": "Continue",
               "dates": Object {
                 "today": "Today",
