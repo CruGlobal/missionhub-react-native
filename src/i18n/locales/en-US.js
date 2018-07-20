@@ -74,7 +74,7 @@ export default {
     contactAssignment:
       '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
     contactUnassignment:
-      '{{assignedToName}} was unassigned {{assignedContactName}}',
+      '{{assignedContactName}} was unassigned from {{assignedToName}}',
   },
   error: {
     error: 'Error',
