@@ -51,7 +51,10 @@ export class ContactScreen extends Component {
       organization = {},
     } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
-      const firstItemIndex = getStageIndex(stages, contactStage.id);
+      const firstItemIndex = getStageIndex(
+        stages,
+        contactStage && contactStage.id,
+      );
 
       if (personIsCurrentUser) {
         dispatch(
