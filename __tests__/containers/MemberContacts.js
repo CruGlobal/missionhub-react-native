@@ -6,6 +6,7 @@ import { testSnapshotShallow, createMockStore } from '../../testUtils';
 const person = {
   id: '1',
   first_name: 'Roge',
+  contact_assignments: [],
 };
 const organization = {
   id: '100',
