@@ -745,7 +745,7 @@ exports[`renders contact unassignment item 1`] = `
         }
       }
     >
-      Iron Man was unassigned Test User
+      Test User was unassigned from Iron Man
     </MyText>
     <MyText
       accessible={true}
@@ -830,7 +830,7 @@ exports[`renders contact unassignment item with note 1`] = `
         }
       }
     >
-      Iron Man was unassigned Test User
+      Test User was unassigned from Iron Man
     </MyText>
     <MyText
       accessible={true}
