@@ -1,4 +1,4 @@
-import { DEFAULT_PAGE_LIMIT } from '../constants';
+import { DEFAULT_PAGE_LIMIT, RESET_CELEBRATION_PAGINATION } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
@@ -12,10 +12,13 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
       ? org.celebratePagination
       : { page: 0, hasNextPage: true };
 
+    console.log('will load page' + page);
     if (!hasNextPage) {
       return Promise.reject('NoMoreData');
     }
     const query = buildQuery(orgId, personId, page);
+
+    console.log('loading next page');
 
     dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
   };
@@ -27,13 +30,20 @@ export function reloadGroupCelebrateFeed(orgId) {
       return o.id === orgId;
     });
 
+    console.log('resetting pagination');
     if (org && org.celebratePagination) {
-      org.celebratePagination = { page: 0, hasNextPage: true };
-
+      dispatch(resetPaginationAction(orgId));
       dispatch(getGroupCelebrateFeed(orgId));
     }
   };
 }
+
+const resetPaginationAction = orgId => {
+  return {
+    type: RESET_CELEBRATION_PAGINATION,
+    orgId: orgId,
+  };
+};
 
 function buildQuery(orgId, personId, page) {
   return {

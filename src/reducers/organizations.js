@@ -6,9 +6,11 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
+  RESET_CELEBRATION_PAGINATION,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
+import { actionTypes } from '../actions/celebration';
 
 const initialState = {
   all: [],
@@ -112,6 +114,22 @@ function organizationsReducer(state = initialState, action) {
                         action,
                         allItems.length,
                       ),
+                    }
+                  : o,
+            )
+          : state.all,
+      };
+    case RESET_CELEBRATION_PAGINATION:
+      console.log('reducing!');
+      return {
+        ...state,
+        all: action.orgId
+          ? state.all.map(
+              o =>
+                o.id === action.orgId
+                  ? {
+                      ...o,
+                      celebratePagination: { page: 0, hasNextPage: true },
                     }
                   : o,
             )
