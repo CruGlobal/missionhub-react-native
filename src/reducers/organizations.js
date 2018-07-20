@@ -121,17 +121,15 @@ function organizationsReducer(state = initialState, action) {
     case RESET_CELEBRATION_PAGINATION:
       return {
         ...state,
-        all: action.orgId
-          ? state.all.map(
-              o =>
-                o.id === action.orgId
-                  ? {
-                      ...o,
-                      celebratePagination: { page: 0, hasNextPage: true },
-                    }
-                  : o,
-            )
-          : state.all,
+        all: state.all.map(
+          o =>
+            o.id === action.orgId
+              ? {
+                  ...o,
+                  celebratePagination: { page: 0, hasNextPage: true },
+                }
+              : o,
+        ),
       };
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
