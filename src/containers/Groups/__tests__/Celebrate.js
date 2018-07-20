@@ -83,16 +83,6 @@ it('should render correctly', () => {
   );
 });
 
-it('should submit correctly', () => {
-  const data = { id: 'test' };
-  const instance = renderShallow(
-    <GroupCelebrate organization={org} store={createMockStore(store)} />,
-    store,
-  ).instance();
-  const result = instance.submit(data);
-  expect(result).toBe(data);
-});
-
 it('should refresh correctly', () => {
   const instance = renderShallow(
     <GroupCelebrate organization={org} store={createMockStore(store)} />,

@@ -42,10 +42,6 @@ export class GroupCelebrate extends Component {
     dispatch(reloadGroupCelebrateFeed(organization.id));
   };
 
-  submit = data => {
-    return data;
-  };
-
   render() {
     const { celebrateItems } = this.props;
 
