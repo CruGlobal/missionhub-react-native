@@ -9,29 +9,19 @@ import theme from '../../theme';
 
 @translate('groupsCelebrate')
 class MemberContacts extends Component {
+  renderEmpty() {
+    <Text>Anyone assigned to this member will appear here.</Text>;
+  }
+
   render() {
     const { t } = this.props;
     return (
-      <PlatformKeyboardAvoidingView
-        style={{ flex: 1, backgroundColor: theme.lightGrey }}
-        offset={theme.headerHeight + theme.swipeTabHeight}
-      >
-        <ScrollView style={{ flex: 1 }}>
-          <Text>Load More</Text>
-          <Text>MEMBER Assigned Contacts LIST</Text>
-        </ScrollView>
-        <CommentBox
-          placeholder={t('placeholder')}
-          hideActions={true}
-          onSubmit={this.submit}
-        />
-      </PlatformKeyboardAvoidingView>
+      <ScrollView style={{ flex: 1 }}>
+        <Text>Load More</Text>
+        <Text>MEMBER Assigned Contacts LIST</Text>
+      </ScrollView>
     );
   }
 }
 
-export const mapStateToProps = (_, { organization }) => ({
-  organization,
-});
-
-export default connect(mapStateToProps)(MemberContacts);
+export default connect()(MemberContacts);
