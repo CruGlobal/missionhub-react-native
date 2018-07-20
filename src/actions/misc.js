@@ -9,20 +9,21 @@ export function openCommunicationLink(url, action) {
       .then(supported => {
         if (!supported) {
           WARN("Can't handle url: ", url);
-        } else {
-          Linking.openURL(url)
-            .then(() => {
-              dispatch(trackActionWithoutData(action));
-            })
-            .catch(err => {
-              if (url.includes('telprompt')) {
-                // telprompt was cancelled and Linking openURL method sees this as an error
-                // it is not a true error so ignore it to prevent apps crashing
-              } else {
-                WARN('openURL error', err);
-              }
-            });
+          return;
         }
+
+        Linking.openURL(url)
+          .then(() => {
+            dispatch(trackActionWithoutData(action));
+          })
+          .catch(err => {
+            if (url.includes('telprompt')) {
+              // telprompt was cancelled and Linking openURL method sees this as an error
+              // it is not a true error so ignore it to prevent apps crashing
+            } else {
+              WARN('openURL error', err);
+            }
+          });
       })
       .catch(err => WARN('An unexpected error happened', err));
 }

@@ -11,10 +11,15 @@ const mockStore = configureStore([thunk]);
 let store;
 
 const trackActionResult = { type: 'tracked' };
+const url = 'url';
+const action = { type: 'link action' };
 
 beforeEach(() => {
   store = mockStore();
+
+  jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
+  ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
 });
 
 describe('openCommunicationLink', () => {
@@ -22,9 +27,6 @@ describe('openCommunicationLink', () => {
     ReactNative.Linking.canOpenURL = jest
       .fn()
       .mockReturnValue(Promise.resolve(true));
-    ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
-    const url = 'url';
-    const action = { type: 'link action' };
 
     await store.dispatch(openCommunicationLink(url, action));
 
@@ -32,5 +34,18 @@ describe('openCommunicationLink', () => {
     expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
     expect(trackActionWithoutData).toHaveBeenCalledWith(action);
     expect(store.getActions()).toEqual([trackActionResult]);
+  });
+
+  it('should not open link if it is not supported', async () => {
+    global.WARN = jest.fn();
+    ReactNative.Linking.canOpenURL = jest
+      .fn()
+      .mockReturnValue(Promise.resolve(false));
+
+    await store.dispatch(openCommunicationLink(url, action));
+
+    expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
+    expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalled();
   });
 });
