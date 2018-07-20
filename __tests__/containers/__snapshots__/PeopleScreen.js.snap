@@ -57,7 +57,7 @@ exports[`PeopleScreen renders correctly as Casey 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -139,7 +139,7 @@ exports[`PeopleScreen renders correctly as Jean 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"

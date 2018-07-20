@@ -8,7 +8,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -16,6 +16,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="GROUPS"
   />
   <FlatList

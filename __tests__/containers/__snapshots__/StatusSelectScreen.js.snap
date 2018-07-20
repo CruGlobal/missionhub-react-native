@@ -9,7 +9,7 @@ exports[`StatusSelectScreen should render correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <Button
         buttonTextStyle={
@@ -62,6 +62,7 @@ exports[`StatusSelectScreen should render correctly 1`] = `
         type="transparent"
       />
     }
+    shadow={true}
     title="Status"
   />
   <Flex

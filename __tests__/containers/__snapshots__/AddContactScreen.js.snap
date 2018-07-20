@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <PlatformKeyboardAvoidingView>
-  <Connect(Header)
+  <Header
     right={
       <IconButton
         name="deleteIcon"

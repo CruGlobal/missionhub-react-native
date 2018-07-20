@@ -84,7 +84,7 @@ exports[`ContactScreen renders correctly as Casey 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -147,7 +147,7 @@ exports[`ContactScreen renders correctly as Jean 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton

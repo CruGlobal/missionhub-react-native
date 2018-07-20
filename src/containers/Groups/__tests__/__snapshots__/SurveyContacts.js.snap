@@ -4,8 +4,9 @@ exports[`SurveyContacts should render correctly 1`] = `
 <Flex
   value={1}
 >
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
+    shadow={true}
     title="Test Org"
   />
   <Translate(SearchList)
