@@ -72,6 +72,8 @@ it('sorts items into sections by date', () => {
 
 it('filters out celebrate items it cannot render', () => {
   const combinedItems = celebrateItems.concat(invalidItems);
-  const selectedCelebrationItems = celebrationSelector({ combinedItems });
+  const selectedCelebrationItems = celebrationSelector({
+    celebrateItems: combinedItems,
+  });
   expect(selectedCelebrationItems).toMatchSnapshot();
 });
