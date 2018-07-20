@@ -7,7 +7,6 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
-  CELEBRATEABLE_TYPES,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
