@@ -6,8 +6,7 @@ import uuidv4 from 'uuid/v4';
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import { createContactAssignment } from '../../actions/person';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
-import { getContactSteps } from '../../actions/steps';
-import { reloadJourney } from '../../actions/journey';
+import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../../containers/StageScreen';
@@ -50,8 +49,7 @@ export default class GroupsPersonHeader extends Component {
                 user: { pathway_stage_id: stage.id },
               }),
             );
-            dispatch(getContactSteps(person.id, organization.id));
-            dispatch(reloadJourney(person.id, organization.id));
+            dispatch(loadStepsAndJourney(person, organization));
           },
           firstItem: getStageIndex(stages, myStageId),
           contactId: person.id,
@@ -93,8 +91,7 @@ export default class GroupsPersonHeader extends Component {
                   }),
                 )
               : dispatch(getPersonDetails(person.id, organization.id));
-            dispatch(getContactSteps(person.id, organization.id));
-            dispatch(reloadJourney(person.id, organization.id));
+            dispatch(loadStepsAndJourney(person, organization));
           },
           firstItem: firstItemIndex,
           name: person.first_name,

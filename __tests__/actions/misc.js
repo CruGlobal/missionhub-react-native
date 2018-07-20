@@ -3,22 +3,36 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import { trackActionWithoutData } from '../../src/actions/analytics';
-import { openCommunicationLink } from '../../src/actions/misc';
+import {
+  openCommunicationLink,
+  loadStepsAndJourney,
+} from '../../src/actions/misc';
+import { getContactSteps } from '../../src/actions/steps';
+import { reloadJourney } from '../../src/actions/journey';
 
 jest.mock('../../src/actions/analytics');
+jest.mock('../../src/actions/steps');
+jest.mock('../../src/actions/journey');
 
 const mockStore = configureStore([thunk]);
 let store;
 
 const trackActionResult = { type: 'tracked' };
+const getStepsResult = { type: 'got steps' };
+const reloadJourneyResult = { type: 'reloaded journey' };
+
 const url = 'url';
 const action = { type: 'link action' };
+const person = { id: '100' };
+const organization = { id: 26 };
 
 beforeEach(() => {
   store = mockStore();
 
   jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
+  getContactSteps.mockReturnValue(getStepsResult);
+  reloadJourney.mockReturnValue(reloadJourneyResult);
   ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
 });
 
@@ -47,5 +61,15 @@ describe('openCommunicationLink', () => {
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
     expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalled();
+  });
+});
+
+describe('loadStepsAndJourney', () => {
+  it('should load steps and reload journey', () => {
+    store.dispatch(loadStepsAndJourney(person, organization));
+
+    expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
+    expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
+    expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
   });
 });

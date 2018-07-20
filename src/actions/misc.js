@@ -1,6 +1,8 @@
 import { Linking } from 'react-native';
 
 import { trackActionWithoutData } from '../actions/analytics';
+import { getContactSteps } from '../actions/steps';
+import { reloadJourney } from '../actions/journey';
 
 export function openCommunicationLink(url, action) {
   //if someone has a better name for this feel free to suggest.
@@ -26,4 +28,11 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
+}
+
+export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
+  return dispatch => {
+    dispatch(getContactSteps(personId, organizationId));
+    dispatch(reloadJourney(personId, organizationId));
+  };
 }
