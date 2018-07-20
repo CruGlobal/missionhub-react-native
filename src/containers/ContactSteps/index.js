@@ -16,9 +16,15 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import {
+  buildTrackingObj,
+  getAnalyticsSubsection,
+  promptToAssign,
+} from '../../utils/common';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { contactAssignmentSelector } from '../../selectors/people';
+import { assignContactAndPickStage } from '../../actions/misc';
 
 import styles from './styles';
 
@@ -128,10 +134,28 @@ class ContactSteps extends Component {
     }
   }
 
+  async handleAssign() {
+    const { dispatch, person, organization, myId } = this.props;
+
+    if (await promptToAssign()) {
+      dispatch(
+        assignContactAndPickStage(
+          person.id,
+          organization && organization.id,
+          myId,
+        ),
+      );
+    }
+  }
+
   handleCreateStep() {
-    this.props.contactStage
+    const { contactStage, contactAssignment, myId } = this.props;
+
+    contactStage
       ? this.handleNavToSteps(this.props.contactStage)
-      : this.handleNavToStage();
+      : contactAssignment
+        ? this.handleNavToStage()
+        : this.handleAssign();
   }
 
   renderRow({ item, index }) {
@@ -217,6 +241,10 @@ const mapStateToProps = (
   myId: auth.person.id,
   steps:
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+  contactAssignment: contactAssignmentSelector(
+    { auth },
+    { person, orgId: organization.id },
+  ),
 });
 
 export default connect(mapStateToProps)(ContactSteps);

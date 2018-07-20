@@ -3,6 +3,8 @@ import { BackHandler, Platform } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
+import { Alert } from 'react-native';
+import i18n from '../i18n';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -328,4 +330,28 @@ export function getStageIndex(stages, stageId) {
   const index = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;
+}
+
+export function promptToAssign() {
+  return new Promise(resolve =>
+    Alert.alert(
+      i18n.t('assignAlert:question'),
+      i18n.t('assignAlert:sentence'),
+      [
+        {
+          text: i18n.t('cancel'),
+          style: 'cancel',
+          onPress: () => resolve(false),
+        },
+        {
+          text: i18n.t('continue'),
+          style: 'default',
+          onPress: () => {
+            resolve(true);
+          },
+        },
+      ],
+      { onDismiss: () => resolve(false) },
+    ),
+  );
 }

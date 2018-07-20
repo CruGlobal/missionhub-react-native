@@ -20,29 +20,27 @@ import {
   orgPermissionSelector,
 } from '../../selectors/people';
 import { organizationSelector } from '../../selectors/organizations';
-import { isMissionhubUser, getStageIndex } from '../../utils/common';
+import {
+  isMissionhubUser,
+  getStageIndex,
+  promptToAssign,
+} from '../../utils/common';
 import BackButton from '../BackButton';
 
 import styles from './styles';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      headerOpen: true,
-    };
-
-    this.handleChangeStage = this.handleChangeStage.bind(this);
-  }
+  state = {
+    headerOpen: true,
+  };
 
   componentDidMount() {
     const { person, organization = {} } = this.props;
     this.props.dispatch(getPersonDetails(person.id, organization.id));
   }
 
-  async handleChangeStage(noNav = false, onComplete = null) {
+  handleChangeStage = async (noNav = false, onComplete = null) => {
     const {
       dispatch,
       personIsCurrentUser,
@@ -107,7 +105,7 @@ export class ContactScreen extends Component {
         );
       }
     }
-  }
+  };
 
   getTitle() {
     const { person, organization } = this.props;
@@ -125,29 +123,7 @@ export class ContactScreen extends Component {
   ) {
     const { t } = this.props;
     const shouldPromptToAssign = !personIsCurrentUser && !hasContactAssignment;
-    return shouldPromptToAssign
-      ? await new Promise(resolve =>
-          Alert.alert(
-            t('assignAlert:question'),
-            t('assignAlert:sentence'),
-            [
-              {
-                text: t('cancel'),
-                style: 'cancel',
-                onPress: () => resolve(false),
-              },
-              {
-                text: t('continue'),
-                style: 'default',
-                onPress: () => {
-                  resolve(true);
-                },
-              },
-            ],
-            { onDismiss: () => resolve(false) },
-          ),
-        )
-      : true;
+    return shouldPromptToAssign ? await promptToAssign() : true;
   }
 
   render() {
