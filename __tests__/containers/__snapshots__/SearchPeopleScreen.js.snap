@@ -366,7 +366,7 @@ exports[`renders with no results state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -408,6 +408,7 @@ exports[`renders with no results state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <Flex
     align="center"
@@ -466,7 +467,7 @@ exports[`renders with results state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -508,6 +509,7 @@ exports[`renders with results state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <Flex
     align="center"
@@ -566,7 +568,7 @@ exports[`renders with searching state 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     center={
       <Flex
         align="center"
@@ -608,6 +610,7 @@ exports[`renders with searching state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
   />
   <Flex
     align="center"

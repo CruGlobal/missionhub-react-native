@@ -2,7 +2,7 @@
 
 exports[`Contact should render PersonScreen correctly with stage 1`] = `
 <View>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton
@@ -82,7 +82,7 @@ exports[`Contact should render PersonScreen correctly with stage 1`] = `
 
 exports[`Contact should render PersonScreen correctly without stage 1`] = `
 <View>
-  <Connect(Header)
+  <Header
     left={<Connect(BackButton) />}
     right={
       <IconButton

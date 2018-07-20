@@ -123,7 +123,7 @@ describe('Contact', () => {
       />,
     );
     component
-      .find('Connect(Header)')
+      .childAt(0)
       .props()
       .right.props.onPress();
 

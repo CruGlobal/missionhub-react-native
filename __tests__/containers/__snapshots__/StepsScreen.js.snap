@@ -31,7 +31,7 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -39,6 +39,7 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -210,7 +211,7 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -218,6 +219,7 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
@@ -353,7 +355,7 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -361,6 +363,7 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <LoadingGuy />
@@ -375,7 +378,7 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
     }
   }
 >
-  <Connect(Header)
+  <Header
     left={
       <IconButton
         name="menuIcon"
@@ -383,6 +386,7 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={true}
     title="STEPS OF FAITH"
   />
   <Component
