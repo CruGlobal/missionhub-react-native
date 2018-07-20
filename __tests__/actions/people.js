@@ -130,6 +130,36 @@ describe('getMyPeople', () => {
 
 describe('search', () => {
   const text = 'test';
+  const inputFilters = {
+    ministry: {
+      id: '1',
+    },
+    gender: {
+      id: '2',
+    },
+    archived: {
+      id: '3',
+    },
+    unassigned: {
+      id: '4',
+    },
+    labels: {
+      id: '5',
+    },
+    groups: {
+      id: '6',
+    },
+    surveys: {
+      id: '7',
+    },
+    question: {
+      id: '8',
+      answer: {
+        text: 'test',
+      },
+    },
+  };
+
   const expectedQuery = {
     q: text,
     fields: {
@@ -146,10 +176,33 @@ describe('search', () => {
     callApi.mockReturnValue(action);
   });
 
+  const expectedFilterQuery = {
+    ...expectedQuery,
+    q: '',
+    organization_ids: inputFilters.ministry.id,
+    filters: {
+      gender: inputFilters.gender.id,
+      archived: true,
+      unassigned: true,
+      label_ids: inputFilters.labels.id,
+      group_ids: inputFilters.groups.id,
+      survey_ids: inputFilters.surveys.id,
+      question_id: inputFilters.question.id,
+      answer_value: inputFilters.question.answer.text,
+    },
+  };
+
   it('should search', () => {
     store.dispatch(searchPeople(text));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.SEARCH, expectedQuery);
+    expect(store.getActions()[0]).toBe(action);
+  });
+
+  it('should search with filters', () => {
+    store.dispatch(searchPeople('', inputFilters));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.SEARCH, expectedFilterQuery);
     expect(store.getActions()[0]).toBe(action);
   });
 });

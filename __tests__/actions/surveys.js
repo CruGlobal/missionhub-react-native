@@ -8,6 +8,7 @@ import {
   getMySurveys,
   getOrgSurveys,
   getOrgSurveysNextPage,
+  getSurveyQuestions,
 } from '../../src/actions/surveys';
 import { GET_ORGANIZATION_SURVEYS } from '../../src/constants';
 
@@ -130,5 +131,27 @@ describe('getOrgSurveysNextPage', () => {
 
     await store.dispatch(getOrgSurveysNextPage(orgId));
     expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
+  });
+});
+
+describe('getSurveyQuestions', () => {
+  const surveyId = '789';
+  const questionsResponse = {
+    response: [{ id: '123' }, { id: '456' }, { id: '789' }],
+  };
+
+  mockFnWithParams(
+    api,
+    'default',
+    questionsResponse,
+    REQUESTS.GET_SURVEY_QUESTIONS,
+    { surveyId },
+  );
+
+  it('gets survey questions', async () => {
+    store = configureStore([thunk])();
+
+    await store.dispatch(getSurveyQuestions(surveyId));
+    expect(store.getActions()).toEqual(questionsResponse);
   });
 });
