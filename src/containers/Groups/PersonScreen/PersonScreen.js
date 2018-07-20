@@ -16,7 +16,10 @@ import MemberContacts from '../../MemberContacts';
 import { PERSON_MENU_DRAWER } from '../../../constants';
 import { generateSwipeTabMenuNavigator } from '../../../components/SwipeTabMenu/index';
 import { Flex, IconButton, Text } from '../../../components/common';
-import { personSelector } from '../../../selectors/people';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../../selectors/people';
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 
 import styles from './styles';
@@ -96,7 +99,17 @@ export const MEMBER_PERSON_TABS = [
 
 export class PersonScreen extends Component {
   render() {
-    const { dispatch, person, organization, isMember } = this.props;
+    const {
+      dispatch,
+      person,
+      organization,
+      isMember,
+      contactAssignment,
+      pathwayStage,
+      myId,
+      myStageId,
+      stages,
+    } = this.props;
 
     return (
       <View>
@@ -127,8 +140,19 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
-          {isMember ? <Text style={styles.stage}>growing</Text> : null}
-          <GroupsPersonHeader isMember={isMember} />
+          {pathwayStage ? (
+            <Text style={styles.stage}>{pathwayStage.name}</Text>
+          ) : null}
+          <GroupsPersonHeader
+            isMember={isMember}
+            contactAssignment={contactAssignment}
+            person={person}
+            dispatch={dispatch}
+            organization={organization}
+            myId={myId}
+            myStageId={myStageId}
+            stages={stages}
+          />
         </Flex>
       </View>
     );
@@ -146,16 +170,29 @@ PersonScreen.propTypes = {
   }).isRequired,
 };
 
-export const mapStateToProps = ({ people }, { navigation }) => {
+export const mapStateToProps = ({ people, auth, stages }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
   const person =
     personSelector({ people }, { personId: navParams.person.id, orgId }) ||
     navParams.person;
+  const contactAssignment = contactAssignmentSelector(
+    { auth },
+    { person, orgId },
+  );
+  const stagesList = stages.stages;
+  const authPerson = auth.person;
 
   return {
     ...(navigation.state.params || {}),
+    contactAssignment,
     person,
+    pathwayStage:
+      contactAssignment &&
+      stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
+    stages: stagesList,
+    myId: authPerson.id,
+    myStageId: authPerson.user.pathway_stage_id,
   };
 };
 

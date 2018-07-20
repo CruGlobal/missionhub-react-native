@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with non-null onClick 1`] = `
+<Component
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#005A7F",
+          "borderRadius": 25,
+          "height": 48,
+          "margin": 10,
+          "width": 48,
+        },
+        Object {
+          "name": "extra wrapper style",
+        },
+      ]
+    }
+  >
+    <IconButton
+      disabled={false}
+      name="some icon"
+      onPress={[MockFunction]}
+      style={
+        Array [
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 24,
+          },
+          Object {},
+          Object {
+            "name": "extra button style",
+          },
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
+    }
+  >
+    Hello, MissionHub
+  </MyText>
+</Component>
+`;
+
+exports[`renders correctly with null onClick 1`] = `
+<Component
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#005A7F",
+          "borderRadius": 25,
+          "height": 48,
+          "margin": 10,
+          "width": 48,
+        },
+        undefined,
+      ]
+    }
+  >
+    <IconButton
+      disabled={true}
+      name="some icon"
+      onPress={null}
+      style={
+        Array [
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 24,
+          },
+          Object {
+            "opacity": 0.5,
+          },
+          undefined,
+        ]
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
+    }
+  >
+    Hello, MissionHub
+  </MyText>
+</Component>
+`;

@@ -8,6 +8,10 @@ export default {
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
       phone: 'Phone',
+      call: 'Call',
+      message: 'Message',
+      stage: 'Stage',
+      status: 'Status',
       gender: 'Gender',
     },
     gender: {
@@ -80,6 +84,7 @@ export default {
       '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
     contactUnassignment:
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
+    assignToMe: 'Assign to me',
   },
   error: {
     error: 'Error',
@@ -483,7 +488,6 @@ export default {
     numUncontacted: '{{number}} Uncontacted',
   },
   groupsContactList: {
-    assign: 'Assign to me',
     nullHeader: 'Activity Feed',
     nullDescription: 'No activity to display.',
   },

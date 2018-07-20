@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Button
+  buttonTextStyle={
+    Object {
+      "fontSize": 14,
+    }
+  }
+  onPress={[MockFunction]}
+  style={
+    Object {
+      "alignSelf": "center",
+      "backgroundColor": "#FF5532",
+      "borderRadius": 25,
+      "marginVertical": 8,
+      "minWidth": 200,
+      "paddingVertical": 8,
+    }
+  }
+  text="ASSIGN TO ME"
+  type="transparent"
+/>
+`;

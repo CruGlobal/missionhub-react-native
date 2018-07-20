@@ -12,6 +12,7 @@ import {
   formatApiDate,
   getAnalyticsSubsection,
   isCustomStep,
+  getStageIndex,
 } from '../utils/common';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -245,14 +246,10 @@ function challengeCompleteAction(step, screen) {
                         : false,
                   );
 
-                  const stages = getState().stages.stages;
-                  const pathwayStageId =
-                    assignment && assignment.pathway_stage_id;
-                  let firstItemIndex = stages.findIndex(
-                    s => s && `${s.id}` === `${pathwayStageId}`,
+                  const firstItemIndex = getStageIndex(
+                    getState().stages.stages,
+                    assignment && assignment.pathway_stage_id,
                   );
-                  firstItemIndex =
-                    firstItemIndex >= 0 ? firstItemIndex : undefined;
 
                   let stageProps = {
                     section: 'people',
