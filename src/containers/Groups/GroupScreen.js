@@ -7,7 +7,7 @@ import BackButton from '../BackButton/index';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
 
-import GroupCelebrate from './Celebrate';
+import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';

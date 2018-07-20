@@ -1,7 +1,7 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import GroupCelebrate, { mapStateToProps } from '../Celebrate';
+import GroupCelebrate, { mapStateToProps } from '../GroupCelebrate';
 import {
   renderShallow,
   testSnapshotShallow,
