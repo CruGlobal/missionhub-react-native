@@ -28,23 +28,36 @@ export default class CelebrateItem extends Component {
     const { t, event } = this.props;
     const { completedInteraction, completedStep } = CelebrateableTypes;
     const { adjective_attribute_value } = event;
-    const { MHInteractionTypePersonalDecision } = INTERACTION_TYPES;
+
     const name = event.subject_person_name.split(' ')[0];
 
     switch (event.celebrateable_type) {
       case completedStep:
         return this.renderStepOfFaithMessage(t, event, name);
       case completedInteraction:
-        return parseInt(adjective_attribute_value) ===
-          MHInteractionTypePersonalDecision.id
-          ? t('interactionDecision', { initiator: name })
-          : t(completedInteraction, {
-              initiator: name,
-              interactionName: this.renderInteraction(),
-            });
+        return this.buildInteractionMessage(t, adjective_attribute_value, name);
     }
   }
 
+  buildInteractionMessage(t, type, name) {
+    const {
+      MHInteractionTypePersonalDecision,
+      MHInteractionTypeSomethingCoolHappened,
+    } = INTERACTION_TYPES;
+    const { completedInteraction } = CelebrateableTypes;
+
+    switch (parseInt(type)) {
+      case MHInteractionTypePersonalDecision.id:
+        return t('interactionDecision', { initiator: name });
+      case MHInteractionTypeSomethingCoolHappened.id:
+        return t('somethingCoolHappened', { initiator: name });
+      default:
+        return t(completedInteraction, {
+          initiator: name,
+          interactionName: this.renderInteraction(),
+        });
+    }
+  }
   renderStepOfFaithMessage(t, event, name) {
     const { adjective_attribute_value } = event;
 
