@@ -10,7 +10,6 @@ import {
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
-import { actionTypes } from '../actions/celebration';
 
 const initialState = {
   all: [],
@@ -120,7 +119,6 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
       };
     case RESET_CELEBRATION_PAGINATION:
-      console.log('reducing!');
       return {
         ...state,
         all: action.orgId
