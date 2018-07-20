@@ -20,15 +20,16 @@ export const celebrationSelector = createSelector(
           'day',
         )
       ) {
-        dateSections[length - 1].events.push(item);
+        dateSections[length - 1].data.push(item);
       } else {
         dateSections.push({
           id: dateSections.length,
           date: item.changed_attribute_value,
-          events: [item],
+          data: [item],
         });
       }
     });
+
     return dateSections;
   },
 );
