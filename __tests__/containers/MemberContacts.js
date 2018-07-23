@@ -4,6 +4,7 @@ import MemberContacts from '../../src/containers/MemberContacts';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const contactAssignment = { id: '1', person: {} };
+const contactAssignmentNoPerson = { id: '2', person: null };
 const personNoContactAssignments = {
   id: '1',
   first_name: 'Roge',
@@ -11,7 +12,7 @@ const personNoContactAssignments = {
 };
 const personWithContactAssignments = {
   ...personNoContactAssignments,
-  contact_assignments: [contactAssignment],
+  contact_assignments: [contactAssignment, contactAssignmentNoPerson],
 };
 const organization = {
   id: '100',

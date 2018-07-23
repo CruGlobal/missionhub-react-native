@@ -11,9 +11,7 @@ import GroupMemberItem from '../../components/GroupMemberItem';
 
 @translate('memberContacts')
 class MemberContacts extends Component {
-  state = {
-    refreshing: false,
-  };
+  state = { refreshing: false };
 
   handleRefresh = () => {}; //todo implement
 
@@ -22,15 +20,12 @@ class MemberContacts extends Component {
   };
 
   renderList() {
-    const {
-      person: { contact_assignments },
-    } = this.props;
-    //todo filter out contact_assignments without
+    const { contactAssignments } = this.props;
 
     //todo do we need pagination?
     return (
       <FlatList
-        data={contact_assignments}
+        data={contactAssignments}
         keyExtractor={p => p.id}
         renderItem={this.renderItem}
         refreshControl={
@@ -58,9 +53,9 @@ class MemberContacts extends Component {
   }
 
   render() {
-    const { person } = this.props;
+    const { contactAssignments } = this.props;
 
-    return person.contact_assignments.length > 0
+    return contactAssignments.length > 0
       ? this.renderList()
       : this.renderEmpty();
   }
@@ -77,4 +72,8 @@ MemberContacts.propTypes = {
   }).isRequired,
 };
 
-export default connect()(MemberContacts);
+const mapStateToProps = (_, { person }) => ({
+  contactAssignments: person.contact_assignments.filter(c => c.person),
+});
+
+export default connect(mapStateToProps)(MemberContacts);
