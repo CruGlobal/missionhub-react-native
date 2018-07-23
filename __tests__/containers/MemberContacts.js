@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MemberContacts from '../../src/containers/MemberContacts';
-import { testSnapshotShallow, createMockStore } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 
 const person = {
   id: '1',
@@ -19,9 +19,19 @@ const props = {
 };
 
 describe('MemberCelebrate', () => {
-  it('renders correctly', () => {
+  it('renders empty', () => {
+    testSnapshotShallow(<MemberContacts {...props} />);
+  });
+
+  it('renders a list', () => {
     testSnapshotShallow(
-      <MemberContacts store={createMockStore()} {...props} />,
+      <MemberContacts
+        {...props}
+        person={{
+          ...person,
+          contact_assignments: [{ id: '1' }, { id: '2' }, { id: '3' }],
+        }}
+      />,
     );
   });
 });

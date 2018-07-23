@@ -1,6 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberCelebrate renders correctly 1`] = `
+exports[`MemberCelebrate renders a list 1`] = `
+<FlatList
+  data={
+    Array [
+      Object {
+        "id": "1",
+      },
+      Object {
+        "id": "2",
+      },
+      Object {
+        "id": "3",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[Function]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`MemberCelebrate renders empty 1`] = `
 <NullStateComponent
   descriptionText="Anyone assigned to Roge will appear here."
   headerText="PEOPLE"
