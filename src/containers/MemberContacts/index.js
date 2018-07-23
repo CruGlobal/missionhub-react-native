@@ -6,34 +6,25 @@ import { FlatList } from 'react-native';
 
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
-import { RefreshControl } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 
 @translate('memberContacts')
 class MemberContacts extends Component {
   state = { refreshing: false };
 
-  handleRefresh = () => {}; //todo implement
-
   renderItem = ({ item }) => {
+    //todo make this unclickable
     return <GroupMemberItem person={item.person} onSelect={() => {}} />;
   };
 
   renderList() {
     const { contactAssignments } = this.props;
 
-    //todo do we need pagination?
     return (
       <FlatList
         data={contactAssignments}
         keyExtractor={p => p.id}
         renderItem={this.renderItem}
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.handleRefresh}
-          />
-        }
       />
     );
   }

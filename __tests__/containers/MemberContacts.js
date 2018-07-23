@@ -44,11 +44,3 @@ it('renders an item', () => {
     screen.props().renderItem({ item: contactAssignment }),
   ).toMatchSnapshot();
 });
-
-it('refreshes the list', () => {
-  const screen = renderShallow(
-    <MemberContacts {...props} person={personWithContactAssignments} />,
-  );
-
-  screen.props().refreshControl.props.onRefresh();
-});
