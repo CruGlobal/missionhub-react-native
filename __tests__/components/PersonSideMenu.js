@@ -15,10 +15,13 @@ import {
   contactAssignmentSelector,
 } from '../../src/selectors/people';
 import { createContactAssignment } from '../../src/actions/person';
+import { assignContactAndPickStage } from '../../src/actions/misc';
+
 jest.mock('../../src/actions/navigation');
 jest.mock('../../src/actions/person');
 jest.mock('../../src/actions/steps');
 jest.mock('../../src/selectors/people');
+jest.mock('../../src/actions/misc');
 
 const me = { id: '1' };
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
@@ -49,12 +52,7 @@ const store = createMockStore({
 orgPermissionSelector.mockReturnValue(orgPermission);
 personSelector.mockReturnValue(person);
 
-beforeEach(() => {
-  navigatePush.mockClear();
-  navigateBack.mockClear();
-  createContactAssignment.mockClear();
-  contactAssignmentSelector.mockClear();
-});
+beforeEach(() => jest.clearAllMocks());
 
 let component;
 
@@ -111,10 +109,10 @@ function testEditClick(component, isJean) {
 function testAssignClick(component) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Assign')[0].action();
-  expect(createContactAssignment).toHaveBeenCalledWith(
+  expect(assignContactAndPickStage).toHaveBeenCalledWith(
+    person.id,
     organization.id,
     me.id,
-    person.id,
   );
 }
 
