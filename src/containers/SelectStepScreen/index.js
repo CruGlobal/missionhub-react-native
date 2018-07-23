@@ -46,7 +46,7 @@ class SelectStepScreen extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch, isMe, contactStage } = this.props;
+    const { dispatch, isMe, contactStageId } = this.props;
     let { suggestions } = this.props;
     if (!this.props.enableBackButton) {
       disableBack.add();
@@ -54,7 +54,7 @@ class SelectStepScreen extends Component {
 
     if (!suggestions) {
       const { response } = await dispatch(
-        getStepSuggestions(isMe, contactStage.id),
+        getStepSuggestions(isMe, contactStageId),
       );
       suggestions = response;
     }
@@ -246,15 +246,15 @@ SelectStepScreen.propTypes = {
   receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
-  contactStage: PropTypes.object.isRequired,
+  contactStageId: PropTypes.number.isRequired,
   isMe: PropTypes.bool.isRequired,
 };
 
-export const mapStateToProps = ({ auth, steps }, { isMe, contactStage }) => ({
+export const mapStateToProps = ({ auth, steps }, { isMe, contactStageId }) => ({
   myId: auth.person.id,
   suggestions: isMe
-    ? steps.suggestedForMe[contactStage.id]
-    : steps.suggestedForOthers[contactStage.id],
+    ? steps.suggestedForMe[contactStageId]
+    : steps.suggestedForOthers[contactStageId],
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

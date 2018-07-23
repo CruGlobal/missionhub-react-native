@@ -21,7 +21,10 @@ import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import { contactAssignmentSelector } from '../../selectors/people';
-import { assignContactAndPickStage } from '../../actions/misc';
+import {
+  assignContactAndPickStage,
+  navigateToStageScreen,
+} from '../../actions/misc';
 
 import styles from './styles';
 
@@ -36,7 +39,6 @@ class ContactSteps extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
-    this.handleSaveNewStage = this.handleSaveNewStage.bind(this);
     this.getSteps = this.getSteps.bind(this);
   }
 
@@ -74,12 +76,18 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
-  handleSaveNewStage(stage) {
-    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
-  }
-
   handleNavToStage() {
-    this.props.onChangeStage(true, this.handleSaveNewStage);
+    const { dispatch, person, contactAssignment, organization } = this.props;
+
+    return dispatch(
+      navigateToStageScreen(
+        false,
+        person,
+        contactAssignment,
+        organization,
+        null,
+      ),
+    );
   }
 
   handleNavToSteps(stage, onComplete = null) {
@@ -103,7 +111,6 @@ class ContactSteps extends Component {
             onComplete && onComplete();
           },
           enableBackButton: true,
-          contactStage: stage,
           organization,
         }),
       );
@@ -115,7 +122,6 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          contactStage: stage,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
             onComplete && onComplete();
@@ -146,10 +152,11 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { contactStage, contactAssignment, myId } = this.props;
+    const { contactAssignment, myId, person } = this.props;
 
-    contactStage
-      ? this.handleNavToSteps(this.props.contactStage)
+    (contactAssignment && contactAssignment.pathway_stage_id) ||
+    person.id === myId
+      ? this.handleNavToSteps()
       : contactAssignment
         ? this.handleNavToStage()
         : this.handleAssign();
