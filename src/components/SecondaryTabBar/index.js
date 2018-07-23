@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import { Flex } from '../common';
-// import styles from './styles';
 import CustomTabs from '../../containers/CustomTabs';
 import ContactSteps from '../../containers/ContactSteps';
 import ContactNotes from '../../containers/ContactNotes';

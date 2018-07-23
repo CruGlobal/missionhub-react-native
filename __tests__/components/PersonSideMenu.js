@@ -14,7 +14,6 @@ import {
   orgPermissionSelector,
   contactAssignmentSelector,
 } from '../../src/selectors/people';
-import { createContactAssignment } from '../../src/actions/person';
 import { assignContactAndPickStage } from '../../src/actions/misc';
 
 jest.mock('../../src/actions/navigation');

@@ -152,10 +152,9 @@ class ContactSteps extends Component {
   }
 
   handleCreateStep() {
-    const { contactAssignment, myId, person } = this.props;
+    const { contactAssignment, isMe } = this.props;
 
-    (contactAssignment && contactAssignment.pathway_stage_id) ||
-    person.id === myId
+    (contactAssignment && contactAssignment.pathway_stage_id) || isMe
       ? this.handleNavToSteps()
       : contactAssignment
         ? this.handleNavToStage()
@@ -249,6 +248,7 @@ const mapStateToProps = (
     { auth },
     { person, orgId: organization.id },
   ),
+  isMe: person.id === auth.person.id,
 });
 
 export default connect(mapStateToProps)(ContactSteps);

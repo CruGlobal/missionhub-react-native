@@ -1,12 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-jest.mock('react-navigation', () => ({
-  DrawerActions: {
-    closeDrawer: jest.fn(),
-  },
-  createMaterialTopTabNavigator: jest.fn((_, component) => component),
-}));
 
 import {
   ContactSideMenu,
@@ -17,7 +11,6 @@ import { ADD_CONTACT_SCREEN } from '../src/containers/AddContactScreen';
 import { navigatePush, navigateBack } from '../src/actions/navigation';
 import {
   updateFollowupStatus,
-  createContactAssignment,
   deleteContactAssignment,
 } from '../src/actions/person';
 import {
@@ -26,6 +19,13 @@ import {
   orgPermissionSelector,
 } from '../src/selectors/people';
 import { assignContactAndPickStage } from '../src/actions/misc';
+
+jest.mock('react-navigation', () => ({
+  DrawerActions: {
+    closeDrawer: jest.fn(),
+  },
+  createMaterialTopTabNavigator: jest.fn((_, component) => component),
+}));
 
 jest.mock('../src/actions/navigation');
 jest.mock('../src/actions/person');
