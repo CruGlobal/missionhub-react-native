@@ -20,11 +20,8 @@ import {
   orgPermissionSelector,
 } from '../../selectors/people';
 import { organizationSelector } from '../../selectors/organizations';
-import {
-  isMissionhubUser,
-  getStageIndex,
-  promptToAssign,
-} from '../../utils/common';
+import { isMissionhubUser, getStageIndex } from '../../utils/common';
+import { promptToAssign } from '../../utils/promptToAssign';
 import BackButton from '../BackButton';
 
 import styles from './styles';
