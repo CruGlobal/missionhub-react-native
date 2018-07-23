@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
