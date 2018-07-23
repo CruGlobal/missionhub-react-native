@@ -9,16 +9,11 @@ import {
   Button,
   DateComponent,
 } from '../../components/common';
-import { INTERACTION_TYPES } from '../../constants';
+import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
 import styles from './styles';
-
-const CelebrateableTypes = {
-  completedStep: 'accepted_challenge',
-  completedInteraction: 'interaction',
-};
 
 @translate('celebrateFeeds')
 export default class CelebrateItem extends Component {
@@ -26,25 +21,38 @@ export default class CelebrateItem extends Component {
 
   renderMessage() {
     const { t, event } = this.props;
-    const { completedInteraction, completedStep } = CelebrateableTypes;
+    const { completedInteraction, completedStep } = CELEBRATEABLE_TYPES;
     const { adjective_attribute_value } = event;
-    const { MHInteractionTypePersonalDecision } = INTERACTION_TYPES;
+
     const name = event.subject_person_name.split(' ')[0];
 
     switch (event.celebrateable_type) {
       case completedStep:
         return this.renderStepOfFaithMessage(t, event, name);
       case completedInteraction:
-        return parseInt(adjective_attribute_value) ===
-          MHInteractionTypePersonalDecision.id
-          ? t('interactionDecision', { initiator: name })
-          : t(completedInteraction, {
-              initiator: name,
-              interactionName: this.renderInteraction(),
-            });
+        return this.buildInteractionMessage(t, adjective_attribute_value, name);
     }
   }
 
+  buildInteractionMessage(t, type, name) {
+    const {
+      MHInteractionTypePersonalDecision,
+      MHInteractionTypeSomethingCoolHappened,
+    } = INTERACTION_TYPES;
+    const { completedInteraction } = CELEBRATEABLE_TYPES;
+
+    switch (parseInt(type)) {
+      case MHInteractionTypePersonalDecision.id:
+        return t('interactionDecision', { initiator: name });
+      case MHInteractionTypeSomethingCoolHappened.id:
+        return t('somethingCoolHappened', { initiator: name });
+      default:
+        return t(completedInteraction, {
+          initiator: name,
+          interactionName: this.renderInteraction(),
+        });
+    }
+  }
   renderStepOfFaithMessage(t, event, name) {
     const { adjective_attribute_value } = event;
 
