@@ -12,10 +12,7 @@ import GroupMemberItem from '../../components/GroupMemberItem';
 class MemberContacts extends Component {
   state = { refreshing: false };
 
-  renderItem = ({ item }) => {
-    //todo make this unclickable
-    return <GroupMemberItem person={item.person} onSelect={() => {}} />;
-  };
+  renderItem = ({ item }) => <GroupMemberItem person={item.person} />;
 
   renderList() {
     const { contactAssignments } = this.props;
