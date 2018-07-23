@@ -6,12 +6,7 @@ exports[`renders a list 1`] = `
     Array [
       Object {
         "id": "1",
-      },
-      Object {
-        "id": "2",
-      },
-      Object {
-        "id": "3",
+        "person": Object {},
       },
     ]
   }
@@ -40,6 +35,13 @@ exports[`renders a list 1`] = `
   scrollEventThrottle={50}
   updateCellsBatchingPeriod={50}
   windowSize={21}
+/>
+`;
+
+exports[`renders an item 1`] = `
+<Translate(GroupMemberItem)
+  onSelect={[Function]}
+  person={Object {}}
 />
 `;
 

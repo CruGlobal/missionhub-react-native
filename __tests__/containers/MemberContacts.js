@@ -1,12 +1,17 @@
 import React from 'react';
 
 import MemberContacts from '../../src/containers/MemberContacts';
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const person = {
+const contactAssignment = { id: '1', person: {} };
+const personNoContactAssignments = {
   id: '1',
   first_name: 'Roge',
   contact_assignments: [],
+};
+const personWithContactAssignments = {
+  ...personNoContactAssignments,
+  contact_assignments: [contactAssignment],
 };
 const organization = {
   id: '100',
@@ -14,22 +19,35 @@ const organization = {
 };
 
 const props = {
-  person,
   organization,
 };
 
 it('renders empty', () => {
-  testSnapshotShallow(<MemberContacts {...props} />);
+  testSnapshotShallow(
+    <MemberContacts {...props} person={personNoContactAssignments} />,
+  );
 });
 
 it('renders a list', () => {
   testSnapshotShallow(
-    <MemberContacts
-      {...props}
-      person={{
-        ...person,
-        contact_assignments: [{ id: '1' }, { id: '2' }, { id: '3' }],
-      }}
-    />,
+    <MemberContacts {...props} person={personWithContactAssignments} />,
   );
+});
+
+it('renders an item', () => {
+  const screen = renderShallow(
+    <MemberContacts {...props} person={personWithContactAssignments} />,
+  );
+
+  expect(
+    screen.props().renderItem({ item: contactAssignment }),
+  ).toMatchSnapshot();
+});
+
+it('refreshes the list', () => {
+  const screen = renderShallow(
+    <MemberContacts {...props} person={personWithContactAssignments} />,
+  );
+
+  screen.props().refreshControl.props.onRefresh();
 });
