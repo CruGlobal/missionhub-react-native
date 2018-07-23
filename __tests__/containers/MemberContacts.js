@@ -18,20 +18,18 @@ const props = {
   organization,
 };
 
-describe('MemberCelebrate', () => {
-  it('renders empty', () => {
-    testSnapshotShallow(<MemberContacts {...props} />);
-  });
+it('renders empty', () => {
+  testSnapshotShallow(<MemberContacts {...props} />);
+});
 
-  it('renders a list', () => {
-    testSnapshotShallow(
-      <MemberContacts
-        {...props}
-        person={{
-          ...person,
-          contact_assignments: [{ id: '1' }, { id: '2' }, { id: '3' }],
-        }}
-      />,
-    );
-  });
+it('renders a list', () => {
+  testSnapshotShallow(
+    <MemberContacts
+      {...props}
+      person={{
+        ...person,
+        contact_assignments: [{ id: '1' }, { id: '2' }, { id: '3' }],
+      }}
+    />,
+  );
 });

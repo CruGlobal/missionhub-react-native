@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MemberCelebrate renders a list 1`] = `
+exports[`renders a list 1`] = `
 <FlatList
   data={
     Array [
@@ -43,7 +43,7 @@ exports[`MemberCelebrate renders a list 1`] = `
 />
 `;
 
-exports[`MemberCelebrate renders empty 1`] = `
+exports[`renders empty 1`] = `
 <NullStateComponent
   descriptionText="Anyone assigned to Roge will appear here."
   headerText="PEOPLE"
