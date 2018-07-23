@@ -180,7 +180,7 @@ export const getFilterOptions = (t, filters, questions = []) => {
           .filter(o => o !== '')
           .map(o => ({ id: o, text: o })),
       })),
-      preview: filters.questions ? filters.questions.text : undefined,
+      preview: filters.question ? filters.question.text : undefined,
     },
     gender: {
       id: 'gender',

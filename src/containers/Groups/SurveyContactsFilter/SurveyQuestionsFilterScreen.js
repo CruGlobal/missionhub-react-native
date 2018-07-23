@@ -15,7 +15,7 @@ import BackButton from '../../BackButton';
 import styles from './styles';
 
 @translate('searchFilter')
-export class SearchQuestionsFilterScreen extends Component {
+export class SurveyQuestionsFilterScreen extends Component {
   constructor(props) {
     super(props);
     const { filters, options } = props;
@@ -23,13 +23,9 @@ export class SearchQuestionsFilterScreen extends Component {
     this.state = {
       filters,
       options,
-      selectedFilter: {},
+      selectedFilterId: '',
       refreshing: false,
     };
-  }
-
-  componentWillMount() {
-    Keyboard.dismiss();
   }
 
   setFilter(filters = {}) {
@@ -57,19 +53,19 @@ export class SearchQuestionsFilterScreen extends Component {
         ),
       }),
     );
-    this.setState({ selectedFilter: item });
+    this.setState({ selectedFilterId: item.id });
 
     this.props.dispatch(trackSearchFilter(item.id));
   };
 
   handleSelectFilter = item => {
-    const { options, selectedFilter } = this.state;
+    const { options, selectedFilterId } = this.state;
     const newOptions = options.map(o => ({
       ...o,
-      preview: o.id === selectedFilter.id ? item.text : null,
+      preview: o.id === selectedFilterId ? item.text : null,
     }));
     let newFilters = {
-      id: selectedFilter.id,
+      id: selectedFilterId,
       text: item.text,
       answer: item,
     };
@@ -101,7 +97,7 @@ export class SearchQuestionsFilterScreen extends Component {
   }
 }
 
-SearchQuestionsFilterScreen.propTypes = {
+SurveyQuestionsFilterScreen.propTypes = {
   onFilter: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
   filters: PropTypes.object.isRequired,
@@ -111,5 +107,5 @@ const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(SearchQuestionsFilterScreen);
+export default connect(mapStateToProps)(SurveyQuestionsFilterScreen);
 export const SEARCH_QUESTIONS_FILTER_SCREEN = 'nav/SEARCH_QUESTIONS_FILTER';

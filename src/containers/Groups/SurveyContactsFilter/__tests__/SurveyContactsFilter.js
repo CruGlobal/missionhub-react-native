@@ -1,16 +1,16 @@
 import React from 'react';
 
-import SurveyContactsFilter from '../SurveyContactsFilter';
+import SurveyContactsFilter from '../../SurveyContactsFilter';
 import {
   createMockStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
-} from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import * as common from '../../../utils/common';
+} from '../../../../../testUtils';
+import { navigatePush } from '../../../../actions/navigation';
+import * as common from '../../../../utils/common';
 
-jest.mock('../../../actions/navigation', () => ({
+jest.mock('../../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 

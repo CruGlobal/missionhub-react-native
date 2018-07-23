@@ -56,7 +56,9 @@ export class SurveyContactsFilter extends Component {
 
   async loadQuestions() {
     const { dispatch, survey } = this.props;
-    const questions = await dispatch(getSurveyQuestions(survey.id));
+    const { response: questions } = await dispatch(
+      getSurveyQuestions(survey.id),
+    );
     this.createFilters(questions);
   }
 

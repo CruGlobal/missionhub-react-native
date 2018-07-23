@@ -214,16 +214,16 @@ describe('searchRemoveFilter', () => {
 });
 
 describe('getFilterOptions', () => {
-  const t = jest.fn();
+  const t = jest.fn(() => 'Question Title');
 
   it('sets the preview', () => {
     const filters = {
-      questions: { text: 'test' },
+      question: { text: 'test' },
       gender: { text: 'male' },
     };
     const results = getFilterOptions(t, filters);
 
-    expect(results.questions.preview).toBe('test');
+    expect(results.question.preview).toBe('test');
     expect(results.gender.preview).toBe('male');
     expect(results.time.preview).toBe(undefined);
   });
@@ -239,6 +239,36 @@ describe('getFilterOptions', () => {
     expect(results.uncontacted.selected).toBe(true);
     expect(results.unassigned.selected).toBe(true);
     expect(results.archived.selected).toBe(false);
+  });
+
+  it('parses question content and sets question filter', () => {
+    const questions = [
+      {
+        _type: 'choice_field',
+        id: '1',
+        label: 'Question 1',
+        content: '1.1\r\n1.2\r\n1.3\r\n1.4',
+      },
+      {
+        _type: 'text_field',
+        id: '2',
+        label: 'Question 2',
+        content: '2.1\r\n2.2\r\n2.3\r\n2.4',
+      },
+      {
+        _type: 'choice_field',
+        id: '3',
+        label: 'Question 3',
+        content: '3.1\r\n3.2\r\n3.3\r\n3.4',
+      },
+    ];
+    const filters = {
+      question: { text: '1.1' },
+    };
+
+    const results = getFilterOptions(t, filters, questions);
+
+    expect(results.question).toMatchSnapshot();
   });
 });
 

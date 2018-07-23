@@ -51,9 +51,6 @@ export function getOrgSurveysNextPage(orgId) {
 
 export function getSurveyQuestions(surveyId) {
   return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }),
-    );
-    return response;
+    return await dispatch(callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }));
   };
 }

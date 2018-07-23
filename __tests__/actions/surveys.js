@@ -135,23 +135,24 @@ describe('getOrgSurveysNextPage', () => {
 });
 
 describe('getSurveyQuestions', () => {
-  const surveyId = '789';
+  const surveyId = '12345';
   const questionsResponse = {
+    type: 'success',
     response: [{ id: '123' }, { id: '456' }, { id: '789' }],
   };
-
-  mockFnWithParams(
-    api,
-    'default',
-    questionsResponse,
-    REQUESTS.GET_SURVEY_QUESTIONS,
-    { surveyId },
-  );
 
   it('gets survey questions', async () => {
     store = configureStore([thunk])();
 
+    mockFnWithParams(
+      api,
+      'default',
+      questionsResponse,
+      REQUESTS.GET_SURVEY_QUESTIONS,
+      { surveyId },
+    );
+
     await store.dispatch(getSurveyQuestions(surveyId));
-    expect(store.getActions()).toEqual(questionsResponse);
+    expect(store.getActions()).toEqual([questionsResponse]);
   });
 });

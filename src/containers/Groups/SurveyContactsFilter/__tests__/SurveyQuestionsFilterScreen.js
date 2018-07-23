@@ -74,7 +74,7 @@ describe('SurveyQuestionsFilterScreen', () => {
       expect(instance.state).toEqual({
         filters: newFilter,
         options,
-        selectedFilter: {},
+        selectedFilterId: '',
         refreshing: false,
       });
       expect(instance.props.onFilter).toHaveBeenCalled();
@@ -109,7 +109,7 @@ describe('SurveyQuestionsFilterScreen', () => {
 
     it('selects new filter', () => {
       instance.setFilter = jest.fn();
-      instance.setState({ selectedFilter: selected });
+      instance.setState({ selectedFilterId: selected.id });
 
       const expectedNewOptions = options.map(o => ({
         ...o,
@@ -126,7 +126,7 @@ describe('SurveyQuestionsFilterScreen', () => {
       expect(instance.state).toEqual({
         filters: {},
         options: expectedNewOptions,
-        selectedFilter: selected,
+        selectedFilterId: selected.id,
         refreshing: false,
       });
       expect(instance.setFilter).toHaveBeenCalledWith(expectedNewFilter);
