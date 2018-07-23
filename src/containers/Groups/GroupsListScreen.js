@@ -38,7 +38,7 @@ export class GroupsListScreen extends Component {
           title={t('header').toUpperCase()}
         />
         <FlatList
-          style={styles.groupList}
+          style={styles.cardList}
           data={orgs}
           keyExtractor={i => i.id}
           renderItem={({ item }) => (

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Linking } from 'react-native';
 import { connect } from 'react-redux';
 
 import i18next from '../../i18n';
@@ -8,8 +7,12 @@ import { Flex, Text, IconButton } from '../common';
 import PillButton from '../PillButton';
 import SecondaryTabBar from '../SecondaryTabBar';
 import { ACTIONS, CASEY, JEAN } from '../../constants';
-import { buildTrackingObj } from '../../utils/common';
-import { trackActionWithoutData } from '../../actions/analytics';
+import {
+  buildTrackingObj,
+  getPersonEmailAddress,
+  getPersonPhoneNumber,
+} from '../../utils/common';
+import { openCommunicationLink } from '../../actions/misc';
 
 import styles from './styles';
 
@@ -152,90 +155,71 @@ class ContactHeader extends Component {
     return JEAN_TABS;
   };
 
-  openUrl = (url, action) => {
-    Linking.canOpenURL(url)
-      .then(supported => {
-        if (!supported) {
-          WARN("Can't handle url: ", url);
-        } else {
-          Linking.openURL(url)
-            .then(() => {
-              this.props.dispatch(trackActionWithoutData(action));
-            })
-            .catch(err => {
-              if (url.includes('telprompt')) {
-                // telprompt was cancelled and Linking openURL method sees this as an error
-                // it is not a true error so ignore it to prevent apps crashing
-              } else {
-                WARN('openURL error', err);
-              }
-            });
-        }
-      })
-      .catch(err => WARN('An unexpected error happened', err));
-  };
-
   onChangeStage = () => {
     this.props.onChangeStage();
   };
 
   getJeanButtons = () => {
-    const { person } = this.props;
-    const emailExists = person.email_addresses
-      ? person.email_addresses.find(email => email.primary) ||
-        person.email_addresses[0] ||
-        null
-      : false;
-    const numberExists = person.phone_numbers
-      ? person.phone_numbers.find(email => email.primary) ||
-        person.phone_numbers[0] ||
-        null
-      : false;
+    const { person, dispatch } = this.props;
+    const emailAddress = getPersonEmailAddress(person);
+    const phoneNumber = getPersonPhoneNumber(person);
     let phoneNumberUrl;
     let smsNumberUrl;
     let emailUrl;
-    if (numberExists) {
-      phoneNumberUrl = `tel:${numberExists.number}`;
-      smsNumberUrl = `sms:${numberExists.number}`;
+    if (phoneNumber) {
+      phoneNumberUrl = `tel:${phoneNumber.number}`;
+      smsNumberUrl = `sms:${phoneNumber.number}`;
     }
-    if (emailExists) {
-      emailUrl = `mailto:${emailExists.email}`;
+    if (emailAddress) {
+      emailUrl = `mailto:${emailAddress.email}`;
     }
 
     return (
       <Flex align="center" justify="center" direction="row">
         <Flex align="center" justify="center" style={styles.iconWrap}>
           <IconButton
-            disabled={!numberExists}
+            disabled={!phoneNumber}
             style={
-              numberExists ? styles.contactButton : styles.contactButtonDisabled
+              phoneNumber ? styles.contactButton : styles.contactButtonDisabled
             }
             name="textIcon"
             type="MissionHub"
-            onPress={() => this.openUrl(smsNumberUrl, ACTIONS.TEXT_ENGAGED)}
+            onPress={() =>
+              dispatch(
+                openCommunicationLink(smsNumberUrl, ACTIONS.TEXT_ENGAGED),
+              )
+            }
           />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
           <IconButton
-            disabled={!numberExists}
+            disabled={!phoneNumber}
             style={
-              numberExists ? styles.contactButton : styles.contactButtonDisabled
+              phoneNumber ? styles.contactButton : styles.contactButtonDisabled
             }
             name="callIcon"
             type="MissionHub"
-            onPress={() => this.openUrl(phoneNumberUrl, ACTIONS.CALL_ENGAGED)}
+            onPress={() =>
+              dispatch(
+                openCommunicationLink(phoneNumberUrl, ACTIONS.CALL_ENGAGED),
+              )
+            }
           />
         </Flex>
         <Flex align="center" justify="center" style={styles.iconWrap}>
           <IconButton
-            disabled={!emailExists}
+            disabled={!emailAddress}
             style={[
-              emailExists ? styles.contactButton : styles.contactButtonDisabled,
+              emailAddress
+                ? styles.contactButton
+                : styles.contactButtonDisabled,
               styles.emailButton,
             ]}
             name="emailIcon"
             type="MissionHub"
-            onPress={() => this.openUrl(emailUrl, ACTIONS.EMAIL_ENGAGED)}
+            onPress={() =>
+              dispatch(openCommunicationLink(emailUrl, ACTIONS.EMAIL_ENGAGED))
+            }
           />
         </Flex>
       </Flex>

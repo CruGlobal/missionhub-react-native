@@ -169,7 +169,9 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   handleToggle(item) {
-    if (!item) return;
+    if (!item) {
+      return;
+    }
     let newFilter = { ...this.state.filters };
     const field = item.id;
     const newValue = !item.selected;

@@ -12,6 +12,7 @@ import {
   formatApiDate,
   getAnalyticsSubsection,
   isCustomStep,
+  getStageIndex,
 } from '../utils/common';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -24,6 +25,7 @@ import { navigatePush, navigateBack } from './navigation';
 import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
+import { reloadGroupCelebrateFeed } from './celebration';
 
 export function getStepSuggestions(isMe, contactStageId) {
   return dispatch => {
@@ -169,6 +171,7 @@ export function completeStep(step, screen) {
   return dispatch => {
     return dispatch(challengeCompleteAction(step, screen)).then(r => {
       dispatch(getMySteps());
+      dispatch(reloadGroupCelebrateFeed(step.organization.id));
       return r;
     });
   };
@@ -243,14 +246,10 @@ function challengeCompleteAction(step, screen) {
                         : false,
                   );
 
-                  const stages = getState().stages.stages;
-                  const pathwayStageId =
-                    assignment && assignment.pathway_stage_id;
-                  let firstItemIndex = stages.findIndex(
-                    s => s && `${s.id}` === `${pathwayStageId}`,
+                  const firstItemIndex = getStageIndex(
+                    getState().stages.stages,
+                    assignment && assignment.pathway_stage_id,
                   );
-                  firstItemIndex =
-                    firstItemIndex >= 0 ? firstItemIndex : undefined;
 
                   let stageProps = {
                     section: 'people',

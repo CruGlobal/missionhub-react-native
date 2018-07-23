@@ -28,17 +28,6 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.white,
   },
-  assignButton: {
-    paddingVertical: 8,
-    backgroundColor: theme.red,
-    borderRadius: 25,
-    minWidth: 200,
-    alignSelf: 'center',
-    marginVertical: 8,
-  },
-  assignButtonText: {
-    fontSize: 14,
-  },
   content: {
     borderLeftColor: theme.separatorColor,
     borderLeftWidth: 1,

@@ -107,7 +107,9 @@ export const capitalize = lodash.capitalize;
 
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {
-    if (exists(args[i])) return args[i];
+    if (exists(args[i])) {
+      return args[i];
+    }
   }
   return null;
 };
@@ -226,7 +228,9 @@ export const getFilterOptions = (t, filters, questions = []) => {
 
 export const searchHandleToggle = (scope, item) => {
   const { toggleOptions, filters } = scope.state;
-  if (!item) return;
+  if (!item) {
+    return;
+  }
   let newFilter = { ...filters };
   const field = item.id;
   const newValue = !item.selected;
@@ -315,4 +319,26 @@ export function getAssignedByName(myId, item) {
       ? ' by You'
       : ` by ${assigned_by.first_name}`
     : '';
+}
+
+export function getPersonPhoneNumber(person) {
+  return person.phone_numbers
+    ? person.phone_numbers.find(
+        phone_number => phone_number.primary && !phone_number._placeHolder,
+      ) || person.phone_numbers.find(phone_number => !phone_number._placeHolder)
+    : null;
+}
+
+export function getPersonEmailAddress(person) {
+  return person.email_addresses
+    ? person.email_addresses.find(
+        email => email.primary && !email._placeHolder,
+      ) || person.email_addresses.find(email => !email._placeHolder)
+    : null;
+}
+
+export function getStageIndex(stages, stageId) {
+  const index = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
+
+  return index === -1 ? undefined : index;
 }

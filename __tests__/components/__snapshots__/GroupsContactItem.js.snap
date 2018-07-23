@@ -43,7 +43,7 @@ exports[`interaction items should render discipleship conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -128,7 +128,7 @@ exports[`interaction items should render gospel presentation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -213,7 +213,7 @@ exports[`interaction items should render holy spirit conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -298,7 +298,7 @@ exports[`interaction items should render note 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -383,7 +383,7 @@ exports[`interaction items should render personal decision 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -468,7 +468,7 @@ exports[`interaction items should render something cool happened 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -553,7 +553,7 @@ exports[`interaction items should render spiritual conversation 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -638,7 +638,7 @@ exports[`renders contact assignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -723,7 +723,7 @@ exports[`renders contact unassignment item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={
@@ -745,7 +745,7 @@ exports[`renders contact unassignment item 1`] = `
         }
       }
     >
-      Iron Man was unassigned Test User
+      Test User was unassigned from Iron Man
     </MyText>
     <MyText
       accessible={true}
@@ -760,6 +760,91 @@ exports[`renders contact unassignment item 1`] = `
       }
     >
       Some comment
+    </MyText>
+  </Flex>
+</Card>
+`;
+
+exports[`renders contact unassignment item with note 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 15,
+      "marginHorizontal": 15,
+      "paddingHorizontal": 13,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Flex
+    align="center"
+    value={1}
+  >
+    <Icon
+      name="journeyWarning"
+      size={32}
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#007398",
+          "textAlign": "center",
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "borderLeftColor": "#E6E8EC",
+        "borderLeftWidth": 1,
+        "paddingLeft": 15,
+      }
+    }
+    value={5}
+  >
+    <Translate(DateComponent)
+      date="2018-05-29T17:02:02Z"
+      format="LLL"
+      style={
+        Object {
+          "color": "#B2B0B2",
+          "fontSize": 14,
+          "marginBottom": 5,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+        }
+      }
+    >
+      Test User was unassigned from Iron Man
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 5,
+          "marginTop": 25,
+        }
+      }
+    >
+      unassignment note
     </MyText>
   </Flex>
 </Card>
@@ -808,7 +893,7 @@ exports[`renders survey item 1`] = `
     }
     value={5}
   >
-    <DateComponent
+    <Translate(DateComponent)
       date="2018-05-29T17:02:02Z"
       format="LLL"
       style={

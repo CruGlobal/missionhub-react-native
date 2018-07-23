@@ -164,12 +164,12 @@ it('loads celebrate items with pagination', () => {
         {
           id: orgId,
           celebrateItems: oldItems,
+          celebratePagination: {
+            hasNextPage: true,
+            page: 1,
+          },
         },
       ],
-      celebratePagination: {
-        hasNextPage: true,
-        page: 1,
-      },
     },
     {
       type: REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS,
@@ -190,7 +190,10 @@ it('loads celebrate items with pagination', () => {
     },
   );
 
-  expect(state.celebratePagination).toEqual({ hasNextPage: false, page: 2 });
+  expect(state.all[0].celebratePagination).toEqual({
+    hasNextPage: false,
+    page: 2,
+  });
 });
 
 it('loads members for org with paging', () => {

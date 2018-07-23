@@ -13,6 +13,9 @@ import {
   getPagination,
   getAssignedByName,
   getAssignedToName,
+  getPersonPhoneNumber,
+  getPersonEmailAddress,
+  getStageIndex,
 } from '../../src/utils/common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
@@ -345,4 +348,78 @@ describe('getAssignedByName', () => {
       getAssignedByName('200', { assigned_by: { id: 'anything', first_name } }),
     ).toEqual(` by ${first_name}`);
   });
+});
+
+describe('getPersonPhoneNumber', () => {
+  const placeholder = { _placeHolder: true };
+  const nonPrimary = { number: '2' };
+  const primary = { primary: true, number: '3' };
+
+  it('should remove placeholders', () =>
+    expect(
+      getPersonPhoneNumber({
+        phone_numbers: [placeholder, nonPrimary],
+      }),
+    ).toEqual(nonPrimary));
+
+  it('should look for primary', () =>
+    expect(
+      getPersonPhoneNumber({
+        phone_numbers: [placeholder, nonPrimary, primary],
+      }),
+    ).toEqual(primary));
+
+  it('should grab first number if there is no primary', () =>
+    expect(
+      getPersonPhoneNumber({
+        phone_numbers: [nonPrimary, { number: '4' }],
+      }),
+    ).toEqual(nonPrimary));
+
+  it('does not crash if person does not have phone numbers', () =>
+    expect(getPersonPhoneNumber({})).toBe(null));
+});
+
+describe('getPersonEmailAddress', () => {
+  const placeholder = { _placeHolder: true };
+  const nonPrimary = { email: 'email2@test.com' };
+  const primary = { primary: true, email: 'email3@test.com' };
+
+  it('should remove placeholders', () =>
+    expect(
+      getPersonEmailAddress({
+        email_addresses: [placeholder, nonPrimary],
+      }),
+    ).toEqual(nonPrimary));
+
+  it('should look for primary', () =>
+    expect(
+      getPersonEmailAddress({
+        email_addresses: [placeholder, nonPrimary, primary],
+      }),
+    ).toEqual(primary));
+
+  it('should grab first email if there is no primary', () =>
+    expect(
+      getPersonEmailAddress({
+        email_addresses: [nonPrimary, { email: 'email4@test.com' }],
+      }),
+    ).toEqual(nonPrimary));
+
+  it('does not crash if person does not have email addresses', () =>
+    expect(getPersonEmailAddress({})).toBe(null));
+});
+
+describe('getStageIndex', () => {
+  const stageOne = { id: '1' };
+  const stageTwo = { id: '2' };
+
+  it('should get index of stage ID', () =>
+    expect(getStageIndex([stageOne], stageOne.id)).toEqual(0));
+
+  it('should skip null/undefined stages', () =>
+    expect(getStageIndex([null, stageTwo], stageTwo.id)).toEqual(1));
+
+  it('returns undefined if not found', () =>
+    expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
 });

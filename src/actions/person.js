@@ -256,9 +256,11 @@ export function createContactAssignment(
 export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   return async dispatch => {
     const data = {
-      type: 'contact_assignment',
-      attributes: {
-        unassignment_reason: note,
+      data: {
+        type: 'contact_assignment',
+        attributes: {
+          unassignment_reason: note,
+        },
       },
     };
 
