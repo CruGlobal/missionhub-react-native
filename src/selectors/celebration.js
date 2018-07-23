@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/common';
+import { CELEBRATEABLE_TYPES } from '../constants';
 
 export const celebrationSelector = createSelector(
   ({ celebrateItems }) => celebrateItems,
   celebrateItems => {
-    let sortByDate = celebrateItems;
+    const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
+    let sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
     let dateSections = [];
@@ -20,15 +22,16 @@ export const celebrationSelector = createSelector(
           'day',
         )
       ) {
-        dateSections[length - 1].events.push(item);
+        dateSections[length - 1].data.push(item);
       } else {
         dateSections.push({
           id: dateSections.length,
           date: item.changed_attribute_value,
-          events: [item],
+          data: [item],
         });
       }
     });
+
     return dateSections;
   },
 );
@@ -44,4 +47,25 @@ const compare = (a, b) => {
     return -1;
   }
   return 0;
+};
+
+const filterCelebrationFeedItems = items => {
+  const {
+    completedInteraction,
+    completedStep,
+    validInteractionTypes,
+  } = CELEBRATEABLE_TYPES;
+
+  return items.filter(item => {
+    switch (item.celebrateable_type) {
+      case completedInteraction:
+        return validInteractionTypes.includes(
+          parseInt(item.adjective_attribute_value),
+        );
+      case completedStep:
+        return true;
+      default:
+        return false;
+    }
+  });
 };

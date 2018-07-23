@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Contact should render PersonScreen correctly 1`] = `
+exports[`Contact should render PersonScreen correctly with stage 1`] = `
 <View>
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -35,8 +35,113 @@ exports[`Contact should render PersonScreen correctly 1`] = `
           "fontSize": 24,
         }
       }
+    >
+      TEST PERSON
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "letterSpacing": 0.25,
+        }
+      }
+    >
+      stage 4
+    </MyText>
+    <Translate(GroupsPersonHeader)
+      dispatch={[MockFunction]}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
     />
-    <GroupsPersonHeader />
+  </Flex>
+</View>
+`;
+
+exports[`Contact should render PersonScreen correctly without stage 1`] = `
+<View>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Translate(GroupsPersonHeader)
+      dispatch={[MockFunction]}
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
   </Flex>
 </View>
 `;

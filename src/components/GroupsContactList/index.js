@@ -4,8 +4,9 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
-import { Flex, Text, Button } from '../../components/common';
+import { Flex, Text } from '../../components/common';
 import GroupsContactItem from '../../components/GroupsContactItem';
+import AssignToMeButton from '../AssignToMeButton/index';
 
 import styles from './styles';
 
@@ -38,7 +39,7 @@ class GroupsContactList extends Component {
   }
 
   render() {
-    const { t, person, onAssign } = this.props;
+    const { person, onAssign } = this.props;
     const name =
       person.full_name ||
       `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
@@ -47,13 +48,7 @@ class GroupsContactList extends Component {
       <Flex value={1}>
         <Flex style={styles.header} align="center" justify="center">
           <Text style={styles.name}>{name.toUpperCase()}</Text>
-          <Button
-            type="transparent"
-            onPress={onAssign}
-            text={t('assign').toUpperCase()}
-            style={styles.assignButton}
-            buttonTextStyle={styles.assignButtonText}
-          />
+          <AssignToMeButton onPress={onAssign} />
         </Flex>
         <Flex value={1} style={styles.content}>
           {this.renderContent()}

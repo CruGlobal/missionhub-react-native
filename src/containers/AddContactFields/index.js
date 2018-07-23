@@ -6,6 +6,10 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Input, RadioButton } from '../../components/common';
 import theme from '../../theme';
+import {
+  getPersonEmailAddress,
+  getPersonPhoneNumber,
+} from '../../utils/common';
 
 import styles from './styles';
 
@@ -26,14 +30,9 @@ class AddContactFields extends Component {
     if (!person) {
       return;
     }
-    const email =
-      person.email_addresses.find(email => email.primary) ||
-      person.email_addresses[0] ||
-      {};
-    const phone =
-      person.phone_numbers.find(email => email.primary) ||
-      person.email_addresses[0] ||
-      {};
+    const email = getPersonEmailAddress(person) || {};
+    const phone = getPersonPhoneNumber(person) || {};
+
     if (person) {
       const newState = {
         firstName: person.first_name,
