@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Image, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 
+import NullStateComponent from '../../components/NullStateComponent';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { navigatePush } from '../../actions/navigation';
 import { searchPeople } from '../../actions/people';
@@ -195,13 +196,11 @@ export class SearchPeopleScreen extends Component {
     }
     if (results.length === 0) {
       return (
-        <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
-          <Image source={SEARCH_NULL} style={styles.nullImage} />
-          <Text type="header" style={styles.nullHeader}>
-            {t('nullHeader')}
-          </Text>
-          <Text style={styles.nullText}>{t('nullDescription')}</Text>
-        </Flex>
+        <NullStateComponent
+          imageSource={SEARCH_NULL}
+          headerText={t('nullHeader')}
+          descriptionText={t('nullDescription')}
+        />
       );
     }
     return (

@@ -293,7 +293,7 @@ exports[`renders correctly 1`] = `
     style={
       Array [
         Object {
-          "marginBottom": 40,
+          "backgroundColor": "#ffffff",
         },
         Object {
           "alignItems": "center",
@@ -304,12 +304,17 @@ exports[`renders correctly 1`] = `
     }
   >
     <Image
+      resizeMode="contain"
       source={
         Object {
           "testUri": "../../../assets/images/searchNull.png",
         }
       }
-      style={undefined}
+      style={
+        Object {
+          "flexShrink": 1,
+        }
+      }
     />
     <Text
       accessible={true}
@@ -325,8 +330,8 @@ exports[`renders correctly 1`] = `
           },
           Object {
             "color": "#007398",
-            "fontSize": 84,
-            "letterSpacing": 2,
+            "fontSize": 42,
+            "paddingTop": 10,
           },
         ]
       }
@@ -346,7 +351,11 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#505256",
             "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
           },
         ]
       }
@@ -409,51 +418,15 @@ exports[`renders with no results state 1`] = `
       />
     }
   />
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Search results will appear here."
+    headerText="Search"
+    imageSource={
       Object {
-        "marginBottom": 40,
+        "testUri": "../../../assets/images/searchNull.png",
       }
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+  />
 </Component>
 `;
 
@@ -509,51 +482,15 @@ exports[`renders with results state 1`] = `
       />
     }
   />
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Search results will appear here."
+    headerText="Search"
+    imageSource={
       Object {
-        "marginBottom": 40,
+        "testUri": "../../../assets/images/searchNull.png",
       }
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+  />
 </Component>
 `;
 
@@ -609,50 +546,14 @@ exports[`renders with searching state 1`] = `
       />
     }
   />
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Search results will appear here."
+    headerText="Search"
+    imageSource={
       Object {
-        "marginBottom": 40,
+        "testUri": "../../../assets/images/searchNull.png",
       }
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+  />
 </Component>
 `;
