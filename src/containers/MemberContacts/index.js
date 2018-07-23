@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
+import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { RefreshControl } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
@@ -47,7 +48,7 @@ class MemberContacts extends Component {
 
     return (
       <NullStateComponent
-        imageSource={null}
+        imageSource={NULL}
         headerText={t('peopleScreen:header')}
         descriptionText={t('nullDescription', {
           memberName: person.first_name,

@@ -49,6 +49,10 @@ exports[`renders empty 1`] = `
 <NullStateComponent
   descriptionText="Anyone assigned to Roge will appear here."
   headerText="PEOPLE"
-  imageSource={null}
+  imageSource={
+    Object {
+      "testUri": "../../../assets/images/MemberContacts.png",
+    }
+  }
 />
 `;
