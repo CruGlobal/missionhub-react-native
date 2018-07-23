@@ -16,11 +16,8 @@ import { Flex, Button, Text } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
-import {
-  buildTrackingObj,
-  getAnalyticsSubsection,
-  promptToAssign,
-} from '../../utils/common';
+import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 import { contactAssignmentSelector } from '../../selectors/people';
