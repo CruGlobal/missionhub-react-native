@@ -16,7 +16,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
-    title="GROUPS"
+    title="COMMUNITIES"
   />
   <FlatList
     data={
