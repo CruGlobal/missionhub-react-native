@@ -61,7 +61,7 @@ export function assignContactAndPickStage(personId, orgId, myId) {
     dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,
-        orgId: orgId,
+        orgId,
         contactAssignmentId,
         name: resultPerson.first_name,
         onComplete: () => {},
