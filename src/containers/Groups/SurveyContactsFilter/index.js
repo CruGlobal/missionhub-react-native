@@ -30,7 +30,7 @@ export class SurveyContactsFilter extends Component {
 
     const filterOptions = getFilterOptions(t, filters, []);
     const options = [
-      filterOptions.question,
+      filterOptions.questions,
       filterOptions.gender,
       filterOptions.time,
     ];
@@ -66,7 +66,7 @@ export class SurveyContactsFilter extends Component {
     const { t, filters } = this.props;
     const filterOptions = getFilterOptions(t, filters, questions);
     const options = [
-      filterOptions.question,
+      filterOptions.questions,
       filterOptions.gender,
       filterOptions.time,
     ];
@@ -90,7 +90,7 @@ export class SurveyContactsFilter extends Component {
         ? this.props[item.options]
         : item.options;
     this.props.dispatch(
-      item.id === 'question'
+      item.id === 'questions'
         ? navigatePush(SEARCH_QUESTIONS_FILTER_SCREEN, {
             onFilter: this.handleSelectFilter,
             title: item.text,

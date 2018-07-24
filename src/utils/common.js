@@ -171,8 +171,8 @@ export const getFilterOptions = (t, filters, questions = []) => {
   );
 
   return {
-    question: {
-      id: 'question',
+    questions: {
+      id: 'questions',
       text: t('searchFilter:surveyQuestions'),
       options: choiceQuestions.map(q => ({
         id: q.id,

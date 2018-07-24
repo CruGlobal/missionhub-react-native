@@ -70,31 +70,30 @@ function createSurveyFilters(filters) {
       organization_ids: filters.organization.id,
     },
   };
-  if (filters.answers) {
-    surveyFilters.answers = filters.answers;
+  if (filters.questions) {
+    surveyFilters.answers = filters.questions;
+  }
+  if (filters.gender) {
+    surveyFilters.people.genders = filters.gender.id;
+  }
+  if (filters.uncontacted) {
+    surveyFilters.people.statuses = 'uncontacted';
   }
   if (filters.unassigned) {
     surveyFilters.people.assigned_tos = 'unassigned';
   }
-  /*if (filters.gender) {
-    query.filters.gender = filters.gender.id;
-  }
   if (filters.archived) {
-    query.filters.archived = true;
+    surveyFilters.people.include_archived = true;
+  } else {
+    surveyFilters.people.include_archived = false;
   }
   if (filters.labels) {
-    query.filters.label_ids = filters.labels.id;
+    surveyFilters.people.label_ids = filters.labels.id;
   }
   if (filters.groups) {
-    query.filters.group_ids = filters.groups.id;
+    surveyFilters.people.group_ids = filters.groups.id;
   }
-  if (filters.surveys) {
-    query.filters.survey_ids = filters.surveys.id;
-  }
-  if (filters.question) {
-    query.filters.question_id = filters.question.id;
-    query.filters.answer_value = filters.question.answer.text;
-  }*/
+
   return surveyFilters;
 }
 

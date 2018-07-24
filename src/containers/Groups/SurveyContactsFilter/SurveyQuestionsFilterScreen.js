@@ -59,18 +59,17 @@ export class SurveyQuestionsFilterScreen extends Component {
   };
 
   handleSelectFilter = item => {
-    const { options, selectedFilterId } = this.state;
+    const { options, selectedFilterId, filters } = this.state;
     const newOptions = options.map(o => ({
       ...o,
       preview: o.id === selectedFilterId ? item.text : null,
     }));
     let newFilters = {
-      id: selectedFilterId,
-      text: item.text,
-      answer: item,
+      ...filters,
+      [selectedFilterId]: item.text,
     };
     if (item.id === 'any') {
-      newFilters.id = 'any';
+      delete newFilters[selectedFilterId];
     }
     this.setState({ options: newOptions });
     this.setFilter(newFilters);
