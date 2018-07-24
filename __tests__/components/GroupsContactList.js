@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { renderShallow, testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
 import GroupsContactList from '../../src/components/GroupsContactList';
 
 const person = {
   id: '123',
   full_name: 'Full Name',
+};
+const organization = {
+  id: '900',
+  name: "Roge's org",
 };
 
 const activity = [
@@ -51,6 +55,7 @@ it('renders activity list', () => {
       onAssign={jest.fn()}
       activity={activity}
       person={person}
+      organization={organization}
       myId="1"
     />,
   );
@@ -62,26 +67,8 @@ it('renders empty list', () => {
       onAssign={jest.fn()}
       activity={[]}
       person={person}
+      organization={organization}
       myId="1"
     />,
   );
-});
-
-it('calls onAssign prop', () => {
-  const onAssign = jest.fn();
-
-  renderShallow(
-    <GroupsContactList
-      onAssign={onAssign}
-      activity={activity}
-      person={person}
-      myId="1"
-    />,
-  )
-    .childAt(0)
-    .childAt(1)
-    .props()
-    .onPress();
-
-  expect(onAssign).toHaveBeenCalled();
 });

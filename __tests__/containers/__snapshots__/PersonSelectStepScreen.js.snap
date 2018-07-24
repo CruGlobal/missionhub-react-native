@@ -8,16 +8,17 @@ exports[`renders correctly 1`] = `
     }
   }
   contactName="Ron"
-  contactStage={
-    Object {
-      "id": 2,
-    }
-  }
+  contactStageId={2}
   createStepTracking={Object {}}
   enableBackButton={true}
   headerText="What will you do to help Ron experience God?"
   isMe={false}
   onComplete={[Function]}
+  organization={
+    Object {
+      "id": "889",
+    }
+  }
   receiverId="123"
 />
 `;
