@@ -76,7 +76,7 @@ export class ContactSideMenu extends Component {
       orgPermission,
       contactAssignment,
       organization,
-      isMissionhubUser,
+      missionhubUser,
     } = this.props;
 
     const showAssign = showAssignButton(personIsCurrentUser, contactAssignment);
@@ -90,7 +90,7 @@ export class ContactSideMenu extends Component {
       !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
 
     const showFollowupStatus =
-      !personIsCurrentUser && isJean && orgPermission && !isMissionhubUser;
+      !personIsCurrentUser && isJean && orgPermission && !missionhubUser;
 
     const menuItems = [
       {

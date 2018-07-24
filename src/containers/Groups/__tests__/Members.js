@@ -7,18 +7,20 @@ import {
   testSnapshotShallow,
 } from '../../../../testUtils';
 import { navToPersonScreen } from '../../../actions/person';
-jest.mock('../../../actions/person', () => ({
-  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
-}));
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../../actions/organizations';
+import * as common from '../../../utils/common';
+
+jest.mock('../../../actions/person', () => ({
+  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
+}));
 jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
   getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
 }));
-import * as common from '../../../utils/common';
+
 common.refresh = jest.fn();
 
 const members = [
@@ -53,7 +55,7 @@ describe('Members', () => {
   });
 
   it('should mount correctly', () => {
-    const store = createMockStore({
+    const mockStore = createMockStore({
       organizations: {
         all: [
           {
@@ -64,13 +66,13 @@ describe('Members', () => {
         membersPagination: { hasNextPage: true },
       },
     });
-    const instance = renderShallow(component, store).instance();
+    const instance = renderShallow(component, mockStore).instance();
     instance.componentDidMount();
     expect(getOrganizationMembers).toHaveBeenCalled();
   });
 
   it('should not render load more correctly', () => {
-    const store = createMockStore({
+    const mockStore = createMockStore({
       organizations: {
         all: [
           {
@@ -81,7 +83,7 @@ describe('Members', () => {
         membersPagination: { hasNextPage: false },
       },
     });
-    const instance = renderShallow(component, store).instance();
+    const instance = renderShallow(component, mockStore).instance();
     instance.componentDidMount();
     expect(getOrganizationMembers).toHaveBeenCalled();
   });

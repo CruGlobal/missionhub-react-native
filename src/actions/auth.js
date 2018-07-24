@@ -25,7 +25,7 @@ import {
 } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
-export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
+export function openKeyURL(baseURL, onReturn, isUpgradeAccount = false) {
   return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -53,7 +53,7 @@ export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
           code,
           codeVerifier,
           redirectUri,
-          upgradeAccount ? upgradeAccount : null,
+          isUpgradeAccount ? isUpgradeAccount : null,
         ),
       );
     }

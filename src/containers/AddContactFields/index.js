@@ -69,7 +69,7 @@ class AddContactFields extends Component {
           </Text>
           <Input
             ref={c => (this.firstName = c)}
-            onChangeText={t => this.updateField('firstName', t)}
+            onChangeText={text => this.updateField('firstName', text)}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
             placeholderTextColor={theme.white}
@@ -82,7 +82,7 @@ class AddContactFields extends Component {
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
             ref={c => (this.lastName = c)}
-            onChangeText={t => this.updateField('lastName', t)}
+            onChangeText={text => this.updateField('lastName', text)}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor={theme.white}
@@ -97,7 +97,7 @@ class AddContactFields extends Component {
                 <Text style={styles.label}>{t('profileLabels.email')}</Text>
                 <Input
                   ref={c => (this.email = c)}
-                  onChangeText={t => this.updateField('email', t)}
+                  onChangeText={text => this.updateField('email', text)}
                   value={email}
                   placeholder={t('profileLabels.email')}
                   placeholderTextColor={theme.white}
@@ -133,7 +133,7 @@ class AddContactFields extends Component {
                 <Text style={styles.label}>{t('profileLabels.phone')}</Text>
                 <Input
                   ref={c => (this.phone = c)}
-                  onChangeText={t => this.updateField('phone', t)}
+                  onChangeText={text => this.updateField('phone', text)}
                   value={phone}
                   placeholder={t('profileLabels.phone')}
                   placeholderTextColor={theme.white}

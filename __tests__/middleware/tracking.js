@@ -13,7 +13,7 @@ import {
   PEOPLE_TAB,
   STEPS_TAB,
 } from '../../src/constants';
-import tracking from '../../src/middleware/tracking';
+import trackingMiddleware from '../../src/middleware/tracking';
 import { stepsTab, trackableScreens } from '../../src/AppRoutes';
 import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
 import { PERSON_STEPS, SELF_STEPS } from '../../src/components/ContactHeader';
@@ -23,7 +23,7 @@ import { trackState } from '../../src/actions/analytics';
 
 jest.mock('../../src/actions/analytics');
 
-const mockStore = configureStore([tracking]);
+const mockStore = configureStore([trackingMiddleware]);
 let store;
 
 const routeName = 'test route';
@@ -44,7 +44,7 @@ describe('navigate forward', () => {
   it('tracks screenname when navigating', () => {
     const tracking = { name: 'test : forward' };
     navigationAction = { type: NAVIGATE_FORWARD, routeName: routeName };
-    trackableScreens[routeName] = { tracking: tracking };
+    trackableScreens[routeName] = { tracking };
 
     store.dispatch(navigationAction);
 
@@ -229,7 +229,7 @@ describe('navigate reset', () => {
       type: NAVIGATE_RESET,
       actions: [{ routeName: routeName }],
     };
-    trackableScreens[routeName] = { tracking: tracking };
+    trackableScreens[routeName] = { tracking };
 
     store.dispatch(navigationAction);
 

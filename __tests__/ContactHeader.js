@@ -35,33 +35,32 @@ const organization = { name: 'Test Org', id: '10' };
 jest.mock('NativeAnimatedHelper');
 
 it('renders casey', () => {
-  testContactHeader(person, CASEY);
+  testContactHeader(CASEY);
 });
 
 it('renders jean', () => {
-  testContactHeader(person, JEAN, false, organization);
+  testContactHeader(JEAN, false, organization);
 });
 
 it('renders me', () => {
-  testContactHeader(person, JEAN, true);
+  testContactHeader(JEAN, true);
 });
 
 it('renders jean with a missionhub user as contact', () => {
-  testContactHeader({ ...person }, JEAN, false, organization, true);
+  testContactHeader(JEAN, false, organization, true);
 });
 
 const testContactHeader = (
-  person,
   type,
   isMe = false,
-  organization,
+  useOrganization,
   isMissionhubUser = false,
 ) => {
   testSnapshotShallow(
     <ContactHeader
       isMe={isMe}
       person={person}
-      organization={organization}
+      organization={useOrganization}
       isMissionhubUser={isMissionhubUser}
       type={type}
       onChangeStage={() => {}}

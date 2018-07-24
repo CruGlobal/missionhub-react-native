@@ -86,7 +86,6 @@ describe('ContactJourney', () => {
 });
 
 describe('journey methods', () => {
-  let component;
   beforeEach(() => {
     store = createMockStore(personId, { [personId]: mockJourneyList });
     component = createComponent().instance();

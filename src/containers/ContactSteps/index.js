@@ -22,7 +22,7 @@ import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
 
 import styles from './styles';
 
-const name = 'Contact Steps';
+const screenName = 'Contact Steps';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -52,13 +52,13 @@ class ContactSteps extends Component {
   }
 
   async handleRemove(step) {
-    await this.props.dispatch(deleteStepWithTracking(step, name));
+    await this.props.dispatch(deleteStepWithTracking(step, screenName));
     this.getSteps();
   }
 
   async handleComplete(step) {
     const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, name));
+    await dispatch(completeStep(step, screenName));
     this.getSteps();
     dispatch(
       reloadJourney(person.id, organization ? organization.id : undefined),

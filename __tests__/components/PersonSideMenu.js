@@ -76,17 +76,17 @@ describe('PersonSideMenu', () => {
     createComponent();
 
     expect(component).toMatchSnapshot();
-    testEditClick(component, true);
+    testEditClick(true);
     navigatePush.mockClear();
-    testUnassignClick(component);
+    testUnassignClick();
   });
   it('renders assign correctly', () => {
     contactAssignmentSelector.mockReturnValue(undefined);
     createComponent();
 
     expect(component).toMatchSnapshot();
-    testEditClick(component, true);
-    testAssignClick(component);
+    testEditClick(true);
+    testAssignClick();
   });
 
   it('should navigate back 2 on submit reason', () => {
@@ -97,7 +97,7 @@ describe('PersonSideMenu', () => {
   });
 });
 
-function testEditClick(component, isJean) {
+function testEditClick(isJean) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
@@ -108,7 +108,7 @@ function testEditClick(component, isJean) {
   });
 }
 
-function testAssignClick(component) {
+function testAssignClick() {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Assign')[0].action();
   expect(createContactAssignment).toHaveBeenCalledWith(
@@ -118,7 +118,7 @@ function testAssignClick(component) {
   );
 }
 
-function testUnassignClick(component) {
+function testUnassignClick() {
   const props = component.props();
   const onSubmit = component.instance().onSubmitReason;
 

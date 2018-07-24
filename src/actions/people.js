@@ -23,7 +23,7 @@ export function getMyPeople() {
       personal: { id: 'personal', people: { [authPerson.id]: authPerson } },
     };
 
-    const orgs = people.reduce((orgs, person) => {
+    const orgs = people.reduce((personAcc, person) => {
       return (
         person.reverse_contact_assignments
           .filter(
@@ -42,11 +42,11 @@ export function getMyPeople() {
                   orgPermission.organization.id === org.id,
               ),
           )
-          .reduce((orgs, org) => {
+          .reduce((orgAcc, org) => {
             const orgId = (org && org.id) || 'personal';
-            const orgData = orgs[orgId] || org;
+            const orgData = orgAcc[orgId] || org;
             return {
-              ...orgs,
+              ...orgAcc,
               [orgId]: {
                 ...orgData,
                 people: {
@@ -55,7 +55,7 @@ export function getMyPeople() {
                 },
               },
             };
-          }, orgs)
+          }, personAcc)
       );
     }, initOrgs);
 

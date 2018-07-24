@@ -91,8 +91,6 @@ describe('StepsScreen', () => {
     jest.clearAllMocks();
   });
 
-  let component;
-
   describe('mapStateToProps', () => {
     it('should provide the necessary props', () => {
       reminderStepsSelector.mockReturnValue([{ id: 1, reminder: true }]);
@@ -110,19 +108,19 @@ describe('StepsScreen', () => {
   };
 
   it('renders loading screen correctly', () => {
-    component = createComponent({ ...propsWithoutSteps, steps: null });
+    let component = createComponent({ ...propsWithoutSteps, steps: null });
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders empty screen correctly', () => {
-    component = createComponent(propsWithoutSteps);
+    let component = createComponent(propsWithoutSteps);
     component = stopLoad(component);
     expect(component).toMatchSnapshot();
   });
 
   it('renders screen with steps correctly', () => {
-    component = createComponent(propsWithSteps);
+    let component = createComponent(propsWithSteps);
     component = stopLoad(component);
     expect(component).toMatchSnapshot();
   });
@@ -134,19 +132,21 @@ describe('StepsScreen', () => {
       { id: 13, reminder: true },
     ];
 
-    component = createComponent({ ...propsWithSteps, reminders });
+    let component = createComponent({ ...propsWithSteps, reminders });
     component = stopLoad(component);
     expect(component).toMatchSnapshot();
   });
 
   describe('Background color changes with scrolling', () => {
+    let component;
+
     beforeEach(() => {
       component = createComponent(propsWithSteps);
       component = stopLoad(component);
     });
 
-    const getBackgroundColor = component => {
-      return component
+    const getBackgroundColor = componentParam => {
+      return componentParam
         .find(ScrollView)
         .props()
         .style.find(element => {

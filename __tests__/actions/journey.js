@@ -182,8 +182,10 @@ describe('get journey', () => {
     MockDate.reset();
   });
 
-  async function test(orgId, expectedOrgId) {
-    expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
+  async function test(orgIdParam, expectedOrgId) {
+    expect(
+      await store.dispatch(getJourney(personId, orgIdParam)),
+    ).toMatchSnapshot();
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include:
         'all.answers.question,all.survey,all.person,all.old_pathway_stage,all.new_pathway_stage',
