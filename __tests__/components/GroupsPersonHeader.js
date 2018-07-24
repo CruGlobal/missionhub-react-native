@@ -202,28 +202,6 @@ describe('isContact', () => {
         />,
       );
     });
-
-    it('assigns to me when clicked', () => {
-      const screen = renderShallow(
-        <GroupsPersonHeader
-          {...props}
-          isMember={false}
-          contactAssignment={undefined}
-        />,
-      );
-
-      screen
-        .childAt(0)
-        .props()
-        .onPress();
-
-      expect(createContactAssignment).toHaveBeenCalledWith(
-        organization.id,
-        myId,
-        person.id,
-      );
-      expect(store.getActions()).toEqual([createContactAssignmentResult]);
-    });
   });
 
   describe('with contact assignment', () => {

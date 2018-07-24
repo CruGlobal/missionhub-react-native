@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { loadStepsAndJourney } from '../../actions/misc';
-import { navigatePush } from '../../actions/navigation';
+import { navigateToStageScreen } from '../../actions/misc';
 import { Flex, IconButton } from '../../components/common';
 import ContactHeader from '../../components/ContactHeader';
 import Header from '../Header';
 import { CASEY, CONTACT_MENU_DRAWER, JEAN } from '../../constants';
-import { STAGE_SCREEN } from '../StageScreen';
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
+import { getPersonDetails } from '../../actions/person';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -21,28 +18,23 @@ import {
 } from '../../selectors/people';
 import { organizationSelector } from '../../selectors/organizations';
 import { isMissionhubUser, getStageIndex } from '../../utils/common';
+import { promptToAssign } from '../../utils/promptToAssign';
 import BackButton from '../BackButton';
 
 import styles from './styles';
 
 @translate('contactScreen')
 export class ContactScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      headerOpen: true,
-    };
-
-    this.handleChangeStage = this.handleChangeStage.bind(this);
-  }
+  state = {
+    headerOpen: true,
+  };
 
   componentDidMount() {
     const { person, organization = {} } = this.props;
     this.props.dispatch(getPersonDetails(person.id, organization.id));
   }
 
-  async handleChangeStage(noNav = false, onComplete = null) {
+  handleChangeStage = async (noNav = false, onComplete = null) => {
     const {
       dispatch,
       personIsCurrentUser,
@@ -53,61 +45,24 @@ export class ContactScreen extends Component {
       organization = {},
     } = this.props;
     if (await this.promptToAssign(personIsCurrentUser, contactAssignment)) {
-      const firstItemIndex = getStageIndex(stages, contactStage.id);
+      const firstItemIndex = getStageIndex(
+        stages,
+        contactStage && contactStage.id,
+      );
 
-      if (personIsCurrentUser) {
-        dispatch(
-          navigatePush(STAGE_SCREEN, {
-            onComplete: stage => {
-              dispatch(
-                updatePersonAttributes(person.id, {
-                  user: { pathway_stage_id: stage.id },
-                }),
-              );
-              dispatch(loadStepsAndJourney(person, organization));
-              onComplete && onComplete(stage);
-            },
-            firstItem: firstItemIndex,
-            contactId: person.id,
-            section: 'people',
-            subsection: 'self',
-            enableBackButton: true,
-            noNav,
-          }),
-        );
-      } else {
-        dispatch(
-          navigatePush(PERSON_STAGE_SCREEN, {
-            //todo reuse this code somehow...
-            onComplete: stage => {
-              contactAssignment
-                ? dispatch(
-                    updatePersonAttributes(person.id, {
-                      reverse_contact_assignments: person.reverse_contact_assignments.map(
-                        assignment =>
-                          assignment.id === contactAssignment.id
-                            ? { ...assignment, pathway_stage_id: stage.id }
-                            : assignment,
-                      ),
-                    }),
-                  )
-                : dispatch(getPersonDetails(person.id, organization.id));
-              dispatch(loadStepsAndJourney(person, organization));
-              onComplete && onComplete(stage);
-            },
-            firstItem: firstItemIndex,
-            name: person.first_name,
-            contactId: person.id,
-            contactAssignmentId: contactAssignment && contactAssignment.id,
-            orgId: organization.id,
-            section: 'people',
-            subsection: 'person',
-            noNav,
-          }),
-        );
-      }
+      return dispatch(
+        navigateToStageScreen(
+          personIsCurrentUser,
+          person,
+          contactAssignment,
+          organization,
+          firstItemIndex,
+          noNav,
+          onComplete,
+        ),
+      );
     }
-  }
+  };
 
   getTitle() {
     const { person, organization } = this.props;
@@ -123,31 +78,8 @@ export class ContactScreen extends Component {
     personIsCurrentUser = false,
     hasContactAssignment = false,
   ) {
-    const { t } = this.props;
     const shouldPromptToAssign = !personIsCurrentUser && !hasContactAssignment;
-    return shouldPromptToAssign
-      ? await new Promise(resolve =>
-          Alert.alert(
-            t('assignAlert:question'),
-            t('assignAlert:sentence'),
-            [
-              {
-                text: t('cancel'),
-                style: 'cancel',
-                onPress: () => resolve(false),
-              },
-              {
-                text: t('continue'),
-                style: 'default',
-                onPress: () => {
-                  resolve(true);
-                },
-              },
-            ],
-            { onDismiss: () => resolve(false) },
-          ),
-        )
-      : true;
+    return shouldPromptToAssign ? await promptToAssign() : true;
   }
 
   render() {

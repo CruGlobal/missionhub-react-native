@@ -249,7 +249,7 @@ export function createContactAssignment(
     await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
-    dispatch(getPersonDetails(personReceiverId, organizationId));
+    return dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }
 

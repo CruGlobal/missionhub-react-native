@@ -11,7 +11,6 @@ import { ADD_CONTACT_SCREEN } from '../src/containers/AddContactScreen';
 import { navigatePush, navigateBack } from '../src/actions/navigation';
 import {
   updateFollowupStatus,
-  createContactAssignment,
   deleteContactAssignment,
 } from '../src/actions/person';
 import {
@@ -19,6 +18,7 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../src/selectors/people';
+import { assignContactAndPickStage } from '../src/actions/misc';
 
 jest.mock('react-navigation', () => ({
   DrawerActions: {
@@ -26,10 +26,12 @@ jest.mock('react-navigation', () => ({
   },
   createMaterialTopTabNavigator: jest.fn((_, component) => component),
 }));
+
 jest.mock('../src/actions/navigation');
 jest.mock('../src/actions/person');
 jest.mock('../src/actions/steps');
 jest.mock('../src/selectors/people');
+jest.mock('../src/actions/misc');
 
 const dispatch = jest.fn(response => Promise.resolve(response));
 const person = { id: 2, type: 'person', first_name: 'Test Fname' };
@@ -41,12 +43,7 @@ const orgPermission = {
 const contactAssignment = { id: 3, type: 'reverse_contact_assignment' };
 const organization = { id: 1, type: 'organization' };
 
-beforeEach(() => {
-  dispatch.mockClear();
-  navigateBack.mockClear();
-  navigatePush.mockClear();
-  deleteContactAssignment.mockClear();
-});
+beforeEach(() => jest.clearAllMocks());
 
 describe('contactSideMenu', () => {
   describe('mapStateToProps', () => {
@@ -302,10 +299,10 @@ function testEditClick(component, isJean) {
 function testAssignClick(component) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Assign')[0].action();
-  expect(createContactAssignment).toHaveBeenCalledWith(
+  expect(assignContactAndPickStage).toHaveBeenCalledWith(
+    person.id,
     organization.id,
     1,
-    person.id,
   );
 }
 

@@ -621,7 +621,7 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
             ]
           }
         >
-          Groups
+          Communities
         </Text>
       </View>
     </View>

@@ -8,10 +8,10 @@ import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
 import {
-  createContactAssignment,
   deleteContactAssignment,
   updateFollowupStatus,
 } from '../../actions/person';
+import { assignContactAndPickStage } from '../../actions/misc';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -172,10 +172,10 @@ export class ContactSideMenu extends Component {
         ? {
             action: () =>
               dispatch(
-                createContactAssignment(
+                assignContactAndPickStage(
+                  person.id,
                   organization && organization.id,
                   myId,
-                  person.id,
                 ),
               ),
             label: t('assign'),

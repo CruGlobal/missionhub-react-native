@@ -17,8 +17,14 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { contactAssignmentSelector } from '../../selectors/people';
+import {
+  assignContactAndPickStage,
+  navigateToStageScreen,
+} from '../../actions/misc';
 
 import styles from './styles';
 
@@ -33,7 +39,6 @@ class ContactSteps extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
-    this.handleSaveNewStage = this.handleSaveNewStage.bind(this);
     this.getSteps = this.getSteps.bind(this);
   }
 
@@ -71,12 +76,18 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
-  handleSaveNewStage(stage) {
-    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
-  }
-
   handleNavToStage() {
-    this.props.onChangeStage(true, this.handleSaveNewStage);
+    const { dispatch, person, contactAssignment, organization } = this.props;
+
+    return dispatch(
+      navigateToStageScreen(
+        false,
+        person,
+        contactAssignment,
+        organization,
+        null,
+      ),
+    );
   }
 
   handleNavToSteps(stage, onComplete = null) {
@@ -100,7 +111,6 @@ class ContactSteps extends Component {
             onComplete && onComplete();
           },
           enableBackButton: true,
-          contactStage: stage,
           organization,
         }),
       );
@@ -112,7 +122,6 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          contactStage: stage,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
             onComplete && onComplete();
@@ -128,10 +137,28 @@ class ContactSteps extends Component {
     }
   }
 
+  async handleAssign() {
+    const { dispatch, person, organization, myId } = this.props;
+
+    if (await promptToAssign()) {
+      dispatch(
+        assignContactAndPickStage(
+          person.id,
+          organization && organization.id,
+          myId,
+        ),
+      );
+    }
+  }
+
   handleCreateStep() {
-    this.props.contactStage
-      ? this.handleNavToSteps(this.props.contactStage)
-      : this.handleNavToStage();
+    const { contactAssignment, isMe } = this.props;
+
+    (contactAssignment && contactAssignment.pathway_stage_id) || isMe
+      ? this.handleNavToSteps()
+      : contactAssignment
+        ? this.handleNavToStage()
+        : this.handleAssign();
   }
 
   renderRow({ item, index }) {
@@ -217,6 +244,11 @@ const mapStateToProps = (
   myId: auth.person.id,
   steps:
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+  contactAssignment: contactAssignmentSelector(
+    { auth },
+    { person, orgId: organization.id },
+  ),
+  isMe: person.id === auth.person.id,
 });
 
 export default connect(mapStateToProps)(ContactSteps);
