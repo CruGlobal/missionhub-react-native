@@ -20,7 +20,7 @@ const Constants = {
 @translate()
 export default class DateComponent extends Component {
   render() {
-    const { t, date, format, ...rest } = this.props;
+    const { t, date, format, style } = this.props;
     const { relative, yesterday, today } = Constants;
 
     let dateFormat = format;
@@ -40,7 +40,7 @@ export default class DateComponent extends Component {
     } else {
       text = moment(date).format(dateFormat);
     }
-    return <Text {...rest}>{text}</Text>;
+    return <Text style={style}>{text}</Text>;
   }
 }
 
