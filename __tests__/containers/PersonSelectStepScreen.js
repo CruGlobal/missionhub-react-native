@@ -6,6 +6,7 @@ import {
   createMockNavState,
   createMockStore,
   testSnapshotShallow,
+  renderShallow,
 } from '../../testUtils';
 
 const myId = '14312';
@@ -36,6 +37,23 @@ it('renders correctly', () => {
         onSaveNewSteps: jest.fn(),
         createStepTracking: {},
         organization,
+      })}
+    />,
+    store,
+  );
+});
+
+it('allows for undefined organization', () => {
+  renderShallow(
+    <PersonSelectStepScreen
+      navigation={createMockNavState({
+        contactName: 'Ron',
+        contactId: contactId,
+        contactStage: { id: 2 },
+        contact: { id: contactId },
+        onSaveNewSteps: jest.fn(),
+        createStepTracking: {},
+        organization: undefined,
       })}
     />,
     store,
