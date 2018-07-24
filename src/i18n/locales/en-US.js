@@ -456,6 +456,9 @@ export default {
   groupsContact: {
     placeholder: 'Share something to be celebrated...',
   },
+  memberContacts: {
+    nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
+  },
   groupsSurveys: {
     title: '',
   },

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, Image } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,7 +12,7 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex, Button, Text } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
@@ -25,6 +25,7 @@ import {
   assignContactAndPickStage,
   navigateToStageScreen,
 } from '../../actions/misc';
+import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
@@ -196,13 +197,11 @@ class ContactSteps extends Component {
     const { t } = this.props;
 
     return (
-      <Flex align="center" justify="center">
-        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>
-          {t('header').toUpperCase()}
-        </Text>
-        <Text style={styles.nullText}>{t('stepNull', { name })}</Text>
-      </Flex>
+      <NullStateComponent
+        imageSource={NULL}
+        headerText={t('header').toUpperCase()}
+        descriptionText={t('stepNull', { name })}
+      />
     );
   }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Image, FlatList } from 'react-native';
+import { ScrollView, View, FlatList } from 'react-native';
 import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { Flex, IconButton, Input, Text } from '../../components/common';
 import theme from '../../theme';
+import NullStateComponent from '../NullStateComponent';
 
 import styles from './styles';
 
@@ -147,13 +148,11 @@ class SearchList extends Component {
     }
     if (defaultData.length === 0 && resultsLength === 0) {
       return (
-        <Flex align="center" justify="center" value={1} style={styles.nullWrap}>
-          <Image source={SEARCH_NULL} style={styles.nullImage} />
-          <Text type="header" style={styles.nullHeader}>
-            {t('nullHeader')}
-          </Text>
-          <Text style={styles.nullText}>{t('nullDescription')}</Text>
-        </Flex>
+        <NullStateComponent
+          imageSource={SEARCH_NULL}
+          headerText={t('nullHeader')}
+          descriptionText={t('nullDescription')}
+        />
       );
     }
     return (
