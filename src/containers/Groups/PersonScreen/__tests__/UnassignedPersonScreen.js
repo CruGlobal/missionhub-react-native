@@ -11,7 +11,6 @@ import {
 } from '../../../../../testUtils';
 import { addNewInteraction } from '../../../../actions/interactions';
 import { getGroupJourney } from '../../../../actions/journey';
-import { createContactAssignment } from '../../../../actions/person';
 
 jest.mock('../../../../actions/interactions');
 jest.mock('../../../../actions/journey', () => ({
@@ -49,16 +48,6 @@ describe('Contact', () => {
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
-  });
-
-  it('should handleAssign correctly', async () => {
-    const instance = renderShallow(component, store).instance();
-    await instance.handleAssign();
-    expect(createContactAssignment).toHaveBeenCalledWith(
-      organization.id,
-      me.id,
-      person.id,
-    );
   });
 
   it('should submit comment correctly', async () => {

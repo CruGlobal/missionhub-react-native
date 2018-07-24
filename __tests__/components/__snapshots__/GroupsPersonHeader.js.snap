@@ -62,8 +62,9 @@ exports[`isContact with contact assignment renders 1`] = `
 
 exports[`isContact with no contact assignment renders with no contact assignment 1`] = `
 <Flex>
-  <Translate(AssignToMeButton)
-    onPress={[Function]}
+  <Connect(Translate(AssignToMeButton))
+    orgId="50"
+    personId="1002"
   />
   <Flex
     align="center"
@@ -115,8 +116,9 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
 
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
-  <Translate(AssignToMeButton)
-    onPress={[Function]}
+  <Connect(Translate(AssignToMeButton))
+    orgId="50"
+    personId="1002"
   />
   <Flex
     align="center"

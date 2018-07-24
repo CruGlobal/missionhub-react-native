@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, Image } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -12,13 +12,20 @@ import {
   deleteStepWithTracking,
 } from '../../actions/steps';
 import { reloadJourney } from '../../actions/journey';
-import { Flex, Button, Text } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
+import { promptToAssign } from '../../utils/promptToAssign';
 import { PERSON_SELECT_STEP_SCREEN } from '../PersonSelectStepScreen';
 import { SELECT_MY_STEP_SCREEN } from '../SelectMyStepScreen';
+import { contactAssignmentSelector } from '../../selectors/people';
+import {
+  assignContactAndPickStage,
+  navigateToStageScreen,
+} from '../../actions/misc';
+import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
@@ -33,7 +40,6 @@ class ContactSteps extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.handleCreateStep = this.handleCreateStep.bind(this);
     this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
-    this.handleSaveNewStage = this.handleSaveNewStage.bind(this);
     this.getSteps = this.getSteps.bind(this);
   }
 
@@ -71,12 +77,18 @@ class ContactSteps extends Component {
     this.props.dispatch(navigateBack());
   }
 
-  handleSaveNewStage(stage) {
-    this.handleNavToSteps(stage, () => this.props.dispatch(navigateBack()));
-  }
-
   handleNavToStage() {
-    this.props.onChangeStage(true, this.handleSaveNewStage);
+    const { dispatch, person, contactAssignment, organization } = this.props;
+
+    return dispatch(
+      navigateToStageScreen(
+        false,
+        person,
+        contactAssignment,
+        organization,
+        null,
+      ),
+    );
   }
 
   handleNavToSteps(stage, onComplete = null) {
@@ -100,7 +112,6 @@ class ContactSteps extends Component {
             onComplete && onComplete();
           },
           enableBackButton: true,
-          contactStage: stage,
           organization,
         }),
       );
@@ -112,7 +123,6 @@ class ContactSteps extends Component {
           contactId: person.id,
           contact: person,
           organization,
-          contactStage: stage,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
             onComplete && onComplete();
@@ -128,10 +138,28 @@ class ContactSteps extends Component {
     }
   }
 
+  async handleAssign() {
+    const { dispatch, person, organization, myId } = this.props;
+
+    if (await promptToAssign()) {
+      dispatch(
+        assignContactAndPickStage(
+          person.id,
+          organization && organization.id,
+          myId,
+        ),
+      );
+    }
+  }
+
   handleCreateStep() {
-    this.props.contactStage
-      ? this.handleNavToSteps(this.props.contactStage)
-      : this.handleNavToStage();
+    const { contactAssignment, isMe } = this.props;
+
+    (contactAssignment && contactAssignment.pathway_stage_id) || isMe
+      ? this.handleNavToSteps()
+      : contactAssignment
+        ? this.handleNavToStage()
+        : this.handleAssign();
   }
 
   renderRow({ item, index }) {
@@ -169,13 +197,11 @@ class ContactSteps extends Component {
     const { t } = this.props;
 
     return (
-      <Flex align="center" justify="center">
-        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>
-          {t('header').toUpperCase()}
-        </Text>
-        <Text style={styles.nullText}>{t('stepNull', { name })}</Text>
-      </Flex>
+      <NullStateComponent
+        imageSource={NULL}
+        headerText={t('header').toUpperCase()}
+        descriptionText={t('stepNull', { name })}
+      />
     );
   }
 
@@ -217,6 +243,11 @@ const mapStateToProps = (
   myId: auth.person.id,
   steps:
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+  contactAssignment: contactAssignmentSelector(
+    { auth },
+    { person, orgId: organization.id },
+  ),
+  isMe: person.id === auth.person.id,
 });
 
 export default connect(mapStateToProps)(ContactSteps);

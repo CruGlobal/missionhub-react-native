@@ -52,56 +52,15 @@ exports[`ContactJourney renders null screen correctly 1`] = `
     }
     value={1}
   >
-    <Flex
-      align="center"
-      justify="center"
-      value={1}
-    >
-      <Image
-        resizeMode="contain"
-        source={
-          Object {
-            "testUri": "../../../assets/images/ourJourney.png",
-          }
+    <NullStateComponent
+      descriptionText="This is where MissionHub saves all of your completed steps and any notes you added along the way."
+      headerText="OUR JOURNEY"
+      imageSource={
+        Object {
+          "testUri": "../../../assets/images/ourJourney.png",
         }
-        style={
-          Object {
-            "flexShrink": 1,
-          }
-        }
-      />
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 42,
-            "paddingTop": 10,
-          }
-        }
-        type="header"
-      >
-        OUR JOURNEY
-      </MyText>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 70,
-            "paddingVertical": 10,
-            "textAlign": "center",
-          }
-        }
-      >
-        This is where MissionHub saves all of your completed steps and any notes you added along the way.
-      </MyText>
-    </Flex>
+      }
+    />
   </Flex>
   <Flex
     justify="end"

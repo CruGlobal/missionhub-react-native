@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: theme.white,
   },
-  title: {
+  header: {
     fontSize: 42,
     color: theme.primaryColor,
     paddingTop: 10,
@@ -14,7 +14,7 @@ export default StyleSheet.create({
   description: {
     fontSize: 16,
     color: theme.textColor,
-    paddingHorizontal: 50,
+    paddingHorizontal: 70,
     textAlign: 'center',
     paddingVertical: 10,
   },
