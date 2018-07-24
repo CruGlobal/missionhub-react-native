@@ -75,8 +75,8 @@ class SurveyContacts extends Component {
     const { filters } = this.state;
     const searchFilters = {
       ...filters,
-      ministry: { id: organization.id },
-      surveys: { id: survey.id },
+      organization: { id: organization.id },
+      survey: { id: survey.id },
     };
     const results = await dispatch(searchSurveyContacts(text, searchFilters));
     // Get the results from the search endpoint

@@ -51,12 +51,11 @@ export function getOrgSurveysNextPage(orgId) {
 
 export function searchSurveyContacts(text, filters = []) {
   return async dispatch => {
-    if (!filters.surveys) {
+    if (!filters.survey) {
       return Promise.reject('No Survey Specified');
     }
 
     const query = {
-      include: 'survey,answers,person',
       filters: createSurveyFilters(filters),
     };
 
@@ -65,22 +64,23 @@ export function searchSurveyContacts(text, filters = []) {
 }
 
 function createSurveyFilters(filters) {
-  let surveyFilters = {};
-  surveyFilters.survey_ids = filters.surveys.id;
+  let surveyFilters = {
+    survey_ids: filters.survey.id,
+    people: {
+      organization_ids: filters.organization.id,
+    },
+  };
   if (filters.answers) {
     surveyFilters.answers = filters.answers;
   }
-  /*if (filters.ministry) {
-    query.organization_ids = filters.ministry.id;
+  if (filters.unassigned) {
+    surveyFilters.people.assigned_tos = 'unassigned';
   }
-  if (filters.gender) {
+  /*if (filters.gender) {
     query.filters.gender = filters.gender.id;
   }
   if (filters.archived) {
     query.filters.archived = true;
-  }
-  if (filters.unassigned) {
-    query.filters.unassigned = true;
   }
   if (filters.labels) {
     query.filters.label_ids = filters.labels.id;
