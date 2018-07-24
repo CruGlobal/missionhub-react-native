@@ -246,7 +246,8 @@ SelectStepScreen.propTypes = {
   receiverId: PropTypes.string,
   enableBackButton: PropTypes.bool,
   organization: PropTypes.object,
-  contactStageId: PropTypes.isRequired,
+  contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   isMe: PropTypes.bool.isRequired,
 };
 
