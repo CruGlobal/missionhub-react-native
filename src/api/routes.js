@@ -208,4 +208,7 @@ export default {
   GET_PERSON_NOTE: {
     endpoint: `${PEOPLE_URL}:person_id`,
   },
+  GET_ANSWER_SHEETS: {
+    endpoint: `${API_URL}answer_sheets`,
+  },
 };

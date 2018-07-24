@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchPeople } from '../../actions/people';
+import { searchSurveyContacts } from '../../actions/surveys';
 import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
@@ -78,7 +78,7 @@ class SurveyContacts extends Component {
       ministry: { id: organization.id },
       surveys: { id: survey.id },
     };
-    const results = await dispatch(searchPeople(text, searchFilters));
+    const results = await dispatch(searchSurveyContacts(text, searchFilters));
     // Get the results from the search endpoint
     return results.findAll('person') || [];
   };
