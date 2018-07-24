@@ -25,7 +25,7 @@ import {
 } from './organizations';
 import { resetPerson } from './onboardingProfile';
 
-export function openKeyURL(baseURL, onReturn, isUpgradeAccount = false) {
+export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return dispatch => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -53,7 +53,7 @@ export function openKeyURL(baseURL, onReturn, isUpgradeAccount = false) {
           code,
           codeVerifier,
           redirectUri,
-          isUpgradeAccount ? isUpgradeAccount : null,
+          upgradeAccount ? upgradeAccount : null,
         ),
       );
     }
@@ -151,7 +151,7 @@ export function logout(forcedLogout = false) {
   };
 }
 
-export function upgradeAccount() {
+export function upgradeMyAccount() {
   return dispatch => {
     dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
   };
