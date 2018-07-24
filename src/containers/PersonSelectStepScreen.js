@@ -64,7 +64,7 @@ PersonSelectStepScreen.propTypes = {
 
 const mapStateToProps = ({ personProfile, auth }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const { contact, organization } = navParams;
+  const { contact, organization = {} } = navParams;
 
   return {
     ...navParams,
