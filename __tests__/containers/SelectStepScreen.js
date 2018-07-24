@@ -1,7 +1,6 @@
 import 'react-native';
 import React from 'react';
 
-// Note: test renderer must be required after react-native.
 import SelectStepScreen, {
   mapStateToProps,
 } from '../../src/containers/SelectStepScreen';
@@ -23,8 +22,7 @@ shuffleArray.mockImplementation(arr => arr);
 
 const testName = 'Bill';
 
-const stageId = 5;
-const contactStage = { id: stageId };
+const contactStageId = 5;
 
 const suggestions = [
   { id: '1', body: 'test 1' },
@@ -46,7 +44,7 @@ const auth = {
 
 const steps = {
   suggestedForOthers: {
-    [stageId]: suggestions,
+    [contactStageId]: suggestions,
   },
 };
 
@@ -64,7 +62,7 @@ const createComponent = async () => {
   component = renderShallow(
     <SelectStepScreen
       isMe={false}
-      contactStage={contactStage}
+      contactStageId={contactStageId}
       createStepTracking={createStepTracking}
       onComplete={onComplete}
       personFirstName={testName}
@@ -90,14 +88,14 @@ describe('mapStateToProps', () => {
           },
           steps: {
             suggestedForMe: {
-              [stageId]: [{ id: '1', body: 'test 1' }],
+              [contactStageId]: [{ id: '1', body: 'test 1' }],
             },
             suggestedForOthers: {},
           },
         },
         {
           isMe: true,
-          contactStage,
+          contactStageId,
         },
       ),
     ).toMatchSnapshot();
@@ -115,13 +113,13 @@ describe('mapStateToProps', () => {
           steps: {
             suggestedForMe: {},
             suggestedForOthers: {
-              [stageId]: [{ id: '1', body: 'test 1' }],
+              [contactStageId]: [{ id: '1', body: 'test 1' }],
             },
           },
         },
         {
           isMe: false,
-          contactStage,
+          contactStageId,
         },
       ),
     ).toMatchSnapshot();

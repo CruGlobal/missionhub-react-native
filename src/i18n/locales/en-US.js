@@ -390,7 +390,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
-    groups: 'Groups',
+    groups: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',
@@ -424,7 +424,7 @@ export default {
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
   groupsList: {
-    header: 'Groups',
+    header: 'Communities',
   },
   celebrateFeeds: {
     title: '',

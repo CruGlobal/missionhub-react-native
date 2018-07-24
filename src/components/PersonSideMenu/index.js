@@ -6,7 +6,7 @@ import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
-import { createContactAssignment } from '../../actions/person';
+import { assignContactAndPickStage } from '../../actions/misc';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -60,10 +60,10 @@ export class PersonSideMenu extends Component {
             label: t('assign'),
             action: () =>
               dispatch(
-                createContactAssignment(
+                assignContactAndPickStage(
+                  person.id,
                   organization && organization.id,
                   myId,
-                  person.id,
                 ),
               ),
           }

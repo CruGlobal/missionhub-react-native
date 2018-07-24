@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import { Button } from '../common';
+import { assignContactAndPickStage } from '../../actions/misc';
 
 import styles from './styles';
 
 @translate()
-export default class AssignToMeButton extends Component {
+class AssignToMeButton extends Component {
+  assignToMe = async () => {
+    const { dispatch, personId, orgId, myId } = this.props;
+    dispatch(assignContactAndPickStage(personId, orgId, myId));
+  };
+
   render() {
-    const { onPress, t } = this.props;
+    const { t } = this.props;
 
     return (
       <Button
         type="transparent"
-        onPress={onPress}
+        onPress={this.assignToMe}
         text={t('assignToMe').toUpperCase()}
         style={styles.assignButton}
         buttonTextStyle={styles.assignButtonText}
@@ -23,6 +30,12 @@ export default class AssignToMeButton extends Component {
   }
 }
 
+const mapStateToProps = ({ auth }) => ({
+  myId: auth.person.id,
+});
+export default connect(mapStateToProps)(AssignToMeButton);
+
 AssignToMeButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  orgId: PropTypes.string.isRequired,
+  personId: PropTypes.string.isRequired,
 };
