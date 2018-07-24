@@ -54,10 +54,10 @@ jest.mock('../../src/actions/onboardingProfile', () => ({
     .mockReturnValue({ type: 'onboarding complete' }),
 }));
 
-function buildScreen(mockNavState, store) {
+function buildScreen(mockNavStateParam, storeParam) {
   const screen = renderShallow(
-    <PersonStageScreen navigation={createMockNavState(mockNavState)} />,
-    store,
+    <PersonStageScreen navigation={createMockNavState(mockNavStateParam)} />,
+    storeParam,
   );
 
   return screen.instance();
