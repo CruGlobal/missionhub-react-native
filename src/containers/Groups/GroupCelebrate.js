@@ -43,11 +43,11 @@ export class GroupCelebrate extends Component {
   };
 
   render() {
-    const { celebrateItems, myId } = this.props;
+    const { celebrateItems, organization } = this.props;
 
     return celebrateItems.length !== 0 ? (
       <CelebrateFeed
-        myId={myId}
+        organization={organization}
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}

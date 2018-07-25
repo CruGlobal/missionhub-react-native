@@ -139,7 +139,7 @@ export default class CelebrateItem extends Component {
               </Text>
               <Button
                 name="likeActiveIcon"
-                onPress={this.onPressLikeIcon}
+                onPress={() => {}}
                 style={[styles.icon]}
               >
                 <Image source={liked ? BLUE_HEART : GREY_HEART} />
