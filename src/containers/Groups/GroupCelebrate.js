@@ -43,10 +43,11 @@ export class GroupCelebrate extends Component {
   };
 
   render() {
-    const { celebrateItems } = this.props;
+    const { celebrateItems, myId } = this.props;
 
     return celebrateItems.length !== 0 ? (
       <CelebrateFeed
+        myId={myId}
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
@@ -57,7 +58,7 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization }) => {
+export const mapStateToProps = ({ auth, organizations }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
@@ -68,6 +69,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
   });
 
   return {
+    myId: auth.person.user.id,
     celebrateItems,
     pagination: selectorOrg.celebratePagination,
   };

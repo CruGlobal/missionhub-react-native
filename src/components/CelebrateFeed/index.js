@@ -32,7 +32,7 @@ export default class CelebrateFeed extends Component {
 
   render() {
     const { title, header } = styles;
-    const { items } = this.props;
+    const { items, myId } = this.props;
 
     return (
       <SectionList
@@ -42,7 +42,7 @@ export default class CelebrateFeed extends Component {
             <DateComponent date={date} format={'relative'} style={title} />
           </Flex>
         )}
-        renderItem={({ item }) => <CelebrateItem event={item} />}
+        renderItem={({ item }) => <CelebrateItem event={item} myId={myId} />}
         keyExtractor={item => {
           return item.id;
         }}

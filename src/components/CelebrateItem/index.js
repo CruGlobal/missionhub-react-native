@@ -110,12 +110,15 @@ export default class CelebrateItem extends Component {
   }
 
   render() {
+    const { myId, event } = this.props;
     const {
       changed_attribute_value,
       subject_person_name,
+      subject_person,
       likes_count,
-    } = this.props.event;
-    const isLiked = likes_count > 0;
+      liked,
+    } = event;
+    const displayLikeCount = likes_count > 0 && subject_person.id === myId;
 
     return (
       <Card style={styles.card}>
@@ -132,14 +135,14 @@ export default class CelebrateItem extends Component {
           <Flex direction={'column'} align="start">
             <Flex direction={'row'} align="center">
               <Text style={styles.likeCount}>
-                {isLiked ? likes_count : null}
+                {displayLikeCount ? likes_count : null}
               </Text>
               <Button
                 name="likeActiveIcon"
                 onPress={this.onPressLikeIcon}
                 style={[styles.icon]}
               >
-                <Image source={isLiked ? BLUE_HEART : GREY_HEART} />
+                <Image source={liked ? BLUE_HEART : GREY_HEART} />
               </Button>
             </Flex>
           </Flex>
