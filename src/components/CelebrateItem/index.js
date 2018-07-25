@@ -17,7 +17,10 @@ import styles from './styles';
 
 @translate('celebrateFeeds')
 export default class CelebrateItem extends Component {
-  onPressLikeIcon = () => {};
+  onPressLikeIcon = () => {
+    const { event, onToggleLike } = this.props;
+    onToggleLike(event.id, event.liked);
+  };
 
   renderMessage() {
     const { t, event } = this.props;
@@ -139,7 +142,7 @@ export default class CelebrateItem extends Component {
               </Text>
               <Button
                 name="likeActiveIcon"
-                onPress={() => {}}
+                onPress={this.onPressLikeIcon}
                 style={[styles.icon]}
               >
                 <Image source={liked ? BLUE_HEART : GREY_HEART} />
