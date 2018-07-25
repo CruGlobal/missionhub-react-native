@@ -6,13 +6,14 @@ import {
   mapStateToProps,
   CONTACT_PERSON_TABS,
   MEMBER_PERSON_TABS,
-} from '../PersonScreen';
+} from '../index';
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
 import { contactAssignmentSelector } from '../../../../selectors/people';
+import { organizationSelector } from '../../../../selectors/organizations';
 
 jest.mock('../../../../selectors/people');
-
+jest.mock('../../../../selectors/organizations');
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
@@ -68,8 +69,10 @@ beforeEach(() => {
 
 describe('Contact', () => {
   it('should provide necessary props', () => {
+    organizationSelector.mockReturnValue(undefined);
+
     expect(mapStateToProps(store, nav)).toEqual({
-      organization,
+      organization: {},
       person,
       contactAssignment,
       myId,

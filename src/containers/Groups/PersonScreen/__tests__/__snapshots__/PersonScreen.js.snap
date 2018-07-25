@@ -53,7 +53,15 @@ exports[`Contact should render PersonScreen correctly with stage 1`] = `
       stage 4
     </MyText>
     <Translate(GroupsPersonHeader)
-      dispatch={[MockFunction]}
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
       myId="1000"
       organization={
         Object {
@@ -119,7 +127,15 @@ exports[`Contact should render PersonScreen correctly without stage 1`] = `
       TEST PERSON
     </MyText>
     <Translate(GroupsPersonHeader)
-      dispatch={[MockFunction]}
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
       myId="1000"
       organization={
         Object {

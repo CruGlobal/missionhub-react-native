@@ -1,7 +1,7 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import UnassignedPersonScreen from '../UnassignedPersonScreen';
+import UnassignedPersonScreen from '../../UnassignedPersonScreen/';
 import { INTERACTION_TYPES } from '../../../../constants';
 import {
   renderShallow,

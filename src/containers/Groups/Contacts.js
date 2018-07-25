@@ -83,9 +83,7 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    const isMember = false;
-    const isAssignedToMe = true;
-    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   render() {

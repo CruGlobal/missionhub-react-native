@@ -1,12 +1,17 @@
-import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+} from '../containers/Groups/PersonScreen/';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
+import { isMemberForOrg } from '../utils/common';
+import { orgPermissionSelector } from '../selectors/people';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -279,25 +284,34 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(
-  person,
-  organization,
-  isMember,
-  isAssignedToMe,
-) {
-  return dispatch => {
-    if (!isMember) {
-      if (isAssignedToMe) {
-        return dispatch(
-          navigatePush(CONTACT_PERSON_SCREEN, { person, organization }),
-        );
-      }
-      return dispatch(
-        navigatePush(UNASSIGNED_PERSON_SCREEN, { person, organization }),
-      );
-    }
-    return dispatch(
-      navigatePush(MEMBER_PERSON_SCREEN, { person, organization }),
+export function navToPersonScreen(person, org) {
+  return (dispatch, getState) => {
+    const organization = org ? org : {};
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+
+    const isMember = isMemberForOrg(
+      orgPermissionSelector(null, {
+        person,
+        organization: { id: organization.id },
+      }),
+    );
+    const isMe = person.id === getState().auth.person.id;
+
+    dispatch(
+      navigatePush(getNextScreen(isMe, isMember), {
+        person,
+        organization,
+      }),
     );
   };
+
+  function getNextScreen(isMe, isMember) {
+    return isMe
+      ? isMember
+        ? ME_COMMUNITY_PERSON_SCREEN
+        : ME_PERSONAL_PERSON_SCREEN
+      : isMember
+        ? MEMBER_PERSON_SCREEN
+        : CONTACT_PERSON_SCREEN;
+  }
 }

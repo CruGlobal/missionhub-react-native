@@ -5,6 +5,7 @@ import {
   ACTIONS,
   LOAD_PERSON_DETAILS,
   DELETE_PERSON,
+  ORG_PERMISSIONS,
 } from '../../src/constants';
 import {
   getMe,
@@ -21,23 +22,28 @@ import {
 import callApi, { REQUESTS } from '../../src/actions/api';
 import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
-import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../../src/containers/Groups/PersonScreen/PersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+} from '../../src/containers/Groups/PersonScreen/';
+import { orgPermissionSelector } from '../../src/selectors/people';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/navigation');
+jest.mock('../../src/selectors/people');
 
-const store = configureStore([thunk])({});
+const myId = '1';
+
+const store = configureStore([thunk])({ auth: { person: { id: myId } } });
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   store.clearActions();
-  dispatch.mockClear();
-  callApi.mockClear();
-  navigatePush.mockClear();
+  jest.clearAllMocks();
 });
 
 describe('get me', () => {
@@ -382,7 +388,6 @@ describe('getPersonJourneyDetails', () => {
 
 describe('saveNote', () => {
   const personId = 23;
-  const myId = 1;
   const note = 'test';
   let noteId;
   let action;
@@ -453,7 +458,6 @@ describe('saveNote', () => {
 
 describe('GetPersonNote', () => {
   const personId = 23;
-  const myId = 1;
 
   const action = { type: 'got note' };
 
@@ -475,29 +479,90 @@ describe('GetPersonNote', () => {
 });
 
 describe('navToPersonScreen', () => {
-  const person = { id: '1' };
+  const person = { id: '2' };
+  const me = { id: myId };
   const organization = { id: '111' };
+  const navigatePushResult = { type: 'test' };
 
-  beforeEach(() => {
-    navigatePush.mockReturnValue({ type: 'test' });
+  beforeEach(() => navigatePush.mockReturnValue(navigatePushResult));
+
+  afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
+
+  it('navigates to me for personal ministry', () => {
+    orgPermissionSelector.mockReturnValue(undefined);
+
+    store.dispatch(navToPersonScreen(me, undefined));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person: me,
+      organization: { id: undefined },
+    });
+    expect(navigatePush).toHaveBeenCalledWith(ME_PERSONAL_PERSON_SCREEN, {
+      person: me,
+      organization: {},
+    });
   });
 
-  it('navigates to unassigned person screen', () => {
-    store.dispatch(navToPersonScreen(person, organization, false, false));
-    expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-      person,
+  it('navigates to me for a community', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    store.dispatch(navToPersonScreen(me, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person: me,
+      organization,
+    });
+    expect(navigatePush).toHaveBeenCalledWith(ME_COMMUNITY_PERSON_SCREEN, {
+      person: me,
       organization,
     });
   });
-  it('navigates to contact person screen', () => {
-    store.dispatch(navToPersonScreen(person, organization, false, true));
+
+  it('navigates to contact person screen for personal ministry', () => {
+    orgPermissionSelector.mockReturnValue(undefined);
+
+    store.dispatch(navToPersonScreen(person, undefined));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person,
+      organization: { id: undefined },
+    });
+    expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+      person,
+      organization: {},
+    });
+  });
+
+  it('navigates to contact person screen for a community', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.CONTACT,
+    });
+
+    store.dispatch(navToPersonScreen(person, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person,
+      organization,
+    });
     expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
       person,
       organization,
     });
   });
+
   it('navigates to member person screen', () => {
-    store.dispatch(navToPersonScreen(person, organization, true, false));
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    store.dispatch(navToPersonScreen(person, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person,
+      organization,
+    });
     expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
       person,
       organization,

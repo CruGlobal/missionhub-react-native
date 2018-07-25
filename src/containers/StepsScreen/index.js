@@ -9,7 +9,6 @@ import {
   removeSwipeStepsReminder,
 } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth';
-import { navigatePush } from '../../actions/navigation';
 import {
   showReminderScreen,
   showWelcomeNotification,
@@ -40,9 +39,9 @@ import FooterLoading from '../../components/FooterLoading';
 import Header from '../Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, refresh } from '../../utils/common';
-import { CONTACT_SCREEN } from '../ContactScreen';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
@@ -96,12 +95,7 @@ export class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(
-      navigatePush(CONTACT_SCREEN, {
-        person: step.receiver,
-        organization: step.organization,
-      }),
-    );
+    this.props.dispatch(navToPersonScreen(step.receiver, step.organization));
   }
 
   hasReminders() {
