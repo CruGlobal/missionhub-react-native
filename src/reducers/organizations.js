@@ -140,7 +140,10 @@ function organizationsReducer(state = initialState, action) {
       const newLikeOrg = {
         ...likeOrg,
         celebrateItems: likeOrg.celebrateItems.map(
-          c => (c.id === likeQuery.eventId ? { ...c, liked: true } : c),
+          c =>
+            c.id === likeQuery.eventId
+              ? { ...c, liked: true, likes_count: c.likes_count + 1 }
+              : c,
         ),
       };
 
@@ -149,22 +152,25 @@ function organizationsReducer(state = initialState, action) {
         all: state.all.map(o => (o.id === likeQuery.orgId ? newLikeOrg : o)),
       };
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      const dislikeQuery = action.query;
-      const dislikeOrg = state.all.find(o => o.id === dislikeQuery.orgId);
-      if (!dislikeOrg) {
+      const unlikeQuery = action.query;
+      const unlikeOrg = state.all.find(o => o.id === unlikeQuery.orgId);
+      if (!unlikeOrg) {
         return state; // Return if the organization does not exist
       }
-      const newDislikeOrg = {
-        ...dislikeOrg,
-        celebrateItems: dislikeOrg.celebrateItems.map(
-          c => (c.id === dislikeQuery.eventId ? { ...c, liked: false } : c),
+      const newUnlikeOrg = {
+        ...unlikeOrg,
+        celebrateItems: unlikeOrg.celebrateItems.map(
+          c =>
+            c.id === unlikeQuery.eventId
+              ? { ...c, liked: false, likes_count: c.likes_count - 1 }
+              : c,
         ),
       };
 
       return {
         ...state,
         all: state.all.map(
-          o => (o.id === dislikeQuery.orgId ? newDislikeOrg : o),
+          o => (o.id === unlikeQuery.orgId ? newUnlikeOrg : o),
         ),
       };
     case GET_ORGANIZATION_MEMBERS:

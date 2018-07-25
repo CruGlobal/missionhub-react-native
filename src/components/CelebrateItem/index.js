@@ -121,7 +121,8 @@ export default class CelebrateItem extends Component {
       likes_count,
       liked,
     } = event;
-    const displayLikeCount = likes_count > 0 && subject_person.id === myId;
+    const displayLikeCount =
+      likes_count > 0 && subject_person.user && subject_person.user.id === myId;
 
     return (
       <Card style={styles.card}>

@@ -69,7 +69,7 @@ export const mapStateToProps = ({ auth, organizations }, { organization }) => {
   });
 
   return {
-    myId: auth.person.user.id,
+    myId: auth.person.id,
     celebrateItems,
     pagination: selectorOrg.celebratePagination,
   };
