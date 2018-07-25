@@ -91,7 +91,7 @@ export class ContactScreen extends Component {
       isJean,
       contactStage,
       personIsCurrentUser,
-      isMissionhubUser,
+      missionhubUser,
     } = this.props;
     return (
       <View style={{ flex: 1 }}>
@@ -127,7 +127,7 @@ export class ContactScreen extends Component {
             person={person}
             contactAssignment={contactAssignment}
             organization={organization}
-            isMissionhubUser={isMissionhubUser}
+            isMissionhubUser={missionhubUser}
             stage={contactStage}
             dispatch={dispatch}
             onShrinkHeader={() => this.setState({ headerOpen: false })}

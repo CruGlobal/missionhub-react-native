@@ -240,35 +240,30 @@ describe('contactSideMenu', () => {
       testFollowupStatusClick(
         component,
         'Attempted Contact',
-        person,
         orgPermission.id,
         'attempted_contact',
       );
       testFollowupStatusClick(
         component,
         'Completed',
-        person,
         orgPermission.id,
         'completed',
       );
       testFollowupStatusClick(
         component,
         'Contacted',
-        person,
         orgPermission.id,
         'contacted',
       );
       testFollowupStatusClick(
         component,
         'Do Not Contact',
-        person,
         orgPermission.id,
         'do_not_contact',
       );
       testFollowupStatusClick(
         component,
         'Uncontacted',
-        person,
         orgPermission.id,
         'uncontacted',
       );
@@ -335,7 +330,6 @@ function testDeleteClick(component) {
 function testFollowupStatusClick(
   component,
   label,
-  person,
   orgPermissionId,
   serverValue,
 ) {

@@ -151,7 +151,7 @@ export function logout(forcedLogout = false) {
   };
 }
 
-export function upgradeAccount() {
+export function upgradeMyAccount() {
   return dispatch => {
     dispatch(navigatePush(LOGIN_OPTIONS_SCREEN, { upgradeAccount: true }));
   };

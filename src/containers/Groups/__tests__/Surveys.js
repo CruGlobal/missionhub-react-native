@@ -65,7 +65,7 @@ describe('Surveys', () => {
   });
 
   it('should mount correctly', () => {
-    const store = createMockStore({
+    const mockStore = createMockStore({
       organizations: {
         all: [
           {
@@ -77,7 +77,7 @@ describe('Surveys', () => {
       },
     });
 
-    const instance = renderShallow(component, store).instance();
+    const instance = renderShallow(component, mockStore).instance();
     instance.componentDidMount();
     expect(getOrgSurveys).toHaveBeenCalled();
   });

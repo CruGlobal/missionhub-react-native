@@ -224,11 +224,11 @@ function challengeCompleteAction(step, screen) {
               const isMe = myId === `${step.receiver.id}`;
 
               const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-              const subsection = isMe ? 'self' : 'person';
+              const gifSubsection = isMe ? 'self' : 'person';
               const celebrationTrackingObj = buildTrackingObj(
-                `people : ${subsection} : steps : gif`,
+                `people : ${gifSubsection} : steps : gif`,
                 'people',
-                subsection,
+                gifSubsection,
                 'steps',
               );
 
@@ -253,7 +253,7 @@ function challengeCompleteAction(step, screen) {
 
                   let stageProps = {
                     section: 'people',
-                    subsection: subsection,
+                    subsection: gifSubsection,
                     onComplete: () => {
                       dispatch(
                         navigatePush(CELEBRATION_SCREEN, {

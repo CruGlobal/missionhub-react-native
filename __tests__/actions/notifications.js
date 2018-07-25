@@ -33,15 +33,9 @@ jest.mock('react-native-config', () => ({
 }));
 
 const mockStore = configureStore([thunk]);
-const store = mockStore({
-  notifications: {
-    pushDevice: {},
-  },
-});
 
 beforeEach(() => {
   common.isAndroid = false;
-  store.clearActions();
   PushNotification.configure.mockReset();
   jest.clearAllMocks();
 });
@@ -115,10 +109,6 @@ describe('showReminderOnLoad', () => {
     { id: '1', focus: hasReminders, receiver: { id: '2' } },
   ];
 
-  beforeEach(() => {
-    store.dispatch(configureNotificationHandler());
-  });
-
   it("should not show reminder screen if app doesn't have reminders", () => {
     const store = mockStore({
       notifications: {
@@ -190,6 +180,12 @@ describe('showReminderOnLoad', () => {
 
 describe('configureNotificaitonHandler', () => {
   it('should configure notifications', () => {
+    const store = mockStore({
+      notifications: {
+        pushDevice: {},
+      },
+    });
+
     store.dispatch(configureNotificationHandler());
 
     expect(PushNotification.configure).toHaveBeenCalledWith({

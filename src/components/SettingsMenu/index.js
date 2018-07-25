@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import { logout, upgradeAccount } from '../../actions/auth';
+import { logout, upgradeMyAccount } from '../../actions/auth';
 
 @translate('settingsMenu')
 export class SettingsMenu extends Component {
@@ -38,7 +38,7 @@ export class SettingsMenu extends Component {
         label: isFirstTime ? t('signUp') : t('signOut'),
         action: () => {
           if (isFirstTime) {
-            this.props.dispatch(upgradeAccount());
+            this.props.dispatch(upgradeMyAccount());
           } else {
             this.props.dispatch(logout());
           }

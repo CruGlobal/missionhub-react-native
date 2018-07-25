@@ -37,7 +37,7 @@ it('disables autoplay when reaches last page', () => {
   screen.instance().handleSnapToItem(2);
   screen.update();
 
-  const carouselProps = screen.find(Carousel).props();
+  carouselProps = screen.find(Carousel).props();
 
   expect(carouselProps.autoplay).toEqual(false);
 });

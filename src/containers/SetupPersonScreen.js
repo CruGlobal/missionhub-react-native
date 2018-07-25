@@ -88,7 +88,7 @@ class SetupPersonScreen extends Component {
             </Text>
             <Input
               ref={c => (this.personFirstName = c)}
-              onChangeText={t => dispatch(personFirstNameChanged(t))}
+              onChangeText={text => dispatch(personFirstNameChanged(text))}
               value={personFirstName}
               autoFocus={true}
               returnKeyType="next"
@@ -102,7 +102,7 @@ class SetupPersonScreen extends Component {
           <View style={{ paddingTop: 30 }}>
             <Input
               ref={c => (this.personLastName = c)}
-              onChangeText={t => dispatch(personLastNameChanged(t))}
+              onChangeText={text => dispatch(personLastNameChanged(text))}
               value={personLastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastNameOptional')}

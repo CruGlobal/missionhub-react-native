@@ -84,7 +84,6 @@ describe('StatusSelectScreen', () => {
   beforeEach(() => {
     navigation.navigatePush.mockClear();
   });
-  let instance;
 
   const component = (
     <StatusSelectScreen
@@ -98,7 +97,7 @@ describe('StatusSelectScreen', () => {
   navigation.navigatePush = jest.fn();
 
   const testSubmit = async type => {
-    instance = renderShallow(component, store).instance();
+    const instance = renderShallow(component, store).instance();
     instance.setState({ selected: type });
     await instance.submit();
     expect(updateFollowupStatus).toHaveBeenCalledWith(

@@ -66,7 +66,7 @@ class SetupScreen extends Component {
             </Text>
             <Input
               ref={c => (this.firstName = c)}
-              onChangeText={t => this.props.dispatch(firstNameChanged(t))}
+              onChangeText={text => this.props.dispatch(firstNameChanged(text))}
               value={this.props.firstName}
               autoFocus={true}
               returnKeyType="next"
@@ -80,7 +80,7 @@ class SetupScreen extends Component {
           <View style={{ paddingTop: 30 }}>
             <Input
               ref={c => (this.lastName = c)}
-              onChangeText={t => this.props.dispatch(lastNameChanged(t))}
+              onChangeText={text => this.props.dispatch(lastNameChanged(text))}
               value={this.props.lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}

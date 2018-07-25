@@ -21,7 +21,7 @@ import {
   updateLocaleAndTimezone,
   codeLogin,
   logout,
-  upgradeAccount,
+  upgradeMyAccount,
   openKeyURL,
 } from '../../src/actions/auth';
 import { mockFnWithParams } from '../../testUtils';
@@ -295,7 +295,7 @@ describe('on upgrade account', () => {
   });
 
   it('should navigate to login options page', async () => {
-    await store.dispatch(upgradeAccount());
+    await store.dispatch(upgradeMyAccount());
 
     expect(store.getActions()).toEqual([{ type: LOGIN_OPTIONS_SCREEN }]);
   });
