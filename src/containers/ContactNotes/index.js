@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Keyboard, Image } from 'react-native';
+import { ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -11,6 +11,7 @@ import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
 import theme from '../../theme';
+import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
@@ -137,13 +138,11 @@ export class ContactNotes extends Component {
     const text = t('prompt', { personFirstName: person.first_name });
 
     return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        <Image source={NOTES} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>
-          {t('header').toUpperCase()}
-        </Text>
-        <Text style={styles.nullText}>{text}</Text>
-      </Flex>
+      <NullStateComponent
+        imageSource={NOTES}
+        headerText={t('header').toUpperCase()}
+        descriptionText={text}
+      />
     );
   }
 

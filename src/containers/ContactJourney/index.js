@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import { View, FlatList, Image } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
-import {
-  Flex,
-  Button,
-  Separator,
-  Text,
-  LoadingGuy,
-} from '../../components/common';
+import { Flex, Button, Separator, LoadingGuy } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -22,6 +16,7 @@ import { removeSwipeJourney } from '../../actions/swipe';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
 import { updateChallengeNote } from '../../actions/steps';
+import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
@@ -178,14 +173,13 @@ class ContactJourney extends Component {
 
   renderNull() {
     const { t } = this.props;
+
     return (
-      <Flex align="center" justify="center" value={1}>
-        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>
-          {t('ourJourney').toUpperCase()}
-        </Text>
-        <Text style={styles.nullText}>{t('journeyNull')}</Text>
-      </Flex>
+      <NullStateComponent
+        imageSource={NULL}
+        headerText={t('ourJourney').toUpperCase()}
+        descriptionText={t('journeyNull')}
+      />
     );
   }
 

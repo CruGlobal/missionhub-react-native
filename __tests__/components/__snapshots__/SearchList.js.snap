@@ -244,52 +244,15 @@ exports[`renders filters 1`] = `
       </Flex>
     </ScrollView>
   </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Search results will appear here."
+    headerText="Search"
+    imageSource={
       Object {
-        "marginBottom": 40,
-        "minHeight": 1084,
+        "testUri": "../../../assets/images/searchNull.png",
       }
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+  />
 </Component>
 `;
 
@@ -366,52 +329,15 @@ exports[`renders search list 1`] = `
       />
     </Flex>
   </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Search results will appear here."
+    headerText="Search"
+    imageSource={
       Object {
-        "marginBottom": 40,
-        "minHeight": 1084,
+        "testUri": "../../../assets/images/searchNull.png",
       }
     }
-    value={1}
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/searchNull.png",
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 84,
-          "letterSpacing": 2,
-        }
-      }
-      type="header"
-    >
-      Search
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 16,
-        }
-      }
-    >
-      Search results will appear here.
-    </MyText>
-  </Flex>
+  />
 </Component>
 `;
 

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render assigned contact 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    resizeMode="contain"
+    source={1443235}
+    style={
+      Object {
+        "flexShrink": 1,
+      }
+    }
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#007398",
+        "fontSize": 42,
+        "paddingTop": 10,
+      }
+    }
+    type="header"
+  >
+    some header
+  </MyText>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 16,
+        "paddingHorizontal": 70,
+        "paddingVertical": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    some description
+  </MyText>
+</Component>
+`;

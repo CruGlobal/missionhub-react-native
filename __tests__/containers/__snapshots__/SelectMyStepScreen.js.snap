@@ -5,13 +5,10 @@ exports[`renders correctly for onboarding 1`] = `
   contact={
     Object {
       "id": "1234",
+      "user": Object {},
     }
   }
-  contactStage={
-    Object {
-      "id": 4,
-    }
-  }
+  contactStageId={4}
   createStepTracking={
     Object {
       "level3": "steps",
@@ -33,13 +30,10 @@ exports[`renders correctly with back button 1`] = `
   contact={
     Object {
       "id": "1234",
+      "user": Object {},
     }
   }
-  contactStage={
-    Object {
-      "id": 4,
-    }
-  }
+  contactStageId={4}
   createStepTracking={
     Object {
       "level3": "steps",
@@ -61,13 +55,10 @@ exports[`renders correctly without back button 1`] = `
   contact={
     Object {
       "id": "1234",
+      "user": Object {},
     }
   }
-  contactStage={
-    Object {
-      "id": 4,
-    }
-  }
+  contactStageId={4}
   createStepTracking={
     Object {
       "level3": "steps",

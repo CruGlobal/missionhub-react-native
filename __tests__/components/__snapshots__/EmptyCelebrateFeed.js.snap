@@ -1,175 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Empty Celebrate Feed rendering renders correctly for group feed 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  style={
+<NullStateComponent
+  descriptionText="You can celebrate each other's Steps of Faith here."
+  headerText="Celebrate!"
+  imageSource={
     Object {
-      "backgroundColor": "#ffffff",
+      "testUri": "../../../assets/images/celebrateHearts.png",
     }
   }
-  value={1}
->
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/celebrateHearts.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#007398",
-        "fontSize": 42,
-        "paddingTop": 10,
-      }
-    }
-    type="header"
-  >
-    Celebrate!
-  </MyText>
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#505256",
-        "fontSize": 16,
-        "paddingHorizontal": 50,
-        "paddingVertical": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    You can celebrate each other's Steps of Faith here.
-  </MyText>
-</Flex>
+/>
 `;
 
 exports[`Empty Celebrate Feed rendering renders correctly for member feed 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  style={
+<NullStateComponent
+  descriptionText="You can celebrate Roge's Steps of Faith here."
+  headerText="Celebrate!"
+  imageSource={
     Object {
-      "backgroundColor": "#ffffff",
+      "testUri": "../../../assets/images/celebrateHearts.png",
     }
   }
-  value={1}
->
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/celebrateHearts.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#007398",
-        "fontSize": 42,
-        "paddingTop": 10,
-      }
-    }
-    type="header"
-  >
-    Celebrate!
-  </MyText>
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#505256",
-        "fontSize": 16,
-        "paddingHorizontal": 50,
-        "paddingVertical": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    You can celebrate Roge's Steps of Faith here.
-  </MyText>
-</Flex>
+/>
 `;
 
 exports[`Empty Celebrate Feed rendering renders correctly for member feed ending in s 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  style={
+<NullStateComponent
+  descriptionText="You can celebrate Roges' Steps of Faith here."
+  headerText="Celebrate!"
+  imageSource={
     Object {
-      "backgroundColor": "#ffffff",
+      "testUri": "../../../assets/images/celebrateHearts.png",
     }
   }
-  value={1}
->
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/celebrateHearts.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#007398",
-        "fontSize": 42,
-        "paddingTop": 10,
-      }
-    }
-    type="header"
-  >
-    Celebrate!
-  </MyText>
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#505256",
-        "fontSize": 16,
-        "paddingHorizontal": 50,
-        "paddingVertical": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    You can celebrate Roges' Steps of Faith here.
-  </MyText>
-</Flex>
+/>
 `;

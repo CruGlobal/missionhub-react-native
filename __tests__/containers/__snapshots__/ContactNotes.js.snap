@@ -75,62 +75,15 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     ]
   }
 >
-  <Flex
-    align="center"
-    justify="center"
-    style={
+  <NullStateComponent
+    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
+    headerText="MY NOTES"
+    imageSource={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
+        "testUri": "../../../assets/images/myNotes.png",
       }
     }
-    value={1}
-  >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/myNotes.png",
-        }
-      }
-      style={
-        Object {
-          "flexShrink": 1,
-        }
-      }
-    />
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 42,
-          "paddingTop": 10,
-        }
-      }
-      type="header"
-    >
-      MY NOTES
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 50,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        }
-      }
-    >
-      Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
-    </MyText>
-  </Flex>
+  />
   <Flex
     justify="end"
   >

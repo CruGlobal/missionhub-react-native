@@ -74,7 +74,7 @@ export function getOrganizationMembers(orgId, query = {}) {
       organization_ids: orgId,
     },
     include:
-      'contact_assignments,organizational_permissions,phone_numbers,email_addresses',
+      'contact_assignments.person,organizational_permissions,phone_numbers,email_addresses',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
