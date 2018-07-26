@@ -43,12 +43,11 @@ class MemberCelebrate extends Component {
   };
 
   renderList() {
-    const { organization, myId, celebrateItems } = this.props;
+    const { organization, celebrateItems } = this.props;
 
     return (
       <CelebrateFeed
         organization={organization}
-        myId={myId}
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
@@ -71,7 +70,7 @@ class MemberCelebrate extends Component {
   }
 }
 
-const mapStateToProps = ({ organizations, auth }, { organization, person }) => {
+const mapStateToProps = ({ organizations }, { organization, person }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
@@ -86,7 +85,6 @@ const mapStateToProps = ({ organizations, auth }, { organization, person }) => {
   });
 
   return {
-    myId: auth.person.id,
     celebrateItems,
     pagination: selectorOrg.celebratePagination,
   };

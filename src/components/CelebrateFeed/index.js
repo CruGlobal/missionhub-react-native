@@ -70,7 +70,7 @@ export class CelebrateFeed extends Component {
 }
 
 export const mapStateToProps = ({ auth }) => ({
-  myId: auth.person.user.id,
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(CelebrateFeed);

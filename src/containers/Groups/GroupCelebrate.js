@@ -58,7 +58,7 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ auth, organizations }, { organization }) => {
+export const mapStateToProps = ({ organizations }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
@@ -69,7 +69,6 @@ export const mapStateToProps = ({ auth, organizations }, { organization }) => {
   });
 
   return {
-    myId: auth.person.id,
     celebrateItems,
     pagination: selectorOrg.celebratePagination,
   };
