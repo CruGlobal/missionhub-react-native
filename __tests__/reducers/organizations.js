@@ -200,7 +200,10 @@ it('updates celebrate item from unliked to liked', () => {
   const orgId = '1';
   const eventId = '3';
   const likes = 0;
-  const oldItems = [{ id: eventId, liked: false, likes_count: likes }];
+  const oldItems = [
+    { id: eventId, liked: false, likes_count: likes },
+    { id: '123', liked: false, likes_count: likes },
+  ];
 
   const state = organizations(
     {
@@ -231,7 +234,10 @@ it('updates celebrate item from liked to unliked', () => {
   const orgId = '1';
   const eventId = '3';
   const likes = 3;
-  const oldItems = [{ id: eventId, liked: true, likes_count: likes }];
+  const oldItems = [
+    { id: eventId, liked: true, likes_count: likes },
+    { id: '123', liked: false, likes_count: likes },
+  ];
 
   const state = organizations(
     {

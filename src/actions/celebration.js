@@ -33,7 +33,7 @@ export function reloadGroupCelebrateFeed(orgId) {
   };
 }
 
-const resetPaginationAction = orgId => {
+export const resetPaginationAction = orgId => {
   return {
     type: RESET_CELEBRATION_PAGINATION,
     orgId: orgId,
