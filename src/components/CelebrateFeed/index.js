@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { toggleLike } from '../../actions/celebration';
 import { DateComponent, Flex } from '../../components/common';
@@ -68,6 +69,12 @@ export class CelebrateFeed extends Component {
     );
   }
 }
+
+CelebrateFeed.PropTypes = {
+  items: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
+  myId: PropTypes.string.isRequired,
+};
 
 export const mapStateToProps = ({ auth }) => ({
   myId: auth.person.id,

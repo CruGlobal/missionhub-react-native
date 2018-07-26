@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import {
   Card,
@@ -155,3 +156,9 @@ export default class CelebrateItem extends Component {
     );
   }
 }
+
+CelebrateItem.PropTypes = {
+  event: PropTypes.object.isRequired,
+  myId: PropTypes.string.isRequired,
+  onToggleLike: PropTypes.func.isRequired,
+};
