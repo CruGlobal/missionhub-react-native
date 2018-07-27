@@ -40,9 +40,7 @@ class Members extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    const isMember = true;
-    const isAssignedToMe = false;
-    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   handleLoadMore = () => {

@@ -43,10 +43,11 @@ class MemberCelebrate extends Component {
   };
 
   renderList() {
-    const { celebrateItems } = this.props;
+    const { organization, celebrateItems } = this.props;
 
     return (
       <CelebrateFeed
+        organization={organization}
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}

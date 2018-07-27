@@ -12,9 +12,9 @@ import { DISABLE_WELCOME_NOTIFICATION, GCM_SENDER_ID } from '../constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen'; //props: person, isJean, onComplete: () => {} }
-import { CONTACT_SCREEN } from '../containers/ContactScreen'; //props: person, organization
+import { ADD_CONTACT_SCREEN } from '../containers/AddContactScreen';
 import { hasReminderStepsSelector } from '../selectors/steps';
+import { navToPersonScreen } from '../actions/person';
 
 import { getPersonDetails } from './person';
 import { navigatePush, navigateBack, navigateReset } from './navigation';
@@ -125,15 +125,12 @@ function handleNotification(notification) {
             getPersonDetails(person, organization),
           );
           return dispatch(
-            navigatePush(CONTACT_SCREEN, {
-              person: loadedPerson,
-              organization: { id: organization },
-            }),
+            navToPersonScreen(loadedPerson, { id: organization }),
           );
         }
         return;
       case 'my_steps':
-        return dispatch(navigatePush(CONTACT_SCREEN, { person: me }));
+        return dispatch(navToPersonScreen(me));
       case 'add_a_person':
         return dispatch(
           navigatePush(ADD_CONTACT_SCREEN, {

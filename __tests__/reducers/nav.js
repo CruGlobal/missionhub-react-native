@@ -1,13 +1,13 @@
 import { NavigationActions } from 'react-navigation';
 
 import nav from '../../src/reducers/nav';
-import { CONTACT_SCREEN } from '../../src/containers/ContactScreen';
+import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/UnassignedPersonScreen';
 import { LOGIN_SCREEN } from '../../src/containers/LoginScreen';
 
 describe('navReducer', () => {
   it('should get state for nav action', () => {
     const newRoute = {
-      routeName: CONTACT_SCREEN,
+      routeName: UNASSIGNED_PERSON_SCREEN,
       params: { person: { id: '123', type: 'person' } },
     };
 
