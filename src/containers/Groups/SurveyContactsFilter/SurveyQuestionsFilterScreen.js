@@ -66,7 +66,9 @@ export class SurveyQuestionsFilterScreen extends Component {
     }));
     let newFilters = {
       ...filters,
-      [selectedFilterId]: item.text,
+      [selectedFilterId]: {
+        '': item.text,
+      },
     };
     if (item.id === 'any') {
       delete newFilters[selectedFilterId];

@@ -95,7 +95,7 @@ export class SurveyContactsFilter extends Component {
             onFilter: this.handleSelectFilter,
             title: item.text,
             options,
-            filters: this.state.filters,
+            filters: this.state.filters.questions || {},
             trackingObj: buildTrackingObj(
               `search : refine : ${item.id}`,
               'search',

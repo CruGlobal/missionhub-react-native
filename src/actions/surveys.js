@@ -93,7 +93,6 @@ function createSurveyFilters(filters) {
   if (filters.groups) {
     surveyFilters.people.group_ids = filters.groups.id;
   }
-
   return surveyFilters;
 }
 
