@@ -7,10 +7,10 @@ import { getGroupJourney } from '../../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../../components/common';
 import { INTERACTION_TYPES } from '../../../constants';
 import { addNewInteraction } from '../../../actions/interactions';
-import GroupsContactList from '../../../components/GroupsContactList';
-import CommentBox from '../../../components/CommentBox';
-import Header from '../../Header';
-import BackButton from '../../BackButton';
+import GroupsContactList from '../../../components/GroupsContactList/index';
+import CommentBox from '../../../components/CommentBox/index';
+import Header from '../../Header/index';
+import BackButton from '../../BackButton/index';
 
 import styles from './styles';
 

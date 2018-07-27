@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import { Alert } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 
+import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../containers/AddContactScreen';
@@ -19,8 +22,48 @@ import {
 } from '../../utils/common';
 
 @translate('contactSideMenu')
-export class PersonSideMenu extends Component {
+class PersonSideMenu extends Component {
   onSubmitReason = () => this.props.dispatch(navigateBack(2));
+
+  deleteContact() {
+    return () => {
+      const { t, dispatch, person } = this.props;
+      Alert.alert(
+        t('deleteQuestion', {
+          name: person.first_name,
+        }),
+        t('deleteSentence'),
+        [
+          {
+            text: t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: t('delete'),
+            style: 'destructive',
+            onPress: () => {
+              this.deleteOnUnmount = true;
+              dispatch(DrawerActions.closeDrawer());
+              dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
+            },
+          },
+        ],
+      );
+    };
+  }
+
+  async componentWillUnmount() {
+    if (this.deleteOnUnmount) {
+      const { dispatch, person, contactAssignment, organization } = this.props;
+      await dispatch(
+        deleteContactAssignment(
+          contactAssignment.id,
+          person.id,
+          organization && organization.id,
+        ),
+      );
+    }
+  }
 
   render() {
     const {
@@ -42,6 +85,8 @@ export class PersonSideMenu extends Component {
       isJean,
       orgPermission,
     );
+    const showDelete =
+      !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
 
     const menuItems = [
       {
@@ -55,6 +100,12 @@ export class PersonSideMenu extends Component {
             }),
           ),
       },
+      showDelete
+        ? {
+            label: t('delete'),
+            action: this.deleteContact(),
+          }
+        : null,
       showAssign
         ? {
             label: t('assign'),

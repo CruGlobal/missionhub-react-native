@@ -26,6 +26,7 @@ import {
   navigateToStageScreen,
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
+import { personSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -236,18 +237,27 @@ ContactSteps.propTypes = {
 };
 
 const mapStateToProps = (
-  { swipe, auth, steps },
-  { person, organization = {} },
-) => ({
-  showBump: swipe.stepsContact,
-  myId: auth.person.id,
-  steps:
-    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
-  contactAssignment: contactAssignmentSelector(
-    { auth },
-    { person, orgId: organization.id },
-  ),
-  isMe: person.id === auth.person.id,
-});
+  { swipe, auth, steps, people },
+  { person: navPerson, organization = {} },
+) => {
+  const person =
+    personSelector(
+      { people },
+      { personId: navPerson.id, orgId: organization.id },
+    ) || navPerson;
+
+  return {
+    showBump: swipe.stepsContact,
+    myId: auth.person.id,
+    steps:
+      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+    contactAssignment: contactAssignmentSelector(
+      { auth },
+      { person, orgId: organization.id },
+    ),
+    isMe: person.id === auth.person.id,
+    person,
+  };
+};
 
 export default connect(mapStateToProps)(ContactSteps);

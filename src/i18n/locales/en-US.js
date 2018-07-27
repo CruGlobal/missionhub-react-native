@@ -403,8 +403,10 @@ export default {
     celebrate: 'Celebrate',
     steps: 'My Steps',
     notes: 'My Notes',
-    journey: 'Our Journey',
+    ourJourney: 'Our Journey',
+    myJourney: 'My Journey',
     impact: 'Impact',
+    myImpact: 'My Impact',
     assignedContacts: 'Assigned Contacts',
   },
   onboarding: {

@@ -22,9 +22,10 @@ import {
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
-import { getPersonDetails } from '../../src/actions/person';
-jest.mock('../../src/actions/person');
+import { getPersonDetails, navToPersonScreen } from '../../src/actions/person';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../src/containers/NotificationPrimerScreen';
+
+jest.mock('../../src/actions/person');
 jest.mock('../../src/actions/api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
@@ -264,6 +265,7 @@ describe('askNotificationPermissions', () => {
     beforeEach(() => {
       common.isAndroid = true;
       store.clearActions();
+      navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
     });
 
     async function testNotification(notification, userInteraction = true) {
@@ -307,6 +309,7 @@ describe('askNotificationPermissions', () => {
         organization_id: '2',
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
+      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toMatchSnapshot();
     });
 
@@ -325,11 +328,13 @@ describe('askNotificationPermissions', () => {
         },
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
+      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toMatchSnapshot();
     });
 
     it("should deep link to ME user's contact screen", () => {
       testNotification({ screen: 'my_steps' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toMatchSnapshot();
     });
 

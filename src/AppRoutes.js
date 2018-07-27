@@ -33,7 +33,6 @@ import StageSuccessScreen, {
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from './containers/AddSomeoneScreen';
-import ContactScreen, { CONTACT_SCREEN } from './containers/ContactScreen';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from './containers/AddContactScreen';
@@ -68,14 +67,19 @@ import NotificationOffScreen, {
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import {
   ContactPersonScreen,
-  CONTACT_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen/PersonScreen';
-import {
+  IsGroupsMemberPersonScreen,
   MemberPersonScreen,
+  MePersonalPersonScreen,
+  IsGroupsMeCommunityPersonScreen,
+  MeCommunityPersonScreen,
+  CONTACT_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen/PersonScreen';
+  ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+} from './containers/Groups/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
-import ContactSideMenu from './components/ContactSideMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import { Flex, Icon, Text } from './components/common';
 import theme from './theme';
@@ -98,7 +102,7 @@ import SurveyContacts, {
 } from './containers/Groups/SurveyContacts';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen/UnassignedPersonScreen';
+} from './containers/Groups/UnassignedPersonScreen';
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/SurveyContactsFilter';
@@ -376,20 +380,6 @@ export const MainStackRoutes = createStackNavigator(
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
-    [CONTACT_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: ContactScreen },
-        },
-        {
-          contentComponent: ContactSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
     [UNASSIGNED_PERSON_SCREEN]: {
       screen: UnassignedPersonScreen,
       navigationOptions: { gesturesEnabled: true },
@@ -408,10 +398,66 @@ export const MainStackRoutes = createStackNavigator(
       ),
       navigationOptions: { gesturesEnabled: isAndroid ? false : true },
     },
+    [IS_GROUPS_MEMBER_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: IsGroupsMemberPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
     [MEMBER_PERSON_SCREEN]: {
       screen: createDrawerNavigator(
         {
           Main: { screen: MemberPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [ME_PERSONAL_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: MePersonalPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: IsGroupsMeCommunityPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [ME_COMMUNITY_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: MeCommunityPersonScreen },
         },
         {
           contentComponent: PersonSideMenu,

@@ -11,9 +11,9 @@ import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../Header';
 import { openMainMenu, refresh } from '../../utils/common';
-import { CONTACT_SCREEN } from '../ContactScreen';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
+import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
@@ -63,7 +63,7 @@ export class PeopleScreen extends Component {
 
   handleRowSelect(person, org) {
     const organization = org && org.id !== 'personal' ? org : undefined;
-    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
+    this.props.dispatch(navToPersonScreen(person, organization));
   }
 
   handleRefresh() {
