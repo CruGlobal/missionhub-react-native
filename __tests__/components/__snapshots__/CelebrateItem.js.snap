@@ -1,6 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "padding": 16,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1`] = `
 <Card
   style={
     Object {
@@ -78,8 +183,325 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          4
+          1
         </MyText>
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "padding": 16,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        >
+          1
+        </MyText>
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-blue.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event for subject=other, liked=false, like count=0 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "padding": 16,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
+        <Button
+          name="likeActiveIcon"
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 24,
+                "margin": 0,
+                "width": 24,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/heart-grey.png",
+              }
+            }
+          />
+        </Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`CelebrateItem renders event for subject=other, liked=true, like count>0 1`] = `
+<Card
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#E6E8EC",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "padding": 16,
+    }
+  }
+>
+  <Flex
+    direction="row"
+    value={1}
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        JOHN SMITH
+      </MyText>
+      <Translate(DateComponent)
+        date="2004-04-04 00:00:00 UTC"
+        format="LT"
+        style={
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          }
+        }
+      />
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "paddingTop": 12,
+          }
+        }
+      />
+    </Flex>
+    <Flex
+      align="start"
+      direction="column"
+    >
+      <Flex
+        align="center"
+        direction="row"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 14,
+            }
+          }
+        />
         <Button
           name="likeActiveIcon"
           onPress={[Function]}
