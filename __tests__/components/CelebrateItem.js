@@ -19,9 +19,7 @@ describe('CelebrateItem', () => {
     event = {
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: myId,
-        },
+        id: myId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 1,
@@ -34,9 +32,7 @@ describe('CelebrateItem', () => {
     event = {
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: myId,
-        },
+        id: myId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 1,
@@ -49,9 +45,7 @@ describe('CelebrateItem', () => {
     event = {
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: myId,
-        },
+        id: myId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 0,
@@ -64,9 +58,7 @@ describe('CelebrateItem', () => {
     event = {
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: otherId,
-        },
+        id: otherId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 1,
@@ -79,9 +71,7 @@ describe('CelebrateItem', () => {
     event = {
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: otherId,
-        },
+        id: otherId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 0,
@@ -97,9 +87,7 @@ describe('onPressLikeIcon', () => {
       id: '1',
       subject_person_name: 'John Smith',
       subject_person: {
-        user: {
-          id: otherId,
-        },
+        id: otherId,
       },
       changed_attribute_value: '2004-04-04 00:00:00 UTC',
       likes_count: 0,

@@ -132,47 +132,9 @@ function organizationsReducer(state = initialState, action) {
         ),
       };
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      const likeQuery = action.query;
-      const likeOrg = state.all.find(o => o.id === likeQuery.orgId);
-      if (!likeOrg) {
-        return state; // Return if the organization does not exist
-      }
-      const newLikeOrg = {
-        ...likeOrg,
-        celebrateItems: likeOrg.celebrateItems.map(
-          c =>
-            c.id === likeQuery.eventId
-              ? { ...c, liked: true, likes_count: c.likes_count + 1 }
-              : c,
-        ),
-      };
-
-      return {
-        ...state,
-        all: state.all.map(o => (o.id === likeQuery.orgId ? newLikeOrg : o)),
-      };
+      return toggleCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      const unlikeQuery = action.query;
-      const unlikeOrg = state.all.find(o => o.id === unlikeQuery.orgId);
-      if (!unlikeOrg) {
-        return state; // Return if the organization does not exist
-      }
-      const newUnlikeOrg = {
-        ...unlikeOrg,
-        celebrateItems: unlikeOrg.celebrateItems.map(
-          c =>
-            c.id === unlikeQuery.eventId
-              ? { ...c, liked: false, likes_count: c.likes_count - 1 }
-              : c,
-        ),
-      };
-
-      return {
-        ...state,
-        all: state.all.map(
-          o => (o.id === unlikeQuery.orgId ? newUnlikeOrg : o),
-        ),
-      };
+      return toggleCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -198,6 +160,28 @@ function organizationsReducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+function toggleCelebrationLike(action, state, liked) {
+  const query = action.query;
+  const org = state.all.find(o => o.id === query.orgId);
+  if (!org) {
+    return state; // Return if the organization does not exist
+  }
+  const newOrg = {
+    ...org,
+    celebrateItems: org.celebrateItems.map(
+      c =>
+        c.id === query.eventId
+          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+          : c,
+    ),
+  };
+
+  return {
+    ...state,
+    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
 }
 
 export default organizationsReducer;

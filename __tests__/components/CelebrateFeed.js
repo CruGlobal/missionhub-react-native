@@ -3,8 +3,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import CelebrateFeed from '../../src/components/CelebrateFeed';
-import { renderShallow, mockFnWithParams } from '../../testUtils';
-import * as celebration from '../../src/actions/celebration';
+import { renderShallow } from '../../testUtils';
+import { toggleLike } from '../../src/actions/celebration';
+
+jest.mock('../../src/actions/celebration');
 
 const myId = '123';
 const organization = { id: '456' };
@@ -75,17 +77,12 @@ describe('handleToggleLike', () => {
   const eventId = '222';
   const liked = true;
 
-  mockFnWithParams(
-    celebration,
-    'toggleLike',
-    toggleResult,
-    organization.id,
-    eventId,
-    liked,
-  );
+  toggleLike.mockReturnValue(toggleResult);
 
   it('calls toggleLike', () => {
     component.instance().handleToggleLike(eventId, liked);
+
+    expect(toggleLike).toHaveBeenCalledWith(organization.id, eventId, liked);
     expect(store.getActions()).toEqual([toggleResult]);
   });
 });

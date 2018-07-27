@@ -9,7 +9,7 @@ import CelebrateItem from '../../components/CelebrateItem';
 
 import styles from './styles';
 
-export class CelebrateFeed extends Component {
+class CelebrateFeed extends Component {
   constructor(props) {
     super(props);
     // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
@@ -70,8 +70,8 @@ export class CelebrateFeed extends Component {
   }
 }
 
-CelebrateFeed.PropTypes = {
-  items: PropTypes.object.isRequired,
+CelebrateFeed.propTypes = {
+  items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
 };

@@ -200,9 +200,14 @@ it('updates celebrate item from unliked to liked', () => {
   const orgId = '1';
   const eventId = '3';
   const likes = 0;
-  const oldItems = [
+
+  const startItems = [
     { id: eventId, liked: false, likes_count: likes },
-    { id: '123', liked: false, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: true, likes_count: likes + 1 },
+    { id: '123', liked: false, likes_count: '1' },
   ];
 
   const state = organizations(
@@ -210,7 +215,7 @@ it('updates celebrate item from unliked to liked', () => {
       all: [
         {
           id: orgId,
-          celebrateItems: oldItems,
+          celebrateItems: startItems,
         },
       ],
     },
@@ -223,10 +228,13 @@ it('updates celebrate item from unliked to liked', () => {
     },
   );
 
-  expect(state.all[0].celebrateItems.find(i => i.id === eventId)).toEqual({
-    id: eventId,
-    liked: true,
-    likes_count: likes + 1,
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
   });
 });
 
@@ -234,9 +242,13 @@ it('updates celebrate item from liked to unliked', () => {
   const orgId = '1';
   const eventId = '3';
   const likes = 3;
-  const oldItems = [
+  const startItems = [
     { id: eventId, liked: true, likes_count: likes },
-    { id: '123', liked: false, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: false, likes_count: likes - 1 },
+    { id: '123', liked: false, likes_count: '1' },
   ];
 
   const state = organizations(
@@ -244,7 +256,7 @@ it('updates celebrate item from liked to unliked', () => {
       all: [
         {
           id: orgId,
-          celebrateItems: oldItems,
+          celebrateItems: startItems,
         },
       ],
     },
@@ -257,10 +269,13 @@ it('updates celebrate item from liked to unliked', () => {
     },
   );
 
-  expect(state.all[0].celebrateItems.find(i => i.id === eventId)).toEqual({
-    id: eventId,
-    liked: false,
-    likes_count: likes - 1,
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
   });
 });
 
