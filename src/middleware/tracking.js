@@ -2,11 +2,8 @@ import { DrawerActions } from 'react-navigation';
 
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
-import { CONTACT_SCREEN } from '../containers/ContactScreen';
-import { PERSON_STEPS, SELF_STEPS } from '../components/ContactHeader';
 import {
   CONTACT_MENU_DRAWER,
-  CONTACT_TAB_CHANGED,
   IMPACT_TAB,
   MAIN_MENU_DRAWER,
   MAIN_TAB_CHANGED,
@@ -56,11 +53,6 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        if (topRoute.routeName === CONTACT_SCREEN) {
-          newState = tabsState.activeContactTab;
-          break;
-        }
-
         if (topRoute.routeName === LOGIN_SCREEN) {
           newState = tabsState.activeLoginTab;
           break;
@@ -92,14 +84,12 @@ export default function tracking({ dispatch, getState }) {
   };
 }
 
-function getNextTrackState(action, authState, dispatch) {
+function getNextTrackState(action) {
   const routeName = action.routeName;
   const trackedRoute = trackableScreens[routeName];
 
   if (trackedRoute) {
     return trackedRoute.tracking;
-  } else if (routeName === CONTACT_SCREEN) {
-    return trackContactScreen(action, authState, dispatch);
   } else if (action.type === DrawerActions.OPEN_DRAWER) {
     if (action.drawer === CONTACT_MENU_DRAWER) {
       return trackContactMenu(action.isCurrentUser);
@@ -117,14 +107,6 @@ function trackRoute(route) {
   if (trackedRoute) {
     return trackedRoute.tracking;
   }
-}
-
-function trackContactScreen(action, authState, dispatch) {
-  //steps tab is shown when ContactScreen first loads
-  const data =
-    action.params.person.id === authState.person.id ? SELF_STEPS : PERSON_STEPS;
-  dispatch({ type: CONTACT_TAB_CHANGED, newActiveTab: data });
-  return data;
 }
 
 function trackContactMenu(isCurrentUser) {
