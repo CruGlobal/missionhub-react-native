@@ -28,11 +28,12 @@ export default class GroupsPersonHeader extends Component {
     super(props);
 
     this.state = {
-      buttons: props.isMember
-        ? props.person.id === props.myId
+      buttons:
+        props.person.id === props.myId
           ? this.getMeButton()
-          : this.getMemberButtons()
-        : this.getContactButtons(),
+          : props.isMember
+            ? this.getMemberButtons()
+            : this.getContactButtons(),
     };
   }
 

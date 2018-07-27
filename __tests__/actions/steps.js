@@ -69,7 +69,8 @@ describe('get steps page', () => {
     order: '-focused_at,-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
-    include: 'receiver.reverse_contact_assignments',
+    include:
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions',
   };
   const apiResult = { type: 'done' };
 
@@ -205,7 +206,8 @@ describe('complete challenge', () => {
   const stepsQuery = {
     order: '-focused_at,-accepted_at',
     filters: { completed: false },
-    include: 'receiver.reverse_contact_assignments',
+    include:
+      'receiver.reverse_contact_assignments,receiver.organizational_permissions',
   };
   const data = {
     data: {

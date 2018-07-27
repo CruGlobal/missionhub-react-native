@@ -66,6 +66,7 @@ export function getOrganizationContacts(orgId) {
   };
 }
 
+//todo probably should start storing this stuff in Redux
 export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
