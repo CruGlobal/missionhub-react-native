@@ -247,6 +247,7 @@ export const mapStateToProps = (
 
 const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
 
+//TODO find a way to not do this, even if it means switching to a different navigation library...
 export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   CONTACT_PERSON_TABS,
   connectedPersonScreen,
