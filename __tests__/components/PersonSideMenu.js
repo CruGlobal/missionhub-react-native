@@ -14,6 +14,7 @@ import {
   orgPermissionSelector,
   contactAssignmentSelector,
 } from '../../src/selectors/people';
+import { deleteContactAssignment } from '../../src/actions/person';
 import { assignContactAndPickStage } from '../../src/actions/misc';
 
 jest.mock('../../src/actions/navigation');
@@ -91,6 +92,38 @@ describe('PersonSideMenu', () => {
     const instance = component.instance();
     instance.onSubmitReason();
     expect(navigateBack).toHaveBeenCalledWith(2);
+  });
+
+  describe('componentWillUnmount', () => {
+    beforeEach(() =>
+      deleteContactAssignment.mockImplementation(response =>
+        Promise.resolve(response),
+      ));
+
+    it('should delete person if deleteOnUnmount is set', async () => {
+      contactAssignmentSelector.mockReturnValue(contactAssignment);
+      createComponent();
+      const instance = component.instance();
+      instance.deleteOnUnmount = true;
+
+      await instance.componentWillUnmount();
+
+      expect(deleteContactAssignment).toHaveBeenCalledWith(
+        contactAssignment.id,
+        person.id,
+        organization.id,
+      );
+    });
+
+    it('should do nothing if deleteOnUnmount is not set', async () => {
+      contactAssignmentSelector.mockReturnValue(contactAssignment);
+      createComponent();
+      const instance = component.instance();
+
+      await instance.componentWillUnmount();
+
+      expect(deleteContactAssignment).not.toHaveBeenCalled();
+    });
   });
 });
 
