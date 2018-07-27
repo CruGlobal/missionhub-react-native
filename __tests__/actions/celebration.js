@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 
 import {
   getGroupCelebrateFeed,
-  resetPaginationAction,
   toggleLike,
 } from '../../src/actions/celebration';
 import callApi, { REQUESTS } from '../../src/actions/api';
-import { DEFAULT_PAGE_LIMIT } from '../../src/constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CELEBRATION_PAGINATION,
+} from '../../src/constants';
 
 jest.mock('../../src/actions/api');
 
@@ -85,7 +87,7 @@ describe('getGroupCelebrateFeed', () => {
 describe('toggleLike', () => {
   const eventId = '456';
   const liked = false;
-  const resetResult = resetPaginationAction(orgId);
+  const resetResult = { type: RESET_CELEBRATION_PAGINATION, orgId };
 
   it('toggles from unlike to like', async () => {
     store = createStore({
