@@ -26,151 +26,106 @@ import { getPersonDetails } from '../../../actions/person';
 
 import styles from './styles';
 
-//todo refactor these arrays
-export const CONTACT_PERSON_TABS = [
-  {
-    name: i18next.t('personTabs:steps'),
-    navigationAction: 'nav/PERSON_STEPS',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
+const personSteps = {
+  name: i18next.t('personTabs:steps'),
+  navigationAction: 'nav/PERSON_STEPS',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
       },
-    }) => <ContactSteps organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:notes'),
-    navigationAction: 'nav/PERSON_NOTES',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
+    },
+  }) => <ContactSteps organization={organization} person={person} />,
+};
+const personNotes = {
+  name: i18next.t('personTabs:notes'),
+  navigationAction: 'nav/PERSON_NOTES',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
       },
-    }) => <ContactNotes organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:ourJourney'),
-    navigationAction: 'nav/PERSON_JOURNEY',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
+    },
+  }) => <ContactNotes organization={organization} person={person} />,
+};
+const personJourney = {
+  name: i18next.t('personTabs:ourJourney'),
+  navigationAction: 'nav/PERSON_JOURNEY',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
       },
-    }) => <ContactJourney organization={organization} person={person} />,
-  },
-];
+    },
+  }) => <ContactJourney organization={organization} person={person} />,
+};
+const memberImpact = {
+  name: i18next.t('personTabs:Impact'),
+  navigationAction: 'nav/MEMBER_IMPACT',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
+      },
+    },
+  }) => <ImpactView organization={organization} person={person} />,
+};
+const memberCelebrate = {
+  name: i18next.t('personTabs:celebrate'),
+  navigationAction: 'nav/MEMBER_CELEBRATE',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
+      },
+    },
+  }) => <MemberCelebrate organization={organization} person={person} />,
+};
+const assignedContacts = {
+  name: i18next.t('personTabs:assignedContacts'),
+  navigationAction: 'nav/MEMBER_ASSIGNED_CONTACTS',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
+      },
+    },
+  }) => <MemberContacts organization={organization} person={person} />,
+};
+const myJourney = {
+  name: i18next.t('personTabs:myJourney'),
+  navigationAction: 'nav/PERSON_JOURNEY',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
+      },
+    },
+  }) => <ContactJourney organization={organization} person={person} />,
+};
+const myImpact = {
+  name: i18next.t('personTabs:myImpact'),
+  navigationAction: 'nav/MEMBER_IMPACT',
+  component: ({
+    navigation: {
+      state: {
+        params: { organization, person },
+      },
+    },
+  }) => <ImpactView organization={organization} person={person} />,
+};
 
-export const MEMBER_PERSON_TABS = [
-  {
-    name: i18next.t('personTabs:celebrate'),
-    navigationAction: 'nav/MEMBER_CELEBRATE',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <MemberCelebrate organization={organization} person={person} />,
-  },
+export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
+export const IS_GROUPS_MEMBER_PERSON_TABS = [
+  memberCelebrate,
   ...CONTACT_PERSON_TABS,
-  {
-    name: i18next.t('personTabs:Impact'),
-    navigationAction: 'nav/MEMBER_IMPACT',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ImpactView organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:assignedContacts'),
-    navigationAction: 'nav/MEMBER_ASSIGNED_CONTACTS',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <MemberContacts organization={organization} person={person} />,
-  },
+  memberImpact,
+  assignedContacts,
 ];
-
-const ME_PERSONAL_TABS = [
-  {
-    name: i18next.t('personTabs:steps'),
-    navigationAction: 'nav/PERSON_STEPS',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactSteps organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:notes'),
-    navigationAction: 'nav/PERSON_NOTES',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactNotes organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:myJourney'),
-    navigationAction: 'nav/PERSON_JOURNEY',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ContactJourney organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:Impact'),
-    navigationAction: 'nav/MEMBER_IMPACT',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ImpactView organization={organization} person={person} />,
-  },
-];
-
-const ME_COMMUNITY_TABS = [
-  {
-    name: i18next.t('personTabs:celebrate'),
-    navigationAction: 'nav/MEMBER_CELEBRATE',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <MemberCelebrate organization={organization} person={person} />,
-  },
-  {
-    name: i18next.t('personTabs:myImpact'),
-    navigationAction: 'nav/MEMBER_IMPACT',
-    component: ({
-      navigation: {
-        state: {
-          params: { organization, person },
-        },
-      },
-    }) => <ImpactView organization={organization} person={person} />,
-  },
-];
+const MEMBER_PERSON_TABS = [...CONTACT_PERSON_TABS, memberImpact];
+const ME_PERSONAL_TABS = [personSteps, personNotes, myJourney, memberImpact];
+const IS_GROUPS_ME_COMMUNITY_TABS = [memberCelebrate, myImpact];
+const ME_COMMUNITY_TABS = [myImpact];
 
 export class PersonScreen extends Component {
   componentDidMount() {
@@ -297,6 +252,11 @@ export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   connectedPersonScreen,
   false,
 );
+export const IsGroupsMemberPersonScreen = generateSwipeTabMenuNavigator(
+  IS_GROUPS_MEMBER_PERSON_TABS,
+  connectedPersonScreen,
+  true,
+);
 export const MemberPersonScreen = generateSwipeTabMenuNavigator(
   MEMBER_PERSON_TABS,
   connectedPersonScreen,
@@ -307,6 +267,11 @@ export const MePersonalPersonScreen = generateSwipeTabMenuNavigator(
   connectedPersonScreen,
   false,
 );
+export const IsGroupsMeCommunityPersonScreen = generateSwipeTabMenuNavigator(
+  IS_GROUPS_ME_COMMUNITY_TABS,
+  connectedPersonScreen,
+  true,
+);
 export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   ME_COMMUNITY_TABS,
   connectedPersonScreen,
@@ -314,6 +279,9 @@ export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
 );
 
 export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
+export const IS_GROUPS_MEMBER_PERSON_SCREEN = 'nav/IS_GROUPS_MEMBER_PERSON';
 export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';
 export const ME_PERSONAL_PERSON_SCREEN = 'nav/ME_PERSONAL_PERSON';
+export const IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN =
+  'nav/IS_GROUPS_ME_COMMUNITY_PERSON';
 export const ME_COMMUNITY_PERSON_SCREEN = 'nav/ME_COMMUNITY_PERSON';

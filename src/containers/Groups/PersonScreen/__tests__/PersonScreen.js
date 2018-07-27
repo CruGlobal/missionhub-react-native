@@ -5,7 +5,7 @@ import {
   PersonScreen,
   mapStateToProps,
   CONTACT_PERSON_TABS,
-  MEMBER_PERSON_TABS,
+  IS_GROUPS_MEMBER_PERSON_TABS,
 } from '../index';
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
@@ -112,7 +112,7 @@ describe('Contact', () => {
   });
 
   it('should render member tabs correctly', () => {
-    expect(MEMBER_PERSON_TABS).toMatchSnapshot();
+    expect(IS_GROUPS_MEMBER_PERSON_TABS).toMatchSnapshot();
   });
 
   it('opens side menu when menu button is pressed', () => {

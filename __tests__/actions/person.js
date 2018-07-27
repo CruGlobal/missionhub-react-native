@@ -24,8 +24,10 @@ import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import {
   CONTACT_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
 } from '../../src/containers/Groups/PersonScreen/';
 import { orgPermissionSelector } from '../../src/selectors/people';
@@ -36,13 +38,16 @@ jest.mock('../../src/selectors/people');
 
 const myId = '1';
 
-const store = configureStore([thunk])({ auth: { person: { id: myId } } });
+const mockStore = configureStore([thunk]);
+let store;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
-  store.clearActions();
+  store = mockStore({
+    auth: { person: { id: myId, user: { groups_feature: true } } },
+  });
   jest.clearAllMocks();
 });
 
@@ -488,7 +493,7 @@ describe('navToPersonScreen', () => {
 
   afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
 
-  it('navigates to me for personal ministry', () => {
+  it('navigates to me screen for personal ministry', () => {
     orgPermissionSelector.mockReturnValue(undefined);
 
     store.dispatch(navToPersonScreen(me, undefined));
@@ -503,7 +508,30 @@ describe('navToPersonScreen', () => {
     });
   });
 
-  it('navigates to me for a community', () => {
+  it('navigates to groups feature me screen for a community', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+
+    store.dispatch(navToPersonScreen(me, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person: me,
+      organization,
+    });
+    expect(navigatePush).toHaveBeenCalledWith(
+      IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+      {
+        person: me,
+        organization,
+      },
+    );
+  });
+
+  it('navigates to non-groups feature me screen for a community', () => {
+    store = mockStore({
+      auth: { person: { id: myId, user: { groups_feature: false } } },
+    });
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -552,7 +580,27 @@ describe('navToPersonScreen', () => {
     });
   });
 
-  it('navigates to member person screen', () => {
+  it('navigates to groups feature member person screen', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+
+    store.dispatch(navToPersonScreen(person, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person,
+      organization,
+    });
+    expect(navigatePush).toHaveBeenCalledWith(IS_GROUPS_MEMBER_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+
+  it('navigates to non-groups feature member person screen', () => {
+    store = mockStore({
+      auth: { person: { id: myId, user: { groups_feature: false } } },
+    });
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });

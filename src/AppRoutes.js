@@ -67,12 +67,16 @@ import NotificationOffScreen, {
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import {
   ContactPersonScreen,
+  IsGroupsMemberPersonScreen,
   MemberPersonScreen,
   MePersonalPersonScreen,
+  IsGroupsMeCommunityPersonScreen,
   MeCommunityPersonScreen,
   CONTACT_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
 } from './containers/Groups/PersonScreen';
 import SettingsMenu from './components/SettingsMenu';
@@ -394,6 +398,20 @@ export const MainStackRoutes = createStackNavigator(
       ),
       navigationOptions: { gesturesEnabled: isAndroid ? false : true },
     },
+    [IS_GROUPS_MEMBER_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: IsGroupsMemberPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
     [MEMBER_PERSON_SCREEN]: {
       screen: createDrawerNavigator(
         {
@@ -412,6 +430,20 @@ export const MainStackRoutes = createStackNavigator(
       screen: createDrawerNavigator(
         {
           Main: { screen: MePersonalPersonScreen },
+        },
+        {
+          contentComponent: PersonSideMenu,
+          drawerPosition: 'right',
+          navigationOptions: { drawerLockMode: 'locked-closed' },
+          backBehavior: 'none', // We're handling it on our own
+        },
+      ),
+      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
+    },
+    [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: {
+      screen: createDrawerNavigator(
+        {
+          Main: { screen: IsGroupsMeCommunityPersonScreen },
         },
         {
           contentComponent: PersonSideMenu,
