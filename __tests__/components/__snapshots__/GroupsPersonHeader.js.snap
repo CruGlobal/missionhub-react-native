@@ -41,6 +41,16 @@ exports[`isContact with contact assignment does not render status button if cont
       text="Stage"
     />
     <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      text="Call"
+    />
+    <CenteredIconButtonWithText
       buttonStyle={
         Object {
           "fontSize": 20,
@@ -72,6 +82,16 @@ exports[`isContact with contact assignment renders status button if contact is p
       key="some key"
       onClick={[Function]}
       text="Status"
+    />
+    <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      text="Call"
     />
     <CenteredIconButtonWithText
       buttonStyle={
