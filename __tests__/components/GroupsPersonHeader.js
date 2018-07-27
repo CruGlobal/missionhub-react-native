@@ -209,12 +209,25 @@ describe('isContact', () => {
   });
 
   describe('with contact assignment', () => {
-    it('renders', () => {
+    it('renders status button if contact is part of org', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
           isMember={false}
           contactAssignment={contactAssignment}
+        />,
+      );
+    });
+
+    it('does not render status button if contact is not part of org', () => {
+      testSnapshotShallow(
+        <GroupsPersonHeader
+          {...props}
+          isMember={false}
+          contactAssignment={{
+            id: '500',
+            pathway_stage_id: 3,
+          }}
         />,
       );
     });
