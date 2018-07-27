@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberCelebrate renders correctly 1`] = `
-<CelebrateFeed
+<Connect(CelebrateFeed)
   items={
     Array [
       Object {
@@ -22,6 +22,11 @@ exports[`MemberCelebrate renders correctly 1`] = `
     ]
   }
   loadMoreItemsCallback={[Function]}
+  organization={
+    Object {
+      "id": "456",
+    }
+  }
   refreshCallback={[Function]}
 />
 `;

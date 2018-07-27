@@ -196,6 +196,89 @@ it('loads celebrate items with pagination', () => {
   });
 });
 
+it('updates celebrate item from unliked to liked', () => {
+  const orgId = '1';
+  const eventId = '3';
+  const likes = 0;
+
+  const startItems = [
+    { id: eventId, liked: false, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: true, likes_count: likes + 1 },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          celebrateItems: startItems,
+        },
+      ],
+    },
+    {
+      type: REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS,
+      query: {
+        orgId,
+        eventId,
+      },
+    },
+  );
+
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
+  });
+});
+
+it('updates celebrate item from liked to unliked', () => {
+  const orgId = '1';
+  const eventId = '3';
+  const likes = 3;
+  const startItems = [
+    { id: eventId, liked: true, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: false, likes_count: likes - 1 },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          celebrateItems: startItems,
+        },
+      ],
+    },
+    {
+      type: REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS,
+      query: {
+        orgId,
+        eventId,
+      },
+    },
+  );
+
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
+  });
+});
+
 it('loads members for org with paging', () => {
   const orgId = '1';
   const oldMembers = [
