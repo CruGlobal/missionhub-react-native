@@ -2,7 +2,6 @@ import { DrawerActions } from 'react-navigation';
 import configureStore from 'redux-mock-store';
 
 import {
-  CONTACT_MENU_DRAWER,
   MAIN_MENU_DRAWER,
   NAVIGATE_BACK,
   NAVIGATE_FORWARD,
@@ -74,49 +73,6 @@ describe('navigate forward', () => {
 
       expect(trackState).toHaveBeenCalledWith(buildTrackingObj('menu', 'menu'));
       expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
-    });
-
-    describe('contact drawer', () => {
-      it('tracks self menu', () => {
-        navigationAction = {
-          ...navigationAction,
-          drawer: CONTACT_MENU_DRAWER,
-          isCurrentUser: false,
-        };
-
-        store.dispatch(navigationAction);
-
-        expect(trackState).toHaveBeenCalledWith(
-          buildTrackingObj(
-            'people : person : menu',
-            'people',
-            'person',
-            'menu',
-          ),
-        );
-        expect(store.getActions()).toEqual([
-          navigationAction,
-          trackStateResult,
-        ]);
-      });
-
-      it('tracks person menu', () => {
-        navigationAction = {
-          ...navigationAction,
-          drawer: CONTACT_MENU_DRAWER,
-          isCurrentUser: true,
-        };
-
-        store.dispatch(navigationAction);
-
-        expect(trackState).toHaveBeenCalledWith(
-          buildTrackingObj('people : self : menu', 'people', 'self', 'menu'),
-        );
-        expect(store.getActions()).toEqual([
-          navigationAction,
-          trackStateResult,
-        ]);
-      });
     });
   });
 });

@@ -3,7 +3,6 @@ import { DrawerActions } from 'react-navigation';
 import { trackState } from '../actions/analytics';
 import { trackableScreens } from '../AppRoutes';
 import {
-  CONTACT_MENU_DRAWER,
   IMPACT_TAB,
   MAIN_MENU_DRAWER,
   MAIN_TAB_CHANGED,
@@ -91,9 +90,7 @@ function getNextTrackState(action) {
   if (trackedRoute) {
     return trackedRoute.tracking;
   } else if (action.type === DrawerActions.OPEN_DRAWER) {
-    if (action.drawer === CONTACT_MENU_DRAWER) {
-      return trackContactMenu(action.isCurrentUser);
-    } else if (action.drawer === MAIN_MENU_DRAWER) {
+    if (action.drawer === MAIN_MENU_DRAWER) {
       return buildTrackingObj('menu', 'menu');
     }
   } else if (action.params && action.params.trackingObj) {
@@ -107,10 +104,4 @@ function trackRoute(route) {
   if (trackedRoute) {
     return trackedRoute.tracking;
   }
-}
-
-function trackContactMenu(isCurrentUser) {
-  return isCurrentUser
-    ? buildTrackingObj('people : self : menu', 'people', 'self', 'menu')
-    : buildTrackingObj('people : person : menu', 'people', 'person', 'menu');
 }
