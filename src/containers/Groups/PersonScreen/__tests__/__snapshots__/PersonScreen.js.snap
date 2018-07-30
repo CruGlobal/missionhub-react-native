@@ -40,7 +40,12 @@ exports[`Contact should render PersonScreen correctly with stage 1`] = `
     </MyText>
     <Connect(PathwayStageDisplay)
       orgId="1"
-      personId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
     />
     <Translate(GroupsPersonHeader)
       dispatch={
@@ -118,7 +123,12 @@ exports[`Contact should render PersonScreen correctly without stage 1`] = `
     </MyText>
     <Connect(PathwayStageDisplay)
       orgId="1"
-      personId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
     />
     <Translate(GroupsPersonHeader)
       dispatch={

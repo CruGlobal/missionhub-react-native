@@ -175,7 +175,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
-          <PathwayStageDisplay personId={person.id} orgId={organization.id} />
+          <PathwayStageDisplay orgId={organization.id} person={person} />
           <GroupsPersonHeader
             isMember={isMember}
             contactAssignment={contactAssignment}

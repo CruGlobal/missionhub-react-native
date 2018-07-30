@@ -32,7 +32,7 @@ describe('for self', () => {
 
   it('renders stage', () => {
     testSnapshotShallow(
-      <PathwayStageDisplay personId={person.id} orgId={orgId} />,
+      <PathwayStageDisplay person={person} orgId={orgId} />,
       mockStore({
         auth: {
           person: {
@@ -49,7 +49,7 @@ describe('for self', () => {
 
   it('renders null if stage is not found', () => {
     testSnapshotShallow(
-      <PathwayStageDisplay personId={person.id} orgId={orgId} />,
+      <PathwayStageDisplay person={person} orgId={orgId} />,
       mockStore({
         auth: {
           person: {
@@ -88,7 +88,7 @@ describe('for person', () => {
     });
 
     testSnapshotShallow(
-      <PathwayStageDisplay personId={person.id} orgId={orgId} />,
+      <PathwayStageDisplay person={person} orgId={orgId} />,
       mockStore({
         auth,
         stages,
@@ -104,7 +104,7 @@ describe('for person', () => {
     });
 
     testSnapshotShallow(
-      <PathwayStageDisplay personId={person.id} orgId={orgId} />,
+      <PathwayStageDisplay person={person} orgId={orgId} />,
       mockStore({
         auth,
         stages,
@@ -118,7 +118,7 @@ describe('for person', () => {
     contactAssignmentSelector.mockReturnValue(null);
 
     testSnapshotShallow(
-      <PathwayStageDisplay personId={person.id} orgId={orgId} />,
+      <PathwayStageDisplay person={person} orgId={orgId} />,
       mockStore({
         auth,
         stages,

@@ -21,15 +21,15 @@ class PathwayStageDisplay extends Component {
 }
 
 PathwayStageDisplay.propTypes = {
-  personId: PropTypes.string.isRequired,
+  person: PropTypes.object,
   orgId: PropTypes.string,
 };
 
-const mapStateToProps = ({ people, auth, stages }, { personId, orgId }) => {
+const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   const authPerson = auth.person;
   const stagesList = stages.stages;
 
-  if (authPerson.id === personId) {
+  if (authPerson.id === person.id) {
     return {
       pathwayStage: stagesList.find(
         s => s.id === `${authPerson.user.pathway_stage_id}`,
@@ -37,10 +37,11 @@ const mapStateToProps = ({ people, auth, stages }, { personId, orgId }) => {
     };
   }
 
-  const person = personSelector({ people }, { personId, orgId });
+  const loadedPerson =
+    personSelector({ people }, { personId: person.id, orgId }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person, orgId },
+    { person: loadedPerson, orgId },
   );
 
   return {
