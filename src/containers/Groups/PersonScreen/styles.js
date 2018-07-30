@@ -11,9 +11,4 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 24,
   },
-  stage: {
-    color: theme.white,
-    fontSize: 14,
-    letterSpacing: 0.25,
-  },
 });
