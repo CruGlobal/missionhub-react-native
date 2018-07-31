@@ -218,9 +218,16 @@ export default class GroupsPersonHeader extends Component {
         ? [
             this.getPersonStageButton(),
             this.getStatusButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
             this.getEmailButton(),
           ]
-        : [this.getPersonStageButton(), this.getEmailButton()]
+        : [
+            this.getPersonStageButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
       : null;
   }
 
