@@ -6,6 +6,7 @@ import {
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
 } from '../containers/Groups/AssignedPersonScreen/';
+import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
@@ -13,7 +14,10 @@ import {
   LOAD_PERSON_DETAILS,
 } from '../constants';
 import { isMemberForOrg } from '../utils/common';
-import { orgPermissionSelector } from '../selectors/people';
+import {
+  orgPermissionSelector,
+  contactAssignmentSelector,
+} from '../selectors/people';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -291,35 +295,42 @@ export function navToPersonScreen(person, org) {
     const organization = org ? org : {};
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
 
+    const auth = getState().auth;
+    const contactAssignment = contactAssignmentSelector(
+      { auth },
+      { person, orgId: organization.id },
+    );
     const isMember = isMemberForOrg(
       orgPermissionSelector(null, {
         person,
         organization: { id: organization.id },
       }),
     );
-    const authPerson = getState().auth.person;
+    const authPerson = auth.person;
     const isMe = person.id === authPerson.id;
     const isGroups = authPerson.user.groups_feature;
 
     dispatch(
-      navigatePush(getNextScreen(isMe, isMember, isGroups), {
+      navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
         person,
         organization,
       }),
     );
   };
 
-  function getNextScreen(isMe, isMember, isGroups) {
+  function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
     return isMe
       ? isMember
         ? isGroups
           ? IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN
           : ME_COMMUNITY_PERSON_SCREEN
         : ME_PERSONAL_PERSON_SCREEN
-      : isMember
-        ? isGroups
-          ? IS_GROUPS_MEMBER_PERSON_SCREEN
-          : MEMBER_PERSON_SCREEN
-        : CONTACT_PERSON_SCREEN;
+      : contactAssignment
+        ? isMember
+          ? isGroups
+            ? IS_GROUPS_MEMBER_PERSON_SCREEN
+            : MEMBER_PERSON_SCREEN
+          : CONTACT_PERSON_SCREEN
+        : UNASSIGNED_PERSON_SCREEN;
   }
 }
