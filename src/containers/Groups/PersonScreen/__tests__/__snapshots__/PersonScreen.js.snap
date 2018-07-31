@@ -38,20 +38,15 @@ exports[`Contact should render PersonScreen correctly with stage 1`] = `
     >
       TEST PERSON
     </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "letterSpacing": 0.25,
+          "first_name": "Test Person",
+          "id": "1",
         }
       }
-    >
-      stage 4
-    </MyText>
+    />
     <Translate(GroupsPersonHeader)
       dispatch={
         [MockFunction] {
@@ -126,6 +121,15 @@ exports[`Contact should render PersonScreen correctly without stage 1`] = `
     >
       TEST PERSON
     </MyText>
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
     <Translate(GroupsPersonHeader)
       dispatch={
         [MockFunction] {

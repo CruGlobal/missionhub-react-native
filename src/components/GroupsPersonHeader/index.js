@@ -214,11 +214,20 @@ export default class GroupsPersonHeader extends Component {
     const { contactAssignment } = this.props;
 
     return contactAssignment
-      ? [
-          this.getPersonStageButton(),
-          this.getStatusButton(),
-          this.getEmailButton(),
-        ]
+      ? contactAssignment.organization
+        ? [
+            this.getPersonStageButton(),
+            this.getStatusButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
+        : [
+            this.getPersonStageButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
       : null;
   }
 
