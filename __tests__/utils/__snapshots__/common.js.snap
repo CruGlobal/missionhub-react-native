@@ -2,7 +2,7 @@
 
 exports[`getFilterOptions parses question content and sets question filter 1`] = `
 Object {
-  "id": "question",
+  "id": "questions",
   "options": Array [
     Object {
       "id": "1",

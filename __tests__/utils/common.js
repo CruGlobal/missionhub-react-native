@@ -221,12 +221,12 @@ describe('getFilterOptions', () => {
 
   it('sets the preview', () => {
     const filters = {
-      question: { text: 'test' },
+      questions: { text: 'test' },
       gender: { text: 'male' },
     };
     const results = getFilterOptions(t, filters);
 
-    expect(results.question.preview).toBe('test');
+    expect(results.questions.preview).toBe('test');
     expect(results.gender.preview).toBe('male');
     expect(results.time.preview).toBe(undefined);
   });
@@ -266,12 +266,12 @@ describe('getFilterOptions', () => {
       },
     ];
     const filters = {
-      question: { text: '1.1' },
+      questions: { text: '1.1' },
     };
 
     const results = getFilterOptions(t, filters, questions);
 
-    expect(results.question).toMatchSnapshot();
+    expect(results.questions).toMatchSnapshot();
   });
 });
 

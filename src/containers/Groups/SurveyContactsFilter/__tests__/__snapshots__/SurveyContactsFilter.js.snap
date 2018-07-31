@@ -23,13 +23,13 @@ exports[`SurveyContactsFilter should render correctly 1`] = `
     <Translate(FilterItem)
       item={
         Object {
-          "id": "question",
+          "id": "questions",
           "options": Array [],
           "preview": undefined,
           "text": "Questions/Answers",
         }
       }
-      key="question"
+      key="questions"
       onSelect={[Function]}
       type="drilldown"
     />
