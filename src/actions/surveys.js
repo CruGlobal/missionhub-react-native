@@ -71,7 +71,7 @@ function createSurveyFilters(filters) {
     },
   };
   if (filters.questions) {
-    surveyFilters.answers = filters.questions;
+    surveyFilters.answers = filters.questions.answers;
   }
   if (filters.gender) {
     surveyFilters.people.genders = filters.gender.id;

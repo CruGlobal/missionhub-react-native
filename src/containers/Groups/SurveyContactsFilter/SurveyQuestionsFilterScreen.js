@@ -66,8 +66,13 @@ export class SurveyQuestionsFilterScreen extends Component {
     }));
     let newFilters = {
       ...filters,
-      [selectedFilterId]: {
-        '': item.text,
+      id: 'questions',
+      text: item.text,
+      answers: {
+        ...filters.answers,
+        [selectedFilterId]: {
+          '': item.text,
+        },
       },
     };
     if (item.id === 'any') {
