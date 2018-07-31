@@ -156,7 +156,7 @@ export default class CelebrateItem extends Component {
   }
 }
 
-CelebrateItem.PropTypes = {
+CelebrateItem.propTypes = {
   event: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
   onToggleLike: PropTypes.func.isRequired,

@@ -29,7 +29,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from '../../src/containers/Groups/PersonScreen/';
+} from '../../src/containers/Groups/AssignedPersonScreen/';
 import { orgPermissionSelector } from '../../src/selectors/people';
 
 jest.mock('../../src/actions/api');

@@ -2,7 +2,7 @@ import React from 'react';
 import { DrawerActions } from 'react-navigation';
 
 import {
-  PersonScreen,
+  AssignedPersonScreen,
   mapStateToProps,
   CONTACT_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
@@ -81,9 +81,9 @@ describe('Contact', () => {
     });
   });
 
-  it('should render PersonScreen correctly without stage', () => {
+  it('should render AssignedPersonScreen correctly without stage', () => {
     testSnapshotShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         organization={organization}
         person={person}
         dispatch={jest.fn()}
@@ -93,9 +93,9 @@ describe('Contact', () => {
     );
   });
 
-  it('should render PersonScreen correctly with stage', () => {
+  it('should render AssignedPersonScreen correctly with stage', () => {
     testSnapshotShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         organization={organization}
         person={person}
         dispatch={jest.fn()}
@@ -116,7 +116,7 @@ describe('Contact', () => {
 
   it('opens side menu when menu button is pressed', () => {
     const component = renderShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         dispatch={dispatch}
         organization={organization}
         person={person}
