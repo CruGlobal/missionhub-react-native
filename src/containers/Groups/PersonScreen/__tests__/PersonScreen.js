@@ -76,7 +76,6 @@ describe('Contact', () => {
       person,
       contactAssignment,
       myId,
-      pathwayStage,
       stages,
       myStageId: pathwayStage.id,
     });

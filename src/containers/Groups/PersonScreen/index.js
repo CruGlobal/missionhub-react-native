@@ -23,6 +23,7 @@ import {
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getPersonDetails } from '../../../actions/person';
+import PathwayStageDisplay from '../../PathwayStageDisplay';
 
 import styles from './styles';
 
@@ -140,7 +141,6 @@ export class PersonScreen extends Component {
       organization,
       isMember,
       contactAssignment,
-      pathwayStage,
       myId,
       myStageId,
       stages,
@@ -175,9 +175,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
-          {pathwayStage ? (
-            <Text style={styles.stage}>{pathwayStage.name}</Text>
-          ) : null}
+          <PathwayStageDisplay orgId={organization.id} person={person} />
           <GroupsPersonHeader
             isMember={isMember}
             contactAssignment={contactAssignment}
@@ -228,7 +226,6 @@ export const mapStateToProps = (
     { auth },
     { person, orgId: organization.id },
   );
-  const stagesList = stages.stages;
   const authPerson = auth.person;
 
   return {
@@ -236,10 +233,7 @@ export const mapStateToProps = (
     contactAssignment,
     person,
     organization,
-    pathwayStage:
-      contactAssignment &&
-      stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
-    stages: stagesList,
+    stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
   };
