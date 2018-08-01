@@ -64,14 +64,15 @@ export function searchSurveyContacts(text, filters = []) {
 }
 
 function createSurveyFilters(filters) {
+  const answerFilters = getAnswersFromFilters(filters);
   let surveyFilters = {
     survey_ids: filters.survey.id,
     people: {
       organization_ids: filters.organization.id,
     },
   };
-  if (filters.questions) {
-    surveyFilters.answers = filters.questions.answers;
+  if (answerFilters) {
+    surveyFilters.answers = answerFilters;
   }
   if (filters.gender) {
     surveyFilters.people.genders = filters.gender.id;
@@ -94,6 +95,22 @@ function createSurveyFilters(filters) {
     surveyFilters.people.group_ids = filters.groups.id;
   }
   return surveyFilters;
+}
+
+//each question/answer filter must be in the URL in the form:
+//filters[answers][questionId][]=answerTexts
+function getAnswersFromFilters(filters) {
+  let answerFilters = {};
+  const keys = Object.keys(filters);
+  keys.forEach(k => {
+    const filter = filters[k];
+    if (filter.isAnswer) {
+      answerFilters[filter.id] = {
+        '': filter.text,
+      };
+    }
+  });
+  return answerFilters;
 }
 
 export function getSurveyQuestions(surveyId) {

@@ -133,7 +133,6 @@ export class SurveyContactsFilter extends Component {
     const { options, selectedFilterId, filters } = this.state;
     const { t } = this.props;
     const keys = Object.keys(item);
-    console.log(keys);
     const newOptions = options.map(o => ({
       ...o,
       preview:
