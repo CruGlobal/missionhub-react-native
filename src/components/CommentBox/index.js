@@ -47,7 +47,7 @@ class CommentBox extends Component {
     );
 
     this.setState(initialState);
-    onSubmit();
+    onSubmit && onSubmit();
   };
 
   handleTextChange = t => {
