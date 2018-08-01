@@ -105,6 +105,7 @@ describe('add comment', () => {
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
+        reloadJourneyResult,
         refreshImpactResult,
         celebrationFeedResult,
       ]);
@@ -154,6 +155,7 @@ describe('add comment', () => {
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
+        reloadJourneyResult,
         refreshImpactResult,
         celebrationFeedResult,
       ]);
