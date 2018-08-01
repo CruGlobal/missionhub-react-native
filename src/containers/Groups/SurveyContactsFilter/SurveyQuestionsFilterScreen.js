@@ -44,7 +44,9 @@ export class SurveyQuestionsFilterScreen extends Component {
         onFilter: this.handleSelectFilter,
         title: this.props.t('titleAnswers'),
         options,
-        filters: this.state.filters,
+        filters: this.state.filters.answers
+          ? this.state.filters.answers[item.id] || {}
+          : {},
         trackingObj: buildTrackingObj(
           `search : refine : ${item.id}`,
           'search',
@@ -62,7 +64,7 @@ export class SurveyQuestionsFilterScreen extends Component {
     const { options, selectedFilterId, filters } = this.state;
     const newOptions = options.map(o => ({
       ...o,
-      preview: o.id === selectedFilterId ? item.text : null,
+      preview: o.id === selectedFilterId ? item.text : o.preview,
     }));
     let newFilters = {
       ...filters,
@@ -76,7 +78,7 @@ export class SurveyQuestionsFilterScreen extends Component {
       },
     };
     if (item.id === 'any') {
-      delete newFilters[selectedFilterId];
+      delete newFilters.answers[selectedFilterId];
     }
     this.setState({ options: newOptions });
     this.setFilter(newFilters);
