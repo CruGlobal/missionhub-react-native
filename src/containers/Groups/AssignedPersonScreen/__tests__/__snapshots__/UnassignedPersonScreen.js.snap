@@ -29,9 +29,20 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   />
-  <Translate(CommentBox)
+  <Connect(Translate(CommentBox))
     onSubmit={[Function]}
-    placeholder="Share something to be celebrated..."
+    organization={
+      Object {
+        "id": "1",
+        "name": "Test Org",
+      }
+    }
+    person={
+      Object {
+        "full_name": "Test Person",
+        "id": "1",
+      }
+    }
   />
 </PlatformKeyboardAvoidingView>
 `;

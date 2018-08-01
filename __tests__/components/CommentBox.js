@@ -21,16 +21,6 @@ it('renders without actions', () => {
   testSnapshotShallow(<CommentBox onSubmit={jest.fn()} hideActions={true} />);
 });
 
-it('calls onSubmit prop', () => {
-  const onSubmit = jest.fn();
-
-  renderShallow(<CommentBox onSubmit={onSubmit} />)
-    .instance()
-    .submit();
-
-  expect(onSubmit).toHaveBeenCalled();
-});
-
 it('handles text changes', () => {
   const text = 'test';
   const instance = renderShallow(

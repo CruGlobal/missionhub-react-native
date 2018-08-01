@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
 import { PlatformKeyboardAvoidingView } from '../../../components/common';
-import { INTERACTION_TYPES } from '../../../constants';
-import { addNewInteraction } from '../../../actions/interactions';
 import GroupsContactList from '../../../components/GroupsContactList/index';
 import CommentBox from '../../../components/CommentBox/index';
 import Header from '../../Header/index';
@@ -14,7 +11,6 @@ import BackButton from '../../BackButton/index';
 
 import styles from './styles';
 
-@translate('groupsContact')
 class UnassignedPersonScreen extends Component {
   state = { activity: [] };
 
@@ -28,24 +24,8 @@ class UnassignedPersonScreen extends Component {
     this.setState({ activity: results });
   };
 
-  submit = async data => {
-    const { person, organization, dispatch } = this.props;
-    const { action, text } = data;
-    let interaction = action;
-
-    if (!interaction) {
-      interaction = INTERACTION_TYPES.MHInteractionTypeNote;
-    }
-
-    await dispatch(
-      addNewInteraction(person.id, interaction, text, organization.id),
-    );
-    // reload the feed after adding the interaction
-    this.loadFeed();
-  };
-
   render() {
-    const { t, organization, person, me } = this.props;
+    const { organization, person, me } = this.props;
     const { activity } = this.state;
 
     return (
@@ -61,7 +41,11 @@ class UnassignedPersonScreen extends Component {
           organization={organization}
           myId={me.id}
         />
-        <CommentBox placeholder={t('placeholder')} onSubmit={this.submit} />
+        <CommentBox
+          onSubmit={this.loadFeed}
+          person={person}
+          organization={organization}
+        />
       </PlatformKeyboardAvoidingView>
     );
   }
@@ -72,8 +56,18 @@ UnassignedPersonScreen.propTypes = {
   person: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (
+  { auth },
+  {
+    navigation: {
+      state: {
+        params: { person, organization },
+      },
+    },
+  },
+) => ({
+  person,
+  organization,
   me: auth.person,
 });
 
