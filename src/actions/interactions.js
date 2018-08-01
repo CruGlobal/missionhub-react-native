@@ -4,6 +4,7 @@ import callApi, { REQUESTS } from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
 import { reloadGroupCelebrateFeed } from './celebration';
+import { reloadJourney } from './journey';
 
 export function addNewInteraction(
   personId,
@@ -64,6 +65,7 @@ export function addNewInteraction(
         [interaction.tracking]: null,
       }),
     );
+    dispatch(reloadJourney(personId, organizationId));
     dispatch(refreshImpact());
     dispatch(reloadGroupCelebrateFeed(organizationId));
 
