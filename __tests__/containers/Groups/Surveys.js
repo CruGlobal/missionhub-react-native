@@ -1,18 +1,22 @@
 import React from 'react';
 
-import Surveys from '../Surveys';
+import Surveys from '../../../src/containers/Groups/Surveys';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
-} from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import { getOrgSurveys, getOrgSurveysNextPage } from '../../../actions/surveys';
-import * as common from '../../../utils/common';
-jest.mock('../../../actions/navigation', () => ({
+} from '../../../testUtils';
+import { navigatePush } from '../../../src/actions/navigation';
+import {
+  getOrgSurveys,
+  getOrgSurveysNextPage,
+} from '../../../src/actions/surveys';
+import * as common from '../../../src/utils/common';
+
+jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../actions/surveys', () => ({
+jest.mock('../../../src/actions/surveys', () => ({
   getOrgSurveys: jest.fn(() => ({ type: 'test' })),
   getOrgSurveysNextPage: jest.fn(() => ({ type: 'test' })),
 }));

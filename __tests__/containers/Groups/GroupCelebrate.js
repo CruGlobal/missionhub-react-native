@@ -1,22 +1,24 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import GroupCelebrate, { mapStateToProps } from '../GroupCelebrate';
+import GroupCelebrate, {
+  mapStateToProps,
+} from '../../../src/containers/Groups/GroupCelebrate';
 import {
   renderShallow,
   testSnapshotShallow,
   createMockStore,
-} from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
-import { celebrationSelector } from '../../../selectors/celebration';
+} from '../../../testUtils';
+import { organizationSelector } from '../../../src/selectors/organizations';
+import { celebrationSelector } from '../../../src/selectors/celebration';
 import {
   reloadGroupCelebrateFeed,
   getGroupCelebrateFeed,
-} from '../../../actions/celebration';
+} from '../../../src/actions/celebration';
 
-jest.mock('../../../selectors/organizations');
-jest.mock('../../../selectors/celebration');
-jest.mock('../../../actions/celebration');
+jest.mock('../../../src/selectors/organizations');
+jest.mock('../../../src/selectors/celebration');
+jest.mock('../../../src/actions/celebration');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
