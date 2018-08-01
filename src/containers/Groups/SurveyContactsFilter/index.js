@@ -92,7 +92,7 @@ export class SurveyContactsFilter extends Component {
     this.props.dispatch(
       item.id === 'questions'
         ? navigatePush(SEARCH_QUESTIONS_FILTER_SCREEN, {
-            onFilter: this.handleSelectFilter,
+            onFilter: this.handleSelectQuestionFilters,
             title: item.text,
             options,
             filters: this.state.filters.questions || {},
@@ -127,6 +127,28 @@ export class SurveyContactsFilter extends Component {
 
   handleSelectFilter = item => {
     searchSelectFilter(this, item);
+  };
+
+  handleSelectQuestionFilters = item => {
+    const { options, selectedFilterId, filters } = this.state;
+    const { t } = this.props;
+    const keys = Object.keys(item);
+    console.log(keys);
+    const newOptions = options.map(o => ({
+      ...o,
+      preview:
+        o.id === selectedFilterId
+          ? keys.length > 1
+            ? t('multiple')
+            : item[keys[0]].text
+          : o.preview,
+    }));
+    let newFilters = {
+      ...filters,
+      ...item,
+    };
+    this.setState({ options: newOptions });
+    this.setFilter(newFilters);
   };
 
   render() {

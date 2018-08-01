@@ -68,17 +68,14 @@ export class SurveyQuestionsFilterScreen extends Component {
     }));
     let newFilters = {
       ...filters,
-      id: 'questions',
-      text: item.text,
-      answers: {
-        ...filters.answers,
-        [selectedFilterId]: {
-          '': item.text,
-        },
+      [selectedFilterId]: {
+        id: selectedFilterId,
+        text: item.text,
+        isAnswer: true,
       },
     };
     if (item.id === 'any') {
-      delete newFilters.answers[selectedFilterId];
+      delete newFilters[selectedFilterId];
     }
     this.setState({ options: newOptions });
     this.setFilter(newFilters);
