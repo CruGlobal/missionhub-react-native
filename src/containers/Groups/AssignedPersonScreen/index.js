@@ -23,6 +23,7 @@ import {
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getPersonDetails } from '../../../actions/person';
+import PathwayStageDisplay from '../../PathwayStageDisplay';
 
 import styles from './styles';
 
@@ -127,7 +128,7 @@ const ME_PERSONAL_TABS = [personSteps, personNotes, myJourney, memberImpact];
 const IS_GROUPS_ME_COMMUNITY_TABS = [memberCelebrate, myImpact];
 const ME_COMMUNITY_TABS = [myImpact];
 
-export class PersonScreen extends Component {
+export class AssignedPersonScreen extends Component {
   componentDidMount() {
     const { person, organization = {} } = this.props;
     this.props.dispatch(getPersonDetails(person.id, organization.id));
@@ -140,7 +141,6 @@ export class PersonScreen extends Component {
       organization,
       isMember,
       contactAssignment,
-      pathwayStage,
       myId,
       myStageId,
       stages,
@@ -175,9 +175,7 @@ export class PersonScreen extends Component {
           <Text style={styles.name}>
             {(person.first_name || '').toUpperCase()}
           </Text>
-          {pathwayStage ? (
-            <Text style={styles.stage}>{pathwayStage.name}</Text>
-          ) : null}
+          <PathwayStageDisplay orgId={organization.id} person={person} />
           <GroupsPersonHeader
             isMember={isMember}
             contactAssignment={contactAssignment}
@@ -194,7 +192,7 @@ export class PersonScreen extends Component {
   }
 }
 
-PersonScreen.propTypes = {
+AssignedPersonScreen.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
@@ -228,7 +226,6 @@ export const mapStateToProps = (
     { auth },
     { person, orgId: organization.id },
   );
-  const stagesList = stages.stages;
   const authPerson = auth.person;
 
   return {
@@ -236,16 +233,13 @@ export const mapStateToProps = (
     contactAssignment,
     person,
     organization,
-    pathwayStage:
-      contactAssignment &&
-      stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
-    stages: stagesList,
+    stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
   };
 };
 
-const connectedPersonScreen = connect(mapStateToProps)(PersonScreen);
+const connectedPersonScreen = connect(mapStateToProps)(AssignedPersonScreen);
 
 //TODO find a way to not do this, even if it means switching to a different navigation library...
 export const ContactPersonScreen = generateSwipeTabMenuNavigator(

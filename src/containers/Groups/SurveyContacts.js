@@ -11,8 +11,8 @@ import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { navToPersonScreen } from '../../actions/person';
 
-import { UNASSIGNED_PERSON_SCREEN } from './UnassignedPersonScreen/';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @translate('groupsSurveyContacts')
@@ -85,7 +85,7 @@ class SurveyContacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navigatePush(UNASSIGNED_PERSON_SCREEN, { person, organization }));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   render() {

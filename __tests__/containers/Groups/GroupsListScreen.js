@@ -1,9 +1,9 @@
 import React from 'react';
 
-import GroupsListScreen from '../GroupsListScreen';
-import { renderShallow, createMockStore } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-jest.mock('../../../actions/navigation', () => ({
+import GroupsListScreen from '../../../src/containers/Groups/GroupsListScreen';
+import { renderShallow, createMockStore } from '../../../testUtils';
+import { navigatePush } from '../../../src/actions/navigation';
+jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
