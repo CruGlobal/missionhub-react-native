@@ -215,7 +215,7 @@ Array [
   },
   Object {
     "component": [Function],
-    "name": "Assigned Contacts",
+    "name": "Contacts",
     "navigationAction": "nav/MEMBER_ASSIGNED_CONTACTS",
   },
 ]
