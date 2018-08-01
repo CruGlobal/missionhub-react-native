@@ -325,12 +325,12 @@ export function navToPersonScreen(person, org) {
           ? IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN
           : ME_COMMUNITY_PERSON_SCREEN
         : ME_PERSONAL_PERSON_SCREEN
-      : contactAssignment
-        ? isMember
-          ? isGroups
-            ? IS_GROUPS_MEMBER_PERSON_SCREEN
-            : MEMBER_PERSON_SCREEN
-          : CONTACT_PERSON_SCREEN
-        : UNASSIGNED_PERSON_SCREEN;
+      : isMember
+        ? isGroups
+          ? IS_GROUPS_MEMBER_PERSON_SCREEN
+          : MEMBER_PERSON_SCREEN
+        : contactAssignment
+          ? CONTACT_PERSON_SCREEN
+          : UNASSIGNED_PERSON_SCREEN;
   }
 }

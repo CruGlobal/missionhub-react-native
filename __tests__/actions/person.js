@@ -652,6 +652,28 @@ describe('navToPersonScreen', () => {
     });
   });
 
+  it('navigates to groups feature member person screen even if member is unassigned', () => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+    contactAssignmentSelector.mockReturnValue(undefined);
+
+    store.dispatch(navToPersonScreen(person, organization));
+
+    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+      person,
+      organization,
+    });
+    expect(contactAssignmentSelector).toHaveBeenCalledWith(
+      { auth },
+      { person, orgId: organization.id },
+    );
+    expect(navigatePush).toHaveBeenCalledWith(IS_GROUPS_MEMBER_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+  });
+
   it('navigates to non-groups feature member person screen', () => {
     auth = { person: { id: myId, user: { groups_feature: false } } };
     store = mockStore({
