@@ -1,24 +1,25 @@
 import React from 'react';
 
-import Members from '../Members';
+import Members from '../../../src/containers/Groups/Members';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
-} from '../../../../testUtils';
-import { navToPersonScreen } from '../../../actions/person';
-jest.mock('../../../actions/person', () => ({
-  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
-}));
+} from '../../../testUtils';
+import { navToPersonScreen } from '../../../src/actions/person';
+import * as common from '../../../src/utils/common';
 import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
-} from '../../../actions/organizations';
-jest.mock('../../../actions/organizations', () => ({
+} from '../../../src/actions/organizations';
+
+jest.mock('../../../src/actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
   getOrganizationMembersNextPage: jest.fn(() => ({ type: 'test' })),
 }));
-import * as common from '../../../utils/common';
+jest.mock('../../../src/actions/person', () => ({
+  navToPersonScreen: jest.fn(() => ({ type: 'test' })),
+}));
 common.refresh = jest.fn();
 
 const members = [
