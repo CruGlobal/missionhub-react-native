@@ -78,7 +78,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from './containers/Groups/PersonScreen';
+} from './containers/Groups/AssignedPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import { Flex, Icon, Text } from './components/common';

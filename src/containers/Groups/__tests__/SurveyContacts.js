@@ -9,7 +9,6 @@ import {
 } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { navToPersonScreen } from '../../../actions/person';
-import { UNASSIGNED_PERSON_SCREEN } from '../UnassignedPersonScreen';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -98,9 +97,6 @@ describe('SurveyContacts', () => {
     const person = { id: '1' };
     const instance = renderShallow(component, store).instance();
     instance.handleSelect(person);
-    expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-      person: person,
-      organization,
-    });
+    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
   });
 });
