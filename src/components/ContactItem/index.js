@@ -38,7 +38,7 @@ ContactItem.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string,
-    isAssigned: PropTypes.bool,
+    reverse_contact_assignments: PropTypes.array,
   }).isRequired,
   organization: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,

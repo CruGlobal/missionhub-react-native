@@ -56,6 +56,7 @@ export function searchSurveyContacts(text, filters = []) {
     }
 
     const query = {
+      include: 'person.reverse_contact_assignments',
       filters: createSurveyFilters(filters),
     };
 
