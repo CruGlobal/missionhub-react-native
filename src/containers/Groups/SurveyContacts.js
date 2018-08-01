@@ -80,7 +80,7 @@ class SurveyContacts extends Component {
     };
     const results = await dispatch(searchSurveyContacts(text, searchFilters));
     // Get the results from the search endpoint
-    return results.findAll('person') || [];
+    return results.response.map(a => a.person);
   };
 
   handleSelect = person => {
