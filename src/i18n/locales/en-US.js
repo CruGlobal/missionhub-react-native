@@ -407,7 +407,7 @@ export default {
     myJourney: 'My Journey',
     impact: 'Impact',
     myImpact: 'My Impact',
-    assignedContacts: 'Assigned Contacts',
+    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {

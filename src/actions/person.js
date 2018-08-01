@@ -319,18 +319,30 @@ export function navToPersonScreen(person, org) {
   };
 
   function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
-    return isMe
-      ? isMember
-        ? isGroups
-          ? IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN
-          : ME_COMMUNITY_PERSON_SCREEN
-        : ME_PERSONAL_PERSON_SCREEN
-      : isMember
-        ? isGroups
-          ? IS_GROUPS_MEMBER_PERSON_SCREEN
-          : MEMBER_PERSON_SCREEN
-        : contactAssignment
-          ? CONTACT_PERSON_SCREEN
-          : UNASSIGNED_PERSON_SCREEN;
+    if (isMe) {
+      if (isMember) {
+        if (isGroups) {
+          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
+        }
+
+        return ME_COMMUNITY_PERSON_SCREEN;
+      }
+
+      return ME_PERSONAL_PERSON_SCREEN;
+    }
+
+    if (isMember) {
+      if (isGroups) {
+        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+      }
+
+      return MEMBER_PERSON_SCREEN;
+    }
+
+    if (contactAssignment) {
+      return CONTACT_PERSON_SCREEN;
+    }
+
+    return UNASSIGNED_PERSON_SCREEN;
   }
 }
