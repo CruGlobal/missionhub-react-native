@@ -236,7 +236,7 @@ class CommentBox extends Component {
 CommentBox.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   hideActions: PropTypes.bool,
 };
 
