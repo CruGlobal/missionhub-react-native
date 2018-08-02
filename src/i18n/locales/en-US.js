@@ -407,7 +407,7 @@ export default {
     myJourney: 'My Journey',
     impact: 'Impact',
     myImpact: 'My Impact',
-    assignedContacts: 'Assigned Contacts',
+    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {
@@ -454,9 +454,6 @@ export default {
   groupsContacts: {
     title: '',
     searchPlaceholder: 'Search Contacts',
-  },
-  groupsContact: {
-    placeholder: 'Share something to be celebrated...',
   },
   memberContacts: {
     nullDescription: 'Anyone assigned to {{memberName}} will appear here.',

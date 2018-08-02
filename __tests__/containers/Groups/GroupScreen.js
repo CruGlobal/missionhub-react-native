@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { GroupScreen } from '../GroupScreen';
-import { testSnapshotShallow, createMockNavState } from '../../../../testUtils';
-jest.mock('../../../actions/navigation', () => ({
+import { GroupScreen } from '../../../src/containers/Groups/GroupScreen';
+import { testSnapshotShallow, createMockNavState } from '../../../testUtils';
+
+jest.mock('../../../src/actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
 

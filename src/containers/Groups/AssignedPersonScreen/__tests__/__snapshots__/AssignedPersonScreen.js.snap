@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Contact should render PersonScreen correctly with stage 1`] = `
+exports[`Contact should render AssignedPersonScreen correctly with stage 1`] = `
 <View>
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -83,7 +83,7 @@ exports[`Contact should render PersonScreen correctly with stage 1`] = `
 </View>
 `;
 
-exports[`Contact should render PersonScreen correctly without stage 1`] = `
+exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
 <View>
   <Connect(Header)
     left={<Connect(BackButton) />}
@@ -215,7 +215,7 @@ Array [
   },
   Object {
     "component": [Function],
-    "name": "Assigned Contacts",
+    "name": "Contacts",
     "navigationAction": "nav/MEMBER_ASSIGNED_CONTACTS",
   },
 ]

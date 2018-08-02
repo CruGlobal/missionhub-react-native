@@ -29,8 +29,12 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from '../../src/containers/Groups/PersonScreen/';
-import { orgPermissionSelector } from '../../src/selectors/people';
+} from '../../src/containers/Groups/AssignedPersonScreen/';
+import { UNASSIGNED_PERSON_SCREEN } from '../../src/containers/Groups/UnassignedPersonScreen';
+import {
+  orgPermissionSelector,
+  contactAssignmentSelector,
+} from '../../src/selectors/people';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/navigation');
@@ -40,13 +44,15 @@ const myId = '1';
 
 const mockStore = configureStore([thunk]);
 let store;
+let auth;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
+  auth = { person: { id: myId, user: { groups_feature: true } } };
   store = mockStore({
-    auth: { person: { id: myId, user: { groups_feature: true } } },
+    auth,
   });
   jest.clearAllMocks();
 });
@@ -488,132 +494,222 @@ describe('navToPersonScreen', () => {
   const me = { id: myId };
   const organization = { id: '111' };
   const navigatePushResult = { type: 'test' };
+  const contactAssignment = {};
 
   beforeEach(() => navigatePush.mockReturnValue(navigatePushResult));
 
   afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
 
-  it('navigates to me screen for personal ministry', () => {
-    orgPermissionSelector.mockReturnValue(undefined);
+  describe('isMe', () => {
+    describe('isMember', () => {
+      beforeEach(() => {
+        orgPermissionSelector.mockReturnValue({
+          permission_id: ORG_PERMISSIONS.ADMIN,
+        });
+      });
 
-    store.dispatch(navToPersonScreen(me, undefined));
+      afterEach(() => {
+        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+          person: me,
+          organization,
+        });
+        expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          { auth },
+          { person: me, orgId: organization.id },
+        );
+      });
 
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person: me,
-      organization: { id: undefined },
-    });
-    expect(navigatePush).toHaveBeenCalledWith(ME_PERSONAL_PERSON_SCREEN, {
-      person: me,
-      organization: {},
-    });
-  });
+      describe('isGroups', () => {
+        it('navigates to groups community me screen', () => {
+          store.dispatch(navToPersonScreen(me, organization));
 
-  it('navigates to groups feature me screen for a community', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
-    });
+          expect(navigatePush).toHaveBeenCalledWith(
+            IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+            {
+              person: me,
+              organization,
+            },
+          );
+        });
+      });
 
-    store.dispatch(navToPersonScreen(me, organization));
+      describe('is not Groups', () => {
+        it('navigates to non-groups community me screen', () => {
+          auth = { person: { id: myId, user: { groups_feature: false } } };
+          store = mockStore({
+            auth,
+          });
 
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person: me,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(
-      IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-      {
-        person: me,
-        organization,
-      },
-    );
-  });
+          store.dispatch(navToPersonScreen(me, organization));
 
-  it('navigates to non-groups feature me screen for a community', () => {
-    store = mockStore({
-      auth: { person: { id: myId, user: { groups_feature: false } } },
-    });
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
-    });
-
-    store.dispatch(navToPersonScreen(me, organization));
-
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person: me,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(ME_COMMUNITY_PERSON_SCREEN, {
-      person: me,
-      organization,
-    });
-  });
-
-  it('navigates to contact person screen for personal ministry', () => {
-    orgPermissionSelector.mockReturnValue(undefined);
-
-    store.dispatch(navToPersonScreen(person, undefined));
-
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person,
-      organization: { id: undefined },
-    });
-    expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-      person,
-      organization: {},
-    });
-  });
-
-  it('navigates to contact person screen for a community', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
+          expect(navigatePush).toHaveBeenCalledWith(
+            ME_COMMUNITY_PERSON_SCREEN,
+            {
+              person: me,
+              organization,
+            },
+          );
+        });
+      });
     });
 
-    store.dispatch(navToPersonScreen(person, organization));
+    describe('is not in org', () => {
+      it('navigates to me screen', () => {
+        orgPermissionSelector.mockReturnValue(undefined);
 
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-      person,
-      organization,
+        store.dispatch(navToPersonScreen(me, undefined));
+
+        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+          person: me,
+          organization: { id: undefined },
+        });
+        expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          { auth },
+          { person: me, orgId: undefined },
+        );
+        expect(navigatePush).toHaveBeenCalledWith(ME_PERSONAL_PERSON_SCREEN, {
+          person: me,
+          organization: {},
+        });
+      });
     });
   });
 
-  it('navigates to groups feature member person screen', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
+  describe('is not me', () => {
+    describe('isMember', () => {
+      beforeEach(() => {
+        orgPermissionSelector.mockReturnValue({
+          permission_id: ORG_PERMISSIONS.USER,
+        });
+
+        contactAssignmentSelector.mockReturnValue(undefined);
+      });
+
+      afterEach(() => {
+        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+          person,
+          organization,
+        });
+        expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          { auth },
+          { person, orgId: organization.id },
+        );
+      });
+
+      describe('isGroups', () => {
+        it('navigates to groups member person screen', () => {
+          store.dispatch(navToPersonScreen(person, organization));
+
+          expect(navigatePush).toHaveBeenCalledWith(
+            IS_GROUPS_MEMBER_PERSON_SCREEN,
+            {
+              person,
+              organization,
+            },
+          );
+        });
+      });
+
+      describe('is not Groups', () => {
+        it('navigates to non-groups member person screen', () => {
+          auth = { person: { id: myId, user: { groups_feature: false } } };
+          store = mockStore({
+            auth,
+          });
+
+          store.dispatch(navToPersonScreen(person, organization));
+
+          expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
+            person,
+            organization,
+          });
+        });
+      });
     });
 
-    store.dispatch(navToPersonScreen(person, organization));
+    describe('is not in org', () => {
+      beforeEach(() => orgPermissionSelector.mockReturnValue(undefined));
 
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(IS_GROUPS_MEMBER_PERSON_SCREEN, {
-      person,
-      organization,
-    });
-  });
+      afterEach(() => {
+        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+          person,
+          organization: { id: undefined },
+        });
+        expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          { auth },
+          { person, orgId: undefined },
+        );
+      });
 
-  it('navigates to non-groups feature member person screen', () => {
-    store = mockStore({
-      auth: { person: { id: myId, user: { groups_feature: false } } },
-    });
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
+      describe('has ContactAssignment', () => {
+        it('navigates to contact person screen', () => {
+          contactAssignmentSelector.mockReturnValue(contactAssignment);
+
+          store.dispatch(navToPersonScreen(person, undefined));
+
+          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+            person,
+            organization: {},
+          });
+        });
+      });
+
+      describe('does not have ContactAssignment', () => {
+        it('navigates to unassigned person screen', () => {
+          contactAssignmentSelector.mockReturnValue(undefined);
+
+          store.dispatch(navToPersonScreen(person, undefined));
+
+          expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
+            person,
+            organization: {},
+          });
+        });
+      });
     });
 
-    store.dispatch(navToPersonScreen(person, organization));
+    describe('is in org but not a Member', () => {
+      beforeEach(() =>
+        orgPermissionSelector.mockReturnValue({
+          permission_id: ORG_PERMISSIONS.CONTACT,
+        }));
 
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-      person,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
-      person,
-      organization,
+      afterEach(() => {
+        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+          person,
+          organization,
+        });
+        expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          { auth },
+          { person, orgId: organization.id },
+        );
+      });
+
+      describe('has ContactAssignment', () => {
+        it('navigates to contact person screen', () => {
+          contactAssignmentSelector.mockReturnValue(contactAssignment);
+
+          store.dispatch(navToPersonScreen(person, organization));
+
+          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+            person,
+            organization: { id: organization.id },
+          });
+        });
+      });
+
+      describe('does not have ContactAssignment', () => {
+        it('navigates to unassigned person screen', () => {
+          contactAssignmentSelector.mockReturnValue(undefined);
+
+          store.dispatch(navToPersonScreen(person, organization));
+
+          expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
+            person,
+            organization,
+          });
+        });
+      });
     });
   });
 });
