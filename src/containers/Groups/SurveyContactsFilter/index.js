@@ -132,20 +132,30 @@ export class SurveyContactsFilter extends Component {
   handleSelectQuestionFilters = item => {
     const { options, selectedFilterId, filters } = this.state;
     const { t } = this.props;
-    const keys = Object.keys(item);
+    const itemKeys = Object.keys(item);
+    const filterKeys = Object.keys(filters);
     const newOptions = options.map(o => ({
       ...o,
       preview:
         o.id === selectedFilterId
-          ? keys.length > 1
+          ? itemKeys.length > 1
             ? t('multiple')
-            : item[keys[0]].text
+            : item[itemKeys[0]].text
           : o.preview,
     }));
-    let newFilters = {
-      ...filters,
+    //remove all existing answer filters,
+    //then add all answer filters from item
+    let newFilters = filters;
+    filterKeys.forEach(k => {
+      if (newFilters[k].isAnswer) {
+        delete newFilters[k];
+      }
+    });
+    newFilters = {
+      ...newFilters,
       ...item,
     };
+
     this.setState({ options: newOptions });
     this.setFilter(newFilters);
   };
