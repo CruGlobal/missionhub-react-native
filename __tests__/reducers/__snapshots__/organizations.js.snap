@@ -26,26 +26,3 @@ Object {
   ],
 }
 `;
-
-exports[`should load contacts to an organization 1`] = `
-Object {
-  "all": Array [
-    Object {
-      "contacts": Array [
-        Object {
-          "id": "1",
-        },
-        Object {
-          "id": "2",
-        },
-      ],
-      "id": "123",
-      "name": "test org 1",
-    },
-    Object {
-      "id": "234",
-      "name": "test org 2",
-    },
-  ],
-}
-`;

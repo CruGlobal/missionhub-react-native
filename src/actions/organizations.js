@@ -1,5 +1,4 @@
 import {
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
@@ -44,24 +43,6 @@ export function getOrganizationsContactReports() {
         uncontactedCount: r.uncontacted_count,
       })),
     });
-    return response;
-  };
-}
-
-export function getOrganizationContacts(orgId) {
-  const query = {
-    filters: {
-      permissions: 'no_permission',
-      organization_ids: orgId,
-    },
-    include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
-  };
-  return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, query),
-    );
-    dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
     return response;
   };
 }

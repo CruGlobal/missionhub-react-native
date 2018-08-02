@@ -2,7 +2,6 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
 } from '../../src/constants';
@@ -12,7 +11,6 @@ import { REQUESTS } from '../../src/actions/api';
 import {
   getAssignedOrganizations,
   getMyOrganizations,
-  getOrganizationContacts,
   getOrganizationsContactReports,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
@@ -65,50 +63,6 @@ describe('getAssignedOrganizations', () => {
     store.dispatch(getAssignedOrganizations());
 
     expect(store.getActions()).toEqual([apiResponse]);
-  });
-});
-
-describe('getOrganizationContacts', () => {
-  const orgId = '123';
-  const query = {
-    filters: {
-      permissions: 'no_permission',
-      organization_ids: orgId,
-    },
-    include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
-  };
-  const contacts = [
-    {
-      name: 'person',
-      id: '1',
-    },
-    {
-      name: 'person',
-      id: '2',
-    },
-  ];
-  const peopleListResponse = {
-    type: 'successful',
-    response: contacts,
-  };
-  const getContactsAction = {
-    type: GET_ORGANIZATION_CONTACTS,
-    contacts,
-    orgId,
-  };
-
-  it('should get contacts in organization', async () => {
-    mockFnWithParams(
-      api,
-      'default',
-      peopleListResponse,
-      REQUESTS.GET_PEOPLE_LIST,
-      query,
-    );
-
-    await store.dispatch(getOrganizationContacts(orgId));
-    expect(store.getActions()).toEqual([peopleListResponse, getContactsAction]);
   });
 });
 

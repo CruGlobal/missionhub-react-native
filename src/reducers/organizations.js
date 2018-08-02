@@ -2,7 +2,6 @@ import lodash from 'lodash';
 
 import {
   LOGOUT,
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
@@ -47,14 +46,6 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: allOrgs,
-      };
-    case GET_ORGANIZATION_CONTACTS:
-      const { orgId, contacts } = action;
-      return {
-        ...state,
-        all: orgId
-          ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
-          : state.all,
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
