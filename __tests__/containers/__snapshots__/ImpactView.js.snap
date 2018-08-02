@@ -4159,6 +4159,7 @@ Object {
     ],
   },
   "isMe": true,
+  "isPersonalMinistryMe": false,
 }
 `;
 
@@ -4238,5 +4239,6 @@ Object {
     ],
   },
   "isMe": true,
+  "isPersonalMinistryMe": true,
 }
 `;

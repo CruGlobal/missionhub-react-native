@@ -147,6 +147,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -166,6 +167,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -187,6 +189,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={myImpact}
           globalImpact={globalImpact}
         />,
