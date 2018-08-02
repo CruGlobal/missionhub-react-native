@@ -1,10 +1,19 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 import CommentBox from '../../src/components/CommentBox';
+import { addNewInteraction } from '../../src/actions/interactions';
+import { INTERACTION_TYPES } from '../../src/constants';
+
+jest.mock('../../src/actions/interactions');
 
 MockDate.set('2017-06-18');
+
+const mockStore = configureStore([thunk]);
+let store;
 
 const action = {
   id: 2,
@@ -12,6 +21,12 @@ const action = {
   translationKey: 'interactionSpiritualConversation',
   isOnAction: true,
 };
+const addNewInteractionResult = { type: 'added interaction' };
+
+beforeEach(() => {
+  store = mockStore();
+  addNewInteraction.mockReturnValue(addNewInteractionResult);
+});
 
 it('renders with actions', () => {
   testSnapshotShallow(<CommentBox onSubmit={jest.fn()} />);
@@ -19,16 +34,6 @@ it('renders with actions', () => {
 
 it('renders without actions', () => {
   testSnapshotShallow(<CommentBox onSubmit={jest.fn()} hideActions={true} />);
-});
-
-it('calls onSubmit prop', () => {
-  const onSubmit = jest.fn();
-
-  renderShallow(<CommentBox onSubmit={onSubmit} />)
-    .instance()
-    .submit();
-
-  expect(onSubmit).toHaveBeenCalled();
 });
 
 it('handles text changes', () => {
@@ -113,4 +118,68 @@ it('renders without actions and selected action', () => {
     { showActions: false, action },
   );
   expect(component).toMatchSnapshot();
+});
+
+describe('click submit button', () => {
+  const person = { id: '1' };
+  const organization = { id: '100' };
+  const text = 'roge rules';
+  let component;
+
+  const setText = text => {
+    component
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onChangeText(text);
+    component.update();
+  };
+
+  const clickSubmit = () =>
+    component
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onPress();
+
+  describe('with no interaction selected', () => {
+    it('should add a comment', async () => {
+      component = renderShallow(
+        <CommentBox person={person} organization={organization} />,
+        store,
+      );
+      setText(text);
+
+      await clickSubmit();
+
+      expect(addNewInteraction).toHaveBeenCalledWith(
+        person.id,
+        INTERACTION_TYPES.MHInteractionTypeNote,
+        text,
+        organization.id,
+      );
+      expect(store.getActions()).toEqual([addNewInteractionResult]);
+    });
+  });
+
+  it('calls onSubmit prop', async () => {
+    const onSubmit = jest.fn();
+    component = renderShallow(
+      <CommentBox
+        person={person}
+        organization={organization}
+        onSubmit={onSubmit}
+      />,
+      store,
+    );
+    setText(text);
+
+    await clickSubmit();
+
+    expect(onSubmit).toHaveBeenCalled();
+  });
 });

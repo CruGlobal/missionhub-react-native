@@ -455,9 +455,6 @@ export default {
     title: '',
     searchPlaceholder: 'Search Contacts',
   },
-  groupsContact: {
-    placeholder: 'Share something to be celebrated...',
-  },
   memberContacts: {
     nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
   },
