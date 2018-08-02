@@ -116,13 +116,7 @@ describe('SurveyQuestionsFilterScreen', () => {
         preview: o.id === selected.id ? item.text : null,
       }));
       const expectedNewFilter = {
-        id: 'questions',
-        text: item.text,
-        answers: {
-          [selected.id]: {
-            '': item.id,
-          },
-        },
+        [selected.id]: { '': item.id },
       };
 
       instance.handleSelectFilter(item);

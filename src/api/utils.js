@@ -66,5 +66,6 @@ export default function request(type, url, query, data, extra) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data);
   APILOG('REQUEST', newObject.method, newUrl, newObject);
+
   return fetch(newUrl, newObject).then(handleResponse);
 }
