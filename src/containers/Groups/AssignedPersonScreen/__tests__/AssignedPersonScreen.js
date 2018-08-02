@@ -2,17 +2,18 @@ import React from 'react';
 import { DrawerActions } from 'react-navigation';
 
 import {
-  PersonScreen,
+  AssignedPersonScreen,
   mapStateToProps,
   CONTACT_PERSON_TABS,
-  MEMBER_PERSON_TABS,
-} from '../PersonScreen';
+  IS_GROUPS_MEMBER_PERSON_TABS,
+} from '../index';
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
 import { contactAssignmentSelector } from '../../../../selectors/people';
+import { organizationSelector } from '../../../../selectors/organizations';
 
 jest.mock('../../../../selectors/people');
-
+jest.mock('../../../../selectors/organizations');
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
@@ -68,20 +69,21 @@ beforeEach(() => {
 
 describe('Contact', () => {
   it('should provide necessary props', () => {
+    organizationSelector.mockReturnValue(undefined);
+
     expect(mapStateToProps(store, nav)).toEqual({
-      organization,
+      organization: {},
       person,
       contactAssignment,
       myId,
-      pathwayStage,
       stages,
       myStageId: pathwayStage.id,
     });
   });
 
-  it('should render PersonScreen correctly without stage', () => {
+  it('should render AssignedPersonScreen correctly without stage', () => {
     testSnapshotShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         organization={organization}
         person={person}
         dispatch={jest.fn()}
@@ -91,9 +93,9 @@ describe('Contact', () => {
     );
   });
 
-  it('should render PersonScreen correctly with stage', () => {
+  it('should render AssignedPersonScreen correctly with stage', () => {
     testSnapshotShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         organization={organization}
         person={person}
         dispatch={jest.fn()}
@@ -109,12 +111,12 @@ describe('Contact', () => {
   });
 
   it('should render member tabs correctly', () => {
-    expect(MEMBER_PERSON_TABS).toMatchSnapshot();
+    expect(IS_GROUPS_MEMBER_PERSON_TABS).toMatchSnapshot();
   });
 
   it('opens side menu when menu button is pressed', () => {
     const component = renderShallow(
-      <PersonScreen
+      <AssignedPersonScreen
         dispatch={dispatch}
         organization={organization}
         person={person}

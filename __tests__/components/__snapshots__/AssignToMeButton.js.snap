@@ -7,7 +7,7 @@ exports[`renders correctly 1`] = `
       "fontSize": 14,
     }
   }
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Object {
       "alignSelf": "center",

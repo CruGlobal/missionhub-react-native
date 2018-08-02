@@ -73,6 +73,13 @@ export const isMissionhubUser = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
 export const isAdminForOrg = orgPermission =>
   !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
+export function isMemberForOrg(orgPermission) {
+  return (
+    !!orgPermission &&
+    (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN ||
+      orgPermission.permission_id === ORG_PERMISSIONS.USER)
+  );
+}
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 

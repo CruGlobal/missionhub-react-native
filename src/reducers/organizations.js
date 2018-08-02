@@ -131,6 +131,10 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
+      return toggleCelebrationLike(action, state, true);
+    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
+      return toggleCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -156,6 +160,28 @@ function organizationsReducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+function toggleCelebrationLike(action, state, liked) {
+  const query = action.query;
+  const org = state.all.find(o => o.id === query.orgId);
+  if (!org) {
+    return state; // Return if the organization does not exist
+  }
+  const newOrg = {
+    ...org,
+    celebrateItems: org.celebrateItems.map(
+      c =>
+        c.id === query.eventId
+          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+          : c,
+    ),
+  };
+
+  return {
+    ...state,
+    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
 }
 
 export default organizationsReducer;

@@ -1,46 +1,41 @@
 import React from 'react';
 
-import SurveyContacts from '../SurveyContacts';
+import Contacts from '../../../src/containers/Groups/Contacts';
 import {
   createMockStore,
   renderShallow,
   testSnapshotShallow,
-  createMockNavState,
-} from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-jest.mock('../../../actions/navigation', () => ({
+} from '../../../testUtils';
+import { navigatePush } from '../../../src/actions/navigation';
+import { navToPersonScreen } from '../../../src/actions/person';
+
+jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-import { navToPersonScreen } from '../../../actions/person';
-jest.mock('../../../actions/person', () => ({
+jest.mock('../../../src/actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
-const people = [{ id: '1' }, { id: '2' }];
-jest.mock('../../../actions/surveys', () => ({
-  searchSurveyContacts: jest.fn(() => ({
+
+jest.mock('../../../src/actions/people', () => ({
+  searchPeople: jest.fn(() => ({
     type: 'test',
     findAll: () => [{ id: '1' }, { id: '2' }],
   })),
 }));
 
+const people = [{ id: '1' }, { id: '2' }];
+
 const store = createMockStore({});
+
 const organization = { id: '1', name: 'Test Org' };
-const survey = { id: '11' };
 
 beforeEach(() => {
   navigatePush.mockClear();
   navToPersonScreen.mockClear();
 });
 
-describe('SurveyContacts', () => {
-  const component = (
-    <SurveyContacts
-      navigation={createMockNavState({
-        organization,
-        survey,
-      })}
-    />
-  );
+describe('Contacts', () => {
+  const component = <Contacts organization={organization} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);

@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import { searchSurveyContacts } from '../../actions/surveys';
-import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
+import { navToPersonScreen } from '../../actions/person';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -85,9 +85,7 @@ class SurveyContacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    const isMember = false;
-    const isAssignedToMe = false;
-    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   render() {

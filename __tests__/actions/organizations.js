@@ -173,7 +173,7 @@ describe('getOrganizationMembers', () => {
       organization_ids: orgId,
     },
     include:
-      'contact_assignments,organizational_permissions,phone_numbers,email_addresses',
+      'contact_assignments.person,organizational_permissions,phone_numbers,email_addresses',
   };
   const members = [
     {

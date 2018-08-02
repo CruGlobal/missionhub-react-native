@@ -1,7 +1,16 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import CelebrateFeed from '../../src/components/CelebrateFeed';
-import { testSnapshot } from '../../testUtils';
+import { renderShallow } from '../../testUtils';
+import { toggleLike } from '../../src/actions/celebration';
+
+jest.mock('../../src/actions/celebration');
+
+const myId = '123';
+const organization = { id: '456' };
+const store = configureStore([thunk])({ auth: { person: { id: myId } } });
 
 const celebrationItems = [
   {
@@ -48,8 +57,32 @@ const celebrationItems = [
   },
 ];
 
+let component;
+
+beforeEach(() => {
+  component = renderShallow(
+    <CelebrateFeed items={celebrationItems} organization={organization} />,
+    store,
+  );
+});
+
 describe('Member Feed rendering', () => {
   it('renders correctly for member feed', () => {
-    testSnapshot(<CelebrateFeed items={celebrationItems} />);
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe('handleToggleLike', () => {
+  const toggleResult = { type: 'toggle success' };
+  const eventId = '222';
+  const liked = true;
+
+  toggleLike.mockReturnValue(toggleResult);
+
+  it('calls toggleLike', () => {
+    component.instance().handleToggleLike(eventId, liked);
+
+    expect(toggleLike).toHaveBeenCalledWith(organization.id, eventId, liked);
+    expect(store.getActions()).toEqual([toggleResult]);
   });
 });

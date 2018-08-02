@@ -1,39 +1,47 @@
 import React from 'react';
 
-import Contacts from '../Contacts';
+import SurveyContacts from '../../../src/containers/Groups/SurveyContacts';
 import {
   createMockStore,
   renderShallow,
   testSnapshotShallow,
-} from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-jest.mock('../../../actions/navigation', () => ({
+  createMockNavState,
+} from '../../../testUtils';
+import { navigatePush } from '../../../src/actions/navigation';
+import { navToPersonScreen } from '../../../src/actions/person';
+
+jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-import { navToPersonScreen } from '../../../actions/person';
-jest.mock('../../../actions/person', () => ({
+jest.mock('../../../src/actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
-
-const people = [{ id: '1' }, { id: '2' }];
-jest.mock('../../../actions/people', () => ({
-  searchPeople: jest.fn(() => ({
+jest.mock('../../../src/actions/surveys', () => ({
+  searchSurveyContacts: jest.fn(() => ({
     type: 'test',
     findAll: () => [{ id: '1' }, { id: '2' }],
   })),
 }));
 
 const store = createMockStore({});
-
 const organization = { id: '1', name: 'Test Org' };
+const survey = { id: '11' };
+const people = [{ id: '1' }, { id: '2' }];
 
 beforeEach(() => {
   navigatePush.mockClear();
   navToPersonScreen.mockClear();
 });
 
-describe('Contacts', () => {
-  const component = <Contacts organization={organization} />;
+describe('SurveyContacts', () => {
+  const component = (
+    <SurveyContacts
+      navigation={createMockNavState({
+        organization,
+        survey,
+      })}
+    />
+  );
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
@@ -86,8 +94,9 @@ describe('Contacts', () => {
   });
 
   it('should handleSelect correctly', async () => {
+    const person = { id: '1' };
     const instance = renderShallow(component, store).instance();
-    instance.handleSelect({ id: '1' });
-    expect(navToPersonScreen).toHaveBeenCalled();
+    instance.handleSelect(person);
+    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
   });
 });

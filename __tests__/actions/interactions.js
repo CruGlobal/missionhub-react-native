@@ -9,9 +9,12 @@ import * as impact from '../../src/actions/impact';
 import { mockFnWithParams } from '../../testUtils';
 import { ACTIONS, INTERACTION_TYPES } from '../../src/constants';
 import { reloadGroupCelebrateFeed } from '../../src/actions/celebration';
+import { reloadJourney } from '../../src/actions/journey';
+
 let store;
 
 jest.mock('../../src/actions/celebration');
+jest.mock('../../src/actions/journey');
 
 const mockApi = (result, ...expectedParams) =>
   mockFnWithParams(api, 'default', result, ...expectedParams);
@@ -43,6 +46,9 @@ const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
 const trackActionResult = { type: 'tracked action' };
 const refreshImpactResult = { type: 'refreshed impact' };
 const celebrationFeedResult = { type: 'refreshed celebration feeed' };
+const reloadJourneyResult = { type: 'reloaded journey' };
+
+reloadJourney.mockReturnValue(reloadJourneyResult);
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
@@ -99,6 +105,7 @@ describe('add comment', () => {
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
+        reloadJourneyResult,
         refreshImpactResult,
         celebrationFeedResult,
       ]);
@@ -148,6 +155,7 @@ describe('add comment', () => {
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
+        reloadJourneyResult,
         refreshImpactResult,
         celebrationFeedResult,
       ]);

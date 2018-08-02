@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import { View, FlatList, Image } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import CommentBox from '../../components/CommentBox';
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
-import {
-  Flex,
-  Button,
-  Separator,
-  Text,
-  LoadingGuy,
-} from '../../components/common';
+import { Flex, Separator, LoadingGuy } from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { addNewInteraction, editComment } from '../../actions/interactions';
+import { editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
-import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
-import { INTERACTION_TYPES } from '../../constants';
 import { updateChallengeNote } from '../../actions/steps';
+import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
 
@@ -39,9 +33,7 @@ class ContactJourney extends Component {
 
     this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
-    this.handleAddComment = this.handleAddComment.bind(this);
     this.handleEditComment = this.handleEditComment.bind(this);
-    this.handleCreateInteraction = this.handleCreateInteraction.bind(this);
     this.handleEditInteraction = this.handleEditInteraction.bind(this);
   }
 
@@ -88,43 +80,6 @@ class ContactJourney extends Component {
       this.getInteractions();
       this.setState({ editingInteraction: null });
     });
-  }
-
-  handleAddComment(text) {
-    const { person, dispatch, organization } = this.props;
-    const orgId = organization && organization.id;
-
-    dispatch(
-      addNewInteraction(
-        person.id,
-        INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened,
-        text,
-        orgId,
-      ),
-    ).then(() => {
-      // Add new comment to journey
-      this.getInteractions();
-    });
-  }
-
-  handleCreateInteraction() {
-    const subsection = getAnalyticsSubsection(
-      this.props.person.id,
-      this.props.myId,
-    );
-
-    this.props.dispatch(
-      navigatePush(ADD_STEP_SCREEN, {
-        onComplete: this.handleAddComment,
-        type: 'journey',
-        trackingObj: buildTrackingObj(
-          `people : ${subsection} : journey : edit`,
-          'people',
-          subsection,
-          'journey',
-        ),
-      }),
-    );
   }
 
   renderRow({ item }) {
@@ -178,14 +133,13 @@ class ContactJourney extends Component {
 
   renderNull() {
     const { t } = this.props;
+
     return (
-      <Flex align="center" justify="center" value={1}>
-        <Image source={NULL} style={{ flexShrink: 1 }} resizeMode="contain" />
-        <Text type="header" style={styles.nullHeader}>
-          {t('ourJourney').toUpperCase()}
-        </Text>
-        <Text style={styles.nullText}>{t('journeyNull')}</Text>
-      </Flex>
+      <NullStateComponent
+        imageSource={NULL}
+        headerText={t('ourJourney').toUpperCase()}
+        descriptionText={t('journeyNull')}
+      />
     );
   }
 
@@ -203,16 +157,12 @@ class ContactJourney extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { person, organization } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {this.renderContent()}
         <Flex justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleCreateInteraction}
-            text={t('somethingCool').toUpperCase()}
-          />
+          <CommentBox person={person} organization={organization} />
         </Flex>
       </View>
     );
@@ -228,7 +178,8 @@ const mapStateToProps = (
   { auth, swipe, journey },
   { person, organization },
 ) => {
-  const organizationId = organization ? organization.id : 'personal';
+  const organizationId =
+    organization && organization.id ? organization.id : 'personal';
   const journeyOrg = journey[organizationId];
   const journeyItems = journeyOrg ? journeyOrg[person.id] : undefined;
 

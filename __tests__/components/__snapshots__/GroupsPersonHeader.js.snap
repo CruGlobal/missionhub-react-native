@@ -27,7 +27,44 @@ exports[`is self renders 1`] = `
 </Flex>
 `;
 
-exports[`isContact with contact assignment renders 1`] = `
+exports[`isContact with contact assignment does not render status button if contact is not part of org 1`] = `
+<Flex>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  >
+    <CenteredIconButtonWithText
+      icon="journeyIcon"
+      key="some key"
+      onClick={[Function]}
+      text="Stage"
+    />
+    <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      text="Call"
+    />
+    <CenteredIconButtonWithText
+      buttonStyle={
+        Object {
+          "fontSize": 20,
+        }
+      }
+      icon="emailIcon"
+      key="some key"
+      text="Email"
+    />
+  </Flex>
+</Flex>
+`;
+
+exports[`isContact with contact assignment renders status button if contact is part of org 1`] = `
 <Flex>
   <Flex
     align="center"
@@ -47,6 +84,16 @@ exports[`isContact with contact assignment renders 1`] = `
       text="Status"
     />
     <CenteredIconButtonWithText
+      icon="textIcon"
+      key="some key"
+      text="Message"
+    />
+    <CenteredIconButtonWithText
+      icon="callIcon"
+      key="some key"
+      text="Call"
+    />
+    <CenteredIconButtonWithText
       buttonStyle={
         Object {
           "fontSize": 20,
@@ -62,8 +109,9 @@ exports[`isContact with contact assignment renders 1`] = `
 
 exports[`isContact with no contact assignment renders with no contact assignment 1`] = `
 <Flex>
-  <Translate(AssignToMeButton)
-    onPress={[Function]}
+  <Connect(Translate(AssignToMeButton))
+    orgId="50"
+    personId="1002"
   />
   <Flex
     align="center"
@@ -115,8 +163,9 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
 
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
-  <Translate(AssignToMeButton)
-    onPress={[Function]}
+  <Connect(Translate(AssignToMeButton))
+    orgId="50"
+    personId="1002"
   />
   <Flex
     align="center"

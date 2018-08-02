@@ -10,34 +10,44 @@ const member = {
   uncontacted_count: 3,
 };
 
-it('render member', () => {
-  testSnapshotShallow(<GroupMemberItem onSelect={jest.fn()} person={member} />);
+describe('with onSelect prop', () => {
+  it('render member', () => {
+    testSnapshotShallow(
+      <GroupMemberItem onSelect={jest.fn()} person={member} />,
+    );
+  });
+
+  it('render 0 assigned', () => {
+    testSnapshotShallow(
+      <GroupMemberItem
+        onSelect={jest.fn()}
+        person={{ ...member, contact_count: 0 }}
+      />,
+    );
+  });
+
+  it('render 0 uncontacted', () => {
+    testSnapshotShallow(
+      <GroupMemberItem
+        onSelect={jest.fn()}
+        person={{ ...member, uncontacted_count: 0 }}
+      />,
+    );
+  });
+
+  it('calls onSelect prop', () => {
+    const onSelect = jest.fn();
+
+    renderShallow(<GroupMemberItem onSelect={onSelect} person={member} />)
+      .instance()
+      .handleSelect();
+
+    expect(onSelect).toHaveBeenCalled();
+  });
 });
 
-it('render 0 assigned', () => {
-  testSnapshotShallow(
-    <GroupMemberItem
-      onSelect={jest.fn()}
-      person={{ ...member, contact_count: 0 }}
-    />,
-  );
-});
-
-it('render 0 uncontacted', () => {
-  testSnapshotShallow(
-    <GroupMemberItem
-      onSelect={jest.fn()}
-      person={{ ...member, uncontacted_count: 0 }}
-    />,
-  );
-});
-
-it('calls onSelect prop', () => {
-  const onSelect = jest.fn();
-
-  renderShallow(<GroupMemberItem onSelect={onSelect} person={member} />)
-    .instance()
-    .handleSelect();
-
-  expect(onSelect).toHaveBeenCalled();
+describe('without onSelect prop', () => {
+  it('renders', () => {
+    testSnapshotShallow(<GroupMemberItem onSelect={null} person={member} />);
+  });
 });
