@@ -8,6 +8,7 @@ import {
 const auth = {
   person: {
     id: '23',
+    user: {},
   },
 };
 
@@ -104,6 +105,25 @@ const people = {
 describe('peopleByOrgSelector', () => {
   it('should take the allByOrg object and transform it to sorted arrays', () => {
     expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();
+  });
+
+  it('should remove hidden organizations', () => {
+    expect(
+      peopleByOrgSelector({
+        people,
+        auth: {
+          person: {
+            ...auth.person,
+            user: {
+              hidden_organizations: [
+                organizationOne.id,
+                unnamedOrganization.id,
+              ],
+            },
+          },
+        },
+      }),
+    ).toMatchSnapshot();
   });
 });
 

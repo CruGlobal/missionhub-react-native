@@ -4,7 +4,7 @@ export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
   (orgs, authUser) =>
-    Object.values(orgs)
+    removeHiddenOrgs(Object.values(orgs), authUser)
       .map(org => ({
         ...org,
         people: Object.values(org.people).sort((a, b) => {
@@ -34,6 +34,15 @@ export const peopleByOrgSelector = createSelector(
         return a.name ? a.name.localeCompare(b.name) : 1;
       }),
 );
+const removeHiddenOrgs = (orgs, authUser) => {
+  const hidden_orgs = authUser.user.hidden_organizations;
+  return hidden_orgs
+    ? orgs.filter(
+        org => !hidden_orgs.find(hidden_org_id => hidden_org_id === org.id),
+      )
+    : orgs;
+};
+
 export const personSelector = createSelector(
   ({ people }) => people.allByOrg,
   (_, { orgId }) => orgId,
