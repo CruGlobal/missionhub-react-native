@@ -125,6 +125,26 @@ describe('peopleByOrgSelector', () => {
       }),
     ).toMatchSnapshot();
   });
+
+  it('should sort by user order', () => {
+    expect(
+      peopleByOrgSelector({
+        people,
+        auth: {
+          person: {
+            ...auth.person,
+            user: {
+              organization_order: [
+                organizationOne.id,
+                unnamedOrganization.id,
+                organizationTwo.id,
+              ],
+            },
+          },
+        },
+      }),
+    ).toMatchSnapshot();
+  });
 });
 
 describe('personSelector', () => {
