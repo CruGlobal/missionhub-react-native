@@ -24,16 +24,19 @@ const options = [
     id: '1',
     text: 'Question 1',
     options: [{ id: '1.1', text: '1.1' }, { id: '1.2', text: '1.2' }],
+    preview: 'any',
   },
   {
     id: '2',
     text: 'Question 2',
     options: [{ id: '2.1', text: '2.1' }, { id: '2.2', text: '2.2' }],
+    preview: 'any',
   },
   {
     id: '3',
     text: 'Question 3',
     options: [{ id: '3.1', text: '3.1' }, { id: '3.2', text: '3.2' }],
+    preview: 'any',
   },
 ];
 
@@ -111,12 +114,20 @@ describe('SurveyQuestionsFilterScreen', () => {
       instance.setFilter = jest.fn();
       instance.setState({ selectedFilterId: selected.id });
 
-      const expectedNewOptions = options.map(o => ({
-        ...o,
-        preview: o.id === selected.id ? item.text : null,
-      }));
+      const expectedNewOptions = [
+        {
+          ...options[0],
+          preview: options[0].options[0].text,
+        },
+        {
+          ...options[1],
+        },
+        {
+          ...options[2],
+        },
+      ];
       const expectedNewFilter = {
-        [selected.id]: { '': item.id },
+        [selected.id]: { id: selected.id, text: item.text, isAnswer: true },
       };
 
       instance.handleSelectFilter(item);
