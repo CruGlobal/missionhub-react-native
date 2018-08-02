@@ -18,8 +18,7 @@ jest.mock('../../../src/actions/person', () => ({
 
 jest.mock('../../../src/actions/people', () => ({
   searchPeople: jest.fn(() => ({
-    type: 'test',
-    findAll: () => [{ id: '1' }, { id: '2' }],
+    response: [{ id: '1' }, { id: '2' }],
   })),
 }));
 
