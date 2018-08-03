@@ -154,7 +154,7 @@ export function updatePerson(data) {
           gender: data.gender,
         },
       },
-      ...(data.email || data.phone
+      ...(data.email || data.phone || data.orgPermission
         ? {
             included: [
               ...(data.email
@@ -173,6 +173,17 @@ export function updatePerson(data) {
                       type: 'phone_number',
                       attributes: {
                         number: data.phone,
+                      },
+                    },
+                  ]
+                : []),
+              ...(data.orgPermission
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        permission_id: data.orgPermission.permission_id,
                       },
                     },
                   ]

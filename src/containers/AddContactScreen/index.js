@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -16,7 +16,7 @@ import {
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -52,7 +52,21 @@ class AddContactScreen extends Component {
 
   async savePerson() {
     const { me, organization, dispatch } = this.props;
-    let saveData = { ...this.state.person };
+    const saveData = { ...this.state.person };
+
+    if (
+      !saveData.email &&
+      saveData.orgPermission &&
+      (saveData.orgPermission.permission_id === ORG_PERMISSIONS.USER ||
+        saveData.orgPermission.permission_id === ORG_PERMISSIONS.ADMIN)
+    ) {
+      Alert.alert(
+        'Email is blank',
+        'Contact with User or Admin permissions must have email address',
+      );
+      return;
+    }
+
     if (organization) {
       saveData.orgId = organization.id;
     }
@@ -119,6 +133,7 @@ class AddContactScreen extends Component {
         <ScrollView style={styles.container}>
           <AddContactFields
             person={person}
+            organization={organization}
             isJean={isJean}
             onUpdateData={this.handleUpdateData}
           />

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { ORG_PERMISSIONS } from '../../constants';
+import { orgPermissionSelector } from '../../selectors/people';
 import { Flex, Text, Input, RadioButton } from '../../components/common';
 import theme from '../../theme';
 import {
@@ -22,10 +24,11 @@ class AddContactFields extends Component {
     phone: '',
     gender: null,
     path: null,
+    orgPermission: {},
   };
 
   componentDidMount() {
-    const { person, isJean } = this.props;
+    const { person, orgPermission, isJean } = this.props;
     // If person exists, then we are in edit mode
     if (!person) {
       return;
@@ -44,6 +47,7 @@ class AddContactFields extends Component {
               phoneId: phone.id,
               phone: phone.number,
               gender: person.gender,
+              orgPermission,
             }
           : {}),
       };
@@ -59,8 +63,15 @@ class AddContactFields extends Component {
   }
 
   render() {
-    const { t, isJean } = this.props;
-    const { firstName, lastName, email, phone, gender } = this.state;
+    const { t, isJean, organization } = this.props;
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      gender,
+      orgPermission,
+    } = this.state;
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
@@ -117,13 +128,13 @@ class AddContactFields extends Component {
                   {t('profileLabels.gender')}:
                 </Text>
                 <RadioButton
-                  style={styles.radioButton}
+                  style={styles.genderRadioButton}
                   onSelect={() => this.updateField('gender', 'Male')}
                   checked={gender === 'Male'}
                   label={t('gender.male')}
                 />
                 <RadioButton
-                  style={styles.radioButton}
+                  style={styles.genderRadioButton}
                   onSelect={() => this.updateField('gender', 'Female')}
                   checked={gender === 'Female'}
                   label={t('gender.female')}
@@ -142,6 +153,60 @@ class AddContactFields extends Component {
                   blurOnSubmit={true}
                 />
               </Flex>,
+              organization && organization.id
+                ? [
+                    <Text style={styles.label} key="permissionsLabel">
+                      {t('profileLabels.permissions')}:
+                    </Text>,
+                    <Flex
+                      direction="row"
+                      align="center"
+                      style={styles.permissionsRow}
+                      key="permissions"
+                    >
+                      <RadioButton
+                        style={styles.contactRadioButton}
+                        onSelect={() =>
+                          this.updateField('orgPermission', {
+                            ...orgPermission,
+                            permission_id: ORG_PERMISSIONS.CONTACT,
+                          })
+                        }
+                        checked={
+                          orgPermission.permission_id ===
+                          ORG_PERMISSIONS.CONTACT
+                        }
+                        label={t('profileLabels.contact')}
+                      />
+                      <RadioButton
+                        style={styles.userRadioButton}
+                        onSelect={() =>
+                          this.updateField('orgPermission', {
+                            ...orgPermission,
+                            permission_id: ORG_PERMISSIONS.USER,
+                          })
+                        }
+                        checked={
+                          orgPermission.permission_id === ORG_PERMISSIONS.USER
+                        }
+                        label={t('profileLabels.member')}
+                      />
+                      <RadioButton
+                        style={styles.adminRadioButton}
+                        onSelect={() =>
+                          this.updateField('orgPermission', {
+                            ...orgPermission,
+                            permission_id: ORG_PERMISSIONS.ADMIN,
+                          })
+                        }
+                        checked={
+                          orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
+                        }
+                        label={t('profileLabels.admin')}
+                      />
+                    </Flex>,
+                  ]
+                : [],
             ]
           : []}
       </KeyboardAvoidingView>
@@ -154,4 +219,14 @@ AddContactFields.propTypes = {
   onUpdateData: PropTypes.func.isRequired,
 };
 
-export default connect()(AddContactFields);
+const mapStateToProps = (_, { person, organization }) => ({
+  orgPermission:
+    person &&
+    organization &&
+    organization.id &&
+    orgPermissionSelector(null, {
+      person,
+      organization: { id: organization.id },
+    }),
+});
+export default connect(mapStateToProps)(AddContactFields);

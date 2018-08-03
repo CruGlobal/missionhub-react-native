@@ -151,7 +151,10 @@ export function addNewContact(data) {
     if (data.orgId) {
       included.push({
         type: 'organizational_permission',
-        attributes: { organization_id: data.orgId },
+        attributes: {
+          organization_id: data.orgId,
+          permission_id: data.orgPermission && data.orgPermission.permission_id,
+        },
       });
     }
     if (data.email) {

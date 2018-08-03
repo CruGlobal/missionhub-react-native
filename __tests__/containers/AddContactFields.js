@@ -1,9 +1,18 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
+import { ORG_PERMISSIONS } from '../../src/constants';
 import AddContactFields from '../../src/containers/AddContactFields';
-import { createMockStore, testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow } from '../../testUtils';
+import { orgPermissionSelector } from '../../src/selectors/people';
 
-const store = createMockStore();
+jest.mock('../../src/selectors/people');
+
+const mockStore = configureStore([thunk]);
+const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
+
+orgPermissionSelector.mockReturnValue(orgPermission);
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
@@ -13,12 +22,13 @@ it('renders casey view correctly', () => {
         email_addresses: [],
         phone_numbers: [],
       }}
+      organization={null}
     />,
-    store,
+    mockStore(),
   );
 });
 
-it('renders jean view correctly', () => {
+it('renders jean without organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
       onUpdateData={() => {}}
@@ -27,7 +37,23 @@ it('renders jean view correctly', () => {
         email_addresses: [],
         phone_numbers: [],
       }}
+      organization={{}}
     />,
-    store,
+    mockStore(),
+  );
+});
+
+it('renders jean with organization view correctly', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={() => {}}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore(),
   );
 });

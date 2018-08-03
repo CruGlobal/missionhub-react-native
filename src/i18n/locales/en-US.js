@@ -13,6 +13,10 @@ export default {
       stage: 'Stage',
       status: 'Status',
       gender: 'Gender',
+      permissions: 'Permissions',
+      contact: 'Contact',
+      member: 'Member',
+      admin: 'Admin',
     },
     gender: {
       male: 'Male',

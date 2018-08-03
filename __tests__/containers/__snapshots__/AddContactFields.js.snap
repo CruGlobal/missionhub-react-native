@@ -67,7 +67,238 @@ exports[`renders casey view correctly 1`] = `
 </KeyboardAvoidingView>
 `;
 
-exports[`renders jean view correctly 1`] = `
+exports[`renders jean with organization view correctly 1`] = `
+<KeyboardAvoidingView
+  behavior="position"
+  enabled={true}
+  keyboardVerticalOffset={0}
+  style={
+    Object {
+      "paddingHorizontal": 25,
+      "paddingVertical": 50,
+    }
+  }
+>
+  <Flex
+    direction="column"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
+    >
+      First Name (Required)
+    </MyText>
+    <Input
+      blurOnSubmit={false}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="First Name (Required)"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
+    >
+      Last Name
+    </MyText>
+    <Input
+      blurOnSubmit={false}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Last Name"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="email"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
+    >
+      Email
+    </MyText>
+    <Input
+      blurOnSubmit={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#ffffff"
+      returnKeyType="next"
+    />
+  </Flex>
+  <Flex
+    align="center"
+    direction="row"
+    key="gender"
+    style={
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+        }
+      }
+    >
+      Gender
+      :
+    </MyText>
+    <RadioButton
+      checked={false}
+      label="Male"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
+        }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Female"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
+        }
+      }
+    />
+  </Flex>
+  <Flex
+    direction="column"
+    key="phone"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 13,
+          "marginTop": 15,
+        }
+      }
+    >
+      Phone
+    </MyText>
+    <Input
+      blurOnSubmit={true}
+      keyboardType="phone-pad"
+      onChangeText={[Function]}
+      placeholder="Phone"
+      placeholderTextColor="#ffffff"
+      returnKeyType="done"
+    />
+  </Flex>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    key="permissionsLabel"
+    style={
+      Object {
+        "color": "#52C5DC",
+        "fontSize": 13,
+        "marginTop": 15,
+      }
+    }
+  >
+    Permissions
+    :
+  </MyText>
+  <Flex
+    align="center"
+    direction="row"
+    key="permissions"
+    style={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <RadioButton
+      checked={true}
+      label="Contact"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingRight": 15,
+        }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Member"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingHorizontal": 15,
+        }
+      }
+    />
+    <RadioButton
+      checked={false}
+      label="Admin"
+      onSelect={[Function]}
+      size={25}
+      style={
+        Object {
+          "paddingLeft": 15,
+        }
+      }
+    />
+  </Flex>
+</KeyboardAvoidingView>
+`;
+
+exports[`renders jean without organization view correctly 1`] = `
 <KeyboardAvoidingView
   behavior="position"
   enabled={true}
