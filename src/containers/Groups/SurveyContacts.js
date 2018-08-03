@@ -23,7 +23,6 @@ class SurveyContacts extends Component {
 
     this.state = {
       filters: {
-        // Default filters
         unassigned: {
           id: 'unassigned',
           selected: true,
@@ -31,7 +30,6 @@ class SurveyContacts extends Component {
         },
         time: { id: 'time30', text: t('searchFilter:time30') },
       },
-      defaultResults: [],
     };
   }
 
@@ -80,7 +78,7 @@ class SurveyContacts extends Component {
     };
     const results = await dispatch(searchSurveyContacts(text, searchFilters));
     // Get the results from the search endpoint
-    return results.findAll('person') || [];
+    return results.response.map(a => a.person);
   };
 
   handleSelect = person => {

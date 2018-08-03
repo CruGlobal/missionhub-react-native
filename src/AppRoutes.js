@@ -108,7 +108,7 @@ import SurveyContactsFilter, {
 } from './containers/Groups/SurveyContactsFilter';
 import SurveyQuestionsFilterScreen, {
   SEARCH_QUESTIONS_FILTER_SCREEN,
-} from './containers/Groups/SurveyContactsFilter/SurveyQuestionsFilterScreen';
+} from './containers/Groups/SurveyQuestionsFilter';
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';

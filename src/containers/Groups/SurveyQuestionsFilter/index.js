@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import Header from '../../Header';
-import FilterItem from '../../../components/FilterItem';
+import FilterList from '../../../components/FilterList';
 import { buildTrackingObj, isString } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
@@ -28,17 +28,10 @@ export class SurveyQuestionsFilterScreen extends Component {
     };
   }
 
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
-  }
-
   handleDrillDown = item => {
     // Pull the options from the props that were not loaded when this was initialized
     const options =
-      isString(item.options) && this.props[item.options]
-        ? this.props[item.options]
-        : item.options;
+      (isString(item.options) && this.props[item.options]) || item.options;
     this.props.dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
@@ -77,27 +70,19 @@ export class SurveyQuestionsFilterScreen extends Component {
     if (item.id === 'any') {
       delete newFilters[selectedFilterId];
     }
-    this.setState({ options: newOptions });
-    this.setFilter(newFilters);
+    this.setState({ options: newOptions, filters: newFilters });
+    this.props.onFilter(filters);
   };
 
   render() {
     const { t } = this.props;
     const { options } = this.state;
     return (
-      <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('titleQuestions')} />
-        <ScrollView style={{ flex: 1 }}>
-          {options.map(o => (
-            <FilterItem
-              key={o.id}
-              item={o}
-              onSelect={this.handleDrillDown}
-              type="drilldown"
-            />
-          ))}
-        </ScrollView>
-      </View>
+      <FilterList
+        onDrillDown={this.handleDrillDown}
+        options={options}
+        title={t('titleQuestions')}
+      />
     );
   }
 }

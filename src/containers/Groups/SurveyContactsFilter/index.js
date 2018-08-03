@@ -7,7 +7,6 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../../../actions/navigation';
 import { getSurveyQuestions } from '../../../actions/surveys';
 import Header from '../../Header';
-import FilterItem from '../../../components/FilterItem';
 import {
   buildTrackingObj,
   isString,
@@ -18,8 +17,9 @@ import {
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';
+import FilterList from '../../../components/FilterList';
+import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 
-import { SEARCH_QUESTIONS_FILTER_SCREEN } from './SurveyQuestionsFilterScreen';
 import styles from './styles';
 
 @translate('searchFilter')
@@ -28,17 +28,7 @@ export class SurveyContactsFilter extends Component {
     super(props);
     const { t, filters } = props;
 
-    const filterOptions = getFilterOptions(t, filters, []);
-    const options = [
-      filterOptions.questions,
-      filterOptions.gender,
-      filterOptions.time,
-    ];
-    const toggleOptions = [
-      filterOptions.uncontacted,
-      filterOptions.unassigned,
-      filterOptions.archived,
-    ];
+    const { options, toggleOptions } = createFilterOptions(t, filters);
 
     this.state = {
       filters,
@@ -64,23 +54,12 @@ export class SurveyContactsFilter extends Component {
 
   createFilters(questions) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, questions);
-    const options = [
-      filterOptions.questions,
-      filterOptions.gender,
-      filterOptions.time,
-    ];
-    const toggleOptions = [
-      filterOptions.uncontacted,
-      filterOptions.unassigned,
-      filterOptions.archived,
-    ];
+    const { options, toggleOptions } = createFilterOptions(
+      t,
+      filters,
+      questions,
+    );
     this.setState({ filters, options, toggleOptions });
-  }
-
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
   }
 
   handleDrillDown = item => {
@@ -156,36 +135,21 @@ export class SurveyContactsFilter extends Component {
       ...item,
     };
 
-    this.setState({ options: newOptions });
-    this.setFilter(newFilters);
+    this.setState({ options: newOptions, filters: newFilters });
+    this.props.onFilter(filters);
   };
 
   render() {
     const { t } = this.props;
     const { options, toggleOptions } = this.state;
     return (
-      <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('titleSurvey')} />
-        <ScrollView style={{ flex: 1 }}>
-          {options.map(o => (
-            <FilterItem
-              key={o.id}
-              item={o}
-              onSelect={this.handleDrillDown}
-              type="drilldown"
-            />
-          ))}
-          {toggleOptions.map(o => (
-            <FilterItem
-              key={o.id}
-              item={o}
-              onSelect={this.handleToggle}
-              type="switch"
-              isSelected={o.selected}
-            />
-          ))}
-        </ScrollView>
-      </View>
+      <FilterList
+        onDrillDown={this.handleDrillDown}
+        onToggle={this.handleToggle}
+        options={options}
+        toggleOptions={toggleOptions}
+        title={t('titleSurvey')}
+      />
     );
   }
 }
@@ -203,3 +167,18 @@ const mapStateToProps = (reduxState, { navigation }) => ({
 export default connect(mapStateToProps)(SurveyContactsFilter);
 export const SEARCH_SURVEY_CONTACTS_FILTER_SCREEN =
   'nav/SEARCH_SURVEY_CONTACTS_FILTER';
+
+const createFilterOptions = (t, filters, questions = []) => {
+  const filterOptions = getFilterOptions(t, filters, questions);
+  const options = [
+    filterOptions.questions,
+    filterOptions.gender,
+    filterOptions.time,
+  ];
+  const toggleOptions = [
+    filterOptions.uncontacted,
+    filterOptions.unassigned,
+    filterOptions.archived,
+  ];
+  return { options, toggleOptions };
+};
