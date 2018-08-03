@@ -136,7 +136,7 @@ export class SurveyContactsFilter extends Component {
     };
 
     this.setState({ options: newOptions, filters: newFilters });
-    this.props.onFilter(filters);
+    this.props.onFilter(newFilters);
   };
 
   render() {

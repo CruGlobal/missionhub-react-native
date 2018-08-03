@@ -71,7 +71,7 @@ export class SurveyQuestionsFilterScreen extends Component {
       delete newFilters[selectedFilterId];
     }
     this.setState({ options: newOptions, filters: newFilters });
-    this.props.onFilter(filters);
+    this.props.onFilter(newFilters);
   };
 
   render() {
