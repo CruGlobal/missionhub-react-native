@@ -9,7 +9,6 @@ import { mockFnWithParams } from '../../testUtils';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import {
-  getAssignedOrganizations,
   getMyOrganizations,
   getOrganizationsContactReports,
   getOrganizationMembers,
@@ -32,35 +31,11 @@ describe('getMyOrganizations', () => {
       api,
       'default',
       apiResponse,
-      REQUESTS.GET_MY_ORGANIZATIONS,
-      query,
-    );
-
-    store.dispatch(getMyOrganizations());
-
-    expect(store.getActions()).toEqual([apiResponse]);
-  });
-});
-
-describe('getAssignedOrganizations', () => {
-  const query = {
-    limit: 100,
-    include: '',
-    filters: {
-      assigned_tos: 'me',
-    },
-  };
-
-  it('should get my assigned organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
       REQUESTS.GET_ORGANIZATIONS,
       query,
     );
 
-    store.dispatch(getAssignedOrganizations());
+    store.dispatch(getMyOrganizations());
 
     expect(store.getActions()).toEqual([apiResponse]);
   });

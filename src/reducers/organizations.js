@@ -1,11 +1,10 @@
-import lodash from 'lodash';
-
 import {
   LOGOUT,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
+  LOAD_ORGANIZATIONS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -23,29 +22,11 @@ const initialState = {
 };
 
 function organizationsReducer(state = initialState, action) {
-  const results = action.results;
   switch (action.type) {
-    case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
-      const myOrgs = (results.findAll('organization') || []).map(o => ({
-        text: o.name,
-        contactReport: {},
-        ...o,
-      }));
-      return {
-        ...initialState,
-        all: myOrgs,
-      };
-    case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
-      const orgs = (results.findAll('organization') || []).map(o => ({
-        text: o.name,
-        contactReport: {},
-        ...o,
-      }));
-      const allOrgs = lodash.uniqBy([].concat(state.all, orgs), 'id');
-
+    case LOAD_ORGANIZATIONS:
       return {
         ...state,
-        all: allOrgs,
+        all: action.orgs,
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;

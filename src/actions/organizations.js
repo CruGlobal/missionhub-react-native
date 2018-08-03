@@ -2,6 +2,7 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  LOAD_ORGANIZATIONS,
 } from '../constants';
 
 import callApi, { REQUESTS } from './api';
@@ -12,20 +13,34 @@ const getOrganizationsQuery = {
 };
 
 export function getMyOrganizations() {
-  return getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
-}
+  return async (dispatch, getState) => {
+    const { response: orgs } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery),
+    );
+    const orgOrder = getState().auth.person.user.organization_order;
 
-export function getAssignedOrganizations() {
-  const query = {
-    ...getOrganizationsQuery,
-    filters: { assigned_tos: 'me' },
+    if (orgOrder) {
+      orgs.sort((a, b) => {
+        const aIndex = orgOrder.indexOf(a.id);
+        const bIndex = orgOrder.indexOf(b.id);
+
+        if (aIndex === -1) {
+          return bIndex === -1 ? 0 : 1;
+        }
+
+        if (bIndex === -1) {
+          return aIndex === -1 ? 0 : -1;
+        }
+
+        return aIndex > bIndex ? 1 : -1;
+      });
+    }
+
+    dispatch({
+      type: LOAD_ORGANIZATIONS,
+      orgs,
+    });
   };
-
-  return getOrganizations(REQUESTS.GET_ORGANIZATIONS, query);
-}
-
-function getOrganizations(requestObject, query) {
-  return dispatch => dispatch(callApi(requestObject, query));
 }
 
 export function getOrganizationsContactReports() {
