@@ -136,7 +136,8 @@ describe('search', () => {
       person: 'first_name,last_name',
       organization: 'name',
     },
-    include: 'organizational_permissions.organization',
+    include:
+      'organizational_permissions.organization,reverse_contact_assignments',
     filters: {},
   };
   const action = { type: 'ran search' };
