@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
 
+import { removeHiddenOrgs } from './selectorUtils';
+
 export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
@@ -24,15 +26,6 @@ export const peopleByOrgSelector = createSelector(
       }),
     ),
 );
-
-const removeHiddenOrgs = (orgs, authUser) => {
-  const hidden_orgs = authUser.user.hidden_organizations;
-  return hidden_orgs
-    ? orgs.filter(
-        org => !hidden_orgs.find(hidden_org_id => hidden_org_id === org.id),
-      )
-    : orgs;
-};
 
 const sortOrgs = (orgs, authUser) => {
   const orgOrder = authUser.user.organization_order;

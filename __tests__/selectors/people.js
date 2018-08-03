@@ -5,6 +5,8 @@ import {
   orgPermissionSelector,
 } from '../../src/selectors/people';
 
+jest.mock('../../src/selectors/selectorUtils');
+
 const auth = {
   person: {
     id: '23',

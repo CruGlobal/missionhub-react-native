@@ -15,6 +15,8 @@ import {
   getOrganizationMembersNextPage,
 } from '../../src/actions/organizations';
 
+jest.mock('../../src/selectors/organizations');
+
 let store;
 const apiResponse = { type: 'successful' };
 
