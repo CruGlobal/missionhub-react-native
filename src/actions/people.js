@@ -71,7 +71,8 @@ export function searchPeople(text = '', filters = {}) {
         person: 'first_name,last_name',
         organization: 'name',
       },
-      include: 'organizational_permissions.organization',
+      include:
+        'organizational_permissions.organization,reverse_contact_assignments',
       filters: {},
     };
     if (filters.ministry) {

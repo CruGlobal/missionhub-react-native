@@ -135,12 +135,6 @@ describe('journey methods', () => {
     expect(snap).toMatchSnapshot();
   });
 
-  it('handles add comment', () => {
-    const comment = 'test';
-    component.handleAddComment(comment);
-    expect(mockAddComment).toHaveBeenCalledTimes(1);
-  });
-
   it('handles edit comment', () => {
     const comment = 'test';
     component.handleEditInteraction({ text: comment });

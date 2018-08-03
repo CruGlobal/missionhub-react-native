@@ -24,10 +24,18 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Button
-      onPress={[Function]}
-      text="SOMETHING COOL HAPPENED"
-      type="secondary"
+    <Connect(Translate(CommentBox))
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": 2,
+            },
+          ],
+        }
+      }
     />
   </Flex>
 </Component>
@@ -65,10 +73,18 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Button
-      onPress={[Function]}
-      text="SOMETHING COOL HAPPENED"
-      type="secondary"
+    <Connect(Translate(CommentBox))
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": 2,
+            },
+          ],
+        }
+      }
     />
   </Flex>
 </Component>
@@ -129,10 +145,18 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Button
-      onPress={[Function]}
-      text="SOMETHING COOL HAPPENED"
-      type="secondary"
+    <Connect(Translate(CommentBox))
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": 2,
+            },
+          ],
+        }
+      }
     />
   </Flex>
 </Component>
@@ -332,73 +356,206 @@ exports[`renders with an organization correctly 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits="button"
-      accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#B2B0B2",
+            "borderTopWidth": 1,
+            "paddingVertical": 5,
+            "width": 750,
+          },
+          Object {
+            "flexDirection": "column",
+          },
+        ]
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     >
       <View
         style={
           Array [
             Object {
+              "marginBottom": 5,
+              "marginHorizontal": 10,
+              "paddingHorizontal": 5,
+            },
+            Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
+              "flexDirection": "row",
               "justifyContent": "center",
             },
-            null,
-            Object {},
-            null,
           ]
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "backgroundColor": "#007398",
+                  "borderRadius": 25,
+                  "marginRight": 15,
                 },
-                Object {},
+                null,
               ],
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
             ]
           }
         >
-          SOMETHING COOL HAPPENED
-        </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={false}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 13,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Array [
+                          undefined,
+                          null,
+                        ],
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#B2B0B2",
+                "borderRadius": 20,
+                "borderWidth": 1,
+              },
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingLeft": 13,
+                },
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={true}
+              autoFocus={false}
+              blurOnSubmit={true}
+              multiline={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              placeholder="Share something to be celebrated..."
+              placeholderTextColor="#B2B0B2"
+              returnKeyType="done"
+              selectionColor="#005A7F"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomWidth": 0,
+                    "color": "#4E4C4E",
+                    "flex": 1,
+                    "fontSize": 16,
+                    "paddingLeft": 5,
+                    "paddingVertical": 7,
+                  },
+                ]
+              }
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
+            />
+          </View>
+        </View>
       </View>
     </View>
   </View>

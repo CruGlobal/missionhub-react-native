@@ -52,14 +52,19 @@ export class ImpactView extends Component {
   };
 
   componentDidMount() {
-    const { dispatch, person = {}, organization = {}, isMe } = this.props;
+    const {
+      dispatch,
+      person = {},
+      organization = {},
+      isPersonalMinistryMe,
+    } = this.props;
 
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
       getImpactSummary(person.id, person.id ? undefined : organization.id),
     );
-    if (isMe) {
+    if (isPersonalMinistryMe) {
       dispatch(getImpactSummary()); // Get global impact by calling without person or org
     } else {
       this.getInteractionReport();
@@ -193,7 +198,7 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isMe } = this.props;
+    const { globalImpact, impact, isPersonalMinistryMe } = this.props;
     return (
       <ScrollView style={{ flex: 1 }} bounces={false}>
         <Flex style={styles.topSection}>
@@ -205,8 +210,14 @@ export class ImpactView extends Component {
           style={styles.image}
           source={require('../../../assets/images/impactBackground.png')}
         />
-        <Flex style={isMe ? styles.bottomSection : styles.interactionSection}>
-          {isMe ? (
+        <Flex
+          style={
+            isPersonalMinistryMe
+              ? styles.bottomSection
+              : styles.interactionSection
+          }
+        >
+          {isPersonalMinistryMe ? (
             <Text style={[styles.text, styles.bottomText]}>
               {this.buildImpactSentence(globalImpact, true)}
             </Text>
@@ -227,18 +238,24 @@ ImpactView.propTypes = {
 export const mapStateToProps = (
   { impact, auth },
   { person = {}, organization },
-) => ({
-  isMe: person.id === auth.person.id,
-  // Impact summary isn't scoped by org unless showing org summary. See above comment
-  impact: impactSummarySelector(
-    { impact },
-    { person, organization: person.id ? undefined : organization },
-  ),
-  interactions: impactInteractionsSelector(
-    { impact },
-    { person, organization },
-  ),
-  globalImpact: impactSummarySelector({ impact }),
-});
+) => {
+  const isMe = person.id === auth.person.id;
+
+  return {
+    isMe,
+    isPersonalMinistryMe:
+      isMe && (!organization || (organization && !organization.id)),
+    // Impact summary isn't scoped by org unless showing org summary. See above comment
+    impact: impactSummarySelector(
+      { impact },
+      { person, organization: person.id ? undefined : organization },
+    ),
+    interactions: impactInteractionsSelector(
+      { impact },
+      { person, organization },
+    ),
+    globalImpact: impactSummarySelector({ impact }),
+  };
+};
 
 export default connect(mapStateToProps)(ImpactView);
