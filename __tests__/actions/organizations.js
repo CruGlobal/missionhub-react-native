@@ -33,7 +33,10 @@ describe('getMyOrganizations', () => {
   const org2 = { id: '2' };
   const org3 = { id: '3' };
   const org4 = { id: '4' };
-  const orgs = [org1, org2, org3, org4];
+  const org5 = { id: '5' };
+  const org6 = { id: '6' };
+  const orgs = [org1, org2, org3, org4, org5, org6];
+
   mockFnWithParams(
     api,
     'default',
@@ -48,7 +51,7 @@ describe('getMyOrganizations', () => {
     expect(store.getActions()).toEqual([
       {
         type: LOAD_ORGANIZATIONS,
-        orgs: [org1, org2, org3, org4],
+        orgs: [org1, org2, org3, org4, org5, org6],
       },
     ]);
   });
@@ -65,7 +68,7 @@ describe('getMyOrganizations', () => {
     await store.dispatch(getMyOrganizations());
 
     expect(store.getActions()).toEqual([
-      { type: LOAD_ORGANIZATIONS, orgs: [org3, org2, org4, org1] },
+      { type: LOAD_ORGANIZATIONS, orgs: [org3, org2, org4, org1, org5, org6] },
     ]);
   });
 });
