@@ -141,6 +141,14 @@ export default {
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${API_URL}organizations/:orgId/celebration_items`,
   },
+  LIKE_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    method: 'post',
+  },
+  UNLIKE_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    method: 'delete',
+  },
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },

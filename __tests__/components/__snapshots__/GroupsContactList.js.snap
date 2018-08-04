@@ -29,8 +29,9 @@ exports[`renders activity list 1`] = `
     >
       FULL NAME
     </MyText>
-    <Translate(AssignToMeButton)
-      onPress={[MockFunction]}
+    <Connect(Translate(AssignToMeButton))
+      orgId="900"
+      personId="123"
     />
   </Flex>
   <Flex
@@ -131,8 +132,9 @@ exports[`renders empty list 1`] = `
     >
       FULL NAME
     </MyText>
-    <Translate(AssignToMeButton)
-      onPress={[MockFunction]}
+    <Connect(Translate(AssignToMeButton))
+      orgId="900"
+      personId="123"
     />
   </Flex>
   <Flex

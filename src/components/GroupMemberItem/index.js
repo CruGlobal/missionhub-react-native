@@ -7,32 +7,41 @@ import { Flex, Text, Touchable } from '../common';
 import styles from './styles';
 
 @translate('groupItem')
-class GroupMemberItem extends Component {
-  handleSelect = () => {
-    this.props.onSelect(this.props.person);
-  };
+export default class GroupMemberItem extends Component {
+  handleSelect = () => this.props.onSelect(this.props.person);
+
+  renderContent() {
+    const { person, t } = this.props;
+
+    return (
+      <Flex justify="center" style={styles.row}>
+        <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+        <Flex align="center" direction="row" style={styles.detailsWrap}>
+          <Text style={styles.assigned}>
+            {t('numAssigned', { number: person.contact_count || 0 })}
+          </Text>
+          {person.uncontacted_count ? (
+            <Fragment>
+              <Text style={styles.assigned}>{'  ·  '}</Text>
+              <Text style={styles.uncontacted}>
+                {t('numUncontacted', { number: person.uncontacted_count })}
+              </Text>
+            </Fragment>
+          ) : null}
+        </Flex>
+      </Flex>
+    );
+  }
 
   render() {
-    const { person, t } = this.props;
-    return (
+    const { onSelect } = this.props;
+
+    return onSelect ? (
       <Touchable onPress={this.handleSelect} highlight={true}>
-        <Flex justify="center" style={styles.row}>
-          <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-          <Flex align="center" direction="row" style={styles.detailsWrap}>
-            <Text style={styles.assigned}>
-              {t('numAssigned', { number: person.contact_count || 0 })}
-            </Text>
-            {person.uncontacted_count ? (
-              <Fragment>
-                <Text style={styles.assigned}>{'  ·  '}</Text>
-                <Text style={styles.uncontacted}>
-                  {t('numUncontacted', { number: person.uncontacted_count })}
-                </Text>
-              </Fragment>
-            ) : null}
-          </Flex>
-        </Flex>
+        {this.renderContent()}
       </Touchable>
+    ) : (
+      this.renderContent()
     );
   }
 }
@@ -44,7 +53,5 @@ GroupMemberItem.propTypes = {
     contact_count: PropTypes.number,
     uncontacted_count: PropTypes.number,
   }).isRequired,
-  onSelect: PropTypes.func.isRequired,
+  onSelect: PropTypes.func,
 };
-
-export default GroupMemberItem;

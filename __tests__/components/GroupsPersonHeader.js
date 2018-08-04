@@ -31,7 +31,11 @@ const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
 const stages = [];
-const contactAssignment = { id: '500', pathway_stage_id: 3 };
+const contactAssignment = {
+  id: '500',
+  pathway_stage_id: 3,
+  organization: { id: '231413' },
+};
 const myStageId = 4;
 
 const props = {
@@ -202,37 +206,28 @@ describe('isContact', () => {
         />,
       );
     });
-
-    it('assigns to me when clicked', () => {
-      const screen = renderShallow(
-        <GroupsPersonHeader
-          {...props}
-          isMember={false}
-          contactAssignment={undefined}
-        />,
-      );
-
-      screen
-        .childAt(0)
-        .props()
-        .onPress();
-
-      expect(createContactAssignment).toHaveBeenCalledWith(
-        organization.id,
-        myId,
-        person.id,
-      );
-      expect(store.getActions()).toEqual([createContactAssignmentResult]);
-    });
   });
 
   describe('with contact assignment', () => {
-    it('renders', () => {
+    it('renders status button if contact is part of org', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
           isMember={false}
           contactAssignment={contactAssignment}
+        />,
+      );
+    });
+
+    it('does not render status button if contact is not part of org', () => {
+      testSnapshotShallow(
+        <GroupsPersonHeader
+          {...props}
+          isMember={false}
+          contactAssignment={{
+            id: '500',
+            pathway_stage_id: 3,
+          }}
         />,
       );
     });

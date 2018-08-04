@@ -16,18 +16,6 @@ export default StyleSheet.create({
     paddingBottom: 30,
     borderBottomWidth: 0,
   },
-  nullHeader: {
-    fontSize: 42,
-    color: theme.primaryColor,
-    paddingTop: 10,
-  },
-  nullText: {
-    fontSize: 16,
-    color: theme.textColor,
-    paddingHorizontal: 50,
-    textAlign: 'center',
-    paddingVertical: 10,
-  },
   list: {
     backgroundColor: theme.transparent,
   },

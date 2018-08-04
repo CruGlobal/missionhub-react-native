@@ -12,7 +12,7 @@ export function getMyPeople() {
         limit: 1000,
       },
       include:
-        'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
+        'contact_assignments.person,reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
     };
 
     const people = (await dispatch(
@@ -65,9 +65,7 @@ export function getMyPeople() {
 
 export function searchPeople(text = '', filters = {}) {
   return dispatch => {
-    // https://api-stage.missionhub.com/apis/v4/search?q=Ultr&fields[person]=first_name,picture&include=organizational_permissions.organization&fields[organization]=name
-
-    let query = {
+    const query = {
       q: text,
       fields: {
         person: 'first_name,last_name',
@@ -96,10 +94,6 @@ export function searchPeople(text = '', filters = {}) {
     }
     if (filters.surveys) {
       query.filters.survey_ids = filters.surveys.id;
-    }
-    if (filters.question) {
-      query.filters.question_id = filters.question.id;
-      query.filters.answer_value = filters.question.answer.text;
     }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));

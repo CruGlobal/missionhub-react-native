@@ -73,6 +73,13 @@ export const isMissionhubUser = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
 export const isAdminForOrg = orgPermission =>
   !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
+export function isMemberForOrg(orgPermission) {
+  return (
+    !!orgPermission &&
+    (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN ||
+      orgPermission.permission_id === ORG_PERMISSIONS.USER)
+  );
+}
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
@@ -256,8 +263,10 @@ export const searchSelectFilter = (scope, item) => {
   if (item.id === 'any') {
     delete newFilters[selectedFilterId];
   }
-  scope.setState({ options: newOptions });
-  scope.setFilter(newFilters);
+  scope.setState({ options: newOptions, filters: newFilters });
+  if (scope.props.onFilter) {
+    scope.props.onFilter(newFilters);
+  }
 };
 
 export const searchRemoveFilter = async (

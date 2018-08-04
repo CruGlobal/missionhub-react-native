@@ -393,7 +393,7 @@ export default {
     steps: 'Steps',
     people: 'People',
     impact: 'Impact',
-    groups: 'Groups',
+    groups: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',
@@ -406,9 +406,11 @@ export default {
     celebrate: 'Celebrate',
     steps: 'My Steps',
     notes: 'My Notes',
-    journey: 'Our Journey',
+    ourJourney: 'Our Journey',
+    myJourney: 'My Journey',
     impact: 'Impact',
-    assignedContacts: 'Assigned Contacts',
+    myImpact: 'My Impact',
+    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {
@@ -427,7 +429,7 @@ export default {
       "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus.",
   },
   groupsList: {
-    header: 'Groups',
+    header: 'Communities',
   },
   celebrateFeeds: {
     title: '',
@@ -456,8 +458,8 @@ export default {
     title: '',
     searchPlaceholder: 'Search Contacts',
   },
-  groupsContact: {
-    placeholder: 'Share something to be celebrated...',
+  memberContacts: {
+    nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
   },
   groupsSurveys: {
     title: '',

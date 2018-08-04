@@ -4,7 +4,6 @@ import { translate } from 'react-i18next';
 import uuidv4 from 'uuid/v4';
 
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
-import { createContactAssignment } from '../../actions/person';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
@@ -29,11 +28,12 @@ export default class GroupsPersonHeader extends Component {
     super(props);
 
     this.state = {
-      buttons: props.isMember
-        ? props.person.id === props.myId
+      buttons:
+        props.person.id === props.myId
           ? this.getMeButton()
-          : this.getMemberButtons()
-        : this.getContactButtons(),
+          : props.isMember
+            ? this.getMemberButtons()
+            : this.getContactButtons(),
     };
   }
 
@@ -214,11 +214,20 @@ export default class GroupsPersonHeader extends Component {
     const { contactAssignment } = this.props;
 
     return contactAssignment
-      ? [
-          this.getPersonStageButton(),
-          this.getStatusButton(),
-          this.getEmailButton(),
-        ]
+      ? contactAssignment.organization
+        ? [
+            this.getPersonStageButton(),
+            this.getStatusButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
+        : [
+            this.getPersonStageButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
       : null;
   }
 
@@ -235,19 +244,14 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
-  assignToMe = () => {
-    const { dispatch, person, organization, myId } = this.props;
-    dispatch(createContactAssignment(organization.id, myId, person.id));
-  };
-
   render() {
     const { buttons } = this.state;
-    const { contactAssignment, myId, person } = this.props;
+    const { contactAssignment, myId, person, organization } = this.props;
 
     return (
       <Flex>
         {contactAssignment || myId === person.id ? null : (
-          <AssignToMeButton onPress={this.assignToMe} />
+          <AssignToMeButton personId={person.id} orgId={organization.id} />
         )}
         <Flex align="center" justify="center" direction="row">
           {buttons}

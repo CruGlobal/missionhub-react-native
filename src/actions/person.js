@@ -1,12 +1,23 @@
-import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+} from '../containers/Groups/AssignedPersonScreen/';
+import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
+import { isMemberForOrg } from '../utils/common';
+import {
+  orgPermissionSelector,
+  contactAssignmentSelector,
+} from '../selectors/people';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -249,7 +260,7 @@ export function createContactAssignment(
     await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
-    dispatch(getPersonDetails(personReceiverId, organizationId));
+    return dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }
 
@@ -279,25 +290,59 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(
-  person,
-  organization,
-  isMember,
-  isAssignedToMe,
-) {
-  return dispatch => {
-    if (!isMember) {
-      if (isAssignedToMe) {
-        return dispatch(
-          navigatePush(CONTACT_PERSON_SCREEN, { person, organization }),
-        );
-      }
-      return dispatch(
-        navigatePush(UNASSIGNED_PERSON_SCREEN, { person, organization }),
-      );
-    }
-    return dispatch(
-      navigatePush(MEMBER_PERSON_SCREEN, { person, organization }),
+export function navToPersonScreen(person, org) {
+  return (dispatch, getState) => {
+    const organization = org ? org : {};
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+
+    const auth = getState().auth;
+    const contactAssignment = contactAssignmentSelector(
+      { auth },
+      { person, orgId: organization.id },
+    );
+    const isMember = isMemberForOrg(
+      orgPermissionSelector(null, {
+        person,
+        organization: { id: organization.id },
+      }),
+    );
+    const authPerson = auth.person;
+    const isMe = person.id === authPerson.id;
+    const isGroups = authPerson.user.groups_feature;
+
+    dispatch(
+      navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
+        person,
+        organization,
+      }),
     );
   };
+
+  function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
+    if (isMe) {
+      if (isMember) {
+        if (isGroups) {
+          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
+        }
+
+        return ME_COMMUNITY_PERSON_SCREEN;
+      }
+
+      return ME_PERSONAL_PERSON_SCREEN;
+    }
+
+    if (isMember) {
+      if (isGroups) {
+        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+      }
+
+      return MEMBER_PERSON_SCREEN;
+    }
+
+    if (contactAssignment) {
+      return CONTACT_PERSON_SCREEN;
+    }
+
+    return UNASSIGNED_PERSON_SCREEN;
+  }
 }

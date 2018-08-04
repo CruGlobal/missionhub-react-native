@@ -151,6 +151,9 @@ describe('searchSelectFilter', () => {
       filters: { gender: { id: 'gender' } },
       selectedFilterId: 'gender',
     },
+    props: {
+      onFilter: jest.fn(),
+    },
     setState,
     setFilter,
   };
@@ -164,9 +167,9 @@ describe('searchSelectFilter', () => {
         { id: 'gender', text: 'Gender', preview: 'Male' },
         { id: 'option2', text: 'Option 2' },
       ],
-    });
-    expect(setFilter).toHaveBeenCalledWith({
-      gender: item,
+      filters: {
+        gender: item,
+      },
     });
   });
 
@@ -179,8 +182,8 @@ describe('searchSelectFilter', () => {
         { id: 'gender', text: 'Gender' },
         { id: 'option2', text: 'Option 2' },
       ],
+      filters: {},
     });
-    expect(setFilter).toHaveBeenCalledWith({});
   });
 });
 

@@ -50,3 +50,14 @@ function buildQuery(orgId, personId, page) {
     ...(personId ? { filters: { subject_person_ids: personId } } : {}),
   };
 }
+
+export function toggleLike(orgId, eventId, liked) {
+  const request = liked
+    ? REQUESTS.UNLIKE_CELEBRATE_ITEM
+    : REQUESTS.LIKE_CELEBRATE_ITEM;
+
+  return async dispatch => {
+    await dispatch(callApi(request, { orgId, eventId }));
+    return dispatch(reloadGroupCelebrateFeed(orgId));
+  };
+}

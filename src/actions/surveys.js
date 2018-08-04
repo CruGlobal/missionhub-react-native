@@ -66,7 +66,7 @@ export function searchSurveyContacts(text, filters = []) {
 
 function createSurveyFilters(filters) {
   const answerFilters = getAnswersFromFilters(filters);
-  let surveyFilters = {
+  const surveyFilters = {
     survey_ids: filters.survey.id,
     people: {
       organization_ids: filters.organization.id,
@@ -84,11 +84,7 @@ function createSurveyFilters(filters) {
   if (filters.unassigned) {
     surveyFilters.people.assigned_tos = 'unassigned';
   }
-  if (filters.archived) {
-    surveyFilters.people.include_archived = true;
-  } else {
-    surveyFilters.people.include_archived = false;
-  }
+  surveyFilters.people.include_archived = !!filters.archived;
   if (filters.labels) {
     surveyFilters.people.label_ids = filters.labels.id;
   }
@@ -115,7 +111,6 @@ function getAnswersFromFilters(filters) {
 }
 
 export function getSurveyQuestions(surveyId) {
-  return async dispatch => {
-    return await dispatch(callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }));
-  };
+  return async dispatch =>
+    await dispatch(callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }));
 }

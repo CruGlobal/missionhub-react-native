@@ -8,6 +8,7 @@ import {
   getMySurveys,
   getOrgSurveys,
   getOrgSurveysNextPage,
+  searchSurveyContacts,
   getSurveyQuestions,
 } from '../../src/actions/surveys';
 import { GET_ORGANIZATION_SURVEYS } from '../../src/constants';
@@ -131,6 +132,55 @@ describe('getOrgSurveysNextPage', () => {
 
     await store.dispatch(getOrgSurveysNextPage(orgId));
     expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
+  });
+});
+
+describe('searchSurveyContacts', () => {
+  const filters = {
+    survey: { id: '12345' },
+    organization: { id: '45678' },
+    '123': { id: '123', text: '123Text', isAnswer: true },
+    '456': { id: '456', text: '456Text', isAnswer: true },
+    gender: { id: 'Female' },
+    uncontacted: true,
+    unassigned: true,
+    archived: true,
+    labels: { id: '333' },
+    groups: { id: '444' },
+  };
+  const query = {
+    filters: {
+      survey_ids: filters.survey.id,
+      people: {
+        organization_ids: filters.organization.id,
+        genders: filters.gender.id,
+        statuses: 'uncontacted',
+        assigned_tos: 'unassigned',
+        include_archived: true,
+        label_ids: filters.labels.id,
+        group_ids: filters.groups.id,
+      },
+      answers: {
+        '123': { '': filters['123'].text },
+        '456': { '': filters['456'].text },
+      },
+    },
+  };
+  const searchResponse = { type: 'success' };
+
+  it('calls API for filtered answer sheets', async () => {
+    store = configureStore([thunk])();
+
+    mockFnWithParams(
+      api,
+      'default',
+      searchResponse,
+      REQUESTS.GET_ANSWER_SHEETS,
+      query,
+    );
+
+    await store.dispatch(searchSurveyContacts('text', filters));
+    expect(store.getActions()).toEqual([searchResponse]);
   });
 });
 
