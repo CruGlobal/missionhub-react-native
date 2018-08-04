@@ -1,23 +1,23 @@
 import React from 'react';
 
-import { navigatePush } from '../../../../actions/navigation';
-import { trackSearchFilter } from '../../../../actions/analytics';
-import { buildTrackingObj } from '../../../../utils/common';
-import SurveyQuestionsFilterScreen from '../';
-import { SEARCH_REFINE_SCREEN } from '../../../SearchPeopleFilterRefineScreen';
+import { navigatePush } from '../../../src/actions/navigation';
+import { trackSearchFilter } from '../../../src/actions/analytics';
+import { buildTrackingObj } from '../../../src/utils/common';
+import SurveyQuestionsFilterScreen from '../../../src/containers/Groups/SurveyQuestionsFilter';
+import { SEARCH_REFINE_SCREEN } from '../../../src/containers/SearchPeopleFilterRefineScreen';
 import {
   testSnapshotShallow,
   renderShallow,
   createMockNavState,
-} from '../../../../../testUtils';
+} from '../../../testUtils';
 
-jest.mock('../../../../actions/navigation', () => ({
+jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigate success' }),
 }));
-jest.mock('../../../../actions/analytics', () => ({
+jest.mock('../../../src/actions/analytics', () => ({
   trackSearchFilter: jest.fn().mockReturnValue({ type: 'track success' }),
 }));
-jest.mock('../../../../utils/common');
+jest.mock('../../../src/utils/common');
 
 const options = [
   {
