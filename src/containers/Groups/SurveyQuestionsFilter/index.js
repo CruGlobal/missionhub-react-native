@@ -29,28 +29,26 @@ export class SurveyQuestionsFilterScreen extends Component {
   }
 
   handleDrillDown = item => {
+    const { id, options } = item;
+    const { filters } = this.state;
     // Pull the options from the props that were not loaded when this was initialized
-    const options =
-      (isString(item.options) && this.props[item.options]) || item.options;
     this.props.dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
         title: this.props.t('titleAnswers'),
-        options,
-        filters: this.state.filters.answers
-          ? this.state.filters.answers[item.id] || {}
-          : {},
+        options: (isString(options) && this.props[options]) || options,
+        filters: (filters.answers && filters.answers[id]) || {},
         trackingObj: buildTrackingObj(
-          `search : refine : ${item.id}`,
+          `search : refine : ${id}`,
           'search',
           'refine',
-          item.id,
+          id,
         ),
       }),
     );
-    this.setState({ selectedFilterId: item.id });
+    this.setState({ selectedFilterId: id });
 
-    this.props.dispatch(trackSearchFilter(item.id));
+    this.props.dispatch(trackSearchFilter(id));
   };
 
   handleSelectFilter = item => {

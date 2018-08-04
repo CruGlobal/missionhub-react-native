@@ -9,6 +9,7 @@ import {
 } from '../../../testUtils';
 import { navigatePush } from '../../../src/actions/navigation';
 import { navToPersonScreen } from '../../../src/actions/person';
+import * as surveys from '../../../src/actions/surveys';
 
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -16,12 +17,7 @@ jest.mock('../../../src/actions/navigation', () => ({
 jest.mock('../../../src/actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../src/actions/surveys', () => ({
-  searchSurveyContacts: jest.fn(() => ({
-    type: 'test',
-    findAll: () => [{ id: '1' }, { id: '2' }],
-  })),
-}));
+jest.mock('../../../src/actions/surveys');
 
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
@@ -70,6 +66,14 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleSearch correctly', async () => {
+    const searchReturnValue = {
+      response: [
+        { id: '1', person: people[0] },
+        { id: '2', person: people[1] },
+      ],
+    };
+    surveys.searchSurveyContacts.mockReturnValue(searchReturnValue);
+
     const instance = renderShallow(component, store).instance();
 
     const result = await instance.handleSearch('test');

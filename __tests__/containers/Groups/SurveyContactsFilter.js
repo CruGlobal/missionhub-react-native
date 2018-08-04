@@ -16,7 +16,6 @@ jest.mock('../../../src/actions/navigation', () => ({
 
 const store = createMockStore({});
 const timeFilter30 = { id: 'time30', text: 'Last 30 days' };
-const timeFilter7 = { id: 'time7', text: 'Last 7 days' };
 const filters = {
   unassigned: {
     id: 'unassigned',
@@ -41,13 +40,6 @@ describe('SurveyContactsFilter', () => {
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
-  });
-
-  it('should setFilter correctly', () => {
-    const instance = renderShallow(component, store).instance();
-    instance.setFilter({ time: timeFilter7 });
-    expect(instance.state.filters.time).toMatchObject(timeFilter7);
-    expect(onFilter).toHaveBeenCalled();
   });
 
   it('should handleDrillDown correctly', async () => {

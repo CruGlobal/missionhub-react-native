@@ -22,6 +22,7 @@ class SurveyContacts extends Component {
     const { t } = props;
 
     this.state = {
+      //Default filters
       filters: {
         unassigned: {
           id: 'unassigned',
@@ -30,6 +31,7 @@ class SurveyContacts extends Component {
         },
         time: { id: 'time30', text: t('searchFilter:time30') },
       },
+      defaultResults: [],
     };
   }
 

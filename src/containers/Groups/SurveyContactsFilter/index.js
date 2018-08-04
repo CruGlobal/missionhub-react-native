@@ -65,38 +65,35 @@ export class SurveyContactsFilter extends Component {
   handleDrillDown = item => {
     // Pull the options from the props that were not loaded when this was initialized
     const options =
-      isString(item.options) && this.props[item.options]
-        ? this.props[item.options]
-        : item.options;
-    this.props.dispatch(
-      item.id === 'questions'
-        ? navigatePush(SEARCH_QUESTIONS_FILTER_SCREEN, {
-            onFilter: this.handleSelectQuestionFilters,
-            title: item.text,
-            options,
-            filters: this.state.filters.questions || {},
-            trackingObj: buildTrackingObj(
-              `search : refine : ${item.id}`,
-              'search',
-              'refine',
-              item.id,
-            ),
-          })
-        : navigatePush(SEARCH_REFINE_SCREEN, {
-            onFilter: this.handleSelectFilter,
-            title: item.text,
-            options,
-            filters: this.state.filters,
-            trackingObj: buildTrackingObj(
-              `search : refine : ${item.id}`,
-              'search',
-              'refine',
-              item.id,
-            ),
-          }),
-    );
-    this.setState({ selectedFilterId: item.id });
+      (isString(item.options) && this.props[item.options]) || item.options;
 
+    const isQuestion = item.id === 'questions';
+    const nextPage = isQuestion
+      ? SEARCH_QUESTIONS_FILTER_SCREEN
+      : SEARCH_REFINE_SCREEN;
+    const onFilter = isQuestion
+      ? this.handleSelectQuestionFilters
+      : this.handleSelectFilter;
+    const filters = isQuestion
+      ? this.state.filters.questions || {}
+      : this.state.filters;
+
+    this.props.dispatch(
+      navigatePush(nextPage, {
+        onFilter,
+        title: item.text,
+        options,
+        filters,
+        trackingObj: buildTrackingObj(
+          `search : refine : ${item.id}`,
+          'search',
+          'refine',
+          item.id,
+        ),
+      }),
+    );
+
+    this.setState({ selectedFilterId: item.id });
     this.props.dispatch(trackSearchFilter(item.id));
   };
 

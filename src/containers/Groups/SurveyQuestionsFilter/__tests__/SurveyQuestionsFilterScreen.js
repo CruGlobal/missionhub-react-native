@@ -3,7 +3,7 @@ import React from 'react';
 import { navigatePush } from '../../../../actions/navigation';
 import { trackSearchFilter } from '../../../../actions/analytics';
 import { buildTrackingObj } from '../../../../utils/common';
-import SurveyQuestionsFilterScreen from '../SurveyQuestionsFilterScreen';
+import SurveyQuestionsFilterScreen from '../';
 import { SEARCH_REFINE_SCREEN } from '../../../SearchPeopleFilterRefineScreen';
 import {
   testSnapshotShallow,
@@ -64,26 +64,6 @@ describe('SurveyQuestionsFilterScreen', () => {
     instance = component.instance();
   });
 
-  describe('setFilter', () => {
-    const newFilter = {
-      id: options[0].id,
-      text: options[0].options[0].text,
-      answer: options[0].options[0],
-    };
-
-    it('sets question as new filter', () => {
-      instance.setFilter(newFilter);
-
-      expect(instance.state).toEqual({
-        filters: newFilter,
-        options,
-        selectedFilterId: '',
-        refreshing: false,
-      });
-      expect(instance.props.onFilter).toHaveBeenCalled();
-    });
-  });
-
   describe('handleDrillDown', () => {
     it('handles drilldown to answer options', () => {
       const item = options[0];
@@ -111,7 +91,6 @@ describe('SurveyQuestionsFilterScreen', () => {
     const item = selected.options[0];
 
     it('selects new filter', () => {
-      instance.setFilter = jest.fn();
       instance.setState({ selectedFilterId: selected.id });
 
       const expectedNewOptions = [
@@ -133,12 +112,11 @@ describe('SurveyQuestionsFilterScreen', () => {
       instance.handleSelectFilter(item);
 
       expect(instance.state).toEqual({
-        filters: {},
+        filters: expectedNewFilter,
         options: expectedNewOptions,
         selectedFilterId: selected.id,
         refreshing: false,
       });
-      expect(instance.setFilter).toHaveBeenCalledWith(expectedNewFilter);
     });
   });
 });
