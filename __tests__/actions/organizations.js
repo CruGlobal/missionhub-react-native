@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  LOAD_ORGANIZATIONS,
 } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';
 import * as api from '../../src/actions/api';
@@ -17,29 +18,55 @@ import {
 
 jest.mock('../../src/selectors/organizations');
 
+const mockStore = configureStore([thunk]);
 let store;
-const apiResponse = { type: 'successful' };
+const auth = { person: { user: {} } };
 
-beforeEach(() => (store = configureStore([thunk])()));
+beforeEach(() => (store = mockStore({ auth })));
 
 describe('getMyOrganizations', () => {
   const query = {
     limit: 100,
     include: '',
   };
+  const org1 = { id: '1' };
+  const org2 = { id: '2' };
+  const org3 = { id: '3' };
+  const org4 = { id: '4' };
+  const orgs = [org1, org2, org3, org4];
+  mockFnWithParams(
+    api,
+    'default',
+    () => Promise.resolve({ response: orgs }),
+    REQUESTS.GET_ORGANIZATIONS,
+    query,
+  );
 
-  it('should get my organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
-      REQUESTS.GET_ORGANIZATIONS,
-      query,
-    );
+  it('should get my organizations', async () => {
+    await store.dispatch(getMyOrganizations());
 
-    store.dispatch(getMyOrganizations());
+    expect(store.getActions()).toEqual([
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org1, org2, org3, org4],
+      },
+    ]);
+  });
 
-    expect(store.getActions()).toEqual([apiResponse]);
+  it('should sort by user order when specified', async () => {
+    store = mockStore({
+      auth: {
+        person: {
+          user: { organization_order: [org3.id, org2.id, org4.id, org1.id] },
+        },
+      },
+    });
+
+    await store.dispatch(getMyOrganizations());
+
+    expect(store.getActions()).toEqual([
+      { type: LOAD_ORGANIZATIONS, orgs: [org3, org2, org4, org1] },
+    ]);
   });
 });
 
