@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import Header from '../../Header';
 import FilterList from '../../../components/FilterList';
 import { buildTrackingObj, isString } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
-import BackButton from '../../BackButton';
-
-import styles from './styles';
 
 @translate('searchFilter')
 export class SurveyQuestionsFilterScreen extends Component {

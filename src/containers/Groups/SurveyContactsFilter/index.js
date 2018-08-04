@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import { getSurveyQuestions } from '../../../actions/surveys';
-import Header from '../../Header';
 import {
   buildTrackingObj,
   isString,
@@ -16,11 +15,8 @@ import {
 } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
-import BackButton from '../../BackButton';
 import FilterList from '../../../components/FilterList';
 import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
-
-import styles from './styles';
 
 @translate('searchFilter')
 export class SurveyContactsFilter extends Component {
