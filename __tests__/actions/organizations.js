@@ -35,7 +35,9 @@ describe('getMyOrganizations', () => {
   const org4 = { id: '4' };
   const org5 = { id: '5' };
   const org6 = { id: '6' };
-  const orgs = [org1, org2, org3, org4, org5, org6];
+  const org7 = { id: '7' };
+  const org8 = { id: '8' };
+  const orgs = [org1, org2, org3, org4, org5, org6, org7, org8];
 
   mockFnWithParams(
     api,
@@ -51,7 +53,7 @@ describe('getMyOrganizations', () => {
     expect(store.getActions()).toEqual([
       {
         type: LOAD_ORGANIZATIONS,
-        orgs: [org1, org2, org3, org4, org5, org6],
+        orgs: [org1, org2, org3, org4, org5, org6, org7, org8],
       },
     ]);
   });
@@ -60,7 +62,7 @@ describe('getMyOrganizations', () => {
     store = mockStore({
       auth: {
         person: {
-          user: { organization_order: [org3.id, org2.id, org4.id, org1.id] },
+          user: { organization_order: [org5.id, org4.id, org6.id, org3.id] },
         },
       },
     });
@@ -68,7 +70,10 @@ describe('getMyOrganizations', () => {
     await store.dispatch(getMyOrganizations());
 
     expect(store.getActions()).toEqual([
-      { type: LOAD_ORGANIZATIONS, orgs: [org3, org2, org4, org1, org5, org6] },
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
+      },
     ]);
   });
 });
