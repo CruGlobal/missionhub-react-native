@@ -263,8 +263,10 @@ export const searchSelectFilter = (scope, item) => {
   if (item.id === 'any') {
     delete newFilters[selectedFilterId];
   }
-  scope.setState({ options: newOptions });
-  scope.setFilter(newFilters);
+  scope.setState({ options: newOptions, filters: newFilters });
+  if (scope.props.onFilter) {
+    scope.props.onFilter(newFilters);
+  }
 };
 
 export const searchRemoveFilter = async (
