@@ -1,6 +1,7 @@
 import organizations from '../../src/reducers/organizations';
 import { REQUESTS } from '../../src/actions/api';
 import {
+  LOAD_ORGANIZATIONS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
@@ -26,6 +27,15 @@ const reports = [
     uncontactedCount: 14,
   },
 ];
+
+it('should save loaded orgs', () => {
+  expect(
+    organizations(undefined, {
+      type: LOAD_ORGANIZATIONS,
+      orgs: [{ id: org1Id }, { id: org2Id }],
+    }),
+  ).toMatchSnapshot();
+});
 
 it('should load contact reports for all organizations', () => {
   const state = organizations(initialState, {

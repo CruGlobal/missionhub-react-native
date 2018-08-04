@@ -26,3 +26,24 @@ Object {
   ],
 }
 `;
+
+exports[`should save loaded orgs 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "id": "123",
+    },
+    Object {
+      "id": "234",
+    },
+  ],
+  "membersPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
+  "surveysPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
+}
+`;
