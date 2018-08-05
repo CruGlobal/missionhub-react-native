@@ -48,7 +48,7 @@ export function getOrganizationsContactReports() {
   };
 }
 
-export function getOrganizationContacts(orgId, filters = {}) {
+export function getOrganizationContacts(orgId, name, filters = {}) {
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -57,6 +57,9 @@ export function getOrganizationContacts(orgId, filters = {}) {
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
+  if (name) {
+    query.filters.name = name;
+  }
   if (filters.gender) {
     query.filters.genders = filters.gender.id;
   }

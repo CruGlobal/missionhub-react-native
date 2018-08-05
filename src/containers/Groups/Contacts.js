@@ -72,7 +72,9 @@ class Contacts extends Component {
     const { dispatch, organization } = this.props;
     const { filters } = this.state;
 
-    return await dispatch(getOrganizationContacts(organization.id, filters));
+    return await dispatch(
+      getOrganizationContacts(organization.id, text, filters),
+    );
   };
 
   handleSelect = person => {
