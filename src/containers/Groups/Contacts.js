@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchPeople } from '../../actions/people';
+import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
@@ -71,14 +71,8 @@ class Contacts extends Component {
   handleSearch = async text => {
     const { dispatch, organization } = this.props;
     const { filters } = this.state;
-    const searchFilters = {
-      ...filters,
-      ministry: { id: organization.id },
-    };
 
-    const results = await dispatch(searchPeople(text, searchFilters));
-    // Get the results from the search endpoint
-    return results.findAll('person') || [];
+    return await dispatch(getOrganizationContacts(organization.id, filters));
   };
 
   handleSelect = person => {
