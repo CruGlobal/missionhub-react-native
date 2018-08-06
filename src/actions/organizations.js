@@ -69,6 +69,9 @@ export function getOrganizationContacts(orgId, name, filters = {}) {
   if (filters.unassigned) {
     query.filters.assigned_tos = 'unassigned';
   }
+  if (filters.uncontacted) {
+    query.filters.statuses = 'uncontacted';
+  }
   if (filters.labels) {
     query.filters.label_ids = filters.labels.id;
   }
