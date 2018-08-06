@@ -16,11 +16,8 @@ jest.mock('../../../src/actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
 
-jest.mock('../../../src/actions/people', () => ({
-  searchPeople: jest.fn(() => ({
-    type: 'test',
-    findAll: () => [{ id: '1' }, { id: '2' }],
-  })),
+jest.mock('../../../src/actions/organizations', () => ({
+  getOrganizationContacts: jest.fn(() => [{ id: '1' }, { id: '2' }]),
 }));
 
 const people = [{ id: '1' }, { id: '2' }];
