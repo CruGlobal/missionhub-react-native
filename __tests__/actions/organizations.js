@@ -2,113 +2,79 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  LOAD_ORGANIZATIONS,
 } from '../../src/constants';
 import { mockFnWithParams } from '../../testUtils';
 import * as api from '../../src/actions/api';
 import { REQUESTS } from '../../src/actions/api';
 import {
-  getAssignedOrganizations,
   getMyOrganizations,
-  getOrganizationContacts,
   getOrganizationsContactReports,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../src/actions/organizations';
 
-let store;
-const apiResponse = { type: 'successful' };
+jest.mock('../../src/selectors/organizations');
 
-beforeEach(() => (store = configureStore([thunk])()));
+const mockStore = configureStore([thunk]);
+let store;
+const auth = { person: { user: {} } };
+
+beforeEach(() => (store = mockStore({ auth })));
 
 describe('getMyOrganizations', () => {
   const query = {
     limit: 100,
     include: '',
   };
+  const org1 = { id: '1' };
+  const org2 = { id: '2' };
+  const org3 = { id: '3' };
+  const org4 = { id: '4' };
+  const org5 = { id: '5' };
+  const org6 = { id: '6' };
+  const org7 = { id: '7' };
+  const org8 = { id: '8' };
+  const orgs = [org1, org2, org3, org4, org5, org6, org7, org8];
 
-  it('should get my organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
-      REQUESTS.GET_MY_ORGANIZATIONS,
-      query,
-    );
+  mockFnWithParams(
+    api,
+    'default',
+    () => Promise.resolve({ response: orgs }),
+    REQUESTS.GET_ORGANIZATIONS,
+    query,
+  );
 
-    store.dispatch(getMyOrganizations());
+  it('should get my organizations', async () => {
+    await store.dispatch(getMyOrganizations());
 
-    expect(store.getActions()).toEqual([apiResponse]);
+    expect(store.getActions()).toEqual([
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org1, org2, org3, org4, org5, org6, org7, org8],
+      },
+    ]);
   });
-});
 
-describe('getAssignedOrganizations', () => {
-  const query = {
-    limit: 100,
-    include: '',
-    filters: {
-      assigned_tos: 'me',
-    },
-  };
+  it('should sort by user order when specified', async () => {
+    store = mockStore({
+      auth: {
+        person: {
+          user: { organization_order: [org5.id, org4.id, org6.id, org3.id] },
+        },
+      },
+    });
 
-  it('should get my assigned organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
-      REQUESTS.GET_ORGANIZATIONS,
-      query,
-    );
+    await store.dispatch(getMyOrganizations());
 
-    store.dispatch(getAssignedOrganizations());
-
-    expect(store.getActions()).toEqual([apiResponse]);
-  });
-});
-
-describe('getOrganizationContacts', () => {
-  const orgId = '123';
-  const query = {
-    filters: {
-      permissions: 'no_permission',
-      organization_ids: orgId,
-    },
-    include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
-  };
-  const contacts = [
-    {
-      name: 'person',
-      id: '1',
-    },
-    {
-      name: 'person',
-      id: '2',
-    },
-  ];
-  const peopleListResponse = {
-    type: 'successful',
-    response: contacts,
-  };
-  const getContactsAction = {
-    type: GET_ORGANIZATION_CONTACTS,
-    contacts,
-    orgId,
-  };
-
-  it('should get contacts in organization', async () => {
-    mockFnWithParams(
-      api,
-      'default',
-      peopleListResponse,
-      REQUESTS.GET_PEOPLE_LIST,
-      query,
-    );
-
-    await store.dispatch(getOrganizationContacts(orgId));
-    expect(store.getActions()).toEqual([peopleListResponse, getContactsAction]);
+    expect(store.getActions()).toEqual([
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
+      },
+    ]);
   });
 });
 

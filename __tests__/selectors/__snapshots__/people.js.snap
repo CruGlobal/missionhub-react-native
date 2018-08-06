@@ -26,6 +26,90 @@ Object {
 }
 `;
 
+exports[`peopleByOrgSelector should sort by user order 1`] = `
+Array [
+  Object {
+    "id": "personal",
+    "people": Array [
+      Object {
+        "first_name": "ME",
+        "id": "23",
+        "last_name": "Lname",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "22",
+        "last_name": "Lname1",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "21",
+        "last_name": "Lname2",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname2",
+        "id": "20",
+        "last_name": "Lname",
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "100",
+    "name": "Org2",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "30",
+        "last_name": "Lname2",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "31",
+        "last_name": "Lname3",
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "150",
+    "people": Array [
+      Object {
+        "first_name": "Fname4",
+        "id": "33",
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "200",
+    "name": "Org1",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+]
+`;
+
 exports[`peopleByOrgSelector should take the allByOrg object and transform it to sorted arrays 1`] = `
 Array [
   Object {
