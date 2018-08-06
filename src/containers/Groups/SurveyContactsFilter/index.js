@@ -27,7 +27,6 @@ export class SurveyContactsFilter extends Component {
     const { options, toggleOptions } = createFilterOptions(t, filters);
 
     this.state = {
-      filters,
       options,
       toggleOptions,
       selectedFilterId: '',
@@ -41,21 +40,15 @@ export class SurveyContactsFilter extends Component {
   }
 
   async loadQuestions() {
-    const { dispatch, survey } = this.props;
-    const { response: questions } = await dispatch(
-      getSurveyQuestions(survey.id),
-    );
-    this.createFilters(questions);
+    const { t, dispatch, survey, filters } = this.props;
+    const response = await dispatch(getSurveyQuestions(survey.id));
+    this.setState(this.createFilterOptions(t, filters, response));
   }
 
-  createFilters(questions) {
+  createOptions(questions = []) {
     const { t, filters } = this.props;
-    const { options, toggleOptions } = createFilterOptions(
-      t,
-      filters,
-      questions,
-    );
-    this.setState({ filters, options, toggleOptions });
+    const { options, toggleOptions } = getFilterOptions(t, filters, questions);
+    this.setState({ options, toggleOptions });
   }
 
   handleDrillDown = item => {
