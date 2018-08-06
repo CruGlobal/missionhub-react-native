@@ -96,6 +96,9 @@ export function searchPeople(text = '', filters = {}) {
     if (filters.surveys) {
       query.filters.survey_ids = filters.surveys.id;
     }
+    if (filters.permission_ids) {
+      query.filters.permission_ids = filters.permission_ids;
+    }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
   };

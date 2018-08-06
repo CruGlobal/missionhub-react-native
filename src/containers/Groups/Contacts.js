@@ -10,6 +10,7 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
+import { ORG_PERMISSIONS } from '../../constants';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -67,13 +68,13 @@ class Contacts extends Component {
       }
     });
   };
-
   handleSearch = async text => {
     const { dispatch, organization } = this.props;
     const { filters } = this.state;
     const searchFilters = {
       ...filters,
       ministry: { id: organization.id },
+      permission_ids: ORG_PERMISSIONS.CONTACT,
     };
 
     const results = await dispatch(searchPeople(text, searchFilters));
