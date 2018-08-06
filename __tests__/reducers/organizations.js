@@ -1,7 +1,7 @@
 import organizations from '../../src/reducers/organizations';
 import { REQUESTS } from '../../src/actions/api';
 import {
-  GET_ORGANIZATION_CONTACTS,
+  LOAD_ORGANIZATIONS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
@@ -12,14 +12,6 @@ const org2Id = '234';
 const initialState = {
   all: [{ id: org1Id, name: 'test org 1' }, { id: org2Id, name: 'test org 2' }],
 };
-const contacts = [
-  {
-    id: '1',
-  },
-  {
-    id: '2',
-  },
-];
 
 const reports = [
   {
@@ -36,14 +28,13 @@ const reports = [
   },
 ];
 
-it('should load contacts to an organization', () => {
-  const state = organizations(initialState, {
-    type: GET_ORGANIZATION_CONTACTS,
-    contacts,
-    orgId: org1Id,
-  });
-
-  expect(state).toMatchSnapshot();
+it('should save loaded orgs', () => {
+  expect(
+    organizations(undefined, {
+      type: LOAD_ORGANIZATIONS,
+      orgs: [{ id: org1Id }, { id: org2Id }],
+    }),
+  ).toMatchSnapshot();
 });
 
 it('should load contact reports for all organizations', () => {

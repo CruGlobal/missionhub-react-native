@@ -71,7 +71,8 @@ export function searchPeople(text = '', filters = {}) {
         person: 'first_name,last_name',
         organization: 'name',
       },
-      include: 'organizational_permissions.organization',
+      include:
+        'organizational_permissions.organization,reverse_contact_assignments',
       filters: {},
     };
     if (filters.ministry) {
@@ -94,6 +95,9 @@ export function searchPeople(text = '', filters = {}) {
     }
     if (filters.surveys) {
       query.filters.survey_ids = filters.surveys.id;
+    }
+    if (filters.permission_ids) {
+      query.filters.permission_ids = filters.permission_ids;
     }
 
     return dispatch(callApi(REQUESTS.SEARCH, query));
