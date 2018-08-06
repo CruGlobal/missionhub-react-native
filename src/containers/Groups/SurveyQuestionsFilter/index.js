@@ -10,7 +10,7 @@ import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 
 @translate('searchFilter')
-export class SurveyQuestionsFilterScreen extends Component {
+export class SurveyQuestionsFilter extends Component {
   constructor(props) {
     super(props);
     const { filters, options } = props;
@@ -24,13 +24,14 @@ export class SurveyQuestionsFilterScreen extends Component {
   }
 
   handleDrillDown = item => {
+    const { dispatch, t } = this.props;
     const { id, options } = item;
     const { filters } = this.state;
     // Pull the options from the props that were not loaded when this was initialized
-    this.props.dispatch(
+    dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
-        title: this.props.t('titleAnswers'),
+        title: t('titleAnswers'),
         options: (isString(options) && this.props[options]) || options,
         filters: (filters.answers && filters.answers[id]) || {},
         trackingObj: buildTrackingObj(
@@ -80,7 +81,7 @@ export class SurveyQuestionsFilterScreen extends Component {
   }
 }
 
-SurveyQuestionsFilterScreen.propTypes = {
+SurveyQuestionsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
   filters: PropTypes.object.isRequired,
@@ -90,5 +91,5 @@ const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(SurveyQuestionsFilterScreen);
+export default connect(mapStateToProps)(SurveyQuestionsFilter);
 export const SEARCH_QUESTIONS_FILTER_SCREEN = 'nav/SEARCH_QUESTIONS_FILTER';

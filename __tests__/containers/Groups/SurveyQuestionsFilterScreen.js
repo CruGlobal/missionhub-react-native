@@ -3,7 +3,7 @@ import React from 'react';
 import { navigatePush } from '../../../src/actions/navigation';
 import { trackSearchFilter } from '../../../src/actions/analytics';
 import { buildTrackingObj } from '../../../src/utils/common';
-import SurveyQuestionsFilterScreen from '../../../src/containers/Groups/SurveyQuestionsFilter';
+import SurveyQuestionsFilter from '../../../src/containers/Groups/SurveyQuestionsFilter';
 import { SEARCH_REFINE_SCREEN } from '../../../src/containers/SearchPeopleFilterRefineScreen';
 import {
   testSnapshotShallow,
@@ -47,19 +47,16 @@ const nav = createMockNavState({
 });
 
 it('renders correctly', () => {
-  testSnapshotShallow(<SurveyQuestionsFilterScreen navigation={nav} />);
+  testSnapshotShallow(<SurveyQuestionsFilter navigation={nav} />);
 });
 
-describe('SurveyQuestionsFilterScreen', () => {
+describe('SurveyQuestionsFilter', () => {
   let component;
   let instance;
 
   beforeEach(() => {
     component = renderShallow(
-      <SurveyQuestionsFilterScreen
-        navigation={nav}
-        dispatch={() => jest.fn()}
-      />,
+      <SurveyQuestionsFilter navigation={nav} dispatch={() => jest.fn()} />,
     );
     instance = component.instance();
   });
