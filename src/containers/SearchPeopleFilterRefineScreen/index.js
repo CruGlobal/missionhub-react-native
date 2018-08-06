@@ -59,8 +59,6 @@ export class SearchPeopleFilterRefineScreen extends Component {
 
       this.props.dispatch(trackSearchFilter(item.id));
     } else {
-      const newOptions = setSelected(this.state.options, item.id);
-      this.setState({ options: newOptions });
       this.props.onFilter(item);
     }
   }
