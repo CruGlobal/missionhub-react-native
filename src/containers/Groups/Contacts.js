@@ -10,7 +10,6 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
-import { organizationSelector } from '../../selectors/organizations';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -30,14 +29,20 @@ class Contacts extends Component {
         },
         time: { id: 'time30', text: t('searchFilter:time30') },
       },
+      defaultResults: [],
     };
   }
 
   componentDidMount() {
     // TODO: Only do this when this tab is focused to improve performance
     // Use the default filters to load in these people
-    this.handleSearch('');
+    this.loadContactsWithFilters();
   }
+
+  loadContactsWithFilters = async () => {
+    const contacts = await this.handleSearch('');
+    this.setState({ defaultResults: contacts });
+  };
 
   handleRemoveFilter = key => {
     return searchRemoveFilter(this, key, ['unassigned', 'time']);
@@ -78,13 +83,13 @@ class Contacts extends Component {
   };
 
   render() {
-    const { t, organization, contacts } = this.props;
-    const { filters } = this.state;
+    const { t, organization } = this.props;
+    const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
         <SearchList
           ref={c => (this.searchList = c)}
-          defaultData={contacts}
+          defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
             renderItem: ({ item }) => (
@@ -109,14 +114,4 @@ Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization }) => {
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
-  return {
-    contacts: (selectorOrg || {}).contacts || [],
-  };
-};
-
-export default connect(mapStateToProps)(Contacts);
+export default connect()(Contacts);
