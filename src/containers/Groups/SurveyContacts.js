@@ -61,13 +61,8 @@ class SurveyContacts extends Component {
     );
   };
 
-  handleChangeFilter = filter => {
-    const newFilters = { ...this.state.filters, filter };
-    if (filter.id === 'any') {
-      delete newFilters[filter.id];
-    }
-
-    this.setState({ filters: newFilters }, () => {
+  handleChangeFilter = filters => {
+    this.setState({ filters }, () => {
       // Run the search every time a filter option changes
       if (this.searchList && this.searchList.getWrappedInstance) {
         this.searchList.getWrappedInstance().search();
