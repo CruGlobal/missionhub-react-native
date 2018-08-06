@@ -13,15 +13,20 @@ import { trackSearchFilter } from '../../../actions/analytics';
 export class SurveyQuestionsFilter extends Component {
   constructor(props) {
     super(props);
+    const { filters, options } = props;
 
     this.state = {
+      filters,
+      options,
       selectedFilterId: '',
+      refreshing: false,
     };
   }
 
   handleDrillDown = item => {
-    const { dispatch, t, filters } = this.props;
+    const { dispatch, t } = this.props;
     const { id, options } = item;
+    const { filters } = this.state;
     // Pull the options from the props that were not loaded when this was initialized
     dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
@@ -43,8 +48,7 @@ export class SurveyQuestionsFilter extends Component {
   };
 
   handleSelectFilter = item => {
-    const { filters, options } = this.props;
-    const { selectedFilterId } = this.state;
+    const { options, selectedFilterId, filters } = this.state;
     const newOptions = options.map(o => ({
       ...o,
       preview: o.id === selectedFilterId ? item.text : o.preview,
@@ -65,7 +69,8 @@ export class SurveyQuestionsFilter extends Component {
   };
 
   render() {
-    const { t, options } = this.props;
+    const { t } = this.props;
+    const { options } = this.state;
     return (
       <FilterList
         onDrillDown={this.handleDrillDown}
