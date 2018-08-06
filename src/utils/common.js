@@ -238,16 +238,16 @@ export const searchHandleToggle = (scope, item) => {
   if (!item) {
     return;
   }
-  let newFilter = { ...filters };
+  let newFilters = { ...filters };
   const field = item.id;
   const newValue = !item.selected;
-  newFilter[field] = newValue ? { ...item, selected: true } : undefined;
+  newFilters[field] = newValue ? { ...item, selected: true } : undefined;
   const newToggleOptions = toggleOptions.map(o => ({
     ...o,
     selected: o.id === item.id ? newValue : o.selected,
   }));
-  scope.setState({ toggleOptions: newToggleOptions });
-  scope.setFilter(newFilter);
+  scope.setState({ toggleOptions: newToggleOptions, filters: newFilters });
+  scope.props.onFilter(newFilters);
 };
 
 export const searchSelectFilter = (scope, item) => {

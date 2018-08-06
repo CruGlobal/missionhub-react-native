@@ -109,7 +109,6 @@ describe('shuffleArray', () => {
 
 describe('searchHandleToggle', () => {
   const setState = jest.fn();
-  const setFilter = jest.fn();
   const scope = {
     state: {
       toggleOptions: [
@@ -118,8 +117,10 @@ describe('searchHandleToggle', () => {
       ],
       filters: { filter1: { id: 'filter1' } },
     },
+    props: {
+      onFilter: jest.fn(),
+    },
     setState,
-    setFilter,
   };
   const item = { id: 'option1', selected: false };
 
@@ -131,17 +132,16 @@ describe('searchHandleToggle', () => {
         { id: 'option1', selected: true },
         { id: 'option2', selected: true },
       ],
-    });
-    expect(setFilter).toHaveBeenCalledWith({
-      filter1: { id: 'filter1' },
-      option1: { id: 'option1', selected: true },
+      filters: {
+        filter1: { id: 'filter1' },
+        option1: { id: 'option1', selected: true },
+      },
     });
   });
 });
 
 describe('searchSelectFilter', () => {
   const setState = jest.fn();
-  const setFilter = jest.fn();
   const scope = {
     state: {
       options: [
@@ -155,7 +155,6 @@ describe('searchSelectFilter', () => {
       onFilter: jest.fn(),
     },
     setState,
-    setFilter,
   };
 
   it('sets the preview on the selected option', () => {

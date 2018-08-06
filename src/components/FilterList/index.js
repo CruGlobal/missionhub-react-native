@@ -28,7 +28,7 @@ export default class FilterList extends Component {
               <FilterItem
                 key={o.id}
                 item={o}
-                onSelect={this.handleDrillDown}
+                onSelect={() => this.handleDrillDown(o)}
                 type="drilldown"
               />
             ))}
@@ -37,7 +37,7 @@ export default class FilterList extends Component {
               <FilterItem
                 key={o.id}
                 item={o}
-                onSelect={this.handleToggle}
+                onSelect={() => this.handleToggle(o)}
                 type="switch"
                 isSelected={o.selected}
               />
