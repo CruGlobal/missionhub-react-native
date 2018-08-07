@@ -136,11 +136,13 @@ describe('getOrgSurveysNextPage', () => {
 });
 
 describe('searchSurveyContacts', () => {
+  const question1 = { id: '123', text: '123Text', isAnswer: true };
+  const question2 = { id: '456', text: '456Text', isAnswer: true };
   const filters = {
     survey: { id: '12345' },
     organization: { id: '45678' },
-    '123': { id: '123', text: '123Text', isAnswer: true },
-    '456': { id: '456', text: '456Text', isAnswer: true },
+    [question1.id]: question1,
+    [question1.id]: question2,
     gender: { id: 'Female' },
     uncontacted: true,
     unassigned: true,
@@ -152,6 +154,7 @@ describe('searchSurveyContacts', () => {
     filters: {
       survey_ids: filters.survey.id,
       people: {
+        name: 'text',
         organization_ids: filters.organization.id,
         genders: filters.gender.id,
         statuses: 'uncontacted',
@@ -161,12 +164,12 @@ describe('searchSurveyContacts', () => {
         group_ids: filters.groups.id,
       },
       answers: {
-        '123': { '': filters['123'].text },
-        '456': { '': filters['456'].text },
+        [question1.id]: { '': question1.text },
+        [question2.id]: { '': question2.text },
       },
     },
+    include: 'person.reverse_contact_assignments',
   };
-  const searchResponse = { type: 'success' };
 
   it('calls API for filtered answer sheets', async () => {
     store = configureStore([thunk])();
@@ -174,22 +177,18 @@ describe('searchSurveyContacts', () => {
     mockFnWithParams(
       api,
       'default',
-      searchResponse,
+      apiResponse,
       REQUESTS.GET_ANSWER_SHEETS,
       query,
     );
 
     await store.dispatch(searchSurveyContacts('text', filters));
-    expect(store.getActions()).toEqual([searchResponse]);
+    expect(store.getActions()).toEqual([apiResponse]);
   });
 });
 
 describe('getSurveyQuestions', () => {
   const surveyId = '12345';
-  const questionsResponse = {
-    type: 'success',
-    response: [{ id: '123' }, { id: '456' }, { id: '789' }],
-  };
 
   it('gets survey questions', async () => {
     store = configureStore([thunk])();
@@ -197,12 +196,12 @@ describe('getSurveyQuestions', () => {
     mockFnWithParams(
       api,
       'default',
-      questionsResponse,
+      apiResponse,
       REQUESTS.GET_SURVEY_QUESTIONS,
       { surveyId },
     );
 
     await store.dispatch(getSurveyQuestions(surveyId));
-    expect(store.getActions()).toEqual([questionsResponse]);
+    expect(store.getActions()).toEqual([apiResponse]);
   });
 });

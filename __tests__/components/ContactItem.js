@@ -3,12 +3,12 @@ import React from 'react';
 import { renderShallow, testSnapshotShallow } from '../../testUtils';
 import ContactItem from '../../src/components/ContactItem';
 
+const organization = { id: '1', name: 'Test Org' };
 const contact = {
   id: '123',
   full_name: 'Full Name',
-  isAssigned: true,
+  reverse_contact_assignments: [{ organization }],
 };
-const organization = { id: '1', name: 'Test Org' };
 
 it('render assigned contact', () => {
   testSnapshotShallow(
@@ -25,7 +25,7 @@ it('render unassigned contact', () => {
     <ContactItem
       onSelect={jest.fn()}
       organization={organization}
-      contact={{ ...contact, isAssigned: false }}
+      contact={{ ...contact, reverse_contact_assignments: [] }}
     />,
   );
 });
