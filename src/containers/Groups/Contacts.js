@@ -46,9 +46,9 @@ class Contacts extends Component {
   }
 
   loadContactsWithFilters = async () => {
-    const { response } = await this.handleSearch('');
+    const contacts = await this.handleSearch('');
 
-    this.setState({ defaultResults: response });
+    this.setState({ defaultResults: contacts });
   };
 
   buildUpdatedPagination = meta => {
