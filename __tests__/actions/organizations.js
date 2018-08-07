@@ -155,7 +155,7 @@ describe('getOrganizationContacts', () => {
     },
     page: {
       limit: DEFAULT_PAGE_LIMIT,
-      offset: NaN,
+      offset: 0,
     },
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
@@ -165,7 +165,9 @@ describe('getOrganizationContacts', () => {
   it('searches for contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);
 
-    await store.dispatch(getOrganizationContacts(orgId, name, {}, filters));
+    await store.dispatch(
+      getOrganizationContacts(orgId, name, { page: 0, hasMore: true }, filters),
+    );
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
     expect(store.getActions()).toEqual([apiResponse]);
