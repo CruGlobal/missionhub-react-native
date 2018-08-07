@@ -5,6 +5,7 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   LOAD_ORGANIZATIONS,
+  DEFAULT_PAGE_LIMIT,
 } from '../../src/constants';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
@@ -152,6 +153,10 @@ describe('getOrganizationContacts', () => {
       label_ids: filters.labels.id,
       group_ids: filters.groups.id,
     },
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: NaN,
+    },
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
@@ -160,7 +165,7 @@ describe('getOrganizationContacts', () => {
   it('searches for contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);
 
-    await store.dispatch(getOrganizationContacts(orgId, name, filters));
+    await store.dispatch(getOrganizationContacts(orgId, name, {}, filters));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
     expect(store.getActions()).toEqual([apiResponse]);
