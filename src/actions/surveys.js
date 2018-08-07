@@ -49,21 +49,22 @@ export function getOrgSurveysNextPage(orgId) {
   };
 }
 
-export function searchSurveyContacts(text, filters = []) {
+export function searchSurveyContacts(name, filters = []) {
   return async dispatch => {
     if (!filters.survey) {
       return Promise.reject('No Survey Specified');
     }
 
     const query = {
-      filters: createSurveyFilters(filters),
+      include: 'person.reverse_contact_assignments',
+      filters: createSurveyFilters(name, filters),
     };
 
     return await dispatch(callApi(REQUESTS.GET_ANSWER_SHEETS, query));
   };
 }
 
-function createSurveyFilters(filters) {
+function createSurveyFilters(name, filters) {
   const answerFilters = getAnswersFromFilters(filters);
   const surveyFilters = {
     survey_ids: filters.survey.id,
@@ -71,6 +72,9 @@ function createSurveyFilters(filters) {
       organization_ids: filters.organization.id,
     },
   };
+  if (name) {
+    surveyFilters.people.name = name;
+  }
   if (answerFilters) {
     surveyFilters.answers = answerFilters;
   }

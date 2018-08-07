@@ -13,6 +13,12 @@ import * as common from '../../../src/utils/common';
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
+jest.mock('../../../src/actions/surveys', () => ({
+  getSurveyQuestions: jest.fn(() => ({
+    type: 'surveyQuestions',
+    response: [{ id: '1' }, { id: '2' }],
+  })),
+}));
 
 const store = createMockStore({});
 const timeFilter30 = { id: 'time30', text: 'Last 30 days' };
