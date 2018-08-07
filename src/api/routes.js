@@ -149,6 +149,9 @@ export default {
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
+  GET_SURVEY_QUESTIONS: {
+    endpoint: `${SURVEY_URL}/:surveyId/questions`,
+  },
   GET_SURVEYS: {
     endpoint: SURVEY_URL,
   },
@@ -209,5 +212,8 @@ export default {
   },
   GET_PERSON_NOTE: {
     endpoint: `${PEOPLE_URL}:person_id`,
+  },
+  GET_ANSWER_SHEETS: {
+    endpoint: `${API_URL}answer_sheets`,
   },
 };

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+  />
+  <ScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Translate(FilterItem)
+      item={
+        Object {
+          "id": "1",
+          "text": "option1",
+        }
+      }
+      key="1"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <Translate(FilterItem)
+      item={
+        Object {
+          "id": "2",
+          "text": "option 2",
+        }
+      }
+      key="2"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <Translate(FilterItem)
+      isSelected={true}
+      item={
+        Object {
+          "id": "3",
+          "selected": true,
+        }
+      }
+      key="3"
+      onSelect={[Function]}
+      type="switch"
+    />
+    <Translate(FilterItem)
+      isSelected={false}
+      item={
+        Object {
+          "id": "2",
+          "selected": false,
+        }
+      }
+      key="2"
+      onSelect={[Function]}
+      type="switch"
+    />
+  </ScrollView>
+</View>
+`;

@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchPeople } from '../../actions/people';
+import { searchSurveyContacts } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -22,8 +22,8 @@ class SurveyContacts extends Component {
     const { t } = props;
 
     this.state = {
+      //Default filters
       filters: {
-        // Default filters
         unassigned: {
           id: 'unassigned',
           selected: true,
@@ -75,12 +75,12 @@ class SurveyContacts extends Component {
     const { filters } = this.state;
     const searchFilters = {
       ...filters,
-      ministry: { id: organization.id },
-      surveys: { id: survey.id },
+      organization: { id: organization.id },
+      survey: { id: survey.id },
     };
-    const results = await dispatch(searchPeople(text, searchFilters));
+    const results = await dispatch(searchSurveyContacts(text, searchFilters));
     // Get the results from the search endpoint
-    return results.findAll('person') || [];
+    return results.response.map(a => a.person);
   };
 
   handleSelect = person => {

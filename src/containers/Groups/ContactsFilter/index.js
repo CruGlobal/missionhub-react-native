@@ -46,11 +46,6 @@ export class ContactsFilter extends Component {
     Keyboard.dismiss();
   }
 
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
-  }
-
   handleDrillDown = item => {
     // Pull the options from the props that were not loaded when this was initialized
     const options =

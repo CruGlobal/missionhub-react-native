@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<FilterList
+  onDrillDown={[Function]}
+  options={
+    Array [
+      Object {
+        "id": "1",
+        "options": Array [
+          Object {
+            "id": "1.1",
+            "text": "1.1",
+          },
+          Object {
+            "id": "1.2",
+            "text": "1.2",
+          },
+        ],
+        "preview": "any",
+        "text": "Question 1",
+      },
+      Object {
+        "id": "2",
+        "options": Array [
+          Object {
+            "id": "2.1",
+            "text": "2.1",
+          },
+          Object {
+            "id": "2.2",
+            "text": "2.2",
+          },
+        ],
+        "preview": "any",
+        "text": "Question 2",
+      },
+      Object {
+        "id": "3",
+        "options": Array [
+          Object {
+            "id": "3.1",
+            "text": "3.1",
+          },
+          Object {
+            "id": "3.2",
+            "text": "3.2",
+          },
+        ],
+        "preview": "any",
+        "text": "Question 3",
+      },
+    ]
+  }
+  title="Questions"
+/>
+`;

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
-import Header from '../../Header';
-import FilterItem from '../../../components/FilterItem';
+import { getSurveyQuestions } from '../../../actions/surveys';
 import {
   buildTrackingObj,
   isString,
@@ -16,17 +15,43 @@ import {
 } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
-import BackButton from '../../BackButton';
-
-import styles from './styles';
+import FilterList from '../../../components/FilterList';
+import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 
 @translate('searchFilter')
 export class SurveyContactsFilter extends Component {
   constructor(props) {
     super(props);
-    const { t, filters } = props;
+    const { filters } = props;
 
-    const filterOptions = getFilterOptions(t, filters);
+    const { options, toggleOptions } = this.createFilterOptions([]);
+
+    this.state = {
+      filters,
+      options,
+      toggleOptions,
+      selectedFilterId: '',
+    };
+  }
+
+  componentDidMount() {
+    // If we haven't requested any of this info, or none exists, go ahead and get it
+    Keyboard.dismiss();
+    this.loadQuestions();
+  }
+
+  async loadQuestions() {
+    const { dispatch, survey } = this.props;
+    const { response: questions } = await dispatch(
+      getSurveyQuestions(survey.id),
+    );
+    const { options, toggleOptions } = this.createFilterOptions(questions);
+    this.setState({ options, toggleOptions });
+  }
+
+  createFilterOptions(questions) {
+    const { t, filters } = this.props;
+    const filterOptions = getFilterOptions(t, filters, questions);
     const options = [
       filterOptions.questions,
       filterOptions.gender,
@@ -37,38 +62,31 @@ export class SurveyContactsFilter extends Component {
       filterOptions.unassigned,
       filterOptions.archived,
     ];
-
-    this.state = {
-      filters,
-      options,
-      toggleOptions,
-      selectedFilterId: '',
-    };
-  }
-
-  componentWillMount() {
-    // If we haven't requested any of this info, or none exists, go ahead and get it
-    Keyboard.dismiss();
-    // TODO: Load in survey questions/answers to be able to filter on
-  }
-
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
+    return { options, toggleOptions };
   }
 
   handleDrillDown = item => {
     // Pull the options from the props that were not loaded when this was initialized
     const options =
-      isString(item.options) && this.props[item.options]
-        ? this.props[item.options]
-        : item.options;
+      (isString(item.options) && this.props[item.options]) || item.options;
+
+    const isQuestion = item.id === 'questions';
+    const nextPage = isQuestion
+      ? SEARCH_QUESTIONS_FILTER_SCREEN
+      : SEARCH_REFINE_SCREEN;
+    const onFilter = isQuestion
+      ? this.handleSelectQuestionFilters
+      : this.handleSelectFilter;
+    const filters = isQuestion
+      ? this.state.filters.questions || {}
+      : this.state.filters;
+
     this.props.dispatch(
-      navigatePush(SEARCH_REFINE_SCREEN, {
-        onFilter: this.handleSelectFilter,
+      navigatePush(nextPage, {
+        onFilter,
         title: item.text,
         options,
-        filters: this.state.filters,
+        filters,
         trackingObj: buildTrackingObj(
           `search : refine : ${item.id}`,
           'search',
@@ -77,8 +95,8 @@ export class SurveyContactsFilter extends Component {
         ),
       }),
     );
-    this.setState({ selectedFilterId: item.id });
 
+    this.setState({ selectedFilterId: item.id });
     this.props.dispatch(trackSearchFilter(item.id));
   };
 
@@ -90,32 +108,48 @@ export class SurveyContactsFilter extends Component {
     searchSelectFilter(this, item);
   };
 
+  handleSelectQuestionFilters = item => {
+    const { options, selectedFilterId, filters } = this.state;
+    const { t } = this.props;
+    const itemKeys = Object.keys(item);
+    const filterKeys = Object.keys(filters);
+    const newOptions = options.map(o => ({
+      ...o,
+      preview:
+        o.id === selectedFilterId
+          ? itemKeys.length > 1
+            ? t('multiple')
+            : item[itemKeys[0]].text
+          : o.preview,
+    }));
+    //remove all existing answer filters,
+    //then add all answer filters from item
+    let newFilters = filters;
+    filterKeys.forEach(k => {
+      if (newFilters[k].isAnswer) {
+        delete newFilters[k];
+      }
+    });
+    newFilters = {
+      ...newFilters,
+      ...item,
+    };
+
+    this.setState({ options: newOptions, filters: newFilters });
+    this.props.onFilter(newFilters);
+  };
+
   render() {
     const { t } = this.props;
     const { options, toggleOptions } = this.state;
     return (
-      <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('titleSurvey')} />
-        <ScrollView style={{ flex: 1 }}>
-          {options.map(o => (
-            <FilterItem
-              key={o.id}
-              item={o}
-              onSelect={this.handleDrillDown}
-              type="drilldown"
-            />
-          ))}
-          {toggleOptions.map(o => (
-            <FilterItem
-              key={o.id}
-              item={o}
-              onSelect={this.handleToggle}
-              type="switch"
-              isSelected={o.selected}
-            />
-          ))}
-        </ScrollView>
-      </View>
+      <FilterList
+        onDrillDown={this.handleDrillDown}
+        onToggle={this.handleToggle}
+        options={options}
+        toggleOptions={toggleOptions}
+        title={t('titleSurvey')}
+      />
     );
   }
 }
