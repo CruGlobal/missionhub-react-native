@@ -1,7 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { mockFnWithParams } from '../../testUtils';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   getMySurveys,
