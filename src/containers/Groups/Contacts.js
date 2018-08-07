@@ -32,7 +32,8 @@ class Contacts extends Component {
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        time: { id: 'time30', text: t('searchFilter:time30') },
+        // TODO: temporarily remove this until the API supports it
+        // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };

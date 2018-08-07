@@ -27,7 +27,8 @@ export class ContactsFilter extends Component {
     const { t, filters } = props;
 
     const filterOptions = getFilterOptions(t, filters);
-    const options = [filterOptions.gender, filterOptions.time];
+    // TODO: temporarily remove "time" filter until the API supports it.
+    const options = [filterOptions.gender /*filterOptions.time*/];
     const toggleOptions = [
       filterOptions.uncontacted,
       filterOptions.unassigned,
