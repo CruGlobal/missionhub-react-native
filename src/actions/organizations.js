@@ -97,7 +97,6 @@ export function getOrganizationContacts(orgId, name, filters = {}) {
     const { response } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, query),
     );
-    dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
     return response;
   };
 }

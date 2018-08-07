@@ -10,7 +10,6 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
-import { ORG_PERMISSIONS } from '../../constants';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
