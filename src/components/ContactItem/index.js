@@ -12,9 +12,11 @@ class ContactItem extends Component {
     this.props.onSelect(this.props.contact);
   };
   render() {
-    const { contact, t } = this.props;
-    // TODO: Figure out how someone is assigned/unassigned
-    const isAssigned = false;
+    const { contact, organization, t } = this.props;
+    const isAssigned = contact.reverse_contact_assignments.find(
+      c => c.organization.id === organization.id,
+    );
+
     return (
       <Touchable onPress={this.handleSelect} highlight={true}>
         <Flex align="center" direction="row" style={styles.row}>
@@ -38,7 +40,7 @@ ContactItem.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string,
-    isAssigned: PropTypes.bool,
+    reverse_contact_assignments: PropTypes.array.isRequired,
   }).isRequired,
   organization: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,

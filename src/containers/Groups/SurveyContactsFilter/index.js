@@ -23,9 +23,9 @@ import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 export class SurveyContactsFilter extends Component {
   constructor(props) {
     super(props);
-    const { t, filters } = props;
+    const { filters } = props;
 
-    const { options, toggleOptions } = createFilterOptions(t, filters);
+    const { options, toggleOptions } = this.createFilterOptions([]);
 
     this.state = {
       filters,
@@ -46,18 +46,27 @@ export class SurveyContactsFilter extends Component {
     const { response: questions } = await dispatch(
       getSurveyQuestions(survey.id),
     );
-    const { response: labels } = await dispatch(getOrgLabels(organization.id));
-    this.createFilters(questions, labels);
+
+    await dispatch(getOrgLabels(organization.id));
+
+    const { options, toggleOptions } = this.createFilterOptions(questions);
+    this.setState({ options, toggleOptions });
   }
 
-  createFilters(questions, labels) {
+  createFilterOptions(questions) {
     const { t, filters } = this.props;
-    const { options, toggleOptions } = createFilterOptions(
-      t,
-      filters,
-      questions,
-    );
-    this.setState({ filters, options, toggleOptions });
+    const filterOptions = getFilterOptions(t, filters, questions);
+    const options = [
+      filterOptions.questions,
+      filterOptions.gender,
+      filterOptions.time,
+    ];
+    const toggleOptions = [
+      filterOptions.uncontacted,
+      filterOptions.unassigned,
+      filterOptions.archived,
+    ];
+    return { options, toggleOptions };
   }
 
   handleDrillDown = item => {
@@ -163,18 +172,3 @@ const mapStateToProps = (reduxState, { navigation }) => ({
 export default connect(mapStateToProps)(SurveyContactsFilter);
 export const SEARCH_SURVEY_CONTACTS_FILTER_SCREEN =
   'nav/SEARCH_SURVEY_CONTACTS_FILTER';
-
-const createFilterOptions = (t, filters, questions = []) => {
-  const filterOptions = getFilterOptions(t, filters, questions);
-  const options = [
-    filterOptions.questions,
-    filterOptions.gender,
-    filterOptions.time,
-  ];
-  const toggleOptions = [
-    filterOptions.uncontacted,
-    filterOptions.unassigned,
-    filterOptions.archived,
-  ];
-  return { options, toggleOptions };
-};
