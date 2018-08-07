@@ -176,6 +176,7 @@ export const getFilterOptions = (t, filters, questions = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
   );
+  const questionFilters = Object.keys(filters).filter(f => !!f.isAnswer);
 
   return {
     questions: {
@@ -189,7 +190,12 @@ export const getFilterOptions = (t, filters, questions = []) => {
           .filter(o => o !== '')
           .map(o => ({ id: o, text: o })),
       })),
-      preview: filters.questions ? filters.questions.text : undefined,
+      preview:
+        questionFilters.length > 0
+          ? questionFilters.length > 1
+            ? t('searchFilters:multiple')
+            : questionFilters[0].text
+          : undefined,
     },
     gender: {
       id: 'gender',

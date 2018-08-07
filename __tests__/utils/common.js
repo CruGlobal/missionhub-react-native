@@ -223,7 +223,7 @@ describe('getFilterOptions', () => {
 
   it('sets the preview', () => {
     const filters = {
-      questions: { text: 'test' },
+      '1': { text: 'test', isAnswer: true },
       gender: { text: 'male' },
     };
     const results = getFilterOptions(t, filters);
@@ -268,7 +268,7 @@ describe('getFilterOptions', () => {
       },
     ];
     const filters = {
-      questions: { text: '1.1' },
+      '1': { text: '1.1', isAnswer: true },
     };
 
     const results = getFilterOptions(t, filters, questions);
