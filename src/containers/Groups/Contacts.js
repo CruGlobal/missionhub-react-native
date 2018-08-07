@@ -91,7 +91,7 @@ class Contacts extends Component {
       hasMore: true,
     };
 
-    await this.setState({ pagination: pagination });
+    await this.setState({ pagination });
 
     return await this.handleLoadMore(text);
   };
