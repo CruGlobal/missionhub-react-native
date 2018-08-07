@@ -13,6 +13,7 @@ import {
   searchHandleToggle,
   searchSelectFilter,
 } from '../../../utils/common';
+import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import FilterList from '../../../components/FilterList';
@@ -37,18 +38,19 @@ export class SurveyContactsFilter extends Component {
   componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     Keyboard.dismiss();
-    this.loadQuestions();
+    this.loadQuestionsAndLabels();
   }
 
-  async loadQuestions() {
-    const { dispatch, survey } = this.props;
+  async loadQuestionsAndLabels() {
+    const { dispatch, survey, organization } = this.props;
     const { response: questions } = await dispatch(
       getSurveyQuestions(survey.id),
     );
-    this.createFilters(questions);
+    const { response: labels } = await dispatch(getOrgLabels(organization.id));
+    this.createFilters(questions, labels);
   }
 
-  createFilters(questions) {
+  createFilters(questions, labels) {
     const { t, filters } = this.props;
     const { options, toggleOptions } = createFilterOptions(
       t,
@@ -151,6 +153,7 @@ SurveyContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
   survey: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

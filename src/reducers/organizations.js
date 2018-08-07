@@ -58,6 +58,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
       };
+    case REQUESTS.GET_ORGANIZATION_LABELS.SUCCESS:
+      return state;
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
       const celebrateQuery = action.query;
       const newItems = action.results.response;
