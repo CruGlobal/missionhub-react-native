@@ -86,9 +86,6 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const { dispatch, organization } = this.props;
-    const { filters } = this.state;
-
     const pagination = {
       page: 0,
       hasMore: true,
@@ -96,15 +93,7 @@ class Contacts extends Component {
 
     await this.setState({ pagination: pagination });
 
-    const result = await dispatch(
-      getOrganizationContacts(organization.id, text, pagination, filters),
-    );
-
-    const { meta, response } = result;
-
-    this.setState({ pagination: this.buildUpdatedPagination(meta) });
-
-    return response;
+    return await this.handleLoadMore(text);
   };
 
   handleLoadMore = async text => {
