@@ -10,7 +10,7 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
-import { ORG_PERMISSIONS } from '../../constants';
+import { DEFAULT_PAGE_LIMIT } from '../../constants';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -21,6 +21,10 @@ class Contacts extends Component {
     const { t } = props;
 
     this.state = {
+      pagination: {
+        page: 0,
+        hasMore: true,
+      },
       filters: {
         // Default filters
         unassigned: {
@@ -41,8 +45,19 @@ class Contacts extends Component {
   }
 
   loadContactsWithFilters = async () => {
-    const contacts = await this.handleSearch('');
-    this.setState({ defaultResults: contacts });
+    const { response } = await this.handleSearch('');
+
+    this.setState({ defaultResults: response });
+  };
+
+  buildUpdatedPagination = meta => {
+    const { total } = meta;
+    const { page } = this.state.pagination;
+
+    const hasMore = total > page * DEFAULT_PAGE_LIMIT;
+    const updated = { page: page + 1, hasMore };
+
+    return updated;
   };
 
   handleRemoveFilter = key => {
@@ -68,13 +83,42 @@ class Contacts extends Component {
       }
     });
   };
+
   handleSearch = async text => {
     const { dispatch, organization } = this.props;
     const { filters } = this.state;
 
-    return await dispatch(
-      getOrganizationContacts(organization.id, text, filters),
+    const pagination = {
+      page: 0,
+      hasMore: true,
+    };
+
+    await this.setState({ pagination: pagination });
+
+    const result = await dispatch(
+      getOrganizationContacts(organization.id, text, pagination, filters),
     );
+
+    const { meta, response } = result;
+
+    this.setState({ pagination: this.buildUpdatedPagination(meta) });
+
+    return response;
+  };
+
+  handleLoadMore = async text => {
+    const { dispatch, organization } = this.props;
+    const { filters, pagination } = this.state;
+
+    const result = await dispatch(
+      getOrganizationContacts(organization.id, text, pagination, filters),
+    );
+
+    const { meta, response } = result;
+
+    this.setState({ pagination: this.buildUpdatedPagination(meta) });
+
+    return response;
   };
 
   handleSelect = person => {
@@ -102,6 +146,7 @@ class Contacts extends Component {
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />

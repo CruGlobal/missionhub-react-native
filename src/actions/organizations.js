@@ -62,7 +62,7 @@ export function getOrganizationsContactReports() {
   };
 }
 
-export function getOrganizationContacts(orgId, name, filters = {}) {
+export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -93,12 +93,15 @@ export function getOrganizationContacts(orgId, name, filters = {}) {
     query.filters.group_ids = filters.groups.id;
   }
 
-  return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, query),
-    );
+  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
 
-    return response;
+  query.page = {
+    limit: DEFAULT_PAGE_LIMIT,
+    offset,
+  };
+
+  return async dispatch => {
+    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
 }
 
