@@ -1,26 +1,33 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
 
 import GroupsListScreen from '../../../src/containers/Groups/GroupsListScreen';
-import { renderShallow, createMockStore } from '../../../testUtils';
+import { renderShallow } from '../../../testUtils';
 import { navigatePush } from '../../../src/actions/navigation';
+import { allOrganizationsSelector } from '../../../src/selectors/organizations';
+
+jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
 
-const store = createMockStore({
-  organizations: {
-    all: [
-      {
-        id: '1',
-        name: 'Test Org 1',
-      },
-      {
-        id: '2',
-        name: 'Test Org 2',
-      },
-    ],
-  },
-});
+const mockStore = configureStore();
+const organizations = {
+  all: [
+    {
+      id: '1',
+      name: 'Test Org 1',
+    },
+    {
+      id: '2',
+      name: 'Test Org 2',
+    },
+  ],
+};
+const auth = {};
+const store = mockStore({ organizations, auth });
+
+allOrganizationsSelector.mockReturnValue(organizations.all);
 
 describe('GroupsListScreen', () => {
   let component;
@@ -36,5 +43,9 @@ describe('GroupsListScreen', () => {
     const instance = component.instance();
     instance.handlePress();
     expect(navigatePush).toHaveBeenCalled();
+    expect(allOrganizationsSelector).toHaveBeenCalledWith({
+      organizations,
+      auth,
+    });
   });
 });

@@ -27,25 +27,23 @@ Object {
 }
 `;
 
-exports[`should load contacts to an organization 1`] = `
+exports[`should save loaded orgs 1`] = `
 Object {
   "all": Array [
     Object {
-      "contacts": Array [
-        Object {
-          "id": "1",
-        },
-        Object {
-          "id": "2",
-        },
-      ],
       "id": "123",
-      "name": "test org 1",
     },
     Object {
       "id": "234",
-      "name": "test org 2",
     },
   ],
+  "membersPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
+  "surveysPagination": Object {
+    "hasNextPage": true,
+    "page": 1,
+  },
 }
 `;

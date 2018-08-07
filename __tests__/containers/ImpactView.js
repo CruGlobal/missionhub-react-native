@@ -140,13 +140,14 @@ describe('ImpactView', () => {
       ).toMatchSnapshot();
     });
   });
-  describe('ME person impact view', () => {
+  describe('ME person personal impact view', () => {
     it('renders empty state', () => {
       testSnapshotShallow(
         <ImpactView
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -166,6 +167,7 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -187,8 +189,68 @@ describe('ImpactView', () => {
           dispatch={dispatch}
           person={me}
           isMe={true}
+          isPersonalMinistryMe={true}
           impact={myImpact}
           globalImpact={globalImpact}
+        />,
+      );
+    });
+  });
+  describe('ME person community impact view', () => {
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          impact={{
+            ...myImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          impact={{
+            ...myImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          impact={myImpact}
+          globalImpact={globalImpact}
+          interactions={personInteractions}
         />,
       );
     });

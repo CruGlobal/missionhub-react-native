@@ -132,9 +132,6 @@ export default {
     endpoint: `${PEOPLE_URL}:personId`,
     method: 'put',
   },
-  GET_MY_ORGANIZATIONS: {
-    endpoint: `${API_URL}organizations`,
-  },
   GET_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
