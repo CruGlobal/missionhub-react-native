@@ -151,7 +151,7 @@ class SearchList extends Component {
   }
 
   renderContent() {
-    const { t, listProps, defaultData = [], onLoadMore } = this.props;
+    const { t, listProps, defaultData = [] } = this.props;
     const { results, text, isSearching } = this.state;
     const resultsLength = results.length;
     if (isSearching && resultsLength === 0) {
