@@ -8,7 +8,7 @@ import {
   createMockNavState,
 } from '../../../testUtils';
 import { navigatePush } from '../../../src/actions/navigation';
-import * as common from '../../../src/utils/common';
+import * as filterUtils from '../../../src/utils/filters';
 
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -58,18 +58,18 @@ describe('SurveyContactsFilter', () => {
   });
 
   it('should handleToggle correctly', () => {
-    common.searchHandleToggle = jest.fn();
+    filterUtils.searchHandleToggle = jest.fn();
     const instance = renderShallow(component, store).instance();
     const item = { id: 'test' };
     instance.handleToggle(item);
-    expect(common.searchHandleToggle).toHaveBeenCalledWith(instance, item);
+    expect(filterUtils.searchHandleToggle).toHaveBeenCalledWith(instance, item);
   });
 
   it('should handleSelectFilter correctly', () => {
-    common.searchSelectFilter = jest.fn();
+    filterUtils.searchSelectFilter = jest.fn();
     const instance = renderShallow(component, store).instance();
     const item = { id: 'test' };
     instance.handleSelectFilter(item);
-    expect(common.searchSelectFilter).toHaveBeenCalledWith(instance, item);
+    expect(filterUtils.searchSelectFilter).toHaveBeenCalledWith(instance, item);
   });
 });

@@ -17,11 +17,11 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
       })),
       preview: filters.questions ? filters.questions.text : undefined,
     },
-    label: {
-      id: 'label',
+    labels: {
+      id: 'labels',
       text: t('searchFilter:label'),
       options: labels.map(l => ({ id: l.id, text: l.name })),
-      preview: filters.label ? filters.label.text : undefined,
+      preview: filters.labels ? filters.labels.text : undefined,
     },
     gender: {
       id: 'gender',
