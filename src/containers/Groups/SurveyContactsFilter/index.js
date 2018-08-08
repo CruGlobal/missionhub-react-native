@@ -16,6 +16,7 @@ import {
 import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
+import { organizationSelector } from '../../../selectors/organizations';
 import FilterList from '../../../components/FilterList';
 import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 
@@ -165,9 +166,17 @@ SurveyContactsFilter.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = ({ organizations }, { navigation }) => {
+  const navParams = navigation.state.params;
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: navParams.organization.id },
+  );
+  return {
+    ...navParams,
+    labels: (selectorOrg || {}).members || [],
+  };
+};
 
 export default connect(mapStateToProps)(SurveyContactsFilter);
 export const SEARCH_SURVEY_CONTACTS_FILTER_SCREEN =
