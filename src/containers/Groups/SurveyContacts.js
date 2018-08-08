@@ -8,7 +8,7 @@ import { searchSurveyContacts } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { searchRemoveFilter } from '../../utils/common';
+import { searchRemoveFilter } from '../../utils/filters';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';

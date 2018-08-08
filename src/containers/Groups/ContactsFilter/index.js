@@ -7,13 +7,12 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../../../actions/navigation';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
+import { buildTrackingObj, isString } from '../../../utils/common';
 import {
-  buildTrackingObj,
-  isString,
   getFilterOptions,
   searchHandleToggle,
   searchSelectFilter,
-} from '../../../utils/common';
+} from '../../../utils/filters';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import BackButton from '../../BackButton';

@@ -6,13 +6,12 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import { getSurveyQuestions } from '../../../actions/surveys';
+import { buildTrackingObj, isString } from '../../../utils/common';
 import {
-  buildTrackingObj,
-  isString,
   getFilterOptions,
   searchHandleToggle,
   searchSelectFilter,
-} from '../../../utils/common';
+} from '../../../utils/filters';
 import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
