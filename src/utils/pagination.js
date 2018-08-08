@@ -6,7 +6,5 @@ export const buildUpdatedPagination = (meta, previousPagination) => {
   const nextPage = page + 1;
 
   const hasMore = total > nextPage * DEFAULT_PAGE_LIMIT;
-  const updated = { page: nextPage, hasMore };
-
-  return updated;
+  return { page: nextPage, hasMore };
 };
