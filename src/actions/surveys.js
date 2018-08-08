@@ -49,7 +49,7 @@ export function getOrgSurveysNextPage(orgId) {
   };
 }
 
-export function searchSurveyContacts(name, filters = []) {
+export function searchSurveyContacts(name, pagination, filters = []) {
   return async dispatch => {
     if (!filters.survey) {
       return Promise.reject('No Survey Specified');
@@ -58,6 +58,12 @@ export function searchSurveyContacts(name, filters = []) {
     const query = {
       include: 'person.reverse_contact_assignments',
       filters: createSurveyFilters(name, filters),
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * pagination.page,
+      },
+      //TODO: not available until API supports it
+      //sort: 'person.last_name,
     };
 
     return await dispatch(callApi(REQUESTS.GET_ANSWER_SHEETS, query));
