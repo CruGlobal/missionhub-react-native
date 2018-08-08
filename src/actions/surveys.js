@@ -88,8 +88,8 @@ function createSurveyFilters(name, filters) {
     surveyFilters.people.assigned_tos = 'unassigned';
   }
   surveyFilters.people.include_archived = !!filters.archived;
-  if (filters.labels) {
-    surveyFilters.people.label_ids = filters.labels.id;
+  if (filters.label) {
+    surveyFilters.people.label_ids = filters.label.id;
   }
   if (filters.groups) {
     surveyFilters.people.group_ids = filters.groups.id;
