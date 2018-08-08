@@ -60,7 +60,8 @@ export class SurveyContactsFilter extends Component {
       filterOptions.questions,
       filterOptions.label,
       filterOptions.gender,
-      filterOptions.time,
+      // TODO: remove until API supports it
+      // filterOptions.time,
     ];
     const toggleOptions = [
       filterOptions.uncontacted,
