@@ -34,7 +34,8 @@ class SurveyContacts extends Component {
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        time: { id: 'time30', text: t('searchFilter:time30') },
+        //TODO: remove until API supports it
+        // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };
