@@ -16,6 +16,7 @@ export default {
       permissions: 'Permissions',
       contact: 'Contact',
       member: 'Member',
+      user: 'User',
       admin: 'Admin',
     },
     gender: {

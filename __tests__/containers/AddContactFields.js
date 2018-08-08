@@ -57,3 +57,55 @@ it('renders jean with organization view correctly', () => {
     mockStore(),
   );
 });
+
+it('renders jean with organization and user radio buttons', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={() => {}}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+    }),
+  );
+});
+
+it('renders jean with organization and user and admin radio buttons', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={() => {}}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+    }),
+  );
+});

@@ -28,7 +28,7 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
   },
   contactRadioButton: {
-    paddingRight: 15,
+    paddingRight: 13,
   },
   userRadioButton: {
     paddingHorizontal: 15,
