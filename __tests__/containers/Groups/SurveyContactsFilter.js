@@ -19,6 +19,12 @@ jest.mock('../../../src/actions/surveys', () => ({
     response: [{ id: '1' }, { id: '2' }],
   })),
 }));
+jest.mock('../../../src/actions/labels', () => ({
+  getOrgLabels: jest.fn(() => ({
+    type: 'orgLabels',
+    response: [{ id: '3' }, { id: '4' }],
+  })),
+}));
 
 const store = createMockStore({});
 const timeFilter30 = { id: 'time30', text: 'Last 30 days' };
@@ -31,6 +37,7 @@ const filters = {
   time: timeFilter30,
 };
 const survey = { id: '11' };
+const organization = { id: '22' };
 
 describe('SurveyContactsFilter', () => {
   const onFilter = jest.fn();
@@ -40,6 +47,7 @@ describe('SurveyContactsFilter', () => {
         onFilter,
         filters,
         survey,
+        organization,
       })}
     />
   );
