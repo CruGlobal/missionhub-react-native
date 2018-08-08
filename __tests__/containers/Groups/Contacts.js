@@ -17,7 +17,10 @@ jest.mock('../../../src/actions/person', () => ({
 }));
 
 jest.mock('../../../src/actions/organizations', () => ({
-  getOrganizationContacts: jest.fn(() => [{ id: '1' }, { id: '2' }]),
+  getOrganizationContacts: jest.fn(() => ({
+    response: [{ id: '1' }, { id: '2' }],
+    meta: { total: 42 },
+  })),
 }));
 
 const people = [{ id: '1' }, { id: '2' }];
@@ -62,7 +65,6 @@ describe('Contacts', () => {
 
   it('should handleSearch correctly', async () => {
     const instance = renderShallow(component, store).instance();
-
     const result = await instance.handleSearch('test');
     expect(result).toEqual(people);
   });
