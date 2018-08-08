@@ -16,7 +16,6 @@ import {
 import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
-import { organizationSelector } from '../../../selectors/organizations';
 import FilterList from '../../../components/FilterList';
 import { SEARCH_QUESTIONS_FILTER_SCREEN } from '../SurveyQuestionsFilter';
 
@@ -26,7 +25,7 @@ export class SurveyContactsFilter extends Component {
     super(props);
     const { filters } = props;
 
-    const { options, toggleOptions } = this.createFilterOptions([]);
+    const { options, toggleOptions } = this.createFilterOptions([], []);
 
     this.state = {
       filters,
@@ -44,19 +43,19 @@ export class SurveyContactsFilter extends Component {
 
   async loadQuestionsAndLabels() {
     const { dispatch, survey, organization } = this.props;
-    const { response: questions } = await dispatch(
-      getSurveyQuestions(survey.id),
+    const questions = await dispatch(getSurveyQuestions(survey.id));
+    const labels = await dispatch(getOrgLabels(organization.id));
+
+    const { options, toggleOptions } = this.createFilterOptions(
+      questions,
+      labels,
     );
-
-    await dispatch(getOrgLabels(organization.id));
-
-    const { options, toggleOptions } = this.createFilterOptions(questions);
     this.setState({ options, toggleOptions });
   }
 
-  createFilterOptions(questions) {
+  createFilterOptions(questions, labels) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, questions);
+    const filterOptions = getFilterOptions(t, filters, questions, labels);
     const options = [
       filterOptions.questions,
       filterOptions.gender,
@@ -166,17 +165,9 @@ SurveyContactsFilter.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { navigation }) => {
-  const navParams = navigation.state.params;
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: navParams.organization.id },
-  );
-  return {
-    ...navParams,
-    labels: (selectorOrg || {}).members || [],
-  };
-};
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
 
 export default connect(mapStateToProps)(SurveyContactsFilter);
 export const SEARCH_SURVEY_CONTACTS_FILTER_SCREEN =

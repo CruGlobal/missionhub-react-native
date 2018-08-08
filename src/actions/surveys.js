@@ -114,6 +114,10 @@ function getAnswersFromFilters(filters) {
 }
 
 export function getSurveyQuestions(surveyId) {
-  return async dispatch =>
-    await dispatch(callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }));
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }),
+    );
+    return response;
+  };
 }

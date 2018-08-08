@@ -11,11 +11,14 @@ export function getMyLabels() {
 }
 
 export function getOrgLabels(orgId) {
-  return dispatch => {
+  return async dispatch => {
     const query = {
       orgId,
       include: 'labels',
     };
-    return dispatch(callApi(REQUESTS.GET_ORGANIZATION_LABELS, query));
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_LABELS, query),
+    );
+    return response.labels;
   };
 }
