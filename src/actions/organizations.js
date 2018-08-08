@@ -10,6 +10,9 @@ import callApi, { REQUESTS } from './api';
 const getOrganizationsQuery = {
   limit: 100,
   include: '',
+  filters: {
+    communities: true,
+  },
 };
 
 export function getMyOrganizations() {
