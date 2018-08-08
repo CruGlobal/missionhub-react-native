@@ -58,6 +58,7 @@ export class SurveyContactsFilter extends Component {
     const filterOptions = getFilterOptions(t, filters, questions, labels);
     const options = [
       filterOptions.questions,
+      filterOptions.label,
       filterOptions.gender,
       filterOptions.time,
     ];
