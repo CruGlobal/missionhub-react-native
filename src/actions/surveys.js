@@ -62,6 +62,8 @@ export function searchSurveyContacts(name, pagination, filters = []) {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * pagination.page,
       },
+      //TODO: not available until API supports it
+      //sort: 'person.last_name,
     };
 
     return await dispatch(callApi(REQUESTS.GET_ANSWER_SHEETS, query));
