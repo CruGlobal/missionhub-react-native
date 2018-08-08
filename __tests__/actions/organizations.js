@@ -31,6 +31,9 @@ describe('getMyOrganizations', () => {
   const query = {
     limit: 100,
     include: '',
+    filters: {
+      communities: true,
+    },
   };
   const org1 = { id: '1' };
   const org2 = { id: '2' };
