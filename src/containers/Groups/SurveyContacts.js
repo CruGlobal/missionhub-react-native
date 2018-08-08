@@ -12,7 +12,7 @@ import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
-import { DEFAULT_PAGE_LIMIT } from '../../constants';
+import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -106,20 +106,10 @@ class SurveyContacts extends Component {
 
     const { meta, response } = results;
 
-    this.setState({ pagination: this.buildUpdatedPagination(meta) });
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
 
     // Get the results from the search endpoint
     return response.map(a => a.person);
-  };
-
-  buildUpdatedPagination = meta => {
-    const { total } = meta;
-    const { page } = this.state.pagination;
-
-    const hasMore = total > page * DEFAULT_PAGE_LIMIT;
-    const updated = { page: page + 1, hasMore };
-
-    return updated;
   };
 
   render() {

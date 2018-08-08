@@ -10,7 +10,7 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
-import { DEFAULT_PAGE_LIMIT } from '../../constants';
+import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -49,16 +49,6 @@ class Contacts extends Component {
     const contacts = await this.handleSearch('');
 
     this.setState({ defaultResults: contacts });
-  };
-
-  buildUpdatedPagination = meta => {
-    const { total } = meta;
-    const { page } = this.state.pagination;
-
-    const hasMore = total > page * DEFAULT_PAGE_LIMIT;
-    const updated = { page: page + 1, hasMore };
-
-    return updated;
   };
 
   handleRemoveFilter = key => {
@@ -106,7 +96,7 @@ class Contacts extends Component {
 
     const { meta, response } = result;
 
-    this.setState({ pagination: this.buildUpdatedPagination(meta) });
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
 
     return response;
   };
