@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getFilterOptions parses question content and sets question filter 1`] = `
+Object {
+  "id": "questions",
+  "options": Array [
+    Object {
+      "id": "1",
+      "options": Array [
+        Object {
+          "id": "1.1",
+          "text": "1.1",
+        },
+        Object {
+          "id": "1.2",
+          "text": "1.2",
+        },
+        Object {
+          "id": "1.3",
+          "text": "1.3",
+        },
+        Object {
+          "id": "1.4",
+          "text": "1.4",
+        },
+      ],
+      "text": "Question 1",
+    },
+    Object {
+      "id": "3",
+      "options": Array [
+        Object {
+          "id": "3.1",
+          "text": "3.1",
+        },
+        Object {
+          "id": "3.2",
+          "text": "3.2",
+        },
+        Object {
+          "id": "3.3",
+          "text": "3.3",
+        },
+        Object {
+          "id": "3.4",
+          "text": "3.4",
+        },
+      ],
+      "text": "Question 3",
+    },
+  ],
+  "preview": "1.1",
+  "text": "Question Title",
+}
+`;

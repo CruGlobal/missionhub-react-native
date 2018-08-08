@@ -305,6 +305,8 @@ export default {
   searchFilter: {
     title: 'Filter',
     titleSurvey: 'Filter Survey',
+    titleQuestions: 'Questions',
+    titleAnswers: 'Answers',
     ministry: 'Ministry',
     labels: 'Labels',
     groups: 'Groups',
@@ -325,6 +327,7 @@ export default {
     uncontacted: 'Uncontacted',
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
+    multiple: 'Multiple',
   },
   searchFilterRefine: {
     title: 'Refine',

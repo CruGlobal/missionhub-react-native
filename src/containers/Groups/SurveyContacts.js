@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchPeople } from '../../actions/people';
+import { searchSurveyContacts } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -12,6 +12,7 @@ import { searchRemoveFilter } from '../../utils/common';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
+import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -22,14 +23,19 @@ class SurveyContacts extends Component {
     const { t } = props;
 
     this.state = {
+      pagination: {
+        page: 0,
+        hasMore: true,
+      },
+      //Default filters
       filters: {
-        // Default filters
         unassigned: {
           id: 'unassigned',
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        time: { id: 'time30', text: t('searchFilter:time30') },
+        //TODO: remove until API supports it
+        // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };
@@ -71,21 +77,40 @@ class SurveyContacts extends Component {
   };
 
   handleSearch = async text => {
-    const { dispatch, organization, survey } = this.props;
-    const { filters } = this.state;
-    const searchFilters = {
-      ...filters,
-      ministry: { id: organization.id },
-      surveys: { id: survey.id },
+    const pagination = {
+      page: 0,
+      hasMore: true,
     };
-    const results = await dispatch(searchPeople(text, searchFilters));
-    // Get the results from the search endpoint
-    return results.findAll('person') || [];
+
+    await this.setState({ pagination });
+
+    return await this.handleLoadMore(text);
   };
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
+  };
+
+  handleLoadMore = async text => {
+    const { dispatch, organization, survey } = this.props;
+    const { filters, pagination } = this.state;
+    const searchFilters = {
+      ...filters,
+      organization: { id: organization.id },
+      survey: { id: survey.id },
+    };
+
+    const results = await dispatch(
+      searchSurveyContacts(text, pagination, searchFilters),
+    );
+
+    const { meta, response } = results;
+
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+
+    // Get the results from the search endpoint
+    return response.map(a => a.person);
   };
 
   render() {
@@ -110,6 +135,7 @@ class SurveyContacts extends Component {
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />

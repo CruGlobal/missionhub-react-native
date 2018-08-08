@@ -27,7 +27,8 @@ export class ContactsFilter extends Component {
     const { t, filters } = props;
 
     const filterOptions = getFilterOptions(t, filters);
-    const options = [filterOptions.gender, filterOptions.time];
+    // TODO: temporarily remove "time" filter until the API supports it.
+    const options = [filterOptions.gender /*filterOptions.time*/];
     const toggleOptions = [
       filterOptions.uncontacted,
       filterOptions.unassigned,
@@ -44,11 +45,6 @@ export class ContactsFilter extends Component {
   componentWillMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     Keyboard.dismiss();
-  }
-
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
   }
 
   handleDrillDown = item => {
