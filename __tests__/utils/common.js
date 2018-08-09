@@ -109,7 +109,6 @@ describe('shuffleArray', () => {
 
 describe('searchHandleToggle', () => {
   const setState = jest.fn();
-  const setFilter = jest.fn();
   const scope = {
     state: {
       toggleOptions: [
@@ -118,8 +117,10 @@ describe('searchHandleToggle', () => {
       ],
       filters: { filter1: { id: 'filter1' } },
     },
+    props: {
+      onFilter: jest.fn(),
+    },
     setState,
-    setFilter,
   };
   const item = { id: 'option1', selected: false };
 
@@ -131,17 +132,16 @@ describe('searchHandleToggle', () => {
         { id: 'option1', selected: true },
         { id: 'option2', selected: true },
       ],
-    });
-    expect(setFilter).toHaveBeenCalledWith({
-      filter1: { id: 'filter1' },
-      option1: { id: 'option1', selected: true },
+      filters: {
+        filter1: { id: 'filter1' },
+        option1: { id: 'option1', selected: true },
+      },
     });
   });
 });
 
 describe('searchSelectFilter', () => {
   const setState = jest.fn();
-  const setFilter = jest.fn();
   const scope = {
     state: {
       options: [
@@ -151,8 +151,10 @@ describe('searchSelectFilter', () => {
       filters: { gender: { id: 'gender' } },
       selectedFilterId: 'gender',
     },
+    props: {
+      onFilter: jest.fn(),
+    },
     setState,
-    setFilter,
   };
 
   it('sets the preview on the selected option', () => {
@@ -164,9 +166,9 @@ describe('searchSelectFilter', () => {
         { id: 'gender', text: 'Gender', preview: 'Male' },
         { id: 'option2', text: 'Option 2' },
       ],
-    });
-    expect(setFilter).toHaveBeenCalledWith({
-      gender: item,
+      filters: {
+        gender: item,
+      },
     });
   });
 
@@ -179,8 +181,8 @@ describe('searchSelectFilter', () => {
         { id: 'gender', text: 'Gender' },
         { id: 'option2', text: 'Option 2' },
       ],
+      filters: {},
     });
-    expect(setFilter).toHaveBeenCalledWith({});
   });
 });
 
@@ -217,7 +219,7 @@ describe('searchRemoveFilter', () => {
 });
 
 describe('getFilterOptions', () => {
-  const t = jest.fn();
+  const t = jest.fn(() => 'Question Title');
 
   it('sets the preview', () => {
     const filters = {
@@ -242,6 +244,36 @@ describe('getFilterOptions', () => {
     expect(results.uncontacted.selected).toBe(true);
     expect(results.unassigned.selected).toBe(true);
     expect(results.archived.selected).toBe(false);
+  });
+
+  it('parses question content and sets question filter', () => {
+    const questions = [
+      {
+        _type: 'choice_field',
+        id: '1',
+        label: 'Question 1',
+        content: '1.1\r\n1.2\r\n1.3\r\n1.4',
+      },
+      {
+        _type: 'text_field',
+        id: '2',
+        label: 'Question 2',
+        content: '2.1\r\n2.2\r\n2.3\r\n2.4',
+      },
+      {
+        _type: 'choice_field',
+        id: '3',
+        label: 'Question 3',
+        content: '3.1\r\n3.2\r\n3.3\r\n3.4',
+      },
+    ];
+    const filters = {
+      questions: { text: '1.1' },
+    };
+
+    const results = getFilterOptions(t, filters, questions);
+
+    expect(results.questions).toMatchSnapshot();
   });
 });
 

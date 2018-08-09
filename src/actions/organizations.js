@@ -62,6 +62,49 @@ export function getOrganizationsContactReports() {
   };
 }
 
+export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
+  const query = {
+    filters: {
+      permissions: 'no_permission',
+      organization_ids: orgId,
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
+  if (name) {
+    query.filters.name = name;
+  }
+  if (filters.gender) {
+    query.filters.genders = filters.gender.id;
+  }
+  if (filters.archived) {
+    query.filters.include_archived = true;
+  }
+  if (filters.unassigned) {
+    query.filters.assigned_tos = 'unassigned';
+  }
+  if (filters.uncontacted) {
+    query.filters.statuses = 'uncontacted';
+  }
+  if (filters.labels) {
+    query.filters.label_ids = filters.labels.id;
+  }
+  if (filters.groups) {
+    query.filters.group_ids = filters.groups.id;
+  }
+
+  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+  query.page = {
+    limit: DEFAULT_PAGE_LIMIT,
+    offset,
+  };
+
+  return async dispatch => {
+    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+  };
+}
+
 //todo probably should start storing this stuff in Redux
 export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
