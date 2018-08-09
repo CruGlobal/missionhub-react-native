@@ -6,13 +6,13 @@ import { translate } from 'react-i18next';
 
 import { navigatePush } from '../../../actions/navigation';
 import { getSurveyQuestions } from '../../../actions/surveys';
+import { buildTrackingObj, isString } from '../../../utils/common';
 import {
-  buildTrackingObj,
-  isString,
   getFilterOptions,
   searchHandleToggle,
   searchSelectFilter,
-} from '../../../utils/common';
+} from '../../../utils/filters';
+import { getOrgLabels } from '../../../actions/labels';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import FilterList from '../../../components/FilterList';
@@ -24,7 +24,7 @@ export class SurveyContactsFilter extends Component {
     super(props);
     const { filters } = props;
 
-    const { options, toggleOptions } = this.createFilterOptions([]);
+    const { options, toggleOptions } = this.createFilterOptions([], []);
 
     this.state = {
       filters,
@@ -37,23 +37,27 @@ export class SurveyContactsFilter extends Component {
   componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     Keyboard.dismiss();
-    this.loadQuestions();
+    this.loadQuestionsAndLabels();
   }
 
-  async loadQuestions() {
-    const { dispatch, survey } = this.props;
-    const { response: questions } = await dispatch(
-      getSurveyQuestions(survey.id),
+  async loadQuestionsAndLabels() {
+    const { dispatch, survey, organization } = this.props;
+    const questions = await dispatch(getSurveyQuestions(survey.id));
+    const labels = await dispatch(getOrgLabels(organization.id));
+
+    const { options, toggleOptions } = this.createFilterOptions(
+      questions,
+      labels,
     );
-    const { options, toggleOptions } = this.createFilterOptions(questions);
     this.setState({ options, toggleOptions });
   }
 
-  createFilterOptions(questions) {
+  createFilterOptions(questions, labels) {
     const { t, filters } = this.props;
-    const filterOptions = getFilterOptions(t, filters, questions);
+    const filterOptions = getFilterOptions(t, filters, questions, labels);
     const options = [
       filterOptions.questions,
+      filterOptions.labels,
       filterOptions.gender,
       // TODO: remove until API supports it
       // filterOptions.time,
@@ -159,6 +163,7 @@ SurveyContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
   survey: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (reduxState, { navigation }) => ({

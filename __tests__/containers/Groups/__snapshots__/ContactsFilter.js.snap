@@ -23,6 +23,19 @@ exports[`ContactsFilter should render correctly 1`] = `
     <Translate(FilterItem)
       item={
         Object {
+          "id": "labels",
+          "options": Array [],
+          "preview": undefined,
+          "text": "Label",
+        }
+      }
+      key="labels"
+      onSelect={[Function]}
+      type="drilldown"
+    />
+    <Translate(FilterItem)
+      item={
+        Object {
           "id": "gender",
           "options": Array [
             Object {
