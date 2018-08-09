@@ -58,6 +58,7 @@ exports[`renders casey view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name"
@@ -126,6 +127,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name"
@@ -339,6 +341,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name"
@@ -552,6 +555,7 @@ exports[`renders jean with organization view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name"
@@ -765,6 +769,7 @@ exports[`renders jean without organization view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name"

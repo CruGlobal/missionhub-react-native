@@ -68,11 +68,18 @@ class AddContactScreen extends Component {
       return;
     }
 
-    if (person && saveData.firstName === person.first_name) {
-      delete saveData.firstName;
-    }
-    if (person && saveData.lastName === '' && !person.last_name) {
-      delete saveData.lastName;
+    if (person) {
+      // Remove the first name if it's the same as before so we don't try to update it with the API
+      if (saveData.firstName === person.first_name) {
+        delete saveData.firstName;
+      }
+      // Remove the lastname if it's the same as before or it didn't exist before and a blank string is passed in
+      if (
+        (saveData.lastName === '' && !person.last_name) ||
+        saveData.lastName === person.last_name
+      ) {
+        delete saveData.lastName;
+      }
     }
 
     if (organization) {

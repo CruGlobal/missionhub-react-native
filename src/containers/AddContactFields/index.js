@@ -86,7 +86,7 @@ class AddContactFields extends Component {
       orgPermission,
     } = this.state;
 
-    // Disable the firstName field if the user has org permission because you are not allowed to edit the first name of other mission hub users
+    // Disable the name fields if the user has org permission because you are not allowed to edit the names of other mission hub users
     const personHasOrgPermission =
       personOrgPermission &&
       (personOrgPermission.permission_id === ORG_PERMISSIONS.USER ||
@@ -113,6 +113,7 @@ class AddContactFields extends Component {
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
             ref={c => (this.lastName = c)}
+            editable={!personHasOrgPermission}
             onChangeText={t => this.updateField('lastName', t)}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
