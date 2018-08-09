@@ -242,4 +242,25 @@ describe('savePerson', () => {
       orgId: organization.id,
     });
   });
+
+  it('should set the last_name to null when updating to blank string', async () => {
+    const component = buildScreen({
+      navigation: createMockNavState(),
+      person: { id: contactId, last_name: null },
+    });
+    const componentInstance = component.instance();
+
+    component.setState({
+      person: {
+        id: contactId,
+        lastName: '',
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(updatePerson).toHaveBeenCalledWith({
+      id: contactId,
+    });
+  });
 });

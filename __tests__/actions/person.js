@@ -123,27 +123,10 @@ describe('getPersonDetails', () => {
 });
 
 describe('updatePerson', () => {
-  const updateInclude =
-    'email_addresses,phone_numbers,reverse_contact_assignments';
+  const updateInclude = expectedInclude;
 
   afterEach(() => {
     expect(dispatch).toHaveBeenCalled();
-  });
-
-  it('should throw an error if no first name', () => {
-    updatePerson({
-      id: 1,
-      lastName: 'Test Lname',
-    })(dispatch);
-    expect(callApi).not.toHaveBeenCalled();
-    expect(dispatch).toHaveBeenCalledWith({
-      type: 'UPDATE_PERSON_FAIL',
-      error: 'InvalidData',
-      data: {
-        id: 1,
-        lastName: 'Test Lname',
-      },
-    });
   });
 
   it('should update first name', () => {

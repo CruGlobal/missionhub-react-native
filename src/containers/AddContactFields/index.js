@@ -28,9 +28,16 @@ class AddContactFields extends Component {
   };
 
   componentDidMount() {
-    const { person, orgPermission, isJean } = this.props;
+    const { person, orgPermission, isJean, organization } = this.props;
     // If person exists, then we are in edit mode
     if (!person) {
+      // Default the orgPermission for creating new people to 'Contact'
+      if (isJean && organization && organization.id) {
+        this.updateField('orgPermission', {
+          ...orgPermission,
+          permission_id: ORG_PERMISSIONS.CONTACT,
+        });
+      }
       return;
     }
     const email = getPersonEmailAddress(person) || {};
@@ -63,7 +70,13 @@ class AddContactFields extends Component {
   }
 
   render() {
-    const { t, isJean, organization, myOrgPermissions } = this.props;
+    const {
+      t,
+      isJean,
+      organization,
+      myOrgPermissions,
+      orgPermission: personOrgPermission,
+    } = this.props;
     const {
       firstName,
       lastName,
@@ -72,6 +85,12 @@ class AddContactFields extends Component {
       gender,
       orgPermission,
     } = this.state;
+
+    // Disable the firstName field if the user has org permission because you are not allowed to edit the first name of other mission hub users
+    const personHasOrgPermission =
+      personOrgPermission &&
+      (personOrgPermission.permission_id === ORG_PERMISSIONS.USER ||
+        personOrgPermission.permission_id === ORG_PERMISSIONS.ADMIN);
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
@@ -80,6 +99,7 @@ class AddContactFields extends Component {
           </Text>
           <Input
             ref={c => (this.firstName = c)}
+            editable={!personHasOrgPermission}
             onChangeText={t => this.updateField('firstName', t)}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
@@ -110,6 +130,7 @@ class AddContactFields extends Component {
                 ref={c => (this.email = c)}
                 onChangeText={t => this.updateField('email', t)}
                 value={email}
+                autoCapitalize="none"
                 placeholder={t('profileLabels.email')}
                 placeholderTextColor={theme.white}
                 keyboardType="email-address"
