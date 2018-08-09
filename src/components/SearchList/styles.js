@@ -66,4 +66,8 @@ export default StyleSheet.create({
     fontSize: 16,
     color: theme.white,
   },
+  gif: {
+    marginVertical: 10,
+    height: 20,
+  },
 });

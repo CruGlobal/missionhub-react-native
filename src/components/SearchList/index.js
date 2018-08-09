@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, FlatList } from 'react-native';
+import { ScrollView, View, FlatList, Image } from 'react-native';
 import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -54,9 +54,13 @@ class SearchList extends Component {
   };
 
   handleOnEndReached = async () => {
-    const { listHasScrolled, text } = this.state;
+    const { listHasScrolled, text, isSearching } = this.state;
     if (!listHasScrolled) {
       return;
+    }
+
+    if (!isSearching) {
+      this.setState({ isSearching: true });
     }
 
     const { onLoadMore } = this.props;
@@ -185,9 +189,27 @@ class SearchList extends Component {
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
+        ListFooterComponent={this.renderListFooter()}
         {...listProps}
       />
     );
+  }
+
+  renderListFooter() {
+    const { isSearching } = this.state;
+
+    if (isSearching) {
+      return (
+        <Flex value={1} align="center" justify="center">
+          <Image
+            source={require('../../../assets/gifs/loadingSpiralBlue.gif')}
+            resizeMode="contain"
+            style={styles.gif}
+          />
+        </Flex>
+      );
+    }
+    return null;
   }
 
   render() {
