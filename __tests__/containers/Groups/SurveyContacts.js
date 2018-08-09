@@ -10,6 +10,7 @@ import {
 import { navigatePush } from '../../../src/actions/navigation';
 import { navToPersonScreen } from '../../../src/actions/person';
 import * as surveys from '../../../src/actions/surveys';
+import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from '../../../src/containers/Groups/SurveyContactsFilter';
 
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
@@ -53,7 +54,15 @@ describe('SurveyContacts', () => {
   it('should handleFilterPress correctly', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleFilterPress();
-    expect(navigatePush).toHaveBeenCalled();
+    expect(navigatePush).toHaveBeenCalledWith(
+      SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
+      {
+        survey,
+        organization,
+        onFilter: instance.handleChangeFilter,
+        filters: instance.state.filters,
+      },
+    );
   });
 
   it('should handleChangeFilter correctly', () => {

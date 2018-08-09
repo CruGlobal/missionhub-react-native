@@ -9,3 +9,16 @@ export function getMyLabels() {
     return dispatch(callApi(REQUESTS.GET_MY_LABELS, query));
   };
 }
+
+export function getOrgLabels(orgId) {
+  return async dispatch => {
+    const query = {
+      orgId,
+      include: 'labels',
+    };
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_LABELS, query),
+    );
+    return response.labels;
+  };
+}
