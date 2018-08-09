@@ -12,10 +12,6 @@ exports[`SurveyContacts should render correctly 1`] = `
     defaultData={Array []}
     filters={
       Object {
-        "time": Object {
-          "id": "time30",
-          "text": "Last 30 days",
-        },
         "unassigned": Object {
           "id": "unassigned",
           "selected": true,
@@ -29,6 +25,7 @@ exports[`SurveyContacts should render correctly 1`] = `
       }
     }
     onFilterPress={[Function]}
+    onLoadMore={[Function]}
     onRemoveFilter={[Function]}
     onSearch={[Function]}
     placeholder="Search Contacts"

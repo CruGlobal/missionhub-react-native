@@ -9,7 +9,10 @@ import {
   searchSurveyContacts,
   getSurveyQuestions,
 } from '../../src/actions/surveys';
-import { GET_ORGANIZATION_SURVEYS } from '../../src/constants';
+import {
+  GET_ORGANIZATION_SURVEYS,
+  DEFAULT_PAGE_LIMIT,
+} from '../../src/constants';
 
 const apiResponse = { type: 'successful' };
 
@@ -165,6 +168,10 @@ describe('searchSurveyContacts', () => {
         [question2.id]: { '': question2.text },
       },
     },
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: 0,
+    },
     include: 'person.reverse_contact_assignments',
   };
 
@@ -172,7 +179,12 @@ describe('searchSurveyContacts', () => {
     store = configureStore([thunk])();
     callApi.mockReturnValue(apiResponse);
 
-    await store.dispatch(searchSurveyContacts(name, filters));
+    const pagination = {
+      page: 0,
+      hasMore: true,
+    };
+
+    await store.dispatch(searchSurveyContacts(name, pagination, filters));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ANSWER_SHEETS, query);
     expect(store.getActions()).toEqual([apiResponse]);

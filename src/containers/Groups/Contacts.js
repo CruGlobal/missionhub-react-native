@@ -10,6 +10,7 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/common';
+import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -20,6 +21,10 @@ class Contacts extends Component {
     const { t } = props;
 
     this.state = {
+      pagination: {
+        page: 0,
+        hasMore: true,
+      },
       filters: {
         // Default filters
         unassigned: {
@@ -27,7 +32,8 @@ class Contacts extends Component {
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        time: { id: 'time30', text: t('searchFilter:time30') },
+        // TODO: temporarily remove this until the API supports it
+        // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };
@@ -41,6 +47,7 @@ class Contacts extends Component {
 
   loadContactsWithFilters = async () => {
     const contacts = await this.handleSearch('');
+
     this.setState({ defaultResults: contacts });
   };
 
@@ -67,13 +74,31 @@ class Contacts extends Component {
       }
     });
   };
-  handleSearch = async text => {
-    const { dispatch, organization } = this.props;
-    const { filters } = this.state;
 
-    return await dispatch(
-      getOrganizationContacts(organization.id, text, filters),
+  handleSearch = async text => {
+    const pagination = {
+      page: 0,
+      hasMore: true,
+    };
+
+    await this.setState({ pagination });
+
+    return await this.handleLoadMore(text);
+  };
+
+  handleLoadMore = async text => {
+    const { dispatch, organization } = this.props;
+    const { filters, pagination } = this.state;
+
+    const result = await dispatch(
+      getOrganizationContacts(organization.id, text, pagination, filters),
     );
+
+    const { meta, response } = result;
+
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+
+    return response;
   };
 
   handleSelect = person => {
@@ -101,6 +126,7 @@ class Contacts extends Component {
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />

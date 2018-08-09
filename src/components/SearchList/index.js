@@ -20,6 +20,7 @@ class SearchList extends Component {
       text: '',
       results: [],
       isSearching: false,
+      listHasScrolled: false,
     };
 
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
@@ -50,6 +51,27 @@ class SearchList extends Component {
     } catch (err) {
       this.setState({ isSearching: false });
     }
+  };
+
+  handleOnEndReached = async () => {
+    const { listHasScrolled, text } = this.state;
+    if (!listHasScrolled) {
+      return;
+    }
+
+    const { onLoadMore } = this.props;
+
+    const newResults = await onLoadMore(text);
+
+    this.setState({
+      listHasScrolled: false,
+      isSearching: false,
+      results: [...this.state.results, ...newResults],
+    });
+  };
+
+  handleScrollEndDrag = () => {
+    this.setState({ listHasScrolled: true });
   };
 
   clearSearch = () => {
@@ -160,6 +182,9 @@ class SearchList extends Component {
         style={styles.list}
         data={resultsLength === 0 ? defaultData : results}
         keyExtractor={i => i.unique_key || i.id}
+        onEndReached={this.handleOnEndReached}
+        onEndReachedThreshold={0.2}
+        onScrollEndDrag={this.handleScrollEndDrag}
         {...listProps}
       />
     );

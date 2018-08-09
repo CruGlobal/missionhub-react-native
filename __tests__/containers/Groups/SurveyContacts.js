@@ -71,6 +71,7 @@ describe('SurveyContacts', () => {
         { id: '1', person: people[0] },
         { id: '2', person: people[1] },
       ],
+      meta: { total: 42 },
     };
     surveys.searchSurveyContacts.mockReturnValue(searchReturnValue);
 
