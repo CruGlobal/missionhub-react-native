@@ -14,7 +14,7 @@ import * as organizations from '../../src/actions/organizations';
 import * as person from '../../src/actions/person';
 import { navigateBack, navigatePush } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
-import { ORG_PERMISSIONS, CANNOT_EDIT_FIRST_NAME } from '../../src/constants';
+import { ORG_PERMISSIONS } from '../../src/constants';
 
 const me = { id: 99 };
 const contactId = 23;
