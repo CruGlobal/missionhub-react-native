@@ -308,7 +308,7 @@ export default {
     titleQuestions: 'Questions',
     titleAnswers: 'Answers',
     ministry: 'Ministry',
-    labels: 'Labels',
+    label: 'Label',
     groups: 'Groups',
     surveys: 'Survey',
     gender: 'Gender',

@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getFilterOptions defines options for labels 1`] = `
+Object {
+  "id": "labels",
+  "options": Array [
+    Object {
+      "id": "1",
+      "text": "label1",
+    },
+    Object {
+      "id": "2",
+      "text": "label2",
+    },
+    Object {
+      "id": "3",
+      "text": "label3",
+    },
+  ],
+  "preview": "label3",
+  "text": "Title",
+}
+`;
+
 exports[`getFilterOptions parses question content and sets question filter 1`] = `
 Object {
   "id": "questions",
@@ -50,6 +72,6 @@ Object {
     },
   ],
   "preview": "1.1",
-  "text": "Question Title",
+  "text": "Title",
 }
 `;
