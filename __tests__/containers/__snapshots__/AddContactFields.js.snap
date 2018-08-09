@@ -31,6 +31,7 @@ exports[`renders casey view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
@@ -98,6 +99,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
@@ -151,6 +153,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
         Email
       </MyText>
       <Input
+        autoCapitalize="none"
         blurOnSubmit={false}
         keyboardType="email-address"
         onChangeText={[Function]}
@@ -160,7 +163,6 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
         returnKeyType="next"
       />
     </Flex>
-    ,
     <Flex
       align="center"
       direction="row"
@@ -210,7 +212,6 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
         }
       />
     </Flex>
-    ,
     <Flex
       direction="column"
       key="phone"
@@ -311,6 +312,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
@@ -364,6 +366,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
         Email
       </MyText>
       <Input
+        autoCapitalize="none"
         blurOnSubmit={false}
         keyboardType="email-address"
         onChangeText={[Function]}
@@ -373,7 +376,6 @@ exports[`renders jean with organization and user radio buttons 1`] = `
         returnKeyType="next"
       />
     </Flex>
-    ,
     <Flex
       align="center"
       direction="row"
@@ -423,7 +425,6 @@ exports[`renders jean with organization and user radio buttons 1`] = `
         }
       />
     </Flex>
-    ,
     <Flex
       direction="column"
       key="phone"
@@ -524,6 +525,7 @@ exports[`renders jean with organization view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
@@ -577,6 +579,7 @@ exports[`renders jean with organization view correctly 1`] = `
         Email
       </MyText>
       <Input
+        autoCapitalize="none"
         blurOnSubmit={false}
         keyboardType="email-address"
         onChangeText={[Function]}
@@ -586,7 +589,6 @@ exports[`renders jean with organization view correctly 1`] = `
         returnKeyType="next"
       />
     </Flex>
-    ,
     <Flex
       align="center"
       direction="row"
@@ -636,7 +638,6 @@ exports[`renders jean with organization view correctly 1`] = `
         }
       />
     </Flex>
-    ,
     <Flex
       direction="column"
       key="phone"
@@ -737,6 +738,7 @@ exports[`renders jean without organization view correctly 1`] = `
     </MyText>
     <Input
       blurOnSubmit={false}
+      editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
@@ -790,6 +792,7 @@ exports[`renders jean without organization view correctly 1`] = `
         Email
       </MyText>
       <Input
+        autoCapitalize="none"
         blurOnSubmit={false}
         keyboardType="email-address"
         onChangeText={[Function]}
@@ -799,7 +802,6 @@ exports[`renders jean without organization view correctly 1`] = `
         returnKeyType="next"
       />
     </Flex>
-    ,
     <Flex
       align="center"
       direction="row"
@@ -849,7 +851,6 @@ exports[`renders jean without organization view correctly 1`] = `
         }
       />
     </Flex>
-    ,
     <Flex
       direction="column"
       key="phone"

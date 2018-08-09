@@ -138,7 +138,7 @@ class AddContactFields extends Component {
                 blurOnSubmit={false}
                 onSubmitEditing={() => this.phone.focus()}
               />
-            </Flex>,
+            </Flex>
             <Flex
               direction="row"
               align="center"
@@ -160,7 +160,7 @@ class AddContactFields extends Component {
                 checked={gender === 'Female'}
                 label={t('gender.female')}
               />
-            </Flex>,
+            </Flex>
             <Flex direction="column" key="phone">
               <Text style={styles.label}>{t('profileLabels.phone')}</Text>
               <Input
