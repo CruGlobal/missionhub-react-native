@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import GroupsListScreen from '../../../src/containers/Groups/GroupsListScreen';
 import { renderShallow } from '../../../testUtils';
 import { navigatePush } from '../../../src/actions/navigation';
-import { allOrganizationsSelector } from '../../../src/selectors/organizations';
+import { communitiesSelector } from '../../../src/selectors/organizations';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/actions/navigation', () => ({
@@ -27,7 +27,7 @@ const organizations = {
 const auth = {};
 const store = mockStore({ organizations, auth });
 
-allOrganizationsSelector.mockReturnValue(organizations.all);
+communitiesSelector.mockReturnValue(organizations.all);
 
 describe('GroupsListScreen', () => {
   let component;
@@ -43,7 +43,7 @@ describe('GroupsListScreen', () => {
     const instance = component.instance();
     instance.handlePress();
     expect(navigatePush).toHaveBeenCalled();
-    expect(allOrganizationsSelector).toHaveBeenCalledWith({
+    expect(communitiesSelector).toHaveBeenCalledWith({
       organizations,
       auth,
     });
