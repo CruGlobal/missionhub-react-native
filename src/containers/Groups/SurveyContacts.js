@@ -38,7 +38,6 @@ class SurveyContacts extends Component {
         // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
-      isSearching: false,
     };
   }
 
@@ -95,14 +94,7 @@ class SurveyContacts extends Component {
 
   handleLoadMore = async text => {
     const { dispatch, organization, survey } = this.props;
-    const { filters, pagination, isSearching } = this.state;
-
-    if (isSearching) {
-      return;
-    }
-
-    this.setState({ isSearching: true });
-
+    const { filters, pagination } = this.state;
     const searchFilters = {
       ...filters,
       organization: { id: organization.id },
@@ -115,10 +107,7 @@ class SurveyContacts extends Component {
 
     const { meta, response } = results;
 
-    this.setState({
-      pagination: buildUpdatedPagination(meta, pagination),
-      isSearching: false,
-    });
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
 
     // Get the results from the search endpoint
     return response.map(a => a.person);
