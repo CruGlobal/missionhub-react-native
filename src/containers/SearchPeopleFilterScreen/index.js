@@ -36,7 +36,7 @@ export class SearchPeopleFilterScreen extends Component {
       },
       {
         id: 'labels',
-        text: t('labels'),
+        text: t('label'),
         options: 'labels',
         preview: props.filters.labels ? props.filters.labels.text : undefined,
       },

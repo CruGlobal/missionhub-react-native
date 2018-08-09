@@ -55,10 +55,14 @@ export const MAIN_TABS = 'nav/MAIN_TABS';
 export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
+
+// Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';
 export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
+export const CANNOT_EDIT_FIRST_NAME =
+  'You are not allowed to edit first names of other MissionHub users';
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';

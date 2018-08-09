@@ -65,7 +65,7 @@ exports[`renders correctly with non-null onClick 1`] = `
 </Component>
 `;
 
-exports[`renders correctly with null onClick 1`] = `
+exports[`renders correctly with undefined onClick 1`] = `
 <Component
   style={
     Array [
@@ -96,7 +96,7 @@ exports[`renders correctly with null onClick 1`] = `
     <IconButton
       disabled={true}
       name="some icon"
-      onPress={null}
+      onPress={[Function]}
       style={
         Array [
           Object {

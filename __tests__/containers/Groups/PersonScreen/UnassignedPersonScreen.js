@@ -1,20 +1,20 @@
 import React from 'react';
 import MockDate from 'mockdate';
 
-import UnassignedPersonScreen from '../../UnassignedPersonScreen/';
-import { INTERACTION_TYPES } from '../../../../constants';
+import UnassignedPersonScreen from '../../../../src/containers/Groups/UnassignedPersonScreen';
+import { INTERACTION_TYPES } from '../../../../src/constants';
 import {
   renderShallow,
   createMockStore,
   testSnapshotShallow,
   createMockNavState,
-} from '../../../../../testUtils';
-import { getGroupJourney } from '../../../../actions/journey';
+} from '../../../../testUtils';
+import { getGroupJourney } from '../../../../src/actions/journey';
 
-jest.mock('../../../../actions/journey', () => ({
+jest.mock('../../../../src/actions/journey', () => ({
   getGroupJourney: jest.fn(() => [{ id: '1' }]),
 }));
-jest.mock('../../../../actions/person', () => ({
+jest.mock('../../../../src/actions/person', () => ({
   createContactAssignment: jest.fn(() => Promise.resolve()),
 }));
 
