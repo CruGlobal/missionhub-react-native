@@ -63,6 +63,13 @@ class AddContactFields extends Component {
     }
   }
 
+  updateOrgPermission(pId) {
+    this.updateField('orgPermission', {
+      ...this.state.orgPermission,
+      permission_id: pId,
+    });
+  }
+
   updateField(field, data) {
     this.setState({ [field]: data }, () => {
       this.props.onUpdateData(this.state);
@@ -188,10 +195,7 @@ class AddContactFields extends Component {
                   <RadioButton
                     style={styles.contactRadioButton}
                     onSelect={() =>
-                      this.updateField('orgPermission', {
-                        ...orgPermission,
-                        permission_id: ORG_PERMISSIONS.CONTACT,
-                      })
+                      this.updateOrgPermission(ORG_PERMISSIONS.CONTACT)
                     }
                     checked={
                       orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
@@ -205,10 +209,7 @@ class AddContactFields extends Component {
                     <RadioButton
                       style={styles.userRadioButton}
                       onSelect={() =>
-                        this.updateField('orgPermission', {
-                          ...orgPermission,
-                          permission_id: ORG_PERMISSIONS.USER,
-                        })
+                        this.updateOrgPermission(ORG_PERMISSIONS.USER)
                       }
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.USER
@@ -221,10 +222,7 @@ class AddContactFields extends Component {
                     <RadioButton
                       style={styles.adminRadioButton}
                       onSelect={() =>
-                        this.updateField('orgPermission', {
-                          ...orgPermission,
-                          permission_id: ORG_PERMISSIONS.ADMIN,
-                        })
+                        this.updateOrgPermission(ORG_PERMISSIONS.ADMIN)
                       }
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN

@@ -134,3 +134,24 @@ it('mounts and calls update field', () => {
     permission_id: ORG_PERMISSIONS.CONTACT,
   });
 });
+
+it('updates org permission', () => {
+  const component = buildScreen({
+    isJean: true,
+    organization: { id: '1' },
+  });
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT);
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.CONTACT,
+  });
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER);
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+});
