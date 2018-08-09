@@ -13,6 +13,11 @@ export default {
       stage: 'Stage',
       status: 'Status',
       gender: 'Gender',
+      permissions: 'Permissions',
+      contact: 'Contact',
+      member: 'Member',
+      user: 'User',
+      admin: 'Admin',
     },
     gender: {
       male: 'Male',
@@ -162,6 +167,12 @@ export default {
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
+    alertBlankEmail: 'Email is blank',
+    alertPermissionsMustHaveEmail:
+      'Contact with User or Admin permissions must have email address',
+    alertSorry: 'Sorry',
+    alertCannotEditFirstName:
+      'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
     header: 'My Step of Faith',

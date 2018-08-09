@@ -21,7 +21,19 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 16,
   },
-  radioButton: {
+  permissionsRow: {
+    paddingVertical: 15,
+  },
+  genderRadioButton: {
     paddingHorizontal: 15,
+  },
+  contactRadioButton: {
+    paddingRight: 13,
+  },
+  userRadioButton: {
+    paddingHorizontal: 15,
+  },
+  adminRadioButton: {
+    paddingLeft: 15,
   },
 });

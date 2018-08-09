@@ -15,10 +15,10 @@ it('renders correctly with non-null onClick', () => {
   );
 });
 
-it('renders correctly with null onClick', () => {
+it('renders correctly with undefined onClick', () => {
   testSnapshotShallow(
     <CenteredIconButtonWithText
-      onClick={null}
+      onClick={undefined}
       icon="some icon"
       text="Hello, MissionHub"
     />,

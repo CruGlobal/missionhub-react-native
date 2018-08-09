@@ -31,7 +31,7 @@ export default class CenteredIconButtonWithText extends Component {
             style={newButtonStyle}
             name={icon}
             type="MissionHub"
-            onPress={onClick}
+            onPress={onClick || (() => {})}
           />
         </Flex>
         <Text style={styles.text}>{text}</Text>
