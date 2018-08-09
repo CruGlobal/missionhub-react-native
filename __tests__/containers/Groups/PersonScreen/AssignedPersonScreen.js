@@ -6,15 +6,15 @@ import {
   mapStateToProps,
   CONTACT_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
-} from '../index';
-import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
-import { PERSON_MENU_DRAWER } from '../../../../constants';
-import { contactAssignmentSelector } from '../../../../selectors/people';
-import { organizationSelector } from '../../../../selectors/organizations';
+} from '../../../../src/containers/Groups/AssignedPersonScreen';
+import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { PERSON_MENU_DRAWER } from '../../../../src/constants';
+import { contactAssignmentSelector } from '../../../../src/selectors/people';
+import { organizationSelector } from '../../../../src/selectors/organizations';
 
-jest.mock('../../../../selectors/people');
-jest.mock('../../../../selectors/organizations');
-jest.mock('../../../../actions/navigation', () => ({
+jest.mock('../../../../src/selectors/people');
+jest.mock('../../../../src/selectors/organizations');
+jest.mock('../../../../src/actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
 

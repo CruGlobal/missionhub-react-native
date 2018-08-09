@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { allOrganizationsSelector } from '../../selectors/organizations';
+import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../containers/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import { IconButton } from '../../components/common';
@@ -52,7 +52,7 @@ export class GroupsListScreen extends Component {
 }
 
 export const mapStateToProps = ({ organizations, auth }) => ({
-  orgs: allOrganizationsSelector({ organizations, auth }),
+  orgs: communitiesSelector({ organizations, auth }),
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);
