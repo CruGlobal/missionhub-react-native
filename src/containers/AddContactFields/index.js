@@ -86,7 +86,7 @@ class AddContactFields extends Component {
       orgPermission,
     } = this.state;
 
-    // Disable the name fields if the user has org permission because you are not allowed to edit the names of other mission hub users
+    // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
     const personHasOrgPermission =
       personOrgPermission &&
       (personOrgPermission.permission_id === ORG_PERMISSIONS.USER ||

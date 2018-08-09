@@ -4,7 +4,11 @@ import thunk from 'redux-thunk';
 
 import { ORG_PERMISSIONS } from '../../src/constants';
 import AddContactFields from '../../src/containers/AddContactFields';
-import { testSnapshotShallow } from '../../testUtils';
+import {
+  testSnapshotShallow,
+  renderShallow,
+  createMockStore,
+} from '../../testUtils';
 import { orgPermissionSelector } from '../../src/selectors/people';
 
 jest.mock('../../src/selectors/people');
@@ -13,6 +17,14 @@ const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
 orgPermissionSelector.mockReturnValue(orgPermission);
+
+const store = createMockStore();
+function buildScreen(props) {
+  return renderShallow(
+    <AddContactFields onUpdateData={() => {}} {...props} />,
+    store,
+  );
+}
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
@@ -108,4 +120,17 @@ it('renders jean with organization and user and admin radio buttons', () => {
       },
     }),
   );
+});
+
+it('mounts and calls update field', () => {
+  const component = buildScreen({
+    isJean: true,
+    organization: { id: '1' },
+  });
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.componentDidMount();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.CONTACT,
+  });
 });

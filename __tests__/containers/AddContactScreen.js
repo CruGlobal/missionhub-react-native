@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-native';
 
 import {
   createMockStore,
@@ -13,6 +14,7 @@ import * as organizations from '../../src/actions/organizations';
 import * as person from '../../src/actions/person';
 import { navigateBack, navigatePush } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
+import { ORG_PERMISSIONS, CANNOT_EDIT_FIRST_NAME } from '../../src/constants';
 
 const me = { id: 99 };
 const contactId = 23;
@@ -262,5 +264,76 @@ describe('savePerson', () => {
     expect(updatePerson).toHaveBeenCalledWith({
       id: contactId,
     });
+  });
+
+  it('should alert with blank email and admin permission', async () => {
+    Alert.alert = jest.fn();
+    const component = buildScreen({
+      navigation: createMockNavState(),
+    });
+    const componentInstance = component.instance();
+
+    component.setState({
+      person: {
+        email: '',
+        orgPermission: { permission_id: ORG_PERMISSIONS.ADMIN },
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(Alert.alert).toHaveBeenCalled();
+  });
+
+  it('should alert with blank email and user permission', async () => {
+    Alert.alert = jest.fn();
+    const component = buildScreen({
+      navigation: createMockNavState(),
+    });
+    const componentInstance = component.instance();
+
+    component.setState({
+      person: {
+        email: '',
+        orgPermission: { permission_id: ORG_PERMISSIONS.USER },
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(Alert.alert).toHaveBeenCalled();
+  });
+
+  it('should throw an alert when the update user fails', async () => {
+    jest.mock('../../src/actions/person', () => ({
+      updatePerson: jest.fn(() =>
+        Promise.reject({
+          apiError: {
+            errors: [
+              {
+                detail:
+                  'You are not allowed to edit first names of other MissionHub users',
+              },
+            ],
+          },
+        }),
+      ),
+    }));
+    const component = buildScreen({
+      navigation: createMockNavState(),
+      person: { id: contactId },
+    });
+    const componentInstance = component.instance();
+
+    component.setState({
+      person: {
+        id: contactId,
+        lastName: 'New Name',
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(Alert.alert).toHaveBeenCalled();
   });
 });
