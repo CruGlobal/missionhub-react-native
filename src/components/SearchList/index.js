@@ -155,7 +155,7 @@ class SearchList extends Component {
     const { results, isSearching } = this.state;
     const resultsLength = results.length;
 
-    if (!isSearching && resultsLength === 0) {
+    if (!isSearching && resultsLength === 0 && defaultData.length === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('noResults')}</Text>
