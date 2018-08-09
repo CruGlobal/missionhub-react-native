@@ -55,13 +55,11 @@ class SearchList extends Component {
 
   handleOnEndReached = async () => {
     const { listHasScrolled, text, isSearching } = this.state;
-    if (!listHasScrolled) {
+    if (!listHasScrolled || isSearching) {
       return;
     }
 
-    if (!isSearching) {
-      this.setState({ isSearching: true });
-    }
+    this.setState({ isSearching: true });
 
     const { onLoadMore } = this.props;
 
