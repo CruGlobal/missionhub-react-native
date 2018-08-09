@@ -13,9 +13,16 @@ import * as filterUtils from '../../../src/utils/filters';
 jest.mock('../../../src/actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
+jest.mock('../../../src/actions/labels', () => ({
+  getOrgLabels: jest.fn(() => ({
+    type: 'orgLabels',
+    response: [{ id: '3' }, { id: '4' }],
+  })),
+}));
 
 const store = createMockStore({});
 const timeFilter30 = { id: 'time30', text: 'Last 30 days' };
+const organization = { id: '1' };
 const filters = {
   unassigned: {
     id: 'unassigned',
@@ -32,6 +39,7 @@ describe('ContactsFilter', () => {
       navigation={createMockNavState({
         onFilter,
         filters,
+        organization,
       })}
     />
   );

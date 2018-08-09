@@ -56,11 +56,12 @@ class Contacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_CONTACTS_FILTER_SCREEN, {
         onFilter: this.handleChangeFilter,
+        organization,
         filters,
       }),
     );
