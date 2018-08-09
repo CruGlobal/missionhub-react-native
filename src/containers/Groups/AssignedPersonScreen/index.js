@@ -214,7 +214,7 @@ export const mapStateToProps = (
 
   const organization =
     organizationSelector({ organizations }, { orgId: navOrganization.id }) ||
-    navOrganization; //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    {}; //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
 
   const person =
     personSelector(
