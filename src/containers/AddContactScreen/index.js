@@ -60,7 +60,14 @@ class AddContactScreen extends Component {
   }
 
   async savePerson() {
-    const { t, me, organization, person, dispatch } = this.props;
+    const {
+      t,
+      me,
+      organization,
+      person,
+      dispatch,
+      personOrgPermission,
+    } = this.props;
     const saveData = { ...this.state.person };
 
     if (
@@ -90,22 +97,13 @@ class AddContactScreen extends Component {
       }
 
       // Only remove the org permission if it's the same as the current persons org permission
-      if (organization && saveData.orgPermission) {
-        const personOrgPermission =
-          person &&
-          organization &&
-          organization.id &&
-          orgPermissionSelector(null, {
-            person,
-            organization: { id: organization.id },
-          });
-        if (
-          personOrgPermission &&
-          saveData.orgPermission.permission_id ===
-            personOrgPermission.permission_id
-        ) {
-          delete saveData.orgPermission;
-        }
+      if (
+        saveData.orgPermission &&
+        personOrgPermission &&
+        saveData.orgPermission.permission_id ===
+          personOrgPermission.permission_id
+      ) {
+        delete saveData.orgPermission;
       }
 
       const personEmail = (getPersonEmailAddress(person) || {}).email;
@@ -222,10 +220,23 @@ AddContactScreen.propTypes = {
   onComplete: PropTypes.func,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  me: auth.person,
-});
+const mapStateToProps = ({ auth }, { navigation }) => {
+  const navProps = navigation.state.params || {};
+  const person = navProps.person;
+  const organization = navProps.organization;
+  return {
+    me: auth.person,
+    personOrgPermission:
+      person &&
+      organization &&
+      organization.id &&
+      orgPermissionSelector(null, {
+        person,
+        organization: { id: organization.id },
+      }),
+    ...navProps,
+  };
+};
 
 export default connect(mapStateToProps)(AddContactScreen);
 export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';
