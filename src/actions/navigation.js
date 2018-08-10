@@ -23,11 +23,11 @@ export function navigateBack(times) {
   };
 }
 
-export function navigateReset(screen, props = {}) {
+export function navigateReset(screen, props = {}, index = 0) {
   return dispatch => {
     dispatch(
       StackActions.reset({
-        index: 0,
+        index,
         actions: [
           NavigationActions.navigate({ routeName: screen, params: props }),
         ],
@@ -37,3 +37,17 @@ export function navigateReset(screen, props = {}) {
 }
 
 // The reset home and reset login are handled by the login/logout auth actions
+
+export function navigateReplace(screen, props = {}) {
+  return dispatch => {
+    dispatch(
+      StackActions.replace({
+        routeName: screen,
+        params: props,
+        immediate: true,
+      }),
+    );
+    //dispatch(StackActions.pop({ immediate: true }));
+    //dispatch(StackActions.push({ routeName: screen, params: props, immediate: true }));
+  };
+}

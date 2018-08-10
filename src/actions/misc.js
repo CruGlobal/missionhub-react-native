@@ -3,6 +3,7 @@ import { Linking } from 'react-native';
 import { contactAssignmentSelector } from '../selectors/people';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
+import { CONTACT_PERSON_SCREEN } from '../containers/Groups/AssignedPersonScreen';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
@@ -12,7 +13,7 @@ import {
   updatePersonAttributes,
   getPersonDetails,
 } from './person';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateReplace } from './navigation';
 
 export function openCommunicationLink(url, action) {
   //if someone has a better name for this feel free to suggest.
@@ -59,6 +60,13 @@ export function assignContactAndPickStage(personId, orgId, myId) {
     );
 
     dispatch(
+      navigateReplace(CONTACT_PERSON_SCREEN, {
+        person: resultPerson,
+        organization: { id: orgId },
+      }),
+    );
+
+    /*dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,
         orgId,
@@ -68,7 +76,7 @@ export function assignContactAndPickStage(personId, orgId, myId) {
         section: 'people',
         subsection: 'person',
       }),
-    );
+    );*/
   };
 }
 
