@@ -22,12 +22,12 @@ import {
   CANNOT_EDIT_FIRST_NAME,
 } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
-
-import styles from './styles';
 import {
   getPersonEmailAddress,
   getPersonPhoneNumber,
 } from '../../utils/common';
+
+import styles from './styles';
 
 @translate('addContact')
 class AddContactScreen extends Component {
