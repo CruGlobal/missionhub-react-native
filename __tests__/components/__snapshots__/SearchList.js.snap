@@ -244,15 +244,28 @@ exports[`renders filters 1`] = `
       </Flex>
     </ScrollView>
   </Flex>
-  <NullStateComponent
-    descriptionText="Search results will appear here."
-    headerText="Search"
-    imageSource={
+  <Flex
+    align="center"
+    style={
       Object {
-        "testUri": "../../../assets/images/searchNull.png",
+        "paddingTop": 15,
       }
     }
-  />
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      No Results.
+    </MyText>
+  </Flex>
 </Component>
 `;
 
@@ -329,15 +342,28 @@ exports[`renders search list 1`] = `
       />
     </Flex>
   </Flex>
-  <NullStateComponent
-    descriptionText="Search results will appear here."
-    headerText="Search"
-    imageSource={
+  <Flex
+    align="center"
+    style={
       Object {
-        "testUri": "../../../assets/images/searchNull.png",
+        "paddingTop": 15,
       }
     }
-  />
+    value={1}
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      No Results.
+    </MyText>
+  </Flex>
 </Component>
 `;
 

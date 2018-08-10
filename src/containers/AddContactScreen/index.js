@@ -21,6 +21,11 @@ import {
   ORG_PERMISSIONS,
   CANNOT_EDIT_FIRST_NAME,
 } from '../../constants';
+import { orgPermissionSelector } from '../../selectors/people';
+import {
+  getPersonEmailAddress,
+  getPersonPhoneNumber,
+} from '../../utils/common';
 
 import styles from './styles';
 
@@ -55,7 +60,14 @@ class AddContactScreen extends Component {
   }
 
   async savePerson() {
-    const { t, me, organization, person, dispatch } = this.props;
+    const {
+      t,
+      me,
+      organization,
+      person,
+      dispatch,
+      personOrgPermission,
+    } = this.props;
     const saveData = { ...this.state.person };
 
     if (
@@ -79,6 +91,28 @@ class AddContactScreen extends Component {
         saveData.lastName === person.last_name
       ) {
         delete saveData.lastName;
+      }
+      if (saveData.gender === person.gender) {
+        delete saveData.gender;
+      }
+
+      // Only remove the org permission if it's the same as the current persons org permission
+      if (
+        saveData.orgPermission &&
+        personOrgPermission &&
+        saveData.orgPermission.permission_id ===
+          personOrgPermission.permission_id
+      ) {
+        delete saveData.orgPermission;
+      }
+
+      const personEmail = (getPersonEmailAddress(person) || {}).email;
+      if (saveData.email === personEmail) {
+        delete saveData.email;
+      }
+      const personPhone = (getPersonPhoneNumber(person) || {}).number;
+      if (saveData.phone === personPhone) {
+        delete saveData.phone;
       }
     }
 
@@ -123,7 +157,11 @@ class AddContactScreen extends Component {
       }
     } catch (error) {
       if (error && error.apiError) {
-        if (error.apiError.errors && error.apiError.errors[0].detail) {
+        if (
+          error.apiError.errors &&
+          error.apiError.errors[0] &&
+          error.apiError.errors[0].detail
+        ) {
           const errorDetail = error.apiError.errors[0].detail;
           if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
             Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
@@ -182,10 +220,23 @@ AddContactScreen.propTypes = {
   onComplete: PropTypes.func,
 };
 
-const mapStateToProps = ({ auth }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  me: auth.person,
-});
+const mapStateToProps = ({ auth }, { navigation }) => {
+  const navProps = navigation.state.params || {};
+  const person = navProps.person;
+  const organization = navProps.organization;
+  return {
+    me: auth.person,
+    personOrgPermission:
+      person &&
+      organization &&
+      organization.id &&
+      orgPermissionSelector(null, {
+        person,
+        organization: { id: organization.id },
+      }),
+    ...navProps,
+  };
+};
 
 export default connect(mapStateToProps)(AddContactScreen);
 export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';

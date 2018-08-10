@@ -146,18 +146,22 @@ export function updatePerson(data) {
       });
     }
 
-    let attributes = { gender: data.gender };
+    let updateData = { type: 'person' };
+    let attributes;
     if (exists(data.firstName)) {
-      attributes.first_name = data.firstName;
+      attributes = { ...(attributes || {}), first_name: data.firstName };
     }
     if (exists(data.lastName)) {
-      attributes.last_name = data.lastName;
+      attributes = { ...(attributes || {}), last_name: data.lastName };
+    }
+    if (exists(data.gender)) {
+      attributes = { ...(attributes || {}), gender: data.gender };
+    }
+    if (attributes) {
+      updateData.attributes = attributes;
     }
     const bodyData = {
-      data: {
-        type: 'person',
-        attributes,
-      },
+      data: updateData,
       ...(data.email || data.phone || data.orgPermission
         ? {
             included: [
