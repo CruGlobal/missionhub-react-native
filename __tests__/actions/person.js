@@ -187,10 +187,9 @@ describe('updatePerson', () => {
       },
     );
   });
-  it('should update email', () => {
+  it('should update email only', () => {
     updatePerson({
       id: 1,
-      firstName: 'Test Fname',
       email: 'a@a.com',
       emailId: 2,
     })(dispatch);
@@ -200,9 +199,6 @@ describe('updatePerson', () => {
       {
         data: {
           type: 'person',
-          attributes: {
-            first_name: 'Test Fname',
-          },
         },
         included: [
           {
@@ -214,10 +210,9 @@ describe('updatePerson', () => {
       },
     );
   });
-  it('should update phone', () => {
+  it('should update phone only', () => {
     updatePerson({
       id: 1,
-      firstName: 'Test Fname',
       phone: '1234567890',
       phoneId: 3,
     })(dispatch);
@@ -227,9 +222,6 @@ describe('updatePerson', () => {
       {
         data: {
           type: 'person',
-          attributes: {
-            first_name: 'Test Fname',
-          },
         },
         included: [
           {

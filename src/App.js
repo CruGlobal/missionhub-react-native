@@ -97,7 +97,7 @@ export default class App extends Component {
     const { apiError } = e;
 
     if (apiError) {
-      if (apiError.errors && apiError.errors[0].detail) {
+      if (apiError.errors && apiError.errors[0] && apiError.errors[0].detail) {
         const errorDetail = apiError.errors[0].detail;
         if (
           errorDetail === EXPIRED_ACCESS_TOKEN ||
