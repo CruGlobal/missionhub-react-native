@@ -158,7 +158,7 @@ export function updatePerson(data) {
       attributes = { ...(attributes || {}), gender: data.gender };
     }
     if (attributes) {
-      data.attributes = attributes;
+      updateData.attributes = attributes;
     }
     const bodyData = {
       data: updateData,
