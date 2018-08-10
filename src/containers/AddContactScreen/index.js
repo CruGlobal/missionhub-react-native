@@ -104,7 +104,7 @@ class AddContactScreen extends Component {
           saveData.orgPermission.permission_id ===
             personOrgPermission.permission_id
         ) {
-          delete saveData.gender;
+          delete saveData.orgPermission;
         }
       }
 
