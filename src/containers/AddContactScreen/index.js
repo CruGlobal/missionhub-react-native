@@ -113,11 +113,7 @@ class AddContactScreen extends Component {
         delete saveData.email;
       }
       const personPhone = (getPersonPhoneNumber(person) || {}).number;
-      if (saveData.email === personPhone) {
-        delete saveData.email;
-      }
-
-      if (saveData.phone === person.phone) {
+      if (saveData.phone === personPhone) {
         delete saveData.phone;
       }
     }
