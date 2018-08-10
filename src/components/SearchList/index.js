@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, View, FlatList, Image } from 'react-native';
+import { ScrollView, View, FlatList } from 'react-native';
 import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, IconButton, Input, Text } from '../../components/common';
+import LoadingWheel from '../../components/LoadingWheel';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -181,15 +182,7 @@ class SearchList extends Component {
     const { isSearching } = this.state;
 
     if (isSearching) {
-      return (
-        <Flex value={1} align="center" justify="center">
-          <Image
-            source={require('../../../assets/gifs/loadingSpiralBlue.gif')}
-            resizeMode="contain"
-            style={styles.gif}
-          />
-        </Flex>
-      );
+      return <LoadingWheel style={styles.loadingIndicator} />;
     }
     return null;
   }

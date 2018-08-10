@@ -66,8 +66,11 @@ export default StyleSheet.create({
     fontSize: 16,
     color: theme.white,
   },
-  gif: {
+  loadingIndicator: {
     marginVertical: 10,
     height: 20,
+    width: theme.fullWidth,
+    position: 'absolute',
+    opacity: 0.7,
   },
 });
