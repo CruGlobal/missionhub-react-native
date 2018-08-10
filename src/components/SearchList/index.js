@@ -4,10 +4,9 @@ import debounce from 'lodash/debounce';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { Flex, IconButton, Input, Text } from '../../components/common';
+import LoadingWheel from '../../components/LoadingWheel';
 import theme from '../../theme';
-import NullStateComponent from '../NullStateComponent';
 
 import styles from './styles';
 
@@ -54,10 +53,12 @@ class SearchList extends Component {
   };
 
   handleOnEndReached = async () => {
-    const { listHasScrolled, text } = this.state;
-    if (!listHasScrolled) {
+    const { listHasScrolled, text, isSearching } = this.state;
+    if (!listHasScrolled || isSearching) {
       return;
     }
+
+    this.setState({ isSearching: true });
 
     const { onLoadMore } = this.props;
 
@@ -152,31 +153,17 @@ class SearchList extends Component {
 
   renderContent() {
     const { t, listProps, defaultData = [] } = this.props;
-    const { results, text, isSearching } = this.state;
+    const { results, isSearching } = this.state;
     const resultsLength = results.length;
-    if (isSearching && resultsLength === 0) {
-      return (
-        <Flex align="center" value={1} style={styles.emptyWrap}>
-          <Text style={styles.nullText}>{t('loading')}</Text>
-        </Flex>
-      );
-    }
-    if (text && resultsLength === 0) {
+
+    if (!isSearching && resultsLength === 0 && defaultData.length === 0) {
       return (
         <Flex align="center" value={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('noResults')}</Text>
         </Flex>
       );
     }
-    if (defaultData.length === 0 && resultsLength === 0) {
-      return (
-        <NullStateComponent
-          imageSource={SEARCH_NULL}
-          headerText={t('nullHeader')}
-          descriptionText={t('nullDescription')}
-        />
-      );
-    }
+
     return (
       <FlatList
         style={styles.list}
@@ -185,9 +172,19 @@ class SearchList extends Component {
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
+        ListFooterComponent={this.renderListFooter()}
         {...listProps}
       />
     );
+  }
+
+  renderListFooter() {
+    const { isSearching } = this.state;
+
+    if (isSearching) {
+      return <LoadingWheel style={styles.loadingIndicator} />;
+    }
+    return null;
   }
 
   render() {
