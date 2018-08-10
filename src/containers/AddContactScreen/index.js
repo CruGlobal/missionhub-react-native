@@ -21,8 +21,13 @@ import {
   ORG_PERMISSIONS,
   CANNOT_EDIT_FIRST_NAME,
 } from '../../constants';
+import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
+import {
+  getPersonEmailAddress,
+  getPersonPhoneNumber,
+} from '../../utils/common';
 
 @translate('addContact')
 class AddContactScreen extends Component {
@@ -80,6 +85,41 @@ class AddContactScreen extends Component {
       ) {
         delete saveData.lastName;
       }
+      if (saveData.gender === person.gender) {
+        delete saveData.gender;
+      }
+
+      // Only remove the org permission if it's the same as the current persons org permission
+      if (organization && saveData.orgPermission) {
+        const personOrgPermission =
+          person &&
+          organization &&
+          organization.id &&
+          orgPermissionSelector(null, {
+            person,
+            organization: { id: organization.id },
+          });
+        if (
+          personOrgPermission &&
+          saveData.orgPermission.permission_id ===
+            personOrgPermission.permission_id
+        ) {
+          delete saveData.gender;
+        }
+      }
+
+      const personEmail = (getPersonEmailAddress(person) || {}).email;
+      if (saveData.email === personEmail) {
+        delete saveData.email;
+      }
+      const personPhone = (getPersonPhoneNumber(person) || {}).number;
+      if (saveData.email === personPhone) {
+        delete saveData.email;
+      }
+
+      if (saveData.phone === person.phone) {
+        delete saveData.phone;
+      }
     }
 
     if (organization) {
@@ -123,7 +163,11 @@ class AddContactScreen extends Component {
       }
     } catch (error) {
       if (error && error.apiError) {
-        if (error.apiError.errors && error.apiError.errors[0].detail) {
+        if (
+          error.apiError.errors &&
+          error.apiError.errors[0] &&
+          error.apiError.errors[0].detail
+        ) {
           const errorDetail = error.apiError.errors[0].detail;
           if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
             Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
