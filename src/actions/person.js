@@ -13,7 +13,7 @@ import {
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
-import { isMemberForOrg } from '../utils/common';
+import { isMemberForOrg, exists } from '../utils/common';
 import {
   orgPermissionSelector,
   contactAssignmentSelector,
@@ -138,23 +138,27 @@ export function updatePersonAttributes(personId, personAttributes) {
 
 export function updatePerson(data) {
   return async dispatch => {
-    if (!data || !data.firstName) {
+    if (!data) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
         error: 'InvalidData',
         data,
       });
     }
+
+    let attributes = { gender: data.gender };
+    if (exists(data.firstName)) {
+      attributes.first_name = data.firstName;
+    }
+    if (exists(data.lastName)) {
+      attributes.last_name = data.lastName;
+    }
     const bodyData = {
       data: {
         type: 'person',
-        attributes: {
-          first_name: data.firstName,
-          last_name: data.lastName,
-          gender: data.gender,
-        },
+        attributes,
       },
-      ...(data.email || data.phone
+      ...(data.email || data.phone || data.orgPermission
         ? {
             included: [
               ...(data.email
@@ -177,14 +181,26 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        permission_id: data.orgPermission.permission_id,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
     };
     const query = {
       personId: data.id,
-      include: 'email_addresses,phone_numbers,reverse_contact_assignments',
+      include: personInclude,
     };
+
     const results = await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, query, bodyData),
     );
@@ -198,6 +214,7 @@ export function updatePerson(data) {
         full_name: person.full_name,
         email_addresses: person.email_addresses,
         phone_numbers: person.phone_numbers,
+        organizational_permissions: person.organizational_permissions,
       }),
     );
 

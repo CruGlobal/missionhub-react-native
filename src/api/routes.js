@@ -162,6 +162,9 @@ export default {
     endpoint: `${API_URL}organizations`,
     query: { include: 'labels' },
   },
+  GET_ORGANIZATION_LABELS: {
+    endpoint: `${API_URL}organizations/:orgId`,
+  },
   GET_IMPACT_SUMMARY: {
     endpoint: `${API_URL}reports/impact`,
   },

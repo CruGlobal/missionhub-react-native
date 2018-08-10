@@ -13,3 +13,10 @@ export const allOrganizationsSelector = createSelector(
   ({ auth }) => auth.person,
   (orgs, authUser) => removeHiddenOrgs(orgs, authUser),
 );
+
+export const communitiesSelector = createSelector(
+  ({ organizations }) => organizations.all,
+  ({ auth }) => auth.person,
+  (orgs, authUser) =>
+    removeHiddenOrgs(orgs, authUser).filter(org => org.community),
+);
