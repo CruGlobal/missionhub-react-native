@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -7,7 +7,12 @@ import { translate } from 'react-i18next';
 import CommentBox from '../../components/CommentBox';
 import { navigatePush } from '../../actions/navigation';
 import { getJourney } from '../../actions/journey';
-import { Flex, Separator, LoadingGuy } from '../../components/common';
+import {
+  Flex,
+  Separator,
+  LoadingGuy,
+  PlatformKeyboardAvoidingView,
+} from '../../components/common';
 import JourneyItem from '../../components/JourneyItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/ourJourney.png';
@@ -16,6 +21,8 @@ import { editComment } from '../../actions/interactions';
 import { removeSwipeJourney } from '../../actions/swipe';
 import { updateChallengeNote } from '../../actions/steps';
 import NullStateComponent from '../../components/NullStateComponent';
+import theme from '../../theme';
+import { keyboardShow, keyboardHide, isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
@@ -29,6 +36,7 @@ class ContactJourney extends Component {
     this.state = {
       editingInteraction: null,
       isPersonalMinistry: isPersonal,
+      keyboardVisible: false,
     };
 
     this.completeBump = this.completeBump.bind(this);
@@ -39,7 +47,23 @@ class ContactJourney extends Component {
 
   componentDidMount() {
     this.getInteractions();
+
+    this.keyboardShowListener = keyboardShow(this.keyboardShow);
+    this.keyboardHideListener = keyboardHide(this.keyboardHide);
   }
+
+  componentWillUnmount() {
+    this.keyboardShowListener.remove();
+    this.keyboardHideListener.remove();
+  }
+
+  keyboardShow = () => {
+    this.setState({ keyboardVisible: true });
+  };
+
+  keyboardHide = () => {
+    this.setState({ keyboardVisible: false });
+  };
 
   completeBump() {
     this.props.dispatch(removeSwipeJourney());
@@ -157,14 +181,20 @@ class ContactJourney extends Component {
   }
 
   render() {
+    const { keyboardVisible } = this.state;
     const { person, organization } = this.props;
+    // Get the offset height for iOS based on the comment box and keybaord dimensions
+    const height =
+      theme.keyboardHeightWithAutocomplete + theme.commentBoxPaddingTop * 2;
     return (
-      <View style={{ flex: 1 }}>
+      <PlatformKeyboardAvoidingView
+        offset={!isAndroid && !keyboardVisible ? height : undefined}
+      >
         {this.renderContent()}
         <Flex justify="end">
           <CommentBox person={person} organization={organization} />
         </Flex>
-      </View>
+      </PlatformKeyboardAvoidingView>
     );
   }
 }

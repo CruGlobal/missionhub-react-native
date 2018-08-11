@@ -26,16 +26,16 @@ class Header extends Component {
     if (title && title2) {
       return (
         <Flex
-          value={2}
-          direction="column"
+          value={4}
           align="center"
+          justify="center"
           style={styles.headerTwoLine}
         >
           <Text style={styles.headerTwoLine1} numberOfLines={1}>
-            {title2}
+            {title}
           </Text>
           <Text style={styles.headerTwoLine2} numberOfLines={1}>
-            {title}
+            {title2}
           </Text>
         </Flex>
       );

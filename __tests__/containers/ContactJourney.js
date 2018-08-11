@@ -11,6 +11,7 @@ import {
   renderShallow,
   testSnapshot,
 } from '../../testUtils';
+import * as common from '../../src/utils/common';
 
 const personId = '123';
 const organizationId = 2;
@@ -164,4 +165,55 @@ it('renders with an organization correctly', () => {
       />
     </Provider>,
   );
+});
+
+it('renders with the keyboard visible', () => {
+  component = createComponent();
+
+  const instance = component.instance();
+  instance.keyboardShow();
+  expect(component).toMatchSnapshot();
+});
+
+it('renders with the keyboard visible on android', () => {
+  component = createComponent();
+  common.isAndroid = true;
+
+  const instance = component.instance();
+  instance.keyboardShow();
+  expect(instance.state.keyboardVisible).toEqual(true);
+});
+
+it('sets the keyboard to not visible', () => {
+  component = createComponent();
+
+  const instance = component.instance();
+  instance.keyboardShow();
+  instance.keyboardHide();
+  expect(instance.state.keyboardVisible).toEqual(false);
+});
+
+it('mounts and sets the keyboard listeners', () => {
+  const mockShowListener = 'show';
+  const mockHideListener = 'hide';
+  common.keyboardShow = jest.fn(() => mockShowListener);
+  common.keyboardHide = jest.fn(() => mockHideListener);
+  component = createComponent();
+
+  const instance = component.instance();
+  expect(instance.keyboardShowListener).toEqual(mockShowListener);
+  expect(instance.keyboardHideListener).toEqual(mockHideListener);
+});
+
+it('unmounts and runs the keyboard listeners', () => {
+  const mockShowListener = jest.fn();
+  const mockHideListener = jest.fn();
+  common.keyboardShow = jest.fn(() => ({ remove: mockShowListener }));
+  common.keyboardHide = jest.fn(() => ({ remove: mockHideListener }));
+  component = createComponent();
+
+  const instance = component.instance();
+  instance.componentWillUnmount();
+  expect(mockShowListener).toHaveBeenCalled();
+  expect(mockHideListener).toHaveBeenCalled();
 });

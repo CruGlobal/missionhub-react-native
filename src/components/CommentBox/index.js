@@ -43,7 +43,12 @@ class CommentBox extends Component {
       : INTERACTION_TYPES.MHInteractionTypeNote;
 
     await dispatch(
-      addNewInteraction(person.id, interaction, text, organization.id),
+      addNewInteraction(
+        person.id,
+        interaction,
+        text,
+        organization ? organization.id : undefined,
+      ),
     );
 
     this.setState(initialState);
@@ -97,7 +102,9 @@ class CommentBox extends Component {
             type="MissionHub"
           />
         </Flex>
-        <Text style={styles.actionText}>{t(item.translationKey)}</Text>
+        <Text style={styles.actionText} numberOfLines={2}>
+          {t(item.translationKey)}
+        </Text>
       </Touchable>
     );
   };
@@ -234,8 +241,8 @@ class CommentBox extends Component {
 }
 
 CommentBox.propTypes = {
-  organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
   onSubmit: PropTypes.func,
   hideActions: PropTypes.bool,
 };

@@ -161,6 +161,8 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
 </Flex>
 `;
 
+exports[`isMember renders null because its not supposed to be visible 1`] = `""`;
+
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
   <Connect(Translate(AssignToMeButton))

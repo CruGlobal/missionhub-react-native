@@ -4,11 +4,12 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    paddingVertical: 5,
     width: theme.fullWidth,
     backgroundColor: theme.white,
     borderTopColor: theme.grey1,
     borderTopWidth: theme.separatorHeight,
+    paddingTop: theme.commentBoxPaddingTop,
+    paddingBottom: theme.commentBoxPaddingBottom,
   },
   actionSelectionWrap: {
     backgroundColor: theme.primaryColor,

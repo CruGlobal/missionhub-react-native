@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactJourney renders loading screen correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<PlatformKeyboardAvoidingView
+  offset={263}
 >
   <Flex
     align="center"
@@ -38,16 +34,12 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</PlatformKeyboardAvoidingView>
 `;
 
 exports[`ContactJourney renders null screen correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<PlatformKeyboardAvoidingView
+  offset={263}
 >
   <Flex
     align="center"
@@ -87,16 +79,12 @@ exports[`ContactJourney renders null screen correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</PlatformKeyboardAvoidingView>
 `;
 
 exports[`ContactJourney renders screen with steps correctly 1`] = `
-<Component
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
+<PlatformKeyboardAvoidingView
+  offset={263}
 >
   <Flex
     align="center"
@@ -159,7 +147,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
       }
     />
   </Flex>
-</Component>
+</PlatformKeyboardAvoidingView>
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
@@ -231,10 +219,24 @@ exports[`journey methods renders an interaction row 1`] = `
 
 exports[`renders with an organization correctly 1`] = `
 <View
+  enabled={true}
+  keyboardVerticalOffset={263}
+  onLayout={[Function]}
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Array [
+        Object {
+          "backgroundColor": "#007398",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ],
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
   }
 >
   <View
@@ -362,7 +364,8 @@ exports[`renders with an organization correctly 1`] = `
             "backgroundColor": "#ffffff",
             "borderTopColor": "#B2B0B2",
             "borderTopWidth": 1,
-            "paddingVertical": 5,
+            "paddingBottom": 5,
+            "paddingTop": 5,
             "width": 750,
           },
           Object {
@@ -560,4 +563,72 @@ exports[`renders with an organization correctly 1`] = `
     </View>
   </View>
 </View>
+`;
+
+exports[`renders with the keyboard visible 1`] = `
+<PlatformKeyboardAvoidingView
+  offset={263}
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "_type": "accepted_challenge",
+            "date": "2010-01-01 12:12:12",
+            "id": "84472",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Connect(Translate(CommentBox))
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": 2,
+            },
+          ],
+        }
+      }
+    />
+  </Flex>
+</PlatformKeyboardAvoidingView>
 `;
