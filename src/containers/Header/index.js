@@ -32,10 +32,10 @@ class Header extends Component {
           style={styles.headerTwoLine}
         >
           <Text style={styles.headerTwoLine1} numberOfLines={1}>
-            {title}
+            {title2}
           </Text>
           <Text style={styles.headerTwoLine2} numberOfLines={1}>
-            {title2}
+            {title}
           </Text>
         </Flex>
       );

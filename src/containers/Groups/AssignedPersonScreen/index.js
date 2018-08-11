@@ -168,7 +168,8 @@ export class AssignedPersonScreen extends Component {
 
     const name = (person.first_name || '').toUpperCase();
     // If the keyboard is up, show the person's name and the organization
-    const title2 = keyboardVisible ? name : undefined;
+    const title = keyboardVisible ? name : organization.name;
+    const title2 = keyboardVisible ? organization.name : undefined;
 
     return (
       <View>
@@ -188,7 +189,7 @@ export class AssignedPersonScreen extends Component {
             />
           }
           shadow={false}
-          title={organization.name}
+          title={title}
           title2={title2}
         />
         <Flex

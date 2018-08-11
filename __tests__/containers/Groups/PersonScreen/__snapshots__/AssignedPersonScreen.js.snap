@@ -12,8 +12,8 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
       />
     }
     shadow={false}
-    title="Test Org"
-    title2="TEST PERSON"
+    title="TEST PERSON"
+    title2="Test Org"
   />
   <Flex
     align="center"
