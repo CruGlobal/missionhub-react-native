@@ -157,12 +157,17 @@ class ContactJourney extends Component {
   }
 
   render() {
+    const { isPersonalMinistry } = this.state;
     const { person, organization } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {this.renderContent()}
         <Flex justify="end">
-          <CommentBox person={person} organization={organization} />
+          <CommentBox
+            person={person}
+            organization={organization}
+            hideActions={isPersonalMinistry}
+          />
         </Flex>
       </View>
     );

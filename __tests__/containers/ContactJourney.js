@@ -83,6 +83,14 @@ describe('ContactJourney', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('renders screen as personal ministry', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    component = createComponent();
+    component.setState({ isPersonalMinistry: true });
+
+    expect(component).toMatchSnapshot();
+  });
 });
 
 describe('journey methods', () => {
