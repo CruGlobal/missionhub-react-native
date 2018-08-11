@@ -26,6 +26,7 @@ import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
+import { PlatformKeyboardAvoidingView } from './components/common';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -203,7 +204,10 @@ export default class App extends Component {
             onBeforeLift={this.onBeforeLift}
             persistor={persistor}
           >
-            <AppWithNavigationState />
+            {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+            <PlatformKeyboardAvoidingView>
+              <AppWithNavigationState />
+            </PlatformKeyboardAvoidingView>
           </PersistGate>
         </I18nextProvider>
       </Provider>

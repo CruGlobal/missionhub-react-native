@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
 
-import { PRIMARY_BACKGROUND_COLOR, PRIMARY_HEADER_COLOR } from '../../theme';
+import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: PRIMARY_BACKGROUND_COLOR,
+    backgroundColor: theme.primaryColor,
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
   label: {
-    color: PRIMARY_HEADER_COLOR,
+    color: theme.secondaryColor,
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 12,
   },
@@ -19,6 +19,6 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 16,
     letterSpacing: 0.25,
-    borderBottomColor: PRIMARY_HEADER_COLOR,
+    borderBottomColor: theme.secondaryColor,
   },
 });

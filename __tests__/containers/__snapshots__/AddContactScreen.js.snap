@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Connect(Header)
     right={
       <IconButton
@@ -34,5 +43,5 @@ exports[`renders correctly 1`] = `
     text="DONE"
     type="secondary"
   />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;

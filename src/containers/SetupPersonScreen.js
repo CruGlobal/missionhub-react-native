@@ -3,12 +3,7 @@ import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
 import { translate } from 'react-i18next';
 
-import {
-  Button,
-  Text,
-  PlatformKeyboardAvoidingView,
-  Flex,
-} from '../components/common';
+import { Button, Text, Flex } from '../components/common';
 import Input from '../components/Input/index';
 import { navigatePush } from '../actions/navigation';
 import {
@@ -75,7 +70,7 @@ class SetupPersonScreen extends Component {
     const { t, personFirstName, personLastName, dispatch } = this.props;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         <Flex value={1} />
         <Flex value={2} align="center">
           <Image source={require('../../assets/images/add_someone.png')} />
@@ -119,7 +114,7 @@ class SetupPersonScreen extends Component {
             text={t('next').toUpperCase()}
           />
         </Flex>
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

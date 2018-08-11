@@ -49,9 +49,6 @@ function colorConvert({
   return col.rgb().toString();
 }
 
-export const PRIMARY_BACKGROUND_COLOR = '#007398';
-export const PRIMARY_HEADER_COLOR = '#52C5DC';
-
 export const COLORS = {
   LIGHT_BLUE: '#66D9F0',
   BLUE: '#52C5DC',
@@ -120,6 +117,6 @@ export default {
   swipeTabHeight: 48,
   commentBoxPaddingTop: 5,
   commentBoxPaddingBottom: isiPhoneX() ? 25 : 5,
-  keyboardHeightWithAutocomplete: isAndroid ? 250 : 253,
-  keyboardHeightWithoutAutocomplete: isAndroid ? 250 : 224,
+  keyboardHeightWithAutocomplete: isAndroid ? undefined : 258,
+  keyboardHeightWithoutAutocomplete: isAndroid ? undefined : 224,
 };

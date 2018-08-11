@@ -6,7 +6,6 @@ import { translate } from 'react-i18next';
 import {
   Button,
   Text,
-  PlatformKeyboardAvoidingView,
   Flex,
   Icon,
   LoadingWheel,
@@ -152,7 +151,7 @@ class KeyLoginScreen extends Component {
     const marginTop = isiPhoneX() ? 50 : 25;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         {this.state.errorMessage ? this.renderErrorMessage() : null}
         {forcedLogout ? (
           <View style={{ marginTop }} />
@@ -241,7 +240,7 @@ class KeyLoginScreen extends Component {
           </Flex>
         )}
         {this.state.isLoading ? <LoadingWheel /> : null}
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

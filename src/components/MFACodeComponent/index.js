@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Input, Button } from '../../components/common';
-import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import LoadingWheel from '../../components/LoadingWheel';
 import BackButton from '../../containers/BackButton';
 
@@ -19,13 +18,14 @@ export default class MFACodeComponent extends Component {
       doneButton,
       doneButtonText,
       container,
+      content,
       mfaHeader,
       mfaDescription,
       label,
     } = styles;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={container}>
         <Flex direction="row" justify="between" align="center">
           <BackButton style={backButton} />
 
@@ -38,7 +38,7 @@ export default class MFACodeComponent extends Component {
           />
         </Flex>
 
-        <Flex justify="center" value={1} style={container}>
+        <Flex justify="center" value={1} style={content}>
           <Text type="header" style={mfaHeader}>
             {t('mfaHeader').toLowerCase()}
           </Text>
@@ -63,7 +63,7 @@ export default class MFACodeComponent extends Component {
         </Flex>
 
         {isLoading ? <LoadingWheel /> : null}
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }
