@@ -115,8 +115,4 @@ export default {
   headerHeight: isAndroid ? 56 : iPhoneHeaderHeight + notchHeight,
   notchHeight,
   swipeTabHeight: 48,
-  commentBoxPaddingTop: 5,
-  commentBoxPaddingBottom: isiPhoneX() ? 25 : 5,
-  keyboardHeightWithAutocomplete: isAndroid ? undefined : 258,
-  keyboardHeightWithoutAutocomplete: isAndroid ? undefined : 224,
 };
