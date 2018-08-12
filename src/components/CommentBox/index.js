@@ -81,7 +81,8 @@ class CommentBox extends Component {
     return (
       <Touchable
         key={item.id}
-        onPress={() => this.selectAction(item)}
+        pressProps={[item]}
+        onPress={this.selectAction}
         style={styles.actionRowWrap}
       >
         <Flex

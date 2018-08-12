@@ -220,8 +220,10 @@ export class StepsScreen extends Component {
                   ? this.completeReminderBump
                   : undefined
               }
-              onDelete={() => this.handleDeleteReminder(s)}
-              onComplete={() => this.handleCompleteReminder(s)}
+              deletePressProps={[s]}
+              completePressProps={[s]}
+              onDelete={this.handleDeleteReminder}
+              onComplete={this.handleCompleteReminder}
             >
               <StepItem
                 step={s}
@@ -249,8 +251,10 @@ export class StepsScreen extends Component {
         showStepBump && index === 0 ? this.completeStepBump : undefined
       }
       key={item.id}
-      onDelete={() => this.handleDeleteReminder(item)}
-      onComplete={() => this.handleCompleteReminder(item)}
+      deletePressProps={[item]}
+      completePressProps={[item]}
+      onDelete={this.handleDeleteReminder}
+      onComplete={this.handleCompleteReminder}
     >
       <StepItem
         step={item}

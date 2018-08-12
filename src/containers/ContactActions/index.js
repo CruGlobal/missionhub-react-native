@@ -45,7 +45,8 @@ export class ContactActions extends Component {
         style={styles.rowWrap}
       >
         <Touchable
-          onPress={() => this.handleCreateInteraction(item)}
+          pressProps={[item]}
+          onPress={this.handleCreateInteraction}
           style={styles.iconBtn}
         >
           <Flex

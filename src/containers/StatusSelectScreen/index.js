@@ -60,7 +60,7 @@ class StatusSelectScreen extends Component {
     const { t } = this.props;
     const { selected } = this.state;
     return (
-      <Touchable onPress={() => this.select(type)} style={styles.row}>
+      <Touchable pressProps={[type]} onPress={this.select} style={styles.row}>
         <Text style={[styles.text, selected === type ? styles.selected : null]}>
           {t(type)}
         </Text>

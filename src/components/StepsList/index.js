@@ -8,9 +8,10 @@ import Button from '../Button';
 import styles from './styles';
 
 export default class StepsList extends Component {
+  selectStep = item => this.props.onSelectStep(item);
   renderRow = ({ item }) => {
     return (
-      <Touchable onPress={() => this.props.onSelectStep(item)}>
+      <Touchable pressProps={[item]} onPress={this.selectStep}>
         <Flex direction="row" align="center" justify="start" value={1}>
           <Icon
             type="MissionHub"

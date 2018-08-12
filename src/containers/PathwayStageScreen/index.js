@@ -117,7 +117,8 @@ class PathwayStageScreen extends Component {
         </View>
         <Button
           type="primary"
-          onPress={() => this.setStage(item, isActive, index)}
+          pressProps={[item, isActive, index]}
+          onPress={this.setStage}
           text={isActive && activeButtonText ? activeButtonText : buttonText}
         />
       </View>

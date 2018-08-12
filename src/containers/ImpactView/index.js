@@ -160,7 +160,8 @@ export class ImpactView extends Component {
               <Button
                 key={p.id}
                 text={p.text}
-                onPress={() => this.handleChangePeriod(p.period)}
+                pressProps={[p.period]}
+                onPress={this.handleChangePeriod}
                 style={
                   this.state.period === p.period
                     ? styles.activeButton

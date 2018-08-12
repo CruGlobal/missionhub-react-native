@@ -99,7 +99,8 @@ class ContactJourney extends Component {
       return (
         <RowSwipeable
           key={item.id}
-          onEdit={() => this.handleEditInteraction(item)}
+          editPressProps={[item]}
+          onEdit={this.handleEditInteraction}
           bump={showReminder && item.isFirstInteraction}
           onBumpComplete={
             showReminder && item.isFirstInteraction

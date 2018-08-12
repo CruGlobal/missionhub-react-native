@@ -171,7 +171,8 @@ export class SearchPeopleScreen extends Component {
               style={styles.activeFilterIcon}
               name="deleteIcon"
               type="MissionHub"
-              onPress={() => this.removeFilter(k)}
+              pressProps={[k]}
+              onPress={this.removeFilter}
             />
           </Flex>
         ))}

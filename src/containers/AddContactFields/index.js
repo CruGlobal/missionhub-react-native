@@ -215,9 +215,8 @@ class AddContactFields extends Component {
                 >
                   <RadioButton
                     style={styles.contactRadioButton}
-                    onSelect={() =>
-                      this.updateOrgPermission(ORG_PERMISSIONS.CONTACT)
-                    }
+                    pressProps={[ORG_PERMISSIONS.CONTACT]}
+                    onSelect={this.updateOrgPermission}
                     checked={
                       orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
                     }
@@ -229,9 +228,8 @@ class AddContactFields extends Component {
                       ORG_PERMISSIONS.ADMIN) ? (
                     <RadioButton
                       style={styles.userRadioButton}
-                      onSelect={() =>
-                        this.updateOrgPermission(ORG_PERMISSIONS.USER)
-                      }
+                      pressProps={[ORG_PERMISSIONS.USER]}
+                      onSelect={this.updateOrgPermission}
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.USER
                       }
@@ -242,9 +240,8 @@ class AddContactFields extends Component {
                   myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
                     <RadioButton
                       style={styles.adminRadioButton}
-                      onSelect={() =>
-                        this.updateOrgPermission(ORG_PERMISSIONS.ADMIN)
-                      }
+                      pressProps={[ORG_PERMISSIONS.ADMIN]}
+                      onSelect={this.updateOrgPermission}
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
                       }

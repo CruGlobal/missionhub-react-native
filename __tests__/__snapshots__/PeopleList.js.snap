@@ -108,12 +108,22 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              undefined,
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "personal",
+            ]
+          }
           size={10}
           type="MissionHub"
         />
@@ -187,12 +197,33 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              Object {
+                "expanded": true,
+                "id": 10,
+                "name": "org 1",
+                "people": Array [
+                  Object {
+                    "id": 11,
+                    "type": "person",
+                  },
+                ],
+                "type": "organization",
+              },
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              10,
+            ]
+          }
           size={10}
           type="MissionHub"
         />
@@ -258,12 +289,33 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              Object {
+                "expanded": true,
+                "id": 20,
+                "name": "org 2",
+                "people": Array [
+                  Object {
+                    "id": 21,
+                    "type": "person",
+                  },
+                ],
+                "type": "organization",
+              },
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              20,
+            ]
+          }
           size={10}
           type="MissionHub"
         />

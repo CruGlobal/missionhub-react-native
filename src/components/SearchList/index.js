@@ -145,7 +145,8 @@ class SearchList extends Component {
               style={styles.activeFilterIcon}
               name="cancelIcon"
               type="MissionHub"
-              onPress={() => this.removeFilter(k)}
+              pressProps={[k]}
+              onPress={this.removeFilter}
             />
           </Flex>
         ))}

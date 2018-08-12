@@ -113,6 +113,11 @@ exports[`renders filters 1`] = `
         <IconButton
           name="cancelIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "filter1",
+            ]
+          }
           style={
             Object {
               "color": "#ffffff",
@@ -153,6 +158,11 @@ exports[`renders filters 1`] = `
         <IconButton
           name="cancelIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "filter2",
+            ]
+          }
           style={
             Object {
               "color": "#ffffff",
@@ -193,6 +203,11 @@ exports[`renders filters 1`] = `
         <IconButton
           name="cancelIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "filter3",
+            ]
+          }
           style={
             Object {
               "color": "#ffffff",
@@ -233,6 +248,11 @@ exports[`renders filters 1`] = `
         <IconButton
           name="cancelIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "filter4",
+            ]
+          }
           style={
             Object {
               "color": "#ffffff",

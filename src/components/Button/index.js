@@ -31,14 +31,21 @@ export default class Button extends Component {
   }
 
   handlePress(...args) {
+    const { pressProps, onPress } = this.props;
     // Prevent the user from being able to click twice
     this.setState({ clickedDisabled: true });
     // Re-enable the button after the timeout
     this.clickDisableTimeout = setTimeout(() => {
       this.setState({ clickedDisabled: false });
     }, 400);
-    // Call the users click function with all the normal click parameters
-    this.props.onPress(...args);
+
+    // If pressProps are passed in, use those when calling the `onPress` method
+    if (pressProps) {
+      onPress.apply(null, pressProps);
+    } else {
+      // Call the users click function with all the normal click parameters
+      onPress(...args);
+    }
   }
 
   render() {
@@ -50,6 +57,7 @@ export default class Button extends Component {
       disabled,
       style = {},
       buttonTextStyle = {},
+      pressProps, // eslint-disable-line no-unused-vars
       ...rest
     } = this.props;
     let content = children;
@@ -88,4 +96,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   style: PropTypes.oneOfType(styleTypes),
   buttonTextStyle: PropTypes.oneOfType(styleTypes),
+  pressProps: PropTypes.array,
 };

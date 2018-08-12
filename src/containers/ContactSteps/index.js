@@ -170,8 +170,10 @@ class ContactSteps extends Component {
         key={item.id}
         bump={showBump && index === 0}
         onBumpComplete={this.bumpComplete}
-        onDelete={() => this.handleRemove(item)}
-        onComplete={() => this.handleComplete(item)}
+        deletePressProps={[item]}
+        completePressProps={[item]}
+        onDelete={this.handleRemove}
+        onComplete={this.handleComplete}
       >
         <StepItem step={item} type="contact" />
       </RowSwipeable>
