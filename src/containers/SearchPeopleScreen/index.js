@@ -12,9 +12,9 @@ import { Flex, IconButton, Input, Text } from '../../components/common';
 import Header from '../Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
-import { CONTACT_SCREEN } from '../ContactScreen';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 import BackButton from '../BackButton';
+import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
@@ -39,7 +39,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleSelectPerson(person, organization) {
-    this.props.dispatch(navigatePush(CONTACT_SCREEN, { person, organization }));
+    this.props.dispatch(navToPersonScreen(person, organization));
   }
 
   handleFilter() {

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { SectionList } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { toggleLike } from '../../actions/celebration';
 import { DateComponent, Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 
 import styles from './styles';
 
-export default class CelebrateFeed extends Component {
+class CelebrateFeed extends Component {
   constructor(props) {
     super(props);
     // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
@@ -23,11 +26,15 @@ export default class CelebrateFeed extends Component {
     );
   };
 
-  renderItem = ({ item }) => <CelebrateItem event={item} />;
+  renderItem = ({ item }) => (
+    <CelebrateItem
+      event={item}
+      myId={this.props.myId}
+      onToggleLike={this.handleToggleLike}
+    />
+  );
 
-  keyExtractor = item => {
-    return item.id;
-  };
+  keyExtractor = item => item.id;
 
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
@@ -44,6 +51,11 @@ export default class CelebrateFeed extends Component {
 
   handleRefreshing = () => {
     this.props.refreshCallback();
+  };
+
+  handleToggleLike = (eventId, liked) => {
+    const { organization, dispatch } = this.props;
+    dispatch(toggleLike(organization.id, eventId, liked));
   };
 
   render() {
@@ -64,3 +76,15 @@ export default class CelebrateFeed extends Component {
     );
   }
 }
+
+CelebrateFeed.propTypes = {
+  items: PropTypes.array.isRequired,
+  organization: PropTypes.object.isRequired,
+  myId: PropTypes.string.isRequired,
+};
+
+export const mapStateToProps = ({ auth }) => ({
+  myId: auth.person.id,
+});
+
+export default connect(mapStateToProps)(CelebrateFeed);

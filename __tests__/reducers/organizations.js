@@ -1,7 +1,7 @@
 import organizations from '../../src/reducers/organizations';
 import { REQUESTS } from '../../src/actions/api';
 import {
-  GET_ORGANIZATION_CONTACTS,
+  LOAD_ORGANIZATIONS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
@@ -12,14 +12,6 @@ const org2Id = '234';
 const initialState = {
   all: [{ id: org1Id, name: 'test org 1' }, { id: org2Id, name: 'test org 2' }],
 };
-const contacts = [
-  {
-    id: '1',
-  },
-  {
-    id: '2',
-  },
-];
 
 const reports = [
   {
@@ -36,14 +28,13 @@ const reports = [
   },
 ];
 
-it('should load contacts to an organization', () => {
-  const state = organizations(initialState, {
-    type: GET_ORGANIZATION_CONTACTS,
-    contacts,
-    orgId: org1Id,
-  });
-
-  expect(state).toMatchSnapshot();
+it('should save loaded orgs', () => {
+  expect(
+    organizations(undefined, {
+      type: LOAD_ORGANIZATIONS,
+      orgs: [{ id: org1Id }, { id: org2Id }],
+    }),
+  ).toMatchSnapshot();
 });
 
 it('should load contact reports for all organizations', () => {
@@ -193,6 +184,89 @@ it('loads celebrate items with pagination', () => {
   expect(state.all[0].celebratePagination).toEqual({
     hasNextPage: false,
     page: 2,
+  });
+});
+
+it('updates celebrate item from unliked to liked', () => {
+  const orgId = '1';
+  const eventId = '3';
+  const likes = 0;
+
+  const startItems = [
+    { id: eventId, liked: false, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: true, likes_count: likes + 1 },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          celebrateItems: startItems,
+        },
+      ],
+    },
+    {
+      type: REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS,
+      query: {
+        orgId,
+        eventId,
+      },
+    },
+  );
+
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
+  });
+});
+
+it('updates celebrate item from liked to unliked', () => {
+  const orgId = '1';
+  const eventId = '3';
+  const likes = 3;
+  const startItems = [
+    { id: eventId, liked: true, likes_count: likes },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+  const resultItems = [
+    { id: eventId, liked: false, likes_count: likes - 1 },
+    { id: '123', liked: false, likes_count: '1' },
+  ];
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          celebrateItems: startItems,
+        },
+      ],
+    },
+    {
+      type: REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS,
+      query: {
+        orgId,
+        eventId,
+      },
+    },
+  );
+
+  expect(state).toEqual({
+    all: [
+      {
+        id: orgId,
+        celebrateItems: resultItems,
+      },
+    ],
   });
 });
 

@@ -2,113 +2,82 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  LOAD_ORGANIZATIONS,
+  DEFAULT_PAGE_LIMIT,
 } from '../../src/constants';
-import { mockFnWithParams } from '../../testUtils';
-import * as api from '../../src/actions/api';
-import { REQUESTS } from '../../src/actions/api';
+import callApi, { REQUESTS } from '../../src/actions/api';
 import {
-  getAssignedOrganizations,
   getMyOrganizations,
-  getOrganizationContacts,
   getOrganizationsContactReports,
+  getOrganizationContacts,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../src/actions/organizations';
 
-let store;
-const apiResponse = { type: 'successful' };
+jest.mock('../../src/selectors/organizations');
+jest.mock('../../src/actions/api');
 
-beforeEach(() => (store = configureStore([thunk])()));
+const mockStore = configureStore([thunk]);
+let store;
+const auth = { person: { user: {} } };
+
+beforeEach(() => {
+  store = mockStore({ auth });
+  callApi.mockClear();
+});
 
 describe('getMyOrganizations', () => {
   const query = {
     limit: 100,
     include: '',
-  };
-
-  it('should get my organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
-      REQUESTS.GET_MY_ORGANIZATIONS,
-      query,
-    );
-
-    store.dispatch(getMyOrganizations());
-
-    expect(store.getActions()).toEqual([apiResponse]);
-  });
-});
-
-describe('getAssignedOrganizations', () => {
-  const query = {
-    limit: 100,
-    include: '',
     filters: {
-      assigned_tos: 'me',
+      descendants: false,
     },
   };
+  const org1 = { id: '1' };
+  const org2 = { id: '2' };
+  const org3 = { id: '3' };
+  const org4 = { id: '4' };
+  const org5 = { id: '5' };
+  const org6 = { id: '6' };
+  const org7 = { id: '7' };
+  const org8 = { id: '8' };
+  const orgs = [org1, org2, org3, org4, org5, org6, org7, org8];
 
-  it('should get my assigned organizations', () => {
-    mockFnWithParams(
-      api,
-      'default',
-      apiResponse,
-      REQUESTS.GET_ORGANIZATIONS,
-      query,
-    );
+  callApi.mockReturnValue(() => Promise.resolve({ response: orgs }));
 
-    store.dispatch(getAssignedOrganizations());
+  it('should get my organizations', async () => {
+    await store.dispatch(getMyOrganizations());
 
-    expect(store.getActions()).toEqual([apiResponse]);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org1, org2, org3, org4, org5, org6, org7, org8],
+      },
+    ]);
   });
-});
 
-describe('getOrganizationContacts', () => {
-  const orgId = '123';
-  const query = {
-    filters: {
-      permissions: 'no_permission',
-      organization_ids: orgId,
-    },
-    include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
-  };
-  const contacts = [
-    {
-      name: 'person',
-      id: '1',
-    },
-    {
-      name: 'person',
-      id: '2',
-    },
-  ];
-  const peopleListResponse = {
-    type: 'successful',
-    response: contacts,
-  };
-  const getContactsAction = {
-    type: GET_ORGANIZATION_CONTACTS,
-    contacts,
-    orgId,
-  };
+  it('should sort by user order when specified', async () => {
+    store = mockStore({
+      auth: {
+        person: {
+          user: { organization_order: [org5.id, org4.id, org6.id, org3.id] },
+        },
+      },
+    });
 
-  it('should get contacts in organization', async () => {
-    mockFnWithParams(
-      api,
-      'default',
-      peopleListResponse,
-      REQUESTS.GET_PEOPLE_LIST,
-      query,
-    );
+    await store.dispatch(getMyOrganizations());
 
-    await store.dispatch(getOrganizationContacts(orgId));
-    expect(store.getActions()).toEqual([peopleListResponse, getContactsAction]);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org5, org4, org6, org3, org1, org2, org7, org8],
+      },
+    ]);
   });
 });
 
@@ -149,19 +118,62 @@ describe('getOrganizationsContactReports', () => {
   };
 
   it('should get contact reports and dispatch to API', async () => {
-    mockFnWithParams(
-      api,
-      'default',
-      contactReportsResponse,
+    callApi.mockReturnValue(contactReportsResponse);
+
+    await store.dispatch(getOrganizationsContactReports());
+
+    expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
       { period: 'P1W' },
     );
-
-    await store.dispatch(getOrganizationsContactReports());
     expect(store.getActions()).toEqual([
       contactReportsResponse,
       contactReportsAction,
     ]);
+  });
+});
+
+describe('getOrganizationContacts', () => {
+  const name = 'name';
+  const orgId = '123';
+  const filters = {
+    gender: { id: 'Male' },
+    archived: true,
+    unassigned: true,
+    uncontacted: true,
+    labels: { id: '333' },
+    groups: { id: '444' },
+  };
+  const query = {
+    filters: {
+      permissions: 'no_permission',
+      organization_ids: orgId,
+      name: name,
+      genders: filters.gender.id,
+      include_archived: true,
+      assigned_tos: 'unassigned',
+      statuses: 'uncontacted',
+      label_ids: filters.labels.id,
+      group_ids: filters.groups.id,
+    },
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: 0,
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
+  const apiResponse = { type: 'successful', response: {} };
+
+  it('searches for contacts by filters', async () => {
+    callApi.mockReturnValue(apiResponse);
+
+    await store.dispatch(
+      getOrganizationContacts(orgId, name, { page: 0, hasMore: true }, filters),
+    );
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
+    expect(store.getActions()).toEqual([apiResponse]);
   });
 });
 
@@ -234,7 +246,7 @@ describe('getOrganizationMembers', () => {
 
   it('should get members in organization', async () => {
     // Mock out the api.default to return different results based on the 2 API calls being made
-    api.default = jest.fn().mockImplementation((...actualParams) => {
+    callApi.mockImplementation((...actualParams) => {
       if (actualParams[0].name === REQUESTS.GET_PEOPLE_LIST.name) {
         return peopleListResponse;
       } else if (
@@ -260,12 +272,8 @@ describe('getOrganizationMembers', () => {
     });
 
     store.dispatch(getOrganizationMembersNextPage(orgId)).then(() => {
-      expect(api.default).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_LIST,
-        query,
-        {},
-      );
-      expect(api.default).toHaveBeenCalledWith(
+      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query, {});
+      expect(callApi).toHaveBeenCalledWith(
         REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
         reportsQuery,
         {},

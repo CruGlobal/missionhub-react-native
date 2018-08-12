@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import { INTERACTION_TYPES } from '../../constants';
 import {
@@ -14,6 +15,7 @@ import {
   DateComponent,
 } from '../common';
 import theme from '../../theme';
+import { addNewInteraction } from '../../actions/interactions';
 
 import styles from './styles';
 
@@ -32,13 +34,20 @@ const initialState = {
 class CommentBox extends Component {
   state = initialState;
 
-  submit = () => {
+  submit = async () => {
     const { action, text } = this.state;
+    const { person, organization, dispatch, onSubmit } = this.props;
 
-    let data = { action, text };
-    this.props.onSubmit(data);
+    const interaction = action
+      ? action
+      : INTERACTION_TYPES.MHInteractionTypeNote;
+
+    await dispatch(
+      addNewInteraction(person.id, interaction, text, organization.id),
+    );
 
     this.setState(initialState);
+    onSubmit && onSubmit();
   };
 
   handleTextChange = t => {
@@ -107,7 +116,7 @@ class CommentBox extends Component {
   ref = c => (this.searchInput = c);
 
   renderInput() {
-    const { t, placeholder } = this.props;
+    const { t } = this.props;
     const { text, action } = this.state;
     return (
       <Flex
@@ -170,7 +179,7 @@ class CommentBox extends Component {
             autoCorrect={true}
             returnKeyType="done"
             blurOnSubmit={true}
-            placeholder={placeholder || t('placeholder')}
+            placeholder={t('celebrateFeeds:placeholder')}
             placeholderTextColor={theme.grey1}
           />
           {text || action ? (
@@ -227,9 +236,15 @@ class CommentBox extends Component {
 }
 
 CommentBox.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  organization: PropTypes.object.isRequired,
+  person: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func,
   hideActions: PropTypes.bool,
-  placeholder: PropTypes.string,
 };
 
-export default CommentBox;
+const mapStateToProps = (_, { person, organization }) => ({
+  person,
+  organization,
+});
+
+export default connect(mapStateToProps)(CommentBox);

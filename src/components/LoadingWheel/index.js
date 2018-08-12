@@ -7,12 +7,19 @@ import styles from './styles';
 
 export default class LoadingWheel extends Component {
   render() {
+    const { style, gifStyle } = this.props;
+
     return (
-      <Flex value={1} align="center" justify="center" style={styles.container}>
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={style || styles.container}
+      >
         <Image
           source={require('../../../assets/gifs/loadingSpiralBlue.gif')}
           resizeMode="contain"
-          style={styles.gif}
+          style={gifStyle || styles.gif}
         />
       </Flex>
     );

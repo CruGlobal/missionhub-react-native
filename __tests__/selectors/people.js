@@ -4,10 +4,16 @@ import {
   contactAssignmentSelector,
   orgPermissionSelector,
 } from '../../src/selectors/people';
+import { removeHiddenOrgs } from '../../src/selectors/selectorUtils';
+
+jest.mock('../../src/selectors/selectorUtils', () => ({
+  removeHiddenOrgs: jest.fn().mockImplementation(orgs => orgs),
+}));
 
 const auth = {
   person: {
     id: '23',
+    user: {},
   },
 };
 
@@ -102,8 +108,34 @@ const people = {
 };
 
 describe('peopleByOrgSelector', () => {
+  afterEach(() =>
+    expect(removeHiddenOrgs).toHaveBeenCalledWith(
+      expect.anything(),
+      auth.person,
+    ));
+
   it('should take the allByOrg object and transform it to sorted arrays', () => {
     expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();
+  });
+
+  it('should sort by user order', () => {
+    expect(
+      peopleByOrgSelector({
+        people,
+        auth: {
+          person: {
+            ...auth.person,
+            user: {
+              organization_order: [
+                organizationOne.id,
+                unnamedOrganization.id,
+                organizationTwo.id,
+              ],
+            },
+          },
+        },
+      }),
+    ).toMatchSnapshot();
   });
 });
 

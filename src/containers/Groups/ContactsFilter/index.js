@@ -7,15 +7,15 @@ import { translate } from 'react-i18next';
 import { navigatePush } from '../../../actions/navigation';
 import Header from '../../Header';
 import FilterItem from '../../../components/FilterItem';
+import { buildTrackingObj, isString } from '../../../utils/common';
 import {
-  buildTrackingObj,
-  isString,
   getFilterOptions,
   searchHandleToggle,
   searchSelectFilter,
-} from '../../../utils/common';
+} from '../../../utils/filters';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
+import { getOrgLabels } from '../../../actions/labels';
 import BackButton from '../../BackButton';
 
 import styles from './styles';
@@ -24,15 +24,10 @@ import styles from './styles';
 export class ContactsFilter extends Component {
   constructor(props) {
     super(props);
-    const { t, filters } = props;
+    const { filters } = props;
 
-    const filterOptions = getFilterOptions(t, filters);
-    const options = [filterOptions.gender, filterOptions.time];
-    const toggleOptions = [
-      filterOptions.uncontacted,
-      filterOptions.unassigned,
-      filterOptions.archived,
-    ];
+    const { options, toggleOptions } = this.createFilterOptions([]);
+
     this.state = {
       filters,
       options,
@@ -41,14 +36,35 @@ export class ContactsFilter extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     Keyboard.dismiss();
+    this.loadLabels();
   }
 
-  setFilter(filters = {}) {
-    this.setState({ filters });
-    this.props.onFilter(filters);
+  async loadLabels() {
+    const { dispatch, organization } = this.props;
+    const labels = await dispatch(getOrgLabels(organization.id));
+
+    const { options, toggleOptions } = this.createFilterOptions(labels);
+    this.setState({ options, toggleOptions });
+  }
+
+  createFilterOptions(labels) {
+    const { t, filters } = this.props;
+    const filterOptions = getFilterOptions(t, filters, [], labels);
+    const options = [
+      filterOptions.labels,
+      filterOptions.gender,
+      // TODO: remove until API supports it
+      // filterOptions.time,
+    ];
+    const toggleOptions = [
+      filterOptions.uncontacted,
+      filterOptions.unassigned,
+      filterOptions.archived,
+    ];
+    return { options, toggleOptions };
   }
 
   handleDrillDown = item => {

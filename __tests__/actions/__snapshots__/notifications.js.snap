@@ -3,14 +3,7 @@
 exports[`askNotificationPermissions onNotification should deep link to ME user's contact screen 1`] = `
 Array [
   Object {
-    "params": Object {
-      "person": Object {
-        "id": "1",
-        "type": "person",
-      },
-    },
-    "routeName": "nav/CONTACT",
-    "type": "Navigation/NAVIGATE",
+    "type": "navigated to person screen",
   },
   Object {
     "type": "app/REQUEST_NOTIFICATIONS",
@@ -61,17 +54,7 @@ Array [
     "type": "app/REQUEST_NOTIFICATIONS",
   },
   Object {
-    "params": Object {
-      "organization": Object {
-        "id": "2",
-      },
-      "person": Object {
-        "id": "1",
-        "type": "person",
-      },
-    },
-    "routeName": "nav/CONTACT",
-    "type": "Navigation/NAVIGATE",
+    "type": "navigated to person screen",
   },
 ]
 `;
@@ -89,17 +72,7 @@ Array [
     "type": "app/REQUEST_NOTIFICATIONS",
   },
   Object {
-    "params": Object {
-      "organization": Object {
-        "id": "2",
-      },
-      "person": Object {
-        "id": "1",
-        "type": "person",
-      },
-    },
-    "routeName": "nav/CONTACT",
-    "type": "Navigation/NAVIGATE",
+    "type": "navigated to person screen",
   },
 ]
 `;

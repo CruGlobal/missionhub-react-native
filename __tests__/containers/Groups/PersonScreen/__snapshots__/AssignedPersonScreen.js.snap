@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact should render AssignedPersonScreen correctly with stage 1`] = `
+<View>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
+    <Translate(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</View>
+`;
+
+exports[`Contact should render AssignedPersonScreen correctly without stage 1`] = `
+<View>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="moreIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    shadow={false}
+    title="Test Org"
+  />
+  <Flex
+    align="center"
+    justify="center"
+    self="stretch"
+    style={
+      Object {
+        "backgroundColor": "#007398",
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+        }
+      }
+    >
+      TEST PERSON
+    </MyText>
+    <Connect(PathwayStageDisplay)
+      orgId="1"
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+    />
+    <Translate(GroupsPersonHeader)
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+        }
+      }
+      myId="1000"
+      organization={
+        Object {
+          "id": "1",
+          "name": "Test Org",
+        }
+      }
+      person={
+        Object {
+          "first_name": "Test Person",
+          "id": "1",
+        }
+      }
+      stages={
+        Array [
+          Object {
+            "id": "3",
+            "name": "stage 3",
+          },
+        ]
+      }
+    />
+  </Flex>
+</View>
+`;
+
+exports[`Contact should render contact tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "My Steps",
+    "navigationAction": "nav/PERSON_STEPS",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Notes",
+    "navigationAction": "nav/PERSON_NOTES",
+  },
+  Object {
+    "component": [Function],
+    "name": "Our Journey",
+    "navigationAction": "nav/PERSON_JOURNEY",
+  },
+]
+`;
+
+exports[`Contact should render member tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Celebrate",
+    "navigationAction": "nav/MEMBER_CELEBRATE",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Steps",
+    "navigationAction": "nav/PERSON_STEPS",
+  },
+  Object {
+    "component": [Function],
+    "name": "My Notes",
+    "navigationAction": "nav/PERSON_NOTES",
+  },
+  Object {
+    "component": [Function],
+    "name": "Our Journey",
+    "navigationAction": "nav/PERSON_JOURNEY",
+  },
+  Object {
+    "component": [Function],
+    "name": "Impact",
+    "navigationAction": "nav/MEMBER_IMPACT",
+  },
+  Object {
+    "component": [Function],
+    "name": "Contacts",
+    "navigationAction": "nav/MEMBER_ASSIGNED_CONTACTS",
+  },
+]
+`;

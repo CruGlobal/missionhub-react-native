@@ -13,6 +13,11 @@ export default {
       stage: 'Stage',
       status: 'Status',
       gender: 'Gender',
+      permissions: 'Permissions',
+      contact: 'Contact',
+      member: 'Member',
+      user: 'User',
+      admin: 'Admin',
     },
     gender: {
       male: 'Male',
@@ -162,6 +167,12 @@ export default {
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
+    alertBlankEmail: 'Email is blank',
+    alertPermissionsMustHaveEmail:
+      'Contact with User or Admin permissions must have email address',
+    alertSorry: 'Sorry',
+    alertCannotEditFirstName:
+      'You are not allowed to edit first names of other MissionHub users',
   },
   addStep: {
     header: 'My Step of Faith',
@@ -305,8 +316,10 @@ export default {
   searchFilter: {
     title: 'Filter',
     titleSurvey: 'Filter Survey',
+    titleQuestions: 'Questions',
+    titleAnswers: 'Answers',
     ministry: 'Ministry',
-    labels: 'Labels',
+    label: 'Label',
     groups: 'Groups',
     surveys: 'Survey',
     gender: 'Gender',
@@ -325,6 +338,7 @@ export default {
     uncontacted: 'Uncontacted',
     unassigned: 'Unassigned',
     archived: 'Include Archived Contacts',
+    multiple: 'Multiple',
   },
   searchFilterRefine: {
     title: 'Refine',
@@ -403,9 +417,11 @@ export default {
     celebrate: 'Celebrate',
     steps: 'My Steps',
     notes: 'My Notes',
-    journey: 'Our Journey',
+    ourJourney: 'Our Journey',
+    myJourney: 'My Journey',
     impact: 'Impact',
-    assignedContacts: 'Assigned Contacts',
+    myImpact: 'My Impact',
+    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {
@@ -452,9 +468,6 @@ export default {
   groupsContacts: {
     title: '',
     searchPlaceholder: 'Search Contacts',
-  },
-  groupsContact: {
-    placeholder: 'Share something to be celebrated...',
   },
   memberContacts: {
     nullDescription: 'Anyone assigned to {{memberName}} will appear here.',

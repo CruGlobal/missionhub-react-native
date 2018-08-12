@@ -113,7 +113,11 @@ describe('generateSwipeTabMenuNavigator', () => {
         [tabs[0].navigationAction]: tabs[0].component,
         [tabs[1].navigationAction]: tabs[1].component,
       },
-      { backBehavior: 'none', tabBarComponent: expect.any(Function) },
+      {
+        backBehavior: 'none',
+        swipeEnabled: false,
+        tabBarComponent: expect.any(Function),
+      },
     );
 
     const TabBarComponent =

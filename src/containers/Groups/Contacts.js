@@ -4,12 +4,13 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchPeople } from '../../actions/people';
+import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { searchRemoveFilter } from '../../utils/common';
+import { searchRemoveFilter } from '../../utils/filters';
+import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -20,6 +21,10 @@ class Contacts extends Component {
     const { t } = props;
 
     this.state = {
+      pagination: {
+        page: 0,
+        hasMore: true,
+      },
       filters: {
         // Default filters
         unassigned: {
@@ -27,7 +32,8 @@ class Contacts extends Component {
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        time: { id: 'time30', text: t('searchFilter:time30') },
+        // TODO: temporarily remove this until the API supports it
+        // time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };
@@ -41,6 +47,7 @@ class Contacts extends Component {
 
   loadContactsWithFilters = async () => {
     const contacts = await this.handleSearch('');
+
     this.setState({ defaultResults: contacts });
   };
 
@@ -49,11 +56,12 @@ class Contacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_CONTACTS_FILTER_SCREEN, {
         onFilter: this.handleChangeFilter,
+        organization,
         filters,
       }),
     );
@@ -69,23 +77,34 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const { dispatch, organization } = this.props;
-    const { filters } = this.state;
-    const searchFilters = {
-      ...filters,
-      ministry: { id: organization.id },
+    const pagination = {
+      page: 0,
+      hasMore: true,
     };
 
-    const results = await dispatch(searchPeople(text, searchFilters));
-    // Get the results from the search endpoint
-    return results.findAll('person') || [];
+    await this.setState({ pagination });
+
+    return await this.handleLoadMore(text);
+  };
+
+  handleLoadMore = async text => {
+    const { dispatch, organization } = this.props;
+    const { filters, pagination } = this.state;
+
+    const result = await dispatch(
+      getOrganizationContacts(organization.id, text, pagination, filters),
+    );
+
+    const { meta, response } = result;
+
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+
+    return response;
   };
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    const isMember = false;
-    const isAssignedToMe = true;
-    dispatch(navToPersonScreen(person, organization, isMember, isAssignedToMe));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   listRef = c => (this.searchList = c);
@@ -110,6 +129,7 @@ class Contacts extends Component {
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}
+          onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />

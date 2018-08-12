@@ -1,9 +1,30 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
+import { ORG_PERMISSIONS } from '../../src/constants';
 import AddContactFields from '../../src/containers/AddContactFields';
-import { createMockStore, testSnapshotShallow } from '../../testUtils';
+import {
+  testSnapshotShallow,
+  renderShallow,
+  createMockStore,
+} from '../../testUtils';
+import { orgPermissionSelector } from '../../src/selectors/people';
+
+jest.mock('../../src/selectors/people');
+
+const mockStore = configureStore([thunk]);
+const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
+
+orgPermissionSelector.mockReturnValue(orgPermission);
 
 const store = createMockStore();
+function buildScreen(props) {
+  return renderShallow(
+    <AddContactFields onUpdateData={jest.fn()} {...props} />,
+    store,
+  );
+}
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
@@ -13,12 +34,13 @@ it('renders casey view correctly', () => {
         email_addresses: [],
         phone_numbers: [],
       }}
+      organization={null}
     />,
-    store,
+    mockStore(),
   );
 });
 
-it('renders jean view correctly', () => {
+it('renders jean without organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
       onUpdateData={jest.fn()}
@@ -27,7 +49,109 @@ it('renders jean view correctly', () => {
         email_addresses: [],
         phone_numbers: [],
       }}
+      organization={{}}
     />,
-    store,
+    mockStore(),
   );
+});
+
+it('renders jean with organization view correctly', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={jest.fn()}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore(),
+  );
+});
+
+it('renders jean with organization and user radio buttons', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={jest.fn()}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+    }),
+  );
+});
+
+it('renders jean with organization and user and admin radio buttons', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={jest.fn()}
+      isJean={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+    }),
+  );
+});
+
+it('mounts and calls update field', () => {
+  const component = buildScreen({
+    isJean: true,
+    organization: { id: '1' },
+  });
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.componentDidMount();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.CONTACT,
+  });
+});
+
+it('updates org permission', () => {
+  const component = buildScreen({
+    isJean: true,
+    organization: { id: '1' },
+  });
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT)();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.CONTACT,
+  });
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER)();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN)();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
 });

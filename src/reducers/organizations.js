@@ -1,12 +1,10 @@
-import lodash from 'lodash';
-
 import {
   LOGOUT,
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
+  LOAD_ORGANIZATIONS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -24,37 +22,11 @@ const initialState = {
 };
 
 function organizationsReducer(state = initialState, action) {
-  const results = action.results;
   switch (action.type) {
-    case REQUESTS.GET_MY_ORGANIZATIONS.SUCCESS:
-      const myOrgs = (results.findAll('organization') || []).map(o => ({
-        text: o.name,
-        contactReport: {},
-        ...o,
-      }));
-      return {
-        ...initialState,
-        all: myOrgs,
-      };
-    case REQUESTS.GET_ORGANIZATIONS.SUCCESS:
-      const orgs = (results.findAll('organization') || []).map(o => ({
-        text: o.name,
-        contactReport: {},
-        ...o,
-      }));
-      const allOrgs = lodash.uniqBy([].concat(state.all, orgs), 'id');
-
+    case LOAD_ORGANIZATIONS:
       return {
         ...state,
-        all: allOrgs,
-      };
-    case GET_ORGANIZATION_CONTACTS:
-      const { orgId, contacts } = action;
-      return {
-        ...state,
-        all: orgId
-          ? state.all.map(o => (o.id === orgId ? { ...o, contacts } : o))
-          : state.all,
+        all: action.orgs,
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
@@ -131,6 +103,10 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
+      return toggleCelebrationLike(action, state, true);
+    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
+      return toggleCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -156,6 +132,28 @@ function organizationsReducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+function toggleCelebrationLike(action, state, liked) {
+  const query = action.query;
+  const org = state.all.find(o => o.id === query.orgId);
+  if (!org) {
+    return state; // Return if the organization does not exist
+  }
+  const newOrg = {
+    ...org,
+    celebrateItems: org.celebrateItems.map(
+      c =>
+        c.id === query.eventId
+          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+          : c,
+    ),
+  };
+
+  return {
+    ...state,
+    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
 }
 
 export default organizationsReducer;

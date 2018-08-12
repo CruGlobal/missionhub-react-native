@@ -132,17 +132,25 @@ export default {
     endpoint: `${PEOPLE_URL}:personId`,
     method: 'put',
   },
-  GET_MY_ORGANIZATIONS: {
-    endpoint: `${API_URL}organizations`,
-  },
   GET_ORGANIZATIONS: {
     endpoint: `${API_URL}organizations`,
   },
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${API_URL}organizations/:orgId/celebration_items`,
   },
+  LIKE_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    method: 'post',
+  },
+  UNLIKE_CELEBRATE_ITEM: {
+    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    method: 'delete',
+  },
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
+  },
+  GET_SURVEY_QUESTIONS: {
+    endpoint: `${SURVEY_URL}/:surveyId/questions`,
   },
   GET_SURVEYS: {
     endpoint: SURVEY_URL,
@@ -153,6 +161,9 @@ export default {
   GET_MY_LABELS: {
     endpoint: `${API_URL}organizations`,
     query: { include: 'labels' },
+  },
+  GET_ORGANIZATION_LABELS: {
+    endpoint: `${API_URL}organizations/:orgId`,
   },
   GET_IMPACT_SUMMARY: {
     endpoint: `${API_URL}reports/impact`,
@@ -204,5 +215,8 @@ export default {
   },
   GET_PERSON_NOTE: {
     endpoint: `${PEOPLE_URL}:person_id`,
+  },
+  GET_ANSWER_SHEETS: {
+    endpoint: `${API_URL}answer_sheets`,
   },
 };

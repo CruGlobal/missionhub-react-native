@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SurveyContactsFilter should render correctly 1`] = `
+<FilterList
+  onDrillDown={[Function]}
+  onToggle={[Function]}
+  options={
+    Array [
+      Object {
+        "id": "questions",
+        "options": Array [],
+        "preview": undefined,
+        "text": "Questions/Answers",
+      },
+      Object {
+        "id": "labels",
+        "options": Array [],
+        "preview": undefined,
+        "text": "Label",
+      },
+      Object {
+        "id": "gender",
+        "options": Array [
+          Object {
+            "id": "m",
+            "text": "Male",
+          },
+          Object {
+            "id": "f",
+            "text": "Female",
+          },
+          Object {
+            "id": "o",
+            "text": "Other",
+          },
+        ],
+        "preview": undefined,
+        "text": "Gender",
+      },
+    ]
+  }
+  title="Filter Survey"
+  toggleOptions={
+    Array [
+      Object {
+        "id": "uncontacted",
+        "selected": false,
+        "text": "Uncontacted",
+      },
+      Object {
+        "id": "unassigned",
+        "selected": true,
+        "text": "Unassigned",
+      },
+      Object {
+        "id": "archived",
+        "selected": false,
+        "text": "Include Archived Contacts",
+      },
+    ]
+  }
+/>
+`;

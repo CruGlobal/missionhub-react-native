@@ -56,14 +56,12 @@ MemberContacts.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
   }).isRequired,
-  organization: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 const mapStateToProps = (_, { person }) => ({
-  contactAssignments: person.contact_assignments.filter(c => c.person),
+  contactAssignments: person.contact_assignments
+    ? person.contact_assignments.filter(c => c.person)
+    : [],
 });
 
 export default connect(mapStateToProps)(MemberContacts);

@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect';
 
+import { removeHiddenOrgs } from './selectorUtils';
+
 export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
   (orgs, authUser) =>
-    Object.values(orgs)
-      .map(org => ({
+    sortOrgs(removeHiddenOrgs(Object.values(orgs), authUser), authUser).map(
+      org => ({
         ...org,
         people: Object.values(org.people).sort((a, b) => {
           // Sort people in org by first name, then last name
@@ -21,19 +23,37 @@ export const peopleByOrgSelector = createSelector(
             a.last_name.localeCompare(b.last_name)
           );
         }),
-      }))
-      .sort((a, b) => {
-        // Sort orgs by name
-        // Keep Personal Ministry org in front
-        if (a.id === 'personal') {
-          return -1;
-        }
-        if (b.id === 'personal') {
-          return 1;
-        }
-        return a.name ? a.name.localeCompare(b.name) : 1;
       }),
+    ),
 );
+
+const sortOrgs = (orgs, authUser) => {
+  const orgOrder = authUser.user.organization_order;
+
+  return orgOrder
+    ? sortWithPersonalInFront(
+        orgs,
+        (a, b) => orgOrder.indexOf(a.id) > orgOrder.indexOf(b.id),
+      )
+    : sortWithPersonalInFront(
+        orgs,
+        (a, b) => (a.name ? a.name.localeCompare(b.name) : 1),
+      );
+};
+
+const sortWithPersonalInFront = (orgs, sortFn) =>
+  orgs.sort((a, b) => {
+    // Sort orgs by name
+    // Keep Personal Ministry org in front
+    if (a.id === 'personal') {
+      return -1;
+    }
+    if (b.id === 'personal') {
+      return 1;
+    }
+    return sortFn(a, b);
+  });
+
 export const personSelector = createSelector(
   ({ people }) => people.allByOrg,
   (_, { orgId }) => orgId,

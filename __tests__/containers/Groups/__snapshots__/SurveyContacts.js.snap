@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SurveyContacts should render correctly 1`] = `
+<Flex
+  value={1}
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    title="Test Org"
+  />
+  <Translate(SearchList)
+    defaultData={Array []}
+    filters={
+      Object {
+        "unassigned": Object {
+          "id": "unassigned",
+          "selected": true,
+          "text": "Unassigned",
+        },
+      }
+    }
+    listProps={
+      Object {
+        "renderItem": [Function],
+      }
+    }
+    onFilterPress={[Function]}
+    onLoadMore={[Function]}
+    onRemoveFilter={[Function]}
+    onSearch={[Function]}
+    placeholder="Search Contacts"
+  />
+</Flex>
+`;

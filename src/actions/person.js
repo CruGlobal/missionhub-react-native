@@ -1,12 +1,23 @@
-import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/PersonScreen/UnassignedPersonScreen';
-import { CONTACT_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
-import { MEMBER_PERSON_SCREEN } from '../containers/Groups/PersonScreen/PersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+} from '../containers/Groups/AssignedPersonScreen/';
+import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
+import { isMemberForOrg, exists } from '../utils/common';
+import {
+  orgPermissionSelector,
+  contactAssignmentSelector,
+} from '../selectors/people';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -127,23 +138,31 @@ export function updatePersonAttributes(personId, personAttributes) {
 
 export function updatePerson(data) {
   return async dispatch => {
-    if (!data || !data.firstName) {
+    if (!data) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
         error: 'InvalidData',
         data,
       });
     }
+
+    let updateData = { type: 'person' };
+    let attributes;
+    if (exists(data.firstName)) {
+      attributes = { ...(attributes || {}), first_name: data.firstName };
+    }
+    if (exists(data.lastName)) {
+      attributes = { ...(attributes || {}), last_name: data.lastName };
+    }
+    if (exists(data.gender)) {
+      attributes = { ...(attributes || {}), gender: data.gender };
+    }
+    if (attributes) {
+      updateData.attributes = attributes;
+    }
     const bodyData = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: data.firstName,
-          last_name: data.lastName,
-          gender: data.gender,
-        },
-      },
-      ...(data.email || data.phone
+      data: updateData,
+      ...(data.email || data.phone || data.orgPermission
         ? {
             included: [
               ...(data.email
@@ -166,14 +185,26 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        permission_id: data.orgPermission.permission_id,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
     };
     const query = {
       personId: data.id,
-      include: 'email_addresses,phone_numbers,reverse_contact_assignments',
+      include: personInclude,
     };
+
     const results = await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, query, bodyData),
     );
@@ -187,6 +218,7 @@ export function updatePerson(data) {
         full_name: person.full_name,
         email_addresses: person.email_addresses,
         phone_numbers: person.phone_numbers,
+        organizational_permissions: person.organizational_permissions,
       }),
     );
 
@@ -279,25 +311,59 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(
-  person,
-  organization,
-  isMember,
-  isAssignedToMe,
-) {
-  return dispatch => {
-    if (!isMember) {
-      if (isAssignedToMe) {
-        return dispatch(
-          navigatePush(CONTACT_PERSON_SCREEN, { person, organization }),
-        );
-      }
-      return dispatch(
-        navigatePush(UNASSIGNED_PERSON_SCREEN, { person, organization }),
-      );
-    }
-    return dispatch(
-      navigatePush(MEMBER_PERSON_SCREEN, { person, organization }),
+export function navToPersonScreen(person, org) {
+  return (dispatch, getState) => {
+    const organization = org ? org : {};
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+
+    const auth = getState().auth;
+    const contactAssignment = contactAssignmentSelector(
+      { auth },
+      { person, orgId: organization.id },
+    );
+    const isMember = isMemberForOrg(
+      orgPermissionSelector(null, {
+        person,
+        organization: { id: organization.id },
+      }),
+    );
+    const authPerson = auth.person;
+    const isMe = person.id === authPerson.id;
+    const isGroups = authPerson.user.groups_feature;
+
+    dispatch(
+      navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
+        person,
+        organization,
+      }),
     );
   };
+
+  function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
+    if (isMe) {
+      if (isMember) {
+        if (isGroups) {
+          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
+        }
+
+        return ME_COMMUNITY_PERSON_SCREEN;
+      }
+
+      return ME_PERSONAL_PERSON_SCREEN;
+    }
+
+    if (isMember) {
+      if (isGroups) {
+        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+      }
+
+      return MEMBER_PERSON_SCREEN;
+    }
+
+    if (contactAssignment) {
+      return CONTACT_PERSON_SCREEN;
+    }
+
+    return UNASSIGNED_PERSON_SCREEN;
+  }
 }

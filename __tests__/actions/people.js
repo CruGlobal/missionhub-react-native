@@ -24,7 +24,7 @@ describe('getMyPeople', () => {
       limit: 1000,
     },
     include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
+      'contact_assignments.person,reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
   };
 
   describe('as Casey', () => {
@@ -130,14 +130,35 @@ describe('getMyPeople', () => {
 
 describe('search', () => {
   const text = 'test';
+  const filters = {
+    ministry: { id: '142124' },
+    gender: { id: '42353' },
+    archived: true,
+    unassigned: true,
+    labels: { id: '547' },
+    groups: { id: '687753' },
+    surveys: { id: '3387' },
+    permission_ids: 2,
+  };
+
   const expectedQuery = {
     q: text,
+    organization_ids: filters.ministry.id,
     fields: {
       person: 'first_name,last_name',
       organization: 'name',
     },
-    include: 'organizational_permissions.organization',
-    filters: {},
+    include:
+      'organizational_permissions.organization,reverse_contact_assignments',
+    filters: {
+      gender: filters.gender.id,
+      archived: true,
+      unassigned: true,
+      label_ids: filters.labels.id,
+      group_ids: filters.groups.id,
+      survey_ids: filters.surveys.id,
+      permission_ids: filters.permission_ids,
+    },
   };
   const action = { type: 'ran search' };
 
@@ -147,9 +168,9 @@ describe('search', () => {
   });
 
   it('should search', () => {
-    store.dispatch(searchPeople(text));
+    store.dispatch(searchPeople(text, filters));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.SEARCH, expectedQuery);
-    expect(store.getActions()[0]).toBe(action);
+    expect(store.getActions()).toEqual([action]);
   });
 });

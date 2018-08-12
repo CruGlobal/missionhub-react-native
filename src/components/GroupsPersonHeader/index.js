@@ -16,7 +16,7 @@ import {
   getStageIndex,
 } from '../../utils/common';
 import AssignToMeButton from '../AssignToMeButton/index';
-import CenteredIconWithText from '../CenteredIconButtonWithText';
+import CenteredIconButtonWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
 import { openCommunicationLink } from '../../actions/misc';
 
@@ -28,11 +28,12 @@ export default class GroupsPersonHeader extends Component {
     super(props);
 
     this.state = {
-      buttons: props.isMember
-        ? props.person.id === props.myId
+      buttons:
+        props.person.id === props.myId
           ? this.getMeButton()
-          : this.getMemberButtons()
-        : this.getContactButtons(),
+          : props.isMember
+            ? this.getMemberButtons()
+            : this.getContactButtons(),
     };
   }
 
@@ -213,17 +214,26 @@ export default class GroupsPersonHeader extends Component {
     const { contactAssignment } = this.props;
 
     return contactAssignment
-      ? [
-          this.getPersonStageButton(),
-          this.getStatusButton(),
-          this.getEmailButton(),
-        ]
+      ? contactAssignment.organization
+        ? [
+            this.getPersonStageButton(),
+            this.getStatusButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
+        : [
+            this.getPersonStageButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
       : null;
   }
 
   button(icon, text, onClick, buttonStyle, flexStyle) {
     return (
-      <CenteredIconWithText
+      <CenteredIconButtonWithText
         key={uuidv4()}
         icon={icon}
         text={text}

@@ -51,7 +51,8 @@ export function getMySteps(query = {}) {
         ...(query.filters || {}),
         completed: false,
       },
-      include: 'receiver.reverse_contact_assignments',
+      include:
+        'receiver.reverse_contact_assignments,receiver.organizational_permissions',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };

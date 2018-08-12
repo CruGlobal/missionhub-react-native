@@ -1,8 +1,8 @@
 import {
-  GET_ORGANIZATION_CONTACTS,
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  LOAD_ORGANIZATIONS,
 } from '../constants';
 
 import callApi, { REQUESTS } from './api';
@@ -10,23 +10,40 @@ import callApi, { REQUESTS } from './api';
 const getOrganizationsQuery = {
   limit: 100,
   include: '',
+  filters: {
+    descendants: false,
+  },
 };
 
 export function getMyOrganizations() {
-  return getOrganizations(REQUESTS.GET_MY_ORGANIZATIONS, getOrganizationsQuery);
-}
+  return async (dispatch, getState) => {
+    const { response: orgs } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery),
+    );
+    const orgOrder = getState().auth.person.user.organization_order;
 
-export function getAssignedOrganizations() {
-  const query = {
-    ...getOrganizationsQuery,
-    filters: { assigned_tos: 'me' },
+    if (orgOrder) {
+      orgs.sort((a, b) => {
+        const aIndex = orgOrder.indexOf(a.id);
+        const bIndex = orgOrder.indexOf(b.id);
+
+        if (aIndex === -1) {
+          return bIndex === -1 ? 0 : 1;
+        }
+
+        if (bIndex === -1) {
+          return aIndex === -1 ? 0 : -1;
+        }
+
+        return aIndex > bIndex ? 1 : -1;
+      });
+    }
+
+    dispatch({
+      type: LOAD_ORGANIZATIONS,
+      orgs,
+    });
   };
-
-  return getOrganizations(REQUESTS.GET_ORGANIZATIONS, query);
-}
-
-function getOrganizations(requestObject, query) {
-  return dispatch => dispatch(callApi(requestObject, query));
 }
 
 export function getOrganizationsContactReports() {
@@ -48,7 +65,7 @@ export function getOrganizationsContactReports() {
   };
 }
 
-export function getOrganizationContacts(orgId) {
+export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -57,15 +74,41 @@ export function getOrganizationContacts(orgId) {
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
+  if (name) {
+    query.filters.name = name;
+  }
+  if (filters.gender) {
+    query.filters.genders = filters.gender.id;
+  }
+  if (filters.archived) {
+    query.filters.include_archived = true;
+  }
+  if (filters.unassigned) {
+    query.filters.assigned_tos = 'unassigned';
+  }
+  if (filters.uncontacted) {
+    query.filters.statuses = 'uncontacted';
+  }
+  if (filters.labels) {
+    query.filters.label_ids = filters.labels.id;
+  }
+  if (filters.groups) {
+    query.filters.group_ids = filters.groups.id;
+  }
+
+  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
+
+  query.page = {
+    limit: DEFAULT_PAGE_LIMIT,
+    offset,
+  };
+
   return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, query),
-    );
-    dispatch({ type: GET_ORGANIZATION_CONTACTS, orgId, contacts: response });
-    return response;
+    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
 }
 
+//todo probably should start storing this stuff in Redux
 export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
@@ -154,7 +197,10 @@ export function addNewContact(data) {
     if (data.orgId) {
       included.push({
         type: 'organizational_permission',
-        attributes: { organization_id: data.orgId },
+        attributes: {
+          organization_id: data.orgId,
+          permission_id: data.orgPermission && data.orgPermission.permission_id,
+        },
       });
     }
     if (data.email) {

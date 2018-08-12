@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PersonSideMenu renders assign correctly 1`] = `
+exports[`PersonSideMenu person does not have org permission renders delete correctly 1`] = `
+<Connect(SideMenu)
+  menuItems={
+    Array [
+      Object {
+        "action": [Function],
+        "label": "Edit",
+      },
+      Object {
+        "action": [Function],
+        "label": "Delete Person",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`PersonSideMenu person has org permission renders assign correctly 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
@@ -17,7 +34,7 @@ exports[`PersonSideMenu renders assign correctly 1`] = `
 />
 `;
 
-exports[`PersonSideMenu renders unassign correctly 1`] = `
+exports[`PersonSideMenu person has org permission renders unassign correctly 1`] = `
 <Connect(SideMenu)
   menuItems={
     Array [
