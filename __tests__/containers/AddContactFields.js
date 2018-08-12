@@ -142,15 +142,15 @@ it('updates org permission', () => {
   });
   const componentInstance = component.instance();
   componentInstance.updateField = jest.fn();
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT)();
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT);
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.CONTACT,
   });
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER)();
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER);
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.USER,
   });
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN)();
+  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.ADMIN,
   });

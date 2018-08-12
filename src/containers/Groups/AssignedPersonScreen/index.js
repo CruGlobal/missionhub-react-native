@@ -134,6 +134,12 @@ export class AssignedPersonScreen extends Component {
     this.props.dispatch(getPersonDetails(person.id, organization.id));
   }
 
+  openDrawer = () => {
+    this.props.dispatch(
+      DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }),
+    );
+  };
+
   render() {
     const {
       dispatch,
@@ -154,13 +160,7 @@ export class AssignedPersonScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={() =>
-                dispatch(
-                  DrawerActions.openDrawer({
-                    drawer: PERSON_MENU_DRAWER,
-                  }),
-                )
-              }
+              onPress={this.openDrawer}
             />
           }
           shadow={false}

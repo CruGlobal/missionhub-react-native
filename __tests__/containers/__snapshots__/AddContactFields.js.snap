@@ -194,6 +194,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       <RadioButton
         checked={false}
         label="Male"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -204,6 +205,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       <RadioButton
         checked={false}
         label="Female"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -406,6 +408,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       <RadioButton
         checked={false}
         label="Male"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -416,6 +419,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       <RadioButton
         checked={false}
         label="Female"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -618,6 +622,7 @@ exports[`renders jean with organization view correctly 1`] = `
       <RadioButton
         checked={false}
         label="Male"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -628,6 +633,7 @@ exports[`renders jean with organization view correctly 1`] = `
       <RadioButton
         checked={false}
         label="Female"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -830,6 +836,7 @@ exports[`renders jean without organization view correctly 1`] = `
       <RadioButton
         checked={false}
         label="Male"
+        onSelect={[Function]}
         size={25}
         style={
           Object {
@@ -840,6 +847,7 @@ exports[`renders jean without organization view correctly 1`] = `
       <RadioButton
         checked={false}
         label="Female"
+        onSelect={[Function]}
         size={25}
         style={
           Object {

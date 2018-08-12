@@ -8,10 +8,6 @@ import Button from '../Button';
 import styles from './styles';
 
 export default class StepsList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderRow = ({ item }) => {
     return (
       <Touchable onPress={() => this.props.onSelectStep(item)}>

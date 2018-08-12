@@ -81,8 +81,6 @@ class SearchList extends Component {
     );
   };
 
-  fnRemoveFilter = k => () => this.removeFilter(k);
-
   async removeFilter(key) {
     await this.props.onRemoveFilter(key);
     this.handleSearchDebounced(this.state.text);
@@ -147,7 +145,7 @@ class SearchList extends Component {
               style={styles.activeFilterIcon}
               name="cancelIcon"
               type="MissionHub"
-              onPress={this.fnRemoveFilter(k)}
+              onPress={() => this.removeFilter(k)}
             />
           </Flex>
         ))}

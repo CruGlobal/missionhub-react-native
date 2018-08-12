@@ -63,7 +63,7 @@ class AddContactFields extends Component {
     }
   }
 
-  updateOrgPermission = pId => () => {
+  updateOrgPermission = pId => {
     this.updateField('orgPermission', {
       ...this.state.orgPermission,
       permission_id: pId,
@@ -90,8 +90,12 @@ class AddContactFields extends Component {
 
   phoneFocus = () => this.phone.focus();
 
-  updateTextField = field => t => this.updateField(field, t);
-  updateGender = val => this.updateField('gender', val);
+  updateFirstName = t => this.updateField('firstName', t);
+  updateLastName = t => this.updateField('lastName', t);
+  updateEmail = t => this.updateField('email', t);
+  updatePhone = t => this.updateField('phone', t);
+  updateGenderMale = () => this.updateField('gender', 'Male');
+  updateGenderFemale = () => this.updateField('gender', 'Female');
 
   render() {
     const {
@@ -124,7 +128,7 @@ class AddContactFields extends Component {
           <Input
             ref={this.firstNameRef}
             editable={!personHasOrgPermission}
-            onChangeText={this.updateTextField('firstName')}
+            onChangeText={this.updateFirstName}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
             placeholderTextColor={theme.white}
@@ -138,7 +142,7 @@ class AddContactFields extends Component {
           <Input
             ref={this.lastNameRef}
             editable={!personHasOrgPermission}
-            onChangeText={this.updateTextField('lastName')}
+            onChangeText={this.updateLastName}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor={theme.white}
@@ -153,7 +157,7 @@ class AddContactFields extends Component {
               <Text style={styles.label}>{t('profileLabels.email')}</Text>
               <Input
                 ref={this.emailRef}
-                onChangeText={this.updateTextField('email')}
+                onChangeText={this.updateEmail}
                 value={email}
                 autoCapitalize="none"
                 placeholder={t('profileLabels.email')}
@@ -175,13 +179,13 @@ class AddContactFields extends Component {
               </Text>
               <RadioButton
                 style={styles.genderRadioButton}
-                onSelect={this.updateGender('Male')}
+                onSelect={this.updateGenderMale}
                 checked={gender === 'Male'}
                 label={t('gender.male')}
               />
               <RadioButton
                 style={styles.genderRadioButton}
-                onSelect={this.updateGender('Female')}
+                onSelect={this.updateGenderFemale}
                 checked={gender === 'Female'}
                 label={t('gender.female')}
               />
@@ -190,7 +194,7 @@ class AddContactFields extends Component {
               <Text style={styles.label}>{t('profileLabels.phone')}</Text>
               <Input
                 ref={this.phoneRef}
-                onChangeText={this.updateTextField('phone')}
+                onChangeText={this.updatePhone}
                 value={phone}
                 placeholder={t('profileLabels.phone')}
                 placeholderTextColor={theme.white}
@@ -211,7 +215,9 @@ class AddContactFields extends Component {
                 >
                   <RadioButton
                     style={styles.contactRadioButton}
-                    onSelect={this.updateOrgPermission(ORG_PERMISSIONS.CONTACT)}
+                    onSelect={() =>
+                      this.updateOrgPermission(ORG_PERMISSIONS.CONTACT)
+                    }
                     checked={
                       orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
                     }
@@ -223,7 +229,9 @@ class AddContactFields extends Component {
                       ORG_PERMISSIONS.ADMIN) ? (
                     <RadioButton
                       style={styles.userRadioButton}
-                      onSelect={this.updateOrgPermission(ORG_PERMISSIONS.USER)}
+                      onSelect={() =>
+                        this.updateOrgPermission(ORG_PERMISSIONS.USER)
+                      }
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.USER
                       }
@@ -234,7 +242,9 @@ class AddContactFields extends Component {
                   myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
                     <RadioButton
                       style={styles.adminRadioButton}
-                      onSelect={this.updateOrgPermission(ORG_PERMISSIONS.ADMIN)}
+                      onSelect={() =>
+                        this.updateOrgPermission(ORG_PERMISSIONS.ADMIN)
+                      }
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
                       }

@@ -123,7 +123,7 @@ class LoginOptionsScreen extends Component {
               <Button
                 name={'emailButton'}
                 pill={true}
-                onPress={() => this.emailSignUp(upgradeAccount || false)}
+                onPress={this.emailSignUp}
                 style={styles.facebookButton}
                 buttonTextStyle={styles.buttonText}
               >
