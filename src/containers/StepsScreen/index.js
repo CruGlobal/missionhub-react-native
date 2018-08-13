@@ -245,25 +245,27 @@ export class StepsScreen extends Component {
   renderItem = ({ item, index }) => {
     const { showStepBump } = this.props;
 
-    <RowSwipeable
-      bump={showStepBump && index === 0}
-      onBumpComplete={
-        showStepBump && index === 0 ? this.completeStepBump : undefined
-      }
-      key={item.id}
-      deletePressProps={[item]}
-      completePressProps={[item]}
-      onDelete={this.handleDeleteReminder}
-      onComplete={this.handleCompleteReminder}
-    >
-      <StepItem
-        step={item}
-        type="swipeable"
-        hideAction={{ hideStars: this.hasMaxReminders() }}
-        onSelect={this.handleRowSelect}
-        onAction={this.handleSetReminder}
-      />
-    </RowSwipeable>;
+    return (
+      <RowSwipeable
+        bump={showStepBump && index === 0}
+        onBumpComplete={
+          showStepBump && index === 0 ? this.completeStepBump : undefined
+        }
+        key={item.id}
+        deletePressProps={[item]}
+        completePressProps={[item]}
+        onDelete={this.handleDeleteReminder}
+        onComplete={this.handleCompleteReminder}
+      >
+        <StepItem
+          step={item}
+          type="swipeable"
+          hideAction={{ hideStars: this.hasMaxReminders() }}
+          onSelect={this.handleRowSelect}
+          onAction={this.handleSetReminder}
+        />
+      </RowSwipeable>
+    );
   };
 
   renderList() {
