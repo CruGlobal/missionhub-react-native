@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StepsScreen arrow functions should render item correctly 1`] = `
+<Translate(RowSwipeable)
+  bump={true}
+  completePressProps={
+    Array [
+      Object {
+        "id": 2,
+      },
+    ]
+  }
+  deletePressProps={
+    Array [
+      Object {
+        "id": 2,
+      },
+    ]
+  }
+  onBumpComplete={[Function]}
+  onComplete={[Function]}
+  onDelete={[Function]}
+>
+  <Connect(Translate(StepItem))
+    hideAction={
+      Object {
+        "hideStars": false,
+      }
+    }
+    onAction={[Function]}
+    onSelect={[Function]}
+    step={
+      Object {
+        "id": 2,
+      }
+    }
+    type="swipeable"
+  />
+</Translate(RowSwipeable)>
+`;
+
 exports[`StepsScreen mapStateToProps should provide the necessary props 1`] = `
 Object {
   "hasMoreSteps": true,

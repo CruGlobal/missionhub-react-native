@@ -1,6 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import MockDate from 'mockdate';
 
 import CelebrateFeed from '../../src/components/CelebrateFeed';
 import { renderShallow } from '../../testUtils';
@@ -85,4 +86,18 @@ describe('handleToggleLike', () => {
     expect(toggleLike).toHaveBeenCalledWith(organization.id, eventId, liked);
     expect(store.getActions()).toEqual([toggleResult]);
   });
+});
+
+it('renders section header', () => {
+  const renderedItem = component
+    .instance()
+    .renderSectionHeader({ section: { date: MockDate.set('08/13/2018') } });
+  expect(renderedItem).toMatchSnapshot();
+});
+
+it('renders item', () => {
+  const renderedItem = component
+    .instance()
+    .renderItem({ item: celebrationItems[0] });
+  expect(renderedItem).toMatchSnapshot();
 });

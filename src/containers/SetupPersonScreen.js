@@ -14,8 +14,6 @@ import { navigatePush } from '../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
-} from '../actions/onboardingProfile';
-import {
   createPerson,
   updateOnboardingPerson,
 } from '../actions/onboardingProfile';

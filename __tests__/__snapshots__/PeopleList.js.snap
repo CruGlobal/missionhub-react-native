@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`button presses renders item 1`] = `
+<Connect(Translate(PeopleItem))
+  onSelect={[MockFunction]}
+  organization={
+    Object {
+      "expanded": false,
+      "id": "personal",
+      "people": Array [
+        Object {
+          "id": 1,
+          "type": "person",
+        },
+        Object {
+          "id": 2,
+          "type": "person",
+        },
+        Object {
+          "id": 3,
+          "type": "person",
+        },
+      ],
+      "type": "organization",
+    }
+  }
+  person={
+    Object {
+      "id": 1,
+      "type": "person",
+    }
+  }
+/>
+`;
+
 exports[`renders correctly as Casey 1`] = `
 <FlatList
   data={

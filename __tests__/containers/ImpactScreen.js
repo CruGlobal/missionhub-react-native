@@ -2,9 +2,10 @@ import 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
 
-import { createMockStore } from '../../testUtils/index';
+import { createMockStore, renderShallow } from '../../testUtils/index';
 import ImpactScreen from '../../src/containers/ImpactScreen';
 import { testSnapshotShallow } from '../../testUtils';
+import * as common from '../../src/utils/common';
 
 const store = createMockStore({
   impact: {
@@ -41,5 +42,11 @@ describe('Impact Screen', () => {
 
   it('renders correctly', () => {
     testSnapshotShallow(<ImpactScreen />, store);
+  });
+  it('should open main menu', () => {
+    const instance = renderShallow(<ImpactScreen />, store).instance();
+    common.openMainMenu = jest.fn();
+    instance.openMainMenu();
+    expect(common.openMainMenu).toHaveBeenCalled();
   });
 });

@@ -1,5 +1,6 @@
 import 'react-native';
 import React from 'react';
+import { Linking } from 'react-native';
 import { Provider } from 'react-redux';
 
 import LoginOptionsScreen from '../../src/containers/LoginOptionsScreen';
@@ -121,4 +122,18 @@ describe('a login button is clicked', () => {
       expect(screen).toMatchSnapshot();
     });
   });
+});
+
+it('should call openTermsLink', () => {
+  const instance = renderShallow(
+    <LoginOptionsScreen
+      navigation={createMockNavState({
+        upgradeAccount: false,
+      })}
+    />,
+    store,
+  ).instance();
+  Linking.openURL = jest.fn();
+  instance.openTermsLink();
+  expect(Linking.openURL).toHaveBeenCalled();
 });

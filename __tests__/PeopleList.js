@@ -105,4 +105,16 @@ describe('button presses', () => {
       expanded: true,
     });
   });
+
+  it('renders item', () => {
+    const renderedItem = componentInstance.renderItem(orgs[0])({
+      item: orgs[0].people[0],
+    });
+    expect(renderedItem).toMatchSnapshot();
+  });
+  it('should return key extractor', () => {
+    const item = { id: '1' };
+    const result = componentInstance.keyExtractor(item);
+    expect(result).toEqual(item.id);
+  });
 });
