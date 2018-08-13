@@ -58,19 +58,19 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   }
 
-  async handleRemove(step) {
+  handleRemove = async step => {
     await this.props.dispatch(deleteStepWithTracking(step, name));
     this.getSteps();
-  }
+  };
 
-  async handleComplete(step) {
+  handleComplete = async step => {
     const { dispatch, person, organization } = this.props;
     await dispatch(completeStep(step, name));
     this.getSteps();
     dispatch(
       reloadJourney(person.id, organization ? organization.id : undefined),
     );
-  }
+  };
 
   async handleSaveNewSteps() {
     await this.getSteps();

@@ -81,10 +81,10 @@ class SearchList extends Component {
     );
   };
 
-  async removeFilter(key) {
+  removeFilter = async key => {
     await this.props.onRemoveFilter(key);
     this.handleSearchDebounced(this.state.text);
-  }
+  };
 
   ref = c => (this.searchInput = c);
 

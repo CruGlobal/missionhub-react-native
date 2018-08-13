@@ -31,7 +31,7 @@ class SetupScreen extends Component {
     disableBack.remove();
   }
 
-  saveAndGoToGetStarted() {
+  saveAndGoToGetStarted = () => {
     if (this.props.firstName) {
       Keyboard.dismiss();
 
@@ -42,7 +42,7 @@ class SetupScreen extends Component {
           this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
         });
     }
-  }
+  };
 
   updateFirstName = t => this.props.dispatch(firstNameChanged(t));
 

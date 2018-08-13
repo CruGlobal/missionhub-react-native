@@ -83,11 +83,11 @@ export class ImpactView extends Component {
     );
   }
 
-  handleChangePeriod(period) {
+  handleChangePeriod = period => {
     this.setState({ period }, () => {
       this.getInteractionReport();
     });
-  }
+  };
 
   buildImpactSentence(
     {

@@ -65,7 +65,7 @@ class PathwayStageScreen extends Component {
     }
   }
 
-  setStage(stage, isAlreadySelected) {
+  setStage = (stage, isAlreadySelected) => {
     if (!this.props.enableBackButton) {
       disableBack.remove();
     }
@@ -80,7 +80,7 @@ class PathwayStageScreen extends Component {
         [ACTIONS.STAGE_SELECTED.key]: null,
       }),
     );
-  }
+  };
 
   handleScroll(e) {
     this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
@@ -117,7 +117,7 @@ class PathwayStageScreen extends Component {
         </View>
         <Button
           type="primary"
-          pressProps={[item, isActive, index]}
+          pressProps={[item, isActive]}
           onPress={this.setStage}
           text={isActive && activeButtonText ? activeButtonText : buttonText}
         />

@@ -130,13 +130,13 @@ export class StepsScreen extends Component {
     dispatch(setStepFocus(step, false));
   }
 
-  handleCompleteReminder(step) {
+  handleCompleteReminder = step => {
     this.props.dispatch(completeStepReminder(step, NAME));
-  }
+  };
 
-  handleDeleteReminder(step) {
+  handleDeleteReminder = step => {
     this.props.dispatch(deleteStepWithTracking(step, NAME));
-  }
+  };
 
   handleRefresh() {
     refresh(this, this.getSteps);
