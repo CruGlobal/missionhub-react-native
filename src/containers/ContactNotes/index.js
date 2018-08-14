@@ -67,7 +67,6 @@ export class ContactNotes extends Component {
     }
 
     this.setState({ editing: false });
-    // this.props.onNotesInactive();
   }
 
   onButtonPress() {
@@ -88,7 +87,6 @@ export class ContactNotes extends Component {
           ),
         ),
       );
-      // this.props.onNotesActive();
     }
   }
 
@@ -162,8 +160,8 @@ export class ContactNotes extends Component {
 }
 
 ContactNotes.propTypes = {
-  onNotesActive: PropTypes.func,
-  onNotesInactive: PropTypes.func,
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ auth }) => ({ myId: auth.person.user.id });

@@ -132,7 +132,7 @@ const ME_COMMUNITY_TABS = [myImpact];
 export class AssignedPersonScreen extends Component {
   state = { keyboardVisible: false };
 
-  componentWillMount() {
+  componentDidMount() {
     const { person, organization = {} } = this.props;
     this.props.dispatch(getPersonDetails(person.id, organization.id));
 
