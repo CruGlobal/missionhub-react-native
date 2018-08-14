@@ -16,12 +16,7 @@ jest.mock('react-native-device-info');
 beforeEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
   shallowScreen = shallow(
-    <ContactNotes
-      person={{ first_name: 'Roger' }}
-      dispatch={jest.fn()}
-      onNotesActive={jest.fn()}
-      onNotesInactive={jest.fn()}
-    />,
+    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
     { context: { store: store } },
   );
 

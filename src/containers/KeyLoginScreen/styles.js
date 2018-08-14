@@ -4,6 +4,12 @@ import theme from '../../theme';
 import { isiPhoneX } from '../../utils/common';
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.primaryColor,
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+  },
   label: {
     color: theme.secondaryColor,
     fontSize: 12,

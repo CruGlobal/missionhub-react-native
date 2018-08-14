@@ -1,5 +1,6 @@
 import React from 'react';
 import { DrawerActions } from 'react-navigation';
+import { shallow } from 'enzyme/build/index';
 
 import {
   AssignedPersonScreen,
@@ -11,6 +12,7 @@ import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../src/constants';
 import { contactAssignmentSelector } from '../../../../src/selectors/people';
 import { organizationSelector } from '../../../../src/selectors/organizations';
+import * as common from '../../../../src/utils/common';
 
 jest.mock('../../../../src/selectors/people');
 jest.mock('../../../../src/selectors/organizations');
@@ -63,6 +65,15 @@ const store = {
   },
 };
 
+const props = {
+  organization: organization,
+  person: person,
+  dispatch: jest.fn(),
+  myId: myId,
+  stages: stages,
+  isMember: true,
+};
+
 beforeEach(() => {
   contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
@@ -82,27 +93,12 @@ describe('Contact', () => {
   });
 
   it('should render AssignedPersonScreen correctly without stage', () => {
-    testSnapshotShallow(
-      <AssignedPersonScreen
-        organization={organization}
-        person={person}
-        dispatch={jest.fn()}
-        myId={myId}
-        stages={stages}
-      />,
-    );
+    testSnapshotShallow(<AssignedPersonScreen {...props} />);
   });
 
   it('should render AssignedPersonScreen correctly with stage', () => {
     testSnapshotShallow(
-      <AssignedPersonScreen
-        organization={organization}
-        person={person}
-        dispatch={jest.fn()}
-        myId={myId}
-        stages={stages}
-        pathwayStage={{ name: 'stage 4' }}
-      />,
+      <AssignedPersonScreen {...props} pathwayStage={{ name: 'stage 4' }} />,
     );
   });
 
@@ -116,13 +112,7 @@ describe('Contact', () => {
 
   it('opens side menu when menu button is pressed', () => {
     const component = renderShallow(
-      <AssignedPersonScreen
-        dispatch={dispatch}
-        organization={organization}
-        person={person}
-        myId={myId}
-        stages={stages}
-      />,
+      <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
       .find('Connect(Header)')
@@ -132,5 +122,49 @@ describe('Contact', () => {
     expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
       drawer: PERSON_MENU_DRAWER,
     });
+  });
+
+  it('hides the header when the keyboard is shown', () => {
+    const component = shallow(<AssignedPersonScreen {...props} />);
+    component.setState({ keyboardVisible: true });
+    expect(component).toMatchSnapshot();
+  });
+
+  it('sets the keyboard to visible', () => {
+    const component = shallow(<AssignedPersonScreen {...props} />);
+    const instance = component.instance();
+    instance.keyboardShow();
+    expect(instance.state).toEqual({ keyboardVisible: true });
+  });
+
+  it('sets the keyboard to not visible', () => {
+    const component = shallow(<AssignedPersonScreen {...props} />);
+    const instance = component.instance();
+    instance.keyboardShow();
+    instance.keyboardHide();
+    expect(instance.state).toEqual({ keyboardVisible: false });
+  });
+
+  it('mounts and sets the keyboard listeners', () => {
+    const mockShowListener = 'show';
+    const mockHideListener = 'hide';
+    common.keyboardShow = jest.fn(() => mockShowListener);
+    common.keyboardHide = jest.fn(() => mockHideListener);
+    const component = shallow(<AssignedPersonScreen {...props} />);
+    const instance = component.instance();
+    expect(instance.keyboardShowListener).toEqual(mockShowListener);
+    expect(instance.keyboardHideListener).toEqual(mockHideListener);
+  });
+
+  it('unmounts and runs the keyboard listeners', () => {
+    const mockShowListener = jest.fn();
+    const mockHideListener = jest.fn();
+    common.keyboardShow = jest.fn(() => ({ remove: mockShowListener }));
+    common.keyboardHide = jest.fn(() => ({ remove: mockHideListener }));
+    const component = shallow(<AssignedPersonScreen {...props} />);
+    const instance = component.instance();
+    instance.componentWillUnmount();
+    expect(mockShowListener).toHaveBeenCalled();
+    expect(mockHideListener).toHaveBeenCalled();
   });
 });

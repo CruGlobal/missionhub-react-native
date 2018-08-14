@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders loading 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Flex
     align="center"
     direction="row"
@@ -107,11 +116,20 @@ exports[`renders loading 1`] = `
     </Component>
   </Flex>
   <LoadingWheel />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`renders not loading 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Flex
     align="center"
     direction="row"
@@ -216,5 +234,5 @@ exports[`renders not loading 1`] = `
       />
     </Component>
   </Flex>
-</PlatformKeyboardAvoidingView>
+</Component>
 `;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Alert } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
@@ -8,11 +8,7 @@ import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewContact } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
-import {
-  Button,
-  PlatformKeyboardAvoidingView,
-  IconButton,
-} from '../../components/common';
+import { Button, IconButton } from '../../components/common';
 import Header from '../Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
@@ -178,7 +174,7 @@ class AddContactScreen extends Component {
     const orgName = organization ? organization.name : undefined;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         <Header
           right={
             <IconButton
@@ -196,7 +192,7 @@ class AddContactScreen extends Component {
                 : t('addSomeone').toUpperCase()
           }
         />
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
           <AddContactFields
             person={person}
             organization={organization}
@@ -211,7 +207,7 @@ class AddContactScreen extends Component {
           text={t('done').toUpperCase()}
           style={styles.button}
         />
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

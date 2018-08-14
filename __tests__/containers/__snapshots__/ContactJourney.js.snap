@@ -382,7 +382,8 @@ exports[`renders with an organization correctly 1`] = `
             "backgroundColor": "#ffffff",
             "borderTopColor": "#B2B0B2",
             "borderTopWidth": 1,
-            "paddingVertical": 5,
+            "paddingBottom": 5,
+            "paddingTop": 5,
             "width": 750,
           },
           Object {
