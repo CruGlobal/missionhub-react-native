@@ -107,13 +107,15 @@ class Contacts extends Component {
     dispatch(navToPersonScreen(person, organization));
   };
 
+  listRef = c => (this.searchList = c);
+
   render() {
     const { t, organization } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
         <SearchList
-          ref={c => (this.searchList = c)}
+          ref={this.listRef}
           defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{

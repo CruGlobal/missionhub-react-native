@@ -70,6 +70,11 @@ exports[`StatusSelectScreen should render correctly 1`] = `
   >
     <TouchableIOS
       onPress={[Function]}
+      pressProps={
+        Array [
+          "uncontacted",
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -112,6 +117,11 @@ exports[`StatusSelectScreen should render correctly 1`] = `
     </TouchableIOS>
     <TouchableIOS
       onPress={[Function]}
+      pressProps={
+        Array [
+          "attempted_contact",
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -142,6 +152,11 @@ exports[`StatusSelectScreen should render correctly 1`] = `
     </TouchableIOS>
     <TouchableIOS
       onPress={[Function]}
+      pressProps={
+        Array [
+          "contacted",
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -172,6 +187,11 @@ exports[`StatusSelectScreen should render correctly 1`] = `
     </TouchableIOS>
     <TouchableIOS
       onPress={[Function]}
+      pressProps={
+        Array [
+          "completed",
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -202,6 +222,11 @@ exports[`StatusSelectScreen should render correctly 1`] = `
     </TouchableIOS>
     <TouchableIOS
       onPress={[Function]}
+      pressProps={
+        Array [
+          "do_not_contact",
+        ]
+      }
       style={
         Object {
           "alignItems": "center",

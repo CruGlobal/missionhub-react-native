@@ -10,8 +10,15 @@ import IconButton from '../../components/IconButton';
 import styles from './styles';
 
 export class BackButton extends Component {
+  onPress = () => {
+    const { dispatch, customNavigate } = this.props;
+
+    customNavigate ? customNavigate() : dispatch(navigateBack());
+    Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
+  };
+
   render() {
-    const { dispatch, customNavigate, absolute, style } = this.props;
+    const { absolute, style } = this.props;
     return (
       <Flex
         self="start"
@@ -19,14 +26,7 @@ export class BackButton extends Component {
         justify="center"
         style={[style || null, absolute ? styles.absoluteTopLeft : null]}
       >
-        <IconButton
-          name="backIcon"
-          type="MissionHub"
-          onPress={() => {
-            customNavigate ? customNavigate() : dispatch(navigateBack());
-            Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
-          }}
-        />
+        <IconButton name="backIcon" type="MissionHub" onPress={this.onPress} />
       </Flex>
     );
   }

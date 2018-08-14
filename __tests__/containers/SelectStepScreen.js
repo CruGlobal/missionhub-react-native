@@ -54,7 +54,7 @@ let store = createMockStore({
 });
 
 let component, parallaxProps, instance;
-let onComplete = () => {};
+let onComplete = jest.fn();
 let createStepTracking = {};
 let enableBackButton = false;
 
@@ -142,6 +142,17 @@ describe('SelectStepScreen', () => {
   it('should render sticky header correctly', () => {
     testSnapshotShallow(parallaxProps.renderStickyHeader());
   });
+
+  it('should call navigate back two screens', () => {
+    navigation.navigateBack = jest.fn();
+    instance.navigateBackTwoScreens();
+    expect(navigation.navigateBack).toHaveBeenCalledWith(2);
+  });
+
+  it('should call steps list ref', () => {
+    instance.stepsListRef('test');
+    expect(instance.stepsList).toEqual('test');
+  });
 });
 
 describe('componentDidMount', () => {
@@ -195,7 +206,7 @@ describe('Navigation', () => {
       trackingObj: createStepTracking,
     });
     createStepTracking = {};
-    onComplete = () => {};
+    onComplete = jest.fn();
   });
 });
 

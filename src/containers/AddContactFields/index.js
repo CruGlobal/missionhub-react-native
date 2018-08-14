@@ -63,18 +63,39 @@ class AddContactFields extends Component {
     }
   }
 
-  updateOrgPermission(pId) {
+  updateOrgPermission = pId => {
     this.updateField('orgPermission', {
       ...this.state.orgPermission,
       permission_id: pId,
     });
-  }
+  };
 
   updateField(field, data) {
     this.setState({ [field]: data }, () => {
       this.props.onUpdateData(this.state);
     });
   }
+
+  firstNameRef = c => (this.firstName = c);
+
+  lastNameRef = c => (this.lastName = c);
+
+  emailRef = c => (this.email = c);
+
+  phoneRef = c => (this.phone = c);
+
+  lastNameFocus = () => this.lastName.focus();
+
+  emailFocus = () => this.email && this.email.focus();
+
+  phoneFocus = () => this.phone.focus();
+
+  updateFirstName = t => this.updateField('firstName', t);
+  updateLastName = t => this.updateField('lastName', t);
+  updateEmail = t => this.updateField('email', t);
+  updatePhone = t => this.updateField('phone', t);
+  updateGenderMale = () => this.updateField('gender', 'Male');
+  updateGenderFemale = () => this.updateField('gender', 'Female');
 
   render() {
     const {
@@ -105,29 +126,29 @@ class AddContactFields extends Component {
             {t('profileLabels.firstNameRequired')}
           </Text>
           <Input
-            ref={c => (this.firstName = c)}
+            ref={this.firstNameRef}
             editable={!personHasOrgPermission}
-            onChangeText={t => this.updateField('firstName', t)}
+            onChangeText={this.updateFirstName}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.lastName.focus()}
+            onSubmitEditing={this.lastNameFocus}
           />
         </Flex>
         <Flex direction="column">
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
-            ref={c => (this.lastName = c)}
+            ref={this.lastNameRef}
             editable={!personHasOrgPermission}
-            onChangeText={t => this.updateField('lastName', t)}
+            onChangeText={this.updateLastName}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.email && this.email.focus()}
+            onSubmitEditing={this.emailFocus}
           />
         </Flex>
         {isJean ? (
@@ -135,8 +156,8 @@ class AddContactFields extends Component {
             <Flex direction="column" key="email">
               <Text style={styles.label}>{t('profileLabels.email')}</Text>
               <Input
-                ref={c => (this.email = c)}
-                onChangeText={t => this.updateField('email', t)}
+                ref={this.emailRef}
+                onChangeText={this.updateEmail}
                 value={email}
                 autoCapitalize="none"
                 placeholder={t('profileLabels.email')}
@@ -144,7 +165,7 @@ class AddContactFields extends Component {
                 keyboardType="email-address"
                 returnKeyType="next"
                 blurOnSubmit={false}
-                onSubmitEditing={() => this.phone.focus()}
+                onSubmitEditing={this.phoneFocus}
               />
             </Flex>
             <Flex
@@ -158,13 +179,13 @@ class AddContactFields extends Component {
               </Text>
               <RadioButton
                 style={styles.genderRadioButton}
-                onSelect={() => this.updateField('gender', 'Male')}
+                onSelect={this.updateGenderMale}
                 checked={gender === 'Male'}
                 label={t('gender.male')}
               />
               <RadioButton
                 style={styles.genderRadioButton}
-                onSelect={() => this.updateField('gender', 'Female')}
+                onSelect={this.updateGenderFemale}
                 checked={gender === 'Female'}
                 label={t('gender.female')}
               />
@@ -172,8 +193,8 @@ class AddContactFields extends Component {
             <Flex direction="column" key="phone">
               <Text style={styles.label}>{t('profileLabels.phone')}</Text>
               <Input
-                ref={c => (this.phone = c)}
-                onChangeText={t => this.updateField('phone', t)}
+                ref={this.phoneRef}
+                onChangeText={this.updatePhone}
                 value={phone}
                 placeholder={t('profileLabels.phone')}
                 placeholderTextColor={theme.white}
@@ -194,9 +215,8 @@ class AddContactFields extends Component {
                 >
                   <RadioButton
                     style={styles.contactRadioButton}
-                    onSelect={() =>
-                      this.updateOrgPermission(ORG_PERMISSIONS.CONTACT)
-                    }
+                    pressProps={[ORG_PERMISSIONS.CONTACT]}
+                    onSelect={this.updateOrgPermission}
                     checked={
                       orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
                     }
@@ -208,9 +228,8 @@ class AddContactFields extends Component {
                       ORG_PERMISSIONS.ADMIN) ? (
                     <RadioButton
                       style={styles.userRadioButton}
-                      onSelect={() =>
-                        this.updateOrgPermission(ORG_PERMISSIONS.USER)
-                      }
+                      pressProps={[ORG_PERMISSIONS.USER]}
+                      onSelect={this.updateOrgPermission}
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.USER
                       }
@@ -221,9 +240,8 @@ class AddContactFields extends Component {
                   myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
                     <RadioButton
                       style={styles.adminRadioButton}
-                      onSelect={() =>
-                        this.updateOrgPermission(ORG_PERMISSIONS.ADMIN)
-                      }
+                      pressProps={[ORG_PERMISSIONS.ADMIN]}
+                      onSelect={this.updateOrgPermission}
                       checked={
                         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
                       }

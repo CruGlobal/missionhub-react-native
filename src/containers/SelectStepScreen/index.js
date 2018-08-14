@@ -148,6 +148,8 @@ class SelectStepScreen extends Component {
     onComplete();
   };
 
+  navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
+
   renderBackButton() {
     const { enableBackButton, contact } = this.props;
     return enableBackButton ? (
@@ -155,7 +157,7 @@ class SelectStepScreen extends Component {
         customNavigate={
           contact || this.state.contact
             ? undefined
-            : () => this.props.dispatch(navigateBack(2))
+            : this.navigateBackTwoScreens
         }
         absolute={true}
       />
@@ -195,6 +197,22 @@ class SelectStepScreen extends Component {
     ) : null;
   }
 
+  renderForeground = () => (
+    <Flex value={1} align="center" justify="center">
+      {this.renderTitle()}
+    </Flex>
+  );
+
+  renderStickHeader = () => (
+    <Flex align="center" justify="center" style={styles.collapsedHeader}>
+      <Text style={styles.collapsedHeaderTitle}>
+        {this.props.t('stepsOfFaith').toUpperCase()}
+      </Text>
+    </Flex>
+  );
+
+  stepsListRef = c => (this.stepsList = c);
+
   render() {
     const { t } = this.props;
 
@@ -203,26 +221,12 @@ class SelectStepScreen extends Component {
         <ParallaxScrollView
           backgroundColor={theme.primaryColor}
           parallaxHeaderHeight={215 + theme.notchHeight}
-          renderForeground={() => (
-            <Flex value={1} align="center" justify="center">
-              {this.renderTitle()}
-            </Flex>
-          )}
+          renderForeground={this.renderForeground}
           stickyHeaderHeight={theme.headerHeight}
-          renderStickyHeader={() => (
-            <Flex
-              align="center"
-              justify="center"
-              style={styles.collapsedHeader}
-            >
-              <Text style={styles.collapsedHeaderTitle}>
-                {t('stepsOfFaith').toUpperCase()}
-              </Text>
-            </Flex>
-          )}
+          renderStickyHeader={this.renderStickHeader}
         >
           <StepsList
-            ref={c => (this.stepsList = c)}
+            ref={this.stepsListRef}
             items={this.state.steps}
             createStepText={t('createStep')}
             loadMoreStepsText={t('loadMoreSteps')}

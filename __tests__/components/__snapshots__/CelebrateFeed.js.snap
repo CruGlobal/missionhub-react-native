@@ -67,3 +67,58 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
   windowSize={21}
 />
 `;
+
+exports[`renders item 1`] = `
+<Translate(CelebrateItem)
+  event={
+    Object {
+      "data": Array [
+        Object {
+          "adjective_attribute_value": "2",
+          "celebrateable_type": "accepted_challenge",
+          "changed_attribute_value": "2018-03-01 12:00:00",
+          "id": "1",
+          "likes_count": 0,
+          "subject_person_name": "Roge Dog",
+        },
+        Object {
+          "adjective_attribute_value": "4",
+          "celebrateable_type": "interaction",
+          "changed_attribute_value": "2018-03-01 12:00:00",
+          "id": "2",
+          "likes_count": 0,
+          "subject_person_name": "DG With me?",
+        },
+      ],
+      "date": "2018-03-01 12:00:00",
+    }
+  }
+  myId="123"
+  onToggleLike={[Function]}
+/>
+`;
+
+exports[`renders section header 1`] = `
+<Flex
+  align="center"
+  style={
+    Object {
+      "alignContent": "center",
+      "backgroundColor": "#E6E8EC",
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Translate(DateComponent)
+    date={undefined}
+    format="relative"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 12,
+        "textAlign": "center",
+      }
+    }
+  />
+</Flex>
+`;

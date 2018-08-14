@@ -153,6 +153,12 @@ export class AssignedPersonScreen extends Component {
     this.setState({ keyboardVisible: false });
   };
 
+  openDrawer = () => {
+    this.props.dispatch(
+      DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }),
+    );
+  };
+
   render() {
     const { keyboardVisible } = this.state;
     const {
@@ -179,13 +185,7 @@ export class AssignedPersonScreen extends Component {
             <IconButton
               name="moreIcon"
               type="MissionHub"
-              onPress={() =>
-                dispatch(
-                  DrawerActions.openDrawer({
-                    drawer: PERSON_MENU_DRAWER,
-                  }),
-                )
-              }
+              onPress={this.openDrawer}
             />
           }
           shadow={false}

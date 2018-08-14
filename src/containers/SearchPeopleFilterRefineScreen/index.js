@@ -78,6 +78,17 @@ export class SearchPeopleFilterRefineScreen extends Component {
     this.props.onFilter(item);
   }
 
+  keyExtractor = i => i.id;
+
+  renderItem = ({ item }) => (
+    <FilterItem
+      item={item}
+      onSelect={this.handleSelect}
+      type={item.drilldown ? 'drilldown' : 'single'}
+      isSelected={item.selected}
+    />
+  );
+
   render() {
     const { t, title } = this.props;
     return (
@@ -86,16 +97,9 @@ export class SearchPeopleFilterRefineScreen extends Component {
         <FlatList
           style={styles.list}
           data={this.state.options}
-          keyExtractor={i => i.id}
+          keyExtractor={this.keyExtractor}
           initialNumToRender={15}
-          renderItem={({ item }) => (
-            <FilterItem
-              item={item}
-              onSelect={this.handleSelect}
-              type={item.drilldown ? 'drilldown' : 'single'}
-              isSelected={item.selected}
-            />
-          )}
+          renderItem={this.renderItem}
         />
       </View>
     );

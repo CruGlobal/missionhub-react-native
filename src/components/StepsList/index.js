@@ -8,13 +8,10 @@ import Button from '../Button';
 import styles from './styles';
 
 export default class StepsList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  selectStep = item => this.props.onSelectStep(item);
   renderRow = ({ item }) => {
     return (
-      <Touchable onPress={() => this.props.onSelectStep(item)}>
+      <Touchable pressProps={[item]} onPress={this.selectStep}>
         <Flex direction="row" align="center" justify="start" value={1}>
           <Icon
             type="MissionHub"
@@ -72,16 +69,22 @@ export default class StepsList extends Component {
     setTimeout(() => this.listView.scrollToEnd(), 200);
   }
 
+  ref = c => (this.listView = c);
+
+  keyExtractor = item => item.id;
+
+  itemSeparatorComponent = (sectionID, rowID) => <Separator key={rowID} />;
+
   render() {
     return (
       <FlatList
-        ref={c => (this.listView = c)}
-        keyExtractor={item => item.id}
+        ref={this.ref}
+        keyExtractor={this.keyExtractor}
         data={this.props.items}
         renderItem={this.renderRow}
         scrollEnabled={true}
         ListFooterComponent={this.renderFooter}
-        ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
+        ItemSeparatorComponent={this.itemSeparatorComponent}
       />
     );
   }

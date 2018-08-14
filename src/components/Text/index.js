@@ -8,6 +8,11 @@ export default class MyText extends Component {
   setNativeProps(nativeProps) {
     this._text.setNativeProps(nativeProps);
   }
+
+  animatableRef = c => (this._text = c);
+
+  ref = c => (this._text = c);
+
   render() {
     const { children, style, type, animation, ...rest } = this.props;
     const isHeader = type === 'header';
@@ -25,7 +30,7 @@ export default class MyText extends Component {
     if (animation) {
       return (
         <Animatable.Text
-          ref={c => (this._text = c)}
+          ref={this.animatableRef}
           animation={animation}
           {...rest}
           style={textStyle}
@@ -35,7 +40,7 @@ export default class MyText extends Component {
       );
     }
     return (
-      <Text ref={c => (this._text = c)} {...rest} style={textStyle}>
+      <Text ref={this.ref} {...rest} style={textStyle}>
         {content}
       </Text>
     );

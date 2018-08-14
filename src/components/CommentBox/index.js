@@ -86,7 +86,8 @@ class CommentBox extends Component {
     return (
       <Touchable
         key={item.id}
-        onPress={() => this.selectAction(item)}
+        pressProps={[item]}
+        onPress={this.selectAction}
         style={styles.actionRowWrap}
       >
         <Flex
@@ -119,6 +120,8 @@ class CommentBox extends Component {
       </Flex>
     );
   }
+
+  ref = c => (this.searchInput = c);
 
   renderInput() {
     const { t } = this.props;
@@ -174,7 +177,7 @@ class CommentBox extends Component {
           style={styles.inputWrap}
         >
           <Input
-            ref={c => (this.searchInput = c)}
+            ref={this.ref}
             onFocus={this.focus}
             onBlur={this.blur}
             onChangeText={this.handleTextChange}

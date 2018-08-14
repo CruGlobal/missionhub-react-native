@@ -58,19 +58,19 @@ class ContactSteps extends Component {
     dispatch(getContactSteps(person.id, organization.id));
   }
 
-  async handleRemove(step) {
+  handleRemove = async step => {
     await this.props.dispatch(deleteStepWithTracking(step, name));
     this.getSteps();
-  }
+  };
 
-  async handleComplete(step) {
+  handleComplete = async step => {
     const { dispatch, person, organization } = this.props;
     await dispatch(completeStep(step, name));
     this.getSteps();
     dispatch(
       reloadJourney(person.id, organization ? organization.id : undefined),
     );
-  }
+  };
 
   async handleSaveNewSteps() {
     await this.getSteps();
@@ -170,22 +170,28 @@ class ContactSteps extends Component {
         key={item.id}
         bump={showBump && index === 0}
         onBumpComplete={this.bumpComplete}
-        onDelete={() => this.handleRemove(item)}
-        onComplete={() => this.handleComplete(item)}
+        deletePressProps={[item]}
+        completePressProps={[item]}
+        onDelete={this.handleRemove}
+        onComplete={this.handleComplete}
       >
         <StepItem step={item} type="contact" />
       </RowSwipeable>
     );
   }
 
+  ref = c => (this.list = c);
+
+  keyExtractor = i => i.id;
+
   renderList() {
     const { steps } = this.props;
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={this.ref}
         style={styles.list}
         data={steps}
-        keyExtractor={i => i.id}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}

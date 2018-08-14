@@ -167,6 +167,8 @@ class AddContactScreen extends Component {
     }
   }
 
+  navigateBack = () => this.props.dispatch(navigateBack());
+
   render() {
     const { t, organization, person, isJean } = this.props;
     const orgName = organization ? organization.name : undefined;
@@ -178,7 +180,7 @@ class AddContactScreen extends Component {
             <IconButton
               name="deleteIcon"
               type="MissionHub"
-              onPress={() => this.props.dispatch(navigateBack())}
+              onPress={this.navigateBack}
             />
           }
           shadow={false}

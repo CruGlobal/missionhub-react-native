@@ -52,3 +52,16 @@ exports[`GroupsListScreen should render correctly 1`] = `
   />
 </Component>
 `;
+
+exports[`GroupsListScreen should render item 1`] = `
+<Translate(GroupCardItem)
+  group={
+    Object {
+      "contactReport": Object {},
+      "id": "1",
+      "name": "test",
+    }
+  }
+  onPress={[Function]}
+/>
+`;

@@ -21,7 +21,7 @@ orgPermissionSelector.mockReturnValue(orgPermission);
 const store = createMockStore();
 function buildScreen(props) {
   return renderShallow(
-    <AddContactFields onUpdateData={() => {}} {...props} />,
+    <AddContactFields onUpdateData={jest.fn()} {...props} />,
     store,
   );
 }
@@ -29,7 +29,7 @@ function buildScreen(props) {
 it('renders casey view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       person={{
         email_addresses: [],
         phone_numbers: [],
@@ -43,7 +43,7 @@ it('renders casey view correctly', () => {
 it('renders jean without organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       isJean={true}
       person={{
         email_addresses: [],
@@ -58,7 +58,7 @@ it('renders jean without organization view correctly', () => {
 it('renders jean with organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       isJean={true}
       person={{
         email_addresses: [],
@@ -73,7 +73,7 @@ it('renders jean with organization view correctly', () => {
 it('renders jean with organization and user radio buttons', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       isJean={true}
       person={{
         email_addresses: [],
@@ -99,7 +99,7 @@ it('renders jean with organization and user radio buttons', () => {
 it('renders jean with organization and user and admin radio buttons', () => {
   testSnapshotShallow(
     <AddContactFields
-      onUpdateData={() => {}}
+      onUpdateData={jest.fn()}
       isJean={true}
       person={{
         email_addresses: [],
@@ -153,5 +153,75 @@ it('updates org permission', () => {
   componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+});
+
+describe('calls methods', () => {
+  const instance = buildScreen({
+    isJean: true,
+    organization: { id: '1' },
+  }).instance();
+  beforeEach(() => {
+    instance.updateField = jest.fn();
+  });
+
+  it('calls first name ref', () => {
+    const ref = 'test';
+    instance.firstNameRef(ref);
+    expect(instance.firstName).toEqual(ref);
+  });
+  it('calls last name ref', () => {
+    const ref = 'test';
+    instance.lastNameRef(ref);
+    expect(instance.lastName).toEqual(ref);
+  });
+  it('calls email ref', () => {
+    const ref = 'test';
+    instance.emailRef(ref);
+    expect(instance.email).toEqual(ref);
+  });
+  it('calls phone ref', () => {
+    const ref = 'test';
+    instance.phoneRef(ref);
+    expect(instance.phone).toEqual(ref);
+  });
+  it('calls last name focus', () => {
+    instance.lastName = { focus: jest.fn() };
+    instance.lastNameFocus();
+    expect(instance.lastName.focus).toHaveBeenCalled();
+  });
+  it('calls email focus', () => {
+    instance.email = { focus: jest.fn() };
+    instance.emailFocus();
+    expect(instance.email.focus).toHaveBeenCalled();
+  });
+  it('calls phone focus', () => {
+    instance.phone = { focus: jest.fn() };
+    instance.phoneFocus();
+    expect(instance.phone.focus).toHaveBeenCalled();
+  });
+  it('calls update first name', () => {
+    instance.updateFirstName('test');
+    expect(instance.updateField).toHaveBeenCalledWith('firstName', 'test');
+  });
+  it('calls update last name', () => {
+    instance.updateLastName('test');
+    expect(instance.updateField).toHaveBeenCalledWith('lastName', 'test');
+  });
+  it('calls update email', () => {
+    instance.updateEmail('test');
+    expect(instance.updateField).toHaveBeenCalledWith('email', 'test');
+  });
+  it('calls update phone', () => {
+    instance.updatePhone('test');
+    expect(instance.updateField).toHaveBeenCalledWith('phone', 'test');
+  });
+  it('calls update gender male', () => {
+    instance.updateGenderMale();
+    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Male');
+  });
+  it('calls update gender female', () => {
+    instance.updateGenderFemale();
+    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Female');
   });
 });

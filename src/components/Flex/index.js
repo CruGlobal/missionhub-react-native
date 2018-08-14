@@ -7,6 +7,11 @@ export default class Flex extends Component {
   setNativeProps(nProps) {
     this._view.setNativeProps(nProps);
   }
+
+  animatableRef = c => (this._view = c);
+
+  ref = c => (this._view = c);
+
   render() {
     const {
       value,
@@ -75,7 +80,7 @@ export default class Flex extends Component {
     if (animation || animated) {
       return (
         <Animatable.View
-          ref={c => (this._view = c)}
+          ref={this.animatableRef}
           duration={400}
           animation={animation}
           {...rest}
@@ -86,7 +91,7 @@ export default class Flex extends Component {
       );
     }
     return (
-      <View ref={c => (this._view = c)} {...rest} style={[style, styleObj]}>
+      <View ref={this.ref} {...rest} style={[style, styleObj]}>
         {children}
       </View>
     );

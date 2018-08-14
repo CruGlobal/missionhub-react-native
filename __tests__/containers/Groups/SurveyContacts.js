@@ -113,4 +113,18 @@ describe('SurveyContacts', () => {
     instance.handleSelect(person);
     expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
   });
+
+  it('should render item correctly', () => {
+    const instance = renderShallow(component, store).instance();
+
+    const renderedItem = instance.renderItem({ item: people[0] });
+    expect(renderedItem).toMatchSnapshot();
+  });
+
+  it('should call ref', () => {
+    const instance = renderShallow(component, store).instance();
+    const ref = 'test';
+    instance.ref(ref);
+    expect(instance.searchList).toEqual(ref);
+  });
 });

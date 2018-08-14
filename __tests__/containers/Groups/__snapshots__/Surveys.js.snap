@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Surveys renders item 1`] = `
+<Translate(GroupSurveyItem)
+  onSelect={[Function]}
+  survey={
+    Object {
+      "contacts_count": 5,
+      "created_at": "2018-08-14T17:02:02Z",
+      "id": "1",
+      "title": "Test Survey 1",
+      "unassigned_contacts_count": 5,
+      "uncontacted_contacts_count": 5,
+    }
+  }
+/>
+`;
+
 exports[`Surveys should render correctly 1`] = `
 <Flex
   value={1}
@@ -14,6 +30,7 @@ exports[`Surveys should render correctly 1`] = `
       Array [
         Object {
           "contacts_count": 5,
+          "created_at": "2018-08-14T17:02:02Z",
           "id": "1",
           "title": "Test Survey 1",
           "unassigned_contacts_count": 5,
@@ -21,6 +38,7 @@ exports[`Surveys should render correctly 1`] = `
         },
         Object {
           "contacts_count": 5,
+          "created_at": "2018-08-14T17:02:02Z",
           "id": "2",
           "title": "Test Survey 2",
           "unassigned_contacts_count": 5,
@@ -28,6 +46,7 @@ exports[`Surveys should render correctly 1`] = `
         },
         Object {
           "contacts_count": 5,
+          "created_at": "2018-08-14T17:02:02Z",
           "id": "3",
           "title": "Test Survey 3",
           "unassigned_contacts_count": 5,

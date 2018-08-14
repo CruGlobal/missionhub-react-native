@@ -232,4 +232,11 @@ describe('a login button is clicked', () => {
       expect(screen).toMatchSnapshot();
     });
   });
+  it('on submit editing', () => {
+    const instance = screen.instance();
+    instance.password = { focus: jest.fn() };
+    instance.onSubmitEditing();
+
+    expect(instance.password.focus).toHaveBeenCalled();
+  });
 });

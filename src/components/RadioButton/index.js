@@ -15,9 +15,10 @@ export default class RadioButton extends Component {
       style,
       labelTextStyle,
       label,
+      pressProps, // Apply this to the onPress event within the `Touchable` component
     } = this.props;
     return (
-      <Touchable onPress={onSelect}>
+      <Touchable pressProps={pressProps} onPress={onSelect}>
         <Flex direction="row" align="center" style={style}>
           <View
             style={[
@@ -61,6 +62,7 @@ RadioButton.propTypes = {
     PropTypes.object,
     PropTypes.number,
   ]),
+  pressProps: PropTypes.array,
 };
 
 RadioButton.defaultProps = {
