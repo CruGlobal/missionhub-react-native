@@ -337,4 +337,14 @@ describe('savePerson', () => {
       expect(Alert.alert).toHaveBeenCalled();
     }
   });
+
+  it('should navigate back', () => {
+    const component = buildScreen({
+      navigation: createMockNavState(),
+      person: { id: contactId },
+    });
+    const componentInstance = component.instance();
+    componentInstance.navigateBack();
+    expect(navigateBack).toHaveBeenCalled();
+  });
 });

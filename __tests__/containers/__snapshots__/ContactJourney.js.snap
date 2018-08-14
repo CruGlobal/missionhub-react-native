@@ -247,6 +247,8 @@ exports[`journey methods renders an interaction row 1`] = `
 </Translate(RowSwipeable)>
 `;
 
+exports[`journey methods should render item separator 1`] = `<Separator />`;
+
 exports[`renders with an organization correctly 1`] = `
 <View
   style={

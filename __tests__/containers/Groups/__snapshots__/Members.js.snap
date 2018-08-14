@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Members calls render item 1`] = `
+<Translate(GroupMemberItem)
+  onSelect={[Function]}
+  person={
+    Object {
+      "contact_assignments": Array [],
+      "full_name": "Test User 1",
+      "id": "1",
+    }
+  }
+/>
+`;
+
 exports[`Members should render correctly 1`] = `
 <Flex
   value={1}

@@ -22,7 +22,7 @@ export default class Button extends Component {
     };
 
     // Debounce this function so it doesn't get called too quickly in succession
-    this.handlePress = debounce(this.handlePress.bind(this), 25);
+    this.handlePressDb = debounce(this.handlePress.bind(this), 25);
   }
 
   componentWillUnmount() {
@@ -70,7 +70,7 @@ export default class Button extends Component {
     }
     const isDisabled = disabled || this.state.clickedDisabled;
     return (
-      <Touchable {...rest} disabled={isDisabled} onPress={this.handlePress}>
+      <Touchable {...rest} disabled={isDisabled} onPress={this.handlePressDb}>
         <View
           style={[
             getTypeStyle(type),

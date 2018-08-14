@@ -150,6 +150,25 @@ describe('journey methods', () => {
 
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
   });
+
+  it('should call list ref', () => {
+    const ref = 'test';
+    component.listRef(ref);
+
+    expect(component.list).toEqual(ref);
+  });
+
+  it('should call key extractor', () => {
+    const item = { id: '1', _type: 'test' };
+    const result = component.keyExtractor(item);
+
+    expect(result).toEqual(`${item.id}-${item._type}`);
+  });
+  it('should render item separator', () => {
+    const renderedItem = component.itemSeparator(1, 1);
+
+    expect(renderedItem).toMatchSnapshot();
+  });
 });
 
 it('renders with an organization correctly', () => {

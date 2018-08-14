@@ -2,9 +2,9 @@ import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { createMockStore } from '../../testUtils/index';
+import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import SetupScreen from '../../src/containers/SetupScreen';
-import { testSnapshot } from '../../testUtils';
+import * as profile from '../../src/actions/onboardingProfile';
 
 const store = createMockStore({ profile: {} });
 
@@ -16,4 +16,23 @@ it('renders correctly', () => {
       <SetupScreen />
     </Provider>,
   );
+});
+
+describe('setup screen methods', () => {
+  const instance = renderShallow(<SetupScreen />, store).instance();
+  profile.firstNameChanged = jest.fn();
+  profile.lastNameChanged = jest.fn();
+  instance.lastName = { focus: jest.fn() };
+  it('calls first name changed', () => {
+    instance.updateFirstName('test');
+    expect(profile.firstNameChanged).toHaveBeenCalledWith('test');
+  });
+  it('calls last name changed', () => {
+    instance.updateLastName('test');
+    expect(profile.lastNameChanged).toHaveBeenCalledWith('test');
+  });
+  it('calls on submit editing', () => {
+    instance.onSubmitEditing();
+    expect(instance.lastName.focus).toHaveBeenCalled();
+  });
 });

@@ -101,3 +101,9 @@ it('renders item', () => {
     .renderItem({ item: celebrationItems[0] });
   expect(renderedItem).toMatchSnapshot();
 });
+
+it('calls key extractor', () => {
+  const item = celebrationItems[0];
+  const result = component.instance().keyExtractor(item);
+  expect(result).toEqual(item.id);
+});
