@@ -24,7 +24,7 @@ it('renders correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: CREATE_STEP,
         })}
       />
@@ -37,7 +37,7 @@ it('renders journey correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: 'journey',
         })}
       />
@@ -50,7 +50,7 @@ it('renders edit journey correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: 'editJourney',
           isEdit: true,
           text: 'Comment',
@@ -65,7 +65,7 @@ it('renders step note correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: STEP_NOTE,
           text: 'Comment',
         })}
@@ -79,7 +79,7 @@ it('renders interaction without skip correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: 'interaction',
           hideSkip: true,
         })}
@@ -93,7 +93,7 @@ it('renders interaction with skip correctly', () => {
     <Provider store={store}>
       <AddStepScreen
         navigation={createMockNavState({
-          onComplete: () => {},
+          onComplete: jest.fn(),
           type: 'interaction',
           hideSkip: false,
         })}

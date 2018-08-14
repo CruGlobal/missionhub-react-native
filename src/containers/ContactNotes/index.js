@@ -102,12 +102,14 @@ export class ContactNotes extends Component {
     }
   }
 
+  inputRef = c => (this.notesInput = c);
+
   renderNotes() {
     if (this.state.editing) {
       return (
         <Flex value={1} style={styles.container}>
           <Input
-            ref={c => (this.notesInput = c)}
+            ref={this.inputRef}
             onChangeText={this.onTextChanged}
             editable={this.state.editing}
             value={this.state.text}

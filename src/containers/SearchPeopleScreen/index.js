@@ -114,6 +114,8 @@ export class SearchPeopleScreen extends Component {
     this.handleSearch(this.state.text);
   }
 
+  centerRef = c => (this.searchInput = c);
+
   renderCenter() {
     const { t } = this.props;
     const { text } = this.state;
@@ -125,7 +127,7 @@ export class SearchPeopleScreen extends Component {
         self="stretch"
       >
         <Input
-          ref={c => (this.searchInput = c)}
+          ref={this.centerRef}
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
@@ -169,13 +171,20 @@ export class SearchPeopleScreen extends Component {
               style={styles.activeFilterIcon}
               name="deleteIcon"
               type="MissionHub"
-              onPress={() => this.removeFilter(k)}
+              pressProps={[k]}
+              onPress={this.removeFilter}
             />
           </Flex>
         ))}
       </Flex>
     );
   }
+
+  listKeyExtractor = i => i.unique_key || i.id;
+
+  renderItem = ({ item }) => (
+    <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
+  );
 
   renderContent() {
     const { t } = this.props;
@@ -207,10 +216,8 @@ export class SearchPeopleScreen extends Component {
       <FlatList
         style={styles.list}
         data={results}
-        keyExtractor={i => i.unique_key || i.id}
-        renderItem={({ item }) => (
-          <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
-        )}
+        keyExtractor={this.listKeyExtractor}
+        renderItem={this.renderItem}
       />
     );
   }

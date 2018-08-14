@@ -333,6 +333,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="2"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritualConversationIcon",
+            "id": 2,
+            "isOnAction": true,
+            "tracking": "cru.initiatinggospelconversations",
+            "translationKey": "interactionSpiritualConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -382,6 +393,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="3"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "gospelIcon",
+            "id": 3,
+            "isOnAction": true,
+            "tracking": "cru.presentingthegospel",
+            "translationKey": "interactionGospel",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -431,6 +453,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="4"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "decisionIcon",
+            "id": 4,
+            "isOnAction": true,
+            "tracking": "cru.newprofessingbelievers",
+            "translationKey": "interactionDecision",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -480,6 +513,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="5"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritIcon",
+            "id": 5,
+            "isOnAction": true,
+            "tracking": "cru.presentingtheholyspirit",
+            "translationKey": "interactionSpirit",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -529,6 +573,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="9"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "discipleshipConversationIcon",
+            "id": 9,
+            "isOnAction": true,
+            "tracking": "cru.discipleshipconversation",
+            "translationKey": "interactionDiscipleshipConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -774,6 +829,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="2"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritualConversationIcon",
+            "id": 2,
+            "isOnAction": true,
+            "tracking": "cru.initiatinggospelconversations",
+            "translationKey": "interactionSpiritualConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -825,6 +891,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="3"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "gospelIcon",
+            "id": 3,
+            "isOnAction": true,
+            "tracking": "cru.presentingthegospel",
+            "translationKey": "interactionGospel",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -874,6 +951,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="4"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "decisionIcon",
+            "id": 4,
+            "isOnAction": true,
+            "tracking": "cru.newprofessingbelievers",
+            "translationKey": "interactionDecision",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -923,6 +1011,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="5"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritIcon",
+            "id": 5,
+            "isOnAction": true,
+            "tracking": "cru.presentingtheholyspirit",
+            "translationKey": "interactionSpirit",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -972,6 +1071,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="9"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "discipleshipConversationIcon",
+            "id": 9,
+            "isOnAction": true,
+            "tracking": "cru.discipleshipconversation",
+            "translationKey": "interactionDiscipleshipConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",

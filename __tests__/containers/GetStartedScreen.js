@@ -39,7 +39,7 @@ describe('get started methods', () => {
     const screen = shallow(
       <GetStartedScreen
         navigation={createMockNavState()}
-        dispatch={() => {}}
+        dispatch={jest.fn()}
       />,
       { context: { store } },
     );

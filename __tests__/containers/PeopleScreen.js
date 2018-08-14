@@ -5,12 +5,14 @@ import {
   PeopleScreen,
   mapStateToProps,
 } from '../../src/containers/PeopleScreen';
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import { peopleByOrgSelector } from '../../src/selectors/people';
+import * as common from '../../src/utils/common';
+
 jest.mock('../../src/selectors/people');
 
 jest.mock('../../src/actions/people', () => ({
-  getMyPeople: () => {},
+  getMyPeople: jest.fn(),
 }));
 
 const orgs = [
@@ -84,5 +86,11 @@ describe('PeopleScreen', () => {
 
   it('renders correctly as Jean', () => {
     testSnapshotShallow(<PeopleScreen {...props} isJean={true} />);
+  });
+  it('should open main menu', () => {
+    const instance = renderShallow(<PeopleScreen {...props} />).instance();
+    common.openMainMenu = jest.fn();
+    instance.openMainMenu();
+    expect(common.openMainMenu).toHaveBeenCalled();
   });
 });

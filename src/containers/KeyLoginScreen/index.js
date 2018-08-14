@@ -146,6 +146,12 @@ class KeyLoginScreen extends Component {
     );
   }
 
+  emailRef = c => (this.email = c);
+
+  passwordRef = c => (this.password = c);
+
+  onSubmitEditing = () => this.password.focus();
+
   render() {
     const { t, forcedLogout } = this.props;
     const marginTop = isiPhoneX() ? 50 : 25;
@@ -173,13 +179,13 @@ class KeyLoginScreen extends Component {
             <Text style={styles.label}>{t('emailLabel')}</Text>
             <Input
               autoCapitalize="none"
-              ref={c => (this.email = c)}
+              ref={this.emailRef}
               onChangeText={this.emailChanged}
               value={this.state.email}
               returnKeyType="next"
               keyboardType="email-address"
               blurOnSubmit={false}
-              onSubmitEditing={() => this.password.focus()}
+              onSubmitEditing={this.onSubmitEditing}
               placeholder={t('emailLabel')}
               placeholderTextColor="white"
             />
@@ -189,7 +195,7 @@ class KeyLoginScreen extends Component {
             <Text style={styles.label}>{t('passwordLabel')}</Text>
             <Input
               secureTextEntry={true}
-              ref={c => (this.password = c)}
+              ref={this.passwordRef}
               onChangeText={this.passwordChanged}
               value={this.state.password}
               returnKeyType="next"

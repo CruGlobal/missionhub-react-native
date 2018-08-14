@@ -7,11 +7,19 @@ import styles from './styles';
 // import theme from '../../theme';
 
 export default class IconButton extends Component {
+  handlePress = () => {
+    const { pressProps, onPress } = this.props;
+    if (onPress) {
+      // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
+      onPress.apply(null, pressProps);
+    }
+  };
   render() {
-    const { name, type, style = {}, ...rest } = this.props;
+    // Remove `pressProps` and `onPress` so that they aren't included in the `...rest` array
+    const { name, type, style = {}, onPress, pressProps, ...rest } = this.props; // eslint-disable-line no-unused-vars
 
     return (
-      <Button type="transparent" {...rest}>
+      <Button type="transparent" {...rest} onPress={this.handlePress}>
         <Icon
           name={name}
           type={type}
@@ -31,4 +39,6 @@ IconButton.propTypes = {
     PropTypes.number,
     PropTypes.array,
   ]),
+  pressProps: PropTypes.array,
+  onPress: PropTypes.func,
 };

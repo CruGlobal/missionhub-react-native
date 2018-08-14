@@ -14,13 +14,15 @@ class MemberContacts extends Component {
 
   renderItem = ({ item }) => <GroupMemberItem person={item.person} />;
 
+  keyExtractor = p => p.id;
+
   renderList() {
     const { contactAssignments } = this.props;
 
     return (
       <FlatList
         data={contactAssignments}
-        keyExtractor={p => p.id}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
       />
     );

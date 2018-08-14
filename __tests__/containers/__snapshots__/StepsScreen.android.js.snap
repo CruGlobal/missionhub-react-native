@@ -76,6 +76,22 @@ exports[`renders android correctly 1`] = `
       >
         <Translate(RowSwipeable)
           bump={true}
+          completePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
           key="1"
           onBumpComplete={[Function]}
           onComplete={[Function]}

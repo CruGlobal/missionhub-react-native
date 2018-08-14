@@ -104,4 +104,17 @@ describe('Members', () => {
     instance.handleRefresh();
     expect(common.refresh).toHaveBeenCalled();
   });
+
+  it('calls list key extractor', () => {
+    const instance = renderShallow(component, store).instance();
+    const item = { id: '1' };
+    const result = instance.keyExtractor(item);
+    expect(result).toEqual(item.id);
+  });
+
+  it('calls render item', () => {
+    const instance = renderShallow(component, store).instance();
+    const renderedItem = instance.renderItem({ item: members[0] });
+    expect(renderedItem).toMatchSnapshot();
+  });
 });

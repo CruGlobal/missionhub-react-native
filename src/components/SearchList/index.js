@@ -81,10 +81,12 @@ class SearchList extends Component {
     );
   };
 
-  async removeFilter(key) {
+  removeFilter = async key => {
     await this.props.onRemoveFilter(key);
     this.handleSearchDebounced(this.state.text);
-  }
+  };
+
+  ref = c => (this.searchInput = c);
 
   renderCenter() {
     const { t, placeholder } = this.props;
@@ -98,7 +100,7 @@ class SearchList extends Component {
         self="stretch"
       >
         <Input
-          ref={c => (this.searchInput = c)}
+          ref={this.ref}
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
@@ -143,13 +145,16 @@ class SearchList extends Component {
               style={styles.activeFilterIcon}
               name="cancelIcon"
               type="MissionHub"
-              onPress={() => this.removeFilter(k)}
+              pressProps={[k]}
+              onPress={this.removeFilter}
             />
           </Flex>
         ))}
       </ScrollView>
     );
   }
+
+  keyExtractor = i => i.unique_key || i.id;
 
   renderContent() {
     const { t, listProps, defaultData = [] } = this.props;
@@ -168,7 +173,7 @@ class SearchList extends Component {
       <FlatList
         style={styles.list}
         data={resultsLength === 0 ? defaultData : results}
-        keyExtractor={i => i.unique_key || i.id}
+        keyExtractor={this.keyExtractor}
         onEndReached={this.handleOnEndReached}
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}

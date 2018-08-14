@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`button presses renders item 1`] = `
+<Connect(Translate(PeopleItem))
+  onSelect={[MockFunction]}
+  organization={
+    Object {
+      "expanded": false,
+      "id": "personal",
+      "people": Array [
+        Object {
+          "id": 1,
+          "type": "person",
+        },
+        Object {
+          "id": 2,
+          "type": "person",
+        },
+        Object {
+          "id": 3,
+          "type": "person",
+        },
+      ],
+      "type": "organization",
+    }
+  }
+  person={
+    Object {
+      "id": 1,
+      "type": "person",
+    }
+  }
+/>
+`;
+
 exports[`renders correctly as Casey 1`] = `
 <FlatList
   data={
@@ -108,12 +141,22 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              undefined,
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              "personal",
+            ]
+          }
           size={10}
           type="MissionHub"
         />
@@ -187,12 +230,33 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              Object {
+                "expanded": true,
+                "id": 10,
+                "name": "org 1",
+                "people": Array [
+                  Object {
+                    "id": 11,
+                    "type": "person",
+                  },
+                ],
+                "type": "organization",
+              },
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              10,
+            ]
+          }
           size={10}
           type="MissionHub"
         />
@@ -258,12 +322,33 @@ exports[`renders correctly as Jean 1`] = `
         <IconButton
           name="addContactIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              Object {
+                "expanded": true,
+                "id": 20,
+                "name": "org 2",
+                "people": Array [
+                  Object {
+                    "id": 21,
+                    "type": "person",
+                  },
+                ],
+                "type": "organization",
+              },
+            ]
+          }
           size={24}
           type="MissionHub"
         />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}
+          pressProps={
+            Array [
+              20,
+            ]
+          }
           size={10}
           type="MissionHub"
         />

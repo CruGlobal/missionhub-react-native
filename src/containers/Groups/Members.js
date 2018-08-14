@@ -48,17 +48,21 @@ class Members extends Component {
     dispatch(getOrganizationMembersNextPage(organization.id));
   };
 
+  keyExtractor = i => i.id;
+
+  renderItem = ({ item }) => (
+    <GroupMemberItem person={item} onSelect={this.handleSelect} />
+  );
+
   render() {
     const { members, pagination } = this.props;
     return (
       <Flex value={1}>
         <FlatList
           data={members}
-          keyExtractor={i => i.id}
+          keyExtractor={this.keyExtractor}
           style={styles.flatList}
-          renderItem={({ item }) => (
-            <GroupMemberItem person={item} onSelect={this.handleSelect} />
-          )}
+          renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}

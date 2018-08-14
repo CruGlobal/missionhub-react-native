@@ -56,7 +56,7 @@ exports[`render touchable card 1`] = `
 <TouchableOpacity
   accessibilityTraits="button"
   activeOpacity={0.6}
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {
@@ -80,7 +80,7 @@ exports[`render touchable card with children 1`] = `
 <TouchableOpacity
   accessibilityTraits="button"
   activeOpacity={0.6}
-  onPress={[MockFunction]}
+  onPress={[Function]}
   style={
     Array [
       Object {

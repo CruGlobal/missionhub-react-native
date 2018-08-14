@@ -43,30 +43,38 @@ export default class PeopleList extends Component {
     }
   }
 
-  toggleSection(id) {
+  toggleSection = id => {
     const items = this.state.items.map(
       org => (org.id === id ? { ...org, expanded: !org.expanded } : org),
     );
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({ items });
-  }
+  };
+
+  keyExtractor = i => i.id;
+
+  // This still technically creates an arrow function every time it gets rendered, thus breaking
+  // the "react/jsx-no-bind" linting rule. But there's not really another way around it unless
+  // we create an entirely new component wrapper around the <FlatList> that applies props to it.
+  // See <RadioButton>, <IconButton>, <Button>, <RowSwipeable>, and <Touchable> components for how to do it
+  renderItem = organization => ({ item }) => (
+    <PeopleItem
+      onSelect={this.props.onSelect}
+      person={item}
+      organization={organization}
+    />
+  );
 
   renderList(items, organization) {
-    const { onSelect, sections, refreshing, onRefresh } = this.props;
+    const { sections, refreshing, onRefresh } = this.props;
 
     return (
       <FlatList
         style={styles.list}
         data={items}
-        keyExtractor={i => i.id}
+        keyExtractor={this.keyExtractor}
         scrollEnabled={!sections}
-        renderItem={({ item }) => (
-          <PeopleItem
-            onSelect={onSelect}
-            person={item}
-            organization={organization}
-          />
-        )}
+        renderItem={this.renderItem(organization)}
         refreshControl={
           !sections ? (
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -78,8 +86,10 @@ export default class PeopleList extends Component {
     );
   }
 
+  handleAddContact = arg => this.props.onAddContact(arg);
+
   renderSectionHeader(org) {
-    const { onAddContact, t } = this.props;
+    const { t } = this.props;
     return (
       <Flex align="center" direction="row" style={styles.header}>
         <Text style={styles.title} numberOfLines={1}>
@@ -90,15 +100,15 @@ export default class PeopleList extends Component {
             name="addContactIcon"
             type="MissionHub"
             size={24}
-            onPress={() =>
-              onAddContact(org && org.id !== 'personal' ? org : undefined)
-            }
+            pressProps={[org && org.id !== 'personal' ? org : undefined]}
+            onPress={this.handleAddContact}
           />
           <IconButton
             name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
             type="MissionHub"
             size={10}
-            onPress={() => this.toggleSection(org.id)}
+            pressProps={[org.id]}
+            onPress={this.toggleSection}
           />
         </Flex>
       </Flex>

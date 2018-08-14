@@ -270,6 +270,11 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
           checked={true}
           label="Contact"
           onSelect={[Function]}
+          pressProps={
+            Array [
+              2,
+            ]
+          }
           size={25}
           style={
             Object {
@@ -484,6 +489,11 @@ exports[`renders jean with organization and user radio buttons 1`] = `
           checked={true}
           label="Contact"
           onSelect={[Function]}
+          pressProps={
+            Array [
+              2,
+            ]
+          }
           size={25}
           style={
             Object {
@@ -698,6 +708,11 @@ exports[`renders jean with organization view correctly 1`] = `
           checked={true}
           label="Contact"
           onSelect={[Function]}
+          pressProps={
+            Array [
+              2,
+            ]
+          }
           size={25}
           style={
             Object {

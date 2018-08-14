@@ -9,8 +9,6 @@ import { navigatePush } from '../actions/navigation';
 import {
   personFirstNameChanged,
   personLastNameChanged,
-} from '../actions/onboardingProfile';
-import {
   createPerson,
   updateOnboardingPerson,
 } from '../actions/onboardingProfile';
@@ -66,8 +64,18 @@ class SetupPersonScreen extends Component {
     }
   };
 
+  onSubmitEditing = () => this.personLastName.focus();
+
+  updatePersonFirstName = t => this.props.dispatch(personFirstNameChanged(t));
+
+  updatePersonLastName = t => this.props.dispatch(personLastNameChanged(t));
+
+  firstNameRef = c => (this.personFirstName = c);
+
+  lastNameRef = c => (this.personLastName = c);
+
   render() {
-    const { t, personFirstName, personLastName, dispatch } = this.props;
+    const { t, personFirstName, personLastName } = this.props;
 
     return (
       <View style={styles.container}>
@@ -82,13 +90,13 @@ class SetupPersonScreen extends Component {
               {t('profileLabels.firstNameNickname')}
             </Text>
             <Input
-              ref={c => (this.personFirstName = c)}
-              onChangeText={t => dispatch(personFirstNameChanged(t))}
+              ref={this.firstNameRef}
+              onChangeText={this.updatePersonFirstName}
               value={personFirstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
-              onSubmitEditing={() => this.personLastName.focus()}
+              onSubmitEditing={this.onSubmitEditing}
               placeholder={t('profileLabels.firstName')}
               placeholderTextColor="white"
             />
@@ -96,8 +104,8 @@ class SetupPersonScreen extends Component {
 
           <View style={{ paddingTop: 30 }}>
             <Input
-              ref={c => (this.personLastName = c)}
-              onChangeText={t => dispatch(personLastNameChanged(t))}
+              ref={this.lastNameRef}
+              onChangeText={this.updatePersonLastName}
               value={personLastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastNameOptional')}

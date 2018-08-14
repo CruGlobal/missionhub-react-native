@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableWithoutFeedback,
-  Dimensions,
-} from 'react-native';
+import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import ViewOverflow from 'react-native-view-overflow';
 
-import { Flex } from '../common';
+import { Flex, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { isAndroid } from '../../utils/common';
 
@@ -94,6 +88,8 @@ export class SwipeTabMenu extends Component {
     return width / 2 - maxMenuItemWidth / 2;
   }
 
+  ref = ref => (this.scrollView = ref);
+
   render() {
     const { tabs, navigation } = this.props;
     const { maxMenuItemWidth, previousIndex } = this.state;
@@ -103,7 +99,7 @@ export class SwipeTabMenu extends Component {
     return (
       <ViewOverflow style={styles.container}>
         <ScrollView
-          ref={ref => (this.scrollView = ref)}
+          ref={this.ref}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           contentInset={{
@@ -124,9 +120,11 @@ export class SwipeTabMenu extends Component {
           onMomentumScrollEnd={this.onScrollFinishNavigate}
         >
           {tabs.map((tab, index) => (
-            <TouchableWithoutFeedback
+            <Touchable
               key={tab.navigationAction}
-              onPress={() => this.scrollToTab(index)}
+              withoutFeedback={true}
+              pressProps={[index]}
+              onPress={this.scrollToTab}
               onLayout={this.onLayoutMenuItem}
             >
               <View
@@ -144,7 +142,7 @@ export class SwipeTabMenu extends Component {
                   {tab.name}
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
+            </Touchable>
           ))}
         </ScrollView>
         <Flex align={'center'} style={styles.triangleContainer}>

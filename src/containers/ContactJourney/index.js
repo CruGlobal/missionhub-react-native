@@ -99,7 +99,8 @@ class ContactJourney extends Component {
       return (
         <RowSwipeable
           key={item.id}
-          onEdit={() => this.handleEditInteraction(item)}
+          editPressProps={[item]}
+          onEdit={this.handleEditInteraction}
           bump={showReminder && item.isFirstInteraction}
           onBumpComplete={
             showReminder && item.isFirstInteraction
@@ -114,19 +115,24 @@ class ContactJourney extends Component {
     return content;
   }
 
+  listRef = c => (this.list = c);
+  keyExtractor = i => `${i.id}-${i._type}`;
+  itemSeparator = (sectionID, rowID) => <Separator key={rowID} />;
+
   renderList() {
     const { journeyItems } = this.props;
+
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={this.listRef}
         style={styles.list}
         data={journeyItems}
-        keyExtractor={i => `${i.id}-${i._type}`}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={100}
-        ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
+        ItemSeparatorComponent={this.itemSeparator}
       />
     );
   }

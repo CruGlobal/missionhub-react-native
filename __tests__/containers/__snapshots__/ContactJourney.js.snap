@@ -178,6 +178,15 @@ exports[`journey methods renders a stage change row 1`] = `
 exports[`journey methods renders a step row 1`] = `
 <Translate(RowSwipeable)
   bump={false}
+  editPressProps={
+    Array [
+      Object {
+        "_type": "accepted_challenge",
+        "id": "123",
+        "note": "123",
+      },
+    ]
+  }
   onBumpComplete={undefined}
   onEdit={[Function]}
 >
@@ -212,6 +221,15 @@ exports[`journey methods renders a survey row 1`] = `
 exports[`journey methods renders an interaction row 1`] = `
 <Translate(RowSwipeable)
   bump={false}
+  editPressProps={
+    Array [
+      Object {
+        "_type": "interaction",
+        "comment": "123",
+        "id": "123",
+      },
+    ]
+  }
   onBumpComplete={undefined}
   onEdit={[Function]}
 >
@@ -228,6 +246,8 @@ exports[`journey methods renders an interaction row 1`] = `
   />
 </Translate(RowSwipeable)>
 `;
+
+exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
 <View

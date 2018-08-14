@@ -9,9 +9,9 @@ const otherId = '456';
 let event;
 
 describe('CelebrateItem', () => {
-  const testEvent = testEvent => {
+  const testEvent = e => {
     testSnapshotShallow(
-      <CelebrateItem event={testEvent} myId={myId} onToggleLike={jest.fn()} />,
+      <CelebrateItem event={e} myId={myId} onToggleLike={jest.fn()} />,
     );
   };
 

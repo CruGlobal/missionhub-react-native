@@ -163,3 +163,43 @@ it('calls handleTextChange', () => {
 
   expect(component.handleSearchDebounced).toHaveBeenCalled();
 });
+
+it('should call ref', () => {
+  const instance = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{
+        filter1: { id: '1', text: 'filter 1' },
+      }}
+      placeholder={'placeholder'}
+    />,
+  ).instance();
+  const ref = 'test';
+  instance.ref(ref);
+  expect(instance.searchInput).toEqual(ref);
+});
+
+it('should call key extractor', () => {
+  const instance = renderShallow(
+    <SearchList
+      onFilterPress={jest.fn()}
+      listProps={{
+        renderItem: ({ item }) => <Text>{item.text}</Text>,
+      }}
+      onSearch={jest.fn()}
+      onRemoveFilter={jest.fn()}
+      filters={{
+        filter1: { id: '1', text: 'filter 1' },
+      }}
+      placeholder={'placeholder'}
+    />,
+  ).instance();
+  const item = { id: '1' };
+  const result = instance.keyExtractor(item);
+  expect(result).toEqual(item.id);
+});

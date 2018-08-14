@@ -7,8 +7,11 @@ export default class MyRefreshControl extends Component {
   setNativeProps(nProps) {
     this._view.setNativeProps(nProps);
   }
+
+  ref = c => (this._view = c);
+
   render() {
-    return <RefreshControl ref={c => (this._view = c)} {...this.props} />;
+    return <RefreshControl ref={this.ref} {...this.props} />;
   }
 }
 

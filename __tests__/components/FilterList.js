@@ -29,7 +29,7 @@ it('handles drilldown', () => {
   const { item, type, onSelect } = drilldownItem.props();
   expect(type).toEqual('drilldown');
 
-  onSelect();
+  onSelect(item);
   expect(onDrillDown).toHaveBeenCalledWith(item);
 });
 
@@ -38,6 +38,6 @@ it('handles toggle', () => {
   const { item, type, onSelect } = drilldownItem.props();
   expect(type).toEqual('switch');
 
-  onSelect();
+  onSelect(item);
   expect(onToggle).toHaveBeenCalledWith(item);
 });

@@ -100,4 +100,27 @@ describe('setup person screen methods', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
     expect(store.getActions()).toEqual([trackActionResult, navigationResult]);
   });
+
+  it('on submit editing', () => {
+    component.personLastName = { focus: jest.fn() };
+    component.onSubmitEditing();
+
+    expect(component.personLastName.focus).toHaveBeenCalled();
+  });
+
+  it('on update person first name', () => {
+    profile.personFirstNameChanged = jest.fn(() => ({ type: 'test' }));
+    const val = 'test';
+    component.updatePersonFirstName(val);
+
+    expect(profile.personFirstNameChanged).toHaveBeenCalledWith(val);
+  });
+
+  it('on update person last name', () => {
+    profile.personLastNameChanged = jest.fn(() => ({ type: 'test' }));
+    const val = 'test';
+    component.updatePersonLastName(val);
+
+    expect(profile.personLastNameChanged).toHaveBeenCalledWith(val);
+  });
 });
