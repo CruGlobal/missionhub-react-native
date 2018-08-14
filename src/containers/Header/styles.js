@@ -44,6 +44,7 @@ export default StyleSheet.create({
   },
   // HeaderTwoLine styles
   headerTwoLine: {
+    marginTop: isiPhoneX() ? 8 : 2,
     paddingHorizontal: 10,
   },
   headerTwoLine1: {

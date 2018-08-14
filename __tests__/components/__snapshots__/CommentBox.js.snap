@@ -8,7 +8,8 @@ exports[`renders focused 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -114,7 +115,8 @@ exports[`renders with actions 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -220,7 +222,8 @@ exports[`renders with actions 2`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -364,6 +367,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -412,6 +416,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -460,6 +465,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -508,6 +514,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -556,6 +563,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -579,7 +587,8 @@ exports[`renders with actions and selected action 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -801,6 +810,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -849,6 +859,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -897,6 +908,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -945,6 +957,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -993,6 +1006,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -1016,7 +1030,8 @@ exports[`renders with text 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -1132,7 +1147,8 @@ exports[`renders without actions 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -1211,7 +1227,8 @@ exports[`renders without actions and selected action 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }

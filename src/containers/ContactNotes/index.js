@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, Keyboard } from 'react-native';
+import { View, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Text, Flex, Button, Input } from '../../components/common';
-import PlatformKeyboardAvoidingView from '../../components/PlatformKeyboardAvoidingView';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import { buildTrackingObj } from '../../utils/common';
 import { trackState } from '../../actions/analytics';
-import theme from '../../theme';
 import NullStateComponent from '../../components/NullStateComponent';
 
 import styles from './styles';
@@ -69,7 +67,6 @@ export class ContactNotes extends Component {
     }
 
     this.setState({ editing: false });
-    this.props.onNotesInactive();
   }
 
   onButtonPress() {
@@ -90,7 +87,6 @@ export class ContactNotes extends Component {
           ),
         ),
       );
-      this.props.onNotesActive();
     }
   }
 
@@ -147,26 +143,25 @@ export class ContactNotes extends Component {
   }
 
   render() {
+    const { text, editing } = this.state;
     return (
-      <PlatformKeyboardAvoidingView offset={theme.headerHeight}>
-        {this.state.text || this.state.editing
-          ? this.renderNotes()
-          : this.renderEmpty()}
-        <Flex justify="end">
+      <View style={{ flex: 1 }}>
+        {text || editing ? this.renderNotes() : this.renderEmpty()}
+        <Flex align="stretch" justify="end">
           <Button
             type="secondary"
             onPress={this.onButtonPress}
             text={this.getButtonText()}
           />
         </Flex>
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }
 
 ContactNotes.propTypes = {
-  onNotesActive: PropTypes.func,
-  onNotesInactive: PropTypes.func,
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object,
 };
 
 const mapStateToProps = ({ auth }) => ({ myId: auth.person.user.id });

@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`a login button is clicked facebook login button is pressed loading wheel appears 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Connect(BackButton)
     style={
       Object {
@@ -166,11 +175,20 @@ exports[`a login button is clicked facebook login button is pressed loading whee
     </Button>
   </Flex>
   <LoadingWheel />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked forgot password button is pressed loading wheel to be rendered 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Connect(BackButton)
     style={
       Object {
@@ -335,11 +353,20 @@ exports[`a login button is clicked forgot password button is pressed loading whe
     </Button>
   </Flex>
   <LoadingWheel />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked key login button is pressed loading wheel appears 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Connect(BackButton)
     style={
       Object {
@@ -460,11 +487,20 @@ exports[`a login button is clicked key login button is pressed loading wheel app
     />
   </Flex>
   <LoadingWheel />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked key login button is pressed mfa_required is returned from the Key should clear username and password 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Connect(BackButton)
     style={
       Object {
@@ -628,11 +664,20 @@ exports[`a login button is clicked key login button is pressed mfa_required is r
       </Flex>
     </Button>
   </Flex>
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Component
     style={
       Object {
@@ -777,11 +822,20 @@ exports[`a login button is clicked key login button is pressed shows email verif
       type="secondary"
     />
   </Flex>
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Component
     style={
       Object {
@@ -926,11 +980,20 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       type="secondary"
     />
   </Flex>
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`a login button is clicked key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
-<PlatformKeyboardAvoidingView>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
   <Component
     style={
       Object {
@@ -1075,29 +1138,18 @@ exports[`a login button is clicked key login button is pressed shows invalid cre
       type="secondary"
     />
   </Flex>
-</PlatformKeyboardAvoidingView>
+</Component>
 `;
 
 exports[`renders correctly 1`] = `
 <View
-  enabled={true}
-  keyboardVerticalOffset={0}
-  onLayout={[Function]}
   style={
-    Array [
-      Array [
-        Object {
-          "backgroundColor": "#007398",
-          "flex": 1,
-          "flexDirection": "column",
-          "justifyContent": "space-between",
-        },
-        undefined,
-      ],
-      Object {
-        "paddingBottom": 0,
-      },
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
   }
 >
   <View
@@ -1543,24 +1595,13 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly for forced logout 1`] = `
 <View
-  enabled={true}
-  keyboardVerticalOffset={0}
-  onLayout={[Function]}
   style={
-    Array [
-      Array [
-        Object {
-          "backgroundColor": "#007398",
-          "flex": 1,
-          "flexDirection": "column",
-          "justifyContent": "space-between",
-        },
-        undefined,
-      ],
-      Object {
-        "paddingBottom": 0,
-      },
-    ]
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
   }
 >
   <View

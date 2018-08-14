@@ -24,6 +24,7 @@ import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getPersonDetails } from '../../../actions/person';
 import PathwayStageDisplay from '../../PathwayStageDisplay';
+import { keyboardShow, keyboardHide } from '../../../utils/common';
 
 import styles from './styles';
 
@@ -129,12 +130,31 @@ const IS_GROUPS_ME_COMMUNITY_TABS = [memberCelebrate, myImpact];
 const ME_COMMUNITY_TABS = [myImpact];
 
 export class AssignedPersonScreen extends Component {
+  state = { keyboardVisible: false };
+
   componentDidMount() {
     const { person, organization = {} } = this.props;
     this.props.dispatch(getPersonDetails(person.id, organization.id));
+
+    this.keyboardShowListener = keyboardShow(this.keyboardShow);
+    this.keyboardHideListener = keyboardHide(this.keyboardHide);
   }
 
+  componentWillUnmount() {
+    this.keyboardShowListener.remove();
+    this.keyboardHideListener.remove();
+  }
+
+  keyboardShow = () => {
+    this.setState({ keyboardVisible: true });
+  };
+
+  keyboardHide = () => {
+    this.setState({ keyboardVisible: false });
+  };
+
   render() {
+    const { keyboardVisible } = this.state;
     const {
       dispatch,
       person,
@@ -145,6 +165,11 @@ export class AssignedPersonScreen extends Component {
       myStageId,
       stages,
     } = this.props;
+
+    const name = (person.first_name || '').toUpperCase();
+    // If the keyboard is up, show the person's name and the organization
+    const title = keyboardVisible ? name : organization.name;
+    const title2 = keyboardVisible ? organization.name : undefined;
 
     return (
       <View>
@@ -164,19 +189,23 @@ export class AssignedPersonScreen extends Component {
             />
           }
           shadow={false}
-          title={organization.name}
+          title={title}
+          title2={title2}
         />
         <Flex
-          style={styles.wrap}
+          style={[
+            styles.wrap,
+            // Hide this whole section when the keyboard is up
+            keyboardVisible ? { height: 0, paddingVertical: 0 } : undefined,
+          ]}
           align="center"
           justify="center"
           self="stretch"
         >
-          <Text style={styles.name}>
-            {(person.first_name || '').toUpperCase()}
-          </Text>
+          <Text style={styles.name}>{name}</Text>
           <PathwayStageDisplay orgId={organization.id} person={person} />
           <GroupsPersonHeader
+            isVisible={!keyboardVisible}
             isMember={isMember}
             contactAssignment={contactAssignment}
             person={person}

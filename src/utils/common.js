@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { BackHandler, Platform } from 'react-native';
+import { BackHandler, Platform, Keyboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
@@ -236,4 +236,20 @@ export function getStageIndex(stages, stageId) {
   const index = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;
+}
+
+// iOS and Android handle the keyboard show event differently
+// https://facebook.github.io/react-native/docs/keyboard#addlistener
+export function keyboardShow(handler) {
+  if (isAndroid) {
+    return Keyboard.addListener('keyboardDidShow', handler);
+  }
+  return Keyboard.addListener('keyboardWillShow', handler);
+}
+
+export function keyboardHide(handler) {
+  if (isAndroid) {
+    return Keyboard.addListener('keyboardDidHide', handler);
+  }
+  return Keyboard.addListener('keyboardWillHide', handler);
 }

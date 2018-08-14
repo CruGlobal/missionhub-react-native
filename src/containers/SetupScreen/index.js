@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
-import {
-  Button,
-  Text,
-  PlatformKeyboardAvoidingView,
-  Flex,
-  Input,
-} from '../../components/common';
+import { Button, Text, Flex, Input } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import {
   createMyPerson,
@@ -48,7 +42,7 @@ class SetupScreen extends Component {
     const { t } = this.props;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         <Flex value={1} />
         <Flex value={2} style={{ alignItems: 'center' }}>
           <Text type="header" style={styles.header}>
@@ -97,7 +91,7 @@ class SetupScreen extends Component {
             text={t('next').toUpperCase()}
           />
         </Flex>
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }
