@@ -15,6 +15,7 @@ import theme from '../../theme';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 import styles from './styles';
 
@@ -61,7 +62,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   getPeopleByOrg(results) {
-    let people = results.findAll('person') || [];
+    let people = findAllNonPlaceHolders(results, 'person');
     let orgPeople = [];
     people.forEach(p => {
       if (p && p.organizational_permissions) {
@@ -218,6 +219,7 @@ export class SearchPeopleScreen extends Component {
         data={results}
         keyExtractor={this.listKeyExtractor}
         renderItem={this.renderItem}
+        keyboardShouldPersistTaps="handled"
       />
     );
   }
