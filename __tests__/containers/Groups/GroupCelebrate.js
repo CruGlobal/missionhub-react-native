@@ -15,6 +15,7 @@ import {
   reloadGroupCelebrateFeed,
   getGroupCelebrateFeed,
 } from '../../../src/actions/celebration';
+import * as common from '../../../src/utils/common';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/selectors/celebration');
@@ -85,6 +86,13 @@ it('should render correctly', () => {
   );
 });
 
+it('should render empty correctly', () => {
+  celebrationSelector.mockReturnValue([]);
+  testSnapshotShallow(
+    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+  );
+});
+
 it('should refresh correctly', async () => {
   const instance = renderShallow(
     <GroupCelebrate organization={org} store={createMockStore(store)} />,
@@ -93,6 +101,17 @@ it('should refresh correctly', async () => {
 
   await instance.props().refreshCallback();
 
-  expect(getGroupCelebrateFeed).toHaveBeenCalled();
   expect(reloadGroupCelebrateFeed).toHaveBeenCalled();
+});
+
+it('should refresh items properly', () => {
+  const instance = renderShallow(
+    <GroupCelebrate organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+
+  common.refresh = jest.fn();
+  instance.refreshItems();
+
+  expect(common.refresh).toHaveBeenCalledWith(instance, instance.reloadItems);
 });
