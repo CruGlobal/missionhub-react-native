@@ -14,6 +14,7 @@ import {
   getOrganizationContacts,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  getMyCommunities,
 } from '../../src/actions/organizations';
 
 jest.mock('../../src/selectors/organizations');
@@ -293,5 +294,24 @@ describe('getOrganizationMembers', () => {
     } catch (e) {
       expect(e).toEqual('NoMoreData');
     }
+  });
+});
+
+describe('getMyCommunities', () => {
+  it('should get my communities', async () => {
+    const response = {
+      type: 'successful',
+      response: [{}],
+    };
+    callApi.mockReturnValue(response);
+    await store.dispatch(getMyCommunities());
+    const actions = store.getActions();
+
+    // Api call, then LOAD_ORGANIZATIONS
+    expect(actions[0]).toEqual(response);
+    expect(actions[1].type).toEqual(LOAD_ORGANIZATIONS);
+    // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
+    expect(actions[2]).toEqual(response);
+    expect(actions[3].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
   });
 });
