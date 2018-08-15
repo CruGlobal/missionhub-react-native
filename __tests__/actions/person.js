@@ -47,7 +47,7 @@ let store;
 let auth;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
-  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+  'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   auth = { person: { id: myId, user: { groups_feature: true } } };
