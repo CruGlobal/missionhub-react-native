@@ -53,6 +53,15 @@ const organizationOne = {
         { ...reverse_contact_assignment, organization: { id: '100' } },
       ],
     },
+    '371': {
+      id: '371',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname1',
+      reverse_contact_assignments: [
+        { assigned_to: { id: '72347238x' }, organization: { id: '100' } },
+      ],
+    },
   },
 };
 
@@ -135,6 +144,13 @@ describe('peopleByOrgSelector', () => {
       expect.anything(),
       auth.person,
     ));
+
+  it('should exclude someone not assigned to me', () => {
+    const org = peopleByOrgSelector({ people, auth }).filter(
+      o => o.id === '100',
+    );
+    expect(org[0].people.filter(p => p.id === '72347238x').length).toBe(0);
+  });
 
   it('should take the allByOrg object and transform it to sorted arrays', () => {
     expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();
