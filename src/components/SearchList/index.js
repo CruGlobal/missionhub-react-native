@@ -178,6 +178,7 @@ class SearchList extends Component {
         onEndReachedThreshold={0.2}
         onScrollEndDrag={this.handleScrollEndDrag}
         ListFooterComponent={this.renderListFooter()}
+        keyboardShouldPersistTaps="handled"
         {...listProps}
       />
     );
