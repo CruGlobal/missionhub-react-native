@@ -11,10 +11,7 @@ import {
 } from '../../../testUtils';
 import { organizationSelector } from '../../../src/selectors/organizations';
 import { celebrationSelector } from '../../../src/selectors/celebration';
-import {
-  reloadGroupCelebrateFeed,
-  getGroupCelebrateFeed,
-} from '../../../src/actions/celebration';
+import { reloadGroupCelebrateFeed } from '../../../src/actions/celebration';
 import * as common from '../../../src/utils/common';
 
 jest.mock('../../../src/selectors/organizations');
