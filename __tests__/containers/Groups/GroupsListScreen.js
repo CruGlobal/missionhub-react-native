@@ -96,4 +96,10 @@ describe('GroupsListScreen', () => {
     instance.handleRefresh();
     expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadGroups);
   });
+
+  it('should render null', () => {
+    const instance = component.instance();
+    const renderedItem = instance.renderNull();
+    expect(renderedItem).toMatchSnapshot();
+  });
 });
