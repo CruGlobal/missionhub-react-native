@@ -27,10 +27,11 @@ const mockState = {
   },
   people: {
     allByOrg: {
-      [organization.id]: [
-        personNoContactAssignments,
-        personWithContactAssignments,
-      ],
+      [organization.id]: {
+        people: {
+          [personWithContactAssignments.id]: personWithContactAssignments,
+        },
+      },
     },
   },
 };
@@ -47,7 +48,7 @@ it('renders empty', () => {
     <MemberContacts
       {...props}
       store={store}
-      person={personNoContactAssignments}
+      person={{ ...personNoContactAssignments, id: '2' }}
     />,
   );
 });
