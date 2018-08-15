@@ -15,6 +15,13 @@ const getOrganizationsQuery = {
   },
 };
 
+export function getMyCommunities() {
+  return async dispatch => {
+    await dispatch(getMyOrganizations());
+    return dispatch(getOrganizationsContactReports());
+  };
+}
+
 export function getMyOrganizations() {
   return async (dispatch, getState) => {
     const { response: orgs } = await dispatch(

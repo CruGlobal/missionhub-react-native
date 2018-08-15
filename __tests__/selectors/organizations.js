@@ -55,10 +55,12 @@ describe('communitiesSelector', () => {
   const auth = { person: {} };
 
   it('should return all non-hidden orgs with community flag', () => {
-    removeHiddenOrgs.mockReturnValue([orgOne, orgTwo]);
+    const orgOneWithCR = { ...orgOne, contactReport: {} };
+    const orgTwoWithCR = { ...orgTwo, contactReport: {} };
+    removeHiddenOrgs.mockReturnValue([orgOneWithCR, orgTwoWithCR]);
 
     const result = communitiesSelector({ organizations, auth });
-    expect(result).toEqual([orgOne]);
+    expect(result).toEqual([orgOneWithCR]);
     expect(removeHiddenOrgs).toHaveBeenCalledWith(
       organizations.all,
       auth.person,
