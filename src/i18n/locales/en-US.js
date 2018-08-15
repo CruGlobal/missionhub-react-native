@@ -441,6 +441,7 @@ export default {
   },
   groupsList: {
     header: 'Communities',
+    groupsNull: 'Your communities will show up here.',
   },
   celebrateFeeds: {
     title: '',

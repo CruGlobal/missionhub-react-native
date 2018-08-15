@@ -18,5 +18,8 @@ export const communitiesSelector = createSelector(
   ({ organizations }) => organizations.all,
   ({ auth }) => auth.person,
   (orgs, authUser) =>
-    removeHiddenOrgs(orgs, authUser).filter(org => org.community),
+    removeHiddenOrgs(orgs, authUser)
+      .filter(org => org.community)
+      // Make sure communities always have a contactReport object
+      .map(o => ({ ...o, contactReport: o.contactReport || {} })),
 );
