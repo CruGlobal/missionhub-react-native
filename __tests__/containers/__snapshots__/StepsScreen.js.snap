@@ -22,11 +22,7 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
   onDelete={[Function]}
 >
   <Connect(Translate(StepItem))
-    hideAction={
-      Object {
-        "hideStars": false,
-      }
-    }
+    hideAction={false}
     onAction={[Function]}
     onSelect={[Function]}
     step={

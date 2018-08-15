@@ -24,7 +24,10 @@ export default class EmptyCelebrateFeed extends Component {
       <ScrollView
         contentContainerStyle={{ flex: 1 }}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={refreshCallback} />
+          <RefreshControl
+            refreshing={refreshing || false}
+            onRefresh={refreshCallback}
+          />
         }
       >
         <NullStateComponent
