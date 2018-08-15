@@ -17,6 +17,10 @@ const auth = {
   },
 };
 
+const reverse_contact_assignment = {
+  assigned_to: auth.person,
+};
+
 const organizationOne = {
   id: '100',
   type: 'organization',
@@ -27,18 +31,36 @@ const organizationOne = {
       type: 'person',
       first_name: 'Fname3',
       last_name: 'Lname2',
+      reverse_contact_assignments: [
+        { ...reverse_contact_assignment, organization: { id: '100' } },
+      ],
     },
     '31': {
       id: '31',
       type: 'person',
       first_name: 'Fname3',
       last_name: 'Lname3',
+      reverse_contact_assignments: [
+        { ...reverse_contact_assignment, organization: { id: '100' } },
+      ],
     },
     '32': {
       id: '32',
       type: 'person',
       first_name: 'Fname3',
       last_name: 'Lname1',
+      reverse_contact_assignments: [
+        { ...reverse_contact_assignment, organization: { id: '100' } },
+      ],
+    },
+    '371': {
+      id: '371',
+      type: 'person',
+      first_name: 'Fname3',
+      last_name: 'Lname1',
+      reverse_contact_assignments: [
+        { assigned_to: { id: '72347238x' }, organization: { id: '100' } },
+      ],
     },
   },
 };
@@ -51,6 +73,9 @@ const unnamedOrganization = {
       id: '33',
       type: 'person',
       first_name: 'Fname4',
+      reverse_contact_assignments: [
+        { ...reverse_contact_assignment, organization: { id: '150' } },
+      ],
     },
   },
 };
@@ -65,6 +90,9 @@ const organizationTwo = {
       type: 'person',
       first_name: 'Fname3',
       last_name: 'Lname1',
+      reverse_contact_assignments: [
+        { ...reverse_contact_assignment, organization: { id: '200' } },
+      ],
     },
   },
 };
@@ -80,18 +108,21 @@ const people = {
           type: 'person',
           first_name: 'Fname2',
           last_name: 'Lname',
+          reverse_contact_assignments: [{ ...reverse_contact_assignment }],
         },
         '21': {
           id: '21',
           type: 'person',
           first_name: 'Fname1',
           last_name: 'Lname2',
+          reverse_contact_assignments: [{ ...reverse_contact_assignment }],
         },
         '22': {
           id: '22',
           type: 'person',
           first_name: 'Fname1',
           last_name: 'Lname1',
+          reverse_contact_assignments: [{ ...reverse_contact_assignment }],
         },
         [auth.person.id]: {
           id: auth.person.id,
@@ -113,6 +144,13 @@ describe('peopleByOrgSelector', () => {
       expect.anything(),
       auth.person,
     ));
+
+  it('should exclude someone not assigned to me', () => {
+    const org = peopleByOrgSelector({ people, auth }).filter(
+      o => o.id === '100',
+    );
+    expect(org[0].people.filter(p => p.id === '72347238x').length).toBe(0);
+  });
 
   it('should take the allByOrg object and transform it to sorted arrays', () => {
     expect(peopleByOrgSelector({ people, auth })).toMatchSnapshot();

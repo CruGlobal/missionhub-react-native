@@ -32,27 +32,45 @@ Array [
     "id": "personal",
     "people": Array [
       Object {
-        "first_name": "ME",
-        "id": "23",
-        "last_name": "Lname",
-        "type": "person",
-      },
-      Object {
         "first_name": "Fname1",
         "id": "22",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname1",
         "id": "21",
         "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname2",
         "id": "20",
         "last_name": "Lname",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -66,18 +84,51 @@ Array [
         "first_name": "Fname3",
         "id": "32",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname3",
         "id": "30",
         "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname3",
         "id": "31",
         "last_name": "Lname3",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -89,6 +140,17 @@ Array [
       Object {
         "first_name": "Fname4",
         "id": "33",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "150",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -102,6 +164,17 @@ Array [
         "first_name": "Fname3",
         "id": "32",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "200",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -116,27 +189,45 @@ Array [
     "id": "personal",
     "people": Array [
       Object {
-        "first_name": "ME",
-        "id": "23",
-        "last_name": "Lname",
-        "type": "person",
-      },
-      Object {
         "first_name": "Fname1",
         "id": "22",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname1",
         "id": "21",
         "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname2",
         "id": "20",
         "last_name": "Lname",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -150,6 +241,17 @@ Array [
         "first_name": "Fname3",
         "id": "32",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "200",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -163,18 +265,51 @@ Array [
         "first_name": "Fname3",
         "id": "32",
         "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname3",
         "id": "30",
         "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
       Object {
         "first_name": "Fname3",
         "id": "31",
         "last_name": "Lname3",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -186,6 +321,17 @@ Array [
       Object {
         "first_name": "Fname4",
         "id": "33",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "150",
+            },
+          },
+        ],
         "type": "person",
       },
     ],
@@ -199,6 +345,17 @@ Object {
   "first_name": "Fname3",
   "id": "31",
   "last_name": "Lname3",
+  "reverse_contact_assignments": Array [
+    Object {
+      "assigned_to": Object {
+        "id": "23",
+        "user": Object {},
+      },
+      "organization": Object {
+        "id": "100",
+      },
+    },
+  ],
   "type": "person",
 }
 `;
@@ -208,6 +365,14 @@ Object {
   "first_name": "Fname1",
   "id": "22",
   "last_name": "Lname1",
+  "reverse_contact_assignments": Array [
+    Object {
+      "assigned_to": Object {
+        "id": "23",
+        "user": Object {},
+      },
+    },
+  ],
   "type": "person",
 }
 `;

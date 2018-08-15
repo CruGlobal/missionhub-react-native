@@ -6,26 +6,45 @@ export const peopleByOrgSelector = createSelector(
   ({ people }) => people.allByOrg,
   ({ auth }) => auth.person,
   (orgs, authUser) =>
-    sortOrgs(removeHiddenOrgs(Object.values(orgs), authUser), authUser).map(
-      org => ({
+    sortOrgs(removeHiddenOrgs(Object.values(orgs), authUser), authUser)
+      .map(org => ({
         ...org,
-        people: Object.values(org.people).sort((a, b) => {
-          // Sort people in org by first name, then last name
-          // Keep "ME" person in front
-          if (a.id === authUser.id) {
-            return -1;
-          }
-          if (b.id === authUser.id) {
-            return 1;
-          }
-          return (
-            a.first_name.localeCompare(b.first_name) ||
-            a.last_name.localeCompare(b.last_name)
-          );
-        }),
-      }),
-    ),
+        people: Object.values(org.people)
+          .filter(person => isAssignedToMeInOrganization(person, org, authUser))
+          .sort((a, b) => {
+            // Sort people in org by first name, then last name
+            // Keep "ME" person in front
+            if (a.id === authUser.id) {
+              return -1;
+            }
+            if (b.id === authUser.id) {
+              return 1;
+            }
+            return (
+              a.first_name.localeCompare(b.first_name) ||
+              a.last_name.localeCompare(b.last_name)
+            );
+          }),
+      }))
+      .filter(o => o.people && o.people.length > 0),
 );
+
+const isAssignedToMeInOrganization = (person, org, appUserPerson) => {
+  const { reverse_contact_assignments } = person;
+
+  return (
+    reverse_contact_assignments &&
+    reverse_contact_assignments.filter(a => {
+      const { assigned_to, organization } = a;
+
+      return (
+        assigned_to &&
+        assigned_to.id === appUserPerson.id &&
+        (!organization || organization.id === org.id)
+      );
+    }).length > 0
+  );
+};
 
 const sortOrgs = (orgs, authUser) => {
   const orgOrder = authUser.user.organization_order;
