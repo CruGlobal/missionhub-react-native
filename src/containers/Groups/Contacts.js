@@ -109,8 +109,16 @@ class Contacts extends Component {
 
   listRef = c => (this.searchList = c);
 
+  renderItem = ({ item }) => (
+    <ContactItem
+      organization={this.props.organization}
+      contact={item}
+      onSelect={this.handleSelect}
+    />
+  );
+
   render() {
-    const { t, organization } = this.props;
+    const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
@@ -119,13 +127,7 @@ class Contacts extends Component {
           defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
-            renderItem: ({ item }) => (
-              <ContactItem
-                organization={organization}
-                contact={item}
-                onSelect={this.handleSelect}
-              />
-            ),
+            renderItem: this.renderItem,
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}

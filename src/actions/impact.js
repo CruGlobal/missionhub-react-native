@@ -34,7 +34,7 @@ export function getPeopleInteractionsReport(personId, organizationId, period) {
           callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, query),
         );
 
-    const interactions = report ? report.interactions : [];
+    const interactions = report ? report.interactions || [] : [];
     const interactionReport = Object.values(INTERACTION_TYPES)
       .filter(type => !type.hideReport)
       .map(type => {
