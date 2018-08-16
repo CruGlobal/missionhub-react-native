@@ -32,6 +32,12 @@ Array [
     "id": "personal",
     "people": Array [
       Object {
+        "first_name": "ME",
+        "id": "23",
+        "last_name": "Lname",
+        "type": "person",
+      },
+      Object {
         "first_name": "Fname1",
         "id": "22",
         "last_name": "Lname1",
@@ -188,6 +194,12 @@ Array [
   Object {
     "id": "personal",
     "people": Array [
+      Object {
+        "first_name": "ME",
+        "id": "23",
+        "last_name": "Lname",
+        "type": "person",
+      },
       Object {
         "first_name": "Fname1",
         "id": "22",
