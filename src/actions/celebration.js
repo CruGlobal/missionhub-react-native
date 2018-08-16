@@ -16,7 +16,7 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
       return Promise.reject('NoMoreData');
     }
     const query = buildQuery(orgId, personId, page);
-    dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
+    return dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
   };
 }
 
@@ -28,8 +28,9 @@ export function reloadGroupCelebrateFeed(orgId) {
 
     if (org && org.celebratePagination) {
       dispatch(resetPaginationAction(orgId));
-      dispatch(getGroupCelebrateFeed(orgId));
+      return dispatch(getGroupCelebrateFeed(orgId));
     }
+    return Promise.resolve();
   };
 }
 

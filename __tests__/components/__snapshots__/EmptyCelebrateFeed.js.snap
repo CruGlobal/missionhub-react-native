@@ -1,37 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Empty Celebrate Feed rendering renders correctly for group feed 1`] = `
-<NullStateComponent
-  descriptionText="You can celebrate each other's Steps of Faith here."
-  headerText="Celebrate!"
-  imageSource={
+<ScrollView
+  contentContainerStyle={
     Object {
-      "testUri": "../../../assets/images/celebrateHearts.png",
+      "flex": 1,
     }
   }
-/>
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[MockFunction]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+>
+  <NullStateComponent
+    descriptionText="You can celebrate each other's Steps of Faith here."
+    headerText="Celebrate!"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/celebrateHearts.png",
+      }
+    }
+  />
+</ScrollView>
 `;
 
 exports[`Empty Celebrate Feed rendering renders correctly for member feed 1`] = `
-<NullStateComponent
-  descriptionText="You can celebrate Roge's Steps of Faith here."
-  headerText="Celebrate!"
-  imageSource={
+<ScrollView
+  contentContainerStyle={
     Object {
-      "testUri": "../../../assets/images/celebrateHearts.png",
+      "flex": 1,
     }
   }
-/>
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[MockFunction]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+>
+  <NullStateComponent
+    descriptionText="You can celebrate Roge's Steps of Faith here."
+    headerText="Celebrate!"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/celebrateHearts.png",
+      }
+    }
+  />
+</ScrollView>
 `;
 
 exports[`Empty Celebrate Feed rendering renders correctly for member feed ending in s 1`] = `
-<NullStateComponent
-  descriptionText="You can celebrate Roges' Steps of Faith here."
-  headerText="Celebrate!"
-  imageSource={
+<ScrollView
+  contentContainerStyle={
     Object {
-      "testUri": "../../../assets/images/celebrateHearts.png",
+      "flex": 1,
     }
   }
-/>
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[MockFunction]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+>
+  <NullStateComponent
+    descriptionText="You can celebrate Roges' Steps of Faith here."
+    headerText="Celebrate!"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/celebrateHearts.png",
+      }
+    }
+  />
+</ScrollView>
 `;

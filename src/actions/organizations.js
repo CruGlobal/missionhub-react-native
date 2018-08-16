@@ -134,6 +134,7 @@ export function getOrganizationMembers(orgId, query = {}) {
     const reportQuery = {
       people_ids: memberIds.join(','),
       period: 'P1Y',
+      organization_ids: orgId,
     };
     const { response: reportResponse } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),

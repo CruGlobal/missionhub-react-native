@@ -36,13 +36,13 @@ jest.mock('../../src/actions/interactions', () => ({
 let store;
 let component;
 
-const createMockStore = (id, personalJourney) => {
+const createMockStore = (id, personalJourney, isJean = true) => {
   const mockState = {
     auth: {
       person: {
         id,
       },
-      isJean: true,
+      isJean,
     },
     swipe: {
       journey: false,
@@ -55,9 +55,11 @@ const createMockStore = (id, personalJourney) => {
   return configureStore([thunk])(mockState);
 };
 
-const createComponent = () => {
+const org = { id: '123' };
+
+const createComponent = props => {
   return renderShallow(
-    <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
+    <ContactJourney person={mockPerson} {...props} />,
     store,
   );
 };
@@ -90,6 +92,20 @@ describe('ContactJourney', () => {
     component.setState({ isPersonalMinistry: true });
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('loads with personal ministry false', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, false);
+    const instance = createComponent({ organization: org }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(true);
+  });
+
+  it('loads with personal ministry true', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    const instance = createComponent({ organization: org }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 });
 

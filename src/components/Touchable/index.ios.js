@@ -18,12 +18,11 @@ class TouchableIOS extends Component {
   };
 
   render() {
-    // Remove `pressProps` and `onPress` so that they aren't included in the `...rest` array
+    // Remove `pressProps` so that they aren't included in the `...rest` array
     const {
       highlight,
       withoutFeedback,
       pressProps, // eslint-disable-line no-unused-vars
-      onPress, // eslint-disable-line no-unused-vars
       ...rest
     } = this.props;
 
