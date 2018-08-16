@@ -11,7 +11,14 @@ export default class MyRefreshControl extends Component {
   ref = c => (this._view = c);
 
   render() {
-    return <RefreshControl ref={this.ref} {...this.props} />;
+    const { refreshing, ...rest } = this.props;
+    return (
+      <RefreshControl
+        ref={this.ref}
+        {...rest}
+        refreshing={refreshing || false}
+      />
+    );
   }
 }
 

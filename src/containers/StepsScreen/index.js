@@ -78,7 +78,7 @@ export class StepsScreen extends Component {
     this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(loadHome());
   }
 

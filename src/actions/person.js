@@ -53,7 +53,9 @@ export function getPersonDetails(id, orgId) {
     );
     const orgPermission =
       orgId &&
-      person.organizational_permissions.find(o => o.organization_id === orgId);
+      (person.organizational_permissions || []).find(
+        o => o.organization_id === orgId,
+      );
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,

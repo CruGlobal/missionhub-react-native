@@ -33,7 +33,7 @@ export class PeopleScreen extends Component {
     this.handleRefresh = this.handleRefresh.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getPeople();
 
     this.props.dispatch(getStagesIfNotExists());

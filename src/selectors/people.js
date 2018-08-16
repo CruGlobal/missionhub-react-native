@@ -101,6 +101,7 @@ export const contactAssignmentSelector = createSelector(
         (!orgId ||
           person.organizational_permissions.some(
             org_permission =>
+              assignment.organization &&
               org_permission.organization_id === assignment.organization.id,
           )),
     ),
@@ -111,7 +112,7 @@ export const orgPermissionSelector = createSelector(
   (_, { organization }) => organization,
   (person, organization) =>
     organization &&
-    person.organizational_permissions.find(
+    (person.organizational_permissions || []).find(
       orgPermission => orgPermission.organization_id === organization.id,
     ),
 );

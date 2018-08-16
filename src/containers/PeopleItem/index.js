@@ -28,7 +28,7 @@ export class PeopleItem extends Component {
   handleChangeStage = () => {
     const { me, dispatch, person, organization } = this.props;
 
-    const contactAssignment = person.reverse_contact_assignments.find(
+    const contactAssignment = (person.reverse_contact_assignments || []).find(
       a => a.assigned_to.id === me.id,
     );
     const contactAssignmentId = contactAssignment && contactAssignment.id;
@@ -56,7 +56,7 @@ export class PeopleItem extends Component {
 
     let stage = null;
 
-    const contactAssignments = person.reverse_contact_assignments;
+    const contactAssignments = person.reverse_contact_assignments || [];
     if (isMe) {
       stage = me.stage;
     } else if (stagesObj) {
@@ -74,7 +74,7 @@ export class PeopleItem extends Component {
 
     let status = 'uncontacted';
 
-    const orgPermissions = person.organizational_permissions;
+    const orgPermissions = person.organizational_permissions || [];
     if (isMe || !isJean || isPersonal) {
       status = '';
     } else if (organization && organization.id) {

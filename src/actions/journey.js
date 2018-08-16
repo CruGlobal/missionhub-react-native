@@ -17,7 +17,7 @@ export function getGroupJourney(personId, orgId) {
     try {
       // Find out if I am an admin for this organization
       const me = getState().auth.person;
-      const orgPermission = me.organizational_permissions.find(
+      const orgPermission = (me.organizational_permissions || []).find(
         o => o.organization_id === orgId,
       );
       let isAdmin = isAdminForOrg(orgPermission);
