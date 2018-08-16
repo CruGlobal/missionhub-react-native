@@ -23,10 +23,10 @@ import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 
-const personInclude =
-  'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
-
 export function getMe(extraInclude) {
+  const personInclude =
+    'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   const include = extraInclude
     ? `${personInclude},${extraInclude}`
     : personInclude;
@@ -40,6 +40,9 @@ export function getMe(extraInclude) {
 }
 
 export function getPersonDetails(id, orgId) {
+  const personInclude =
+    'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   return async dispatch => {
     const query = {
       person_id: id,
@@ -139,6 +142,9 @@ export function updatePersonAttributes(personId, personAttributes) {
 }
 
 export function updatePerson(data) {
+  const personInclude =
+    'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   return async dispatch => {
     if (!data) {
       return dispatch({
