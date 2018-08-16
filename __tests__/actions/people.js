@@ -24,7 +24,7 @@ describe('getMyPeople', () => {
       limit: 1000,
     },
     include:
-      'contact_assignments.person,reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
 
   describe('as Casey', () => {
