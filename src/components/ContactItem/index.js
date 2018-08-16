@@ -13,7 +13,7 @@ class ContactItem extends Component {
   };
   render() {
     const { contact, organization, t } = this.props;
-    const isAssigned = contact.reverse_contact_assignments.find(
+    const isAssigned = (contact.reverse_contact_assignments || []).find(
       c => c.organization && c.organization.id === organization.id,
     );
 

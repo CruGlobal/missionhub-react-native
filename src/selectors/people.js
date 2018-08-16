@@ -108,7 +108,7 @@ export const orgPermissionSelector = createSelector(
   (_, { organization }) => organization,
   (person, organization) =>
     organization &&
-    person.organizational_permissions.find(
+    (person.organizational_permissions || []).find(
       orgPermission => orgPermission.organization_id === organization.id,
     ),
 );

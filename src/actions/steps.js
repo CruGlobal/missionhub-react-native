@@ -239,8 +239,10 @@ function challengeCompleteAction(step, screen) {
                     step.receiver.id,
                     step.organization && step.organization.id,
                   ),
-                ).then(getPersonDetailsResult => {
-                  const assignment = getPersonDetailsResult.person.reverse_contact_assignments.find(
+                ).then(personDetailResults => {
+                  const assignment = (
+                    personDetailResults.person.reverse_contact_assignments || []
+                  ).find(
                     a =>
                       a && a.assigned_to
                         ? `${a.assigned_to.id}` === myId

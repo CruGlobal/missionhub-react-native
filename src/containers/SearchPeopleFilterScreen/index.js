@@ -247,10 +247,10 @@ const mapStateToProps = (
   { navigation },
 ) => ({
   ...(navigation.state.params || {}),
-  organizations: organizations.all,
-  groups: groups.all,
-  surveys: surveys.all,
-  labels: labels.all,
+  organizations: organizations.all || [],
+  groups: groups.all || [],
+  surveys: surveys.all || [],
+  labels: labels.all || [],
 });
 
 export default connect(mapStateToProps)(SearchPeopleFilterScreen);

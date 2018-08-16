@@ -233,7 +233,7 @@ export function getPersonEmailAddress(person) {
 }
 
 export function getStageIndex(stages, stageId) {
-  const index = stages.findIndex(s => s && `${s.id}` === `${stageId}`);
+  const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;
 }

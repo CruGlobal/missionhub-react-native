@@ -68,7 +68,7 @@ exports[`renders correctly as Casey 1`] = `
       }
       onRefresh={undefined}
       progressBackgroundColor="#007398"
-      refreshing={undefined}
+      refreshing={false}
       tintColor="#007398"
     />
   }
@@ -92,7 +92,7 @@ exports[`renders correctly as Jean 1`] = `
       }
       onRefresh={undefined}
       progressBackgroundColor="#007398"
-      refreshing={undefined}
+      refreshing={false}
       tintColor="#007398"
     />
   }

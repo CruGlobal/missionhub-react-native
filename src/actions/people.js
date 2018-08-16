@@ -36,7 +36,7 @@ export function getMyPeople() {
           .filter(
             org =>
               !org ||
-              person.organizational_permissions.find(
+              (person.organizational_permissions || []).find(
                 orgPermission =>
                   orgPermission.organization &&
                   orgPermission.organization.id === org.id,
