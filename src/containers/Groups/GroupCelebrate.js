@@ -11,10 +11,12 @@ import {
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
-import { momentUtc } from '../../utils/common';
+import { momentUtc, refresh } from '../../utils/common';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {
+  state = { refreshing: false };
+
   componentDidMount() {
     if (this.shouldLoadFeed()) {
       this.loadItems();
@@ -28,7 +30,7 @@ export class GroupCelebrate extends Component {
       !celebrateItems ||
       celebrateItems.length === 0 ||
       pagination.page === 0 ||
-      moment().diff(momentUtc(celebrateItems[0].date), 'days', true > 1)
+      moment().diff(momentUtc(celebrateItems[0].date), 'days', true) > 1
     );
   };
 
@@ -37,12 +39,17 @@ export class GroupCelebrate extends Component {
     dispatch(getGroupCelebrateFeed(organization.id));
   };
 
-  refreshItems = () => {
+  reloadItems = () => {
     const { dispatch, organization } = this.props;
-    dispatch(reloadGroupCelebrateFeed(organization.id));
+    return dispatch(reloadGroupCelebrateFeed(organization.id));
+  };
+
+  refreshItems = () => {
+    refresh(this, this.reloadItems);
   };
 
   render() {
+    const { refreshing } = this.state;
     const { celebrateItems, organization } = this.props;
 
     return celebrateItems.length !== 0 ? (
@@ -51,9 +58,13 @@ export class GroupCelebrate extends Component {
         items={celebrateItems}
         loadMoreItemsCallback={this.loadItems}
         refreshCallback={this.refreshItems}
+        refreshing={refreshing}
       />
     ) : (
-      <EmptyCelebrateFeed />
+      <EmptyCelebrateFeed
+        refreshCallback={this.refreshItems}
+        refreshing={refreshing}
+      />
     );
   }
 }

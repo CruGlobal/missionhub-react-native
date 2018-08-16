@@ -260,7 +260,7 @@ export class StepsScreen extends Component {
         <StepItem
           step={item}
           type="swipeable"
-          hideAction={{ hideStars: this.hasMaxReminders() }}
+          hideAction={this.hasMaxReminders()}
           onSelect={this.handleRowSelect}
           onAction={this.handleSetReminder}
         />

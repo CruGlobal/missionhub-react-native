@@ -12,7 +12,6 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
   onEndReachedThreshold={0.2}
   onRefresh={[Function]}
   onScrollEndDrag={[Function]}
-  refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
