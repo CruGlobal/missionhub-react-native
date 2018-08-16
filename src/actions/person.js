@@ -140,6 +140,9 @@ export function updatePersonAttributes(personId, personAttributes) {
 }
 
 export function updatePerson(data) {
+  const personInclude =
+    'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   return async dispatch => {
     if (!data) {
       return dispatch({

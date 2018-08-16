@@ -125,7 +125,7 @@ describe('getPersonDetails', () => {
 });
 
 describe('updatePerson', () => {
-  const updateInclude = expectedInclude;
+  const updateInclude = expectedIncludeWithContactAssignmentPerson;
 
   afterEach(() => {
     expect(dispatch).toHaveBeenCalled();
