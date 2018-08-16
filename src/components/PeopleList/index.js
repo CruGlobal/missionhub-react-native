@@ -77,10 +77,7 @@ export default class PeopleList extends Component {
         renderItem={this.renderItem(organization)}
         refreshControl={
           !sections ? (
-            <RefreshControl
-              refreshing={refreshing || false}
-              onRefresh={onRefresh}
-            />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           ) : (
             undefined
           )
@@ -125,10 +122,7 @@ export default class PeopleList extends Component {
         <ScrollView
           style={styles.sectionWrap}
           refreshControl={
-            <RefreshControl
-              refreshing={refreshing || false}
-              onRefresh={onRefresh}
-            />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
           {this.state.items.map(org => (
