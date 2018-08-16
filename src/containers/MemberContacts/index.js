@@ -68,7 +68,12 @@ const mapStateToProps = ({ people }, { person, organization }) => {
   return currentPerson
     ? {
         contactAssignments: currentPerson.contact_assignments
-          ? currentPerson.contact_assignments.filter(c => c.person)
+          ? currentPerson.contact_assignments.filter(
+              c =>
+                c.person &&
+                c.organization &&
+                c.organization.id === organization.id,
+            )
           : [],
       }
     : {
