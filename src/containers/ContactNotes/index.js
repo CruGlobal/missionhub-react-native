@@ -29,7 +29,7 @@ export class ContactNotes extends Component {
     this.onTextChanged = this.onTextChanged.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getNote();
   }
 

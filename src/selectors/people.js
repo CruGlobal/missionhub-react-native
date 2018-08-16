@@ -97,6 +97,7 @@ export const contactAssignmentSelector = createSelector(
         (!orgId ||
           person.organizational_permissions.some(
             org_permission =>
+              assignment.organization &&
               org_permission.organization_id === assignment.organization.id,
           )),
     ),

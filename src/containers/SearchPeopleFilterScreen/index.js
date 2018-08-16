@@ -89,7 +89,7 @@ export class SearchPeopleFilterScreen extends Component {
     this.handleSelectFilter = this.handleSelectFilter.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     if (!this.props.organizations.length) {
       this.props.dispatch(getMyOrganizations());

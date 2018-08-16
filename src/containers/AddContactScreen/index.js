@@ -31,16 +31,11 @@ class AddContactScreen extends Component {
     super(props);
 
     this.state = {
-      person: {},
+      person: props.person || {},
     };
 
     this.savePerson = this.savePerson.bind(this);
     this.handleUpdateData = this.handleUpdateData.bind(this);
-  }
-
-  componentWillMount() {
-    const { person } = this.props;
-    this.setState({ person });
   }
 
   handleUpdateData(newData) {

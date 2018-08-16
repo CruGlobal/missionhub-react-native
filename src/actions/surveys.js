@@ -49,7 +49,7 @@ export function getOrgSurveysNextPage(orgId) {
   };
 }
 
-export function searchSurveyContacts(name, pagination, filters = []) {
+export function searchSurveyContacts(name, pagination, filters = {}) {
   return async dispatch => {
     if (!filters.survey) {
       return Promise.reject('No Survey Specified');
@@ -75,7 +75,9 @@ function createSurveyFilters(name, filters) {
   const surveyFilters = {
     survey_ids: filters.survey.id,
     people: {
-      organization_ids: filters.organization.id,
+      organization_ids: filters.organization
+        ? filters.organization.id
+        : undefined,
     },
   };
   if (name) {
