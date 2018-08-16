@@ -11,16 +11,23 @@ const personEndingInS = {
   first_name: 'Roges',
 };
 
+const props = {
+  refreshing: false,
+  refreshCallback: jest.fn(),
+};
+
 describe('Empty Celebrate Feed rendering', () => {
   it('renders correctly for member feed', () => {
-    testSnapshotShallow(<EmptyCelebrateFeed person={person} />);
+    testSnapshotShallow(<EmptyCelebrateFeed {...props} person={person} />);
   });
 
   it('renders correctly for member feed ending in s', () => {
-    testSnapshotShallow(<EmptyCelebrateFeed person={personEndingInS} />);
+    testSnapshotShallow(
+      <EmptyCelebrateFeed {...props} person={personEndingInS} />,
+    );
   });
 
   it('renders correctly for group feed', () => {
-    testSnapshotShallow(<EmptyCelebrateFeed />);
+    testSnapshotShallow(<EmptyCelebrateFeed {...props} />);
   });
 });

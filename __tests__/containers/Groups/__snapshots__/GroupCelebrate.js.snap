@@ -61,5 +61,13 @@ exports[`should render correctly 1`] = `
     }
   }
   refreshCallback={[Function]}
+  refreshing={false}
+/>
+`;
+
+exports[`should render empty correctly 1`] = `
+<Translate(EmptyCelebrateFeed)
+  refreshCallback={[Function]}
+  refreshing={false}
 />
 `;

@@ -59,7 +59,7 @@ class CelebrateFeed extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, refreshing } = this.props;
 
     return (
       <SectionList
@@ -71,7 +71,7 @@ class CelebrateFeed extends Component {
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}
         onRefresh={this.handleRefreshing}
-        refreshing={false}
+        refreshing={refreshing}
       />
     );
   }
@@ -81,6 +81,7 @@ CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
+  refreshing: PropTypes.bool,
 };
 
 export const mapStateToProps = ({ auth }) => ({

@@ -118,6 +118,7 @@ StepItem.propTypes = {
   }).isRequired,
   onSelect: PropTypes.func,
   onAction: PropTypes.func,
+  hideAction: PropTypes.bool,
   type: PropTypes.oneOf(['swipeable', 'contact', 'reminder']),
 };
 
