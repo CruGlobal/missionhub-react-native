@@ -24,7 +24,8 @@ class ContactJourney extends Component {
   constructor(props) {
     super(props);
 
-    const isPersonal = !props.isCasey && !props.organization;
+    const org = props.organization || {};
+    const isPersonal = props.isCasey || !org.id || org.id === 'personal';
 
     this.state = {
       editingInteraction: null,
