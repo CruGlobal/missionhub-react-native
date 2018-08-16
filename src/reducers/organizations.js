@@ -33,7 +33,7 @@ function organizationsReducer(state = initialState, action) {
       return {
         ...state,
         all: state.all.map(o => {
-          const contactReport = reports.find(r => r.id === o.id);
+          const contactReport = (reports || []).find(r => r.id === o.id);
           return contactReport ? { ...o, contactReport } : o;
         }),
       };

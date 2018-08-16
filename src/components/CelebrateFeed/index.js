@@ -71,7 +71,7 @@ class CelebrateFeed extends Component {
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}
         onRefresh={this.handleRefreshing}
-        refreshing={refreshing}
+        refreshing={refreshing || false}
       />
     );
   }

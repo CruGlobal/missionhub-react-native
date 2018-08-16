@@ -4,7 +4,7 @@ import callApi, { REQUESTS } from './api';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.find(o => {
+    const org = (getState().organizations.all || []).find(o => {
       return o.id === orgId;
     });
 
@@ -22,7 +22,7 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
 
 export function reloadGroupCelebrateFeed(orgId) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.find(o => {
+    const org = (getState().organizations.all || []).find(o => {
       return o.id === orgId;
     });
 

@@ -39,7 +39,7 @@ class KeyLoginScreen extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.keyboardShowListener = keyboardShow(this._hideLogo);
     this.keyboardHideListener = keyboardHide(this._showLogo);
   }

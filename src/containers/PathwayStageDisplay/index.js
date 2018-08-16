@@ -27,7 +27,7 @@ PathwayStageDisplay.propTypes = {
 
 const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   const authPerson = auth.person;
-  const stagesList = stages.stages;
+  const stagesList = stages.stages || [];
 
   if (authPerson.id === person.id) {
     return {

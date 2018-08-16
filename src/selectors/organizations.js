@@ -5,7 +5,7 @@ import { removeHiddenOrgs } from './selectorUtils';
 export const organizationSelector = createSelector(
   ({ organizations }) => organizations.all,
   (_, { orgId }) => orgId,
-  (organizations, orgId) => organizations.find(org => org.id === orgId),
+  (organizations, orgId) => (organizations || []).find(org => org.id === orgId),
 );
 
 export const allOrganizationsSelector = createSelector(

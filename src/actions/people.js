@@ -12,7 +12,7 @@ export function getMyPeople() {
         limit: 1000,
       },
       include:
-        'contact_assignments.person,reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
+        'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
     };
 
     const people = (await dispatch(
@@ -36,7 +36,7 @@ export function getMyPeople() {
           .filter(
             org =>
               !org ||
-              person.organizational_permissions.find(
+              (person.organizational_permissions || []).find(
                 orgPermission =>
                   orgPermission.organization &&
                   orgPermission.organization.id === org.id,

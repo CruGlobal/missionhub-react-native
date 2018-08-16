@@ -31,16 +31,11 @@ class AddContactScreen extends Component {
     super(props);
 
     this.state = {
-      person: {},
+      person: props.person || {},
     };
 
     this.savePerson = this.savePerson.bind(this);
     this.handleUpdateData = this.handleUpdateData.bind(this);
-  }
-
-  componentWillMount() {
-    const { person } = this.props;
-    this.setState({ person });
   }
 
   handleUpdateData(newData) {
@@ -127,9 +122,9 @@ class AddContactScreen extends Component {
         this.complete(results);
       } else {
         // If adding a new person, select a stage for them, then run all the onComplete functionality
-        const contactAssignment = newPerson.reverse_contact_assignments.find(
-          a => a.assigned_to.id === me.id,
-        );
+        const contactAssignment = (
+          newPerson.reverse_contact_assignments || []
+        ).find(a => a.assigned_to.id === me.id);
         const contactAssignmentId = contactAssignment && contactAssignment.id;
 
         dispatch(

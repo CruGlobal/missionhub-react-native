@@ -13,7 +13,25 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-const ERROR_CODES = [400, 401, 402, 403, 404, 422, 500, 504];
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+const ERROR_CODES = [
+  400,
+  401,
+  402,
+  403,
+  404,
+  408,
+  413,
+  422,
+  429,
+  431,
+  500,
+  501,
+  502,
+  503,
+  504,
+];
+const JSON_CONTENT_TYPE = ['application/json', 'application/vnd.api+json'];
 
 function handleResponse(response) {
   if (!response) {
@@ -21,9 +39,19 @@ function handleResponse(response) {
   }
 
   if (response && ERROR_CODES.includes(response.status)) {
-    return response.json().then(jsonResponse => Promise.reject(jsonResponse));
+    // Check the content type and try to parse the error correctly based on the type
+    const contentType = response.headers.get('content-type') || '';
+    if (
+      contentType.indexOf(JSON_CONTENT_TYPE[0]) !== -1 ||
+      contentType.indexOf(JSON_CONTENT_TYPE[1]) !== -1
+    ) {
+      return response.json().then(r => Promise.reject(r));
+    }
+    return response.text().then(r => Promise.reject(r));
   }
 
+  // We need to use response.text() and JSON.parse(t) for responses because we are getting data back with
+  // a content-type of 'application/vnd.api+json' which needs to be handled like this
   return response.text().then(t => ({
     jsonResponse: t ? JSON.parse(t) : null,
     sessionHeader: response.headers.get('X-MH-Session'),

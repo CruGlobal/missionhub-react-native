@@ -52,7 +52,7 @@ class AddStepScreen extends Component {
 
   saveStep() {
     Keyboard.dismiss();
-    const text = this.state.step.trim();
+    const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
