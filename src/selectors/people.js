@@ -32,6 +32,10 @@ export const peopleByOrgSelector = createSelector(
 const isAssignedToMeInOrganization = (person, org, appUserPerson) => {
   const { reverse_contact_assignments } = person;
 
+  if (person.id === appUserPerson.id) {
+    return true;
+  }
+
   return (
     reverse_contact_assignments &&
     reverse_contact_assignments.filter(a => {
