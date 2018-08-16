@@ -12,7 +12,7 @@ export function getMyPeople() {
         limit: 1000,
       },
       include:
-        'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions,phone_numbers,email_addresses',
+        'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
     };
 
     const people = (await dispatch(

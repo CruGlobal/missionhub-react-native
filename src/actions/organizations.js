@@ -123,7 +123,7 @@ export function getOrganizationMembers(orgId, query = {}) {
       permissions: 'admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions,phone_numbers,email_addresses',
+    include: 'organizational_permissions',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
