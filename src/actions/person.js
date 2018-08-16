@@ -24,7 +24,7 @@ import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 
 const personInclude =
-  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+  'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 export function getMe(extraInclude) {
   const include = extraInclude

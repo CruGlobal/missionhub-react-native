@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import GroupMemberItem from '../../components/GroupMemberItem';
+import { personSelector } from '../../selectors/people';
 
 @translate('memberContacts')
 class MemberContacts extends Component {
@@ -58,10 +59,21 @@ MemberContacts.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = (_, { person }) => ({
-  contactAssignments: person.contact_assignments
-    ? person.contact_assignments.filter(c => c.person)
-    : [],
-});
+const mapStateToProps = ({ people }, { person, organization }) => {
+  const currentPerson = personSelector(
+    { people },
+    { personId: person.id, orgId: organization.id },
+  );
+
+  return currentPerson
+    ? {
+        contactAssignments: currentPerson.contact_assignments
+          ? currentPerson.contact_assignments.filter(c => c.person)
+          : [],
+      }
+    : {
+        contactAssignments: [],
+      };
+};
 
 export default connect(mapStateToProps)(MemberContacts);
