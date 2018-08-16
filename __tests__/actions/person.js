@@ -47,6 +47,8 @@ let store;
 let auth;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
+  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+const expectedIncludeWithContactAssignmentPerson =
   'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
@@ -107,7 +109,7 @@ describe('getPersonDetails', () => {
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
-      include: expectedInclude,
+      include: expectedIncludeWithContactAssignmentPerson,
     });
 
     expect(store.getActions()).toEqual([
