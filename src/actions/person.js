@@ -24,7 +24,7 @@ import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 
 const personInclude =
-  'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 export function getMe(extraInclude) {
   const include = extraInclude
@@ -43,7 +43,7 @@ export function getPersonDetails(id, orgId) {
   return async dispatch => {
     const query = {
       person_id: id,
-      include: personInclude,
+      include: `${personInclude},contact_assignments.person`,
     };
     const { response: person } = await dispatch(
       callApi(REQUESTS.GET_PERSON, query),
