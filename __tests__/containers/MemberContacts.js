@@ -5,7 +5,12 @@ import thunk from 'redux-thunk';
 import MemberContacts from '../../src/containers/MemberContacts';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const contactAssignment = { id: '1', person: {} };
+const contactAssignment = { id: '1', person: {}, organization: { id: '100' } };
+const contactAssignmentDifferentOrg = {
+  id: '2',
+  person: {},
+  organization: { id: '105x' },
+}; /* should not be rendered */
 const contactAssignmentNoPerson = { id: '2', person: null };
 const personNoContactAssignments = {
   id: '1',
@@ -14,7 +19,11 @@ const personNoContactAssignments = {
 };
 const personWithContactAssignments = {
   ...personNoContactAssignments,
-  contact_assignments: [contactAssignment, contactAssignmentNoPerson],
+  contact_assignments: [
+    contactAssignment,
+    contactAssignmentNoPerson,
+    contactAssignmentDifferentOrg,
+  ],
 };
 const organization = {
   id: '100',
