@@ -78,9 +78,11 @@ export default function callApi(requestObject, query = {}, data = {}) {
       if (METHODS_WITH_DATA.includes(action.method)) {
         if (!action.anonymous && !newQuery.access_token) {
           return throwErr(
-            `There is no token and route is not anonymous: ${JSON.stringify(
+            `There is no token and route is not anonymous: ${JSON.stringify({
               action,
-            )}`,
+              query: newQuery,
+              data,
+            })}`,
           );
         }
       }
