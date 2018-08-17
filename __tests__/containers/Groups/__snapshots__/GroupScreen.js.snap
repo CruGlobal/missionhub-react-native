@@ -3,6 +3,14 @@
 exports[`GroupScreen should render header correctly 1`] = `
 <Connect(Header)
   left={<Connect(BackButton) />}
+  right={
+    <IconButton
+      name="addContactIcon"
+      onPress={[Function]}
+      size={24}
+      type="MissionHub"
+    />
+  }
   shadow={false}
   title="Test  Org"
 />
