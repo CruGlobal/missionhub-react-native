@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareSurveyMenu renders share survey menu 1`] = `
+<PopupMenu
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Share Survey",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Take Survey",
+      },
+    ]
+  }
+  iconProps={Object {}}
+/>
+`;
+
+exports[`ShareSurveyMenu renders share survey menu in header 1`] = `
+<PopupMenu
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Share Survey",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Take Survey",
+      },
+    ]
+  }
+  iconProps={
+    Object {
+      "style": Object {
+        "color": "#ffffff",
+      },
+    }
+  }
+/>
+`;

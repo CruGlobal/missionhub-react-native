@@ -13,6 +13,7 @@ import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
+import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -129,12 +130,16 @@ class SurveyContacts extends Component {
   };
 
   render() {
-    const { t, organization } = this.props;
+    const { t, organization, survey } = this.props;
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
       <Flex value={1}>
-        <Header left={<BackButton />} title={orgName} />
+        <Header
+          left={<BackButton />}
+          title={orgName}
+          right={<ShareSurveyMenu survey={survey} header={true} />}
+        />
         <SearchList
           ref={this.ref}
           defaultData={defaultResults}

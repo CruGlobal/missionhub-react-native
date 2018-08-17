@@ -6,6 +6,16 @@ exports[`SurveyContacts should render correctly 1`] = `
 >
   <Connect(Header)
     left={<Connect(BackButton) />}
+    right={
+      <Translate(ShareSurveyMenu)
+        header={true}
+        survey={
+          Object {
+            "id": "11",
+          }
+        }
+      />
+    }
     title="Test Org"
   />
   <Translate(SearchList)
