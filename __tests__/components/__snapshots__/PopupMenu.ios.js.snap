@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupMenu iOS renders with 1 button 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
+<TouchableIOS
   onPress={[Function]}
   style={
     Array [
@@ -28,13 +26,11 @@ exports[`PopupMenu iOS renders with 1 button 1`] = `
     }
     type="MissionHub"
   />
-</TouchableOpacity>
+</TouchableIOS>
 `;
 
 exports[`PopupMenu iOS renders with icon props 1`] = `
-<TouchableOpacity
-  accessibilityTraits="button"
-  activeOpacity={0.6}
+<TouchableIOS
   onPress={[Function]}
   style={
     Array [
@@ -60,5 +56,5 @@ exports[`PopupMenu iOS renders with icon props 1`] = `
     }
     type="MissionHub"
   />
-</TouchableOpacity>
+</TouchableIOS>
 `;

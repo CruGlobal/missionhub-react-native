@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ActionSheetIOS } from 'react-native';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { Touchable, Icon } from '../common';
 import { isFunction } from '../../utils/common';
@@ -8,10 +9,11 @@ import { isFunction } from '../../utils/common';
 import styles from './styles';
 
 // iOS only component
+@translate()
 class PopupMenu extends Component {
   open = () => {
-    const { actions } = this.props;
-    const options = actions.map(o => o.text).concat('Cancel');
+    const { t, actions } = this.props;
+    const options = actions.map(o => o.text).concat(t('cancel'));
 
     ActionSheetIOS.showActionSheetWithOptions(
       { options, cancelButtonIndex: options.length - 1 },

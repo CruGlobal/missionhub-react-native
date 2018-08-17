@@ -1,9 +1,8 @@
 import React from 'react';
 import { ActionSheetIOS } from 'react-native';
-import { shallow } from 'enzyme';
 
 import PopupMenu from '../../src/components/PopupMenu/index.ios.js';
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const onPress = jest.fn();
 let props = {
@@ -20,7 +19,7 @@ describe('PopupMenu iOS', () => {
 
   it('calls the action sheet for ios', () => {
     ActionSheetIOS.showActionSheetWithOptions = jest.fn();
-    const instance = shallow(<PopupMenu {...props} />).instance();
+    const instance = renderShallow(<PopupMenu {...props} />).instance();
     instance.open();
     expect(ActionSheetIOS.showActionSheetWithOptions).toHaveBeenCalled();
   });
