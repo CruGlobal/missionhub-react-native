@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ShareSurveyMenu renders share survey menu 1`] = `
-<PopupMenu
+<Translate(PopupMenu)
   actions={
     Array [
       Object {
@@ -19,7 +19,7 @@ exports[`ShareSurveyMenu renders share survey menu 1`] = `
 `;
 
 exports[`ShareSurveyMenu renders share survey menu in header 1`] = `
-<PopupMenu
+<Translate(PopupMenu)
   actions={
     Array [
       Object {
