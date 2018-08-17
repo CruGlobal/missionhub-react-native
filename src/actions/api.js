@@ -81,7 +81,6 @@ export default function callApi(requestObject, query = {}, data = {}) {
             `There is no token and route is not anonymous: ${JSON.stringify({
               action,
               query: newQuery,
-              data,
             })}`,
           );
         }
