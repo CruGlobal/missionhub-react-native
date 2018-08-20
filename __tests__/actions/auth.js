@@ -64,6 +64,7 @@ const onSuccessfulLoginResult = { type: 'onSuccessfulLogin' };
 beforeEach(() => {
   store = mockStore({
     auth: {
+      token: 'testtoken',
       refreshToken,
       upgradeToken,
       person: {
@@ -357,5 +358,21 @@ describe('loadHome', () => {
       getStepsResult,
       notificationsResult,
     ]);
+  });
+
+  it('loads nothing because there is no token', async () => {
+    store = mockStore({
+      auth: {
+        token: '',
+        refreshToken,
+        upgradeToken,
+        person: {
+          user: {},
+        },
+      },
+    });
+    await store.dispatch(auth.loadHome());
+
+    expect(store.getActions()).toEqual([]);
   });
 });
