@@ -49,7 +49,6 @@ export class PeopleScreen extends Component {
     this.props.dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
         organization: org && org.id ? org : undefined,
-        isJean: this.props.isJean,
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
           this.props.dispatch(navigateBack(4));

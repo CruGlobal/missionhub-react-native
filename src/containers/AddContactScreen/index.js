@@ -219,6 +219,7 @@ const mapStateToProps = ({ auth }, { navigation }) => {
   const organization = navProps.organization;
   return {
     me: auth.person,
+    isJean: auth.isJean,
     personOrgPermission:
       person &&
       organization &&
