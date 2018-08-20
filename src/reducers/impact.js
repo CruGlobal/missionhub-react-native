@@ -20,13 +20,21 @@ export default function impactReducer(state = initialState, action) {
     case UPDATE_PEOPLE_INTERACTION_REPORT:
       const key = storageKey(action.personId, action.organizationId);
 
+      const report = !action.personId
+        ? action.report.filter(
+            type =>
+              type.requestFieldName !== 'contact_count' &&
+              type.requestFieldName !== 'uncontacted_count',
+          )
+        : action.report;
+
       return {
         ...state,
         interactions: {
           ...state.interactions,
           [key]: {
             ...state.interactions[key],
-            [action.period]: action.report,
+            [action.period]: report,
           },
         },
       };
