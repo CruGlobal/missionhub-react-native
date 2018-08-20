@@ -24,7 +24,6 @@ export class GroupScreen extends Component {
     dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
         organization: organization.id ? organization : undefined,
-        isJean: true,
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
           dispatch(navigateBack(4));
