@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Icon } from '../common';
+import ShareSurveyMenu from '../ShareSurveyMenu';
 
 import styles from './styles';
 
@@ -25,35 +26,40 @@ class GroupSurveyItem extends Component {
               style={styles.icon}
             />
           </Flex>
-          <Flex value={3.5} style={styles.content}>
-            <Text style={styles.title}>
-              {(survey.title || '').toUpperCase()}
-            </Text>
-            <Text direction="row" align="center">
-              <Text style={[styles.text, styles.contacts]}>
-                {t('numContacts', { number: survey.contacts_count })}
+          <Flex value={3.5} direction="row" style={styles.content}>
+            <Flex value={1}>
+              <Text style={styles.title}>
+                {(survey.title || '').toUpperCase()}
               </Text>
-              {survey.unassigned_contacts_count ? (
-                <Text>
-                  <Text style={styles.text}>{'  ·  '}</Text>
-                  <Text style={[styles.text, styles.unassigned]}>
-                    {t('numUnassigned', {
-                      number: survey.unassigned_contacts_count,
-                    })}
+              <Text direction="row" align="center">
+                {survey.contacts_count ? (
+                  <Text style={[styles.text, styles.contacts]}>
+                    {t('numContacts', { number: survey.contacts_count })}
                   </Text>
-                </Text>
-              ) : null}
-              {survey.uncontacted_contacts_count ? (
-                <Text>
-                  <Text style={styles.text}>{'  ·  '}</Text>
-                  <Text style={[styles.text, styles.uncontacted]}>
-                    {t('numUncontacted', {
-                      number: survey.uncontacted_contacts_count,
-                    })}
+                ) : null}
+                {survey.unassigned_contacts_count ? (
+                  <Text>
+                    <Text style={styles.text}>{'  ·  '}</Text>
+                    <Text style={[styles.text, styles.unassigned]}>
+                      {t('numUnassigned', {
+                        number: survey.unassigned_contacts_count,
+                      })}
+                    </Text>
                   </Text>
-                </Text>
-              ) : null}
-            </Text>
+                ) : null}
+                {survey.uncontacted_contacts_count ? (
+                  <Text>
+                    <Text style={styles.text}>{'  ·  '}</Text>
+                    <Text style={[styles.text, styles.uncontacted]}>
+                      {t('numUncontacted', {
+                        number: survey.uncontacted_contacts_count,
+                      })}
+                    </Text>
+                  </Text>
+                ) : null}
+              </Text>
+            </Flex>
+            <ShareSurveyMenu survey={survey} />
           </Flex>
         </Flex>
       </Touchable>
