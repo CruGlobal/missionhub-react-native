@@ -134,7 +134,6 @@ function handleNotification(notification) {
       case 'add_a_person':
         return dispatch(
           navigatePush(ADD_CONTACT_SCREEN, {
-            isJean,
             organization: { id: organization },
             onComplete: () => dispatch(navigateReset(MAIN_TABS)),
           }),
