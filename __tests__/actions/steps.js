@@ -88,6 +88,17 @@ describe('get steps page', () => {
     );
     expect(store.getActions()[0]).toEqual(apiResult);
   });
+
+  it('should not filter, no more pages', async () => {
+    store = mockStore({
+      steps: { pagination: { page: 1, hasNextPage: false } },
+    });
+    callApi.mockReturnValue(apiResult);
+
+    const result = await store.dispatch(getMyStepsNextPage());
+
+    expect(result).toEqual(undefined);
+  });
 });
 
 describe('getContactSteps', () => {
