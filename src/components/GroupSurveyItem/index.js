@@ -32,9 +32,11 @@ class GroupSurveyItem extends Component {
                 {(survey.title || '').toUpperCase()}
               </Text>
               <Text direction="row" align="center">
-                <Text style={[styles.text, styles.contacts]}>
-                  {t('numContacts', { number: survey.contacts_count })}
-                </Text>
+                {survey.contacts_count ? (
+                  <Text style={[styles.text, styles.contacts]}>
+                    {t('numContacts', { number: survey.contacts_count })}
+                  </Text>
+                ) : null}
                 {survey.unassigned_contacts_count ? (
                   <Text>
                     <Text style={styles.text}>{'  ·  '}</Text>

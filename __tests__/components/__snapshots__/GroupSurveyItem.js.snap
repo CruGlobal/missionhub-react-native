@@ -73,21 +73,6 @@ exports[`render 0 contacts 1`] = `
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "fontSize": 13,
-                },
-                undefined,
-              ]
-            }
-          >
-            0 Contacts
-          </MyText>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
           >
             <MyText
               accessible={true}
