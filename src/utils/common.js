@@ -3,6 +3,7 @@ import { BackHandler, Platform, Keyboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
+import Config from 'react-native-config';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -252,4 +253,8 @@ export function keyboardHide(handler) {
     return Keyboard.addListener('keyboardDidHide', handler);
   }
   return Keyboard.addListener('keyboardWillHide', handler);
+}
+
+export function getSurveyUrl(surveyId) {
+  return `${Config.SURVEY_URL}${surveyId}`;
 }

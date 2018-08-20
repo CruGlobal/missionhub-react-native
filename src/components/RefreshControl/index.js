@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RefreshControl } from 'react-native';
+import PropTypes from 'prop-types';
 
 import theme from '../../theme';
 
@@ -22,7 +23,10 @@ export default class MyRefreshControl extends Component {
   }
 }
 
-MyRefreshControl.propTypes = { ...RefreshControl.propTypes };
+MyRefreshControl.propTypes = {
+  ...RefreshControl.propTypes,
+  refreshing: PropTypes.bool,
+};
 MyRefreshControl.defaultProps = {
   progressBackgroundColor: theme.primaryColor, // Android only
   colors: [theme.white, theme.secondaryColor], // Android only

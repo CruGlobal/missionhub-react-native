@@ -506,6 +506,11 @@ export default {
     unassigned: 'Unassigned',
     numUncontacted: '{{number}} Uncontacted',
   },
+  shareSurveyMenu: {
+    shareMessage: '{{name}} {{url}}',
+    shareSurvey: 'Share Survey',
+    takeSurvey: 'Take Survey',
+  },
   groupsContactList: {
     nullHeader: 'Activity Feed',
     nullDescription: 'No activity to display.',

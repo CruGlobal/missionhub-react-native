@@ -12,7 +12,7 @@ exports[`render 0 contacts 1`] = `
       Object {
         "borderBottomColor": "#E6E8EC",
         "borderBottomWidth": 1,
-        "paddingRight": 24,
+        "paddingRight": 15,
         "paddingVertical": 30,
         "width": 750,
       }
@@ -35,6 +35,7 @@ exports[`render 0 contacts 1`] = `
       />
     </Flex>
     <Flex
+      direction="row"
       style={
         Object {
           "borderLeftColor": "#E6E8EC",
@@ -44,113 +45,114 @@ exports[`render 0 contacts 1`] = `
       }
       value={3.5}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        WINTER CONFERENCE 2018
-      </MyText>
-      <MyText
-        accessible={true}
-        align="center"
-        allowFontScaling={true}
-        direction="row"
-        ellipsizeMode="tail"
+      <Flex
+        value={1}
       >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              undefined,
-            ]
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
           }
         >
-          0 Contacts
+          WINTER CONFERENCE 2018
         </MyText>
         <MyText
           accessible={true}
+          align="center"
           allowFontScaling={true}
+          direction="row"
           ellipsizeMode="tail"
         >
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
-              }
-            }
           >
-              ·  
-          </MyText>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
                 Object {
                   "fontSize": 13,
-                },
-                Object {
-                  "color": "#FF5532",
-                },
-              ]
-            }
-          >
-            25 Unassigned
-          </MyText>
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
+                }
               }
-            }
-          >
-              ·  
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              25 Unassigned
+            </MyText>
           </MyText>
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
-            style={
-              Array [
+          >
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
                 Object {
                   "fontSize": 13,
-                },
-                Object {
-                  "color": "#FF5532",
-                },
-              ]
-            }
-          >
-            30 Uncontacted
+                }
+              }
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              30 Uncontacted
+            </MyText>
           </MyText>
         </MyText>
-      </MyText>
+      </Flex>
+      <Translate(ShareSurveyMenu)
+        survey={
+          Object {
+            "contacts_count": 0,
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "title": "Winter Conference 2018",
+            "unassigned_contacts_count": 25,
+            "uncontacted_contacts_count": 30,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -168,7 +170,7 @@ exports[`render 0 unassigned 1`] = `
       Object {
         "borderBottomColor": "#E6E8EC",
         "borderBottomWidth": 1,
-        "paddingRight": 24,
+        "paddingRight": 15,
         "paddingVertical": 30,
         "width": 750,
       }
@@ -191,6 +193,7 @@ exports[`render 0 unassigned 1`] = `
       />
     </Flex>
     <Flex
+      direction="row"
       style={
         Object {
           "borderLeftColor": "#E6E8EC",
@@ -200,59 +203,30 @@ exports[`render 0 unassigned 1`] = `
       }
       value={3.5}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        WINTER CONFERENCE 2018
-      </MyText>
-      <MyText
-        accessible={true}
-        align="center"
-        allowFontScaling={true}
-        direction="row"
-        ellipsizeMode="tail"
+      <Flex
+        value={1}
       >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              undefined,
-            ]
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
           }
         >
-          50 Contacts
+          WINTER CONFERENCE 2018
         </MyText>
         <MyText
           accessible={true}
+          align="center"
           allowFontScaling={true}
+          direction="row"
           ellipsizeMode="tail"
         >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
-              }
-            }
-          >
-              ·  
-          </MyText>
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -262,16 +236,61 @@ exports[`render 0 unassigned 1`] = `
                 Object {
                   "fontSize": 13,
                 },
-                Object {
-                  "color": "#FF5532",
-                },
+                undefined,
               ]
             }
           >
-            30 Uncontacted
+            50 Contacts
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 13,
+                }
+              }
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              30 Uncontacted
+            </MyText>
           </MyText>
         </MyText>
-      </MyText>
+      </Flex>
+      <Translate(ShareSurveyMenu)
+        survey={
+          Object {
+            "contacts_count": 50,
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "title": "Winter Conference 2018",
+            "unassigned_contacts_count": 0,
+            "uncontacted_contacts_count": 30,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -289,7 +308,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
       Object {
         "borderBottomColor": "#E6E8EC",
         "borderBottomWidth": 1,
-        "paddingRight": 24,
+        "paddingRight": 15,
         "paddingVertical": 30,
         "width": 750,
       }
@@ -312,6 +331,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
       />
     </Flex>
     <Flex
+      direction="row"
       style={
         Object {
           "borderLeftColor": "#E6E8EC",
@@ -321,43 +341,59 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
       }
       value={3.5}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        WINTER CONFERENCE 2018
-      </MyText>
-      <MyText
-        accessible={true}
-        align="center"
-        allowFontScaling={true}
-        direction="row"
-        ellipsizeMode="tail"
+      <Flex
+        value={1}
       >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              undefined,
-            ]
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
           }
         >
-          50 Contacts
+          WINTER CONFERENCE 2018
         </MyText>
-      </MyText>
+        <MyText
+          accessible={true}
+          align="center"
+          allowFontScaling={true}
+          direction="row"
+          ellipsizeMode="tail"
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontSize": 13,
+                },
+                undefined,
+              ]
+            }
+          >
+            50 Contacts
+          </MyText>
+        </MyText>
+      </Flex>
+      <Translate(ShareSurveyMenu)
+        survey={
+          Object {
+            "contacts_count": 50,
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "title": "Winter Conference 2018",
+            "unassigned_contacts_count": 0,
+            "uncontacted_contacts_count": 0,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -375,7 +411,7 @@ exports[`render 0 uncontacted 1`] = `
       Object {
         "borderBottomColor": "#E6E8EC",
         "borderBottomWidth": 1,
-        "paddingRight": 24,
+        "paddingRight": 15,
         "paddingVertical": 30,
         "width": 750,
       }
@@ -398,6 +434,7 @@ exports[`render 0 uncontacted 1`] = `
       />
     </Flex>
     <Flex
+      direction="row"
       style={
         Object {
           "borderLeftColor": "#E6E8EC",
@@ -407,59 +444,30 @@ exports[`render 0 uncontacted 1`] = `
       }
       value={3.5}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        WINTER CONFERENCE 2018
-      </MyText>
-      <MyText
-        accessible={true}
-        align="center"
-        allowFontScaling={true}
-        direction="row"
-        ellipsizeMode="tail"
+      <Flex
+        value={1}
       >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              undefined,
-            ]
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
           }
         >
-          50 Contacts
+          WINTER CONFERENCE 2018
         </MyText>
         <MyText
           accessible={true}
+          align="center"
           allowFontScaling={true}
+          direction="row"
           ellipsizeMode="tail"
         >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
-              }
-            }
-          >
-              ·  
-          </MyText>
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -469,16 +477,61 @@ exports[`render 0 uncontacted 1`] = `
                 Object {
                   "fontSize": 13,
                 },
-                Object {
-                  "color": "#FF5532",
-                },
+                undefined,
               ]
             }
           >
-            25 Unassigned
+            50 Contacts
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          >
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 13,
+                }
+              }
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              25 Unassigned
+            </MyText>
           </MyText>
         </MyText>
-      </MyText>
+      </Flex>
+      <Translate(ShareSurveyMenu)
+        survey={
+          Object {
+            "contacts_count": 50,
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "title": "Winter Conference 2018",
+            "unassigned_contacts_count": 25,
+            "uncontacted_contacts_count": 0,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </TouchableIOS>
@@ -496,7 +549,7 @@ exports[`render survey 1`] = `
       Object {
         "borderBottomColor": "#E6E8EC",
         "borderBottomWidth": 1,
-        "paddingRight": 24,
+        "paddingRight": 15,
         "paddingVertical": 30,
         "width": 750,
       }
@@ -519,6 +572,7 @@ exports[`render survey 1`] = `
       />
     </Flex>
     <Flex
+      direction="row"
       style={
         Object {
           "borderLeftColor": "#E6E8EC",
@@ -528,59 +582,30 @@ exports[`render survey 1`] = `
       }
       value={3.5}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        WINTER CONFERENCE 2018
-      </MyText>
-      <MyText
-        accessible={true}
-        align="center"
-        allowFontScaling={true}
-        direction="row"
-        ellipsizeMode="tail"
+      <Flex
+        value={1}
       >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "fontSize": 13,
-              },
-              undefined,
-            ]
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
           }
         >
-          50 Contacts
+          WINTER CONFERENCE 2018
         </MyText>
         <MyText
           accessible={true}
+          align="center"
           allowFontScaling={true}
+          direction="row"
           ellipsizeMode="tail"
         >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
-              }
-            }
-          >
-              ·  
-          </MyText>
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -590,51 +615,96 @@ exports[`render survey 1`] = `
                 Object {
                   "fontSize": 13,
                 },
-                Object {
-                  "color": "#FF5532",
-                },
+                undefined,
               ]
             }
           >
-            25 Unassigned
+            50 Contacts
           </MyText>
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
-            style={
-              Object {
-                "fontSize": 13,
-              }
-            }
           >
-              ·  
-          </MyText>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
                 Object {
                   "fontSize": 13,
-                },
-                Object {
-                  "color": "#FF5532",
-                },
-              ]
-            }
+                }
+              }
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              25 Unassigned
+            </MyText>
+          </MyText>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
           >
-            30 Uncontacted
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 13,
+                }
+              }
+            >
+                ·  
+            </MyText>
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "color": "#FF5532",
+                  },
+                ]
+              }
+            >
+              30 Uncontacted
+            </MyText>
           </MyText>
         </MyText>
-      </MyText>
+      </Flex>
+      <Translate(ShareSurveyMenu)
+        survey={
+          Object {
+            "contacts_count": 50,
+            "created_at": "2018-05-29T17:02:02Z",
+            "id": "1",
+            "title": "Winter Conference 2018",
+            "unassigned_contacts_count": 25,
+            "uncontacted_contacts_count": 30,
+          }
+        }
+      />
     </Flex>
   </Flex>
 </TouchableIOS>

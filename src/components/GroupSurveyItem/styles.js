@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   row: {
     paddingVertical: 30,
-    paddingRight: 24,
+    paddingRight: 15,
     width: theme.fullWidth,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,
