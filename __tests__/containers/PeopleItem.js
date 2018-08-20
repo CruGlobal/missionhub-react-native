@@ -115,7 +115,7 @@ it('renders permission user correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <PeopleItem
-        onSelect={() => {}}
+        onSelect={jest.fn()}
         person={{
           ...mockPerson,
           organizational_permissions: [

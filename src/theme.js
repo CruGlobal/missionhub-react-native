@@ -49,9 +49,6 @@ function colorConvert({
   return col.rgb().toString();
 }
 
-export const PRIMARY_BACKGROUND_COLOR = '#007398';
-export const PRIMARY_HEADER_COLOR = '#52C5DC';
-
 export const COLORS = {
   LIGHT_BLUE: '#66D9F0',
   BLUE: '#52C5DC',

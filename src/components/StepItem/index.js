@@ -28,6 +28,8 @@ class StepItem extends Component {
     }
   };
 
+  iconRef = c => (this.action = c);
+
   renderIcon() {
     const { type, onAction, hideAction } = this.props;
     const { hovering } = this.state;
@@ -47,7 +49,7 @@ class StepItem extends Component {
         onPressOut={this.onBlur}
       >
         <Flex
-          ref={c => (this.action = c)}
+          ref={this.iconRef}
           align="center"
           justify="center"
           animation={hideAction ? 'fadeOutRight' : 'fadeInRight'}
@@ -64,6 +66,8 @@ class StepItem extends Component {
       </Touchable>
     );
   }
+
+  ref = c => (this._view = c);
 
   render() {
     const { step, type, myId, t } = this.props;
@@ -85,12 +89,7 @@ class StepItem extends Component {
           lighten: 0.5,
         })}
       >
-        <Flex
-          ref={c => (this._view = c)}
-          align="center"
-          direction="row"
-          style={styles.row}
-        >
+        <Flex ref={this.ref} align="center" direction="row" style={styles.row}>
           <Flex value={1} justify="center" direction="column">
             {type === 'contact' ? null : (
               <Text style={styles.person}>{ownerName}</Text>
@@ -119,6 +118,7 @@ StepItem.propTypes = {
   }).isRequired,
   onSelect: PropTypes.func,
   onAction: PropTypes.func,
+  hideAction: PropTypes.bool,
   type: PropTypes.oneOf(['swipeable', 'contact', 'reminder']),
 };
 

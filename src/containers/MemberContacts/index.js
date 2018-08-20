@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import GroupMemberItem from '../../components/GroupMemberItem';
+import { personSelector } from '../../selectors/people';
 
 @translate('memberContacts')
 class MemberContacts extends Component {
@@ -14,13 +15,15 @@ class MemberContacts extends Component {
 
   renderItem = ({ item }) => <GroupMemberItem person={item.person} />;
 
+  keyExtractor = p => p.id;
+
   renderList() {
     const { contactAssignments } = this.props;
 
     return (
       <FlatList
         data={contactAssignments}
-        keyExtractor={p => p.id}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
       />
     );
@@ -56,10 +59,26 @@ MemberContacts.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = (_, { person }) => ({
-  contactAssignments: person.contact_assignments
-    ? person.contact_assignments.filter(c => c.person)
-    : [],
-});
+const mapStateToProps = ({ people }, { person, organization }) => {
+  const currentPerson = personSelector(
+    { people },
+    { personId: person.id, orgId: organization.id },
+  );
+
+  return currentPerson
+    ? {
+        contactAssignments: currentPerson.contact_assignments
+          ? currentPerson.contact_assignments.filter(
+              c =>
+                c.person &&
+                c.organization &&
+                c.organization.id === organization.id,
+            )
+          : [],
+      }
+    : {
+        contactAssignments: [],
+      };
+};
 
 export default connect(mapStateToProps)(MemberContacts);

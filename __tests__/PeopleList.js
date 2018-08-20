@@ -1,14 +1,17 @@
-import 'react-native';
+import { LayoutAnimation } from 'react-native';
 import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import { renderShallow, testSnapshotShallow } from '../testUtils';
 import PeopleList from '../src/components/PeopleList';
 
+LayoutAnimation.configureNext = jest.fn();
+
 const orgs = [
   {
     id: 'personal',
     type: 'organization',
+    expanded: false,
     people: [
       {
         id: 1,
@@ -28,6 +31,7 @@ const orgs = [
     id: 10,
     name: 'org 1',
     type: 'organization',
+    expanded: false,
     people: [
       {
         id: 11,
@@ -39,6 +43,7 @@ const orgs = [
     id: 20,
     name: 'org 2',
     type: 'organization',
+    expanded: false,
     people: [
       {
         id: 21,
@@ -50,13 +55,13 @@ const orgs = [
 
 it('renders correctly as Casey', () => {
   testSnapshotShallow(
-    <PeopleList sections={false} items={orgs} onSelect={() => {}} />,
+    <PeopleList sections={false} items={orgs} onSelect={jest.fn()} />,
   );
 });
 
 it('renders correctly as Jean', () => {
   testSnapshotShallow(
-    <PeopleList sections={true} items={orgs} onSelect={() => {}} />,
+    <PeopleList sections={true} items={orgs} onSelect={jest.fn()} />,
   );
 });
 
@@ -81,7 +86,8 @@ describe('button presses', () => {
 
   it('onAddContact is called when add contact icon is pressed', () => {
     const addContactButton = component.find({ name: 'addContactIcon' }).first();
-    addContactButton.simulate('press');
+    const props = addContactButton.props();
+    props.onPress.apply(null, props.pressProps);
 
     expect(componentInstance.props.onAddContact).toHaveBeenCalledWith(
       undefined,
@@ -89,9 +95,26 @@ describe('button presses', () => {
   });
 
   it('toggleSection is called when arrow icon is pressed', () => {
+    componentInstance.setState = jest.fn();
     const arrowButton = component.find({ name: 'upArrowIcon' }).first();
-    arrowButton.simulate('press');
+    const props = arrowButton.props();
+    props.onPress.apply(null, props.pressProps);
 
-    expect(componentInstance.toggleSection).toHaveBeenCalledWith('personal');
+    expect(componentInstance.state.items[0]).toEqual({
+      ...orgs[0],
+      expanded: true,
+    });
+  });
+
+  it('renders item', () => {
+    const renderedItem = componentInstance.renderItem(orgs[0])({
+      item: orgs[0].people[0],
+    });
+    expect(renderedItem).toMatchSnapshot();
+  });
+  it('should return key extractor', () => {
+    const item = { id: '1' };
+    const result = componentInstance.keyExtractor(item);
+    expect(result).toEqual(item.id);
   });
 });

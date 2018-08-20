@@ -37,7 +37,7 @@ describe('action methods', () => {
       <ContactActions
         person={mockPerson}
         navigation={createMockNavState()}
-        dispatch={() => {}}
+        dispatch={jest.fn()}
       />,
       { context: { store } },
     );

@@ -195,3 +195,25 @@ exports[`renders empty list 1`] = `
   </Flex>
 </Flex>
 `;
+
+exports[`renders item 1`] = `
+<Translate(GroupsContactItem)
+  item={
+    Object {
+      "comment": "Some comment",
+      "created_at": "2018-05-29T17:02:02Z",
+      "id": "1",
+      "interaction_type_id": 2,
+      "text": "Someone had a spiritual conversation",
+      "type": "interaction",
+    }
+  }
+  myId="1"
+  person={
+    Object {
+      "full_name": "Full Name",
+      "id": "123",
+    }
+  }
+/>
+`;

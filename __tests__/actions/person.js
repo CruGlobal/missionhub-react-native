@@ -48,6 +48,8 @@ let auth;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+const expectedIncludeWithContactAssignmentPerson =
+  'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
 beforeEach(() => {
   auth = { person: { id: myId, user: { groups_feature: true } } };
@@ -107,7 +109,7 @@ describe('getPersonDetails', () => {
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
-      include: expectedInclude,
+      include: expectedIncludeWithContactAssignmentPerson,
     });
 
     expect(store.getActions()).toEqual([
@@ -123,27 +125,10 @@ describe('getPersonDetails', () => {
 });
 
 describe('updatePerson', () => {
-  const updateInclude =
-    'email_addresses,phone_numbers,reverse_contact_assignments';
+  const updateInclude = expectedIncludeWithContactAssignmentPerson;
 
   afterEach(() => {
     expect(dispatch).toHaveBeenCalled();
-  });
-
-  it('should throw an error if no first name', () => {
-    updatePerson({
-      id: 1,
-      lastName: 'Test Lname',
-    })(dispatch);
-    expect(callApi).not.toHaveBeenCalled();
-    expect(dispatch).toHaveBeenCalledWith({
-      type: 'UPDATE_PERSON_FAIL',
-      error: 'InvalidData',
-      data: {
-        id: 1,
-        lastName: 'Test Lname',
-      },
-    });
   });
 
   it('should update first name', () => {
@@ -204,10 +189,9 @@ describe('updatePerson', () => {
       },
     );
   });
-  it('should update email', () => {
+  it('should update email only', () => {
     updatePerson({
       id: 1,
-      firstName: 'Test Fname',
       email: 'a@a.com',
       emailId: 2,
     })(dispatch);
@@ -217,9 +201,6 @@ describe('updatePerson', () => {
       {
         data: {
           type: 'person',
-          attributes: {
-            first_name: 'Test Fname',
-          },
         },
         included: [
           {
@@ -231,10 +212,9 @@ describe('updatePerson', () => {
       },
     );
   });
-  it('should update phone', () => {
+  it('should update phone only', () => {
     updatePerson({
       id: 1,
-      firstName: 'Test Fname',
       phone: '1234567890',
       phoneId: 3,
     })(dispatch);
@@ -244,9 +224,6 @@ describe('updatePerson', () => {
       {
         data: {
           type: 'person',
-          attributes: {
-            first_name: 'Test Fname',
-          },
         },
         included: [
           {

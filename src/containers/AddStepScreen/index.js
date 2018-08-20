@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, Alert } from 'react-native';
+import { View, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { navigateBack } from '../../actions/navigation';
-import {
-  Button,
-  Text,
-  PlatformKeyboardAvoidingView,
-  Flex,
-  Input,
-} from '../../components/common';
+import { Button, Text, Flex, Input } from '../../components/common';
 import theme from '../../theme';
 import { STEP_NOTE, CREATE_STEP } from '../../constants';
 import { disableBack } from '../../utils/common';
@@ -58,7 +52,7 @@ class AddStepScreen extends Component {
 
   saveStep() {
     Keyboard.dismiss();
-    const text = this.state.step.trim();
+    const text = (this.state.step || '').trim();
     if (!text) {
       return;
     }
@@ -110,11 +104,13 @@ class AddStepScreen extends Component {
     );
   }
 
+  ref = c => (this.stepInput = c);
+
   render() {
     const { t, type, hideSkip } = this.props;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         {type === STEP_NOTE || (type === 'interaction' && !hideSkip) ? (
           <Flex align="end" justify="center">
             <Button
@@ -132,7 +128,7 @@ class AddStepScreen extends Component {
 
         <Flex value={1} style={styles.fieldWrap}>
           <Input
-            ref={c => (this.stepInput = c)}
+            ref={this.ref}
             onChangeText={this.onChangeText}
             value={this.state.step}
             multiline={true}
@@ -155,7 +151,7 @@ class AddStepScreen extends Component {
           />
         </Flex>
         {type !== STEP_NOTE ? <BackButton absolute={true} /> : null}
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

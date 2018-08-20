@@ -21,6 +21,9 @@ export default class Icon extends Component {
   setNativeProps(nProps) {
     this._view.setNativeProps(nProps);
   }
+
+  ref = c => (this._view = c);
+
   render() {
     const { name, type, size = 18, style = {} } = this.props;
     // Default style options
@@ -47,7 +50,7 @@ export default class Icon extends Component {
 
     return (
       <Tag
-        ref={c => (this._view = c)}
+        ref={this.ref}
         name={iconName}
         style={[styles.icon, { fontSize: size }, style]}
       />

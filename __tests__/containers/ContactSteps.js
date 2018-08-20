@@ -202,3 +202,23 @@ describe('handleCreateStep', () => {
     );
   });
 });
+
+it('should call key extractor', () => {
+  const instance = renderShallow(
+    <ContactSteps person={mockPerson} navigation={createMockNavState()} />,
+    store,
+  ).instance();
+
+  const item = { id: '1' };
+  const result = instance.keyExtractor(item);
+  expect(result).toEqual(item.id);
+});
+it('should call ref', () => {
+  const instance = renderShallow(
+    <ContactSteps person={mockPerson} navigation={createMockNavState()} />,
+    store,
+  ).instance();
+  const ref = 'test';
+  instance.ref(ref);
+  expect(instance.list).toEqual(ref);
+});

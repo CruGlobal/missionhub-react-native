@@ -22,34 +22,38 @@ jest.mock('../../../src/actions/surveys', () => ({
 }));
 common.refresh = jest.fn();
 
+const surveys = [
+  {
+    id: '1',
+    created_at: '2018-08-14T17:02:02Z',
+    title: 'Test Survey 1',
+    contacts_count: 5,
+    unassigned_contacts_count: 5,
+    uncontacted_contacts_count: 5,
+  },
+  {
+    id: '2',
+    created_at: '2018-08-14T17:02:02Z',
+    title: 'Test Survey 2',
+    contacts_count: 5,
+    unassigned_contacts_count: 5,
+    uncontacted_contacts_count: 5,
+  },
+  {
+    id: '3',
+    created_at: '2018-08-14T17:02:02Z',
+    title: 'Test Survey 3',
+    contacts_count: 5,
+    unassigned_contacts_count: 5,
+    uncontacted_contacts_count: 5,
+  },
+];
 const store = createMockStore({
   organizations: {
     all: [
       {
         id: '1',
-        surveys: [
-          {
-            id: '1',
-            title: 'Test Survey 1',
-            contacts_count: 5,
-            unassigned_contacts_count: 5,
-            uncontacted_contacts_count: 5,
-          },
-          {
-            id: '2',
-            title: 'Test Survey 2',
-            contacts_count: 5,
-            unassigned_contacts_count: 5,
-            uncontacted_contacts_count: 5,
-          },
-          {
-            id: '3',
-            title: 'Test Survey 3',
-            contacts_count: 5,
-            unassigned_contacts_count: 5,
-            uncontacted_contacts_count: 5,
-          },
-        ],
+        surveys,
       },
     ],
     surveysPagination: { hasNextPage: true },
@@ -102,5 +106,18 @@ describe('Surveys', () => {
     const instance = renderShallow(component, store).instance();
     instance.handleRefresh();
     expect(common.refresh).toHaveBeenCalled();
+  });
+
+  it('calls key extractor', () => {
+    const instance = renderShallow(component, store).instance();
+    const item = { id: '1' };
+    const result = instance.keyExtractor(item);
+    expect(result).toEqual(item.id);
+  });
+
+  it('renders item', () => {
+    const instance = renderShallow(component, store).instance();
+    const renderedItem = instance.renderItem({ item: surveys[0] });
+    expect(renderedItem).toMatchSnapshot();
   });
 });

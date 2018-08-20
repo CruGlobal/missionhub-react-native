@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<PlatformKeyboardAvoidingView
+<Component
   style={
     Object {
       "backgroundColor": "#E6E8EC",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
     }
   }
 >
@@ -44,5 +47,5 @@ exports[`Contact should render correctly 1`] = `
       }
     }
   />
-</PlatformKeyboardAvoidingView>
+</Component>
 `;

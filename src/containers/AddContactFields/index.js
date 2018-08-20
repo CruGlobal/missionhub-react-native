@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { ORG_PERMISSIONS } from '../../constants';
+import { orgPermissionSelector } from '../../selectors/people';
 import { Flex, Text, Input, RadioButton } from '../../components/common';
 import theme from '../../theme';
 import {
@@ -22,12 +24,20 @@ class AddContactFields extends Component {
     phone: '',
     gender: null,
     path: null,
+    orgPermission: {},
   };
 
   componentDidMount() {
-    const { person, isJean } = this.props;
+    const { person, orgPermission, isJean, organization } = this.props;
     // If person exists, then we are in edit mode
     if (!person) {
+      // Default the orgPermission for creating new people to 'Contact'
+      if (isJean && organization && organization.id) {
+        this.updateField('orgPermission', {
+          ...orgPermission,
+          permission_id: ORG_PERMISSIONS.CONTACT,
+        });
+      }
       return;
     }
     const email = getPersonEmailAddress(person) || {};
@@ -44,6 +54,7 @@ class AddContactFields extends Component {
               phoneId: phone.id,
               phone: phone.number,
               gender: person.gender,
+              orgPermission,
             }
           : {}),
       };
@@ -52,15 +63,62 @@ class AddContactFields extends Component {
     }
   }
 
+  updateOrgPermission = pId => {
+    this.updateField('orgPermission', {
+      ...this.state.orgPermission,
+      permission_id: pId,
+    });
+  };
+
   updateField(field, data) {
     this.setState({ [field]: data }, () => {
       this.props.onUpdateData(this.state);
     });
   }
 
+  firstNameRef = c => (this.firstName = c);
+
+  lastNameRef = c => (this.lastName = c);
+
+  emailRef = c => (this.email = c);
+
+  phoneRef = c => (this.phone = c);
+
+  lastNameFocus = () => this.lastName.focus();
+
+  emailFocus = () => this.email && this.email.focus();
+
+  phoneFocus = () => this.phone.focus();
+
+  updateFirstName = t => this.updateField('firstName', t);
+  updateLastName = t => this.updateField('lastName', t);
+  updateEmail = t => this.updateField('email', t);
+  updatePhone = t => this.updateField('phone', t);
+  updateGenderMale = () => this.updateField('gender', 'Male');
+  updateGenderFemale = () => this.updateField('gender', 'Female');
+
   render() {
-    const { t, isJean } = this.props;
-    const { firstName, lastName, email, phone, gender } = this.state;
+    const {
+      t,
+      isJean,
+      organization,
+      myOrgPermissions,
+      orgPermission: personOrgPermission,
+    } = this.props;
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      gender,
+      orgPermission,
+    } = this.state;
+
+    // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
+    const personHasOrgPermission =
+      personOrgPermission &&
+      (personOrgPermission.permission_id === ORG_PERMISSIONS.USER ||
+        personOrgPermission.permission_id === ORG_PERMISSIONS.ADMIN);
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
@@ -68,82 +126,133 @@ class AddContactFields extends Component {
             {t('profileLabels.firstNameRequired')}
           </Text>
           <Input
-            ref={c => (this.firstName = c)}
-            onChangeText={t => this.updateField('firstName', t)}
+            ref={this.firstNameRef}
+            editable={!personHasOrgPermission}
+            onChangeText={this.updateFirstName}
             value={firstName}
             placeholder={t('profileLabels.firstNameRequired')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.lastName.focus()}
+            onSubmitEditing={this.lastNameFocus}
           />
         </Flex>
         <Flex direction="column">
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
-            ref={c => (this.lastName = c)}
-            onChangeText={t => this.updateField('lastName', t)}
+            ref={this.lastNameRef}
+            editable={!personHasOrgPermission}
+            onChangeText={this.updateLastName}
             value={lastName}
             placeholder={t('profileLabels.lastName')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => this.email && this.email.focus()}
+            onSubmitEditing={this.emailFocus}
           />
         </Flex>
-        {isJean
-          ? [
-              <Flex direction="column" key="email">
-                <Text style={styles.label}>{t('profileLabels.email')}</Text>
-                <Input
-                  ref={c => (this.email = c)}
-                  onChangeText={t => this.updateField('email', t)}
-                  value={email}
-                  placeholder={t('profileLabels.email')}
-                  placeholderTextColor={theme.white}
-                  keyboardType="email-address"
-                  returnKeyType="next"
-                  blurOnSubmit={false}
-                  onSubmitEditing={() => this.phone.focus()}
-                />
-              </Flex>,
-              <Flex
-                direction="row"
-                align="center"
-                style={styles.genderRow}
-                key="gender"
-              >
-                <Text style={styles.genderText}>
-                  {t('profileLabels.gender')}:
+        {isJean ? (
+          <Fragment>
+            <Flex direction="column" key="email">
+              <Text style={styles.label}>{t('profileLabels.email')}</Text>
+              <Input
+                ref={this.emailRef}
+                onChangeText={this.updateEmail}
+                value={email}
+                autoCapitalize="none"
+                placeholder={t('profileLabels.email')}
+                placeholderTextColor={theme.white}
+                keyboardType="email-address"
+                returnKeyType="next"
+                blurOnSubmit={false}
+                onSubmitEditing={this.phoneFocus}
+              />
+            </Flex>
+            <Flex
+              direction="row"
+              align="center"
+              style={styles.genderRow}
+              key="gender"
+            >
+              <Text style={styles.genderText}>
+                {t('profileLabels.gender')}:
+              </Text>
+              <RadioButton
+                style={styles.genderRadioButton}
+                onSelect={this.updateGenderMale}
+                checked={gender === 'Male'}
+                label={t('gender.male')}
+              />
+              <RadioButton
+                style={styles.genderRadioButton}
+                onSelect={this.updateGenderFemale}
+                checked={gender === 'Female'}
+                label={t('gender.female')}
+              />
+            </Flex>
+            <Flex direction="column" key="phone">
+              <Text style={styles.label}>{t('profileLabels.phone')}</Text>
+              <Input
+                ref={this.phoneRef}
+                onChangeText={this.updatePhone}
+                value={phone}
+                placeholder={t('profileLabels.phone')}
+                placeholderTextColor={theme.white}
+                keyboardType="phone-pad"
+                returnKeyType="done"
+                blurOnSubmit={true}
+              />
+            </Flex>
+            {organization && organization.id ? (
+              <Fragment>
+                <Text style={styles.label}>
+                  {t('profileLabels.permissions')}:
                 </Text>
-                <RadioButton
-                  style={styles.radioButton}
-                  onSelect={() => this.updateField('gender', 'Male')}
-                  checked={gender === 'Male'}
-                  label={t('gender.male')}
-                />
-                <RadioButton
-                  style={styles.radioButton}
-                  onSelect={() => this.updateField('gender', 'Female')}
-                  checked={gender === 'Female'}
-                  label={t('gender.female')}
-                />
-              </Flex>,
-              <Flex direction="column" key="phone">
-                <Text style={styles.label}>{t('profileLabels.phone')}</Text>
-                <Input
-                  ref={c => (this.phone = c)}
-                  onChangeText={t => this.updateField('phone', t)}
-                  value={phone}
-                  placeholder={t('profileLabels.phone')}
-                  placeholderTextColor={theme.white}
-                  keyboardType="phone-pad"
-                  returnKeyType="done"
-                  blurOnSubmit={true}
-                />
-              </Flex>,
-            ]
-          : []}
+                <Flex
+                  direction="row"
+                  align="center"
+                  style={styles.permissionsRow}
+                >
+                  <RadioButton
+                    style={styles.contactRadioButton}
+                    pressProps={[ORG_PERMISSIONS.CONTACT]}
+                    onSelect={this.updateOrgPermission}
+                    checked={
+                      orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
+                    }
+                    label={t('profileLabels.contact')}
+                  />
+                  {myOrgPermissions &&
+                  (myOrgPermissions.permission_id === ORG_PERMISSIONS.USER ||
+                    myOrgPermissions.permission_id ===
+                      ORG_PERMISSIONS.ADMIN) ? (
+                    <RadioButton
+                      style={styles.userRadioButton}
+                      pressProps={[ORG_PERMISSIONS.USER]}
+                      onSelect={this.updateOrgPermission}
+                      checked={
+                        orgPermission.permission_id === ORG_PERMISSIONS.USER
+                      }
+                      label={t('profileLabels.user')}
+                    />
+                  ) : null}
+                  {myOrgPermissions &&
+                  myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+                    <RadioButton
+                      style={styles.adminRadioButton}
+                      pressProps={[ORG_PERMISSIONS.ADMIN]}
+                      onSelect={this.updateOrgPermission}
+                      checked={
+                        orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
+                      }
+                      label={t('profileLabels.admin')}
+                    />
+                  ) : null}
+                </Flex>
+              </Fragment>
+            ) : null}
+          </Fragment>
+        ) : null}
       </KeyboardAvoidingView>
     );
   }
@@ -154,4 +263,22 @@ AddContactFields.propTypes = {
   onUpdateData: PropTypes.func.isRequired,
 };
 
-export default connect()(AddContactFields);
+const mapStateToProps = ({ auth }, { person, organization }) => ({
+  myOrgPermissions:
+    auth &&
+    organization &&
+    organization.id &&
+    orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    }),
+  orgPermission:
+    person &&
+    organization &&
+    organization.id &&
+    orgPermissionSelector(null, {
+      person,
+      organization: { id: organization.id },
+    }),
+});
+export default connect(mapStateToProps)(AddContactFields);

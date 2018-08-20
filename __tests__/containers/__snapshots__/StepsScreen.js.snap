@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StepsScreen arrow functions should render item correctly 1`] = `
+<Translate(RowSwipeable)
+  bump={true}
+  completePressProps={
+    Array [
+      Object {
+        "id": 2,
+      },
+    ]
+  }
+  deletePressProps={
+    Array [
+      Object {
+        "id": 2,
+      },
+    ]
+  }
+  onBumpComplete={[Function]}
+  onComplete={[Function]}
+  onDelete={[Function]}
+>
+  <Connect(Translate(StepItem))
+    hideAction={false}
+    onAction={[Function]}
+    onSelect={[Function]}
+    step={
+      Object {
+        "id": 2,
+      }
+    }
+    type="swipeable"
+  />
+</Translate(RowSwipeable)>
+`;
+
 exports[`StepsScreen mapStateToProps should provide the necessary props 1`] = `
 Object {
   "hasMoreSteps": true,
@@ -99,6 +134,22 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
       >
         <Translate(RowSwipeable)
           bump={true}
+          completePressProps={
+            Array [
+              Object {
+                "id": 11,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 11,
+                "reminder": true,
+              },
+            ]
+          }
           key="11"
           onBumpComplete={[Function]}
           onComplete={[Function]}
@@ -118,6 +169,22 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
         </Translate(RowSwipeable)>
         <Translate(RowSwipeable)
           bump={false}
+          completePressProps={
+            Array [
+              Object {
+                "id": 12,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 12,
+                "reminder": true,
+              },
+            ]
+          }
           key="12"
           onComplete={[Function]}
           onDelete={[Function]}
@@ -136,6 +203,22 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
         </Translate(RowSwipeable)>
         <Translate(RowSwipeable)
           bump={false}
+          completePressProps={
+            Array [
+              Object {
+                "id": 13,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 13,
+                "reminder": true,
+              },
+            ]
+          }
           key="13"
           onComplete={[Function]}
           onDelete={[Function]}
@@ -278,6 +361,22 @@ exports[`StepsScreen renders empty screen correctly 1`] = `
       >
         <Translate(RowSwipeable)
           bump={true}
+          completePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
           key="1"
           onBumpComplete={[Function]}
           onComplete={[Function]}
@@ -443,6 +542,22 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
       >
         <Translate(RowSwipeable)
           bump={true}
+          completePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
+          deletePressProps={
+            Array [
+              Object {
+                "id": 1,
+                "reminder": true,
+              },
+            ]
+          }
           key="1"
           onBumpComplete={[Function]}
           onComplete={[Function]}

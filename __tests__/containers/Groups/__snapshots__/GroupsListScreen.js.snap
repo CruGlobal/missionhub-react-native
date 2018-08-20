@@ -18,37 +18,159 @@ exports[`GroupsListScreen should render correctly 1`] = `
     }
     title="COMMUNITIES"
   />
-  <FlatList
-    data={
-      Array [
-        Object {
-          "id": "1",
-          "name": "Test Org 1",
-        },
-        Object {
-          "id": "2",
-          "name": "Test Org 2",
-        },
-      ]
-    }
-    disableVirtualization={false}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onEndReachedThreshold={2}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    style={
+  <ScrollView
+    contentContainerStyle={
       Object {
-        "backgroundColor": "#E6E8EC",
         "flex": 1,
-        "paddingVertical": 8,
       }
     }
-    updateCellsBatchingPeriod={50}
-    windowSize={21}
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
+  >
+    <FlatList
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "name": "Test Org 1",
+          },
+          Object {
+            "id": "2",
+            "name": "Test Org 2",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      style={
+        Object {
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 8,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
+</Component>
+`;
+
+exports[`GroupsListScreen should render item 1`] = `
+<Translate(GroupCardItem)
+  group={
+    Object {
+      "contactReport": Object {},
+      "id": "1",
+      "name": "test",
+    }
+  }
+  onPress={[Function]}
+/>
+`;
+
+exports[`GroupsListScreen should render null 1`] = `
+<NullStateComponent
+  descriptionText="Your communities will show up here."
+  headerText="COMMUNITIES"
+  imageSource={
+    Object {
+      "testUri": "../../../assets/images/MemberContacts.png",
+    }
+  }
+/>
+`;
+
+exports[`should render null state 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="menuIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="COMMUNITIES"
   />
+  <ScrollView
+    contentContainerStyle={
+      Object {
+        "flex": 1,
+      }
+    }
+    refreshControl={
+      <MyRefreshControl
+        colors={
+          Array [
+            "#ffffff",
+            "#52C5DC",
+          ]
+        }
+        onRefresh={[Function]}
+        progressBackgroundColor="#007398"
+        refreshing={false}
+        tintColor="#007398"
+      />
+    }
+  >
+    <FlatList
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "name": "Test Org 1",
+          },
+          Object {
+            "id": "2",
+            "name": "Test Org 2",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      style={
+        Object {
+          "backgroundColor": "#E6E8EC",
+          "flex": 1,
+          "paddingVertical": 8,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </ScrollView>
 </Component>
 `;

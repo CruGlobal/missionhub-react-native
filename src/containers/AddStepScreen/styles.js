@@ -6,7 +6,9 @@ import { isiPhoneX } from '../../utils/common';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.primaryColor,
+    justifyContent: 'space-between',
+    flexDirection: 'column',
   },
   header: {
     fontSize: 36,

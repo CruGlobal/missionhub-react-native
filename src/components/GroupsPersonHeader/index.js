@@ -16,7 +16,7 @@ import {
   getStageIndex,
 } from '../../utils/common';
 import AssignToMeButton from '../AssignToMeButton/index';
-import CenteredIconWithText from '../CenteredIconButtonWithText';
+import CenteredIconButtonWithText from '../CenteredIconButtonWithText';
 import { Flex } from '../common';
 import { openCommunicationLink } from '../../actions/misc';
 
@@ -233,7 +233,7 @@ export default class GroupsPersonHeader extends Component {
 
   button(icon, text, onClick, buttonStyle, flexStyle) {
     return (
-      <CenteredIconWithText
+      <CenteredIconButtonWithText
         key={uuidv4()}
         icon={icon}
         text={text}
@@ -246,7 +246,16 @@ export default class GroupsPersonHeader extends Component {
 
   render() {
     const { buttons } = this.state;
-    const { contactAssignment, myId, person, organization } = this.props;
+    const {
+      contactAssignment,
+      myId,
+      person,
+      organization,
+      isVisible,
+    } = this.props;
+    if (isVisible === false) {
+      return null;
+    }
 
     return (
       <Flex>
@@ -268,4 +277,5 @@ GroupsPersonHeader.propTypes = {
   dispatch: PropTypes.func.isRequired,
   myId: PropTypes.string.isRequired,
   stages: PropTypes.array.isRequired,
+  isVisible: PropTypes.bool,
 };

@@ -7,11 +7,13 @@ import Adapter from 'enzyme-adapter-react-16';
 import SearchPeopleScreenConnected, {
   SearchPeopleScreen,
 } from '../../src/containers/SearchPeopleScreen';
-import { testSnapshot, createMockStore } from '../../testUtils';
+import { testSnapshot, createMockStore, renderShallow } from '../../testUtils';
 
 const store = createMockStore();
 
 jest.mock('react-native-device-info');
+
+const mockDispatch = r => Promise.resolve(r);
 
 it('renders correctly', () => {
   testSnapshot(
@@ -68,10 +70,9 @@ describe('renders filtered with organization people', () => {
 
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
-    screen = shallow(
-      <SearchPeopleScreen dispatch={r => Promise.resolve(r)} />,
-      { context: { store: store } },
-    );
+    screen = shallow(<SearchPeopleScreen dispatch={mockDispatch} />, {
+      context: { store: store },
+    });
   });
 
   it('should combine organizations', () => {
@@ -101,5 +102,33 @@ describe('renders filtered with organization people', () => {
         unique_key: '101_1',
       },
     ]);
+  });
+});
+
+describe('calls methods', () => {
+  let instance;
+
+  beforeEach(() => {
+    Enzyme.configure({ adapter: new Adapter() });
+    instance = renderShallow(<SearchPeopleScreen dispatch={mockDispatch} />, {
+      context: { store: store },
+    }).instance();
+  });
+
+  it('calls list key extractor', () => {
+    const item = { id: '1' };
+    const result = instance.listKeyExtractor(item);
+    expect(result).toEqual(item.id);
+  });
+
+  it('calls render item', () => {
+    const renderedItem = instance.renderItem({
+      item: {
+        id: '1',
+        full_name: 'Ron Swanson',
+        organization: { name: 'Cru at Harvard' },
+      },
+    });
+    expect(renderedItem).toMatchSnapshot();
   });
 });

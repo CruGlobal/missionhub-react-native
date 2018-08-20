@@ -26,7 +26,8 @@ export default class NullStateComponent extends Component {
 }
 
 NullStateComponent.propTypes = {
-  imageSource: PropTypes.number.isRequired,
+  imageSource: PropTypes.oneOfType([PropTypes.object, PropTypes.number])
+    .isRequired,
   headerText: PropTypes.string.isRequired,
   descriptionText: PropTypes.string.isRequired,
 };

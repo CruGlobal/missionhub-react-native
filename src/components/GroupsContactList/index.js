@@ -12,8 +12,16 @@ import styles from './styles';
 
 @translate('groupsContactList')
 class GroupsContactList extends Component {
+  keyExtractor = i => `${i.id}-${i._type}`;
+
+  renderItem = ({ item }) => {
+    const { person, myId } = this.props;
+
+    return <GroupsContactItem person={person} item={item} myId={myId} />;
+  };
+
   renderContent() {
-    const { t, activity, person, myId } = this.props;
+    const { t, activity } = this.props;
 
     if (activity.length === 0) {
       return (
@@ -29,10 +37,8 @@ class GroupsContactList extends Component {
     return (
       <FlatList
         data={activity}
-        keyExtractor={i => `${i.id}-${i._type}`}
-        renderItem={({ item }) => (
-          <GroupsContactItem person={person} item={item} myId={myId} />
-        )}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
         contentContainerStyle={styles.list}
       />
     );

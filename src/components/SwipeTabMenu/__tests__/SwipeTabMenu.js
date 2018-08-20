@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 jest.mock('react-navigation', () => ({
   createMaterialTopTabNavigator: jest.fn(),
 }));
 
 import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '../';
+import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
@@ -62,9 +63,10 @@ it('should navigate on press', () => {
   );
 
   component
-    .find(TouchableWithoutFeedback)
+    .find(Touchable)
     .last()
-    .simulate('press');
+    .props()
+    .onPress(1);
 
   expect(navigatePush).toHaveBeenCalledWith(tabs[1].navigationAction);
 });
@@ -113,7 +115,11 @@ describe('generateSwipeTabMenuNavigator', () => {
         [tabs[0].navigationAction]: tabs[0].component,
         [tabs[1].navigationAction]: tabs[1].component,
       },
-      { backBehavior: 'none', tabBarComponent: expect.any(Function) },
+      {
+        backBehavior: 'none',
+        swipeEnabled: false,
+        tabBarComponent: expect.any(Function),
+      },
     );
 
     const TabBarComponent =

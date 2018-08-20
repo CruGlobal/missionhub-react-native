@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`calls methods calls render item 1`] = `
+<SearchPeopleItem
+  onSelect={[Function]}
+  person={
+    Object {
+      "full_name": "Ron Swanson",
+      "id": "1",
+      "organization": Object {
+        "name": "Cru at Harvard",
+      },
+    }
+  }
+/>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={

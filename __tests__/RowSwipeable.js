@@ -24,7 +24,7 @@ it('renders correctly', () => {
 
 it('renders remove/complete actions correctly', () => {
   testSnapshot(
-    <RowSwipeable onComplete={() => {}} onDelete={() => {}}>
+    <RowSwipeable onComplete={jest.fn()} onDelete={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -32,7 +32,7 @@ it('renders remove/complete actions correctly', () => {
 
 it('renders edit action correctly', () => {
   testSnapshot(
-    <RowSwipeable onEdit={() => {}}>
+    <RowSwipeable onEdit={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -40,7 +40,7 @@ it('renders edit action correctly', () => {
 
 it('renders edit bump correctly', () => {
   testSnapshot(
-    <RowSwipeable bump={true} onBumpComplete={() => {}}>
+    <RowSwipeable bump={true} onBumpComplete={jest.fn()}>
       <View />
     </RowSwipeable>,
   );
@@ -48,10 +48,19 @@ it('renders edit bump correctly', () => {
 
 describe('swipe gestures', () => {
   let swipeComponent;
+  const pressProps = ['test'];
+  const props = {
+    onComplete: jest.fn(),
+    onEdit: jest.fn(),
+    onDelete: jest.fn(),
+    deletePressProps: pressProps,
+    completePressProps: pressProps,
+    editPressProps: pressProps,
+  };
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
-      <RowSwipeable onEdit={() => {}}>
+      <RowSwipeable {...props}>
         <View />
       </RowSwipeable>,
     );
@@ -64,7 +73,7 @@ describe('swipe gestures', () => {
 
   it('opens swipe after gesture', () => {
     swipeComponent.snapBack(undefined, {
-      dx: -100,
+      dx: -300,
     });
     expect(swipeComponent.isOpen).toBe(true);
   });
@@ -123,5 +132,20 @@ describe('swipe gestures', () => {
     result();
     expect(cb).toHaveBeenCalledTimes(1);
     expect(swipeComponent.isOpen).toBe(false);
+  });
+
+  it('handles delete', () => {
+    swipeComponent.handleDelete();
+    expect(props.onDelete).toHaveBeenCalledWith(pressProps[0]);
+  });
+
+  it('handles complete', () => {
+    swipeComponent.handleComplete();
+    expect(props.onComplete).toHaveBeenCalledWith(pressProps[0]);
+  });
+
+  it('handles edit', () => {
+    swipeComponent.handleEdit();
+    expect(props.onEdit).toHaveBeenCalledWith(pressProps[0]);
   });
 });

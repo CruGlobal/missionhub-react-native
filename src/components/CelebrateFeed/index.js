@@ -16,6 +16,26 @@ class CelebrateFeed extends Component {
     this.state = { ...this.state, isListScrolled: false };
   }
 
+  renderSectionHeader = ({ section: { date } }) => {
+    const { title, header } = styles;
+
+    return (
+      <Flex style={header} align="center">
+        <DateComponent date={date} format={'relative'} style={title} />
+      </Flex>
+    );
+  };
+
+  renderItem = ({ item }) => (
+    <CelebrateItem
+      event={item}
+      myId={this.props.myId}
+      onToggleLike={this.handleToggleLike}
+    />
+  );
+
+  keyExtractor = item => item.id;
+
   handleOnEndReached = () => {
     if (this.state.isListScrolled) {
       this.props.loadMoreItemsCallback();
@@ -39,32 +59,19 @@ class CelebrateFeed extends Component {
   };
 
   render() {
-    const { title, header } = styles;
-    const { items, myId } = this.props;
+    const { items, refreshing } = this.props;
 
     return (
       <SectionList
         sections={items}
-        renderSectionHeader={({ section: { date } }) => (
-          <Flex style={header} align="center">
-            <DateComponent date={date} format={'relative'} style={title} />
-          </Flex>
-        )}
-        renderItem={({ item }) => (
-          <CelebrateItem
-            event={item}
-            myId={myId}
-            onToggleLike={this.handleToggleLike}
-          />
-        )}
-        keyExtractor={item => {
-          return item.id;
-        }}
+        renderSectionHeader={this.renderSectionHeader}
+        renderItem={this.renderItem}
+        keyExtractor={this.keyExtractor}
         onEndReachedThreshold={0.2}
         onEndReached={this.handleOnEndReached}
         onScrollEndDrag={this.handleEndDrag}
         onRefresh={this.handleRefreshing}
-        refreshing={false}
+        refreshing={refreshing || false}
       />
     );
   }
@@ -74,6 +81,7 @@ CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
+  refreshing: PropTypes.bool,
 };
 
 export const mapStateToProps = ({ auth }) => ({

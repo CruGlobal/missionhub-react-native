@@ -8,7 +8,7 @@ import { searchSurveyContacts } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { searchRemoveFilter } from '../../utils/common';
+import { searchRemoveFilter } from '../../utils/filters';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
@@ -56,11 +56,12 @@ class SurveyContacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch, survey } = this.props;
+    const { dispatch, survey, organization } = this.props;
     const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_SURVEY_CONTACTS_FILTER_SCREEN, {
         survey,
+        organization,
         onFilter: this.handleChangeFilter,
         filters,
       }),
@@ -113,6 +114,20 @@ class SurveyContacts extends Component {
     return response.map(a => a.person);
   };
 
+  ref = c => (this.searchList = c);
+
+  renderItem = ({ item }) => {
+    const { organization } = this.props;
+
+    return (
+      <ContactItem
+        organization={organization}
+        contact={item}
+        onSelect={this.handleSelect}
+      />
+    );
+  };
+
   render() {
     const { t, organization } = this.props;
     const { filters, defaultResults } = this.state;
@@ -121,17 +136,11 @@ class SurveyContacts extends Component {
       <Flex value={1}>
         <Header left={<BackButton />} title={orgName} />
         <SearchList
-          ref={c => (this.searchList = c)}
+          ref={this.ref}
           defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
-            renderItem: ({ item }) => (
-              <ContactItem
-                organization={organization}
-                contact={item}
-                onSelect={this.handleSelect}
-              />
-            ),
+            renderItem: this.renderItem,
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}

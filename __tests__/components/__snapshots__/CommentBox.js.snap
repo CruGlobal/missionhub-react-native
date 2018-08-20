@@ -8,7 +8,8 @@ exports[`renders focused 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -114,7 +115,8 @@ exports[`renders with actions 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -220,7 +222,8 @@ exports[`renders with actions 2`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -330,6 +333,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="2"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritualConversationIcon",
+            "id": 2,
+            "isOnAction": true,
+            "tracking": "cru.initiatinggospelconversations",
+            "translationKey": "interactionSpiritualConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -364,6 +378,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -378,6 +393,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="3"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "gospelIcon",
+            "id": 3,
+            "isOnAction": true,
+            "tracking": "cru.presentingthegospel",
+            "translationKey": "interactionGospel",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -412,6 +438,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -426,6 +453,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="4"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "decisionIcon",
+            "id": 4,
+            "isOnAction": true,
+            "tracking": "cru.newprofessingbelievers",
+            "translationKey": "interactionDecision",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -460,6 +498,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -474,6 +513,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="5"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritIcon",
+            "id": 5,
+            "isOnAction": true,
+            "tracking": "cru.presentingtheholyspirit",
+            "translationKey": "interactionSpirit",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -508,6 +558,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -522,6 +573,17 @@ exports[`renders with actions 2`] = `
     <TouchableIOS
       key="9"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "discipleshipConversationIcon",
+            "id": 9,
+            "isOnAction": true,
+            "tracking": "cru.discipleshipconversation",
+            "translationKey": "interactionDiscipleshipConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -556,6 +618,7 @@ exports[`renders with actions 2`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -579,7 +642,8 @@ exports[`renders with actions and selected action 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -765,6 +829,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="2"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritualConversationIcon",
+            "id": 2,
+            "isOnAction": true,
+            "tracking": "cru.initiatinggospelconversations",
+            "translationKey": "interactionSpiritualConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -801,6 +876,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -815,6 +891,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="3"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "gospelIcon",
+            "id": 3,
+            "isOnAction": true,
+            "tracking": "cru.presentingthegospel",
+            "translationKey": "interactionGospel",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -849,6 +936,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -863,6 +951,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="4"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "decisionIcon",
+            "id": 4,
+            "isOnAction": true,
+            "tracking": "cru.newprofessingbelievers",
+            "translationKey": "interactionDecision",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -897,6 +996,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -911,6 +1011,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="5"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "spiritIcon",
+            "id": 5,
+            "isOnAction": true,
+            "tracking": "cru.presentingtheholyspirit",
+            "translationKey": "interactionSpirit",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -945,6 +1056,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -959,6 +1071,17 @@ exports[`renders with actions and selected action 1`] = `
     <TouchableIOS
       key="9"
       onPress={[Function]}
+      pressProps={
+        Array [
+          Object {
+            "iconName": "discipleshipConversationIcon",
+            "id": 9,
+            "isOnAction": true,
+            "tracking": "cru.discipleshipconversation",
+            "translationKey": "interactionDiscipleshipConversation",
+          },
+        ]
+      }
       style={
         Object {
           "alignItems": "center",
@@ -993,6 +1116,7 @@ exports[`renders with actions and selected action 1`] = `
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        numberOfLines={2}
         style={
           Object {
             "color": "#4E4C4E",
@@ -1016,7 +1140,8 @@ exports[`renders with text 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -1132,7 +1257,8 @@ exports[`renders without actions 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }
@@ -1211,7 +1337,8 @@ exports[`renders without actions and selected action 1`] = `
       "backgroundColor": "#ffffff",
       "borderTopColor": "#B2B0B2",
       "borderTopWidth": 1,
-      "paddingVertical": 5,
+      "paddingBottom": 5,
+      "paddingTop": 5,
       "width": 750,
     }
   }

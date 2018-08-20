@@ -27,6 +27,8 @@ export class SideMenu extends Component {
     return false;
   };
 
+  closeDrawer = () => this.props.dispatch(DrawerActions.closeDrawer());
+
   render() {
     const { menuItems } = this.props;
     return (
@@ -34,7 +36,7 @@ export class SideMenu extends Component {
         <Flex style={styles.buttonContainer}>
           <IconButton
             style={styles.button}
-            onPress={() => this.props.dispatch(DrawerActions.closeDrawer())}
+            onPress={this.closeDrawer}
             name="close"
             type="Material"
             size={20}

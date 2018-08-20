@@ -24,12 +24,12 @@ class WelcomeScreen extends Component {
     disableBack.remove();
   }
 
-  navigateToNext() {
+  navigateToNext = () => {
     // Remove the back handler when moving forward
     disableBack.remove();
 
     this.props.dispatch(navigatePush(SETUP_SCREEN));
-  }
+  };
 
   render() {
     const { t } = this.props;
@@ -46,7 +46,7 @@ class WelcomeScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={() => this.navigateToNext()}
+            onPress={this.navigateToNext}
             text={t('ok').toUpperCase()}
             style={{ width: theme.fullWidth }}
           />

@@ -9,7 +9,7 @@ import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { searchRemoveFilter } from '../../utils/common';
+import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
@@ -56,11 +56,12 @@ class Contacts extends Component {
   };
 
   handleFilterPress = () => {
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     const { filters } = this.state;
     dispatch(
       navigatePush(SEARCH_CONTACTS_FILTER_SCREEN, {
         onFilter: this.handleChangeFilter,
+        organization,
         filters,
       }),
     );
@@ -106,23 +107,27 @@ class Contacts extends Component {
     dispatch(navToPersonScreen(person, organization));
   };
 
+  listRef = c => (this.searchList = c);
+
+  renderItem = ({ item }) => (
+    <ContactItem
+      organization={this.props.organization}
+      contact={item}
+      onSelect={this.handleSelect}
+    />
+  );
+
   render() {
-    const { t, organization } = this.props;
+    const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
         <SearchList
-          ref={c => (this.searchList = c)}
+          ref={this.listRef}
           defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
           listProps={{
-            renderItem: ({ item }) => (
-              <ContactItem
-                organization={organization}
-                contact={item}
-                onSelect={this.handleSelect}
-              />
-            ),
+            renderItem: this.renderItem,
           }}
           onSearch={this.handleSearch}
           onRemoveFilter={this.handleRemoveFilter}

@@ -4,18 +4,29 @@ import {
   View,
   TouchableOpacity,
   TouchableNativeFeedback,
+  TouchableWithoutFeedback,
   Platform,
 } from 'react-native';
 
 import theme from '../../theme';
 
 class TouchableAndroid extends Component {
+  handlePress = () => {
+    const { pressProps, onPress } = this.props;
+    if (onPress) {
+      // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
+      onPress.apply(null, pressProps);
+    }
+  };
   render() {
+    // Remove `pressProps` so that they aren't included in the `...rest` array
     const {
       borderless = false,
       isAndroidOpacity,
       children,
       style,
+      pressProps, // eslint-disable-line no-unused-vars
+      withoutFeedback,
       ...rest
     } = this.props;
 
@@ -26,9 +37,22 @@ class TouchableAndroid extends Component {
           activeOpacity={0.6}
           style={style}
           {...rest}
+          onPress={this.handlePress}
         >
           {children}
         </TouchableOpacity>
+      );
+    }
+
+    if (withoutFeedback) {
+      return (
+        <TouchableWithoutFeedback
+          accessibilityTraits="button"
+          {...rest}
+          onPress={this.handlePress}
+        >
+          {children}
+        </TouchableWithoutFeedback>
       );
     }
     let background;
@@ -54,6 +78,7 @@ class TouchableAndroid extends Component {
         accessibilityTraits="button"
         background={background}
         {...rest}
+        onPress={this.handlePress}
       >
         {content}
       </TouchableNativeFeedback>
@@ -63,7 +88,10 @@ class TouchableAndroid extends Component {
 
 TouchableAndroid.propTypes = {
   borderless: PropTypes.bool,
+  withoutFeedback: PropTypes.bool,
   isAndroidOpacity: PropTypes.bool,
+  pressProps: PropTypes.array,
+  onPress: PropTypes.func,
 };
 
 export default TouchableAndroid;

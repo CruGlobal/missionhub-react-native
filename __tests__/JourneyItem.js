@@ -3,7 +3,7 @@ import React from 'react';
 
 import { getAssignedByName, getAssignedToName } from '../src/utils/common';
 import JourneyItem from '../src/components/JourneyItem';
-import { testSnapshotShallow } from '../testUtils';
+import { testSnapshotShallow, renderShallow } from '../testUtils';
 
 jest.mock('../src/utils/common');
 
@@ -194,4 +194,19 @@ it('renders contact_unassignment correctly', () => {
   );
 
   expect(getAssignedToName).toHaveBeenCalledWith(myId, item);
+});
+
+it('should call ref', () => {
+  const item = {
+    id: '6',
+    _type: 'contact_unassignment',
+    created_at: date,
+  };
+
+  const instance = renderShallow(
+    <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
+  ).instance();
+  const ref = 'test';
+  instance.ref(ref);
+  expect(instance._view).toEqual(ref);
 });

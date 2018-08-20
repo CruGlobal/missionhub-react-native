@@ -36,7 +36,7 @@ export class SearchPeopleFilterScreen extends Component {
       },
       {
         id: 'labels',
-        text: t('labels'),
+        text: t('label'),
         options: 'labels',
         preview: props.filters.labels ? props.filters.labels.text : undefined,
       },
@@ -89,7 +89,7 @@ export class SearchPeopleFilterScreen extends Component {
     this.handleSelectFilter = this.handleSelectFilter.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
     if (!this.props.organizations.length) {
       this.props.dispatch(getMyOrganizations());
@@ -247,10 +247,10 @@ const mapStateToProps = (
   { navigation },
 ) => ({
   ...(navigation.state.params || {}),
-  organizations: organizations.all,
-  groups: groups.all,
-  surveys: surveys.all,
-  labels: labels.all,
+  organizations: organizations.all || [],
+  groups: groups.all || [],
+  surveys: surveys.all || [],
+  labels: labels.all || [],
 });
 
 export default connect(mapStateToProps)(SearchPeopleFilterScreen);

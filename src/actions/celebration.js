@@ -4,7 +4,7 @@ import callApi, { REQUESTS } from './api';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.find(o => {
+    const org = (getState().organizations.all || []).find(o => {
       return o.id === orgId;
     });
 
@@ -16,20 +16,21 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
       return Promise.reject('NoMoreData');
     }
     const query = buildQuery(orgId, personId, page);
-    dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
+    return dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
   };
 }
 
 export function reloadGroupCelebrateFeed(orgId) {
   return (dispatch, getState) => {
-    const org = getState().organizations.all.find(o => {
+    const org = (getState().organizations.all || []).find(o => {
       return o.id === orgId;
     });
 
     if (org && org.celebratePagination) {
       dispatch(resetPaginationAction(orgId));
-      dispatch(getGroupCelebrateFeed(orgId));
+      return dispatch(getGroupCelebrateFeed(orgId));
     }
+    return Promise.resolve();
   };
 }
 

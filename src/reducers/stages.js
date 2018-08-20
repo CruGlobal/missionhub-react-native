@@ -9,7 +9,7 @@ const initialStagesState = {
 function stagesReducer(state = initialStagesState, action) {
   switch (action.type) {
     case REQUESTS.GET_STAGES.SUCCESS:
-      const stages = action.results.findAll('pathway_stage') || [];
+      const stages = (action.results || []).findAll('pathway_stage') || [];
       const stagesObj = stages.reduce((p, n) => {
         p[`${n.id}`] = n;
         return p;

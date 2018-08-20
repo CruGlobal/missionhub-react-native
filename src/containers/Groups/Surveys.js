@@ -46,17 +46,21 @@ class Surveys extends Component {
     dispatch(getOrgSurveysNextPage(organization.id));
   };
 
+  keyExtractor = i => i.id;
+
+  renderItem = ({ item }) => (
+    <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
+  );
+
   render() {
     const { surveys, pagination } = this.props;
     return (
       <Flex value={1}>
         <FlatList
           data={surveys}
-          keyExtractor={i => i.id}
+          keyExtractor={this.keyExtractor}
           style={styles.flatList}
-          renderItem={({ item }) => (
-            <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
-          )}
+          renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}

@@ -56,7 +56,10 @@ describe('SurveyQuestionsFilter', () => {
 
   beforeEach(() => {
     component = renderShallow(
-      <SurveyQuestionsFilter navigation={nav} dispatch={() => jest.fn()} />,
+      <SurveyQuestionsFilter
+        navigation={nav}
+        dispatch={jest.fn(() => jest.fn())}
+      />,
     );
     instance = component.instance();
   });

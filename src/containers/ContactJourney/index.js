@@ -24,7 +24,8 @@ class ContactJourney extends Component {
   constructor(props) {
     super(props);
 
-    const isPersonal = !props.isCasey && !props.organization;
+    const org = props.organization || {};
+    const isPersonal = props.isCasey || !org.id || org.id === 'personal';
 
     this.state = {
       editingInteraction: null,
@@ -99,7 +100,8 @@ class ContactJourney extends Component {
       return (
         <RowSwipeable
           key={item.id}
-          onEdit={() => this.handleEditInteraction(item)}
+          editPressProps={[item]}
+          onEdit={this.handleEditInteraction}
           bump={showReminder && item.isFirstInteraction}
           onBumpComplete={
             showReminder && item.isFirstInteraction
@@ -114,19 +116,24 @@ class ContactJourney extends Component {
     return content;
   }
 
+  listRef = c => (this.list = c);
+  keyExtractor = i => `${i.id}-${i._type}`;
+  itemSeparator = (sectionID, rowID) => <Separator key={rowID} />;
+
   renderList() {
     const { journeyItems } = this.props;
+
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={this.listRef}
         style={styles.list}
         data={journeyItems}
-        keyExtractor={i => `${i.id}-${i._type}`}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderRow}
         bounces={true}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={100}
-        ItemSeparatorComponent={(sectionID, rowID) => <Separator key={rowID} />}
+        ItemSeparatorComponent={this.itemSeparator}
       />
     );
   }
@@ -157,12 +164,17 @@ class ContactJourney extends Component {
   }
 
   render() {
+    const { isPersonalMinistry } = this.state;
     const { person, organization } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {this.renderContent()}
         <Flex justify="end">
-          <CommentBox person={person} organization={organization} />
+          <CommentBox
+            person={person}
+            organization={organization}
+            hideActions={isPersonalMinistry}
+          />
         </Flex>
       </View>
     );

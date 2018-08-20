@@ -6,7 +6,6 @@ import { translate } from 'react-i18next';
 import {
   Button,
   Text,
-  PlatformKeyboardAvoidingView,
   Flex,
   Icon,
   LoadingWheel,
@@ -16,7 +15,7 @@ import { keyLogin, openKeyURL } from '../../actions/auth';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, MFA_REQUIRED } from '../../constants';
-import { isAndroid, isiPhoneX } from '../../utils/common';
+import { isiPhoneX, keyboardShow, keyboardHide } from '../../utils/common';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
@@ -40,36 +39,14 @@ class KeyLoginScreen extends Component {
     };
   }
 
-  componentWillMount() {
-    if (isAndroid) {
-      this.keyboardDidShowListener = Keyboard.addListener(
-        'keyboardDidShow',
-        this._hideLogo,
-      );
-      this.keyboardDidHideListener = Keyboard.addListener(
-        'keyboardDidHide',
-        this._showLogo,
-      );
-    } else {
-      this.keyboardWillShowListener = Keyboard.addListener(
-        'keyboardWillShow',
-        this._hideLogo,
-      );
-      this.keyboardWillHideListener = Keyboard.addListener(
-        'keyboardWillHide',
-        this._showLogo,
-      );
-    }
+  componentDidMount() {
+    this.keyboardShowListener = keyboardShow(this._hideLogo);
+    this.keyboardHideListener = keyboardHide(this._showLogo);
   }
 
   componentWillUnmount() {
-    if (isAndroid) {
-      this.keyboardDidShowListener.remove();
-      this.keyboardDidHideListener.remove();
-    } else {
-      this.keyboardWillShowListener.remove();
-      this.keyboardWillHideListener.remove();
-    }
+    this.keyboardShowListener.remove();
+    this.keyboardHideListener.remove();
   }
 
   _hideLogo = () => {
@@ -169,12 +146,18 @@ class KeyLoginScreen extends Component {
     );
   }
 
+  emailRef = c => (this.email = c);
+
+  passwordRef = c => (this.password = c);
+
+  onSubmitEditing = () => this.password.focus();
+
   render() {
     const { t, forcedLogout } = this.props;
     const marginTop = isiPhoneX() ? 50 : 25;
 
     return (
-      <PlatformKeyboardAvoidingView>
+      <View style={styles.container}>
         {this.state.errorMessage ? this.renderErrorMessage() : null}
         {forcedLogout ? (
           <View style={{ marginTop }} />
@@ -196,13 +179,13 @@ class KeyLoginScreen extends Component {
             <Text style={styles.label}>{t('emailLabel')}</Text>
             <Input
               autoCapitalize="none"
-              ref={c => (this.email = c)}
+              ref={this.emailRef}
               onChangeText={this.emailChanged}
               value={this.state.email}
               returnKeyType="next"
               keyboardType="email-address"
               blurOnSubmit={false}
-              onSubmitEditing={() => this.password.focus()}
+              onSubmitEditing={this.onSubmitEditing}
               placeholder={t('emailLabel')}
               placeholderTextColor="white"
             />
@@ -212,7 +195,7 @@ class KeyLoginScreen extends Component {
             <Text style={styles.label}>{t('passwordLabel')}</Text>
             <Input
               secureTextEntry={true}
-              ref={c => (this.password = c)}
+              ref={this.passwordRef}
               onChangeText={this.passwordChanged}
               value={this.state.password}
               returnKeyType="next"
@@ -263,7 +246,7 @@ class KeyLoginScreen extends Component {
           </Flex>
         )}
         {this.state.isLoading ? <LoadingWheel /> : null}
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

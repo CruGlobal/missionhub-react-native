@@ -13,7 +13,7 @@ import {
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
-import { isMemberForOrg } from '../utils/common';
+import { isMemberForOrg, exists } from '../utils/common';
 import {
   orgPermissionSelector,
   contactAssignmentSelector,
@@ -23,10 +23,10 @@ import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 
-const personInclude =
-  'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
-
 export function getMe(extraInclude) {
+  const personInclude =
+    'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   const include = extraInclude
     ? `${personInclude},${extraInclude}`
     : personInclude;
@@ -40,6 +40,9 @@ export function getMe(extraInclude) {
 }
 
 export function getPersonDetails(id, orgId) {
+  const personInclude =
+    'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   return async dispatch => {
     const query = {
       person_id: id,
@@ -50,7 +53,9 @@ export function getPersonDetails(id, orgId) {
     );
     const orgPermission =
       orgId &&
-      person.organizational_permissions.find(o => o.organization_id === orgId);
+      (person.organizational_permissions || []).find(
+        o => o.organization_id === orgId,
+      );
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,
@@ -137,24 +142,35 @@ export function updatePersonAttributes(personId, personAttributes) {
 }
 
 export function updatePerson(data) {
+  const personInclude =
+    'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
+
   return async dispatch => {
-    if (!data || !data.firstName) {
+    if (!data) {
       return dispatch({
         type: 'UPDATE_PERSON_FAIL',
         error: 'InvalidData',
         data,
       });
     }
+
+    let updateData = { type: 'person' };
+    let attributes;
+    if (exists(data.firstName)) {
+      attributes = { ...(attributes || {}), first_name: data.firstName };
+    }
+    if (exists(data.lastName)) {
+      attributes = { ...(attributes || {}), last_name: data.lastName };
+    }
+    if (exists(data.gender)) {
+      attributes = { ...(attributes || {}), gender: data.gender };
+    }
+    if (attributes) {
+      updateData.attributes = attributes;
+    }
     const bodyData = {
-      data: {
-        type: 'person',
-        attributes: {
-          first_name: data.firstName,
-          last_name: data.lastName,
-          gender: data.gender,
-        },
-      },
-      ...(data.email || data.phone
+      data: updateData,
+      ...(data.email || data.phone || data.orgPermission
         ? {
             included: [
               ...(data.email
@@ -177,14 +193,26 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        permission_id: data.orgPermission.permission_id,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
     };
     const query = {
       personId: data.id,
-      include: 'email_addresses,phone_numbers,reverse_contact_assignments',
+      include: personInclude,
     };
+
     const results = await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, query, bodyData),
     );
@@ -198,6 +226,7 @@ export function updatePerson(data) {
         full_name: person.full_name,
         email_addresses: person.email_addresses,
         phone_numbers: person.phone_numbers,
+        organizational_permissions: person.organizational_permissions,
       }),
     );
 

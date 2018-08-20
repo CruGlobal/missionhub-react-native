@@ -36,13 +36,13 @@ jest.mock('../../src/actions/interactions', () => ({
 let store;
 let component;
 
-const createMockStore = (id, personalJourney) => {
+const createMockStore = (id, personalJourney, isJean = true) => {
   const mockState = {
     auth: {
       person: {
         id,
       },
-      isJean: true,
+      isJean,
     },
     swipe: {
       journey: false,
@@ -55,9 +55,11 @@ const createMockStore = (id, personalJourney) => {
   return configureStore([thunk])(mockState);
 };
 
-const createComponent = () => {
+const org = { id: '123' };
+
+const createComponent = props => {
   return renderShallow(
-    <ContactJourney person={mockPerson} navigation={createMockNavState()} />,
+    <ContactJourney person={mockPerson} {...props} />,
     store,
   );
 };
@@ -82,6 +84,28 @@ describe('ContactJourney', () => {
     component = createComponent();
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('renders screen as personal ministry', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    component = createComponent();
+    component.setState({ isPersonalMinistry: true });
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('loads with personal ministry false', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList }, false);
+    const instance = createComponent({ organization: org }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(true);
+  });
+
+  it('loads with personal ministry true', () => {
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    const instance = createComponent({ organization: org }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 });
 
@@ -149,6 +173,25 @@ describe('journey methods', () => {
     component.handleEditInteraction({ id: 1 });
 
     expect(navigation.navigatePush).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call list ref', () => {
+    const ref = 'test';
+    component.listRef(ref);
+
+    expect(component.list).toEqual(ref);
+  });
+
+  it('should call key extractor', () => {
+    const item = { id: '1', _type: 'test' };
+    const result = component.keyExtractor(item);
+
+    expect(result).toEqual(`${item.id}-${item._type}`);
+  });
+  it('should render item separator', () => {
+    const renderedItem = component.itemSeparator(1, 1);
+
+    expect(renderedItem).toMatchSnapshot();
   });
 });
 

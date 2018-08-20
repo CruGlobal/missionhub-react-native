@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { testSnapshotShallow } from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import GroupsContactList from '../../src/components/GroupsContactList';
 
 const person = {
@@ -71,4 +71,33 @@ it('renders empty list', () => {
       myId="1"
     />,
   );
+});
+
+it('calls key extractor', () => {
+  const instance = renderShallow(
+    <GroupsContactList
+      onAssign={jest.fn()}
+      activity={[]}
+      person={person}
+      organization={organization}
+      myId="1"
+    />,
+  ).instance();
+  const item = { id: '1', _type: 'test' };
+  const result = instance.keyExtractor(item);
+  expect(result).toEqual(`${item.id}-${item._type}`);
+});
+
+it('renders item', () => {
+  const instance = renderShallow(
+    <GroupsContactList
+      onAssign={jest.fn()}
+      activity={[]}
+      person={person}
+      organization={organization}
+      myId="1"
+    />,
+  ).instance();
+  const renderedItem = instance.renderItem({ item: activity[0] });
+  expect(renderedItem).toMatchSnapshot();
 });

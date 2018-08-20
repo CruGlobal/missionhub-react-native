@@ -82,10 +82,16 @@ exports[`should render correctly 1`] = `
     showsHorizontalScrollIndicator={false}
     snapToAlignment="center"
   >
-    <TouchableWithoutFeedback
+    <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -119,11 +125,17 @@ exports[`should render correctly 1`] = `
           Tab 1
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
+    </TouchableIOS>
+    <TouchableIOS
       key="nav/TAB_2"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -155,7 +167,7 @@ exports[`should render correctly 1`] = `
           Tab 2
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
+    </TouchableIOS>
   </ScrollView>
   <Flex
     align="center"
@@ -232,10 +244,16 @@ exports[`should render correctly 2`] = `
     snapToAlignment="center"
     snapToInterval={80}
   >
-    <TouchableWithoutFeedback
+    <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -269,11 +287,17 @@ exports[`should render correctly 2`] = `
           Tab 1
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
+    </TouchableIOS>
+    <TouchableIOS
       key="nav/TAB_2"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -305,7 +329,7 @@ exports[`should render correctly 2`] = `
           Tab 2
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
+    </TouchableIOS>
   </ScrollView>
   <Flex
     align="center"
@@ -382,10 +406,16 @@ exports[`should render second tab based off of previousIndex 1`] = `
     snapToAlignment="center"
     snapToInterval={80}
   >
-    <TouchableWithoutFeedback
+    <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -419,11 +449,17 @@ exports[`should render second tab based off of previousIndex 1`] = `
           Tab 1
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
+    </TouchableIOS>
+    <TouchableIOS
       key="nav/TAB_2"
       onLayout={[Function]}
       onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
     >
       <Component
         style={
@@ -455,7 +491,7 @@ exports[`should render second tab based off of previousIndex 1`] = `
           Tab 2
         </Text>
       </Component>
-    </TouchableWithoutFeedback>
+    </TouchableIOS>
   </ScrollView>
   <Flex
     align="center"

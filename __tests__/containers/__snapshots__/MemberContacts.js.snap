@@ -6,6 +6,9 @@ exports[`renders a list 1`] = `
     Array [
       Object {
         "id": "1",
+        "organization": Object {
+          "id": "100",
+        },
         "person": Object {},
       },
     ]

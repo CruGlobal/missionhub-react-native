@@ -78,7 +78,7 @@ export class StepsScreen extends Component {
     this.handleNextPage = debounce(this.handleNextPage.bind(this), 250);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(loadHome());
   }
 
@@ -130,13 +130,13 @@ export class StepsScreen extends Component {
     dispatch(setStepFocus(step, false));
   }
 
-  handleCompleteReminder(step) {
+  handleCompleteReminder = step => {
     this.props.dispatch(completeStepReminder(step, NAME));
-  }
+  };
 
-  handleDeleteReminder(step) {
+  handleDeleteReminder = step => {
     this.props.dispatch(deleteStepWithTracking(step, NAME));
-  }
+  };
 
   handleRefresh() {
     refresh(this, this.getSteps);
@@ -220,8 +220,10 @@ export class StepsScreen extends Component {
                   ? this.completeReminderBump
                   : undefined
               }
-              onDelete={() => this.handleDeleteReminder(s)}
-              onComplete={() => this.handleCompleteReminder(s)}
+              deletePressProps={[s]}
+              completePressProps={[s]}
+              onDelete={this.handleDeleteReminder}
+              onComplete={this.handleCompleteReminder}
             >
               <StepItem
                 step={s}
@@ -236,8 +238,38 @@ export class StepsScreen extends Component {
     }
   }
 
+  listRef = c => (this.list = c);
+
+  listKeyExtractor = i => i.id;
+
+  renderItem = ({ item, index }) => {
+    const { showStepBump } = this.props;
+
+    return (
+      <RowSwipeable
+        bump={showStepBump && index === 0}
+        onBumpComplete={
+          showStepBump && index === 0 ? this.completeStepBump : undefined
+        }
+        key={item.id}
+        deletePressProps={[item]}
+        completePressProps={[item]}
+        onDelete={this.handleDeleteReminder}
+        onComplete={this.handleCompleteReminder}
+      >
+        <StepItem
+          step={item}
+          type="swipeable"
+          hideAction={this.hasMaxReminders()}
+          onSelect={this.handleRowSelect}
+          onAction={this.handleSetReminder}
+        />
+      </RowSwipeable>
+    );
+  };
+
   renderList() {
-    const { steps, t, showStepBump, hasMoreSteps } = this.props;
+    const { steps, t, hasMoreSteps } = this.props;
     if (steps.length === 0) {
       return (
         <Flex value={1} align="center" justify="center">
@@ -254,34 +286,14 @@ export class StepsScreen extends Component {
       );
     }
 
-    const hideStars = this.hasMaxReminders();
-
     return (
       <FlatList
-        ref={c => (this.list = c)}
+        ref={this.listRef}
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
         data={steps}
-        extraData={{ hideStars }}
-        keyExtractor={i => i.id}
-        renderItem={({ item, index }) => (
-          <RowSwipeable
-            bump={showStepBump && index === 0}
-            onBumpComplete={
-              showStepBump && index === 0 ? this.completeStepBump : undefined
-            }
-            key={item.id}
-            onDelete={() => this.handleDeleteReminder(item)}
-            onComplete={() => this.handleCompleteReminder(item)}
-          >
-            <StepItem
-              step={item}
-              type="swipeable"
-              hideAction={hideStars}
-              onSelect={this.handleRowSelect}
-              onAction={this.handleSetReminder}
-            />
-          </RowSwipeable>
-        )}
+        extraData={{ hideStars: this.hasMaxReminders() }}
+        keyExtractor={this.listKeyExtractor}
+        renderItem={this.renderItem}
         removeClippedSubviews={false}
         bounces={false}
         showsVerticalScrollIndicator={false}
@@ -321,8 +333,10 @@ export class StepsScreen extends Component {
     );
   }
 
+  openMainMenu = () => this.props.dispatch(openMainMenu());
+
   render() {
-    const { t, dispatch, steps } = this.props;
+    const { t, steps } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -331,7 +345,7 @@ export class StepsScreen extends Component {
             <IconButton
               name="menuIcon"
               type="MissionHub"
-              onPress={() => dispatch(openMainMenu())}
+              onPress={this.openMainMenu}
             />
           }
           title={t('title').toUpperCase()}

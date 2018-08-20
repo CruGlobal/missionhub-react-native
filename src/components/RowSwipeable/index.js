@@ -142,6 +142,30 @@ class RowSwipeable extends Component {
     };
   }
 
+  handleDelete = () => {
+    const { deletePressProps, onDelete } = this.props;
+    if (onDelete) {
+      // Call the onDelete with all of the deletePressProps passed in or just undefined if they don't exist
+      onDelete.apply(null, deletePressProps);
+    }
+  };
+
+  handleComplete = () => {
+    const { completePressProps, onComplete } = this.props;
+    if (onComplete) {
+      // Call the onComplete with all of the completePressProps passed in or just undefined if they don't exist
+      onComplete.apply(null, completePressProps);
+    }
+  };
+
+  handleEdit = () => {
+    const { editPressProps, onEdit } = this.props;
+    if (onEdit) {
+      // Call the onEdit with all of the editPressProps passed in or just undefined if they don't exist
+      onEdit.apply(null, editPressProps);
+    }
+  };
+
   renderOptions() {
     const { t, onDelete, onComplete, onEdit } = this.props;
     return (
@@ -153,7 +177,7 @@ class RowSwipeable extends Component {
         {onDelete ? (
           <Touchable
             style={styles.deleteWrap}
-            onPress={this.handleSelect(onDelete)}
+            onPress={this.handleSelect(this.handleDelete)}
           >
             <Flex direction="column" align="center" justify="center">
               <Icon name="deleteIcon" type="MissionHub" size={26} />
@@ -164,7 +188,7 @@ class RowSwipeable extends Component {
         {onComplete ? (
           <Touchable
             style={styles.completeWrap}
-            onPress={this.handleSelect(onComplete)}
+            onPress={this.handleSelect(this.handleComplete)}
           >
             <Flex direction="column" align="center" justify="center">
               <Icon name="checkIcon" type="MissionHub" size={26} />
@@ -175,7 +199,7 @@ class RowSwipeable extends Component {
         {onEdit ? (
           <Touchable
             style={styles.editWrap}
-            onPress={this.handleSelect(onEdit)}
+            onPress={this.handleSelect(this.handleEdit)}
           >
             <Flex direction="column" align="center" justify="center">
               <Icon name="createStepIcon" type="MissionHub" size={30} />
@@ -211,6 +235,9 @@ RowSwipeable.propTypes = {
   onEdit: PropTypes.func,
   bump: PropTypes.bool,
   onBumpComplete: PropTypes.func,
+  deletePressProps: PropTypes.array,
+  completePressProps: PropTypes.array,
+  editPressProps: PropTypes.array,
 };
 
 export default RowSwipeable;

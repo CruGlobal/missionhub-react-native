@@ -25,6 +25,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
     justify="end"
   >
     <Connect(Translate(CommentBox))
+      hideActions={true}
       person={
         Object {
           "first_name": "ben",
@@ -74,6 +75,80 @@ exports[`ContactJourney renders null screen correctly 1`] = `
     justify="end"
   >
     <Connect(Translate(CommentBox))
+      hideActions={true}
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": 2,
+            },
+          ],
+        }
+      }
+    />
+  </Flex>
+</Component>
+`;
+
+exports[`ContactJourney renders screen as personal ministry 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+      }
+    }
+    value={1}
+  >
+    <FlatList
+      ItemSeparatorComponent={[Function]}
+      bounces={true}
+      data={
+        Array [
+          Object {
+            "_type": "accepted_challenge",
+            "date": "2010-01-01 12:12:12",
+            "id": "84472",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={100}
+      showsVerticalScrollIndicator={false}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "#E6E8EC",
+          "borderBottomWidth": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Flex>
+  <Flex
+    justify="end"
+  >
+    <Connect(Translate(CommentBox))
+      hideActions={true}
       person={
         Object {
           "first_name": "ben",
@@ -146,6 +221,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
     justify="end"
   >
     <Connect(Translate(CommentBox))
+      hideActions={true}
       person={
         Object {
           "first_name": "ben",
@@ -178,6 +254,15 @@ exports[`journey methods renders a stage change row 1`] = `
 exports[`journey methods renders a step row 1`] = `
 <Translate(RowSwipeable)
   bump={false}
+  editPressProps={
+    Array [
+      Object {
+        "_type": "accepted_challenge",
+        "id": "123",
+        "note": "123",
+      },
+    ]
+  }
   onBumpComplete={undefined}
   onEdit={[Function]}
 >
@@ -212,6 +297,15 @@ exports[`journey methods renders a survey row 1`] = `
 exports[`journey methods renders an interaction row 1`] = `
 <Translate(RowSwipeable)
   bump={false}
+  editPressProps={
+    Array [
+      Object {
+        "_type": "interaction",
+        "comment": "123",
+        "id": "123",
+      },
+    ]
+  }
   onBumpComplete={undefined}
   onEdit={[Function]}
 >
@@ -228,6 +322,8 @@ exports[`journey methods renders an interaction row 1`] = `
   />
 </Translate(RowSwipeable)>
 `;
+
+exports[`journey methods should render item separator 1`] = `<Separator />`;
 
 exports[`renders with an organization correctly 1`] = `
 <View
@@ -362,7 +458,8 @@ exports[`renders with an organization correctly 1`] = `
             "backgroundColor": "#ffffff",
             "borderTopColor": "#B2B0B2",
             "borderTopWidth": 1,
-            "paddingVertical": 5,
+            "paddingBottom": 5,
+            "paddingTop": 5,
             "width": 750,
           },
           Object {

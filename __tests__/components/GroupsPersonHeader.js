@@ -5,8 +5,8 @@ import configureStore from 'redux-mock-store';
 
 import { ACTIONS } from '../../src/constants';
 import { createContactAssignment } from '../../src/actions/person';
-import GroupsPersonHeader from '../../src/components/GroupsPersonHeader/index';
-import { testSnapshotShallow, renderShallow } from '../../testUtils/index';
+import GroupsPersonHeader from '../../src/components/GroupsPersonHeader';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import {
   getPersonEmailAddress,
   getPersonPhoneNumber,
@@ -108,6 +108,12 @@ describe('isMember', () => {
         isMember={true}
         contactAssignment={undefined}
       />,
+    );
+  });
+
+  it('renders null because its not supposed to be visible', () => {
+    testSnapshotShallow(
+      <GroupsPersonHeader {...props} isMember={true} isVisible={false} />,
     );
   });
 

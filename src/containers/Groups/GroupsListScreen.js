@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { ScrollView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { allOrganizationsSelector } from '../../selectors/organizations';
+import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../containers/Header';
 import GroupCardItem from '../../components/GroupCardItem';
-import { IconButton } from '../../components/common';
+import { IconButton, RefreshControl } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import { openMainMenu } from '../../utils/common';
+import { openMainMenu, refresh } from '../../utils/common';
+import NULL from '../../../assets/images/MemberContacts.png';
+import NullStateComponent from '../../components/NullStateComponent';
+import { getMyCommunities } from '../../actions/organizations';
 
 import { GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
 
 @translate('groupsList')
 export class GroupsListScreen extends Component {
+  state = { refreshing: false };
+
+  loadGroups = () => this.props.dispatch(getMyCommunities());
+
+  handleRefresh = () => refresh(this, this.loadGroups);
+
   handlePress = organization => {
     this.props.dispatch(
       navigatePush(GROUP_SCREEN, {
@@ -23,8 +32,39 @@ export class GroupsListScreen extends Component {
     );
   };
 
+  openMainMenu = () => this.props.dispatch(openMainMenu());
+
+  keyExtractor = i => i.id;
+
+  renderItem = ({ item }) => (
+    <GroupCardItem group={item} onPress={this.handlePress} />
+  );
+
+  renderNull() {
+    const { t } = this.props;
+
+    return (
+      <NullStateComponent
+        imageSource={NULL}
+        headerText={t('header').toUpperCase()}
+        descriptionText={t('groupsNull')}
+      />
+    );
+  }
+
+  renderList() {
+    return (
+      <FlatList
+        style={styles.cardList}
+        data={this.props.orgs}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+      />
+    );
+  }
+
   render() {
-    const { dispatch, t, orgs } = this.props;
+    const { t, orgs } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
@@ -33,26 +73,29 @@ export class GroupsListScreen extends Component {
             <IconButton
               name="menuIcon"
               type="MissionHub"
-              onPress={() => dispatch(openMainMenu())}
+              onPress={this.openMainMenu}
             />
           }
           title={t('header').toUpperCase()}
         />
-        <FlatList
-          style={styles.cardList}
-          data={orgs}
-          keyExtractor={i => i.id}
-          renderItem={({ item }) => (
-            <GroupCardItem group={item} onPress={this.handlePress} />
-          )}
-        />
+        <ScrollView
+          contentContainerStyle={{ flex: 1 }}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+            />
+          }
+        >
+          {orgs.length > 0 ? this.renderList() : this.renderNull()}
+        </ScrollView>
       </View>
     );
   }
 }
 
 export const mapStateToProps = ({ organizations, auth }) => ({
-  orgs: allOrganizationsSelector({ organizations, auth }),
+  orgs: communitiesSelector({ organizations, auth }),
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);

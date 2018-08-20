@@ -28,3 +28,20 @@ exports[`Contacts should render correctly 1`] = `
   />
 </Flex>
 `;
+
+exports[`Contacts should render item 1`] = `
+<Translate(ContactItem)
+  contact={
+    Object {
+      "id": "1",
+    }
+  }
+  onSelect={[Function]}
+  organization={
+    Object {
+      "id": "1",
+      "name": "Test Org",
+    }
+  }
+/>
+`;

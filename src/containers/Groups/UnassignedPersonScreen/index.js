@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getGroupJourney } from '../../../actions/journey';
-import { PlatformKeyboardAvoidingView } from '../../../components/common';
 import GroupsContactList from '../../../components/GroupsContactList/index';
 import CommentBox from '../../../components/CommentBox/index';
 import Header from '../../Header/index';
@@ -29,7 +29,7 @@ class UnassignedPersonScreen extends Component {
     const { activity } = this.state;
 
     return (
-      <PlatformKeyboardAvoidingView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={<BackButton />}
           title={organization.name}
@@ -46,7 +46,7 @@ class UnassignedPersonScreen extends Component {
           person={person}
           organization={organization}
         />
-      </PlatformKeyboardAvoidingView>
+      </View>
     );
   }
 }

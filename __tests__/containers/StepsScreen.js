@@ -21,6 +21,7 @@ import {
   deleteStepWithTracking,
   setStepFocus,
 } from '../../src/actions/steps';
+import * as common from '../../src/utils/common';
 
 jest.mock('../../src/selectors/steps');
 jest.mock('../../src/actions/analytics');
@@ -301,6 +302,35 @@ describe('StepsScreen', () => {
       component.instance().handleDeleteReminder(step);
 
       expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Steps');
+    });
+  });
+
+  describe('arrow functions', () => {
+    it('should render item correctly', () => {
+      const component = createComponent(propsWithSteps);
+
+      const renderedItem = component
+        .instance()
+        .renderItem({ item: propsWithSteps.steps[0], index: 0 });
+      expect(renderedItem).toMatchSnapshot();
+    });
+    it('should list ref', () => {
+      const instance = createComponent(propsWithSteps).instance();
+      const ref = 'test';
+      instance.listRef(ref);
+      expect(instance.list).toEqual(ref);
+    });
+    it('should list key extractor', () => {
+      const instance = createComponent(propsWithSteps).instance();
+      const item = { id: '1' };
+      const result = instance.listKeyExtractor(item);
+      expect(result).toEqual(item.id);
+    });
+    it('should open main menu', () => {
+      const instance = createComponent(propsWithSteps).instance();
+      common.openMainMenu = jest.fn();
+      instance.openMainMenu();
+      expect(common.openMainMenu).toHaveBeenCalled();
     });
   });
 });

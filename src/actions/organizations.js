@@ -10,7 +10,17 @@ import callApi, { REQUESTS } from './api';
 const getOrganizationsQuery = {
   limit: 100,
   include: '',
+  filters: {
+    descendants: false,
+  },
 };
+
+export function getMyCommunities() {
+  return async dispatch => {
+    await dispatch(getMyOrganizations());
+    return dispatch(getOrganizationsContactReports());
+  };
+}
 
 export function getMyOrganizations() {
   return async (dispatch, getState) => {
@@ -113,8 +123,7 @@ export function getOrganizationMembers(orgId, query = {}) {
       permissions: 'admin,user',
       organization_ids: orgId,
     },
-    include:
-      'contact_assignments.person,organizational_permissions,phone_numbers,email_addresses',
+    include: 'organizational_permissions',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
@@ -125,6 +134,7 @@ export function getOrganizationMembers(orgId, query = {}) {
     const reportQuery = {
       people_ids: memberIds.join(','),
       period: 'P1Y',
+      organization_ids: orgId,
     };
     const { response: reportResponse } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
@@ -194,7 +204,10 @@ export function addNewContact(data) {
     if (data.orgId) {
       included.push({
         type: 'organizational_permission',
-        attributes: { organization_id: data.orgId },
+        attributes: {
+          organization_id: data.orgId,
+          permission_id: data.orgPermission && data.orgPermission.permission_id,
+        },
       });
     }
     if (data.email) {

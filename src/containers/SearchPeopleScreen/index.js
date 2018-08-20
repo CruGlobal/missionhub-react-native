@@ -15,6 +15,7 @@ import theme from '../../theme';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
+import { findAllNonPlaceHolders } from '../../utils/common';
 
 import styles from './styles';
 
@@ -61,7 +62,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   getPeopleByOrg(results) {
-    let people = results.findAll('person') || [];
+    let people = findAllNonPlaceHolders(results, 'person');
     let orgPeople = [];
     people.forEach(p => {
       if (p && p.organizational_permissions) {
@@ -114,6 +115,8 @@ export class SearchPeopleScreen extends Component {
     this.handleSearch(this.state.text);
   }
 
+  centerRef = c => (this.searchInput = c);
+
   renderCenter() {
     const { t } = this.props;
     const { text } = this.state;
@@ -125,7 +128,7 @@ export class SearchPeopleScreen extends Component {
         self="stretch"
       >
         <Input
-          ref={c => (this.searchInput = c)}
+          ref={this.centerRef}
           onChangeText={this.handleTextChange}
           value={text}
           style={styles.input}
@@ -169,13 +172,20 @@ export class SearchPeopleScreen extends Component {
               style={styles.activeFilterIcon}
               name="deleteIcon"
               type="MissionHub"
-              onPress={() => this.removeFilter(k)}
+              pressProps={[k]}
+              onPress={this.removeFilter}
             />
           </Flex>
         ))}
       </Flex>
     );
   }
+
+  listKeyExtractor = i => i.unique_key || i.id;
+
+  renderItem = ({ item }) => (
+    <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
+  );
 
   renderContent() {
     const { t } = this.props;
@@ -207,10 +217,9 @@ export class SearchPeopleScreen extends Component {
       <FlatList
         style={styles.list}
         data={results}
-        keyExtractor={i => i.unique_key || i.id}
-        renderItem={({ item }) => (
-          <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
-        )}
+        keyExtractor={this.listKeyExtractor}
+        renderItem={this.renderItem}
+        keyboardShouldPersistTaps="handled"
       />
     );
   }

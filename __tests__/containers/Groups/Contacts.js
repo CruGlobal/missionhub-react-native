@@ -91,4 +91,15 @@ describe('Contacts', () => {
     instance.handleSelect({ id: '1' });
     expect(navToPersonScreen).toHaveBeenCalled();
   });
+  it('should call list ref', () => {
+    const instance = renderShallow(component, store).instance();
+    const ref = 'test';
+    instance.listRef(ref);
+    expect(instance.searchList).toEqual(ref);
+  });
+  it('should render item', () => {
+    const instance = renderShallow(component, store).instance();
+    const renderedItem = instance.renderItem({ item: people[0] });
+    expect(renderedItem).toMatchSnapshot();
+  });
 });
