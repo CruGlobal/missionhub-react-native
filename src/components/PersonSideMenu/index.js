@@ -96,7 +96,6 @@ class PersonSideMenu extends Component {
             navigatePush(ADD_CONTACT_SCREEN, {
               person,
               organization,
-              isJean,
               onComplete: () => dispatch(navigateBack()),
             }),
           ),

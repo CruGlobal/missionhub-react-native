@@ -108,12 +108,12 @@ export class SearchPeopleScreen extends Component {
     this.setState({ text: '', results: [], isSearching: false });
   }
 
-  removeFilter(key) {
+  removeFilter = key => {
     let filters = { ...this.state.filters };
     delete filters[key];
     this.setState({ filters });
     this.handleSearch(this.state.text);
-  }
+  };
 
   centerRef = c => (this.searchInput = c);
 
