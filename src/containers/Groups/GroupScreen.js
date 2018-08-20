@@ -4,8 +4,11 @@ import i18next from 'i18next';
 
 import Header from '../Header/index';
 import BackButton from '../BackButton/index';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
+import IconButton from '../../components/IconButton';
+import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -14,10 +17,41 @@ import Surveys from './Surveys';
 
 @connect()
 export class GroupScreen extends Component {
+  handleAddContact = () => {
+    const { dispatch } = this.props;
+    const { organization } = this.props.navigation.state.params || {};
+
+    dispatch(
+      navigatePush(ADD_CONTACT_SCREEN, {
+        organization: organization.id ? organization : undefined,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          dispatch(navigateBack(4));
+        },
+      }),
+    );
+  };
+
+  renderAddContactIcon() {
+    return (
+      <IconButton
+        name="addContactIcon"
+        type="MissionHub"
+        size={24}
+        onPress={this.handleAddContact}
+      />
+    );
+  }
+
   render() {
     const { organization } = this.props.navigation.state.params || {};
     return (
-      <Header left={<BackButton />} shadow={false} title={organization.name} />
+      <Header
+        left={<BackButton />}
+        shadow={false}
+        title={organization.name}
+        right={this.renderAddContactIcon()}
+      />
     );
   }
 }

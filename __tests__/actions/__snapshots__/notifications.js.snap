@@ -15,7 +15,6 @@ exports[`askNotificationPermissions onNotification should deep link to add conta
 Array [
   Object {
     "params": Object {
-      "isJean": true,
       "onComplete": [Function],
       "organization": Object {
         "id": "2",
