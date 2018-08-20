@@ -8,7 +8,7 @@ import {
   renderShallow,
 } from '../../../testUtils';
 import { ADD_CONTACT_SCREEN } from '../../../src/containers/AddContactScreen';
-import { navigatePush, navigateBack } from '../../../src/actions/navigation';
+import { navigatePush } from '../../../src/actions/navigation';
 
 jest.mock('../../../src/actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
@@ -31,24 +31,19 @@ describe('GroupScreen', () => {
   });
 
   it('should handle add contact button correctly', () => {
-    const onComplete = () => {
-      instance.props().dispatch(navigateBack(4));
-    };
-
     const instance = renderShallow(
       <GroupScreen
         navigation={createMockNavState({
           organization,
         })}
         store={createMockStore()}
-        onComplete={onComplete}
       />,
     ).instance();
 
     instance.handleAddContact();
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-      onComplete,
+      onComplete: expect.anything(),
       organization,
     });
   });

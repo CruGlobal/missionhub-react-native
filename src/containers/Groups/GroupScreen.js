@@ -20,17 +20,14 @@ export class GroupScreen extends Component {
   handleAddContact = () => {
     const { dispatch } = this.props;
     const { organization } = this.props.navigation.state.params || {};
-    const onComplete = this.props.onComplete
-      ? this.props.onComplete
-      : () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          dispatch(navigateBack(4));
-        };
 
     dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
         organization: organization.id ? organization : undefined,
-        onComplete,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          dispatch(navigateBack(4));
+        },
       }),
     );
   };
