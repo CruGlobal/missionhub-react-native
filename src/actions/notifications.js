@@ -109,7 +109,7 @@ function handleNotification(notification) {
       return;
     }
 
-    const { isJean, person: me } = getState().auth;
+    const { person: me } = getState().auth;
 
     const { screen, person, organization } = parseNotificationData(
       notification,
