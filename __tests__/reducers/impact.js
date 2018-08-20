@@ -55,7 +55,7 @@ it('should update interaction reports', () => {
     period: 'P1W',
     report: [
       {
-        id: '100',
+        id: 100,
         requestFieldName: 'contact_count',
         iconName: 'peopleIcon',
         translationKey: 'interactionAssignedContacts',
@@ -75,22 +75,21 @@ it('should filter out contact_count and uncontacted_count for group', () => {
     period: 'P1W',
     report: [
       {
-        id: '100',
+        id: 100,
         requestFieldName: 'contact_count',
         iconName: 'peopleIcon',
         translationKey: 'interactionAssignedContacts',
         num: 1,
       },
       {
-        id: '101',
+        id: 101,
         requestFieldName: 'uncontacted_count',
         iconName: 'uncontactedIcon',
         translationKey: 'interactionUncontacted',
         num: 1,
       },
       {
-        id: '2',
-        requestFieldName: 'uncontact_count',
+        id: 2,
         iconName: 'spiritualConversationIcon',
         translationKey: 'interactionSpiritualConversation',
         num: 1,
