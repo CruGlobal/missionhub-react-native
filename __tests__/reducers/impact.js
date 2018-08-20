@@ -66,3 +66,37 @@ it('should update interaction reports', () => {
 
   expect(state).toMatchSnapshot();
 });
+
+it('should filter out contact_count and uncontacted_count for group', () => {
+  const state = impact(undefined, {
+    type: UPDATE_PEOPLE_INTERACTION_REPORT,
+    personId: undefined,
+    organizationId: '456',
+    period: 'P1W',
+    report: [
+      {
+        id: '100',
+        requestFieldName: 'contact_count',
+        iconName: 'peopleIcon',
+        translationKey: 'interactionAssignedContacts',
+        num: 1,
+      },
+      {
+        id: '101',
+        requestFieldName: 'uncontacted_count',
+        iconName: 'uncontactedIcon',
+        translationKey: 'interactionUncontacted',
+        num: 1,
+      },
+      {
+        id: '2',
+        requestFieldName: 'uncontact_count',
+        iconName: 'spiritualConversationIcon',
+        translationKey: 'interactionSpiritualConversation',
+        num: 1,
+      },
+    ],
+  });
+
+  expect(state).toMatchSnapshot();
+});

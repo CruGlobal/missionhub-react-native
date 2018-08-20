@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should filter out contact_count and uncontacted_count for group 1`] = `
+Object {
+  "interactions": Object {
+    "-456": Object {
+      "P1W": Array [
+        Object {
+          "iconName": "spiritualConversationIcon",
+          "id": "2",
+          "num": 1,
+          "requestFieldName": "uncontact_count",
+          "translationKey": "interactionSpiritualConversation",
+        },
+      ],
+    },
+  },
+  "summary": Object {},
+}
+`;
+
 exports[`should update global impact reports 1`] = `
 Object {
   "interactions": Object {},
