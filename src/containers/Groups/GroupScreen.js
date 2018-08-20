@@ -35,6 +35,17 @@ export class GroupScreen extends Component {
     );
   };
 
+  renderAddContactIcon() {
+    return (
+      <IconButton
+        name="addContactIcon"
+        type="MissionHub"
+        size={24}
+        onPress={this.handleAddContact}
+      />
+    );
+  }
+
   render() {
     const { organization } = this.props.navigation.state.params || {};
     return (
@@ -43,17 +54,6 @@ export class GroupScreen extends Component {
         shadow={false}
         title={organization.name}
         right={this.renderAddContactIcon()}
-      />
-    );
-  }
-
-  renderAddContactIcon() {
-    return (
-      <IconButton
-        name="addContactIcon"
-        type="MissionHub"
-        size={24}
-        onPress={this.handleAddContact}
       />
     );
   }
