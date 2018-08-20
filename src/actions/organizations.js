@@ -173,7 +173,8 @@ export function getOrganizationMembersNextPage(orgId) {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.membersPagination;
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = {
       page: {
@@ -191,7 +192,9 @@ export function addNewContact(data) {
       person: { id: myId },
     } = getState().auth;
     if (!data || !data.firstName) {
-      return Promise.reject('InvalidData', data);
+      return Promise.reject(
+        `Invalid Data from addNewContact: no data or no firstName passed in`,
+      );
     }
     let included = [];
     included.push({
