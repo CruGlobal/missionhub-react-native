@@ -96,6 +96,7 @@ import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
   GROUP_SCREEN,
+  GROUP_TABS,
 } from './containers/Groups/GroupScreen';
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
@@ -323,13 +324,17 @@ const screens = {
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
-  [GROUP_SCREEN]: { screen: groupScreenTabNavigator },
+  [GROUP_SCREEN]: buildTrackedScreen(
+    groupScreenTabNavigator,
+    buildTrackingObj('communities : group', 'communities', 'group'),
+  ),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
 export const trackableScreens = {
   ...screens,
   ...tabs,
+  ...GROUP_TABS,
 };
 
 export const MainStackRoutes = createStackNavigator(
