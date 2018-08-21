@@ -240,6 +240,23 @@ export const MAIN_TABS_SCREEN = buildTrackedScreen(
   stepsTab, //stepsTab is shown when MainTabs first opens
 );
 
+const buildPersonScreenRoute = screen =>
+  buildTrackedScreen(
+    createDrawerNavigator(
+      {
+        Main: { screen },
+      },
+      {
+        contentComponent: PersonSideMenu,
+        drawerPosition: 'right',
+        navigationOptions: { drawerLockMode: 'locked-closed' },
+        backBehavior: 'none', // We're handling it on our own
+      },
+    ),
+    buildTrackingObj('person', 'person'),
+    { gesturesEnabled: isAndroid ? false : true },
+  );
+
 const screens = {
   [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(
     LoginOptionsScreen,
@@ -376,6 +393,16 @@ const screens = {
     buildTrackingObj('person : unassigned', 'person'),
     { gesturesEnabled: true },
   ),
+  [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
+  [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
+    IsGroupsMemberPersonScreen,
+  ),
+  [MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(MemberPersonScreen),
+  [ME_PERSONAL_PERSON_SCREEN]: buildPersonScreenRoute(MePersonalPersonScreen),
+  [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(
+    IsGroupsMeCommunityPersonScreen,
+  ),
+  [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
@@ -424,90 +451,6 @@ export const MainStackRoutes = createStackNavigator(
     [STATUS_REASON_SCREEN]: {
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
-    },
-    [CONTACT_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: ContactPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
-    [IS_GROUPS_MEMBER_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: IsGroupsMemberPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
-    [MEMBER_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: MemberPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
-    [ME_PERSONAL_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: MePersonalPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
-    [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: IsGroupsMeCommunityPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
-    },
-    [ME_COMMUNITY_PERSON_SCREEN]: {
-      screen: createDrawerNavigator(
-        {
-          Main: { screen: MeCommunityPersonScreen },
-        },
-        {
-          contentComponent: PersonSideMenu,
-          drawerPosition: 'right',
-          navigationOptions: { drawerLockMode: 'locked-closed' },
-          backBehavior: 'none', // We're handling it on our own
-        },
-      ),
-      navigationOptions: { gesturesEnabled: isAndroid ? false : true },
     },
   },
   {
