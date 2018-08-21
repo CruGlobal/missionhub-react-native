@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppState } from 'react-native';
+import { AppState, BackHandler } from 'react-native';
 import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import * as RNOmniture from 'react-native-omniture';
@@ -27,6 +27,7 @@ import { initialRoute } from './actions/navigationInit';
 import { navigateReset } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
+import { navigateBack } from './actions/navigation';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -176,9 +177,23 @@ export default class App extends Component {
     }
   };
 
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+  }
+
   componentWillUnmount() {
     AppState.removeEventListener('change', this.handleAppStateChange);
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
   }
+
+  onBackPress = () => {
+    const { dispatch, nav } = this.props;
+    if (nav.index === 0) {
+      return false;
+    }
+    dispatch(navigateBack());
+    return true;
+  };
 
   handleAppStateChange = nextAppState => {
     if (
