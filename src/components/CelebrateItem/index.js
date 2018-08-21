@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import {
   Card,
@@ -10,17 +11,23 @@ import {
   Button,
   DateComponent,
 } from '../../components/common';
-import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
+import {
+  INTERACTION_TYPES,
+  CELEBRATEABLE_TYPES,
+  ACTIONS,
+} from '../../constants';
+import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
 
 import styles from './styles';
 
 @translate('celebrateFeeds')
-export default class CelebrateItem extends Component {
+class CelebrateItem extends Component {
   onPressLikeIcon = () => {
-    const { event, onToggleLike } = this.props;
+    const { event, onToggleLike, dispatch } = this.props;
     onToggleLike(event.id, event.liked);
+    !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
   };
 
   renderMessage() {
@@ -161,3 +168,5 @@ CelebrateItem.propTypes = {
   myId: PropTypes.string.isRequired,
   onToggleLike: PropTypes.func.isRequired,
 };
+
+export default connect()(CelebrateItem);
