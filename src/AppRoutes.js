@@ -371,6 +371,11 @@ const screens = {
       gesturesEnabled: true,
     },
   ),
+  [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
+    UnassignedPersonScreen,
+    buildTrackingObj('person : unassigned', 'person'),
+    { gesturesEnabled: true },
+  ),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
@@ -418,10 +423,6 @@ export const MainStackRoutes = createStackNavigator(
     },
     [STATUS_REASON_SCREEN]: {
       screen: StatusReason,
-      navigationOptions: { gesturesEnabled: true },
-    },
-    [UNASSIGNED_PERSON_SCREEN]: {
-      screen: UnassignedPersonScreen,
       navigationOptions: { gesturesEnabled: true },
     },
     [CONTACT_PERSON_SCREEN]: {
