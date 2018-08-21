@@ -226,6 +226,10 @@ export const ACTIONS = {
     name: 'Celebrate Item Liked',
     key: 'cru.celebrateitemliked',
   },
+  ASSIGNED_TO_ME: {
+    name: 'Assigned to Me',
+    key: 'cru.assignedtome',
+  },
 };
 
 export const CUSTOM_STEP_TYPE = 'user created step';
