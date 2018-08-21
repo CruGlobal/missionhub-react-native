@@ -1,3 +1,7 @@
+import moment from 'moment';
+
+import { isString } from './common';
+
 export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
@@ -117,3 +121,27 @@ export const searchRemoveFilter = async (
     scope.setState(newState, () => resolve()),
   );
 };
+
+const DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss[Z]';
+export function timeFilter(numOfDays) {
+  let days = numOfDays;
+  if (isString(numOfDays) && numOfDays.indexOf('time') === 0) {
+    // Grab the number from the id of the time filter (time7, time30, etc.)
+    days = parseInt(numOfDays.substr(4));
+  }
+  const first = moment()
+    .subtract(days, 'days')
+    .hour(0)
+    .minute(0)
+    .second(0)
+    .format(DATE_FORMAT);
+  const last = moment()
+    .hour(23)
+    .minute(59)
+    .second(59)
+    .format(DATE_FORMAT);
+  return {
+    first,
+    last,
+  };
+}

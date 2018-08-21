@@ -4,6 +4,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
 } from '../constants';
+import { timeFilter } from '../utils/filters';
 
 import callApi, { REQUESTS } from './api';
 
@@ -84,6 +85,30 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   if (name) {
     query.filters.name = name;
   }
+
+  const answerFilters = getAnswersFromFilters(filters);
+  if (answerFilters) {
+    query.filters.answer_sheets = { answers: answerFilters };
+  }
+  if (filters.survey) {
+    query.filters.answer_sheets = {
+      ...(query.filters.answer_sheets || {}),
+      survey_ids: filters.survey.id,
+    };
+
+    if (filters.time) {
+      const dates = timeFilter(filters.time.id);
+      query.filters.answer_sheets = {
+        ...(query.filters.answer_sheets || {}),
+        created_at: { '': dates.first },
+      };
+    }
+  } else {
+    if (filters.time) {
+      const dates = timeFilter(filters.time.id);
+      query.filters.person = { created_at: [dates.first, dates.last] };
+    }
+  }
   if (filters.gender) {
     query.filters.genders = filters.gender.id;
   }
@@ -113,6 +138,22 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   return async dispatch => {
     return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
+}
+
+//each question/answer filter must be in the URL in the form:
+//filters[answers][questionId][]=answerTexts
+function getAnswersFromFilters(filters) {
+  let answerFilters = {};
+  const keys = Object.keys(filters);
+  keys.forEach(k => {
+    const filter = filters[k];
+    if (filter.isAnswer) {
+      answerFilters[filter.id] = {
+        '': filter.text,
+      };
+    }
+  });
+  return answerFilters;
 }
 
 //todo probably should start storing this stuff in Redux
