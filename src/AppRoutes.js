@@ -78,6 +78,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
+  ALL_PERSON_TAB_ROUTES,
 } from './containers/Groups/AssignedPersonScreen';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
@@ -335,6 +336,7 @@ export const trackableScreens = {
   ...screens,
   ...tabs,
   ...GROUP_TABS,
+  ...ALL_PERSON_TAB_ROUTES,
 };
 
 export const MainStackRoutes = createStackNavigator(

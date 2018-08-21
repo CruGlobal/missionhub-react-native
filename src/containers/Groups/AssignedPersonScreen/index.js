@@ -24,13 +24,44 @@ import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getPersonDetails } from '../../../actions/person';
 import PathwayStageDisplay from '../../PathwayStageDisplay';
-import { keyboardShow, keyboardHide } from '../../../utils/common';
+import {
+  keyboardShow,
+  keyboardHide,
+  buildTrackingObj,
+} from '../../../utils/common';
 
 import styles from './styles';
 
+const PERSON_STEPS = 'nav/PERSON_STEPS';
+const PERSON_NOTES = 'nav/PERSON_NOTES';
+const PERSON_JOURNEY = 'nav/PERSON_JOURNEY';
+const MEMBER_IMPACT = 'nav/MEMBER_IMPACT';
+const MEMBER_CELEBRATE = 'nav/MEMBER_CELEBRATE';
+const MEMBERS_ASSIGNED_CONTACTS = 'nav/MEMBER_ASSIGNED_CONTACTS';
+export const ALL_PERSON_TAB_ROUTES = {
+  [PERSON_STEPS]: {
+    tracking: buildTrackingObj('person : steps', 'person'),
+  },
+  [PERSON_NOTES]: {
+    tracking: buildTrackingObj('person : notes', 'person'),
+  },
+  [PERSON_JOURNEY]: {
+    tracking: buildTrackingObj('person : journey', 'person'),
+  },
+  [MEMBER_IMPACT]: {
+    tracking: buildTrackingObj('person : impact', 'person'),
+  },
+  [MEMBER_CELEBRATE]: {
+    tracking: buildTrackingObj('person : celebrate', 'person'),
+  },
+  [MEMBERS_ASSIGNED_CONTACTS]: {
+    tracking: buildTrackingObj('person : assigned contacts', 'person'),
+  },
+};
+
 const personSteps = {
   name: i18next.t('personTabs:steps'),
-  navigationAction: 'nav/PERSON_STEPS',
+  navigationAction: PERSON_STEPS,
   component: ({
     navigation: {
       state: {
@@ -41,7 +72,7 @@ const personSteps = {
 };
 const personNotes = {
   name: i18next.t('personTabs:notes'),
-  navigationAction: 'nav/PERSON_NOTES',
+  navigationAction: PERSON_NOTES,
   component: ({
     navigation: {
       state: {
@@ -52,7 +83,7 @@ const personNotes = {
 };
 const personJourney = {
   name: i18next.t('personTabs:ourJourney'),
-  navigationAction: 'nav/PERSON_JOURNEY',
+  navigationAction: PERSON_JOURNEY,
   component: ({
     navigation: {
       state: {
@@ -63,7 +94,7 @@ const personJourney = {
 };
 const memberImpact = {
   name: i18next.t('personTabs:Impact'),
-  navigationAction: 'nav/MEMBER_IMPACT',
+  navigationAction: MEMBER_IMPACT,
   component: ({
     navigation: {
       state: {
@@ -74,7 +105,7 @@ const memberImpact = {
 };
 const memberCelebrate = {
   name: i18next.t('personTabs:celebrate'),
-  navigationAction: 'nav/MEMBER_CELEBRATE',
+  navigationAction: MEMBER_CELEBRATE,
   component: ({
     navigation: {
       state: {
@@ -85,7 +116,7 @@ const memberCelebrate = {
 };
 const assignedContacts = {
   name: i18next.t('personTabs:assignedContacts'),
-  navigationAction: 'nav/MEMBER_ASSIGNED_CONTACTS',
+  navigationAction: MEMBERS_ASSIGNED_CONTACTS,
   component: ({
     navigation: {
       state: {
@@ -96,7 +127,7 @@ const assignedContacts = {
 };
 const myJourney = {
   name: i18next.t('personTabs:myJourney'),
-  navigationAction: 'nav/PERSON_JOURNEY',
+  navigationAction: PERSON_JOURNEY,
   component: ({
     navigation: {
       state: {
@@ -107,7 +138,7 @@ const myJourney = {
 };
 const myImpact = {
   name: i18next.t('personTabs:myImpact'),
-  navigationAction: 'nav/MEMBER_IMPACT',
+  navigationAction: MEMBER_IMPACT,
   component: ({
     navigation: {
       state: {
