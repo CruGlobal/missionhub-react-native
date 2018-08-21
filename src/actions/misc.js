@@ -3,7 +3,8 @@ import { Linking } from 'react-native';
 import { contactAssignmentSelector } from '../selectors/people';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
-import { CONTACT_PERSON_SCREEN } from '../containers/Groups/AssignedPersonScreen';
+import { isMemberForOrg } from '../utils/common';
+import { orgPermissionSelector } from '../selectors/people';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
@@ -12,6 +13,7 @@ import {
   createContactAssignment,
   updatePersonAttributes,
   getPersonDetails,
+  getPersonScreenRoute,
 } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 
@@ -48,29 +50,46 @@ export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
   };
 }
 
-export function assignContactAndPickStage(personId, orgId, myId) {
-  return async dispatch => {
+export function assignContactAndPickStage(personId, orgId) {
+  return async (dispatch, getState) => {
+    const auth = getState().auth;
+    const myId = auth.person.id;
+
     const { person: resultPerson } = await dispatch(
       createContactAssignment(orgId, myId, personId),
     );
 
-    const { id: contactAssignmentId } = contactAssignmentSelector(
+    const contactAssignment = contactAssignmentSelector(
       { auth: { person: { id: myId } } },
       { person: resultPerson, orgId },
     );
 
-    dispatch(
-      navigateReplace(CONTACT_PERSON_SCREEN, {
-        person: resultPerson,
-        organization: { id: orgId },
+    const isMember = isMemberForOrg(
+      orgPermissionSelector(null, {
+        resultPerson,
+        organization: { id: organization.id },
       }),
+    );
+
+    const isGroups = auth.person.user.groups_feature;
+
+    const organization = { id: orgId };
+
+    dispatch(
+      navigateReplace(
+        getPersonScreenRoute(false, isMember, isGroups, contactAssignment),
+        {
+          person: resultPerson,
+          organization,
+        },
+      ),
     );
 
     dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,
         orgId,
-        contactAssignmentId,
+        contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
         onComplete: () => {},
         section: 'people',

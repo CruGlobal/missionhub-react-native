@@ -340,38 +340,46 @@ export function navToPersonScreen(person, org) {
     const isGroups = authPerson.user.groups_feature;
 
     dispatch(
-      navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
-        person,
-        organization,
-      }),
+      navigatePush(
+        getPersonScreenRoute(isMe, isMember, isGroups, contactAssignment),
+        {
+          person,
+          organization,
+        },
+      ),
     );
   };
+}
 
-  function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
-    if (isMe) {
-      if (isMember) {
-        if (isGroups) {
-          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
-        }
-
-        return ME_COMMUNITY_PERSON_SCREEN;
-      }
-
-      return ME_PERSONAL_PERSON_SCREEN;
-    }
-
+export function getPersonScreenRoute(
+  isMe,
+  isMember,
+  isGroups,
+  contactAssignment,
+) {
+  if (isMe) {
     if (isMember) {
       if (isGroups) {
-        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+        return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
       }
 
-      return MEMBER_PERSON_SCREEN;
+      return ME_COMMUNITY_PERSON_SCREEN;
     }
 
-    if (contactAssignment) {
-      return CONTACT_PERSON_SCREEN;
-    }
-
-    return UNASSIGNED_PERSON_SCREEN;
+    return ME_PERSONAL_PERSON_SCREEN;
   }
+
+  if (isMember) {
+    if (isGroups) {
+      return IS_GROUPS_MEMBER_PERSON_SCREEN;
+    }
+
+    return MEMBER_PERSON_SCREEN;
+  }
+
+  if (contactAssignment) {
+    return CONTACT_PERSON_SCREEN;
+  }
+
+  return UNASSIGNED_PERSON_SCREEN;
 }
