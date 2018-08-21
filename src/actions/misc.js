@@ -66,7 +66,7 @@ export function assignContactAndPickStage(personId, orgId, myId) {
       }),
     );
 
-    /*dispatch(
+    dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,
         orgId,
@@ -76,7 +76,7 @@ export function assignContactAndPickStage(personId, orgId, myId) {
         section: 'people',
         subsection: 'person',
       }),
-    );*/
+    );
   };
 }
 
