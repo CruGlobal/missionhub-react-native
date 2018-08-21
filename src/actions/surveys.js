@@ -37,7 +37,8 @@ export function getOrgSurveysNextPage(orgId) {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.surveysPagination;
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = {
       page: {
@@ -52,7 +53,7 @@ export function getOrgSurveysNextPage(orgId) {
 export function searchSurveyContacts(name, pagination, filters = {}) {
   return async dispatch => {
     if (!filters.survey) {
-      return Promise.reject('No Survey Specified');
+      return Promise.reject(`No Survey Specified in searchSurveyContacts`);
     }
 
     const query = {

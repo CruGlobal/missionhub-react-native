@@ -132,6 +132,17 @@ describe('getOrgSurveysNextPage', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_SURVEYS, query);
     expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
   });
+
+  it('should not get next page', async () => {
+    store = configureStore([thunk])({
+      organizations: { surveysPagination: { hasNextPage: false, page: 1 } },
+    });
+    callApi.mockReturnValue(surveysResponse);
+
+    const result = await store.dispatch(getOrgSurveysNextPage(orgId));
+
+    expect(result).toEqual(undefined);
+  });
 });
 
 describe('searchSurveyContacts', () => {
@@ -188,6 +199,16 @@ describe('searchSurveyContacts', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ANSWER_SHEETS, query);
     expect(store.getActions()).toEqual([apiResponse]);
+  });
+
+  it('should reject because no survey was passed in', async () => {
+    store = configureStore([thunk])();
+    callApi.mockReturnValue(apiResponse);
+    try {
+      await store.dispatch(searchSurveyContacts(name, {}));
+    } catch (e) {
+      expect(e).toBe('No Survey Specified in searchSurveyContacts');
+    }
   });
 });
 
