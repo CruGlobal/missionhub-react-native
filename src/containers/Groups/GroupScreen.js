@@ -133,35 +133,35 @@ export const GROUP_TABS = {
     tracking: buildTrackingObj(
       'communities : group : celebrate',
       'communities',
-      'group',
+      'community',
     ),
   },
   [GROUP_MEMBERS]: {
     tracking: buildTrackingObj(
       'communities : group : members',
       'communities',
-      'group',
+      'community',
     ),
   },
   [GROUP_IMPACT]: {
     tracking: buildTrackingObj(
       'communities : group : impact',
       'communities',
-      'group',
+      'community',
     ),
   },
   [GROUP_CONTACTS]: {
     tracking: buildTrackingObj(
       'communities : group : contacts',
       'communities',
-      'group',
+      'community',
     ),
   },
   [GROUP_SURVEYS]: {
     tracking: buildTrackingObj(
       'communities : group : surveys',
       'communities',
-      'group',
+      'community',
     ),
   },
 };

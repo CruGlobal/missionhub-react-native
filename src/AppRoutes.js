@@ -327,7 +327,49 @@ const screens = {
   ),
   [GROUP_SCREEN]: buildTrackedScreen(
     groupScreenTabNavigator,
-    buildTrackingObj('communities : group', 'communities', 'group'),
+    buildTrackingObj('communities : community', 'communities', 'community'),
+  ),
+  [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
+    SurveyContacts,
+    buildTrackingObj(
+      'communities : community : survey contacts',
+      'communities',
+      'community',
+    ),
+    {
+      gesturesEnabled: true,
+    },
+  ),
+  [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
+    SurveyContactsFilter,
+    buildTrackingObj(
+      'communities : community : survey contacts filer',
+      'communities',
+      'community',
+    ),
+    { gesturesEnabled: true },
+  ),
+  [SEARCH_QUESTIONS_FILTER_SCREEN]: buildTrackedScreen(
+    SurveyQuestionsFilter,
+    buildTrackingObj(
+      'communities : community : questions filter',
+      'communities',
+      'community',
+    ),
+    {
+      gesturesEnabled: true,
+    },
+  ),
+  [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
+    ContactsFilter,
+    buildTrackingObj(
+      'communities : community : contacts filter',
+      'communities',
+      'community',
+    ),
+    {
+      gesturesEnabled: true,
+    },
   ),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
@@ -364,22 +406,6 @@ export const MainStackRoutes = createStackNavigator(
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
-      navigationOptions: { gesturesEnabled: true },
-    },
-    [GROUPS_SURVEY_CONTACTS]: {
-      screen: SurveyContacts,
-      navigationOptions: { gesturesEnabled: true },
-    },
-    [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: {
-      screen: SurveyContactsFilter,
-      navigationOptions: { gesturesEnabled: true },
-    },
-    [SEARCH_QUESTIONS_FILTER_SCREEN]: {
-      screen: SurveyQuestionsFilter,
-      navigateOptions: { gesturesEnabled: true },
-    },
-    [SEARCH_CONTACTS_FILTER_SCREEN]: {
-      screen: ContactsFilter,
       navigationOptions: { gesturesEnabled: true },
     },
     [STATUS_SELECT_SCREEN]: {
