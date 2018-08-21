@@ -50,10 +50,12 @@ export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
   };
 }
 
-export function assignContactAndPickStage(personId, orgId) {
+export function assignContactAndPickStage(person, organization) {
   return async (dispatch, getState) => {
     const auth = getState().auth;
     const myId = auth.person.id;
+    const orgId = organization.id;
+    const personId = person.id;
 
     const { person: resultPerson } = await dispatch(
       createContactAssignment(orgId, myId, personId),
@@ -66,14 +68,12 @@ export function assignContactAndPickStage(personId, orgId) {
 
     const isMember = isMemberForOrg(
       orgPermissionSelector(null, {
-        resultPerson,
-        organization: { id: organization.id },
+        person: resultPerson,
+        organization,
       }),
     );
 
     const isGroups = auth.person.user.groups_feature;
-
-    const organization = { id: orgId };
 
     dispatch(
       navigateReplace(

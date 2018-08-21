@@ -260,7 +260,7 @@ export default class GroupsPersonHeader extends Component {
     return (
       <Flex>
         {contactAssignment || myId === person.id ? null : (
-          <AssignToMeButton personId={person.id} orgId={organization.id} />
+          <AssignToMeButton person={person} organization={organization} />
         )}
         <Flex align="center" justify="center" direction="row">
           {buttons}

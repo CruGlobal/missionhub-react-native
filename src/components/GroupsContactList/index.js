@@ -54,7 +54,7 @@ class GroupsContactList extends Component {
       <Flex value={1}>
         <Flex style={styles.header} align="center" justify="center">
           <Text style={styles.name}>{name.toUpperCase()}</Text>
-          <AssignToMeButton personId={person.id} orgId={organization.id} />
+          <AssignToMeButton person={person} organization={organization} />
         </Flex>
         <Flex value={1} style={styles.content}>
           {this.renderContent()}
