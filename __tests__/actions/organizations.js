@@ -151,7 +151,7 @@ describe('getOrganizationContacts', () => {
     survey: { id: '555' },
     [surveyQuestions1.id]: surveyQuestions1,
     [surveyQuestions2.id]: surveyQuestions2,
-    time: { id: 'time7' },
+    time: { id: 'time7', value: 7 },
   };
   const query = {
     filters: {

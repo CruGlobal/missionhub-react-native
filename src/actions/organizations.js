@@ -98,7 +98,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
 
     // If there is a survey AND we're filtering by time, apply the time filter to the answer_sheets
     if (filters.time) {
-      const dates = timeFilter(filters.time.id);
+      const dates = timeFilter(filters.time.value);
       query.filters.answer_sheets = {
         ...(query.filters.answer_sheets || {}),
         created_at: [dates.first, dates.last],
@@ -107,7 +107,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   } else {
     // TODO: Enable this when the API supports sorting contacts by `updated_at`
     //   if (filters.time) {
-    //     const dates = timeFilter(filters.time.id);
+    //     const dates = timeFilter(filters.time.value);
     //     query.filters.updated_at = [dates.first, dates.last];
     //   }
   }

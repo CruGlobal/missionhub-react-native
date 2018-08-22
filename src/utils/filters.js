@@ -41,13 +41,13 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
       id: 'time',
       text: t('searchFilter:time'),
       options: [
-        { id: 'time7', text: t('searchFilter:time7') },
-        { id: 'time30', text: t('searchFilter:time30') },
-        { id: 'time60', text: t('searchFilter:time60') },
-        { id: 'time90', text: t('searchFilter:time90') },
-        { id: 'time180', text: t('searchFilter:time180') },
-        { id: 'time270', text: t('searchFilter:time270') },
-        { id: 'time365', text: t('searchFilter:time365') },
+        { id: 'time7', value: 7, text: t('searchFilter:time7') },
+        { id: 'time30', value: 30, text: t('searchFilter:time30') },
+        { id: 'time60', value: 60, text: t('searchFilter:time60') },
+        { id: 'time90', value: 90, text: t('searchFilter:time90') },
+        { id: 'time180', value: 180, text: t('searchFilter:time180') },
+        { id: 'time270', value: 270, text: t('searchFilter:time270') },
+        { id: 'time365', value: 365, text: t('searchFilter:time365') },
       ],
       preview: filters.time ? filters.time.text : undefined,
     },
@@ -124,13 +124,8 @@ export const searchRemoveFilter = async (
 
 const DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss[Z]';
 export function timeFilter(numOfDays) {
-  let days = numOfDays;
-  if (isString(numOfDays) && numOfDays.indexOf('time') === 0) {
-    // Grab the number from the id of the time filter (time7, time30, etc.)
-    days = parseInt(numOfDays.substr(4));
-  }
   const first = moment()
-    .subtract(days, 'days')
+    .subtract(numOfDays, 'days')
     .hour(0)
     .minute(0)
     .second(0)
