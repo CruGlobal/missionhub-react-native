@@ -9,7 +9,7 @@ import {
 } from '../../../testUtils';
 import { navigatePush } from '../../../src/actions/navigation';
 import { navToPersonScreen } from '../../../src/actions/person';
-import * as surveys from '../../../src/actions/surveys';
+import * as organizations from '../../../src/actions/organizations';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from '../../../src/containers/Groups/SurveyContactsFilter';
 
 jest.mock('../../../src/actions/navigation', () => ({
@@ -18,7 +18,7 @@ jest.mock('../../../src/actions/navigation', () => ({
 jest.mock('../../../src/actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../src/actions/surveys');
+jest.mock('../../../src/actions/organizations');
 
 const store = createMockStore({});
 const organization = { id: '1', name: 'Test Org' };
@@ -76,13 +76,10 @@ describe('SurveyContacts', () => {
 
   it('should handleSearch correctly', async () => {
     const searchReturnValue = {
-      response: [
-        { id: '1', person: people[0] },
-        { id: '2', person: people[1] },
-      ],
+      response: [people[0], people[1]],
       meta: { total: 42 },
     };
-    surveys.searchSurveyContacts.mockReturnValue(searchReturnValue);
+    organizations.getOrganizationContacts.mockReturnValue(searchReturnValue);
 
     const instance = renderShallow(component, store).instance();
 

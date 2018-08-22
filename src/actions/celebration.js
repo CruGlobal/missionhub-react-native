@@ -13,7 +13,8 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
       : { page: 0, hasNextPage: true };
 
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = buildQuery(orgId, personId, page);
     return dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));

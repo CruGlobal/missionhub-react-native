@@ -4,6 +4,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
 } from '../constants';
+import { timeFilter } from '../utils/filters';
 
 import callApi, { REQUESTS } from './api';
 
@@ -84,6 +85,32 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   if (name) {
     query.filters.name = name;
   }
+
+  const answerFilters = getAnswersFromFilters(filters);
+  if (answerFilters) {
+    query.filters.answer_sheets = { answers: answerFilters };
+  }
+  if (filters.survey) {
+    query.filters.answer_sheets = {
+      ...(query.filters.answer_sheets || {}),
+      survey_ids: filters.survey.id,
+    };
+
+    // If there is a survey AND we're filtering by time, apply the time filter to the answer_sheets
+    if (filters.time) {
+      const dates = timeFilter(filters.time.value);
+      query.filters.answer_sheets = {
+        ...(query.filters.answer_sheets || {}),
+        created_at: [dates.first, dates.last],
+      };
+    }
+  } else {
+    // TODO: Enable this when the API supports sorting contacts by `updated_at`
+    //   if (filters.time) {
+    //     const dates = timeFilter(filters.time.value);
+    //     query.filters.updated_at = [dates.first, dates.last];
+    //   }
+  }
   if (filters.gender) {
     query.filters.genders = filters.gender.id;
   }
@@ -113,6 +140,21 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   return async dispatch => {
     return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
+}
+
+//each question/answer filter must be in the URL in the form:
+//filters[answers][questionId][]=answerTexts
+function getAnswersFromFilters(filters) {
+  const arrFilters = Object.keys(filters).map(k => filters[k]);
+  const answers = arrFilters.filter(f => f.isAnswer);
+  if (answers.length === 0) {
+    return null;
+  }
+  let answerFilters = {};
+  answers.forEach(f => {
+    answerFilters[f.id] = [f.text];
+  });
+  return answerFilters;
 }
 
 //todo probably should start storing this stuff in Redux
@@ -173,7 +215,8 @@ export function getOrganizationMembersNextPage(orgId) {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.membersPagination;
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = {
       page: {
@@ -191,7 +234,9 @@ export function addNewContact(data) {
       person: { id: myId },
     } = getState().auth;
     if (!data || !data.firstName) {
-      return Promise.reject('InvalidData', data);
+      return Promise.reject(
+        `Invalid Data from addNewContact: no data or no firstName passed in`,
+      );
     }
     let included = [];
     included.push({

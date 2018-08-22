@@ -444,6 +444,16 @@ describe('saveNote', () => {
       );
       expect(store.getActions()[0]).toBe(action);
     });
+
+    it('should reject note', async () => {
+      try {
+        await store.dispatch(savePersonNote(undefined, note, noteId, myId));
+      } catch (e) {
+        expect(e).toBe(
+          'Invalid Data from savePersonNote: no personId passed in',
+        );
+      }
+    });
   });
 });
 

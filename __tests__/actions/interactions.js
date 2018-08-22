@@ -160,6 +160,20 @@ describe('add comment', () => {
         celebrationFeedResult,
       ]);
     });
+
+    it('should not add new comment, no personId', async () => {
+      mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
+
+      try {
+        await store.dispatch(
+          addNewInteraction(undefined, interaction, comment, orgId),
+        );
+      } catch (e) {
+        expect(e).toBe(
+          'Invalid Data from addNewInteraction: no personId passed in',
+        );
+      }
+    });
   });
 });
 
@@ -197,5 +211,25 @@ describe('edit comment', () => {
     await store.dispatch(editComment({ id: interaction.id }, comment));
 
     expect(store.getActions()).toEqual([editCommentResult, trackActionResult]);
+  });
+
+  it('should not edit a comment, no interaction', async () => {
+    try {
+      await store.dispatch(editComment(undefined, comment));
+    } catch (e) {
+      expect(e).toBe(
+        'Invalid Data from editComment: no interaction or no comment passed in',
+      );
+    }
+  });
+
+  it('should not edit a comment, no comment', async () => {
+    try {
+      await store.dispatch(editComment({ id: interaction.id }));
+    } catch (e) {
+      expect(e).toBe(
+        'Invalid Data from editComment: no interaction or no comment passed in',
+      );
+    }
   });
 });
