@@ -96,18 +96,20 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
       survey_ids: filters.survey.id,
     };
 
+    // If there is a survey AND we're filtering by time, apply the time filter to the answer_sheets
     if (filters.time) {
       const dates = timeFilter(filters.time.id);
       query.filters.answer_sheets = {
         ...(query.filters.answer_sheets || {}),
-        created_at: { '': dates.first },
+        created_at: [dates.first, dates.last],
       };
     }
   } else {
-    if (filters.time) {
-      const dates = timeFilter(filters.time.id);
-      query.filters.person = { created_at: [dates.first, dates.last] };
-    }
+    // TODO: Enable this when the API supports sorting contacts by `updated_at`
+    //   if (filters.time) {
+    //     const dates = timeFilter(filters.time.id);
+    //     query.filters.updated_at = [dates.first, dates.last];
+    //   }
   }
   if (filters.gender) {
     query.filters.genders = filters.gender.id;
@@ -143,15 +145,14 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts
 function getAnswersFromFilters(filters) {
+  const arrFilters = Object.keys(filters).map(k => filters[k]);
+  const answers = arrFilters.filter(f => f.isAnswer);
+  if (answers.length === 0) {
+    return null;
+  }
   let answerFilters = {};
-  const keys = Object.keys(filters);
-  keys.forEach(k => {
-    const filter = filters[k];
-    if (filter.isAnswer) {
-      answerFilters[filter.id] = {
-        '': filter.text,
-      };
-    }
+  answers.forEach(f => {
+    answerFilters[f.id] = [f.text];
   });
   return answerFilters;
 }

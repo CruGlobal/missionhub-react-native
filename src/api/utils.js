@@ -65,7 +65,8 @@ function createUrl(url = '', params) {
   }
   let fullUrl = newUrl;
   if (params && Object.keys(params).length > 0) {
-    let paramsStr = qs.stringify(params);
+    // stringify arrays into brackets without indices https://github.com/ljharb/qs#stringifying
+    let paramsStr = qs.stringify(params, { arrayFormat: 'brackets' });
 
     fullUrl += `?${paramsStr}`;
   }

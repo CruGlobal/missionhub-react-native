@@ -56,7 +56,8 @@ export class ContactsFilter extends Component {
     const options = [
       filterOptions.labels,
       filterOptions.gender,
-      filterOptions.time,
+      // TODO: remove until API supports it
+      // filterOptions.time,
     ];
     const toggleOptions = [
       filterOptions.uncontacted,

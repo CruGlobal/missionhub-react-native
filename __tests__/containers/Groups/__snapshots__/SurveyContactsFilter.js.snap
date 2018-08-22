@@ -37,6 +37,41 @@ exports[`SurveyContactsFilter should render correctly 1`] = `
         "preview": undefined,
         "text": "Gender",
       },
+      Object {
+        "id": "time",
+        "options": Array [
+          Object {
+            "id": "time7",
+            "text": "Last 7 days",
+          },
+          Object {
+            "id": "time30",
+            "text": "Last 30 days",
+          },
+          Object {
+            "id": "time60",
+            "text": "Last 60 days",
+          },
+          Object {
+            "id": "time90",
+            "text": "Last 90 days",
+          },
+          Object {
+            "id": "time180",
+            "text": "Last 6 Months",
+          },
+          Object {
+            "id": "time270",
+            "text": "Last 9 Months",
+          },
+          Object {
+            "id": "time365",
+            "text": "Last 12 Months",
+          },
+        ],
+        "preview": "Last 30 days",
+        "text": "Time Period",
+      },
     ]
   }
   title="Filter Survey"
