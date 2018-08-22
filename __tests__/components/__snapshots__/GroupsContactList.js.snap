@@ -30,8 +30,18 @@ exports[`renders activity list 1`] = `
       FULL NAME
     </MyText>
     <Connect(Translate(AssignToMeButton))
-      orgId="900"
-      personId="123"
+      organization={
+        Object {
+          "id": "900",
+          "name": "Roge's org",
+        }
+      }
+      person={
+        Object {
+          "full_name": "Full Name",
+          "id": "123",
+        }
+      }
     />
   </Flex>
   <Flex
@@ -133,8 +143,18 @@ exports[`renders empty list 1`] = `
       FULL NAME
     </MyText>
     <Connect(Translate(AssignToMeButton))
-      orgId="900"
-      personId="123"
+      organization={
+        Object {
+          "id": "900",
+          "name": "Roge's org",
+        }
+      }
+      person={
+        Object {
+          "full_name": "Full Name",
+          "id": "123",
+        }
+      }
     />
   </Flex>
   <Flex

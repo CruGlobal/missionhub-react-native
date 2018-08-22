@@ -62,7 +62,7 @@ export function assignContactAndPickStage(person, organization) {
     );
 
     const contactAssignment = contactAssignmentSelector(
-      { auth: { person: { id: myId } } },
+      { auth },
       { person: resultPerson, orgId },
     );
 

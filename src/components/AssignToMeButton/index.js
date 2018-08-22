@@ -10,7 +10,7 @@ import styles from './styles';
 
 @translate()
 class AssignToMeButton extends Component {
-  assignToMe = async () => {
+  assignToMe = () => {
     const { dispatch, person, organization, myId } = this.props;
     dispatch(assignContactAndPickStage(person, organization, myId));
   };
