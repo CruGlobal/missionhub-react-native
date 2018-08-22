@@ -23,11 +23,11 @@ export function navigateBack(times) {
   };
 }
 
-export function navigateReset(screen, props = {}, index = 0) {
+export function navigateReset(screen, props = {}) {
   return dispatch => {
     dispatch(
       StackActions.reset({
-        index,
+        index: 0,
         actions: [
           NavigationActions.navigate({ routeName: screen, params: props }),
         ],
@@ -47,7 +47,5 @@ export function navigateReplace(screen, props = {}) {
         immediate: true,
       }),
     );
-    //dispatch(StackActions.pop({ immediate: true }));
-    //dispatch(StackActions.push({ routeName: screen, params: props, immediate: true }));
   };
 }

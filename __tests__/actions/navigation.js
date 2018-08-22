@@ -8,27 +8,32 @@ jest.mock('react-navigation', () => ({
   StackActions: {
     pop: jest.fn(),
     reset: jest.fn(),
+    replace: jest.fn(),
   },
 }));
 import {
   navigatePush,
   navigateBack,
   navigateReset,
+  navigateReplace,
 } from '../../src/actions/navigation';
+
+const routeName = 'screenName';
+const params = { prop1: 'value1' };
 
 describe('navigatePush', () => {
   it('should push new screen onto the stack', () => {
-    navigatePush('screenName', { prop1: 'value1' })(jest.fn());
+    navigatePush(routeName, params)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName: 'screenName',
-      params: { prop1: 'value1' },
+      routeName,
+      params,
     });
   });
   it('should push new screen onto the stack with no props', () => {
-    navigatePush('screenName')(jest.fn());
+    navigatePush(routeName)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName: 'screenName',
-      params: {},
+      routeName,
+      params,
     });
   });
 });
@@ -47,10 +52,10 @@ describe('navigateBack', () => {
 describe('navigateReset', () => {
   it('should reset navigation stack', () => {
     NavigationActions.navigate.mockReturnValue('newRouterState');
-    navigateReset('screenName', { prop1: 'value1' })(jest.fn());
+    navigateReset(routeName, params)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName: 'screenName',
-      params: { prop1: 'value1' },
+      routeName,
+      params,
     });
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
@@ -59,14 +64,25 @@ describe('navigateReset', () => {
   });
   it('should reset navigation stack with no props', () => {
     NavigationActions.navigate.mockReturnValue('newRouterState');
-    navigateReset('screenName')(jest.fn());
+    navigateReset(routeName)(jest.fn());
     expect(NavigationActions.navigate).toHaveBeenCalledWith({
-      routeName: 'screenName',
-      params: {},
+      routeName,
+      params,
     });
     expect(StackActions.reset).toHaveBeenCalledWith({
       index: 0,
       actions: ['newRouterState'],
+    });
+  });
+});
+
+describe('navigateReplace', () => {
+  it('should replace last route in navigation stack', () => {
+    navigateReplace(routeName, params)(jest.fn());
+    expect(StackActions.replace).toHaveBeenCalledWith({
+      routeName,
+      params,
+      immediate: true,
     });
   });
 });
