@@ -187,11 +187,11 @@ export default class App extends Component {
   }
 
   onBackPress = () => {
-    const { dispatch, nav } = this.props;
+    const { nav } = store.getState();
     if (nav.index === 0) {
       return false;
     }
-    dispatch(navigateBack());
+    store.dispatch(navigateBack());
     return true;
   };
 
