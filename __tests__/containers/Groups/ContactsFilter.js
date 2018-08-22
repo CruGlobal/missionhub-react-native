@@ -21,7 +21,7 @@ jest.mock('../../../src/actions/labels', () => ({
 }));
 
 const store = createMockStore({});
-const timeFilter30 = { id: 'time30', text: 'Last 30 days' };
+const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };
 const organization = { id: '1' };
 const filters = {
   unassigned: {
