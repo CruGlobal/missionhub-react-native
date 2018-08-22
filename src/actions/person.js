@@ -291,6 +291,7 @@ export function createContactAssignment(
     await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
+    dispatch(trackActionWithoutData(ACTIONS.ASSIGNED_TO_ME));
     return dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }

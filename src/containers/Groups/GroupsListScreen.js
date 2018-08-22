@@ -17,7 +17,7 @@ import { GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
 
 @translate('groupsList')
-export class GroupsListScreen extends Component {
+class GroupsListScreen extends Component {
   state = { refreshing: false };
 
   loadGroups = () => this.props.dispatch(getMyCommunities());
@@ -94,7 +94,7 @@ export class GroupsListScreen extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations, auth }) => ({
+const mapStateToProps = ({ organizations, auth }) => ({
   orgs: communitiesSelector({ organizations, auth }),
 });
 

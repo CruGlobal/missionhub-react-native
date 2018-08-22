@@ -301,7 +301,10 @@ describe('createContactAssignment', () => {
         ],
       },
     );
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ASSIGNED_TO_ME,
+    );
+    expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });
 

@@ -9,6 +9,7 @@ import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/ind
 import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { buildTrackingObj } from '../../utils/common';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -56,10 +57,16 @@ export class GroupScreen extends Component {
   }
 }
 
+const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
+const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
+const GROUP_IMPACT = 'nav/GROUP_IMPACT';
+const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
+const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';
+
 const tabs = [
   {
     name: i18next.t('groupTabs:celebrate'),
-    navigationAction: 'nav/GROUP_CELEBRATE',
+    navigationAction: GROUP_CELEBRATE,
     component: ({
       navigation: {
         state: {
@@ -70,7 +77,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:members'),
-    navigationAction: 'nav/GROUP_MEMBERS',
+    navigationAction: GROUP_MEMBERS,
     component: ({
       navigation: {
         state: {
@@ -81,7 +88,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:impact'),
-    navigationAction: 'nav/GROUP_IMPACT',
+    navigationAction: GROUP_IMPACT,
     component: ({
       navigation: {
         state: {
@@ -92,7 +99,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:contacts'),
-    navigationAction: 'nav/GROUP_CONTACTS',
+    navigationAction: GROUP_CONTACTS,
     component: ({
       navigation: {
         state: {
@@ -103,7 +110,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:surveys'),
-    navigationAction: 'nav/GROUP_SURVEYS',
+    navigationAction: GROUP_SURVEYS,
     component: ({
       navigation: {
         state: {
@@ -120,3 +127,41 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
+
+export const GROUP_TABS = {
+  [GROUP_CELEBRATE]: {
+    tracking: buildTrackingObj(
+      'communities : group : celebrate',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_MEMBERS]: {
+    tracking: buildTrackingObj(
+      'communities : group : members',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_IMPACT]: {
+    tracking: buildTrackingObj(
+      'communities : group : impact',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_CONTACTS]: {
+    tracking: buildTrackingObj(
+      'communities : group : contacts',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_SURVEYS]: {
+    tracking: buildTrackingObj(
+      'communities : group : surveys',
+      'communities',
+      'community',
+    ),
+  },
+};

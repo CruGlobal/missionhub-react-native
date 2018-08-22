@@ -69,7 +69,7 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
 `;
 
 exports[`renders item 1`] = `
-<Translate(CelebrateItem)
+<Connect(Translate(CelebrateItem))
   event={
     Object {
       "data": Array [
