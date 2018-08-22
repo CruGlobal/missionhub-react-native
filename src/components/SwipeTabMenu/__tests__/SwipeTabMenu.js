@@ -1,15 +1,17 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
-jest.mock('react-navigation', () => ({
-  createMaterialTopTabNavigator: jest.fn(),
-}));
 
 import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '../';
 import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
+
+jest.mock('react-navigation', () => ({
+  createMaterialTopTabNavigator: jest.fn(),
+}));
+
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
