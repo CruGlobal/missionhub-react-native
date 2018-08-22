@@ -304,11 +304,8 @@ describe('getOrganizationMembers', () => {
       organizations: { membersPagination: { hasNextPage: false, page: 1 } },
     });
 
-    try {
-      await store.dispatch(getOrganizationMembersNextPage(orgId));
-    } catch (e) {
-      expect(e).toEqual('NoMoreData');
-    }
+    const result = await store.dispatch(getOrganizationMembersNextPage(orgId));
+    expect(result).toEqual(undefined);
   });
 });
 

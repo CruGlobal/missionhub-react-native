@@ -17,7 +17,9 @@ export function addNewInteraction(
       person: { id: myId },
     } = getState().auth;
     if (!personId) {
-      return Promise.reject('InvalidData');
+      return Promise.reject(
+        `Invalid Data from addNewInteraction: no personId passed in`,
+      );
     }
 
     const relationships = {
@@ -76,7 +78,9 @@ export function addNewInteraction(
 export function editComment(interaction, comment) {
   return dispatch => {
     if (!interaction || !comment) {
-      return Promise.reject('InvalidDataEditComment');
+      return Promise.reject(
+        `Invalid Data from editComment: no interaction or no comment passed in`,
+      );
     }
 
     const bodyData = {

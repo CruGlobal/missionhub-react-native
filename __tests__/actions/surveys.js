@@ -127,4 +127,15 @@ describe('getOrgSurveysNextPage', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_SURVEYS, query);
     expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
   });
+
+  it('should not get next page', async () => {
+    store = configureStore([thunk])({
+      organizations: { surveysPagination: { hasNextPage: false, page: 1 } },
+    });
+    callApi.mockReturnValue(surveysResponse);
+
+    const result = await store.dispatch(getOrgSurveysNextPage(orgId));
+
+    expect(result).toEqual(undefined);
+  });
 });
