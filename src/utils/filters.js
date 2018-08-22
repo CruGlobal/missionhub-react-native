@@ -1,7 +1,5 @@
 import moment from 'moment';
 
-import { isString } from './common';
-
 export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
