@@ -24,17 +24,13 @@ import styles from './styles';
 
 @translate()
 export default class GroupsPersonHeader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      buttons:
-        props.person.id === props.myId
-          ? this.getMeButton()
-          : props.isMember
-            ? this.getMemberButtons()
-            : this.getContactButtons(),
-    };
+  computeButtons() {
+    const { props } = this;
+    return props.person.id === props.myId
+      ? this.getMeButton()
+      : props.isMember
+        ? this.getMemberButtons()
+        : this.getContactButtons();
   }
 
   getSelfStageButton() {
@@ -245,7 +241,7 @@ export default class GroupsPersonHeader extends Component {
   }
 
   render() {
-    const { buttons } = this.state;
+    const buttons = this.computeButtons();
     const {
       contactAssignment,
       myId,

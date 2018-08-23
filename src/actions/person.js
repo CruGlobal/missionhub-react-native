@@ -323,7 +323,7 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
 }
 
 export function navToPersonScreen(person, org) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const organization = org ? org : {};
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
 
@@ -342,7 +342,7 @@ export function navToPersonScreen(person, org) {
     const isMe = person.id === authPerson.id;
     const isGroups = authPerson.user.groups_feature;
 
-    await dispatch(getPersonDetails(person.id, organization.id));
+    dispatch(getPersonDetails(person.id, organization.id));
 
     dispatch(
       navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
