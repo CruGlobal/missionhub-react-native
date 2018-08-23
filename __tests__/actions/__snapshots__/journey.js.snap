@@ -1,6 +1,201 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`get group journey should get a persons group journey 1`] = `
+exports[`get group journey should get a persons group journey, admin permissions 1`] = `
+Array [
+  Object {
+    "_type": "accepted_challenge",
+    "completed_at": "2018-02-09T00:00:00",
+    "id": "1",
+    "organization": Object {
+      "id": "1",
+    },
+    "title": "Step in org",
+  },
+  Object {
+    "_type": "accepted_challenge",
+    "completed_at": "2018-02-10T00:00:00",
+    "id": "2",
+    "organization": null,
+    "title": "Step in personal org",
+  },
+  Object {
+    "_type": "interaction",
+    "comment": "Interaction in org",
+    "created_at": "2018-02-01T00:00:00",
+    "id": "1",
+    "initiators": Array [
+      Object {
+        "id": "3",
+      },
+      Object {
+        "id": "1",
+      },
+    ],
+    "isFirstInteraction": true,
+    "organization": Object {
+      "id": "1",
+    },
+  },
+  Object {
+    "_type": "interaction",
+    "comment": "Interaction in another org",
+    "created_at": "2018-02-02T00:00:00",
+    "id": "2",
+    "initiators": Array [
+      Object {
+        "id": "1",
+      },
+    ],
+    "organization": Object {
+      "id": "2",
+    },
+  },
+  Object {
+    "_type": "interaction",
+    "comment": "Interaction by someone else",
+    "created_at": "2018-02-03T00:00:00",
+    "id": "3",
+    "initiators": Array [
+      Object {
+        "id": "3",
+      },
+    ],
+    "organization": Object {
+      "id": "1",
+    },
+  },
+  Object {
+    "_type": "interaction",
+    "comment": "Comment in personal org",
+    "created_at": "2018-02-12T00:00:00",
+    "id": "4",
+    "initiators": Array [
+      Object {
+        "id": "1",
+      },
+    ],
+    "organization": null,
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "1",
+    },
+    "comment": "Stage change in org",
+    "created_at": "2018-02-04T00:00:00",
+    "id": "1",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "2",
+      "name": "Curious",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": Object {
+      "id": "1",
+    },
+    "person": Object {
+      "id": "2",
+    },
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "1",
+    },
+    "comment": "Stage change in another org",
+    "created_at": "2018-02-05T00:00:00",
+    "id": "2",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "2",
+      "name": "Curious",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": Object {
+      "id": "2",
+    },
+    "person": Object {
+      "id": "2",
+    },
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "3",
+    },
+    "comment": "Stage change by someone else",
+    "created_at": "2018-02-06T00:00:00",
+    "id": "3",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "2",
+      "name": "Curious",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": Object {
+      "id": "1",
+    },
+    "person": Object {
+      "id": "2",
+    },
+  },
+  Object {
+    "_type": "pathway_progression_audit",
+    "assigned_to": Object {
+      "id": "1",
+    },
+    "comment": "Stage change in personal org",
+    "created_at": "2018-02-11T00:00:00",
+    "id": "4",
+    "new_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "2",
+      "name": "Curious",
+    },
+    "old_pathway_stage": Object {
+      "_type": "pathway_stage",
+      "id": "1",
+      "name": "Uninterested",
+    },
+    "organization": null,
+    "person": Object {
+      "id": "2",
+    },
+  },
+  Object {
+    "_type": "answer_sheet",
+    "created_at": "2018-02-07T00:00:00",
+    "id": "1",
+    "survey": Object {
+      "organization_id": "1",
+      "title": "Survey in org",
+    },
+  },
+  Object {
+    "_type": "answer_sheet",
+    "created_at": "2018-02-08T00:00:00",
+    "id": "2",
+    "survey": Object {
+      "organization_id": "2",
+      "title": "Survey in another org",
+    },
+  },
+]
+`;
+
+exports[`get group journey should get a persons group journey, user permissions 1`] = `
 Array [
   Object {
     "_type": "accepted_challenge",
