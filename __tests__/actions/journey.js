@@ -1,6 +1,5 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import MockDate from 'mockdate';
 
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
@@ -12,6 +11,10 @@ import { isAdminForOrg } from '../../src/utils/common';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/utils/common');
+
+Date = jest.fn(() => ({
+  toISOString: () => '2018-04-17T00:00:00Z',
+}));
 
 const mockStore = configureStore([thunk]);
 
@@ -151,7 +154,6 @@ callApi.mockReturnValue(() => Promise.resolve({ response: { all: feed } }));
 
 beforeEach(() => {
   callApi.mockClear();
-  MockDate.set('2018-04-17');
 });
 
 describe('reload journey', () => {
@@ -185,7 +187,7 @@ describe('get journey', () => {
     expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include:
-        'all.answers.question,all.survey,all.person,all.old_pathway_stage,all.new_pathway_stage',
+        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.assigned_to,all.assigned_by',
       filters: {
         person_id: personId,
         organization_ids: expectedOrgId,
@@ -196,36 +198,38 @@ describe('get journey', () => {
   }
 
   it("should get a person's journey without an org (personal ministry)", async () => {
-    test(undefined, 'null');
+    await test(undefined, 'null');
   });
 
   it("should get a person's journey with an org", async () => {
-    test(orgId, orgId);
+    await test(orgId, orgId);
   });
 });
 
 describe('get group journey', () => {
-  it('should get a persons group journey, admin permissions', async () => {
-    const orgPermissions = { organization_id: orgId, permission_id: 1 };
+  async function test(isAdmin) {
+    const orgPermissions = {
+      organization_id: orgId,
+      permission_id: isAdmin ? 1 : 4,
+    };
     store = mockStore({
       auth: {
         person: {
-          organizational_permissions: [
-            { organization_id: orgId, permission_id: 1 },
-          ],
+          organizational_permissions: [orgPermissions],
         },
       },
     });
 
-    isAdminForOrg.mockReturnValue(true);
+    isAdminForOrg.mockReturnValue(isAdmin);
 
     expect(
       await store.dispatch(getGroupJourney(personId, orgId)),
     ).toMatchSnapshot();
     expect(isAdminForOrg).toHaveBeenCalledWith(orgPermissions);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
-      include:
-        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver',
+      include: isAdmin
+        ? 'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver'
+        : 'all.answers.question,all.survey',
       filters: {
         person_id: personId,
         organization_ids: orgId,
@@ -234,5 +238,13 @@ describe('get group journey', () => {
         scope_to_current_user: false,
       },
     });
+  }
+
+  it('should get a persons group journey, admin permissions', async () => {
+    await test(true);
+  });
+
+  it('should get a persons group journey, user permissions', async () => {
+    await test(false);
   });
 });
