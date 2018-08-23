@@ -235,7 +235,7 @@ describe('get group journey', () => {
         organization_ids: orgId,
         starting_at: '2011-01-01T00:00:00Z',
         ending_at: '2018-04-17T00:00:00Z',
-        scope_to_current_user: false,
+        scope_to_current_user: !isAdmin,
       },
     });
   }
