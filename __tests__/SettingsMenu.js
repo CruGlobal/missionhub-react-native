@@ -5,6 +5,7 @@ import React from 'react';
 import { createMockStore } from '../testUtils/index';
 import SettingsMenu from '../src/components/SettingsMenu';
 import { testSnapshotShallow } from '../testUtils';
+
 const mockState = {
   auth: { isFirstTime: false },
 };

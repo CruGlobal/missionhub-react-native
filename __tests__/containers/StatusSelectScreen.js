@@ -17,6 +17,7 @@ import {
   orgPermissionSelector,
   personSelector,
 } from '../../src/selectors/people';
+
 jest.mock('../../src/actions/person', () => ({
   updateFollowupStatus: jest.fn(() => Promise.resolve()),
 }));
