@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`get group journey should get a persons group journey 1`] = `
+exports[`get group journey should get a persons group journey, admin permissions 1`] = `
 Array [
   Object {
     "_type": "accepted_challenge",
