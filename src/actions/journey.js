@@ -29,7 +29,7 @@ export function getGroupJourney(personId, orgId) {
         include = 'all.answers.question,all.survey';
       }
       const filters = {
-        scope_to_current_user: false,
+        scope_to_current_user: !isAdmin,
       };
       const {
         response: { all: feed },
