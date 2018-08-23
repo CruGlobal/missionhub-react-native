@@ -3,6 +3,7 @@ import { BackHandler, Platform, Keyboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
+import Config from 'react-native-config';
 
 import {
   CUSTOM_STEP_TYPE,
@@ -34,14 +35,12 @@ export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
 export const openMainMenu = () =>
   DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER });
-export const buildTrackingObj = (name, section, subsection, level3) => {
-  return {
-    name: name,
-    section: section,
-    subsection: subsection,
-    level3: level3,
-  };
-};
+export const buildTrackingObj = (name, section, subsection, level3) => ({
+  name,
+  section,
+  subsection,
+  level3,
+});
 
 export const isFunction = fn => typeof fn === 'function';
 export const isArray = arr => Array.isArray(arr);
@@ -252,4 +251,8 @@ export function keyboardHide(handler) {
     return Keyboard.addListener('keyboardDidHide', handler);
   }
   return Keyboard.addListener('keyboardWillHide', handler);
+}
+
+export function getSurveyUrl(surveyId) {
+  return `${Config.SURVEY_URL}${surveyId}`;
 }

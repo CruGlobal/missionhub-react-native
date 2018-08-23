@@ -62,7 +62,8 @@ export function getMyStepsNextPage() {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().steps.pagination;
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = {
       page: {

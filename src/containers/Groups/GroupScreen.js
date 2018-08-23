@@ -4,8 +4,12 @@ import i18next from 'i18next';
 
 import Header from '../Header/index';
 import BackButton from '../BackButton/index';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ImpactView from '../ImpactView';
+import IconButton from '../../components/IconButton';
+import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { buildTrackingObj } from '../../utils/common';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -14,18 +18,55 @@ import Surveys from './Surveys';
 
 @connect()
 export class GroupScreen extends Component {
+  handleAddContact = () => {
+    const { dispatch } = this.props;
+    const { organization } = this.props.navigation.state.params || {};
+
+    dispatch(
+      navigatePush(ADD_CONTACT_SCREEN, {
+        organization: organization.id ? organization : undefined,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          dispatch(navigateBack(4));
+        },
+      }),
+    );
+  };
+
+  renderAddContactIcon() {
+    return (
+      <IconButton
+        name="addContactIcon"
+        type="MissionHub"
+        size={24}
+        onPress={this.handleAddContact}
+      />
+    );
+  }
+
   render() {
     const { organization } = this.props.navigation.state.params || {};
     return (
-      <Header left={<BackButton />} shadow={false} title={organization.name} />
+      <Header
+        left={<BackButton />}
+        shadow={false}
+        title={organization.name}
+        right={this.renderAddContactIcon()}
+      />
     );
   }
 }
 
+const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
+const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
+const GROUP_IMPACT = 'nav/GROUP_IMPACT';
+const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
+const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';
+
 const tabs = [
   {
     name: i18next.t('groupTabs:celebrate'),
-    navigationAction: 'nav/GROUP_CELEBRATE',
+    navigationAction: GROUP_CELEBRATE,
     component: ({
       navigation: {
         state: {
@@ -36,7 +77,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:members'),
-    navigationAction: 'nav/GROUP_MEMBERS',
+    navigationAction: GROUP_MEMBERS,
     component: ({
       navigation: {
         state: {
@@ -47,7 +88,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:impact'),
-    navigationAction: 'nav/GROUP_IMPACT',
+    navigationAction: GROUP_IMPACT,
     component: ({
       navigation: {
         state: {
@@ -58,7 +99,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:contacts'),
-    navigationAction: 'nav/GROUP_CONTACTS',
+    navigationAction: GROUP_CONTACTS,
     component: ({
       navigation: {
         state: {
@@ -69,7 +110,7 @@ const tabs = [
   },
   {
     name: i18next.t('groupTabs:surveys'),
-    navigationAction: 'nav/GROUP_SURVEYS',
+    navigationAction: GROUP_SURVEYS,
     component: ({
       navigation: {
         state: {
@@ -86,3 +127,41 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
 );
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
+
+export const GROUP_TABS = {
+  [GROUP_CELEBRATE]: {
+    tracking: buildTrackingObj(
+      'communities : group : celebrate',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_MEMBERS]: {
+    tracking: buildTrackingObj(
+      'communities : group : members',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_IMPACT]: {
+    tracking: buildTrackingObj(
+      'communities : group : impact',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_CONTACTS]: {
+    tracking: buildTrackingObj(
+      'communities : group : contacts',
+      'communities',
+      'community',
+    ),
+  },
+  [GROUP_SURVEYS]: {
+    tracking: buildTrackingObj(
+      'communities : group : surveys',
+      'communities',
+      'community',
+    ),
+  },
+};

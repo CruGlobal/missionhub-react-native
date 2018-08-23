@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import MockDate from 'mockdate';
 
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
@@ -135,8 +136,11 @@ describe('getOrganizationsContactReports', () => {
 });
 
 describe('getOrganizationContacts', () => {
+  MockDate.set('2018-08-22 12:00:00', 300);
   const name = 'name';
   const orgId = '123';
+  const surveyQuestions1 = { id: '123', text: '123Text', isAnswer: true };
+  const surveyQuestions2 = { id: '456', text: '456Text', isAnswer: true };
   const filters = {
     gender: { id: 'Male' },
     archived: true,
@@ -144,6 +148,10 @@ describe('getOrganizationContacts', () => {
     uncontacted: true,
     labels: { id: '333' },
     groups: { id: '444' },
+    survey: { id: '555' },
+    [surveyQuestions1.id]: surveyQuestions1,
+    [surveyQuestions2.id]: surveyQuestions2,
+    time: { id: 'time7', value: 7 },
   };
   const query = {
     filters: {
@@ -156,6 +164,14 @@ describe('getOrganizationContacts', () => {
       statuses: 'uncontacted',
       label_ids: filters.labels.id,
       group_ids: filters.groups.id,
+      answer_sheets: {
+        survey_ids: filters.survey.id,
+        answers: {
+          [surveyQuestions1.id]: [surveyQuestions1.text],
+          [surveyQuestions2.id]: [surveyQuestions2.text],
+        },
+        created_at: ['2018-08-15T00:00:00Z', '2018-08-22T23:59:59Z'],
+      },
     },
     page: {
       limit: DEFAULT_PAGE_LIMIT,
@@ -288,11 +304,8 @@ describe('getOrganizationMembers', () => {
       organizations: { membersPagination: { hasNextPage: false, page: 1 } },
     });
 
-    try {
-      await store.dispatch(getOrganizationMembersNextPage(orgId));
-    } catch (e) {
-      expect(e).toEqual('NoMoreData');
-    }
+    const result = await store.dispatch(getOrganizationMembersNextPage(orgId));
+    expect(result).toEqual(undefined);
   });
 });
 

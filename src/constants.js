@@ -222,6 +222,14 @@ export const ACTIONS = {
     HOLY_SPIRIT_PRESENTATION: 'cru.presentingtheholyspirit',
     DISCIPLESHIP: 'cru.discipleshipconversation',
   },
+  ITEM_LIKED: {
+    name: 'Celebrate Item Liked',
+    key: 'cru.celebrateitemliked',
+  },
+  ASSIGNED_TO_ME: {
+    name: 'Assigned to Me',
+    key: 'cru.assignedtome',
+  },
 };
 
 export const CUSTOM_STEP_TYPE = 'user created step';

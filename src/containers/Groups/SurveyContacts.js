@@ -4,7 +4,6 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { searchSurveyContacts } from '../../actions/surveys';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
@@ -13,6 +12,8 @@ import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { buildUpdatedPagination } from '../../utils/pagination';
+import ShareSurveyMenu from '../../components/ShareSurveyMenu';
+import { getOrganizationContacts } from '../../actions/organizations';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -34,8 +35,7 @@ class SurveyContacts extends Component {
           selected: true,
           text: t('searchFilter:unassigned'),
         },
-        //TODO: remove until API supports it
-        // time: { id: 'time30', text: t('searchFilter:time30') },
+        time: { id: 'time30', text: t('searchFilter:time30') },
       },
       defaultResults: [],
     };
@@ -98,12 +98,11 @@ class SurveyContacts extends Component {
     const { filters, pagination } = this.state;
     const searchFilters = {
       ...filters,
-      organization: { id: organization.id },
       survey: { id: survey.id },
     };
 
     const results = await dispatch(
-      searchSurveyContacts(text, pagination, searchFilters),
+      getOrganizationContacts(organization.id, text, pagination, searchFilters),
     );
 
     const { meta, response } = results;
@@ -111,7 +110,7 @@ class SurveyContacts extends Component {
     this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
 
     // Get the results from the search endpoint
-    return response.map(a => a.person);
+    return response;
   };
 
   ref = c => (this.searchList = c);
@@ -129,12 +128,16 @@ class SurveyContacts extends Component {
   };
 
   render() {
-    const { t, organization } = this.props;
+    const { t, organization, survey } = this.props;
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
       <Flex value={1}>
-        <Header left={<BackButton />} title={orgName} />
+        <Header
+          left={<BackButton />}
+          title={orgName}
+          right={<ShareSurveyMenu survey={survey} header={true} />}
+        />
         <SearchList
           ref={this.ref}
           defaultData={defaultResults}

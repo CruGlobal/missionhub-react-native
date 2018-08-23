@@ -68,7 +68,9 @@ export function getPersonDetails(id, orgId) {
 export function savePersonNote(personId, notes, noteId, myId) {
   return dispatch => {
     if (!personId) {
-      return Promise.reject('InvalidData');
+      return Promise.reject(
+        `Invalid Data from savePersonNote: no personId passed in`,
+      );
     }
 
     const bodyData = {
@@ -114,7 +116,7 @@ export function getPersonNote(personId, myId) {
             return element.user_id == myId;
           });
         }
-        return Promise.reject('PersonNotFound');
+        return Promise.reject(`Person Not Found in getPersonNote`);
       },
     );
   };
@@ -289,6 +291,7 @@ export function createContactAssignment(
     await dispatch(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
+    dispatch(trackActionWithoutData(ACTIONS.ASSIGNED_TO_ME));
     return dispatch(getPersonDetails(personReceiverId, organizationId));
   };
 }

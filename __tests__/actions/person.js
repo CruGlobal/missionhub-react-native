@@ -301,7 +301,10 @@ describe('createContactAssignment', () => {
         ],
       },
     );
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ASSIGNED_TO_ME,
+    );
+    expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });
 
@@ -440,6 +443,16 @@ describe('saveNote', () => {
         expectedData,
       );
       expect(store.getActions()[0]).toBe(action);
+    });
+
+    it('should reject note', async () => {
+      try {
+        await store.dispatch(savePersonNote(undefined, note, noteId, myId));
+      } catch (e) {
+        expect(e).toBe(
+          'Invalid Data from savePersonNote: no personId passed in',
+        );
+      }
     });
   });
 });

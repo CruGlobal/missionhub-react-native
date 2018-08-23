@@ -179,12 +179,11 @@ describe('PersonSideMenu', () => {
   });
 });
 
-function testEditClick(component, isJean) {
+function testEditClick(component) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-    isJean,
     person,
     organization,
     onComplete: expect.any(Function),

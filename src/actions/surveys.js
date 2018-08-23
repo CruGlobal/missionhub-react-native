@@ -37,7 +37,8 @@ export function getOrgSurveysNextPage(orgId) {
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.surveysPagination;
     if (!hasNextPage) {
-      return Promise.reject('NoMoreData');
+      // Does not have more data
+      return Promise.resolve();
     }
     const query = {
       page: {
@@ -47,78 +48,6 @@ export function getOrgSurveysNextPage(orgId) {
     };
     return dispatch(getOrgSurveys(orgId, query));
   };
-}
-
-export function searchSurveyContacts(name, pagination, filters = {}) {
-  return async dispatch => {
-    if (!filters.survey) {
-      return Promise.reject('No Survey Specified');
-    }
-
-    const query = {
-      include: 'person.reverse_contact_assignments',
-      filters: createSurveyFilters(name, filters),
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * pagination.page,
-      },
-      //TODO: not available until API supports it
-      //sort: 'person.last_name,
-    };
-
-    return await dispatch(callApi(REQUESTS.GET_ANSWER_SHEETS, query));
-  };
-}
-
-function createSurveyFilters(name, filters) {
-  const answerFilters = getAnswersFromFilters(filters);
-  const surveyFilters = {
-    survey_ids: filters.survey.id,
-    people: {
-      organization_ids: filters.organization
-        ? filters.organization.id
-        : undefined,
-    },
-  };
-  if (name) {
-    surveyFilters.people.name = name;
-  }
-  if (answerFilters) {
-    surveyFilters.answers = answerFilters;
-  }
-  if (filters.gender) {
-    surveyFilters.people.genders = filters.gender.id;
-  }
-  if (filters.uncontacted) {
-    surveyFilters.people.statuses = 'uncontacted';
-  }
-  if (filters.unassigned) {
-    surveyFilters.people.assigned_tos = 'unassigned';
-  }
-  surveyFilters.people.include_archived = !!filters.archived;
-  if (filters.labels) {
-    surveyFilters.people.label_ids = filters.labels.id;
-  }
-  if (filters.groups) {
-    surveyFilters.people.group_ids = filters.groups.id;
-  }
-  return surveyFilters;
-}
-
-//each question/answer filter must be in the URL in the form:
-//filters[answers][questionId][]=answerTexts
-function getAnswersFromFilters(filters) {
-  let answerFilters = {};
-  const keys = Object.keys(filters);
-  keys.forEach(k => {
-    const filter = filters[k];
-    if (filter.isAnswer) {
-      answerFilters[filter.id] = {
-        '': filter.text,
-      };
-    }
-  });
-  return answerFilters;
 }
 
 export function getSurveyQuestions(surveyId) {
