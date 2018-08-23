@@ -342,8 +342,6 @@ export function navToPersonScreen(person, org) {
     const isMe = person.id === authPerson.id;
     const isGroups = authPerson.user.groups_feature;
 
-    dispatch(getPersonDetails(person.id, organization.id));
-
     dispatch(
       navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
         person,
