@@ -28,12 +28,9 @@ export function getGroupJourney(personId, orgId) {
       if (!isAdmin) {
         include = 'all.answers.question,all.survey';
       }
-      const filters = {
-        scope_to_current_user: false,
-      };
       const {
         response: { all: feed },
-      } = await dispatch(getPersonFeed(personId, orgId, include, filters));
+      } = await dispatch(getPersonFeed(personId, orgId, include));
 
       return feed;
     } catch (e) {
@@ -67,7 +64,7 @@ export function getJourney(personId, orgId) {
   };
 }
 
-function getPersonFeed(personId, orgId, include, filters = {}) {
+function getPersonFeed(personId, orgId, include) {
   return dispatch => {
     const query = {
       include:
@@ -78,7 +75,6 @@ function getPersonFeed(personId, orgId, include, filters = {}) {
         organization_ids: orgId || 'null',
         starting_at: '2011-01-01T00:00:00Z', // Hardcoded to get all history
         ending_at: new Date().toISOString(),
-        ...filters,
       },
     };
     return dispatch(callApi(REQUESTS.GET_PERSON_FEED, query));
