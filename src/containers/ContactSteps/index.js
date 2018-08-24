@@ -27,56 +27,45 @@ import {
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
 import { personSelector } from '../../selectors/people';
+import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
 
-const name = 'Contact Steps';
-
 @translate('contactSteps')
 class ContactSteps extends Component {
-  constructor(props) {
-    super(props);
-
-    this.bumpComplete = this.bumpComplete.bind(this);
-    this.renderRow = this.renderRow.bind(this);
-    this.handleCreateStep = this.handleCreateStep.bind(this);
-    this.handleSaveNewSteps = this.handleSaveNewSteps.bind(this);
-    this.getSteps = this.getSteps.bind(this);
-  }
-
   componentDidMount() {
     this.getSteps();
   }
 
-  bumpComplete() {
+  bumpComplete = () => {
     this.props.dispatch(removeSwipeStepsContact());
-  }
+  };
 
-  getSteps() {
+  getSteps = () => {
     const { dispatch, person, organization = {} } = this.props;
 
     dispatch(getContactSteps(person.id, organization.id));
-  }
+  };
 
   handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, name));
+    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
     this.getSteps();
   };
 
   handleComplete = async step => {
     const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, name));
+    await dispatch(completeStep(step, CONTACT_STEPS));
     this.getSteps();
     dispatch(
       reloadJourney(person.id, organization ? organization.id : undefined),
     );
   };
 
-  async handleSaveNewSteps() {
+  handleSaveNewSteps = async () => {
     await this.getSteps();
     this.list && this.list.scrollToEnd();
     this.props.dispatch(navigateBack());
-  }
+  };
 
   handleNavToStage() {
     const { dispatch, person, contactAssignment, organization } = this.props;
@@ -92,7 +81,7 @@ class ContactSteps extends Component {
     );
   }
 
-  handleNavToSteps(stage, onComplete = null) {
+  handleNavToSteps() {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
     const trackingParams = {
@@ -110,7 +99,6 @@ class ContactSteps extends Component {
           ...trackingParams,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
-            onComplete && onComplete();
           },
           enableBackButton: true,
           organization,
@@ -126,7 +114,6 @@ class ContactSteps extends Component {
           organization,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
-            onComplete && onComplete();
           },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
@@ -147,7 +134,7 @@ class ContactSteps extends Component {
     }
   }
 
-  handleCreateStep() {
+  handleCreateStep = () => {
     const { contactAssignment, isMe } = this.props;
 
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
@@ -155,9 +142,9 @@ class ContactSteps extends Component {
       : contactAssignment
         ? this.handleNavToStage()
         : this.handleAssign();
-  }
+  };
 
-  renderRow({ item, index }) {
+  renderRow = ({ item, index }) => {
     const { showBump } = this.props;
     return (
       <RowSwipeable
@@ -172,7 +159,7 @@ class ContactSteps extends Component {
         <StepItem step={item} type="contact" />
       </RowSwipeable>
     );
-  }
+  };
 
   ref = c => (this.list = c);
 
@@ -231,6 +218,7 @@ class ContactSteps extends Component {
 }
 
 ContactSteps.propTypes = {
+  isMe: PropTypes.bool,
   person: PropTypes.object,
   contactAssignment: PropTypes.object,
   organization: PropTypes.object,
