@@ -3,8 +3,6 @@ import { Linking } from 'react-native';
 import { contactAssignmentSelector } from '../selectors/people';
 import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
-import { isMemberForOrg } from '../utils/common';
-import { orgPermissionSelector } from '../selectors/people';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
