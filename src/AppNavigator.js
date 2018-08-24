@@ -14,10 +14,10 @@ const mapStateToProps = ({ nav }) => ({
 
 const appWithNavState = connect(mapStateToProps)(app);
 
-export default backHandlerWrapper(appWithNavState);
+export default connect(mapStateToProps)(backHandlerWrapper(appWithNavState));
 
 function backHandlerWrapper(WrappedComponent) {
-  class wrapper extends React.Component {
+  return class extends React.Component {
     componentDidMount() {
       BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
     }
@@ -35,7 +35,5 @@ function backHandlerWrapper(WrappedComponent) {
     render() {
       return <WrappedComponent />;
     }
-  }
-
-  return connect(mapStateToProps)(wrapper);
+  };
 }
