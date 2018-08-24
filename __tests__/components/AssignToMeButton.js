@@ -4,11 +4,9 @@ import configureStore from 'redux-mock-store';
 
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import AssignToMeButton from '../../src/components/AssignToMeButton';
-import { createContactAssignment } from '../../src/actions/person';
-import { contactAssignmentSelector } from '../../src/selectors/people';
-import { navigatePush } from '../../src/actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
+import { assignContactAndPickStage } from '../../src/actions/misc';
 
+jest.mock('../../src/actions/misc');
 jest.mock('../../src/actions/person');
 jest.mock('../../src/selectors/people');
 jest.mock('../../src/actions/navigation');
@@ -18,45 +16,27 @@ const state = { auth: { person: { id: myId } } };
 const store = configureStore([thunk])(state);
 
 const person = { id: '100', first_name: 'Roge' };
-const personId = person.id;
-const orgId = '800';
+const organization = { id: '800' };
 const props = {
-  personId,
-  orgId,
+  person: person,
+  organization,
 };
-
-const createContactAssignmentResult = () => Promise.resolve({ person });
-const contactAssignmentSelectorResult = { id: '1412' };
-const navigateResult = { type: 'navigated' };
-
-beforeEach(() => {
-  createContactAssignment.mockReturnValue(createContactAssignmentResult);
-  contactAssignmentSelector.mockReturnValue(contactAssignmentSelectorResult);
-  navigatePush.mockReturnValue(navigateResult);
-});
 
 it('renders correctly', () => {
   testSnapshotShallow(<AssignToMeButton {...props} />, store);
 });
 
-it('creates a new contact assignment and navigates to the stage screen', async () => {
+it('calls assignContactAndPickStage on press', () => {
+  const assignResponse = { type: 'success' };
+  assignContactAndPickStage.mockReturnValue(assignResponse);
   const screen = renderShallow(<AssignToMeButton {...props} />, store);
 
-  await screen.props().onPress();
+  screen.props().onPress();
 
-  expect(store.getActions()).toEqual([navigateResult]);
-  expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
-  expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
+  expect(assignContactAndPickStage).toHaveBeenCalledWith(
     person,
-    orgId,
-  });
-  expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
-    contactId: personId,
-    orgId: orgId,
-    contactAssignmentId: contactAssignmentSelectorResult.id,
-    name: person.first_name,
-    onComplete: expect.anything(),
-    section: 'people',
-    subsection: 'person',
-  });
+    organization,
+    myId,
+  );
+  expect(store.getActions()).toEqual([assignResponse]);
 });

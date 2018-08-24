@@ -130,13 +130,7 @@ class ContactSteps extends Component {
     const { dispatch, person, organization, myId } = this.props;
 
     if (await promptToAssign()) {
-      dispatch(
-        assignContactAndPickStage(
-          person.id,
-          organization && organization.id,
-          myId,
-        ),
-      );
+      dispatch(assignContactAndPickStage(person, organization, myId));
     }
   }
 

@@ -332,49 +332,65 @@ export function navToPersonScreen(person, org) {
       { auth },
       { person, orgId: organization.id },
     );
-    const isMember = isMemberForOrg(
-      orgPermissionSelector(null, {
-        person,
-        organization: { id: organization.id },
-      }),
-    );
     const authPerson = auth.person;
-    const isMe = person.id === authPerson.id;
-    const isGroups = authPerson.user.groups_feature;
 
     dispatch(
-      navigatePush(getNextScreen(isMe, isMember, isGroups, contactAssignment), {
-        person,
-        organization,
-      }),
+      navigatePush(
+        getPersonScreenRoute(
+          authPerson,
+          person,
+          organization,
+          contactAssignment,
+        ),
+        {
+          person,
+          organization,
+        },
+      ),
     );
   };
+}
 
-  function getNextScreen(isMe, isMember, isGroups, contactAssignment) {
-    if (isMe) {
-      if (isMember) {
-        if (isGroups) {
-          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
-        }
+export function getPersonScreenRoute(
+  mePerson,
+  person,
+  organization,
+  contactAssignment,
+) {
+  const isMe = person.id === mePerson.id;
 
-        return ME_COMMUNITY_PERSON_SCREEN;
-      }
+  const isMember = isMemberForOrg(
+    orgPermissionSelector(null, {
+      person: person,
+      organization,
+    }),
+  );
 
-      return ME_PERSONAL_PERSON_SCREEN;
-    }
+  const isGroups = mePerson.user.groups_feature;
 
+  if (isMe) {
     if (isMember) {
       if (isGroups) {
-        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+        return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
       }
 
-      return MEMBER_PERSON_SCREEN;
+      return ME_COMMUNITY_PERSON_SCREEN;
     }
 
-    if (contactAssignment) {
-      return CONTACT_PERSON_SCREEN;
-    }
-
-    return UNASSIGNED_PERSON_SCREEN;
+    return ME_PERSONAL_PERSON_SCREEN;
   }
+
+  if (isMember) {
+    if (isGroups) {
+      return IS_GROUPS_MEMBER_PERSON_SCREEN;
+    }
+
+    return MEMBER_PERSON_SCREEN;
+  }
+
+  if (contactAssignment) {
+    return CONTACT_PERSON_SCREEN;
+  }
+
+  return UNASSIGNED_PERSON_SCREEN;
 }
