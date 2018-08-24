@@ -11,8 +11,9 @@ import {
   createContactAssignment,
   updatePersonAttributes,
   getPersonDetails,
+  getPersonScreenRoute,
 } from './person';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateReplace } from './navigation';
 
 export function openCommunicationLink(url, action) {
   //if someone has a better name for this feel free to suggest.
@@ -47,22 +48,43 @@ export function loadStepsAndJourney({ id: personId }, { id: organizationId }) {
   };
 }
 
-export function assignContactAndPickStage(personId, orgId, myId) {
-  return async dispatch => {
+export function assignContactAndPickStage(person, organization) {
+  return async (dispatch, getState) => {
+    const auth = getState().auth;
+    const authPerson = auth.person;
+    const myId = auth.person.id;
+    const orgId = organization.id;
+    const personId = person.id;
+
     const { person: resultPerson } = await dispatch(
       createContactAssignment(orgId, myId, personId),
     );
 
-    const { id: contactAssignmentId } = contactAssignmentSelector(
-      { auth: { person: { id: myId } } },
+    const contactAssignment = contactAssignmentSelector(
+      { auth },
       { person: resultPerson, orgId },
+    );
+
+    dispatch(
+      navigateReplace(
+        getPersonScreenRoute(
+          authPerson,
+          resultPerson,
+          organization,
+          contactAssignment,
+        ),
+        {
+          person: resultPerson,
+          organization,
+        },
+      ),
     );
 
     dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,
         orgId,
-        contactAssignmentId,
+        contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
         onComplete: () => {},
         section: 'people',
