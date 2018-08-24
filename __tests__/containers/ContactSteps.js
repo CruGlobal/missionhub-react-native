@@ -194,7 +194,7 @@ describe('handleCreateStep', () => {
     await component.handleCreateStep();
 
     expect(assignContactAndPickStage).toHaveBeenCalledWith(
-      mockPerson.id,
+      mockPerson,
       undefined,
       myId,
     );

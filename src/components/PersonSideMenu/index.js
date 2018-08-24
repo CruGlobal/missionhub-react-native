@@ -110,13 +110,7 @@ class PersonSideMenu extends Component {
         ? {
             label: t('assign'),
             action: () =>
-              dispatch(
-                assignContactAndPickStage(
-                  person.id,
-                  organization && organization.id,
-                  myId,
-                ),
-              ),
+              dispatch(assignContactAndPickStage(person, organization, myId)),
           }
         : null,
       showUnassign

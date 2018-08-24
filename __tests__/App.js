@@ -16,6 +16,8 @@ import locale from '../src/i18n/locales/en-US';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+jest.mock('../src/AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
+
 jest.mock('react-native-fabric');
 
 jest.mock('react-native-default-preference', () => ({
@@ -28,7 +30,6 @@ const logoutResponse = { type: 'logged out' };
 auth.logout = jest.fn().mockReturnValue(logoutResponse);
 
 jest.mock('react-navigation-redux-helpers', () => ({
-  createReduxBoundAddListener: jest.fn(),
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
 

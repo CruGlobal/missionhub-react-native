@@ -37,3 +37,15 @@ export function navigateReset(screen, props = {}) {
 }
 
 // The reset home and reset login are handled by the login/logout auth actions
+
+export function navigateReplace(screen, props = {}) {
+  return dispatch => {
+    dispatch(
+      StackActions.replace({
+        routeName: screen,
+        params: props,
+        immediate: true,
+      }),
+    );
+  };
+}
