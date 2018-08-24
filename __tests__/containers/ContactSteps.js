@@ -72,8 +72,6 @@ const createComponent = (isCurrentUser = false, contactStage, org) =>
       isMe={isCurrentUser}
       person={mockPerson}
       organization={org}
-      contactStage={contactStage}
-      onChangeStage={jest.fn()}
       navigation={createMockNavState()}
     />,
     store,
