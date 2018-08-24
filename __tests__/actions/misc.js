@@ -46,7 +46,14 @@ const updatePersonAttributesResult = { type: 'updated person' };
 const createContactAssignmentResult = () => Promise.resolve({ person });
 const isMemberForOrgResult = false;
 
+const groups_feature = true;
 const myId = '111';
+const mePerson = {
+  id: myId,
+  user: {
+    groups_feature,
+  },
+};
 const orgId = '26';
 const personId = '100';
 const url = 'url';
@@ -57,16 +64,8 @@ const contactAssignment = { id: '1908' };
 const orgPermission = { id: '1234' };
 const firstItemIndex = 3;
 const stage = { id: '5' };
-const groups_feature = true;
 const state = {
-  auth: {
-    person: {
-      id: myId,
-      user: {
-        groups_feature,
-      },
-    },
-  },
+  auth: { person: mePerson },
 };
 
 beforeEach(() => {
@@ -131,22 +130,17 @@ describe('loadStepsAndJourney', () => {
 
 describe('assignContactAndPickStage', () => {
   it('creates a new contact assignment and navigates to the stage screen', async () => {
-    await store.dispatch(assignContactAndPickStage(person, organization, myId));
+    await store.dispatch(assignContactAndPickStage(person, organization));
 
     expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
     expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
       person,
       orgId,
     });
-    expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
+    expect(getPersonScreenRoute).toHaveBeenCalledWith(
+      mePerson,
       person,
       organization,
-    });
-    expect(isMemberForOrg).toHaveBeenCalledWith(orgPermission);
-    expect(getPersonScreenRoute).toHaveBeenCalledWith(
-      false,
-      isMemberForOrgResult,
-      groups_feature,
       contactAssignment,
     );
     expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {

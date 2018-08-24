@@ -332,19 +332,16 @@ export function navToPersonScreen(person, org) {
       { auth },
       { person, orgId: organization.id },
     );
-    const isMember = isMemberForOrg(
-      orgPermissionSelector(null, {
-        person,
-        organization: { id: organization.id },
-      }),
-    );
     const authPerson = auth.person;
-    const isMe = person.id === authPerson.id;
-    const isGroups = authPerson.user.groups_feature;
 
     dispatch(
       navigatePush(
-        getPersonScreenRoute(isMe, isMember, isGroups, contactAssignment),
+        getPersonScreenRoute(
+          authPerson,
+          person,
+          organization,
+          contactAssignment,
+        ),
         {
           person,
           organization,
@@ -355,11 +352,22 @@ export function navToPersonScreen(person, org) {
 }
 
 export function getPersonScreenRoute(
-  isMe,
-  isMember,
-  isGroups,
+  mePerson,
+  person,
+  organization,
   contactAssignment,
 ) {
+  const isMe = person.id === mePerson.id;
+
+  const isMember = isMemberForOrg(
+    orgPermissionSelector(null, {
+      person: person,
+      organization,
+    }),
+  );
+
+  const isGroups = mePerson.user.groups_feature;
+
   if (isMe) {
     if (isMember) {
       if (isGroups) {
