@@ -27,10 +27,9 @@ import {
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
 import { personSelector } from '../../selectors/people';
+import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
-
-const name = 'Contact Steps';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -49,13 +48,13 @@ class ContactSteps extends Component {
   };
 
   handleRemove = async step => {
-    await this.props.dispatch(deleteStepWithTracking(step, name));
+    await this.props.dispatch(deleteStepWithTracking(step, CONTACT_STEPS));
     this.getSteps();
   };
 
   handleComplete = async step => {
     const { dispatch, person, organization } = this.props;
-    await dispatch(completeStep(step, name));
+    await dispatch(completeStep(step, CONTACT_STEPS));
     this.getSteps();
     dispatch(
       reloadJourney(person.id, organization ? organization.id : undefined),
