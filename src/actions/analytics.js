@@ -1,4 +1,6 @@
 import * as RNOmniture from 'react-native-omniture';
+import { Tracker, Emitter } from '@ringierag/snowplow-reactjs-native-tracker';
+import Config from 'react-native-config';
 
 import {
   ACTIONS,
@@ -72,12 +74,46 @@ export function trackState(trackingObj) {
     if (!trackingObj) {
       return;
     }
+    const { analytics, auth } = getState();
 
-    const updatedContext = addTrackingObjToContext(trackingObj, getState());
+    const updatedContext = addTrackingObjToContext(
+      trackingObj,
+      analytics,
+      auth,
+    );
 
     dispatch(updateAnalyticsContext(updatedContext));
+
+    trackScreenInSnowplow(updatedContext);
     return dispatch(trackStateWithMCID(updatedContext));
   };
+}
+
+function trackScreenInSnowplow(context) {
+  const callback = (error, response) => {
+    if (error) {
+      return Promise.reject({
+        snowplowError: error,
+      });
+    } else if (response && response.status !== 200) {
+      return Promise.reject({
+        snowplowError: response,
+      });
+    }
+  };
+
+  const em = new Emitter(
+    Config.SNOWPLOW_URL,
+    'https',
+    443,
+    'POST',
+    1,
+    callback,
+  );
+
+  new Tracker([em], null, 'MissionHub', true).trackScreenView(
+    context[ANALYTICS.SCREENNAME],
+  );
 }
 
 function trackStateWithMCID(context) {
@@ -98,7 +134,7 @@ function trackStateWithMCID(context) {
   };
 }
 
-function addTrackingObjToContext(trackingObj, { analytics, auth }) {
+function addTrackingObjToContext(trackingObj, analytics, auth) {
   const newTrackingObj = { ...trackingObj, name: `mh : ${trackingObj.name}` };
 
   return {

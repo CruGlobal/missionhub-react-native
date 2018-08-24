@@ -20,6 +20,7 @@ import {
 } from '../../src/constants';
 
 jest.mock('react-native-omniture');
+jest.mock('@ringierag/snowplow-reactjs-native-tracker');
 
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
