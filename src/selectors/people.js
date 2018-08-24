@@ -26,7 +26,7 @@ export const peopleByOrgSelector = createSelector(
             );
           }),
       }))
-      .filter(o => o.people && o.people.length > 0),
+      .filter(o => o.people && (o.id === 'personal' || o.people.length > 0)),
 );
 
 const isAssignedToMeInOrganization = (person, org, appUserPerson) => {
