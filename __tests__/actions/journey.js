@@ -197,12 +197,12 @@ describe('get journey', () => {
     });
   }
 
-  it("should get a person's journey without an org (personal ministry)", async () => {
-    await test(undefined, 'null');
+  it("should get a person's journey without an org (personal ministry)", () => {
+    return test(undefined, 'null');
   });
 
-  it("should get a person's journey with an org", async () => {
-    await test(orgId, orgId);
+  it("should get a person's journey with an org", () => {
+    return test(orgId, orgId);
   });
 });
 
