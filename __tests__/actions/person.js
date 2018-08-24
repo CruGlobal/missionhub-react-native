@@ -486,7 +486,10 @@ describe('navToPersonScreen', () => {
   const navigatePushResult = { type: 'test' };
   const contactAssignment = {};
 
-  beforeEach(() => navigatePush.mockReturnValue(navigatePushResult));
+  beforeEach(() => {
+    navigatePush.mockReturnValue(navigatePushResult);
+    callApi.mockReturnValue({});
+  });
 
   afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
 
