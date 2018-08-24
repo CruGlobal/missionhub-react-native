@@ -34,10 +34,6 @@ const name = 'Contact Steps';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.getSteps();
   }
@@ -86,7 +82,7 @@ class ContactSteps extends Component {
     );
   }
 
-  handleNavToSteps(onComplete = null) {
+  handleNavToSteps() {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
     const trackingParams = {
@@ -104,7 +100,6 @@ class ContactSteps extends Component {
           ...trackingParams,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
-            onComplete && onComplete();
           },
           enableBackButton: true,
           organization,
@@ -120,7 +115,6 @@ class ContactSteps extends Component {
           organization,
           onSaveNewSteps: () => {
             this.handleSaveNewSteps();
-            onComplete && onComplete();
           },
           createStepTracking: buildTrackingObj(
             `people : ${subsection} : steps : create`,
