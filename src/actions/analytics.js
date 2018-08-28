@@ -109,7 +109,7 @@ export function trackState(trackingObj) {
 }
 
 function trackScreenInSnowplow(context) {
-  new Tracker([em], null, 'MissionHub', true).trackScreenView(
+  new Tracker([em], null, Config.SNOWPLOW_APP_ID, true).trackScreenView(
     context[ANALYTICS.SCREENNAME],
   );
 }
