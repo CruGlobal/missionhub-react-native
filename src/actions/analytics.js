@@ -10,6 +10,25 @@ import {
 } from '../constants';
 import { isCustomStep } from '../utils/common';
 
+const em = new Emitter(
+  Config.SNOWPLOW_URL,
+  'https',
+  443,
+  'POST',
+  1,
+  (error, response) => {
+    if (error) {
+      return Promise.reject({
+        snowplowError: error,
+      });
+    } else if (response && response.status !== 200) {
+      return Promise.reject({
+        snowplowError: response,
+      });
+    }
+  },
+);
+
 export function updateAnalyticsContext(analyticsContext) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
@@ -90,27 +109,6 @@ export function trackState(trackingObj) {
 }
 
 function trackScreenInSnowplow(context) {
-  const callback = (error, response) => {
-    if (error) {
-      return Promise.reject({
-        snowplowError: error,
-      });
-    } else if (response && response.status !== 200) {
-      return Promise.reject({
-        snowplowError: response,
-      });
-    }
-  };
-
-  const em = new Emitter(
-    Config.SNOWPLOW_URL,
-    'https',
-    443,
-    'POST',
-    1,
-    callback,
-  );
-
   new Tracker([em], null, 'MissionHub', true).trackScreenView(
     context[ANALYTICS.SCREENNAME],
   );
