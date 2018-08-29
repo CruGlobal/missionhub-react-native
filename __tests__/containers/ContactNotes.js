@@ -3,25 +3,42 @@ import React from 'react';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
 import Adapter from 'enzyme-adapter-react-16/build/index';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import { createMockStore } from '../../testUtils/index';
+import '../../src/i18n';
+import { getPersonNote, savePersonNote } from '../../src/actions/person';
 import { ContactNotes } from '../../src/containers/ContactNotes';
 import Button from '../../src/components/Button';
+import { trackState } from '../../src/actions/analytics';
 
-const store = createMockStore();
+Enzyme.configure({ adapter: new Adapter() });
+
+const mockStore = configureStore([thunk]);
 let shallowScreen;
 
+const person = { id: '141234', first_name: 'Roger' };
+const myId = '1';
+const note = { id: '988998', content: 'Roge rules' };
+
+getPersonNote.mockReturnValue(() => Promise.resolve(note));
+savePersonNote.mockReturnValue(() => {});
+trackState.mockReturnValue(() => {});
+
 jest.mock('react-native-device-info');
+jest.mock('../../src/actions/person');
+jest.mock('../../src/actions/analytics');
 
-beforeEach(() => {
-  Enzyme.configure({ adapter: new Adapter() });
-  shallowScreen = shallow(
-    <ContactNotes person={{ first_name: 'Roger' }} dispatch={jest.fn()} />,
-    { context: { store: store } },
-  );
-
-  shallowScreen = shallowScreen.dive().dive();
-});
+beforeEach(() =>
+  (shallowScreen = shallow(
+    <ContactNotes
+      person={person}
+      myId={myId}
+      dispatch={mockStore().dispatch}
+    />,
+  )
+    .dive()
+    .dive()));
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
@@ -75,5 +92,18 @@ describe('componentWillReceiveProps', () => {
     shallowScreen.instance().componentWillReceiveProps({ isActiveTab: false });
 
     expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
+  });
+});
+
+describe('componentDidMount', () => {
+  it('should load note', async () => {
+    await shallowScreen.instance().componentDidMount();
+
+    expect(getPersonNote).toHaveBeenCalledWith(person.id, myId);
+    expect(shallowScreen.state()).toEqual({
+      editing: false,
+      noteId: note.id,
+      text: note.content,
+    });
   });
 });

@@ -41,11 +41,12 @@ export class ContactNotes extends Component {
 
   async getNote() {
     const { person, myId } = this.props;
-    this.props.dispatch(getPersonNote(person.id, myId)).then(results => {
-      const text = results ? results.content : undefined;
-      const noteId = results ? results.id : null;
-      this.setState({ noteId, text });
-    });
+
+    const results = await this.props.dispatch(getPersonNote(person.id, myId));
+
+    const text = results ? results.content : undefined;
+    const noteId = results ? results.id : null;
+    this.setState({ noteId, text });
   }
 
   onTextChanged(text) {
