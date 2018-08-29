@@ -103,14 +103,28 @@ export function trackState(trackingObj) {
 
     dispatch(updateAnalyticsContext(updatedContext));
 
-    trackScreenInSnowplow(updatedContext);
+    trackScreenInSnowplow(updatedContext); //TODO this should be done after loading MCID
     return dispatch(trackStateWithMCID(updatedContext));
   };
 }
 
 function trackScreenInSnowplow(context) {
+  const idData = {
+    gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
+    sso_guid: context[ANALYTICS.SSO_GUID],
+    mcid: context[ANALYTICS.MCID],
+    //tntid: '',
+  };
+
   new Tracker([em], null, Config.SNOWPLOW_APP_ID, true).trackScreenView(
     context[ANALYTICS.SCREENNAME],
+    null,
+    [
+      {
+        schema: 'iglu:org.cru/ids/jsonschema/1-0-3',
+        data: idData,
+      },
+    ],
   );
 }
 
