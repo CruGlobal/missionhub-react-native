@@ -1,15 +1,17 @@
-import { DEFAULT_PAGE_LIMIT, RESET_CELEBRATION_PAGINATION } from '../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CELEBRATION_PAGINATION,
+  SET_CELEBRATION_FEED,
+} from '../constants';
 
 import callApi, { REQUESTS } from './api';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
-  return (dispatch, getState) => {
-    const org = (getState().organizations.all || []).find(o => {
-      return o.id === orgId;
-    });
+  return async dispatch => {
+    const feed = celebrateSelector();
 
-    const { page, hasNextPage } = org.celebratePagination
-      ? org.celebratePagination
+    const { page, hasNextPage } = feed.pagination
+      ? feed.pagination
       : { page: 0, hasNextPage: true };
 
     if (!hasNextPage) {
@@ -17,17 +19,25 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
       return Promise.resolve();
     }
     const query = buildQuery(orgId, personId, page);
-    return dispatch(callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query));
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED, query),
+    );
+
+    return dispatch({
+      query,
+      orgId,
+      personId,
+      feedId: feed.id,
+      newItems: response,
+    });
   };
 }
 
 export function reloadGroupCelebrateFeed(orgId) {
-  return (dispatch, getState) => {
-    const org = (getState().organizations.all || []).find(o => {
-      return o.id === orgId;
-    });
+  return dispatch => {
+    const feed = celebrateSelector();
 
-    if (org && org.celebratePagination) {
+    if (feed && feed.pagination) {
       dispatch(resetPaginationAction(orgId));
       return dispatch(getGroupCelebrateFeed(orgId));
     }
@@ -38,7 +48,7 @@ export function reloadGroupCelebrateFeed(orgId) {
 const resetPaginationAction = orgId => {
   return {
     type: RESET_CELEBRATION_PAGINATION,
-    orgId: orgId,
+    orgId,
   };
 };
 

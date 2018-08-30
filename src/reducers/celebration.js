@@ -3,14 +3,14 @@ import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
 
 const initialState = {
-  allOrgFeeds: {},
-  allPersonFeeds: {},
+  allbyId: {},
+  ids: [],
 };
 
 function celebrationReducer(state = initialState, action) {
   switch (action.type) {
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
-      return addToOrgFeed(action, state);
+      return addToFeed(action, state);
     case RESET_CELEBRATION_PAGINATION:
       return resetOrgPagination(action, state);
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
@@ -24,12 +24,10 @@ function celebrationReducer(state = initialState, action) {
   }
 }
 
-function addToOrgFeed(action, state) {
-  const query = action.query;
-  const orgId = query.orgId;
-  const newItems = action.results.response;
+function addToFeed(action, state) {
+  const { query, feedId, newItems } = action;
 
-  const existingFeed = state.allOrgFeeds[orgId] || {};
+  const existingFeed = state.allById[feedId] || {};
   const existingItems = existingFeed.items || [];
   const allItems =
     query.page && query.page.offset > 0
@@ -38,9 +36,9 @@ function addToOrgFeed(action, state) {
 
   return {
     ...state,
-    allOrgFeeds: {
-      ...state.allOrgFeeds,
-      [orgId]: {
+    allbyId: {
+      ...state.allById,
+      [feedId]: {
         ...existingFeed,
         items: allItems,
         pagination: getPagination(action, allItems.length),
