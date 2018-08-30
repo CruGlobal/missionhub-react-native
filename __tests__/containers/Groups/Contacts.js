@@ -88,7 +88,7 @@ describe('Contacts', () => {
 
   it('should handleSelect correctly', async () => {
     const instance = renderShallow(component, store).instance();
-    instance.handleSelect({ id: '1' });
+    await instance.handleSelect({ id: '1' });
     expect(navToPersonScreen).toHaveBeenCalled();
   });
   it('should call list ref', () => {

@@ -194,8 +194,8 @@ function testAssignClick(component) {
   const props = component.props();
   props.menuItems.filter(item => item.label === 'Assign')[0].action();
   expect(assignContactAndPickStage).toHaveBeenCalledWith(
-    person.id,
-    organization.id,
+    person,
+    organization,
     me.id,
   );
 }

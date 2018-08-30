@@ -48,7 +48,7 @@ describe('ContactsFilter', () => {
     testSnapshotShallow(component, store);
   });
 
-  it('should handleDrillDown correctly', async () => {
+  it('should handleDrillDown correctly', () => {
     const instance = renderShallow(component, store).instance();
     const options = [{ id: 'o1' }, { id: 'o2' }];
     instance.handleDrillDown({ id: '1', options });

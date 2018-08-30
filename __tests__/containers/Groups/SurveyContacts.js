@@ -104,7 +104,7 @@ describe('SurveyContacts', () => {
     });
   });
 
-  it('should handleSelect correctly', async () => {
+  it('should handleSelect correctly', () => {
     const person = { id: '1' };
     const instance = renderShallow(component, store).instance();
     instance.handleSelect(person);

@@ -7,39 +7,69 @@ import {
   openCommunicationLink,
   loadStepsAndJourney,
   navigateToStageScreen,
+  assignContactAndPickStage,
 } from '../../src/actions/misc';
+import {
+  createContactAssignment,
+  updatePersonAttributes,
+  getPersonScreenRoute,
+} from '../../src/actions/person';
 import { getContactSteps } from '../../src/actions/steps';
 import { reloadJourney } from '../../src/actions/journey';
-import { updatePersonAttributes } from '../../src/actions/person';
-import { navigatePush } from '../../src/actions/navigation';
+import { navigatePush, navigateReplace } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
 import { STAGE_SCREEN } from '../../src/containers/StageScreen';
+import { CONTACT_PERSON_SCREEN } from '../../src/containers/Groups/AssignedPersonScreen';
+import {
+  contactAssignmentSelector,
+  orgPermissionSelector,
+} from '../../src/selectors/people';
+import { isMemberForOrg } from '../../src/utils/common';
 
 jest.mock('../../src/actions/analytics');
 jest.mock('../../src/actions/steps');
 jest.mock('../../src/actions/journey');
 jest.mock('../../src/actions/navigation');
 jest.mock('../../src/actions/person');
+jest.mock('../../src/selectors/people');
+jest.mock('../../src/utils/common');
 
-const mockStore = configureStore([thunk]);
+const mockStore = state => configureStore([thunk])(state);
 let store;
 
 const trackActionResult = { type: 'tracked' };
 const getStepsResult = { type: 'got steps' };
 const reloadJourneyResult = { type: 'reloaded journey' };
 const navigatePushResult = { type: 'navigated forward' };
+const navigateReplaceResult = { type: 'route replaced' };
 const updatePersonAttributesResult = { type: 'updated person' };
+const createContactAssignmentResult = () => Promise.resolve({ person });
+const isMemberForOrgResult = false;
 
+const groups_feature = true;
+const myId = '111';
+const mePerson = {
+  id: myId,
+  user: {
+    groups_feature,
+  },
+};
+const orgId = '26';
+const personId = '100';
 const url = 'url';
 const action = { type: 'link action' };
-const person = { id: '100' };
-const organization = { id: 26 };
+const person = { id: personId };
+const organization = { id: orgId };
 const contactAssignment = { id: '1908' };
+const orgPermission = { id: '1234' };
 const firstItemIndex = 3;
 const stage = { id: '5' };
+const state = {
+  auth: { person: mePerson },
+};
 
 beforeEach(() => {
-  store = mockStore();
+  store = mockStore(state);
 
   jest.clearAllMocks();
   trackActionWithoutData.mockReturnValue(trackActionResult);
@@ -47,11 +77,17 @@ beforeEach(() => {
   reloadJourney.mockReturnValue(reloadJourneyResult);
   updatePersonAttributes.mockReturnValue(updatePersonAttributesResult);
   ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  createContactAssignment.mockReturnValue(createContactAssignmentResult);
+  getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
+  orgPermissionSelector.mockReturnValue(orgPermission);
+  isMemberForOrg.mockReturnValue(isMemberForOrgResult);
 
   navigatePush.mockImplementation((_, props) => {
     props.onComplete(stage);
     return navigatePushResult;
   });
+  navigateReplace.mockReturnValue(navigateReplaceResult);
 });
 
 describe('openCommunicationLink', () => {
@@ -89,6 +125,41 @@ describe('loadStepsAndJourney', () => {
     expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
     expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
     expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
+  });
+});
+
+describe('assignContactAndPickStage', () => {
+  it('creates a new contact assignment and navigates to the stage screen', async () => {
+    await store.dispatch(assignContactAndPickStage(person, organization));
+
+    expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
+    expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
+      person,
+      orgId,
+    });
+    expect(getPersonScreenRoute).toHaveBeenCalledWith(
+      mePerson,
+      person,
+      organization,
+      contactAssignment,
+    );
+    expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+      person,
+      organization,
+    });
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
+      contactId: personId,
+      orgId: orgId,
+      contactAssignmentId: contactAssignment.id,
+      name: person.first_name,
+      onComplete: expect.anything(),
+      section: 'people',
+      subsection: 'person',
+    });
+    expect(store.getActions()).toEqual([
+      navigateReplaceResult,
+      navigatePushResult,
+    ]);
   });
 });
 

@@ -10,9 +10,9 @@ import styles from './styles';
 
 @translate()
 class AssignToMeButton extends Component {
-  assignToMe = async () => {
-    const { dispatch, personId, orgId, myId } = this.props;
-    dispatch(assignContactAndPickStage(personId, orgId, myId));
+  assignToMe = () => {
+    const { dispatch, person, organization, myId } = this.props;
+    dispatch(assignContactAndPickStage(person, organization, myId));
   };
 
   render() {
@@ -36,6 +36,6 @@ const mapStateToProps = ({ auth }) => ({
 export default connect(mapStateToProps)(AssignToMeButton);
 
 AssignToMeButton.propTypes = {
-  orgId: PropTypes.string.isRequired,
-  personId: PropTypes.string.isRequired,
+  organization: PropTypes.object.isRequired,
+  person: PropTypes.object.isRequired,
 };
