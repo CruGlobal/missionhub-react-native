@@ -10,7 +10,10 @@ import {
   reloadGroupCelebrateFeed,
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
-import { celebrationSelector } from '../../selectors/celebration';
+import {
+  celebrationSelector,
+  celebrationByDateSelector,
+} from '../../selectors/celebration';
 import { momentUtc, refresh } from '../../utils/common';
 
 @translate('groupsCelebrate')
@@ -69,19 +72,27 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization }) => {
+export const mapStateToProps = (
+  { organizations, celebration },
+  { organization },
+) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
 
-  const celebrateItems = celebrationSelector({
-    celebrateItems: (selectorOrg || {}).celebrateItems || [],
+  const celebrateFeed = celebrationSelector(
+    { organizations, celebration },
+    { orgId: organization.id },
+  );
+
+  const celebrateItems = celebrationByDateSelector({
+    celebrateItems: celebrateFeed.items || [],
   });
 
   return {
-    celebrateItems,
-    pagination: selectorOrg.celebratePagination,
+    celebrateItems: celebrateItems,
+    pagination: celebrateFeed.pagination || {},
   };
 };
 

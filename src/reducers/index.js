@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import auth from './auth';
+import celebration from './celebration';
 import nav from './nav';
 import profile from './profile';
 import personProfile from './personProfile';
@@ -22,6 +23,7 @@ import tabs from './tabs';
 export default combineReducers({
   analytics,
   auth,
+  celebration,
   drawer,
   groups,
   impact,

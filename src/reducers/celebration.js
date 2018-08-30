@@ -7,7 +7,7 @@ import {
 import { getPagination } from '../utils/common';
 
 const initialState = {
-  allbyId: {},
+  allById: {},
   ids: [],
 };
 
@@ -35,18 +35,23 @@ function addToFeed(action, state) {
     query.page && query.page.offset > 0
       ? [...existingItems, ...newItems]
       : newItems;
+  const newIds = state.ids;
+  if (newIds.indexOf(feedId) === -1) {
+    newIds.push(feedId);
+  }
 
   return {
     ...state,
-    allbyId: {
+    allById: {
       ...state.allById,
       [feedId]: {
         ...existingFeed,
         items: allItems,
-        feedId,
+        id: feedId,
         pagination: getPagination(action, allItems.length),
       },
     },
+    ids: newIds,
   };
 }
 
@@ -71,12 +76,15 @@ function setCelebrationLike(action, state) {
     ...state,
     allById: {
       ...state.allById,
-      [feedId]: state.allById[feedId].map(
-        c =>
-          c.id === eventId
-            ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-            : c,
-      ),
+      [feedId]: {
+        ...state.allById[feedId],
+        items: state.allById[feedId].items.map(
+          c =>
+            c.id === eventId
+              ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+              : c,
+        ),
+      },
     },
   };
 }

@@ -3,10 +3,9 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
-  RESET_CELEBRATION_PAGINATION,
+  SET_CELEBRATION_FEED,
   LOAD_ORGANIZATIONS,
 } from '../constants';
-import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
 
 const initialState = {
@@ -58,55 +57,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
       };
-    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
-      const celebrateQuery = action.query;
-      const newItems = action.results.response;
-      const celebrateOrgId = celebrateQuery.orgId;
-      const curCelebrateOrg = state.all.find(o => o.id === celebrateOrgId);
-      if (!curCelebrateOrg) {
-        return state; // Return if the organization does not exist
-      }
-      const existingItems = curCelebrateOrg.celebrateItems || [];
-      const allItems =
-        celebrateQuery.page && celebrateQuery.page.offset > 0
-          ? [...existingItems, ...newItems]
-          : newItems;
-
-      return {
-        ...state,
-        all: celebrateOrgId
-          ? state.all.map(
-              o =>
-                o.id === celebrateOrgId
-                  ? {
-                      ...o,
-                      celebrateItems: allItems,
-                      celebratePagination: getPagination(
-                        action,
-                        allItems.length,
-                      ),
-                    }
-                  : o,
-            )
-          : state.all,
-      };
-    case RESET_CELEBRATION_PAGINATION:
-      return {
-        ...state,
-        all: state.all.map(
-          o =>
-            o.id === action.orgId
-              ? {
-                  ...o,
-                  celebratePagination: { page: 0, hasNextPage: true },
-                }
-              : o,
-        ),
-      };
-    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, false);
+    case SET_CELEBRATION_FEED:
+      return setCelebrationId(action, state);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -134,25 +86,15 @@ function organizationsReducer(state = initialState, action) {
   }
 }
 
-function toggleCelebrationLike(action, state, liked) {
-  const query = action.query;
-  const org = state.all.find(o => o.id === query.orgId);
-  if (!org) {
-    return state; // Return if the organization does not exist
-  }
-  const newOrg = {
-    ...org,
-    celebrateItems: org.celebrateItems.map(
-      c =>
-        c.id === query.eventId
-          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-          : c,
-    ),
-  };
-
+function setCelebrationId(action, state) {
+  const { orgId, feedId } = action;
   return {
     ...state,
-    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+    all: orgId
+      ? state.all.map(
+          o => (o.id === orgId ? { ...o, celebrationId: feedId } : o),
+        )
+      : state.all,
   };
 }
 

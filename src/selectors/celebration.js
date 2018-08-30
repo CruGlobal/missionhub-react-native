@@ -2,16 +2,17 @@ import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
+
 import { organizationSelector } from './organizations';
 
 export const celebrationSelector = createSelector(
   ({ organizations }, { orgId }) =>
-    organizationSelector({ organizations }, orgId),
+    organizationSelector({ organizations }, { orgId }),
   ({ celebration }) => celebration.allById,
   (org, celebrations) => celebrations[org.celebrationId] || {},
 );
 
-/*export const celebrationSelector = createSelector(
+export const celebrationByDateSelector = createSelector(
   ({ celebrateItems }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
@@ -42,7 +43,7 @@ export const celebrationSelector = createSelector(
 
     return dateSections;
   },
-);*/
+);
 
 const compare = (a, b) => {
   let aValue = a.changed_attribute_value,
