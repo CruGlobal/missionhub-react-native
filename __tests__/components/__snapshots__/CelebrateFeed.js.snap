@@ -4,6 +4,11 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
 <SectionList
   data={Array []}
   disableVirtualization={false}
+  extraData={
+    Object {
+      "isListScrolled": false,
+    }
+  }
   horizontal={false}
   initialNumToRender={10}
   keyExtractor={[Function]}
