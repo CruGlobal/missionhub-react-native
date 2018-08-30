@@ -1,5 +1,9 @@
-import { LOGOUT, RESET_CELEBRATION_PAGINATION } from '../constants';
-import { REQUESTS } from '../actions/api';
+import {
+  LOGOUT,
+  RESET_CELEBRATION_PAGINATION,
+  SET_CELEBRATION_FEED,
+  SET_CELEBRATION_ITEM_LIKE,
+} from '../constants';
 import { getPagination } from '../utils/common';
 
 const initialState = {
@@ -9,14 +13,12 @@ const initialState = {
 
 function celebrationReducer(state = initialState, action) {
   switch (action.type) {
-    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
+    case SET_CELEBRATION_FEED:
       return addToFeed(action, state);
     case RESET_CELEBRATION_PAGINATION:
       return resetOrgPagination(action, state);
-    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleCelebrationLike(action, state, false);
+    case SET_CELEBRATION_ITEM_LIKE:
+      return setCelebrationLike(action, state);
     case LOGOUT:
       return initialState;
     default:
@@ -41,6 +43,7 @@ function addToFeed(action, state) {
       [feedId]: {
         ...existingFeed,
         items: allItems,
+        feedId,
         pagination: getPagination(action, allItems.length),
       },
     },
@@ -48,38 +51,33 @@ function addToFeed(action, state) {
 }
 
 function resetOrgPagination(action, state) {
-  const orgId = action.orgId;
+  const { feedId } = action;
   return {
     ...state,
-    allOrgFeeds: {
-      ...state.allOrgFeeds,
-      [orgId]: {
-        ...state.allOrgFeeds[orgId],
+    allById: {
+      ...state.allById,
+      [feedId]: {
+        ...state.allById[feedId],
         pagination: { page: 0, hasNextPage: true },
       },
     },
   };
 }
 
-function toggleCelebrationLike(action, state, liked) {
-  const query = action.query;
-  const org = state.all.find(o => o.id === query.orgId);
-  if (!org) {
-    return state; // Return if the organization does not exist
-  }
-  const newOrg = {
-    ...org,
-    celebrateItems: org.celebrateItems.map(
-      c =>
-        c.id === query.eventId
-          ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
-          : c,
-    ),
-  };
+function setCelebrationLike(action, state) {
+  const { feedId, eventId, liked } = action;
 
   return {
     ...state,
-    all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+    allById: {
+      ...state.allById,
+      [feedId]: state.allById[feedId].map(
+        c =>
+          c.id === eventId
+            ? { ...c, liked, likes_count: c.likes_count + (liked ? 1 : -1) }
+            : c,
+      ),
+    },
   };
 }
 
