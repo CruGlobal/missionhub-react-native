@@ -74,17 +74,17 @@ describe('a login button is clicked', () => {
     );
   });
 
-  it('login to be called', async () => {
+  it('login to be called', () => {
     screen.find({ name: 'loginButton' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
-  it('try it now to be called', async () => {
+  it('try it now to be called', () => {
     screen.find({ name: 'tryItNowButton' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(2);
   });
 
-  it('navigate next to be called', async () => {
+  it('navigate next to be called', () => {
     screen.instance().navigateToNext();
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
@@ -114,7 +114,7 @@ describe('a login button is clicked', () => {
       screen.find({ name: 'facebookButton' }).simulate('press');
     });
 
-    it('facebook login to not be called', async () => {
+    it('facebook login to not be called', () => {
       expect(auth.facebookLoginAction).toHaveBeenCalledTimes(0);
     });
     it('loading wheel to be rendered', () => {

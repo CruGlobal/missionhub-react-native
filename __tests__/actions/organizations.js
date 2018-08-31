@@ -218,6 +218,7 @@ describe('getOrganizationMembers', () => {
   const reportsQuery = {
     people_ids: members.map(m => m.id).join(','),
     period: 'P1Y',
+    organization_ids: orgId,
   };
   const reports = [
     {
@@ -286,17 +287,23 @@ describe('getOrganizationMembers', () => {
     store = configureStore([thunk])({
       organizations: { membersPagination: { hasNextPage: true, page: 1 } },
     });
+    const page = { limit: 25, offset: 25 };
 
-    store.dispatch(getOrganizationMembersNextPage(orgId)).then(() => {
-      expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query, {});
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
-        reportsQuery,
-        {},
-      );
+    await store.dispatch(getOrganizationMembersNextPage(orgId));
 
-      expect(store.getActions()).toEqual([getMembersAction]);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, {
+      ...query,
+      page,
     });
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
+      reportsQuery,
+    );
+    expect(store.getActions()).toEqual([
+      peopleListResponse,
+      reportsListResponse,
+      { ...getMembersAction, query: { ...getMembersAction.query, page } },
+    ]);
   });
 
   it('should get members next page in organization', async () => {

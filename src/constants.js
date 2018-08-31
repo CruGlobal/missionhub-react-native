@@ -232,6 +232,8 @@ export const ACTIONS = {
   },
 };
 
+export const CONTACT_STEPS = 'Contact Steps';
+
 export const CUSTOM_STEP_TYPE = 'user created step';
 
 export const INTERACTION_TYPES = {
