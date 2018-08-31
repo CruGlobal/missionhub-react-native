@@ -11,6 +11,7 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   trackSearchFilter,
+  emitterCallback,
 } from '../../src/actions/analytics';
 import {
   ACTIONS,
@@ -164,6 +165,7 @@ describe('trackState', () => {
   it('should not track state with no argument', () => {
     store.dispatch(trackState());
 
+    expect(Tracker).not.toHaveBeenCalled();
     expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
   });
 
@@ -271,6 +273,28 @@ describe('trackState', () => {
         type: ANALYTICS_CONTEXT_CHANGED,
       },
     ]);
+  });
+
+  describe('emitterCallback', () => {
+    beforeEach(() => expect.assertions(2)); //afterEach callback
+
+    it('should return a rejected promise if an error is returned', async () => {
+      const errorObj = { error: 'some error' };
+      try {
+        await emitterCallback(errorObj);
+      } catch (error) {
+        expect(error).toEqual({ snowplowError: errorObj });
+      }
+    });
+
+    it('should return a rejected promise if a response code other than 200 is returned', async () => {
+      const responseObj = { response: 'some response', status: 400 };
+      try {
+        await emitterCallback(responseObj);
+      } catch (error) {
+        expect(error).toEqual({ snowplowError: responseObj });
+      }
+    });
   });
 });
 
