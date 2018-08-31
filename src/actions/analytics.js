@@ -113,6 +113,8 @@ function trackScreenInSnowplow(context) {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
     sso_guid: context[ANALYTICS.SSO_GUID],
     mcid: context[ANALYTICS.MCID],
+    page_url: context[ANALYTICS.SCREENNAME],
+    referrer_url: context[ANALYTICS.PREVIOUS_SCREENNAME],
     //tntid: '',
   };
 
