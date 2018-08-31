@@ -39,12 +39,12 @@ export class GroupCelebrate extends Component {
 
   loadItems = () => {
     const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateFeed(organization.id));
+    dispatch(getGroupCelebrateFeed(organization));
   };
 
   reloadItems = () => {
     const { dispatch, organization } = this.props;
-    return dispatch(reloadGroupCelebrateFeed(organization.id));
+    return dispatch(reloadGroupCelebrateFeed(organization));
   };
 
   refreshItems = () => {
@@ -72,25 +72,17 @@ export class GroupCelebrate extends Component {
   }
 }
 
-export const mapStateToProps = (
-  { organizations, celebration },
-  { organization },
-) => {
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
+export const mapStateToProps = ({ organizations, celebration }, { orgId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
 
-  const celebrateFeed = celebrationSelector(
-    { organizations, celebration },
-    { orgId: organization.id },
-  );
+  const celebrateFeed = celebrationSelector({ celebration }, { organization });
 
   const celebrateItems = celebrationByDateSelector({
     celebrateItems: celebrateFeed.items || [],
   });
 
   return {
+    organization,
     celebrateItems: celebrateItems,
     pagination: celebrateFeed.pagination || {},
   };

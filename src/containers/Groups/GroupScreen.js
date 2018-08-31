@@ -73,7 +73,7 @@ const tabs = [
           params: { organization },
         },
       },
-    }) => <GroupCelebrate organization={organization} />,
+    }) => <GroupCelebrate orgId={organization.id} />,
   },
   {
     name: i18next.t('groupTabs:members'),

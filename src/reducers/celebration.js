@@ -27,14 +27,12 @@ function celebrationReducer(state = initialState, action) {
 }
 
 function addToFeed(action, state) {
-  const { query, feedId, newItems } = action;
+  const { page, feedId, newItems } = action;
 
   const existingFeed = state.allById[feedId] || {};
   const existingItems = existingFeed.items || [];
   const allItems =
-    query.page && query.page.offset > 0
-      ? [...existingItems, ...newItems]
-      : newItems;
+    page && page.offset > 0 ? [...existingItems, ...newItems] : newItems;
   const newIds = state.ids;
   if (newIds.indexOf(feedId) === -1) {
     newIds.push(feedId);

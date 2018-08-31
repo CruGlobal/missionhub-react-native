@@ -3,13 +3,10 @@ import { createSelector } from 'reselect';
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
 
-import { organizationSelector } from './organizations';
-
 export const celebrationSelector = createSelector(
-  ({ organizations }, { orgId }) =>
-    organizationSelector({ organizations }, { orgId }),
   ({ celebration }) => celebration.allById,
-  (org, celebrations) => celebrations[org.celebrationId] || {},
+  (_, { organization }) => organization,
+  (celebrations, org) => celebrations[org.celebrationId] || {},
 );
 
 export const celebrationByDateSelector = createSelector(

@@ -8,17 +8,19 @@ import { celebrationSelector } from '../selectors/celebration';
 
 import callApi, { REQUESTS } from './api';
 
-export function getGroupCelebrateFeed(orgId, personId = null) {
+export function getGroupCelebrateFeed(organization, personId = null) {
   return async (dispatch, getState) => {
-    const { organizations, celebration } = getState();
-    const feed = celebrationSelector({ organizations, celebration }, { orgId });
+    const { celebration } = getState();
+    const celebrateFeed = celebrationSelector(
+      { celebration },
+      { organization },
+    );
 
-    if (!feed.id) {
-      feed.id = celebration.ids.length;
-    }
-
-    const { page, hasNextPage } = feed.pagination
-      ? feed.pagination
+    const orgId = organization.id;
+    console.log(celebrateFeed);
+    const feedId = celebrateFeed.id ? celebrateFeed.id : celebration.ids.length;
+    const { page, hasNextPage } = celebrateFeed.pagination
+      ? celebrateFeed.pagination
       : { page: 0, hasNextPage: true };
 
     if (!hasNextPage) {
@@ -32,24 +34,27 @@ export function getGroupCelebrateFeed(orgId, personId = null) {
 
     return dispatch({
       type: SET_CELEBRATION_FEED,
-      query,
+      page,
       orgId,
       personId,
-      feedId: feed.id,
+      feedId,
       newItems: response,
       meta,
     });
   };
 }
 
-export function reloadGroupCelebrateFeed(orgId) {
+export function reloadGroupCelebrateFeed(organization) {
   return (dispatch, getState) => {
-    const { organizations, celebration } = getState();
-    const feed = celebrationSelector({ organizations, celebration }, { orgId });
+    const { celebration } = getState();
+    const celebrateFeed = celebrationSelector(
+      { celebration },
+      { organization },
+    );
 
-    if (feed && feed.pagination) {
-      dispatch(resetPaginationAction(feed.id));
-      return dispatch(getGroupCelebrateFeed(orgId));
+    if (celebrateFeed && celebrateFeed.pagination) {
+      dispatch(resetPaginationAction(celebrateFeed.id));
+      return dispatch(getGroupCelebrateFeed(organization));
     }
     return Promise.resolve();
   };
@@ -73,24 +78,23 @@ function buildQuery(orgId, personId, page) {
   };
 }
 
-export function toggleLike(orgId, eventId, liked) {
+export function toggleLike(organization, eventId, liked) {
   const request = liked
     ? REQUESTS.UNLIKE_CELEBRATE_ITEM
     : REQUESTS.LIKE_CELEBRATE_ITEM;
 
   return async (dispatch, getState) => {
-    const { organizations, celebration } = getState();
-    const feed = celebrationSelector({ organizations, celebration }, { orgId });
-    const query = { orgId, eventId };
+    const { celebration } = getState();
+    const feed = celebrationSelector({ celebration }, { organization });
+    const query = { orgId: organization.id, eventId };
 
     await dispatch(callApi(request, query));
     dispatch({
       type: SET_CELEBRATION_ITEM_LIKE,
-      query,
       eventId,
       feedId: feed.id,
       liked: !liked,
     });
-    return dispatch(reloadGroupCelebrateFeed(orgId));
+    return dispatch(reloadGroupCelebrateFeed(organization));
   };
 }
