@@ -22,7 +22,12 @@ import {
   ID_SCHEMA,
 } from '../../src/constants';
 
-const mockTracker = { trackScreenView: jest.fn() };
+const mockTracker = {
+  trackScreenView: jest.fn(),
+  core: {
+    addPayloadPair: jest.fn(),
+  },
+};
 
 jest.mock('react-native-omniture');
 jest.mock('@ringierag/snowplow-reactjs-native-tracker', () => ({
@@ -188,12 +193,18 @@ describe('trackState', () => {
             gr_master_person_id: grMasterPersonId,
             sso_guid: ssoGuid,
             mcid: mcId,
-            page_url: nameWithPrefix(trackingObj.name),
-            referrer_url: undefined,
             //tntid: '',
           },
         },
       ],
+    );
+    expect(mockTracker.core.addPayloadPair).toHaveBeenCalledWith(
+      'url',
+      nameWithPrefix(trackingObj.name),
+    );
+    expect(mockTracker.core.addPayloadPair).toHaveBeenCalledWith(
+      'refr',
+      undefined,
     );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(newScreenName),
@@ -246,8 +257,6 @@ describe('trackState', () => {
             gr_master_person_id: undefined,
             sso_guid: undefined,
             mcid: mcid,
-            page_url: nameWithPrefix(trackingObj.name),
-            referrer_url: undefined,
             //tntid: '',
           },
         },

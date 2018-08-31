@@ -135,21 +135,19 @@ function sendStateToSnowplow(context) {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
     sso_guid: context[ANALYTICS.SSO_GUID],
     mcid: context[ANALYTICS.MCID],
-    page_url: context[ANALYTICS.SCREENNAME],
-    referrer_url: context[ANALYTICS.PREVIOUS_SCREENNAME],
     //tntid: '',
   };
 
-  new Tracker([em], null, Config.SNOWPLOW_APP_ID, true).trackScreenView(
-    context[ANALYTICS.SCREENNAME],
-    null,
-    [
-      {
-        schema: ID_SCHEMA,
-        data: idData,
-      },
-    ],
-  );
+  const tracker = new Tracker([em], null, Config.SNOWPLOW_APP_ID, true);
+  tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
+  tracker.core.addPayloadPair('refr', context[ANALYTICS.PREVIOUS_SCREENNAME]);
+
+  tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [
+    {
+      schema: ID_SCHEMA,
+      data: idData,
+    },
+  ]);
 }
 
 function addTrackingObjToContext(trackingObj, analytics, auth) {
