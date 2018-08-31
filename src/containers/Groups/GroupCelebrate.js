@@ -6,8 +6,8 @@ import moment from 'moment';
 import CelebrateFeed from '../../components/CelebrateFeed';
 import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import {
-  getGroupCelebrateFeed,
-  reloadGroupCelebrateFeed,
+  getCelebrateFeed,
+  reloadCelebrateFeed,
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import {
@@ -39,12 +39,12 @@ export class GroupCelebrate extends Component {
 
   loadItems = () => {
     const { dispatch, organization } = this.props;
-    dispatch(getGroupCelebrateFeed(organization));
+    dispatch(getCelebrateFeed(organization));
   };
 
   reloadItems = () => {
     const { dispatch, organization } = this.props;
-    return dispatch(reloadGroupCelebrateFeed(organization));
+    return dispatch(reloadCelebrateFeed(organization));
   };
 
   refreshItems = () => {

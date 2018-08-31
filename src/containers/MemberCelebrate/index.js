@@ -6,11 +6,14 @@ import moment from 'moment';
 import CelebrateFeed from '../../components/CelebrateFeed';
 import EmptyCelebrateFeed from '../../components/EmptyCelebrateFeed';
 import {
-  getGroupCelebrateFeed,
-  reloadGroupCelebrateFeed,
+  getCelebrateFeed,
+  reloadCelebrateFeed,
 } from '../../actions/celebration';
 import { organizationSelector } from '../../selectors/organizations';
-import { celebrationSelector } from '../../selectors/celebration';
+import {
+  celebrationSelector,
+  celebrationByDateSelector,
+} from '../../selectors/celebration';
 import { momentUtc } from '../../utils/common';
 
 @translate('celebrateFeeds')
@@ -34,12 +37,12 @@ class MemberCelebrate extends Component {
 
   loadItems = () => {
     const { dispatch, person, organization } = this.props;
-    dispatch(getGroupCelebrateFeed(organization.id, person.id));
+    dispatch(getCelebrateFeed(organization, person.id));
   };
 
   refreshItems = () => {
     const { dispatch, person, organization } = this.props;
-    dispatch(reloadGroupCelebrateFeed(organization.id, person.id));
+    dispatch(reloadCelebrateFeed(organization, person.id));
   };
 
   renderList() {
@@ -70,23 +73,23 @@ class MemberCelebrate extends Component {
   }
 }
 
-const mapStateToProps = ({ organizations }, { organization, person }) => {
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
+const mapStateToProps = ({ organizations, celebration }, { orgId, person }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
 
-  const filteredCelebrationItems = (selectorOrg.celebrateItems || []).filter(
+  const celebrateFeed = celebrationSelector({ celebration }, { organization });
+
+  const filteredCelebrationItems = (celebrateFeed.items || []).filter(
     item => item.subject_person && item.subject_person.id === person.id,
   );
 
-  const celebrateItems = celebrationSelector({
+  const celebrateItems = celebrationByDateSelector({
     celebrateItems: filteredCelebrationItems,
   });
 
   return {
+    organization,
     celebrateItems,
-    pagination: selectorOrg.celebratePagination,
+    pagination: celebrateFeed.pagination || {},
   };
 };
 

@@ -8,7 +8,7 @@ import { celebrationSelector } from '../selectors/celebration';
 
 import callApi, { REQUESTS } from './api';
 
-export function getGroupCelebrateFeed(organization, personId = null) {
+export function getCelebrateFeed(organization, personId = null) {
   return async (dispatch, getState) => {
     const { celebration } = getState();
     const celebrateFeed = celebrationSelector(
@@ -43,7 +43,7 @@ export function getGroupCelebrateFeed(organization, personId = null) {
   };
 }
 
-export function reloadGroupCelebrateFeed(organization) {
+export function reloadCelebrateFeed(organization) {
   return (dispatch, getState) => {
     const { celebration } = getState();
     const celebrateFeed = celebrationSelector(
@@ -53,7 +53,7 @@ export function reloadGroupCelebrateFeed(organization) {
 
     if (celebrateFeed && celebrateFeed.pagination) {
       dispatch(resetPaginationAction(celebrateFeed.id));
-      return dispatch(getGroupCelebrateFeed(organization));
+      return dispatch(getCelebrateFeed(organization));
     }
     return Promise.resolve();
   };
@@ -94,6 +94,6 @@ export function toggleLike(organization, eventId, liked) {
       feedId: feed.id,
       liked: !liked,
     });
-    return dispatch(reloadGroupCelebrateFeed(organization));
+    return dispatch(reloadCelebrateFeed(organization));
   };
 }
