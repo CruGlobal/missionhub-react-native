@@ -17,7 +17,6 @@ export function getGroupCelebrateFeed(organization, personId = null) {
     );
 
     const orgId = organization.id;
-    console.log(celebrateFeed);
     const feedId = celebrateFeed.id ? celebrateFeed.id : celebration.ids.length;
     const { page, hasNextPage } = celebrateFeed.pagination
       ? celebrateFeed.pagination

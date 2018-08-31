@@ -23,10 +23,7 @@ const initialState = {
 function organizationsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ORGANIZATIONS:
-      return {
-        ...state,
-        all: action.orgs,
-      };
+      return loadOrgs(action, state);
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;
       return {
@@ -84,6 +81,16 @@ function organizationsReducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+function loadOrgs(action, state) {
+  return {
+    ...state,
+    all: action.orgs.map(newOrg => {
+      const oldOrg = state.all.find(o => o.id === newOrg.id);
+      return oldOrg ? { ...oldOrg, ...newOrg } : newOrg;
+    }),
+  };
 }
 
 function setCelebrationId(action, state) {
