@@ -3,6 +3,7 @@ import {
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
+  ORGANIZATION_CONTACTS_SEARCH,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -138,7 +139,15 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   };
 
   return async dispatch => {
-    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+    const { response, meta } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, query),
+    );
+
+    return dispatch({
+      type: ORGANIZATION_CONTACTS_SEARCH,
+      contacts: response,
+      meta,
+    });
   };
 }
 

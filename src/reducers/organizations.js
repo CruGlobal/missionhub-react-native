@@ -6,6 +6,7 @@ import {
   RESET_CELEBRATION_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  ORGANIZATION_CONTACTS_SEARCH,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -22,7 +23,7 @@ const initialState = {
   },
 };
 
-function organizationsReducer(state = initialState, action) {
+export default function organizationsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ORGANIZATIONS:
       return {
@@ -142,6 +143,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case ORGANIZATION_CONTACTS_SEARCH:
+      return loadContacts(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -171,4 +174,14 @@ function toggleCelebrationLike(action, state, liked) {
   };
 }
 
-export default organizationsReducer;
+function loadContacts(state, action) {
+  const { orgId, contacts } = action;
+
+  const contactIds = contacts.map(c => c.id);
+  return {
+    ...state,
+    all: state.all.map(
+      o => (o.id === orgId ? { ...o, contacts: contactIds } : o),
+    ),
+  };
+}
