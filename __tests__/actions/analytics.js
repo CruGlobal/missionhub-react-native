@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
+import { Tracker, Emitter } from '@ringierag/snowplow-reactjs-native-tracker';
 
 import {
   trackAction,
@@ -17,10 +18,20 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   CUSTOM_STEP_TYPE,
   LOGGED_IN,
+  ID_SCHEMA,
 } from '../../src/constants';
 
+const mockTracker = { trackScreenView: jest.fn() };
+
 jest.mock('react-native-omniture');
-jest.mock('@ringierag/snowplow-reactjs-native-tracker');
+jest.mock('@ringierag/snowplow-reactjs-native-tracker', () => ({
+  Emitter: jest.fn(),
+  Tracker: jest.fn(() => mockTracker),
+}));
+jest.mock('react-native-config', () => ({
+  SNOWPLOW_URL: 'mock snowplow url',
+  SNOWPLOW_APP_ID: 'mock snowplow app id',
+}));
 
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
@@ -140,6 +151,16 @@ describe('trackState', () => {
     };
   });
 
+  afterEach(() =>
+    expect(Emitter).toHaveBeenCalledWith(
+      'mock snowplow url',
+      'https',
+      443,
+      'POST',
+      1,
+      expect.any(Function),
+    ));
+
   it('should not track state with no argument', () => {
     store.dispatch(trackState());
 
@@ -149,6 +170,29 @@ describe('trackState', () => {
   it('should track state', () => {
     store.dispatch(trackState(trackingObj));
 
+    expect(Tracker).toHaveBeenCalledWith(
+      [{}],
+      null,
+      'mock snowplow app id',
+      true,
+    );
+    expect(mockTracker.trackScreenView).toHaveBeenCalledWith(
+      nameWithPrefix(trackingObj.name),
+      null,
+      [
+        {
+          schema: ID_SCHEMA,
+          data: {
+            gr_master_person_id: grMasterPersonId,
+            sso_guid: ssoGuid,
+            mcid: mcId,
+            page_url: nameWithPrefix(trackingObj.name),
+            referrer_url: undefined,
+            //tntid: '',
+          },
+        },
+      ],
+    );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(newScreenName),
       expectedUpdatedContext,
@@ -184,6 +228,29 @@ describe('trackState', () => {
 
     store.dispatch(trackState(trackingObj));
 
+    expect(Tracker).toHaveBeenCalledWith(
+      [{}],
+      null,
+      'mock snowplow app id',
+      true,
+    );
+    expect(mockTracker.trackScreenView).toHaveBeenCalledWith(
+      nameWithPrefix(trackingObj.name),
+      null,
+      [
+        {
+          schema: ID_SCHEMA,
+          data: {
+            gr_master_person_id: undefined,
+            sso_guid: undefined,
+            mcid: mcid,
+            page_url: nameWithPrefix(trackingObj.name),
+            referrer_url: undefined,
+            //tntid: '',
+          },
+        },
+      ],
+    );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(trackingObj.name),
       expect.objectContaining({

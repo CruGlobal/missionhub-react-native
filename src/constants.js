@@ -110,6 +110,7 @@ export const ANALYTICS = {
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
 };
+export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 

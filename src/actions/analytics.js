@@ -7,6 +7,7 @@ import {
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
+  ID_SCHEMA,
 } from '../constants';
 import { isCustomStep } from '../utils/common';
 
@@ -141,7 +142,7 @@ function sendStateToSnowplow(context) {
     null,
     [
       {
-        schema: 'iglu:org.cru/ids/jsonschema/1-0-3',
+        schema: ID_SCHEMA,
         data: idData,
       },
     ],
