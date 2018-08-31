@@ -86,7 +86,9 @@ export function assignContactAndPickStage(person, organization) {
         orgId,
         contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
-        onComplete: () => {},
+        onComplete: () => {
+          dispatch(loadStepsAndJourney(resultPerson, organization));
+        },
         section: 'people',
         subsection: 'person',
       }),

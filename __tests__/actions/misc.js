@@ -158,6 +158,8 @@ describe('assignContactAndPickStage', () => {
     });
     expect(store.getActions()).toEqual([
       navigateReplaceResult,
+      getStepsResult,
+      reloadJourneyResult,
       navigatePushResult,
     ]);
   });
