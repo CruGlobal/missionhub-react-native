@@ -102,13 +102,31 @@ export function trackState(trackingObj) {
     );
 
     dispatch(updateAnalyticsContext(updatedContext));
-
-    trackScreenInSnowplow(updatedContext); //TODO this should be done after loading MCID
     return dispatch(trackStateWithMCID(updatedContext));
   };
 }
 
-function trackScreenInSnowplow(context) {
+function trackStateWithMCID(context) {
+  return dispatch => {
+    if (context[ANALYTICS.MCID]) {
+      sendStateToAdobeAndSnowplow(context);
+    } else {
+      RNOmniture.loadMarketingCloudId(result => {
+        const updatedContext = { ...context, [ANALYTICS.MCID]: result };
+
+        sendStateToAdobeAndSnowplow(updatedContext);
+        dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
+  };
+}
+
+function sendStateToAdobeAndSnowplow(context) {
+  RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
+  sendStateToSnowplow(context);
+}
+
+function sendStateToSnowplow(context) {
   const idData = {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
     sso_guid: context[ANALYTICS.SSO_GUID],
@@ -128,24 +146,6 @@ function trackScreenInSnowplow(context) {
       },
     ],
   );
-}
-
-function trackStateWithMCID(context) {
-  return dispatch => {
-    if (context[ANALYTICS.MCID]) {
-      RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
-    } else {
-      RNOmniture.loadMarketingCloudId(result => {
-        const updatedContext = { ...context, [ANALYTICS.MCID]: result };
-
-        RNOmniture.trackState(
-          updatedContext[ANALYTICS.SCREENNAME],
-          updatedContext,
-        );
-        dispatch(updateAnalyticsContext(updatedContext));
-      });
-    }
-  };
 }
 
 function addTrackingObjToContext(trackingObj, analytics, auth) {
