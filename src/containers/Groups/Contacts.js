@@ -11,6 +11,8 @@ import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
+import { organizationSelector } from '../../selectors/organizations';
+import { contactsInOrgSelector } from '../../selectors/people';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
@@ -142,6 +144,17 @@ class Contacts extends Component {
 
 Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
+  contactList: PropTypes.object.isRequired,
 };
 
-export default connect()(Contacts);
+const mapStateToProps = ({ organizations, contacts }, { orgId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
+  const contactList = contactsInOrgSelector({ contacts }, organization);
+
+  return {
+    organization,
+    contactList,
+  };
+};
+
+export default connect(mapStateToProps)(Contacts);

@@ -116,3 +116,10 @@ export const orgPermissionSelector = createSelector(
       orgPermission => orgPermission.organization_id === organization.id,
     ),
 );
+
+export const contactsInOrgSelector = createSelector(
+  ({ contacts }, { organization }) =>
+    contacts.allByOrg[organization.id].allById,
+  (_, { organization }) => organization.contacts,
+  (orgContacts, contactIds) => contactIds.map(i => orgContacts[i]),
+);
