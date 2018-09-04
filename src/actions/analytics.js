@@ -113,19 +113,19 @@ export function trackState(trackingObj) {
 function trackStateWithMCID(context) {
   return dispatch => {
     if (context[ANALYTICS.MCID]) {
-      sendStateToAdobeAndSnowplow(context);
+      sendState(context);
     } else {
       RNOmniture.loadMarketingCloudId(result => {
         const updatedContext = { ...context, [ANALYTICS.MCID]: result };
 
-        sendStateToAdobeAndSnowplow(updatedContext);
+        sendState(updatedContext);
         dispatch(updateAnalyticsContext(updatedContext));
       });
     }
   };
 }
 
-function sendStateToAdobeAndSnowplow(context) {
+function sendState(context) {
   RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
   sendStateToSnowplow(context);
 }
