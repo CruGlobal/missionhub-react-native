@@ -252,7 +252,6 @@ describe('trackState', () => {
             gr_master_person_id: undefined,
             sso_guid: undefined,
             mcid: mcid,
-            //tntid: '',
           },
         },
       ],

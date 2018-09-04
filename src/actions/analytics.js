@@ -135,7 +135,6 @@ function sendStateToSnowplow(context) {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
     sso_guid: context[ANALYTICS.SSO_GUID],
     mcid: context[ANALYTICS.MCID],
-    //tntid: '',
   };
 
   const tracker = new Tracker([em], null, Config.SNOWPLOW_APP_ID, true);
