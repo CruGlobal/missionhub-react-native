@@ -4,6 +4,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   ORGANIZATION_CONTACTS_SEARCH,
+  ORGANIZATION_CONTACTS_CLEAR,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -139,13 +140,20 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   };
 
   return async dispatch => {
+    dispatch({
+      type: ORGANIZATION_CONTACTS_CLEAR,
+      orgId,
+    });
+
     const { response, meta } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, query),
     );
 
     return dispatch({
       type: ORGANIZATION_CONTACTS_SEARCH,
+      orgId,
       contacts: response,
+      query,
       meta,
     });
   };

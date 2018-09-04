@@ -176,12 +176,23 @@ function toggleCelebrationLike(action, state, liked) {
 
 function loadContacts(state, action) {
   const { orgId, contacts } = action;
+  const org = state.all.find(o => o.id === orgId);
 
-  const contactIds = contacts.map(c => c.id);
+  const newIds = (contacts && contacts.map(c => c.id)) || [];
+  const existingIds = (org && org.contacts) || [];
+  const allIds = [...existingIds, ...newIds];
+
   return {
     ...state,
     all: state.all.map(
-      o => (o.id === orgId ? { ...o, contacts: contactIds } : o),
+      o =>
+        o.id === orgId
+          ? {
+              ...o,
+              contacts: allIds,
+              contactPagination: getPagination(action, allIds.length),
+            }
+          : o,
     ),
   };
 }

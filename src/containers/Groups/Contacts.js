@@ -10,7 +10,6 @@ import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/filters';
-import { buildUpdatedPagination } from '../../utils/pagination';
 import { organizationSelector } from '../../selectors/organizations';
 import { contactsInOrgSelector } from '../../selectors/people';
 
@@ -23,10 +22,6 @@ class Contacts extends Component {
     const { t } = props;
 
     this.state = {
-      pagination: {
-        page: 0,
-        hasMore: true,
-      },
       filters: {
         // Default filters
         unassigned: {
@@ -84,25 +79,24 @@ class Contacts extends Component {
       hasMore: true,
     };
 
-    await this.setState({ pagination });
-
-    return await this.handleLoadMore(text);
+    return await this.getContacts(text, pagination);
   };
 
   handleLoadMore = async text => {
-    const { dispatch, organization } = this.props;
-    const { filters, pagination } = this.state;
+    const { pagination } = this.props;
 
-    const result = await dispatch(
+    return await this.getContacts(text, pagination);
+  };
+
+  async getContacts(text, pagination) {
+    const { dispatch, organization } = this.props;
+    const { filters } = this.state;
+
+    const { response } = await dispatch(
       getOrganizationContacts(organization.id, text, pagination, filters),
     );
-
-    const { meta, response } = result;
-
-    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
-
     return response;
-  };
+  }
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
@@ -120,7 +114,7 @@ class Contacts extends Component {
   );
 
   render() {
-    const { t } = this.props;
+    const { t, contactList } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
@@ -136,6 +130,7 @@ class Contacts extends Component {
           onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
+          results={contactList}
         />
       </Flex>
     );
@@ -144,16 +139,22 @@ class Contacts extends Component {
 
 Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
-  contactList: PropTypes.object.isRequired,
+  contactList: PropTypes.array.isRequired,
+  pagination: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ organizations, contacts }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
   const contactList = contactsInOrgSelector({ contacts }, { organization });
+  const pagination = organization.contactPagination || {
+    page: 0,
+    hasNextPage: true,
+  };
 
   return {
     organization,
     contactList,
+    pagination,
   };
 };
 
