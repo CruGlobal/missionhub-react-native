@@ -149,7 +149,7 @@ Contacts.propTypes = {
 
 const mapStateToProps = ({ organizations, contacts }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
-  const contactList = contactsInOrgSelector({ contacts }, organization);
+  const contactList = contactsInOrgSelector({ contacts }, { organization });
 
   return {
     organization,

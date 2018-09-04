@@ -106,7 +106,7 @@ const tabs = [
           params: { organization },
         },
       },
-    }) => <Contacts organization={organization} />,
+    }) => <Contacts orgId={organization.id} />,
   },
   {
     name: i18next.t('groupTabs:surveys'),
