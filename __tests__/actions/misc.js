@@ -156,8 +156,12 @@ describe('assignContactAndPickStage', () => {
       section: 'people',
       subsection: 'person',
     });
+    expect(getContactSteps).toHaveBeenCalledWith(personId, orgId);
+    expect(reloadJourney).toHaveBeenCalledWith(personId, orgId);
     expect(store.getActions()).toEqual([
       navigateReplaceResult,
+      getStepsResult,
+      reloadJourneyResult,
       navigatePushResult,
     ]);
   });
