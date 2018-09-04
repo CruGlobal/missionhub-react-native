@@ -193,7 +193,6 @@ describe('trackState', () => {
             gr_master_person_id: grMasterPersonId,
             sso_guid: ssoGuid,
             mcid: mcId,
-            //tntid: '',
           },
         },
       ],
@@ -201,10 +200,6 @@ describe('trackState', () => {
     expect(mockTracker.core.addPayloadPair).toHaveBeenCalledWith(
       'url',
       nameWithPrefix(trackingObj.name),
-    );
-    expect(mockTracker.core.addPayloadPair).toHaveBeenCalledWith(
-      'refr',
-      undefined,
     );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(newScreenName),

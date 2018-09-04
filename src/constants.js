@@ -98,7 +98,6 @@ export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
-  PREVIOUS_SCREENNAME: 'cru.previousscreenname',
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
   SITE_SUB_SECTION_3: 'cru.subsectionlevel3',

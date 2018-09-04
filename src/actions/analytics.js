@@ -140,7 +140,6 @@ function sendStateToSnowplow(context) {
 
   const tracker = new Tracker([em], null, Config.SNOWPLOW_APP_ID, true);
   tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
-  tracker.core.addPayloadPair('refr', context[ANALYTICS.PREVIOUS_SCREENNAME]);
 
   tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [
     {
