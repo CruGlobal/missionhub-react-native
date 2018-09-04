@@ -86,7 +86,9 @@ export function assignContactAndPickStage(person, organization) {
         orgId,
         contactAssignmentId: contactAssignment.id,
         name: resultPerson.first_name,
-        onComplete: () => {},
+        onComplete: () => {
+          dispatch(loadStepsAndJourney(resultPerson, organization));
+        },
         section: 'people',
         subsection: 'person',
       }),
@@ -103,7 +105,7 @@ export function navigateToStageScreen(
   noNav = false,
   onComplete = null,
 ) {
-  return async dispatch => {
+  return dispatch => {
     if (personIsCurrentUser) {
       dispatch(
         navigatePush(STAGE_SCREEN, {

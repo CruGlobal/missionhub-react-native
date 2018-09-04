@@ -129,11 +129,11 @@ describe('bumpComplete', () => {
 });
 
 describe('getSteps', () => {
-  it('should get steps for a personal org', async () => {
+  it('should get steps for a personal org', () => {
     createComponent(false, mockPerson);
     expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, undefined);
   });
-  it('should get steps for a ministry org', async () => {
+  it('should get steps for a ministry org', () => {
     const org = { id: '4' };
     createComponent(false, mockPerson, org);
     expect(getContactSteps).toHaveBeenCalledWith(mockPerson.id, org.id);

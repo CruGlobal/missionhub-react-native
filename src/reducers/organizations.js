@@ -5,6 +5,7 @@ import {
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
   LOAD_ORGANIZATIONS,
+  DEFAULT_PAGE_LIMIT,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -66,6 +67,20 @@ function organizationsReducer(state = initialState, action) {
       if (!curCelebrateOrg) {
         return state; // Return if the organization does not exist
       }
+
+      if (
+        curCelebrateOrg.celebratePagination &&
+        curCelebrateOrg.celebratePagination.page >
+          action.query.page.offset / DEFAULT_PAGE_LIMIT
+      ) {
+        /*
+         This response is from a duplicate request.  Since the pagination object is updated in the response, it is
+         possible for multiple requests to be fired with the same offset parameter, which results in duplicate
+         celebration items.
+         */
+        return state;
+      }
+
       const existingItems = curCelebrateOrg.celebrateItems || [];
       const allItems =
         celebrateQuery.page && celebrateQuery.page.offset > 0

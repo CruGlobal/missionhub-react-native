@@ -190,11 +190,11 @@ describe('addSteps', () => {
     callApi.mockReturnValue(() => Promise.resolve());
   });
 
-  it('creates steps without org', async () => {
+  it('creates steps without org', () => {
     return test(null, acceptedChallenges);
   });
 
-  it('creates steps with org', async () => {
+  it('creates steps with org', () => {
     const organization = { id: '200' };
     const expectedIncluded = acceptedChallenges.map(c => ({
       ...c,

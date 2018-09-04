@@ -97,7 +97,7 @@ it('should refresh key access token if user is logged in with TheKey with invali
   );
 });
 
-it('should refresh anonymous login if user is Try It Now with expired token', async () => {
+it('should refresh anonymous login if user is Try It Now with expired token', () => {
   return test(
     { isFirstTime: true },
     auth,
@@ -110,7 +110,7 @@ it('should refresh anonymous login if user is Try It Now with expired token', as
     {},
   );
 });
-it('should refresh anonymous login if user is Try It Now with invalid token', async () => {
+it('should refresh anonymous login if user is Try It Now with invalid token', () => {
   return test(
     { isFirstTime: true },
     auth,
@@ -124,7 +124,7 @@ it('should refresh anonymous login if user is Try It Now with invalid token', as
   );
 });
 
-it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', async () => {
+it('should refresh facebook login if user is not logged in with TheKey or Try It Now with expired token', () => {
   return test(
     {},
     facebook,
@@ -137,7 +137,7 @@ it('should refresh facebook login if user is not logged in with TheKey or Try It
     {},
   );
 });
-it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', async () => {
+it('should refresh facebook login if user is not logged in with TheKey or Try It Now with invalid token', () => {
   return test(
     {},
     facebook,
@@ -151,7 +151,7 @@ it('should refresh facebook login if user is not logged in with TheKey or Try It
   );
 });
 
-it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
+it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
   return test(
     { refreshToken: 'refresh' },
     auth,
@@ -165,7 +165,7 @@ it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
   );
 });
 
-it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", async () => {
+it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", () => {
   auth.logout = jest.fn();
   store = mockStore({ auth: { ...mockAuthState } });
 
