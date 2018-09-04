@@ -228,7 +228,9 @@ describe('get group journey', () => {
     expect(isAdminForOrg).toHaveBeenCalledWith(orgPermissions);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include: isAdmin
-        ? 'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver'
+        ? 'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,' +
+          'all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,' +
+          'all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver,all.initiators'
         : 'all.answers.question,all.survey',
       filters: {
         person_id: personId,
