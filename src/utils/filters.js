@@ -1,5 +1,16 @@
 import moment from 'moment';
 
+export const unassignedFilter = (t, selected) => ({
+  id: 'unassigned',
+  text: t('searchFilter:unassigned'),
+  selected,
+});
+export const thirtyDaysFilter = t => ({
+  id: 'time30',
+  value: 30,
+  text: t('searchFilter:time30'),
+});
+
 export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
@@ -40,7 +51,7 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
       text: t('searchFilter:time'),
       options: [
         { id: 'time7', value: 7, text: t('searchFilter:time7') },
-        { id: 'time30', value: 30, text: t('searchFilter:time30') },
+        thirtyDaysFilter(t),
         { id: 'time60', value: 60, text: t('searchFilter:time60') },
         { id: 'time90', value: 90, text: t('searchFilter:time90') },
         { id: 'time180', value: 180, text: t('searchFilter:time180') },
@@ -54,11 +65,7 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
       text: t('searchFilter:uncontacted'),
       selected: !!filters.uncontacted,
     },
-    unassigned: {
-      id: 'unassigned',
-      text: t('searchFilter:unassigned'),
-      selected: !!filters.unassigned,
-    },
+    unassigned: unassignedFilter(t, !!filters.unassigned),
     archived: {
       id: 'archived',
       text: t('searchFilter:archived'),

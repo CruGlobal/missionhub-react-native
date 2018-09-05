@@ -7,7 +7,11 @@ import { navigatePush } from '../../actions/navigation';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
-import { searchRemoveFilter } from '../../utils/filters';
+import {
+  searchRemoveFilter,
+  unassignedFilter,
+  thirtyDaysFilter,
+} from '../../utils/filters';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
@@ -30,12 +34,8 @@ class SurveyContacts extends Component {
       },
       //Default filters
       filters: {
-        unassigned: {
-          id: 'unassigned',
-          selected: true,
-          text: t('searchFilter:unassigned'),
-        },
-        time: { id: 'time30', value: 30, text: t('searchFilter:time30') },
+        unassigned: unassignedFilter(t, true),
+        time: thirtyDaysFilter(t),
       },
       defaultResults: [],
     };
