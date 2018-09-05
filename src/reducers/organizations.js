@@ -7,6 +7,7 @@ import {
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
   ORGANIZATION_CONTACTS_SEARCH,
+  RESET_ORGANIZATION_CONTACTS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -145,6 +146,8 @@ export default function organizationsReducer(state = initialState, action) {
       };
     case ORGANIZATION_CONTACTS_SEARCH:
       return loadContacts(state, action);
+    case RESET_ORGANIZATION_CONTACTS:
+      return resetContacts(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -191,6 +194,22 @@ function loadContacts(state, action) {
               ...o,
               contacts: allIds,
               contactPagination: getPagination(action, allIds.length),
+            }
+          : o,
+    ),
+  };
+}
+
+function resetContacts(state, action) {
+  return {
+    ...state,
+    all: state.all.map(
+      o =>
+        o.id === action.orgId
+          ? {
+              ...o,
+              contacts: [],
+              contactPagination: { page: 0, hasNextPage: true },
             }
           : o,
     ),

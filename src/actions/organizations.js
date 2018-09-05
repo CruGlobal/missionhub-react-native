@@ -4,9 +4,10 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   ORGANIZATION_CONTACTS_SEARCH,
-  ORGANIZATION_CONTACTS_CLEAR,
+  RESET_ORGANIZATION_CONTACTS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
+import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 
@@ -75,7 +76,7 @@ export function getOrganizationsContactReports() {
   };
 }
 
-export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
+export function getOrganizationContacts(orgId, name, filters = {}) {
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -132,18 +133,17 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
     query.filters.group_ids = filters.groups.id;
   }
 
-  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
+  return async (dispatch, getState) => {
+    const { organizations } = getState();
+    const org = organizationSelector({ organizations }, { orgId });
+    const pagination = org.contactPagination || { page: 0, hasNextPage: true };
 
-  query.page = {
-    limit: DEFAULT_PAGE_LIMIT,
-    offset,
-  };
+    const offset = DEFAULT_PAGE_LIMIT * pagination.page;
 
-  return async dispatch => {
-    dispatch({
-      type: ORGANIZATION_CONTACTS_CLEAR,
-      orgId,
-    });
+    query.page = {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset,
+    };
 
     const { response, meta } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, query),
@@ -158,6 +158,25 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
     });
   };
 }
+
+export function reloadOrganizationContacts(orgId, name, filters = {}) {
+  return (dispatch, getState) => {
+    const { organizations } = getState();
+    const org = organizationSelector({ organizations }, { orgId });
+
+    if (org && org.contactPagination) {
+      dispatch(resetContactPagination(orgId));
+    }
+    return dispatch(getOrganizationContacts(orgId, name, filters));
+  };
+}
+
+const resetContactPagination = orgId => {
+  return {
+    type: RESET_ORGANIZATION_CONTACTS,
+    orgId,
+  };
+};
 
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts

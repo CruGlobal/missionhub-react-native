@@ -4,7 +4,10 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import { getOrganizationContacts } from '../../actions/organizations';
+import {
+  getOrganizationContacts,
+  reloadOrganizationContacts,
+} from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
@@ -74,29 +77,20 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const pagination = {
-      page: 0,
-      hasMore: true,
-    };
-
-    return await this.getContacts(text, pagination);
+    const { dispatch, organization } = this.props;
+    const { filters } = this.state;
+    return await dispatch(
+      reloadOrganizationContacts(organization.id, text, filters),
+    );
   };
 
   handleLoadMore = async text => {
-    const { pagination } = this.props;
-
-    return await this.getContacts(text, pagination);
-  };
-
-  async getContacts(text, pagination) {
     const { dispatch, organization } = this.props;
     const { filters } = this.state;
-
-    const { response } = await dispatch(
-      getOrganizationContacts(organization.id, text, pagination, filters),
+    return await dispatch(
+      getOrganizationContacts(organization.id, text, filters),
     );
-    return response;
-  }
+  };
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;

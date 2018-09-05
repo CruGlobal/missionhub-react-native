@@ -58,12 +58,11 @@ class SearchList extends Component {
 
     const { onLoadMore } = this.props;
 
-    const newResults = await onLoadMore(text);
+    await onLoadMore(text);
 
     this.setState({
       listHasScrolled: false,
       isSearching: false,
-      results: [...this.state.results, ...newResults],
     });
   };
 
