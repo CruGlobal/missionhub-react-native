@@ -511,6 +511,12 @@
     md5 "^2.0.0"
     request-promise "^0.4.2"
 
+"@ringierag/snowplow-reactjs-native-tracker@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ringierag/snowplow-reactjs-native-tracker/-/snowplow-reactjs-native-tracker-0.0.3.tgz#cd77ee6635bc0b4a05919cfded4072b3c8033c0c"
+  dependencies:
+    snowplow-tracker-core "^0.6.1"
+
 "@types/caseless@*":
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.1.tgz#9794c69c8385d0192acc471a540d1f8e0d16218a"
@@ -7078,6 +7084,12 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+snowplow-tracker-core@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/snowplow-tracker-core/-/snowplow-tracker-core-0.6.1.tgz#f5cf0d40427df20e781c41ab1f98c6c668ca3080"
+  dependencies:
+    uuid "2.0.3"
+
 sntp@1.x.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
@@ -7691,6 +7703,10 @@ util.promisify@^1.0.0:
 utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
+
+uuid@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
 uuid@3.0.1:
   version "3.0.1"

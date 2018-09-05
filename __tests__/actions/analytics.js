@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
+import { Tracker, Emitter } from '@ringierag/snowplow-reactjs-native-tracker';
 
 import {
   trackAction,
@@ -10,6 +11,7 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   trackSearchFilter,
+  emitterCallback,
 } from '../../src/actions/analytics';
 import {
   ACTIONS,
@@ -17,9 +19,25 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   CUSTOM_STEP_TYPE,
   LOGGED_IN,
+  ID_SCHEMA,
 } from '../../src/constants';
 
+const mockTracker = {
+  trackScreenView: jest.fn(),
+  core: {
+    addPayloadPair: jest.fn(),
+  },
+};
+
 jest.mock('react-native-omniture');
+jest.mock('@ringierag/snowplow-reactjs-native-tracker', () => ({
+  Emitter: jest.fn(),
+  Tracker: jest.fn(() => mockTracker),
+}));
+jest.mock('react-native-config', () => ({
+  SNOWPLOW_URL: 'mock snowplow url',
+  SNOWPLOW_APP_ID: 'mock snowplow app id',
+}));
 
 const screenName = 'mh : screen 1';
 const mcId = '7892387873247893297847894978497823';
@@ -139,15 +157,50 @@ describe('trackState', () => {
     };
   });
 
+  afterEach(() =>
+    expect(Emitter).toHaveBeenCalledWith(
+      'mock snowplow url',
+      'https',
+      443,
+      'POST',
+      1,
+      expect.any(Function),
+    ));
+
   it('should not track state with no argument', () => {
     store.dispatch(trackState());
 
+    expect(Tracker).not.toHaveBeenCalled();
     expect(RNOmniture.trackState).toHaveBeenCalledTimes(0);
   });
 
   it('should track state', () => {
     store.dispatch(trackState(trackingObj));
 
+    expect(Tracker).toHaveBeenCalledWith(
+      [{}],
+      null,
+      'mock snowplow app id',
+      true,
+    );
+    expect(mockTracker.trackScreenView).toHaveBeenCalledWith(
+      nameWithPrefix(trackingObj.name),
+      null,
+      [
+        {
+          schema: ID_SCHEMA,
+          data: {
+            gr_master_person_id: grMasterPersonId,
+            sso_guid: ssoGuid,
+            mcid: mcId,
+          },
+        },
+      ],
+    );
+    expect(mockTracker.core.addPayloadPair).toHaveBeenCalledWith(
+      'url',
+      nameWithPrefix(trackingObj.name),
+    );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(newScreenName),
       expectedUpdatedContext,
@@ -183,6 +236,26 @@ describe('trackState', () => {
 
     store.dispatch(trackState(trackingObj));
 
+    expect(Tracker).toHaveBeenCalledWith(
+      [{}],
+      null,
+      'mock snowplow app id',
+      true,
+    );
+    expect(mockTracker.trackScreenView).toHaveBeenCalledWith(
+      nameWithPrefix(trackingObj.name),
+      null,
+      [
+        {
+          schema: ID_SCHEMA,
+          data: {
+            gr_master_person_id: undefined,
+            sso_guid: undefined,
+            mcid: mcid,
+          },
+        },
+      ],
+    );
     expect(RNOmniture.trackState).toHaveBeenCalledWith(
       nameWithPrefix(trackingObj.name),
       expect.objectContaining({
@@ -203,6 +276,28 @@ describe('trackState', () => {
         type: ANALYTICS_CONTEXT_CHANGED,
       },
     ]);
+  });
+
+  describe('emitterCallback', () => {
+    beforeEach(() => expect.assertions(2)); //afterEach callback
+
+    it('should return a rejected promise if an error is returned', async () => {
+      const errorObj = { error: 'some error' };
+      try {
+        await emitterCallback(errorObj);
+      } catch (error) {
+        expect(error).toEqual({ snowplowError: errorObj });
+      }
+    });
+
+    it('should return a rejected promise if a response code other than 200 is returned', async () => {
+      const responseObj = { response: 'some response', status: 400 };
+      try {
+        await emitterCallback(responseObj);
+      } catch (error) {
+        expect(error).toEqual({ snowplowError: responseObj });
+      }
+    });
   });
 });
 

@@ -98,7 +98,6 @@ export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
   SCREENNAME: 'cru.screenname',
-  PREVIOUS_SCREENNAME: 'cru.previousscreenname',
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
   SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
@@ -110,6 +109,7 @@ export const ANALYTICS = {
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
 };
+export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
 
