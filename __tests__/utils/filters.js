@@ -8,6 +8,27 @@ import {
 describe('getFilterOptions', () => {
   const t = jest.fn(() => 'Title');
 
+  const questions = [
+    {
+      _type: 'choice_field',
+      id: '1',
+      label: 'Question 1',
+      content: '1.1\r\n1.2\r\n1.3\r\n1.4',
+    },
+    {
+      _type: 'text_field',
+      id: '2',
+      label: 'Question 2',
+      content: '2.1\r\n2.2\r\n2.3\r\n2.4',
+    },
+    {
+      _type: 'choice_field',
+      id: '3',
+      label: 'Question 3',
+      content: '3.1\r\n3.2\r\n3.3\r\n3.4',
+    },
+  ];
+
   it('sets the preview', () => {
     const filters = {
       '1234': { id: '1234', text: 'test', isAnswer: true },
@@ -34,27 +55,18 @@ describe('getFilterOptions', () => {
   });
 
   it('parses question content and sets question filter', () => {
-    const questions = [
-      {
-        _type: 'choice_field',
-        id: '1',
-        label: 'Question 1',
-        content: '1.1\r\n1.2\r\n1.3\r\n1.4',
-      },
-      {
-        _type: 'text_field',
-        id: '2',
-        label: 'Question 2',
-        content: '2.1\r\n2.2\r\n2.3\r\n2.4',
-      },
-      {
-        _type: 'choice_field',
-        id: '3',
-        label: 'Question 3',
-        content: '3.1\r\n3.2\r\n3.3\r\n3.4',
-      },
-    ];
     const filters = { '1': { id: '1', text: '1.1', isAnswer: true } };
+
+    const results = getFilterOptions(t, filters, questions);
+
+    expect(results.questions).toMatchSnapshot();
+  });
+
+  it('parses question content and sets multiple question filters', () => {
+    const filters = {
+      '1': { id: '1', text: '1.1', isAnswer: true },
+      '3': { id: '3', text: '3.1', isAnswer: true },
+    };
 
     const results = getFilterOptions(t, filters, questions);
 
