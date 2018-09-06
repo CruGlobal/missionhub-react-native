@@ -4,6 +4,7 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
+  RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
@@ -118,6 +119,65 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    // case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
+    //   const challengeQuery = action.query;
+    //   const newChallengeItems = action.results.response;
+    //   const challengeOrgId = challengeQuery.orgId;
+    //   const curChallengeOrg = state.all.find(o => o.id === challengeOrgId);
+    //   if (!curChallengeOrg) {
+    //     return state; // Return if the organization does not exist
+    //   }
+
+    //   if (
+    //     curChallengeOrg.challengePagination &&
+    //     curChallengeOrg.challengePagination.page >
+    //       action.query.page.offset / DEFAULT_PAGE_LIMIT
+    //   ) {
+    //     /*
+    //      This response is from a duplicate request.  Since the pagination object is updated in the response, it is
+    //      possible for multiple requests to be fired with the same offset parameter, which results in duplicate
+    //      celebration items.
+    //      */
+    //     return state;
+    //   }
+
+    //   const existingChallengeItems = curChallengeOrg.challengeItems || [];
+    //   const allChallengeItems =
+    //     challengeQuery.page && challengeQuery.page.offset > 0
+    //       ? [...existingChallengeItems, ...newChallengeItems]
+    //       : newChallengeItems;
+
+    //   return {
+    //     ...state,
+    //     all: challengeOrgId
+    //       ? state.all.map(
+    //           o =>
+    //             o.id === challengeOrgId
+    //               ? {
+    //                   ...o,
+    //                   challengeItems: allChallengeItems,
+    //                   challengePagination: getPagination(
+    //                     action,
+    //                     allChallengeItems.length,
+    //                   ),
+    //                 }
+    //               : o,
+    //         )
+    //       : state.all,
+    //   };
+    // case RESET_CHALLENGE_PAGINATION:
+    //   return {
+    //     ...state,
+    //     all: state.all.map(
+    //       o =>
+    //         o.id === action.orgId
+    //           ? {
+    //               ...o,
+    //               challengePagination: { page: 0, hasNextPage: true },
+    //             }
+    //           : o,
+    //     ),
+    //   };
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:

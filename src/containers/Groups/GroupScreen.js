@@ -15,6 +15,7 @@ import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
+import GroupChallenge from './GroupChallenges';
 
 @connect()
 export class GroupScreen extends Component {
@@ -58,6 +59,7 @@ export class GroupScreen extends Component {
 }
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
+const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
@@ -74,6 +76,17 @@ const tabs = [
         },
       },
     }) => <GroupCelebrate organization={organization} />,
+  },
+  {
+    name: i18next.t('groupTabs:challenges'),
+    navigationAction: GROUP_CHALLENGES,
+    component: ({
+      navigation: {
+        state: {
+          params: { organization },
+        },
+      },
+    }) => <GroupChallenge organization={organization} />,
   },
   {
     name: i18next.t('groupTabs:members'),

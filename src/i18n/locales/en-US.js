@@ -408,6 +408,7 @@ export default {
   },
   groupTabs: {
     celebrate: 'Celebrate',
+    challenges: 'Challenges',
     members: 'Members',
     impact: 'Impact',
     contacts: 'Contacts',
@@ -459,6 +460,10 @@ export default {
     addedContact: '{{initiator}} added a {{receiverStage}} person.',
     somethingCoolHappened:
       '{{initiator}} saw something cool happen with someone.',
+  },
+  challengeFeeds: {
+    emptyFeedTitle: 'Challeges',
+    emptyFeedDescription: 'You can view and complete challenges here.',
   },
   groupsMembers: {
     title: '',
