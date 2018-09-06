@@ -10,7 +10,6 @@ import i18n from '../i18n';
 const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
   [ANALYTICS.SCREENNAME]: '',
-  [ANALYTICS.PREVIOUS_SCREENNAME]: '',
   [ANALYTICS.SITE_SECTION]: '',
   [ANALYTICS.SITE_SUBSECTION]: '',
   [ANALYTICS.SITE_SUB_SECTION_3]: '',
