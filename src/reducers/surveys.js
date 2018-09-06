@@ -1,11 +1,12 @@
 import { REQUESTS } from '../actions/api';
-import { LOGOUT } from '../constants';
+import { LOGOUT, GET_ORGANIZATION_SURVEYS } from '../constants';
 
 const initialState = {
   all: [],
+  allByOrg: {},
 };
 
-function surveysReducer(state = initialState, action) {
+export default function surveysReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
     case REQUESTS.GET_SURVEYS.SUCCESS:
@@ -17,6 +18,8 @@ function surveysReducer(state = initialState, action) {
         ...state,
         all: surveys,
       };
+    case GET_ORGANIZATION_SURVEYS:
+      return loadOrgSurveys(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -24,4 +27,24 @@ function surveysReducer(state = initialState, action) {
   }
 }
 
-export default surveysReducer;
+function loadOrgSurveys(state, action) {
+  const { orgId, surveys } = action;
+  const org = state.allbyOrg[orgId] || {};
+
+  let surveysById = org.allById || {};
+  surveys.forEach(s => {
+    const e = surveysById[s.id];
+    surveysById[s.id] = e ? { ...e, ...s } : s;
+  });
+
+  return {
+    ...state,
+    allByOrg: {
+      ...state.allByOrg,
+      [orgId]: {
+        ...org,
+        allById: surveysById,
+      },
+    },
+  };
+}

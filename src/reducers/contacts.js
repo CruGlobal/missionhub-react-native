@@ -39,7 +39,6 @@ function loadContacts(state, action) {
       ...state.allByOrg,
       [orgId]: {
         ...org,
-        id: orgId,
         allById: contactsById,
       },
     },

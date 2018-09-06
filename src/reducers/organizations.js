@@ -41,26 +41,7 @@ export default function organizationsReducer(state = initialState, action) {
         }),
       };
     case GET_ORGANIZATION_SURVEYS:
-      const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
-      const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
-      if (!curSurveyOrg) {
-        return state; // Return if the organization does not exist
-      }
-      const existingSurveys = curSurveyOrg.surveys || [];
-      const allSurveys =
-        surveyQuery.page && surveyQuery.page.offset > 0
-          ? [...existingSurveys, ...surveys]
-          : surveys;
-
-      return {
-        ...state,
-        all: surveyOrgId
-          ? state.all.map(
-              o => (o.id === surveyOrgId ? { ...o, surveys: allSurveys } : o),
-            )
-          : state.all,
-        surveysPagination: getPagination(action, allSurveys.length),
-      };
+      return loadSurveys(state, action);
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
       const celebrateQuery = action.query;
       const newItems = action.results.response;
@@ -210,6 +191,28 @@ function resetContacts(state, action) {
               ...o,
               contacts: [],
               contactPagination: { page: 0, hasNextPage: true },
+            }
+          : o,
+    ),
+  };
+}
+
+function loadSurveys(state, action) {
+  const { orgId, surveys } = action;
+  const org = state.all.find(o => o.id === orgId);
+
+  const newIds = (surveys && surveys.map(c => c.id)) || [];
+  const existingIds = (org && org.surveys) || [];
+  const allIds = [...existingIds, ...newIds];
+
+  return {
+    ...state,
+    all: state.all.map(
+      o =>
+        o.id === orgId
+          ? {
+              ...o,
+              surveys: allIds,
             }
           : o,
     ),
