@@ -15,6 +15,7 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
   );
+  const questionFilters = Object.keys(filters).filter(f => f.isAnswer);
 
   return {
     questions: {
@@ -27,8 +28,13 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
           .split(/\r*\n/)
           .filter(o => o !== '')
           .map(o => ({ id: o, text: o })),
+        preview: questionFilters.find(f => f.id === q.id).text || undefined,
       })),
-      preview: filters.questions ? filters.questions.text : undefined,
+      preview: questionFilters
+        ? questionFilters.length === 1
+          ? questionFilters[0].text
+          : t('searchFilters:multiple')
+        : undefined,
     },
     labels: {
       id: 'labels',
