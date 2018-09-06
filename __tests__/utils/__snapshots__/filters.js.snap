@@ -46,6 +46,7 @@ Object {
           "text": "1.4",
         },
       ],
+      "preview": "1.1",
       "text": "Question 1",
     },
     Object {
@@ -68,6 +69,7 @@ Object {
           "text": "3.4",
         },
       ],
+      "preview": undefined,
       "text": "Question 3",
     },
   ],

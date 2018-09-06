@@ -10,7 +10,7 @@ describe('getFilterOptions', () => {
 
   it('sets the preview', () => {
     const filters = {
-      questions: { text: 'test' },
+      '1234': { id: '1234', text: 'test', isAnswer: true },
       gender: { text: 'male' },
     };
     const results = getFilterOptions(t, filters);
@@ -54,7 +54,7 @@ describe('getFilterOptions', () => {
         content: '3.1\r\n3.2\r\n3.3\r\n3.4',
       },
     ];
-    const filters = { questions: { text: '1.1' } };
+    const filters = { '1': { id: '1', text: '1.1', isAnswer: true } };
 
     const results = getFilterOptions(t, filters, questions);
 
