@@ -137,9 +137,9 @@ Contacts.propTypes = {
   pagination: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations, contacts }, { orgId }) => {
+const mapStateToProps = ({ organizations, people }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
-  const contactList = contactsInOrgSelector({ contacts }, { organization });
+  const contactList = contactsInOrgSelector({ people }, { organization });
   const pagination = organization.contactPagination || {
     page: 0,
     hasNextPage: true,

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
 import auth from './auth';
-import contacts from './contacts';
 import nav from './nav';
 import profile from './profile';
 import personProfile from './personProfile';
@@ -23,7 +22,6 @@ import tabs from './tabs';
 export default combineReducers({
   analytics,
   auth,
-  contacts,
   drawer,
   groups,
   impact,
