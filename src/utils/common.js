@@ -54,6 +54,10 @@ export const delay = ms =>
     setTimeout(resolve, ms);
   });
 
+export const uniqueValues = arr => {
+  return arr.filter((v, i, a) => a.indexOf(v) === i);
+};
+
 export const refresh = (obj, method) => {
   obj.setState({ refreshing: true });
   method()

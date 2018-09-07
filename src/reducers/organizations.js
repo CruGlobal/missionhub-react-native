@@ -10,7 +10,7 @@ import {
   RESET_ORGANIZATION_CONTACTS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-import { getPagination } from '../utils/common';
+import { getPagination, uniqueValues } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -164,7 +164,7 @@ function loadContacts(state, action) {
 
   const newIds = (contacts && contacts.map(c => c.id)) || [];
   const existingIds = (org && org.contacts) || [];
-  const allIds = [...existingIds, ...newIds];
+  const allIds = uniqueValues([...existingIds, ...newIds]);
 
   return {
     ...state,
@@ -201,9 +201,9 @@ function loadSurveys(state, action) {
   const { orgId, surveys } = action;
   const org = state.all.find(o => o.id === orgId);
 
-  const newIds = (surveys && surveys.map(c => c.id)) || [];
+  const newIds = (surveys && surveys.map(s => s.id)) || [];
   const existingIds = (org && org.surveys) || [];
-  const allIds = [...existingIds, ...newIds];
+  const allIds = uniqueValues([...existingIds, ...newIds]);
 
   return {
     ...state,
