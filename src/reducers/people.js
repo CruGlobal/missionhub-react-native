@@ -6,6 +6,7 @@ import {
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
   ORGANIZATION_CONTACTS_SEARCH,
+  GET_ORGANIZATION_MEMBERS,
 } from '../constants';
 
 const initialState = {
@@ -54,6 +55,8 @@ export default function peopleReducer(state = initialState, action) {
       };
     case ORGANIZATION_CONTACTS_SEARCH:
       return loadContacts(state, action);
+    case GET_ORGANIZATION_MEMBERS:
+      return loadMembers(state, action);
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
     case LOGOUT:
@@ -74,6 +77,28 @@ function loadContacts(state, action) {
   const org = state.allByOrg[orgId] || {};
   let allPeople = org.people || {};
   contacts.forEach(c => {
+    const e = allPeople[c.id];
+    allPeople[c.id] = e ? { ...e, ...c } : c;
+  });
+
+  return {
+    ...state,
+    allByOrg: {
+      ...state.allByOrg,
+      [orgId]: {
+        ...org,
+        people: allPeople,
+      },
+    },
+  };
+}
+
+function loadMembers(state, action) {
+  const { orgId, members } = action;
+
+  const org = state.allByOrg[orgId] || {};
+  let allPeople = org.people || {};
+  members.forEach(c => {
     const e = allPeople[c.id];
     allPeople[c.id] = e ? { ...e, ...c } : c;
   });
