@@ -1,3 +1,4 @@
+import { REQUESTS } from '../actions/api';
 import {
   DELETE_PERSON,
   LOGOUT,
@@ -53,6 +54,8 @@ export default function peopleReducer(state = initialState, action) {
       };
     case ORGANIZATION_CONTACTS_SEARCH:
       return loadContacts(state, action);
+    case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
+      return loadContactsFromSteps(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -84,6 +87,35 @@ function loadContacts(state, action) {
         people: allPeople,
       },
     },
+  };
+}
+
+function loadContactsFromSteps(state, action) {
+  const { response } = action.results;
+
+  let contactsByOrg = state.allByOrg;
+  response.forEach(s => {
+    const orgId = (s.organization && s.organization.id) || 'personal';
+    const receiver = s.receiver;
+    if (!receiver) {
+      return;
+    }
+
+    if (!contactsByOrg[orgId]) {
+      contactsByOrg[orgId] = { people: {} };
+    }
+
+    const existingContact = contactsByOrg[orgId].people[receiver.id] || {};
+
+    contactsByOrg[orgId].people[receiver.id] = {
+      ...existingContact,
+      ...receiver,
+    };
+  });
+
+  return {
+    ...state,
+    allByOrg: contactsByOrg,
   };
 }
 

@@ -199,7 +199,7 @@ function resetContacts(state, action) {
 
 function loadSurveys(state, action) {
   const { orgId, query, surveys } = action;
-  console.log(surveys);
+
   const currentOrg = state.all.find(o => o.id === orgId);
   if (!currentOrg) {
     return state; // Return if the organization does not exist
