@@ -10,7 +10,7 @@ import {
   RESET_ORGANIZATION_CONTACTS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-import { getPagination } from '../utils/common';
+import { getPagination, uniqueValues } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -159,11 +159,42 @@ function toggleCelebrationLike(action, state, liked) {
 }
 
 function loadContacts(state, action) {
-  const { orgId, contacts } = action;
-  const org = state.all.find(o => o.id === orgId);
+  const { orgId, query, contacts } = action;
+  const org = state.all.find(o => o.id === orgId) || {};
 
   const newIds = (contacts && contacts.map(c => c.id)) || [];
-  const existingIds = (org && org.contacts) || [];
+
+  if (query.filters.answer_sheets) {
+    //update survey contact list
+    const surveyId = query.filters.answer_sheets.survey_ids;
+    const survey = (org && org.surveys && org.surveys[surveyId]) || {};
+    const existingIds = survey.contacts || [];
+
+    const allIds = uniqueValues([...existingIds, ...newIds]);
+
+    return {
+      ...state,
+      all: state.all.map(
+        o =>
+          o.id === orgId
+            ? {
+                ...o,
+                surveys: {
+                  ...o.surveys,
+                  [surveyId]: {
+                    ...o.surveys[surveyId],
+                    contacts: allIds,
+                    contactPagination: getPagination(action, allIds.length),
+                  },
+                },
+              }
+            : o,
+      ),
+    };
+  }
+
+  //update community contacts list
+  const existingIds = org.contacts || [];
   const allIds = [...existingIds, ...newIds];
 
   return {
