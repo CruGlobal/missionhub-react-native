@@ -37,8 +37,10 @@ class Surveys extends Component {
   };
 
   handleSelect = survey => {
-    const { dispatch, organization } = this.props;
-    dispatch(navigatePush(GROUPS_SURVEY_CONTACTS, { organization, survey }));
+    const { dispatch, orgId } = this.props;
+    dispatch(
+      navigatePush(GROUPS_SURVEY_CONTACTS, { orgId, surveyId: survey.id }),
+    );
   };
 
   handleLoadMore = () => {
@@ -84,14 +86,12 @@ Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization }) => {
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
+const mapStateToProps = ({ organizations }, { orgId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
   return {
+    organization,
     // organizations may have _placeholder surveys until the mounting request is completed
-    surveys: ((selectorOrg || {}).surveys || []).filter(s => !s._placeHolder),
+    surveys: ((organization || {}).surveys || []).filter(s => !s._placeHolder),
     pagination: organizations.surveysPagination || {
       page: 0,
       hasNextPage: true,

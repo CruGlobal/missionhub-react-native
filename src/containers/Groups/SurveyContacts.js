@@ -11,9 +11,13 @@ import { searchRemoveFilter } from '../../utils/filters';
 import Header from '../Header';
 import BackButton from '../BackButton';
 import { navToPersonScreen } from '../../actions/person';
-import { buildUpdatedPagination } from '../../utils/pagination';
 import ShareSurveyMenu from '../../components/ShareSurveyMenu';
-import { getOrganizationContacts } from '../../actions/organizations';
+import {
+  getOrganizationContacts,
+  reloadOrganizationContacts,
+} from '../../actions/organizations';
+import { organizationSelector } from '../../selectors/organizations';
+import { contactsInSurveySelector } from '../../selectors/people';
 
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
@@ -24,10 +28,6 @@ class SurveyContacts extends Component {
     const { t } = props;
 
     this.state = {
-      pagination: {
-        page: 0,
-        hasMore: true,
-      },
       //Default filters
       filters: {
         unassigned: {
@@ -78,39 +78,34 @@ class SurveyContacts extends Component {
   };
 
   handleSearch = async text => {
-    const pagination = {
-      page: 0,
-      hasMore: true,
-    };
-
-    await this.setState({ pagination });
-
-    return await this.handleLoadMore(text);
-  };
-
-  handleSelect = person => {
-    const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person, organization));
-  };
-
-  handleLoadMore = async text => {
     const { dispatch, organization, survey } = this.props;
-    const { filters, pagination } = this.state;
+    const { filters } = this.state;
     const searchFilters = {
       ...filters,
       survey: { id: survey.id },
     };
 
-    const results = await dispatch(
-      getOrganizationContacts(organization.id, text, pagination, searchFilters),
+    return await dispatch(
+      reloadOrganizationContacts(organization.id, text, searchFilters),
     );
+  };
 
-    const { meta, response } = results;
+  handleLoadMore = async text => {
+    const { dispatch, organization, survey } = this.props;
+    const { filters } = this.state;
+    const searchFilters = {
+      ...filters,
+      survey: { id: survey.id },
+    };
 
-    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+    return await dispatch(
+      getOrganizationContacts(organization.id, text, searchFilters),
+    );
+  };
 
-    // Get the results from the search endpoint
-    return response;
+  handleSelect = person => {
+    const { dispatch, organization } = this.props;
+    dispatch(navToPersonScreen(person, organization));
   };
 
   ref = c => (this.searchList = c);
@@ -161,9 +156,26 @@ SurveyContacts.propTypes = {
   survey: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = ({ organizations, people }, { orgId, surveyId }) => {
+  const organization = organizationSelector({ organizations }, { orgId });
+
+  const contactList = contactsInSurveySelector(
+    { people },
+    { organization, surveyId },
+  );
+  const pagination = (organization.surveys &&
+    organization.surveys[surveyId] &&
+    organization.surveys[surveyId].contactPagination) || {
+    page: 0,
+    hasNextPage: true,
+  };
+
+  return {
+    organization,
+    contactList,
+    pagination,
+  };
+};
 
 export default connect(mapStateToProps)(SurveyContacts);
 export const GROUPS_SURVEY_CONTACTS = 'nav/GROUPS_SURVEY_CONTACTS';
