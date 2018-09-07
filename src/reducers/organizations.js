@@ -198,23 +198,31 @@ function resetContacts(state, action) {
 }
 
 function loadSurveys(state, action) {
-  const { orgId, surveys } = action;
-  const org = state.all.find(o => o.id === orgId);
-
-  const newIds = (surveys && surveys.map(c => c.id)) || [];
-  const existingIds = (org && org.surveys) || [];
-  const allIds = [...existingIds, ...newIds];
+  const { orgId, query, surveys } = action;
+  console.log(surveys);
+  const currentOrg = state.all.find(o => o.id === orgId);
+  if (!currentOrg) {
+    return state; // Return if the organization does not exist
+  }
+  const existingSurveys = currentOrg.surveys || [];
+  const allSurveys =
+    query.page && query.page.offset > 0
+      ? [...existingSurveys, ...surveys]
+      : surveys;
 
   return {
     ...state,
-    all: state.all.map(
-      o =>
-        o.id === orgId
-          ? {
-              ...o,
-              surveys: allIds,
-            }
-          : o,
-    ),
+    all: orgId
+      ? state.all.map(
+          o =>
+            o.id === orgId
+              ? {
+                  ...o,
+                  surveys: allSurveys,
+                  surveysPagination: getPagination(action, allSurveys.length),
+                }
+              : o,
+        )
+      : state.all,
   };
 }
