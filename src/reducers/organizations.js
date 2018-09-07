@@ -219,10 +219,10 @@ function loadSurveys(state, action) {
               ? {
                   ...o,
                   surveys: allSurveys,
-                  surveysPagination: getPagination(action, allSurveys.length),
                 }
               : o,
         )
       : state.all,
+    surveysPagination: getPagination(action, allSurveys.length),
   };
 }
