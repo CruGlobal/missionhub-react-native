@@ -31,10 +31,10 @@ function loadOrgSurveys(state, action) {
   const { orgId, surveys } = action;
   const org = state.allbyOrg[orgId] || {};
 
-  let allSurveys = org.surveys || {};
+  let surveysById = org.allById || {};
   surveys.forEach(s => {
-    const e = allSurveys[s.id];
-    allSurveys[s.id] = e ? { ...e, ...s } : s;
+    const e = surveysById[s.id];
+    surveysById[s.id] = e ? { ...e, ...s } : s;
   });
 
   return {
@@ -43,7 +43,7 @@ function loadOrgSurveys(state, action) {
       ...state.allByOrg,
       [orgId]: {
         ...org,
-        surveys: allSurveys,
+        allById: surveysById,
       },
     },
   };

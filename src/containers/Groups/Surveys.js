@@ -11,7 +11,6 @@ import LoadMore from '../../components/LoadMore';
 import { navigatePush } from '../../actions/navigation';
 import { getOrgSurveys, getOrgSurveysNextPage } from '../../actions/surveys';
 import { organizationSelector } from '../../selectors/organizations';
-import { surveysInOrgSelector } from '../../selectors/surveys';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
@@ -85,23 +84,15 @@ Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations, surveys }, { organization }) => {
+const mapStateToProps = ({ organizations }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
-  const surveyList = surveysInOrgSelector(
-    { surveys },
-    { organization: selectorOrg },
-  );
-  const pagination = selectorOrg.surveysPagination || {
-    page: 0,
-    hasNextPage: true,
-  };
-
   return {
-    surveys: surveyList,
-    pagination,
+    // organizations may have _placeholder surveys until the mounting request is completed
+    surveys: ((selectorOrg || {}).surveys || []).filter(s => !s._placeHolder),
+    pagination: organizations.surveysPagination,
   };
 };
 
