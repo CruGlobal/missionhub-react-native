@@ -3,9 +3,10 @@ import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { toggleLike } from '../../actions/celebration';
-import { DateComponent, Flex, Text } from '../../components/common';
-import ChallengeItem from '../ChallengeItem';
+import { Flex, Text } from '../../components/common';
+import ChallengeItem from '../../components/ChallengeItem';
+// import { completeChallenge, joinChallenge } from '../../actions/challenges';
+// import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -50,9 +51,23 @@ class ChallengeFeed extends Component {
     this.props.refreshCallback();
   };
 
-  handleToggleLike = (eventId, liked) => {
-    const { organization, dispatch } = this.props;
-    dispatch(toggleLike(organization.id, eventId, liked));
+  handleComplete = item => {
+    // TODO: Implement this once the API is ready
+    return item;
+    // const { organization, dispatch } = this.props;
+    // dispatch(completeChallenge(item, organization.id));
+  };
+  handleJoin = item => {
+    // TODO: Implement this once the API is ready
+    return item;
+    // const { organization, dispatch } = this.props;
+    // dispatch(joinChallenge(item, organization.id));
+  };
+  handleEdit = item => {
+    // TODO: Implement this once the API is ready
+    return item;
+    // const { organization, dispatch } = this.props;
+    // dispatch(navigatePush(ADD_CHALLENGE_SCREEN));
   };
 
   render() {
@@ -78,12 +93,7 @@ class ChallengeFeed extends Component {
 ChallengeFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
-  myId: PropTypes.string.isRequired,
   refreshing: PropTypes.bool,
 };
 
-export const mapStateToProps = ({ auth }) => ({
-  myId: auth.person.id,
-});
-
-export default connect(mapStateToProps)(ChallengeFeed);
+export default connect()(ChallengeFeed);

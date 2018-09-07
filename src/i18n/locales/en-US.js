@@ -462,8 +462,15 @@ export default {
       '{{initiator}} saw something cool happen with someone.',
   },
   challengeFeeds: {
-    emptyFeedTitle: 'Challeges',
+    past: 'Past Challenges',
+    emptyFeedTitle: 'Challenges',
     emptyFeedDescription: 'You can view and complete challenges here.',
+    edit: 'Edit',
+    totalDays: '{{days}} Day Challenge',
+    daysRemaining: '{{days}} Days Left',
+    accepted: '{{count}} Accepted',
+    completed: '{{count}} Completed',
+    join: 'Join Challenge',
   },
   groupsMembers: {
     title: '',

@@ -6,7 +6,6 @@ export default StyleSheet.create({
   container: {
     paddingRight: 30,
   },
-
   card: {
     marginHorizontal: 16,
     flexDirection: 'row',
