@@ -4,7 +4,9 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   ORGANIZATION_CONTACTS_SEARCH,
+  SURVEY_CONTACTS_SEARCH,
   RESET_ORGANIZATION_CONTACTS,
+  RESET_SURVEY_CONTACTS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { organizationSelector } from '../selectors/organizations';
@@ -150,7 +152,9 @@ export function getOrganizationContacts(orgId, name, filters = {}) {
     );
 
     return dispatch({
-      type: ORGANIZATION_CONTACTS_SEARCH,
+      type: filters.survey
+        ? SURVEY_CONTACTS_SEARCH
+        : ORGANIZATION_CONTACTS_SEARCH,
       orgId,
       contacts: response,
       query,
@@ -164,6 +168,17 @@ export function reloadOrganizationContacts(orgId, name, filters = {}) {
     const { organizations } = getState();
     const org = organizationSelector({ organizations }, { orgId });
 
+    if (filters.survey && filters.survey.id) {
+      const surveyId = filters.survey.id;
+      if (
+        org.surveys &&
+        org.surveys[surveyId] &&
+        org.surveys[surveyId].contactPagination
+      ) {
+        dispatch(resetContactPagination(orgId, surveyId));
+      }
+    }
+
     if (org && org.contactPagination) {
       dispatch(resetContactPagination(orgId));
     }
@@ -171,10 +186,11 @@ export function reloadOrganizationContacts(orgId, name, filters = {}) {
   };
 }
 
-const resetContactPagination = orgId => {
+const resetContactPagination = (orgId, surveyId = undefined) => {
   return {
-    type: RESET_ORGANIZATION_CONTACTS,
+    type: surveyId ? RESET_SURVEY_CONTACTS : RESET_ORGANIZATION_CONTACTS,
     orgId,
+    surveyId,
   };
 };
 
