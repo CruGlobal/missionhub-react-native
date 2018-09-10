@@ -13,7 +13,7 @@ import styles from './styles';
 class ChallengeItem extends Component {
   handleEdit = () => {
     const { item, onEdit } = this.props;
-    onEdit(item);
+    onEdit && onEdit(item);
   };
   handleJoin = () => {
     const { item, onJoin } = this.props;
@@ -25,7 +25,7 @@ class ChallengeItem extends Component {
   };
 
   render() {
-    const { t, item } = this.props;
+    const { t, item, onEdit } = this.props;
     const {
       title,
       // end_date,
@@ -39,7 +39,7 @@ class ChallengeItem extends Component {
     } = item;
 
     // TODO: Find out how to determine this
-    const canEdit = !isPast;
+    const canEdit = !isPast && onEdit;
     const canJoin = !isPast && !accepted_at;
     const showCheck = accepted_at;
 
@@ -107,7 +107,7 @@ ChallengeItem.propTypes = {
   item: PropTypes.object.isRequired,
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
 };
 
 export default ChallengeItem;

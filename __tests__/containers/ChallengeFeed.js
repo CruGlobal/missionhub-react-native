@@ -4,12 +4,22 @@ import thunk from 'redux-thunk';
 
 import ChallengeFeed from '../../src/containers/ChallengeFeed';
 import { renderShallow } from '../../testUtils';
+import { ORG_PERMISSIONS } from '../../src/constants';
 
 jest.mock('../../src/actions/celebration');
 
 const myId = '123';
 const organization = { id: '456' };
-const store = configureStore([thunk])({ auth: { person: { id: myId } } });
+const store = configureStore([thunk])({
+  auth: {
+    person: {
+      id: myId,
+      organizational_permissions: [
+        { organization_id: '456', permission_id: ORG_PERMISSIONS.ADMIN },
+      ],
+    },
+  },
+});
 
 const date = '2018-09-06T14:13:21Z';
 const challengeItems = [

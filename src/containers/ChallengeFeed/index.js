@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
+import { orgPermissionSelector } from '../../selectors/people';
+import { ORG_PERMISSIONS } from '../../constants';
 // import { completeChallenge, joinChallenge } from '../../actions/challenges';
 // import { navigatePush } from '../../actions/navigation';
 
@@ -28,7 +30,7 @@ class ChallengeFeed extends Component {
       item={item}
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
-      onEdit={this.handleEdit}
+      onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
     />
   );
 
@@ -96,4 +98,19 @@ ChallengeFeed.propTypes = {
   refreshing: PropTypes.bool,
 };
 
-export default connect()(ChallengeFeed);
+const mapStateToProps = ({ auth }, { organization }) => {
+  const myOrgPerm =
+    auth &&
+    organization &&
+    organization.id &&
+    orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    });
+  let canEditChallenges =
+    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
+  return {
+    canEditChallenges,
+  };
+};
+export default connect(mapStateToProps)(ChallengeFeed);

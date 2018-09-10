@@ -15,7 +15,7 @@ import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
-import GroupChallenge from './GroupChallenges';
+import GroupChallenges from './GroupChallenges';
 
 @connect()
 export class GroupScreen extends Component {
@@ -86,7 +86,7 @@ const tabs = [
           params: { organization },
         },
       },
-    }) => <GroupChallenge organization={organization} />,
+    }) => <GroupChallenges organization={organization} />,
   },
   {
     name: i18next.t('groupTabs:members'),
