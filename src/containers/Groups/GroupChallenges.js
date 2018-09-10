@@ -17,7 +17,7 @@ export class GroupChallenges extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
-    // TODO: Load challenge screen
+    // TODO: Implement this once the API is ready
     // if (this.shouldLoadFeed()) {
     //   this.loadItems();
     // }

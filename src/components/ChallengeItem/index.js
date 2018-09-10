@@ -38,7 +38,6 @@ class ChallengeItem extends Component {
       completed_at,
     } = item;
 
-    // TODO: Find out how to determine this
     const canEdit = !isPast && onEdit;
     const canJoin = !isPast && !accepted_at;
     const showCheck = accepted_at;
