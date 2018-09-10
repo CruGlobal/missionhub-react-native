@@ -7,6 +7,10 @@ import {
   GET_ORGANIZATION_MEMBERS,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  ORGANIZATION_CONTACTS_SEARCH,
+  SURVEY_CONTACTS_SEARCH,
+  RESET_ORGANIZATION_CONTACTS,
+  RESET_SURVEY_CONTACTS,
 } from '../../src/constants';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
@@ -16,10 +20,14 @@ import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
   getMyCommunities,
+  reloadOrganizationContacts,
 } from '../../src/actions/organizations';
+import { organizationSelector } from '../../src/selectors/organizations';
 
 jest.mock('../../src/selectors/organizations');
 jest.mock('../../src/actions/api');
+
+const orgId = '123';
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -136,9 +144,13 @@ describe('getOrganizationsContactReports', () => {
 });
 
 describe('getOrganizationContacts', () => {
+  const createStore = state => {
+    store = mockStore(state);
+  };
+
   MockDate.set('2018-08-22 12:00:00', 300);
   const name = 'name';
-  const orgId = '123';
+  const surveyId = '555';
   const surveyQuestions1 = { id: '123', text: '123Text', isAnswer: true };
   const surveyQuestions2 = { id: '456', text: '456Text', isAnswer: true };
   const filters = {
@@ -148,9 +160,6 @@ describe('getOrganizationContacts', () => {
     uncontacted: true,
     labels: { id: '333' },
     groups: { id: '444' },
-    survey: { id: '555' },
-    [surveyQuestions1.id]: surveyQuestions1,
-    [surveyQuestions2.id]: surveyQuestions2,
     time: { id: 'time7', value: 7 },
   };
   const query = {
@@ -164,14 +173,6 @@ describe('getOrganizationContacts', () => {
       statuses: 'uncontacted',
       label_ids: filters.labels.id,
       group_ids: filters.groups.id,
-      answer_sheets: {
-        survey_ids: filters.survey.id,
-        answers: {
-          [surveyQuestions1.id]: [surveyQuestions1.text],
-          [surveyQuestions2.id]: [surveyQuestions2.text],
-        },
-        created_at: ['2018-08-15T00:00:00Z', '2018-08-22T23:59:59Z'],
-      },
     },
     page: {
       limit: DEFAULT_PAGE_LIMIT,
@@ -180,17 +181,177 @@ describe('getOrganizationContacts', () => {
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
-  const apiResponse = { type: 'successful', response: {} };
+  const answerFilters = {
+    survey: { id: surveyId },
+    [surveyQuestions1.id]: surveyQuestions1,
+    [surveyQuestions2.id]: surveyQuestions2,
+  };
 
-  it('searches for contacts by filters', async () => {
+  const answerQuery = {
+    survey_ids: surveyId,
+    answers: {
+      [surveyQuestions1.id]: [surveyQuestions1.text],
+      [surveyQuestions2.id]: [surveyQuestions2.text],
+    },
+    created_at: ['2018-08-15T00:00:00Z', '2018-08-22T23:59:59Z'],
+  };
+  const org = { id: orgId };
+
+  const apiResponse = { type: 'successful', response: [], meta: {} };
+
+  const organizations = { all: [org] };
+
+  beforeEach(() => {
+    createStore({ organizations });
     callApi.mockReturnValue(apiResponse);
+    organizationSelector.mockImplementation(() => org);
+  });
 
-    await store.dispatch(
-      getOrganizationContacts(orgId, name, { page: 0, hasMore: true }, filters),
-    );
+  it('searches for org contacts by filters', async () => {
+    callApi.mockReturnValue(apiResponse);
+    const expectedReturn = {
+      type: ORGANIZATION_CONTACTS_SEARCH,
+      contacts: [],
+      meta: {},
+      orgId,
+      query,
+    };
+
+    await store.dispatch(getOrganizationContacts(orgId, name, filters));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
-    expect(store.getActions()).toEqual([apiResponse]);
+    expect(store.getActions()).toEqual([apiResponse, expectedReturn]);
+  });
+
+  it('searches for survey contacts by filters', async () => {
+    const surveyFilters = {
+      ...filters,
+      ...answerFilters,
+    };
+    const surveyQuery = {
+      ...query,
+      filters: {
+        ...query.filters,
+        answer_sheets: answerQuery,
+      },
+    };
+    const expectedReturn = {
+      type: SURVEY_CONTACTS_SEARCH,
+      contacts: [],
+      meta: {},
+      orgId,
+      query: surveyQuery,
+    };
+
+    await store.dispatch(getOrganizationContacts(orgId, name, surveyFilters));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, surveyQuery);
+    expect(store.getActions()).toEqual([apiResponse, expectedReturn]);
+  });
+});
+
+describe('reloadOrganizationContacts', () => {
+  const createStore = state => {
+    store = mockStore(state);
+  };
+
+  const surveyId = '555';
+  const name = 'name';
+  const org = {
+    id: orgId,
+    contactPagination: { page: 1, hasNextPage: false },
+    surveys: {
+      [surveyId]: {
+        contactPagination: { page: 1, hasNextPage: false },
+      },
+    },
+  };
+  const query = {
+    filters: {
+      permissions: 'no_permission',
+      organization_ids: orgId,
+      name: name,
+    },
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: DEFAULT_PAGE_LIMIT,
+    },
+    include:
+      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+  };
+
+  const answerQuery = {
+    survey_ids: surveyId,
+  };
+
+  const apiResponse = { type: 'successful', response: [], meta: {} };
+
+  const organizations = { all: [org] };
+
+  beforeEach(() => {
+    createStore({ organizations });
+    callApi.mockReturnValue(apiResponse);
+    organizationSelector.mockImplementation(() => org);
+  });
+
+  it('reloads org contacts', async () => {
+    const resetAction = {
+      type: RESET_ORGANIZATION_CONTACTS,
+      orgId,
+      surveyId: undefined,
+    };
+    const expectedReturn = {
+      type: ORGANIZATION_CONTACTS_SEARCH,
+      contacts: [],
+      meta: {},
+      orgId,
+      query,
+    };
+
+    await store.dispatch(reloadOrganizationContacts(orgId, name));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
+    expect(store.getActions()).toEqual([
+      resetAction,
+      apiResponse,
+      expectedReturn,
+    ]);
+  });
+
+  it('reloads survey contacts', async () => {
+    createStore({ organizations });
+    callApi.mockReturnValue(apiResponse);
+    const resetAction = {
+      type: RESET_SURVEY_CONTACTS,
+      orgId,
+      surveyId,
+    };
+
+    const filters = {
+      survey: { id: surveyId },
+    };
+    const surveyQuery = {
+      ...query,
+      filters: {
+        ...query.filters,
+        answer_sheets: answerQuery,
+      },
+    };
+    const expectedReturn = {
+      type: SURVEY_CONTACTS_SEARCH,
+      contacts: [],
+      meta: {},
+      orgId,
+      query: surveyQuery,
+    };
+
+    await store.dispatch(reloadOrganizationContacts(orgId, name, filters));
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, surveyQuery);
+    expect(store.getActions()).toEqual([
+      resetAction,
+      apiResponse,
+      expectedReturn,
+    ]);
   });
 });
 

@@ -12,6 +12,7 @@ import {
   getPersonPhoneNumber,
   getPersonEmailAddress,
   getStageIndex,
+  uniqueValues,
 } from '../../src/utils/common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../src/constants';
 
@@ -250,4 +251,13 @@ describe('getStageIndex', () => {
 
   it('returns undefined if not found', () =>
     expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
+});
+
+describe('uniqueValues', () => {
+  const arr = [1, 2, 3, 2, 4, 5, 6, 1, 1];
+  const result = [1, 2, 3, 4, 5, 6];
+
+  it('filters out duplicate values', () => {
+    expect(uniqueValues(arr)).toEqual(result);
+  });
 });

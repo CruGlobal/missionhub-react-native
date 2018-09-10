@@ -15,6 +15,7 @@ it('renders search list', () => {
       onRemoveFilter={jest.fn()}
       filters={{}}
       placeholder={'placeholder'}
+      results={[]}
     />,
   );
 });
@@ -35,6 +36,7 @@ it('renders filters', () => {
         filter4: { id: '4', text: 'filter 4' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   );
 });
@@ -50,6 +52,7 @@ it('renders text in search box', () => {
       onRemoveFilter={jest.fn()}
       filters={{}}
       placeholder={'placeholder'}
+      results={[]}
     />,
   );
   component.setState({ text: 'test' });
@@ -70,6 +73,7 @@ it('calls onSearch prop', () => {
       onRemoveFilter={jest.fn()}
       filters={{}}
       placeholder={'placeholder'}
+      results={[]}
     />,
   )
     .instance()
@@ -93,6 +97,7 @@ it('calls onFilterPress prop', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   )
     .instance()
@@ -114,6 +119,7 @@ it('calls clearSearch', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   ).instance();
   component.clearSearch();
@@ -136,6 +142,7 @@ it('calls removeFilter', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   ).instance();
   component.removeFilter('test');
@@ -156,6 +163,7 @@ it('calls handleTextChange', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   ).instance();
   component.handleSearchDebounced = jest.fn();
@@ -177,6 +185,7 @@ it('should call ref', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   ).instance();
   const ref = 'test';
@@ -197,6 +206,7 @@ it('should call key extractor', () => {
         filter1: { id: '1', text: 'filter 1' },
       }}
       placeholder={'placeholder'}
+      results={[]}
     />,
   ).instance();
   const item = { id: '1' };

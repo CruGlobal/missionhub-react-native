@@ -6,6 +6,10 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  ORGANIZATION_CONTACTS_SEARCH,
+  SURVEY_CONTACTS_SEARCH,
+  RESET_ORGANIZATION_CONTACTS,
+  RESET_SURVEY_CONTACTS,
 } from '../../src/constants';
 
 const org1Id = '123';
@@ -81,15 +85,11 @@ it('loads surveys for org with paging', () => {
     { id: '26', title: 'Title 26' },
     { id: '27', title: 'Title 27' },
   ];
+  const oldOrg = { id: orgId, surveys: oldSurveys };
 
   const state = organizations(
     {
-      all: [
-        {
-          id: orgId,
-          surveys: oldSurveys,
-        },
-      ],
+      all: [oldOrg],
       surveysPagination: {
         hasNextPage: true,
         page: 1,
@@ -113,6 +113,10 @@ it('loads surveys for org with paging', () => {
   );
 
   expect(state.surveysPagination).toEqual({ hasNextPage: false, page: 2 });
+  expect(state.all.find(o => o.id === orgId)).toEqual({
+    ...oldOrg,
+    surveys: [...oldSurveys, ...newSurveys],
+  });
 });
 
 describe('REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS', () => {

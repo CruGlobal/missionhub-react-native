@@ -177,11 +177,10 @@ export function reloadOrganizationContacts(orgId, name, filters = {}) {
       ) {
         dispatch(resetContactPagination(orgId, surveyId));
       }
-    }
-
-    if (org && org.contactPagination) {
+    } else if (org && org.contactPagination) {
       dispatch(resetContactPagination(orgId));
     }
+
     return dispatch(getOrganizationContacts(orgId, name, filters));
   };
 }
