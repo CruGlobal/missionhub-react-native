@@ -3,7 +3,6 @@ import { LOGOUT } from '../constants';
 
 const initialState = {
   all: [],
-  allByOrg: {},
 };
 
 export default function surveysReducer(state = initialState, action) {

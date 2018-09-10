@@ -5,8 +5,8 @@ import {
   PEOPLE_WITH_ORG_SECTIONS,
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
-  ORGANIZATION_CONTACTS_SEARCH,
   GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_CONTACTS,
 } from '../constants';
 
 const initialState = {
@@ -53,7 +53,7 @@ export default function peopleReducer(state = initialState, action) {
           action.personOrgId,
         ),
       };
-    case ORGANIZATION_CONTACTS_SEARCH:
+    case GET_ORGANIZATION_CONTACTS:
       return loadContacts(state, action);
     case GET_ORGANIZATION_MEMBERS:
       return loadMembers(state, action);
@@ -72,11 +72,12 @@ export default function peopleReducer(state = initialState, action) {
 }
 
 function loadContacts(state, action) {
-  const { orgId, contacts } = action;
+  const { response, query } = action;
+  const orgId = query.orgId;
 
   const org = state.allByOrg[orgId] || {};
   let allPeople = org.people || {};
-  contacts.forEach(c => {
+  response.forEach(c => {
     const e = allPeople[c.id];
     allPeople[c.id] = e ? { ...e, ...c } : c;
   });

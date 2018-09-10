@@ -4,18 +4,13 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
-import {
-  getOrganizationContacts,
-  reloadOrganizationContacts,
-} from '../../actions/organizations';
+import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/filters';
-import { organizationSelector } from '../../selectors/organizations';
-import { contactsInOrgSelector } from '../../selectors/people';
-
+import { buildUpdatedPagination } from '../../utils/pagination';
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 
 @translate('groupsContacts')
@@ -25,6 +20,10 @@ class Contacts extends Component {
     const { t } = props;
 
     this.state = {
+      pagination: {
+        page: 0,
+        hasMore: true,
+      },
       filters: {
         // Default filters
         unassigned: {
@@ -77,19 +76,26 @@ class Contacts extends Component {
   };
 
   handleSearch = async text => {
-    const { dispatch, organization } = this.props;
-    const { filters } = this.state;
-    return await dispatch(
-      reloadOrganizationContacts(organization.id, text, filters),
-    );
+    const pagination = {
+      page: 0,
+      hasMore: true,
+    };
+    await this.setState({ pagination });
+    return await this.handleLoadMore(text);
   };
 
   handleLoadMore = async text => {
     const { dispatch, organization } = this.props;
-    const { filters } = this.state;
-    return await dispatch(
-      getOrganizationContacts(organization.id, text, filters),
+    const { filters, pagination } = this.state;
+    const result = await dispatch(
+      getOrganizationContacts(organization.id, text, pagination, filters),
     );
+
+    const { meta, response } = result;
+
+    this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+
+    return response;
   };
 
   handleSelect = person => {
@@ -108,7 +114,7 @@ class Contacts extends Component {
   );
 
   render() {
-    const { t, contactList } = this.props;
+    const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
@@ -124,7 +130,6 @@ class Contacts extends Component {
           onLoadMore={this.handleLoadMore}
           filters={filters}
           placeholder={t('searchPlaceholder')}
-          results={contactList}
         />
       </Flex>
     );
@@ -133,23 +138,6 @@ class Contacts extends Component {
 
 Contacts.propTypes = {
   organization: PropTypes.object.isRequired,
-  contactList: PropTypes.array.isRequired,
-  pagination: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations, people }, { orgId }) => {
-  const organization = organizationSelector({ organizations }, { orgId });
-  const contactList = contactsInOrgSelector({ people }, { organization });
-  const pagination = organization.contactPagination || {
-    page: 0,
-    hasNextPage: true,
-  };
-
-  return {
-    organization,
-    contactList,
-    pagination,
-  };
-};
-
-export default connect(mapStateToProps)(Contacts);
+export default connect()(Contacts);

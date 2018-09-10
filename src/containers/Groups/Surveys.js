@@ -37,10 +37,8 @@ class Surveys extends Component {
   };
 
   handleSelect = survey => {
-    const { dispatch, orgId } = this.props;
-    dispatch(
-      navigatePush(GROUPS_SURVEY_CONTACTS, { orgId, surveyId: survey.id }),
-    );
+    const { dispatch, organization } = this.props;
+    dispatch(navigatePush(GROUPS_SURVEY_CONTACTS, { organization, survey }));
   };
 
   handleLoadMore = () => {

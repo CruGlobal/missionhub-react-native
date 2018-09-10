@@ -17,6 +17,7 @@ class SearchList extends Component {
 
     this.state = {
       text: '',
+      results: [],
       isSearching: false,
       listHasScrolled: false,
     };
@@ -43,9 +44,12 @@ class SearchList extends Component {
       this.setState({ isSearching: true });
     }
 
-    await this.props.onSearch(text);
-
-    this.setState({ isSearching: false });
+    try {
+      const results = await this.props.onSearch(text);
+      this.setState({ isSearching: false, results: results || [] });
+    } catch (err) {
+      this.setState({ isSearching: false });
+    }
   };
 
   handleOnEndReached = async () => {
@@ -58,11 +62,12 @@ class SearchList extends Component {
 
     const { onLoadMore } = this.props;
 
-    await onLoadMore(text);
+    const newResults = await onLoadMore(text);
 
     this.setState({
       listHasScrolled: false,
       isSearching: false,
+      results: [...this.state.results, ...newResults],
     });
   };
 
@@ -71,7 +76,7 @@ class SearchList extends Component {
   };
 
   clearSearch = () => {
-    this.setState({ text: '', isSearching: false }, () =>
+    this.setState({ text: '', results: [], isSearching: false }, () =>
       this.handleSearchDebounced(),
     );
   };
@@ -151,8 +156,8 @@ class SearchList extends Component {
   keyExtractor = i => i.unique_key || i.id;
 
   renderContent() {
-    const { t, listProps, defaultData = [], results = [] } = this.props;
-    const { isSearching } = this.state;
+    const { t, listProps, defaultData = [] } = this.props;
+    const { results, isSearching } = this.state;
     const resultsLength = results.length;
 
     if (!isSearching && resultsLength === 0 && defaultData.length === 0) {
@@ -215,7 +220,6 @@ SearchList.propTypes = {
   onSearch: PropTypes.func.isRequired,
   onRemoveFilter: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  results: PropTypes.array.isRequired,
 };
 
 export default SearchList;

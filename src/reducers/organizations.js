@@ -6,13 +6,9 @@ import {
   RESET_CELEBRATION_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
-  ORGANIZATION_CONTACTS_SEARCH,
-  SURVEY_CONTACTS_SEARCH,
-  RESET_ORGANIZATION_CONTACTS,
-  RESET_SURVEY_CONTACTS,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
-import { getPagination, uniqueValues } from '../utils/common';
+import { getPagination } from '../utils/common';
 
 const initialState = {
   all: [],
@@ -127,14 +123,6 @@ export default function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
-    case ORGANIZATION_CONTACTS_SEARCH:
-      return loadOrgContacts(state, action);
-    case SURVEY_CONTACTS_SEARCH:
-      return loadSurveyContacts(state, action);
-    case RESET_ORGANIZATION_CONTACTS:
-      return resetOrgContacts(state, action);
-    case RESET_SURVEY_CONTACTS:
-      return resetSurveyContacts(state, action);
     case LOGOUT:
       return initialState;
     default:
@@ -161,99 +149,6 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
-  };
-}
-
-function loadOrgContacts(state, action) {
-  const { orgId, contacts } = action;
-  const org = state.all.find(o => o.id === orgId) || {};
-
-  const newIds = (contacts && contacts.map(c => c.id)) || [];
-  const existingIds = org.contacts || [];
-  const allIds = uniqueValues([...existingIds, ...newIds]);
-
-  return {
-    ...state,
-    all: state.all.map(
-      o =>
-        o.id === orgId
-          ? {
-              ...o,
-              contacts: allIds,
-              contactPagination: getPagination(action, allIds.length),
-            }
-          : o,
-    ),
-  };
-}
-
-function loadSurveyContacts(state, action) {
-  const { orgId, query, contacts } = action;
-  const org = state.all.find(o => o.id === orgId) || {};
-  const surveyId = query.filters.answer_sheets.survey_ids;
-  const survey = (org && org.surveys && org.surveys[surveyId]) || {};
-
-  const newIds = (contacts && contacts.map(c => c.id)) || [];
-  const existingIds = survey.contacts || [];
-  const allIds = uniqueValues([...existingIds, ...newIds]);
-
-  return {
-    ...state,
-    all: state.all.map(
-      o =>
-        o.id === orgId
-          ? {
-              ...o,
-              surveys: {
-                ...o.surveys,
-                [surveyId]: {
-                  ...o.surveys[surveyId],
-                  contacts: allIds,
-                  contactPagination: getPagination(action, allIds.length),
-                },
-              },
-            }
-          : o,
-    ),
-  };
-}
-
-function resetOrgContacts(state, action) {
-  return {
-    ...state,
-    all: state.all.map(
-      o =>
-        o.id === action.orgId
-          ? {
-              ...o,
-              contacts: [],
-              contactPagination: { page: 0, hasNextPage: true },
-            }
-          : o,
-    ),
-  };
-}
-
-function resetSurveyContacts(state, action) {
-  const { orgId, surveyId } = action;
-  return {
-    ...state,
-    all: state.all.map(
-      o =>
-        o.id === orgId
-          ? {
-              ...o,
-              surveys: {
-                ...(o.surveys || {}),
-                [surveyId]: {
-                  ...((o.surveys && o.surveys[surveyId]) || {}),
-                  contacts: [],
-                  contactPagination: { page: 0, hasNextPage: true },
-                },
-              },
-            }
-          : o,
-    ),
   };
 }
 

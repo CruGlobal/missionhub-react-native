@@ -78,7 +78,7 @@ export function getOrganizationsContactReports() {
   };
 }
 
-export function getOrganizationContacts(orgId, name, filters = {}) {
+export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -135,63 +135,17 @@ export function getOrganizationContacts(orgId, name, filters = {}) {
     query.filters.group_ids = filters.groups.id;
   }
 
-  return async (dispatch, getState) => {
-    const { organizations } = getState();
-    const org = organizationSelector({ organizations }, { orgId });
-    const pagination = org.contactPagination || { page: 0, hasNextPage: true };
+  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
 
-    const offset = DEFAULT_PAGE_LIMIT * pagination.page;
+  query.page = {
+    limit: DEFAULT_PAGE_LIMIT,
+    offset,
+  };
 
-    query.page = {
-      limit: DEFAULT_PAGE_LIMIT,
-      offset,
-    };
-
-    const { response, meta } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, query),
-    );
-
-    return dispatch({
-      type: filters.survey
-        ? SURVEY_CONTACTS_SEARCH
-        : ORGANIZATION_CONTACTS_SEARCH,
-      orgId,
-      contacts: response,
-      query,
-      meta,
-    });
+  return async dispatch => {
+    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
   };
 }
-
-export function reloadOrganizationContacts(orgId, name, filters = {}) {
-  return (dispatch, getState) => {
-    const { organizations } = getState();
-    const org = organizationSelector({ organizations }, { orgId });
-
-    if (filters.survey && filters.survey.id) {
-      const surveyId = filters.survey.id;
-      if (
-        org.surveys &&
-        org.surveys[surveyId] &&
-        org.surveys[surveyId].contactPagination
-      ) {
-        dispatch(resetContactPagination(orgId, surveyId));
-      }
-    } else if (org && org.contactPagination) {
-      dispatch(resetContactPagination(orgId));
-    }
-
-    return dispatch(getOrganizationContacts(orgId, name, filters));
-  };
-}
-
-const resetContactPagination = (orgId, surveyId = undefined) => {
-  return {
-    type: surveyId ? RESET_SURVEY_CONTACTS : RESET_ORGANIZATION_CONTACTS,
-    orgId,
-    surveyId,
-  };
-};
 
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts
