@@ -15,20 +15,32 @@ export const getFilterOptions = (t, filters, questions = [], labels = []) => {
   const choiceQuestions = questions.filter(
     q => q._type === 'choice_field' && q.content,
   );
+  const questionFilters = Object.keys(filters)
+    .map(f => filters[f])
+    .filter(f => f.isAnswer);
 
   return {
     questions: {
       id: 'questions',
       text: t('searchFilter:surveyQuestions'),
-      options: choiceQuestions.map(q => ({
-        id: q.id,
-        text: q.label,
-        options: q.content
-          .split(/\r*\n/)
-          .filter(o => o !== '')
-          .map(o => ({ id: o, text: o })),
-      })),
-      preview: filters.questions ? filters.questions.text : undefined,
+      options: choiceQuestions.map(q => {
+        const filterForQuestion = questionFilters.find(f => f.id === q.id);
+        return {
+          id: q.id,
+          text: q.label,
+          options: q.content
+            .split(/\r*\n/)
+            .filter(o => o !== '')
+            .map(o => ({ id: o, text: o })),
+          preview: filterForQuestion ? filterForQuestion.text : undefined,
+        };
+      }),
+      preview:
+        questionFilters.length > 0
+          ? questionFilters.length === 1
+            ? questionFilters[0].text
+            : t('searchFilters:multiple')
+          : undefined,
     },
     labels: {
       id: 'labels',
