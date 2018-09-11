@@ -90,7 +90,6 @@ const mapStateToProps = ({ organizations }, { organization }) => {
     { orgId: organization.id },
   );
   return {
-    organization,
     // organizations may have _placeholder surveys until the mounting request is completed
     surveys: ((selectorOrg || {}).surveys || []).filter(s => !s._placeHolder),
     pagination: organizations.surveysPagination,

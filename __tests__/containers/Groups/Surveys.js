@@ -48,7 +48,6 @@ const surveys = [
     uncontacted_contacts_count: 5,
   },
 ];
-
 const store = createMockStore({
   organizations: {
     all: [
