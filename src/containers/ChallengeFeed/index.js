@@ -11,6 +11,8 @@ import { ORG_PERMISSIONS } from '../../constants';
 // import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
+import { navigatePush } from '../../actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 
 class ChallengeFeed extends Component {
   constructor(props) {
@@ -61,9 +63,16 @@ class ChallengeFeed extends Component {
   };
   handleJoin = item => {
     // TODO: Implement this once the API is ready
-    return item;
+    // return item;
     // const { organization, dispatch } = this.props;
     // dispatch(joinChallenge(item, organization.id));
+    this.props.dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        onComplete: () => {
+          console.log('complete');
+        },
+      }),
+    );
   };
   handleEdit = item => {
     // TODO: Implement this once the API is ready
