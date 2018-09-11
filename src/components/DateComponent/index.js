@@ -55,15 +55,11 @@ DateComponent.defaultProps = {
 };
 
 const relativeFormat = date => {
-  const today = moment().local();
-  const other = momentUtc(date).local();
+  const today = moment();
+  const other = momentUtc(date);
 
-  const lastWeek = moment()
-    .local()
-    .subtract(7, 'days');
-  const yesterday = moment()
-    .local()
-    .subtract(1, 'days');
+  const lastWeek = moment().subtract(7, 'days');
+  const yesterday = moment().subtract(1, 'days');
 
   if (other.isSame(today, 'year')) {
     if (other.isBetween(lastWeek, today, 'day', '[]')) {
