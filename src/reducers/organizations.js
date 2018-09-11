@@ -22,7 +22,7 @@ const initialState = {
   },
 };
 
-export default function organizationsReducer(state = initialState, action) {
+function organizationsReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ORGANIZATIONS:
       return {
@@ -39,7 +39,27 @@ export default function organizationsReducer(state = initialState, action) {
         }),
       };
     case GET_ORGANIZATION_SURVEYS:
-      return loadSurveys(state, action);
+      const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
+
+      const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
+      if (!curSurveyOrg) {
+        return state; // Return if the organization does not exist
+      }
+      const existingSurveys = curSurveyOrg.surveys || [];
+      const allSurveys =
+        surveyQuery.page && surveyQuery.page.offset > 0
+          ? [...existingSurveys, ...surveys]
+          : surveys;
+
+      return {
+        ...state,
+        all: surveyOrgId
+          ? state.all.map(
+              o => (o.id === surveyOrgId ? { ...o, surveys: allSurveys } : o),
+            )
+          : state.all,
+        surveysPagination: getPagination(action, allSurveys.length),
+      };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
       const celebrateQuery = action.query;
       const newItems = action.results.response;
@@ -152,32 +172,4 @@ function toggleCelebrationLike(action, state, liked) {
   };
 }
 
-function loadSurveys(state, action) {
-  const { orgId, query, surveys } = action;
-
-  const currentOrg = state.all.find(o => o.id === orgId);
-  if (!currentOrg) {
-    return state; // Return if the organization does not exist
-  }
-  const existingSurveys = currentOrg.surveys || [];
-  const allSurveys =
-    query.page && query.page.offset > 0
-      ? [...existingSurveys, ...surveys]
-      : surveys;
-
-  return {
-    ...state,
-    all: orgId
-      ? state.all.map(
-          o =>
-            o.id === orgId
-              ? {
-                  ...o,
-                  surveys: allSurveys,
-                }
-              : o,
-        )
-      : state.all,
-    surveysPagination: getPagination(action, allSurveys.length),
-  };
-}
+export default organizationsReducer;
