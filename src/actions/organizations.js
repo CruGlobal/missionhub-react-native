@@ -3,13 +3,8 @@ import {
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
-  ORGANIZATION_CONTACTS_SEARCH,
-  SURVEY_CONTACTS_SEARCH,
-  RESET_ORGANIZATION_CONTACTS,
-  RESET_SURVEY_CONTACTS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
-import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 
