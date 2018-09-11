@@ -74,7 +74,7 @@ exports[`should render correctly 1`] = `
 `;
 
 exports[`should render empty correctly 1`] = `
-<Translate(EmptyCelebrateFeed)
+<Translate(EmptyChallengeFeed)
   refreshCallback={[Function]}
   refreshing={false}
 />

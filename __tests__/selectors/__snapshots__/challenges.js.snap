@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sorts items into sections by active or past 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "accepted": 5,
+        "completed": 3,
+        "creator_id": "person1",
+        "days_remaining": 14,
+        "end_date": "2018-09-06T14:13:21Z",
+        "id": "1",
+        "isPast": false,
+        "organization_id": "123",
+        "title": "Read \\"There and Back Again\\"",
+      },
+      Object {
+        "accepted": 5,
+        "accepted_at": "2018-09-06T14:13:21Z",
+        "completed": 3,
+        "creator_id": "person2",
+        "days_remaining": 14,
+        "end_date": "2018-09-06T14:13:21Z",
+        "id": "2",
+        "isPast": false,
+        "organization_id": "123",
+        "title": "Invite a neighbor over for mince pie.",
+      },
+    ],
+    "title": "",
+  },
+  Object {
+    "data": Array [
+      Object {
+        "accepted": 5,
+        "completed": 0,
+        "creator_id": "person3",
+        "days_remaining": 0,
+        "end_date": "2018-09-06T14:13:21Z",
+        "id": "3",
+        "isPast": true,
+        "organization_id": "123",
+        "title": "Invite Smeagol over for fresh fish",
+        "total_days": 7,
+      },
+      Object {
+        "accepted": 5,
+        "accepted_at": "2018-09-06T14:13:21Z",
+        "completed": 3,
+        "completed_at": "2018-09-06T14:13:21Z",
+        "creator_id": "person4",
+        "days_remaining": 0,
+        "end_date": "2018-09-06T14:13:21Z",
+        "id": "4",
+        "isPast": true,
+        "organization_id": "123",
+        "title": "Who can wear the ring the longest.",
+        "total_days": 7,
+      },
+    ],
+    "title": "Past Challenges",
+  },
+]
+`;

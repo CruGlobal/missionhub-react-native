@@ -7,7 +7,7 @@ import NullStateComponent from '../NullStateComponent';
 import { RefreshControl } from '../common';
 
 @translate('challengeFeeds')
-export default class EmptyCelebrateFeed extends Component {
+export default class EmptyChallengeFeed extends Component {
   render() {
     const { t, refreshCallback, refreshing } = this.props;
 

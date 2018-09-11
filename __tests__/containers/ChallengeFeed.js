@@ -82,9 +82,18 @@ const challengeItems = [
 
 let component;
 
+const props = {
+  loadMoreItemsCallback: jest.fn(),
+  refreshCallback: jest.fn(),
+};
+
 beforeEach(() => {
   component = renderShallow(
-    <ChallengeFeed items={challengeItems} organization={organization} />,
+    <ChallengeFeed
+      {...props}
+      items={challengeItems}
+      organization={organization}
+    />,
     store,
   );
 });
@@ -131,4 +140,25 @@ it('calls key extractor', () => {
   const item = challengeItems[0].data[0];
   const result = component.instance().keyExtractor(item);
   expect(result).toEqual(item.id);
+});
+
+it('calls handleOnEndReached', () => {
+  const instance = component.instance();
+  instance.setState({ isListScrolled: true });
+  instance.handleOnEndReached();
+  expect(props.loadMoreItemsCallback).toHaveBeenCalled();
+  expect(instance.state.isListScrolled).toBe(false);
+});
+
+it('calls handleEndDrag', () => {
+  const instance = component.instance();
+  instance.setState({ isListScrolled: false });
+  instance.handleEndDrag();
+  expect(instance.state.isListScrolled).toBe(true);
+});
+
+it('calls handleRefreshing', () => {
+  const instance = component.instance();
+  instance.handleRefreshing();
+  expect(props.refreshCallback).toHaveBeenCalled();
 });
