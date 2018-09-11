@@ -48,13 +48,12 @@ const surveys = [
     uncontacted_contacts_count: 5,
   },
 ];
-const orgId = '1';
 
 const store = createMockStore({
   organizations: {
     all: [
       {
-        id: orgId,
+        id: '1',
         surveys,
       },
     ],
@@ -62,8 +61,13 @@ const store = createMockStore({
   },
 });
 
+const organization = {
+  id: '1',
+  name: 'Test Org',
+};
+
 describe('Surveys', () => {
-  const component = <Surveys orgId={orgId} />;
+  const component = <Surveys organization={organization} />;
 
   it('should render correctly', () => {
     testSnapshotShallow(component, store);
@@ -74,7 +78,7 @@ describe('Surveys', () => {
       organizations: {
         all: [
           {
-            id: orgId,
+            id: '1',
             surveys: [],
           },
         ],

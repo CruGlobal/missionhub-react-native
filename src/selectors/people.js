@@ -116,25 +116,3 @@ export const orgPermissionSelector = createSelector(
       orgPermission => orgPermission.organization_id === organization.id,
     ),
 );
-
-export const contactsInOrgSelector = createSelector(
-  ({ people }, { organization }) =>
-    (people.allByOrg[organization.id] &&
-      people.allByOrg[organization.id].people) ||
-    {},
-  (_, { organization }) => organization.contacts || [],
-  (orgPeople, contactIds) => contactIds.map(i => orgPeople[i]),
-);
-
-export const contactsInSurveySelector = createSelector(
-  ({ people }, { organization }) =>
-    (people.allByOrg[organization.id] &&
-      people.allByOrg[organization.id].people) ||
-    {},
-  (_, { organization, surveyId }) =>
-    (organization.surveys &&
-      organization.surveys[surveyId] &&
-      organization.surveys[surveyId].contacts) ||
-    [],
-  (orgPeople, contactIds) => contactIds.map(i => orgPeople[i]),
-);

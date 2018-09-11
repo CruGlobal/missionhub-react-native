@@ -117,7 +117,7 @@ const tabs = [
           params: { organization },
         },
       },
-    }) => <Surveys orgId={organization.id} />,
+    }) => <Surveys organization={organization} />,
   },
 ];
 

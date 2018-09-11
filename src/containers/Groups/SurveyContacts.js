@@ -84,7 +84,13 @@ class SurveyContacts extends Component {
     };
 
     await this.setState({ pagination });
+
     return await this.handleLoadMore(text);
+  };
+
+  handleSelect = person => {
+    const { dispatch, organization } = this.props;
+    dispatch(navToPersonScreen(person, organization));
   };
 
   handleLoadMore = async text => {
@@ -100,14 +106,11 @@ class SurveyContacts extends Component {
     );
 
     const { meta, response } = results;
+
     this.setState({ pagination: buildUpdatedPagination(meta, pagination) });
+
     // Get the results from the search endpoint
     return response;
-  };
-
-  handleSelect = person => {
-    const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person, organization));
   };
 
   ref = c => (this.searchList = c);

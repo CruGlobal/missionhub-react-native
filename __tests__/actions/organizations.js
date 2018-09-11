@@ -183,7 +183,7 @@ describe('getOrganizationContacts', () => {
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
 
-  const apiResponse = { type: 'successful', response: [], meta: {} };
+  const apiResponse = { type: 'successful', response: [] };
 
   it('searches for org contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);

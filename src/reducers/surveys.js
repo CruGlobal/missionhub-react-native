@@ -5,7 +5,7 @@ const initialState = {
   all: [],
 };
 
-export default function surveysReducer(state = initialState, action) {
+function surveysReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
     case REQUESTS.GET_SURVEYS.SUCCESS:
@@ -23,3 +23,5 @@ export default function surveysReducer(state = initialState, action) {
       return state;
   }
 }
+
+export default surveysReducer;
