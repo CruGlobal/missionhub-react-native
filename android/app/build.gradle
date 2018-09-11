@@ -120,7 +120,7 @@ android {
         targetSdkVersion 26
         
         versionName "4.2.3"
-        versionCode grgit.log(includes:['HEAD']).size() + 358
+        versionCode grgit.log(includes:['HEAD']).size() + 370
         
         ndk {
             abiFilters "armeabi-v7a", "x86"
