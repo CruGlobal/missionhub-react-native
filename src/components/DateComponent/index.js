@@ -56,7 +56,7 @@ DateComponent.defaultProps = {
 
 const relativeFormat = date => {
   const today = moment();
-  const other = momentUtc(date);
+  const other = momentUtc(date).local();
 
   const lastWeek = moment().subtract(7, 'days');
   const yesterday = moment().subtract(1, 'days');
