@@ -26,7 +26,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
   constructor(props) {
     super(props);
     const t = props.t;
-    let options = [].concat(props.options);
+    const options = [].concat(props.options);
     const hasSelected = !!options.find(o => o && o.selected);
     if (!options[0] || options[0].id !== 'any') {
       options.unshift({ id: 'any', text: t('any'), selected: !hasSelected });

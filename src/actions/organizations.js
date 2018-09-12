@@ -158,7 +158,7 @@ function getAnswersFromFilters(filters) {
   if (answers.length === 0) {
     return null;
   }
-  let answerFilters = {};
+  const answerFilters = {};
   answers.forEach(f => {
     answerFilters[f.id] = [f.text];
   });
@@ -252,7 +252,7 @@ export function addNewContact(data) {
         `Invalid Data from addNewContact: no data or no firstName passed in`,
       );
     }
-    let included = [];
+    const included = [];
     included.push({
       type: 'contact_assignment',
       attributes: {
