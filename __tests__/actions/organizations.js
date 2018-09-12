@@ -5,7 +5,7 @@ import MockDate from 'mockdate';
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
-  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATION_PEOPLE,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
 } from '../../src/constants';
@@ -184,15 +184,13 @@ describe('getOrganizationContacts', () => {
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
 
-  const contacts = [{ id: '1' }];
+  const response = [{ id: '1' }];
   const meta = { total: 1 };
-  const apiResponse = { type: 'successful', response: contacts, meta };
-  const getContactsAction = {
-    type: GET_ORGANIZATION_CONTACTS,
+  const apiResponse = { type: 'successful', response, meta };
+  const getPeopleAction = {
+    type: GET_ORGANIZATION_PEOPLE,
     orgId,
-    contacts,
-    query,
-    meta,
+    response,
   };
 
   it('searches for org contacts by filters', async () => {
@@ -203,7 +201,7 @@ describe('getOrganizationContacts', () => {
     );
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
-    expect(store.getActions()).toEqual([apiResponse, getContactsAction]);
+    expect(store.getActions()).toEqual([apiResponse, getPeopleAction]);
   });
 });
 
@@ -254,13 +252,18 @@ describe('getOrganizationMembers', () => {
     contacts_with_interaction_count: 1,
   }));
 
-  // Final action to be run
+  // Final actions to be run
   const getMembersAction = {
     type: GET_ORGANIZATION_MEMBERS,
     members: finalMembers,
     orgId,
     meta: { total: 50 },
     query: query,
+  };
+  const getPeopleAction = {
+    type: GET_ORGANIZATION_PEOPLE,
+    response: finalMembers,
+    orgId,
   };
 
   const peopleListResponse = {
@@ -293,6 +296,7 @@ describe('getOrganizationMembers', () => {
       peopleListResponse,
       reportsListResponse,
       getMembersAction,
+      getPeopleAction,
     ]);
   });
 
@@ -316,6 +320,7 @@ describe('getOrganizationMembers', () => {
       peopleListResponse,
       reportsListResponse,
       { ...getMembersAction, query: { ...getMembersAction.query, page } },
+      getPeopleAction,
     ]);
   });
 

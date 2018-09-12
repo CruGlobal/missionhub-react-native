@@ -4,8 +4,7 @@ import {
   LOAD_PERSON_DETAILS,
   PEOPLE_WITH_ORG_SECTIONS,
   UPDATE_PERSON_ATTRIBUTES,
-  GET_ORGANIZATION_MEMBERS,
-  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATION_PEOPLE,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -132,7 +131,7 @@ it('should save people allByOrg', () => {
   expect(state.allByOrg).toEqual(orgs);
 });
 
-it('should save new contacts and update existing contacts', () => {
+it('should save new people and update existing people', () => {
   const existingPeople = {
     [person1Id]: existingPerson1,
     [person2Id]: existingPerson2,
@@ -142,40 +141,8 @@ it('should save new contacts and update existing contacts', () => {
   const state = people(
     { allByOrg: { [org1Id]: { people: existingPeople } } },
     {
-      type: GET_ORGANIZATION_CONTACTS,
-      contacts: newPeople,
-      orgId: org1Id,
-    },
-  );
-
-  expect(state.allByOrg).toEqual({
-    [org1Id]: {
-      people: {
-        [person1Id]: newPerson1,
-        [person2Id]: {
-          id: person2Id,
-          name: existingPerson2.name,
-          organizational_permissions: newPerson2.organizational_permissions,
-        },
-        [person3Id]: newPerson3,
-        [person4Id]: newPerson4,
-      },
-    },
-  });
-});
-
-it('should save new members and update existing members', () => {
-  const existingPeople = {
-    [person1Id]: existingPerson1,
-    [person2Id]: existingPerson2,
-  };
-  const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
-
-  const state = people(
-    { allByOrg: { [org1Id]: { people: existingPeople } } },
-    {
-      type: GET_ORGANIZATION_MEMBERS,
-      members: newPeople,
+      type: GET_ORGANIZATION_PEOPLE,
+      response: newPeople,
       orgId: org1Id,
     },
   );
