@@ -90,7 +90,7 @@ export default class StepItemDraggable extends Component {
     const panStyle = {
       transform: this.state.pan.getTranslateTransform(),
     };
-    let style = [panStyle, { zIndex: longPress ? 10 : undefined }];
+    const style = [panStyle, { zIndex: longPress ? 10 : undefined }];
     let itemType = 'draggable';
     if (longPress) {
       itemType = 'dragging';

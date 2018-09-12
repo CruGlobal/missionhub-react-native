@@ -91,7 +91,7 @@ export const searchHandleToggle = (scope, item) => {
   if (!item) {
     return;
   }
-  let newFilters = { ...filters };
+  const newFilters = { ...filters };
   const field = item.id;
   const newValue = !item.selected;
   newFilters[field] = newValue ? { ...item, selected: true } : undefined;
@@ -109,7 +109,7 @@ export const searchSelectFilter = (scope, item) => {
     ...o,
     preview: o.id === selectedFilterId ? item.text : o.preview,
   }));
-  let newFilters = {
+  const newFilters = {
     ...filters,
     [selectedFilterId]: item,
   };
@@ -127,9 +127,9 @@ export const searchRemoveFilter = async (
   key,
   defaultFilterKeys = [],
 ) => {
-  let newFilters = { ...scope.state.filters };
+  const newFilters = { ...scope.state.filters };
   delete newFilters[key];
-  let newState = { filters: newFilters };
+  const newState = { filters: newFilters };
   // If one of the default filters is removed, remove the default contacts to show
   if (defaultFilterKeys.includes(key)) {
     newState.defaultResults = [];

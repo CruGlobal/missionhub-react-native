@@ -36,7 +36,7 @@ const mockStage = {
   id: 1,
 };
 
-let store = createMockStore(mockState);
+const store = createMockStore(mockState);
 const mockNavState = {
   name: 'Test',
   contactId: '123',

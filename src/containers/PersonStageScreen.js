@@ -25,7 +25,7 @@ class PersonStageScreen extends Component {
   };
 
   celebrateAndFinish = () => {
-    let celebrationProps = {
+    const celebrationProps = {
       trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),
     };
     if (this.props.onCompleteCelebration) {

@@ -28,7 +28,7 @@ const members = [
   { id: '3', full_name: 'Test User 3', contact_assignments: [] },
 ];
 
-let store = createMockStore({
+const store = createMockStore({
   organizations: {
     all: [
       {
