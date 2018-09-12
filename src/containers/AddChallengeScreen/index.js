@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
-import { Button, Text, Flex, Input, Touchable } from '../../components/common';
+import { Button, Text, Flex, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
-import { momentUtc, formatApiDate } from '../../utils/common';
+import { formatApiDate } from '../../utils/common';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -25,28 +24,21 @@ class AddChallengeScreen extends Component {
     this.state = {
       title: isEdit ? challenge.title : '',
       date,
-      formattedDate: date ? momentUtc(date).format('LL') : '',
       disableBtn: !isEdit,
     };
+
+    this.today = new Date();
   }
 
   onChangeTitle = title => {
-    this.setState({ title, disableBtn: !!(title && this.state.date) });
+    this.setState({ title, disableBtn: !(title && this.state.date) });
   };
 
   onChangeDate = date => {
     if (!date) {
-      this.setState({
-        date: '',
-        formattedDate: '',
-        disableBtn: false,
-      });
+      this.setState({ date: '', disableBtn: false });
     } else {
-      this.setState({
-        date: date,
-        formattedDate: moment(date).format('LL'),
-        disableBtn: !!this.state.title,
-      });
+      this.setState({ date, disableBtn: !this.state.title });
     }
   };
 
@@ -59,19 +51,12 @@ class AddChallengeScreen extends Component {
     }
     const challenge = {
       title: formattedTitle,
-      date: formatApiDate(date),
+      date: formatApiDate(new Date(date)),
     };
+    console.log('challenge', challenge);
 
     this.props.onComplete(challenge);
   };
-
-  getButtonText() {
-    const { t, isEdit } = this.props;
-    let text = isEdit ? t('editChallenge') : t('addChallenge');
-    return text.toUpperCase();
-  }
-
-  ref = c => (this.challengeInput = c);
 
   render() {
     const { t, isEdit } = this.props;
@@ -89,7 +74,6 @@ class AddChallengeScreen extends Component {
         <Flex value={1} style={styles.fieldWrap}>
           <Text style={styles.label}>{t('titleLabel')}</Text>
           <Input
-            ref={this.ref}
             onChangeText={this.onChangeTitle}
             value={title}
             autoFocus={false}
@@ -101,19 +85,11 @@ class AddChallengeScreen extends Component {
             placeholderTextColor={theme.white}
           />
           <Text style={styles.label}>{t('dateLabel')}</Text>
-          {/* <Touchable onPress={this.handleChooseDate}>
-            <View style={styles.input}>
-              <Text style={styles.dateInput}>
-                {formattedDate || t('datePlaceholder')}
-              </Text>
-            </View>
-          </Touchable> */}
           <DatePicker
             date={date}
             mode="date"
             placeholder={t('datePlaceholder')}
-            format="YYYY-MM-DD"
-            minDate="2018-09-12"
+            minDate={this.today}
             onDateChange={this.onChangeDate}
           />
         </Flex>
@@ -123,7 +99,7 @@ class AddChallengeScreen extends Component {
             disabled={disableBtn}
             type="secondary"
             onPress={this.saveChallenge}
-            text={this.getButtonText()}
+            text={(isEdit ? t('save') : t('add')).toUpperCase()}
             style={styles.createButton}
           />
         </Flex>

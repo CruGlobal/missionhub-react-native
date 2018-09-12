@@ -26,15 +26,4 @@ export default StyleSheet.create({
   createButton: {
     width: theme.fullWidth,
   },
-  input: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
-  },
-  dateInput: {
-    backgroundColor: theme.transparent,
-    paddingVertical: 5,
-    color: theme.white,
-    fontSize: 16,
-    letterSpacing: 0.25,
-  },
 });

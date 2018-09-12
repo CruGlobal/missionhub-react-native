@@ -507,6 +507,9 @@ export default {
   contactItem: {
     unassigned: 'Unassigned',
   },
+  datePicker: {
+    date: 'Date',
+  },
   groupsContactItem: {
     status: 'Status: {{status}}',
     stageChange: '{{personName}} changed from {{oldStage}} to {{newStage}}',

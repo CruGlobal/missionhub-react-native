@@ -1,22 +1,10 @@
 import { StyleSheet } from 'react-native';
+
 import theme from '../../theme';
 
-let style = StyleSheet.create({
-  dateTouch: {
-    // width: 142,
-  },
-  dateTouchBody: {
-    // flexDirection: 'row',
-    // height: 40,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-  dateIcon: {
-    width: 32,
-    height: 32,
-    marginLeft: 5,
-    marginRight: 5,
-  },
+const topHeight = 60;
+
+export default StyleSheet.create({
   dateInput: {
     borderBottomWidth: 1,
     borderBottomColor: theme.secondaryColor,
@@ -35,37 +23,41 @@ let style = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
     flexDirection: 'row',
-    backgroundColor: '#00000077',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  datePickerCon: {
-    backgroundColor: '#fff',
+  datePickerBox: {
+    backgroundColor: theme.white,
     height: 0,
     overflow: 'hidden',
   },
-  btnText: {
+  topWrap: {
     position: 'absolute',
     top: 0,
-    height: 42,
+    height: topHeight,
     paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
+    alignSelf: 'stretch',
   },
-  btnTextText: {
+  titleText: {
+    color: theme.darkText,
+    flex: 1,
+    textAlign: 'center',
     fontSize: 16,
-    color: '#46cf98',
+  },
+  btnText: {
+    fontSize: 16,
+    color: theme.iosBlue,
   },
   btnTextCancel: {
-    color: '#666',
+    textAlign: 'left',
   },
-  btnCancel: {
-    left: 0,
-  },
-  btnConfirm: {
-    right: 0,
+  btnTextConfirm: {
+    textAlign: 'right',
   },
   datePicker: {
-    marginTop: 42,
+    marginTop: topHeight,
     borderTopColor: '#ccc',
     borderTopWidth: 1,
   },
@@ -73,5 +65,3 @@ let style = StyleSheet.create({
     backgroundColor: '#eee',
   },
 });
-
-export default style;
