@@ -18,7 +18,7 @@ export class BackButton extends Component {
   };
 
   render() {
-    const { absolute, style } = this.props;
+    const { absolute, style, customIcon } = this.props;
     return (
       <Flex
         self="start"
@@ -26,7 +26,11 @@ export class BackButton extends Component {
         justify="center"
         style={[style || null, absolute ? styles.absoluteTopLeft : null]}
       >
-        <IconButton name="backIcon" type="MissionHub" onPress={this.onPress} />
+        <IconButton
+          name={customIcon || 'backIcon'}
+          type="MissionHub"
+          onPress={this.onPress}
+        />
       </Flex>
     );
   }
@@ -35,6 +39,7 @@ export class BackButton extends Component {
 BackButton.propTypes = {
   customNavigate: PropTypes.func,
   absolute: PropTypes.bool,
+  customIcon: PropTypes.string,
 };
 
 export default connect()(BackButton);

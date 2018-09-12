@@ -63,16 +63,16 @@ class ChallengeFeed extends Component {
   };
   handleJoin = item => {
     // TODO: Implement this once the API is ready
-    // return item;
+    return item;
     // const { organization, dispatch } = this.props;
     // dispatch(joinChallenge(item, organization.id));
-    this.props.dispatch(
-      navigatePush(ADD_CHALLENGE_SCREEN, {
-        onComplete: () => {
-          console.log('complete');
-        },
-      }),
-    );
+    // this.props.dispatch(
+    //   navigatePush(ADD_CHALLENGE_SCREEN, {
+    //     onComplete: () => {
+    //       console.log('complete');
+    //     },
+    //   }),
+    // );
   };
   handleEdit = item => {
     // TODO: Implement this once the API is ready

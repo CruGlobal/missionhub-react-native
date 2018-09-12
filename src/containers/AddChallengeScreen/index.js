@@ -7,8 +7,9 @@ import { translate } from 'react-i18next';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
 import { Button, Text, Flex, Input, Touchable } from '../../components/common';
+import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
-import { momentUtc } from '../../utils/common';
+import { momentUtc, formatApiDate } from '../../utils/common';
 import BackButton from '../BackButton';
 
 import styles from './styles';
@@ -18,50 +19,50 @@ import styles from './styles';
 class AddChallengeScreen extends Component {
   constructor(props) {
     super(props);
+    const { isEdit, challenge } = props;
 
-    const date = props.isEdit ? props.challenge.end_date : '';
+    const date = isEdit ? challenge.end_date : '';
     this.state = {
-      challenge: props.isEdit ? props.challenge.title : '',
+      title: isEdit ? challenge.title : '',
       date,
-      formattedDate: date
-        ? momentUtc(date).format('LL')
-        : 'End Date (Required)',
-      disableBtn: !props.isEdit,
+      formattedDate: date ? momentUtc(date).format('LL') : '',
+      disableBtn: !isEdit,
     };
   }
 
-  onChangeText = text => {
-    this.setState({ challenge: text, disableBtn: text && this.state.date });
+  onChangeTitle = title => {
+    this.setState({ title, disableBtn: !!(title && this.state.date) });
   };
 
   onChangeDate = date => {
     if (!date) {
       this.setState({
         date: '',
-        formattedDate: 'End Date (Required)',
+        formattedDate: '',
         disableBtn: false,
       });
     } else {
       this.setState({
         date: date,
         formattedDate: moment(date).format('LL'),
-        disableBtn: !!this.state.text,
+        disableBtn: !!this.state.title,
       });
     }
   };
 
-  handleChooseDate = () => {
-    console.log('choose date');
-  };
-
   saveChallenge = () => {
     Keyboard.dismiss();
-    const text = (this.state.step || '').trim();
-    if (!text) {
+    const { title, date } = this.state;
+    const formattedTitle = (title || '').trim();
+    if (!formattedTitle || !date) {
       return;
     }
+    const challenge = {
+      title: formattedTitle,
+      date: formatApiDate(date),
+    };
 
-    this.props.onComplete(text);
+    this.props.onComplete(challenge);
   };
 
   getButtonText() {
@@ -70,57 +71,63 @@ class AddChallengeScreen extends Component {
     return text.toUpperCase();
   }
 
-  getTitleText() {
-    const { t, isEdit } = this.props;
-    return isEdit ? t('editHeader') : t('addHeader');
-  }
-
   ref = c => (this.challengeInput = c);
 
   render() {
-    // const { t, type } = this.props;
+    const { t, isEdit } = this.props;
+    const { disableBtn, title, date } = this.state;
 
     return (
       <View style={styles.container}>
-        <Flex value={1.5} align="center" justify="center">
+        <Flex value={1} align="center" justify="center">
           <Image source={CHALLENGE} resizeMode="contain" />
           <Text type="header" style={styles.header}>
-            {/* {this.getTitleText()} */}
-            NEW CHALLENGE
+            {isEdit ? t('editHeader') : t('addHeader')}
           </Text>
         </Flex>
 
         <Flex value={1} style={styles.fieldWrap}>
-          <Text style={styles.label}>Challenge</Text>
+          <Text style={styles.label}>{t('titleLabel')}</Text>
           <Input
             ref={this.ref}
-            onChangeText={this.onChangeText}
-            value={this.state.challenge}
-            multiline={false}
+            onChangeText={this.onChangeTitle}
+            value={title}
             autoFocus={false}
             autoCorrect={true}
             selectionColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={true}
-            placeholder=""
+            placeholder={t('titlePlaceholder')}
+            placeholderTextColor={theme.white}
           />
-          <Text style={styles.label}>End Date</Text>
-          <Touchable onPress={this.handleChooseDate}>
+          <Text style={styles.label}>{t('dateLabel')}</Text>
+          {/* <Touchable onPress={this.handleChooseDate}>
             <View style={styles.input}>
-              <Text style={styles.dateInput}>{this.state.formattedDate}</Text>
+              <Text style={styles.dateInput}>
+                {formattedDate || t('datePlaceholder')}
+              </Text>
             </View>
-          </Touchable>
+          </Touchable> */}
+          <DatePicker
+            date={date}
+            mode="date"
+            placeholder={t('datePlaceholder')}
+            format="YYYY-MM-DD"
+            minDate="2018-09-12"
+            onDateChange={this.onChangeDate}
+          />
         </Flex>
 
         <Flex value={1} align="stretch" justify="end">
           <Button
+            disabled={disableBtn}
             type="secondary"
             onPress={this.saveChallenge}
             text={this.getButtonText()}
             style={styles.createButton}
           />
         </Flex>
-        <BackButton absolute={true} />
+        <BackButton customIcon="deleteIcon" absolute={true} />
       </View>
     );
   }

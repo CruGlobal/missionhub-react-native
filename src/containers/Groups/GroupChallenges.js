@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -8,9 +9,12 @@ import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
 } from '../../actions/challenges';
+import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
+import { navigatePush } from '../../actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
@@ -45,23 +49,44 @@ export class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
+  create = () => {
+    this.props.dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        onComplete: challenge => {
+          console.log('complete', challenge);
+        },
+      }),
+    );
+  };
+
   render() {
     const { refreshing } = this.state;
-    const { challengeItems, organization } = this.props;
+    const { t, challengeItems, organization } = this.props;
 
-    return challengeItems.length !== 0 ? (
-      <ChallengeFeed
-        organization={organization}
-        items={challengeItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
-    ) : (
-      <EmptyChallengeFeed
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
+    return (
+      <View style={{ flex: 1 }}>
+        {challengeItems.length !== 0 ? (
+          <ChallengeFeed
+            organization={organization}
+            items={challengeItems}
+            loadMoreItemsCallback={this.loadItems}
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        ) : (
+          <EmptyChallengeFeed
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        )}
+        <Flex align="stretch" justify="end">
+          <Button
+            type="secondary"
+            onPress={this.create}
+            text={t('create').toUpperCase()}
+          />
+        </Flex>
+      </View>
     );
   }
 }
