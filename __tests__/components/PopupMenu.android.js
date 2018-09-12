@@ -6,7 +6,7 @@ import PopupMenu from '../../src/components/PopupMenu/index.android.js';
 import { testSnapshotShallow } from '../../testUtils';
 
 const onPress = jest.fn();
-let props = {
+const props = {
   actions: [{ text: 'test', onPress }],
 };
 
