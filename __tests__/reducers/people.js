@@ -114,16 +114,28 @@ it('should save people allByOrg', () => {
 
 it('should save new people and update existing people', () => {
   const orgId = '123';
-  const existingPeople = {
-    '1': { id: '1', name: 'Sam' },
-    '2': { id: '2', name: 'Fred' },
+
+  const person1Id = '1';
+  const person2Id = '2';
+  const person3Id = '3';
+  const person4Id = '4';
+
+  const existingPerson1 = { id: person1Id, name: 'Sam' };
+  const existingPerson2 = { id: person2Id, name: 'Fred' };
+
+  const newPerson1 = { id: person1Id, name: 'Sammy' };
+  const newPerson2 = {
+    id: person2Id,
+    organizational_permissions: [{ id: '111' }],
   };
-  const newPeople = [
-    { id: '1', name: 'Sammy' },
-    { id: '2', organizational_permissions: [{ id: '111' }] },
-    { id: '3', name: 'Peter' },
-    { id: '4', name: 'Paul' },
-  ];
+  const newPerson3 = { id: person3Id, name: 'Peter' };
+  const newPerson4 = { id: person4Id, name: 'Paul' };
+
+  const existingPeople = {
+    [person1Id]: existingPerson1,
+    [person2Id]: existingPerson2,
+  };
+  const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
 
   const state = people(
     { allByOrg: { [orgId]: { people: existingPeople } } },
@@ -139,23 +151,14 @@ it('should save new people and update existing people', () => {
   expect(state.allByOrg).toEqual({
     [orgId]: {
       people: {
-        '1': {
-          id: '1',
-          name: 'Sammy',
+        [person1Id]: newPerson1,
+        [person2Id]: {
+          id: person2Id,
+          name: existingPerson2.name,
+          organizational_permissions: newPerson2.organizational_permissions,
         },
-        '2': {
-          id: '2',
-          name: 'Fred',
-          organizational_permissions: [{ id: '111' }],
-        },
-        '3': {
-          id: '3',
-          name: 'Peter',
-        },
-        '4': {
-          id: '4',
-          name: 'Paul',
-        },
+        [person3Id]: newPerson3,
+        [person4Id]: newPerson4,
       },
     },
   });
@@ -169,30 +172,38 @@ it('should save new people and update existing people from steps', () => {
   const person3Id = '3';
   const person4Id = '4';
 
-  const person1 = { id: person1Id, name: 'Sam' };
-  const person2 = { id: person2Id, name: 'Fred' };
+  const existingPerson1 = { id: person1Id, name: 'Sam' };
+  const existingPerson2 = { id: person2Id, name: 'Fred' };
+
+  const newPerson1 = { id: person1Id, name: 'Sammy' };
+  const newPerson2 = {
+    id: person2Id,
+    organizational_permissions: [{ id: '111' }],
+  };
+  const newPerson3 = { id: person3Id, name: 'Peter' };
+  const newPerson4 = { id: person4Id, name: 'Paul' };
 
   const existingOrgs = {
-    [org1Id]: { people: { [person1.id]: person1 } },
-    [org2Id]: { people: { [person2.id]: person2 } },
+    [org1Id]: { people: { [person1Id]: existingPerson1 } },
+    [org2Id]: { people: { [person2Id]: existingPerson2 } },
   };
 
   const steps = [
     {
       organization: { id: org1Id },
-      receiver: { id: person1Id, name: 'Sammy' },
+      receiver: newPerson1,
     },
     {
       organization: { id: org2Id },
-      receiver: { id: person2Id, organizational_permissions: [{ id: '111' }] },
+      receiver: newPerson2,
     },
     {
       organization: { id: org1Id },
-      receiver: { id: person3Id, name: 'Peter' },
+      receiver: newPerson3,
     },
     {
       organization: { id: org2Id },
-      receiver: { id: person4Id, name: 'Paul' },
+      receiver: newPerson4,
     },
   ];
 
@@ -209,27 +220,18 @@ it('should save new people and update existing people from steps', () => {
   expect(state.allByOrg).toEqual({
     [org1Id]: {
       people: {
-        [person1Id]: {
-          id: person1Id,
-          name: 'Sammy',
-        },
-        [person3Id]: {
-          id: person3Id,
-          name: 'Peter',
-        },
+        [person1Id]: newPerson1,
+        [person3Id]: newPerson3,
       },
     },
     [org2Id]: {
       people: {
         [person2Id]: {
           id: person2Id,
-          name: 'Fred',
-          organizational_permissions: [{ id: '111' }],
+          name: existingPerson2.name,
+          organizational_permissions: newPerson2.organizational_permissions,
         },
-        [person4Id]: {
-          id: person4Id,
-          name: 'Paul',
-        },
+        [person4Id]: newPerson4,
       },
     },
   });
