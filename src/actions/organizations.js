@@ -1,7 +1,7 @@
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
-  GET_ORGANIZATION_CONTACTS,
+  GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
 } from '../constants';
@@ -142,11 +142,9 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
     const result = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
 
     dispatch({
-      type: GET_ORGANIZATION_CONTACTS,
+      type: GET_ORGANIZATION_PEOPLE,
       orgId,
-      contacts: result.response,
-      query,
-      meta: result.meta,
+      response: result.response,
     });
     return result;
   };
@@ -217,6 +215,12 @@ export function getOrganizationMembers(orgId, query = {}) {
       query: newQuery,
       meta,
     });
+    dispatch({
+      type: GET_ORGANIZATION_PEOPLE,
+      orgId,
+      response: membersWithCounts,
+    });
+
     return membersWithCounts;
   };
 }
