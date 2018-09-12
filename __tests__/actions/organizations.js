@@ -5,6 +5,7 @@ import MockDate from 'mockdate';
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_CONTACTS,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
 } from '../../src/constants';
@@ -183,7 +184,16 @@ describe('getOrganizationContacts', () => {
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
 
-  const apiResponse = { type: 'successful', response: [] };
+  const contacts = [{ id: '1' }];
+  const meta = { total: 1 };
+  const apiResponse = { type: 'successful', response: contacts, meta };
+  const getContactsAction = {
+    type: GET_ORGANIZATION_CONTACTS,
+    orgId,
+    contacts,
+    query,
+    meta,
+  };
 
   it('searches for org contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);
@@ -193,7 +203,7 @@ describe('getOrganizationContacts', () => {
     );
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
-    expect(store.getActions()).toEqual([apiResponse]);
+    expect(store.getActions()).toEqual([apiResponse, getContactsAction]);
   });
 });
 

@@ -146,6 +146,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
       orgId,
       contacts: result.response,
       query,
+      meta: result.meta,
     });
     return result;
   };

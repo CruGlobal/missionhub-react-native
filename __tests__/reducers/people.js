@@ -4,6 +4,8 @@ import {
   LOAD_PERSON_DETAILS,
   PEOPLE_WITH_ORG_SECTIONS,
   UPDATE_PERSON_ATTRIBUTES,
+  GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_CONTACTS,
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
@@ -24,6 +26,24 @@ const orgs = {
     },
   },
 };
+
+const org1Id = '123';
+const org2Id = '234';
+const person1Id = '1';
+const person2Id = '2';
+const person3Id = '3';
+const person4Id = '4';
+
+const existingPerson1 = { id: person1Id, name: 'Sam' };
+const existingPerson2 = { id: person2Id, name: 'Fred' };
+
+const newPerson1 = { id: person1Id, name: 'Sammy' };
+const newPerson2 = {
+  id: person2Id,
+  organizational_permissions: [{ id: '111' }],
+};
+const newPerson3 = { id: person3Id, name: 'Peter' };
+const newPerson4 = { id: person4Id, name: 'Paul' };
 
 it('should replace a person in allByOrg when it is loaded with more includes', () => {
   const state = people(
@@ -112,25 +132,7 @@ it('should save people allByOrg', () => {
   expect(state.allByOrg).toEqual(orgs);
 });
 
-it('should save new people and update existing people', () => {
-  const orgId = '123';
-
-  const person1Id = '1';
-  const person2Id = '2';
-  const person3Id = '3';
-  const person4Id = '4';
-
-  const existingPerson1 = { id: person1Id, name: 'Sam' };
-  const existingPerson2 = { id: person2Id, name: 'Fred' };
-
-  const newPerson1 = { id: person1Id, name: 'Sammy' };
-  const newPerson2 = {
-    id: person2Id,
-    organizational_permissions: [{ id: '111' }],
-  };
-  const newPerson3 = { id: person3Id, name: 'Peter' };
-  const newPerson4 = { id: person4Id, name: 'Paul' };
-
+it('should save new contacts and update existing contacts', () => {
   const existingPeople = {
     [person1Id]: existingPerson1,
     [person2Id]: existingPerson2,
@@ -138,18 +140,48 @@ it('should save new people and update existing people', () => {
   const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
 
   const state = people(
-    { allByOrg: { [orgId]: { people: existingPeople } } },
+    { allByOrg: { [org1Id]: { people: existingPeople } } },
     {
-      type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
-      results: {
-        response: newPeople,
-      },
-      query: { filters: { organization_ids: orgId } },
+      type: GET_ORGANIZATION_CONTACTS,
+      contacts: newPeople,
+      orgId: org1Id,
     },
   );
 
   expect(state.allByOrg).toEqual({
-    [orgId]: {
+    [org1Id]: {
+      people: {
+        [person1Id]: newPerson1,
+        [person2Id]: {
+          id: person2Id,
+          name: existingPerson2.name,
+          organizational_permissions: newPerson2.organizational_permissions,
+        },
+        [person3Id]: newPerson3,
+        [person4Id]: newPerson4,
+      },
+    },
+  });
+});
+
+it('should save new members and update existing members', () => {
+  const existingPeople = {
+    [person1Id]: existingPerson1,
+    [person2Id]: existingPerson2,
+  };
+  const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
+
+  const state = people(
+    { allByOrg: { [org1Id]: { people: existingPeople } } },
+    {
+      type: GET_ORGANIZATION_MEMBERS,
+      members: newPeople,
+      orgId: org1Id,
+    },
+  );
+
+  expect(state.allByOrg).toEqual({
+    [org1Id]: {
       people: {
         [person1Id]: newPerson1,
         [person2Id]: {
@@ -165,24 +197,6 @@ it('should save new people and update existing people', () => {
 });
 
 it('should save new people and update existing people from steps', () => {
-  const org1Id = '123';
-  const org2Id = '234';
-  const person1Id = '1';
-  const person2Id = '2';
-  const person3Id = '3';
-  const person4Id = '4';
-
-  const existingPerson1 = { id: person1Id, name: 'Sam' };
-  const existingPerson2 = { id: person2Id, name: 'Fred' };
-
-  const newPerson1 = { id: person1Id, name: 'Sammy' };
-  const newPerson2 = {
-    id: person2Id,
-    organizational_permissions: [{ id: '111' }],
-  };
-  const newPerson3 = { id: person3Id, name: 'Peter' };
-  const newPerson4 = { id: person4Id, name: 'Paul' };
-
   const existingOrgs = {
     [org1Id]: { people: { [person1Id]: existingPerson1 } },
     [org2Id]: { people: { [person2Id]: existingPerson2 } },
