@@ -7,10 +7,10 @@ export const celebrationSelector = createSelector(
   ({ celebrateItems }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
-    let sortByDate = filteredCelebrateItems;
+    const sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
-    let dateSections = [];
+    const dateSections = [];
     sortByDate.forEach(item => {
       const length = dateSections.length;
       const itemMoment = momentUtc(item.changed_attribute_value).local();
@@ -37,7 +37,7 @@ export const celebrationSelector = createSelector(
 );
 
 const compare = (a, b) => {
-  let aValue = a.changed_attribute_value,
+  const aValue = a.changed_attribute_value,
     bValue = b.changed_attribute_value;
 
   if (aValue < bValue) {

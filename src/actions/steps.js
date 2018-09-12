@@ -96,7 +96,7 @@ export function addSteps(steps, receiverId, organization) {
     const query = {
       person_id: receiverId,
     };
-    let newSteps = steps.map(s => ({
+    const newSteps = steps.map(s => ({
       type: 'accepted_challenge',
       attributes: {
         title: s.body,
@@ -255,7 +255,7 @@ function challengeCompleteAction(step, screen) {
                     assignment && assignment.pathway_stage_id,
                   );
 
-                  let stageProps = {
+                  const stageProps = {
                     section: 'people',
                     subsection: subsection,
                     onComplete: () => {
