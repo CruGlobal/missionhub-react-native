@@ -40,7 +40,6 @@ function organizationsReducer(state = initialState, action) {
       };
     case GET_ORGANIZATION_SURVEYS:
       const { orgId: surveyOrgId, query: surveyQuery, surveys } = action;
-
       const curSurveyOrg = state.all.find(o => o.id === surveyOrgId);
       if (!curSurveyOrg) {
         return state; // Return if the organization does not exist

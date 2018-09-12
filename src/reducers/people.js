@@ -68,15 +68,17 @@ export default function peopleReducer(state = initialState, action) {
 }
 
 function loadPeople(state, action) {
-  const { response } = action.results;
-  const { query } = action;
+  const {
+    query,
+    results: { response },
+  } = action;
   const orgId = query.filters.organization_ids;
 
   const org = state.allByOrg[orgId] || {};
-  let allPeople = org.people || {};
-  response.forEach(c => {
-    const e = allPeople[c.id];
-    allPeople[c.id] = e ? { ...e, ...c } : c;
+  const allPeople = org.people || {};
+  response.forEach(person => {
+    const existing = allPeople[person.id];
+    allPeople[person.id] = existing ? { ...existing, ...person } : person;
   });
 
   return {
@@ -94,7 +96,7 @@ function loadPeople(state, action) {
 function loadContactsFromSteps(state, action) {
   const { response } = action.results;
 
-  let contactsByOrg = state.allByOrg;
+  const { allByOrg } = state;
   response.forEach(s => {
     const orgId = (s.organization && s.organization.id) || 'personal';
     const receiver = s.receiver;
@@ -102,13 +104,13 @@ function loadContactsFromSteps(state, action) {
       return;
     }
 
-    if (!contactsByOrg[orgId]) {
-      contactsByOrg[orgId] = { people: {} };
+    if (!allByOrg[orgId]) {
+      allByOrg[orgId] = { people: {} };
     }
 
-    const existingContact = contactsByOrg[orgId].people[receiver.id] || {};
+    const existingContact = allByOrg[orgId].people[receiver.id] || {};
 
-    contactsByOrg[orgId].people[receiver.id] = {
+    allByOrg[orgId].people[receiver.id] = {
       ...existingContact,
       ...receiver,
     };
@@ -116,7 +118,7 @@ function loadContactsFromSteps(state, action) {
 
   return {
     ...state,
-    allByOrg: contactsByOrg,
+    allByOrg,
   };
 }
 
