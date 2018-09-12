@@ -5,6 +5,8 @@ import {
   PEOPLE_WITH_ORG_SECTIONS,
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
+  GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_CONTACTS,
 } from '../constants';
 
 const initialState = {
@@ -51,8 +53,10 @@ export default function peopleReducer(state = initialState, action) {
           action.personOrgId,
         ),
       };
-    case REQUESTS.GET_PEOPLE_LIST.SUCCESS:
-      return loadPeople(state, action);
+    case GET_ORGANIZATION_CONTACTS:
+      return loadContacts(state, action);
+    case GET_ORGANIZATION_MEMBERS:
+      return loadMembers(state, action);
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
     case LOGOUT:
@@ -67,16 +71,20 @@ export default function peopleReducer(state = initialState, action) {
   }
 }
 
-function loadPeople(state, action) {
-  const {
-    query,
-    results: { response },
-  } = action;
-  const orgId = query.filters.organization_ids;
+function loadContacts(state, action) {
+  const { orgId, contacts } = action;
+  return loadPeople(state, orgId, contacts);
+}
 
+function loadMembers(state, action) {
+  const { orgId, members } = action;
+  return loadPeople(state, orgId, members);
+}
+
+function loadPeople(state, orgId, people) {
   const org = state.allByOrg[orgId] || {};
   const allPeople = org.people || {};
-  response.forEach(person => {
+  people.forEach(person => {
     const existing = allPeople[person.id];
     allPeople[person.id] = existing ? { ...existing, ...person } : person;
   });
