@@ -52,7 +52,7 @@ it('should set showReminderOnLoad to false', () => {
 });
 
 it('resets state on logout', () => {
-  let expectedState = {
+  const expectedState = {
     pushDevice: {},
     requestedNativePermissions: true,
     showReminderOnLoad: true,

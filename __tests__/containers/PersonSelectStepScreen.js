@@ -21,7 +21,7 @@ const mockState = {
   },
 };
 
-let store = createMockStore(mockState);
+const store = createMockStore(mockState);
 
 jest.mock('react-native-device-info');
 jest.mock('../../src/selectors/people');

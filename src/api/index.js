@@ -11,7 +11,7 @@ import apiRoutes from './routes';
 const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 
 // Setup API call
-let API_CALLS = {};
+const API_CALLS = {};
 lodashForEach(apiRoutes, (routeData, key) => {
   API_CALLS[key] = (q, d) =>
     new Promise((resolve, reject) => {
@@ -32,7 +32,7 @@ lodashForEach(apiRoutes, (routeData, key) => {
       }
 
       // Merge the extra data with the access_token
-      let authHeader = {};
+      const authHeader = {};
       if (!routeData.anonymous) {
         authHeader['Authorization'] = `Bearer ${q.access_token}`;
       }

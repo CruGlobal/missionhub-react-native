@@ -18,7 +18,7 @@ import { refreshMissionHubFacebookAccess } from './facebook';
 // Put new routes in '../api/routes';
 
 // Setup the requests to be used for this file
-let REQUESTS = {};
+const REQUESTS = {};
 lodashForEach(apiRoutes, (data, key) => {
   REQUESTS[key] = {
     ...data,
@@ -47,7 +47,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
           `callApi(): There is no type: ${JSON.stringify(requestObject)}`,
         );
       }
-      let newQuery = { ...query };
+      const newQuery = { ...query };
       const action = requestObject;
 
       const authState = getState().auth;
@@ -123,7 +123,7 @@ export default function callApi(requestObject, query = {}, data = {}) {
         .then(response => {
           let actionResults = response ? response.results || {} : {};
           actionResults.response = response && response.response;
-          let meta = response && response.meta;
+          const meta = response && response.meta;
           // If the results have an error object, call this to reject it
           if (
             (isObject(actionResults) && actionResults.error) ||

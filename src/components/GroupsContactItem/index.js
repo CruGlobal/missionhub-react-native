@@ -57,7 +57,7 @@ class GroupsContactItem extends Component {
 
   render() {
     const { t, item, person, myId } = this.props;
-    let iconType =
+    const iconType =
       getIconName(item._type, item.interaction_type_id) || 'surveyIcon';
     let title = item.text;
     if (item.survey && item.survey.title) {
