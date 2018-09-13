@@ -56,19 +56,14 @@ exports[`with onSelect prop render 0 assigned 1`] = `
         0 Assigned
       </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Dot
           style={
             Object {
               "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
-        >
-            ·  
-        </MyText>
+        />
         <MyText
           accessible={true}
           allowFontScaling={true}
@@ -204,19 +199,14 @@ exports[`with onSelect prop render member 1`] = `
         5 Assigned
       </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Dot
           style={
             Object {
               "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
-        >
-            ·  
-        </MyText>
+        />
         <MyText
           accessible={true}
           allowFontScaling={true}
@@ -288,19 +278,14 @@ exports[`without onSelect prop renders 1`] = `
       5 Assigned
     </MyText>
     <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Dot
         style={
           Object {
             "color": "#B2B0B2",
             "fontSize": 14,
           }
         }
-      >
-          ·  
-      </MyText>
+      />
       <MyText
         accessible={true}
         allowFontScaling={true}

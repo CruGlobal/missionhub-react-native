@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<Connect(ChallengeFeed)
+  items={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "accepted": 5,
+            "completed": 3,
+            "creator_id": "person1",
+            "days_remaining": 14,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "1",
+            "organization_id": "123",
+            "title": "Read \\"There and Back Again\\"",
+          },
+        ],
+        "title": "",
+      },
+      Object {
+        "data": Array [
+          Object {
+            "accepted": 5,
+            "completed": 3,
+            "creator_id": "person1",
+            "days_remaining": 0,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "2",
+            "organization_id": "123",
+            "title": "Past Challenge",
+          },
+        ],
+        "title": "Past Challenge",
+      },
+    ]
+  }
+  loadMoreItemsCallback={[Function]}
+  organization={
+    Object {
+      "challengeItems": Array [
+        Object {
+          "accepted": 5,
+          "completed": 3,
+          "creator_id": "person1",
+          "days_remaining": 14,
+          "end_date": "2018-09-06T14:13:21Z",
+          "id": "1",
+          "organization_id": "123",
+          "title": "Read \\"There and Back Again\\"",
+        },
+        Object {
+          "accepted": 5,
+          "completed": 3,
+          "creator_id": "person1",
+          "days_remaining": 0,
+          "end_date": "2018-09-06T14:13:21Z",
+          "id": "2",
+          "organization_id": "123",
+          "title": "Past Challenge",
+        },
+      ],
+      "challengePagination": Object {
+        "hasNextPage": true,
+        "page": 1,
+      },
+      "id": "123",
+    }
+  }
+  refreshCallback={[Function]}
+  refreshing={false}
+/>
+`;
+
+exports[`should render empty correctly 1`] = `
+<Translate(EmptyChallengeFeed)
+  refreshCallback={[Function]}
+  refreshing={false}
+/>
+`;

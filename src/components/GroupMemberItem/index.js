@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Text, Touchable } from '../common';
+import { Flex, Text, Touchable, Dot } from '../common';
 
 import styles from './styles';
 
@@ -22,7 +22,7 @@ export default class GroupMemberItem extends Component {
           </Text>
           {person.uncontacted_count ? (
             <Fragment>
-              <Text style={styles.assigned}>{'  ·  '}</Text>
+              <Dot style={styles.assigned} />
               <Text style={styles.uncontacted}>
                 {t('numUncontacted', { number: person.uncontacted_count })}
               </Text>
