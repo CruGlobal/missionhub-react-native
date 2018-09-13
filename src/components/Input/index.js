@@ -44,7 +44,7 @@ export default class Input extends Component {
 }
 
 Input.propTypes = {
-  onChangeText: PropTypes.func,
+  onChangeText: PropTypes.func.isRequired,
   style: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object,

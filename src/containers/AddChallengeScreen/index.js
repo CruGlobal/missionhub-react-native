@@ -49,7 +49,7 @@ class AddChallengeScreen extends Component {
     if (!formattedTitle || !date) {
       return;
     }
-    let challenge = {
+    const challenge = {
       title: formattedTitle,
       // Set the date to the end of the day (11:59 PM) so that the challenge ends at the end of the day
       date: moment(new Date(date))

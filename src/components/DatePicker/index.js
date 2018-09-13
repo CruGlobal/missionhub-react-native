@@ -94,9 +94,9 @@ class DatePicker extends Component {
     const { mode, minDate, maxDate, format = FORMATS[mode] } = this.props;
 
     if (!date) {
-      let now = new Date();
+      const now = new Date();
       if (minDate) {
-        let _minDate = this.getDate(minDate);
+        const _minDate = this.getDate(minDate);
 
         if (now < _minDate) {
           return _minDate;
@@ -104,7 +104,7 @@ class DatePicker extends Component {
       }
 
       if (maxDate) {
-        let _maxDate = this.getDate(maxDate);
+        const _maxDate = this.getDate(maxDate);
 
         if (now > _maxDate) {
           return _maxDate;
@@ -189,7 +189,7 @@ class DatePicker extends Component {
     } = this.props;
 
     if (action !== DatePickerAndroid.dismissedAction) {
-      let timeMoment = moment(this.state.date);
+      const timeMoment = moment(this.state.date);
 
       TimePickerAndroid.open({
         hour: timeMoment.hour(),
@@ -244,7 +244,7 @@ class DatePicker extends Component {
           mode: androidMode,
         }).then(this.onDatePicked);
       } else if (mode === 'time') {
-        let timeMoment = moment(this.state.date);
+        const timeMoment = moment(this.state.date);
 
         TimePickerAndroid.open({
           hour: timeMoment.hour(),

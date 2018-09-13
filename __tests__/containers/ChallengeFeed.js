@@ -118,7 +118,7 @@ describe('item action methods', () => {
     expect(result).toBe(item);
   });
   it('calls handleEdit', () => {
-    let instance = component.instance();
+    const instance = component.instance();
     navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
     const challenge = { id: '1', end_date: date };
     item.props.onEdit(challenge);

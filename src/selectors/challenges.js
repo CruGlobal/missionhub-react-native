@@ -7,7 +7,7 @@ import { momentUtc } from '../utils/common';
 export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
   challengeItems => {
-    let sections = [
+    const sections = [
       {
         title: '',
         data: [],

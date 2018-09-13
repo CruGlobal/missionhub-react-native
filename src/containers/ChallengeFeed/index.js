@@ -60,18 +60,12 @@ class ChallengeFeed extends Component {
     // const { organization, dispatch } = this.props;
     // dispatch(completeChallenge(item, organization.id));
   };
+
   handleJoin = item => {
     // TODO: Implement this once the API is ready
     return item;
     // const { organization, dispatch } = this.props;
     // dispatch(joinChallenge(item, organization.id));
-    // this.props.dispatch(
-    //   navigatePush(ADD_CHALLENGE_SCREEN, {
-    //     onComplete: () => {
-    //       console.log('complete');
-    //     },
-    //   }),
-    // );
   };
 
   editChallenge = challenge => {
@@ -124,7 +118,7 @@ const mapStateToProps = ({ auth }, { organization }) => {
       person: auth.person,
       organization: { id: organization.id },
     });
-  let canEditChallenges =
+  const canEditChallenges =
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     canEditChallenges,
