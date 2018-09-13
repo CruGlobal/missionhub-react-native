@@ -104,20 +104,21 @@ describe('Challenge Feed rendering', () => {
   });
 });
 
-describe('action methods', () => {
+describe('item action methods', () => {
+  let item;
+  beforeEach(() => {
+    item = component.instance().renderItem({ item: { id: '1' } });
+  });
   it('calls handleComplete', () => {
-    const item = { id: '1' };
-    const result = component.instance().handleComplete(item);
+    const result = item.props.onComplete(item);
     expect(result).toBe(item);
   });
   it('calls handleJoin', () => {
-    const item = { id: '1' };
-    const result = component.instance().handleJoin(item);
+    const result = item.props.onJoin(item);
     expect(result).toBe(item);
   });
   it('calls handleEdit', () => {
-    const item = { id: '1' };
-    const result = component.instance().handleEdit(item);
+    const result = item.props.onEdit(item);
     expect(result).toBe(item);
   });
 });
@@ -138,14 +139,14 @@ it('renders item', () => {
 
 it('calls key extractor', () => {
   const item = challengeItems[0].data[0];
-  const result = component.instance().keyExtractor(item);
+  const result = component.props().keyExtractor(item);
   expect(result).toEqual(item.id);
 });
 
 it('calls handleOnEndReached', () => {
   const instance = component.instance();
   instance.setState({ isListScrolled: true });
-  instance.handleOnEndReached();
+  component.props().onEndReached();
   expect(props.loadMoreItemsCallback).toHaveBeenCalled();
   expect(instance.state.isListScrolled).toBe(false);
 });
@@ -153,12 +154,11 @@ it('calls handleOnEndReached', () => {
 it('calls handleEndDrag', () => {
   const instance = component.instance();
   instance.setState({ isListScrolled: false });
-  instance.handleEndDrag();
+  component.props().onScrollEndDrag();
   expect(instance.state.isListScrolled).toBe(true);
 });
 
 it('calls handleRefreshing', () => {
-  const instance = component.instance();
-  instance.handleRefreshing();
+  component.props().onRefresh();
   expect(props.refreshCallback).toHaveBeenCalled();
 });
