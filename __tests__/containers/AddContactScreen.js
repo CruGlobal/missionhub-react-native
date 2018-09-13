@@ -275,8 +275,21 @@ describe('savePerson', () => {
 
     component.setState({
       person: {
+        firstName: 'Test Name',
         email: '',
         orgPermission: { permission_id: ORG_PERMISSIONS.ADMIN },
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(Alert.alert).toHaveBeenCalled();
+
+    component.setState({
+      person: {
+        firstName: '',
+        email: 'test',
+        orgPermission: { permission_id: ORG_PERMISSIONS.USER },
       },
     });
 

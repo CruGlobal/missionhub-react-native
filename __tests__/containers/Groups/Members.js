@@ -12,6 +12,8 @@ import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../../src/actions/organizations';
+import * as navigation from '../../../src/actions/navigation';
+import { ADD_CONTACT_SCREEN } from '../../../src/containers/AddContactScreen';
 
 jest.mock('../../../src/actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
@@ -116,5 +118,23 @@ describe('Members', () => {
     const instance = renderShallow(component, store).instance();
     const renderedItem = instance.renderItem({ item: members[0] });
     expect(renderedItem).toMatchSnapshot();
+  });
+
+  it('calls invite', () => {
+    const component = renderShallow(
+      <Members organization={organization} />,
+      store,
+    );
+    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
+    component
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
+      organization,
+      isInvite: true,
+      onComplete: expect.any(Function),
+    });
   });
 });

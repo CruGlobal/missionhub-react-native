@@ -16,15 +16,17 @@ jest.mock('../../src/selectors/people');
 const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
-orgPermissionSelector.mockReturnValue(orgPermission);
-
 const store = createMockStore();
-function buildScreen(props) {
+function buildScreen(props, builtStore) {
   return renderShallow(
     <AddContactFields onUpdateData={jest.fn()} {...props} />,
-    store,
+    builtStore || store,
   );
 }
+
+beforeEach(() => {
+  orgPermissionSelector.mockReturnValue(orgPermission);
+});
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
@@ -122,6 +124,33 @@ it('renders jean with organization and user and admin radio buttons', () => {
   );
 });
 
+it('renders jean invite with organization and user and admin radio buttons', () => {
+  testSnapshotShallow(
+    <AddContactFields
+      onUpdateData={jest.fn()}
+      isJean={true}
+      isGroupInvite={true}
+      person={{
+        email_addresses: [],
+        phone_numbers: [],
+      }}
+      organization={{ id: '1' }}
+    />,
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+    }),
+  );
+});
+
 it('mounts and calls update field', () => {
   const component = buildScreen({
     isJean: true,
@@ -132,6 +161,68 @@ it('mounts and calls update field', () => {
   componentInstance.componentDidMount();
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.CONTACT,
+  });
+});
+
+it('mounts invite from admin and calls update field', () => {
+  orgPermissionSelector.mockReturnValue({
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+  const component = buildScreen(
+    {
+      isJean: true,
+      isGroupInvite: true,
+      organization: { id: '1' },
+    },
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+    }),
+  );
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.componentDidMount();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+});
+
+it('mounts invite from user and calls update field', () => {
+  orgPermissionSelector.mockReturnValue({
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+  const component = buildScreen(
+    {
+      isJean: true,
+      isGroupInvite: true,
+      organization: { id: '1' },
+    },
+    mockStore({
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: '1',
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+    }),
+  );
+  const componentInstance = component.instance();
+  componentInstance.updateField = jest.fn();
+  componentInstance.componentDidMount();
+  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+    permission_id: ORG_PERMISSIONS.USER,
   });
 });
 

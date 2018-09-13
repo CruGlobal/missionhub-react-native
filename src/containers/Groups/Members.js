@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, RefreshControl } from '../../components/common';
+import { Flex, RefreshControl, Button } from '../../components/common';
 import { refresh } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
@@ -14,6 +14,8 @@ import {
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
+import { navigatePush, navigateBack } from '../../actions/navigation';
+import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 
 import styles from './styles';
 
@@ -50,12 +52,27 @@ class Members extends Component {
 
   keyExtractor = i => i.id;
 
+  handleInvite = () => {
+    const { dispatch, organization } = this.props;
+
+    dispatch(
+      navigatePush(ADD_CONTACT_SCREEN, {
+        organization,
+        isInvite: true,
+        onComplete: () => {
+          // You go through 4 screens for adding a person, so pop back to the first one
+          dispatch(navigateBack(4));
+        },
+      }),
+    );
+  };
+
   renderItem = ({ item }) => (
     <GroupMemberItem person={item} onSelect={this.handleSelect} />
   );
 
   render() {
-    const { members, pagination } = this.props;
+    const { t, members, pagination } = this.props;
     return (
       <Flex value={1}>
         <FlatList
@@ -77,6 +94,13 @@ class Members extends Component {
             )
           }
         />
+        <Flex align="stretch" justify="end">
+          <Button
+            type="secondary"
+            onPress={this.handleInvite}
+            text={t('invite').toUpperCase()}
+          />
+        </Flex>
       </Flex>
     );
   }
