@@ -28,6 +28,7 @@ const orgs = {
 
 const org1Id = '123';
 const org2Id = '234';
+const org3Id = '345';
 const person1Id = '1';
 const person2Id = '2';
 const person3Id = '3';
@@ -163,6 +164,30 @@ it('should save new people and update existing people', () => {
   });
 });
 
+it('should save new people in new org', () => {
+  const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
+
+  const state = people(
+    { allByOrg: {} },
+    {
+      type: GET_ORGANIZATION_PEOPLE,
+      response: newPeople,
+      orgId: org1Id,
+    },
+  );
+
+  expect(state.allByOrg).toEqual({
+    [org1Id]: {
+      people: {
+        [person1Id]: newPerson1,
+        [person2Id]: newPerson2,
+        [person3Id]: newPerson3,
+        [person4Id]: newPerson4,
+      },
+    },
+  });
+});
+
 it('should save new people and update existing people from steps', () => {
   const existingOrgs = {
     [org1Id]: { people: { [person1Id]: existingPerson1 } },
@@ -183,7 +208,7 @@ it('should save new people and update existing people from steps', () => {
       receiver: newPerson3,
     },
     {
-      organization: { id: org2Id },
+      organization: { id: org3Id },
       receiver: newPerson4,
     },
   ];
@@ -212,6 +237,10 @@ it('should save new people and update existing people from steps', () => {
           name: existingPerson2.name,
           organizational_permissions: newPerson2.organizational_permissions,
         },
+      },
+    },
+    [org3Id]: {
+      people: {
         [person4Id]: newPerson4,
       },
     },
