@@ -107,7 +107,7 @@ describe('Challenge Feed rendering', () => {
 describe('item action methods', () => {
   let item;
   beforeEach(() => {
-    item = component.instance().renderItem({ item: { id: '1' } });
+    item = component.props().renderItem({ item: { id: '1' } });
   });
   it('calls handleComplete', () => {
     const result = item.props.onComplete(item);
@@ -125,14 +125,14 @@ describe('item action methods', () => {
 
 it('renders section header', () => {
   const renderedItem = component
-    .instance()
+    .props()
     .renderSectionHeader({ section: { title: 'Test Title' } });
   expect(renderedItem).toMatchSnapshot();
 });
 
 it('renders item', () => {
   const renderedItem = component
-    .instance()
+    .props()
     .renderItem({ item: challengeItems[0].data[0] });
   expect(renderedItem).toMatchSnapshot();
 });
