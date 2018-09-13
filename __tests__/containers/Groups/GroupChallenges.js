@@ -12,6 +12,8 @@ import { organizationSelector } from '../../../src/selectors/organizations';
 import { challengesSelector } from '../../../src/selectors/challenges';
 // import { reloadGroupChallengesFeed } from '../../../src/actions/challenges';
 import * as common from '../../../src/utils/common';
+import * as navigation from '../../../src/actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../../../src/containers/AddChallengeScreen';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/selectors/challenges');
@@ -113,4 +115,31 @@ it('should refresh items properly', () => {
   instance.refreshItems();
 
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.reloadItems);
+});
+
+it('should call create', () => {
+  const instance = renderShallow(
+    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+
+  instance.createChallenge = jest.fn();
+  navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
+  instance.create();
+
+  expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
+    onComplete: instance.createChallenge,
+  });
+});
+
+it('should call API to create', () => {
+  const instance = renderShallow(
+    <GroupChallenges organization={org} store={createMockStore(store)} />,
+    store,
+  ).instance();
+
+  const challenge = { id: '1', title: 'Test Challenge' };
+  const result = instance.createChallenge(challenge);
+
+  expect(result).toEqual(challenge);
 });

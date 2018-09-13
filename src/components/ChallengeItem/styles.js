@@ -19,8 +19,9 @@ export default StyleSheet.create({
   completeIcon: {
     opacity: 1,
     margin: 0,
-    height: 24,
-    width: 24,
+    paddingVertical: 0,
+    height: 30,
+    width: 30,
   },
   editButtonText: {
     color: theme.secondaryColor,

@@ -8,11 +8,10 @@ import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 // import { completeChallenge, joinChallenge } from '../../actions/challenges';
-// import { navigatePush } from '../../actions/navigation';
-
-import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+
+import styles from './styles';
 
 class ChallengeFeed extends Component {
   constructor(props) {
@@ -74,11 +73,20 @@ class ChallengeFeed extends Component {
     //   }),
     // );
   };
+
+  editChallenge = challenge => {
+    // TODO: API call to edit challenge
+    return challenge;
+  };
+
   handleEdit = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(navigatePush(ADD_CHALLENGE_SCREEN));
+    this.props.dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        isEdit: true,
+        challenge: item,
+        onComplete: this.editChallenge,
+      }),
+    );
   };
 
   render() {

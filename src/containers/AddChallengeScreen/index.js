@@ -3,28 +3,28 @@ import { connect } from 'react-redux';
 import { View, Keyboard, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
+import moment from 'moment';
 
 import CHALLENGE from '../../../assets/images/challenge_bullseye.png';
 import { Button, Text, Flex, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
-import { formatApiDate } from '../../utils/common';
 import BackButton from '../BackButton';
+import { momentUtc } from '../../utils/common';
 
 import styles from './styles';
 
-// TODO: Setup translations
 @translate('addChallenge')
 class AddChallengeScreen extends Component {
   constructor(props) {
     super(props);
     const { isEdit, challenge } = props;
 
-    const date = isEdit ? challenge.end_date : '';
+    const date = isEdit ? momentUtc(challenge.end_date) : '';
     this.state = {
       title: isEdit ? challenge.title : '',
       date,
-      disableBtn: !isEdit,
+      disableBtn: true,
     };
 
     this.today = new Date();
@@ -49,11 +49,17 @@ class AddChallengeScreen extends Component {
     if (!formattedTitle || !date) {
       return;
     }
-    const challenge = {
+    let challenge = {
       title: formattedTitle,
-      date: formatApiDate(new Date(date)),
+      // Set the date to the end of the day (11:59 PM) so that the challenge ends at the end of the day
+      date: moment(new Date(date))
+        .utc()
+        .endOf('day')
+        .format(),
     };
-    console.log('challenge', challenge);
+    if (this.props.isEdit) {
+      challenge.id = this.props.challenge.id;
+    }
 
     this.props.onComplete(challenge);
   };
@@ -64,7 +70,12 @@ class AddChallengeScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Flex value={1} align="center" justify="center">
+        <Flex
+          value={0.9}
+          align="center"
+          justify="center"
+          style={styles.imageWrap}
+        >
           <Image source={CHALLENGE} resizeMode="contain" />
           <Text type="header" style={styles.header}>
             {isEdit ? t('editHeader') : t('addHeader')}
@@ -79,7 +90,7 @@ class AddChallengeScreen extends Component {
             autoFocus={false}
             autoCorrect={true}
             selectionColor={theme.white}
-            returnKeyType="next"
+            returnKeyType="done"
             blurOnSubmit={true}
             placeholder={t('titlePlaceholder')}
             placeholderTextColor={theme.white}

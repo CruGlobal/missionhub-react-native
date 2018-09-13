@@ -49,12 +49,15 @@ export class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
+  createChallenge = challenge => {
+    // TODO: API call to create the challenge
+    return challenge;
+  };
+
   create = () => {
     this.props.dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        onComplete: challenge => {
-          console.log('complete', challenge);
-        },
+        onComplete: this.createChallenge,
       }),
     );
   };
@@ -103,7 +106,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
       creator_id: 'person1',
       organization_id: organization.id,
       title: 'Read "There and Back Again"',
-      end_date: '2018-09-06T14:13:21Z',
+      end_date: '2018-09-30T23:59:59Z',
       accepted: 5,
       completed: 3,
       days_remaining: 14,
@@ -113,7 +116,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
       creator_id: 'person2',
       organization_id: organization.id,
       title: 'Invite a neighbor over for mince pie.',
-      end_date: '2018-09-06T14:13:21Z',
+      end_date: '2018-10-06T23:59:59Z',
       accepted: 5,
       completed: 3,
       days_remaining: 14,

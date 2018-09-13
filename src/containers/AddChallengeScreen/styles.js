@@ -9,6 +9,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  imageWrap: {
+    marginTop: 30,
+  },
   header: {
     fontSize: 36,
     color: theme.secondaryColor,
