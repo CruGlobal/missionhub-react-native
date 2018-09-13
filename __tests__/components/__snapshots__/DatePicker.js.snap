@@ -1202,7 +1202,7 @@ exports[`renders datetime only date picker 1`] = `
           ]
         }
       >
-        2018-09-12 08:00
+        2018-09-12 12:00
       </MyText>
     </Component>
     <Component
@@ -1578,7 +1578,7 @@ exports[`renders time only date picker 1`] = `
           ]
         }
       >
-        08:00
+        12:00
       </MyText>
     </Component>
     <Component

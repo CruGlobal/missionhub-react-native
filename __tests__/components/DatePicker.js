@@ -6,8 +6,13 @@ import moment from 'moment';
 import DatePicker from '../../src/components/DatePicker';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const mockDate = '2018-09-12 12:00:00 GMT';
+const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
+
+jest.mock('moment', () => {
+  const moment = require.requireActual('moment');
+  return moment.utc;
+});
 
 const today = new Date();
 
