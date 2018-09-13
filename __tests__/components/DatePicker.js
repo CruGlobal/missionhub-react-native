@@ -6,40 +6,42 @@ import moment from 'moment';
 import DatePicker from '../../src/components/DatePicker';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const mockDate = '2018-09-13';
+const mockDate = '2018-09-12 12:00:00 PM';
 MockDate.set(mockDate);
 
+const today = new Date();
+
 it('renders normal date picker', () => {
-  testSnapshotShallow(<DatePicker date="2018-09-13" />);
+  testSnapshotShallow(<DatePicker date={today} />);
 });
 
 it('renders date only date picker', () => {
-  testSnapshotShallow(<DatePicker date="2018-09-13" mode="date" />);
+  testSnapshotShallow(<DatePicker date={today} mode="date" />);
 });
 
 it('renders datetime only date picker', () => {
-  testSnapshotShallow(<DatePicker date="2018-09-13" mode="datetime" />);
+  testSnapshotShallow(<DatePicker date={today} mode="datetime" />);
 });
 
 it('renders time only date picker', () => {
-  testSnapshotShallow(<DatePicker date="2018-09-13" mode="time" />);
+  testSnapshotShallow(<DatePicker date={today} mode="time" />);
 });
 
 it('renders date only date picker with min date', () => {
   testSnapshotShallow(
-    <DatePicker date="2018-09-13" mode="date" minDate={new Date()} />,
+    <DatePicker date={today} mode="date" minDate={new Date()} />,
   );
 });
 
 it('renders date only date picker with max date', () => {
   testSnapshotShallow(
-    <DatePicker date="2018-09-13" mode="date" maxDate={new Date()} />,
+    <DatePicker date={today} mode="date" maxDate={new Date()} />,
   );
 });
 
 it('renders date only date picker with placeholder', () => {
   testSnapshotShallow(
-    <DatePicker date="2018-09-13" mode="date" placeholder="Test Placeholder" />,
+    <DatePicker date={today} mode="date" placeholder="Test Placeholder" />,
   );
 });
 
