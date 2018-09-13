@@ -1,4 +1,5 @@
 import * as RNOmniture from 'react-native-omniture';
+// eslint-disable-next-line no-unused-vars
 import { Tracker, Emitter } from '@ringierag/snowplow-reactjs-native-tracker';
 import Config from 'react-native-config';
 
@@ -24,14 +25,14 @@ export const emitterCallback = (error, response) => {
   }
 };
 
-const em = new Emitter(
+/*const em = new Emitter(
   Config.SNOWPLOW_URL,
   'https',
   443,
   'POST',
   1,
   emitterCallback,
-);
+);*/
 
 export function updateAnalyticsContext(analyticsContext) {
   return {
@@ -127,9 +128,10 @@ function trackStateWithMCID(context) {
 
 function sendState(context) {
   RNOmniture.trackState(context[ANALYTICS.SCREENNAME], context);
-  sendStateToSnowplow(context);
+  //sendStateToSnowplow(context);
 }
 
+// eslint-disable-next-line no-unused-vars
 function sendStateToSnowplow(context) {
   const idData = {
     gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
@@ -137,7 +139,14 @@ function sendStateToSnowplow(context) {
     mcid: context[ANALYTICS.MCID],
   };
 
-  const tracker = new Tracker([em], null, Config.SNOWPLOW_APP_ID, true);
+  const tracker = new Tracker(
+    [
+      /*em*/
+    ],
+    null,
+    Config.SNOWPLOW_APP_ID,
+    true,
+  );
   tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
 
   tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [

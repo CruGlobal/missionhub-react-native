@@ -35,7 +35,7 @@ const storeEnhancers = composeEnhancers(
   ...enhancers,
 );
 
-let myTransform = createTransform(
+const myTransform = createTransform(
   // transform state coming from redux on its way to being serialized and stored
   inboundState => {
     return jsan.stringify(inboundState);

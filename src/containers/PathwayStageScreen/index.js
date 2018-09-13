@@ -126,7 +126,7 @@ class PathwayStageScreen extends Component {
   }
 
   render() {
-    let leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
+    const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>

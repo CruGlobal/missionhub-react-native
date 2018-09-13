@@ -156,7 +156,7 @@ export function updatePerson(data) {
       });
     }
 
-    let updateData = { type: 'person' };
+    const updateData = { type: 'person' };
     let attributes;
     if (exists(data.firstName)) {
       attributes = { ...(attributes || {}), first_name: data.firstName };

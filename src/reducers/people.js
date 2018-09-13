@@ -1,9 +1,11 @@
+import { REQUESTS } from '../actions/api';
 import {
   DELETE_PERSON,
   LOGOUT,
   PEOPLE_WITH_ORG_SECTIONS,
   LOAD_PERSON_DETAILS,
   UPDATE_PERSON_ATTRIBUTES,
+  GET_ORGANIZATION_PEOPLE,
 } from '../constants';
 
 const initialState = {
@@ -50,6 +52,10 @@ export default function peopleReducer(state = initialState, action) {
           action.personOrgId,
         ),
       };
+    case GET_ORGANIZATION_PEOPLE:
+      return loadPeople(state, action);
+    case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
+      return loadContactsFromSteps(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -60,6 +66,57 @@ export default function peopleReducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+function loadPeople(state, action) {
+  const { response, orgId } = action;
+
+  const org = state.allByOrg[orgId] || {};
+  const allPeople = org.people || {};
+  response.forEach(person => {
+    const existing = allPeople[person.id];
+    allPeople[person.id] = existing ? { ...existing, ...person } : person;
+  });
+
+  return {
+    ...state,
+    allByOrg: {
+      ...state.allByOrg,
+      [orgId]: {
+        ...org,
+        people: allPeople,
+      },
+    },
+  };
+}
+
+function loadContactsFromSteps(state, action) {
+  const { response } = action.results;
+
+  const { allByOrg } = state;
+  response.forEach(s => {
+    const orgId = (s.organization && s.organization.id) || 'personal';
+    const receiver = s.receiver;
+    if (!receiver) {
+      return;
+    }
+
+    if (!allByOrg[orgId]) {
+      allByOrg[orgId] = { people: {} };
+    }
+
+    const existingContact = allByOrg[orgId].people[receiver.id] || {};
+
+    allByOrg[orgId].people[receiver.id] = {
+      ...existingContact,
+      ...receiver,
+    };
+  });
+
+  return {
+    ...state,
+    allByOrg,
+  };
 }
 
 function updateAllPersonInstances(allByOrg, updatedPerson, replace = false) {

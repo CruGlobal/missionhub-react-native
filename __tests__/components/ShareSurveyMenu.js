@@ -4,7 +4,7 @@ import { Share, Linking } from 'react-native';
 import ShareSurveyMenu from '../../src/components/ShareSurveyMenu';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-let props = {
+const props = {
   survey: { id: '1', title: 'test' },
 };
 

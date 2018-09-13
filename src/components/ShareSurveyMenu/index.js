@@ -23,7 +23,7 @@ class ShareSurveyMenu extends Component {
 
   render() {
     const { t, header } = this.props;
-    let props = {
+    const props = {
       actions: [
         { text: t('shareSurvey'), onPress: this.shareSurvey },
         { text: t('takeSurvey'), onPress: this.takeSurvey },
