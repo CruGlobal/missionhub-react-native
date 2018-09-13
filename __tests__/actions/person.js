@@ -315,7 +315,7 @@ describe('deleteContactAssignment', () => {
 
   const query = { contactAssignmentId };
 
-  let data = {
+  const data = {
     data: {
       type: 'contact_assignment',
       attributes: { unassignment_reason: '' },

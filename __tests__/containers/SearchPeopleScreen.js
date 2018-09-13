@@ -78,7 +78,7 @@ describe('renders filtered with organization people', () => {
   it('should combine organizations', () => {
     const mockOrg1 = { organization: { id: '100', name: 'Test Org' } };
     const mockOrg2 = { organization: { id: '101', name: 'Test Org' } };
-    let mockPerson = {
+    const mockPerson = {
       id: 1,
       organizational_permissions: [mockOrg1, mockOrg2],
     };

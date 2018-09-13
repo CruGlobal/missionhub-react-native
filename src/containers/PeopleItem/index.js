@@ -90,7 +90,7 @@ export class PeopleItem extends Component {
       }
     }
 
-    let isUncontacted = status === 'uncontacted';
+    const isUncontacted = status === 'uncontacted';
 
     return (
       <Touchable highlight={true} onPress={this.handleSelect}>

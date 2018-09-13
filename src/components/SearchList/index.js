@@ -108,7 +108,6 @@ class SearchList extends Component {
           selectionColor={theme.grey2}
           returnKeyType="done"
           blurOnSubmit={true}
-          style={styles.input}
           placeholder={placeholder || t('inputPlaceholder')}
           placeholderTextColor={theme.grey1}
         />

@@ -53,7 +53,7 @@ export class SurveyQuestionsFilter extends Component {
       ...o,
       preview: o.id === selectedFilterId ? item.text : o.preview,
     }));
-    let newFilters = {
+    const newFilters = {
       ...filters,
       [selectedFilterId]: {
         id: selectedFilterId,

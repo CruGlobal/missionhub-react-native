@@ -117,7 +117,7 @@ class LoginScreen extends Component {
   render() {
     const { t } = this.props;
 
-    let leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
+    const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
       <Flex style={styles.container}>
