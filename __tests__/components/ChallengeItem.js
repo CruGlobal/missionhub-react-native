@@ -91,20 +91,6 @@ it('render past and active and completed challenge item', () => {
   );
 });
 
-it('should call methods', () => {
-  const newProps = { ...props, onEdit: jest.fn() };
-  const instance = renderShallow(
-    <ChallengeItem item={item} {...newProps} />,
-  ).instance();
-
-  instance.handleEdit();
-  expect(newProps.onEdit).toHaveBeenCalledWith(item);
-  instance.handleJoin();
-  expect(newProps.onJoin).toHaveBeenCalledWith(item);
-  instance.handleComplete();
-  expect(newProps.onComplete).toHaveBeenCalledWith(item);
-});
-
 it('should call onEdit from press', () => {
   const newItem = { ...item, accepted_at: date };
   const newProps = {
