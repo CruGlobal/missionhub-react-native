@@ -5,6 +5,7 @@ import MockDate from 'mockdate';
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_PEOPLE,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
 } from '../../src/constants';
@@ -139,6 +140,7 @@ describe('getOrganizationContacts', () => {
   MockDate.set('2018-08-22 12:00:00', 300);
   const name = 'name';
   const orgId = '123';
+  const surveyId = '555';
   const surveyQuestions1 = { id: '123', text: '123Text', isAnswer: true };
   const surveyQuestions2 = { id: '456', text: '456Text', isAnswer: true };
   const filters = {
@@ -148,11 +150,12 @@ describe('getOrganizationContacts', () => {
     uncontacted: true,
     labels: { id: '333' },
     groups: { id: '444' },
-    survey: { id: '555' },
+    survey: { id: surveyId },
     [surveyQuestions1.id]: surveyQuestions1,
     [surveyQuestions2.id]: surveyQuestions2,
     time: { id: 'time7', value: 7 },
   };
+  const pagination = { page: 0, hasNextPage: true };
   const query = {
     filters: {
       permissions: 'no_permission',
@@ -165,7 +168,7 @@ describe('getOrganizationContacts', () => {
       label_ids: filters.labels.id,
       group_ids: filters.groups.id,
       answer_sheets: {
-        survey_ids: filters.survey.id,
+        survey_ids: surveyId,
         answers: {
           [surveyQuestions1.id]: [surveyQuestions1.text],
           [surveyQuestions2.id]: [surveyQuestions2.text],
@@ -180,17 +183,25 @@ describe('getOrganizationContacts', () => {
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
-  const apiResponse = { type: 'successful', response: {} };
 
-  it('searches for contacts by filters', async () => {
+  const response = [{ id: '1' }];
+  const meta = { total: 1 };
+  const apiResponse = { type: 'successful', response, meta };
+  const getPeopleAction = {
+    type: GET_ORGANIZATION_PEOPLE,
+    orgId,
+    response,
+  };
+
+  it('searches for org contacts by filters', async () => {
     callApi.mockReturnValue(apiResponse);
 
     await store.dispatch(
-      getOrganizationContacts(orgId, name, { page: 0, hasMore: true }, filters),
+      getOrganizationContacts(orgId, name, pagination, filters),
     );
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, query);
-    expect(store.getActions()).toEqual([apiResponse]);
+    expect(store.getActions()).toEqual([apiResponse, getPeopleAction]);
   });
 });
 
@@ -241,13 +252,18 @@ describe('getOrganizationMembers', () => {
     contacts_with_interaction_count: 1,
   }));
 
-  // Final action to be run
+  // Final actions to be run
   const getMembersAction = {
     type: GET_ORGANIZATION_MEMBERS,
     members: finalMembers,
     orgId,
     meta: { total: 50 },
     query: query,
+  };
+  const getPeopleAction = {
+    type: GET_ORGANIZATION_PEOPLE,
+    response: finalMembers,
+    orgId,
   };
 
   const peopleListResponse = {
@@ -280,6 +296,7 @@ describe('getOrganizationMembers', () => {
       peopleListResponse,
       reportsListResponse,
       getMembersAction,
+      getPeopleAction,
     ]);
   });
 
@@ -303,6 +320,7 @@ describe('getOrganizationMembers', () => {
       peopleListResponse,
       reportsListResponse,
       { ...getMembersAction, query: { ...getMembersAction.query, page } },
+      getPeopleAction,
     ]);
   });
 
