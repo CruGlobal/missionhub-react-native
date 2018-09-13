@@ -113,10 +113,11 @@ exports[`render active and joined and completed challenge item 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
@@ -245,10 +246,11 @@ exports[`render active and joined and completed challenge item 2`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
@@ -377,10 +379,11 @@ exports[`render active and joined challenge item 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
@@ -533,10 +536,11 @@ exports[`render active and joined challenge item with edit 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
@@ -953,10 +957,11 @@ exports[`render past and active and completed challenge item 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
@@ -1085,10 +1090,11 @@ exports[`render past and active challenge item 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "height": 24,
+          "height": 30,
           "margin": 0,
           "opacity": 1,
-          "width": 24,
+          "paddingVertical": 0,
+          "width": 30,
         }
       }
     >
