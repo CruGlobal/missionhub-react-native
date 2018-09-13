@@ -6,7 +6,7 @@ import moment from 'moment';
 import DatePicker from '../../src/components/DatePicker';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
-const mockDate = '2018-09-12 12:00:00 PM';
+const mockDate = '2018-09-12 12:00:00 GMT';
 MockDate.set(mockDate);
 
 const today = new Date();

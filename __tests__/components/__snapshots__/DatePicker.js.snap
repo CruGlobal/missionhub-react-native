@@ -127,7 +127,7 @@ exports[`date methods modal visible snapshot 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -315,7 +315,7 @@ exports[`date methods modal visible snapshot with title 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -503,7 +503,7 @@ exports[`renders date only date picker 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -691,8 +691,8 @@ exports[`renders date only date picker with max date 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
-                  maximumDate={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
+                  maximumDate={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -880,8 +880,8 @@ exports[`renders date only date picker with min date 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
-                  minimumDate={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
+                  minimumDate={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -1069,7 +1069,7 @@ exports[`renders date only date picker with placeholder 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -1202,7 +1202,7 @@ exports[`renders datetime only date picker 1`] = `
           ]
         }
       >
-        2018-09-12 12:00
+        2018-09-12 08:00
       </MyText>
     </Component>
     <Component
@@ -1257,7 +1257,7 @@ exports[`renders datetime only date picker 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="datetime"
                   onDateChange={[Function]}
                   style={
@@ -1445,7 +1445,7 @@ exports[`renders normal date picker 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="date"
                   onDateChange={[Function]}
                   style={
@@ -1578,7 +1578,7 @@ exports[`renders time only date picker 1`] = `
           ]
         }
       >
-        12:00
+        08:00
       </MyText>
     </Component>
     <Component
@@ -1633,7 +1633,7 @@ exports[`renders time only date picker 1`] = `
                 pointerEvents="auto"
               >
                 <DatePickerIOS
-                  date={2018-09-12T16:00:00.000Z}
+                  date={2018-09-12T12:00:00.000Z}
                   mode="time"
                   onDateChange={[Function]}
                   style={
