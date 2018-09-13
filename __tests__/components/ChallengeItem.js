@@ -91,16 +91,55 @@ it('render past and active and completed challenge item', () => {
   );
 });
 
-it('should call methods', () => {
-  const newProps = { ...props, onEdit: jest.fn() };
-  const instance = renderShallow(
-    <ChallengeItem item={item} {...newProps} />,
-  ).instance();
+it('should call onEdit from press', () => {
+  const newItem = { ...item, accepted_at: date };
+  const newProps = {
+    ...props,
+    onEdit: jest.fn(),
+  };
+  const component = renderShallow(
+    <ChallengeItem item={newItem} {...newProps} />,
+  );
 
-  instance.handleEdit();
-  expect(newProps.onEdit).toHaveBeenCalledWith(item);
-  instance.handleJoin();
+  component
+    .childAt(0)
+    .childAt(0)
+    .childAt(1)
+    .childAt(0)
+    .childAt(0)
+    .props()
+    .onPress();
+  expect(newProps.onEdit).toHaveBeenCalledWith(newItem);
+});
+
+it('should call onComplete from press', () => {
+  const newItem = { ...item, accepted_at: date };
+  const newProps = {
+    ...props,
+    onEdit: jest.fn(),
+  };
+  const component = renderShallow(
+    <ChallengeItem item={newItem} {...newProps} />,
+  );
+
+  component
+    .childAt(0)
+    .childAt(1)
+    .props()
+    .onPress();
+  expect(newProps.onComplete).toHaveBeenCalledWith(newItem);
+});
+
+it('should call onJoin from press', () => {
+  const newProps = {
+    ...props,
+    onEdit: jest.fn(),
+  };
+  const component = renderShallow(<ChallengeItem item={item} {...newProps} />);
+
+  component
+    .childAt(1)
+    .props()
+    .onPress();
   expect(newProps.onJoin).toHaveBeenCalledWith(item);
-  instance.handleComplete();
-  expect(newProps.onComplete).toHaveBeenCalledWith(item);
 });

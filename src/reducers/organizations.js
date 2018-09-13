@@ -119,6 +119,7 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    // TODO: Combine the logic for challenges and celebration because they are so similar
     // case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
     //   const challengeQuery = action.query;
     //   const newChallengeItems = action.results.response;

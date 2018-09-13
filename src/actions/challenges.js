@@ -2,6 +2,7 @@
 
 // import callApi, { REQUESTS } from './api';
 
+// // TODO: Combine the logic for challenges and celebration because they are so similar
 // export function getGroupChallengeFeed(orgId, personId = null) {
 //   return (dispatch, getState) => {
 //     const org = (getState().organizations.all || []).find(o => {

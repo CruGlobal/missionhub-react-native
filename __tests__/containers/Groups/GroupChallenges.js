@@ -94,25 +94,18 @@ it('should render empty correctly', () => {
   );
 });
 
-// it('should refresh correctly', async () => {
-//   const instance = renderShallow(
-//     <GroupChallenges organization={org} store={createMockStore(store)} />,
-//     store,
-//   );
-
-//   await instance.props().refreshCallback();
-
-//   expect(reloadGroupChallengesFeed).toHaveBeenCalled();
-// });
-
 it('should refresh items properly', () => {
-  const instance = renderShallow(
+  const component = renderShallow(
     <GroupChallenges organization={org} store={createMockStore(store)} />,
     store,
-  ).instance();
+  );
 
+  const instance = component.instance();
   common.refresh = jest.fn();
-  instance.refreshItems();
+  component
+    .childAt(0)
+    .props()
+    .refreshCallback();
 
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.reloadItems);
 });
