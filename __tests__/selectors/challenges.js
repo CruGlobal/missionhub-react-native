@@ -1,13 +1,18 @@
+import MockDate from 'mockdate';
+
 import { challengesSelector } from '../../src/selectors/challenges';
 
 const organization = { id: '123' };
+const mockDate = '2018-09-15';
+MockDate.set(mockDate);
+
 const challengeItems = [
   {
     id: '1',
     creator_id: 'person1',
     organization_id: organization.id,
     title: 'Read "There and Back Again"',
-    end_date: '2018-09-06T14:13:21Z',
+    end_date: '2018-09-26T14:13:21Z',
     accepted: 5,
     completed: 3,
     days_remaining: 14,
@@ -17,7 +22,7 @@ const challengeItems = [
     creator_id: 'person2',
     organization_id: organization.id,
     title: 'Invite a neighbor over for mince pie.',
-    end_date: '2018-09-06T14:13:21Z',
+    end_date: '2018-09-16T14:13:21Z',
     accepted: 5,
     completed: 3,
     days_remaining: 14,
