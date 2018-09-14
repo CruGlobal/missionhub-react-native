@@ -63,14 +63,6 @@ class DatePicker extends Component {
     }
   };
 
-  onPressMask = () => {
-    if (isFunction(this.props.onPressMask)) {
-      this.props.onPressMask();
-    } else {
-      this.onPressCancel();
-    }
-  };
-
   closeModal = () => this.setModalVisible(false);
 
   onPressCancel = () => {
@@ -261,10 +253,6 @@ class DatePicker extends Component {
         }).then(this.onDatetimePicked);
       }
     }
-
-    if (isFunction(this.props.onOpenModal)) {
-      this.props.onOpenModal();
-    }
   };
 
   renderInput() {
@@ -319,7 +307,7 @@ class DatePicker extends Component {
                 <Touchable
                   style={styles.datePickerMask}
                   activeOpacity={1}
-                  onPress={this.onPressMask}
+                  onPress={this.onPressCancel}
                 >
                   <Touchable activeOpacity={1} style={{ flex: 1 }}>
                     <Animated.View
@@ -414,9 +402,7 @@ DatePicker.propTypes = {
   customStyles: PropTypes.object,
   disabled: PropTypes.bool,
   onDateChange: PropTypes.func,
-  onOpenModal: PropTypes.func,
   onCloseModal: PropTypes.func,
-  onPressMask: PropTypes.func,
   placeholder: PropTypes.string,
   is24Hour: PropTypes.bool,
   getDateStr: PropTypes.func,

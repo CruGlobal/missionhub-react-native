@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`android date methods android render 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
 exports[`date methods input component snapshot 1`] = `
 <Component
   style={
