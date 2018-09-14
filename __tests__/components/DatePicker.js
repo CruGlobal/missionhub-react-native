@@ -1,5 +1,5 @@
 import React from 'react';
-import 'react-native';
+import { Animated } from 'react-native';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
@@ -13,6 +13,10 @@ jest.mock('moment', () => {
   const moment = require.requireActual('moment');
   return moment.utc;
 });
+
+Animated.timing = jest.fn(() => ({
+  start: jest.fn(a => a && a()),
+}));
 
 const today = new Date();
 
@@ -76,6 +80,32 @@ describe('date methods', () => {
     expect(result).toEqual(date);
   });
 
+  it('date change pressed', () => {
+    const date = new Date();
+    component = renderShallow(
+      <DatePicker date={date} onDateChange={mockChange} />,
+    );
+    instance = component.instance();
+
+    component.props().onPress();
+    component.update();
+    // date change
+    const newDate = new Date('2019-09-01');
+    component
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onDateChange(newDate);
+
+    expect(instance.state.date).toEqual(newDate);
+  });
+
   it('confirm pressed', () => {
     const date = new Date();
     component = renderShallow(
@@ -84,7 +114,22 @@ describe('date methods', () => {
     instance = component.instance();
     instance.datePicked = jest.fn();
     instance.closeModal = jest.fn();
-    instance.onPressConfirm();
+
+    component.props().onPress();
+    component.update();
+    // Confirm button
+    component
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(1)
+      .childAt(2)
+      .props()
+      .onPress();
+
     expect(instance.datePicked).toHaveBeenCalled();
     expect(instance.closeModal).toHaveBeenCalled();
   });
@@ -96,7 +141,21 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.closeModal = jest.fn();
-    instance.onPressCancel();
+
+    component.props().onPress();
+    component.update();
+    // Cancel button
+    component
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(0)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
     expect(instance.closeModal).toHaveBeenCalled();
   });
 
@@ -107,7 +166,15 @@ describe('date methods', () => {
     );
     instance = component.instance();
     instance.setModalVisible = jest.fn();
-    instance.closeModal();
+    component.props().onPress();
+
+    // Have to update the component because the internal state has changed
+    component.update();
+    component
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onRequestClose();
     expect(instance.setModalVisible).toHaveBeenCalledWith(false);
   });
 
@@ -116,9 +183,16 @@ describe('date methods', () => {
     component = renderShallow(
       <DatePicker date={date} onDateChange={mockChange} />,
     );
-    instance = component.instance();
-    instance.setModalVisible(true);
-    expect(instance.state.modalVisible).toEqual(true);
+    component.props().onPress();
+
+    // Have to update the component because the internal state has changed
+    component.update();
+    expect(
+      component
+        .childAt(0)
+        .childAt(1)
+        .props().visible,
+    ).toEqual(true);
   });
 
   it('set modal visible false', () => {
@@ -126,9 +200,21 @@ describe('date methods', () => {
     component = renderShallow(
       <DatePicker date={date} onDateChange={mockChange} />,
     );
-    instance = component.instance();
-    instance.setModalVisible(false);
-    expect(instance.state.modalVisible).toEqual(false);
+    component.props().onPress();
+    component.update();
+    component
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .onRequestClose();
+    component.update();
+
+    expect(
+      component
+        .childAt(0)
+        .childAt(1)
+        .props().visible,
+    ).toEqual(false);
   });
 
   it('onDatePicked method', () => {
