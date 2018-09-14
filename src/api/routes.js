@@ -5,6 +5,8 @@ import { API_URL, THE_KEY_URL } from './utils';
 const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
 
 const CHALLENGES_URL = `${API_URL}challenges/`;
+const GROUP_CHALLENGE_URL = `${API_URL}community_challenges/`;
+const GROUP_ACCEPTED_CHALLENGE_URL = `${API_URL}accepted_community_challenges/`;
 
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
@@ -145,6 +147,25 @@ export default {
   UNLIKE_CELEBRATE_ITEM: {
     endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
+  },
+  GET_GROUP_CHALLENGE_FEED: {
+    endpoint: GROUP_CHALLENGE_URL,
+  },
+  ACCEPT_GROUP_CHALLENGE: {
+    endpoint: GROUP_ACCEPTED_CHALLENGE_URL,
+    method: 'post',
+  },
+  COMPLETE_GROUP_CHALLENGE: {
+    endpoint: `${GROUP_ACCEPTED_CHALLENGE_URL}:challengeId`,
+    method: 'put',
+  },
+  UPDATE_GROUP_CHALLENGE: {
+    endpoint: `${GROUP_CHALLENGE_URL}:challengeId`,
+    method: 'put',
+  },
+  CREATE_GROUP_CHALLENGE: {
+    endpoint: `${GROUP_CHALLENGE_URL}`,
+    method: 'post',
   },
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,

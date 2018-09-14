@@ -464,7 +464,7 @@ export default {
   challengeFeeds: {
     past: 'Past Challenges',
     emptyFeedTitle: 'Challenges',
-    emptyFeedDescription: 'You can view and complete challenges here.',
+    emptyFeedDescription: 'You can view, accept, and complete challenges here.',
     edit: 'Edit',
     totalDays: '{{days}} Day Challenge',
     daysRemaining: '{{days}} Days Left',

@@ -7,9 +7,13 @@ import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
-// import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { navigatePush } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+import {
+  completeChallenge,
+  joinChallenge,
+  updateChallenge,
+} from '../../actions/challenges';
 
 import styles from './styles';
 
@@ -54,23 +58,19 @@ class ChallengeFeed extends Component {
     this.props.refreshCallback();
   };
 
-  handleComplete = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(completeChallenge(item, organization.id));
+  handleComplete = challenge => {
+    const { organization, dispatch } = this.props;
+    dispatch(completeChallenge(challenge, organization.id));
   };
 
-  handleJoin = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(joinChallenge(item, organization.id));
+  handleJoin = challenge => {
+    const { organization, dispatch } = this.props;
+    dispatch(joinChallenge(challenge, organization.id));
   };
 
   editChallenge = challenge => {
-    // TODO: API call to edit challenge
-    return challenge;
+    const { organization, dispatch } = this.props;
+    dispatch(updateChallenge(challenge, organization.id));
   };
 
   handleEdit = item => {
