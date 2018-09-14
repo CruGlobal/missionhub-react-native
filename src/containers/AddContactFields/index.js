@@ -41,11 +41,7 @@ class AddContactFields extends Component {
       if (isJean && organization && organization.id) {
         const myOrgPermId = myOrgPermissions && myOrgPermissions.permission_id;
         // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
-        if (
-          isGroupInvite &&
-          (myOrgPermId === ORG_PERMISSIONS.ADMIN ||
-            myOrgPermId === ORG_PERMISSIONS.USER)
-        ) {
+        if (isGroupInvite && myOrgPermId === ORG_PERMISSIONS.ADMIN) {
           this.updateField('orgPermission', {
             ...(orgPermission || {}),
             permission_id: ORG_PERMISSIONS.USER,

@@ -195,37 +195,6 @@ it('mounts invite from admin and calls update field', () => {
   });
 });
 
-it('mounts invite from user and calls update field', () => {
-  orgPermissionSelector.mockReturnValue({
-    permission_id: ORG_PERMISSIONS.USER,
-  });
-  const component = buildScreen(
-    {
-      isJean: true,
-      isGroupInvite: true,
-      organization: { id: '1' },
-    },
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.USER,
-            },
-          ],
-        },
-      },
-    }),
-  );
-  const componentInstance = component.instance();
-  componentInstance.updateField = jest.fn();
-  componentInstance.componentDidMount();
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.USER,
-  });
-});
-
 it('updates org permission', () => {
   const component = buildScreen({
     isJean: true,

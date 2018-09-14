@@ -14,6 +14,7 @@ import {
 } from '../../../src/actions/organizations';
 import * as navigation from '../../../src/actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../../../src/containers/AddContactScreen';
+import { ORG_PERMISSIONS } from '../../../src/constants';
 
 jest.mock('../../../src/actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
@@ -30,15 +31,27 @@ const members = [
   { id: '3', full_name: 'Test User 3', contact_assignments: [] },
 ];
 
+const orgId = '1';
+
 const store = createMockStore({
   organizations: {
     all: [
       {
-        id: '1',
+        id: orgId,
         members,
       },
     ],
     membersPagination: { hasNextPage: true },
+  },
+  auth: {
+    person: {
+      organizational_permissions: [
+        {
+          organization_id: orgId,
+          permission_id: ORG_PERMISSIONS.USER,
+        },
+      ],
+    },
   },
 });
 
@@ -55,8 +68,8 @@ describe('Members', () => {
     testSnapshotShallow(component, store);
   });
 
-  it('should mount correctly', () => {
-    const store = createMockStore({
+  it('should mount with send invite', () => {
+    const store2 = createMockStore({
       organizations: {
         all: [
           {
@@ -66,14 +79,49 @@ describe('Members', () => {
         ],
         membersPagination: { hasNextPage: true },
       },
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
     });
-    const instance = renderShallow(component, store).instance();
+    testSnapshotShallow(component, store2);
+  });
+
+  it('should mount correctly', () => {
+    const store2 = createMockStore({
+      organizations: {
+        all: [
+          {
+            id: '1',
+            members: [],
+          },
+        ],
+        membersPagination: { hasNextPage: true },
+      },
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+    });
+    const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
     expect(getOrganizationMembers).toHaveBeenCalled();
   });
 
   it('should not render load more correctly', () => {
-    const store = createMockStore({
+    const store2 = createMockStore({
       organizations: {
         all: [
           {
@@ -83,8 +131,18 @@ describe('Members', () => {
         ],
         membersPagination: { hasNextPage: false },
       },
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
     });
-    const instance = renderShallow(component, store).instance();
+    const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
     expect(getOrganizationMembers).toHaveBeenCalled();
   });
@@ -121,9 +179,30 @@ describe('Members', () => {
   });
 
   it('calls invite', () => {
+    const store2 = createMockStore({
+      organizations: {
+        all: [
+          {
+            id: orgId,
+            members,
+          },
+        ],
+        membersPagination: { hasNextPage: true },
+      },
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          ],
+        },
+      },
+    });
     const component = renderShallow(
       <Members organization={organization} />,
-      store,
+      store2,
     );
     navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
     component

@@ -16,6 +16,8 @@ import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
+import { orgPermissionSelector } from '../../selectors/people';
+import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -74,7 +76,7 @@ class Members extends Component {
   );
 
   render() {
-    const { t, members, pagination } = this.props;
+    const { t, members, pagination, myOrgPermissions } = this.props;
     return (
       <Flex value={1}>
         <FlatList
@@ -96,13 +98,16 @@ class Members extends Component {
             )
           }
         />
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.handleInvite}
-            text={t('invite').toUpperCase()}
-          />
-        </Flex>
+        {myOrgPermissions &&
+        myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+          <Flex align="stretch" justify="end">
+            <Button
+              type="secondary"
+              onPress={this.handleInvite}
+              text={t('invite').toUpperCase()}
+            />
+          </Flex>
+        ) : null}
       </Flex>
     );
   }
@@ -112,7 +117,7 @@ Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization }) => {
+const mapStateToProps = ({ auth, organizations }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
@@ -120,6 +125,10 @@ const mapStateToProps = ({ organizations }, { organization }) => {
   return {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
+    myOrgPermissions: orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    }),
   };
 };
 
