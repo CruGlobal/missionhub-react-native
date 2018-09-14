@@ -62,6 +62,8 @@ class Members extends Component {
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
           dispatch(navigateBack(4));
+          // refresh the members list after creating a new person
+          this.load();
         },
       }),
     );
