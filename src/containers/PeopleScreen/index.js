@@ -64,7 +64,7 @@ export class PeopleScreen extends Component {
 
   handleRowSelect(person, org) {
     const organization = org && org.id !== 'personal' ? org : undefined;
-    this.props.dispatch(navToPersonScreen(person, organization));
+    this.props.dispatch(navToPersonScreen(person.id, organization.id));
   }
 
   handleRefresh() {

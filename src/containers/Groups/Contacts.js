@@ -104,7 +104,7 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person, organization));
+    dispatch(navToPersonScreen(person.id, organization.id));
   };
 
   listRef = c => (this.searchList = c);

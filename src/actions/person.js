@@ -15,9 +15,11 @@ import {
 } from '../constants';
 import { isMemberForOrg, exists } from '../utils/common';
 import {
+  personSelector,
   orgPermissionSelector,
   contactAssignmentSelector,
 } from '../selectors/people';
+import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -322,15 +324,17 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(person, org) {
+export function navToPersonScreen(personId, orgId) {
   return (dispatch, getState) => {
-    const organization = org ? org : {};
-    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const { auth, people, organizations } = getState();
 
-    const auth = getState().auth;
+    const organization = organizationSelector({ organizations }, { orgId });
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const person = personSelector({ people }, { orgId, personId });
+
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person, orgId: organization.id },
+      { person, orgId },
     );
     const authPerson = auth.person;
 

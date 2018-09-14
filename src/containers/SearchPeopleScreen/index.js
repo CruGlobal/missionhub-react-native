@@ -40,7 +40,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   handleSelectPerson(person, organization) {
-    this.props.dispatch(navToPersonScreen(person, organization));
+    this.props.dispatch(navToPersonScreen(person.id, organization.id));
   }
 
   handleFilter() {
