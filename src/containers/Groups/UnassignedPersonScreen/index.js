@@ -8,6 +8,8 @@ import GroupsContactList from '../../../components/GroupsContactList/index';
 import CommentBox from '../../../components/CommentBox/index';
 import Header from '../../Header/index';
 import BackButton from '../../BackButton/index';
+import { organizationSelector } from '../../../selectors/organizations';
+import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
@@ -56,20 +58,18 @@ UnassignedPersonScreen.propTypes = {
   person: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (
-  { auth },
-  {
-    navigation: {
-      state: {
-        params: { person, organization },
-      },
-    },
-  },
-) => ({
-  person,
-  organization,
-  me: auth.person,
-});
+const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
+  const { personId, orgId } = navigation.state.params;
+
+  const organization = organizationSelector({ organizations }, { orgId });
+  const person = personSelector({ people }, { personId, orgId });
+
+  return {
+    person,
+    organization,
+    me: auth.person,
+  };
+};
 
 export default connect(mapStateToProps)(UnassignedPersonScreen);
 export const UNASSIGNED_PERSON_SCREEN = 'nav/UNASSIGNED_PERSON';

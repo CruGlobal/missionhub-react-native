@@ -267,24 +267,15 @@ export const mapStateToProps = (
   { people, auth, stages, organizations },
   { navigation },
 ) => {
-  const {
-    person: navPerson,
-    organization: navOrganization = {},
-  } = navigation.state.params;
+  const { personId, orgId } = navigation.state.params;
 
-  const organization =
-    organizationSelector({ organizations }, { orgId: navOrganization.id }) ||
-    {}; //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+  const organization = organizationSelector({ organizations }, { orgId });
 
-  const person =
-    personSelector(
-      { people },
-      { personId: navPerson.id, orgId: organization.id },
-    ) || navPerson;
+  const person = personSelector({ people }, { personId, orgId });
 
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person, orgId: organization.id },
+    { person, orgId },
   );
   const authPerson = auth.person;
 
