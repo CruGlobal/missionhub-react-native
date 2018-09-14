@@ -36,34 +36,32 @@ class AddContactFields extends Component {
       isGroupInvite,
       myOrgPermissions,
     } = this.props;
-    // If person exists, then we are in edit mode
+    // If there is no person passed in, we are creating a new one
     if (!person) {
-      // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
-      if (
-        isJean &&
-        organization &&
-        organization.id &&
-        isGroupInvite &&
-        (myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ||
-          myOrgPermissions.permission_id === ORG_PERMISSIONS.USER)
-      ) {
-        this.updateField('orgPermission', {
-          ...orgPermission,
-          permission_id: ORG_PERMISSIONS.USER,
-        });
-      } else if (isJean && organization && organization.id) {
-        // Default the orgPermission for creating new people to 'Contact'
-        this.updateField('orgPermission', {
-          ...orgPermission,
-          permission_id: ORG_PERMISSIONS.CONTACT,
-        });
+      if (isJean && organization && organization.id) {
+        const myOrgPermId = myOrgPermissions && myOrgPermissions.permission_id;
+        // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
+        if (
+          isGroupInvite &&
+          (myOrgPermId === ORG_PERMISSIONS.ADMIN ||
+            myOrgPermId === ORG_PERMISSIONS.USER)
+        ) {
+          this.updateField('orgPermission', {
+            ...(orgPermission || {}),
+            permission_id: ORG_PERMISSIONS.USER,
+          });
+        } else {
+          // Default the orgPermission for creating new people to 'Contact'
+          this.updateField('orgPermission', {
+            ...(orgPermission || {}),
+            permission_id: ORG_PERMISSIONS.CONTACT,
+          });
+        }
       }
-      return;
-    }
-    const email = getPersonEmailAddress(person) || {};
-    const phone = getPersonPhoneNumber(person) || {};
-
-    if (person) {
+    } else {
+      // If person exists, then we are in edit mode
+      const email = getPersonEmailAddress(person) || {};
+      const phone = getPersonPhoneNumber(person) || {};
       const newState = {
         firstName: person.first_name,
         lastName: person.last_name,
