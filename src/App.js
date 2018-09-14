@@ -133,12 +133,16 @@ export default class App extends Component {
       crashlyticsError = {
         title: 'Unknown Error',
         message: JSON.stringify(e),
-        stackTracePromise: StackTrace.getSync(),
+        stackTracePromise: StackTrace.get(),
       };
     }
 
     if (crashlyticsError) {
       LOG(e);
+      console.log(crashlyticsError);
+      crashlyticsError.stackTracePromise.then(stackFrames =>
+        console.log(stackFrames),
+      );
 
       if (!__DEV__) {
         crashlyticsError.stackTracePromise.then(stackFrames =>
