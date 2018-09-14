@@ -284,6 +284,14 @@ describe('savePerson', () => {
     await componentInstance.savePerson();
 
     expect(Alert.alert).toHaveBeenCalled();
+  });
+
+  it('should alert with blank name and admin permission', async () => {
+    Alert.alert = jest.fn();
+    const component = buildScreen({
+      navigation: createMockNavState(),
+    });
+    const componentInstance = component.instance();
 
     component.setState({
       person: {
