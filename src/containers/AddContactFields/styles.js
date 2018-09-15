@@ -27,13 +27,7 @@ export default StyleSheet.create({
   genderRadioButton: {
     paddingHorizontal: 15,
   },
-  contactRadioButton: {
-    paddingRight: 13,
-  },
-  userRadioButton: {
-    paddingHorizontal: 15,
-  },
-  adminRadioButton: {
-    paddingLeft: 15,
+  radioButton: {
+    paddingRight: 25,
   },
 });
