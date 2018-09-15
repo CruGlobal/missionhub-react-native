@@ -10,14 +10,20 @@ import {
 } from '../../../testUtils';
 import { organizationSelector } from '../../../src/selectors/organizations';
 import { challengesSelector } from '../../../src/selectors/challenges';
-// import { reloadGroupChallengesFeed } from '../../../src/actions/challenges';
+import * as challenges from '../../../src/actions/challenges';
 import * as common from '../../../src/utils/common';
 import * as navigation from '../../../src/actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../../src/containers/AddChallengeScreen';
+import { orgPermissionSelector } from '../../../src/selectors/people';
+import { ORG_PERMISSIONS } from '../../../src/constants';
 
+jest.mock('../../../src/selectors/people');
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/selectors/challenges');
 jest.mock('../../../src/actions/challenges');
+
+const orgPermission = { permission_id: ORG_PERMISSIONS.ADMIN };
+orgPermissionSelector.mockReturnValue(orgPermission);
 
 const date = '2018-09-06T14:13:21Z';
 const challenge1 = {
@@ -63,19 +69,46 @@ const challengeSelectorReturnValue = [
   },
 ];
 
+const emptyChallengeSelectorReturnValue = [
+  {
+    title: '',
+    data: [],
+  },
+  {
+    title: 'Past Challenge',
+    data: [],
+  },
+];
+
 const store = {
+  auth: {
+    person: {
+      organizational_permissions: [
+        {
+          organization_id: org.id,
+          permission_id: ORG_PERMISSIONS.ADMIN,
+        },
+      ],
+    },
+  },
   organizations: {
     all: [org],
   },
 };
 
+beforeEach(() => {
+  challengesSelector.mockReturnValue(challengeSelectorReturnValue);
+});
+
 describe('mapStateToProps', () => {
   it('provides props correctly', () => {
     organizationSelector.mockReturnValue(org);
-    challengesSelector.mockReturnValue(challengeSelectorReturnValue);
 
     expect(mapStateToProps(store, { organization: org })).toEqual({
       challengeItems: challengeSelectorReturnValue,
+      myOrgPermissions: {
+        permission_id: 1,
+      },
       pagination: challengePagination,
     });
   });
@@ -88,7 +121,7 @@ it('should render correctly', () => {
 });
 
 it('should render empty correctly', () => {
-  challengesSelector.mockReturnValue([]);
+  challengesSelector.mockReturnValue(emptyChallengeSelectorReturnValue);
   testSnapshotShallow(
     <GroupChallenges organization={org} store={createMockStore(store)} />,
   );
@@ -111,14 +144,20 @@ it('should refresh items properly', () => {
 });
 
 it('should call create', () => {
-  const instance = renderShallow(
+  const component = renderShallow(
     <GroupChallenges organization={org} store={createMockStore(store)} />,
     store,
-  ).instance();
+  );
 
+  const instance = component.instance();
   instance.createChallenge = jest.fn();
   navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
-  instance.create();
+
+  component
+    .childAt(1)
+    .childAt(0)
+    .props()
+    .onPress();
 
   expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: instance.createChallenge,
@@ -130,9 +169,10 @@ it('should call API to create', () => {
     <GroupChallenges organization={org} store={createMockStore(store)} />,
     store,
   ).instance();
+  challenges.createChallenge = jest.fn(() => ({ type: 'create' }));
 
   const challenge = { id: '1', title: 'Test Challenge' };
-  const result = instance.createChallenge(challenge);
+  instance.createChallenge(challenge);
 
-  expect(result).toEqual(challenge);
+  expect(challenges.createChallenge).toHaveBeenCalledWith(challenge, org.id);
 });

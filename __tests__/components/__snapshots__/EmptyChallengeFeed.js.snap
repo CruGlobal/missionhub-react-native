@@ -23,7 +23,7 @@ exports[`Empty Challenge Feed rendering renders correctly for challenge feed 1`]
   }
 >
   <NullStateComponent
-    descriptionText="You can view and complete challenges here."
+    descriptionText="You can view, accept, and complete challenges here."
     headerText="Challenges"
     imageSource={
       Object {

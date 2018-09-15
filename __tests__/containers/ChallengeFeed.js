@@ -6,6 +6,7 @@ import ChallengeFeed from '../../src/containers/ChallengeFeed';
 import { renderShallow } from '../../testUtils';
 import { ORG_PERMISSIONS } from '../../src/constants';
 import * as navigation from '../../src/actions/navigation';
+import * as challenges from '../../src/actions/challenges';
 import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
 
 const myId = '123';
@@ -106,16 +107,25 @@ describe('Challenge Feed rendering', () => {
 
 describe('item action methods', () => {
   let item;
+  const challenge = { id: '1' };
   beforeEach(() => {
-    item = component.props().renderItem({ item: { id: '1' } });
+    item = component.props().renderItem({ item: challenge });
   });
   it('calls handleComplete', () => {
-    const result = item.props.onComplete(item);
-    expect(result).toBe(item);
+    challenges.completeChallenge = jest.fn(() => ({ type: 'complete' }));
+    item.props.onComplete(challenge);
+    expect(challenges.completeChallenge).toHaveBeenCalledWith(
+      challenge,
+      organization.id,
+    );
   });
   it('calls handleJoin', () => {
-    const result = item.props.onJoin(item);
-    expect(result).toBe(item);
+    challenges.joinChallenge = jest.fn(() => ({ type: 'join' }));
+    item.props.onJoin(challenge);
+    expect(challenges.joinChallenge).toHaveBeenCalledWith(
+      challenge,
+      organization.id,
+    );
   });
   it('calls handleEdit', () => {
     const instance = component.instance();
@@ -169,4 +179,15 @@ it('calls handleEndDrag', () => {
 it('calls handleRefreshing', () => {
   component.props().onRefresh();
   expect(props.refreshCallback).toHaveBeenCalled();
+});
+
+it('calls editChallenge', () => {
+  const instance = component.instance();
+  const challenge = { id: '1' };
+  challenges.updateChallenge = jest.fn(() => ({ type: 'update' }));
+  instance.editChallenge(challenge);
+  expect(challenges.updateChallenge).toHaveBeenCalledWith(
+    challenge,
+    organization.id,
+  );
 });

@@ -1,52 +1,90 @@
-import { DEFAULT_PAGE_LIMIT, RESET_CHALLENGE_PAGINATION } from '../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CHALLENGE_PAGINATION,
+  RESET_CELEBRATION_PAGINATION,
+} from '../constants';
 import { formatApiDate } from '../utils/common';
 
 import callApi, { REQUESTS } from './api';
 
-// TODO: Combine the logic for challenges and celebration because they are so similar
-export function getGroupChallengeFeed(orgId) {
-  return (dispatch, getState) => {
-    const org = (getState().organizations.all || []).find(o => o.id === orgId);
+const getOrg = (orgId, getState) =>
+  (getState().organizations.all || []).find(o => o.id === orgId);
 
-    const { page, hasNextPage } = org.challengePagination
-      ? org.challengePagination
+const getFeedType = type =>
+  type === 'challenge'
+    ? REQUESTS.GET_GROUP_CHALLENGE_FEED
+    : REQUESTS.GET_GROUP_CELEBRATE_FEED;
+
+const getPaginationType = type =>
+  type === 'challenge' ? 'challengePagination' : 'celebratePagination';
+
+// Query for the celebrate and challenge feeds
+function buildQuery(type, orgId, page, personId) {
+  return {
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: DEFAULT_PAGE_LIMIT * page,
+    },
+    ...(type === 'celebrate' ? { orgId } : {}),
+    ...(type === 'celebrate' && personId
+      ? { filters: { subject_person_ids: personId } }
+      : {}),
+    ...(type === 'challenge' ? { filters: { organization_ids: orgId } } : {}),
+  };
+}
+
+const resetPaginationAction = (type, orgId) => {
+  return {
+    type:
+      type === 'challenge'
+        ? RESET_CHALLENGE_PAGINATION
+        : RESET_CELEBRATION_PAGINATION,
+    orgId,
+  };
+};
+
+// Use this for the challenge and celebrate feeds
+export function getFeed(type, orgId, personId = null) {
+  return (dispatch, getState) => {
+    const org = getOrg(orgId, getState);
+    const pagingType = getPaginationType(type);
+    const { page, hasNextPage } = org[pagingType]
+      ? org[pagingType]
       : { page: 0, hasNextPage: true };
 
     if (!hasNextPage) {
       // Does not have more data
       return Promise.resolve();
     }
-    const query = buildQuery(orgId, page);
-    return dispatch(callApi(REQUESTS.GET_GROUP_CHALLENGE_FEED, query));
+    const query = buildQuery(type, orgId, page, personId);
+
+    return dispatch(callApi(getFeedType(type), query));
   };
 }
 
-export function reloadGroupChallengeFeed(orgId) {
+// Use this for reloading the challenge and celebrate feeds
+export function reloadFeed(type, orgId) {
   return (dispatch, getState) => {
-    const org = (getState().organizations.all || []).find(o => o.id === orgId);
+    const org = getOrg(orgId, getState);
+    const pagingType = getPaginationType(type);
 
-    if (org && org.challengePagination) {
-      dispatch(resetPaginationAction(orgId));
-      return dispatch(getGroupChallengeFeed(orgId));
+    if (org && org[pagingType]) {
+      dispatch(resetPaginationAction(type, orgId));
+      return dispatch(getFeed(type, orgId));
     }
     return Promise.resolve();
   };
 }
 
-const resetPaginationAction = orgId => ({
-  type: RESET_CHALLENGE_PAGINATION,
-  orgId,
-});
+export function getGroupChallengeFeed(orgId) {
+  return dispatch => {
+    return dispatch(getFeed('challenge', orgId));
+  };
+}
 
-function buildQuery(orgId, page) {
-  return {
-    page: {
-      limit: DEFAULT_PAGE_LIMIT,
-      offset: DEFAULT_PAGE_LIMIT * page,
-    },
-    filters: {
-      organization_ids: orgId,
-    },
+export function reloadGroupChallengeFeed(orgId) {
+  return dispatch => {
+    return dispatch(reloadFeed('challenge', orgId));
   };
 }
 
