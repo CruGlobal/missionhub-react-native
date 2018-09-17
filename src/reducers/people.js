@@ -56,6 +56,8 @@ export default function peopleReducer(state = initialState, action) {
       return loadPeople(state, action);
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
+    case REQUESTS.UPDATE_CONTACT_ASSIGNMENT.SUCCESS:
+      return updateContactAssignment(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -116,6 +118,48 @@ function loadContactsFromSteps(state, action) {
   return {
     ...state,
     allByOrg,
+  };
+}
+
+function updateContactAssignment(state, action) {
+  const { response } = action.results;
+  const orgId = response.organization.id;
+  const personId = response.person.id;
+  const contactAssignmentId = response.id;
+
+  const currentOrg = state.allByOrg[orgId] || {};
+  const currentPerson =
+    (currentOrg.people && currentOrg.people[personId]) || {};
+  const currentContactAssignments =
+    currentPerson.reverse_contact_assignments || [];
+  const currentAssignment = currentContactAssignments.find(
+    assignment => assignment.id === contactAssignmentId,
+  );
+
+  const newContactAssignments = currentAssignment
+    ? currentContactAssignments.map(
+        assignment =>
+          assignment.id === contactAssignmentId
+            ? { ...assignment, ...response }
+            : assignment,
+      )
+    : [...currentContactAssignments, response];
+
+  return {
+    ...state,
+    allByOrg: {
+      ...state.allByOrg,
+      [orgId]: {
+        ...currentOrg,
+        people: {
+          ...(currentOrg.people || {}),
+          [personId]: {
+            ...currentPerson,
+            reverse_contact_assignments: newContactAssignments,
+          },
+        },
+      },
+    },
   };
 }
 

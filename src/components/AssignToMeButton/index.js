@@ -14,7 +14,6 @@ class AssignToMeButton extends Component {
     const { dispatch, person, organization, myId, onComplete } = this.props;
     await dispatch(assignContactAndPickStage(person, organization, myId));
     if (onComplete) {
-      console.log('here');
       onComplete();
     }
   };
