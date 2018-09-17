@@ -5,8 +5,8 @@ import thunk from 'redux-thunk';
 import ChallengeFeed from '../../src/containers/ChallengeFeed';
 import { renderShallow } from '../../testUtils';
 import { ORG_PERMISSIONS } from '../../src/constants';
-
-jest.mock('../../src/actions/celebration');
+import * as navigation from '../../src/actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
 
 const myId = '123';
 const organization = { id: '456' };
@@ -118,8 +118,16 @@ describe('item action methods', () => {
     expect(result).toBe(item);
   });
   it('calls handleEdit', () => {
-    const result = item.props.onEdit(item);
-    expect(result).toBe(item);
+    const instance = component.instance();
+    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
+    const challenge = { id: '1', end_date: date };
+    item.props.onEdit(challenge);
+
+    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
+      isEdit: true,
+      challenge,
+      onComplete: instance.editChallenge,
+    });
   });
 });
 

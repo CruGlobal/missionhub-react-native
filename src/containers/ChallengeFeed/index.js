@@ -8,7 +8,8 @@ import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 // import { completeChallenge, joinChallenge } from '../../actions/challenges';
-// import { navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 
 import styles from './styles';
 
@@ -59,17 +60,27 @@ class ChallengeFeed extends Component {
     // const { organization, dispatch } = this.props;
     // dispatch(completeChallenge(item, organization.id));
   };
+
   handleJoin = item => {
     // TODO: Implement this once the API is ready
     return item;
     // const { organization, dispatch } = this.props;
     // dispatch(joinChallenge(item, organization.id));
   };
+
+  editChallenge = challenge => {
+    // TODO: API call to edit challenge
+    return challenge;
+  };
+
   handleEdit = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(navigatePush(ADD_CHALLENGE_SCREEN));
+    this.props.dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        isEdit: true,
+        challenge: item,
+        onComplete: this.editChallenge,
+      }),
+    );
   };
 
   render() {
@@ -107,7 +118,7 @@ const mapStateToProps = ({ auth }, { organization }) => {
       person: auth.person,
       organization: { id: organization.id },
     });
-  let canEditChallenges =
+  const canEditChallenges =
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     canEditChallenges,

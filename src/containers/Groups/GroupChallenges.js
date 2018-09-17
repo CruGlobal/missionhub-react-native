@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -8,9 +9,12 @@ import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
 } from '../../actions/challenges';
+import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
+import { navigatePush } from '../../actions/navigation';
+import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
@@ -45,23 +49,47 @@ export class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
+  createChallenge = challenge => {
+    // TODO: API call to create the challenge
+    return challenge;
+  };
+
+  create = () => {
+    this.props.dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        onComplete: this.createChallenge,
+      }),
+    );
+  };
+
   render() {
     const { refreshing } = this.state;
-    const { challengeItems, organization } = this.props;
+    const { t, challengeItems, organization } = this.props;
 
-    return challengeItems.length !== 0 ? (
-      <ChallengeFeed
-        organization={organization}
-        items={challengeItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
-    ) : (
-      <EmptyChallengeFeed
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
+    return (
+      <View style={{ flex: 1 }}>
+        {challengeItems.length !== 0 ? (
+          <ChallengeFeed
+            organization={organization}
+            items={challengeItems}
+            loadMoreItemsCallback={this.loadItems}
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        ) : (
+          <EmptyChallengeFeed
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        )}
+        <Flex align="stretch" justify="end">
+          <Button
+            type="secondary"
+            onPress={this.create}
+            text={t('create').toUpperCase()}
+          />
+        </Flex>
+      </View>
     );
   }
 }
@@ -78,7 +106,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
       creator_id: 'person1',
       organization_id: organization.id,
       title: 'Read "There and Back Again"',
-      end_date: '2018-12-06T14:13:21Z',
+      end_date: '2018-09-30T23:59:59Z',
       accepted: 5,
       completed: 3,
       days_remaining: 14,
@@ -88,7 +116,7 @@ export const mapStateToProps = ({ organizations }, { organization }) => {
       creator_id: 'person2',
       organization_id: organization.id,
       title: 'Invite a neighbor over for mince pie.',
-      end_date: '2018-09-30T13:50:00Z',
+      end_date: '2018-10-06T23:59:59Z',
       accepted: 5,
       completed: 3,
       days_remaining: 14,

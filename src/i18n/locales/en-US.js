@@ -74,7 +74,7 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
-    done: 'DONE',
+    done: 'Done',
     next: 'Next',
     ok: 'Ok',
     logout: 'Logout',
@@ -472,6 +472,19 @@ export default {
     completed: '{{count}} Completed',
     join: 'Join Challenge',
   },
+  addChallenge: {
+    editHeader: 'Edit Challenge',
+    addHeader: 'New Challenge',
+    add: 'Create Challenge',
+    save: 'Save Changes',
+    titlePlaceholder: 'Enter a Challenge',
+    titleLabel: 'Challenge',
+    datePlaceholder: 'End Date (Required)',
+    dateLabel: 'End Date',
+  },
+  groupsChallenge: {
+    create: 'Create Challenge',
+  },
   groupsMembers: {
     title: '',
   },
@@ -493,6 +506,9 @@ export default {
   },
   contactItem: {
     unassigned: 'Unassigned',
+  },
+  datePicker: {
+    date: 'Date',
   },
   groupsContactItem: {
     status: 'Status: {{status}}',
