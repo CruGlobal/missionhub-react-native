@@ -62,8 +62,8 @@ export class SearchPeopleScreen extends Component {
   }
 
   getPeopleByOrg(results) {
-    let people = findAllNonPlaceHolders(results, 'person');
-    let orgPeople = [];
+    const people = findAllNonPlaceHolders(results, 'person');
+    const orgPeople = [];
     people.forEach(p => {
       if (p && p.organizational_permissions) {
         p.organizational_permissions.forEach(o => {
@@ -109,7 +109,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   removeFilter = key => {
-    let filters = { ...this.state.filters };
+    const filters = { ...this.state.filters };
     delete filters[key];
     this.setState({ filters });
     this.handleSearch(this.state.text);

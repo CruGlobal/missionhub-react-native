@@ -41,7 +41,8 @@
     "no-undef": 2,
     "no-unused-vars": 2,
     "curly": 2,
-    "require-await": 2
+    "require-await": 2,
+    "prefer-const": 2
   },
   "settings": {
     "import/resolver": {

@@ -61,8 +61,9 @@ class AddContactScreen extends Component {
     } = this.props;
     const saveData = { ...this.state.person };
 
+    // For new User/Admin people, the name, email, and permissions are required fields
     if (
-      !saveData.email &&
+      (!saveData.email || !saveData.firstName) &&
       saveData.orgPermission &&
       (saveData.orgPermission.permission_id === ORG_PERMISSIONS.USER ||
         saveData.orgPermission.permission_id === ORG_PERMISSIONS.ADMIN)
@@ -165,7 +166,7 @@ class AddContactScreen extends Component {
   navigateBack = () => this.props.dispatch(navigateBack());
 
   render() {
-    const { t, organization, person, isJean } = this.props;
+    const { t, organization, person, isJean, isInvite } = this.props;
     const orgName = organization ? organization.name : undefined;
 
     return (
@@ -192,6 +193,7 @@ class AddContactScreen extends Component {
             person={person}
             organization={organization}
             isJean={isJean}
+            isGroupInvite={isInvite}
             onUpdateData={this.handleUpdateData}
           />
         </ScrollView>
@@ -211,6 +213,7 @@ AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
   onComplete: PropTypes.func,
+  isInvite: PropTypes.bool,
 };
 
 const mapStateToProps = ({ auth }, { navigation }) => {
