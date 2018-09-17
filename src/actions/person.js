@@ -324,7 +324,7 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(personId, orgId) {
+export function navToPersonScreen(personId, orgId, props) {
   return (dispatch, getState) => {
     const { auth, people, organizations } = getState();
 
@@ -347,6 +347,7 @@ export function navToPersonScreen(personId, orgId) {
           contactAssignment,
         ),
         {
+          ...props,
           person,
           organization,
         },

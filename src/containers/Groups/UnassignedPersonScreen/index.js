@@ -27,7 +27,7 @@ class UnassignedPersonScreen extends Component {
   };
 
   render() {
-    const { organization, person, me } = this.props;
+    const { organization, person, me, onAssign } = this.props;
     const { activity } = this.state;
 
     return (
@@ -42,6 +42,7 @@ class UnassignedPersonScreen extends Component {
           person={person}
           organization={organization}
           myId={me.id}
+          onAssign={onAssign}
         />
         <CommentBox
           onSubmit={this.loadFeed}
@@ -56,6 +57,7 @@ class UnassignedPersonScreen extends Component {
 UnassignedPersonScreen.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
+  onAssign: PropTypes.func,
 };
 
 const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
@@ -68,6 +70,7 @@ const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
   const person = personSelector({ people }, { personId, orgId });
 
   return {
+    ...(navigation.state.params || {}),
     person,
     organization,
     me: auth.person,
