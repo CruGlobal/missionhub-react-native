@@ -7,6 +7,7 @@ export default {
       lastName: 'Last Name',
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
+      emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
       call: 'Call',
       message: 'Message',
@@ -169,7 +170,7 @@ export default {
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',
     alertPermissionsMustHaveEmail:
-      'Contact with User or Admin permissions must have email address',
+      'Contact with User or Admin permissions must have email address and first name',
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
@@ -461,7 +462,7 @@ export default {
       '{{initiator}} saw something cool happen with someone.',
   },
   groupsMembers: {
-    title: '',
+    invite: 'Send Invite',
   },
   groupsImpact: {
     title: '',
