@@ -7,7 +7,7 @@ import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import {
   completeChallenge,
@@ -74,11 +74,15 @@ class ChallengeFeed extends Component {
   };
 
   handleEdit = item => {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge: item,
-        onComplete: this.editChallenge,
+        onComplete: challenge => {
+          this.editChallenge(challenge);
+          dispatch(navigateBack());
+        },
       }),
     );
   };

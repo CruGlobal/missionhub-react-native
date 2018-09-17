@@ -106,7 +106,9 @@ export function completeChallenge(item, orgId) {
 }
 
 export function joinChallenge(item, orgId) {
-  const query = {};
+  const query = {
+    challengeId: item.id,
+  };
   const bodyData = {
     data: {
       attributes: {
@@ -138,12 +140,14 @@ export function createChallenge(challenge, orgId) {
 }
 
 export function updateChallenge(challenge, orgId) {
-  const query = {};
   if (!challenge || !challenge.id) {
     return Promise.reject(
       `Invalid Data from updateChallenge: no challenge passed in`,
     );
   }
+  const query = {
+    challengeId: challenge.id,
+  };
   const attributes = {};
   if (challenge.title) {
     attributes.title = challenge.title;

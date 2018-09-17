@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import { Card, Text, Flex, Button, Dot } from '../../components/common';
 import GREY_CHECK from '../../../assets/images/check-grey.png';
@@ -28,19 +29,28 @@ class ChallengeItem extends Component {
     const { t, item, onEdit } = this.props;
     const {
       title,
-      // end_date,
-      accepted,
-      completed,
-      days_remaining,
+      end_date,
+      accepted_count,
+      completed_count,
       accepted_at,
       isPast,
-      total_days,
+      created_at,
       completed_at,
     } = item;
+
+    // Total days or days remaining
+    const days = isPast
+      ? moment(created_at) - moment(end_date)
+      : moment(end_date).diff(moment(), 'days');
 
     const canEdit = !isPast && onEdit;
     const canJoin = !isPast && !accepted_at;
     const showCheck = accepted_at;
+
+    let daysText = t(isPast ? 'totalDays' : 'daysRemaining', { count: days });
+    if (days <= 0) {
+      daysText = t('dates.today');
+    }
 
     return (
       <Card style={[styles.card, canJoin ? styles.joinCard : null]}>
@@ -59,20 +69,16 @@ class ChallengeItem extends Component {
                   <Dot style={styles.dot} />
                 </Fragment>
               ) : null}
-              <Text style={styles.info}>
-                {t(isPast ? 'totalDays' : 'daysRemaining', {
-                  days: isPast ? total_days : days_remaining,
-                })}
-              </Text>
+              <Text style={styles.info}>{daysText}</Text>
               <Dot style={styles.dot} />
               <Text style={styles.info}>
-                {t('accepted', { count: accepted })}
+                {t('accepted', { count: accepted_count })}
               </Text>
-              {completed ? (
+              {completed_count ? (
                 <Fragment>
                   <Dot style={styles.dot} />
                   <Text style={styles.info}>
-                    {t('completed', { count: completed })}
+                    {t('completed', { count: completed_count })}
                   </Text>
                 </Fragment>
               ) : null}

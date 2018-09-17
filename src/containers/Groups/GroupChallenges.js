@@ -14,7 +14,7 @@ import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
@@ -56,9 +56,13 @@ export class GroupChallenges extends Component {
   };
 
   create = () => {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        onComplete: this.createChallenge,
+        onComplete: challenge => {
+          this.createChallenge(challenge);
+          dispatch(navigateBack());
+        },
       }),
     );
   };
@@ -107,7 +111,6 @@ export const mapStateToProps = ({ auth, organizations }, { organization }) => {
   const challengeItems = challengesSelector({
     challengeItems: (selectorOrg || {}).challengeItems || [],
   });
-  console.log('challengeItems', challengeItems);
 
   return {
     challengeItems,
