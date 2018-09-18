@@ -10,7 +10,6 @@ import { Button, Text, Flex, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
-import { momentUtc } from '../../utils/common';
 
 import styles from './styles';
 
@@ -20,7 +19,7 @@ class AddChallengeScreen extends Component {
     super(props);
     const { isEdit, challenge } = props;
 
-    const date = isEdit ? momentUtc(challenge.end_date) : '';
+    const date = isEdit ? moment(challenge.end_date).endOf('day') : '';
     this.state = {
       title: isEdit ? challenge.title : '',
       date,
@@ -54,7 +53,6 @@ class AddChallengeScreen extends Component {
       title: formattedTitle,
       // Set the date to the end of the day (11:59 PM) so that the challenge ends at the end of the day
       date: moment(new Date(date))
-        .utc()
         .endOf('day')
         .format(),
     };

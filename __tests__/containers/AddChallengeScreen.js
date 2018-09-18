@@ -96,7 +96,6 @@ describe('create methods', () => {
     const challenge = {
       title: 'New Title',
       date: moment()
-        .utc()
         .endOf('day')
         .format(),
     };
@@ -153,7 +152,6 @@ describe('edit methods', () => {
     const challenge = {
       title: editChallenge.title,
       date: moment(editChallenge.end_date)
-        .utc()
         .endOf('day')
         .format(),
       id: editChallenge.id,

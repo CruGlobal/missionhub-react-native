@@ -26,6 +26,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       Object {
         "data": Array [
           Object {
+            "accepted_community_challenges": Array [],
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person1",
@@ -36,7 +37,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "title": "Read \\"There and Back Again\\"",
           },
           Object {
-            "accepted_at": "2018-09-06T14:13:21Z",
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person2",
@@ -52,6 +60,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       Object {
         "data": Array [
           Object {
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
             "accepted_count": 5,
             "completed_count": 0,
             "creator_id": "person3",
@@ -63,9 +79,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "total_days": 7,
           },
           Object {
-            "accepted_at": "2018-09-06T14:13:21Z",
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
             "accepted_count": 5,
-            "completed_at": "2018-09-06T14:13:21Z",
             "completed_count": 3,
             "creator_id": "person4",
             "days_remaining": 0,
@@ -88,8 +110,10 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 
 exports[`renders item 1`] = `
 <Translate(ChallengeItem)
+  acceptedChallenge={undefined}
   item={
     Object {
+      "accepted_community_challenges": Array [],
       "accepted_count": 5,
       "completed_count": 3,
       "creator_id": "person1",

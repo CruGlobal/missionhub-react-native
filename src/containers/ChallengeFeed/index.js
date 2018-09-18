@@ -24,6 +24,12 @@ class ChallengeFeed extends Component {
     this.state = { ...this.state, isListScrolled: false };
   }
 
+  getAcceptedChallenge({ accepted_community_challenges }) {
+    return accepted_community_challenges.find(
+      c => c.person && c.person.id === this.props.myId,
+    );
+  }
+
   renderSectionHeader = ({ section: { title } }) => (
     <Flex style={styles.header} align="center">
       <Text style={styles.title}>{title}</Text>
@@ -36,13 +42,14 @@ class ChallengeFeed extends Component {
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
       onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
+      acceptedChallenge={this.getAcceptedChallenge(item)}
     />
   );
 
   keyExtractor = item => item.id;
 
   handleOnEndReached = () => {
-    if (this.state.isListScrolled) {
+    if (this.state.isListScrolled && !this.props.refreshing) {
       this.props.loadMoreItemsCallback();
       this.setState({ isListScrolled: false });
     }
@@ -60,7 +67,11 @@ class ChallengeFeed extends Component {
 
   handleComplete = challenge => {
     const { organization, dispatch } = this.props;
-    dispatch(completeChallenge(challenge, organization.id));
+    const accepted_challenge = this.getAcceptedChallenge(challenge);
+    if (!accepted_challenge) {
+      return;
+    }
+    dispatch(completeChallenge(accepted_challenge, organization.id));
   };
 
   handleJoin = challenge => {
@@ -126,6 +137,7 @@ const mapStateToProps = ({ auth }, { organization }) => {
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     canEditChallenges,
+    myId: auth.person.id,
   };
 };
 export default connect(mapStateToProps)(ChallengeFeed);

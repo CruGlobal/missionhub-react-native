@@ -1168,7 +1168,7 @@ exports[`render past challenge item 1`] = `
             }
           }
         >
-          8 Day Challenge
+          9 Day Challenge
         </MyText>
         <Dot
           style={

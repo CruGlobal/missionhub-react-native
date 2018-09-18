@@ -26,26 +26,28 @@ class ChallengeItem extends Component {
   };
 
   render() {
-    const { t, item, onEdit } = this.props;
+    const { t, item, acceptedChallenge, onEdit } = this.props;
     const {
       title,
       end_date,
       accepted_count,
       completed_count,
-      accepted_at, // TODO: Still waiting on the API to give a field like this
       isPast,
       created_at,
-      completed_at,
     } = item;
 
     // Total days or days remaining
+    const endDate = moment(end_date).endOf('day');
+    const today = moment().endOf('day');
     const days = isPast
-      ? moment(end_date).diff(moment(created_at), 'days')
-      : moment(end_date).diff(moment(), 'days');
+      ? endDate.diff(moment(created_at), 'days')
+      : endDate.diff(today, 'days');
 
     const canEdit = !isPast && onEdit;
-    const canJoin = !isPast && !accepted_at;
-    const showCheck = accepted_at;
+    const canJoin = !isPast && !acceptedChallenge;
+    const showCheck = !!acceptedChallenge;
+    const completed =
+      acceptedChallenge && acceptedChallenge.completed_at ? true : false;
 
     let daysText = t(isPast ? 'totalDays' : 'daysRemaining', { count: days });
     if (days <= 0) {
@@ -86,11 +88,11 @@ class ChallengeItem extends Component {
           </Flex>
           {showCheck ? (
             <Button
-              disabled={!!completed_at}
+              disabled={completed}
               onPress={this.handleComplete}
               style={styles.completeIcon}
             >
-              <Image source={completed_at ? BLUE_CHECK : GREY_CHECK} />
+              <Image source={completed ? BLUE_CHECK : GREY_CHECK} />
             </Button>
           ) : null}
         </Flex>
@@ -113,6 +115,7 @@ ChallengeItem.propTypes = {
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
+  acceptedChallenge: PropTypes.object,
 };
 
 export default ChallengeItem;

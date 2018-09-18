@@ -959,7 +959,7 @@ exports[`renders edit journey correctly 1`] = `
                       }
                     >
                       <RCTDatePicker
-                        date={1538351999000}
+                        date={1538366399999}
                         locale={undefined}
                         maximumDate={undefined}
                         minimumDate={1535760000000}

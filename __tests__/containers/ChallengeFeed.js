@@ -22,6 +22,12 @@ const store = configureStore([thunk])({
   },
 });
 
+const accepted_community_challenges = [
+  {
+    id: 'a1',
+    person: { id: myId },
+  },
+];
 const date = '2018-09-06T14:13:21Z';
 const challengeItems = [
   {
@@ -36,6 +42,7 @@ const challengeItems = [
         accepted_count: 5,
         completed_count: 3,
         days_remaining: 14,
+        accepted_community_challenges: [],
       },
       {
         id: '2',
@@ -46,7 +53,7 @@ const challengeItems = [
         accepted_count: 5,
         completed_count: 3,
         days_remaining: 14,
-        accepted_at: date,
+        accepted_community_challenges,
       },
     ],
   },
@@ -63,6 +70,7 @@ const challengeItems = [
         completed_count: 0,
         days_remaining: 0,
         total_days: 7,
+        accepted_community_challenges,
       },
       {
         id: '4',
@@ -74,8 +82,7 @@ const challengeItems = [
         completed_count: 3,
         days_remaining: 0,
         total_days: 7,
-        accepted_at: date,
-        completed_at: date,
+        accepted_community_challenges,
       },
     ],
   },
@@ -107,7 +114,7 @@ describe('Challenge Feed rendering', () => {
 
 describe('item action methods', () => {
   let item;
-  const challenge = { id: '1' };
+  const challenge = { id: '1', accepted_community_challenges };
   beforeEach(() => {
     item = component.props().renderItem({ item: challenge });
   });
@@ -115,7 +122,7 @@ describe('item action methods', () => {
     challenges.completeChallenge = jest.fn(() => ({ type: 'complete' }));
     item.props.onComplete(challenge);
     expect(challenges.completeChallenge).toHaveBeenCalledWith(
-      challenge,
+      accepted_community_challenges[0],
       organization.id,
     );
   });
