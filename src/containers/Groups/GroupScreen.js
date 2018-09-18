@@ -10,6 +10,7 @@ import ImpactView from '../ImpactView';
 import IconButton from '../../components/IconButton';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { buildTrackingObj } from '../../utils/common';
+import { getOrganizationMembers } from '../../actions/organizations';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -29,6 +30,10 @@ export class GroupScreen extends Component {
         onComplete: () => {
           // You go through 4 screens for adding a person, so pop back to the first one
           dispatch(navigateBack(4));
+          // refresh the members list after creating a new person
+          if (organization.id) {
+            dispatch(getOrganizationMembers(organization.id));
+          }
         },
       }),
     );
