@@ -128,7 +128,7 @@ function handleNotification(notification) {
         }
         return;
       case 'my_steps':
-        return dispatch(navToPersonScreen(me));
+        return dispatch(navToPersonScreen(me.id));
       case 'add_a_person':
         return dispatch(
           navigatePush(ADD_CONTACT_SCREEN, {

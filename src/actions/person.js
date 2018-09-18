@@ -328,7 +328,8 @@ export function navToPersonScreen(personId, orgId, props = {}) {
   return (dispatch, getState) => {
     const { auth, people, organizations } = getState();
 
-    const organization = organizationSelector({ organizations }, { orgId });
+    const organization =
+      organizationSelector({ organizations }, { orgId }) || {};
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
     const person = personSelector({ people }, { orgId, personId });
 

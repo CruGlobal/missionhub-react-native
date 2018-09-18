@@ -309,7 +309,7 @@ describe('askNotificationPermissions', () => {
         organization_id: '2',
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id, '2');
       expect(store.getActions()).toMatchSnapshot();
     });
 
@@ -328,13 +328,13 @@ describe('askNotificationPermissions', () => {
         },
       });
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id, '2');
       expect(store.getActions()).toMatchSnapshot();
     });
 
     it("should deep link to ME user's contact screen", () => {
       testNotification({ screen: 'my_steps' });
-      expect(navToPersonScreen).toHaveBeenCalledWith(person);
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toMatchSnapshot();
     });
 
