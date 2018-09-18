@@ -21,7 +21,7 @@ const store = createMockStore();
 const editChallenge = {
   id: '1',
   title: 'Test Title',
-  end_date: '2018-09-30T23:59:59Z',
+  end_date: '2018-09-30',
 };
 
 it('renders correctly', () => {
@@ -36,18 +36,22 @@ it('renders correctly', () => {
   );
 });
 
-it('renders edit journey correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddChallengeScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          challenge: editChallenge,
-          isEdit: true,
-        })}
-      />
-    </Provider>,
+it('renders edit challenge correctly', () => {
+  Enzyme.configure({ adapter: new Adapter() });
+  const component = renderShallow(
+    <AddChallengeScreen
+      navigation={createMockNavState({
+        onComplete: jest.fn(),
+        challenge: editChallenge,
+        isEdit: true,
+      })}
+    />,
+    store,
   );
+  component.setState({ date: '2018-09-30 23:59:59' });
+  component.update();
+
+  expect(component).toMatchSnapshot();
 });
 
 describe('create methods', () => {
