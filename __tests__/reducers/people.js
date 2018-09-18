@@ -8,9 +8,10 @@ import {
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
+const orgId = '100';
 const orgs = {
-  '100': {
-    id: '100',
+  [orgId]: {
+    id: orgId,
     name: 'Test Org',
     people: {
       '1': { id: '1' },
@@ -244,5 +245,83 @@ it('should save new people and update existing people from steps', () => {
         [person4Id]: newPerson4,
       },
     },
+  });
+});
+
+describe('REQUESTS.UPDATE_CONTACT_ASSIGNMENT', () => {
+  const organization = { id: '111' };
+  const person = { id: '1' };
+  const oldContactAssignment = { id: '123', organization, person };
+  const newContactAssignment = { ...oldContactAssignment, pathway_stage_id: 1 };
+
+  it('should update existing reverse contact assignment', () => {
+    const state = people(
+      {
+        allByOrg: {
+          [organization.id]: {
+            id: organization.id,
+            people: {
+              [person.id]: {
+                id: person.id,
+                reverse_contact_assignments: [oldContactAssignment],
+              },
+            },
+          },
+        },
+      },
+      {
+        type: REQUESTS.UPDATE_CONTACT_ASSIGNMENT.SUCCESS,
+        results: {
+          response: newContactAssignment,
+        },
+      },
+    );
+
+    expect(state.allByOrg).toEqual({
+      [organization.id]: {
+        id: organization.id,
+        people: {
+          [person.id]: {
+            id: person.id,
+            reverse_contact_assignments: [newContactAssignment],
+          },
+        },
+      },
+    });
+  });
+
+  it('should add new reverse contact assignment', () => {
+    const state = people(
+      {
+        allByOrg: {
+          [organization.id]: {
+            id: organization.id,
+            people: {
+              [person.id]: {
+                id: person.id,
+              },
+            },
+          },
+        },
+      },
+      {
+        type: REQUESTS.UPDATE_CONTACT_ASSIGNMENT.SUCCESS,
+        results: {
+          response: newContactAssignment,
+        },
+      },
+    );
+
+    expect(state.allByOrg).toEqual({
+      [organization.id]: {
+        id: organization.id,
+        people: {
+          [person.id]: {
+            id: person.id,
+            reverse_contact_assignments: [newContactAssignment],
+          },
+        },
+      },
+    });
   });
 });
