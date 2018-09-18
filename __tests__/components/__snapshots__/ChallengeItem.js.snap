@@ -58,7 +58,7 @@ exports[`render active and joined and completed challenge item 1`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -191,7 +191,7 @@ exports[`render active and joined and completed challenge item 2`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -324,7 +324,7 @@ exports[`render active and joined challenge item 1`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -481,7 +481,7 @@ exports[`render active and joined challenge item with edit 1`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -617,7 +617,7 @@ exports[`render active challenge item 1`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -773,7 +773,7 @@ exports[`render active challenge item with edit 1`] = `
             }
           }
         >
-          14 Days Left
+          6 Days Left
         </MyText>
         <Dot
           style={
@@ -902,7 +902,7 @@ exports[`render past and active and completed challenge item 1`] = `
             }
           }
         >
-           Day Challenge
+          21 Day Challenge
         </MyText>
         <Dot
           style={
@@ -1035,7 +1035,7 @@ exports[`render past and active challenge item 1`] = `
             }
           }
         >
-           Day Challenge
+          21 Day Challenge
         </MyText>
         <Dot
           style={
@@ -1168,7 +1168,7 @@ exports[`render past challenge item 1`] = `
             }
           }
         >
-           Day Challenge
+          8 Day Challenge
         </MyText>
         <Dot
           style={

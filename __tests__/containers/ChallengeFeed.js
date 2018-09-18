@@ -33,8 +33,8 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Read "There and Back Again"',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 14,
       },
       {
@@ -43,8 +43,8 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Invite a neighbor over for mince pie.',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 14,
         accepted_at: date,
       },
@@ -59,8 +59,8 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Invite Smeagol over for fresh fish',
         end_date: date,
-        accepted: 5,
-        completed: 0,
+        accepted_count: 5,
+        completed_count: 0,
         days_remaining: 0,
         total_days: 7,
       },
@@ -70,8 +70,8 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Who can wear the ring the longest.',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 0,
         total_days: 7,
         accepted_at: date,
@@ -128,7 +128,6 @@ describe('item action methods', () => {
     );
   });
   it('calls handleEdit', () => {
-    const instance = component.instance();
     navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
     const challenge = { id: '1', end_date: date };
     item.props.onEdit(challenge);
@@ -136,7 +135,7 @@ describe('item action methods', () => {
     expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
       isEdit: true,
       challenge,
-      onComplete: instance.editChallenge,
+      onComplete: expect.any(Function),
     });
   });
 });

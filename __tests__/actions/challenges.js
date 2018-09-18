@@ -157,7 +157,7 @@ describe('joinChallenge', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ACCEPT_GROUP_CHALLENGE,
-      {},
+      { challengeId: item.id },
       {
         data: {
           attributes: {
@@ -215,7 +215,7 @@ describe('updateChallenge', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      {},
+      { challengeId: item.id },
       {
         data: {
           attributes: {
@@ -239,7 +239,7 @@ describe('updateChallenge', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      {},
+      { challengeId: item.id },
       {
         data: {
           attributes: {
@@ -264,7 +264,7 @@ describe('updateChallenge', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      {},
+      { challengeId: item.id },
       {
         data: {
           attributes: {

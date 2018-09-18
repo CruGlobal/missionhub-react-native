@@ -32,8 +32,8 @@ const challenge1 = {
   organization_id: '123',
   title: 'Read "There and Back Again"',
   end_date: date,
-  accepted: 5,
-  completed: 3,
+  accepted_count: 5,
+  completed_count: 3,
   days_remaining: 14,
 };
 const challenge2 = {
@@ -42,8 +42,8 @@ const challenge2 = {
   organization_id: '123',
   title: 'Past Challenge',
   end_date: date,
-  accepted: 5,
-  completed: 3,
+  accepted_count: 5,
+  completed_count: 3,
   days_remaining: 0,
 };
 
@@ -160,7 +160,7 @@ it('should call create', () => {
     .onPress();
 
   expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
-    onComplete: instance.createChallenge,
+    onComplete: expect.any(Function),
   });
 });
 

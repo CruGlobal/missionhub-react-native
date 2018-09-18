@@ -1,22 +1,27 @@
 import React from 'react';
+import MockDate from 'mockdate';
 
 import ChallengeItem from '../../src/components/ChallengeItem';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
+import { formatApiDate } from '../../src/utils/common';
 
 jest.mock('../../src/actions/celebration');
 
+MockDate.set('2018-09-15 12:00:00 PM');
+
 const organization = { id: '456' };
-const date = '2018-09-06T14:13:21Z';
+const date = '2018-09-22T14:13:21Z';
 const item = {
   id: '1',
   creator_id: 'person1',
   organization_id: organization.id,
   title: 'Read "There and Back Again"',
   end_date: date,
-  accepted: 5,
-  completed: 3,
+  accepted_count: 5,
+  completed_count: 3,
   days_remaining: 14,
   isPast: false,
+  created_at: '2018-09-01T14:13:21Z',
 };
 const props = {
   onComplete: jest.fn(),
@@ -69,7 +74,14 @@ it('render active and joined and completed challenge item', () => {
 
 it('render past challenge item', () => {
   testSnapshotShallow(
-    <ChallengeItem {...props} item={{ ...item, isPast: true }} />,
+    <ChallengeItem
+      {...props}
+      item={{
+        ...item,
+        isPast: true,
+        end_date: formatApiDate('2018-09-10'),
+      }}
+    />,
   );
 });
 

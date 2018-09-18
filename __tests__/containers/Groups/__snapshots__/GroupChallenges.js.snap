@@ -14,8 +14,8 @@ exports[`should render correctly 1`] = `
         Object {
           "data": Array [
             Object {
-              "accepted": 5,
-              "completed": 3,
+              "accepted_count": 5,
+              "completed_count": 3,
               "creator_id": "person1",
               "days_remaining": 14,
               "end_date": "2018-09-06T14:13:21Z",
@@ -29,8 +29,8 @@ exports[`should render correctly 1`] = `
         Object {
           "data": Array [
             Object {
-              "accepted": 5,
-              "completed": 3,
+              "accepted_count": 5,
+              "completed_count": 3,
               "creator_id": "person1",
               "days_remaining": 0,
               "end_date": "2018-09-06T14:13:21Z",
@@ -48,8 +48,8 @@ exports[`should render correctly 1`] = `
       Object {
         "challengeItems": Array [
           Object {
-            "accepted": 5,
-            "completed": 3,
+            "accepted_count": 5,
+            "completed_count": 3,
             "creator_id": "person1",
             "days_remaining": 14,
             "end_date": "2018-09-06T14:13:21Z",
@@ -58,8 +58,8 @@ exports[`should render correctly 1`] = `
             "title": "Read \\"There and Back Again\\"",
           },
           Object {
-            "accepted": 5,
-            "completed": 3,
+            "accepted_count": 5,
+            "completed_count": 3,
             "creator_id": "person1",
             "days_remaining": 0,
             "end_date": "2018-09-06T14:13:21Z",

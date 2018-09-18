@@ -40,7 +40,7 @@ class ChallengeItem extends Component {
 
     // Total days or days remaining
     const days = isPast
-      ? moment(created_at) - moment(end_date)
+      ? moment(end_date).diff(moment(created_at), 'days')
       : moment(end_date).diff(moment(), 'days');
 
     const canEdit = !isPast && onEdit;
