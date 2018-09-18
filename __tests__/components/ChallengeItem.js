@@ -7,10 +7,10 @@ import { formatApiDate } from '../../src/utils/common';
 
 jest.mock('../../src/actions/celebration');
 
-MockDate.set('2018-09-15 12:00:00 PM');
+MockDate.set('2018-09-15 12:00:00 PM GMT');
 
 const organization = { id: '456' };
-const date = '2018-09-22T14:13:21Z';
+const date = '2018-09-22T23:59:59Z';
 const item = {
   id: '1',
   creator_id: 'person1',
@@ -21,7 +21,7 @@ const item = {
   completed_count: 3,
   days_remaining: 14,
   isPast: false,
-  created_at: '2018-09-01T14:13:21Z',
+  created_at: '2018-09-01T23:59:59Z',
 };
 const props = {
   onComplete: jest.fn(),

@@ -32,7 +32,7 @@ class ChallengeItem extends Component {
       end_date,
       accepted_count,
       completed_count,
-      accepted_at,
+      accepted_at, // TODO: Still waiting on the API to give a field like this
       isPast,
       created_at,
       completed_at,
