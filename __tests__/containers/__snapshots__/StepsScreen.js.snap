@@ -7,6 +7,12 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
     Array [
       Object {
         "id": 2,
+        "organization": Object {
+          "id": "222",
+        },
+        "receiver": Object {
+          "id": "22",
+        },
       },
     ]
   }
@@ -14,6 +20,12 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
     Array [
       Object {
         "id": 2,
+        "organization": Object {
+          "id": "222",
+        },
+        "receiver": Object {
+          "id": "22",
+        },
       },
     ]
   }
@@ -28,6 +40,12 @@ exports[`StepsScreen arrow functions should render item correctly 1`] = `
     step={
       Object {
         "id": 2,
+        "organization": Object {
+          "id": "222",
+        },
+        "receiver": Object {
+          "id": "22",
+        },
       }
     }
     type="swipeable"
@@ -243,9 +261,21 @@ exports[`StepsScreen renders correctly with max reminders 1`] = `
           Array [
             Object {
               "id": 2,
+              "organization": Object {
+                "id": "222",
+              },
+              "receiver": Object {
+                "id": "22",
+              },
             },
             Object {
               "id": 3,
+              "organization": Object {
+                "id": "333",
+              },
+              "receiver": Object {
+                "id": "33",
+              },
             },
           ]
         }
@@ -583,9 +613,21 @@ exports[`StepsScreen renders screen with steps correctly 1`] = `
           Array [
             Object {
               "id": 2,
+              "organization": Object {
+                "id": "222",
+              },
+              "receiver": Object {
+                "id": "22",
+              },
             },
             Object {
               "id": 3,
+              "organization": Object {
+                "id": "333",
+              },
+              "receiver": Object {
+                "id": "33",
+              },
             },
           ]
         }
