@@ -12,6 +12,9 @@ import {
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc, refresh } from '../../utils/common';
+import Flex from '../../components/Flex';
+
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsCelebrate')
 export class GroupCelebrate extends Component {
@@ -52,19 +55,24 @@ export class GroupCelebrate extends Component {
     const { refreshing } = this.state;
     const { celebrateItems, organization } = this.props;
 
-    return celebrateItems.length !== 0 ? (
-      <CelebrateFeed
-        organization={organization}
-        items={celebrateItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
-    ) : (
-      <EmptyCelebrateFeed
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-      />
+    return (
+      <Flex value={1}>
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+        {celebrateItems.length !== 0 ? (
+          <CelebrateFeed
+            organization={organization}
+            items={celebrateItems}
+            loadMoreItemsCallback={this.loadItems}
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        ) : (
+          <EmptyCelebrateFeed
+            refreshCallback={this.refreshItems}
+            refreshing={refreshing}
+          />
+        )}
+      </Flex>
     );
   }
 }

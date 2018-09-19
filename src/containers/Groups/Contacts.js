@@ -13,6 +13,7 @@ import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsContacts')
 class Contacts extends Component {
@@ -122,6 +123,7 @@ class Contacts extends Component {
     const { filters, defaultResults } = this.state;
     return (
       <Flex value={1}>
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
         <SearchList
           ref={this.listRef}
           defaultData={defaultResults}

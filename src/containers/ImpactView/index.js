@@ -14,8 +14,12 @@ import {
   impactInteractionsSelector,
   impactSummarySelector,
 } from '../../selectors/impact';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
 
 import styles from './styles';
+import theme from '../../theme';
 
 const reportPeriods = [
   {
@@ -199,8 +203,13 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isPersonalMinistryMe } = this.props;
-    return (
+    const {
+      globalImpact,
+      impact,
+      isPersonalMinistryMe,
+      organization,
+    } = this.props;
+    const content = (
       <ScrollView style={{ flex: 1 }} bounces={false}>
         <Flex style={styles.topSection}>
           <Text style={[styles.text, styles.topText]}>
@@ -228,6 +237,15 @@ export class ImpactView extends Component {
         </Flex>
       </ScrollView>
     );
+    if (organization) {
+      return (
+        <Flex value={1} style={styles.container}>
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
+          {content}
+        </Flex>
+      );
+    }
+    return content;
   }
 }
 

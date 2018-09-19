@@ -20,6 +20,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsMembers')
 class Members extends Component {
@@ -79,6 +80,7 @@ class Members extends Component {
     const { t, members, pagination, myOrgPermissions } = this.props;
     return (
       <Flex value={1}>
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />
         <FlatList
           data={members}
           keyExtractor={this.keyExtractor}

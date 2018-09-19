@@ -3,6 +3,7 @@ import {
   SWIPE_REMINDER_STEPS_CONTACT,
   SWIPE_REMINDER_STEPS_REMINDER,
   SWIPE_REMINDER_JOURNEY,
+  GROUP_ONBOARDING_CARD,
 } from '../constants';
 
 export function removeSwipeStepsHome() {
@@ -16,4 +17,7 @@ export function removeSwipeStepsReminder() {
 }
 export function removeSwipeJourney() {
   return { type: SWIPE_REMINDER_JOURNEY };
+}
+export function removeGroupOnboardingCard(target) {
+  return { type: GROUP_ONBOARDING_CARD, target, value: false };
 }
