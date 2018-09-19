@@ -1,15 +1,16 @@
+import { getFeed, reloadFeed, CELEBRATE } from '../utils/actions';
+
 import callApi, { REQUESTS } from './api';
-import { getFeed, reloadFeed } from './challenges';
 
 export function getGroupCelebrateFeed(orgId, personId = null) {
   return dispatch => {
-    return dispatch(getFeed('celebrate', orgId, personId));
+    return dispatch(getFeed(CELEBRATE, orgId, personId));
   };
 }
 
 export function reloadGroupCelebrateFeed(orgId) {
   return dispatch => {
-    return dispatch(reloadFeed('celebrate', orgId));
+    return dispatch(reloadFeed(CELEBRATE, orgId));
   };
 }
 

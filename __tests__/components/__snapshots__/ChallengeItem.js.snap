@@ -902,7 +902,7 @@ exports[`render past and active and completed challenge item 1`] = `
             }
           }
         >
-          21 Day Challenge
+          22 Day Challenge
         </MyText>
         <Dot
           style={
@@ -1035,7 +1035,7 @@ exports[`render past and active challenge item 1`] = `
             }
           }
         >
-          21 Day Challenge
+          22 Day Challenge
         </MyText>
         <Dot
           style={
@@ -1086,7 +1086,7 @@ exports[`render past and active challenge item 1`] = `
       </Flex>
     </Flex>
     <Button
-      disabled={false}
+      disabled={true}
       onPress={[Function]}
       style={
         Object {
@@ -1168,7 +1168,7 @@ exports[`render past challenge item 1`] = `
             }
           }
         >
-          9 Day Challenge
+          10 Day Challenge
         </MyText>
         <Dot
           style={

@@ -9,6 +9,16 @@ import * as navigation from '../../src/actions/navigation';
 import * as challenges from '../../src/actions/challenges';
 import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
 
+jest.mock('../../src/actions/challenges', () => ({
+  completeChallenge: jest.fn(() => ({ type: 'complete' })),
+  joinChallenge: jest.fn(() => ({ type: 'join' })),
+  updateChallenge: jest.fn(() => ({ type: 'update' })),
+}));
+
+jest.mock('../../src/actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'push' })),
+}));
+
 const myId = '123';
 const organization = { id: '456' };
 const store = configureStore([thunk])({
@@ -119,7 +129,6 @@ describe('item action methods', () => {
     item = component.props().renderItem({ item: challenge });
   });
   it('calls handleComplete', () => {
-    challenges.completeChallenge = jest.fn(() => ({ type: 'complete' }));
     item.props.onComplete(challenge);
     expect(challenges.completeChallenge).toHaveBeenCalledWith(
       accepted_community_challenges[0],
@@ -127,7 +136,6 @@ describe('item action methods', () => {
     );
   });
   it('calls handleJoin', () => {
-    challenges.joinChallenge = jest.fn(() => ({ type: 'join' }));
     item.props.onJoin(challenge);
     expect(challenges.joinChallenge).toHaveBeenCalledWith(
       challenge,
@@ -135,7 +143,6 @@ describe('item action methods', () => {
     );
   });
   it('calls handleEdit', () => {
-    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
     const challenge = { id: '1', end_date: date };
     item.props.onEdit(challenge);
 
@@ -190,7 +197,6 @@ it('calls handleRefreshing', () => {
 it('calls editChallenge', () => {
   const instance = component.instance();
   const challenge = { id: '1' };
-  challenges.updateChallenge = jest.fn(() => ({ type: 'update' }));
   instance.editChallenge(challenge);
   expect(challenges.updateChallenge).toHaveBeenCalledWith(
     challenge,

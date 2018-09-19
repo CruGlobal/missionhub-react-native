@@ -47,16 +47,11 @@ const defaultStore = {
 
 beforeEach(() => {
   callApi.mockClear();
+  store = createStore(defaultStore);
 });
 
 describe('getGroupChallengeFeed', () => {
-  beforeEach(() => {
-    store = createStore();
-  });
-
   it('gets a page of challenge feed', () => {
-    store = createStore(defaultStore);
-
     callApi.mockReturnValue(apiResult);
 
     store.dispatch(getGroupChallengeFeed(orgId));
@@ -96,13 +91,7 @@ describe('getGroupChallengeFeed', () => {
 });
 
 describe('reloadGroupChallengeFeed', () => {
-  beforeEach(() => {
-    store = createStore();
-  });
-
   it('reload a challenge feed', () => {
-    store = createStore(defaultStore);
-
     callApi.mockReturnValue(apiResult);
 
     store.dispatch(reloadGroupChallengeFeed(orgId));
@@ -122,8 +111,6 @@ describe('completeChallenge', () => {
   const item = { id: '1' };
 
   it('completes a challenge', async () => {
-    store = createStore(defaultStore);
-
     callApi.mockReturnValue(apiResult);
 
     await store.dispatch(completeChallenge(item, orgId));
@@ -149,8 +136,6 @@ describe('joinChallenge', () => {
   const item = { id: '1' };
 
   it('joins a challenge', async () => {
-    store = createStore(defaultStore);
-
     callApi.mockReturnValue(apiResult);
 
     await store.dispatch(joinChallenge(item, orgId));
@@ -178,8 +163,6 @@ describe('createChallenge', () => {
   };
 
   it('creates a challenge', async () => {
-    store = createStore(defaultStore);
-
     callApi.mockReturnValue(apiResult);
 
     await store.dispatch(createChallenge(item, orgId));
@@ -207,7 +190,6 @@ describe('updateChallenge', () => {
       id: '1',
       title: 'Challenge Title',
     };
-    store = createStore(defaultStore);
 
     callApi.mockReturnValue(apiResult);
 
@@ -231,7 +213,6 @@ describe('updateChallenge', () => {
       id: '1',
       date: fakeDate,
     };
-    store = createStore(defaultStore);
 
     callApi.mockReturnValue(apiResult);
 
@@ -256,7 +237,6 @@ describe('updateChallenge', () => {
       title: 'Challenge Title',
       date: fakeDate,
     };
-    store = createStore(defaultStore);
 
     callApi.mockReturnValue(apiResult);
 

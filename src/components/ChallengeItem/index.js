@@ -39,8 +39,9 @@ class ChallengeItem extends Component {
     // Total days or days remaining
     const endDate = moment(end_date).endOf('day');
     const today = moment().endOf('day');
+    // If it's past, make sure it shows "1 day challenge instead of 0 day challenge"
     const days = isPast
-      ? endDate.diff(moment(created_at), 'days')
+      ? endDate.diff(moment(created_at).endOf('day'), 'days') + 1
       : endDate.diff(today, 'days');
 
     const canEdit = !isPast && onEdit;
@@ -50,7 +51,7 @@ class ChallengeItem extends Component {
       acceptedChallenge && acceptedChallenge.completed_at ? true : false;
 
     let daysText = t(isPast ? 'totalDays' : 'daysRemaining', { count: days });
-    if (days <= 0) {
+    if (!isPast && days <= 0) {
       daysText = t('dates.today');
     }
 
@@ -88,7 +89,7 @@ class ChallengeItem extends Component {
           </Flex>
           {showCheck ? (
             <Button
-              disabled={completed}
+              disabled={isPast || completed}
               onPress={this.handleComplete}
               style={styles.completeIcon}
             >

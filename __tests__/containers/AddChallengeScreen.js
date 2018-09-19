@@ -1,6 +1,4 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import MockDate from 'mockdate';
 import moment from 'moment';
@@ -37,7 +35,6 @@ it('renders correctly', () => {
 });
 
 it('renders edit challenge correctly', () => {
-  Enzyme.configure({ adapter: new Adapter() });
   const component = renderShallow(
     <AddChallengeScreen
       navigation={createMockNavState({
@@ -59,7 +56,6 @@ describe('create methods', () => {
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     component = renderShallow(
       <AddChallengeScreen
         navigation={createMockNavState({
@@ -138,7 +134,6 @@ describe('edit methods', () => {
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     component = renderShallow(
       <AddChallengeScreen
         navigation={createMockNavState({
