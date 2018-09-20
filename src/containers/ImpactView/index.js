@@ -19,7 +19,6 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 
 import styles from './styles';
-import theme from '../../theme';
 
 const reportPeriods = [
   {
@@ -209,8 +208,11 @@ export class ImpactView extends Component {
       isPersonalMinistryMe,
       organization,
     } = this.props;
-    const content = (
-      <ScrollView style={{ flex: 1 }} bounces={false}>
+    return (
+      <ScrollView style={styles.container} bounces={false}>
+        {organization ? (
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
+        ) : null}
         <Flex style={styles.topSection}>
           <Text style={[styles.text, styles.topText]}>
             {this.buildImpactSentence(impact)}
@@ -237,15 +239,6 @@ export class ImpactView extends Component {
         </Flex>
       </ScrollView>
     );
-    if (organization) {
-      return (
-        <Flex value={1} style={styles.container}>
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
-          {content}
-        </Flex>
-      );
-    }
-    return content;
   }
 }
 

@@ -53,13 +53,15 @@ class Surveys extends Component {
     <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
   );
 
+  renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />;
+
   render() {
     const { surveys, pagination } = this.props;
     return (
       <Flex value={1}>
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />
         <FlatList
           data={surveys}
+          ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
           style={styles.flatList}
           renderItem={this.renderItem}

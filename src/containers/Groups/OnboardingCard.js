@@ -36,10 +36,12 @@ class OnboardingCard extends Component {
         return null;
     }
   }
+
   handlePress = () => {
     const { type, dispatch } = this.props;
     dispatch(removeGroupOnboardingCard(type));
   };
+
   render() {
     const { t, type, groupOnboarding } = this.props;
     if (!groupOnboarding[type]) {
@@ -63,15 +65,15 @@ class OnboardingCard extends Component {
           <Text style={styles.onboardingDescription}>
             {t(`${type}Description`)}
           </Text>
-          <Flex style={styles.onboardingIconWrap}>
-            <IconButton
-              style={styles.onboardingIcon}
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.handlePress}
-              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-            />
-          </Flex>
+        </Flex>
+        <Flex style={styles.onboardingIconWrap}>
+          <IconButton
+            style={styles.onboardingIcon}
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={this.handlePress}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          />
         </Flex>
       </Card>
     );

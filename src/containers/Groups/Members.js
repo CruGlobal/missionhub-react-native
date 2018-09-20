@@ -76,13 +76,15 @@ class Members extends Component {
     <GroupMemberItem person={item} onSelect={this.handleSelect} />
   );
 
+  renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
+
   render() {
     const { t, members, pagination, myOrgPermissions } = this.props;
     return (
       <Flex value={1}>
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />
         <FlatList
           data={members}
+          ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
           style={styles.flatList}
           renderItem={this.renderItem}

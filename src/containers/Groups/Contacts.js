@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -6,7 +7,6 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
-import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/filters';
@@ -122,7 +122,7 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <Flex value={1}>
+      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
         <SearchList
           ref={this.listRef}
@@ -137,7 +137,7 @@ class Contacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </Flex>
+      </ScrollView>
     );
   }
 }

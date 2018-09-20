@@ -2,6 +2,7 @@
 
 exports[`Member Feed rendering renders correctly for member feed 1`] = `
 <SectionList
+  ListHeaderComponent={[Function]}
   data={Array []}
   disableVirtualization={false}
   extraData={

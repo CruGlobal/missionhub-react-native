@@ -1,0 +1,506 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OnboardingCard render celebrate card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/celebrateHearts.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      Celebrate One Another
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      See and celebrate one another's Steps of Faith.
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render celebrate card hidden 1`] = `""`;
+
+exports[`OnboardingCard render contacts card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/MemberContacts.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      Journey Together
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Stay engaged with contacts in your community.
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render contacts card hidden 1`] = `""`;
+
+exports[`OnboardingCard render impact card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/globe.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      See God at Work
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      See what God is doing as you take Steps of Faith together. 
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render impact card hidden 1`] = `""`;
+
+exports[`OnboardingCard render members card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/ourJourney.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      Journey Together
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Take a Step of Faith with someone in your community.
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render members card hidden 1`] = `""`;
+
+exports[`OnboardingCard render surveys card 1`] = `
+<Card
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 0,
+      "marginBottom": 5,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "padding": 25,
+        "paddingTop": 35,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/curiousIcon.png",
+        }
+      }
+      style={
+        Object {
+          "height": 60,
+        }
+      }
+    />
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 5,
+          "textAlign": "center",
+        }
+      }
+      type="header"
+    >
+      Grow Together
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 16,
+          "paddingHorizontal": 40,
+          "paddingVertical": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Learn about one another through survey responses.
+    </MyText>
+  </Flex>
+  <Flex
+    style={
+      Object {
+        "position": "absolute",
+        "right": 10,
+        "top": 10,
+      }
+    }
+  >
+    <IconButton
+      hitSlop={
+        Object {
+          "bottom": 10,
+          "left": 10,
+          "right": 10,
+          "top": 10,
+        }
+      }
+      name="deleteIcon"
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 12,
+        }
+      }
+      type="MissionHub"
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`OnboardingCard render surveys card hidden 1`] = `""`;
