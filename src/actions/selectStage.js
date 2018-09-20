@@ -1,6 +1,7 @@
 import { REQUESTS } from './api';
 import callApi from './api';
 import { refreshImpact } from './impact';
+import { getPersonDetails } from './person';
 
 export function selectMyStage(id) {
   const data = {
@@ -77,12 +78,12 @@ export function selectPersonStage(
     },
   };
 
-  return dispatch => {
-    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then(
-      r => {
-        dispatch(refreshImpact());
-        return r;
-      },
+  return async dispatch => {
+    const { response } = await dispatch(
+      callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
     );
+    dispatch(refreshImpact());
+    dispatch(getPersonDetails());
+    return response;
   };
 }
