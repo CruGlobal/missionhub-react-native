@@ -1,6 +1,4 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import MockDate from 'mockdate';
 import moment from 'moment';
@@ -21,7 +19,7 @@ const store = createMockStore();
 const editChallenge = {
   id: '1',
   title: 'Test Title',
-  end_date: '2018-09-30T23:59:59Z',
+  end_date: '2018-09-30',
 };
 
 it('renders correctly', () => {
@@ -36,18 +34,21 @@ it('renders correctly', () => {
   );
 });
 
-it('renders edit journey correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <AddChallengeScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          challenge: editChallenge,
-          isEdit: true,
-        })}
-      />
-    </Provider>,
+it('renders edit challenge correctly', () => {
+  const component = renderShallow(
+    <AddChallengeScreen
+      navigation={createMockNavState({
+        onComplete: jest.fn(),
+        challenge: editChallenge,
+        isEdit: true,
+      })}
+    />,
+    store,
   );
+  component.setState({ date: '2018-09-30 23:59:59' });
+  component.update();
+
+  expect(component).toMatchSnapshot();
 });
 
 describe('create methods', () => {
@@ -55,7 +56,6 @@ describe('create methods', () => {
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     component = renderShallow(
       <AddChallengeScreen
         navigation={createMockNavState({
@@ -96,7 +96,6 @@ describe('create methods', () => {
     const challenge = {
       title: 'New Title',
       date: moment()
-        .utc()
         .endOf('day')
         .format(),
     };
@@ -135,7 +134,6 @@ describe('edit methods', () => {
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
-    Enzyme.configure({ adapter: new Adapter() });
     component = renderShallow(
       <AddChallengeScreen
         navigation={createMockNavState({
@@ -153,7 +151,6 @@ describe('edit methods', () => {
     const challenge = {
       title: editChallenge.title,
       date: moment(editChallenge.end_date)
-        .utc()
         .endOf('day')
         .format(),
       id: editChallenge.id,

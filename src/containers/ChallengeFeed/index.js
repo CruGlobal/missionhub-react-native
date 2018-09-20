@@ -7,9 +7,13 @@ import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
-// import { completeChallenge, joinChallenge } from '../../actions/challenges';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+import {
+  completeChallenge,
+  joinChallenge,
+  updateChallenge,
+} from '../../actions/challenges';
 
 import styles from './styles';
 
@@ -18,6 +22,12 @@ class ChallengeFeed extends Component {
     super(props);
     // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
     this.state = { ...this.state, isListScrolled: false };
+  }
+
+  getAcceptedChallenge({ accepted_community_challenges }) {
+    return accepted_community_challenges.find(
+      c => c.person && c.person.id === this.props.myId,
+    );
   }
 
   renderSectionHeader = ({ section: { title } }) => (
@@ -32,13 +42,14 @@ class ChallengeFeed extends Component {
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
       onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
+      acceptedChallenge={this.getAcceptedChallenge(item)}
     />
   );
 
   keyExtractor = item => item.id;
 
   handleOnEndReached = () => {
-    if (this.state.isListScrolled) {
+    if (this.state.isListScrolled && !this.props.refreshing) {
       this.props.loadMoreItemsCallback();
       this.setState({ isListScrolled: false });
     }
@@ -54,31 +65,35 @@ class ChallengeFeed extends Component {
     this.props.refreshCallback();
   };
 
-  handleComplete = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(completeChallenge(item, organization.id));
+  handleComplete = challenge => {
+    const { organization, dispatch } = this.props;
+    const accepted_challenge = this.getAcceptedChallenge(challenge);
+    if (!accepted_challenge) {
+      return;
+    }
+    dispatch(completeChallenge(accepted_challenge, organization.id));
   };
 
-  handleJoin = item => {
-    // TODO: Implement this once the API is ready
-    return item;
-    // const { organization, dispatch } = this.props;
-    // dispatch(joinChallenge(item, organization.id));
+  handleJoin = challenge => {
+    const { organization, dispatch } = this.props;
+    dispatch(joinChallenge(challenge, organization.id));
   };
 
   editChallenge = challenge => {
-    // TODO: API call to edit challenge
-    return challenge;
+    const { organization, dispatch } = this.props;
+    dispatch(updateChallenge(challenge, organization.id));
   };
 
   handleEdit = item => {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge: item,
-        onComplete: this.editChallenge,
+        onComplete: challenge => {
+          this.editChallenge(challenge);
+          dispatch(navigateBack());
+        },
       }),
     );
   };
@@ -122,6 +137,7 @@ const mapStateToProps = ({ auth }, { organization }) => {
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     canEditChallenges,
+    myId: auth.person.id,
   };
 };
 export default connect(mapStateToProps)(ChallengeFeed);

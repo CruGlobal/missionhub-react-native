@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import { Card, Text, Flex, Button, Dot } from '../../components/common';
 import GREY_CHECK from '../../../assets/images/check-grey.png';
@@ -25,22 +26,34 @@ class ChallengeItem extends Component {
   };
 
   render() {
-    const { t, item, onEdit } = this.props;
+    const { t, item, acceptedChallenge, onEdit } = this.props;
     const {
       title,
-      // end_date,
-      accepted,
-      completed,
-      days_remaining,
-      accepted_at,
+      end_date,
+      accepted_count,
+      completed_count,
       isPast,
-      total_days,
-      completed_at,
+      created_at,
     } = item;
 
+    // Total days or days remaining
+    const endDate = moment(end_date).endOf('day');
+    const today = moment().endOf('day');
+    // If it's past, make sure it shows "1 day challenge instead of 0 day challenge"
+    const days = isPast
+      ? endDate.diff(moment(created_at).endOf('day'), 'days') + 1
+      : endDate.diff(today, 'days');
+
     const canEdit = !isPast && onEdit;
-    const canJoin = !isPast && !accepted_at;
-    const showCheck = accepted_at;
+    const canJoin = !isPast && !acceptedChallenge;
+    const showCheck = !!acceptedChallenge;
+    const completed =
+      acceptedChallenge && acceptedChallenge.completed_at ? true : false;
+
+    let daysText = t(isPast ? 'totalDays' : 'daysRemaining', { count: days });
+    if (!isPast && days <= 0) {
+      daysText = t('dates.today');
+    }
 
     return (
       <Card style={[styles.card, canJoin ? styles.joinCard : null]}>
@@ -59,20 +72,16 @@ class ChallengeItem extends Component {
                   <Dot style={styles.dot} />
                 </Fragment>
               ) : null}
-              <Text style={styles.info}>
-                {t(isPast ? 'totalDays' : 'daysRemaining', {
-                  days: isPast ? total_days : days_remaining,
-                })}
-              </Text>
+              <Text style={styles.info}>{daysText}</Text>
               <Dot style={styles.dot} />
               <Text style={styles.info}>
-                {t('accepted', { count: accepted })}
+                {t('accepted', { count: accepted_count })}
               </Text>
-              {completed ? (
+              {completed_count ? (
                 <Fragment>
                   <Dot style={styles.dot} />
                   <Text style={styles.info}>
-                    {t('completed', { count: completed })}
+                    {t('completed', { count: completed_count })}
                   </Text>
                 </Fragment>
               ) : null}
@@ -80,11 +89,11 @@ class ChallengeItem extends Component {
           </Flex>
           {showCheck ? (
             <Button
-              disabled={!!completed_at}
+              disabled={isPast || completed}
               onPress={this.handleComplete}
               style={styles.completeIcon}
             >
-              <Image source={completed_at ? BLUE_CHECK : GREY_CHECK} />
+              <Image source={completed ? BLUE_CHECK : GREY_CHECK} />
             </Button>
           ) : null}
         </Flex>
@@ -107,6 +116,7 @@ ChallengeItem.propTypes = {
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
+  acceptedChallenge: PropTypes.object,
 };
 
 export default ChallengeItem;

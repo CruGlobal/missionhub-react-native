@@ -4,7 +4,7 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   RESET_CELEBRATION_PAGINATION,
-  // RESET_CHALLENGE_PAGINATION,
+  RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
@@ -61,52 +61,64 @@ function organizationsReducer(state = initialState, action) {
         surveysPagination: getPagination(action, allSurveys.length),
       };
     case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
-      const celebrateQuery = action.query;
+    case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
+      const isChallenge =
+        action.type === REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS;
+      const cQuery = action.query;
       const newItems = action.results.response;
-      const celebrateOrgId = celebrateQuery.orgId;
-      const curCelebrateOrg = state.all.find(o => o.id === celebrateOrgId);
-      if (!curCelebrateOrg) {
+      const cOrgId = isChallenge
+        ? cQuery.filters.organization_ids
+        : cQuery.orgId;
+      const curOrg = state.all.find(o => o.id === cOrgId);
+      if (!curOrg) {
         return state; // Return if the organization does not exist
       }
 
+      const cPagination = isChallenge
+        ? 'challengePagination'
+        : 'celebratePagination';
+      const cItems = isChallenge ? 'challengeItems' : 'celebrateItems';
+
       if (
-        curCelebrateOrg.celebratePagination &&
-        curCelebrateOrg.celebratePagination.page >
-          action.query.page.offset / DEFAULT_PAGE_LIMIT
+        curOrg[cPagination] &&
+        curOrg[cPagination].page > action.query.page.offset / DEFAULT_PAGE_LIMIT
       ) {
         /*
          This response is from a duplicate request.  Since the pagination object is updated in the response, it is
          possible for multiple requests to be fired with the same offset parameter, which results in duplicate
-         celebration items.
+         challenge items.
          */
         return state;
       }
 
-      const existingItems = curCelebrateOrg.celebrateItems || [];
+      const existingItems = curOrg[cItems] || [];
       const allItems =
-        celebrateQuery.page && celebrateQuery.page.offset > 0
+        cQuery.page && cQuery.page.offset > 0
           ? [...existingItems, ...newItems]
           : newItems;
 
       return {
         ...state,
-        all: celebrateOrgId
+        all: cOrgId
           ? state.all.map(
               o =>
-                o.id === celebrateOrgId
+                o.id === cOrgId
                   ? {
                       ...o,
-                      celebrateItems: allItems,
-                      celebratePagination: getPagination(
-                        action,
-                        allItems.length,
-                      ),
+                      [cItems]: allItems,
+                      [cPagination]: getPagination(action, allItems.length),
                     }
                   : o,
             )
           : state.all,
       };
+
     case RESET_CELEBRATION_PAGINATION:
+    case RESET_CHALLENGE_PAGINATION:
+      const resetCPagination =
+        action.type === RESET_CHALLENGE_PAGINATION
+          ? 'challengePagination'
+          : 'celebratePagination';
       return {
         ...state,
         all: state.all.map(
@@ -114,71 +126,11 @@ function organizationsReducer(state = initialState, action) {
             o.id === action.orgId
               ? {
                   ...o,
-                  celebratePagination: { page: 0, hasNextPage: true },
+                  [resetCPagination]: { page: 0, hasNextPage: true },
                 }
               : o,
         ),
       };
-    // TODO: Combine the logic for challenges and celebration because they are so similar
-    // case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
-    //   const challengeQuery = action.query;
-    //   const newChallengeItems = action.results.response;
-    //   const challengeOrgId = challengeQuery.orgId;
-    //   const curChallengeOrg = state.all.find(o => o.id === challengeOrgId);
-    //   if (!curChallengeOrg) {
-    //     return state; // Return if the organization does not exist
-    //   }
-
-    //   if (
-    //     curChallengeOrg.challengePagination &&
-    //     curChallengeOrg.challengePagination.page >
-    //       action.query.page.offset / DEFAULT_PAGE_LIMIT
-    //   ) {
-    //     /*
-    //      This response is from a duplicate request.  Since the pagination object is updated in the response, it is
-    //      possible for multiple requests to be fired with the same offset parameter, which results in duplicate
-    //      celebration items.
-    //      */
-    //     return state;
-    //   }
-
-    //   const existingChallengeItems = curChallengeOrg.challengeItems || [];
-    //   const allChallengeItems =
-    //     challengeQuery.page && challengeQuery.page.offset > 0
-    //       ? [...existingChallengeItems, ...newChallengeItems]
-    //       : newChallengeItems;
-
-    //   return {
-    //     ...state,
-    //     all: challengeOrgId
-    //       ? state.all.map(
-    //           o =>
-    //             o.id === challengeOrgId
-    //               ? {
-    //                   ...o,
-    //                   challengeItems: allChallengeItems,
-    //                   challengePagination: getPagination(
-    //                     action,
-    //                     allChallengeItems.length,
-    //                   ),
-    //                 }
-    //               : o,
-    //         )
-    //       : state.all,
-    //   };
-    // case RESET_CHALLENGE_PAGINATION:
-    //   return {
-    //     ...state,
-    //     all: state.all.map(
-    //       o =>
-    //         o.id === action.orgId
-    //           ? {
-    //               ...o,
-    //               challengePagination: { page: 0, hasNextPage: true },
-    //             }
-    //           : o,
-    //     ),
-    //   };
     case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
       return toggleCelebrationLike(action, state, true);
     case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:

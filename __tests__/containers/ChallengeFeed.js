@@ -6,7 +6,18 @@ import ChallengeFeed from '../../src/containers/ChallengeFeed';
 import { renderShallow } from '../../testUtils';
 import { ORG_PERMISSIONS } from '../../src/constants';
 import * as navigation from '../../src/actions/navigation';
+import * as challenges from '../../src/actions/challenges';
 import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
+
+jest.mock('../../src/actions/challenges', () => ({
+  completeChallenge: jest.fn(() => ({ type: 'complete' })),
+  joinChallenge: jest.fn(() => ({ type: 'join' })),
+  updateChallenge: jest.fn(() => ({ type: 'update' })),
+}));
+
+jest.mock('../../src/actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'push' })),
+}));
 
 const myId = '123';
 const organization = { id: '456' };
@@ -21,6 +32,12 @@ const store = configureStore([thunk])({
   },
 });
 
+const accepted_community_challenges = [
+  {
+    id: 'a1',
+    person: { id: myId },
+  },
+];
 const date = '2018-09-06T14:13:21Z';
 const challengeItems = [
   {
@@ -32,9 +49,10 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Read "There and Back Again"',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 14,
+        accepted_community_challenges: [],
       },
       {
         id: '2',
@@ -42,10 +60,10 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Invite a neighbor over for mince pie.',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 14,
-        accepted_at: date,
+        accepted_community_challenges,
       },
     ],
   },
@@ -58,10 +76,11 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Invite Smeagol over for fresh fish',
         end_date: date,
-        accepted: 5,
-        completed: 0,
+        accepted_count: 5,
+        completed_count: 0,
         days_remaining: 0,
         total_days: 7,
+        accepted_community_challenges,
       },
       {
         id: '4',
@@ -69,12 +88,11 @@ const challengeItems = [
         organization_id: organization.id,
         title: 'Who can wear the ring the longest.',
         end_date: date,
-        accepted: 5,
-        completed: 3,
+        accepted_count: 5,
+        completed_count: 3,
         days_remaining: 0,
         total_days: 7,
-        accepted_at: date,
-        completed_at: date,
+        accepted_community_challenges,
       },
     ],
   },
@@ -106,27 +124,32 @@ describe('Challenge Feed rendering', () => {
 
 describe('item action methods', () => {
   let item;
+  const challenge = { id: '1', accepted_community_challenges };
   beforeEach(() => {
-    item = component.props().renderItem({ item: { id: '1' } });
+    item = component.props().renderItem({ item: challenge });
   });
   it('calls handleComplete', () => {
-    const result = item.props.onComplete(item);
-    expect(result).toBe(item);
+    item.props.onComplete(challenge);
+    expect(challenges.completeChallenge).toHaveBeenCalledWith(
+      accepted_community_challenges[0],
+      organization.id,
+    );
   });
   it('calls handleJoin', () => {
-    const result = item.props.onJoin(item);
-    expect(result).toBe(item);
+    item.props.onJoin(challenge);
+    expect(challenges.joinChallenge).toHaveBeenCalledWith(
+      challenge,
+      organization.id,
+    );
   });
   it('calls handleEdit', () => {
-    const instance = component.instance();
-    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
     const challenge = { id: '1', end_date: date };
     item.props.onEdit(challenge);
 
     expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
       isEdit: true,
       challenge,
-      onComplete: instance.editChallenge,
+      onComplete: expect.any(Function),
     });
   });
 });
@@ -169,4 +192,14 @@ it('calls handleEndDrag', () => {
 it('calls handleRefreshing', () => {
   component.props().onRefresh();
   expect(props.refreshCallback).toHaveBeenCalled();
+});
+
+it('calls editChallenge', () => {
+  const instance = component.instance();
+  const challenge = { id: '1' };
+  instance.editChallenge(challenge);
+  expect(challenges.updateChallenge).toHaveBeenCalledWith(
+    challenge,
+    organization.id,
+  );
 });

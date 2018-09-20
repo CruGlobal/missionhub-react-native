@@ -8,30 +8,31 @@ import EmptyChallengeFeed from '../../components/EmptyChallengeFeed';
 import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
+  createChallenge,
 } from '../../actions/challenges';
 import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+import { orgPermissionSelector } from '../../selectors/people';
+import { ORG_PERMISSIONS } from '../../constants';
 
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
-    // TODO: Implement this once the API is ready
-    // if (this.shouldLoadFeed()) {
-    //   this.loadItems();
-    // }
+    this.loadItems();
   }
 
-  shouldLoadFeed = () => {
-    const { pagination, challengeItems } = this.props;
-
+  isEmpty = () => {
+    const { challengeItems } = this.props;
+    // Data is separated into this format [ { data: [] (active challenges) }, { data: [] (past challenges) }]
+    // so we only load the items it they are both blank
     return (
-      !challengeItems || challengeItems.length === 0 || pagination.page === 0
+      challengeItems[0].data.length === 0 && challengeItems[1].data.length === 0
     );
   };
 
@@ -50,25 +51,29 @@ export class GroupChallenges extends Component {
   };
 
   createChallenge = challenge => {
-    // TODO: API call to create the challenge
-    return challenge;
+    const { dispatch, organization } = this.props;
+    dispatch(createChallenge(challenge, organization.id));
   };
 
   create = () => {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        onComplete: this.createChallenge,
+        onComplete: challenge => {
+          this.createChallenge(challenge);
+          dispatch(navigateBack());
+        },
       }),
     );
   };
 
   render() {
     const { refreshing } = this.state;
-    const { t, challengeItems, organization } = this.props;
+    const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
-        {challengeItems.length !== 0 ? (
+        {!this.isEmpty() ? (
           <ChallengeFeed
             organization={organization}
             items={challengeItems}
@@ -82,79 +87,38 @@ export class GroupChallenges extends Component {
             refreshing={refreshing}
           />
         )}
-        <Flex align="stretch" justify="end">
-          <Button
-            type="secondary"
-            onPress={this.create}
-            text={t('create').toUpperCase()}
-          />
-        </Flex>
+        {myOrgPermissions &&
+        myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+          <Flex align="stretch" justify="end">
+            <Button
+              type="secondary"
+              onPress={this.create}
+              text={t('create').toUpperCase()}
+            />
+          </Flex>
+        ) : null}
       </View>
     );
   }
 }
 
-export const mapStateToProps = ({ organizations }, { organization }) => {
+export const mapStateToProps = ({ auth, organizations }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
 
-  const orgChallenges = [
-    {
-      id: '1',
-      creator_id: 'person1',
-      organization_id: organization.id,
-      title: 'Read "There and Back Again"',
-      end_date: '2018-09-30T23:59:59Z',
-      accepted: 5,
-      completed: 3,
-      days_remaining: 14,
-    },
-    {
-      id: '2',
-      creator_id: 'person2',
-      organization_id: organization.id,
-      title: 'Invite a neighbor over for mince pie.',
-      end_date: '2018-10-06T23:59:59Z',
-      accepted: 5,
-      completed: 3,
-      days_remaining: 14,
-      accepted_at: '2018-09-06T14:13:21Z',
-    },
-    {
-      id: '3',
-      creator_id: 'person3',
-      organization_id: organization.id,
-      title: 'Invite Smeagol over for fresh fish',
-      end_date: '2018-09-06T14:13:21Z',
-      accepted: 5,
-      completed: 0,
-      days_remaining: 0,
-      total_days: 7,
-    },
-    {
-      id: '4',
-      creator_id: 'person4',
-      organization_id: organization.id,
-      title: 'Who can wear the ring the longest.',
-      end_date: '2018-09-06T14:13:21Z',
-      accepted: 5,
-      completed: 3,
-      days_remaining: 0,
-      total_days: 7,
-      accepted_at: '2018-09-06T14:13:21Z',
-      completed_at: '2018-09-06T14:13:21Z',
-    },
-  ];
-
   const challengeItems = challengesSelector({
-    challengeItems: (selectorOrg || {}).challengeItems || orgChallenges,
+    challengeItems: (selectorOrg || {}).challengeItems || [],
   });
 
   return {
     challengeItems,
     pagination: selectorOrg.challengePagination,
+    myOrgPermissions: orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    }),
   };
 };
 

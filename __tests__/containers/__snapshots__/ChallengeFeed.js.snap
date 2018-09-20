@@ -26,8 +26,9 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       Object {
         "data": Array [
           Object {
-            "accepted": 5,
-            "completed": 3,
+            "accepted_community_challenges": Array [],
+            "accepted_count": 5,
+            "completed_count": 3,
             "creator_id": "person1",
             "days_remaining": 14,
             "end_date": "2018-09-06T14:13:21Z",
@@ -36,9 +37,16 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "title": "Read \\"There and Back Again\\"",
           },
           Object {
-            "accepted": 5,
-            "accepted_at": "2018-09-06T14:13:21Z",
-            "completed": 3,
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 3,
             "creator_id": "person2",
             "days_remaining": 14,
             "end_date": "2018-09-06T14:13:21Z",
@@ -52,8 +60,16 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       Object {
         "data": Array [
           Object {
-            "accepted": 5,
-            "completed": 0,
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 0,
             "creator_id": "person3",
             "days_remaining": 0,
             "end_date": "2018-09-06T14:13:21Z",
@@ -63,10 +79,16 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "total_days": 7,
           },
           Object {
-            "accepted": 5,
-            "accepted_at": "2018-09-06T14:13:21Z",
-            "completed": 3,
-            "completed_at": "2018-09-06T14:13:21Z",
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 3,
             "creator_id": "person4",
             "days_remaining": 0,
             "end_date": "2018-09-06T14:13:21Z",
@@ -88,10 +110,12 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 
 exports[`renders item 1`] = `
 <Translate(ChallengeItem)
+  acceptedChallenge={undefined}
   item={
     Object {
-      "accepted": 5,
-      "completed": 3,
+      "accepted_community_challenges": Array [],
+      "accepted_count": 5,
+      "completed_count": 3,
       "creator_id": "person1",
       "days_remaining": 14,
       "end_date": "2018-09-06T14:13:21Z",
@@ -113,7 +137,6 @@ exports[`renders section header 1`] = `
     Object {
       "alignContent": "center",
       "backgroundColor": "#E6E8EC",
-      "paddingVertical": 10,
     }
   }
 >
