@@ -101,3 +101,12 @@ it('updates group onboarding surveys value', () => {
   });
   expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.surveys]).toBe(false);
 });
+
+it('doesnt update group onboarding', () => {
+  const state = swipe(undefined, {
+    type: GROUP_ONBOARDING_CARD,
+    target: 'badtarget',
+    value: false,
+  });
+  expect(state).toBe(state);
+});

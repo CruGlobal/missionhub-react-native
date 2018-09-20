@@ -13,6 +13,12 @@ exports[`Members calls render item 1`] = `
 />
 `;
 
+exports[`Members renderHeader match snapshot 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="members"
+/>
+`;
+
 exports[`Members should mount with send invite 1`] = `
 <Flex
   value={1}

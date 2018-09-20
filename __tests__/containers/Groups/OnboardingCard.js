@@ -1,9 +1,16 @@
 import React from 'react';
 
-import { createMockStore, testSnapshotShallow } from '../../../testUtils';
+import {
+  createMockStore,
+  testSnapshotShallow,
+  renderShallow,
+} from '../../../testUtils';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../../../src/containers/Groups/OnboardingCard';
+import { removeGroupOnboardingCard } from '../../../src/actions/swipe';
+
+jest.mock('../../../src/actions/swipe');
 
 const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.celebrate]: true,
@@ -165,4 +172,23 @@ describe('OnboardingCard', () => {
       store,
     );
   });
+});
+
+it('handles press event from the close button', () => {
+  const store = createMockStore({
+    swipe: { groupOnboarding },
+  });
+  const component = renderShallow(
+    <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
+    store,
+  );
+  component
+    .childAt(1)
+    .childAt(0)
+    .props()
+    .onPress();
+
+  expect(removeGroupOnboardingCard).toHaveBeenCalledWith(
+    GROUP_ONBOARDING_TYPES.celebrate,
+  );
 });

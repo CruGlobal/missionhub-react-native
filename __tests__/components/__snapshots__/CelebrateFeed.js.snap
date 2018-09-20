@@ -74,6 +74,12 @@ exports[`Member Feed rendering renders correctly for member feed 1`] = `
 />
 `;
 
+exports[`renderHeader match snapshot 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="celebrate"
+/>
+`;
+
 exports[`renders item 1`] = `
 <Connect(Translate(CelebrateItem))
   event={

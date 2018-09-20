@@ -120,4 +120,10 @@ describe('Surveys', () => {
     const renderedItem = instance.renderItem({ item: surveys[0] });
     expect(renderedItem).toMatchSnapshot();
   });
+
+  it('renderHeader match snapshot', () => {
+    const instance = renderShallow(component, store).instance();
+    const header = instance.renderHeader();
+    expect(header).toMatchSnapshot();
+  });
 });
