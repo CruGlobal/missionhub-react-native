@@ -324,14 +324,15 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(person, org = {}, props = {}) {
+export function navToPersonScreen(person, org, props = {}) {
   return (dispatch, getState) => {
+    const organization = org ? org : {};
     const { auth, people, organizations } = getState();
-    const orgId = org.id;
+    const orgId = organization.id;
     const personId = person.id;
 
     const selectorOrg =
-      organizationSelector({ organizations }, { orgId }) || org;
+      organizationSelector({ organizations }, { orgId }) || organization;
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
     const selectorPerson =
       personSelector({ people }, { orgId, personId }) || person;
