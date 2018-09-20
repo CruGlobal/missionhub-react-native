@@ -44,7 +44,7 @@ class Members extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person.id, organization.id));
+    dispatch(navToPersonScreen(person, organization));
   };
 
   handleLoadMore = () => {

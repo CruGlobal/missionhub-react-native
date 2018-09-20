@@ -268,19 +268,18 @@ export const mapStateToProps = (
   { navigation },
 ) => {
   const navParams = navigation.state.params;
-  const {
-    person: { id: personId },
-    organization: { id: orgId },
-  } = navParams;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
 
-  const organization = organizationSelector({ organizations }, { orgId }) || {};
+  const organization =
+    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
 
   const person =
-    personSelector({ people }, { personId, orgId }) || navParams.person;
+    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
+    navPerson;
 
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person, orgId },
+    { person, orgId: organization.id },
   );
   const authPerson = auth.person;
 

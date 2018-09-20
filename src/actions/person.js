@@ -324,18 +324,21 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(personId, orgId, props = {}) {
+export function navToPersonScreen(person, org, props = {}) {
   return (dispatch, getState) => {
     const { auth, people, organizations } = getState();
+    const orgId = org && org.id;
+    const personId = person && person.id;
 
-    const organization =
-      organizationSelector({ organizations }, { orgId }) || {};
+    const selectorOrg =
+      organizationSelector({ organizations }, { orgId }) || org;
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
-    const person = personSelector({ people }, { orgId, personId });
+    const selectorPerson =
+      personSelector({ people }, { orgId, personId }) || person;
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person, orgId },
+      { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
 
@@ -343,14 +346,14 @@ export function navToPersonScreen(personId, orgId, props = {}) {
       navigatePush(
         getPersonScreenRoute(
           authPerson,
-          person,
-          organization,
+          selectorPerson,
+          selectorOrg,
           contactAssignment,
         ),
         {
           ...props,
-          person,
-          organization,
+          person: selectorPerson,
+          organization: selectorOrg,
         },
       ),
     );

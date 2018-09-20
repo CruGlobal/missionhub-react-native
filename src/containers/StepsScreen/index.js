@@ -96,9 +96,7 @@ export class StepsScreen extends Component {
   }
 
   handleRowSelect(step) {
-    this.props.dispatch(
-      navToPersonScreen(step.receiver.id, step.organization.id),
-    );
+    this.props.dispatch(navToPersonScreen(step.receiver, step.organization));
   }
 
   hasReminders() {

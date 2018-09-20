@@ -124,11 +124,13 @@ function handleNotification(notification) {
           const { person: loadedPerson } = await dispatch(
             getPersonDetails(person, organization),
           );
-          return dispatch(navToPersonScreen(loadedPerson.id, organization));
+          return dispatch(
+            navToPersonScreen(loadedPerson, { id: organization }),
+          );
         }
         return;
       case 'my_steps':
-        return dispatch(navToPersonScreen(me.id));
+        return dispatch(navToPersonScreen(me));
       case 'add_a_person':
         return dispatch(
           navigatePush(ADD_CONTACT_SCREEN, {

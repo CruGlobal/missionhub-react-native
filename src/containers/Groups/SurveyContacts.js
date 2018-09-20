@@ -93,7 +93,7 @@ class SurveyContacts extends Component {
   handleSelect = person => {
     const { dispatch, organization } = this.props;
     dispatch(
-      navToPersonScreen(person.id, organization.id, {
+      navToPersonScreen(person, organization, {
         onAssign: this.handleRefreshSearchList,
       }),
     );
