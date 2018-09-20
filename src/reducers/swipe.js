@@ -35,8 +35,6 @@ function swipeReducer(state = initialState, action) {
       return { ...state, stepsReminder: false };
     case SWIPE_REMINDER_JOURNEY:
       return { ...state, journey: false };
-    case SWIPE_REMINDER_JOURNEY:
-      return { ...state, journey: false };
     case GROUP_ONBOARDING_CARD:
       const target = action.target;
       if (!exists(state.groupOnboarding[target])) {
