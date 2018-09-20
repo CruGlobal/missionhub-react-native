@@ -8,6 +8,8 @@ import GroupsContactList from '../../../components/GroupsContactList/index';
 import CommentBox from '../../../components/CommentBox/index';
 import Header from '../../Header/index';
 import BackButton from '../../BackButton/index';
+import { organizationSelector } from '../../../selectors/organizations';
+import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
@@ -25,7 +27,7 @@ class UnassignedPersonScreen extends Component {
   };
 
   render() {
-    const { organization, person, me } = this.props;
+    const { organization, person, me, onAssign } = this.props;
     const { activity } = this.state;
 
     return (
@@ -40,6 +42,7 @@ class UnassignedPersonScreen extends Component {
           person={person}
           organization={organization}
           myId={me.id}
+          onAssign={onAssign}
         />
         <CommentBox
           onSubmit={this.loadFeed}
@@ -54,22 +57,26 @@ class UnassignedPersonScreen extends Component {
 UnassignedPersonScreen.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
+  onAssign: PropTypes.func,
 };
 
-const mapStateToProps = (
-  { auth },
-  {
-    navigation: {
-      state: {
-        params: { person, organization },
-      },
-    },
-  },
-) => ({
-  person,
-  organization,
-  me: auth.person,
-});
+const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
+  const navParams = navigation.state.params;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
+
+  const organization =
+    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
+  const person =
+    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
+    navPerson;
+
+  return {
+    ...(navParams || {}),
+    person,
+    organization,
+    me: auth.person,
+  };
+};
 
 export default connect(mapStateToProps)(UnassignedPersonScreen);
 export const UNASSIGNED_PERSON_SCREEN = 'nav/UNASSIGNED_PERSON';
