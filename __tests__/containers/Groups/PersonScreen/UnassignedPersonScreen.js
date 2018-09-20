@@ -20,22 +20,12 @@ jest.mock('../../../../src/actions/person', () => ({
 
 MockDate.set('2017-06-18');
 const me = { id: 'me' };
-const organization = { id: '1', name: 'Test Org' };
-const person = { id: '1', full_name: 'Test Person' };
-
 const store = createMockStore({
   auth: { person: me },
-  organizations: { all: [organization] },
-  people: {
-    allByOrg: {
-      [organization.id]: {
-        people: {
-          [person.id]: person,
-        },
-      },
-    },
-  },
 });
+
+const organization = { id: '1', name: 'Test Org' };
+const person = { id: '1', full_name: 'Test Person' };
 
 const spiritualConversationAction = Object.values(INTERACTION_TYPES).find(
   i => i.isOnAction && i.translationKey === 'interactionSpiritualConversation',
@@ -47,7 +37,6 @@ describe('Contact', () => {
       navigation={createMockNavState({
         organization,
         person,
-        onAssign: jest.fn(),
       })}
     />
   );

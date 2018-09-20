@@ -8,10 +8,9 @@ import {
 } from '../../src/constants';
 import { REQUESTS } from '../../src/actions/api';
 
-const orgId = '100';
 const orgs = {
-  [orgId]: {
-    id: orgId,
+  '100': {
+    id: '100',
     name: 'Test Org',
     people: {
       '1': { id: '1' },

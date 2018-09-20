@@ -1,7 +1,6 @@
 import { REQUESTS } from './api';
 import callApi from './api';
 import { refreshImpact } from './impact';
-import { getPersonDetails } from './person';
 
 export function selectMyStage(id) {
   const data = {
@@ -30,18 +29,13 @@ export function updateUserStage(contactAssignmentId, stageId) {
     contactAssignmentId,
   };
 
-  return async dispatch => {
-    const { response } = await dispatch(
+  return dispatch => {
+    return dispatch(
       callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data),
-    );
-    const {
-      person: { id: personId },
-      organization: { id: orgId },
-    } = response;
-
-    dispatch(refreshImpact());
-    dispatch(getPersonDetails(personId, orgId));
-    return response;
+    ).then(r => {
+      dispatch(refreshImpact());
+      return r;
+    });
   };
 }
 
@@ -83,13 +77,12 @@ export function selectPersonStage(
     },
   };
 
-  return async dispatch => {
-    const { response } = await dispatch(
-      callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data)).then(
+      r => {
+        dispatch(refreshImpact());
+        return r;
+      },
     );
-
-    dispatch(refreshImpact());
-    dispatch(getPersonDetails(personId, orgId));
-    return response;
   };
 }

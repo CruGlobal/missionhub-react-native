@@ -22,13 +22,11 @@ import {
   setStepFocus,
 } from '../../src/actions/steps';
 import * as common from '../../src/utils/common';
-import { navToPersonScreen } from '../../src/actions/person';
 
 jest.mock('../../src/selectors/steps');
 jest.mock('../../src/actions/analytics');
 jest.mock('../../src/actions/notifications');
 jest.mock('../../src/actions/steps');
-jest.mock('../../src/actions/person');
 
 const dispatch = jest.fn(async () => {});
 
@@ -65,13 +63,9 @@ const propsWithSteps = {
   steps: [
     {
       id: 2,
-      receiver: { id: '22' },
-      organization: { id: '222' },
     },
     {
       id: 3,
-      receiver: { id: '33' },
-      organization: { id: '333' },
     },
   ],
   dispatch,
@@ -337,28 +331,6 @@ describe('StepsScreen', () => {
       common.openMainMenu = jest.fn();
       instance.openMainMenu();
       expect(common.openMainMenu).toHaveBeenCalled();
-    });
-  });
-
-  describe('handleRowSelect', () => {
-    it('should navigate to person screen', () => {
-      const step = propsWithSteps.steps[0];
-      const { receiver, organization } = step;
-      const screen = createComponent(propsWithSteps);
-      const listItem = renderShallow(
-        screen
-          .childAt(1)
-          .childAt(0)
-          .childAt(1)
-          .props()
-          .renderItem({ item: step }),
-      )
-        .childAt(1)
-        .childAt(0);
-
-      listItem.props().onSelect(step);
-
-      expect(navToPersonScreen).toHaveBeenCalledWith(receiver, organization);
     });
   });
 });

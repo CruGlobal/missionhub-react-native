@@ -45,7 +45,7 @@ class GroupsContactList extends Component {
   }
 
   render() {
-    const { person, organization, onAssign } = this.props;
+    const { person, organization } = this.props;
     const name =
       person.full_name ||
       `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
@@ -54,11 +54,7 @@ class GroupsContactList extends Component {
       <Flex value={1}>
         <Flex style={styles.header} align="center" justify="center">
           <Text style={styles.name}>{name.toUpperCase()}</Text>
-          <AssignToMeButton
-            person={person}
-            organization={organization}
-            onComplete={onAssign}
-          />
+          <AssignToMeButton person={person} organization={organization} />
         </Flex>
         <Flex value={1} style={styles.content}>
           {this.renderContent()}
@@ -72,7 +68,6 @@ GroupsContactList.propTypes = {
   activity: PropTypes.array.isRequired,
   person: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
-  onAssign: PropTypes.func,
 };
 
 export default GroupsContactList;

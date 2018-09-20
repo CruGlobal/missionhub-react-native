@@ -30,7 +30,6 @@ exports[`renders activity list 1`] = `
       FULL NAME
     </MyText>
     <Connect(Translate(AssignToMeButton))
-      onComplete={[MockFunction]}
       organization={
         Object {
           "id": "900",
@@ -144,7 +143,6 @@ exports[`renders empty list 1`] = `
       FULL NAME
     </MyText>
     <Connect(Translate(AssignToMeButton))
-      onComplete={[MockFunction]}
       organization={
         Object {
           "id": "900",

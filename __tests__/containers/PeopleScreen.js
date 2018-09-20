@@ -8,9 +8,7 @@ import {
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import { peopleByOrgSelector } from '../../src/selectors/people';
 import * as common from '../../src/utils/common';
-import { navToPersonScreen } from '../../src/actions/person';
 
-jest.mock('../../src/actions/person');
 jest.mock('../../src/selectors/people');
 
 jest.mock('../../src/actions/people', () => ({
@@ -94,31 +92,5 @@ describe('PeopleScreen', () => {
     common.openMainMenu = jest.fn();
     instance.openMainMenu();
     expect(common.openMainMenu).toHaveBeenCalled();
-  });
-
-  describe('handleRowSelect', () => {
-    it('should navigate to person screen in personal ministry', () => {
-      const org = orgs[0];
-      const person = org.people[0];
-      const screen = renderShallow(<PeopleScreen {...props} />);
-      screen
-        .childAt(1)
-        .props()
-        .onSelect(person, org);
-
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, undefined);
-    });
-
-    it('should navigate to person screen in org', () => {
-      const org = orgs[1];
-      const person = org.people[0];
-      const screen = renderShallow(<PeopleScreen {...props} />);
-      screen
-        .childAt(1)
-        .props()
-        .onSelect(person, org);
-
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
-    });
   });
 });

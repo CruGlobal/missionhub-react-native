@@ -105,18 +105,10 @@ describe('SurveyContacts', () => {
   });
 
   it('should handleSelect correctly', () => {
-    const person = people[0];
-    const screen = renderShallow(component, store);
-    const listItem = screen
-      .childAt(1)
-      .props()
-      .listProps.renderItem({ item: person });
-
-    listItem.props.onSelect(person);
-
-    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
-      onAssign: screen.instance().handleRefreshSearchList,
-    });
+    const person = { id: '1' };
+    const instance = renderShallow(component, store).instance();
+    instance.handleSelect(person);
+    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
   });
 
   it('should render item correctly', () => {

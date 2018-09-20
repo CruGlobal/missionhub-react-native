@@ -8,32 +8,12 @@ import SearchPeopleScreenConnected, {
   SearchPeopleScreen,
 } from '../../src/containers/SearchPeopleScreen';
 import { testSnapshot, createMockStore, renderShallow } from '../../testUtils';
-import { navToPersonScreen } from '../../src/actions/person';
 
 const store = createMockStore();
 
 jest.mock('react-native-device-info');
-jest.mock('../../src/actions/person');
 
 const mockDispatch = r => Promise.resolve(r);
-
-const people = [
-  {
-    id: '1',
-    full_name: 'Ron Swanson',
-    organization: { name: 'Cru at Harvard' },
-  },
-  {
-    id: '2',
-    full_name: 'Leslie Knope',
-    organization: { name: 'Cru at Harvard' },
-  },
-  {
-    id: '3',
-    full_name: 'Ben Wyatt',
-    organization: { name: 'Cru at Harvard' },
-  },
-];
 
 it('renders correctly', () => {
   testSnapshot(
@@ -64,7 +44,23 @@ it('renders with results state', () => {
   const screen = shallow(<SearchPeopleScreen />, { context: { store: store } });
 
   screen.setState({
-    results: people,
+    results: [
+      {
+        id: '1',
+        full_name: 'Ron Swanson',
+        organization: { name: 'Cru at Harvard' },
+      },
+      {
+        id: '2',
+        full_name: 'Leslie Knope',
+        organization: { name: 'Cru at Harvard' },
+      },
+      {
+        id: '3',
+        full_name: 'Ben Wyatt',
+        organization: { name: 'Cru at Harvard' },
+      },
+    ],
   });
   expect(screen.dive().dive()).toMatchSnapshot();
 });
@@ -134,28 +130,5 @@ describe('calls methods', () => {
       },
     });
     expect(renderedItem).toMatchSnapshot();
-  });
-
-  it('should handleSelectPerson correctly', () => {
-    const person = people[0];
-    const org = person.organization;
-    Enzyme.configure({ adapter: new Adapter() });
-    const screen = renderShallow(
-      <SearchPeopleScreen dispatch={mockDispatch} />,
-      store,
-    );
-
-    screen.setState({
-      results: people,
-    });
-
-    const listItem = screen
-      .childAt(1)
-      .props()
-      .renderItem({ item: person });
-
-    listItem.props.onSelect(person, org);
-
-    expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
   });
 });
