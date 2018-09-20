@@ -533,7 +533,7 @@ describe('navToPersonScreen', () => {
 
       describe('isGroups', () => {
         it('navigates to groups community me screen', () => {
-          store.dispatch(navToPersonScreen(me.id, organization.id));
+          store.dispatch(navToPersonScreen(me, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(
             IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
@@ -554,7 +554,7 @@ describe('navToPersonScreen', () => {
             people,
           });
 
-          store.dispatch(navToPersonScreen(me.id, organization.id));
+          store.dispatch(navToPersonScreen(me, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(
             ME_COMMUNITY_PERSON_SCREEN,
@@ -573,7 +573,7 @@ describe('navToPersonScreen', () => {
         organizationSelector.mockReturnValue(undefined);
         personSelector.mockReturnValue(me);
 
-        store.dispatch(navToPersonScreen(me.id, undefined));
+        store.dispatch(navToPersonScreen(me, undefined));
 
         expect(organizationSelector).toHaveBeenCalledWith(
           { organizations },
@@ -631,7 +631,7 @@ describe('navToPersonScreen', () => {
 
       describe('isGroups', () => {
         it('navigates to groups member person screen', () => {
-          store.dispatch(navToPersonScreen(person.id, organization.id));
+          store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(
             IS_GROUPS_MEMBER_PERSON_SCREEN,
@@ -652,7 +652,7 @@ describe('navToPersonScreen', () => {
             people,
           });
 
-          store.dispatch(navToPersonScreen(person.id, organization.id));
+          store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
             person,
@@ -692,7 +692,7 @@ describe('navToPersonScreen', () => {
         it('navigates to contact person screen', () => {
           contactAssignmentSelector.mockReturnValue(contactAssignment);
 
-          store.dispatch(navToPersonScreen(person.id, undefined));
+          store.dispatch(navToPersonScreen(person, undefined));
 
           expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
             person,
@@ -705,7 +705,7 @@ describe('navToPersonScreen', () => {
         it('navigates to unassigned person screen', () => {
           contactAssignmentSelector.mockReturnValue(undefined);
 
-          store.dispatch(navToPersonScreen(person.id, undefined));
+          store.dispatch(navToPersonScreen(person, undefined));
 
           expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
             person,
@@ -747,7 +747,7 @@ describe('navToPersonScreen', () => {
         it('navigates to contact person screen', () => {
           contactAssignmentSelector.mockReturnValue(contactAssignment);
 
-          store.dispatch(navToPersonScreen(person.id, organization.id));
+          store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
             person,
@@ -760,7 +760,7 @@ describe('navToPersonScreen', () => {
         it('navigates to unassigned person screen', () => {
           contactAssignmentSelector.mockReturnValue(undefined);
 
-          store.dispatch(navToPersonScreen(person.id, organization.id));
+          store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
             person,
@@ -782,9 +782,7 @@ describe('navToPersonScreen', () => {
     const onAssign = jest.fn();
 
     it('includes props in navigation', () => {
-      store.dispatch(
-        navToPersonScreen(person.id, organization.id, { onAssign }),
-      );
+      store.dispatch(navToPersonScreen(person, organization, { onAssign }));
 
       expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
         person,

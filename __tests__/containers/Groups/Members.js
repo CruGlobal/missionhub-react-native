@@ -157,7 +157,7 @@ describe('Members', () => {
 
     listItem.props.onSelect(member);
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(member.id, organization.id);
+    expect(navToPersonScreen).toHaveBeenCalledWith(member, organization);
   });
 
   it('should handleLoadMore correctly', () => {

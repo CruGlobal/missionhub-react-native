@@ -114,7 +114,7 @@ describe('SurveyContacts', () => {
 
     listItem.props.onSelect(person);
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(person.id, organization.id, {
+    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
       onAssign: screen.instance().handleRefreshSearchList,
     });
   });

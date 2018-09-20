@@ -106,7 +106,7 @@ describe('PeopleScreen', () => {
         .props()
         .onSelect(person, org);
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(person.id, undefined);
+      expect(navToPersonScreen).toHaveBeenCalledWith(person, undefined);
     });
 
     it('should navigate to person screen in org', () => {
@@ -118,7 +118,7 @@ describe('PeopleScreen', () => {
         .props()
         .onSelect(person, org);
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(person.id, org.id);
+      expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
     });
   });
 });

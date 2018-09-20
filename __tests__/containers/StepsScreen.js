@@ -358,10 +358,7 @@ describe('StepsScreen', () => {
 
       listItem.props().onSelect(step);
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(
-        receiver.id,
-        organization.id,
-      );
+      expect(navToPersonScreen).toHaveBeenCalledWith(receiver, organization);
     });
   });
 });

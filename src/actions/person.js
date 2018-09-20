@@ -324,11 +324,11 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(person, org, props = {}) {
+export function navToPersonScreen(person, org = {}, props = {}) {
   return (dispatch, getState) => {
     const { auth, people, organizations } = getState();
-    const orgId = org && org.id;
-    const personId = person && person.id;
+    const orgId = org.id;
+    const personId = person.id;
 
     const selectorOrg =
       organizationSelector({ organizations }, { orgId }) || org;
