@@ -63,10 +63,17 @@ const selectData = {
   },
 };
 
+const apiResponse = {
+  type: 'test api',
+  response: {
+    person: { id: personId },
+    organization: { id: orgId },
+  },
+};
 const impactResponse = { type: 'test impact' };
 const getPersonResponse = { type: 'test get person' };
 
-callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+callApi.mockReturnValue(() => Promise.resolve(apiResponse));
 refreshImpact.mockReturnValue(impactResponse);
 getPersonDetails.mockReturnValue(getPersonResponse);
 
@@ -83,7 +90,7 @@ it('updateUserStage', async () => {
     { contactAssignmentId },
     updateData,
   );
-  expect(store.getActions()).toEqual([impactResponse]);
+  expect(store.getActions()).toEqual([impactResponse, getPersonResponse]);
 });
 
 it('selectPersonStage', async () => {

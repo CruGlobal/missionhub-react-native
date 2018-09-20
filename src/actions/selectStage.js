@@ -30,13 +30,18 @@ export function updateUserStage(contactAssignmentId, stageId) {
     contactAssignmentId,
   };
 
-  return dispatch => {
-    return dispatch(
+  return async dispatch => {
+    const { response } = await dispatch(
       callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data),
-    ).then(r => {
-      dispatch(refreshImpact());
-      return r;
-    });
+    );
+    const {
+      person: { id: personId },
+      organization: { id: orgId },
+    } = response;
+
+    dispatch(refreshImpact());
+    dispatch(getPersonDetails(personId, orgId));
+    return response;
   };
 }
 
@@ -82,8 +87,9 @@ export function selectPersonStage(
     const { response } = await dispatch(
       callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
     );
+
     dispatch(refreshImpact());
-    dispatch(getPersonDetails());
+    dispatch(getPersonDetails(personId, orgId));
     return response;
   };
 }
