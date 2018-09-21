@@ -69,12 +69,8 @@ class Contacts extends Component {
   };
 
   handleChangeFilter = filters => {
-    this.setState({ filters }, () => {
-      // Run the search every time a filter option changes
-      if (this.searchList && this.searchList.getWrappedInstance) {
-        this.searchList.getWrappedInstance().search();
-      }
-    });
+    this.setState({ filters });
+    this.handleRefreshSearchList();
   };
 
   handleSearch = async text => {
@@ -86,6 +82,12 @@ class Contacts extends Component {
     await this.setState({ pagination });
 
     return await this.handleLoadMore(text);
+  };
+
+  handleRefreshSearchList = () => {
+    if (this.searchList && this.searchList.getWrappedInstance) {
+      this.searchList.getWrappedInstance().search();
+    }
   };
 
   handleLoadMore = async text => {
@@ -105,7 +107,11 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person, organization));
+    dispatch(
+      navToPersonScreen(person, organization, {
+        onAssign: this.handleRefreshSearchList,
+      }),
+    );
   };
 
   listRef = c => (this.searchList = c);

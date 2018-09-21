@@ -148,9 +148,16 @@ describe('Members', () => {
   });
 
   it('should handleSelect correctly', () => {
-    const instance = renderShallow(component, store).instance();
-    instance.handleSelect({ id: '1' });
-    expect(navToPersonScreen).toHaveBeenCalled();
+    const member = members[0];
+    const screen = renderShallow(component, store);
+    const listItem = screen
+      .childAt(0)
+      .props()
+      .renderItem({ item: member });
+
+    listItem.props.onSelect(member);
+
+    expect(navToPersonScreen).toHaveBeenCalledWith(member, organization);
   });
 
   it('should handleLoadMore correctly', () => {
