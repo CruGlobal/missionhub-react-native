@@ -24,6 +24,7 @@ import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import {
   CONTACT_PERSON_SCREEN,
+  IS_COHORT_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -610,36 +611,45 @@ describe('navToPersonScreen', () => {
         personSelector.mockReturnValue(person);
       });
 
-      afterEach(() => {
+      const testResult = (route, testPerson, testOrg) => {
         expect(organizationSelector).toHaveBeenCalledWith(
           { organizations },
-          { orgId: organization.id },
+          { orgId: testOrg.id },
         );
         expect(personSelector).toHaveBeenCalledWith(
           { people },
-          { orgId: organization.id, personId: person.id },
+          { orgId: testOrg.id, personId: testPerson.id },
         );
         expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person,
-          organization,
+          person: testPerson,
+          organization: testOrg,
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           { auth },
-          { person, orgId: organization.id },
+          { person: testPerson, orgId: testOrg.id },
         );
+        expect(navigatePush).toHaveBeenCalledWith(route, {
+          person: testPerson,
+          organization: testOrg,
+        });
+      };
+
+      describe('isCohort', () => {
+        it('navigates to cohort member person screen', () => {
+          const userCreatedOrg = { ...organization, user_created: true };
+          organizationSelector.mockReturnValue(userCreatedOrg);
+
+          store.dispatch(navToPersonScreen(person, userCreatedOrg));
+
+          testResult(IS_COHORT_MEMBER_PERSON_SCREEN, person, userCreatedOrg);
+        });
       });
 
       describe('isGroups', () => {
         it('navigates to groups member person screen', () => {
           store.dispatch(navToPersonScreen(person, organization));
 
-          expect(navigatePush).toHaveBeenCalledWith(
-            IS_GROUPS_MEMBER_PERSON_SCREEN,
-            {
-              person,
-              organization,
-            },
-          );
+          testResult(IS_GROUPS_MEMBER_PERSON_SCREEN, person, organization);
         });
       });
 
@@ -654,10 +664,7 @@ describe('navToPersonScreen', () => {
 
           store.dispatch(navToPersonScreen(person, organization));
 
-          expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
-            person,
-            organization,
-          });
+          testResult(MEMBER_PERSON_SCREEN, person, organization);
         });
       });
     });

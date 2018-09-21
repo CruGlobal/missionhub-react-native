@@ -26,7 +26,7 @@ class GroupsListScreen extends Component {
 
   handlePress = organization => {
     this.props.dispatch(
-      navigatePush(!organization.user_created ? COHORT_SCREEN : GROUP_SCREEN, {
+      navigatePush(organization.user_created ? COHORT_SCREEN : GROUP_SCREEN, {
         organization,
       }),
     );

@@ -248,7 +248,7 @@ export const mapStateToProps = (
     isMe,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
-    isCohort: !organization.user_created,
+    isCohort: organization.user_created,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },

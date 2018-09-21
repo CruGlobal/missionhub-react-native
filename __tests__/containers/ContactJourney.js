@@ -107,6 +107,14 @@ describe('ContactJourney', () => {
 
     expect(instance.state.isPersonalMinistry).toEqual(false);
   });
+
+  it('loads with cohort true', () => {
+    const cohortOrg = { ...org, user_created: true };
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    const instance = createComponent({ organization: cohortOrg }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(false);
+  });
 });
 
 describe('journey methods', () => {
