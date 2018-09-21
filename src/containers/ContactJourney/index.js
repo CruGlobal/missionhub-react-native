@@ -200,7 +200,7 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
-    isCohort: organization.user_created,
+    isCohort: !organization.user_created,
   };
 };
 

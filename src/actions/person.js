@@ -1,5 +1,6 @@
 import {
   CONTACT_PERSON_SCREEN,
+  IS_COHORT_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -376,6 +377,7 @@ export function getPersonScreenRoute(
     }),
   );
 
+  const isCohort = !organization.user_created;
   const isGroups = mePerson.user.groups_feature;
 
   if (isMe) {
@@ -391,6 +393,9 @@ export function getPersonScreenRoute(
   }
 
   if (isMember) {
+    if (isCohort) {
+      return IS_COHORT_MEMBER_PERSON_SCREEN;
+    }
     if (isGroups) {
       return IS_GROUPS_MEMBER_PERSON_SCREEN;
     }

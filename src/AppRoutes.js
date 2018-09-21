@@ -67,12 +67,14 @@ import NotificationOffScreen, {
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import {
   ContactPersonScreen,
+  IsCohortMemberPersonScreen,
   IsGroupsMemberPersonScreen,
   MemberPersonScreen,
   MePersonalPersonScreen,
   IsGroupsMeCommunityPersonScreen,
   MeCommunityPersonScreen,
   CONTACT_PERSON_SCREEN,
+  IS_COHORT_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -400,6 +402,9 @@ const screens = {
     { gesturesEnabled: true },
   ),
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
+  [IS_COHORT_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
+    IsCohortMemberPersonScreen,
+  ),
   [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
     IsGroupsMemberPersonScreen,
   ),
