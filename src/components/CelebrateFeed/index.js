@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import { toggleLike } from '../../actions/celebration';
 import { DateComponent, Flex } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../../containers/Groups/OnboardingCard';
 
 import styles from './styles';
 
@@ -58,12 +61,17 @@ class CelebrateFeed extends Component {
     dispatch(toggleLike(organization.id, eventId, liked));
   };
 
+  renderHeader = () => (
+    <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+  );
+
   render() {
     const { items, refreshing } = this.props;
 
     return (
       <SectionList
         sections={items}
+        ListHeaderComponent={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={this.keyExtractor}
