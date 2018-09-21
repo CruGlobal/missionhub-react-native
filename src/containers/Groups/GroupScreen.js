@@ -130,8 +130,13 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   tabs,
   GroupScreen,
 );
+export const cohortScreenTabNavigator = generateSwipeTabMenuNavigator(
+  [tabs[0], tabs[1], tabs[2], tabs[3]],
+  GroupScreen,
+);
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
+export const COHORT_SCREEN = 'nav/COHORT_SCREEN';
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {

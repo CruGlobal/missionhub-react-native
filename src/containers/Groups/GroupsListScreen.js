@@ -13,7 +13,7 @@ import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
 
-import { GROUP_SCREEN } from './GroupScreen';
+import { GROUP_SCREEN, COHORT_SCREEN } from './GroupScreen';
 import styles from './styles';
 
 @translate('groupsList')
@@ -26,7 +26,7 @@ class GroupsListScreen extends Component {
 
   handlePress = organization => {
     this.props.dispatch(
-      navigatePush(GROUP_SCREEN, {
+      navigatePush(!organization.user_created ? COHORT_SCREEN : GROUP_SCREEN, {
         organization,
       }),
     );

@@ -96,7 +96,9 @@ import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
+  cohortScreenTabNavigator,
   GROUP_SCREEN,
+  COHORT_SCREEN,
   GROUP_TABS,
 } from './containers/Groups/GroupScreen';
 import SurveyContacts, {
@@ -344,6 +346,10 @@ const screens = {
   ),
   [GROUP_SCREEN]: buildTrackedScreen(
     groupScreenTabNavigator,
+    buildTrackingObj('communities : community', 'communities', 'community'),
+  ),
+  [COHORT_SCREEN]: buildTrackedScreen(
+    cohortScreenTabNavigator,
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
