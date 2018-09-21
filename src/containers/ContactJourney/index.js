@@ -165,7 +165,7 @@ class ContactJourney extends Component {
 
   render() {
     const { isPersonalMinistry } = this.state;
-    const { person, organization } = this.props;
+    const { person, organization, isCohort } = this.props;
     return (
       <View style={{ flex: 1 }}>
         {this.renderContent()}
@@ -173,7 +173,7 @@ class ContactJourney extends Component {
           <CommentBox
             person={person}
             organization={organization}
-            hideActions={isPersonalMinistry}
+            hideActions={isPersonalMinistry || isCohort}
           />
         </Flex>
       </View>
@@ -200,6 +200,7 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
+    isCohort: organization.user_created,
   };
 };
 

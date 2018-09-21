@@ -131,7 +131,7 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   GroupScreen,
 );
 export const cohortScreenTabNavigator = generateSwipeTabMenuNavigator(
-  [tabs[0], tabs[1], tabs[2], tabs[3]],
+  [tabs[0], tabs[1], tabs[2]],
   GroupScreen,
 );
 

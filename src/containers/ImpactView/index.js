@@ -199,7 +199,7 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isPersonalMinistryMe } = this.props;
+    const { globalImpact, impact, isPersonalMinistryMe, isCohort } = this.props;
     return (
       <ScrollView style={{ flex: 1 }} bounces={false}>
         <Flex style={styles.topSection}>
@@ -211,21 +211,23 @@ export class ImpactView extends Component {
           style={styles.image}
           source={require('../../../assets/images/impactBackground.png')}
         />
-        <Flex
-          style={
-            isPersonalMinistryMe
-              ? styles.bottomSection
-              : styles.interactionSection
-          }
-        >
-          {isPersonalMinistryMe ? (
-            <Text style={[styles.text, styles.bottomText]}>
-              {this.buildImpactSentence(globalImpact, true)}
-            </Text>
-          ) : (
-            this.renderContactReport()
-          )}
-        </Flex>
+        {isPersonalMinistryMe || !isCohort ? (
+          <Flex
+            style={
+              isPersonalMinistryMe
+                ? styles.bottomSection
+                : styles.interactionSection
+            }
+          >
+            {isPersonalMinistryMe ? (
+              <Text style={[styles.text, styles.bottomText]}>
+                {this.buildImpactSentence(globalImpact, true)}
+              </Text>
+            ) : (
+              this.renderContactReport()
+            )}
+          </Flex>
+        ) : null}
       </ScrollView>
     );
   }
@@ -246,6 +248,7 @@ export const mapStateToProps = (
     isMe,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
+    isCohort: organization.user_created,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
