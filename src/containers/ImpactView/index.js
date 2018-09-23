@@ -98,7 +98,7 @@ export class ImpactView extends Component {
     },
     global = false,
   ) {
-    const { t, person = {}, organization = {}, isMe } = this.props;
+    const { t, person = {}, organization = {}, isMe, isCohort } = this.props;
     const initiator = global
       ? '$t(users)'
       : isMe
@@ -109,6 +109,7 @@ export class ImpactView extends Component {
     const context = count =>
       count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact = !global && !isMe && person.id;
+    const hideStageSentence = !global && isCohort && pathway_moved_count === 0;
 
     const stepsSentenceOptions = {
       context: context(steps_count),
@@ -134,10 +135,9 @@ export class ImpactView extends Component {
       pathwayMovedCount: pathway_moved_count,
     };
 
-    return `${t('stepsSentence', stepsSentenceOptions)}\n\n${t(
-      'stageSentence',
-      stageSentenceOptions,
-    )}`;
+    return `${t('stepsSentence', stepsSentenceOptions)}${
+      hideStageSentence ? '' : `\n\n${t('stageSentence', stageSentenceOptions)}`
+    }`;
   }
 
   renderContactReport() {
@@ -199,7 +199,17 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isPersonalMinistryMe, isCohort } = this.props;
+    const {
+      globalImpact,
+      impact,
+      isPersonalMinistryMe,
+      isCohort,
+      isOrgImpact,
+    } = this.props;
+
+    const showGlobalImpact = isPersonalMinistryMe || (isCohort && isOrgImpact);
+    const showInteractionReport = !isPersonalMinistryMe && !isCohort;
+
     return (
       <ScrollView style={{ flex: 1 }} bounces={false}>
         <Flex style={styles.topSection}>
@@ -211,23 +221,19 @@ export class ImpactView extends Component {
           style={styles.image}
           source={require('../../../assets/images/impactBackground.png')}
         />
-        {isPersonalMinistryMe || !isCohort ? (
-          <Flex
-            style={
-              isPersonalMinistryMe
-                ? styles.bottomSection
-                : styles.interactionSection
-            }
-          >
-            {isPersonalMinistryMe ? (
-              <Text style={[styles.text, styles.bottomText]}>
-                {this.buildImpactSentence(globalImpact, true)}
-              </Text>
-            ) : (
-              this.renderContactReport()
-            )}
-          </Flex>
-        ) : null}
+        <Flex
+          style={
+            showGlobalImpact ? styles.bottomSection : styles.interactionSection
+          }
+        >
+          {showGlobalImpact ? (
+            <Text style={[styles.text, styles.bottomText]}>
+              {this.buildImpactSentence(globalImpact, true)}
+            </Text>
+          ) : showInteractionReport ? (
+            this.renderContactReport()
+          ) : null}
+        </Flex>
       </ScrollView>
     );
   }
@@ -248,7 +254,8 @@ export const mapStateToProps = (
     isMe,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
-    isCohort: organization.user_created,
+    isOrgImpact: !person.id,
+    isCohort: (organization && organization.user_created) || false,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },

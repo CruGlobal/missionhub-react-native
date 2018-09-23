@@ -71,9 +71,10 @@ class MemberCelebrate extends Component {
 }
 
 const mapStateToProps = ({ organizations }, { organization, person }) => {
-  const selectorOrg =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
+  const selectorOrg = organizationSelector(
+    { organizations },
+    { orgId: organization.id },
+  );
 
   const filteredCelebrationItems = (selectorOrg.celebrateItems || []).filter(
     item => item.subject_person && item.subject_person.id === person.id,

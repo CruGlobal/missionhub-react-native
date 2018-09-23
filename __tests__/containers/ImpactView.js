@@ -148,6 +148,8 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={true}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -168,6 +170,8 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={true}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -190,6 +194,8 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={true}
+          isOrgImpact={false}
+          isCohort={false}
           impact={myImpact}
           globalImpact={globalImpact}
         />,
@@ -204,6 +210,8 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -225,6 +233,8 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -248,6 +258,73 @@ describe('ImpactView', () => {
           person={me}
           isMe={true}
           isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
+          impact={myImpact}
+          globalImpact={globalImpact}
+          interactions={personInteractions}
+        />,
+      );
+    });
+  });
+  describe('ME person cohort impact view', () => {
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
+          impact={{
+            ...myImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
+          impact={{
+            ...myImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={me}
+          isMe={true}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
           impact={myImpact}
           globalImpact={globalImpact}
           interactions={personInteractions}
@@ -261,6 +338,10 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -275,6 +356,10 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -290,6 +375,63 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={false}
+          impact={personImpact}
+          interactions={personInteractions}
+        />,
+      );
+    });
+  });
+  describe('contact cohort impact', () => {
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
+          impact={{
+            ...personImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
+          impact={{
+            ...personImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          person={person}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={false}
+          isCohort={true}
           impact={personImpact}
           interactions={personInteractions}
         />,
@@ -302,6 +444,10 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           organization={organization}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={false}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -316,6 +462,10 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           organization={organization}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={false}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -331,7 +481,77 @@ describe('ImpactView', () => {
         <ImpactView
           dispatch={dispatch}
           organization={organization}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={false}
           impact={personImpact}
+          interactions={personInteractions}
+        />,
+      );
+    });
+  });
+  describe('user-created group impact', () => {
+    const userCreatedOrg = { ...organization, user_created: true };
+    it('renders empty state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          organization={userCreatedOrg}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={true}
+          impact={{
+            ...personImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 0,
+            pathway_moved_count: 0,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders singular state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          organization={userCreatedOrg}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={true}
+          impact={{
+            ...personImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          globalImpact={{
+            ...globalImpact,
+            steps_count: 1,
+            receivers_count: 1,
+            pathway_moved_count: 1,
+          }}
+          interactions={personInteractions}
+        />,
+      );
+    });
+    it('renders plural state', () => {
+      testSnapshotShallow(
+        <ImpactView
+          dispatch={dispatch}
+          organization={userCreatedOrg}
+          isMe={false}
+          isPersonalMinistryMe={false}
+          isOrgImpact={true}
+          isCohort={true}
+          impact={personImpact}
+          globalImpact={globalImpact}
           interactions={personInteractions}
         />,
       );
