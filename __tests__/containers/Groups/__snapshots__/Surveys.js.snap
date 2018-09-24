@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Surveys renderHeader match snapshot 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="surveys"
+/>
+`;
+
 exports[`Surveys renders item 1`] = `
 <Translate(GroupSurveyItem)
   onSelect={[Function]}
@@ -26,6 +32,7 @@ exports[`Surveys should render correctly 1`] = `
         onPress={[Function]}
       />
     }
+    ListHeaderComponent={[Function]}
     data={
       Array [
         Object {

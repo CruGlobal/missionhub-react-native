@@ -107,3 +107,8 @@ it('calls key extractor', () => {
   const result = component.instance().keyExtractor(item);
   expect(result).toEqual(item.id);
 });
+
+it('renderHeader match snapshot', () => {
+  const header = component.instance().renderHeader();
+  expect(header).toMatchSnapshot();
+});

@@ -461,6 +461,20 @@ export default {
     somethingCoolHappened:
       '{{initiator}} saw something cool happen with someone.',
   },
+  groupOnboardingCard: {
+    celebrateHeader: 'Celebrate One Another',
+    celebrateDescription: `See and celebrate one another's Steps of Faith.`,
+    challengesHeader: 'Challenge One Another',
+    challengesDescription: `Create a community challenge everyone can join.`,
+    membersHeader: 'Journey Together',
+    membersDescription: `Take a Step of Faith with someone in your community.`,
+    impactHeader: 'See God at Work',
+    impactDescription: `See what God is doing as you take Steps of Faith together. `,
+    contactsHeader: 'Journey Together',
+    contactsDescription: `Stay engaged with contacts in your community.`,
+    surveysHeader: 'Grow Together',
+    surveysDescription: `Learn about one another through survey responses.`,
+  },
   groupsMembers: {
     invite: 'Send Invite',
   },
