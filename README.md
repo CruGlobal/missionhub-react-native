@@ -153,5 +153,5 @@ Travis will build production releases for both platform when it detects a commit
 - [developer] soon after, merge `master` down into `develop` (no PR required)
 - [developer] set, commit and push to `develop` the android version name (and iOS version number while this automated step is not working) to next desired value x.y.z+1
 
-### Production releases (specific platform) - untested!
+### Production releases (specific platform)
 It is possible, although untested, to release only one platform to only one platform by pushing a tag in the `vx.y.z` format and appending `-ios` or `-android` to build for only iOS or Android respectively. Again create a branch for this from master following the convention `releases/vx.y.z-android` to avoid needlessly building another pre-release from master when pushing the tag.
