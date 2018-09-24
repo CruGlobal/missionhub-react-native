@@ -195,6 +195,7 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -858,6 +859,7 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -1521,6 +1523,7 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2184,6 +2187,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2269,6 +2273,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2354,6 +2359,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2629,6 +2635,7 @@ exports[`ImpactView contact impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -3292,6 +3299,7 @@ exports[`ImpactView contact impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -3955,6 +3963,7 @@ exports[`ImpactView contact impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -4618,10 +4627,14 @@ exports[`ImpactView group impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {
@@ -5281,10 +5294,14 @@ exports[`ImpactView group impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {
@@ -5944,10 +5961,14 @@ exports[`ImpactView group impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {

@@ -223,4 +223,10 @@ describe('Members', () => {
       onComplete: expect.any(Function),
     });
   });
+
+  it('renderHeader match snapshot', () => {
+    const instance = renderShallow(component, store).instance();
+    const header = instance.renderHeader();
+    expect(header).toMatchSnapshot();
+  });
 });
