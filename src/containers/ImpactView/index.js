@@ -208,12 +208,12 @@ export class ImpactView extends Component {
       isPersonalMinistryMe,
       isCohort,
       isOrgImpact,
-       organization,
+      organization,
     } = this.props;
 
     const showGlobalImpact = isPersonalMinistryMe || (isCohort && isOrgImpact);
     const showInteractionReport = !isPersonalMinistryMe && !isCohort;
-    
+
     return (
       <ScrollView style={styles.container} bounces={false}>
         {organization ? (
