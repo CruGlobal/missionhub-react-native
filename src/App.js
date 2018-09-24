@@ -139,20 +139,16 @@ export default class App extends Component {
 
     if (crashlyticsError) {
       LOG(e);
-      console.log(crashlyticsError);
-      crashlyticsError.stackTracePromise.then(stackFrames => {
-        stackFrames.shift();
-        console.log(stackFrames);
-      });
 
       if (!__DEV__) {
-        crashlyticsError.stackTracePromise.then(stackFrames =>
+        crashlyticsError.stackTracePromise.then(stackFrames => {
+          stackFrames.shift();
           Crashlytics.recordCustomExceptionName(
             crashlyticsError.title,
             crashlyticsError.message,
-            stackFrames,
-          ),
-        );
+            stackFrames.shift,
+          );
+        });
       }
     }
   }
