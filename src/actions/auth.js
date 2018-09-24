@@ -194,6 +194,10 @@ export function loadHome() {
     if (!getState().auth.token) {
       return Promise.resolve();
     }
+
+    const oops = undefined;
+    oops.find();
+
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
     dispatch(getMe());
     dispatch(getMyOrganizations());
