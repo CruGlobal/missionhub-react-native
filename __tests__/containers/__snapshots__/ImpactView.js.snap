@@ -5,6 +5,7 @@ exports[`ImpactView ME person cohort impact view renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -67,6 +68,7 @@ exports[`ImpactView ME person cohort impact view renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -131,6 +133,7 @@ exports[`ImpactView ME person cohort impact view renders singular state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2445,6 +2448,7 @@ exports[`ImpactView contact cohort impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2507,6 +2511,7 @@ exports[`ImpactView contact cohort impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -2571,6 +2576,7 @@ exports[`ImpactView contact cohort impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
@@ -6792,10 +6798,14 @@ exports[`ImpactView user-created group impact renders empty state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {
@@ -6875,10 +6885,14 @@ exports[`ImpactView user-created group impact renders plural state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {
@@ -6960,10 +6974,14 @@ exports[`ImpactView user-created group impact renders singular state 1`] = `
   bounces={false}
   style={
     Object {
+      "backgroundColor": "#52C5DC",
       "flex": 1,
     }
   }
 >
+  <Connect(Translate(OnboardingCard))
+    type="impact"
+  />
   <Flex
     style={
       Object {
