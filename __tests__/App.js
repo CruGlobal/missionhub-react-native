@@ -3,6 +3,7 @@ import ReactNative from 'react-native';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
+import { Crashlytics } from 'react-native-fabric';
 
 import App from '../src/App';
 import {
@@ -18,7 +19,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../src/AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 
-jest.mock('react-native-fabric');
+jest.mock('react-native-fabric', () => ({
+  Crashlytics: {
+    recordCustomExceptionName: jest.fn(),
+  },
+}));
 
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
@@ -34,7 +39,9 @@ jest.mock('react-navigation-redux-helpers', () => ({
 }));
 
 jest.mock('stacktrace-js', () => {
-  const stacktraceResponse = Promise.resolve([{ id: '1' }, { id: '2' }]);
+  const stacktraceResponse = new Promise(resolve => {
+    resolve([{ id: '1' }, { id: '2' }]);
+  });
   return {
     fromError: jest.fn().mockReturnValue(stacktraceResponse),
     get: jest.fn().mockReturnValue(stacktraceResponse),
@@ -134,4 +141,18 @@ it('should not show alert if no error message', () => {
   test(unknownError);
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+});
+
+describe('__DEV__ === false', () => {
+  beforeAll(() => {
+    __DEV__ = false;
+  });
+
+  it('Sends Crashlytics report for unknown error', () => {
+    const unknownError = { key: 'test', method: '' };
+
+    test(unknownError);
+
+    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalled();
+  });
 });
