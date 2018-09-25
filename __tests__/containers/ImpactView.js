@@ -149,7 +149,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={true}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -171,7 +171,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={true}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -195,7 +195,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={true}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={myImpact}
           globalImpact={globalImpact}
         />,
@@ -211,7 +211,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -234,7 +234,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -259,7 +259,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={myImpact}
           globalImpact={globalImpact}
           interactions={personInteractions}
@@ -276,7 +276,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...myImpact,
             steps_count: 0,
@@ -299,7 +299,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...myImpact,
             steps_count: 1,
@@ -324,7 +324,7 @@ describe('ImpactView', () => {
           isMe={true}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={myImpact}
           globalImpact={globalImpact}
           interactions={personInteractions}
@@ -341,7 +341,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -359,7 +359,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -378,7 +378,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={personImpact}
           interactions={personInteractions}
         />,
@@ -394,7 +394,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -412,7 +412,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -431,7 +431,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={false}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={personImpact}
           interactions={personInteractions}
         />,
@@ -447,7 +447,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -465,7 +465,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -484,7 +484,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={false}
+          isUserCreatedOrg={false}
           impact={personImpact}
           interactions={personInteractions}
         />,
@@ -501,7 +501,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...personImpact,
             steps_count: 0,
@@ -524,7 +524,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={{
             ...personImpact,
             steps_count: 1,
@@ -549,7 +549,7 @@ describe('ImpactView', () => {
           isMe={false}
           isPersonalMinistryMe={false}
           isOrgImpact={true}
-          isCohort={true}
+          isUserCreatedOrg={true}
           impact={personImpact}
           globalImpact={globalImpact}
           interactions={personInteractions}

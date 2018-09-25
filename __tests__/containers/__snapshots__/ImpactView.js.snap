@@ -6704,10 +6704,10 @@ Object {
       },
     ],
   },
-  "isCohort": false,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": false,
+  "isUserCreatedOrg": undefined,
 }
 `;
 
@@ -6786,10 +6786,10 @@ Object {
       },
     ],
   },
-  "isCohort": false,
   "isMe": true,
   "isOrgImpact": false,
   "isPersonalMinistryMe": true,
+  "isUserCreatedOrg": undefined,
 }
 `;
 
