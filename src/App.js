@@ -120,20 +120,25 @@ export default class App extends Component {
             null,
             2,
           )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
-          stackTracePromise: StackTrace.fromError(apiError.error),
+          shiftFrame: false,
+          stackTracePromise: StackTrace.fromError(apiError.error, {
+            offline: true,
+          }),
         };
       }
     } else if (e.message) {
       crashlyticsError = {
         title: e.message.split('\n')[0],
         message: e.message,
-        stackTracePromise: StackTrace.fromError(e),
+        shiftFrame: false,
+        stackTracePromise: StackTrace.fromError(e, { offline: true }),
       };
     } else {
       crashlyticsError = {
         title: 'Unknown Error',
         message: JSON.stringify(e),
-        stackTracePromise: StackTrace.get(),
+        shiftFrame: true,
+        stackTracePromise: StackTrace.get({ offline: true }),
       };
     }
 
@@ -142,7 +147,9 @@ export default class App extends Component {
 
       if (!__DEV__) {
         crashlyticsError.stackTracePromise.then(stackFrames => {
-          stackFrames.shift();
+          if (crashlyticsError.shiftFrame) {
+            stackFrames.shift();
+          }
           Crashlytics.recordCustomExceptionName(
             crashlyticsError.title,
             crashlyticsError.message,
