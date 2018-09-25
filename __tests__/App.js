@@ -33,6 +33,14 @@ jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
 
+jest.mock('stacktrace-js', () => {
+  const stacktraceResponse = Promise.resolve([{ id: '1' }, { id: '2' }]);
+  return {
+    fromError: jest.fn().mockReturnValue(stacktraceResponse),
+    get: jest.fn().mockReturnValue(stacktraceResponse),
+  };
+});
+
 jest.mock('../src/store', () => ({
   store: require('../testUtils').createMockStore(),
   persistor: {},

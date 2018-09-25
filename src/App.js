@@ -146,7 +146,7 @@ export default class App extends Component {
           Crashlytics.recordCustomExceptionName(
             crashlyticsError.title,
             crashlyticsError.message,
-            stackFrames.shift,
+            stackFrames,
           );
         });
       }
