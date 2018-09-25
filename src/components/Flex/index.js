@@ -27,7 +27,7 @@ export default class Flex extends Component {
       animated,
       ...rest
     } = this.props;
-    let styleObj = {};
+    const styleObj = {};
     if (value) {
       styleObj.flex = value;
     }

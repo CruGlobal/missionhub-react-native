@@ -15,9 +15,11 @@ import {
 } from '../constants';
 import { isMemberForOrg, exists } from '../utils/common';
 import {
+  personSelector,
   orgPermissionSelector,
   contactAssignmentSelector,
 } from '../selectors/people';
+import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -156,7 +158,7 @@ export function updatePerson(data) {
       });
     }
 
-    let updateData = { type: 'person' };
+    const updateData = { type: 'person' };
     let attributes;
     if (exists(data.firstName)) {
       attributes = { ...(attributes || {}), first_name: data.firstName };
@@ -322,15 +324,22 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(person, org) {
+export function navToPersonScreen(person, org, props = {}) {
   return (dispatch, getState) => {
     const organization = org ? org : {};
-    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const { auth, people, organizations } = getState();
+    const orgId = organization.id;
+    const personId = person.id;
 
-    const auth = getState().auth;
+    const selectorOrg =
+      organizationSelector({ organizations }, { orgId }) || organization;
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const selectorPerson =
+      personSelector({ people }, { orgId, personId }) || person;
+
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person, orgId: organization.id },
+      { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
 
@@ -338,13 +347,14 @@ export function navToPersonScreen(person, org) {
       navigatePush(
         getPersonScreenRoute(
           authPerson,
-          person,
-          organization,
+          selectorPerson,
+          selectorOrg,
           contactAssignment,
         ),
         {
-          person,
-          organization,
+          ...props,
+          person: selectorPerson,
+          organization: selectorOrg,
         },
       ),
     );

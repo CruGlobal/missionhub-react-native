@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -6,13 +7,13 @@ import PropTypes from 'prop-types';
 import { navigatePush } from '../../actions/navigation';
 import { getOrganizationContacts } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
-import { Flex } from '../../components/common';
 import SearchList from '../../components/SearchList';
 import ContactItem from '../../components/ContactItem';
 import { searchRemoveFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsContacts')
 class Contacts extends Component {
@@ -68,12 +69,8 @@ class Contacts extends Component {
   };
 
   handleChangeFilter = filters => {
-    this.setState({ filters }, () => {
-      // Run the search every time a filter option changes
-      if (this.searchList && this.searchList.getWrappedInstance) {
-        this.searchList.getWrappedInstance().search();
-      }
-    });
+    this.setState({ filters });
+    this.handleRefreshSearchList();
   };
 
   handleSearch = async text => {
@@ -85,6 +82,12 @@ class Contacts extends Component {
     await this.setState({ pagination });
 
     return await this.handleLoadMore(text);
+  };
+
+  handleRefreshSearchList = () => {
+    if (this.searchList && this.searchList.getWrappedInstance) {
+      this.searchList.getWrappedInstance().search();
+    }
   };
 
   handleLoadMore = async text => {
@@ -104,7 +107,11 @@ class Contacts extends Component {
 
   handleSelect = person => {
     const { dispatch, organization } = this.props;
-    dispatch(navToPersonScreen(person, organization));
+    dispatch(
+      navToPersonScreen(person, organization, {
+        onAssign: this.handleRefreshSearchList,
+      }),
+    );
   };
 
   listRef = c => (this.searchList = c);
@@ -121,7 +128,8 @@ class Contacts extends Component {
     const { t } = this.props;
     const { filters, defaultResults } = this.state;
     return (
-      <Flex value={1}>
+      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />
         <SearchList
           ref={this.listRef}
           defaultData={defaultResults}
@@ -135,7 +143,7 @@ class Contacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </Flex>
+      </ScrollView>
     );
   }
 }

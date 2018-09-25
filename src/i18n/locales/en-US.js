@@ -7,6 +7,7 @@ export default {
       lastName: 'Last Name',
       lastNameOptional: '$t(profileLabels.lastName) (if you want)',
       email: 'Email',
+      emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
       call: 'Call',
       message: 'Message',
@@ -169,7 +170,7 @@ export default {
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',
     alertPermissionsMustHaveEmail:
-      'Contact with User or Admin permissions must have email address',
+      'Contact with User or Admin permissions must have email address and first name',
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
@@ -460,8 +461,22 @@ export default {
     somethingCoolHappened:
       '{{initiator}} saw something cool happen with someone.',
   },
+  groupOnboardingCard: {
+    celebrateHeader: 'Celebrate One Another',
+    celebrateDescription: `See and celebrate one another's Steps of Faith.`,
+    challengesHeader: 'Challenge One Another',
+    challengesDescription: `Create a community challenge everyone can join.`,
+    membersHeader: 'Journey Together',
+    membersDescription: `Take a Step of Faith with someone in your community.`,
+    impactHeader: 'See God at Work',
+    impactDescription: `See what God is doing as you take Steps of Faith together. `,
+    contactsHeader: 'Journey Together',
+    contactsDescription: `Stay engaged with contacts in your community.`,
+    surveysHeader: 'Grow Together',
+    surveysDescription: `Learn about one another through survey responses.`,
+  },
   groupsMembers: {
-    title: '',
+    invite: 'Send Invite',
   },
   groupsImpact: {
     title: '',

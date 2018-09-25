@@ -14,6 +14,7 @@ import { organizationSelector } from '../../selectors/organizations';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsSurveys')
 class Surveys extends Component {
@@ -52,12 +53,15 @@ class Surveys extends Component {
     <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
   );
 
+  renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />;
+
   render() {
     const { surveys, pagination } = this.props;
     return (
       <Flex value={1}>
         <FlatList
           data={surveys}
+          ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
           style={styles.flatList}
           renderItem={this.renderItem}

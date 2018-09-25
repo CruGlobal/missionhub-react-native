@@ -5,7 +5,7 @@ import PopupMenu from '../../src/components/PopupMenu/index.ios.js';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const onPress = jest.fn();
-let props = {
+const props = {
   actions: [{ text: 'test', onPress }],
 };
 

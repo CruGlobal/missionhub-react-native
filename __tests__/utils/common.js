@@ -109,7 +109,7 @@ describe('getPagination', () => {
     page: 0,
   };
 
-  let action = {
+  const action = {
     query: {
       page: {
         limit: DEFAULT_PAGE_LIMIT,

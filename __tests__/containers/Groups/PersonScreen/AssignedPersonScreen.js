@@ -83,7 +83,7 @@ describe('Contact', () => {
     organizationSelector.mockReturnValue(undefined);
 
     expect(mapStateToProps(store, nav)).toEqual({
-      organization: {},
+      organization,
       person,
       contactAssignment,
       myId,

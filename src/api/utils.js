@@ -66,7 +66,7 @@ function createUrl(url = '', params) {
   let fullUrl = newUrl;
   if (params && Object.keys(params).length > 0) {
     // stringify arrays into brackets without indices https://github.com/ljharb/qs#stringifying
-    let paramsStr = qs.stringify(params, { arrayFormat: 'brackets' });
+    const paramsStr = qs.stringify(params, { arrayFormat: 'brackets' });
 
     fullUrl += `?${paramsStr}`;
   }
@@ -74,7 +74,7 @@ function createUrl(url = '', params) {
 }
 
 function defaultObject(method, obj = {}, data) {
-  let newObj = merge({}, { headers: DEFAULT_HEADERS }, obj, {
+  const newObj = merge({}, { headers: DEFAULT_HEADERS }, obj, {
     method: method.toUpperCase(),
   });
   if (obj && obj.headers && obj.headers['Content-Type'] === false) {

@@ -52,6 +52,12 @@
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
+        <!-- Adobe in-app messages -->
+        <activity
+                android:name="com.adobe.mobile.MessageFullScreenActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <receiver android:name="com.adobe.mobile.MessageNotificationHandler" />
+
         <!-- Config for react-native-push-notification -->
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"

@@ -153,5 +153,11 @@ Travis will build production releases for both platform when it detects a commit
 - [developer] soon after, merge `master` down into `develop` (no PR required)
 - [developer] set, commit and push to `develop` the android version name (and iOS version number while this automated step is not working) to next desired value x.y.z+1
 
-### Production releases (specific platform) - untested!
+### Production releases (specific platform)
 It is possible, although untested, to release only one platform to only one platform by pushing a tag in the `vx.y.z` format and appending `-ios` or `-android` to build for only iOS or Android respectively. Again create a branch for this from master following the convention `releases/vx.y.z-android` to avoid needlessly building another pre-release from master when pushing the tag.
+
+### Known issues in the automated deployment process
+ - The iOS AppStore release TravisCI job will fail if release notes are not added for _all_ languages on appstoreconnect.com . The signed build will be set on the release on AppStore connect, but the release cannot be submitted for review until release notes are added.
+ - iOS AppStore TravisCI jobs will sometimes fail for mysterious reasons. The first step, naturally, is to search Stack Overflow and/or FastLane's GitHub issues to see if others are experiencing the same problems. Apple lets FastLane integrate with semi-public APIs, but seems to freely change them w/o warning. The result is that FastLane needs to update their scripts, which usually happens quickly.
+   - Locally check out the repo, use bundler to update to the latest FastLane version, push to Travis.
+ - Getting Android jobs to accept all of the right releases for SDK and build-tools versions is pretty hairy and a lot of guess work. MH ReactNative had to accept 3 or 4 different versions b/c some dependency somewhere targeted a specific version. *sigh*

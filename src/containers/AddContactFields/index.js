@@ -28,22 +28,36 @@ class AddContactFields extends Component {
   };
 
   componentDidMount() {
-    const { person, orgPermission, isJean, organization } = this.props;
-    // If person exists, then we are in edit mode
+    const {
+      person,
+      orgPermission,
+      isJean,
+      organization,
+      isGroupInvite,
+      myOrgPermissions,
+    } = this.props;
+    // If there is no person passed in, we are creating a new one
     if (!person) {
-      // Default the orgPermission for creating new people to 'Contact'
       if (isJean && organization && organization.id) {
-        this.updateField('orgPermission', {
-          ...orgPermission,
-          permission_id: ORG_PERMISSIONS.CONTACT,
-        });
+        const myOrgPermId = myOrgPermissions && myOrgPermissions.permission_id;
+        // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
+        if (isGroupInvite && myOrgPermId === ORG_PERMISSIONS.ADMIN) {
+          this.updateField('orgPermission', {
+            ...(orgPermission || {}),
+            permission_id: ORG_PERMISSIONS.USER,
+          });
+        } else {
+          // Default the orgPermission for creating new people to 'Contact'
+          this.updateField('orgPermission', {
+            ...(orgPermission || {}),
+            permission_id: ORG_PERMISSIONS.CONTACT,
+          });
+        }
       }
-      return;
-    }
-    const email = getPersonEmailAddress(person) || {};
-    const phone = getPersonPhoneNumber(person) || {};
-
-    if (person) {
+    } else {
+      // If person exists, then we are in edit mode
+      const email = getPersonEmailAddress(person) || {};
+      const phone = getPersonPhoneNumber(person) || {};
       const newState = {
         firstName: person.first_name,
         lastName: person.last_name,
@@ -54,7 +68,7 @@ class AddContactFields extends Component {
               phoneId: phone.id,
               phone: phone.number,
               gender: person.gender,
-              orgPermission,
+              orgPermission: orgPermission || {},
             }
           : {}),
       };
@@ -104,6 +118,7 @@ class AddContactFields extends Component {
       organization,
       myOrgPermissions,
       orgPermission: personOrgPermission,
+      isGroupInvite,
     } = this.props;
     const {
       firstName,
@@ -113,6 +128,12 @@ class AddContactFields extends Component {
       gender,
       orgPermission,
     } = this.state;
+
+    const selectedOrgPermId = orgPermission.permission_id;
+    // Email is required if the new person is going to be a user or admin for an organization
+    const isEmailRequired =
+      selectedOrgPermId === ORG_PERMISSIONS.USER ||
+      selectedOrgPermId === ORG_PERMISSIONS.ADMIN;
 
     // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
     const personHasOrgPermission =
@@ -160,7 +181,11 @@ class AddContactFields extends Component {
                 onChangeText={this.updateEmail}
                 value={email}
                 autoCapitalize="none"
-                placeholder={t('profileLabels.email')}
+                placeholder={
+                  isEmailRequired
+                    ? t('profileLabels.emailRequired')
+                    : t('profileLabels.email')
+                }
                 placeholderTextColor={theme.white}
                 keyboardType="email-address"
                 returnKeyType="next"
@@ -168,41 +193,45 @@ class AddContactFields extends Component {
                 onSubmitEditing={this.phoneFocus}
               />
             </Flex>
-            <Flex
-              direction="row"
-              align="center"
-              style={styles.genderRow}
-              key="gender"
-            >
-              <Text style={styles.genderText}>
-                {t('profileLabels.gender')}:
-              </Text>
-              <RadioButton
-                style={styles.genderRadioButton}
-                onSelect={this.updateGenderMale}
-                checked={gender === 'Male'}
-                label={t('gender.male')}
-              />
-              <RadioButton
-                style={styles.genderRadioButton}
-                onSelect={this.updateGenderFemale}
-                checked={gender === 'Female'}
-                label={t('gender.female')}
-              />
-            </Flex>
-            <Flex direction="column" key="phone">
-              <Text style={styles.label}>{t('profileLabels.phone')}</Text>
-              <Input
-                ref={this.phoneRef}
-                onChangeText={this.updatePhone}
-                value={phone}
-                placeholder={t('profileLabels.phone')}
-                placeholderTextColor={theme.white}
-                keyboardType="phone-pad"
-                returnKeyType="done"
-                blurOnSubmit={true}
-              />
-            </Flex>
+            {!isGroupInvite ? (
+              <Flex
+                direction="row"
+                align="center"
+                style={styles.genderRow}
+                key="gender"
+              >
+                <Text style={styles.genderText}>
+                  {t('profileLabels.gender')}:
+                </Text>
+                <RadioButton
+                  style={styles.genderRadioButton}
+                  onSelect={this.updateGenderMale}
+                  checked={gender === 'Male'}
+                  label={t('gender.male')}
+                />
+                <RadioButton
+                  style={styles.genderRadioButton}
+                  onSelect={this.updateGenderFemale}
+                  checked={gender === 'Female'}
+                  label={t('gender.female')}
+                />
+              </Flex>
+            ) : null}
+            {!isGroupInvite ? (
+              <Flex direction="column" key="phone">
+                <Text style={styles.label}>{t('profileLabels.phone')}</Text>
+                <Input
+                  ref={this.phoneRef}
+                  onChangeText={this.updatePhone}
+                  value={phone}
+                  placeholder={t('profileLabels.phone')}
+                  placeholderTextColor={theme.white}
+                  keyboardType="phone-pad"
+                  returnKeyType="done"
+                  blurOnSubmit={true}
+                />
+              </Flex>
+            ) : null}
             {organization && organization.id ? (
               <Fragment>
                 <Text style={styles.label}>
@@ -213,38 +242,34 @@ class AddContactFields extends Component {
                   align="center"
                   style={styles.permissionsRow}
                 >
-                  <RadioButton
-                    style={styles.contactRadioButton}
-                    pressProps={[ORG_PERMISSIONS.CONTACT]}
-                    onSelect={this.updateOrgPermission}
-                    checked={
-                      orgPermission.permission_id === ORG_PERMISSIONS.CONTACT
-                    }
-                    label={t('profileLabels.contact')}
-                  />
+                  {!isGroupInvite ? (
+                    <RadioButton
+                      style={styles.radioButton}
+                      pressProps={[ORG_PERMISSIONS.CONTACT]}
+                      onSelect={this.updateOrgPermission}
+                      checked={selectedOrgPermId === ORG_PERMISSIONS.CONTACT}
+                      label={t('profileLabels.contact')}
+                    />
+                  ) : null}
                   {myOrgPermissions &&
                   (myOrgPermissions.permission_id === ORG_PERMISSIONS.USER ||
                     myOrgPermissions.permission_id ===
                       ORG_PERMISSIONS.ADMIN) ? (
                     <RadioButton
-                      style={styles.userRadioButton}
+                      style={styles.radioButton}
                       pressProps={[ORG_PERMISSIONS.USER]}
                       onSelect={this.updateOrgPermission}
-                      checked={
-                        orgPermission.permission_id === ORG_PERMISSIONS.USER
-                      }
+                      checked={selectedOrgPermId === ORG_PERMISSIONS.USER}
                       label={t('profileLabels.user')}
                     />
                   ) : null}
                   {myOrgPermissions &&
                   myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
                     <RadioButton
-                      style={styles.adminRadioButton}
+                      style={styles.radioButton}
                       pressProps={[ORG_PERMISSIONS.ADMIN]}
                       onSelect={this.updateOrgPermission}
-                      checked={
-                        orgPermission.permission_id === ORG_PERMISSIONS.ADMIN
-                      }
+                      checked={selectedOrgPermId === ORG_PERMISSIONS.ADMIN}
                       label={t('profileLabels.admin')}
                     />
                   ) : null}
@@ -261,6 +286,7 @@ class AddContactFields extends Component {
 AddContactFields.propTypes = {
   person: PropTypes.object,
   onUpdateData: PropTypes.func.isRequired,
+  isGroupInvite: PropTypes.bool,
 };
 
 const mapStateToProps = ({ auth }, { person, organization }) => ({

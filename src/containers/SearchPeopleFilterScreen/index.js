@@ -172,7 +172,7 @@ export class SearchPeopleFilterScreen extends Component {
     if (!item) {
       return;
     }
-    let newFilter = { ...this.state.filters };
+    const newFilter = { ...this.state.filters };
     const field = item.id;
     const newValue = !item.selected;
     newFilter[field] = newValue ? item : undefined;
@@ -189,7 +189,7 @@ export class SearchPeopleFilterScreen extends Component {
       ...o,
       preview: o.id === this.state.selectedFilterId ? item.text : o.preview,
     }));
-    let filters = {
+    const filters = {
       ...this.state.filters,
       [this.state.selectedFilterId]: item,
     };

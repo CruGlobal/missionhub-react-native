@@ -1,6 +1,7 @@
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
+  GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
 } from '../constants';
@@ -138,7 +139,14 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   };
 
   return async dispatch => {
-    return await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+    const result = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
+
+    dispatch({
+      type: GET_ORGANIZATION_PEOPLE,
+      orgId,
+      response: result.response,
+    });
+    return result;
   };
 }
 
@@ -150,14 +158,13 @@ function getAnswersFromFilters(filters) {
   if (answers.length === 0) {
     return null;
   }
-  let answerFilters = {};
+  const answerFilters = {};
   answers.forEach(f => {
     answerFilters[f.id] = [f.text];
   });
   return answerFilters;
 }
 
-//todo probably should start storing this stuff in Redux
 export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
@@ -207,6 +214,12 @@ export function getOrganizationMembers(orgId, query = {}) {
       query: newQuery,
       meta,
     });
+    dispatch({
+      type: GET_ORGANIZATION_PEOPLE,
+      orgId,
+      response: membersWithCounts,
+    });
+
     return membersWithCounts;
   };
 }
@@ -238,7 +251,7 @@ export function addNewContact(data) {
         `Invalid Data from addNewContact: no data or no firstName passed in`,
       );
     }
-    let included = [];
+    const included = [];
     included.push({
       type: 'contact_assignment',
       attributes: {
