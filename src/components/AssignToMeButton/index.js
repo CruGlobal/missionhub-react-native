@@ -10,9 +10,10 @@ import styles from './styles';
 
 @translate()
 class AssignToMeButton extends Component {
-  assignToMe = () => {
-    const { dispatch, person, organization, myId } = this.props;
-    dispatch(assignContactAndPickStage(person, organization, myId));
+  assignToMe = async () => {
+    const { dispatch, person, organization, myId, onComplete } = this.props;
+    await dispatch(assignContactAndPickStage(person, organization, myId));
+    onComplete && onComplete();
   };
 
   render() {
@@ -38,4 +39,5 @@ export default connect(mapStateToProps)(AssignToMeButton);
 AssignToMeButton.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
+  onComplete: PropTypes.func,
 };

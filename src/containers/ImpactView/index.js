@@ -14,6 +14,9 @@ import {
   impactInteractionsSelector,
   impactSummarySelector,
 } from '../../selectors/impact';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
 
 import styles from './styles';
 
@@ -199,9 +202,17 @@ export class ImpactView extends Component {
   }
 
   render() {
-    const { globalImpact, impact, isPersonalMinistryMe } = this.props;
+    const {
+      globalImpact,
+      impact,
+      isPersonalMinistryMe,
+      organization,
+    } = this.props;
     return (
-      <ScrollView style={{ flex: 1 }} bounces={false}>
+      <ScrollView style={styles.container} bounces={false}>
+        {organization ? (
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
+        ) : null}
         <Flex style={styles.topSection}>
           <Text style={[styles.text, styles.topText]}>
             {this.buildImpactSentence(impact)}

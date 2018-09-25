@@ -13,6 +13,12 @@ exports[`Members calls render item 1`] = `
 />
 `;
 
+exports[`Members renderHeader match snapshot 1`] = `
+<Connect(Translate(OnboardingCard))
+  type="members"
+/>
+`;
+
 exports[`Members should mount with send invite 1`] = `
 <Flex
   value={1}
@@ -23,6 +29,7 @@ exports[`Members should mount with send invite 1`] = `
         onPress={[Function]}
       />
     }
+    ListHeaderComponent={[Function]}
     data={Array []}
     disableVirtualization={false}
     horizontal={false}
@@ -79,6 +86,7 @@ exports[`Members should render correctly 1`] = `
         onPress={[Function]}
       />
     }
+    ListHeaderComponent={[Function]}
     data={
       Array [
         Object {

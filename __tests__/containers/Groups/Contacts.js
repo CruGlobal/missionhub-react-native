@@ -86,10 +86,19 @@ describe('Contacts', () => {
     });
   });
 
-  it('should handleSelect correctly', async () => {
-    const instance = renderShallow(component, store).instance();
-    await instance.handleSelect({ id: '1' });
-    expect(navToPersonScreen).toHaveBeenCalled();
+  it('should handleSelect correctly', () => {
+    const person = people[0];
+    const screen = renderShallow(component, store);
+    const listItem = screen
+      .childAt(1)
+      .props()
+      .listProps.renderItem({ item: person });
+
+    listItem.props.onSelect(person);
+
+    expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
+      onAssign: screen.instance().handleRefreshSearchList,
+    });
   });
   it('should call list ref', () => {
     const instance = renderShallow(component, store).instance();

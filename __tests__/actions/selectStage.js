@@ -7,9 +7,11 @@ import {
 } from '../../src/actions/selectStage';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import { refreshImpact } from '../../src/actions/impact';
+import { getPersonDetails } from '../../src/actions/person';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/impact');
+jest.mock('../../src/actions/person');
 
 const mockStore = configureStore([thunk]);
 let store;
@@ -61,10 +63,19 @@ const selectData = {
   },
 };
 
+const apiResponse = {
+  type: 'test api',
+  response: {
+    person: { id: personId },
+    organization: { id: orgId },
+  },
+};
 const impactResponse = { type: 'test impact' };
+const getPersonResponse = { type: 'test get person' };
 
-callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+callApi.mockReturnValue(() => Promise.resolve(apiResponse));
 refreshImpact.mockReturnValue(impactResponse);
+getPersonDetails.mockReturnValue(getPersonResponse);
 
 beforeEach(() => {
   callApi.mockClear();
@@ -79,7 +90,7 @@ it('updateUserStage', async () => {
     { contactAssignmentId },
     updateData,
   );
-  expect(store.getActions()).toEqual([impactResponse]);
+  expect(store.getActions()).toEqual([impactResponse, getPersonResponse]);
 });
 
 it('selectPersonStage', async () => {
@@ -90,5 +101,5 @@ it('selectPersonStage', async () => {
     {},
     selectData,
   );
-  expect(store.getActions()).toEqual([impactResponse]);
+  expect(store.getActions()).toEqual([impactResponse, getPersonResponse]);
 });
