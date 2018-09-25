@@ -377,7 +377,7 @@ export function getPersonScreenRoute(
     }),
   );
 
-  const isCohort = organization.user_created;
+  const isUserCreatedOrg = organization.user_created;
   const isGroups = mePerson.user.groups_feature;
 
   if (isMe) {
@@ -393,7 +393,7 @@ export function getPersonScreenRoute(
   }
 
   if (isMember) {
-    if (isCohort) {
+    if (isUserCreatedOrg) {
       return IS_COHORT_MEMBER_PERSON_SCREEN;
     }
     if (isGroups) {
