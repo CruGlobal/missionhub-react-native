@@ -9,7 +9,7 @@ import { communitiesSelector } from '../../../src/selectors/organizations';
 import * as common from '../../../src/utils/common';
 import {
   GROUP_SCREEN,
-  COHORT_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
 } from '../../../src/containers/Groups/GroupScreen';
 
 jest.mock('../../../src/selectors/organizations');
@@ -74,7 +74,7 @@ describe('GroupsListScreen', () => {
       });
     });
 
-    it('navigates to cohort screen', () => {
+    it('navigates to user created org screen', () => {
       const organization = organizations.all[1];
       const item = component
         .childAt(1)
@@ -83,7 +83,7 @@ describe('GroupsListScreen', () => {
         .renderItem({ item: organization });
       item.props.onPress(organization);
 
-      expect(navigatePush).toHaveBeenCalledWith(COHORT_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
         organization,
       });
       expect(communitiesSelector).toHaveBeenCalledWith({

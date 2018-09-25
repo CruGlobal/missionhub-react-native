@@ -67,14 +67,14 @@ import NotificationOffScreen, {
 import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
 import {
   ContactPersonScreen,
-  IsCohortMemberPersonScreen,
+  IsUserCreatedMemberPersonScreen,
   IsGroupsMemberPersonScreen,
   MemberPersonScreen,
   MePersonalPersonScreen,
   IsGroupsMeCommunityPersonScreen,
   MeCommunityPersonScreen,
   CONTACT_PERSON_SCREEN,
-  IS_COHORT_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -98,9 +98,9 @@ import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
-  cohortScreenTabNavigator,
+  userCreatedScreenTabNavigator,
   GROUP_SCREEN,
-  COHORT_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
   GROUP_TABS,
 } from './containers/Groups/GroupScreen';
 import SurveyContacts, {
@@ -350,8 +350,8 @@ const screens = {
     groupScreenTabNavigator,
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
-  [COHORT_SCREEN]: buildTrackedScreen(
-    cohortScreenTabNavigator,
+  [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
+    userCreatedScreenTabNavigator,
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
@@ -402,8 +402,8 @@ const screens = {
     { gesturesEnabled: true },
   ),
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
-  [IS_COHORT_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsCohortMemberPersonScreen,
+  [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
+    IsUserCreatedMemberPersonScreen,
   ),
   [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
     IsGroupsMemberPersonScreen,

@@ -6,7 +6,7 @@ import {
   AssignedPersonScreen,
   mapStateToProps,
   CONTACT_PERSON_TABS,
-  IS_COHORT_MEMBER_PERSON_TABS,
+  IS_USER_CREATED_MEMBER_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
 } from '../../../../src/containers/Groups/AssignedPersonScreen';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
@@ -107,8 +107,8 @@ describe('Contact', () => {
     expect(CONTACT_PERSON_TABS).toMatchSnapshot();
   });
 
-  it('should render cohort member tabs correctly', () => {
-    expect(IS_COHORT_MEMBER_PERSON_TABS).toMatchSnapshot();
+  it('should render user created member tabs correctly', () => {
+    expect(IS_USER_CREATED_MEMBER_PERSON_TABS).toMatchSnapshot();
   });
 
   it('should render group member tabs correctly', () => {

@@ -1,6 +1,6 @@
 import {
   CONTACT_PERSON_SCREEN,
-  IS_COHORT_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -394,7 +394,7 @@ export function getPersonScreenRoute(
 
   if (isMember) {
     if (isUserCreatedOrg) {
-      return IS_COHORT_MEMBER_PERSON_SCREEN;
+      return IS_USER_CREATED_MEMBER_PERSON_SCREEN;
     }
     if (isGroups) {
       return IS_GROUPS_MEMBER_PERSON_SCREEN;

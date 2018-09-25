@@ -1,198 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImpactView ME person cohort impact view renders empty state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      Here you will see all the steps you have taken.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
-</ScrollView>
-`;
-
-exports[`ImpactView ME person cohort impact view renders plural state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  you have taken 10 steps of faith with 5 people.
-
-3 people reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
-</ScrollView>
-`;
-
-exports[`ImpactView ME person cohort impact view renders singular state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  you have taken 1 step of faith with 1 person.
-
-1 person reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
-</ScrollView>
-`;
-
 exports[`ImpactView ME person community impact view renders empty state 1`] = `
 <ScrollView
   bounces={false}
@@ -2185,6 +1992,199 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
 </ScrollView>
 `;
 
+exports[`ImpactView ME person impact view for user created org renders empty state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      Here you will see all the steps you have taken.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
+`;
+
+exports[`ImpactView ME person impact view for user created org renders plural state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  you have taken 10 steps of faith with 5 people.
+
+3 people reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
+`;
+
+exports[`ImpactView ME person impact view for user created org renders singular state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  you have taken 1 step of faith with 1 person.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
+`;
+
 exports[`ImpactView ME person personal impact view renders empty state 1`] = `
 <ScrollView
   bounces={false}
@@ -2440,199 +2440,6 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
 1 person reached a new stage on their spiritual journey.
     </MyText>
   </Flex>
-</ScrollView>
-`;
-
-exports[`ImpactView contact cohort impact renders empty state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      Here you will see all the steps Test Fname has taken.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
-</ScrollView>
-`;
-
-exports[`ImpactView contact cohort impact renders plural state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
-
-4 people reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
-</ScrollView>
-`;
-
-exports[`ImpactView contact cohort impact renders singular state 1`] = `
-<ScrollView
-  bounces={false}
-  style={
-    Object {
-      "backgroundColor": "#52C5DC",
-      "flex": 1,
-    }
-  }
->
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "paddingBottom": 10,
-        "paddingLeft": 50,
-        "paddingTop": 30,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 200,
-          },
-          Object {},
-        ]
-      }
-    >
-      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
-
-1 person reached a new stage on their spiritual journey.
-    </MyText>
-  </Flex>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#52C5DC",
-        "height": 410,
-        "width": 750,
-      }
-    }
-  />
-  <Flex
-    style={
-      Object {
-        "backgroundColor": "#3EB1C8",
-        "paddingBottom": 40,
-      }
-    }
-  />
 </ScrollView>
 `;
 
@@ -6791,6 +6598,199 @@ Object {
   "isPersonalMinistryMe": true,
   "isUserCreatedOrg": undefined,
 }
+`;
+
+exports[`ImpactView user created member impact renders empty state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      Here you will see all the steps Test Fname has taken.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
+`;
+
+exports[`ImpactView user created member impact renders plural state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  Test Fname has taken 11 steps of faith with 6 people in their life.
+
+4 people reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
+`;
+
+exports[`ImpactView user created member impact renders singular state 1`] = `
+<ScrollView
+  bounces={false}
+  style={
+    Object {
+      "backgroundColor": "#52C5DC",
+      "flex": 1,
+    }
+  }
+>
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "paddingBottom": 10,
+        "paddingLeft": 50,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "width": 200,
+          },
+          Object {},
+        ]
+      }
+    >
+      In 2018,  Test Fname has taken 1 step of faith with 1 person in their life.
+
+1 person reached a new stage on their spiritual journey.
+    </MyText>
+  </Flex>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#52C5DC",
+        "height": 410,
+        "width": 750,
+      }
+    }
+  />
+  <Flex
+    style={
+      Object {
+        "backgroundColor": "#3EB1C8",
+        "paddingBottom": 40,
+      }
+    }
+  />
+</ScrollView>
 `;
 
 exports[`ImpactView user-created group impact renders empty state 1`] = `

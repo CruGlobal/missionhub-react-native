@@ -24,7 +24,7 @@ import * as analytics from '../../src/actions/analytics';
 import { navigatePush } from '../../src/actions/navigation';
 import {
   CONTACT_PERSON_SCREEN,
-  IS_COHORT_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -634,14 +634,18 @@ describe('navToPersonScreen', () => {
         });
       };
 
-      describe('isCohort', () => {
-        it('navigates to cohort member person screen', () => {
+      describe('isUserCreatedOrg', () => {
+        it('navigates to user created member person screen', () => {
           const userCreatedOrg = { ...organization, user_created: true };
           organizationSelector.mockReturnValue(userCreatedOrg);
 
           store.dispatch(navToPersonScreen(person, userCreatedOrg));
 
-          testResult(IS_COHORT_MEMBER_PERSON_SCREEN, person, userCreatedOrg);
+          testResult(
+            IS_USER_CREATED_MEMBER_PERSON_SCREEN,
+            person,
+            userCreatedOrg,
+          );
         });
       });
 

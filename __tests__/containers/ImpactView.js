@@ -267,7 +267,7 @@ describe('ImpactView', () => {
       );
     });
   });
-  describe('ME person cohort impact view', () => {
+  describe('ME person impact view for user created org', () => {
     it('renders empty state', () => {
       testSnapshotShallow(
         <ImpactView
@@ -385,7 +385,7 @@ describe('ImpactView', () => {
       );
     });
   });
-  describe('contact cohort impact', () => {
+  describe('user created member impact', () => {
     it('renders empty state', () => {
       testSnapshotShallow(
         <ImpactView
