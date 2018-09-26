@@ -130,8 +130,13 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   tabs,
   GroupScreen,
 );
+export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
+  [tabs[0], tabs[1], tabs[2]],
+  GroupScreen,
+);
 
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
+export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {

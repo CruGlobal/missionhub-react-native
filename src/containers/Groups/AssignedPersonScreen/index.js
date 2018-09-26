@@ -149,10 +149,13 @@ const myImpact = {
 };
 
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
-export const IS_GROUPS_MEMBER_PERSON_TABS = [
+export const IS_USER_CREATED_MEMBER_PERSON_TABS = [
   memberCelebrate,
   ...CONTACT_PERSON_TABS,
   memberImpact,
+];
+export const IS_GROUPS_MEMBER_PERSON_TABS = [
+  ...IS_USER_CREATED_MEMBER_PERSON_TABS,
   assignedContacts,
 ];
 const MEMBER_PERSON_TABS = [...CONTACT_PERSON_TABS, memberImpact];
@@ -302,6 +305,11 @@ export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   connectedPersonScreen,
   false,
 );
+export const IsUserCreatedMemberPersonScreen = generateSwipeTabMenuNavigator(
+  IS_USER_CREATED_MEMBER_PERSON_TABS,
+  connectedPersonScreen,
+  true,
+);
 export const IsGroupsMemberPersonScreen = generateSwipeTabMenuNavigator(
   IS_GROUPS_MEMBER_PERSON_TABS,
   connectedPersonScreen,
@@ -329,6 +337,8 @@ export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
 );
 
 export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
+export const IS_USER_CREATED_MEMBER_PERSON_SCREEN =
+  'nav/IS_USER_CREATED_MEMBER_PERSON';
 export const IS_GROUPS_MEMBER_PERSON_SCREEN = 'nav/IS_GROUPS_MEMBER_PERSON';
 export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';
 export const ME_PERSONAL_PERSON_SCREEN = 'nav/ME_PERSONAL_PERSON';
