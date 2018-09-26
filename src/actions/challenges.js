@@ -62,6 +62,7 @@ export function joinChallenge(item, orgId) {
         onComplete: () => {
           dispatch(navigateBack());
         },
+        gifId: 0,
       }),
     );
     return dispatch(reloadGroupChallengeFeed(orgId));

@@ -44,8 +44,12 @@ class CelebrationScreen extends Component {
     }
   }
 
-  static shuffleGif() {
-    switch (Math.floor(Math.random() * 6)) {
+  static randomId() {
+    return Math.floor(Math.random() * 6);
+  }
+
+  static getGif(id) {
+    switch (id) {
       case 0:
         return require('./gifs/ArrowWhite.gif');
       case 1:
@@ -62,10 +66,13 @@ class CelebrationScreen extends Component {
   }
 
   render() {
+    const { gifId } = this.props;
+    const id = gifId === undefined ? CelebrationScreen.randomId() : gifId;
+
     return (
       <Flex style={styles.container} value={1} justify="center">
         <Image
-          source={CelebrationScreen.shuffleGif()}
+          source={CelebrationScreen.getGif(id)}
           resizeMode="contain"
           style={styles.gif}
           onLoad={this.startTimer}
