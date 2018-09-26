@@ -20,12 +20,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../src/AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 
-jest.mock('react-native-fabric', () => ({
-  Crashlytics: {
-    recordCustomExceptionName: jest.fn(),
-  },
-}));
-
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
 }));
@@ -143,16 +137,25 @@ it('should not show alert if no error message', () => {
 });
 
 describe('__DEV__ === false', () => {
+  let dev;
+  beforeAll(() => {
+    dev = __DEV__;
+    __DEV__ = false;
+  });
+
   beforeEach(() => {
     jest.clearAllMocks();
-    __DEV__ = false;
     StackTrace.fromError.mockReturnValue(stacktraceResponse);
     StackTrace.get.mockReturnValue(stacktraceResponse);
   });
 
+  afterAll(() => {
+    __DEV__ = dev;
+  });
+
   it('Sends Crashlytics report for API error', async () => {
     const apiError = {
-      apiError: { message: 'Error Text' },
+      apiError: { smessage: 'Error Text' },
       key: 'ADD_NEW_PERSON',
       method: 'POST',
       endpoint: 'apis/v4/people',
