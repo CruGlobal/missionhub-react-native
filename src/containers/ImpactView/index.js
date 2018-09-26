@@ -101,7 +101,13 @@ export class ImpactView extends Component {
     },
     global = false,
   ) {
-    const { t, person = {}, organization = {}, isMe } = this.props;
+    const {
+      t,
+      person = {},
+      organization = {},
+      isMe,
+      isUserCreatedOrg,
+    } = this.props;
     const initiator = global
       ? '$t(users)'
       : isMe
@@ -112,6 +118,8 @@ export class ImpactView extends Component {
     const context = count =>
       count === 0 ? (global ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact = !global && !isMe && person.id;
+    const hideStageSentence =
+      !global && isUserCreatedOrg && pathway_moved_count === 0;
 
     const stepsSentenceOptions = {
       context: context(steps_count),
@@ -137,10 +145,9 @@ export class ImpactView extends Component {
       pathwayMovedCount: pathway_moved_count,
     };
 
-    return `${t('stepsSentence', stepsSentenceOptions)}\n\n${t(
-      'stageSentence',
-      stageSentenceOptions,
-    )}`;
+    return `${t('stepsSentence', stepsSentenceOptions)}${
+      hideStageSentence ? '' : `\n\n${t('stageSentence', stageSentenceOptions)}`
+    }`;
   }
 
   renderContactReport() {
@@ -206,8 +213,15 @@ export class ImpactView extends Component {
       globalImpact,
       impact,
       isPersonalMinistryMe,
+      isUserCreatedOrg,
+      isOrgImpact,
       organization,
     } = this.props;
+
+    const showGlobalImpact =
+      isPersonalMinistryMe || (isUserCreatedOrg && isOrgImpact);
+    const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
+
     return (
       <ScrollView style={styles.container} bounces={false}>
         {organization ? (
@@ -224,18 +238,16 @@ export class ImpactView extends Component {
         />
         <Flex
           style={
-            isPersonalMinistryMe
-              ? styles.bottomSection
-              : styles.interactionSection
+            showGlobalImpact ? styles.bottomSection : styles.interactionSection
           }
         >
-          {isPersonalMinistryMe ? (
+          {showGlobalImpact ? (
             <Text style={[styles.text, styles.bottomText]}>
               {this.buildImpactSentence(globalImpact, true)}
             </Text>
-          ) : (
+          ) : showInteractionReport ? (
             this.renderContactReport()
-          )}
+          ) : null}
         </Flex>
       </ScrollView>
     );
@@ -257,6 +269,8 @@ export const mapStateToProps = (
     isMe,
     isPersonalMinistryMe:
       isMe && (!organization || (organization && !organization.id)),
+    isOrgImpact: !person.id,
+    isUserCreatedOrg: organization && organization.user_created,
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },

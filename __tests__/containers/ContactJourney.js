@@ -107,6 +107,16 @@ describe('ContactJourney', () => {
 
     expect(instance.state.isPersonalMinistry).toEqual(false);
   });
+
+  it('loads with user_created true', () => {
+    const userCreatedOrg = { ...org, user_created: true };
+    store = createMockStore(personId, { [personId]: mockJourneyList });
+    const instance = createComponent({
+      organization: userCreatedOrg,
+    }).instance();
+
+    expect(instance.state.isPersonalMinistry).toEqual(false);
+  });
 });
 
 describe('journey methods', () => {
