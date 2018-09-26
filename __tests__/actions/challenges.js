@@ -14,9 +14,12 @@ import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
 } from '../../src/constants';
+import { CELEBRATION_SCREEN } from '../../src/containers/CelebrationScreen';
 import * as common from '../../src/utils/common';
+import { navigatePush, navigateBack } from '../../src/actions/navigation';
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/notifications');
 
 const fakeDate = '2018-09-06T14:13:21Z';
 common.formatApiDate = jest.fn(() => fakeDate);
@@ -128,6 +131,9 @@ describe('completeChallenge', () => {
         },
       },
     );
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: () => navigateBack(),
+    });
     expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
   });
 });
