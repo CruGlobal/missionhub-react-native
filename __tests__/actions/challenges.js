@@ -16,7 +16,7 @@ import {
 } from '../../src/constants';
 import { CELEBRATION_SCREEN } from '../../src/containers/CelebrationScreen';
 import * as common from '../../src/utils/common';
-import { navigatePush, navigateBack } from '../../src/actions/navigation';
+import { navigatePush } from '../../src/actions/navigation';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/navigation');
