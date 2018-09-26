@@ -65,6 +65,7 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
+    "stacktrace-js": "^2.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {

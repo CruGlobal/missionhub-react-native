@@ -9,6 +9,7 @@ import { Alert } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import { Crashlytics } from 'react-native-fabric';
+import StackTrace from 'stacktrace-js';
 
 import { store, persistor } from './store';
 import i18n from './i18n';
@@ -119,17 +120,25 @@ export default class App extends Component {
             null,
             2,
           )}\n\nResponse:\n${JSON.stringify(e.apiError, null, 2)}`,
+          shiftFrame: false,
+          stackTracePromise: StackTrace.fromError(apiError.error, {
+            offline: true,
+          }),
         };
       }
     } else if (e.message) {
       crashlyticsError = {
         title: e.message.split('\n')[0],
         message: e.message,
+        shiftFrame: false,
+        stackTracePromise: StackTrace.fromError(e, { offline: true }),
       };
     } else {
       crashlyticsError = {
         title: 'Unknown Error',
         message: JSON.stringify(e),
+        shiftFrame: true,
+        stackTracePromise: StackTrace.get({ offline: true }),
       };
     }
 
@@ -137,11 +146,16 @@ export default class App extends Component {
       LOG(e);
 
       if (!__DEV__) {
-        Crashlytics.recordCustomExceptionName(
-          crashlyticsError.title,
-          crashlyticsError.message,
-          [],
-        );
+        crashlyticsError.stackTracePromise.then(stackFrames => {
+          if (crashlyticsError.shiftFrame) {
+            stackFrames.shift();
+          }
+          Crashlytics.recordCustomExceptionName(
+            crashlyticsError.title,
+            crashlyticsError.message,
+            stackFrames,
+          );
+        });
       }
     }
   }

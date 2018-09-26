@@ -3,6 +3,8 @@ import ReactNative from 'react-native';
 import Adapter from 'enzyme-adapter-react-16/build/index';
 import { shallow } from 'enzyme/build/index';
 import Enzyme from 'enzyme/build/index';
+import { Crashlytics } from 'react-native-fabric';
+import StackTrace from 'stacktrace-js';
 
 import App from '../src/App';
 import {
@@ -18,8 +20,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../src/AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 
-jest.mock('react-native-fabric');
-
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
 }));
@@ -32,6 +32,8 @@ auth.logout = jest.fn().mockReturnValue(logoutResponse);
 jest.mock('react-navigation-redux-helpers', () => ({
   createReactNavigationReduxMiddleware: jest.fn(),
 }));
+
+jest.mock('stacktrace-js');
 
 jest.mock('../src/store', () => ({
   store: require('../testUtils').createMockStore(),
@@ -51,15 +53,21 @@ const lastTwoArgs = [
   { onDismiss: expect.anything() },
 ];
 
+const stackFrames = [{ id: '1' }, { id: '2' }];
+const shiftedStackFrames = [stackFrames[1]];
+const stacktraceResponse = new Promise(resolve => {
+  resolve(stackFrames);
+});
+
 beforeEach(() =>
   (ReactNative.Alert.alert = jest
     .fn()
     .mockImplementation((_, __, buttons) => buttons[0].onPress())));
 
-const test = response => {
+const test = async response => {
   const shallowScreen = shallow(<App />);
 
-  shallowScreen.instance().handleError(response);
+  await shallowScreen.instance().handleError(response);
 
   return shallowScreen;
 };
@@ -126,4 +134,74 @@ it('should not show alert if no error message', () => {
   test(unknownError);
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
+});
+
+describe('__DEV__ === false', () => {
+  let dev;
+  beforeAll(() => {
+    dev = __DEV__;
+    __DEV__ = false;
+  });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    StackTrace.fromError.mockReturnValue(stacktraceResponse);
+    StackTrace.get.mockReturnValue(stacktraceResponse);
+  });
+
+  afterAll(() => {
+    __DEV__ = dev;
+  });
+
+  it('Sends Crashlytics report for API error', async () => {
+    const apiError = {
+      apiError: { message: 'Error Text' },
+      key: 'ADD_NEW_PERSON',
+      method: 'POST',
+      endpoint: 'apis/v4/people',
+      query: { filters: { organization_ids: '1' } },
+    };
+
+    await test(apiError);
+
+    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
+      `API Error: ${apiError.key} ${apiError.method.toUpperCase()} ${
+        apiError.endpoint
+      }`,
+      `\n\nQuery Params:\n${JSON.stringify(
+        apiError.query,
+        null,
+        2,
+      )}\n\nResponse:\n${JSON.stringify(apiError.apiError, null, 2)}`,
+      stackFrames,
+    );
+  });
+
+  it('Sends Crashlytics report for error with message', async () => {
+    const errorName = 'Error Name';
+    const errorDetails = 'Error Details';
+    const apiError = { message: `${errorName}\n${errorDetails}` };
+
+    await test(apiError);
+
+    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
+      errorName,
+      apiError.message,
+      stackFrames,
+    );
+  });
+
+  test({ apiError: {}, key: 'ADD_NEW_PERSON', method: '', message: '' });
+
+  it('Sends Crashlytics report for unknown error', async () => {
+    const unknownError = { key: 'test', method: '' };
+
+    await test(unknownError);
+
+    expect(Crashlytics.recordCustomExceptionName).toHaveBeenCalledWith(
+      'Unknown Error',
+      JSON.stringify(unknownError),
+      shiftedStackFrames,
+    );
+  });
 });
