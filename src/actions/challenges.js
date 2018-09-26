@@ -1,8 +1,10 @@
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
+import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
+import { navigatePush, navigateBack } from './navigation';
 
 export function getGroupChallengeFeed(orgId) {
   return dispatch => {
@@ -29,6 +31,13 @@ export function completeChallenge(item, orgId) {
   };
   return async dispatch => {
     await dispatch(callApi(REQUESTS.COMPLETE_GROUP_CHALLENGE, query, bodyData));
+    dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        onComplete: () => {
+          dispatch(navigateBack());
+        },
+      }),
+    );
     dispatch(reloadGroupChallengeFeed(orgId));
     // After completing a challenge, reload the group celebrate feed with this new item
     dispatch(reloadGroupCelebrateFeed(orgId));
@@ -48,6 +57,13 @@ export function joinChallenge(item, orgId) {
   };
   return async dispatch => {
     await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
+    dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        onComplete: () => {
+          dispatch(navigateBack());
+        },
+      }),
+    );
     return dispatch(reloadGroupChallengeFeed(orgId));
   };
 }
