@@ -155,7 +155,7 @@ describe('__DEV__ === false', () => {
 
   it('Sends Crashlytics report for API error', async () => {
     const apiError = {
-      apiError: { smessage: 'Error Text' },
+      apiError: { message: 'Error Text' },
       key: 'ADD_NEW_PERSON',
       method: 'POST',
       endpoint: 'apis/v4/people',
