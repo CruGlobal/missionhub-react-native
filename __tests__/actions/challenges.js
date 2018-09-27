@@ -14,9 +14,12 @@ import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
 } from '../../src/constants';
+import { CELEBRATION_SCREEN } from '../../src/containers/CelebrationScreen';
 import * as common from '../../src/utils/common';
+import { navigatePush } from '../../src/actions/navigation';
 
 jest.mock('../../src/actions/api');
+jest.mock('../../src/actions/navigation');
 
 const fakeDate = '2018-09-06T14:13:21Z';
 common.formatApiDate = jest.fn(() => fakeDate);
@@ -24,6 +27,7 @@ common.formatApiDate = jest.fn(() => fakeDate);
 const orgId = '123';
 
 const apiResult = { type: 'done' };
+const navigateResult = { type: 'has navigated' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 
 const createStore = configureStore([thunk]);
@@ -112,6 +116,7 @@ describe('completeChallenge', () => {
 
   it('completes a challenge', async () => {
     callApi.mockReturnValue(apiResult);
+    navigatePush.mockReturnValue(navigateResult);
 
     await store.dispatch(completeChallenge(item, orgId));
 
@@ -128,7 +133,15 @@ describe('completeChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.anything(),
+    });
+    expect(store.getActions()).toEqual([
+      apiResult,
+      navigateResult,
+      resetResult,
+      apiResult,
+    ]);
   });
 });
 
@@ -151,7 +164,16 @@ describe('joinChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.anything(),
+      gifId: 0,
+    });
+    expect(store.getActions()).toEqual([
+      apiResult,
+      navigateResult,
+      resetResult,
+      apiResult,
+    ]);
   });
 });
 
