@@ -479,7 +479,7 @@ export default {
     addHeader: 'New Challenge',
     add: 'Create Challenge',
     save: 'Save Changes',
-    titlePlaceholder: 'Enter a Challenge',
+    titlePlaceholder: 'Name Your Challenge',
     titleLabel: 'Challenge',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'End Date',
