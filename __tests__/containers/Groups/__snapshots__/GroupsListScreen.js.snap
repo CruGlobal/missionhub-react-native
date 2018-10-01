@@ -49,6 +49,7 @@ exports[`GroupsListScreen should render correctly 1`] = `
           Object {
             "id": "2",
             "name": "Test Org 2",
+            "user_created": true,
           },
         ]
       }
@@ -149,6 +150,7 @@ exports[`should render null state 1`] = `
           Object {
             "id": "2",
             "name": "Test Org 2",
+            "user_created": true,
           },
         ]
       }
