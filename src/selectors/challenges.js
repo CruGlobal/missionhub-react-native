@@ -17,10 +17,8 @@ export const challengesSelector = createSelector(
       },
     ];
 
-    const sortedItems = challengeItems.sort(compareCreatedDates);
-
     const today = moment().endOf('day');
-    sortedItems.forEach(item => {
+    challengeItems.forEach(item => {
       // Make sure we get the end of the day from the given
       const endDate = moment(item.end_date).endOf('day');
       // Check if the end date is AFTER today (in the future)
@@ -34,16 +32,3 @@ export const challengesSelector = createSelector(
     return sections;
   },
 );
-
-const compareCreatedDates = (a, b) => {
-  const aValue = a.created_at,
-    bValue = b.created_at;
-
-  if (aValue < bValue) {
-    return 1;
-  }
-  if (aValue > bValue) {
-    return -1;
-  }
-  return 0;
-};
