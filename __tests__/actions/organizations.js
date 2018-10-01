@@ -16,15 +16,18 @@ import {
   getOrganizationContacts,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
+  addNewPerson,
   getMyCommunities,
 } from '../../src/actions/organizations';
 
 jest.mock('../../src/selectors/organizations');
 jest.mock('../../src/actions/api');
 
+const myId = '1';
+
 const mockStore = configureStore([thunk]);
 let store;
-const auth = { person: { user: {} } };
+const auth = { person: { user: {}, id: myId } };
 
 beforeEach(() => {
   store = mockStore({ auth });
@@ -331,6 +334,94 @@ describe('getOrganizationMembers', () => {
 
     const result = await store.dispatch(getOrganizationMembersNextPage(orgId));
     expect(result).toEqual(undefined);
+  });
+});
+
+describe('addNewPerson', () => {
+  const firstName = 'Fred';
+  let data = { firstName };
+  let bodyData = {
+    data: {
+      type: 'person',
+      attributes: {
+        first_name: firstName,
+        last_name: undefined,
+        gender: undefined,
+      },
+    },
+    included: [],
+  };
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('adds person with only first name', () => {
+    store.dispatch(addNewPerson(data));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
+  });
+
+  it('adds person with includes', () => {
+    const lastName = 'Smith';
+    const gender = 'male';
+    const orgId = '123';
+    const orgPermission = { permission_id: '2' };
+    const email = 'fred.smith@cru.org';
+    const phone = '111-111-1111';
+
+    data = {
+      firstName,
+      lastName,
+      gender,
+      orgId,
+      orgPermission,
+      email,
+      phone,
+      assignToMe: true,
+    };
+    bodyData = {
+      data: {
+        type: 'person',
+        attributes: {
+          first_name: firstName,
+          last_name: lastName,
+          gender,
+        },
+      },
+      included: [
+        {
+          type: 'contact_assignment',
+          attributes: {
+            assigned_to_id: myId,
+            organization_id: orgId,
+          },
+        },
+        {
+          type: 'organizational_permission',
+          attributes: {
+            organization_id: orgId,
+            permission_id: orgPermission.permission_id,
+          },
+        },
+        {
+          type: 'email',
+          attributes: { email },
+        },
+        {
+          type: 'phone_number',
+          attributes: {
+            number: phone,
+            location: 'mobile',
+          },
+        },
+      ],
+    };
+
+    store.dispatch(addNewPerson(data));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
   });
 });
 
