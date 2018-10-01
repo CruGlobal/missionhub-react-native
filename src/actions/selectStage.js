@@ -34,10 +34,9 @@ export function updateUserStage(contactAssignmentId, stageId) {
     const { response } = await dispatch(
       callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data),
     );
-    const {
-      person: { id: personId },
-      organization: { id: orgId },
-    } = response;
+    const { person, organization } = response;
+    const personId = person && person.id;
+    const orgId = organization && organization.id;
 
     dispatch(refreshImpact());
     dispatch(getPersonDetails(personId, orgId));
