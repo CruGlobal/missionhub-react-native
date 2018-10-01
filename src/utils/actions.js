@@ -32,11 +32,13 @@ function buildQuery(type, orgId, page, personId) {
       limit: DEFAULT_PAGE_LIMIT,
       offset: DEFAULT_PAGE_LIMIT * page,
     },
-    ...(type === 'celebrate' ? { orgId } : {}),
-    ...(type === 'celebrate' && personId
+    ...(type === CELEBRATE ? { orgId } : {}),
+    ...(type === CELEBRATE && personId
       ? { filters: { subject_person_ids: personId } }
       : {}),
-    ...(type === CHALLENGE ? { filters: { organization_ids: orgId } } : {}),
+    ...(type === CHALLENGE
+      ? { filters: { organization_ids: orgId }, sort: '-created_at' }
+      : {}),
   };
 }
 
