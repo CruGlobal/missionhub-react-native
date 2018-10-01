@@ -121,7 +121,7 @@ class AddContactScreen extends Component {
       const newPerson = results.response;
       this.setState({ person: { ...this.state.person, id: newPerson.id } });
 
-      if (person) {
+      if (person || isInvite) {
         // We know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
         this.complete(results);
       } else {
