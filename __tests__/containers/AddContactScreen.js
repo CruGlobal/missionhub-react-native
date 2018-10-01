@@ -64,10 +64,12 @@ function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
 
-beforeEach(() =>
+beforeEach(() => {
+  jest.clearAllMocks();
   organizations.addNewPerson.mockImplementation(
     jest.fn(() => mockAddNewPerson),
-  ));
+  );
+});
 
 it('renders correctly', () => {
   testSnapshotShallow(
@@ -273,7 +275,7 @@ describe('savePerson', () => {
       contactAssignmentId: mockContactAssignment.id,
       section: 'people',
       subsection: 'person',
-      orgId: organization.id,
+      orgId: undefined,
     });
   });
 
