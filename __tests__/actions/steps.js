@@ -13,6 +13,7 @@ import {
   completeStepReminder,
   deleteStepWithTracking,
 } from '../../src/actions/steps';
+import { reloadGroupCelebrateFeed } from '../../src/actions/celebration';
 import { refreshImpact } from '../../src/actions/impact';
 import * as analytics from '../../src/actions/analytics';
 import { mockFnWithParams } from '../../testUtils';
@@ -39,9 +40,10 @@ common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/impact');
+jest.mock('../../src/actions/celebration');
 
 beforeEach(() => {
-  callApi.mockClear();
+  jest.clearAllMocks();
   store = mockStore();
 });
 
@@ -207,9 +209,10 @@ describe('addSteps', () => {
 
 describe('complete challenge', () => {
   const stepId = 34556;
+  const stepOrgId = '555';
   const step = {
     id: stepId,
-    organization: { id: '555' },
+    organization: { id: stepOrgId },
     receiver: { id: receiverId },
   };
 
@@ -232,6 +235,7 @@ describe('complete challenge', () => {
   const trackActionResult = { type: 'tracked action' };
 
   const impactResponse = { type: 'test impact' };
+  const celebrateResponse = { type: 'test celebrate' };
 
   const screen = 'contact steps';
 
@@ -266,6 +270,7 @@ describe('complete challenge', () => {
 
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     refreshImpact.mockReturnValue(impactResponse);
+    reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
   });
 
   it('completes step', async () => {
@@ -279,6 +284,52 @@ describe('complete challenge', () => {
       challengeCompleteQuery,
       data,
     );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
+    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
+    expect(store.getActions()).toEqual([
+      { type: COMPLETED_STEP_COUNT, userId: receiverId },
+      impactResponse,
+      {
+        type: NAVIGATE_FORWARD,
+        routeName: ADD_STEP_SCREEN,
+        params: {
+          type: STEP_NOTE,
+          onComplete: expect.anything(),
+          trackingObj: buildTrackingObj(
+            'people : person : steps : complete comment',
+            'people',
+            'person',
+            'steps',
+          ),
+        },
+      },
+      trackActionResult,
+      celebrateResponse,
+    ]);
+  });
+
+  it('completes step for personal ministry', async () => {
+    const noOrgStep = { ...step, organization: null };
+    await store.dispatch(completeStep(noOrgStep, screen));
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_MY_CHALLENGES,
+      stepsQuery,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.CHALLENGE_COMPLETE,
+      challengeCompleteQuery,
+      data,
+    );
+    expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
