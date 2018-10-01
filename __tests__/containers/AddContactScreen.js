@@ -142,6 +142,29 @@ describe('savePerson', () => {
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
   });
 
+  it('should add a new person with an org without contact assignment', async () => {
+    const componentInstance = buildScreenInstance({
+      navigation: createMockNavState(),
+      organization,
+      isInvite: true,
+    });
+    componentInstance.setState({
+      person: {
+        first_name: contactFName,
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(addNewPerson).toHaveBeenCalledWith({
+      first_name: contactFName,
+      orgId: organization.id,
+      assignToMe: false,
+    });
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+
   it('should navigate to person stage screen', async () => {
     const componentInstance = buildScreenInstance({
       navigation: createMockNavState(),
