@@ -1,12 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import { Card, Text, Flex, Button, Dot } from '../../components/common';
-import GREY_CHECK from '../../../assets/images/check-grey.png';
-import BLUE_CHECK from '../../../assets/images/check-blue.png';
 
 import styles from './styles';
 
@@ -45,10 +42,9 @@ class ChallengeItem extends Component {
       : endDate.diff(today, 'days');
 
     const canEdit = !isPast && onEdit;
-    const canJoin = !isPast && !acceptedChallenge;
-    const showCheck = !!acceptedChallenge;
-    const completed =
-      acceptedChallenge && acceptedChallenge.completed_at ? true : false;
+    const joined = !!acceptedChallenge;
+    const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
+    const showButton = !isPast && !completed;
 
     let daysText = t(isPast ? 'totalDays' : 'daysRemaining', { count: days });
     if (!isPast && days <= 0) {
@@ -56,7 +52,18 @@ class ChallengeItem extends Component {
     }
 
     return (
-      <Card style={[styles.card, canJoin ? styles.joinCard : null]}>
+      <Card
+        style={[
+          styles.card,
+          completed
+            ? styles.joinedCard
+            : !isPast
+              ? joined
+                ? styles.joinedCard
+                : styles.unjoinedCard
+              : null,
+        ]}
+      >
         <Flex value={1} style={styles.content} direction="row" align="center">
           <Flex value={1} direction="column">
             <Text style={styles.title}>{title}</Text>
@@ -87,23 +94,14 @@ class ChallengeItem extends Component {
               ) : null}
             </Flex>
           </Flex>
-          {showCheck ? (
-            <Button
-              disabled={isPast || completed}
-              onPress={this.handleComplete}
-              style={styles.completeIcon}
-            >
-              <Image source={completed ? BLUE_CHECK : GREY_CHECK} />
-            </Button>
-          ) : null}
         </Flex>
-        {canJoin ? (
+        {showButton ? (
           <Button
             type="primary"
-            style={styles.joinButton}
-            buttonTextStyle={styles.joinButtonText}
-            text={t('join').toUpperCase()}
-            onPress={this.handleJoin}
+            style={joined ? styles.completeButton : styles.joinButton}
+            buttonTextStyle={styles.joinCompleteButtonText}
+            text={t(joined ? 'complete' : 'join').toUpperCase()}
+            onPress={joined ? this.handleComplete : this.handleJoin}
           />
         ) : null}
       </Card>
