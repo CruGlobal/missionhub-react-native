@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
-import { addNewContact } from '../../actions/organizations';
+import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import { Button, IconButton } from '../../components/common';
 import Header from '../Header';
@@ -58,6 +58,7 @@ class AddContactScreen extends Component {
       person,
       dispatch,
       personOrgPermission,
+      isInvite,
     } = this.props;
     const saveData = { ...this.state.person };
 
@@ -111,14 +112,16 @@ class AddContactScreen extends Component {
     if (organization) {
       saveData.orgId = organization.id;
     }
+    saveData.assignToMe = !isInvite;
+
     try {
       const results = await dispatch(
-        saveData.id ? updatePerson(saveData) : addNewContact(saveData),
+        saveData.id ? updatePerson(saveData) : addNewPerson(saveData),
       );
       const newPerson = results.response;
       this.setState({ person: { ...this.state.person, id: newPerson.id } });
 
-      if (person) {
+      if (person || isInvite) {
         // We know this is an edit if person was passed as a prop. Otherwise, it is an add new contact flow.
         this.complete(results);
       } else {
