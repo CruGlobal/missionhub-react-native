@@ -173,7 +173,9 @@ export function completeStep(step, screen) {
   return dispatch => {
     return dispatch(challengeCompleteAction(step, screen)).then(r => {
       dispatch(getMySteps());
-      dispatch(reloadGroupCelebrateFeed(step.organization.id));
+      if (step.organization) {
+        dispatch(reloadGroupCelebrateFeed(step.organization.id));
+      }
       return r;
     });
   };
