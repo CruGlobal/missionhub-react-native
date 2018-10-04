@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import { Card, Text, Flex, Button, Dot } from '../../components/common';
+import { Card, Text, Flex, Button, Dot, Icon } from '../../components/common';
 
 import styles from './styles';
 
@@ -66,7 +66,20 @@ class ChallengeItem extends Component {
       >
         <Flex value={1} style={styles.content} direction="row" align="center">
           <Flex value={1} direction="column">
-            <Text style={styles.title}>{title}</Text>
+            <Flex value={1} direction="row">
+              <Flex value={-1}>
+                <Text style={styles.title}>{title}</Text>
+              </Flex>
+              {completed ? (
+                <Flex value={0}>
+                  <Icon
+                    style={styles.checkIcon}
+                    name={'checkIcon'}
+                    type={'MissionHub'}
+                  />
+                </Flex>
+              ) : null}
+            </Flex>
             <Flex direction="row" align="center" wrap="wrap">
               {canEdit ? (
                 <Fragment>

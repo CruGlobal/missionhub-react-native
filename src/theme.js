@@ -103,7 +103,7 @@ export default {
   inactiveColor: COLORS.INACTIVE_GREY,
   checkBackgroundColor: COLORS.BLUE_GREEN,
   red: COLORS.RED,
-  green: COLORS.green,
+  green: COLORS.GREEN,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,

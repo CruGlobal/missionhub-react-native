@@ -53,4 +53,10 @@ export default StyleSheet.create({
   joinCompleteButtonText: {
     fontSize: 14,
   },
+  checkIcon: {
+    color: theme.green,
+    fontSize: 14,
+    marginLeft: 8,
+    width: 14,
+  },
 });
