@@ -65,21 +65,8 @@ class ChallengeItem extends Component {
         ]}
       >
         <Flex value={1} style={styles.content} direction="row" align="center">
-          <Flex value={1} direction="column">
-            <Flex value={1} direction="row">
-              <Flex value={-1}>
-                <Text style={styles.title}>{title}</Text>
-              </Flex>
-              {completed ? (
-                <Flex value={0}>
-                  <Icon
-                    style={styles.checkIcon}
-                    name={'checkIcon'}
-                    type={'MissionHub'}
-                  />
-                </Flex>
-              ) : null}
-            </Flex>
+          <Flex value={4} direction="column">
+            <Text style={styles.title}>{title}</Text>
             <Flex direction="row" align="center" wrap="wrap">
               {canEdit ? (
                 <Fragment>
@@ -106,6 +93,17 @@ class ChallengeItem extends Component {
                 </Fragment>
               ) : null}
             </Flex>
+          </Flex>
+          <Flex value={1}>
+            {completed ? (
+              <Flex value={0}>
+                <Icon
+                  style={styles.checkIcon}
+                  name={'checkIcon'}
+                  type={'MissionHub'}
+                />
+              </Flex>
+            ) : null}
           </Flex>
         </Flex>
         {showButton ? (
