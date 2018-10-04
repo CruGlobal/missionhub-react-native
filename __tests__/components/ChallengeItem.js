@@ -98,7 +98,7 @@ it('render past challenge item', () => {
   );
 });
 
-it('render past and active challenge item', () => {
+it('render past and joined challenge item', () => {
   testSnapshotShallow(
     <ChallengeItem
       {...props}
@@ -108,7 +108,7 @@ it('render past and active challenge item', () => {
   );
 });
 
-it('render past and active and completed challenge item', () => {
+it('render past and joined and completed challenge item', () => {
   testSnapshotShallow(
     <ChallengeItem
       {...props}
@@ -151,12 +151,11 @@ it('should call onComplete from press', () => {
     <ChallengeItem
       item={item}
       {...newProps}
-      acceptedChallenge={completedChallenge}
+      acceptedChallenge={acceptedChallenge}
     />,
   );
 
   component
-    .childAt(0)
     .childAt(1)
     .props()
     .onPress();

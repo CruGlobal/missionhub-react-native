@@ -10,7 +10,10 @@ exports[`render active and joined and completed challenge item 1`] = `
         "marginHorizontal": 16,
         "marginVertical": 5,
       },
-      null,
+      Object {
+        "borderColor": "#44E4AB",
+        "borderWidth": 1,
+      },
     ]
   }
 >
@@ -28,20 +31,45 @@ exports[`render active and joined and completed challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+        <Flex
+          value={0}
+        >
+          <Icon
+            name="checkIcon"
+            style={
+              Object {
+                "color": "#44E4AB",
+                "fontSize": 14,
+                "marginLeft": 8,
+                "width": 14,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -108,27 +136,6 @@ exports[`render active and joined and completed challenge item 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={true}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-blue.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
 </Card>
 `;
@@ -143,7 +150,10 @@ exports[`render active and joined and completed challenge item 2`] = `
         "marginHorizontal": 16,
         "marginVertical": 5,
       },
-      null,
+      Object {
+        "borderColor": "#44E4AB",
+        "borderWidth": 1,
+      },
     ]
   }
 >
@@ -161,20 +171,45 @@ exports[`render active and joined and completed challenge item 2`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+        <Flex
+          value={0}
+        >
+          <Icon
+            name="checkIcon"
+            style={
+              Object {
+                "color": "#44E4AB",
+                "fontSize": 14,
+                "marginLeft": 8,
+                "width": 14,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -241,27 +276,6 @@ exports[`render active and joined and completed challenge item 2`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={true}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-blue.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
 </Card>
 `;
@@ -276,7 +290,10 @@ exports[`render active and joined challenge item 1`] = `
         "marginHorizontal": 16,
         "marginVertical": 5,
       },
-      null,
+      Object {
+        "borderColor": "#44E4AB",
+        "borderWidth": 1,
+      },
     ]
   }
 >
@@ -294,20 +311,29 @@ exports[`render active and joined challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -374,28 +400,24 @@ exports[`render active and joined challenge item 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={false}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-grey.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
+  <Button
+    buttonTextStyle={
+      Object {
+        "fontSize": 14,
+      }
+    }
+    onPress={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#44E4AB",
+        "height": undefined,
+        "paddingVertical": 8,
+      }
+    }
+    text="COMPLETE"
+    type="primary"
+  />
 </Card>
 `;
 
@@ -409,7 +431,10 @@ exports[`render active and joined challenge item with edit 1`] = `
         "marginHorizontal": 16,
         "marginVertical": 5,
       },
-      null,
+      Object {
+        "borderColor": "#44E4AB",
+        "borderWidth": 1,
+      },
     ]
   }
 >
@@ -427,20 +452,29 @@ exports[`render active and joined challenge item with edit 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -531,28 +565,24 @@ exports[`render active and joined challenge item with edit 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={false}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-grey.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
+  <Button
+    buttonTextStyle={
+      Object {
+        "fontSize": 14,
+      }
+    }
+    onPress={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#44E4AB",
+        "height": undefined,
+        "paddingVertical": 8,
+      }
+    }
+    text="COMPLETE"
+    type="primary"
+  />
 </Card>
 `;
 
@@ -587,20 +617,29 @@ exports[`render active challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -719,20 +758,29 @@ exports[`render active challenge item with edit 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -844,7 +892,7 @@ exports[`render active challenge item with edit 1`] = `
 </Card>
 `;
 
-exports[`render past and active and completed challenge item 1`] = `
+exports[`render past and joined and completed challenge item 1`] = `
 <Card
   style={
     Array [
@@ -854,7 +902,10 @@ exports[`render past and active and completed challenge item 1`] = `
         "marginHorizontal": 16,
         "marginVertical": 5,
       },
-      null,
+      Object {
+        "borderColor": "#44E4AB",
+        "borderWidth": 1,
+      },
     ]
   }
 >
@@ -872,20 +923,45 @@ exports[`render past and active and completed challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+        <Flex
+          value={0}
+        >
+          <Icon
+            name="checkIcon"
+            style={
+              Object {
+                "color": "#44E4AB",
+                "fontSize": 14,
+                "marginLeft": 8,
+                "width": 14,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -952,32 +1028,11 @@ exports[`render past and active and completed challenge item 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={true}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-blue.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
 </Card>
 `;
 
-exports[`render past and active challenge item 1`] = `
+exports[`render past and joined challenge item 1`] = `
 <Card
   style={
     Array [
@@ -1005,20 +1060,29 @@ exports[`render past and active challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
@@ -1085,27 +1149,6 @@ exports[`render past and active challenge item 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Button
-      disabled={true}
-      onPress={[Function]}
-      style={
-        Object {
-          "height": 30,
-          "margin": 0,
-          "opacity": 1,
-          "paddingVertical": 0,
-          "width": 30,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/check-grey.png",
-          }
-        }
-      />
-    </Button>
   </Flex>
 </Card>
 `;
@@ -1138,20 +1181,29 @@ exports[`render past challenge item 1`] = `
       direction="column"
       value={1}
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "marginBottom": 3,
-          }
-        }
+      <Flex
+        direction="row"
+        value={1}
       >
-        Read "There and Back Again"
-      </MyText>
+        <Flex
+          value={-1}
+        >
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "marginBottom": 3,
+              }
+            }
+          >
+            Read "There and Back Again"
+          </MyText>
+        </Flex>
+      </Flex>
       <Flex
         align="center"
         direction="row"
