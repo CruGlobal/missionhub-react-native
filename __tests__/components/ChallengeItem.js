@@ -75,16 +75,6 @@ it('render active and joined and completed challenge item', () => {
   );
 });
 
-it('render active and joined and completed challenge item', () => {
-  testSnapshotShallow(
-    <ChallengeItem
-      {...props}
-      item={item}
-      acceptedChallenge={completedChallenge}
-    />,
-  );
-});
-
 it('render past challenge item', () => {
   testSnapshotShallow(
     <ChallengeItem
