@@ -38,8 +38,9 @@ export class GroupScreen extends Component {
     );
   };
 
-  renderAddContactIcon(org) {
-    return !org.user_created ? (
+  renderAddContactIcon() {
+    const { organization } = this.props.navigation.state.params || {};
+    return !organization.user_created ? (
       <IconButton
         name="addContactIcon"
         type="MissionHub"
@@ -56,7 +57,7 @@ export class GroupScreen extends Component {
         left={<BackButton />}
         shadow={false}
         title={organization.name}
-        right={this.renderAddContactIcon(organization)}
+        right={this.renderAddContactIcon()}
       />
     );
   }
