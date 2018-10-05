@@ -38,6 +38,7 @@ const orgs = [
         type: 'person',
       },
     ],
+    user_created: false,
   },
   {
     id: 20,
@@ -50,6 +51,7 @@ const orgs = [
         type: 'person',
       },
     ],
+    user_created: true,
   },
 ];
 

@@ -243,6 +243,7 @@ exports[`renders correctly as Jean 1`] = `
                   },
                 ],
                 "type": "organization",
+                "user_created": false,
               },
             ]
           }
@@ -319,28 +320,6 @@ exports[`renders correctly as Jean 1`] = `
         direction="row"
         justify="end"
       >
-        <IconButton
-          name="addContactIcon"
-          onPress={[Function]}
-          pressProps={
-            Array [
-              Object {
-                "expanded": true,
-                "id": 20,
-                "name": "org 2",
-                "people": Array [
-                  Object {
-                    "id": 21,
-                    "type": "person",
-                  },
-                ],
-                "type": "organization",
-              },
-            ]
-          }
-          size={24}
-          type="MissionHub"
-        />
         <IconButton
           name="upArrowIcon"
           onPress={[Function]}

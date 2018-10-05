@@ -15,3 +15,12 @@ exports[`GroupScreen should render header correctly 1`] = `
   title="Test  Org"
 />
 `;
+
+exports[`GroupScreen should render header correctly for user_created org 1`] = `
+<Connect(Header)
+  left={<Connect(BackButton) />}
+  right={null}
+  shadow={false}
+  title="Test  Org"
+/>
+`;
