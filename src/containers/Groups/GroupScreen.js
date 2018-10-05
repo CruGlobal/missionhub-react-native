@@ -38,15 +38,15 @@ export class GroupScreen extends Component {
     );
   };
 
-  renderAddContactIcon() {
-    return (
+  renderAddContactIcon(org) {
+    return !org.user_created ? (
       <IconButton
         name="addContactIcon"
         type="MissionHub"
         size={24}
         onPress={this.handleAddContact}
       />
-    );
+    ) : null;
   }
 
   render() {
@@ -56,7 +56,7 @@ export class GroupScreen extends Component {
         left={<BackButton />}
         shadow={false}
         title={organization.name}
-        right={this.renderAddContactIcon()}
+        right={this.renderAddContactIcon(organization)}
       />
     );
   }
