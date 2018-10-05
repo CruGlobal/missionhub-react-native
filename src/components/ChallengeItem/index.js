@@ -65,7 +65,7 @@ class ChallengeItem extends Component {
         ]}
       >
         <Flex value={1} style={styles.content} direction="row" align="center">
-          <Flex value={4} direction="column">
+          <Flex value={5} direction="column">
             <Text style={styles.title}>{title}</Text>
             <Flex direction="row" align="center" wrap="wrap">
               {canEdit ? (
@@ -94,7 +94,7 @@ class ChallengeItem extends Component {
               ) : null}
             </Flex>
           </Flex>
-          <Flex value={1}>
+          <Flex value={1} align="center" justify="center">
             {completed ? (
               <Flex value={0}>
                 <Icon

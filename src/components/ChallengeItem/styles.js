@@ -55,8 +55,6 @@ export default StyleSheet.create({
   },
   checkIcon: {
     color: theme.green,
-    fontSize: 14,
-    marginLeft: 8,
-    width: 14,
+    fontSize: 20,
   },
 });
