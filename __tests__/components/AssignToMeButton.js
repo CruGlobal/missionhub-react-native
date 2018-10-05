@@ -13,7 +13,7 @@ jest.mock('../../src/actions/navigation');
 
 const myId = '25';
 const state = { auth: { person: { id: myId } } };
-const store = configureStore([thunk])(state);
+let store;
 
 const person = { id: '100', first_name: 'Roge' };
 const organization = { id: '800' };
@@ -22,21 +22,47 @@ const props = {
   organization,
 };
 
+const assignResponse = { type: 'success' };
+
+beforeEach(() => {
+  store = configureStore([thunk])(state);
+});
+
 it('renders correctly', () => {
   testSnapshotShallow(<AssignToMeButton {...props} />, store);
 });
 
-it('calls assignContactAndPickStage on press', () => {
-  const assignResponse = { type: 'success' };
+describe('assignToMe', () => {
   assignContactAndPickStage.mockReturnValue(assignResponse);
-  const screen = renderShallow(<AssignToMeButton {...props} />, store);
 
-  screen.props().onPress();
+  it('calls assignContactAndPickStage on press', async () => {
+    const screen = renderShallow(<AssignToMeButton {...props} />, store);
 
-  expect(assignContactAndPickStage).toHaveBeenCalledWith(
-    person,
-    organization,
-    myId,
-  );
-  expect(store.getActions()).toEqual([assignResponse]);
+    await screen.props().onPress();
+
+    expect(assignContactAndPickStage).toHaveBeenCalledWith(
+      person,
+      organization,
+      myId,
+    );
+    expect(store.getActions()).toEqual([assignResponse]);
+  });
+
+  it('calls assignContactAndPickStage and onComplete on press', async () => {
+    const onComplete = jest.fn();
+    const screen = renderShallow(
+      <AssignToMeButton {...props} onComplete={onComplete} />,
+      store,
+    );
+
+    await screen.props().onPress();
+
+    expect(assignContactAndPickStage).toHaveBeenCalledWith(
+      person,
+      organization,
+      myId,
+    );
+    expect(onComplete).toHaveBeenCalled();
+    expect(store.getActions()).toEqual([assignResponse]);
+  });
 });

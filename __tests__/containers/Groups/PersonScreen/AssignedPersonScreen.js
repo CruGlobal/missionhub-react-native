@@ -6,6 +6,7 @@ import {
   AssignedPersonScreen,
   mapStateToProps,
   CONTACT_PERSON_TABS,
+  IS_USER_CREATED_MEMBER_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
 } from '../../../../src/containers/Groups/AssignedPersonScreen';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
@@ -83,7 +84,7 @@ describe('Contact', () => {
     organizationSelector.mockReturnValue(undefined);
 
     expect(mapStateToProps(store, nav)).toEqual({
-      organization: {},
+      organization,
       person,
       contactAssignment,
       myId,
@@ -106,7 +107,11 @@ describe('Contact', () => {
     expect(CONTACT_PERSON_TABS).toMatchSnapshot();
   });
 
-  it('should render member tabs correctly', () => {
+  it('should render user created member tabs correctly', () => {
+    expect(IS_USER_CREATED_MEMBER_PERSON_TABS).toMatchSnapshot();
+  });
+
+  it('should render group member tabs correctly', () => {
     expect(IS_GROUPS_MEMBER_PERSON_TABS).toMatchSnapshot();
   });
 

@@ -1,5 +1,6 @@
 import {
   CONTACT_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IS_GROUPS_MEMBER_PERSON_SCREEN,
   MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
@@ -15,9 +16,11 @@ import {
 } from '../constants';
 import { isMemberForOrg, exists } from '../utils/common';
 import {
+  personSelector,
   orgPermissionSelector,
   contactAssignmentSelector,
 } from '../selectors/people';
+import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
@@ -322,15 +325,22 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(person, org) {
+export function navToPersonScreen(person, org, props = {}) {
   return (dispatch, getState) => {
     const organization = org ? org : {};
-    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const { auth, people, organizations } = getState();
+    const orgId = organization.id;
+    const personId = person.id;
 
-    const auth = getState().auth;
+    const selectorOrg =
+      organizationSelector({ organizations }, { orgId }) || organization;
+    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    const selectorPerson =
+      personSelector({ people }, { orgId, personId }) || person;
+
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person, orgId: organization.id },
+      { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
 
@@ -338,13 +348,14 @@ export function navToPersonScreen(person, org) {
       navigatePush(
         getPersonScreenRoute(
           authPerson,
-          person,
-          organization,
+          selectorPerson,
+          selectorOrg,
           contactAssignment,
         ),
         {
-          person,
-          organization,
+          ...props,
+          person: selectorPerson,
+          organization: selectorOrg,
         },
       ),
     );
@@ -366,6 +377,7 @@ export function getPersonScreenRoute(
     }),
   );
 
+  const isUserCreatedOrg = organization.user_created;
   const isGroups = mePerson.user.groups_feature;
 
   if (isMe) {
@@ -381,6 +393,9 @@ export function getPersonScreenRoute(
   }
 
   if (isMember) {
+    if (isUserCreatedOrg) {
+      return IS_USER_CREATED_MEMBER_PERSON_SCREEN;
+    }
     if (isGroups) {
       return IS_GROUPS_MEMBER_PERSON_SCREEN;
     }

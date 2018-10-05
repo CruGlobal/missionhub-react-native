@@ -7,6 +7,10 @@ import { navigatePush } from '../../../src/actions/navigation';
 import { getMyCommunities } from '../../../src/actions/organizations';
 import { communitiesSelector } from '../../../src/selectors/organizations';
 import * as common from '../../../src/utils/common';
+import {
+  GROUP_SCREEN,
+  USER_CREATED_GROUP_SCREEN,
+} from '../../../src/containers/Groups/GroupScreen';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/actions/navigation', () => ({
@@ -26,6 +30,7 @@ const organizations = {
     {
       id: '2',
       name: 'Test Org 2',
+      user_created: true,
     },
   ],
 };
@@ -52,13 +57,39 @@ describe('GroupsListScreen', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should handlePress correctly', () => {
-    const instance = component.instance();
-    instance.handlePress();
-    expect(navigatePush).toHaveBeenCalled();
-    expect(communitiesSelector).toHaveBeenCalledWith({
-      organizations,
-      auth,
+  describe('handlePress', () => {
+    it('navigates to groups screen', () => {
+      const organization = organizations.all[0];
+      const item = component
+        .childAt(1)
+        .childAt(0)
+        .props()
+        .renderItem({ item: organization });
+      item.props.onPress(organization);
+
+      expect(navigatePush).toHaveBeenCalledWith(GROUP_SCREEN, { organization });
+      expect(communitiesSelector).toHaveBeenCalledWith({
+        organizations,
+        auth,
+      });
+    });
+
+    it('navigates to user created org screen', () => {
+      const organization = organizations.all[1];
+      const item = component
+        .childAt(1)
+        .childAt(0)
+        .props()
+        .renderItem({ item: organization });
+      item.props.onPress(organization);
+
+      expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
+        organization,
+      });
+      expect(communitiesSelector).toHaveBeenCalledWith({
+        organizations,
+        auth,
+      });
     });
   });
 

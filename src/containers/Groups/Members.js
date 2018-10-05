@@ -20,6 +20,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
+import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
 @translate('groupsMembers')
 class Members extends Component {
@@ -62,8 +63,7 @@ class Members extends Component {
         organization,
         isInvite: true,
         onComplete: () => {
-          // You go through 4 screens for adding a person, so pop back to the first one
-          dispatch(navigateBack(4));
+          dispatch(navigateBack());
           // refresh the members list after creating a new person
           this.load();
         },
@@ -75,12 +75,15 @@ class Members extends Component {
     <GroupMemberItem person={item} onSelect={this.handleSelect} />
   );
 
+  renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
+
   render() {
     const { t, members, pagination, myOrgPermissions } = this.props;
     return (
       <Flex value={1}>
         <FlatList
           data={members}
+          ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
           style={styles.flatList}
           renderItem={this.renderItem}

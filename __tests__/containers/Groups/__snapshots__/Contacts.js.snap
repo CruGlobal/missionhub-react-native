@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contacts should render correctly 1`] = `
-<Flex
-  value={1}
+<ScrollView
+  keyboardShouldPersistTaps="handled"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
+  <Connect(Translate(OnboardingCard))
+    type="contacts"
+  />
   <Translate(SearchList)
     defaultData={Array []}
     filters={
@@ -26,7 +34,7 @@ exports[`Contacts should render correctly 1`] = `
     onSearch={[Function]}
     placeholder="Search Contacts"
   />
-</Flex>
+</ScrollView>
 `;
 
 exports[`Contacts should render item 1`] = `

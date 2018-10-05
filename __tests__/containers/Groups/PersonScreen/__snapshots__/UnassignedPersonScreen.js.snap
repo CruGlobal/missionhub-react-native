@@ -19,6 +19,7 @@ exports[`Contact should render correctly 1`] = `
   <Translate(GroupsContactList)
     activity={Array []}
     myId="me"
+    onAssign={[MockFunction]}
     organization={
       Object {
         "id": "1",

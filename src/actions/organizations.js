@@ -241,7 +241,7 @@ export function getOrganizationMembersNextPage(orgId) {
   };
 }
 
-export function addNewContact(data) {
+export function addNewPerson(data) {
   return (dispatch, getState) => {
     const {
       person: { id: myId },
@@ -252,13 +252,15 @@ export function addNewContact(data) {
       );
     }
     const included = [];
-    included.push({
-      type: 'contact_assignment',
-      attributes: {
-        assigned_to_id: myId,
-        organization_id: data.orgId || undefined,
-      },
-    });
+    if (data.assignToMe) {
+      included.push({
+        type: 'contact_assignment',
+        attributes: {
+          assigned_to_id: myId,
+          organization_id: data.orgId || undefined,
+        },
+      });
+    }
     if (data.orgId) {
       included.push({
         type: 'organizational_permission',

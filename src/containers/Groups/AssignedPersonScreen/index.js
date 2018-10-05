@@ -149,10 +149,13 @@ const myImpact = {
 };
 
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
-export const IS_GROUPS_MEMBER_PERSON_TABS = [
+export const IS_USER_CREATED_MEMBER_PERSON_TABS = [
   memberCelebrate,
   ...CONTACT_PERSON_TABS,
   memberImpact,
+];
+export const IS_GROUPS_MEMBER_PERSON_TABS = [
+  ...IS_USER_CREATED_MEMBER_PERSON_TABS,
   assignedContacts,
 ];
 const MEMBER_PERSON_TABS = [...CONTACT_PERSON_TABS, memberImpact];
@@ -267,20 +270,15 @@ export const mapStateToProps = (
   { people, auth, stages, organizations },
   { navigation },
 ) => {
-  const {
-    person: navPerson,
-    organization: navOrganization = {},
-  } = navigation.state.params;
+  const navParams = navigation.state.params;
+  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
 
   const organization =
-    organizationSelector({ organizations }, { orgId: navOrganization.id }) ||
-    {}; //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
+    organizationSelector({ organizations }, { orgId: navOrg.id }) || navOrg;
 
   const person =
-    personSelector(
-      { people },
-      { personId: navPerson.id, orgId: organization.id },
-    ) || navPerson;
+    personSelector({ people }, { personId: navPerson.id, orgId: navOrg.id }) ||
+    navPerson;
 
   const contactAssignment = contactAssignmentSelector(
     { auth },
@@ -289,7 +287,7 @@ export const mapStateToProps = (
   const authPerson = auth.person;
 
   return {
-    ...(navigation.state.params || {}),
+    ...(navParams || {}),
     contactAssignment,
     person,
     organization,
@@ -306,6 +304,11 @@ export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   CONTACT_PERSON_TABS,
   connectedPersonScreen,
   false,
+);
+export const IsUserCreatedMemberPersonScreen = generateSwipeTabMenuNavigator(
+  IS_USER_CREATED_MEMBER_PERSON_TABS,
+  connectedPersonScreen,
+  true,
 );
 export const IsGroupsMemberPersonScreen = generateSwipeTabMenuNavigator(
   IS_GROUPS_MEMBER_PERSON_TABS,
@@ -334,6 +337,8 @@ export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
 );
 
 export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
+export const IS_USER_CREATED_MEMBER_PERSON_SCREEN =
+  'nav/IS_USER_CREATED_MEMBER_PERSON';
 export const IS_GROUPS_MEMBER_PERSON_SCREEN = 'nav/IS_GROUPS_MEMBER_PERSON';
 export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';
 export const ME_PERSONAL_PERSON_SCREEN = 'nav/ME_PERSONAL_PERSON';
