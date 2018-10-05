@@ -198,7 +198,7 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
-              ...(data.orgPermission
+              ...(data.orgPermission && data.orgPermission.permission_id
                 ? [
                     {
                       type: 'organizational_permission',
