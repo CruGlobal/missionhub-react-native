@@ -699,7 +699,7 @@ exports[`render active challenge item 1`] = `
         "paddingVertical": 8,
       }
     }
-    text="JOIN CHALLENGE"
+    text="JOIN"
     type="primary"
   />
 </Card>
@@ -860,7 +860,7 @@ exports[`render active challenge item with edit 1`] = `
         "paddingVertical": 8,
       }
     }
-    text="JOIN CHALLENGE"
+    text="JOIN"
     type="primary"
   />
 </Card>
