@@ -23,7 +23,7 @@ export class GroupScreen extends Component {
     super(props);
 
     this.state = {
-      organization: this.props.navigation.state.params || {},
+      organization: this.props.navigation.state.params.organization || {},
     };
   }
 
