@@ -19,9 +19,17 @@ import Surveys from './Surveys';
 
 @connect()
 export class GroupScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      organization: this.props.navigation.state.params || {},
+    };
+  }
+
   handleAddContact = () => {
     const { dispatch } = this.props;
-    const { organization } = this.props.navigation.state.params || {};
+    const { organization } = this.state;
 
     dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
@@ -39,7 +47,7 @@ export class GroupScreen extends Component {
   };
 
   renderAddContactIcon() {
-    const { organization } = this.props.navigation.state.params || {};
+    const { organization } = this.state;
     return !organization.user_created ? (
       <IconButton
         name="addContactIcon"
@@ -51,7 +59,7 @@ export class GroupScreen extends Component {
   }
 
   render() {
-    const { organization } = this.props.navigation.state.params || {};
+    const { organization } = this.state;
     return (
       <Header
         left={<BackButton />}
