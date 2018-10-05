@@ -8,7 +8,7 @@ import {
   testSnapshotShallow,
 } from '../../testUtils';
 import AddContactScreen from '../../src/containers/AddContactScreen';
-import { addNewContact } from '../../src/actions/organizations';
+import { addNewPerson } from '../../src/actions/organizations';
 import { updatePerson } from '../../src/actions/person';
 import * as organizations from '../../src/actions/organizations';
 import * as person from '../../src/actions/person';
@@ -23,8 +23,8 @@ const organization = { id: 2 };
 
 const mockContactAssignment = { id: 123, assigned_to: me };
 
-const mockAddNewContact = {
-  type: 'add new contact',
+const mockAddNewPerson = {
+  type: 'add new person',
   response: {
     id: contactId,
     first_name: contactFName,
@@ -33,7 +33,7 @@ const mockAddNewContact = {
   },
 };
 jest.mock('../../src/actions/organizations', () => ({
-  addNewContact: jest.fn(() => mockAddNewContact),
+  addNewPerson: jest.fn(() => mockAddNewPerson),
 }));
 const mockUpdatePerson = {
   type: 'update person',
@@ -64,10 +64,12 @@ function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
 
-beforeEach(() =>
-  organizations.addNewContact.mockImplementation(
-    jest.fn(() => mockAddNewContact),
-  ));
+beforeEach(() => {
+  jest.clearAllMocks();
+  organizations.addNewPerson.mockImplementation(
+    jest.fn(() => mockAddNewPerson),
+  );
+});
 
 it('renders correctly', () => {
   testSnapshotShallow(
@@ -114,8 +116,11 @@ describe('savePerson', () => {
 
     await componentInstance.savePerson();
 
-    expect(addNewContact).toHaveBeenCalledWith({ first_name: contactFName });
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
+    expect(addNewPerson).toHaveBeenCalledWith({
+      assignToMe: true,
+      first_name: contactFName,
+    });
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
   });
 
   it('should add a new person with an org', async () => {
@@ -131,11 +136,35 @@ describe('savePerson', () => {
 
     await componentInstance.savePerson();
 
-    expect(addNewContact).toHaveBeenCalledWith({
+    expect(addNewPerson).toHaveBeenCalledWith({
       first_name: contactFName,
       orgId: organization.id,
+      assignToMe: true,
     });
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
+  });
+
+  it('should add a new person with an org without contact assignment', async () => {
+    const componentInstance = buildScreenInstance({
+      navigation: createMockNavState(),
+      organization,
+      isInvite: true,
+    });
+    componentInstance.setState({
+      person: {
+        first_name: contactFName,
+      },
+    });
+
+    await componentInstance.savePerson();
+
+    expect(addNewPerson).toHaveBeenCalledWith({
+      first_name: contactFName,
+      orgId: organization.id,
+      assignToMe: false,
+    });
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
+    expect(navigatePush).not.toHaveBeenCalled();
   });
 
   it('should navigate to person stage screen', async () => {
@@ -182,8 +211,11 @@ describe('savePerson', () => {
 
     await componentInstance.savePerson();
 
-    expect(addNewContact).toHaveBeenCalledWith({ first_name: contactFName });
-    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewContact);
+    expect(addNewPerson).toHaveBeenCalledWith({
+      assignToMe: true,
+      first_name: contactFName,
+    });
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewPerson);
     expect(onCompleteMock).toHaveBeenCalledTimes(1);
     expect(navigateBack).toHaveBeenCalledTimes(0);
   });
@@ -207,6 +239,7 @@ describe('savePerson', () => {
     expect(updatePerson).toHaveBeenCalledWith({
       first_name: contactFName,
       id: contactId,
+      assignToMe: true,
     });
     expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
     expect(navigateBack).toHaveBeenCalled();
@@ -229,6 +262,7 @@ describe('savePerson', () => {
     expect(updatePerson).toHaveBeenCalledWith({
       first_name: contactFName,
       id: contactId,
+      assignToMe: true,
     });
     expect(store.dispatch).toHaveBeenCalledWith(mockUpdatePerson);
     expect(navigatePush).toHaveBeenCalledWith(PERSON_STAGE_SCREEN, {
@@ -241,7 +275,7 @@ describe('savePerson', () => {
       contactAssignmentId: mockContactAssignment.id,
       section: 'people',
       subsection: 'person',
-      orgId: organization.id,
+      orgId: undefined,
     });
   });
 
@@ -263,6 +297,7 @@ describe('savePerson', () => {
 
     expect(updatePerson).toHaveBeenCalledWith({
       id: contactId,
+      assignToMe: true,
     });
   });
 
