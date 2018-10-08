@@ -144,7 +144,7 @@ export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   GroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
-  [tabs[0], tabs[1], tabs[2]],
+  tabs.slice(0, 4),
   GroupScreen,
 );
 
