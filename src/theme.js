@@ -65,6 +65,7 @@ export const COLORS = {
   IMPACT_BLUE: '#3EB1C8',
   RED: '#FF5532',
   IOS_BLUE: '#007AFF',
+  GREEN: '#44E4AB',
   convert: colorConvert,
 };
 
@@ -102,6 +103,7 @@ export default {
   inactiveColor: COLORS.INACTIVE_GREY,
   checkBackgroundColor: COLORS.BLUE_GREEN,
   red: COLORS.RED,
+  green: COLORS.GREEN,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,

@@ -9,19 +9,16 @@ export default StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: theme.white,
   },
-  joinCard: {
+  unjoinedCard: {
     borderColor: theme.secondaryColor,
+    borderWidth: 1,
+  },
+  joinedCard: {
+    borderColor: theme.green,
     borderWidth: 1,
   },
   content: {
     padding: 16,
-  },
-  completeIcon: {
-    opacity: 1,
-    margin: 0,
-    paddingVertical: 0,
-    height: 30,
-    width: 30,
   },
   editButtonText: {
     color: theme.secondaryColor,
@@ -48,7 +45,16 @@ export default StyleSheet.create({
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
   },
-  joinButtonText: {
+  completeButton: {
+    backgroundColor: theme.green,
+    paddingVertical: 8,
+    height: undefined, // Need this to override the normal button styles
+  },
+  joinCompleteButtonText: {
     fontSize: 14,
+  },
+  checkIcon: {
+    color: theme.green,
+    fontSize: 20,
   },
 });

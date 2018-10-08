@@ -472,7 +472,8 @@ export default {
     daysRemaining_plural: '{{count}} Days Left',
     accepted: '{{count}} Accepted',
     completed: '{{count}} Completed',
-    join: 'Join Challenge',
+    join: 'Join',
+    complete: 'Complete',
   },
   addChallenge: {
     editHeader: 'Edit Challenge',
