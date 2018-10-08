@@ -9,6 +9,7 @@ import {
   createChallenge,
   updateChallenge,
 } from '../../src/actions/challenges';
+import { reloadGroupCelebrateFeed } from '../../src/actions/celebration';
 import callApi, { REQUESTS } from '../../src/actions/api';
 import {
   DEFAULT_PAGE_LIMIT,
@@ -20,6 +21,7 @@ import { navigatePush } from '../../src/actions/navigation';
 
 jest.mock('../../src/actions/api');
 jest.mock('../../src/actions/navigation');
+jest.mock('../../src/actions/celebration');
 
 const fakeDate = '2018-09-06T14:13:21Z';
 common.formatApiDate = jest.fn(() => fakeDate);
@@ -28,6 +30,7 @@ const orgId = '123';
 
 const apiResult = { type: 'done' };
 const navigateResult = { type: 'has navigated' };
+const celebrateResult = { type: 'reloaded celebrate feed' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 
 const createStore = configureStore([thunk]);
@@ -50,14 +53,15 @@ const defaultStore = {
 };
 
 beforeEach(() => {
-  callApi.mockClear();
+  jest.clearAllMocks();
   store = createStore(defaultStore);
+  callApi.mockReturnValue(apiResult);
+  navigatePush.mockReturnValue(navigateResult);
+  reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
 });
 
 describe('getGroupChallengeFeed', () => {
   it('gets a page of challenge feed', () => {
-    callApi.mockReturnValue(apiResult);
-
     store.dispatch(getGroupChallengeFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE_FEED, {
@@ -86,8 +90,6 @@ describe('getGroupChallengeFeed', () => {
       },
     });
 
-    callApi.mockReturnValue(apiResult);
-
     store.dispatch(getGroupChallengeFeed(orgId));
 
     expect(callApi).not.toHaveBeenCalled();
@@ -97,8 +99,6 @@ describe('getGroupChallengeFeed', () => {
 
 describe('reloadGroupChallengeFeed', () => {
   it('reload a challenge feed', () => {
-    callApi.mockReturnValue(apiResult);
-
     store.dispatch(reloadGroupChallengeFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE_FEED, {
@@ -117,9 +117,6 @@ describe('completeChallenge', () => {
   const item = { id: '1' };
 
   it('completes a challenge', async () => {
-    callApi.mockReturnValue(apiResult);
-    navigatePush.mockReturnValue(navigateResult);
-
     await store.dispatch(completeChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -138,11 +135,13 @@ describe('completeChallenge', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
       onComplete: expect.anything(),
     });
+    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
     expect(store.getActions()).toEqual([
       apiResult,
       navigateResult,
       resetResult,
       apiResult,
+      celebrateResult,
     ]);
   });
 });
@@ -151,8 +150,6 @@ describe('joinChallenge', () => {
   const item = { id: '1' };
 
   it('joins a challenge', async () => {
-    callApi.mockReturnValue(apiResult);
-
     await store.dispatch(joinChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -170,11 +167,13 @@ describe('joinChallenge', () => {
       onComplete: expect.anything(),
       gifId: 0,
     });
+    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
     expect(store.getActions()).toEqual([
       apiResult,
       navigateResult,
       resetResult,
       apiResult,
+      celebrateResult,
     ]);
   });
 });
@@ -187,8 +186,6 @@ describe('createChallenge', () => {
   };
 
   it('creates a challenge', async () => {
-    callApi.mockReturnValue(apiResult);
-
     await store.dispatch(createChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -214,9 +211,6 @@ describe('updateChallenge', () => {
       id: '1',
       title: 'Challenge Title',
     };
-
-    callApi.mockReturnValue(apiResult);
-
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -237,9 +231,6 @@ describe('updateChallenge', () => {
       id: '1',
       date: fakeDate,
     };
-
-    callApi.mockReturnValue(apiResult);
-
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -261,9 +252,6 @@ describe('updateChallenge', () => {
       title: 'Challenge Title',
       date: fakeDate,
     };
-
-    callApi.mockReturnValue(apiResult);
-
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(

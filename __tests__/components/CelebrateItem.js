@@ -1,7 +1,11 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
-import { ACTIONS } from '../../src/constants';
+import {
+  ACTIONS,
+  CELEBRATEABLE_TYPES,
+  INTERACTION_TYPES,
+} from '../../src/constants';
 import CelebrateItem from '../../src/components/CelebrateItem';
 import { trackActionWithoutData } from '../../src/actions/analytics';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
@@ -95,6 +99,84 @@ describe('CelebrateItem', () => {
       liked: false,
     };
     testEvent(event);
+  });
+
+  describe('message', () => {
+    const baseEvent = {
+      subject_person_name: 'John Smith',
+      subject_person: {
+        id: myId,
+      },
+      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      likes_count: 0,
+      liked: false,
+    };
+
+    it('renders step of faith event with stage', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+        adjective_attribute_value: '3',
+      };
+      testEvent(event);
+    });
+
+    it('renders step of faith event without stage', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+      };
+      testEvent(event);
+    });
+
+    it('renders personal decision interaction event', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
+        adjective_attribute_value:
+          INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
+      };
+      testEvent(event);
+    });
+
+    it('renders something cool happened event', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
+        adjective_attribute_value:
+          INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
+      };
+      testEvent(event);
+    });
+
+    it('renders other interaction event', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
+        adjective_attribute_value:
+          INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
+      };
+      testEvent(event);
+    });
+
+    it('renders accepted challenge event', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.communityChallenge,
+        changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
+      };
+      testEvent(event);
+    });
+
+    it('renders completed challenge event', () => {
+      event = {
+        ...baseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.communityChallenge,
+        changed_attribute_name:
+          CELEBRATEABLE_TYPES.challengeItemTypes.completed,
+      };
+      testEvent(event);
+    });
   });
 });
 
