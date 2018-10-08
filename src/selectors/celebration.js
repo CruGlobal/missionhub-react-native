@@ -54,7 +54,7 @@ const filterCelebrationFeedItems = items => {
     completedInteraction,
     completedStep,
     validInteractionTypes,
-    communityChallenge,
+    acceptedCommunityChallenge,
   } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
@@ -64,7 +64,7 @@ const filterCelebrationFeedItems = items => {
           parseInt(item.adjective_attribute_value),
         );
       case completedStep:
-      case communityChallenge:
+      case acceptedCommunityChallenge:
         return true;
       default:
         return false;

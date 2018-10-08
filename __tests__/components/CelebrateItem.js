@@ -162,7 +162,7 @@ describe('CelebrateItem', () => {
     it('renders accepted challenge event', () => {
       event = {
         ...baseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.communityChallenge,
+        celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
       };
       testEvent(event);
@@ -171,7 +171,7 @@ describe('CelebrateItem', () => {
     it('renders completed challenge event', () => {
       event = {
         ...baseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.communityChallenge,
+        celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name:
           CELEBRATEABLE_TYPES.challengeItemTypes.completed,
       };

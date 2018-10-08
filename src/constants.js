@@ -317,7 +317,7 @@ export const CELEBRATEABLE_TYPES = {
     INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
     INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
   ],
-  communityChallenge: 'accepted_community_challenge',
+  acceptedCommunityChallenge: 'accepted_community_challenge',
   challengeItemTypes: {
     accepted: 'accepted_at',
     completed: 'completed_at',
