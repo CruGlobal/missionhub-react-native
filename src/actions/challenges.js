@@ -65,7 +65,9 @@ export function joinChallenge(item, orgId) {
         gifId: 0,
       }),
     );
-    return dispatch(reloadGroupChallengeFeed(orgId));
+    dispatch(reloadGroupChallengeFeed(orgId));
+    // After joining a challenge, reload the group celebrate feed with this new item
+    dispatch(reloadGroupCelebrateFeed(orgId));
   };
 }
 
