@@ -13,6 +13,10 @@ class ChallengeItem extends Component {
     const { item, onEdit } = this.props;
     onEdit && onEdit(item);
   };
+  handleSelect = () => {
+    const { item, onSelect } = this.props;
+    onSelect(item);
+  };
   handleJoin = () => {
     const { item, onJoin } = this.props;
     onJoin(item);
@@ -64,48 +68,54 @@ class ChallengeItem extends Component {
 
     return (
       <Card style={this.cardStyle(completed, isPast, joined)}>
-        <Flex value={1} style={styles.content} direction="row" align="center">
-          <Flex value={5} direction="column">
-            <Text style={styles.title}>{title}</Text>
-            <Flex direction="row" align="center" wrap="wrap">
-              {canEdit ? (
-                <Fragment>
-                  <Button
-                    type="transparent"
-                    text={t('edit')}
-                    onPress={this.handleEdit}
-                    buttonTextStyle={styles.editButtonText}
+        <Button
+          type="transparent"
+          style={styles.detailButton}
+          onPress={this.handleSelect}
+        >
+          <Flex value={1} style={styles.content} direction="row" align="center">
+            <Flex value={5} direction="column">
+              <Text style={styles.title}>{title}</Text>
+              <Flex direction="row" align="center" wrap="wrap">
+                {canEdit ? (
+                  <Fragment>
+                    <Button
+                      type="transparent"
+                      text={t('edit')}
+                      onPress={this.handleEdit}
+                      buttonTextStyle={styles.editButtonText}
+                    />
+                    <Dot style={styles.dot} />
+                  </Fragment>
+                ) : null}
+                <Text style={styles.info}>{daysText}</Text>
+                <Dot style={styles.dot} />
+                <Text style={styles.info}>
+                  {t('accepted', { count: accepted_count })}
+                </Text>
+                {completed_count ? (
+                  <Fragment>
+                    <Dot style={styles.dot} />
+                    <Text style={styles.info}>
+                      {t('completed', { count: completed_count })}
+                    </Text>
+                  </Fragment>
+                ) : null}
+              </Flex>
+            </Flex>
+            <Flex value={1} align="center" justify="center">
+              {completed ? (
+                <Flex value={0}>
+                  <Icon
+                    style={styles.checkIcon}
+                    name={'checkIcon'}
+                    type={'MissionHub'}
                   />
-                  <Dot style={styles.dot} />
-                </Fragment>
-              ) : null}
-              <Text style={styles.info}>{daysText}</Text>
-              <Dot style={styles.dot} />
-              <Text style={styles.info}>
-                {t('accepted', { count: accepted_count })}
-              </Text>
-              {completed_count ? (
-                <Fragment>
-                  <Dot style={styles.dot} />
-                  <Text style={styles.info}>
-                    {t('completed', { count: completed_count })}
-                  </Text>
-                </Fragment>
+                </Flex>
               ) : null}
             </Flex>
           </Flex>
-          <Flex value={1} align="center" justify="center">
-            {completed ? (
-              <Flex value={0}>
-                <Icon
-                  style={styles.checkIcon}
-                  name={'checkIcon'}
-                  type={'MissionHub'}
-                />
-              </Flex>
-            ) : null}
-          </Flex>
-        </Flex>
+        </Button>
         {showButton ? (
           <Button
             type="primary"
@@ -125,6 +135,7 @@ ChallengeItem.propTypes = {
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
+  onSelect: PropTypes.func,
   acceptedChallenge: PropTypes.object,
 };
 
