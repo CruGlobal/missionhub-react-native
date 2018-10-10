@@ -14,7 +14,11 @@ import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 
 import { navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
-import { deletePushToken, showReminderOnLoad } from './notifications';
+import {
+  deletePushToken,
+  showReminderOnLoad,
+  requestNativePermissions,
+} from './notifications';
 import { getStagesIfNotExists } from './stages';
 import { getMySteps } from './steps';
 import callApi, { REQUESTS } from './api';
@@ -202,6 +206,7 @@ export function loadHome() {
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
     await dispatch(getMySteps());
+    await dispatch(requestNativePermissions());
     dispatch(showReminderOnLoad());
   };
 }
