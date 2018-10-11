@@ -70,8 +70,13 @@ export function showReminderOnLoad() {
 
 export function requestNativePermissions() {
   return async dispatch => {
-    dispatch({ type: REQUEST_NOTIFICATIONS });
-    return await PushNotification.requestPermissions();
+    await PushNotification.checkPermissions(async permission => {
+      const permissionsEnabled = permission && permission.alert;
+      if (permissionsEnabled) {
+        dispatch({ type: REQUEST_NOTIFICATIONS });
+        return await PushNotification.requestPermissions();
+      }
+    });
   };
 }
 
