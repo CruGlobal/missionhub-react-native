@@ -9,7 +9,6 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { ORG_PERMISSIONS } from '../../constants';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import {
   completeChallenge,
   joinChallenge,
@@ -43,7 +42,6 @@ class ChallengeFeed extends Component {
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
       onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
-      onSelect={this.handleSelectRow}
       acceptedChallenge={this.getAcceptedChallenge(item)}
     />
   );
@@ -65,14 +63,6 @@ class ChallengeFeed extends Component {
 
   handleRefreshing = () => {
     this.props.refreshCallback();
-  };
-
-  handleSelectRow = challenge => {
-    const {
-      organization: { id: orgId },
-      dispatch,
-    } = this.props;
-    dispatch(navigatePush(CHALLENGE_DETAIL_SCREEN, { orgId, challenge }));
   };
 
   handleComplete = challenge => {
