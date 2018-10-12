@@ -17,6 +17,9 @@ export default StyleSheet.create({
     borderColor: theme.green,
     borderWidth: 1,
   },
+  detailButton: {
+    flex: 1,
+  },
   content: {
     padding: 16,
   },
