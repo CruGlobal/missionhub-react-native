@@ -2,6 +2,7 @@
 
 exports[`Members calls render item 1`] = `
 <Translate(GroupMemberItem)
+  isUserCreatedOrg={undefined}
   onSelect={[Function]}
   person={
     Object {
