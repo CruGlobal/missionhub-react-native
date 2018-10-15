@@ -91,13 +91,13 @@ class ChallengeItem extends Component {
                 <Text style={styles.info}>{daysText}</Text>
                 <Dot style={styles.dot} />
                 <Text style={styles.info}>
-                  {t('accepted', { count: accepted_count })}
+                  {t('numAccepted', { count: accepted_count })}
                 </Text>
                 {completed_count ? (
                   <Fragment>
                     <Dot style={styles.dot} />
                     <Text style={styles.info}>
-                      {t('completed', { count: completed_count })}
+                      {t('numCompleted', { count: completed_count })}
                     </Text>
                   </Fragment>
                 ) : null}

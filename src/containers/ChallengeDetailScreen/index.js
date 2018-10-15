@@ -3,12 +3,43 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 
 import { navigateBack } from '../../actions/navigation';
 import { Text, IconButton, Button } from '../../components/common';
 import Header from '../Header';
+import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
+import Members from '../Groups/Members';
 
 import styles from './styles';
+
+const CHALLENGE_JOINED = 'nav/CHALLENGE_JOINED';
+const CHALLENGE_COMPLETED = 'nav/CHALLENGE_COMPLETED';
+
+export const CHALLENGE_DETAIL_TABS = [
+  {
+    name: i18next.t('challengeFeeds:joined'),
+    navigationAction: CHALLENGE_JOINED,
+    component: ({
+      navigation: {
+        state: {
+          params: { orgId },
+        },
+      },
+    }) => <Members organization={{ id: orgId }} />,
+  },
+  {
+    name: i18next.t('challengeFeeds:completed'),
+    navigationAction: CHALLENGE_COMPLETED,
+    component: ({
+      navigation: {
+        state: {
+          params: { orgId },
+        },
+      },
+    }) => <Members organization={{ id: orgId }} />,
+  },
+];
 
 @translate('challengeFeeds')
 class ChallengeDetailScreen extends Component {
@@ -76,5 +107,11 @@ const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 
-export default connect(mapStateToProps)(ChallengeDetailScreen);
+const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
+
+export default generateSwipeTabMenuNavigator(
+  CHALLENGE_DETAIL_TABS,
+  connectedDetailScreen,
+);
+
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';
