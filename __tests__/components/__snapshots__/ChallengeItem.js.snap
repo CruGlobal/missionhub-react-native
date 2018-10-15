@@ -112,7 +112,7 @@ exports[`render active and joined and completed challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     >
@@ -125,6 +125,7 @@ exports[`render active and joined and completed challenge item 1`] = `
             Object {
               "color": "#44E4AB",
               "fontSize": 20,
+              "marginHorizontal": 10,
             }
           }
           type="MissionHub"
@@ -247,7 +248,7 @@ exports[`render active and joined challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
@@ -408,7 +409,7 @@ exports[`render active and joined challenge item with edit 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
@@ -545,7 +546,7 @@ exports[`render active challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
@@ -706,7 +707,7 @@ exports[`render active challenge item with edit 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
@@ -843,7 +844,7 @@ exports[`render past and joined and completed challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     >
@@ -856,6 +857,7 @@ exports[`render past and joined and completed challenge item 1`] = `
             Object {
               "color": "#44E4AB",
               "fontSize": 20,
+              "marginHorizontal": 10,
             }
           }
           type="MissionHub"
@@ -975,7 +977,7 @@ exports[`render past and joined challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
@@ -1092,7 +1094,7 @@ exports[`render past challenge item 1`] = `
       </Flex>
     </Flex>
     <Flex
-      align="center"
+      align="end"
       justify="center"
       value={1}
     />
