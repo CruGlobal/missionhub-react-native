@@ -74,16 +74,16 @@ class ChallengeDetailScreen extends Component {
               name="deleteIcon"
               type="MissionHub"
               onPress={this.handleCancel}
-              style={styles.button}
+              style={styles.buttonText}
             />
           }
           right={
             !completed ? (
               <Button
                 type="transparent"
-                text={t(joined ? 'complete' : 'join')}
+                text={t(joined ? 'complete' : 'join').toUpperCase()}
                 onPress={joined ? this.handleComplete : this.handleJoin}
-                buttonTextStyle={styles.button}
+                buttonTextStyle={styles.buttonText}
               />
             ) : null
           }

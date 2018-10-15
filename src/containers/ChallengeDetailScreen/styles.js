@@ -6,7 +6,8 @@ export default StyleSheet.create({
   header: {
     backgroundColor: theme.white,
   },
-  button: {
+  buttonText: {
     color: theme.primaryColor,
+    fontWeight: '400',
   },
 });

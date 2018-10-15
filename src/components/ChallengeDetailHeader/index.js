@@ -25,33 +25,43 @@ class ChallengeDetailHeader extends Component {
     return (
       <Flex direction="row" style={styles.wrap}>
         <Flex value={5} direction="column" justify="start">
-          {canEdit ? (
-            <Button
-              type="transparent"
-              text={t('Edit')}
-              onPress={this.handleEdit}
-              buttonTextStyle={styles.editButtonText}
+          <Flex style={styles.section}>
+            {canEdit ? (
+              <Flex direction="row">
+                <Button
+                  type="transparent"
+                  text={t('Edit')}
+                  onPress={this.handleEdit}
+                  buttonTextStyle={styles.editButtonText}
+                />
+              </Flex>
+            ) : null}
+            <Text style={styles.title}>{title}</Text>
+          </Flex>
+          <Flex style={styles.section}>
+            <Text style={styles.subHeader}>{t('endDate')}</Text>
+            <DateComponent
+              date={end_date}
+              format={'dddd, LL'}
+              style={styles.dateText}
             />
-          ) : null}
-          <Text style={styles.title}>{title}</Text>
-          <Text>{t('endDate')}</Text>
-          <DateComponent date={end_date} />
-          <Flex direction="row" align="stretch">
+          </Flex>
+          <Flex style={styles.section} direction="row" justify="between">
             <Flex direction="column" justify="start">
-              <Text>{t('daysLeft')}</Text>
-              <Text>5</Text>
+              <Text style={styles.subHeader}>{t('daysLeft')}</Text>
+              <Text style={styles.number}>5</Text>
             </Flex>
             <Flex direction="column" justify="start">
-              <Text>{t('joined')}</Text>
-              <Text>4</Text>
+              <Text style={styles.subHeader}>{t('joined')}</Text>
+              <Text style={styles.number}>4</Text>
             </Flex>
             <Flex direction="column" justify="start">
-              <Text>{t('completed')}</Text>
-              <Text>3</Text>
+              <Text style={styles.subHeader}>{t('completed')}</Text>
+              <Text style={styles.number}>3</Text>
             </Flex>
           </Flex>
         </Flex>
-        <Flex value={2} />
+        <Flex value={1} />
       </Flex>
     );
   }
