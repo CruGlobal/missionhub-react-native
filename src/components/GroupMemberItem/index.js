@@ -11,24 +11,26 @@ export default class GroupMemberItem extends Component {
   handleSelect = () => this.props.onSelect(this.props.person);
 
   renderContent() {
-    const { person, t } = this.props;
+    const { person, t, isUserCreatedOrg } = this.props;
 
     return (
       <Flex justify="center" style={styles.row}>
         <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-        <Flex align="center" direction="row" style={styles.detailsWrap}>
-          <Text style={styles.assigned}>
-            {t('numAssigned', { number: person.contact_count || 0 })}
-          </Text>
-          {person.uncontacted_count ? (
-            <Fragment>
-              <Dot style={styles.assigned} />
-              <Text style={styles.uncontacted}>
-                {t('numUncontacted', { number: person.uncontacted_count })}
-              </Text>
-            </Fragment>
-          ) : null}
-        </Flex>
+        {!isUserCreatedOrg ? (
+          <Flex align="center" direction="row" style={styles.detailsWrap}>
+            <Text style={styles.assigned}>
+              {t('numAssigned', { number: person.contact_count || 0 })}
+            </Text>
+            {person.uncontacted_count ? (
+              <Fragment>
+                <Dot style={styles.assigned} />
+                <Text style={styles.uncontacted}>
+                  {t('numUncontacted', { number: person.uncontacted_count })}
+                </Text>
+              </Fragment>
+            ) : null}
+          </Flex>
+        ) : null}
       </Flex>
     );
   }
@@ -54,4 +56,5 @@ GroupMemberItem.propTypes = {
     uncontacted_count: PropTypes.number,
   }).isRequired,
   onSelect: PropTypes.func,
+  isUserCreatedOrg: PropTypes.bool,
 };

@@ -96,13 +96,15 @@ export default class PeopleList extends Component {
           {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end" align="center">
-          <IconButton
-            name="addContactIcon"
-            type="MissionHub"
-            size={24}
-            pressProps={[org && org.id !== 'personal' ? org : undefined]}
-            onPress={this.handleAddContact}
-          />
+          {!org.user_created ? (
+            <IconButton
+              name="addContactIcon"
+              type="MissionHub"
+              size={24}
+              pressProps={[org && org.id !== 'personal' ? org : undefined]}
+              onPress={this.handleAddContact}
+            />
+          ) : null}
           <IconButton
             name={org.expanded ? 'upArrowIcon' : 'downArrowIcon'}
             type="MissionHub"

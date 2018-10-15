@@ -20,9 +20,17 @@ import GroupChallenges from './GroupChallenges';
 
 @connect()
 export class GroupScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      organization: this.props.navigation.state.params.organization || {},
+    };
+  }
+
   handleAddContact = () => {
     const { dispatch } = this.props;
-    const { organization } = this.props.navigation.state.params || {};
+    const { organization } = this.state;
 
     dispatch(
       navigatePush(ADD_CONTACT_SCREEN, {
@@ -40,18 +48,19 @@ export class GroupScreen extends Component {
   };
 
   renderAddContactIcon() {
-    return (
+    const { organization } = this.state;
+    return !organization.user_created ? (
       <IconButton
         name="addContactIcon"
         type="MissionHub"
         size={24}
         onPress={this.handleAddContact}
       />
-    );
+    ) : null;
   }
 
   render() {
-    const { organization } = this.props.navigation.state.params || {};
+    const { organization } = this.state;
     return (
       <Header
         left={<BackButton />}
