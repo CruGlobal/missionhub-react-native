@@ -11,11 +11,11 @@ export default StyleSheet.create({
   },
   unjoinedCard: {
     borderColor: theme.secondaryColor,
-    borderWidth: 1,
+    borderWidth: 2,
   },
   joinedCard: {
     borderColor: theme.green,
-    borderWidth: 1,
+    borderWidth: 2,
   },
   content: {
     padding: 16,

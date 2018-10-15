@@ -12,7 +12,7 @@ exports[`render active and joined and completed challenge item 1`] = `
       },
       Object {
         "borderColor": "#44E4AB",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
@@ -148,7 +148,7 @@ exports[`render active and joined challenge item 1`] = `
       },
       Object {
         "borderColor": "#44E4AB",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
@@ -285,7 +285,7 @@ exports[`render active and joined challenge item with edit 1`] = `
       },
       Object {
         "borderColor": "#44E4AB",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
@@ -446,7 +446,7 @@ exports[`render active challenge item 1`] = `
       },
       Object {
         "borderColor": "#52C5DC",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
@@ -583,7 +583,7 @@ exports[`render active challenge item with edit 1`] = `
       },
       Object {
         "borderColor": "#52C5DC",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
@@ -744,7 +744,7 @@ exports[`render past and joined and completed challenge item 1`] = `
       },
       Object {
         "borderColor": "#44E4AB",
-        "borderWidth": 1,
+        "borderWidth": 2,
       },
     ]
   }
