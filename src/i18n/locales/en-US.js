@@ -478,6 +478,8 @@ export default {
     complete: 'Complete',
     joined: 'Joined',
     completed: 'Completed',
+    endDate: 'End Date',
+    daysLeft: 'Days Left',
   },
   addChallenge: {
     editHeader: 'Edit Challenge',

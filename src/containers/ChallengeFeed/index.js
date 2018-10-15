@@ -85,11 +85,13 @@ class ChallengeFeed extends Component {
     const {
       organization: { id: orgId },
       dispatch,
+      canEditChallenges,
     } = this.props;
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
         orgId,
         challenge,
+        canEditChallenges,
         acceptedChallenge: this.getAcceptedChallenge(challenge),
         onJoin: this.handleJoin,
         onComplete: this.handleComplete,

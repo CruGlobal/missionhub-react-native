@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
 import { navigateBack } from '../../actions/navigation';
-import { Text, IconButton, Button } from '../../components/common';
+import { IconButton, Button } from '../../components/common';
 import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import Members from '../Groups/Members';
+import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 
 import styles from './styles';
 
@@ -60,7 +61,7 @@ class ChallengeDetailScreen extends Component {
   };
 
   render() {
-    const { t, acceptedChallenge } = this.props;
+    const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
 
     const joined = !!acceptedChallenge;
     const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
@@ -89,7 +90,12 @@ class ChallengeDetailScreen extends Component {
           shadow={false}
           style={styles.header}
         />
-        <Text>Challenge Detail Screen</Text>
+        <ChallengeDetailHeader
+          challenge={challenge}
+          canEditChallenges={canEditChallenges}
+          onEdit={this.handleEdit}
+          acceptedChallenge={acceptedChallenge}
+        />
       </View>
     );
   }
@@ -100,6 +106,7 @@ ChallengeDetailScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
+  canEditChallenges: PropTypes.bool.isRequired,
   acceptedChallenge: PropTypes.object,
 };
 
