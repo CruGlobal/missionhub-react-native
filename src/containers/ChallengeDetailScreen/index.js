@@ -1,19 +1,59 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { Flex, Text } from '../../components/common';
+import { translate } from 'react-i18next';
 
+import { navigateBack } from '../../actions/navigation';
+import { Text, IconButton, Button } from '../../components/common';
+import Header from '../Header';
+
+import styles from './styles';
+
+@translate('challengeFeeds')
 class ChallengeDetailScreen extends Component {
+  handleCancel = () => {
+    this.props.dispatch(navigateBack());
+  };
+
+  handleJoin = () => {};
+
+  handleComplete = () => {};
+
   render() {
+    const { t, joined, completed } = this.props;
     return (
-      <Flex value={1} justify="center" align="center">
+      <View>
+        <Header
+          left={
+            <IconButton
+              name="deleteIcon"
+              type="MissionHub"
+              onPress={this.handleCancel}
+              style={styles.button}
+            />
+          }
+          right={
+            !completed ? (
+              <Button
+                type="transparent"
+                text={t(joined ? 'complete' : 'join')}
+                onPress={joined ? this.handleComplete : this.handleJoin}
+                buttonTextStyle={styles.button}
+              />
+            ) : null
+          }
+          shadow={false}
+          style={styles.header}
+        />
         <Text>Challenge Detail Screen</Text>
-      </Flex>
+      </View>
     );
   }
 }
 
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = (reduxState, { acceptedChallenge }) => ({
+  joined: !!acceptedChallenge,
+  completed: !!(acceptedChallenge && acceptedChallenge.completed_at),
 });
 
 export default connect(mapStateToProps)(ChallengeDetailScreen);

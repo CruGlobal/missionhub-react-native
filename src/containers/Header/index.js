@@ -49,11 +49,14 @@ class Header extends Component {
         </Flex>
       );
     }
-    return (
-      <Flex align="center" justify="center" value={5} style={styles.center}>
-        {center || null}
-      </Flex>
-    );
+    if (center) {
+      return (
+        <Flex align="center" justify="center" value={5} style={styles.center}>
+          {center}
+        </Flex>
+      );
+    }
+    return null;
   }
   renderRight() {
     const { right } = this.props;
@@ -64,11 +67,15 @@ class Header extends Component {
     );
   }
   render() {
-    const { shadow } = this.props;
+    const { shadow, style } = this.props;
     return (
       <Flex
         direction="row"
-        style={[styles.header, shadow ? styles.shadow : null]}
+        style={[
+          styles.header,
+          style ? style : null,
+          shadow ? styles.shadow : null,
+        ]}
       >
         {this.renderLeft()}
         {this.renderCenter()}

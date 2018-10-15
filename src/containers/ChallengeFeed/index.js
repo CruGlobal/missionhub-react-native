@@ -86,7 +86,13 @@ class ChallengeFeed extends Component {
       organization: { id: orgId },
       dispatch,
     } = this.props;
-    dispatch(navigatePush(CHALLENGE_DETAIL_SCREEN, { orgId, challenge }));
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        orgId,
+        challenge,
+        acceptedChallenge: this.getAcceptedChallenge(challenge),
+      }),
+    );
   };
 
   editChallenge = challenge => {
