@@ -475,7 +475,7 @@ export default {
     accepted: '{{count}} Accepted',
     completed: '{{count}} Completed',
     join: 'Join',
-    complete: 'Complete',
+    iDidIt: 'I Did It',
   },
   addChallenge: {
     editHeader: 'Edit Challenge',

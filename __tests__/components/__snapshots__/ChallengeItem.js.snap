@@ -266,7 +266,7 @@ exports[`render active and joined challenge item 1`] = `
         "paddingVertical": 8,
       }
     }
-    text="COMPLETE"
+    text="I DID IT"
     type="primary"
   />
 </Card>
@@ -427,7 +427,7 @@ exports[`render active and joined challenge item with edit 1`] = `
         "paddingVertical": 8,
       }
     }
-    text="COMPLETE"
+    text="I DID IT"
     type="primary"
   />
 </Card>

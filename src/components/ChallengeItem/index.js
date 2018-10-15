@@ -111,7 +111,7 @@ class ChallengeItem extends Component {
             type="primary"
             style={joined ? styles.completeButton : styles.joinButton}
             buttonTextStyle={styles.joinCompleteButtonText}
-            text={t(joined ? 'complete' : 'join').toUpperCase()}
+            text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
             onPress={joined ? this.handleComplete : this.handleJoin}
           />
         ) : null}
