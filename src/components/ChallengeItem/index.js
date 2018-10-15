@@ -116,6 +116,15 @@ class ChallengeItem extends Component {
             </Flex>
           </Flex>
         </Button>
+        {showButton ? (
+          <Button
+            type="primary"
+            style={joined ? styles.completeButton : styles.joinButton}
+            buttonTextStyle={styles.joinCompleteButtonText}
+            text={t(joined ? 'complete' : 'join').toUpperCase()}
+            onPress={joined ? this.handleComplete : this.handleJoin}
+          />
+        ) : null}
       </Card>
     );
   }

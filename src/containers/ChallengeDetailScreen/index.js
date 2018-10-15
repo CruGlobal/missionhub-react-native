@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigateBack } from '../../actions/navigation';
 import { Text, IconButton, Button } from '../../components/common';
@@ -14,13 +15,25 @@ class ChallengeDetailScreen extends Component {
   handleCancel = () => {
     this.props.dispatch(navigateBack());
   };
-
-  handleJoin = () => {};
-
-  handleComplete = () => {};
+  handleEdit = () => {
+    const { challenge, onEdit } = this.props;
+    onEdit && onEdit(challenge);
+  };
+  handleJoin = () => {
+    const { challenge, onJoin } = this.props;
+    onJoin(challenge);
+  };
+  handleComplete = () => {
+    const { challenge, onComplete } = this.props;
+    onComplete(challenge);
+  };
 
   render() {
-    const { t, joined, completed } = this.props;
+    const { t, acceptedChallenge } = this.props;
+
+    const joined = !!acceptedChallenge;
+    const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
+
     return (
       <View>
         <Header
@@ -51,9 +64,16 @@ class ChallengeDetailScreen extends Component {
   }
 }
 
-const mapStateToProps = (reduxState, { acceptedChallenge }) => ({
-  joined: !!acceptedChallenge,
-  completed: !!(acceptedChallenge && acceptedChallenge.completed_at),
+ChallengeDetailScreen.propTypes = {
+  challenge: PropTypes.object.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  onJoin: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
+  acceptedChallenge: PropTypes.object,
+};
+
+const mapStateToProps = (reduxState, { navigation }) => ({
+  ...(navigation.state.params || {}),
 });
 
 export default connect(mapStateToProps)(ChallengeDetailScreen);

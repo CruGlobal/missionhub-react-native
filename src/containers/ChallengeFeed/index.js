@@ -88,9 +88,11 @@ class ChallengeFeed extends Component {
     } = this.props;
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        orgId,
         challenge,
         acceptedChallenge: this.getAcceptedChallenge(challenge),
+        onJoin: this.handleJoin,
+        onComplete: this.handleComplete,
+        onEdit: this.handleEdit,
       }),
     );
   };
