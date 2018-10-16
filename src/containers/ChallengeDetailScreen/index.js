@@ -83,6 +83,7 @@ class ChallengeDetailScreen extends Component {
                 type="transparent"
                 text={t(joined ? 'complete' : 'join').toUpperCase()}
                 onPress={joined ? this.handleComplete : this.handleJoin}
+                style={styles.button}
                 buttonTextStyle={styles.buttonText}
               />
             ) : null

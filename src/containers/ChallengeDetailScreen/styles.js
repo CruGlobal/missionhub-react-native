@@ -6,6 +6,9 @@ export default StyleSheet.create({
   header: {
     backgroundColor: theme.white,
   },
+  button: {
+    paddingRight: 10,
+  },
   buttonText: {
     color: theme.primaryColor,
     fontWeight: '400',
