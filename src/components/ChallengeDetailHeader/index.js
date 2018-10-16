@@ -17,10 +17,10 @@ class ChallengeDetailHeader extends Component {
   };
 
   render() {
-    const { t, challenge, canEditChallenges } = this.props;
+    const { t, challenge, canEditChallenges, onEdit } = this.props;
     const { isPast, title, end_date } = challenge;
 
-    const canEdit = canEditChallenges && !isPast;
+    const canEdit = canEditChallenges && onEdit && !isPast;
 
     return (
       <Flex direction="row" style={styles.wrap}>
@@ -71,7 +71,6 @@ ChallengeDetailHeader.propTypes = {
   challenge: PropTypes.object.isRequired,
   canEditChallenges: PropTypes.bool.isRequired,
   onEdit: PropTypes.func,
-  acceptedChallenge: PropTypes.object,
 };
 
 export default ChallengeDetailHeader;

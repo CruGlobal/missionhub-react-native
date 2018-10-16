@@ -43,7 +43,7 @@ export const CHALLENGE_DETAIL_TABS = [
 ];
 
 @translate('challengeFeeds')
-class ChallengeDetailScreen extends Component {
+export class ChallengeDetailScreen extends Component {
   handleCancel = () => {
     this.props.dispatch(navigateBack());
   };
@@ -95,7 +95,6 @@ class ChallengeDetailScreen extends Component {
           challenge={challenge}
           canEditChallenges={canEditChallenges}
           onEdit={this.handleEdit}
-          acceptedChallenge={acceptedChallenge}
         />
       </View>
     );

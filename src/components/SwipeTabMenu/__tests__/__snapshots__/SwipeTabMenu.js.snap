@@ -112,14 +112,9 @@ exports[`should render correctly 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              Object {
-                "color": "#ffffff",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+            }
           }
         >
           Tab 1
@@ -156,12 +151,9 @@ exports[`should render correctly 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              false,
-            ]
+            Object {
+              "color": "#66D9F0",
+            }
           }
         >
           Tab 2
@@ -181,23 +173,26 @@ exports[`should render correctly 1`] = `
   >
     <Component
       style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#005A7F",
-          "borderBottomWidth": 9,
-          "borderLeftColor": "transparent",
-          "borderLeftWidth": 7,
-          "borderRightColor": "transparent",
-          "borderRightWidth": 7,
-          "borderStyle": "solid",
-          "height": 0,
-          "transform": Array [
-            Object {
-              "rotate": "180deg",
-            },
-          ],
-          "width": 0,
-        }
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
       }
     />
   </Flex>
@@ -274,14 +269,9 @@ exports[`should render correctly 2`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              Object {
-                "color": "#ffffff",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+            }
           }
         >
           Tab 1
@@ -318,12 +308,9 @@ exports[`should render correctly 2`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              false,
-            ]
+            Object {
+              "color": "#66D9F0",
+            }
           }
         >
           Tab 2
@@ -343,23 +330,343 @@ exports[`should render correctly 2`] = `
   >
     <Component
       style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render light version correctly 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
+>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
         Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#005A7F",
-          "borderBottomWidth": 9,
-          "borderLeftColor": "transparent",
-          "borderLeftWidth": 7,
-          "borderRightColor": "transparent",
-          "borderRightWidth": 7,
-          "borderStyle": "solid",
-          "height": 0,
-          "transform": Array [
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": NaN,
+        "right": NaN,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+  >
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <Component
+        style={
+          Array [
             Object {
-              "rotate": "180deg",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
             },
-          ],
-          "width": 0,
+            Object {
+              "width": undefined,
+            },
+          ]
         }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </Component>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": undefined,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </Component>
+    </TouchableIOS>
+  </ScrollView>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          Object {
+            "borderBottomColor": "#ECEEF2",
+          },
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render light version correctly 2`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
+>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -335,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </Component>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </Component>
+    </TouchableIOS>
+  </ScrollView>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          Object {
+            "borderBottomColor": "#ECEEF2",
+          },
+        ]
       }
     />
   </Flex>
@@ -436,14 +743,9 @@ exports[`should render second tab based off of previousIndex 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              Object {
-                "color": "#ffffff",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+            }
           }
         >
           Tab 1
@@ -480,12 +782,9 @@ exports[`should render second tab based off of previousIndex 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#66D9F0",
-              },
-              false,
-            ]
+            Object {
+              "color": "#66D9F0",
+            }
           }
         >
           Tab 2
@@ -505,23 +804,26 @@ exports[`should render second tab based off of previousIndex 1`] = `
   >
     <Component
       style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderBottomColor": "#005A7F",
-          "borderBottomWidth": 9,
-          "borderLeftColor": "transparent",
-          "borderLeftWidth": 7,
-          "borderRightColor": "transparent",
-          "borderRightWidth": 7,
-          "borderStyle": "solid",
-          "height": 0,
-          "transform": Array [
-            Object {
-              "rotate": "180deg",
-            },
-          ],
-          "width": 0,
-        }
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
       }
     />
   </Flex>
