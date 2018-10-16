@@ -119,6 +119,8 @@ const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
 export default generateSwipeTabMenuNavigator(
   CHALLENGE_DETAIL_TABS,
   connectedDetailScreen,
+  false,
+  true,
 );
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';
