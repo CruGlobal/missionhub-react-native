@@ -11,6 +11,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: theme.primaryColor,
+    fontSize: 14,
     fontWeight: '400',
   },
 });
