@@ -475,7 +475,6 @@ export default {
     numAccepted: '{{count}} Accepted',
     numCompleted: '{{count}} Completed',
     join: 'Join',
-    iDidIt: 'I Did It',
     complete: 'Complete',
     joined: 'Joined',
     completed: 'Completed',
