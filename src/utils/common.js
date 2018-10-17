@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { BackHandler, Platform, Keyboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import * as DeviceInfo from 'react-native-device-info';
+import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';
 
