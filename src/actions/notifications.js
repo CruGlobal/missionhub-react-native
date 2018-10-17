@@ -37,10 +37,8 @@ export function showReminderScreen(descriptionText) {
     PushNotification.checkPermissions(permission => {
       const permissionsEnabled = permission && permission.alert;
       if (permissionsEnabled) {
-        return;
-      }
-
-      if (requestedNativePermissions) {
+        dispatch(requestNativePermissions());
+      } else if (requestedNativePermissions) {
         dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
       } else {
         // If none of the other cases hit, show allow/not allow page
@@ -70,13 +68,8 @@ export function showReminderOnLoad() {
 
 export function requestNativePermissions() {
   return async dispatch => {
-    await PushNotification.checkPermissions(async permission => {
-      const permissionsEnabled = permission && permission.alert;
-      if (permissionsEnabled) {
-        dispatch({ type: REQUEST_NOTIFICATIONS });
-        return await PushNotification.requestPermissions();
-      }
-    });
+    dispatch({ type: REQUEST_NOTIFICATIONS });
+    return await PushNotification.requestPermissions();
   };
 }
 

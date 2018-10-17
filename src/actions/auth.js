@@ -206,7 +206,6 @@ export function loadHome() {
     dispatch(updateLocaleAndTimezone());
     dispatch(resetPerson());
     await dispatch(getMySteps());
-    await dispatch(requestNativePermissions());
     dispatch(showReminderOnLoad());
   };
 }
