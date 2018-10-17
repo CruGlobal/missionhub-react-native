@@ -110,7 +110,7 @@ ChallengeDetailScreen.propTypes = {
   acceptedChallenge: PropTypes.object,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
+const mapStateToProps = (_, { navigation }) => ({
   ...(navigation.state.params || {}),
 });
 

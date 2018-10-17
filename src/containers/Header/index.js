@@ -71,11 +71,7 @@ class Header extends Component {
     return (
       <Flex
         direction="row"
-        style={[
-          styles.header,
-          style ? style : null,
-          shadow ? styles.shadow : null,
-        ]}
+        style={[styles.header, style, shadow ? styles.shadow : null]}
       >
         {this.renderLeft()}
         {this.renderCenter()}
