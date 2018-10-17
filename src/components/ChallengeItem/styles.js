@@ -11,11 +11,11 @@ export default StyleSheet.create({
   },
   unjoinedCard: {
     borderColor: theme.secondaryColor,
-    borderWidth: 1,
+    borderWidth: 2,
   },
   joinedCard: {
     borderColor: theme.green,
-    borderWidth: 1,
+    borderWidth: 2,
   },
   detailButton: {
     flex: 1,
@@ -59,5 +59,6 @@ export default StyleSheet.create({
   checkIcon: {
     color: theme.green,
     fontSize: 20,
+    marginHorizontal: 10,
   },
 });
