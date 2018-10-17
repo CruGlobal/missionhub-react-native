@@ -67,6 +67,16 @@ export const refresh = (obj, method) => {
 
 export const isAuthenticated = authState => authState.token;
 
+//If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
+export const userIsJean = orgPermissions => {
+  orgPermissions.forEach(p => {
+    if (!p.organization.user_created) {
+      return true;
+    }
+    return false;
+  });
+};
+
 const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
