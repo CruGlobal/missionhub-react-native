@@ -191,12 +191,10 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getMemberButtons() {
-    const { contactAssignment } = this.props;
-    const buttons = [
-      this.getMessageButton(),
-      this.getCallButton(),
-      this.getEmailButton(),
-    ];
+    const { contactAssignment, isJean } = this.props;
+    const buttons = isJean
+      ? [this.getMessageButton(), this.getCallButton(), this.getEmailButton()]
+      : [];
     return contactAssignment
       ? [this.getPersonStageButton(), ...buttons]
       : buttons;
@@ -207,23 +205,15 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getContactButtons() {
-    const { contactAssignment } = this.props;
+    const { contactAssignment, isJean } = this.props;
+    const buttons = isJean
+      ? [this.getMessageButton(), this.getCallButton(), this.getEmailButton()]
+      : [];
 
     return contactAssignment
       ? contactAssignment.organization
-        ? [
-            this.getPersonStageButton(),
-            this.getStatusButton(),
-            this.getMessageButton(),
-            this.getCallButton(),
-            this.getEmailButton(),
-          ]
-        : [
-            this.getPersonStageButton(),
-            this.getMessageButton(),
-            this.getCallButton(),
-            this.getEmailButton(),
-          ]
+        ? [this.getPersonStageButton(), this.getStatusButton(), ...buttons]
+        : [this.getPersonStageButton(), ...buttons]
       : null;
   }
 
@@ -274,4 +264,5 @@ GroupsPersonHeader.propTypes = {
   myId: PropTypes.string.isRequired,
   stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
+  isJean: PropTypes.bool,
 };

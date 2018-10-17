@@ -204,6 +204,7 @@ export class AssignedPersonScreen extends Component {
       myId,
       myStageId,
       stages,
+      isJean,
     } = this.props;
 
     const name = (person.first_name || '').toUpperCase();
@@ -248,6 +249,7 @@ export class AssignedPersonScreen extends Component {
             myId={myId}
             myStageId={myStageId}
             stages={stages}
+            isJean={isJean}
           />
         </Flex>
       </View>
@@ -286,6 +288,8 @@ export const mapStateToProps = (
   );
   const authPerson = auth.person;
 
+  const { isJean } = auth;
+
   return {
     ...(navParams || {}),
     contactAssignment,
@@ -294,6 +298,7 @@ export const mapStateToProps = (
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
+    isJean,
   };
 };
 
