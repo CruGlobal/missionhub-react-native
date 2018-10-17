@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
             "height": 65,
             "paddingTop": 20,
           },
-          null,
+          undefined,
           Object {
             "elevation": 4,
           },
