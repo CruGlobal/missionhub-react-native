@@ -112,9 +112,9 @@ class ChallengeItem extends Component {
                     type={'MissionHub'}
                   />
                 </Flex>
-             ) : null}
+              ) : null}
+            </Flex>
           </Flex>
-        </Flex>
         </Button>
         {showButton ? (
           <Button
