@@ -94,7 +94,7 @@ class ChallengeItem extends Component {
               ) : null}
             </Flex>
           </Flex>
-          <Flex value={1} align="center" justify="center">
+          <Flex value={1} align="end" justify="center">
             {completed ? (
               <Flex value={0}>
                 <Icon
@@ -111,7 +111,7 @@ class ChallengeItem extends Component {
             type="primary"
             style={joined ? styles.completeButton : styles.joinButton}
             buttonTextStyle={styles.joinCompleteButtonText}
-            text={t(joined ? 'complete' : 'join').toUpperCase()}
+            text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
             onPress={joined ? this.handleComplete : this.handleJoin}
           />
         ) : null}
