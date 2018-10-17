@@ -75,7 +75,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
@@ -93,6 +93,8 @@
 		<string>SourceSansPro-Bold.ttf</string>
 		<string>SourceSansPro-Regular.ttf</string>
 		<string>icomoon.ttf</string>
+		<string>SourceSansPro-ExtraLight.ttf</string>
+		<string>SourceSansPro-Light.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

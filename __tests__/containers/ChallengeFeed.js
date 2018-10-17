@@ -8,6 +8,7 @@ import { ORG_PERMISSIONS } from '../../src/constants';
 import * as navigation from '../../src/actions/navigation';
 import * as challenges from '../../src/actions/challenges';
 import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
+import { CHALLENGE_DETAIL_SCREEN } from '../../src/containers/ChallengeDetailScreen';
 
 jest.mock('../../src/actions/challenges', () => ({
   completeChallenge: jest.fn(() => ({ type: 'complete' })),
@@ -106,6 +107,7 @@ const props = {
 };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   component = renderShallow(
     <ChallengeFeed
       {...props}
@@ -201,5 +203,22 @@ it('calls editChallenge', () => {
   expect(challenges.updateChallenge).toHaveBeenCalledWith(
     challenge,
     organization.id,
+  );
+});
+
+it('calls handleSelectRow', () => {
+  const instance = component.instance();
+  const challenge = { id: '1', accepted_community_challenges };
+  instance.handleSelectRow(challenge);
+  expect(navigation.navigatePush).toHaveBeenCalledWith(
+    CHALLENGE_DETAIL_SCREEN,
+    {
+      challenge,
+      canEditChallenges: true,
+      acceptedChallenge: accepted_community_challenges[0],
+      onJoin: instance.handleJoin,
+      onComplete: instance.handleComplete,
+      onEdit: instance.handleEdit,
+    },
   );
 });
