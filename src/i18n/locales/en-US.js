@@ -476,6 +476,7 @@ export default {
     completed: '{{count}} Completed',
     join: 'Join',
     complete: 'Complete',
+    iDidIt: 'I Did It',
   },
   addChallenge: {
     editHeader: 'Edit Challenge',
