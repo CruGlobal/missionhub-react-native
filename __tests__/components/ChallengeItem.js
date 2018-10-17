@@ -32,7 +32,6 @@ const item = {
 const props = {
   onComplete: jest.fn(),
   onJoin: jest.fn(),
-  onSelect: jest.fn(),
 };
 
 it('render active challenge item', () => {
@@ -125,7 +124,6 @@ it('should call onEdit from press', () => {
   component
     .childAt(0)
     .childAt(0)
-    .childAt(0)
     .childAt(1)
     .childAt(0)
     .childAt(0)
@@ -135,10 +133,14 @@ it('should call onEdit from press', () => {
 });
 
 it('should call onComplete from press', () => {
+  const newProps = {
+    ...props,
+    onEdit: jest.fn(),
+  };
   const component = renderShallow(
     <ChallengeItem
       item={item}
-      {...props}
+      {...newProps}
       acceptedChallenge={acceptedChallenge}
     />,
   );
@@ -147,25 +149,19 @@ it('should call onComplete from press', () => {
     .childAt(1)
     .props()
     .onPress();
-  expect(props.onComplete).toHaveBeenCalledWith(item);
+  expect(newProps.onComplete).toHaveBeenCalledWith(item);
 });
 
 it('should call onJoin from press', () => {
-  const component = renderShallow(<ChallengeItem item={item} {...props} />);
+  const newProps = {
+    ...props,
+    onEdit: jest.fn(),
+  };
+  const component = renderShallow(<ChallengeItem item={item} {...newProps} />);
 
   component
     .childAt(1)
     .props()
     .onPress();
-  expect(props.onJoin).toHaveBeenCalledWith(item);
-});
-
-it('should call onSelect from press', () => {
-  const component = renderShallow(<ChallengeItem item={item} {...props} />);
-
-  component
-    .childAt(0)
-    .props()
-    .onPress();
-  expect(props.onSelect).toHaveBeenCalledWith(item);
+  expect(newProps.onJoin).toHaveBeenCalledWith(item);
 });

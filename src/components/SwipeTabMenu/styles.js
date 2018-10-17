@@ -6,9 +6,6 @@ export default StyleSheet.create({
   container: {
     backgroundColor: theme.accentColor,
   },
-  containerLight: {
-    backgroundColor: theme.lightGrey,
-  },
   scrollContainer: {
     height: theme.swipeTabHeight,
     alignItems: 'stretch',
@@ -21,14 +18,8 @@ export default StyleSheet.create({
   menuItemText: {
     color: COLORS.LIGHT_BLUE,
   },
-  menuItemTextLight: {
-    color: theme.inactiveColor,
-  },
   menuItemTextActive: {
     color: theme.white,
-  },
-  menuItemTextActiveLight: {
-    color: theme.primaryColor,
   },
   triangleContainer: {
     width: '100%',
@@ -47,8 +38,5 @@ export default StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: theme.accentColor,
     transform: [{ rotate: '180deg' }],
-  },
-  triangleLight: {
-    borderBottomColor: theme.lightGrey,
   },
 });

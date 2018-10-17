@@ -64,7 +64,6 @@ exports[`renders home screen with tab bar with groups tab correctly 1`] = `
                     "height": 65,
                     "paddingTop": 20,
                   },
-                  undefined,
                   Object {
                     "elevation": 4,
                   },
@@ -694,7 +693,6 @@ exports[`renders home screen with tab bar with impact tab correctly 1`] = `
                     "height": 65,
                     "paddingTop": 20,
                   },
-                  undefined,
                   Object {
                     "elevation": 4,
                   },

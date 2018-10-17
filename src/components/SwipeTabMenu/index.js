@@ -91,13 +91,13 @@ export class SwipeTabMenu extends Component {
   ref = ref => (this.scrollView = ref);
 
   render() {
-    const { tabs, navigation, isLight } = this.props;
+    const { tabs, navigation } = this.props;
     const { maxMenuItemWidth, previousIndex } = this.state;
     const insetDistance = this.getScrollInsetDistance();
     const currentIndex = navigation.state.index;
 
     return (
-      <ViewOverflow style={isLight ? styles.containerLight : styles.container}>
+      <ViewOverflow style={styles.container}>
         <ScrollView
           ref={this.ref}
           horizontal={true}
@@ -134,15 +134,10 @@ export class SwipeTabMenu extends Component {
                 ]}
               >
                 <Text
-                  style={
-                    index === currentIndex
-                      ? isLight
-                        ? styles.menuItemTextActiveLight
-                        : styles.menuItemTextActive
-                      : isLight
-                        ? styles.menuItemTextLight
-                        : styles.menuItemText
-                  }
+                  style={[
+                    styles.menuItemText,
+                    index === currentIndex && styles.menuItemTextActive,
+                  ]}
                 >
                   {tab.name}
                 </Text>
@@ -151,7 +146,7 @@ export class SwipeTabMenu extends Component {
           ))}
         </ScrollView>
         <Flex align={'center'} style={styles.triangleContainer}>
-          <View style={[styles.triangle, isLight && styles.triangleLight]} />
+          <View style={styles.triangle} />
         </Flex>
       </ViewOverflow>
     );
@@ -162,7 +157,6 @@ export const generateSwipeTabMenuNavigator = (
   tabs,
   HeaderComponent,
   isMember,
-  isLight,
 ) =>
   createMaterialTopTabNavigator(
     tabs.reduce(
@@ -179,7 +173,7 @@ export const generateSwipeTabMenuNavigator = (
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
-          <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
+          <SwipeTabMenu navigation={navigation} tabs={tabs} />
         </ViewOverflow>
       ),
     },

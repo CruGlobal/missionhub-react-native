@@ -21,9 +21,6 @@ import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from './containers/AddChallengeScreen';
-import ChallengeDetailScreen, {
-  CHALLENGE_DETAIL_SCREEN,
-} from './containers/ChallengeDetailScreen';
 import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
 import GetStartedScreen, {
@@ -446,7 +443,6 @@ export const MainStackRoutes = createStackNavigator(
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
-    [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [PERSON_STAGE_SCREEN]: {
       screen: PersonStageScreen,
       navigationOptions: { gesturesEnabled: true },
