@@ -95,7 +95,7 @@
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0",
     "react-dom": "^16.5.2",
-    "react-test-renderer": "^16.5.2",
+    "react-test-renderer": "16.6.0-alpha.8af6728",
     "redux-mock-store": "^1.5.3"
   },
   "jest": {
