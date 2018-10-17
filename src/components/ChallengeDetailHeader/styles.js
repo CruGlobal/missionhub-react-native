@@ -19,9 +19,9 @@ export default StyleSheet.create({
   },
   title: {
     color: theme.primaryColor,
+    fontFamily: 'SourceSansPro-Light',
     fontSize: 24,
     lineHeight: 30,
-    fontWeight: '100',
   },
   subHeader: {
     color: theme.inactiveColor,
@@ -33,8 +33,8 @@ export default StyleSheet.create({
   },
   number: {
     color: theme.primaryColor,
+    fontFamily: 'SourceSansPro-ExtraLight',
     fontSize: 48,
-    fontWeight: '100',
     lineHeight: 50,
   },
 });
