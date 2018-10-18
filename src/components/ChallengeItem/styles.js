@@ -9,26 +9,16 @@ export default StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: theme.white,
   },
-  unjoinedCard: {
-    borderColor: theme.secondaryColor,
-    borderWidth: 2,
-  },
-  joinedCard: {
-    borderColor: theme.green,
-    borderWidth: 2,
-  },
   content: {
     padding: 16,
   },
   editButtonText: {
     color: theme.secondaryColor,
     fontSize: 11,
-    fontWeight: '300',
-    letterSpacing: 1,
   },
   title: {
     color: theme.primaryColor,
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 3,
   },
   info: {
@@ -56,6 +46,5 @@ export default StyleSheet.create({
   checkIcon: {
     color: theme.green,
     fontSize: 20,
-    marginHorizontal: 10,
   },
 });

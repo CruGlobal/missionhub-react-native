@@ -22,17 +22,6 @@ class ChallengeItem extends Component {
     onComplete(item);
   };
 
-  cardStyle = (completed, isPast, joined) => {
-    const additionalStyle = completed
-      ? styles.joinedCard
-      : isPast
-        ? null
-        : joined
-          ? styles.joinedCard
-          : styles.unjoinedCard;
-    return [styles.card, additionalStyle];
-  };
-
   render() {
     const { t, item, acceptedChallenge, onEdit } = this.props;
     const {
@@ -63,7 +52,7 @@ class ChallengeItem extends Component {
     }
 
     return (
-      <Card style={this.cardStyle(completed, isPast, joined)}>
+      <Card style={styles.card}>
         <Flex value={1} style={styles.content} direction="row" align="center">
           <Flex value={5} direction="column">
             <Text style={styles.title}>{title}</Text>
