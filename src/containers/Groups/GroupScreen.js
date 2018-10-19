@@ -148,12 +148,15 @@ const tabs = [
   },
 ];
 
+export const CRU_TABS = [tabs[0], ...tabs.slice(2, 6)];
+export const USER_CREATED_TABS = tabs.slice(0, 4);
+
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
-  tabs,
+  CRU_TABS,
   GroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
-  tabs.slice(0, 4),
+  USER_CREATED_TABS,
   GroupScreen,
 );
 
