@@ -75,7 +75,7 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
-    done: 'DONE',
+    done: 'Done',
     next: 'Next',
     ok: 'Ok',
     logout: 'Logout',
@@ -409,6 +409,7 @@ export default {
   },
   groupTabs: {
     celebrate: 'Celebrate',
+    challenges: 'Challenges',
     members: 'Members',
     impact: 'Impact',
     contacts: 'Contacts',
@@ -460,6 +461,35 @@ export default {
     addedContact: '{{initiator}} added a {{receiverStage}} person.',
     somethingCoolHappened:
       '{{initiator}} saw something cool happen with someone.',
+    challengeAccepted: '{{initiator}} accepted a Challenge',
+    challengeCompleted: '{{initiator}} completed a Challenge',
+  },
+  challengeFeeds: {
+    past: 'Past Challenges',
+    emptyFeedTitle: 'Challenges',
+    emptyFeedDescription: 'You can view, accept, and complete challenges here.',
+    edit: 'Edit',
+    totalDays: '{{count}} Day Challenge',
+    daysRemaining: '{{count}} Day Left',
+    daysRemaining_plural: '{{count}} Days Left',
+    accepted: '{{count}} Accepted',
+    completed: '{{count}} Completed',
+    join: 'Join',
+    complete: 'Complete',
+    iDidIt: 'I Did It',
+  },
+  addChallenge: {
+    editHeader: 'Edit Challenge',
+    addHeader: 'New Challenge',
+    add: 'Create Challenge',
+    save: 'Save Changes',
+    titlePlaceholder: 'Name Your Challenge',
+    titleLabel: 'Challenge',
+    datePlaceholder: 'End Date (Required)',
+    dateLabel: 'End Date',
+  },
+  groupsChallenge: {
+    create: 'Create Challenge',
   },
   groupOnboardingCard: {
     celebrateHeader: 'Celebrate One Another',
@@ -496,6 +526,9 @@ export default {
   },
   contactItem: {
     unassigned: 'Unassigned',
+  },
+  datePicker: {
+    date: 'Date',
   },
   groupsContactItem: {
     status: 'Status: {{status}}',

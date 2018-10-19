@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty Challenge Feed rendering renders correctly for challenge feed 1`] = `
+<ScrollView
+  contentContainerStyle={
+    Object {
+      "flex": 1,
+    }
+  }
+  refreshControl={
+    <MyRefreshControl
+      colors={
+        Array [
+          "#ffffff",
+          "#52C5DC",
+        ]
+      }
+      onRefresh={[MockFunction]}
+      progressBackgroundColor="#007398"
+      refreshing={false}
+      tintColor="#007398"
+    />
+  }
+>
+  <NullStateComponent
+    descriptionText="You can view, accept, and complete challenges here."
+    headerText="Challenges"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/target.png",
+      }
+    }
+  />
+</ScrollView>
+`;

@@ -1,0 +1,1774 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`android date methods android render 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`date methods input component snapshot 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "borderBottomColor": "#52C5DC",
+        "borderBottomWidth": 1,
+      },
+      undefined,
+      false,
+      false,
+    ]
+  }
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "letterSpacing": 0.25,
+          "paddingVertical": 5,
+        },
+        undefined,
+      ]
+    }
+  >
+    September 12, 2018
+  </MyText>
+</Component>
+`;
+
+exports[`date methods modal visible snapshot 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`date methods modal visible snapshot with title 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Test Title
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders date only date picker 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders date only date picker with max date 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  maximumDate={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders date only date picker with min date 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  minimumDate={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders date only date picker with placeholder 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders datetime only date picker 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        2018-09-12 12:00
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="datetime"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders normal date picker 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        September 12, 2018
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="date"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;
+
+exports[`renders time only date picker 1`] = `
+<TouchableIOS
+  onPress={[Function]}
+  underlayColor="transparent"
+>
+  <Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          },
+          undefined,
+          false,
+          false,
+        ]
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#ffffff",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        12:00
+      </MyText>
+    </Component>
+    <Component
+      animationType="none"
+      hardwareAccelerated={false}
+      onRequestClose={[Function]}
+      transparent={true}
+      visible={false}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <TouchableIOS
+          activeOpacity={1}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "rgba(0, 0, 0, 0.5)",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TouchableIOS
+            activeOpacity={1}
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <AnimatedComponent
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "height": 0,
+                  },
+                ]
+              }
+            >
+              <Component
+                pointerEvents="auto"
+              >
+                <DatePickerIOS
+                  date={2018-09-12T12:00:00.000Z}
+                  mode="time"
+                  onDateChange={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "borderTopColor": "#ccc",
+                        "borderTopWidth": 1,
+                        "marginTop": 60,
+                      },
+                      undefined,
+                    ]
+                  }
+                  timeZoneOffsetInMinutes={null}
+                />
+              </Component>
+              <Component
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "stretch",
+                    "flexDirection": "row",
+                    "height": 60,
+                    "paddingHorizontal": 20,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                      ]
+                    }
+                  >
+                    Cancel
+                  </MyText>
+                </TouchableIOS>
+                <MyText
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": undefined,
+                      "flex": 1,
+                      "fontSize": 16,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Date
+                </MyText>
+                <TouchableIOS
+                  onPress={[Function]}
+                >
+                  <MyText
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#007AFF",
+                          "fontSize": 16,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Done
+                  </MyText>
+                </TouchableIOS>
+              </Component>
+            </AnimatedComponent>
+          </TouchableIOS>
+        </TouchableIOS>
+      </Component>
+    </Component>
+  </Component>
+</TouchableIOS>
+`;

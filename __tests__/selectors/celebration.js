@@ -43,6 +43,18 @@ const celebrateItems = [
     adjective_attribute_value: 3,
     changed_attribute_value: '2018-01-02 00:00:00 UTC',
   },
+  {
+    id: '8',
+    celebrateable_type: 'accepted_community_challenge',
+    changed_attribute_name: 'accepted_at',
+    changed_attribute_value: '2018-01-06 00:04:00 UTC',
+  },
+  {
+    id: '9',
+    celebrateable_type: 'accepted_community_challenge',
+    changed_attribute_name: 'completed_at',
+    changed_attribute_value: '2018-01-06 00:05:00 UTC',
+  },
 ];
 
 const invalidItems = [

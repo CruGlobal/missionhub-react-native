@@ -56,19 +56,14 @@ exports[`with onSelect prop render 0 assigned 1`] = `
         0 Assigned
       </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Dot
           style={
             Object {
               "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
-        >
-            ·  
-        </MyText>
+        />
         <MyText
           accessible={true}
           allowFontScaling={true}
@@ -148,6 +143,43 @@ exports[`with onSelect prop render 0 uncontacted 1`] = `
 </TouchableIOS>
 `;
 
+exports[`with onSelect prop render for user created org 1`] = `
+<TouchableIOS
+  highlight={true}
+  onPress={[Function]}
+>
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#E6E8EC",
+        "borderBottomWidth": 1,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+        "width": 750,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      FULL NAME
+    </MyText>
+  </Flex>
+</TouchableIOS>
+`;
+
 exports[`with onSelect prop render member 1`] = `
 <TouchableIOS
   highlight={true}
@@ -204,19 +236,14 @@ exports[`with onSelect prop render member 1`] = `
         5 Assigned
       </MyText>
       <React.Fragment>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <Dot
           style={
             Object {
               "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
-        >
-            ·  
-        </MyText>
+        />
         <MyText
           accessible={true}
           allowFontScaling={true}
@@ -288,19 +315,14 @@ exports[`without onSelect prop renders 1`] = `
       5 Assigned
     </MyText>
     <React.Fragment>
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Dot
         style={
           Object {
             "color": "#B2B0B2",
             "fontSize": 14,
           }
         }
-      >
-          ·  
-      </MyText>
+      />
       <MyText
         accessible={true}
         allowFontScaling={true}

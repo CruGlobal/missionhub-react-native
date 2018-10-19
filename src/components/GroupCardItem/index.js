@@ -2,8 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import Card from '../Card';
-import { Text, Flex } from '../common';
+import { Text, Flex, Dot, Card } from '../common';
 
 import styles from './styles';
 
@@ -31,7 +30,7 @@ export default class GroupCardItem extends Component {
                 </Text>
                 {unassignedCount ? (
                   <Fragment>
-                    <Text style={styles.contact}>{'  ·  '}</Text>
+                    <Dot />
                     <Text style={styles.unassigned}>
                       {t('numUnassigned', {
                         number: unassignedCount,
@@ -41,7 +40,7 @@ export default class GroupCardItem extends Component {
                 ) : null}
                 {uncontactedCount ? (
                   <Fragment>
-                    <Text style={styles.contact}>{'  ·  '}</Text>
+                    <Dot />
                     <Text style={styles.unassigned}>
                       {t('numUncontacted', {
                         number: uncontactedCount,

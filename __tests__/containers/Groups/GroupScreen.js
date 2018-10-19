@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { GroupScreen } from '../../../src/containers/Groups/GroupScreen';
+import {
+  GroupScreen,
+  CRU_TABS,
+  USER_CREATED_TABS,
+} from '../../../src/containers/Groups/GroupScreen';
 import {
   testSnapshotShallow,
   createMockNavState,
@@ -32,6 +36,14 @@ describe('GroupScreen', () => {
 
   it('should render header correctly for user_created org', () => {
     testSnapshotShallow(createHeader({ ...organization, user_created: true }));
+  });
+
+  it('should render Cru Community tabs correctly', () => {
+    expect(CRU_TABS).toMatchSnapshot();
+  });
+
+  it('should render User Created Community tabs correctly', () => {
+    expect(USER_CREATED_TABS).toMatchSnapshot();
   });
 
   it('should handle add contact button correctly', () => {

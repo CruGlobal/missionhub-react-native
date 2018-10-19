@@ -64,6 +64,8 @@ export const COLORS = {
   BLUE_GREEN: '#50DCC8',
   IMPACT_BLUE: '#3EB1C8',
   RED: '#FF5532',
+  IOS_BLUE: '#007AFF',
+  GREEN: '#44E4AB',
   convert: colorConvert,
 };
 
@@ -101,6 +103,7 @@ export default {
   inactiveColor: COLORS.INACTIVE_GREY,
   checkBackgroundColor: COLORS.BLUE_GREEN,
   red: COLORS.RED,
+  green: COLORS.GREEN,
   fullWidth: deviceWidth,
   fullHeight: deviceHeight,
   convert: colorConvert,
@@ -108,6 +111,7 @@ export default {
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
   lightGrey: COLORS.LIGHT_GREY,
+  iosBlue: COLORS.IOS_BLUE,
 
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',
