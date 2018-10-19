@@ -3,18 +3,12 @@
 exports[`render active and joined and completed challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#44E4AB",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -38,7 +32,7 @@ exports[`render active and joined and completed challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -125,7 +119,6 @@ exports[`render active and joined and completed challenge item 1`] = `
             Object {
               "color": "#44E4AB",
               "fontSize": 20,
-              "marginHorizontal": 10,
             }
           }
           type="MissionHub"
@@ -139,18 +132,12 @@ exports[`render active and joined and completed challenge item 1`] = `
 exports[`render active and joined challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#44E4AB",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -174,7 +161,7 @@ exports[`render active and joined challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -276,18 +263,12 @@ exports[`render active and joined challenge item 1`] = `
 exports[`render active and joined challenge item with edit 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#44E4AB",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -311,7 +292,7 @@ exports[`render active and joined challenge item with edit 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -329,8 +310,6 @@ exports[`render active and joined challenge item with edit 1`] = `
               Object {
                 "color": "#52C5DC",
                 "fontSize": 11,
-                "fontWeight": "300",
-                "letterSpacing": 1,
               }
             }
             onPress={[Function]}
@@ -437,18 +416,12 @@ exports[`render active and joined challenge item with edit 1`] = `
 exports[`render active challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#52C5DC",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -472,7 +445,7 @@ exports[`render active challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -574,18 +547,12 @@ exports[`render active challenge item 1`] = `
 exports[`render active challenge item with edit 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#52C5DC",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -609,7 +576,7 @@ exports[`render active challenge item with edit 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -627,8 +594,6 @@ exports[`render active challenge item with edit 1`] = `
               Object {
                 "color": "#52C5DC",
                 "fontSize": 11,
-                "fontWeight": "300",
-                "letterSpacing": 1,
               }
             }
             onPress={[Function]}
@@ -735,18 +700,12 @@ exports[`render active challenge item with edit 1`] = `
 exports[`render past and joined and completed challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      Object {
-        "borderColor": "#44E4AB",
-        "borderWidth": 2,
-      },
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -770,7 +729,7 @@ exports[`render past and joined and completed challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -857,7 +816,6 @@ exports[`render past and joined and completed challenge item 1`] = `
             Object {
               "color": "#44E4AB",
               "fontSize": 20,
-              "marginHorizontal": 10,
             }
           }
           type="MissionHub"
@@ -871,15 +829,12 @@ exports[`render past and joined and completed challenge item 1`] = `
 exports[`render past and joined challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      null,
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -903,7 +858,7 @@ exports[`render past and joined challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
@@ -988,15 +943,12 @@ exports[`render past and joined challenge item 1`] = `
 exports[`render past challenge item 1`] = `
 <Card
   style={
-    Array [
-      Object {
-        "alignItems": "stretch",
-        "backgroundColor": "#ffffff",
-        "marginHorizontal": 16,
-        "marginVertical": 5,
-      },
-      null,
-    ]
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#ffffff",
+      "marginHorizontal": 16,
+      "marginVertical": 5,
+    }
   }
 >
   <Flex
@@ -1020,7 +972,7 @@ exports[`render past challenge item 1`] = `
         style={
           Object {
             "color": "#007398",
-            "fontSize": 14,
+            "fontSize": 16,
             "marginBottom": 3,
           }
         }
