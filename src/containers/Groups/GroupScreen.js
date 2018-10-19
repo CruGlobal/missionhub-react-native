@@ -16,6 +16,7 @@ import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
+import GroupChallenges from './GroupChallenges';
 
 @connect()
 export class GroupScreen extends Component {
@@ -72,6 +73,7 @@ export class GroupScreen extends Component {
 }
 
 const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
+const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
 const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
@@ -88,6 +90,17 @@ const tabs = [
         },
       },
     }) => <GroupCelebrate organization={organization} />,
+  },
+  {
+    name: i18next.t('groupTabs:challenges'),
+    navigationAction: GROUP_CHALLENGES,
+    component: ({
+      navigation: {
+        state: {
+          params: { organization },
+        },
+      },
+    }) => <GroupChallenges organization={organization} />,
   },
   {
     name: i18next.t('groupTabs:members'),
@@ -135,12 +148,15 @@ const tabs = [
   },
 ];
 
+export const CRU_TABS = [tabs[0], ...tabs.slice(2, 6)];
+export const USER_CREATED_TABS = tabs.slice(0, 4);
+
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
-  tabs,
+  CRU_TABS,
   GroupScreen,
 );
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
-  [tabs[0], tabs[1], tabs[2]],
+  USER_CREATED_TABS,
   GroupScreen,
 );
 

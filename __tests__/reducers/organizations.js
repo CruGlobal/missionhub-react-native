@@ -521,3 +521,113 @@ it('loads members for org with paging', () => {
 
   expect(state.membersPagination).toEqual({ hasNextPage: false, page: 2 });
 });
+
+describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
+  const orgId = '1';
+
+  it('loads challenge items with pagination', () => {
+    const oldItems = [
+      { id: '0', title: 'Title 0' },
+      { id: '1', title: 'Title 1' },
+      { id: '2', title: 'Title 2' },
+      { id: '3', title: 'Title 3' },
+      { id: '4', title: 'Title 4' },
+      { id: '5', title: 'Title 5' },
+      { id: '6', title: 'Title 6' },
+      { id: '7', title: 'Title 7' },
+      { id: '8', title: 'Title 8' },
+      { id: '9', title: 'Title 9' },
+      { id: '10', title: 'Title 10' },
+      { id: '11', title: 'Title 11' },
+      { id: '12', title: 'Title 12' },
+      { id: '13', title: 'Title 13' },
+      { id: '14', title: 'Title 14' },
+      { id: '15', title: 'Title 15' },
+      { id: '16', title: 'Title 16' },
+      { id: '17', title: 'Title 17' },
+      { id: '18', title: 'Title 18' },
+      { id: '19', title: 'Title 19' },
+      { id: '20', title: 'Title 20' },
+      { id: '21', title: 'Title 21' },
+      { id: '22', title: 'Title 22' },
+      { id: '23', title: 'Title 23' },
+      { id: '24', title: 'Title 24' },
+    ];
+    const newItems = [
+      { id: '25', title: 'Title 25' },
+      { id: '26', title: 'Title 26' },
+      { id: '27', title: 'Title 27' },
+    ];
+
+    const state = organizations(
+      {
+        all: [
+          {
+            id: orgId,
+            challengeItems: oldItems,
+            challengePagination: {
+              hasNextPage: true,
+              page: 1,
+            },
+          },
+        ],
+      },
+      {
+        type: REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS,
+        query: {
+          filters: { organization_ids: orgId },
+          page: {
+            limit: DEFAULT_PAGE_LIMIT,
+            offset: DEFAULT_PAGE_LIMIT,
+          },
+        },
+        meta: {
+          total: 28,
+        },
+        results: {
+          response: newItems,
+        },
+      },
+    );
+
+    expect(state.all[0].challengePagination).toEqual({
+      hasNextPage: false,
+      page: 2,
+    });
+  });
+
+  it('should do nothing if query page is less than current page', () => {
+    const state = organizations(
+      {
+        all: [
+          {
+            id: orgId,
+            challengeItems: [],
+            challengePagination: {
+              hasNextPage: true,
+              page: 3,
+            },
+          },
+        ],
+      },
+      {
+        type: REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS,
+        query: {
+          filters: { organization_ids: orgId },
+          page: {
+            limit: DEFAULT_PAGE_LIMIT,
+            offset: DEFAULT_PAGE_LIMIT * 2,
+          },
+        },
+        meta: {
+          total: 28,
+        },
+        results: {
+          response: [{ id: '234252523' }],
+        },
+      },
+    );
+
+    expect(state.all[0].challengeItems).toEqual([]);
+  });
+});

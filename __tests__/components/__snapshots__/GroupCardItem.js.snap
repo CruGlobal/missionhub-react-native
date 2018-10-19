@@ -56,13 +56,7 @@ exports[`GroupCardItem renders with all report counts 1`] = `
           768 Contacts
         </MyText>
         <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-              ·  
-          </MyText>
+          <Dot />
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -78,13 +72,7 @@ exports[`GroupCardItem renders with all report counts 1`] = `
           </MyText>
         </React.Fragment>
         <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-              ·  
-          </MyText>
+          <Dot />
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -161,13 +149,7 @@ exports[`GroupCardItem renders with contacts and unassigned, no uncontacted 1`] 
           768 Contacts
         </MyText>
         <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-              ·  
-          </MyText>
+          <Dot />
           <MyText
             accessible={true}
             allowFontScaling={true}
@@ -244,13 +226,7 @@ exports[`GroupCardItem renders with contacts and uncontacted, no unassigned 1`] 
           768 Contacts
         </MyText>
         <React.Fragment>
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-              ·  
-          </MyText>
+          <Dot />
           <MyText
             accessible={true}
             allowFontScaling={true}
