@@ -25,9 +25,9 @@ export function showReminderScreen(descriptionText) {
   return (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
-    // Android does not need to ask for notification permissions
+    // Android does not need to ask user for notification permissions
     if (isAndroid) {
-      return;
+      dispatch(requestNativePermissions());
     }
 
     if (pushDevice.token) {
