@@ -17,6 +17,24 @@ Array [
   Object {
     "data": Array [
       Object {
+        "celebrateable_type": "accepted_community_challenge",
+        "changed_attribute_name": "completed_at",
+        "changed_attribute_value": "2018-01-06 00:05:00 UTC",
+        "id": "9",
+      },
+      Object {
+        "celebrateable_type": "accepted_community_challenge",
+        "changed_attribute_name": "accepted_at",
+        "changed_attribute_value": "2018-01-06 00:04:00 UTC",
+        "id": "8",
+      },
+    ],
+    "date": "2018-01-06 00:05:00 UTC",
+    "id": 1,
+  },
+  Object {
+    "data": Array [
+      Object {
         "adjective_attribute_value": 9,
         "celebrateable_type": "interaction",
         "changed_attribute_value": "2018-01-05 00:00:00 UTC",
@@ -24,7 +42,7 @@ Array [
       },
     ],
     "date": "2018-01-05 00:00:00 UTC",
-    "id": 1,
+    "id": 2,
   },
   Object {
     "data": Array [
@@ -48,7 +66,7 @@ Array [
       },
     ],
     "date": "2018-01-02 00:23:00 UTC",
-    "id": 2,
+    "id": 3,
   },
   Object {
     "data": Array [
@@ -60,7 +78,7 @@ Array [
       },
     ],
     "date": "2018-01-01 00:00:00 UTC",
-    "id": 3,
+    "id": 4,
   },
   Object {
     "data": Array [
@@ -72,7 +90,7 @@ Array [
       },
     ],
     "date": "2017-01-01 00:00:00 UTC",
-    "id": 4,
+    "id": 5,
   },
 ]
 `;
@@ -94,6 +112,24 @@ Array [
   Object {
     "data": Array [
       Object {
+        "celebrateable_type": "accepted_community_challenge",
+        "changed_attribute_name": "completed_at",
+        "changed_attribute_value": "2018-01-06 00:05:00 UTC",
+        "id": "9",
+      },
+      Object {
+        "celebrateable_type": "accepted_community_challenge",
+        "changed_attribute_name": "accepted_at",
+        "changed_attribute_value": "2018-01-06 00:04:00 UTC",
+        "id": "8",
+      },
+    ],
+    "date": "2018-01-06 00:05:00 UTC",
+    "id": 1,
+  },
+  Object {
+    "data": Array [
+      Object {
         "adjective_attribute_value": 9,
         "celebrateable_type": "interaction",
         "changed_attribute_value": "2018-01-05 00:00:00 UTC",
@@ -101,7 +137,7 @@ Array [
       },
     ],
     "date": "2018-01-05 00:00:00 UTC",
-    "id": 1,
+    "id": 2,
   },
   Object {
     "data": Array [
@@ -125,7 +161,7 @@ Array [
       },
     ],
     "date": "2018-01-02 00:23:00 UTC",
-    "id": 2,
+    "id": 3,
   },
   Object {
     "data": Array [
@@ -137,7 +173,7 @@ Array [
       },
     ],
     "date": "2018-01-01 00:00:00 UTC",
-    "id": 3,
+    "id": 4,
   },
   Object {
     "data": Array [
@@ -149,7 +185,7 @@ Array [
       },
     ],
     "date": "2017-01-01 00:00:00 UTC",
-    "id": 4,
+    "id": 5,
   },
 ]
 `;

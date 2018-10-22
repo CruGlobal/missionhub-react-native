@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
+<SectionList
+  data={Array []}
+  disableVirtualization={false}
+  extraData={
+    Object {
+      "isListScrolled": false,
+    }
+  }
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onRefresh={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  sections={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "accepted_community_challenges": Array [],
+            "accepted_count": 5,
+            "completed_count": 3,
+            "creator_id": "person1",
+            "days_remaining": 14,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "1",
+            "organization_id": "456",
+            "title": "Read \\"There and Back Again\\"",
+          },
+          Object {
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 3,
+            "creator_id": "person2",
+            "days_remaining": 14,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "2",
+            "organization_id": "456",
+            "title": "Invite a neighbor over for mince pie.",
+          },
+        ],
+        "title": "",
+      },
+      Object {
+        "data": Array [
+          Object {
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 0,
+            "creator_id": "person3",
+            "days_remaining": 0,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "3",
+            "organization_id": "456",
+            "title": "Invite Smeagol over for fresh fish",
+            "total_days": 7,
+          },
+          Object {
+            "accepted_community_challenges": Array [
+              Object {
+                "id": "a1",
+                "person": Object {
+                  "id": "123",
+                },
+              },
+            ],
+            "accepted_count": 5,
+            "completed_count": 3,
+            "creator_id": "person4",
+            "days_remaining": 0,
+            "end_date": "2018-09-06T14:13:21Z",
+            "id": "4",
+            "organization_id": "456",
+            "title": "Who can wear the ring the longest.",
+            "total_days": 7,
+          },
+        ],
+        "title": "Past Challenges",
+      },
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
+
+exports[`renders item 1`] = `
+<Translate(ChallengeItem)
+  acceptedChallenge={undefined}
+  item={
+    Object {
+      "accepted_community_challenges": Array [],
+      "accepted_count": 5,
+      "completed_count": 3,
+      "creator_id": "person1",
+      "days_remaining": 14,
+      "end_date": "2018-09-06T14:13:21Z",
+      "id": "1",
+      "organization_id": "456",
+      "title": "Read \\"There and Back Again\\"",
+    }
+  }
+  onComplete={[Function]}
+  onEdit={[Function]}
+  onJoin={[Function]}
+/>
+`;
+
+exports[`renders section header 1`] = `
+<Flex
+  align="center"
+  style={
+    Object {
+      "alignContent": "center",
+      "backgroundColor": "#E6E8EC",
+    }
+  }
+>
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#505256",
+        "fontSize": 12,
+        "textAlign": "center",
+      }
+    }
+  >
+    Test Title
+  </MyText>
+</Flex>
+`;

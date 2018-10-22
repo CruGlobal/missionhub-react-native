@@ -15,6 +15,7 @@ import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import IconButton from './IconButton';
 import RadioButton from './RadioButton';
 import Card from './Card';
+import Dot from './Dot';
 
 export {
   Button,
@@ -32,4 +33,5 @@ export {
   IconButton,
   RadioButton,
   Card,
+  Dot,
 };
