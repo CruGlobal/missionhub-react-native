@@ -28,6 +28,7 @@ export function showReminderScreen(descriptionText) {
     // Android does not need to ask user for notification permissions
     if (isAndroid) {
       dispatch(requestNativePermissions());
+      return;
     }
 
     if (pushDevice.token) {
