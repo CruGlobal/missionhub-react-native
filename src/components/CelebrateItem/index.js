@@ -32,8 +32,12 @@ class CelebrateItem extends Component {
 
   renderMessage() {
     const { t, event } = this.props;
-    const { completedInteraction, completedStep } = CELEBRATEABLE_TYPES;
-    const { adjective_attribute_value } = event;
+    const {
+      completedInteraction,
+      completedStep,
+      acceptedCommunityChallenge,
+    } = CELEBRATEABLE_TYPES;
+    const { adjective_attribute_value, changed_attribute_name } = event;
 
     const name = event.subject_person_name.split(' ')[0];
 
@@ -42,6 +46,21 @@ class CelebrateItem extends Component {
         return this.renderStepOfFaithMessage(t, event, name);
       case completedInteraction:
         return this.buildInteractionMessage(t, adjective_attribute_value, name);
+      case acceptedCommunityChallenge:
+        return this.buildChallengeMessage(t, changed_attribute_name, name);
+    }
+  }
+
+  buildChallengeMessage(t, type, name) {
+    const {
+      challengeItemTypes: { accepted, completed },
+    } = CELEBRATEABLE_TYPES;
+
+    switch (type) {
+      case accepted:
+        return t('challengeAccepted', { initiator: name });
+      case completed:
+        return t('challengeCompleted', { initiator: name });
     }
   }
 

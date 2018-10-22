@@ -13,7 +13,11 @@ const member = {
 describe('with onSelect prop', () => {
   it('render member', () => {
     testSnapshotShallow(
-      <GroupMemberItem onSelect={jest.fn()} person={member} />,
+      <GroupMemberItem
+        onSelect={jest.fn()}
+        person={member}
+        isUserCreatedOrg={false}
+      />,
     );
   });
 
@@ -22,6 +26,7 @@ describe('with onSelect prop', () => {
       <GroupMemberItem
         onSelect={jest.fn()}
         person={{ ...member, contact_count: 0 }}
+        isUserCreatedOrg={false}
       />,
     );
   });
@@ -31,6 +36,17 @@ describe('with onSelect prop', () => {
       <GroupMemberItem
         onSelect={jest.fn()}
         person={{ ...member, uncontacted_count: 0 }}
+        isUserCreatedOrg={false}
+      />,
+    );
+  });
+
+  it('render for user created org', () => {
+    testSnapshotShallow(
+      <GroupMemberItem
+        onSelect={jest.fn()}
+        person={member}
+        isUserCreatedOrg={true}
       />,
     );
   });

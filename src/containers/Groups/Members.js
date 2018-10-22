@@ -71,9 +71,16 @@ class Members extends Component {
     );
   };
 
-  renderItem = ({ item }) => (
-    <GroupMemberItem person={item} onSelect={this.handleSelect} />
-  );
+  renderItem = ({ item }) => {
+    const { organization } = this.props;
+    return (
+      <GroupMemberItem
+        isUserCreatedOrg={organization.user_created}
+        person={item}
+        onSelect={this.handleSelect}
+      />
+    );
+  };
 
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 

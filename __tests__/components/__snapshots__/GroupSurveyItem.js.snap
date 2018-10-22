@@ -74,18 +74,13 @@ exports[`render 0 contacts 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
@@ -109,18 +104,13 @@ exports[`render 0 contacts 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
@@ -247,18 +237,13 @@ exports[`render 0 unassigned 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
@@ -488,18 +473,13 @@ exports[`render 0 uncontacted 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
@@ -626,18 +606,13 @@ exports[`render survey 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
@@ -661,18 +636,13 @@ exports[`render survey 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            <MyText
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Dot
               style={
                 Object {
                   "fontSize": 13,
                 }
               }
-            >
-                ·  
-            </MyText>
+            />
             <MyText
               accessible={true}
               allowFontScaling={true}
