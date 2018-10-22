@@ -9,7 +9,7 @@ import { navigateBack } from '../../actions/navigation';
 import { IconButton, Button } from '../../components/common';
 import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import Members from '../Groups/Members';
+import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 
 import styles from './styles';
@@ -27,7 +27,7 @@ export const CHALLENGE_DETAIL_TABS = [
           params: { orgId },
         },
       },
-    }) => <Members organization={{ id: orgId }} />,
+    }) => <ChallengeMembers organization={{ id: orgId }} />,
   },
   {
     name: i18next.t('challengeFeeds:completed'),
@@ -38,7 +38,7 @@ export const CHALLENGE_DETAIL_TABS = [
           params: { orgId },
         },
       },
-    }) => <Members organization={{ id: orgId }} />,
+    }) => <ChallengeMembers organization={{ id: orgId }} />,
   },
 ];
 
