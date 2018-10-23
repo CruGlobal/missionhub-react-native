@@ -211,8 +211,12 @@ export function showAssignButton(
 export function showUnassignButton(isCruOrg, contactAssignment) {
   return isCruOrg && contactAssignment;
 }
-export function showDeleteButton(isCruOrg, contactAssignment, orgPermission) {
-  return isCruOrg && contactAssignment && !orgPermission;
+export function showDeleteButton(
+  personIsCurrentUser,
+  contactAssignment,
+  orgPermission,
+) {
+  return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
 
 export function getAssignedToName(myId, item) {

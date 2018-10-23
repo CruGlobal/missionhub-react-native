@@ -91,7 +91,7 @@ class PersonSideMenu extends Component {
       contactAssignment,
     );
     const showDelete = showDeleteButton(
-      isCruOrg,
+      personIsCurrentUser,
       contactAssignment,
       orgPermission,
     );
