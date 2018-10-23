@@ -85,11 +85,7 @@ class PersonSideMenu extends Component {
       personIsCurrentUser,
       contactAssignment,
     );
-    const showUnassign = showUnassignButton(
-      isCruOrg,
-      personIsCurrentUser,
-      contactAssignment,
-    );
+    const showUnassign = showUnassignButton(isCruOrg, contactAssignment);
     const showDelete = showDeleteButton(
       personIsCurrentUser,
       contactAssignment,
