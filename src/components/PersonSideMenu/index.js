@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Alert } from 'react-native';
 import { DrawerActions } from 'react-navigation';
+import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
@@ -19,6 +20,7 @@ import {
   isMissionhubUser,
   showAssignButton,
   showUnassignButton,
+  showDeleteButton,
 } from '../../utils/common';
 
 @translate('contactSideMenu')
@@ -69,7 +71,7 @@ class PersonSideMenu extends Component {
     const {
       t,
       dispatch,
-      isJean,
+      isCruOrg,
       personIsCurrentUser,
       myId,
       person,
@@ -78,15 +80,21 @@ class PersonSideMenu extends Component {
       organization,
     } = this.props;
 
-    const showAssign = showAssignButton(personIsCurrentUser, contactAssignment);
-    const showUnassign = showUnassignButton(
+    const showAssign = showAssignButton(
+      isCruOrg,
       personIsCurrentUser,
       contactAssignment,
-      isJean,
+    );
+    const showUnassign = showUnassignButton(
+      isCruOrg,
+      personIsCurrentUser,
+      contactAssignment,
+    );
+    const showDelete = showDeleteButton(
+      isCruOrg,
+      contactAssignment,
       orgPermission,
     );
-    const showDelete =
-      !personIsCurrentUser && contactAssignment && (!isJean || !orgPermission);
 
     const menuItems = [
       {
@@ -133,6 +141,10 @@ class PersonSideMenu extends Component {
   }
 }
 
+PersonSideMenu.propTypes = {
+  isCruOrg: PropTypes.bool,
+};
+
 const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params;
   const orgId = navParams.organization && navParams.organization.id;
@@ -147,7 +159,6 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
   return {
     ...(navigation.state.params || {}),
     person,
-    isJean: auth.isJean,
     personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
     myId: auth.person.id,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),

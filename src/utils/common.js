@@ -198,16 +198,18 @@ export function getPagination(action, currentLength) {
 }
 
 //showing assign/unassign buttons on side menu
-export function showAssignButton(personIsCurrentUser, contactAssignment) {
-  return !personIsCurrentUser && !contactAssignment;
-}
-export function showUnassignButton(
+export function showAssignButton(
+  isCruOrg,
   personIsCurrentUser,
   contactAssignment,
-  isJean,
-  orgPermission,
 ) {
-  return !personIsCurrentUser && contactAssignment && isJean && orgPermission;
+  return isCruOrg && !personIsCurrentUser && !contactAssignment;
+}
+export function showUnassignButton(isCruOrg, contactAssignment) {
+  return isCruOrg && contactAssignment;
+}
+export function showDeleteButton(isCruOrg, contactAssignment, orgPermission) {
+  return isCruOrg && contactAssignment && !orgPermission;
 }
 
 export function getAssignedToName(myId, item) {

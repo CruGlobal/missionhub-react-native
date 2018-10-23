@@ -19,6 +19,7 @@ import { Flex, IconButton, Text } from '../../../components/common';
 import {
   contactAssignmentSelector,
   personSelector,
+  orgPermissionSelector,
 } from '../../../selectors/people';
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -204,7 +205,7 @@ export class AssignedPersonScreen extends Component {
       myId,
       myStageId,
       stages,
-      isJean,
+      isCruOrg,
     } = this.props;
 
     const name = (person.first_name || '').toUpperCase();
@@ -249,7 +250,7 @@ export class AssignedPersonScreen extends Component {
             myId={myId}
             myStageId={myStageId}
             stages={stages}
-            isJean={isJean}
+            isCruOrg={isCruOrg}
           />
         </Flex>
       </View>
@@ -288,7 +289,10 @@ export const mapStateToProps = (
   );
   const authPerson = auth.person;
 
-  const { isJean } = auth;
+  const orgPermission = orgPermissionSelector(null, {
+    person,
+    organization: navParams.organization,
+  });
 
   return {
     ...(navParams || {}),
@@ -298,7 +302,7 @@ export const mapStateToProps = (
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isJean,
+    isCruOrg: orgPermission && !orgPermission.organization.user_created,
   };
 };
 
