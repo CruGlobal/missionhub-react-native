@@ -32,3 +32,18 @@ export const challengesSelector = createSelector(
     return sections;
   },
 );
+
+export const acceptedChallengesSelector = createSelector(
+  ({ acceptedChallenges }) => acceptedChallenges,
+  acceptedChallenges => {
+    const sortedAcceptances = { joined: [], completed: [] };
+    acceptedChallenges.forEach(a => {
+      if (a.completed_at) {
+        sortedAcceptances.completed.push(a);
+      } else {
+        sortedAcceptances.joined.push(a);
+      }
+    });
+    return sortedAcceptances;
+  },
+);

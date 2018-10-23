@@ -11,6 +11,7 @@ import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
+import { acceptedChallengesSelector } from '../../selectors/challenges';
 
 import styles from './styles';
 
@@ -107,12 +108,17 @@ ChallengeDetailScreen.propTypes = {
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
-  acceptedChallenge: PropTypes.object,
 };
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = (_, { navigation }) => {
+  const navParams = navigation.state.params || {};
+  const acceptedChallenges = navParams.challenge.accepted_community_challenges;
+
+  return {
+    ...navParams,
+    ...acceptedChallengesSelector({ acceptedChallenges }),
+  };
+};
 
 const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
 

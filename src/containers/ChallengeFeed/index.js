@@ -87,7 +87,6 @@ class ChallengeFeed extends Component {
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
         challenge,
         canEditChallenges,
-        acceptedChallenge: this.getAcceptedChallenge(challenge),
         onJoin: this.handleJoin,
         onComplete: this.handleComplete,
         onEdit: this.handleEdit,
