@@ -60,6 +60,7 @@ export class ImpactView extends Component {
       person = {},
       organization = {},
       isPersonalMinistryMe,
+      isUserCreatedOrg,
     } = this.props;
 
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
@@ -67,7 +68,7 @@ export class ImpactView extends Component {
     dispatch(
       getImpactSummary(person.id, person.id ? undefined : organization.id),
     );
-    if (isPersonalMinistryMe) {
+    if (isPersonalMinistryMe || isUserCreatedOrg) {
       dispatch(getImpactSummary()); // Get global impact by calling without person or org
     } else {
       this.getInteractionReport();
