@@ -19,7 +19,6 @@ import { Flex, IconButton, Text } from '../../../components/common';
 import {
   contactAssignmentSelector,
   personSelector,
-  orgPermissionSelector,
 } from '../../../selectors/people';
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -29,6 +28,7 @@ import {
   keyboardShow,
   keyboardHide,
   buildTrackingObj,
+  isCruOrg,
 } from '../../../utils/common';
 
 import styles from './styles';
@@ -289,11 +289,6 @@ export const mapStateToProps = (
   );
   const authPerson = auth.person;
 
-  const orgPermission = orgPermissionSelector(null, {
-    person,
-    organization: navParams.organization,
-  });
-
   return {
     ...(navParams || {}),
     contactAssignment,
@@ -302,7 +297,7 @@ export const mapStateToProps = (
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isCruOrg: orgPermission && !orgPermission.organization.user_created,
+    isCruOrg: isCruOrg(navParams.organization),
   };
 };
 
