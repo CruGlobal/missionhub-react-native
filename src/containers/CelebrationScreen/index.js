@@ -45,7 +45,12 @@ class CelebrationScreen extends Component {
   }
 
   static shuffleGif() {
-    switch (Math.floor(Math.random() * 6)) {
+    const id = Math.floor(Math.random() * 6);
+    return CelebrationScreen.getGif(id);
+  }
+
+  static getGif(id) {
+    switch (id) {
       case 0:
         return require('./gifs/ArrowWhite.gif');
       case 1:
@@ -58,14 +63,20 @@ class CelebrationScreen extends Component {
         return require('./gifs/NarwhalWhite.gif');
       case 5:
         return require('./gifs/PartyWhite.gif');
+      default:
+        return undefined;
     }
   }
 
   render() {
+    const { gifId } = this.props;
+
     return (
       <Flex style={styles.container} value={1} justify="center">
         <Image
-          source={CelebrationScreen.shuffleGif()}
+          source={
+            CelebrationScreen.getGif(gifId) || CelebrationScreen.shuffleGif()
+          }
           resizeMode="contain"
           style={styles.gif}
           onLoad={this.startTimer}

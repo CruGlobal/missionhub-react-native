@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Text, Touchable, Icon } from '../common';
+import { Flex, Text, Touchable, Icon, Dot } from '../common';
 import ShareSurveyMenu from '../ShareSurveyMenu';
 
 import styles from './styles';
@@ -39,7 +39,7 @@ class GroupSurveyItem extends Component {
                 ) : null}
                 {survey.unassigned_contacts_count ? (
                   <Text>
-                    <Text style={styles.text}>{'  ·  '}</Text>
+                    <Dot style={styles.text} />
                     <Text style={[styles.text, styles.unassigned]}>
                       {t('numUnassigned', {
                         number: survey.unassigned_contacts_count,
@@ -49,7 +49,7 @@ class GroupSurveyItem extends Component {
                 ) : null}
                 {survey.uncontacted_contacts_count ? (
                   <Text>
-                    <Text style={styles.text}>{'  ·  '}</Text>
+                    <Dot style={styles.text} />
                     <Text style={[styles.text, styles.uncontacted]}>
                       {t('numUncontacted', {
                         number: survey.uncontacted_contacts_count,

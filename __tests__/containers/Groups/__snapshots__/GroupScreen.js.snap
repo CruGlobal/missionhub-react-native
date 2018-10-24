@@ -1,5 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GroupScreen should render Cru Community tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Celebrate",
+    "navigationAction": "nav/GROUP_CELEBRATE",
+  },
+  Object {
+    "component": [Function],
+    "name": "Members",
+    "navigationAction": "nav/GROUP_MEMBERS",
+  },
+  Object {
+    "component": [Function],
+    "name": "Impact",
+    "navigationAction": "nav/GROUP_IMPACT",
+  },
+  Object {
+    "component": [Function],
+    "name": "Contacts",
+    "navigationAction": "nav/GROUP_CONTACTS",
+  },
+  Object {
+    "component": [Function],
+    "name": "Surveys",
+    "navigationAction": "nav/GROUP_SURVEYS",
+  },
+]
+`;
+
+exports[`GroupScreen should render User Created Community tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Celebrate",
+    "navigationAction": "nav/GROUP_CELEBRATE",
+  },
+  Object {
+    "component": [Function],
+    "name": "Challenges",
+    "navigationAction": "nav/GROUP_CHALLENGES",
+  },
+  Object {
+    "component": [Function],
+    "name": "Members",
+    "navigationAction": "nav/GROUP_MEMBERS",
+  },
+  Object {
+    "component": [Function],
+    "name": "Impact",
+    "navigationAction": "nav/GROUP_IMPACT",
+  },
+]
+`;
+
 exports[`GroupScreen should render header correctly 1`] = `
 <Connect(Header)
   left={<Connect(BackButton) />}

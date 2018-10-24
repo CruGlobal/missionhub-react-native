@@ -40,6 +40,7 @@ export const GET_ORGANIZATION_MEMBERS = 'app/GET_ORGANIZATION_MEMBERS';
 export const GET_ORGANIZATION_PEOPLE = 'app/GET_ORGANIZATION_PEOPLE';
 export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
 export const RESET_CELEBRATION_PAGINATION = 'app/RESET_CELEBRATION_PAGINATION';
+export const RESET_CHALLENGE_PAGINATION = 'app/RESET_CHALLENGE_PAGINATION';
 
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
@@ -316,4 +317,9 @@ export const CELEBRATEABLE_TYPES = {
     INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
     INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
   ],
+  acceptedCommunityChallenge: 'accepted_community_challenge',
+  challengeItemTypes: {
+    accepted: 'accepted_at',
+    completed: 'completed_at',
+  },
 };
