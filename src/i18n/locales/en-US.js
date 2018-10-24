@@ -444,6 +444,8 @@ export default {
   groupsList: {
     header: 'Communities',
     groupsNull: 'Your communities will show up here.',
+    joinCommunity: 'Join a Community',
+    createCommunity: 'Create a Community',
   },
   celebrateFeeds: {
     title: '',
@@ -553,6 +555,7 @@ export default {
     numUnassigned: '{{number}} Unassigned',
     unassigned: 'Unassigned',
     numUncontacted: '{{number}} Uncontacted',
+    numMembers: '{{number}} Members',
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',

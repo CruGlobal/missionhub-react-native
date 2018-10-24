@@ -52,4 +52,20 @@ export default StyleSheet.create({
     fontSize: 12,
     color: theme.primaryColor,
   },
+  blockBtn: {
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 13,
+    backgroundColor: theme.accentColor,
+  },
+  blockBtnBorderRight: {
+    borderRightWidth: 1,
+    borderRightColor: theme.primaryColor,
+  },
+  blockBtnText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: theme.white,
+  },
 });

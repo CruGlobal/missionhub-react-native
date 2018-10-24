@@ -5,7 +5,7 @@ import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const contactsCount = 768;
 const unassignedCount = 13;
-const uncontactedCount = 56;
+// const uncontactedCount = 56;
 
 let group = {
   name: 'Group Name',
@@ -27,18 +27,16 @@ describe('GroupCardItem', () => {
       contactReport: {
         contactsCount,
         unassignedCount,
-        uncontactedCount,
       },
     };
 
     test();
   });
 
-  it('renders with contacts and unassigned, no uncontacted', () => {
+  it('renders with unassigned, no contacts', () => {
     group = {
       ...group,
       contactReport: {
-        contactsCount,
         unassignedCount,
       },
     };
@@ -46,24 +44,21 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders with contacts and uncontacted, no unassigned', () => {
+  it('renders with contacts, no unassigned', () => {
     group = {
       ...group,
       contactReport: {
         contactsCount,
-        uncontactedCount,
       },
     };
 
     test();
   });
 
-  it('renders with contacts, no unassigned and no uncontacted', () => {
+  it('renders user created group', () => {
     group = {
       ...group,
-      contactReport: {
-        contactsCount,
-      },
+      user_created: true,
     };
 
     test();
