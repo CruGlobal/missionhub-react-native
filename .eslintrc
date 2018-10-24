@@ -27,9 +27,12 @@
     "strict": 0,
     "no-console": 2,
     "no-case-declarations": 0,
-    "import/order": [2, {
-      "newlines-between": "always"
-    }],
+    "import/order": [
+      2,
+      {
+        "newlines-between": "always"
+      }
+    ],
     "react/jsx-no-undef": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-uses-react": 2,
@@ -47,18 +50,10 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".ios.js",
-          ".android.js"
-        ]
+        "extensions": [".js", ".ios.js", ".android.js"]
       }
     }
   },
   "extends": "plugin:prettier/recommended",
-  "plugins": [
-    "react",
-    "import",
-    "prettier"
-  ]
+  "plugins": ["react", "import", "prettier"]
 }
