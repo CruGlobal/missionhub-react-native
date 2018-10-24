@@ -28,7 +28,7 @@ import {
   keyboardShow,
   keyboardHide,
   buildTrackingObj,
-  isCruOrg,
+  communityIsCru,
 } from '../../../utils/common';
 
 import styles from './styles';
@@ -297,7 +297,7 @@ export const mapStateToProps = (
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isCruOrg: isCruOrg(navParams.organization),
+    isCruOrg: communityIsCru(navParams.organization),
   };
 };
 

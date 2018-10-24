@@ -2,7 +2,7 @@ import { DrawerActions } from 'react-navigation';
 
 import {
   userIsJean,
-  isCruOrg,
+  communityIsCru,
   isMissionhubUser,
   isAdminForOrg,
   openMainMenu,
@@ -45,15 +45,15 @@ describe('userIsJean', () => {
   });
 });
 
-describe('isCruOrg', () => {
+describe('communityIsCru', () => {
   it('returns false for personal ministry', () => {
-    expect(isCruOrg({ id: 'personal' })).toEqual(false);
+    expect(communityIsCru({ id: 'personal' })).toEqual(false);
   });
   it('returns false for user-created community', () => {
-    expect(isCruOrg({ id: '1', user_created: true })).toEqual(false);
+    expect(communityIsCru({ id: '1', user_created: true })).toEqual(false);
   });
   it('returns true for cru community', () => {
-    expect(isCruOrg({ id: '1', user_created: false })).toEqual(true);
+    expect(communityIsCru({ id: '1', user_created: false })).toEqual(true);
   });
 });
 

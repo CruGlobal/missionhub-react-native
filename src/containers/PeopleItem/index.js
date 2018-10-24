@@ -7,7 +7,7 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { isMissionhubUser, isCruOrg } from '../../utils/common';
+import { isMissionhubUser, communityIsCru } from '../../utils/common';
 
 import styles from './styles';
 
@@ -72,7 +72,7 @@ export class PeopleItem extends Component {
       }
     }
 
-    const isCruOrg = isCruOrg(organization);
+    const isCruOrg = communityIsCru(organization);
 
     let status = 'uncontacted';
 

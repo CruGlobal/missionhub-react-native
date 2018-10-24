@@ -6,16 +6,27 @@ import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import PeopleItem from '../../src/containers/PeopleItem';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
+import { communityIsCru, isMissionhubUser } from '../../src/utils/common';
+
+const myId = '1';
+const stageId = '1';
+
+const mockStages = {
+  [stageId]: {
+    id: stageId,
+    name: 'Stage 1',
+  },
+};
 
 const mockState = {
   auth: {
     person: {
-      id: '1',
-      stage: { id: '1', name: 'Stage 1' },
+      id: myId,
+      stage: mockStages[stageId],
     },
   },
   stages: {
-    stagesObj: {},
+    stagesObj: mockStages,
   },
 };
 
@@ -23,33 +34,32 @@ const store = createMockStore(mockState);
 
 const onSelect = jest.fn();
 
-const mockOrganization = { id: '1' };
+const mockPersonalMinistry = { id: 'personal' };
+const mockOrganization = { id: '1', user_created: false };
+
+const mockOrgPermission = {
+  organization_id: mockOrganization.id,
+  followup_status: 'contacted',
+};
+const mockOrgPermissionUncontacted = {
+  organization_id: mockOrganization.id,
+  followup_status: 'uncontacted',
+};
 const mockContactAssignment = {
   id: '90',
-  assigned_to: { id: '1' },
+  assigned_to: { id: myId },
   pathway_stage_id: '1',
+};
+const mockContactAssignmentNoStage = {
+  id: '90',
+  assigned_to: { id: myId },
 };
 const mockPerson = {
   id: '123',
   first_name: 'John',
   last_name: 'Doe',
   full_name: 'John Doe',
-  gender: 'Female',
-  student_status: null,
-  campus: null,
-  year_in_school: null,
-  major: null,
-  minor: null,
-  birth_date: null,
-  date_became_christian: null,
-  graduation_date: null,
-  picture: 'https://graph.facebook.com/v2.5/0/picture',
-  fb_uid: 0,
-  created_at: '2017-12-05T15:13:10Z',
-  updated_at: '2017-12-05T15:13:10Z',
-  organizational_permissions: [
-    { organization_id: mockOrganization.id, followup_status: 'uncontacted' },
-  ],
+  organizational_permissions: [mockOrgPermission],
   reverse_contact_assignments: [mockContactAssignment],
 };
 
@@ -68,38 +78,52 @@ jest.mock('../../src/actions/navigation', () => ({
     return mockNavigatePushResult;
   }),
 }));
+jest.mock('../../src/utils/common');
 
-beforeEach(() =>
-  (shallowScreen = renderShallow(
-    <PeopleItem
-      onSelect={onSelect}
-      person={mockPerson}
-      organization={mockOrganization}
-    />,
-    store,
-  )));
-
-it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <PeopleItem onSelect={onSelect} person={mockPerson} />
-    </Provider>,
-  );
+beforeEach(() => {
+  jest.clearAllMocks();
 });
 
-it('renders personal user correctly', () => {
+it('renders me correctly', () => {
+  const mePerson = { ...mockPerson, id: myId };
+
+  communityIsCru.mockReturnValue(false);
+  isMissionhubUser.mockReturnValue(false);
+
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem
+        onSelect={onSelect}
+        person={mePerson}
+        organization={mockPersonalMinistry}
+      />
+    </Provider>,
+  );
+  expect(communityIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
+  expect(isMissionhubUser).not.toHaveBeenCalled();
+});
+
+it('renders personal ministry contact correctly', () => {
+  communityIsCru.mockReturnValue(false);
+  isMissionhubUser.mockReturnValue(false);
+
   testSnapshot(
     <Provider store={store}>
       <PeopleItem
         onSelect={onSelect}
         person={mockPerson}
-        organization={{ id: 'personal' }}
+        organization={mockPersonalMinistry}
       />
     </Provider>,
   );
+  expect(communityIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
+  expect(isMissionhubUser).not.toHaveBeenCalled();
 });
 
-it('renders org user correctly', () => {
+it('renders cru org contact correctly', () => {
+  communityIsCru.mockReturnValue(true);
+  isMissionhubUser.mockReturnValue(false);
+
   testSnapshot(
     <Provider store={store}>
       <PeopleItem
@@ -109,31 +133,81 @@ it('renders org user correctly', () => {
       />
     </Provider>,
   );
+  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
 });
 
-it('renders permission user correctly', () => {
+it('renders cru org contact without stage correctly', () => {
+  communityIsCru.mockReturnValue(true);
+  isMissionhubUser.mockReturnValue(false);
+
   testSnapshot(
     <Provider store={store}>
       <PeopleItem
-        onSelect={jest.fn()}
+        onSelect={onSelect}
         person={{
           ...mockPerson,
-          organizational_permissions: [
-            {
-              organization_id: mockOrganization.id,
-              followup_status: 'uncontacted',
-              permission_id: 1,
-            },
-          ],
+          reverse_contact_assignments: [mockContactAssignmentNoStage],
         }}
         organization={mockOrganization}
       />
     </Provider>,
   );
+  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
+});
+
+it('renders uncontacted cru org contact correctly', () => {
+  communityIsCru.mockReturnValue(true);
+  isMissionhubUser.mockReturnValue(false);
+
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem
+        onSelect={onSelect}
+        person={{
+          ...mockPerson,
+          organizational_permissions: [mockOrgPermissionUncontacted],
+        }}
+        organization={mockOrganization}
+      />
+    </Provider>,
+  );
+  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermissionUncontacted);
+});
+
+it('renders cru org member correctly', () => {
+  communityIsCru.mockReturnValue(true);
+  isMissionhubUser.mockReturnValue(true);
+
+  testSnapshot(
+    <Provider store={store}>
+      <PeopleItem
+        onSelect={jest.fn()}
+        person={mockPerson}
+        organization={mockOrganization}
+      />
+    </Provider>,
+  );
+  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 describe('handleChangeStage', () => {
   it('navigates to person stage screen', () => {
+    shallowScreen = renderShallow(
+      <PeopleItem
+        onSelect={onSelect}
+        person={{
+          ...mockPerson,
+          reverse_contact_assignments: [mockContactAssignmentNoStage],
+        }}
+        organization={mockOrganization}
+      />,
+      store,
+    );
+
     shallowScreen
       .childAt(0)
       .childAt(1)
@@ -157,6 +231,15 @@ describe('handleChangeStage', () => {
 
 describe('item selected', () => {
   it('calls onSelect', () => {
+    shallowScreen = renderShallow(
+      <PeopleItem
+        onSelect={onSelect}
+        person={mockPerson}
+        organization={mockOrganization}
+      />,
+      store,
+    );
+
     shallowScreen.props().onPress();
 
     expect(onSelect).toHaveBeenCalledWith(mockPerson, mockOrganization);
