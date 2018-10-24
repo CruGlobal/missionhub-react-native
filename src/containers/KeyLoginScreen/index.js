@@ -24,6 +24,7 @@ import { navigatePush } from '../../actions/navigation';
 import { MFA_CODE_SCREEN } from '../MFACodeScreen';
 
 import styles from './styles';
+import { screenFlowPrevious } from '../../actions/screenFlow';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -67,6 +68,10 @@ class KeyLoginScreen extends Component {
 
   startLoad = () => {
     this.setState({ isLoading: true });
+  };
+
+  handleBackButton = () => {
+    this.props.dispatch(screenFlowPrevious());
   };
 
   handleForgotPassword = () => {
@@ -162,7 +167,10 @@ class KeyLoginScreen extends Component {
         {forcedLogout ? (
           <View style={{ marginTop }} />
         ) : (
-          <BackButton style={{ marginLeft: 5, marginTop }} />
+          <BackButton
+            style={{ marginLeft: 5, marginTop }}
+            customNavigate={this.handleBackButton}
+          />
         )}
         {this.state.logo ? (
           <Flex value={1} align="center" justify="center">

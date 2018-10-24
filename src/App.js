@@ -24,8 +24,7 @@ import {
   NETWORK_REQUEST_FAILED,
 } from './constants';
 import { isAndroid } from './utils/common';
-import { initialRoute } from './actions/navigationInit';
-import { navigateReset } from './actions/navigation';
+import { setInitialRoute } from './actions/navigationInit';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 
@@ -49,7 +48,7 @@ export default class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
-    store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(setInitialRoute());
     store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);

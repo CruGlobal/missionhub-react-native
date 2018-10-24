@@ -6,14 +6,12 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import i18next from '../../i18n';
 import { Text, Button, Flex } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
 import LANDSCAPE from '../../../assets/images/landscapeOnboardingImage.png';
-import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { trackState } from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
-import { LOGIN_OPTIONS_SCREEN } from '../LoginOptionsScreen';
 import { LOGIN_TAB_CHANGED } from '../../constants';
+import { screenFlowNext } from '../../actions/screenFlow';
 
 import styles from './styles';
 
@@ -60,15 +58,11 @@ class LoginScreen extends Component {
   }
 
   login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN);
+    this.props.dispatch(screenFlowNext({ signIn: true }));
   }
 
   getStarted() {
-    this.navigateToNext(LOGIN_OPTIONS_SCREEN);
-  }
-
-  navigateToNext(nextScreen) {
-    this.props.dispatch(navigatePush(nextScreen));
+    this.props.dispatch(screenFlowNext());
   }
 
   handleSnapToItem(index) {

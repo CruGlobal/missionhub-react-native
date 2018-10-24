@@ -2,23 +2,30 @@ import { isAuthenticated } from '../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
-export function initialRoute({ auth, personProfile, people }) {
-  if (auth && isAuthenticated(auth)) {
-    if (
-      personProfile.hasCompletedOnboarding ||
-      hasContactWithPathwayStage(auth.person.id, people)
-    ) {
-      return MAIN_TABS;
+import { navigateReset } from './navigation';
+import { screenFlowStart, ScreenFlows } from './screenFlow';
+
+export function setInitialRoute() {
+  return (dispatch, getState) => {
+    const { auth, personProfile, people } = getState();
+
+    if (auth && isAuthenticated(auth)) {
+      if (
+        personProfile.hasCompletedOnboarding ||
+        hasContactWithPathwayStage(auth.person.id, people)
+      ) {
+        return dispatch(navigateReset(MAIN_TABS));
+      }
+
+      // TODO: start flow
+      return auth.person.user.pathway_stage_id
+        ? dispatch(navigateReset(ADD_SOMEONE_SCREEN))
+        : dispatch(navigateReset(GET_STARTED_SCREEN));
     }
 
-    return auth.person.user.pathway_stage_id
-      ? ADD_SOMEONE_SCREEN
-      : GET_STARTED_SCREEN;
-  }
-
-  return LOGIN_SCREEN;
+    return dispatch(screenFlowStart(ScreenFlows.Authenticate));
+  };
 }
 
 function hasContactWithPathwayStage(myId, people) {

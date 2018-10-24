@@ -4,6 +4,7 @@ import auth from './auth';
 import nav from './nav';
 import profile from './profile';
 import personProfile from './personProfile';
+import screenFlow from './screenFlow';
 import stages from './stages';
 import steps from './steps';
 import organizations from './organizations';
@@ -34,6 +35,7 @@ export default combineReducers({
   people,
   personProfile,
   profile,
+  screenFlow,
   stages,
   steps,
   surveys,
