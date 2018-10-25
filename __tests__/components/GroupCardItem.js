@@ -64,6 +64,16 @@ describe('GroupCardItem', () => {
     test();
   });
 
+  it('renders with image url', () => {
+    group = {
+      ...group,
+      imageUrl:
+        'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
+    };
+
+    test();
+  });
+
   it('calls props.onPress when pressed', () => {
     const onPress = jest.fn();
     const component = renderShallow(

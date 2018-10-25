@@ -213,6 +213,77 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 </Card>
 `;
 
+exports[`GroupCardItem renders with image url 1`] = `
+<Card
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "url": "https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "width": "100%",
+      }
+    }
+  />
+  <Flex
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "padding": 13,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      GROUP NAME
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 12,
+        }
+      }
+    >
+      100 Members
+    </MyText>
+  </Flex>
+</Card>
+`;
+
 exports[`GroupCardItem renders with no report counts 1`] = `
 <Card
   onPress={[Function]}

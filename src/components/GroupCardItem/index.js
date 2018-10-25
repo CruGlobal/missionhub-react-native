@@ -4,6 +4,9 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Flex, Card } from '../common';
+import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
+// TODO: Need the correct default image for user created communities
+import DEFAULT_USER_COMMUNITY_IMAGE from '../../../assets/images/impactBackground.png';
 
 import styles from './styles';
 
@@ -21,14 +24,18 @@ export default class GroupCardItem extends Component {
       group.contactReport || {};
     // TODO: Need to pull this info from the contactReport once the API supports it
     const membersCount = 100;
+    let source;
+    if (group.imageUrl) {
+      source = { url: group.imageUrl };
+    } else if (isUserCreated) {
+      source = DEFAULT_USER_COMMUNITY_IMAGE;
+    } else {
+      source = DEFAULT_MISSIONHUB_IMAGE;
+    }
 
     return (
       <Card onPress={this.handlePress} style={styles.card}>
-        <Image
-          source={require('../../../assets/images/impactBackground.png')}
-          resizeMode="cover"
-          style={styles.image}
-        />
+        <Image source={source} resizeMode="cover" style={styles.image} />
         <Flex justify="center" style={styles.infoWrap}>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Text style={styles.groupNumber}>
