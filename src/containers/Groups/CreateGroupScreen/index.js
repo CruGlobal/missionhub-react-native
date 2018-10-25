@@ -9,12 +9,12 @@ import {
   Input,
   IconButton,
   Button,
-  Touchable,
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import { navigateBack } from '../../../actions/navigation';
+import ImagePicker from '../../../components/ImagePicker';
 
 import styles from './styles';
 
@@ -22,6 +22,7 @@ import styles from './styles';
 class CreateGroupScreen extends Component {
   state = {
     name: '',
+    imageUri: null,
   };
 
   onChangeText = text => this.setState({ name: text });
@@ -37,18 +38,24 @@ class CreateGroupScreen extends Component {
     console.log('create community', text);
   };
 
+  handleImageChange = data => this.setState({ imageUri: data.uri });
+
   navigateBack = () => this.props.dispatch(navigateBack());
 
   ref = c => (this.nameInput = c);
 
   renderImage() {
-    return (
-      <Touchable onPress={this.selectImage}>
-        <Flex align="center" justify="center" style={styles.imageWrap}>
-          <Image source={CAMERA_ICON} />
-        </Flex>
-      </Touchable>
-    );
+    const { imageUri } = this.state;
+    if (imageUri) {
+      return (
+        <Image
+          resizeMode="cover"
+          source={{ uri: imageUri }}
+          style={styles.image}
+        />
+      );
+    }
+    return <Image source={CAMERA_ICON} />;
   }
 
   render() {
@@ -67,7 +74,11 @@ class CreateGroupScreen extends Component {
           shadow={false}
           title={t('createCommunity')}
         />
-        {this.renderImage()}
+        <ImagePicker onSelectImage={this.handleImageChange}>
+          <Flex align="center" justify="center" style={styles.imageWrap}>
+            {this.renderImage()}
+          </Flex>
+        </ImagePicker>
 
         <Flex value={1} style={styles.fieldWrap}>
           <Text style={styles.label} type="header">

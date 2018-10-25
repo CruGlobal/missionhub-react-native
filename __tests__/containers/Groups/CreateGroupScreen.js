@@ -44,6 +44,17 @@ describe('CreateGroupScreen', () => {
 
     expect(component.state.name).toEqual(name);
   });
+
+  it('should update the image', () => {
+    const component = buildScreenInstance();
+
+    const uri = 'testuri';
+    component.handleImageChange({ uri });
+
+    expect(component.state.imageUri).toEqual(uri);
+    expect(component).toMatchSnapshot();
+  });
+
   it('should call create community', () => {
     Keyboard.dismiss = jest.fn();
     const component = buildScreen();

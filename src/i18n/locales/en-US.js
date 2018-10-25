@@ -597,4 +597,18 @@ export default {
     placeholder: 'Admin note',
     important: `Anything important the admins at {{organization}} should know?`,
   },
+  imagePicker: {
+    selectImage: 'Select Image',
+    cancel: 'Cancel',
+    takePhoto: 'Take Photo',
+    chooseFromLibrary: 'Choose from Library...',
+    deniedTitle: 'Permission Denied',
+    deniedText:
+      'To be able to take pictures with your camera and choose images from your library.',
+    reTryTitle: 'Re-Try',
+    okTitle: `I'm sure`,
+    errorHeader: 'Error',
+    errorBody:
+      'There was an error processing your request. Please try again later.',
+  },
 };
