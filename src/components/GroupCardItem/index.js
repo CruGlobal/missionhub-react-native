@@ -17,13 +17,18 @@ export default class GroupCardItem extends Component {
     const { t, group } = this.props;
     const { contactsCount, unassignedCount, uncontactedCount } =
       group.contactReport || {};
+    const { user_created } = group;
 
     return (
       <Card onPress={this.handlePress} style={styles.card}>
         <Flex>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.contactRow}>
-            {contactsCount ? (
+            {user_created ? (
+              <Text style={styles.contacts}>
+                {t('numMembers', { number: contactsCount })}
+              </Text>
+            ) : contactsCount ? (
               <Fragment>
                 <Text style={styles.contacts}>
                   {t('numContacts', { number: contactsCount })}
@@ -61,5 +66,6 @@ GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
     contactReport: PropTypes.object.isRequired,
+    user_created: PropTypes.bool,
   }).isRequired,
 };
