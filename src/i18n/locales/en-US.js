@@ -557,6 +557,10 @@ export default {
     numUncontacted: '{{number}} Uncontacted',
     numMembers: '{{number}} Members',
   },
+  groupsCreateGroup: {
+    createCommunity: 'Create Community',
+    name: 'Community Name',
+  },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
     shareSurvey: 'Share Survey',

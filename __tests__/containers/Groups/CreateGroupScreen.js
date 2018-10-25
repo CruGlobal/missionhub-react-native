@@ -1,46 +1,74 @@
 import React from 'react';
+import { Keyboard } from 'react-native';
 import configureStore from 'redux-mock-store';
 
 import CreateGroupScreen from '../../../src/containers/Groups/CreateGroupScreen';
-import { renderShallow, createMockNavState } from '../../../testUtils';
+import {
+  renderShallow,
+  createMockNavState,
+  testSnapshotShallow,
+} from '../../../testUtils';
+import { navigateBack } from '../../../src/actions/navigation';
+
+jest.mock('../../../src/actions/navigation', () => ({
+  navigateBack: jest.fn(() => ({ type: 'test' })),
+}));
 
 const mockStore = configureStore();
-const organizations = {
-  all: [
-    {
-      id: '1',
-      name: 'Test Org 1',
-      contactReport: {},
-    },
-    {
-      id: '2',
-      name: 'Test Org 2',
-      contactReport: {},
-      user_created: true,
-    },
-  ],
-};
-const auth = {};
-const store = mockStore({ organizations, auth });
+const store = mockStore();
 
-it('should render null state', () => {
-  const component = renderShallow(
-    <CreateGroupScreen navigation={createMockNavState()} />,
-    mockStore({ organizations: { all: [] }, auth }),
+function buildScreen(props) {
+  return renderShallow(
+    <CreateGroupScreen navigation={createMockNavState()} {...props} />,
+    store,
   );
-  expect(component).toMatchSnapshot();
-});
+}
+
+function buildScreenInstance(props) {
+  return buildScreen(props).instance();
+}
 
 describe('CreateGroupScreen', () => {
-  let component;
-  beforeEach(() => {
-    component = renderShallow(
+  it('renders correctly', () => {
+    testSnapshotShallow(
       <CreateGroupScreen navigation={createMockNavState()} />,
       store,
     );
   });
 
-  it('should render correctly', () => {
-    expect(component).toMatchSnapshot();
+  it('should update the state', () => {
+    const component = buildScreenInstance();
+
+    const name = 'test';
+    component.onChangeText(name);
+
+    expect(component.state.name).toEqual(name);
+  });
+  it('should call create community', () => {
+    Keyboard.dismiss = jest.fn();
+    const component = buildScreen();
+    component
+      .childAt(3)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(Keyboard.dismiss).toHaveBeenCalled();
+    // TODO: Expect more to happen when the API call is implemented
+  });
+
+  it('should call navigate back', () => {
+    const component = buildScreen();
+    const backButton = component.childAt(0).props().left;
+    backButton.props.onPress();
+
+    expect(navigateBack).toHaveBeenCalled();
+  });
+
+  it('should call ref', () => {
+    const instance = buildScreenInstance();
+    const ref = 'test';
+    instance.ref(ref);
+    expect(instance.nameInput).toEqual(ref);
   });
 });
