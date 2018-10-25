@@ -553,7 +553,6 @@ export default {
     numUnassigned: '{{number}} Unassigned',
     unassigned: 'Unassigned',
     numUncontacted: '{{number}} Uncontacted',
-    numMembers: '{{number}} Members',
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
