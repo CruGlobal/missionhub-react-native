@@ -68,15 +68,8 @@ export const refresh = (obj, method) => {
 export const isAuthenticated = authState => authState.token;
 
 //If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
-export const userIsJean = orgPermissions => {
-  let isJean = false;
-  orgPermissions.forEach(p => {
-    if (!p.organization.user_created) {
-      isJean = true;
-    }
-  });
-  return isJean;
-};
+export const userIsJean = orgPermissions =>
+  orgPermissions.some(p => !p.organization.user_created);
 
 export const communityIsCru = organization =>
   organization && organization.id !== 'personal' && !organization.user_created;
