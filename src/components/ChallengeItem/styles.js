@@ -9,6 +9,9 @@ export default StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: theme.white,
   },
+  detailButton: {
+    flex: 1,
+  },
   content: {
     padding: 16,
   },
