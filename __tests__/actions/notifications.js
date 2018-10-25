@@ -19,6 +19,7 @@ import {
   DISABLE_WELCOME_NOTIFICATION,
   NAVIGATE_FORWARD,
   LOAD_HOME_NOTIFICATION_REMINDER,
+  REQUEST_NOTIFICATIONS,
 } from '../../src/constants';
 import * as common from '../../src/utils/common';
 import callApi, { REQUESTS } from '../../src/actions/api';
@@ -50,7 +51,7 @@ beforeEach(() => {
 describe('showReminderScreen', () => {
   const descriptionText = 'test description';
 
-  it('should do nothing for Android', () => {
+  it('should request permissions from device for Android', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
@@ -59,6 +60,7 @@ describe('showReminderScreen', () => {
     common.isAndroid = true;
     store.dispatch(showReminderScreen());
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
   });
   it('should do nothing if we already have a token', () => {
     const store = mockStore({
@@ -80,7 +82,7 @@ describe('showReminderScreen', () => {
     store.dispatch(showReminderScreen(descriptionText));
     expect(store.getActions()).toEqual([]);
   });
-  it('should do nothing if permissions are already granted', () => {
+  it('should request permissions from device permissions are already granted by user', () => {
     const store = mockStore({
       notifications: {
         pushDevice: {},
@@ -91,7 +93,7 @@ describe('showReminderScreen', () => {
     );
     store.dispatch(showReminderScreen(descriptionText));
 
-    expect(store.getActions()).toEqual([]);
+    expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
   });
   it('should show Notification Primer screen', () => {
     const store = mockStore({
