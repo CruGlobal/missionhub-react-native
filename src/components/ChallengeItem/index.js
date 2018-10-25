@@ -92,7 +92,7 @@ class ChallengeItem extends Component {
                 ) : null}
               </Flex>
             </Flex>
-            <Flex value={1} align="center" justify="center">
+            <Flex value={1} align="end" justify="center">
               {completed ? (
                 <Flex value={0}>
                   <Icon
