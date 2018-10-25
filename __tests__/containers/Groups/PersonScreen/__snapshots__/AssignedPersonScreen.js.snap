@@ -70,6 +70,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
           ],
         }
       }
+      isCruOrg={true}
       isMember={true}
       isVisible={false}
       myId="1000"
@@ -161,6 +162,7 @@ exports[`Contact should render AssignedPersonScreen correctly with stage 1`] = `
           ],
         }
       }
+      isCruOrg={true}
       isMember={true}
       isVisible={true}
       myId="1000"
@@ -249,6 +251,7 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
           ],
         }
       }
+      isCruOrg={true}
       isMember={true}
       isVisible={true}
       myId="1000"
