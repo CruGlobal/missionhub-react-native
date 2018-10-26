@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import moment from 'moment';
 
 import i18n from '../i18n';
+import { organizationSelector } from './organizations';
 
 export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
@@ -33,6 +34,13 @@ export const challengesSelector = createSelector(
   },
 );
 
+export const communityChallengeSelector = createSelector(
+  ({ organizations }, { orgId }) =>
+    organizationSelector({ organizations }, { orgId }),
+  (_, { challengeId }) => challengeId,
+  (org, challengeId) => org.challengeItems.find(c => c.id === challengeId),
+);
+
 export const acceptedChallengesSelector = createSelector(
   ({ acceptedChallenges }) => acceptedChallenges,
   acceptedChallenges => {
@@ -44,6 +52,7 @@ export const acceptedChallengesSelector = createSelector(
         sortedAcceptances.joined.push(a);
       }
     });
+    console.log(sortedAcceptances);
     return sortedAcceptances;
   },
 );

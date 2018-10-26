@@ -6,12 +6,16 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
 import { navigateBack } from '../../actions/navigation';
+import { getChallenge } from '../../actions/challenges';
 import { IconButton, Button } from '../../components/common';
 import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
-import { acceptedChallengesSelector } from '../../selectors/challenges';
+import {
+  communityChallengeSelector,
+  acceptedChallengesSelector,
+} from '../../selectors/challenges';
 
 import styles from './styles';
 
@@ -45,6 +49,11 @@ export const CHALLENGE_DETAIL_TABS = [
 
 @translate('challengeFeeds')
 export class ChallengeDetailScreen extends Component {
+  componentDidMount() {
+    const { dispatch, challenge } = this.props;
+    dispatch(getChallenge(challenge.id));
+  }
+
   handleCancel = () => {
     this.props.dispatch(navigateBack());
   };
@@ -110,9 +119,21 @@ ChallengeDetailScreen.propTypes = {
   canEditChallenges: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (_, { navigation }) => {
+const mapStateToProps = ({ organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const acceptedChallenges = navParams.challenge.accepted_community_challenges;
+  const {
+    challenge: {
+      id: challengeId,
+      organization: { id: orgId },
+    },
+  } = navParams;
+
+  const selectorChallenge = communityChallengeSelector(
+    { organizations },
+    { orgId, challengeId },
+  );
+
+  const acceptedChallenges = selectorChallenge.accepted_community_challenges;
 
   return {
     ...navParams,

@@ -1,6 +1,7 @@
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
+import { UPDATE_GROUP_CHALLENGE } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
@@ -108,5 +109,16 @@ export function updateChallenge(challenge, orgId) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.UPDATE_GROUP_CHALLENGE, query, bodyData));
     return dispatch(reloadGroupChallengeFeed(orgId));
+  };
+}
+
+export function getChallenge(challenge_id) {
+  return dispatch => {
+    const query = {
+      challenge_id,
+      include: 'accepted_community_challenges',
+    };
+
+    return dispatch(callApi(REQUESTS.GET_GROUP_CHALLENGE, query));
   };
 }
