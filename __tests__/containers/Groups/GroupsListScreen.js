@@ -12,6 +12,7 @@ import {
   USER_CREATED_GROUP_SCREEN,
 } from '../../../src/containers/Groups/GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../../../src/containers/Groups/JoinGroupScreen';
+import { CREATE_GROUP_SCREEN } from '../../../src/containers/Groups/CreateGroupScreen';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/actions/navigation', () => ({
@@ -151,11 +152,11 @@ describe('GroupsListScreen', () => {
   it('navigates to create group screen', () => {
     component
       .childAt(1)
-      .childAt(0)
+      .childAt(1)
       .childAt(0)
       .props()
       .onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(JOIN_GROUP_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
   });
 });

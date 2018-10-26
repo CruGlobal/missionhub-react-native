@@ -23,7 +23,7 @@ export default class GroupCardItem extends Component {
     const { contactsCount = 0, unassignedCount = 0 } =
       group.contactReport || {};
     // TODO: Need to pull this info from the contactReport once the API supports it
-    const membersCount = 100;
+    // const membersCount = 100;
     let source;
     if (group.imageUrl) {
       source = { url: group.imageUrl };
@@ -40,7 +40,7 @@ export default class GroupCardItem extends Component {
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Text style={styles.groupNumber}>
             {isUserCreated
-              ? t('numMembers', { number: membersCount })
+              ? '' /*t('numMembers', { number: membersCount })*/
               : `${t('numContacts', { number: contactsCount })}   ·   ${t(
                   'numUnassigned',
                   { number: unassignedCount },
