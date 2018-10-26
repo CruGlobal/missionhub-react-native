@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, Keyboard, Image } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Keyboard,
+  Image,
+  KeyboardAvoidingView,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
@@ -9,6 +15,7 @@ import {
   Input,
   IconButton,
   Button,
+  PlatformKeyboardAvoidingView,
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
@@ -74,31 +81,38 @@ class CreateGroupScreen extends Component {
           shadow={false}
           title={t('createCommunity')}
         />
-        <ImagePicker onSelectImage={this.handleImageChange}>
-          <Flex align="center" justify="center" style={styles.imageWrap}>
-            {this.renderImage()}
-          </Flex>
-        </ImagePicker>
+        <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
+          <ImagePicker onSelectImage={this.handleImageChange}>
+            <Flex align="center" justify="center" style={styles.imageWrap}>
+              {this.renderImage()}
+            </Flex>
+          </ImagePicker>
 
-        <Flex value={1} style={styles.fieldWrap}>
-          <Text style={styles.label} type="header">
-            {t('name')}
-          </Text>
-          <Input
-            ref={this.ref}
-            onChangeText={this.onChangeText}
-            value={this.state.name}
-            autoFocus={true}
-            autoCorrect={true}
-            selectionColor={theme.white}
-            returnKeyType="done"
-            style={styles.input}
-            blurOnSubmit={true}
-            placeholder=""
-          />
-        </Flex>
+          <KeyboardAvoidingView
+            keyboardVerticalOffset={theme.buttonHeight}
+            style={styles.flex}
+          >
+            <Flex style={styles.fieldWrap}>
+              <Text style={styles.label} type="header">
+                {t('name')}
+              </Text>
+              <Input
+                ref={this.ref}
+                onChangeText={this.onChangeText}
+                value={this.state.name}
+                autoFocus={true}
+                autoCorrect={true}
+                selectionColor={theme.white}
+                returnKeyType="done"
+                style={styles.input}
+                blurOnSubmit={true}
+                placeholder=""
+              />
+            </Flex>
+          </KeyboardAvoidingView>
+        </ScrollView>
 
-        <Flex value={1} align="stretch" justify="end">
+        <Flex align="stretch" justify="end">
           <Button
             type="secondary"
             onPress={this.createCommunity}

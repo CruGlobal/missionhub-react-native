@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native';
 import theme from '../../../theme';
 
 export default StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: theme.primaryColor,

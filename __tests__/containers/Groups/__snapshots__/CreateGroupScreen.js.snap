@@ -22,79 +22,96 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     shadow={false}
     title="Create Community"
   />
-  <Translate(ImagePicker)
-    onSelectImage={[Function]}
-  >
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "backgroundColor": "#005A7F",
-          "borderRadius": 4,
-          "marginHorizontal": 20,
-          "marginTop": 5,
-          "minHeight": 400.2,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/cameraIcon.png",
-          }
-        }
-      />
-    </Flex>
-  </Translate(ImagePicker)>
-  <Flex
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
-        "marginTop": 5,
-        "paddingHorizontal": 30,
-        "paddingTop": 10,
+        "flex": 1,
       }
     }
-    value={1}
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#66D9F0",
-          "fontSize": 24,
-          "marginBottom": 5,
-          "textAlign": "center",
-        }
-      }
-      type="header"
+    <Translate(ImagePicker)
+      onSelectImage={[Function]}
     >
-      Community Name
-    </MyText>
-    <Input
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      onChangeText={[Function]}
-      placeholder=""
-      returnKeyType="done"
-      selectionColor="#ffffff"
+      <Flex
+        align="center"
+        justify="center"
+        style={
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 4,
+            "marginHorizontal": 20,
+            "marginTop": 5,
+            "minHeight": 400.2,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/cameraIcon.png",
+            }
+          }
+        />
+      </Flex>
+    </Translate(ImagePicker)>
+    <KeyboardAvoidingView
+      enabled={true}
+      keyboardVerticalOffset={60}
       style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
+          "flex": 1,
         }
       }
-      value=""
-    />
-  </Flex>
+    >
+      <Flex
+        style={
+          Object {
+            "marginTop": 5,
+            "paddingHorizontal": 30,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#66D9F0",
+              "fontSize": 24,
+              "marginBottom": 5,
+              "textAlign": "center",
+            }
+          }
+          type="header"
+        >
+          Community Name
+        </MyText>
+        <Input
+          autoCorrect={true}
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder=""
+          returnKeyType="done"
+          selectionColor="#ffffff"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+          value=""
+        />
+      </Flex>
+    </KeyboardAvoidingView>
+  </ScrollView>
   <Flex
     align="stretch"
     justify="end"
-    value={1}
   >
     <Button
       onPress={[Function]}
@@ -492,6 +509,8 @@ Let's figure out where you are on your journey.",
                 "chooseFromLibrary": "Choose from Library...",
                 "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                 "deniedTitle": "Permission Denied",
+                "errorBody": "There was an error processing your request. Please try again later.",
+                "errorHeader": "Error",
                 "okTitle": "I'm sure",
                 "reTryTitle": "Re-Try",
                 "selectImage": "Select Image",
@@ -1141,6 +1160,8 @@ Let's figure out where you are on your journey.",
               "chooseFromLibrary": "Choose from Library...",
               "deniedText": "To be able to take pictures with your camera and choose images from your library.",
               "deniedTitle": "Permission Denied",
+              "errorBody": "There was an error processing your request. Please try again later.",
+              "errorHeader": "Error",
               "okTitle": "I'm sure",
               "reTryTitle": "Re-Try",
               "selectImage": "Select Image",
@@ -1776,6 +1797,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -2398,6 +2421,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -3030,6 +3055,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -3657,6 +3684,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -4243,6 +4272,8 @@ Let's figure out where you are on your journey.",
                 "chooseFromLibrary": "Choose from Library...",
                 "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                 "deniedTitle": "Permission Denied",
+                "errorBody": "There was an error processing your request. Please try again later.",
+                "errorHeader": "Error",
                 "okTitle": "I'm sure",
                 "reTryTitle": "Re-Try",
                 "selectImage": "Select Image",
@@ -4868,6 +4899,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -5494,6 +5527,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -6139,6 +6174,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -6761,6 +6798,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -7392,6 +7431,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -8026,6 +8067,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -8648,6 +8691,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -9280,6 +9325,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -10801,6 +10848,8 @@ Let's figure out where you are on your journey.",
               "chooseFromLibrary": "Choose from Library...",
               "deniedText": "To be able to take pictures with your camera and choose images from your library.",
               "deniedTitle": "Permission Denied",
+              "errorBody": "There was an error processing your request. Please try again later.",
+              "errorHeader": "Error",
               "okTitle": "I'm sure",
               "reTryTitle": "Re-Try",
               "selectImage": "Select Image",
@@ -11375,6 +11424,8 @@ Let's figure out where you are on your journey.",
             "chooseFromLibrary": "Choose from Library...",
             "deniedText": "To be able to take pictures with your camera and choose images from your library.",
             "deniedTitle": "Permission Denied",
+            "errorBody": "There was an error processing your request. Please try again later.",
+            "errorHeader": "Error",
             "okTitle": "I'm sure",
             "reTryTitle": "Re-Try",
             "selectImage": "Select Image",
@@ -11998,6 +12049,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -12620,6 +12673,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -13252,6 +13307,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -13879,6 +13936,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -14465,6 +14524,8 @@ Let's figure out where you are on your journey.",
                 "chooseFromLibrary": "Choose from Library...",
                 "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                 "deniedTitle": "Permission Denied",
+                "errorBody": "There was an error processing your request. Please try again later.",
+                "errorHeader": "Error",
                 "okTitle": "I'm sure",
                 "reTryTitle": "Re-Try",
                 "selectImage": "Select Image",
@@ -15090,6 +15151,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -15716,6 +15779,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -16354,6 +16419,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -16976,6 +17043,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -17608,6 +17677,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -18235,6 +18306,8 @@ Let's figure out where you are on your journey.",
                 "chooseFromLibrary": "Choose from Library...",
                 "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                 "deniedTitle": "Permission Denied",
+                "errorBody": "There was an error processing your request. Please try again later.",
+                "errorHeader": "Error",
                 "okTitle": "I'm sure",
                 "reTryTitle": "Re-Try",
                 "selectImage": "Select Image",
@@ -18867,6 +18940,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -19489,6 +19564,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -20121,6 +20198,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -21642,6 +21721,8 @@ Let's figure out where you are on your journey.",
               "chooseFromLibrary": "Choose from Library...",
               "deniedText": "To be able to take pictures with your camera and choose images from your library.",
               "deniedTitle": "Permission Denied",
+              "errorBody": "There was an error processing your request. Please try again later.",
+              "errorHeader": "Error",
               "okTitle": "I'm sure",
               "reTryTitle": "Re-Try",
               "selectImage": "Select Image",
@@ -22300,6 +22381,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -22949,6 +23032,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -23584,6 +23669,8 @@ Let's figure out where you are on your journey.",
                             "chooseFromLibrary": "Choose from Library...",
                             "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                             "deniedTitle": "Permission Denied",
+                            "errorBody": "There was an error processing your request. Please try again later.",
+                            "errorHeader": "Error",
                             "okTitle": "I'm sure",
                             "reTryTitle": "Re-Try",
                             "selectImage": "Select Image",
@@ -24206,6 +24293,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -24838,6 +24927,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -25465,6 +25556,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -26051,6 +26144,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -26676,6 +26771,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -27302,6 +27399,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -27947,6 +28046,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -28569,6 +28670,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -29200,6 +29303,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -29834,6 +29939,8 @@ Let's figure out where you are on your journey.",
                             "chooseFromLibrary": "Choose from Library...",
                             "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                             "deniedTitle": "Permission Denied",
+                            "errorBody": "There was an error processing your request. Please try again later.",
+                            "errorHeader": "Error",
                             "okTitle": "I'm sure",
                             "reTryTitle": "Re-Try",
                             "selectImage": "Select Image",
@@ -30456,6 +30563,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -31088,6 +31197,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -32609,6 +32720,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -33183,6 +33296,8 @@ Let's figure out where you are on your journey.",
                   "chooseFromLibrary": "Choose from Library...",
                   "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                   "deniedTitle": "Permission Denied",
+                  "errorBody": "There was an error processing your request. Please try again later.",
+                  "errorHeader": "Error",
                   "okTitle": "I'm sure",
                   "reTryTitle": "Re-Try",
                   "selectImage": "Select Image",
@@ -33806,6 +33921,8 @@ Let's figure out where you are on your journey.",
                             "chooseFromLibrary": "Choose from Library...",
                             "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                             "deniedTitle": "Permission Denied",
+                            "errorBody": "There was an error processing your request. Please try again later.",
+                            "errorHeader": "Error",
                             "okTitle": "I'm sure",
                             "reTryTitle": "Re-Try",
                             "selectImage": "Select Image",
@@ -34428,6 +34545,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -35060,6 +35179,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -35687,6 +35808,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -36273,6 +36396,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -36898,6 +37023,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -37524,6 +37651,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -38162,6 +38291,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -38784,6 +38915,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -39416,6 +39549,8 @@ Let's figure out where you are on your journey.",
                         "chooseFromLibrary": "Choose from Library...",
                         "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                         "deniedTitle": "Permission Denied",
+                        "errorBody": "There was an error processing your request. Please try again later.",
+                        "errorHeader": "Error",
                         "okTitle": "I'm sure",
                         "reTryTitle": "Re-Try",
                         "selectImage": "Select Image",
@@ -40043,6 +40178,8 @@ Let's figure out where you are on your journey.",
                       "chooseFromLibrary": "Choose from Library...",
                       "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                       "deniedTitle": "Permission Denied",
+                      "errorBody": "There was an error processing your request. Please try again later.",
+                      "errorHeader": "Error",
                       "okTitle": "I'm sure",
                       "reTryTitle": "Re-Try",
                       "selectImage": "Select Image",
@@ -40675,6 +40812,8 @@ Let's figure out where you are on your journey.",
                             "chooseFromLibrary": "Choose from Library...",
                             "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                             "deniedTitle": "Permission Denied",
+                            "errorBody": "There was an error processing your request. Please try again later.",
+                            "errorHeader": "Error",
                             "okTitle": "I'm sure",
                             "reTryTitle": "Re-Try",
                             "selectImage": "Select Image",
@@ -41297,6 +41436,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -41929,6 +42070,8 @@ Let's figure out where you are on your journey.",
                           "chooseFromLibrary": "Choose from Library...",
                           "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                           "deniedTitle": "Permission Denied",
+                          "errorBody": "There was an error processing your request. Please try again later.",
+                          "errorHeader": "Error",
                           "okTitle": "I'm sure",
                           "reTryTitle": "Re-Try",
                           "selectImage": "Select Image",
@@ -43450,6 +43593,8 @@ Let's figure out where you are on your journey.",
                     "chooseFromLibrary": "Choose from Library...",
                     "deniedText": "To be able to take pictures with your camera and choose images from your library.",
                     "deniedTitle": "Permission Denied",
+                    "errorBody": "There was an error processing your request. Please try again later.",
+                    "errorHeader": "Error",
                     "okTitle": "I'm sure",
                     "reTryTitle": "Re-Try",
                     "selectImage": "Select Image",
@@ -43752,87 +43897,104 @@ Choose a person in People view and add some new steps.",
           shadow={false}
           title="Create Community"
         />
-        <Translate(ImagePicker)
-          onSelectImage={[Function]}
-        >
-          <Flex
-            align="center"
-            justify="center"
-            style={
-              Object {
-                "backgroundColor": "#005A7F",
-                "borderRadius": 4,
-                "marginHorizontal": 20,
-                "marginTop": 5,
-                "minHeight": 400.2,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "testuri",
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 4,
-                  "height": 400.2,
-                  "width": "100%",
-                }
-              }
-            />
-          </Flex>
-        </Translate(ImagePicker)>
-        <Flex
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
           style={
             Object {
-              "marginTop": 5,
-              "paddingHorizontal": 30,
-              "paddingTop": 10,
+              "flex": 1,
             }
           }
-          value={1}
         >
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#66D9F0",
-                "fontSize": 24,
-                "marginBottom": 5,
-                "textAlign": "center",
-              }
-            }
-            type="header"
+          <Translate(ImagePicker)
+            onSelectImage={[Function]}
           >
-            Community Name
-          </MyText>
-          <Input
-            autoCorrect={true}
-            autoFocus={true}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder=""
-            returnKeyType="done"
-            selectionColor="#ffffff"
+            <Flex
+              align="center"
+              justify="center"
+              style={
+                Object {
+                  "backgroundColor": "#005A7F",
+                  "borderRadius": 4,
+                  "marginHorizontal": 20,
+                  "marginTop": 5,
+                  "minHeight": 400.2,
+                }
+              }
+            >
+              <Image
+                resizeMode="cover"
+                source={
+                  Object {
+                    "uri": "testuri",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 4,
+                    "height": 400.2,
+                    "width": "100%",
+                  }
+                }
+              />
+            </Flex>
+          </Translate(ImagePicker)>
+          <KeyboardAvoidingView
+            enabled={true}
+            keyboardVerticalOffset={60}
             style={
               Object {
-                "color": "#ffffff",
-                "fontSize": 16,
-                "textAlign": "center",
+                "flex": 1,
               }
             }
-            value=""
-          />
-        </Flex>
+          >
+            <Flex
+              style={
+                Object {
+                  "marginTop": 5,
+                  "paddingHorizontal": 30,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <MyText
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#66D9F0",
+                    "fontSize": 24,
+                    "marginBottom": 5,
+                    "textAlign": "center",
+                  }
+                }
+                type="header"
+              >
+                Community Name
+              </MyText>
+              <Input
+                autoCorrect={true}
+                autoFocus={true}
+                blurOnSubmit={true}
+                onChangeText={[Function]}
+                placeholder=""
+                returnKeyType="done"
+                selectionColor="#ffffff"
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+                value=""
+              />
+            </Flex>
+          </KeyboardAvoidingView>
+        </ScrollView>
         <Flex
           align="stretch"
           justify="end"
-          value={1}
         >
           <Button
             onPress={[Function]}

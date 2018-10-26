@@ -59,7 +59,7 @@ describe('CreateGroupScreen', () => {
     Keyboard.dismiss = jest.fn();
     const component = buildScreen();
     component
-      .childAt(3)
+      .childAt(2)
       .childAt(0)
       .props()
       .onPress();
