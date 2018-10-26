@@ -17,38 +17,41 @@ export default class GroupCardItem extends Component {
     const { t, group } = this.props;
     const { contactsCount, unassignedCount, uncontactedCount } =
       group.contactReport || {};
+    const { user_created } = group;
 
     return (
       <Card onPress={this.handlePress} style={styles.card}>
         <Flex>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Flex align="center" direction="row" style={styles.contactRow}>
-            {contactsCount ? (
-              <Fragment>
-                <Text style={styles.contacts}>
-                  {t('numContacts', { number: contactsCount })}
-                </Text>
-                {unassignedCount ? (
-                  <Fragment>
-                    <Dot />
-                    <Text style={styles.unassigned}>
-                      {t('numUnassigned', {
-                        number: unassignedCount,
-                      })}
-                    </Text>
-                  </Fragment>
-                ) : null}
-                {uncontactedCount ? (
-                  <Fragment>
-                    <Dot />
-                    <Text style={styles.unassigned}>
-                      {t('numUncontacted', {
-                        number: uncontactedCount,
-                      })}
-                    </Text>
-                  </Fragment>
-                ) : null}
-              </Fragment>
+            {!user_created ? (
+              contactsCount ? (
+                <Fragment>
+                  <Text style={styles.contacts}>
+                    {t('numContacts', { number: contactsCount })}
+                  </Text>
+                  {unassignedCount ? (
+                    <Fragment>
+                      <Dot />
+                      <Text style={styles.unassigned}>
+                        {t('numUnassigned', {
+                          number: unassignedCount,
+                        })}
+                      </Text>
+                    </Fragment>
+                  ) : null}
+                  {uncontactedCount ? (
+                    <Fragment>
+                      <Dot />
+                      <Text style={styles.unassigned}>
+                        {t('numUncontacted', {
+                          number: uncontactedCount,
+                        })}
+                      </Text>
+                    </Fragment>
+                  ) : null}
+                </Fragment>
+              ) : null
             ) : null}
           </Flex>
         </Flex>
@@ -61,5 +64,6 @@ GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
     contactReport: PropTypes.object.isRequired,
+    user_created: PropTypes.bool,
   }).isRequired,
 };
