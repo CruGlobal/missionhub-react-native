@@ -116,7 +116,7 @@ export function getChallenge(challenge_id) {
   return dispatch => {
     const query = {
       challenge_id,
-      include: 'accepted_community_challenges',
+      include: 'accepted_community_challenges.person.full_name',
     };
 
     return dispatch(callApi(REQUESTS.GET_GROUP_CHALLENGE, query));

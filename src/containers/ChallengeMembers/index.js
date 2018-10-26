@@ -14,6 +14,10 @@ import {
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
+import {
+  communityChallengeSelector,
+  acceptedChallengesSelector,
+} from '../../selectors/challenges';
 
 import styles from './styles';
 
@@ -23,29 +27,9 @@ class ChallengeMembers extends Component {
     refreshing: false,
   };
 
-  componentDidMount() {
-    if (this.props.members.length === 0) {
-      this.load();
-    }
-  }
-
-  load = () => {
-    const { dispatch, organization } = this.props;
-    return dispatch(getOrganizationMembers(organization.id));
-  };
-
-  handleRefresh = () => {
-    refresh(this, this.load);
-  };
-
   handleSelect = person => {
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
-  };
-
-  handleLoadMore = () => {
-    const { dispatch, organization } = this.props;
-    dispatch(getOrganizationMembersNextPage(organization.id));
   };
 
   keyExtractor = i => i.id;
@@ -55,14 +39,14 @@ class ChallengeMembers extends Component {
     return (
       <GroupMemberItem
         isUserCreatedOrg={organization.user_created}
-        person={item}
+        person={{ ...item, full_name: 'Jeff' }}
         onSelect={this.handleSelect}
       />
     );
   };
 
   render() {
-    const { t, members, pagination } = this.props;
+    const { t, members } = this.props;
     return (
       <Flex value={1}>
         <FlatList
@@ -70,19 +54,6 @@ class ChallengeMembers extends Component {
           keyExtractor={this.keyExtractor}
           style={styles.flatList}
           renderItem={this.renderItem}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.handleRefresh}
-            />
-          }
-          ListFooterComponent={
-            pagination.hasNextPage ? (
-              <LoadMore onPress={this.handleLoadMore} />
-            ) : (
-              undefined
-            )
-          }
         />
       </Flex>
     );
@@ -90,17 +61,31 @@ class ChallengeMembers extends Component {
 }
 
 ChallengeMembers.propTypes = {
+  members: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { organization }) => {
-  const selectorOrg = organizationSelector(
+const mapStateToProps = (
+  { organizations },
+  { challengeId, orgId, completed },
+) => {
+  const selectorOrg = organizationSelector({ organizations }, { orgId });
+
+  const selectorChallenge = communityChallengeSelector(
     { organizations },
-    { orgId: organization.id },
+    { orgId, challengeId },
   );
+
+  const acceptedChallenges = selectorChallenge.accepted_community_challenges;
+  const selectorAcceptedChallenges = acceptedChallengesSelector({
+    acceptedChallenges,
+  });
+
   return {
-    members: (selectorOrg || {}).members || [],
-    pagination: organizations.membersPagination,
+    members: completed
+      ? selectorAcceptedChallenges.completed
+      : selectorAcceptedChallenges.joined,
+    organization: selectorOrg,
   };
 };
 

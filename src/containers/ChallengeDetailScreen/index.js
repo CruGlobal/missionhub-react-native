@@ -29,10 +29,16 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { orgId },
+          params: { challengeId, orgId },
         },
       },
-    }) => <ChallengeMembers organization={{ id: orgId }} />,
+    }) => (
+      <ChallengeMembers
+        challengeId={challengeId}
+        orgId={orgId}
+        completed={false}
+      />
+    ),
   },
   {
     name: i18next.t('challengeFeeds:completed'),
@@ -40,10 +46,16 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { orgId },
+          params: { challengeId, orgId },
         },
       },
-    }) => <ChallengeMembers organization={{ id: orgId }} />,
+    }) => (
+      <ChallengeMembers
+        challengeId={challengeId}
+        orgId={orgId}
+        completed={true}
+      />
+    ),
   },
 ];
 
@@ -113,31 +125,32 @@ export class ChallengeDetailScreen extends Component {
 
 ChallengeDetailScreen.propTypes = {
   challenge: PropTypes.object.isRequired,
+  acceptedChallenge: PropTypes.object.isRequired,
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { navigation }) => {
+const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const {
-    challenge: {
-      id: challengeId,
-      organization: { id: orgId },
-    },
-  } = navParams;
+  const challengeId = navParams.challengeId;
+  const orgId = navParams.orgId;
+  const myId = auth.person.id;
 
   const selectorChallenge = communityChallengeSelector(
     { organizations },
     { orgId, challengeId },
   );
 
-  const acceptedChallenges = selectorChallenge.accepted_community_challenges;
+  const acceptedChallenge = selectorChallenge.accepted_community_challenges.find(
+    c => c.person && c.person.id === myId,
+  );
 
   return {
     ...navParams,
-    ...acceptedChallengesSelector({ acceptedChallenges }),
+    challenge: selectorChallenge,
+    acceptedChallenge,
   };
 };
 

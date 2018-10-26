@@ -82,10 +82,11 @@ class ChallengeFeed extends Component {
   };
 
   handleSelectRow = challenge => {
-    const { dispatch, canEditChallenges } = this.props;
+    const { dispatch, canEditChallenges, organization } = this.props;
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
-        challenge,
+        challengeId: challenge.id,
+        orgId: organization.id,
         canEditChallenges,
         onJoin: this.handleJoin,
         onComplete: this.handleComplete,
