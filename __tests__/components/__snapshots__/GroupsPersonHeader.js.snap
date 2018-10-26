@@ -64,6 +64,29 @@ exports[`isContact with contact assignment does not render status button if cont
 </Flex>
 `;
 
+exports[`isContact with contact assignment renders no contact buttons for User-Created Org 1`] = `
+<Flex>
+  <Connect(Translate(AssignToMeButton))
+    organization={
+      Object {
+        "id": "50",
+      }
+    }
+    person={
+      Object {
+        "first_name": "Roge",
+        "id": "1002",
+      }
+    }
+  />
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  />
+</Flex>
+`;
+
 exports[`isContact with contact assignment renders status button if contact is part of org 1`] = `
 <Flex>
   <Flex
@@ -167,6 +190,29 @@ exports[`isMember has contact info and contact assignment renders 1`] = `
       text="Email"
     />
   </Flex>
+</Flex>
+`;
+
+exports[`isMember renders no contact buttons for User-Created Org 1`] = `
+<Flex>
+  <Connect(Translate(AssignToMeButton))
+    organization={
+      Object {
+        "id": "50",
+      }
+    }
+    person={
+      Object {
+        "first_name": "Roge",
+        "id": "1002",
+      }
+    }
+  />
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+  />
 </Flex>
 `;
 
