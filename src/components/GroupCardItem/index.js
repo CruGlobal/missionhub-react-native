@@ -56,5 +56,6 @@ GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
     contactReport: PropTypes.object.isRequired,
+    user_created: PropTypes.bool,
   }).isRequired,
 };
