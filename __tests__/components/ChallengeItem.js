@@ -10,6 +10,7 @@ jest.mock('../../src/actions/celebration');
 MockDate.set(
   moment('2018-09-15')
     .endOf('day')
+    .utc()
     .toDate(),
 );
 
@@ -83,7 +84,9 @@ it('render past challenge item', () => {
       item={{
         ...item,
         isPast: true,
-        end_date: moment('2018-09-10').endOf('day'),
+        end_date: moment('2018-09-10')
+          .utc()
+          .endOf('day'),
       }}
     />,
   );
