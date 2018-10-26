@@ -26,7 +26,6 @@ const item = {
   end_date: date,
   accepted_count: 5,
   completed_count: 3,
-  days_remaining: 14,
   isPast: false,
   created_at: '2018-09-01T12:00:00Z',
 };
