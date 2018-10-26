@@ -20,6 +20,7 @@ jest.mock('../../../../src/selectors/organizations');
 jest.mock('../../../../src/actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
 }));
+jest.mock('../../../../src/utils/common');
 
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', first_name: 'Test Person' };
@@ -73,6 +74,7 @@ const props = {
   myId: myId,
   stages: stages,
   isMember: true,
+  isCruOrg: true,
 };
 
 beforeEach(() => {
@@ -82,6 +84,7 @@ beforeEach(() => {
 describe('Contact', () => {
   it('should provide necessary props', () => {
     organizationSelector.mockReturnValue(undefined);
+    common.communityIsCru.mockReturnValue(true);
 
     expect(mapStateToProps(store, nav)).toEqual({
       organization,
@@ -90,7 +93,9 @@ describe('Contact', () => {
       myId,
       stages,
       myStageId: pathwayStage.id,
+      isCruOrg: true,
     });
+    expect(common.communityIsCru).toHaveBeenCalledWith(organization);
   });
 
   it('should render AssignedPersonScreen correctly without stage', () => {
