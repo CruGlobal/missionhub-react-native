@@ -15,7 +15,6 @@ const challengeItems = [
     end_date: '2018-09-26T14:13:21Z',
     accepted_count: 5,
     completed_count: 3,
-    days_remaining: 14,
   },
   {
     id: '2',
@@ -25,7 +24,6 @@ const challengeItems = [
     end_date: '2018-09-16T14:13:21Z',
     accepted_count: 5,
     completed_count: 3,
-    days_remaining: 14,
     accepted_at: '2018-09-06T14:13:21Z',
   },
   {
@@ -36,8 +34,6 @@ const challengeItems = [
     end_date: '2018-09-06T14:13:21Z',
     accepted_count: 5,
     completed_count: 0,
-    days_remaining: 0,
-    total_days: 7,
   },
   {
     id: '4',
@@ -47,8 +43,6 @@ const challengeItems = [
     end_date: '2018-09-06T14:13:21Z',
     accepted_count: 5,
     completed_count: 3,
-    days_remaining: 0,
-    total_days: 7,
     accepted_at: '2018-09-06T14:13:21Z',
     completed_at: '2018-09-06T14:13:21Z',
   },

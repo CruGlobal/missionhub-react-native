@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render active challenge item 1`] = `
+<Flex
+  direction="row"
+  justify="between"
+>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Days Left
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      15
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Joined
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      5
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Completed
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      3
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`render past challenge item 1`] = `
+<Flex
+  direction="row"
+  justify="between"
+>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Days
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      30
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Joined
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      5
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Completed
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#007398",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 48,
+          "lineHeight": 50,
+        }
+      }
+    >
+      3
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`render small active challenge item 1`] = `
+<Flex
+  direction="row"
+  justify="between"
+>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Days Left
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      15
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Joined
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      5
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Completed
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      3
+    </MyText>
+  </Flex>
+</Flex>
+`;
+
+exports[`render small past challenge item 1`] = `
+<Flex
+  direction="row"
+  justify="between"
+>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Days
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      30
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Joined
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      5
+    </MyText>
+  </Flex>
+  <Flex
+    direction="column"
+    justify="start"
+  >
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#A0A2A6",
+          "fontSize": 10,
+        }
+      }
+    >
+      Completed
+    </MyText>
+    <MyText
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-ExtraLight",
+          "fontSize": 32,
+          "lineHeight": 32,
+        }
+      }
+    >
+      3
+    </MyText>
+  </Flex>
+</Flex>
+`;
