@@ -70,115 +70,20 @@ exports[`render for active challenge 1`] = `
         }
       />
     </Flex>
-    <Flex
-      direction="row"
-      justify="between"
+    <Translate(ChallengeStats)
+      challenge={
+        Object {
+          "end_date": "2018-09-22",
+          "isPast": false,
+          "title": "Challenge Title",
+        }
+      }
       style={
         Object {
           "paddingVertical": 8,
         }
       }
-    >
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Days Left
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          5
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Joined
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          4
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Completed
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          3
-        </MyText>
-      </Flex>
-    </Flex>
+    />
   </Flex>
   <Flex
     value={1}
@@ -273,115 +178,20 @@ exports[`render for active challenge with edit 1`] = `
         }
       />
     </Flex>
-    <Flex
-      direction="row"
-      justify="between"
+    <Translate(ChallengeStats)
+      challenge={
+        Object {
+          "end_date": "2018-09-22",
+          "isPast": false,
+          "title": "Challenge Title",
+        }
+      }
       style={
         Object {
           "paddingVertical": 8,
         }
       }
-    >
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Days Left
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          5
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Joined
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          4
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Completed
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          3
-        </MyText>
-      </Flex>
-    </Flex>
+    />
   </Flex>
   <Flex
     value={1}
@@ -459,115 +269,20 @@ exports[`render for past challenge 1`] = `
         }
       />
     </Flex>
-    <Flex
-      direction="row"
-      justify="between"
+    <Translate(ChallengeStats)
+      challenge={
+        Object {
+          "end_date": "2018-09-22",
+          "isPast": true,
+          "title": "Challenge Title",
+        }
+      }
       style={
         Object {
           "paddingVertical": 8,
         }
       }
-    >
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Days Left
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          5
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Joined
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          4
-        </MyText>
-      </Flex>
-      <Flex
-        direction="column"
-        justify="start"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            }
-          }
-        >
-          Completed
-        </MyText>
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-ExtraLight",
-              "fontSize": 48,
-              "lineHeight": 50,
-            }
-          }
-        >
-          3
-        </MyText>
-      </Flex>
-    </Flex>
+    />
   </Flex>
   <Flex
     value={1}

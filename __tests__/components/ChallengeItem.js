@@ -109,31 +109,6 @@ it('render past and joined and completed challenge item', () => {
   );
 });
 
-it('should call onEdit from press', () => {
-  const newProps = {
-    ...props,
-    onEdit: jest.fn(),
-  };
-  const component = renderShallow(
-    <ChallengeItem
-      item={item}
-      {...newProps}
-      acceptedChallenge={acceptedChallenge}
-    />,
-  );
-
-  component
-    .childAt(0)
-    .childAt(0)
-    .childAt(0)
-    .childAt(1)
-    .childAt(0)
-    .childAt(0)
-    .props()
-    .onPress();
-  expect(newProps.onEdit).toHaveBeenCalledWith(item);
-});
-
 it('should call onComplete from press', () => {
   const component = renderShallow(
     <ChallengeItem
