@@ -15,7 +15,6 @@ import {
   Input,
   IconButton,
   Button,
-  PlatformKeyboardAvoidingView,
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
@@ -42,7 +41,7 @@ class CreateGroupScreen extends Component {
     }
 
     // TODO: Create community
-    console.log('create community', text);
+    // console.log('create community', text);
   };
 
   handleImageChange = data => this.setState({ imageUri: data.uri });
