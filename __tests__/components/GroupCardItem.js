@@ -5,11 +5,11 @@ import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const contactsCount = 768;
 const unassignedCount = 13;
-// const uncontactedCount = 56;
 
 let group = {
   name: 'Group Name',
   contactReport: {},
+  user_created: false,
 };
 
 const test = () => {
@@ -21,6 +21,19 @@ describe('GroupCardItem', () => {
     test();
   });
 
+  it('renders with no report counts for user created org', () => {
+    group = {
+      ...group,
+      contactReport: {
+        contactsCount,
+        unassignedCount,
+      },
+      user_created: true,
+    };
+
+    test();
+  });
+
   it('renders with all report counts', () => {
     group = {
       ...group,
@@ -28,6 +41,7 @@ describe('GroupCardItem', () => {
         contactsCount,
         unassignedCount,
       },
+      user_created: false,
     };
 
     test();
@@ -39,6 +53,7 @@ describe('GroupCardItem', () => {
       contactReport: {
         unassignedCount,
       },
+      user_created: false,
     };
 
     test();
@@ -50,6 +65,7 @@ describe('GroupCardItem', () => {
       contactReport: {
         contactsCount,
       },
+      user_created: false,
     };
 
     test();
