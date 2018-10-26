@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, Button, Text, DateComponent } from '../common';
+import ChallengeStats from '../ChallengeStats';
 
 import styles from './styles';
 
@@ -43,20 +44,7 @@ class ChallengeDetailHeader extends Component {
               style={styles.dateText}
             />
           </Flex>
-          <Flex style={styles.section} direction="row" justify="between">
-            <Flex direction="column" justify="start">
-              <Text style={styles.subHeader}>{t('daysLeft')}</Text>
-              <Text style={styles.number}>5</Text>
-            </Flex>
-            <Flex direction="column" justify="start">
-              <Text style={styles.subHeader}>{t('joined')}</Text>
-              <Text style={styles.number}>4</Text>
-            </Flex>
-            <Flex direction="column" justify="start">
-              <Text style={styles.subHeader}>{t('completed')}</Text>
-              <Text style={styles.number}>3</Text>
-            </Flex>
-          </Flex>
+          <ChallengeStats challenge={challenge} style={styles.section} />
         </Flex>
         <Flex value={1} />
       </Flex>

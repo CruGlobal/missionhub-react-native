@@ -6,29 +6,37 @@ import i18n from '../i18n';
 export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
   challengeItems => {
-    const sections = [
+    const today = moment().endOf('day');
+
+    const { currentItems, pastItems } = challengeItems.reduce(
+      ({ currentItems, pastItems }, item) => {
+        const endDate = moment(item.end_date).endOf('day');
+        // Check if the end date is AFTER today (in the future)
+        const isCurrent = endDate.diff(today, 'days') >= 0;
+
+        return {
+          currentItems: [
+            ...currentItems,
+            ...(isCurrent ? [{ ...item, isPast: false }] : []),
+          ],
+          pastItems: [
+            ...pastItems,
+            ...(isCurrent ? [] : [{ ...item, isPast: true }]),
+          ],
+        };
+      },
+      { currentItems: [], pastItems: [] },
+    );
+
+    return [
       {
         title: '',
-        data: [],
+        data: currentItems,
       },
       {
         title: i18n.t('challengeFeeds:past'),
-        data: [],
+        data: pastItems,
       },
     ];
-
-    const today = moment().endOf('day');
-    challengeItems.forEach(item => {
-      // Make sure we get the end of the day from the given
-      const endDate = moment(item.end_date).endOf('day');
-      // Check if the end date is AFTER today (in the future)
-      if (endDate.diff(today, 'days') >= 0) {
-        sections[0].data.push({ ...item, isPast: false });
-      } else {
-        sections[1].data.push({ ...item, isPast: true });
-      }
-    });
-
-    return sections;
   },
 );
