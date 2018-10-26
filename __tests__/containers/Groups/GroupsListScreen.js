@@ -11,6 +11,8 @@ import {
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
 } from '../../../src/containers/Groups/GroupScreen';
+import { JOIN_GROUP_SCREEN } from '../../../src/containers/Groups/JoinGroupScreen';
+import { CREATE_GROUP_SCREEN } from '../../../src/containers/Groups/CreateGroupScreen';
 
 jest.mock('../../../src/selectors/organizations');
 jest.mock('../../../src/actions/navigation', () => ({
@@ -26,10 +28,12 @@ const organizations = {
     {
       id: '1',
       name: 'Test Org 1',
+      contactReport: {},
     },
     {
       id: '2',
       name: 'Test Org 2',
+      contactReport: {},
       user_created: true,
     },
   ],
@@ -61,7 +65,7 @@ describe('GroupsListScreen', () => {
     it('navigates to groups screen', () => {
       const organization = organizations.all[0];
       const item = component
-        .childAt(1)
+        .childAt(2)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -77,7 +81,7 @@ describe('GroupsListScreen', () => {
     it('navigates to user created org screen', () => {
       const organization = organizations.all[1];
       const item = component
-        .childAt(1)
+        .childAt(2)
         .childAt(0)
         .props()
         .renderItem({ item: organization });
@@ -132,5 +136,27 @@ describe('GroupsListScreen', () => {
     const instance = component.instance();
     const renderedItem = instance.renderNull();
     expect(renderedItem).toMatchSnapshot();
+  });
+
+  it('navigates to join group screen', () => {
+    component
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(JOIN_GROUP_SCREEN);
+  });
+
+  it('navigates to create group screen', () => {
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(navigatePush).toHaveBeenCalledWith(CREATE_GROUP_SCREEN);
   });
 });

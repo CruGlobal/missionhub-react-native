@@ -5,7 +5,6 @@ import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 const contactsCount = 768;
 const unassignedCount = 13;
-const uncontactedCount = 56;
 
 let group = {
   name: 'Group Name',
@@ -28,7 +27,6 @@ describe('GroupCardItem', () => {
       contactReport: {
         contactsCount,
         unassignedCount,
-        uncontactedCount,
       },
       user_created: true,
     };
@@ -42,7 +40,6 @@ describe('GroupCardItem', () => {
       contactReport: {
         contactsCount,
         unassignedCount,
-        uncontactedCount,
       },
       user_created: false,
     };
@@ -50,11 +47,10 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders with contacts and unassigned, no uncontacted', () => {
+  it('renders with unassigned, no contacts', () => {
     group = {
       ...group,
       contactReport: {
-        contactsCount,
         unassignedCount,
       },
       user_created: false,
@@ -63,12 +59,11 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders with contacts and uncontacted, no unassigned', () => {
+  it('renders with contacts, no unassigned', () => {
     group = {
       ...group,
       contactReport: {
         contactsCount,
-        uncontactedCount,
       },
       user_created: false,
     };
@@ -76,13 +71,20 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders with contacts, no unassigned and no uncontacted', () => {
+  it('renders user created group', () => {
     group = {
       ...group,
-      contactReport: {
-        contactsCount,
-      },
-      user_created: false,
+      user_created: true,
+    };
+
+    test();
+  });
+
+  it('renders with image url', () => {
+    group = {
+      ...group,
+      imageUrl:
+        'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
     };
 
     test();

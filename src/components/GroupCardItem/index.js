@@ -1,8 +1,12 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Text, Flex, Dot, Card } from '../common';
+import { Text, Flex, Card } from '../common';
+import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
+// TODO: Need the correct default image for user created communities
+import DEFAULT_USER_COMMUNITY_IMAGE from '../../../assets/images/impactBackground.png';
 
 import styles from './styles';
 
@@ -15,45 +19,33 @@ export default class GroupCardItem extends Component {
 
   render() {
     const { t, group } = this.props;
-    const { contactsCount, unassignedCount, uncontactedCount } =
+    const isUserCreated = group.user_created;
+    const { contactsCount = 0, unassignedCount = 0 } =
       group.contactReport || {};
-    const { user_created } = group;
+    // TODO: Need to pull this info from the contactReport once the API supports it
+    // const membersCount = 100;
+    let source;
+    if (group.imageUrl) {
+      source = { url: group.imageUrl };
+    } else if (isUserCreated) {
+      source = DEFAULT_USER_COMMUNITY_IMAGE;
+    } else {
+      source = DEFAULT_MISSIONHUB_IMAGE;
+    }
 
     return (
       <Card onPress={this.handlePress} style={styles.card}>
-        <Flex>
+        <Image source={source} resizeMode="cover" style={styles.image} />
+        <Flex justify="center" style={styles.infoWrap}>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
-          <Flex align="center" direction="row" style={styles.contactRow}>
-            {!user_created ? (
-              contactsCount ? (
-                <Fragment>
-                  <Text style={styles.contacts}>
-                    {t('numContacts', { number: contactsCount })}
-                  </Text>
-                  {unassignedCount ? (
-                    <Fragment>
-                      <Dot />
-                      <Text style={styles.unassigned}>
-                        {t('numUnassigned', {
-                          number: unassignedCount,
-                        })}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                  {uncontactedCount ? (
-                    <Fragment>
-                      <Dot />
-                      <Text style={styles.unassigned}>
-                        {t('numUncontacted', {
-                          number: uncontactedCount,
-                        })}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                </Fragment>
-              ) : null
-            ) : null}
-          </Flex>
+          <Text style={styles.groupNumber}>
+            {isUserCreated
+              ? '' /*t('numMembers', { number: membersCount })*/
+              : `${t('numContacts', { number: contactsCount })}   ·   ${t(
+                  'numUnassigned',
+                  { number: unassignedCount },
+                )}`}
+          </Text>
         </Flex>
       </Card>
     );

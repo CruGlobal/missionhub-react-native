@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoinGroupScreen should render correctly 1`] = `
+<Flex
+  value={1}
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    title="Join Group"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Join Group
+  </MyText>
+</Flex>
+`;
+
+exports[`should render null state 1`] = `
+<Flex
+  value={1}
+>
+  <Connect(Header)
+    left={<Connect(BackButton) />}
+    title="Join Group"
+  />
+  <MyText
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Join Group
+  </MyText>
+</Flex>
+`;

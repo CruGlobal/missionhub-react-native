@@ -121,6 +121,12 @@ import SurveyQuestionsFilter, {
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
+import JoinGroupScreen, {
+  JOIN_GROUP_SCREEN,
+} from './containers/Groups/JoinGroupScreen';
+import CreateGroupScreen, {
+  CREATE_GROUP_SCREEN,
+} from './containers/Groups/CreateGroupScreen';
 import StatusSelect, {
   STATUS_SELECT_SCREEN,
 } from './containers/StatusSelectScreen';
@@ -364,9 +370,7 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
@@ -384,9 +388,7 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     ContactsFilter,
@@ -395,9 +397,17 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
+  ),
+  [JOIN_GROUP_SCREEN]: buildTrackedScreen(
+    JoinGroupScreen,
+    buildTrackingObj('communities : join', 'communities', 'join'),
+    { gesturesEnabled: true },
+  ),
+  [CREATE_GROUP_SCREEN]: buildTrackedScreen(
+    CreateGroupScreen,
+    buildTrackingObj('communities : create', 'communities', 'create'),
+    { gesturesEnabled: true },
   ),
   [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
     UnassignedPersonScreen,
