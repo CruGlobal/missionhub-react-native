@@ -4,37 +4,52 @@ import {
   SCREEN_FLOW_PREVIOUS,
   SCREEN_FLOW_FINISH,
 } from '../constants';
+import {
+  currentFlow,
+  previousFlows,
+  previousScreensOfCurrentFlow,
+} from '../selectors/screenFlow';
 
 const initialState = {
-  current: {
-    flow: null,
-    screen: null,
-  },
-  history: [],
+  activeFlows: [],
 };
 
 export default function screenFlowReducer(state = initialState, action) {
   switch (action.type) {
-    case SCREEN_FLOW_START:
+    case SCREEN_FLOW_START: {
+      const { flow, screen } = action;
       return {
-        current: { ...action.flowState },
-        history: [],
+        activeFlows: [...state.activeFlows, { flow, screens: [screen] }],
       };
-    case SCREEN_FLOW_NEXT:
+    }
+    case SCREEN_FLOW_NEXT: {
+      const { screen } = action;
       return {
-        current: action.flowState,
-        history: [...state.history, state.current],
+        activeFlows: [
+          ...previousFlows(state),
+          {
+            ...currentFlow(state),
+            screens: [...previousScreensOfCurrentFlow(state), screen],
+          },
+        ],
       };
-    case SCREEN_FLOW_PREVIOUS:
+    }
+    case SCREEN_FLOW_PREVIOUS: {
       return {
-        current: state.history.slice(-1)[0], // Last element in history
-        history: state.history.slice(0, -1), // All but last element in history
+        activeFlows: [
+          ...previousFlows(state),
+          {
+            ...currentFlow(state),
+            screens: previousScreensOfCurrentFlow(state),
+          },
+        ],
       };
-    case SCREEN_FLOW_FINISH:
+    }
+    case SCREEN_FLOW_FINISH: {
       return {
-        current: null, // TODO: implement
-        history: null, // TODO: implement
+        activeFlows: previousFlows(state),
       };
+    }
     default:
       return state;
   }

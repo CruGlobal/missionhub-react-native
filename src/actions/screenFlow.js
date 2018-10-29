@@ -13,6 +13,11 @@ import {
   AuthenticateFlow,
   authenticateFlowNext,
 } from './screenFlows/authenticateFlow';
+import {
+  currentFlow,
+  currentFlowName,
+  currentScreenOfCurrentFlow,
+} from '../selectors/screenFlow';
 
 // export const ScreenFlows = Object.freeze({
 //   Authenticate: 'AUTHENTICATE_FLOW',
@@ -21,50 +26,54 @@ import {
 //   Onboarding: 'ONBOARDING_FLOW',
 // });
 
-export function screenFlowStart(flow) {
+export function screenFlowStart(newFlow) {
   return dispatch => {
-    const flowState = {
-      ...getNextFlowState({ flow }),
-      start: true, // TODO: remove if I don't use the start idea: [screenFlow.history.filter(item => item.start).slice(-2)[0] // previous started flow. Take that and call screenFlowPrevious somehow. I think this only works for 2 levels
-    };
+    const { flow, screen } = getNextFlowState(newFlow);
 
-    dispatch({ type: SCREEN_FLOW_START, flowState });
-    dispatch(navigatePush(flowState.screen));
+    dispatch({ type: SCREEN_FLOW_START, flow, screen });
+    dispatch(navigatePush(screen.screen));
   };
 }
 
 export function screenFlowNext(payload = {}) {
   return (dispatch, getState) => {
-    const {
-      screenFlow: { current: currentScreenFlow },
-    } = getState();
-    const flowState = getNextFlowState(currentScreenFlow, payload);
+    const { screenFlow } = getState();
+    const { screen } = getNextFlowState(
+      currentFlowName(screenFlow),
+      currentScreenOfCurrentFlow(screenFlow),
+      payload,
+    );
 
     dispatch({ type: SCREEN_FLOW_NEXT, flowState });
-    dispatch(navigatePush(flowState.screen));
+    dispatch(navigatePush(screen));
   };
 }
 
 export function screenFlowPrevious() {
   return (dispatch, getState) => {
-    const {
-      screenFlow: { current: currentScreenFlow },
-    } = getState();
+    const { screenFlow } = getState();
 
-    currentScreenFlow.backAction(); // Action to perform when leaving this screen (undo changes, logout, update redux, prompt before going back, etc). No effect if skipHistory is also enabled.
+    // TODO: change state from storing screen name to storing object { name, backAction, skipHistory }
+
+    // TODO: can this call another back function to implement skipHistory?
+    // TODO: can this return something to cancel back action or skipHistory?
+    // Action to perform when leaving this screen (undo changes, logout, update redux, prompt before going back, etc). No effect if skipHistory is also enabled.
+    currentFlow(screenFlow).backAction();
+
+    // Go back twice if we're skipping current screen // TODO: this isn't going to work. Could have to skip several screens in a row
+    if (currentFlow(screenFlow).skipHistory) {
+      // TODO: fix. this isn't going to work. Need to store a placeholder so we don't go back too far if we only rely on history and not a previous state function/switch
+      dispatch({ type: SCREEN_FLOW_PREVIOUS });
+    }
     dispatch({ type: SCREEN_FLOW_PREVIOUS });
-    dispatch(navigateBack());
+    dispatch(navigateBack()); // TODO: figure out times to go back
   };
 }
 
-function getNextFlowState(
-  { flow: currentFlow, screen: currentScreen },
-  payload,
-) {
+function getNextFlowState(currentFlow, currentScreen, payload) {
   switch (currentFlow) {
     case AuthenticateFlow:
       return authenticateFlowNext(currentScreen, payload);
-
     default:
       return null;
   }

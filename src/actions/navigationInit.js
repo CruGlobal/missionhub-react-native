@@ -4,7 +4,8 @@ import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 
 import { navigateReset } from './navigation';
-import { screenFlowStart, ScreenFlows } from './screenFlow';
+import { screenFlowStart } from './screenFlow';
+import { AuthenticateFlow } from './screenFlows/authenticateFlow';
 
 export function setInitialRoute() {
   return (dispatch, getState) => {
@@ -24,7 +25,7 @@ export function setInitialRoute() {
         : dispatch(navigateReset(GET_STARTED_SCREEN));
     }
 
-    return dispatch(screenFlowStart(ScreenFlows.Authenticate));
+    return dispatch(screenFlowStart(AuthenticateFlow));
   };
 }
 

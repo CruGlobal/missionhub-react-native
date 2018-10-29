@@ -20,3 +20,33 @@ export function authenticateFlowNext(currentScreen, payload) {
       return authenticateNext(LOGIN_SCREEN);
   }
 }
+
+const screenFlowConfig = {
+  LOGIN_SCREEN: {
+    next: ({ signIn }) => (signIn ? KEY_LOGIN_SCREEN : LOGIN_OPTIONS_SCREEN),
+  },
+  LOGIN_OPTIONS_SCREEN: {
+    next: (payload, dispatch, getState) => {
+      doAnalyticsThing();
+
+      return 'Screen3';
+    },
+    previous: 2, // times
+  },
+  Screen3: {
+    nextScreen: (payload, dispatch, getState) => {
+      doAnalyticsThing();
+
+      return { flow: Onboarding, screen: 'Screen2' };
+    },
+    previousScreen: 'Screen 0',
+  },
+  Screen4: {
+    nextScreen: (payload, dispatch, getState) => {
+      doAnalyticsThing();
+
+      return { flow: Onboarding, screen: 'Screen2' };
+    },
+    previousScreen: 'Screen 0',
+  },
+};
