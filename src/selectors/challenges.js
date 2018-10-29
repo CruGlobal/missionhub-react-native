@@ -46,6 +46,9 @@ export const acceptedChallengesSelector = createSelector(
   acceptedChallenges => {
     const sortedAcceptances = { joined: [], completed: [] };
     acceptedChallenges.forEach(a => {
+      if (a.person._placeHolder) {
+        return;
+      }
       if (a.completed_at) {
         sortedAcceptances.completed.push(a);
       } else {

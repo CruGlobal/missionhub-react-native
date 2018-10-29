@@ -21,7 +21,6 @@ import {
 
 import styles from './styles';
 
-@translate('groupsMembers')
 class ChallengeMembers extends Component {
   state = {
     refreshing: false,
@@ -39,14 +38,14 @@ class ChallengeMembers extends Component {
     return (
       <GroupMemberItem
         isUserCreatedOrg={organization.user_created}
-        person={{ ...item, full_name: 'Jeff' }}
+        person={item.person}
         onSelect={this.handleSelect}
       />
     );
   };
 
   render() {
-    const { t, members } = this.props;
+    const { members } = this.props;
     return (
       <Flex value={1}>
         <FlatList
