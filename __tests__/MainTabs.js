@@ -4,7 +4,15 @@ import { Provider } from 'react-redux';
 
 import theme from '../src/theme';
 import { createMockStore, testSnapshot } from '../testUtils';
-import { MainTabBar, MainTabBarGroups, navItem } from '../src/AppRoutes';
+import {
+  MainTabBar,
+  MainTabBarGroups,
+  navItem,
+  MainTabBarGroupsStartGroups,
+} from '../src/AppRoutes';
+import { communitiesSelector } from '../src/selectors/organizations';
+
+jest.mock('../src/selectors/organizations');
 
 const store = createMockStore({
   steps: {
@@ -32,7 +40,13 @@ const store = createMockStore({
     stepsReminder: false, // Never show on the reminders anymore
     journey: true,
   },
+  organizations: {
+    all: [],
+  },
+  auth: {},
 });
+
+communitiesSelector.mockReturnValue([]);
 
 it('renders home screen with tab bar with impact tab correctly', () => {
   testSnapshot(
@@ -46,6 +60,14 @@ it('renders home screen with tab bar with groups tab correctly', () => {
   testSnapshot(
     <Provider store={store}>
       <MainTabBarGroups />
+    </Provider>,
+  );
+});
+
+it('renders home screen with tab bar with groups tab selected correctly', () => {
+  testSnapshot(
+    <Provider store={store}>
+      <MainTabBarGroupsStartGroups />
     </Provider>,
   );
 });
