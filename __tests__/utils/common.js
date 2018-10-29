@@ -46,6 +46,9 @@ describe('userIsJean', () => {
 });
 
 describe('communityIsCru', () => {
+  it('returns false for empty org', () => {
+    expect(communityIsCru({})).toEqual(false);
+  });
   it('returns false for personal ministry', () => {
     expect(communityIsCru({ id: 'personal' })).toEqual(false);
   });
