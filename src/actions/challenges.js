@@ -1,7 +1,6 @@
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import { UPDATE_GROUP_CHALLENGE } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';

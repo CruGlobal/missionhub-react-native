@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { Flex, RefreshControl } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { Flex } from '../../components/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
-import LoadMore from '../../components/LoadMore';
-import {
-  getOrganizationMembers,
-  getOrganizationMembersNextPage,
-} from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import {

@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import moment from 'moment';
 
 import i18n from '../i18n';
+
 import { organizationSelector } from './organizations';
 
 export const challengesSelector = createSelector(
@@ -55,7 +56,6 @@ export const acceptedChallengesSelector = createSelector(
         sortedAcceptances.joined.push(a);
       }
     });
-    console.log(sortedAcceptances);
     return sortedAcceptances;
   },
 );

@@ -12,10 +12,7 @@ import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
-import {
-  communityChallengeSelector,
-  acceptedChallengesSelector,
-} from '../../selectors/challenges';
+import { communityChallengeSelector } from '../../selectors/challenges';
 
 import styles from './styles';
 
@@ -125,11 +122,11 @@ export class ChallengeDetailScreen extends Component {
 
 ChallengeDetailScreen.propTypes = {
   challenge: PropTypes.object.isRequired,
-  acceptedChallenge: PropTypes.object.isRequired,
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
+  acceptedChallenge: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
