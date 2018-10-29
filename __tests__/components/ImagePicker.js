@@ -40,5 +40,5 @@ it('error selecting image', () => {
   const component = renderShallow(<ImagePicker {...props} />);
   component.props().onPress();
 
-  expect(Alert.alert).toHaveBeenCalledWith;
+  expect(Alert.alert).toHaveBeenCalled();
 });
