@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   card: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
     marginVertical: 5,
     alignItems: 'stretch',
     backgroundColor: theme.white,
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 16,
+    padding: 20,
   },
   title: {
     color: theme.primaryColor,
