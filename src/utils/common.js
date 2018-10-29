@@ -72,10 +72,12 @@ export const userIsJean = orgPermissions =>
   orgPermissions.some(p => !p.organization.user_created);
 
 export const communityIsCru = organization =>
-  !!organization &&
-  !!organization.id &&
-  organization.id !== 'personal' &&
-  !organization.user_created;
+  !!(
+    organization &&
+    organization.id &&
+    organization.id !== 'personal' &&
+    !organization.user_created
+  );
 
 const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
