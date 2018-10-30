@@ -14,6 +14,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- End permissions for react-native-push-notification -->
 
+    <!-- Permissions for react-native-image-picker -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- End permissions for react-native-image-picker -->
+
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
