@@ -1,54 +1,30 @@
 import {
-  SCREEN_FLOW_START,
   SCREEN_FLOW_NEXT,
   SCREEN_FLOW_PREVIOUS,
-  SCREEN_FLOW_FINISH,
+  SCREEN_FLOW_CLEAR_ALL,
 } from '../constants';
-import {
-  currentFlow,
-  previousFlows,
-  previousScreensOfCurrentFlow,
-} from '../selectors/screenFlow';
 
 const initialState = {
-  activeFlows: [],
+  screens: [],
 };
 
 export default function screenFlowReducer(state = initialState, action) {
   switch (action.type) {
-    case SCREEN_FLOW_START: {
+    case SCREEN_FLOW_NEXT: {
       const { flow, screen } = action;
       return {
-        activeFlows: [...state.activeFlows, { flow, screens: [screen] }],
-      };
-    }
-    case SCREEN_FLOW_NEXT: {
-      const { screen } = action;
-      return {
-        activeFlows: [
-          ...previousFlows(state),
-          {
-            ...currentFlow(state),
-            screens: [...previousScreensOfCurrentFlow(state), screen],
-          },
-        ],
+        screens: [...state.screens, { flow, screen }],
       };
     }
     case SCREEN_FLOW_PREVIOUS: {
-      return {
-        activeFlows: [
-          ...previousFlows(state),
-          {
-            ...currentFlow(state),
-            screens: previousScreensOfCurrentFlow(state),
-          },
-        ],
-      };
+      return action.times > 0
+        ? {
+            screens: state.screens.slice(0, -1 * action.times),
+          }
+        : state;
     }
-    case SCREEN_FLOW_FINISH: {
-      return {
-        activeFlows: previousFlows(state),
-      };
+    case SCREEN_FLOW_CLEAR_ALL: {
+      return initialState;
     }
     default:
       return state;

@@ -1,74 +1,161 @@
 import {
-  currentFlow,
-  currentFlowName,
-  currentScreen,
-  currentScreenName,
-  previousFlows,
+  activeScreenConfig,
+  activeFlowName,
+  activeScreenName,
   previousScreens,
+  previousFlow,
 } from '../screenFlow';
 
 const screenFlowState = {
-  activeFlows: [
-    { flow: 'First Flow', screens: [{ name: 'Screen 1' }] },
-    { flow: 'Second Flow', screens: [{ name: 'Screen 2' }] },
-    {
-      flow: 'Third Flow',
-      screens: [
-        { name: 'Screen 3' },
-        { name: 'Screen 4' },
-        { name: 'Screen 5' },
-      ],
-    },
+  screens: [
+    { flow: 'Flow 1', screen: 'Screen 1' },
+    { flow: 'Flow 1', screen: 'Screen 2' },
+    { flow: 'Flow 2', screen: 'Screen 1' },
+    { flow: 'Flow 3', screen: 'Screen 1' },
+    { flow: 'Flow 2', screen: 'Screen 2' },
   ],
 };
 
-describe('currentFlow', () => {
-  it('should return the current flow object', () => {
-    expect(currentFlow(screenFlowState)).toEqual(
-      screenFlowState.activeFlows[2],
-    );
-  });
-});
-
-describe('currentFlowName', () => {
-  it('should return the current flow name', () => {
-    expect(currentFlowName(screenFlowState)).toEqual(
-      screenFlowState.activeFlows[2].flow,
-    );
-  });
-});
-
-describe('previousFlows', () => {
-  it('should return an array of non-current flow objects', () => {
-    expect(previousFlows(screenFlowState)).toEqual([
-      screenFlowState.activeFlows[0],
-      screenFlowState.activeFlows[1],
-    ]);
-  });
-});
-
-describe('currentScreen', () => {
+describe('activeScreenConfig', () => {
   it('should return the current screen object', () => {
-    expect(currentScreen(screenFlowState)).toEqual(
-      screenFlowState.activeFlows[2].screens[2],
+    expect(activeScreenConfig(screenFlowState)).toEqual(
+      screenFlowState.screens[4],
     );
   });
 });
 
-describe('currentScreenName', () => {
+describe('activeFlowName', () => {
+  it('should return the current flow name', () => {
+    expect(activeFlowName(screenFlowState)).toEqual(
+      screenFlowState.screens[4].flow,
+    );
+  });
+});
+
+describe('activeScreenName', () => {
   it('should return the current screen name', () => {
-    expect(currentScreenName(screenFlowState)).toEqual(
-      screenFlowState.activeFlows[2].screens[2].name,
+    expect(activeScreenName(screenFlowState)).toEqual(
+      screenFlowState.screens[4].screen,
     );
   });
 });
 
 describe('previousScreens', () => {
-  it('should return an array of previous screen objects in the current flow', () => {
+  it('should return an array of non-current screen objects', () => {
     expect(previousScreens(screenFlowState)).toEqual([
-      screenFlowState.activeFlows[2].screens[0],
-      screenFlowState.activeFlows[2].screens[1],
+      screenFlowState.screens[0],
+      screenFlowState.screens[1],
+      screenFlowState.screens[2],
+      screenFlowState.screens[3],
     ]);
+  });
+});
+
+describe('previousFlow', () => {
+  it('should return undefined when there is no active flow', () => {
+    expect(previousFlow({ screens: [] })).toBeUndefined();
+  });
+  it('should return undefined when there is only one screen', () => {
+    expect(
+      previousFlow({ screens: [{ flow: 'Flow 1', screen: 'Screen 1' }] }),
+    ).toBeUndefined();
+  });
+  it('should return undefined when there is only one flow', () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 1', screen: 'Screen 3' },
+          { flow: 'Flow 1', screen: 'Screen 4' },
+          { flow: 'Flow 1', screen: 'Screen 5' },
+          { flow: 'Flow 1', screen: 'Screen 6' },
+        ],
+      }),
+    ).toBeUndefined();
+  });
+  it('should return the last screen object of the previous flow', () => {
+    expect(previousFlow(screenFlowState)).toEqual(screenFlowState.screens[1]);
+  });
+  it('should return the last screen object of the previous flow when the same 2nd level flow is reused multiple times', () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 2' },
+          { flow: 'Flow 1', screen: 'Screen 3' },
+          { flow: 'Flow 1', screen: 'Screen 4' },
+          { flow: 'Flow 2', screen: 'Screen 3' },
+          { flow: 'Flow 2', screen: 'Screen 4' },
+        ],
+      }),
+    ).toEqual({ flow: 'Flow 1', screen: 'Screen 4' });
+  });
+  it('should return the last screen object of the previous flow when there are deeply nested flows', () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 1' },
+          { flow: 'Flow 3', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 2' },
+          { flow: 'Flow 1', screen: 'Screen 3' },
+          { flow: 'Flow 1', screen: 'Screen 4' },
+          { flow: 'Flow 2', screen: 'Screen 3' },
+          { flow: 'Flow 3', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 4' },
+        ],
+      }),
+    ).toEqual({ flow: 'Flow 1', screen: 'Screen 4' });
+  });
+  it("should return the last screen object of the previous flow when the previous flow isn't at the root", () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 1' },
+          { flow: 'Flow 3', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 2' },
+          { flow: 'Flow 1', screen: 'Screen 3' },
+          { flow: 'Flow 1', screen: 'Screen 4' },
+          { flow: 'Flow 2', screen: 'Screen 3' },
+          { flow: 'Flow 3', screen: 'Screen 1' },
+        ],
+      }),
+    ).toEqual({ flow: 'Flow 2', screen: 'Screen 3' });
+  });
+  it('should return the last screen object of the previous flow when it is way back in history', () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 3' },
+          { flow: 'Flow 2', screen: 'Screen 4' },
+          { flow: 'Flow 2', screen: 'Screen 5' },
+        ],
+      }),
+    ).toEqual({ flow: 'Flow 1', screen: 'Screen 2' });
+  });
+  it('should return undefined when the root flow is active', () => {
+    expect(
+      previousFlow({
+        screens: [
+          { flow: 'Flow 1', screen: 'Screen 1' },
+          { flow: 'Flow 1', screen: 'Screen 2' },
+          { flow: 'Flow 2', screen: 'Screen 1' },
+          { flow: 'Flow 3', screen: 'Screen 1' },
+          { flow: 'Flow 2', screen: 'Screen 2' },
+          { flow: 'Flow 1', screen: 'Screen 3' },
+        ],
+      }),
+    ).toBeUndefined();
   });
 });
 
@@ -97,4 +184,13 @@ const previous = (payload, dispatch, getState) => {
 }
 
 const next = async ({ payload, dispatch, getState, async startFlow, nextScreen, done })
+ */
+
+/*
+
+get last
+get last unique flow
+remove last
+add new
+
  */

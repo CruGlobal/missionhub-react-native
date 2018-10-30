@@ -24,9 +24,9 @@ import {
   NETWORK_REQUEST_FAILED,
 } from './constants';
 import { isAndroid } from './utils/common';
-import { setInitialRoute } from './actions/navigationInit';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
+import { setInitialRoute } from './actions/navigationInit';
 
 import { PersistGate } from 'redux-persist/integration/react';
 

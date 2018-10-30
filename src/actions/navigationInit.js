@@ -4,12 +4,14 @@ import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 
 import { navigateReset } from './navigation';
-import { screenFlowStart } from './screenFlow';
+import { screenFlowClearAll, screenFlowStart } from './screenFlow';
 import { AuthenticateFlow } from './screenFlows/authenticateFlow';
 
 export function setInitialRoute() {
   return (dispatch, getState) => {
     const { auth, personProfile, people } = getState();
+
+    dispatch(screenFlowClearAll());
 
     if (auth && isAuthenticated(auth)) {
       if (

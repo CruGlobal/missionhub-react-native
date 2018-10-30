@@ -1,83 +1,156 @@
 import { navigatePush, navigateBack } from './navigation';
-import { SETUP_SCREEN } from '../containers/SetupScreen';
+import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../containers/WelcomeScreen';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
-import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
+import { SETUP_SCREEN } from '../containers/SetupScreen';
 import {
-  SCREEN_FLOW_START,
+  SCREEN_FLOW_FINISH,
   SCREEN_FLOW_NEXT,
   SCREEN_FLOW_PREVIOUS,
+  SCREEN_FLOW_INITIAL_SCREEN,
+  SCREEN_FLOW_CLEAR_ALL,
 } from '../constants';
-import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 import {
   AuthenticateFlow,
-  authenticateFlowNext,
+  AuthenticateFlowConfig,
 } from './screenFlows/authenticateFlow';
 import {
-  currentFlow,
-  currentFlowName,
-  currentScreenOfCurrentFlow,
+  activeScreenConfig,
+  activeFlowName,
+  activeScreenName,
+  previousScreens,
+  previousFlow,
 } from '../selectors/screenFlow';
 
-// export const ScreenFlows = Object.freeze({
-//   Authenticate: 'AUTHENTICATE_FLOW',
-//   CreateAccount: 'CREATE_ACCOUNT_FLOW',
-//   SignIn: 'SIGN_IN_FLOW',
-//   Onboarding: 'ONBOARDING_FLOW',
-// });
+export function screenFlowStart(newFlow, onFinish, payload) {
+  return (dispatch, getState) => {
+    // TODO: Limitation: first screen of flow can't start new flow, could pass the start onFinish through if the next screen is undefined otherwise delegate calling the start onFinish to the flow config
+    const { flow, screen } = getNextFlowState(
+      newFlow,
+      SCREEN_FLOW_INITIAL_SCREEN,
+      payload,
+      dispatch,
+      getState,
+    );
 
-export function screenFlowStart(newFlow) {
-  return dispatch => {
-    const { flow, screen } = getNextFlowState(newFlow);
-
-    dispatch({ type: SCREEN_FLOW_START, flow, screen });
-    dispatch(navigatePush(screen.screen));
+    dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
+    dispatch(navigatePush(screen));
   };
+}
+
+export function screenFlowClearAll() {
+  return { type: SCREEN_FLOW_CLEAR_ALL };
 }
 
 export function screenFlowNext(payload = {}) {
   return (dispatch, getState) => {
     const { screenFlow } = getState();
-    const { screen } = getNextFlowState(
-      currentFlowName(screenFlow),
-      currentScreenOfCurrentFlow(screenFlow),
+    const result = getNextFlowState(
+      activeFlowName(screenFlow),
+      activeScreenName(screenFlow),
       payload,
+      dispatch,
+      getState,
     );
-
-    dispatch({ type: SCREEN_FLOW_NEXT, flowState });
-    dispatch(navigatePush(screen));
+    if (
+      result === SCREEN_FLOW_FINISH &&
+      activeScreenConfig(screenFlow).onFinish
+    ) {
+      activeScreenConfig(screenFlow).onFinish(payload, dispatch, getState);
+    } else {
+      const { flow, screen, onFinish } = result;
+      if (flow === activeFlowName(screenFlow)) {
+        dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
+        dispatch(navigatePush(screen));
+      } else {
+        const { screen } = getNextFlowState(
+          flow,
+          SCREEN_FLOW_INITIAL_SCREEN,
+          payload,
+          dispatch,
+          getState,
+        );
+        dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
+        dispatch(navigatePush(screen));
+      }
+    }
   };
 }
 
-export function screenFlowPrevious() {
+// TODO: update to latest reducer and config schema
+export function screenFlowPrevious(payload = {}) {
   return (dispatch, getState) => {
     const { screenFlow } = getState();
 
-    // TODO: change state from storing screen name to storing object { name, backAction, skipHistory }
+    const result = getPreviousFlowState(
+      activeFlowName(screenFlow),
+      activeScreenName(screenFlow),
+      payload,
+      dispatch,
+      getState,
+    );
 
-    // TODO: can this call another back function to implement skipHistory?
-    // TODO: can this return something to cancel back action or skipHistory?
-    // Action to perform when leaving this screen (undo changes, logout, update redux, prompt before going back, etc). No effect if skipHistory is also enabled.
-    currentFlow(screenFlow).backAction();
-
-    // Go back twice if we're skipping current screen // TODO: this isn't going to work. Could have to skip several screens in a row
-    if (currentFlow(screenFlow).skipHistory) {
-      // TODO: fix. this isn't going to work. Need to store a placeholder so we don't go back too far if we only rely on history and not a previous state function/switch
-      dispatch({ type: SCREEN_FLOW_PREVIOUS });
-    }
-    dispatch({ type: SCREEN_FLOW_PREVIOUS });
-    dispatch(navigateBack()); // TODO: figure out times to go back
+    dispatch({ type: SCREEN_FLOW_PREVIOUS, times: result });
+    dispatch(navigateBack(result));
   };
 }
 
-function getNextFlowState(currentFlow, currentScreen, payload) {
+function getNextFlowState(
+  currentFlow,
+  currentScreen,
+  payload,
+  dispatch,
+  getState,
+) {
+  const continueCurrentFlow = screen => ({
+    flow: currentFlow,
+    screen,
+  });
+  const result = getFlowHandlersForScreen(currentFlow, currentScreen);
+
+  if (typeof result === 'string') {
+    return continueCurrentFlow(result);
+  } else {
+    const { onNext } = result || {};
+
+    if (typeof onNext === 'string') {
+      return continueCurrentFlow(onNext);
+    } else if (typeof onNext === 'function') {
+      const result = onNext(payload, dispatch, getState);
+      return typeof result === 'string' ? continueCurrentFlow(result) : result;
+    }
+  }
+  return SCREEN_FLOW_FINISH;
+}
+
+function getPreviousFlowState(
+  currentFlow,
+  currentScreen,
+  payload,
+  dispatch,
+  getState,
+) {
+  const result = getFlowHandlersForScreen(currentFlow, currentScreen);
+
+  if (typeof result === 'string') {
+    return 1;
+  } else {
+    const { onPrevious } = result || {};
+
+    if (typeof onPrevious === 'number') {
+      return onPrevious;
+    } else if (typeof onPrevious === 'function') {
+      const result = onPrevious(payload, dispatch, getState);
+      return typeof result === 'number' ? result : 1;
+    }
+  }
+  return 1;
+}
+
+function getFlowHandlersForScreen(currentFlow, currentScreen) {
   switch (currentFlow) {
     case AuthenticateFlow:
-      return authenticateFlowNext(currentScreen, payload);
+      return AuthenticateFlowConfig()[currentScreen];
     default:
       return null;
   }
 }
-
-// WELCOME_SCREEN
-// SETUP_SCREEN
