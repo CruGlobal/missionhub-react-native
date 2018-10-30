@@ -68,16 +68,16 @@ describe('GroupScreen', () => {
   });
 
   it('should handle go back correctly', () => {
-    const instance = renderShallow(
+    const component = renderShallow(
       <GroupScreen
         navigation={createMockNavState({
           organization,
         })}
         store={createMockStore()}
       />,
-    ).instance();
+    );
 
-    instance.back();
+    component.props().left.props.onPress();
 
     expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
       startTab: 'groups',
@@ -94,8 +94,6 @@ describe('GroupScreen', () => {
       />,
     ).instance();
 
-    instance.back();
-
     common.disableBack = { add: jest.fn() };
     instance.componentDidMount();
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
@@ -110,8 +108,6 @@ describe('GroupScreen', () => {
         store={createMockStore()}
       />,
     ).instance();
-
-    instance.back();
 
     common.disableBack = { remove: jest.fn() };
     instance.componentWillUnmount();
