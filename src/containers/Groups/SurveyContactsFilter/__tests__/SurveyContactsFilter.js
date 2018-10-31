@@ -1,19 +1,26 @@
 import React from 'react';
 
-import ContactsFilter from '../ContactsFilter';
+import SurveyContactsFilter from '..';
+
 import {
   createMockStore,
   renderShallow,
   testSnapshotShallow,
   createMockNavState,
-} from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import * as filterUtils from '../../../utils/filters';
+} from '../../../../../testUtils';
+import { navigatePush } from '../../../../actions/navigation';
+import * as filterUtils from '../../../../utils/filters';
 
-jest.mock('../../../actions/navigation', () => ({
+jest.mock('../../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'test' })),
 }));
-jest.mock('../../../actions/labels', () => ({
+jest.mock('../../../../actions/surveys', () => ({
+  getSurveyQuestions: jest.fn(() => ({
+    type: 'surveyQuestions',
+    response: [{ id: '1' }, { id: '2' }],
+  })),
+}));
+jest.mock('../../../../actions/labels', () => ({
   getOrgLabels: jest.fn(() => ({
     type: 'orgLabels',
     response: [{ id: '3' }, { id: '4' }],
@@ -22,7 +29,6 @@ jest.mock('../../../actions/labels', () => ({
 
 const store = createMockStore({});
 const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };
-const organization = { id: '1' };
 const filters = {
   unassigned: {
     id: 'unassigned',
@@ -31,14 +37,17 @@ const filters = {
   },
   time: timeFilter30,
 };
+const survey = { id: '11' };
+const organization = { id: '22' };
 
-describe('ContactsFilter', () => {
+describe('SurveyContactsFilter', () => {
   const onFilter = jest.fn();
   const component = (
-    <ContactsFilter
+    <SurveyContactsFilter
       navigation={createMockNavState({
         onFilter,
         filters,
+        survey,
         organization,
       })}
     />
