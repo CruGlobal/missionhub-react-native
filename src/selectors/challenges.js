@@ -53,17 +53,25 @@ export const communityChallengeSelector = createSelector(
 export const acceptedChallengesSelector = createSelector(
   ({ acceptedChallenges }) => acceptedChallenges,
   acceptedChallenges => {
-    const sortedAcceptances = { joined: [], completed: [] };
-    acceptedChallenges.forEach(a => {
-      if (a.person._placeHolder) {
-        return;
-      }
-      if (a.completed_at) {
-        sortedAcceptances.completed.push(a);
-      } else {
-        sortedAcceptances.joined.push(a);
-      }
-    });
+    const sortedAcceptances = acceptedChallenges.reduce(
+      ({ joined, completed }, item) => {
+        const isPlaceHolder = item.person._placeHolder;
+        const isCompleted = item.completed_at;
+
+        return {
+          joined: [
+            ...joined,
+            ...(!isPlaceHolder && !isCompleted ? [item] : []),
+          ],
+          completed: [
+            ...completed,
+            ...(!isPlaceHolder && isCompleted ? [item] : []),
+          ],
+        };
+      },
+      { joined: [], completed: [] },
+    );
+
     return sortedAcceptances;
   },
 );

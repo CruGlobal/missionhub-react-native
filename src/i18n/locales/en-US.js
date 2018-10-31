@@ -471,6 +471,8 @@ export default {
     edit: 'Edit',
     join: 'Join',
     complete: 'Complete',
+    joined: 'Joined',
+    completed: 'Completed',
     iDidIt: 'I Did It',
     endDate: 'End Date',
   },
