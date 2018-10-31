@@ -11,6 +11,7 @@ const GROUP_ACCEPTED_CHALLENGE_URL = `${API_URL}accepted_community_challenges/`;
 const AUTH_URL = `${API_URL}auth/`;
 const PEOPLE_URL = `${API_URL}people/`;
 const SURVEY_URL = `${API_URL}surveys`;
+const ORG_URL = `${API_URL}organizations`;
 
 const KEY_TOKEN = {
   endpoint: `${THE_KEY_OAUTH_URL}token`,
@@ -135,17 +136,21 @@ export default {
     method: 'put',
   },
   GET_ORGANIZATIONS: {
-    endpoint: `${API_URL}organizations`,
+    endpoint: ORG_URL,
+  },
+  ADD_NEW_ORGANIZATION: {
+    endpoint: ORG_URL,
+    method: 'post',
   },
   GET_GROUP_CELEBRATE_FEED: {
-    endpoint: `${API_URL}organizations/:orgId/celebration_items`,
+    endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },
   LIKE_CELEBRATE_ITEM: {
-    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'post',
   },
   UNLIKE_CELEBRATE_ITEM: {
-    endpoint: `${API_URL}organizations/:orgId/celebration_items/:eventId/like`,
+    endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
   },
   GET_GROUP_CHALLENGE_FEED: {
@@ -180,11 +185,11 @@ export default {
     endpoint: SURVEY_URL,
   },
   GET_MY_LABELS: {
-    endpoint: `${API_URL}organizations`,
+    endpoint: `${ORG_URL}`,
     query: { include: 'labels' },
   },
   GET_ORGANIZATION_LABELS: {
-    endpoint: `${API_URL}organizations/:orgId`,
+    endpoint: `${ORG_URL}/:orgId`,
   },
   GET_IMPACT_SUMMARY: {
     endpoint: `${API_URL}reports/impact`,

@@ -248,7 +248,7 @@ export function addNewPerson(data) {
     } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject(
-        `Invalid Data from addNewContact: no data or no firstName passed in`,
+        `Invalid Data from addNewPerson: no data or no firstName passed in`,
       );
     }
     const included = [];
@@ -298,5 +298,26 @@ export function addNewPerson(data) {
     };
     const query = {};
     return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData));
+  };
+}
+
+export function addNewOrganization(name) {
+  return dispatch => {
+    if (!name) {
+      return Promise.reject(
+        `Invalid Data from addNewOrganization: no data or no org name passed in`,
+      );
+    }
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name,
+          user_created: true,
+        },
+      },
+    };
+    const query = {};
+    return dispatch(callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData));
   };
 }
