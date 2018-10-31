@@ -15,10 +15,6 @@ import {
 import styles from './styles';
 
 class ChallengeMembers extends Component {
-  state = {
-    refreshing: false,
-  };
-
   handleSelect = person => {
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
@@ -57,7 +53,7 @@ ChallengeMembers.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (
+export const mapStateToProps = (
   { organizations },
   { challengeId, orgId, completed },
 ) => {
