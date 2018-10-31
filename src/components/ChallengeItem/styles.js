@@ -4,34 +4,25 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   card: {
-    marginHorizontal: 16,
+    marginHorizontal: 20,
     marginVertical: 5,
     alignItems: 'stretch',
     backgroundColor: theme.white,
+    borderRadius: 8,
   },
   detailButton: {
     flex: 1,
   },
   content: {
-    padding: 16,
-  },
-  editButtonText: {
-    color: theme.secondaryColor,
-    fontSize: 11,
+    padding: 20,
   },
   title: {
     color: theme.primaryColor,
     fontSize: 16,
     marginBottom: 3,
   },
-  info: {
-    fontSize: 11,
-    color: theme.grey1,
-  },
-  dot: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: theme.grey1,
+  statsSection: {
+    paddingTop: 8,
   },
   joinButton: {
     backgroundColor: theme.secondaryColor,

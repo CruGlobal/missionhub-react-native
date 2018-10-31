@@ -31,10 +31,4 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     fontSize: 14,
   },
-  number: {
-    color: theme.primaryColor,
-    fontFamily: 'SourceSansPro-ExtraLight',
-    fontSize: 48,
-    lineHeight: 50,
-  },
 });

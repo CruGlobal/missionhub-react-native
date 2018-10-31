@@ -67,6 +67,13 @@ export const refresh = (obj, method) => {
 
 export const isAuthenticated = authState => authState.token;
 
+//If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
+export const userIsJean = orgPermissions =>
+  orgPermissions.some(p => !p.organization.user_created);
+
+export const communityIsCru = organization =>
+  organization && organization.id !== 'personal' && !organization.user_created;
+
 const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
@@ -187,16 +194,22 @@ export function getPagination(action, currentLength) {
 }
 
 //showing assign/unassign buttons on side menu
-export function showAssignButton(personIsCurrentUser, contactAssignment) {
-  return !personIsCurrentUser && !contactAssignment;
-}
-export function showUnassignButton(
+export function showAssignButton(
+  isCruOrg,
   personIsCurrentUser,
   contactAssignment,
-  isJean,
+) {
+  return isCruOrg && !personIsCurrentUser && !contactAssignment;
+}
+export function showUnassignButton(isCruOrg, contactAssignment) {
+  return isCruOrg && contactAssignment;
+}
+export function showDeleteButton(
+  personIsCurrentUser,
+  contactAssignment,
   orgPermission,
 ) {
-  return !personIsCurrentUser && contactAssignment && isJean && orgPermission;
+  return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
 
 export function getAssignedToName(myId, item) {

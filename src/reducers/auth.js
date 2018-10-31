@@ -1,4 +1,5 @@
 import { FIRST_TIME, LOGOUT, UPDATE_STAGES, UPDATE_TOKEN } from '../constants';
+import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../actions/api';
 
 const initialAuthState = {
@@ -83,7 +84,7 @@ function authReducer(state = initialAuthState, action) {
           ...person,
           stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
         },
-        isJean: person.organizational_permissions.length > 0,
+        isJean: userIsJean(person.organizational_permissions),
       };
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:

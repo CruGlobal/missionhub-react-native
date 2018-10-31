@@ -6,6 +6,7 @@ matrix:
       script:
         - yarn run test:coverage --maxWorkers=4
         - yarn run lint
+        - yarn run prettier:check
       notifications:
         email: false
       after_success:

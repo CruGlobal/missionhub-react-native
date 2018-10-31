@@ -10,6 +10,7 @@ jest.mock('../../src/actions/celebration');
 MockDate.set(
   moment('2018-09-15')
     .endOf('day')
+    .utc()
     .toDate(),
 );
 
@@ -25,7 +26,6 @@ const item = {
   end_date: date,
   accepted_count: 5,
   completed_count: 3,
-  days_remaining: 14,
   isPast: false,
   created_at: '2018-09-01T12:00:00Z',
 };
@@ -83,7 +83,9 @@ it('render past challenge item', () => {
       item={{
         ...item,
         isPast: true,
-        end_date: moment('2018-09-10').endOf('day'),
+        end_date: moment('2018-09-10')
+          .utc()
+          .endOf('day'),
       }}
     />,
   );
@@ -107,31 +109,6 @@ it('render past and joined and completed challenge item', () => {
       acceptedChallenge={completedChallenge}
     />,
   );
-});
-
-it('should call onEdit from press', () => {
-  const newProps = {
-    ...props,
-    onEdit: jest.fn(),
-  };
-  const component = renderShallow(
-    <ChallengeItem
-      item={item}
-      {...newProps}
-      acceptedChallenge={acceptedChallenge}
-    />,
-  );
-
-  component
-    .childAt(0)
-    .childAt(0)
-    .childAt(0)
-    .childAt(1)
-    .childAt(0)
-    .childAt(0)
-    .props()
-    .onPress();
-  expect(newProps.onEdit).toHaveBeenCalledWith(item);
 });
 
 it('should call onComplete from press', () => {

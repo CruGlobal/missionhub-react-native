@@ -52,7 +52,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 14,
         accepted_community_challenges: [],
       },
       {
@@ -63,7 +62,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 14,
         accepted_community_challenges,
       },
     ],
@@ -79,8 +77,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 0,
-        days_remaining: 0,
-        total_days: 7,
         accepted_community_challenges,
       },
       {
@@ -91,8 +87,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 0,
-        total_days: 7,
         accepted_community_challenges,
       },
     ],
