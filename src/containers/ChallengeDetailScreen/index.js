@@ -129,7 +129,7 @@ ChallengeDetailScreen.propTypes = {
   acceptedChallenge: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ auth, organizations }, { navigation }) => {
+export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const challengeId = navParams.challengeId;
   const orgId = navParams.orgId;
