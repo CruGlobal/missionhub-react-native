@@ -207,9 +207,9 @@ it('calls handleSelectRow', () => {
   expect(navigation.navigatePush).toHaveBeenCalledWith(
     CHALLENGE_DETAIL_SCREEN,
     {
-      challenge,
+      challengeId: challenge.id,
+      orgId: organization.id,
       canEditChallenges: true,
-      acceptedChallenge: accepted_community_challenges[0],
       onJoin: instance.handleJoin,
       onComplete: instance.handleComplete,
       onEdit: instance.handleEdit,

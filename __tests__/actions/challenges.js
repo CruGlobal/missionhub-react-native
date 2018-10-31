@@ -8,6 +8,7 @@ import {
   joinChallenge,
   createChallenge,
   updateChallenge,
+  getChallenge,
 } from '../../src/actions/challenges';
 import { reloadGroupCelebrateFeed } from '../../src/actions/celebration';
 import callApi, { REQUESTS } from '../../src/actions/api';
@@ -267,5 +268,18 @@ describe('updateChallenge', () => {
       },
     );
     expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+  });
+});
+
+describe('getChallenge', () => {
+  it('gets challenge by id', async () => {
+    const challenge_id = '111';
+    await store.dispatch(getChallenge(challenge_id));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE, {
+      challenge_id,
+      include: 'accepted_community_challenges.person.full_name',
+    });
+    expect(store.getActions()).toEqual([apiResult]);
   });
 });

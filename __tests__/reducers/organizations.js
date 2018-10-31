@@ -631,3 +631,51 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     expect(state.all[0].challengeItems).toEqual([]);
   });
 });
+
+describe('REQUESTS.GET_GROUP_CHALLENGE.SUCCESS', () => {
+  const orgId = '111';
+  const organization = { id: orgId };
+  const challenge_id = '1';
+
+  const challengeOld = {
+    id: challenge_id,
+    organization,
+    created_at: '01-11-2018',
+    accepted_at: null,
+  };
+  const challengeNew = {
+    id: challenge_id,
+    organization,
+    accepted_at: '31-11-2018',
+    completed_at: '01-12-2018',
+  };
+  const challengeResult = {
+    id: challenge_id,
+    organization,
+    created_at: challengeOld.created_at,
+    accepted_at: challengeNew.accepted_at,
+    completed_at: challengeNew.completed_at,
+  };
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: orgId,
+          challengeItems: [challengeOld],
+        },
+      ],
+    },
+    {
+      type: REQUESTS.GET_GROUP_CHALLENGE.SUCCESS,
+      query: {
+        challenge_id,
+      },
+      results: {
+        response: challengeNew,
+      },
+    },
+  );
+
+  expect(state.all[0].challengeItems).toEqual([challengeResult]);
+});

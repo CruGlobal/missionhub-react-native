@@ -29,6 +29,14 @@ exports[`should render completed challenge correctly 1`] = `
     canEditChallenges={true}
     challenge={
       Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
         "end_date": "2018-09-22",
         "id": "1",
         "isPast": false,
@@ -87,6 +95,14 @@ exports[`should render joined challenge correctly 1`] = `
     canEditChallenges={true}
     challenge={
       Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
         "end_date": "2018-09-22",
         "id": "1",
         "isPast": false,
@@ -96,6 +112,21 @@ exports[`should render joined challenge correctly 1`] = `
     onEdit={[Function]}
   />
 </Component>
+`;
+
+exports[`should render tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Joined",
+    "navigationAction": "nav/CHALLENGE_JOINED",
+  },
+  Object {
+    "component": [Function],
+    "name": "Completed",
+    "navigationAction": "nav/CHALLENGE_COMPLETED",
+  },
+]
 `;
 
 exports[`should render unjoined challenge correctly 1`] = `
@@ -145,6 +176,14 @@ exports[`should render unjoined challenge correctly 1`] = `
     canEditChallenges={true}
     challenge={
       Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
         "end_date": "2018-09-22",
         "id": "1",
         "isPast": false,

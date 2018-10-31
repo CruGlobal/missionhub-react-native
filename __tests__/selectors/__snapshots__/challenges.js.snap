@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sorts items into sections by active or past 1`] = `
+exports[`sorts accpeted challenge items into sections by joined or completed 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "accepted_at": "2018-09-06T14:13:21Z",
+      "completed_at": "2018-09-08T14:13:21Z",
+      "id": "1",
+      "person": Object {
+        "id": "1",
+      },
+    },
+    Object {
+      "accepted_at": "2018-09-06T14:13:21Z",
+      "completed_at": "2018-09-08T14:13:21Z",
+      "id": "4",
+      "person": Object {
+        "id": "4",
+      },
+    },
+  ],
+  "joined": Array [
+    Object {
+      "accepted_at": "2018-09-06T14:13:21Z",
+      "completed_at": null,
+      "id": "2",
+      "person": Object {
+        "id": "2",
+      },
+    },
+  ],
+}
+`;
+
+exports[`sorts challenge items into sections by active or past 1`] = `
 Array [
   Object {
     "data": Array [

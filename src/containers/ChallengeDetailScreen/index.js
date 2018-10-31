@@ -6,11 +6,13 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
 import { navigateBack } from '../../actions/navigation';
+import { getChallenge } from '../../actions/challenges';
 import { IconButton, Button } from '../../components/common';
 import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import Members from '../Groups/Members';
+import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
+import { communityChallengeSelector } from '../../selectors/challenges';
 
 import styles from './styles';
 
@@ -24,10 +26,16 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { orgId },
+          params: { challengeId, orgId },
         },
       },
-    }) => <Members organization={{ id: orgId }} />,
+    }) => (
+      <ChallengeMembers
+        challengeId={challengeId}
+        orgId={orgId}
+        completed={false}
+      />
+    ),
   },
   {
     name: i18next.t('challengeFeeds:completed'),
@@ -35,15 +43,26 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
-          params: { orgId },
+          params: { challengeId, orgId },
         },
       },
-    }) => <Members organization={{ id: orgId }} />,
+    }) => (
+      <ChallengeMembers
+        challengeId={challengeId}
+        orgId={orgId}
+        completed={true}
+      />
+    ),
   },
 ];
 
 @translate('challengeFeeds')
 export class ChallengeDetailScreen extends Component {
+  componentDidMount() {
+    const { dispatch, challenge } = this.props;
+    dispatch(getChallenge(challenge.id));
+  }
+
   handleCancel = () => {
     this.props.dispatch(navigateBack());
   };
@@ -107,12 +126,30 @@ ChallengeDetailScreen.propTypes = {
   onJoin: PropTypes.func.isRequired,
   onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
-  acceptedChallenge: PropTypes.object,
+  acceptedChallenge: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
+  const navParams = navigation.state.params || {};
+  const challengeId = navParams.challengeId;
+  const orgId = navParams.orgId;
+  const myId = auth.person.id;
+
+  const selectorChallenge = communityChallengeSelector(
+    { organizations },
+    { orgId, challengeId },
+  );
+
+  const acceptedChallenge = selectorChallenge.accepted_community_challenges.find(
+    c => c.person && c.person.id === myId,
+  );
+
+  return {
+    ...navParams,
+    challenge: selectorChallenge,
+    acceptedChallenge,
+  };
+};
 
 const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
 

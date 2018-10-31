@@ -155,6 +155,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case REQUESTS.GET_GROUP_CHALLENGE.SUCCESS:
+      return updateChallenge(action, state);
     case LOGOUT:
       return initialState;
     default:
@@ -181,6 +183,32 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateChallenge(action, state) {
+  const {
+    query: { challenge_id },
+    results: { response: challenge },
+  } = action;
+  const orgId =
+    (challenge.organization && challenge.organization.id) || undefined;
+
+  return {
+    ...state,
+    all: orgId
+      ? state.all.map(
+          o =>
+            o.id === orgId
+              ? {
+                  ...o,
+                  challengeItems: o.challengeItems.map(
+                    c => (c.id === challenge_id ? { ...c, ...challenge } : c),
+                  ),
+                }
+              : o,
+        )
+      : state.all,
   };
 }
 

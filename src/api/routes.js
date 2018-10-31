@@ -167,6 +167,9 @@ export default {
     endpoint: `${GROUP_CHALLENGE_URL}`,
     method: 'post',
   },
+  GET_GROUP_CHALLENGE: {
+    endpoint: `${GROUP_CHALLENGE_URL}:challenge_id`,
+  },
   GET_MY_GROUPS: {
     endpoint: `${API_URL}groups`,
   },
