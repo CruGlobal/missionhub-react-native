@@ -5,7 +5,7 @@ import { MAIN_TABS } from '../constants';
 
 import { navigateReset } from './navigation';
 import { screenFlowClearAll, screenFlowStart } from './screenFlow';
-import { AuthenticateFlow } from './screenFlows/authenticateFlow';
+import { AUTHENTICATE_FLOW } from './screenFlows/authenticateFlow';
 
 export function setInitialRoute() {
   return (dispatch, getState) => {
@@ -27,7 +27,7 @@ export function setInitialRoute() {
         : dispatch(navigateReset(GET_STARTED_SCREEN));
     }
 
-    return dispatch(screenFlowStart(AuthenticateFlow));
+    return dispatch(screenFlowStart(AUTHENTICATE_FLOW));
   };
 }
 

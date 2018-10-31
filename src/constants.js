@@ -59,12 +59,12 @@ export const MAIN_MENU_DRAWER = 'nav/drawer/main';
 export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
 
+export const SCREEN_FLOW_START = 'ScreenFlow/SCREEN_FLOW_START';
 export const SCREEN_FLOW_NEXT = 'ScreenFlow/SCREEN_FLOW_NEXT';
-export const SCREEN_FLOW_PREVIOUS = 'ScreenFlow/SCREEN_FLOW_PREVIOUS';
+export const SCREEN_FLOW_BACK = 'ScreenFlow/SCREEN_FLOW_PREVIOUS';
 export const SCREEN_FLOW_FINISH = 'ScreenFlow/SCREEN_FLOW_FINISH';
 export const SCREEN_FLOW_CLEAR_ALL = 'ScreenFlow/SCREEN_FLOW_CLEAR_ALL';
-export const SCREEN_FLOW_INITIAL_SCREEN =
-  'ScreenFlow/SCREEN_FLOW_INITIAL_SCREEN';
+export const INITIAL_SCREEN = 'ScreenFlow/INITIAL_SCREEN';
 
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';

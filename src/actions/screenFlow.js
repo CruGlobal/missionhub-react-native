@@ -3,14 +3,15 @@ import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 import { WELCOME_SCREEN } from '../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../containers/SetupScreen';
 import {
+  SCREEN_FLOW_START,
   SCREEN_FLOW_FINISH,
   SCREEN_FLOW_NEXT,
-  SCREEN_FLOW_PREVIOUS,
-  SCREEN_FLOW_INITIAL_SCREEN,
+  SCREEN_FLOW_BACK,
+  INITIAL_SCREEN,
   SCREEN_FLOW_CLEAR_ALL,
 } from '../constants';
 import {
-  AuthenticateFlow,
+  AUTHENTICATE_FLOW,
   AuthenticateFlowConfig,
 } from './screenFlows/authenticateFlow';
 import {
@@ -19,21 +20,21 @@ import {
   activeScreenName,
   previousScreens,
   previousFlow,
+  activeScreen,
 } from '../selectors/screenFlow';
 
-export function screenFlowStart(newFlow, onFinish, payload) {
+export function screenFlowStart(flowName, payload) {
   return (dispatch, getState) => {
-    // TODO: Limitation: first screen of flow can't start new flow, could pass the start onFinish through if the next screen is undefined otherwise delegate calling the start onFinish to the flow config
-    const { flow, screen } = getNextFlowState(
-      newFlow,
-      SCREEN_FLOW_INITIAL_SCREEN,
+    const screen = getNextScreen(
+      flowName,
+      INITIAL_SCREEN,
       payload,
       dispatch,
       getState,
     );
 
-    dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
-    dispatch(navigatePush(screen));
+    dispatch({ type: SCREEN_FLOW_START, flowName, screen });
+    dispatch(navigatePush(screen, payload));
   };
 }
 
@@ -44,113 +45,75 @@ export function screenFlowClearAll() {
 export function screenFlowNext(payload = {}) {
   return (dispatch, getState) => {
     const { screenFlow } = getState();
-    const result = getNextFlowState(
-      activeFlowName(screenFlow),
-      activeScreenName(screenFlow),
+
+    let screen = getNextScreen(
+      screenFlow.flowName,
+      activeScreen(screenFlow),
       payload,
       dispatch,
       getState,
     );
-    if (
-      result === SCREEN_FLOW_FINISH &&
-      activeScreenConfig(screenFlow).onFinish
-    ) {
-      activeScreenConfig(screenFlow).onFinish(payload, dispatch, getState);
-    } else {
-      const { flow, screen, onFinish } = result;
-      if (flow === activeFlowName(screenFlow)) {
-        dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
-        dispatch(navigatePush(screen));
-      } else {
-        const { screen } = getNextFlowState(
-          flow,
-          SCREEN_FLOW_INITIAL_SCREEN,
-          payload,
-          dispatch,
-          getState,
-        );
-        dispatch({ type: SCREEN_FLOW_NEXT, flow, screen, onFinish });
-        dispatch(navigatePush(screen));
-      }
+
+    // TODO: while to handle multiple ending at once? Check if the flow that is finishing is the root flow and perform some stored behavior.
+    if (screen.flowFinished) {
+      screen = getNextScreen(
+        screenFlow.flowName,
+        screen.flowFinished,
+        screen.payload,
+        dispatch,
+        getState,
+      );
     }
+
+    dispatch({ type: SCREEN_FLOW_NEXT, screen });
+    dispatch(navigatePush(screen, payload));
   };
 }
 
-// TODO: update to latest reducer and config schema
-export function screenFlowPrevious(payload = {}) {
+export function screenFlowBack(payload = {}) {
   return (dispatch, getState) => {
     const { screenFlow } = getState();
 
-    const result = getPreviousFlowState(
-      activeFlowName(screenFlow),
-      activeScreenName(screenFlow),
+    const times = getBackCount(
+      screenFlow.flowName,
+      activeScreen(screenFlow),
       payload,
       dispatch,
       getState,
     );
 
-    dispatch({ type: SCREEN_FLOW_PREVIOUS, times: result });
-    dispatch(navigateBack(result));
+    dispatch({ type: SCREEN_FLOW_BACK, times });
+    dispatch(navigateBack(times));
   };
 }
 
-function getNextFlowState(
-  currentFlow,
-  currentScreen,
-  payload,
-  dispatch,
-  getState,
-) {
-  const continueCurrentFlow = screen => ({
-    flow: currentFlow,
-    screen,
-  });
-  const result = getFlowHandlersForScreen(currentFlow, currentScreen);
+function getNextScreen(flowName, currentScreen, payload, dispatch, getState) {
+  const screenConfig = lookupFlowConfig(flowName)[currentScreen];
 
-  if (typeof result === 'string') {
-    return continueCurrentFlow(result);
-  } else {
-    const { onNext } = result || {};
+  const { next } = screenConfig;
 
-    if (typeof onNext === 'string') {
-      return continueCurrentFlow(onNext);
-    } else if (typeof onNext === 'function') {
-      const result = onNext(payload, dispatch, getState);
-      return typeof result === 'string' ? continueCurrentFlow(result) : result;
-    }
+  if (typeof next === 'string') {
+    return next;
+  } else if (typeof next === 'function') {
+    return next(payload, dispatch, getState);
   }
-  return SCREEN_FLOW_FINISH;
 }
 
-function getPreviousFlowState(
-  currentFlow,
-  currentScreen,
-  payload,
-  dispatch,
-  getState,
-) {
-  const result = getFlowHandlersForScreen(currentFlow, currentScreen);
+function getBackCount(flowName, currentScreen, payload, dispatch, getState) {
+  const screenConfig = lookupFlowConfig(flowName)[currentScreen];
 
-  if (typeof result === 'string') {
-    return 1;
-  } else {
-    const { onPrevious } = result || {};
+  const { back } = screenConfig;
 
-    if (typeof onPrevious === 'number') {
-      return onPrevious;
-    } else if (typeof onPrevious === 'function') {
-      const result = onPrevious(payload, dispatch, getState);
-      return typeof result === 'number' ? result : 1;
-    }
+  if (typeof next === 'number') {
+    return back;
+  } else if (typeof back === 'function') {
+    return back(payload, dispatch, getState);
   }
-  return 1;
 }
 
-function getFlowHandlersForScreen(currentFlow, currentScreen) {
-  switch (currentFlow) {
-    case AuthenticateFlow:
-      return AuthenticateFlowConfig()[currentScreen];
-    default:
-      return null;
+function lookupFlowConfig(flowName) {
+  switch (flowName) {
+    case AUTHENTICATE_FLOW:
+      return AuthenticateFlowConfig();
   }
 }

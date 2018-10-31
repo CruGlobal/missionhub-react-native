@@ -7,6 +7,7 @@ import { translate } from 'react-i18next';
 import { keyLogin } from '../../actions/auth';
 import { MFA_REQUIRED } from '../../constants';
 import MFACodeComponent from '../../components/MFACodeComponent';
+import { screenFlowNext } from '../../actions/screenFlow';
 
 @translate('mfaLogin')
 class MFACodeScreen extends Component {
@@ -26,13 +27,14 @@ class MFACodeScreen extends Component {
     this.setState({ isLoading: true });
 
     try {
-      await dispatch(
+      const mePerson = await dispatch(
         keyLogin(email, password, this.state.mfaCode, upgradeAccount),
       );
       Keyboard.dismiss();
+      dispatch(screenFlowNext({ mePerson }));
     } catch (error) {
       if (error && error.apiError['thekey_authn_error'] === MFA_REQUIRED) {
-        Alert.alert(t('mfaIncorrect'), t('ok'));
+        Alert.alert(t('mfaIncorrect'));
         return;
       }
 

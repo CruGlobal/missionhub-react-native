@@ -1,27 +1,37 @@
 import {
   SCREEN_FLOW_NEXT,
-  SCREEN_FLOW_PREVIOUS,
+  SCREEN_FLOW_BACK,
   SCREEN_FLOW_CLEAR_ALL,
+  SCREEN_FLOW_START,
 } from '../constants';
+import { screensWithoutMostRecent } from '../selectors/screenFlow';
 
 const initialState = {
+  flowName: null,
   screens: [],
 };
 
 export default function screenFlowReducer(state = initialState, action) {
   switch (action.type) {
-    case SCREEN_FLOW_NEXT: {
-      const { flow, screen } = action;
+    case SCREEN_FLOW_START: {
+      const { screen, flowName } = action;
       return {
-        screens: [...state.screens, { flow, screen }],
+        flowName,
+        screens: [screen],
       };
     }
-    case SCREEN_FLOW_PREVIOUS: {
-      return action.times > 0
-        ? {
-            screens: state.screens.slice(0, -1 * action.times),
-          }
-        : state;
+    case SCREEN_FLOW_NEXT: {
+      const { screen } = action;
+      return {
+        ...state,
+        screens: [...state.screens, screen],
+      };
+    }
+    case SCREEN_FLOW_BACK: {
+      return {
+        ...state,
+        screens: screensWithoutMostRecent(state, action.times),
+      };
     }
     case SCREEN_FLOW_CLEAR_ALL: {
       return initialState;

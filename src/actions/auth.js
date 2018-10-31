@@ -100,7 +100,7 @@ function getTokenAndLogin(data, isUpgrade) {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin(isUpgrade));
 
-    return dispatch(onSuccessfulLogin());
+    return await dispatch(onSuccessfulLogin());
   };
 }
 

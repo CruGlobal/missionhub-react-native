@@ -20,11 +20,9 @@ import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 import BackButton from '../BackButton';
 import i18n from '../../i18n';
-import { navigatePush } from '../../actions/navigation';
-import { MFA_CODE_SCREEN } from '../MFACodeScreen';
+import { screenFlowBack, screenFlowNext } from '../../actions/screenFlow';
 
 import styles from './styles';
-import { screenFlowPrevious } from '../../actions/screenFlow';
 
 @translate('keyLogin')
 class KeyLoginScreen extends Component {
@@ -71,7 +69,7 @@ class KeyLoginScreen extends Component {
   };
 
   handleBackButton = () => {
-    this.props.dispatch(screenFlowPrevious());
+    this.props.dispatch(screenFlowBack());
   };
 
   handleForgotPassword = () => {
@@ -91,8 +89,11 @@ class KeyLoginScreen extends Component {
     this.setState({ errorMessage: '', isLoading: true });
 
     try {
-      await dispatch(keyLogin(email, password, null, upgradeAccount));
+      const mePerson = await dispatch(
+        keyLogin(email, password, null, upgradeAccount),
+      );
       Keyboard.dismiss();
+      dispatch(screenFlowNext({ mePerson }));
     } catch (error) {
       const apiError = error.apiError;
       let errorMessage;
@@ -107,7 +108,12 @@ class KeyLoginScreen extends Component {
         errorMessage = i18n.t('keyLogin:verifyEmailMessage');
       } else if (apiError['thekey_authn_error'] === MFA_REQUIRED) {
         dispatch(
-          navigatePush(MFA_CODE_SCREEN, { email, password, upgradeAccount }),
+          screenFlowNext({
+            requiresMFA: true,
+            email,
+            password,
+            upgradeAccount,
+          }),
         );
         this.setState({ email: '', password: '' });
         return;

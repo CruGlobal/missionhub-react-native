@@ -20,6 +20,9 @@ import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
 import styles from './styles';
+import BackButton from '../BackButton';
+import { screenFlowBack } from '../../actions/screenFlow';
+import { isiPhoneX } from '../../utils/common';
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
@@ -50,6 +53,10 @@ class LoginOptionsScreen extends Component {
   navigateToNext(nextScreen, props = {}) {
     this.props.dispatch(navigatePush(nextScreen, props));
   }
+
+  handleBackButton = () => {
+    this.props.dispatch(screenFlowBack());
+  };
 
   startLoad = () => {
     this.setState({ isLoading: true });
@@ -86,9 +93,14 @@ class LoginOptionsScreen extends Component {
 
   render() {
     const { t, upgradeAccount } = this.props;
+    const marginTop = isiPhoneX() ? 50 : 25;
 
     return (
       <Flex style={styles.container}>
+        <BackButton
+          style={{ marginLeft: 5, marginTop }}
+          customNavigate={this.handleBackButton}
+        />
         <Flex value={1} align="center" justify="center">
           <Flex value={1} align="center" justify="center">
             <Image source={LOGO} />
