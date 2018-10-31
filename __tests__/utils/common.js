@@ -1,17 +1,12 @@
 import { DrawerActions } from 'react-navigation';
 
 import {
-  userIsJean,
-  communityIsCru,
   isMissionhubUser,
   isAdminForOrg,
   openMainMenu,
   getIconName,
   shuffleArray,
   getPagination,
-  showAssignButton,
-  showUnassignButton,
-  showDeleteButton,
   getAssignedByName,
   getAssignedToName,
   getPersonPhoneNumber,
@@ -28,34 +23,6 @@ jest.mock('react-navigation', () => ({
 
 const id = '123';
 const first_name = 'Roger';
-
-describe('userIsJean', () => {
-  const caseyPermissions = [
-    { id: '1', organization: { id: '1', user_created: true } },
-  ];
-  const jeanPermissions = [
-    ...caseyPermissions,
-    { id: '2', organization: { id: '2', user_created: false } },
-  ];
-  it('should return false for Casey', () => {
-    expect(userIsJean(caseyPermissions)).toEqual(false);
-  });
-  it('should return true for Jean', () => {
-    expect(userIsJean(jeanPermissions)).toEqual(true);
-  });
-});
-
-describe('communityIsCru', () => {
-  it('returns false for personal ministry', () => {
-    expect(communityIsCru({ id: 'personal' })).toEqual(false);
-  });
-  it('returns false for user-created community', () => {
-    expect(communityIsCru({ id: '1', user_created: true })).toEqual(false);
-  });
-  it('returns true for cru community', () => {
-    expect(communityIsCru({ id: '1', user_created: false })).toEqual(true);
-  });
-});
 
 describe('isMissionhubUser', () => {
   it('should return true for admins', () => {
@@ -180,105 +147,6 @@ describe('getPagination', () => {
     pagination = getPagination(action, action.meta.total);
 
     expect(pagination).toEqual({ hasNextPage: false, page: 3 });
-  });
-});
-
-describe('showAssignButton', () => {
-  let isCruOrg;
-  let personIsCurrentUser;
-  let contactAssignment;
-
-  const test = () => {
-    return showAssignButton(isCruOrg, personIsCurrentUser, contactAssignment);
-  };
-
-  it('should return false if not cru org', () => {
-    isCruOrg = false;
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    expect(test()).toEqual(false);
-  });
-  it('should return false if is current user', () => {
-    isCruOrg = true;
-    personIsCurrentUser = true;
-    contactAssignment = false;
-    expect(test()).toEqual(false);
-  });
-  it('should return false if assigned to you', () => {
-    isCruOrg = true;
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    expect(test()).toEqual(false);
-  });
-  it('should return true if cru org, not current user, and not assigned to you', () => {
-    isCruOrg = true;
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    expect(test()).toEqual(true);
-  });
-});
-
-describe('showUnassignButton', () => {
-  let isCruOrg;
-  let contactAssignment;
-
-  const test = () => {
-    return showUnassignButton(isCruOrg, contactAssignment);
-  };
-
-  it('should return false if not cru org', () => {
-    isCruOrg = false;
-    contactAssignment = true;
-    expect(test()).toEqual(false);
-  });
-  it('should return false if not assigned to you', () => {
-    isCruOrg = true;
-    contactAssignment = false;
-    expect(test()).toEqual(false);
-  });
-  it('should return true if cru org and assigned to you', () => {
-    isCruOrg = true;
-    contactAssignment = true;
-    expect(test()).toEqual(true);
-  });
-});
-
-describe('showDeleteButton', () => {
-  let personIsCurrentUser;
-  let contactAssignment;
-  let orgPermission;
-
-  const test = () => {
-    return showDeleteButton(
-      personIsCurrentUser,
-      contactAssignment,
-      orgPermission,
-    );
-  };
-
-  it('should return false if is current user', () => {
-    personIsCurrentUser = true;
-    contactAssignment = true;
-    orgPermission = false;
-    expect(test()).toEqual(false);
-  });
-  it('should return false if not assigned to you', () => {
-    personIsCurrentUser = false;
-    contactAssignment = false;
-    orgPermission = false;
-    expect(test()).toEqual(false);
-  });
-  it('should return false if not personal ministry', () => {
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    orgPermission = true;
-    expect(test()).toEqual(false);
-  });
-  it('should return true if not current user, assigned to you, and is personal ministry', () => {
-    personIsCurrentUser = false;
-    contactAssignment = true;
-    orgPermission = false;
-    expect(test()).toEqual(true);
   });
 });
 

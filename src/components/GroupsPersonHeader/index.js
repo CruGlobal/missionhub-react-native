@@ -25,22 +25,12 @@ import styles from './styles';
 @translate()
 export default class GroupsPersonHeader extends Component {
   computeButtons() {
-    const { person, myId, isMember, contactAssignment, isCruOrg } = this.props;
-    const personStageButton = contactAssignment
-      ? [this.getPersonStageButton()]
-      : [];
-    const statusButton =
-      !isMember && contactAssignment && contactAssignment.organization
-        ? [this.getStatusButton()]
-        : [];
-    const contactButtons =
-      isCruOrg && (contactAssignment || isMember)
-        ? this.getContactOptionButtons()
-        : [];
-
-    return person.id === myId
+    const { props } = this;
+    return props.person.id === props.myId
       ? this.getMeButton()
-      : [...personStageButton, ...statusButton, ...contactButtons];
+      : props.isMember
+        ? this.getMemberButtons()
+        : this.getContactButtons();
   }
 
   getSelfStageButton() {
@@ -200,16 +190,41 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
-  getContactOptionButtons() {
-    return [
+  getMemberButtons() {
+    const { contactAssignment } = this.props;
+    const buttons = [
       this.getMessageButton(),
       this.getCallButton(),
       this.getEmailButton(),
     ];
+    return contactAssignment
+      ? [this.getPersonStageButton(), ...buttons]
+      : buttons;
   }
 
   getMeButton() {
     return this.getSelfStageButton();
+  }
+
+  getContactButtons() {
+    const { contactAssignment } = this.props;
+
+    return contactAssignment
+      ? contactAssignment.organization
+        ? [
+            this.getPersonStageButton(),
+            this.getStatusButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
+        : [
+            this.getPersonStageButton(),
+            this.getMessageButton(),
+            this.getCallButton(),
+            this.getEmailButton(),
+          ]
+      : null;
   }
 
   button(icon, text, onClick, buttonStyle, flexStyle) {
@@ -259,6 +274,4 @@ GroupsPersonHeader.propTypes = {
   myId: PropTypes.string.isRequired,
   stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
-  isCruOrg: PropTypes.bool,
-  contactAssignment: PropTypes.object,
 };

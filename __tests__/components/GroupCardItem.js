@@ -10,7 +10,6 @@ const uncontactedCount = 56;
 let group = {
   name: 'Group Name',
   contactReport: {},
-  user_created: false,
 };
 
 const test = () => {
@@ -22,20 +21,6 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders with no report counts for user created org', () => {
-    group = {
-      ...group,
-      contactReport: {
-        contactsCount,
-        unassignedCount,
-        uncontactedCount,
-      },
-      user_created: true,
-    };
-
-    test();
-  });
-
   it('renders with all report counts', () => {
     group = {
       ...group,
@@ -44,7 +29,6 @@ describe('GroupCardItem', () => {
         unassignedCount,
         uncontactedCount,
       },
-      user_created: false,
     };
 
     test();
@@ -57,7 +41,6 @@ describe('GroupCardItem', () => {
         contactsCount,
         unassignedCount,
       },
-      user_created: false,
     };
 
     test();
@@ -70,7 +53,6 @@ describe('GroupCardItem', () => {
         contactsCount,
         uncontactedCount,
       },
-      user_created: false,
     };
 
     test();
@@ -82,7 +64,6 @@ describe('GroupCardItem', () => {
       contactReport: {
         contactsCount,
       },
-      user_created: false,
     };
 
     test();

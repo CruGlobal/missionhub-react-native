@@ -44,6 +44,7 @@ const organization = { id: '4', type: 'organization' };
 
 const store = createMockStore({
   auth: {
+    isJean: true,
     person: me,
   },
   people: {
@@ -69,7 +70,6 @@ const createComponent = () => {
       navigation={createMockNavState({
         person,
         organization,
-        isCruOrg: true,
       })}
     />,
     store,

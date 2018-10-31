@@ -37,7 +37,6 @@ const contactAssignment = {
   organization: { id: '231413' },
 };
 const myStageId = 4;
-const isCruOrg = true;
 
 const props = {
   person,
@@ -45,7 +44,6 @@ const props = {
   dispatch,
   myId,
   stages,
-  isCruOrg,
 };
 
 const phoneNumber = { number: '1800Roge' };
@@ -116,12 +114,6 @@ describe('isMember', () => {
   it('renders null because its not supposed to be visible', () => {
     testSnapshotShallow(
       <GroupsPersonHeader {...props} isMember={true} isVisible={false} />,
-    );
-  });
-
-  it('renders no contact buttons for User-Created Org', () => {
-    testSnapshotShallow(
-      <GroupsPersonHeader {...props} isMember={true} isCruOrg={false} />,
     );
   });
 
@@ -243,12 +235,6 @@ describe('isContact', () => {
             pathway_stage_id: 3,
           }}
         />,
-      );
-    });
-
-    it('renders no contact buttons for User-Created Org', () => {
-      testSnapshotShallow(
-        <GroupsPersonHeader {...props} isMember={false} isCruOrg={false} />,
       );
     });
 

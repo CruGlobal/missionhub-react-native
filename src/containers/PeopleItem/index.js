@@ -7,7 +7,7 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { isMissionhubUser, communityIsCru } from '../../utils/common';
+import { isMissionhubUser } from '../../utils/common';
 
 import styles from './styles';
 
@@ -48,7 +48,7 @@ export class PeopleItem extends Component {
   };
 
   render() {
-    const { person, me, t, stagesObj, organization } = this.props;
+    const { person, me, t, stagesObj, organization, isJean } = this.props;
     const { isPersonal, isMe } = this.state;
     const newPerson = isMe ? me : person;
     let personName = isMe ? t('me') : newPerson.full_name || '';
@@ -72,14 +72,12 @@ export class PeopleItem extends Component {
       }
     }
 
-    const isCruOrg = communityIsCru(organization);
-
     let status = 'uncontacted';
 
     const orgPermissions = person.organizational_permissions || [];
-    if (isMe || !isCruOrg) {
+    if (isMe || !isJean || isPersonal) {
       status = '';
-    } else if (isCruOrg) {
+    } else if (organization && organization.id) {
       const personOrgPermissions = orgPermissions.find(
         o => o.organization_id === organization.id,
       );
@@ -153,6 +151,7 @@ PeopleItem.propTypes = {
 };
 
 const mapStateToProps = ({ auth, stages }) => ({
+  isJean: auth.isJean,
   me: auth.person,
   stagesObj: stages.stagesObj,
 });

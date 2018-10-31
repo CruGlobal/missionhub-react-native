@@ -21,12 +21,10 @@ async function downloadTranslations() {
     console.log('Successfully Downloaded.');
 
     console.log('Writing translations.json...');
-    fs.writeFileSync(
-      path.resolve(__dirname, '../src/i18n/locales/translations.json'),
-      content,
-    );
+    fs.writeFileSync(path.resolve(__dirname, '../src/i18n/locales/translations.json'), content);
     console.log('Done.');
-  } catch (error) {
+  }
+  catch (error) {
     console.log('Error downloading from OneSky:');
     console.log(error);
     process.exit(1);

@@ -1,9 +1,6 @@
 import auth from '../../src/reducers/auth';
 import { REQUESTS } from '../../src/actions/api';
 import { UPDATE_STAGES, UPDATE_TOKEN } from '../../src/constants';
-import { userIsJean } from '../../src/utils/common';
-
-jest.mock('../../src/utils/common');
 
 const token = 'asdfasndfiosdc';
 const personId = '123456';
@@ -71,15 +68,9 @@ it('sets new token after refreshing anonymous login', () => {
 });
 
 it('sets isJean after loading me', () => {
-  const isJeanResponse = 'isJean';
-  userIsJean.mockReturnValue(isJeanResponse);
-
-  const organizational_permissions = [
-    { id: 1, type: 'organizational_permission' },
-  ];
   const response = {
     type: 'person',
-    organizational_permissions,
+    organizational_permissions: [{ id: 1, type: 'organizational_permission' }],
     user: {
       groups_feature: true,
     },
@@ -87,8 +78,7 @@ it('sets isJean after loading me', () => {
 
   const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
 
-  expect(state.isJean).toBe(isJeanResponse);
-  expect(userIsJean).toHaveBeenCalledWith(organizational_permissions);
+  expect(state.isJean).toBe(true);
 });
 
 it('sets user time zone', () => {

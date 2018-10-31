@@ -164,7 +164,7 @@ export function firstTime() {
 }
 
 export function getTimezoneString() {
-  return `${(new Date().getTimezoneOffset() / 60) * -1}`;
+  return `${new Date().getTimezoneOffset() / 60 * -1}`;
 }
 
 export function updateLocaleAndTimezone() {

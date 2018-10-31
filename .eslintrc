@@ -23,6 +23,7 @@
     "ErrorUtils": true
   },
   "rules": {
+    "prettier/prettier": "error",
     "strict": 0,
     "no-console": 2,
     "no-case-declarations": 0,
@@ -53,6 +54,6 @@
       }
     }
   },
-  "extends": "prettier",
-  "plugins": ["react", "import"]
+  "extends": "plugin:prettier/recommended",
+  "plugins": ["react", "import", "prettier"]
 }
