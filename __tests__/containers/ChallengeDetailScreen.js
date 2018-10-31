@@ -5,11 +5,7 @@ import {
   mapStateToProps,
   CHALLENGE_DETAIL_TABS,
 } from '../../src/containers/ChallengeDetailScreen';
-import {
-  testSnapshotShallow,
-  renderShallow,
-  createMockStore,
-} from '../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../testUtils';
 import { navigateBack } from '../../src/actions/navigation';
 import { getChallenge } from '../../src/actions/challenges';
 import { communityChallengeSelector } from '../../src/selectors/challenges';
