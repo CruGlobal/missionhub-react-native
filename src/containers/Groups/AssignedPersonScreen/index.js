@@ -252,6 +252,7 @@ export class AssignedPersonScreen extends Component {
             myStageId={myStageId}
             stages={stages}
             isUserCreatedOrg={isUserCreatedOrg}
+            isJean={isJean}
           />
         </Flex>
       </View>
