@@ -2,7 +2,8 @@ import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 
-import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '../';
+import { SwipeTabMenu, generateSwipeTabMenuNavigator } from '..';
+
 import { Touchable } from '../../../../src/components/common';
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
 import * as common from '../../../utils/common';
