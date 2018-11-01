@@ -6,7 +6,7 @@ import { createMockStore, renderShallow, testSnapshot } from '../../testUtils';
 import PeopleItem from '../../src/containers/PeopleItem';
 import { navigatePush } from '../../src/actions/navigation';
 import { PERSON_STAGE_SCREEN } from '../../src/containers/PersonStageScreen';
-import { communityIsCru, isMissionhubUser } from '../../src/utils/common';
+import { orgIsCru, isMissionhubUser } from '../../src/utils/common';
 
 const myId = '1';
 const stageId = '1';
@@ -87,7 +87,7 @@ beforeEach(() => {
 it('renders me correctly', () => {
   const mePerson = { ...mockPerson, id: myId };
 
-  communityIsCru.mockReturnValue(false);
+  orgIsCru.mockReturnValue(false);
   isMissionhubUser.mockReturnValue(false);
 
   testSnapshot(
@@ -99,12 +99,12 @@ it('renders me correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
+  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(isMissionhubUser).not.toHaveBeenCalled();
 });
 
 it('renders personal ministry contact correctly', () => {
-  communityIsCru.mockReturnValue(false);
+  orgIsCru.mockReturnValue(false);
   isMissionhubUser.mockReturnValue(false);
 
   testSnapshot(
@@ -116,12 +116,12 @@ it('renders personal ministry contact correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
+  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(isMissionhubUser).not.toHaveBeenCalled();
 });
 
 it('renders cru org contact correctly', () => {
-  communityIsCru.mockReturnValue(true);
+  orgIsCru.mockReturnValue(true);
   isMissionhubUser.mockReturnValue(false);
 
   testSnapshot(
@@ -133,12 +133,12 @@ it('renders cru org contact correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 it('renders cru org contact without stage correctly', () => {
-  communityIsCru.mockReturnValue(true);
+  orgIsCru.mockReturnValue(true);
   isMissionhubUser.mockReturnValue(false);
 
   testSnapshot(
@@ -153,12 +153,12 @@ it('renders cru org contact without stage correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 it('renders uncontacted cru org contact correctly', () => {
-  communityIsCru.mockReturnValue(true);
+  orgIsCru.mockReturnValue(true);
   isMissionhubUser.mockReturnValue(false);
 
   testSnapshot(
@@ -173,12 +173,12 @@ it('renders uncontacted cru org contact correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermissionUncontacted);
 });
 
 it('renders cru org member correctly', () => {
-  communityIsCru.mockReturnValue(true);
+  orgIsCru.mockReturnValue(true);
   isMissionhubUser.mockReturnValue(true);
 
   testSnapshot(
@@ -190,7 +190,7 @@ it('renders cru org member correctly', () => {
       />
     </Provider>,
   );
-  expect(communityIsCru).toHaveBeenCalledWith(mockOrganization);
+  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
   expect(isMissionhubUser).toHaveBeenCalledWith(mockOrgPermission);
 });
 

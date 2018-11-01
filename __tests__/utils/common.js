@@ -2,7 +2,9 @@ import { DrawerActions } from 'react-navigation';
 
 import {
   userIsJean,
-  communityIsCru,
+  orgIsPersonalMinistry,
+  orgIsUserCreated,
+  orgIsCru,
   isMissionhubUser,
   isAdminForOrg,
   openMainMenu,
@@ -45,18 +47,52 @@ describe('userIsJean', () => {
   });
 });
 
-describe('communityIsCru', () => {
-  it('returns false for empty org', () => {
-    expect(communityIsCru({})).toEqual(false);
+describe('orgIsPersonalMinistry', () => {
+  it('returns true for empty org', () => {
+    expect(orgIsPersonalMinistry({})).toEqual(true);
   });
-  it('returns false for personal ministry', () => {
-    expect(communityIsCru({ id: 'personal' })).toEqual(false);
+  it('returns true for personal ministry', () => {
+    expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
   });
   it('returns false for user-created community', () => {
-    expect(communityIsCru({ id: '1', user_created: true })).toEqual(false);
+    expect(orgIsPersonalMinistry({ id: '1', user_created: true })).toEqual(
+      false,
+    );
+  });
+  it('returns false for cru community', () => {
+    expect(orgIsPersonalMinistry({ id: '1', user_created: false })).toEqual(
+      false,
+    );
+  });
+});
+
+describe('orgIsUserCreated', () => {
+  it('returns false for empty org', () => {
+    expect(orgIsUserCreated({})).toEqual(false);
+  });
+  it('returns false for personal ministry', () => {
+    expect(orgIsUserCreated({ id: 'personal' })).toEqual(false);
+  });
+  it('returns true for user-created community', () => {
+    expect(orgIsUserCreated({ id: '1', user_created: true })).toEqual(true);
+  });
+  it('returns false for cru community', () => {
+    expect(orgIsUserCreated({ id: '1', user_created: false })).toEqual(false);
+  });
+});
+
+describe('orgIsCru', () => {
+  it('returns false for empty org', () => {
+    expect(orgIsCru({})).toEqual(false);
+  });
+  it('returns false for personal ministry', () => {
+    expect(orgIsCru({ id: 'personal' })).toEqual(false);
+  });
+  it('returns false for user-created community', () => {
+    expect(orgIsCru({ id: '1', user_created: true })).toEqual(false);
   });
   it('returns true for cru community', () => {
-    expect(communityIsCru({ id: '1', user_created: false })).toEqual(true);
+    expect(orgIsCru({ id: '1', user_created: false })).toEqual(true);
   });
 });
 
