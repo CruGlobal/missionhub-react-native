@@ -28,7 +28,7 @@ import {
   keyboardShow,
   keyboardHide,
   buildTrackingObj,
-  orgIsUserCreated,
+  orgIsCru,
 } from '../../../utils/common';
 
 import styles from './styles';
@@ -205,8 +205,7 @@ export class AssignedPersonScreen extends Component {
       myId,
       myStageId,
       stages,
-      isUserCreatedOrg,
-      isJean,
+      isCruOrg,
     } = this.props;
 
     const name = (person.first_name || '').toUpperCase();
@@ -251,8 +250,7 @@ export class AssignedPersonScreen extends Component {
             myId={myId}
             myStageId={myStageId}
             stages={stages}
-            isUserCreatedOrg={isUserCreatedOrg}
-            isJean={isJean}
+            isCruOrg={isCruOrg}
           />
         </Flex>
       </View>
@@ -299,8 +297,7 @@ export const mapStateToProps = (
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isUserCreatedOrg: orgIsUserCreated(navParams.organization),
-    isJean: auth.isJean,
+    isCruOrg: orgIsCru(navParams.organization),
   };
 };
 

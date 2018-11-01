@@ -25,14 +25,7 @@ import styles from './styles';
 @translate()
 export default class GroupsPersonHeader extends Component {
   computeButtons() {
-    const {
-      person,
-      myId,
-      isMember,
-      contactAssignment,
-      isUserCreatedOrg,
-      isJean,
-    } = this.props;
+    const { person, myId, isMember, contactAssignment, isCruOrg } = this.props;
     const personStageButton = contactAssignment
       ? [this.getPersonStageButton()]
       : [];
@@ -41,7 +34,7 @@ export default class GroupsPersonHeader extends Component {
         ? [this.getStatusButton()]
         : [];
     const contactButtons =
-      isJean && !isUserCreatedOrg && (contactAssignment || isMember)
+      isCruOrg && (contactAssignment || isMember)
         ? this.getContactOptionButtons()
         : [];
 
@@ -266,7 +259,6 @@ GroupsPersonHeader.propTypes = {
   myId: PropTypes.string.isRequired,
   stages: PropTypes.array.isRequired,
   isVisible: PropTypes.bool,
-  isUserCreatedOrg: PropTypes.bool,
-  isJean: PropTypes.bool,
+  isCruOrg: PropTypes.bool,
   contactAssignment: PropTypes.object,
 };
