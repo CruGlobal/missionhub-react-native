@@ -305,7 +305,7 @@ export function addNewOrganization(name) {
   return dispatch => {
     if (!name) {
       return Promise.reject(
-        `Invalid Data from addNewOrganization: no data or no org name passed in`,
+        `Invalid Data from addNewOrganization: no org name passed in`,
       );
     }
     const bodyData = {

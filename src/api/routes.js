@@ -185,7 +185,7 @@ export default {
     endpoint: SURVEY_URL,
   },
   GET_MY_LABELS: {
-    endpoint: `${ORG_URL}`,
+    endpoint: ORG_URL,
     query: { include: 'labels' },
   },
   GET_ORGANIZATION_LABELS: {
