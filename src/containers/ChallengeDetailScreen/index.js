@@ -101,7 +101,7 @@ export class ChallengeDetailScreen extends Component {
             !completed && !isPast ? (
               <Button
                 type="transparent"
-                text={t(joined ? 'complete' : 'join').toUpperCase()}
+                text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
                 onPress={joined ? this.handleComplete : this.handleJoin}
                 style={styles.button}
                 buttonTextStyle={styles.buttonText}
