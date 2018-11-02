@@ -1,4 +1,5 @@
 import React from 'react';
+import { Share } from 'react-native';
 
 import Members from '../Members';
 import {
@@ -12,8 +13,6 @@ import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../../actions/organizations';
-import * as navigation from '../../../actions/navigation';
-import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/organizations', () => ({
@@ -211,17 +210,13 @@ describe('Members', () => {
       <Members organization={organization} />,
       store2,
     );
-    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
+    Share.share = jest.fn();
     component
       .childAt(1)
       .childAt(0)
       .props()
       .onPress();
-    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-      organization,
-      isInvite: true,
-      onComplete: expect.any(Function),
-    });
+    expect(Share.share).toHaveBeenCalled();
   });
 
   it('renderHeader match snapshot', () => {
