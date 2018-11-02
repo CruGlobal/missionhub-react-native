@@ -91,6 +91,7 @@ class ChallengeFeed extends Component {
         onJoin: this.handleJoin,
         onComplete: this.handleComplete,
         onEdit: this.handleEdit,
+        isPast: challenge.isPast,
       }),
     );
   };

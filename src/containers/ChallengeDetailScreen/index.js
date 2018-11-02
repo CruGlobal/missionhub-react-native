@@ -80,7 +80,13 @@ export class ChallengeDetailScreen extends Component {
   };
 
   render() {
-    const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
+    const {
+      t,
+      challenge,
+      acceptedChallenge,
+      canEditChallenges,
+      isPast,
+    } = this.props;
 
     const joined = !!acceptedChallenge;
     const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
@@ -97,7 +103,7 @@ export class ChallengeDetailScreen extends Component {
             />
           }
           right={
-            !completed ? (
+            !completed && !isPast ? (
               <Button
                 type="transparent"
                 text={t(joined ? 'complete' : 'join').toUpperCase()}
@@ -114,6 +120,7 @@ export class ChallengeDetailScreen extends Component {
           challenge={challenge}
           canEditChallenges={canEditChallenges}
           onEdit={this.handleEdit}
+          isPast={isPast}
         />
       </View>
     );
@@ -127,6 +134,7 @@ ChallengeDetailScreen.propTypes = {
   onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
   acceptedChallenge: PropTypes.object.isRequired,
+  isPast: PropTypes.bool,
 };
 
 export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
