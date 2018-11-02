@@ -75,7 +75,7 @@ export const orgIsPersonalMinistry = org =>
   org && (!org.id || org.id === 'personal');
 export const orgIsUserCreated = org => !!(org && org.user_created);
 export const orgIsCru = org =>
-  org && !(orgIsPersonalMinistry(org) || orgIsUserCreated(org));
+  org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
 
 const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
