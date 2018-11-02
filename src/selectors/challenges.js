@@ -57,10 +57,7 @@ export const acceptedChallengesSelector = createSelector(
         const isCompleted = item.completed_at;
 
         return {
-          joined: [
-            ...joined,
-            ...(!isPlaceHolder && !isCompleted ? [item] : []),
-          ],
+          joined: [...joined, ...(!isPlaceHolder ? [item] : [])],
           completed: [
             ...completed,
             ...(!isPlaceHolder && isCompleted ? [item] : []),
