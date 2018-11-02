@@ -18,7 +18,7 @@ import {
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
-import GROUP_ICON from '../../../../assets/images/MemberContacts.png';
+import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 
@@ -105,7 +105,7 @@ class JoinGroupScreen extends Component {
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
           <Flex align="center" justify="end" style={styles.imageWrap}>
-            {this.renderError()}
+            {this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
             <Input
