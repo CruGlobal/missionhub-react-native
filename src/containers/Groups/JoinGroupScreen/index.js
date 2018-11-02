@@ -107,6 +107,20 @@ class JoinGroupScreen extends Component {
           <Flex align="center" justify="end" style={styles.imageWrap}>
             {this.renderError()}
           </Flex>
+          <Flex style={styles.fieldWrap}>
+            <Input
+              ref={this.ref}
+              onChangeText={this.onChangeText}
+              value={this.state.code}
+              autoFocus={true}
+              autoCorrect={true}
+              selectionColor={theme.white}
+              returnKeyType="done"
+              style={styles.input}
+              blurOnSubmit={true}
+              placeholder=""
+            />
+          </Flex>
           <KeyboardAvoidingView
             keyboardVerticalOffset={theme.buttonHeight}
             style={styles.flex}

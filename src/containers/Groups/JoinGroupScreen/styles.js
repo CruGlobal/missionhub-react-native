@@ -28,11 +28,11 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingHorizontal: 30,
   },
-  label: {
-    fontSize: 24,
-    color: theme.backgroundColor,
+  input: {
+    fontSize: 36,
+    color: theme.white,
     textAlign: 'center',
-    marginBottom: 5,
+    padding: 8,
   },
   searchButton: {
     width: theme.fullWidth,
