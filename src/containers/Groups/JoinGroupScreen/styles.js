@@ -14,15 +14,14 @@ export default StyleSheet.create({
   },
   imageWrap: {
     marginTop: 5,
-    borderRadius: 4,
     marginHorizontal: 20,
     minHeight: theme.fullHeight * 0.3,
-    backgroundColor: theme.accentColor,
   },
-  image: {
-    borderRadius: 4,
-    width: '100%',
-    height: theme.fullHeight * 0.3,
+  text: {
+    fontSize: 16,
+    color: theme.white,
+    textAlign: 'center',
+    padding: 4,
   },
   fieldWrap: {
     marginTop: 5,
@@ -35,12 +34,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginBottom: 5,
   },
-  input: {
-    fontSize: 16,
-    color: theme.white,
-    textAlign: 'center',
-  },
-  createButton: {
+  searchButton: {
     width: theme.fullWidth,
   },
 });

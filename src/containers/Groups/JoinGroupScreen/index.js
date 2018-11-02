@@ -18,29 +18,34 @@ import {
 } from '../../../components/common';
 import Header from '../../Header';
 import theme from '../../../theme';
-import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
+import GROUP_ICON from '../../../../assets/images/MemberContacts.png';
 import { navigateBack } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 
 import styles from './styles';
 
-@translate('groupsCreateGroup')
+@translate('groupsJoinGroup')
 class JoinGroupScreen extends Component {
   state = {
-    name: '',
+    code: '',
     imageUri: null,
   };
 
-  onChangeText = text => this.setState({ name: text });
+  onChangeCode = code => this.setState({ code });
 
-  createCommunity = () => {
+  onSearch = () => {
     Keyboard.dismiss();
     const text = (this.state.name || '').trim();
     if (!text) {
       return;
     }
 
-    // TODO: Create community
+    // TODO: search community by code
+  };
+
+  joinCommunity = () => {
+    Keyboard.dismiss();
+    // TODO: join community
   };
 
   handleImageChange = data => this.setState({ imageUri: data.uri });
@@ -63,6 +68,25 @@ class JoinGroupScreen extends Component {
     return <Image source={CAMERA_ICON} />;
   }
 
+  renderStart() {
+    const { t } = this.props;
+    return (
+      <Flex align="center" justify="center">
+        <Image resizeMode="contain" source={GROUP_ICON} style={styles.image} />
+        <Text style={styles.text}>{t('enterCode')}</Text>
+      </Flex>
+    );
+  }
+
+  renderError() {
+    const { t } = this.props;
+    return (
+      <Flex align="center" justify="center">
+        <Text style={styles.text}>{t('communityNotFound')}</Text>
+      </Flex>
+    );
+  }
+
   render() {
     const { t } = this.props;
 
@@ -77,45 +101,24 @@ class JoinGroupScreen extends Component {
             />
           }
           shadow={false}
-          title={t('createCommunity')}
+          title={t('joinCommunity')}
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-          <ImagePicker onSelectImage={this.handleImageChange}>
-            <Flex align="center" justify="center" style={styles.imageWrap}>
-              {this.renderImage()}
-            </Flex>
-          </ImagePicker>
-
+          <Flex align="center" justify="end" style={styles.imageWrap}>
+            {this.renderError()}
+          </Flex>
           <KeyboardAvoidingView
             keyboardVerticalOffset={theme.buttonHeight}
             style={styles.flex}
-          >
-            <Flex style={styles.fieldWrap}>
-              <Text style={styles.label} type="header">
-                {t('name')}
-              </Text>
-              <Input
-                ref={this.ref}
-                onChangeText={this.onChangeText}
-                value={this.state.name}
-                autoFocus={true}
-                autoCorrect={true}
-                selectionColor={theme.white}
-                returnKeyType="done"
-                style={styles.input}
-                blurOnSubmit={true}
-                placeholder=""
-              />
-            </Flex>
-          </KeyboardAvoidingView>
+          />
         </ScrollView>
 
         <Flex align="stretch" justify="end">
           <Button
             type="secondary"
             onPress={this.createCommunity}
-            text={t('createCommunity').toUpperCase()}
-            style={styles.createButton}
+            text={t('search').toUpperCase()}
+            style={styles.searchButton}
           />
         </Flex>
       </View>

@@ -561,6 +561,13 @@ export default {
     createCommunity: 'Create Community',
     name: 'Community Name',
   },
+  groupsJoinGroup: {
+    joinCommunity: 'Join a Community',
+    enterCode: 'Enter your Community Code',
+    search: 'Search',
+    communityNotFound:
+      "Sorry, we couldn't find your community.\nDouble check your code.",
+  },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
     shareSurvey: 'Share Survey',
