@@ -23,10 +23,26 @@ Object {
   "joined": Array [
     Object {
       "accepted_at": "2018-09-06T14:13:21Z",
+      "completed_at": "2018-09-08T14:13:21Z",
+      "id": "1",
+      "person": Object {
+        "id": "1",
+      },
+    },
+    Object {
+      "accepted_at": "2018-09-06T14:13:21Z",
       "completed_at": null,
       "id": "2",
       "person": Object {
         "id": "2",
+      },
+    },
+    Object {
+      "accepted_at": "2018-09-06T14:13:21Z",
+      "completed_at": "2018-09-08T14:13:21Z",
+      "id": "4",
+      "person": Object {
+        "id": "4",
       },
     },
   ],
