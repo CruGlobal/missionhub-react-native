@@ -15,8 +15,8 @@ class ChallengeDetailHeader extends Component {
   };
 
   render() {
-    const { t, challenge, canEditChallenges, onEdit, isPast } = this.props;
-    const { title, end_date } = challenge;
+    const { t, challenge, canEditChallenges, onEdit } = this.props;
+    const { isPast, title, end_date } = challenge;
 
     const canEdit = canEditChallenges && onEdit && !isPast;
 
@@ -56,7 +56,6 @@ ChallengeDetailHeader.propTypes = {
   challenge: PropTypes.object.isRequired,
   canEditChallenges: PropTypes.bool.isRequired,
   onEdit: PropTypes.func,
-  isPast: PropTypes.bool,
 };
 
 export default ChallengeDetailHeader;
