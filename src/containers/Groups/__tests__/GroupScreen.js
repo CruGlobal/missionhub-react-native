@@ -7,12 +7,15 @@ import {
   createMockStore,
   renderShallow,
 } from '../../../../testUtils';
+import { MAIN_TABS } from '../../../constants';
+import * as common from '../../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateReset } from '../../../actions/navigation';
 
 jest.mock('../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
   navigatePush: jest.fn(),
+  navigateReset: jest.fn(),
 }));
 
 const organization = { id: '5', name: 'Test  Org', user_created: false };
@@ -58,5 +61,52 @@ describe('GroupScreen', () => {
       onComplete: expect.anything(),
       organization,
     });
+  });
+
+  it('should handle go back correctly', () => {
+    const component = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    );
+
+    component.props().left.props.onPress();
+
+    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
+      startTab: 'groups',
+    });
+  });
+
+  it('calls disable back add', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    common.disableBack = { add: jest.fn() };
+    instance.componentDidMount();
+    expect(common.disableBack.add).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls disable back remove', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    common.disableBack = { remove: jest.fn() };
+    instance.componentWillUnmount();
+    expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });
 });

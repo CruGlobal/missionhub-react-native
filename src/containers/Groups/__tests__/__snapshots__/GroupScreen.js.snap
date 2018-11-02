@@ -57,7 +57,14 @@ Array [
 
 exports[`GroupScreen should render header correctly 1`] = `
 <Connect(Header)
-  left={<Connect(BackButton) />}
+  left={
+    <IconButton
+      name="homeIcon"
+      onPress={[Function]}
+      size={24}
+      type="MissionHub"
+    />
+  }
   right={
     <IconButton
       name="addContactIcon"
@@ -73,7 +80,14 @@ exports[`GroupScreen should render header correctly 1`] = `
 
 exports[`GroupScreen should render header correctly for user_created org 1`] = `
 <Connect(Header)
-  left={<Connect(BackButton) />}
+  left={
+    <IconButton
+      name="homeIcon"
+      onPress={[Function]}
+      size={24}
+      type="MissionHub"
+    />
+  }
   right={null}
   shadow={false}
   title="Test  Org"

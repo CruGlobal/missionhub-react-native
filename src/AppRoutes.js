@@ -200,7 +200,7 @@ const tabs = {
   ),
 };
 
-const createTabs = (tabKey, tabPath) => {
+const createTabs = (tabKey, tabPath, initialRouteName) => {
   return createBottomTabNavigator(
     {
       StepsTab: tabs.StepsTab,
@@ -231,6 +231,7 @@ const createTabs = (tabKey, tabPath) => {
         PeopleTab: '/people',
         [tabKey]: tabPath,
       },
+      initialRouteName,
     },
   );
 };
@@ -238,6 +239,12 @@ const createTabs = (tabKey, tabPath) => {
 export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
 
 export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
+// Create another set of tabs with a different default tab
+export const MainTabBarGroupsStartGroups = createTabs(
+  GROUPS_TAB,
+  '/groups',
+  GROUPS_TAB,
+);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   createDrawerNavigator(
