@@ -139,7 +139,7 @@ describe('communityChallengesSelector', () => {
 });
 
 describe('acceptedChallengesSelector', () => {
-  it('sorts accpeted challenge items into sections by joined or completed', () => {
+  it('sorts accepted challenge items into sections by joined or completed', () => {
     expect(
       acceptedChallengesSelector({ acceptedChallenges }),
     ).toMatchSnapshot();
