@@ -248,7 +248,7 @@ describe('isContact', () => {
       );
     });
 
-    it('renders no contact buttons for User-Created Org', () => {
+    it('renders no contact buttons if not Cru Org', () => {
       testSnapshotShallow(
         <GroupsPersonHeader {...props} isMember={false} isCruOrg={false} />,
       );
