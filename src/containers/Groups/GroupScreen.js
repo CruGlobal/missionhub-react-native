@@ -80,7 +80,12 @@ export class GroupScreen extends Component {
     return (
       <Header
         left={
-          <IconButton name="homeIcon" type="MissionHub" onPress={this.back} />
+          <IconButton
+            name="homeIcon"
+            type="MissionHub"
+            size={24}
+            onPress={this.back}
+          />
         }
         shadow={false}
         title={organization.name}

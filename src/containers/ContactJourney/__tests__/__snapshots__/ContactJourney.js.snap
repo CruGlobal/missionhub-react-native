@@ -574,7 +574,7 @@ exports[`renders with an organization correctly 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
             </View>
           </View>

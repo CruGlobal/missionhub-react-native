@@ -61,6 +61,7 @@ exports[`GroupScreen should render header correctly 1`] = `
     <IconButton
       name="homeIcon"
       onPress={[Function]}
+      size={24}
       type="MissionHub"
     />
   }
@@ -83,6 +84,7 @@ exports[`GroupScreen should render header correctly for user_created org 1`] = `
     <IconButton
       name="homeIcon"
       onPress={[Function]}
+      size={24}
       type="MissionHub"
     />
   }
