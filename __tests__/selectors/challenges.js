@@ -100,25 +100,48 @@ const acceptedChallenges = [
   },
 ];
 
-it('sorts challenge items into sections by active or past', () => {
-  expect(challengesSelector({ challengeItems })).toMatchSnapshot();
+describe('challengesSelector', () => {
+  it('sorts challenge items into sections by active or past', () => {
+    expect(challengesSelector({ challengeItems })).toMatchSnapshot();
+  });
 });
 
-it('selects single community challenge', () => {
-  organizationSelector.mockReturnValue(organizations.all[0]);
+describe('communityChallengesSelector', () => {
+  it('selects single current community challenge', () => {
+    organizationSelector.mockReturnValue(organizations.all[0]);
 
-  expect(
-    communityChallengeSelector(
+    expect(
+      communityChallengeSelector(
+        { organizations },
+        { orgId, challengeId: challengeItems[0].id },
+      ),
+    ).toEqual({ ...challengeItems[0], isPast: false });
+    expect(organizationSelector).toHaveBeenCalledWith(
       { organizations },
-      { orgId, challengeId: challengeItems[0].id },
-    ),
-  ).toEqual(challengeItems[0]);
-  expect(organizationSelector).toHaveBeenCalledWith(
-    { organizations },
-    { orgId },
-  );
+      { orgId },
+    );
+  });
+
+  it('selects single past community challenge', () => {
+    organizationSelector.mockReturnValue(organizations.all[0]);
+
+    expect(
+      communityChallengeSelector(
+        { organizations },
+        { orgId, challengeId: challengeItems[2].id },
+      ),
+    ).toEqual({ ...challengeItems[2], isPast: true });
+    expect(organizationSelector).toHaveBeenCalledWith(
+      { organizations },
+      { orgId },
+    );
+  });
 });
 
-it('sorts accpeted challenge items into sections by joined or completed', () => {
-  expect(acceptedChallengesSelector({ acceptedChallenges })).toMatchSnapshot();
+describe('acceptedChallengesSelector', () => {
+  it('sorts accpeted challenge items into sections by joined or completed', () => {
+    expect(
+      acceptedChallengesSelector({ acceptedChallenges }),
+    ).toMatchSnapshot();
+  });
 });

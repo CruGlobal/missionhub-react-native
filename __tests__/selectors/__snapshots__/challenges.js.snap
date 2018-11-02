@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sorts accpeted challenge items into sections by joined or completed 1`] = `
+exports[`acceptedChallengesSelector sorts accpeted challenge items into sections by joined or completed 1`] = `
 Object {
   "completed": Array [
     Object {
@@ -33,7 +33,7 @@ Object {
 }
 `;
 
-exports[`sorts challenge items into sections by active or past 1`] = `
+exports[`challengesSelector sorts challenge items into sections by active or past 1`] = `
 Array [
   Object {
     "data": Array [
