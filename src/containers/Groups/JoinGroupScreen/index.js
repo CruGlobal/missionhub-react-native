@@ -16,6 +16,7 @@ import {
   IconButton,
   Button,
 } from '../../../components/common';
+import { DigitInput } from '../../../components/DigitInput';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
@@ -108,18 +109,7 @@ class JoinGroupScreen extends Component {
             {this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
-            <Input
-              ref={this.ref}
-              onChangeText={this.onChangeText}
-              value={this.state.code}
-              autoFocus={true}
-              autoCorrect={true}
-              selectionColor={theme.white}
-              returnKeyType="done"
-              style={styles.input}
-              blurOnSubmit={true}
-              placeholder=""
-            />
+            <DigitInput />
           </Flex>
           <KeyboardAvoidingView
             keyboardVerticalOffset={theme.buttonHeight}
