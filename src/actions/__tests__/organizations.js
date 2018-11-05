@@ -18,6 +18,7 @@ import {
   getOrganizationMembersNextPage,
   addNewPerson,
   getMyCommunities,
+  addNewOrganization,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -441,5 +442,33 @@ describe('getMyCommunities', () => {
     // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
     expect(actions[2]).toEqual(response);
     expect(actions[3].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
+  });
+});
+
+describe('addNewOrganization', () => {
+  const name = 'Fred';
+  const bodyData = {
+    data: {
+      type: 'organization',
+      attributes: {
+        name,
+        user_created: true,
+      },
+    },
+  };
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('adds organization with name', () => {
+    store.dispatch(addNewOrganization(name));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_NEW_ORGANIZATION,
+      {},
+      bodyData,
+    );
   });
 });

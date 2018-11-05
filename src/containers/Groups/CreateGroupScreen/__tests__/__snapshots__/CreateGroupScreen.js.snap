@@ -114,6 +114,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     justify="end"
   >
     <Button
+      disabled={true}
       onPress={[Function]}
       style={
         Object {
@@ -131,20 +132,29 @@ exports[`CreateGroupScreen should update the image 1`] = `
 CreateGroupScreen {
   "context": Object {
     "store": Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
+      "dispatch": [MockFunction],
+      "getState": [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+      },
+      "subscribe": [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+      },
     },
   },
   "createCommunity": [Function],
+  "getNewOrg": [Function],
   "handleImageChange": [Function],
   "navigateBack": [Function],
   "onChangeText": [Function],
   "props": Object {
-    "dispatch": [Function],
+    "dispatch": [MockFunction],
     "i18n": I18n {
       "addResource": [Function],
       "addResourceBundle": [Function],
@@ -21993,6 +22003,9 @@ Choose a person in People view and add some new steps.",
         "params": Object {},
       },
     },
+    "organizations": Object {
+      "all": Array [],
+    },
     "t": [Function],
     "tReady": true,
   },
@@ -22006,16 +22019,24 @@ Choose a person in People view and add some new steps.",
     "_renderer": ReactShallowRenderer {
       "_context": Object {
         "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
+          "dispatch": [MockFunction],
+          "getState": [MockFunction] {
+            "calls": Array [
+              Array [],
+              Array [],
+            ],
+          },
+          "subscribe": [MockFunction] {
+            "calls": Array [
+              Array [
+                [Function],
+              ],
+            ],
+          },
         },
       },
       "_element": <CreateGroupScreen
-        dispatch={[Function]}
+        dispatch={[MockFunction]}
         i18n={
           I18n {
             "addResource": [Function],
@@ -43868,6 +43889,11 @@ Choose a person in People view and add some new steps.",
             },
           }
         }
+        organizations={
+          Object {
+            "all": Array [],
+          }
+        }
         t={[Function]}
         tReady={true}
       />,
@@ -43997,6 +44023,7 @@ Choose a person in People view and add some new steps.",
           justify="end"
         >
           <Button
+            disabled={true}
             onPress={[Function]}
             style={
               Object {
