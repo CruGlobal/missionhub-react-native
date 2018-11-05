@@ -462,7 +462,7 @@ describe('addNewOrganization', () => {
     callApi.mockReturnValue(apiResponse);
   });
 
-  it('adds person with only first name', () => {
+  it('adds organization with name', () => {
     store.dispatch(addNewOrganization(name));
 
     expect(callApi).toHaveBeenCalledWith(
