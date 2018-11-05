@@ -71,8 +71,11 @@ export const isAuthenticated = authState => authState.token;
 export const userIsJean = orgPermissions =>
   orgPermissions.some(p => !p.organization.user_created);
 
-export const communityIsCru = organization =>
-  organization && organization.id !== 'personal' && !organization.user_created;
+export const orgIsPersonalMinistry = org =>
+  org && (!org.id || org.id === 'personal');
+export const orgIsUserCreated = org => !!(org && org.user_created);
+export const orgIsCru = org =>
+  org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
 
 const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
 export const isMissionhubUser = orgPermission =>
