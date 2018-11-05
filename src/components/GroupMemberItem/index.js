@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Dot } from '../common';
+import MemberOptionsMenu from '../MemberOptionsMenu';
 
 import styles from './styles';
 
@@ -14,23 +15,26 @@ export default class GroupMemberItem extends Component {
     const { person, t, isUserCreatedOrg } = this.props;
 
     return (
-      <Flex justify="center" style={styles.row}>
-        <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-        {!isUserCreatedOrg ? (
-          <Flex align="center" direction="row" style={styles.detailsWrap}>
-            <Text style={styles.assigned}>
-              {t('numAssigned', { number: person.contact_count || 0 })}
-            </Text>
-            {person.uncontacted_count ? (
-              <Fragment>
-                <Dot style={styles.assigned} />
-                <Text style={styles.uncontacted}>
-                  {t('numUncontacted', { number: person.uncontacted_count })}
-                </Text>
-              </Fragment>
-            ) : null}
-          </Flex>
-        ) : null}
+      <Flex justify="center" direction="row" style={styles.row}>
+        <Flex value={1} direction="column">
+          <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+          {!isUserCreatedOrg ? (
+            <Flex align="center" direction="row" style={styles.detailsWrap}>
+              <Text style={styles.assigned}>
+                {t('numAssigned', { number: person.contact_count || 0 })}
+              </Text>
+              {person.uncontacted_count ? (
+                <Fragment>
+                  <Dot style={styles.assigned} />
+                  <Text style={styles.uncontacted}>
+                    {t('numUncontacted', { number: person.uncontacted_count })}
+                  </Text>
+                </Fragment>
+              ) : null}
+            </Flex>
+          ) : null}
+        </Flex>
+        <MemberOptionsMenu />
       </Flex>
     );
   }
