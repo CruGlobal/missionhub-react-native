@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { BackHandler, Platform, Keyboard } from 'react-native';
+import { BackHandler, Platform, Keyboard, Clipboard } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
@@ -268,4 +268,8 @@ export function keyboardHide(handler) {
 
 export function getSurveyUrl(surveyId) {
   return `${Config.SURVEY_URL}${surveyId}`;
+}
+
+export function copyText(string) {
+  Clipboard.setString(string);
 }

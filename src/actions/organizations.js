@@ -301,6 +301,57 @@ export function addNewPerson(data) {
   };
 }
 
+export function updateOrganization(orgId, data) {
+  return dispatch => {
+    if (!data) {
+      return Promise.reject(
+        `Invalid Data from updateOrganization: no data passed in`,
+      );
+    }
+    const promises = [];
+    if (data.imageData) {
+      promises.push(dispatch(updateOrganizationImage(orgId, data.imageData)));
+    }
+    if (data.name) {
+      const bodyData = {
+        data: {
+          type: 'organization',
+          attributes: {
+            name: data.name,
+          },
+        },
+      };
+      const query = { orgId };
+      promises.push(
+        dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData)),
+      );
+    }
+    return Promise.all(promises);
+  };
+}
+
+// Error with RN 0.54 & 0.55 while uploading images: https://github.com/facebook/react-native/issues/18818
+export function updateOrganizationImage(orgId, imageData) {
+  return dispatch => {
+    if (!imageData) {
+      return Promise.reject(
+        `Invalid Data from updateOrganization: no data passed in`,
+      );
+    }
+
+    const data = new FormData();
+
+    data.append('data[attributes][community_photo_url]', {
+      uri: imageData.uri,
+      type: imageData.fileType,
+      name: imageData.fileName,
+    });
+    return dispatch(
+      callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
+    );
+  };
+}
+
 export function addNewOrganization(name) {
   return dispatch => {
     if (!name) {

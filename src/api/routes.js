@@ -142,6 +142,19 @@ export default {
     endpoint: ORG_URL,
     method: 'post',
   },
+  UPDATE_ORGANIZATION: {
+    endpoint: `${ORG_URL}/:orgId`,
+    method: 'put',
+  },
+  UPDATE_ORGANIZATION_IMAGE: {
+    endpoint: `${ORG_URL}/:orgId`,
+    method: 'put',
+    extra: {
+      stringify: false,
+      // headers: { 'Content-Type': 'multipart/form-data' },
+      headers: { 'Content-Type': false },
+    },
+  },
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },

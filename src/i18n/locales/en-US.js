@@ -75,6 +75,8 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
+    copy: 'Copy',
+    edit: 'Edit',
     done: 'Done',
     next: 'Next',
     ok: 'Ok',
@@ -610,5 +612,15 @@ export default {
     errorHeader: 'Error',
     errorBody:
       'There was an error processing your request. Please try again later.',
+  },
+  groupProfile: {
+    owner: 'Owner',
+    created: 'Created',
+    members: 'Members',
+    code: 'Community Code',
+    link: 'Community Link',
+    newCode: 'New Code',
+    newLink: 'New Link',
+    info: 'Anyone who has this code or link will be able to join your group.',
   },
 };
