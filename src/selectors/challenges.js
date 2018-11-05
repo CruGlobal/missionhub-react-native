@@ -8,22 +8,17 @@ import { organizationSelector } from './organizations';
 export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
   challengeItems => {
-    const today = moment().endOf('day');
-
     const { currentItems, pastItems } = challengeItems.reduce(
       ({ currentItems, pastItems }, item) => {
-        const endDate = moment(item.end_date).endOf('day');
-        // Check if the end date is AFTER today (in the future)
-        const isCurrent = endDate.diff(today, 'days') >= 0;
-
+        const isPast = challengeIsPast(item);
         return {
           currentItems: [
             ...currentItems,
-            ...(isCurrent ? [{ ...item, isPast: false }] : []),
+            ...(isPast ? [] : [{ ...item, isPast: false }]),
           ],
           pastItems: [
             ...pastItems,
-            ...(isCurrent ? [] : [{ ...item, isPast: true }]),
+            ...(isPast ? [{ ...item, isPast: true }] : []),
           ],
         };
       },
@@ -47,7 +42,10 @@ export const communityChallengeSelector = createSelector(
   ({ organizations }, { orgId }) =>
     organizationSelector({ organizations }, { orgId }),
   (_, { challengeId }) => challengeId,
-  (org, challengeId) => org.challengeItems.find(c => c.id === challengeId),
+  (org, challengeId) => {
+    const challenge = org.challengeItems.find(c => c.id === challengeId);
+    return challenge && { ...challenge, isPast: challengeIsPast(challenge) };
+  },
 );
 
 export const acceptedChallengesSelector = createSelector(
@@ -59,10 +57,7 @@ export const acceptedChallengesSelector = createSelector(
         const isCompleted = item.completed_at;
 
         return {
-          joined: [
-            ...joined,
-            ...(!isPlaceHolder && !isCompleted ? [item] : []),
-          ],
+          joined: [...joined, ...(!isPlaceHolder ? [item] : [])],
           completed: [
             ...completed,
             ...(!isPlaceHolder && isCompleted ? [item] : []),
@@ -75,3 +70,10 @@ export const acceptedChallengesSelector = createSelector(
     return sortedAcceptances;
   },
 );
+
+const challengeIsPast = challenge => {
+  const today = moment().endOf('day');
+  const endDate = moment(challenge.end_date).endOf('day');
+  // Check if the end date is AFTER today (in the future)
+  return endDate.diff(today, 'days') < 0;
+};

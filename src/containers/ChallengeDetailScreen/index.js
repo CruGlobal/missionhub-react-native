@@ -82,6 +82,7 @@ export class ChallengeDetailScreen extends Component {
   render() {
     const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
 
+    const { isPast } = challenge;
     const joined = !!acceptedChallenge;
     const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
 
@@ -97,10 +98,10 @@ export class ChallengeDetailScreen extends Component {
             />
           }
           right={
-            !completed ? (
+            !completed && !isPast ? (
               <Button
                 type="transparent"
-                text={t(joined ? 'complete' : 'join').toUpperCase()}
+                text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
                 onPress={joined ? this.handleComplete : this.handleJoin}
                 style={styles.button}
                 buttonTextStyle={styles.buttonText}
