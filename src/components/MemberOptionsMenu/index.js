@@ -6,32 +6,32 @@ import { translate } from 'react-i18next';
 import PopupMenu from '../PopupMenu';
 import { getSurveyUrl } from '../../utils/common';
 
-import styles from './styles';
-
-@translate('shareSurveyMenu')
+@translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
-  takeSurvey = () => {};
+  makeAdmin = () => {
+    console.log('Make Admin');
+  };
 
-  shareSurvey = () => {};
+  makeOwner = () => {
+    console.log('Make Owner');
+  };
+
+  removeMember = () => {
+    console.log('Remove Member');
+  };
 
   render() {
     const { t, header } = this.props;
     const props = {
       actions: [
-        { text: t('shareSurvey'), onPress: this.shareSurvey },
-        { text: t('takeSurvey'), onPress: this.takeSurvey },
+        { text: t('makeAdmin'), onPress: this.makeAdmin },
+        { text: t('makeOwner'), onPress: this.makeOwner },
+        { text: t('removeMember'), onPress: this.removeMember },
       ],
       iconProps: {},
     };
-    if (header) {
-      props.iconProps.style = styles.headerIcon;
-    }
     return <PopupMenu {...props} />;
   }
 }
-
-MemberOptionsMenu.propTypes = {
-  header: PropTypes.bool,
-};
 
 export default MemberOptionsMenu;

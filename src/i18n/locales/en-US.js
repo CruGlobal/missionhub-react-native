@@ -510,6 +510,11 @@ export default {
   groupsMembers: {
     invite: 'Send Invite',
   },
+  groupMemberOptions: {
+    makeAdmin: 'Make Admin',
+    makeOwner: 'Make Owner',
+    removeMember: 'Remove Member',
+  },
   groupsImpact: {
     title: '',
   },
