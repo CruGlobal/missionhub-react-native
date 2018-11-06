@@ -1,15 +1,17 @@
 import React, { Fragment, Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Dot } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
+import { orgIsUserCreated } from '../../utils/common';
 
 import styles from './styles';
 
 @translate('groupItem')
-export default class GroupMemberItem extends Component {
+class GroupMemberItem extends Component {
   handleSelect = () => this.props.onSelect(this.props.person);
 
   renderContent() {
@@ -66,10 +68,12 @@ GroupMemberItem.propTypes = {
   isUserCreatedOrg: PropTypes.bool,
 };
 
-const mapStateToProps = (_, { person, organization })({
+const mapStateToProps = (_, { person, organization }) => ({
   personOrgPermissions: orgPermissionSelector(null, {
     person,
     organization,
   }),
-  isUserCreatedOrg: organization.user_created,
+  isUserCreatedOrg: orgIsUserCreated(organization),
 });
+
+export default connect(mapStateToProps)(GroupMemberItem);

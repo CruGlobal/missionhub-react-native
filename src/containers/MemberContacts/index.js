@@ -13,7 +13,10 @@ import { personSelector } from '../../selectors/people';
 class MemberContacts extends Component {
   state = { refreshing: false };
 
-  renderItem = ({ item }) => <GroupMemberItem person={item.person} />;
+  renderItem = ({ item }) => {
+    const { organization } = this.props;
+    <GroupMemberItem person={item.person} organization={organization} />;
+  };
 
   keyExtractor = p => p.id;
 
@@ -57,6 +60,7 @@ MemberContacts.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
   }).isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ people }, { person, organization }) => {
