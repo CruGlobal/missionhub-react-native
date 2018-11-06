@@ -5,7 +5,7 @@ import {
   PERSON_VIEWED_STAGE_CHANGED,
   SELF_VIEWED_STAGE_CHANGED,
 } from '../constants';
-import { stepsTab } from '../AppRoutes';
+import { stepsTab } from '../routes';
 
 /*
 These are used by analytics to indicate what tab/stage the user will view when navigating back since we can't get this

@@ -1,7 +1,7 @@
 import { DrawerActions } from 'react-navigation';
 
 import { trackState } from '../actions/analytics';
-import { trackableScreens } from '../AppRoutes';
+import { trackableScreens } from '../routes';
 import {
   IMPACT_TAB,
   MAIN_MENU_DRAWER,

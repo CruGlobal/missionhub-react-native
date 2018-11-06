@@ -17,13 +17,6 @@ import PathwayStageScreen from './PathwayStageScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
-  onScrollToStage = trackingObj => {
-    this.props.dispatch({
-      type: PERSON_VIEWED_STAGE_CHANGED,
-      newActiveTab: trackingObj,
-    });
-  };
-
   celebrateAndFinish = () => {
     const celebrationProps = {
       trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),
@@ -163,11 +156,11 @@ class PersonStageScreen extends Component {
 
     return (
       <PathwayStageScreen
+        isMe={true}
         buttonText={t('here').toUpperCase()}
         activeButtonText={t('stillHere').toUpperCase()}
         questionText={questionText || t('personQuestion', { name: personName })}
         onSelect={this.handleSelectStage}
-        onScrollToStage={this.onScrollToStage}
         firstItem={firstItem}
         section={section}
         subsection={subsection}

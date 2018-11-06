@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { MainTabBar, MainTabBarGroups } from '../AppRoutes';
+import { MainTabBar, MainTabBarGroups } from '../routes';
 
 class MainTabs extends Component {
   render() {

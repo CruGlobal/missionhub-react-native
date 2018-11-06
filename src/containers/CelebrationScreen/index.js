@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
-import { navigateReset } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';
 import { isAndroid, disableBack } from '../../utils/common';
 
@@ -40,7 +40,7 @@ class CelebrationScreen extends Component {
     if (this.props.onComplete) {
       this.props.onComplete();
     } else {
-      this.props.dispatch(navigateReset(this.props.nextScreen || MAIN_TABS));
+      this.props.dispatch(navigatePush(MAIN_TABS));
     }
   }
 

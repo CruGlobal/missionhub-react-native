@@ -1,8 +1,8 @@
 import { isAuthenticated } from '../utils/common';
+import { AUTHENTICATION_FLOW } from '../routes/authentication';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
 
 export function initialRoute({ auth, personProfile, people }) {
   if (auth && isAuthenticated(auth)) {
@@ -18,7 +18,7 @@ export function initialRoute({ auth, personProfile, people }) {
       : GET_STARTED_SCREEN;
   }
 
-  return LOGIN_SCREEN;
+  return AUTHENTICATION_FLOW;
 }
 
 function hasContactWithPathwayStage(myId, people) {

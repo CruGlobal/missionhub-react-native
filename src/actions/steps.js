@@ -281,6 +281,7 @@ function challengeCompleteAction(step, screen) {
                     firstItem: firstItemIndex,
                     enableBackButton: false,
                     noNav: true,
+                    // TODO: make this prop a flag that gets passed
                     questionText: isMe
                       ? i18next.t('selectStage:completed3StepsMe')
                       : i18next.t('selectStage:completed3Steps', {

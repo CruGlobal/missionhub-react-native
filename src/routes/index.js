@@ -5,69 +5,64 @@ import {
   createDrawerNavigator,
 } from 'react-navigation';
 import i18next from 'i18next';
+import createSwitchNavigator from 'react-navigation/src/navigators/createSwitchNavigator';
 
-import LoginScreen, { LOGIN_SCREEN } from './containers/LoginScreen';
-import KeyLoginScreen, { KEY_LOGIN_SCREEN } from './containers/KeyLoginScreen';
-import StepsScreen from './containers/StepsScreen';
-import PeopleScreen from './containers/PeopleScreen';
+import StepsScreen from '../containers/StepsScreen';
+import PeopleScreen from '../containers/PeopleScreen';
 import SelectMyStepScreen, {
   SELECT_MY_STEP_SCREEN,
   SELECT_MY_STEP_ONBOARDING_SCREEN,
-} from './containers/SelectMyStepScreen';
+} from '../containers/SelectMyStepScreen';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
-} from './containers/PersonSelectStepScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
+} from '../containers/PersonSelectStepScreen';
+import AddStepScreen, { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
-} from './containers/AddChallengeScreen';
-import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
-import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
+} from '../containers/AddChallengeScreen';
+import WelcomeScreen, { WELCOME_SCREEN } from '../containers/WelcomeScreen';
+import SetupScreen, { SETUP_SCREEN } from '../containers/SetupScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
-} from './containers/GetStartedScreen';
+} from '../containers/GetStartedScreen';
 import StageScreen, {
   STAGE_SCREEN,
   STAGE_ONBOARDING_SCREEN,
-} from './containers/StageScreen';
+} from '../containers/StageScreen';
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
-} from './containers/StageSuccessScreen';
+} from '../containers/StageSuccessScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
-} from './containers/AddSomeoneScreen';
+} from '../containers/AddSomeoneScreen';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
-} from './containers/AddContactScreen';
+} from '../containers/AddContactScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
-} from './containers/NotificationPrimerScreen';
-import ImpactScreen from './containers/ImpactScreen';
+} from '../containers/NotificationPrimerScreen';
+import ImpactScreen from '../containers/ImpactScreen';
 import SetupPersonScreen, {
   SETUP_PERSON_SCREEN,
-} from './containers/SetupPersonScreen';
+} from '../containers/SetupPersonScreen';
 import PersonStageScreen, {
   PERSON_STAGE_SCREEN,
-} from './containers/PersonStageScreen';
+} from '../containers/PersonStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
-} from './containers/CelebrationScreen';
+} from '../containers/CelebrationScreen';
 import SearchPeopleScreen, {
   SEARCH_SCREEN,
-} from './containers/SearchPeopleScreen';
+} from '../containers/SearchPeopleScreen';
 import SearchPeopleFilterScreen, {
   SEARCH_FILTER_SCREEN,
-} from './containers/SearchPeopleFilterScreen';
+} from '../containers/SearchPeopleFilterScreen';
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
-} from './containers/SearchPeopleFilterRefineScreen';
-import LoginOptionsScreen, {
-  LOGIN_OPTIONS_SCREEN,
-} from './containers/LoginOptionsScreen';
+} from '../containers/SearchPeopleFilterRefineScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
-} from './containers/NotificationOffScreen';
-import MFACodeScreen, { MFA_CODE_SCREEN } from './containers/MFACodeScreen';
+} from '../containers/NotificationOffScreen';
 import {
   ContactPersonScreen,
   IsUserCreatedMemberPersonScreen,
@@ -84,52 +79,63 @@ import {
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
   ALL_PERSON_TAB_ROUTES,
-} from './containers/Groups/AssignedPersonScreen';
-import SettingsMenu from './components/SettingsMenu';
-import PersonSideMenu from './components/PersonSideMenu';
-import { Flex, Icon, Text } from './components/common';
-import theme from './theme';
-import MainTabs from './containers/MainTabs';
+} from '../containers/Groups/AssignedPersonScreen';
+import SettingsMenu from '../components/SettingsMenu';
+import PersonSideMenu from '../components/PersonSideMenu';
+import { Flex, Icon, Text } from '../components/common';
+import theme from '../theme';
+import MainTabs from '../containers/MainTabs';
 import {
   IMPACT_TAB,
   MAIN_TABS,
   PEOPLE_TAB,
   STEPS_TAB,
   GROUPS_TAB,
-} from './constants';
-import { buildTrackingObj, isAndroid } from './utils/common';
-import GroupsListScreen from './containers/Groups/GroupsListScreen';
+} from '../constants';
+import { buildTrackingObj, isAndroid } from '../utils/common';
+import GroupsListScreen from '../containers/Groups/GroupsListScreen';
 import {
   groupScreenTabNavigator,
   userCreatedScreenTabNavigator,
   GROUP_SCREEN,
   USER_CREATED_GROUP_SCREEN,
   GROUP_TABS,
-} from './containers/Groups/GroupScreen';
+} from '../containers/Groups/GroupScreen';
 import SurveyContacts, {
   GROUPS_SURVEY_CONTACTS,
-} from './containers/Groups/SurveyContacts';
+} from '../containers/Groups/SurveyContacts';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
-} from './containers/Groups/UnassignedPersonScreen';
+} from '../containers/Groups/UnassignedPersonScreen';
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/SurveyContactsFilter';
+} from '../containers/Groups/SurveyContactsFilter';
 import SurveyQuestionsFilter, {
   SEARCH_QUESTIONS_FILTER_SCREEN,
-} from './containers/Groups/SurveyQuestionsFilter';
+} from '../containers/Groups/SurveyQuestionsFilter';
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/ContactsFilter';
+} from '../containers/Groups/ContactsFilter';
 import StatusSelect, {
   STATUS_SELECT_SCREEN,
-} from './containers/StatusSelectScreen';
+} from '../containers/StatusSelectScreen';
 import StatusComplete, {
   STATUS_COMPLETE_SCREEN,
-} from './containers/StatusCompleteScreen';
+} from '../containers/StatusCompleteScreen';
 import StatusReason, {
   STATUS_REASON_SCREEN,
-} from './containers/StatusReasonScreen';
+} from '../containers/StatusReasonScreen';
+
+import {
+  AUTHENTICATION_FLOW,
+  AuthenticationNavigator,
+  AuthenticationScreens,
+} from './authentication';
+import {
+  ONBOARDING_FLOW,
+  OnboardingNavigator,
+  OnboardingScreens,
+} from './onboarding';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -265,80 +271,6 @@ const buildPersonScreenRoute = screen =>
   );
 
 const screens = {
-  [LOGIN_OPTIONS_SCREEN]: buildTrackedScreen(
-    LoginOptionsScreen,
-    buildTrackingObj('auth', 'auth'),
-  ),
-  [KEY_LOGIN_SCREEN]: buildTrackedScreen(
-    KeyLoginScreen,
-    buildTrackingObj('auth : sign in', 'auth'),
-    { gesturesEnabled: true },
-  ),
-  [MFA_CODE_SCREEN]: buildTrackedScreen(
-    MFACodeScreen,
-    buildTrackingObj('auth : verification', 'auth'),
-  ),
-  [WELCOME_SCREEN]: buildTrackedScreen(
-    WelcomeScreen,
-    buildTrackingObj('onboarding : welcome', 'onboarding'),
-  ),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    SetupScreen,
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [GET_STARTED_SCREEN]: buildTrackedScreen(
-    GetStartedScreen,
-    buildTrackingObj('onboarding : get started', 'onboarding'),
-  ),
-  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    StageSuccessScreen,
-    buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
-  ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
-  ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
-  ),
-  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    AddSomeoneScreen,
-    buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
-  ),
-  [ADD_CONTACT_SCREEN]: buildTrackedScreen(
-    AddContactScreen,
-    buildTrackingObj('people : add person', 'people', 'add person'),
-  ),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    SetupPersonScreen,
-    buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
-  ),
-  [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
-    NotificationPrimerScreen,
-    buildTrackingObj(
-      'menu : notifications : permissions',
-      'menu',
-      'notifications',
-    ),
-  ),
-  [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(
-    NotificationOffScreen,
-    buildTrackingObj('menu : notifications : off', 'menu', 'notifications'),
-  ),
   [SEARCH_SCREEN]: buildTrackedScreen(
     SearchPeopleScreen,
     buildTrackingObj('search', 'search'),
@@ -425,28 +357,32 @@ export const trackableScreens = {
   ...tabs,
   ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
+  ...AuthenticationScreens,
+  ...OnboardingScreens,
 };
 
-export const MainStackRoutes = createStackNavigator(
+const MainStackRoutes = createStackNavigator(
   {
     ...screens,
-    [LOGIN_SCREEN]: { screen: LoginScreen },
-    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
-    [PERSON_SELECT_STEP_SCREEN]: {
-      screen: PersonSelectStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+
+    [ADD_CONTACT_SCREEN]: {
+      screen: AddContactScreen,
+      tracking: buildTrackingObj('people : add person', 'people', 'add person'),
     },
+    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
+
     [SELECT_MY_STEP_SCREEN]: {
       screen: SelectMyStepScreen,
-      navigationOptions: { gesturesEnabled: true },
+      tracking: buildTrackingObj(
+        'people : self : steps : add',
+        'people',
+        'self',
+        'steps',
+      ),
     },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
-    [PERSON_STAGE_SCREEN]: {
-      screen: PersonStageScreen,
-      navigationOptions: { gesturesEnabled: true },
-    },
     [STAGE_SCREEN]: {
       screen: StageScreen,
       navigationOptions: { gesturesEnabled: true },
@@ -477,4 +413,8 @@ export const MainStackRoutes = createStackNavigator(
   },
 );
 
-export const MainRoutes = MainStackRoutes;
+export const AppNavigator = createSwitchNavigator({
+  [AUTHENTICATION_FLOW]: AuthenticationNavigator,
+  [ONBOARDING_FLOW]: OnboardingNavigator,
+  [MAIN_TABS]: MAIN_TABS_SCREEN,
+});

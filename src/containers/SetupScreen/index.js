@@ -14,6 +14,7 @@ import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
 
 import styles from './styles';
+import { getMe } from '../../actions/person';
 
 @translate('setup')
 class SetupScreen extends Component {
@@ -25,16 +26,16 @@ class SetupScreen extends Component {
     disableBack.remove();
   }
 
-  saveAndGoToGetStarted = () => {
-    if (this.props.firstName) {
+  saveAndGoToGetStarted = async () => {
+    const { dispatch, next, firstName, lastName } = this.props;
+
+    if (firstName) {
       Keyboard.dismiss();
 
-      this.props
-        .dispatch(createMyPerson(this.props.firstName, this.props.lastName))
-        .then(() => {
-          disableBack.remove();
-          this.props.dispatch(navigatePush(GET_STARTED_SCREEN));
-        });
+      await dispatch(createMyPerson(firstName, lastName));
+      const person = await dispatch(getMe('', true));
+      disableBack.remove();
+      dispatch(next({ person }));
     }
   };
 

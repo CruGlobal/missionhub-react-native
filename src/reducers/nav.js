@@ -1,10 +1,10 @@
-import { MainRoutes } from '../AppRoutes';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
+import { AppNavigator } from '../routes';
+import { MAIN_TABS } from '../constants';
 
-const initialState = MainRoutes.router.getStateForAction(
-  MainRoutes.router.getActionForPathAndParams(LOGIN_SCREEN),
-);
+// const initialState = AppNavigator.router.getStateForAction(
+//   AppNavigator.router.getActionForPathAndParams(MAIN_TABS),
+// );
 
-export default function navReducer(state = initialState, action) {
-  return MainRoutes.router.getStateForAction(action, state);
+export default function navReducer(state /* = initialState*/, action) {
+  return AppNavigator.router.getStateForAction(action, state);
 }

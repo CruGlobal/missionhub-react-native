@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { navigatePush } from '../../actions/navigation';
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
-import { STAGE_ONBOARDING_SCREEN } from '../StageScreen';
 import { disableBack } from '../../utils/common';
 
 import styles from './styles';
@@ -21,19 +19,20 @@ class GetStartedScreen extends Component {
   }
 
   navigateNext = () => {
+    const { dispatch, next, person } = this.props;
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(STAGE_ONBOARDING_SCREEN, {
-        section: 'onboarding',
-        subsection: 'self',
+
+    dispatch(
+      next({
+        person,
         enableBackButton: false,
       }),
     );
   };
 
   render() {
-    const { t, firstName } = this.props;
-    const name = firstName.toLowerCase();
+    const { t, person } = this.props;
+    const name = person.first_name.toLowerCase();
 
     return (
       <Flex align="center" justify="center" value={1} style={styles.container}>
@@ -57,9 +56,8 @@ class GetStartedScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  id: navigation.state.params ? navigation.state.params.id : '',
-  firstName: profile.firstName,
+const mapStateToProps = (_, { navigation }) => ({
+  ...(navigation.state.params || {}),
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);

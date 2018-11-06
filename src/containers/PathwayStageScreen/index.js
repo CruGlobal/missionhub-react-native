@@ -16,9 +16,14 @@ import { getStages } from '../../actions/stages';
 import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
 import { buildTrackingObj, disableBack } from '../../utils/common';
-import { ACTIONS } from '../../constants';
+import {
+  ACTIONS,
+  PERSON_VIEWED_STAGE_CHANGED,
+  SELF_VIEWED_STAGE_CHANGED,
+} from '../../constants';
 
 import styles from './styles';
+import { translate } from 'react-i18next';
 
 const screenMargin = 60;
 const sliderWidth = theme.fullWidth;
@@ -30,6 +35,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
 
 const fallbackIndex = 0;
 
+@translate('selectStage')
 class PathwayStageScreen extends Component {
   constructor(props) {
     super(props);
@@ -71,7 +77,7 @@ class PathwayStageScreen extends Component {
     }
     this.props.onSelect(stage, isAlreadySelected);
 
-    const action = this.props.isSelf
+    const action = this.props.isMe
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
     this.props.dispatch(
@@ -91,7 +97,16 @@ class PathwayStageScreen extends Component {
   }
 
   trackStageState(number) {
-    const { section, subsection, dispatch, onScrollToStage } = this.props;
+    const { dispatch, trackAsOnboarding, isMe } = this.props;
+
+    const section = trackAsOnboarding ? 'onboarding' : 'people';
+    // Yes the trackAsOnboarding part is weird. Keeping the historical decision in order to not break analytics reports
+    const subsection = isMe
+      ? 'self'
+      : trackAsOnboarding
+        ? 'add person'
+        : 'person';
+
     const trackingObj = buildTrackingObj(
       `${section} : ${subsection} : stage : ${number}`,
       section,
@@ -99,13 +114,18 @@ class PathwayStageScreen extends Component {
       'stage',
     );
 
-    onScrollToStage(trackingObj);
+    dispatch({
+      type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
+      newActiveTab: trackingObj,
+    });
     dispatch(trackState(trackingObj));
   }
 
   renderStage({ item, index }) {
-    const { firstItem, activeButtonText, buttonText } = this.props;
+    const { t, firstItem, isMe } = this.props;
     const isActive = firstItem && firstItem === index;
+    const buttonText = isMe ? t('iAmHere') : t('here');
+
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
@@ -119,13 +139,17 @@ class PathwayStageScreen extends Component {
           type="primary"
           pressProps={[item, isActive]}
           onPress={this.setStage}
-          text={isActive && activeButtonText ? activeButtonText : buttonText}
+          text={
+            isActive ? t('stillHere').toUpperCase() : buttonText.toUpperCase()
+          }
         />
       </View>
     );
   }
 
   render() {
+    const { t, person, isMe, firstItem, stages } = this.props;
+
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
     return (
@@ -136,11 +160,15 @@ class PathwayStageScreen extends Component {
           style={[styles.footerImage, { left: leftMargin }]}
         />
         {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
-        <Text style={styles.title}>{this.props.questionText}</Text>
+        <Text style={styles.title}>
+          {isMe
+            ? t('meQuestion', { name: person.first_name })
+            : t('personQuestion', { name: person.first_name })}
+        </Text>
         {this.props.stages ? (
           <Carousel
-            firstItem={this.props.firstItem || fallbackIndex}
-            data={this.props.stages}
+            firstItem={firstItem || fallbackIndex}
+            data={stages}
             inactiveSlideOpacity={1}
             inactiveSlideScale={1}
             renderItem={this.renderStage}
@@ -158,20 +186,16 @@ class PathwayStageScreen extends Component {
 }
 
 PathwayStageScreen.propTypes = {
+  person: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
-  onScrollToStage: PropTypes.func.isRequired,
-  section: PropTypes.string.isRequired,
-  subsection: PropTypes.string.isRequired,
-  questionText: PropTypes.string,
-  buttonText: PropTypes.string,
-  activeButtonText: PropTypes.string,
   firstItem: PropTypes.number,
   enableBackButton: PropTypes.bool,
-  isSelf: PropTypes.bool,
+  trackAsOnboarding: PropTypes.bool,
 };
 
-const mapStateToProps = ({ stages }) => ({
+const mapStateToProps = ({ stages, auth }, { person }) => ({
   stages: stages.stages,
+  isMe: person.id === auth.person.id,
 });
 
 export default connect(mapStateToProps)(PathwayStageScreen);

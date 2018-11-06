@@ -25,10 +25,12 @@ class WelcomeScreen extends Component {
   }
 
   navigateToNext = () => {
+    const { dispatch, next } = this.props;
+
     // Remove the back handler when moving forward
     disableBack.remove();
 
-    this.props.dispatch(navigatePush(SETUP_SCREEN));
+    dispatch(next());
   };
 
   render() {

@@ -25,7 +25,7 @@ import {
 } from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
-import { navigateReset } from './actions/navigation';
+import { navigatePush } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 
@@ -49,7 +49,7 @@ export default class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
-    store.dispatch(navigateReset(initialRoute(store.getState())));
+    store.dispatch(navigatePush(initialRoute(store.getState())));
     store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);

@@ -3,10 +3,10 @@ import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 import React from 'react';
 import { BackHandler } from 'react-native';
 
-import { MainRoutes } from './AppRoutes';
+import { AppNavigator } from './routes';
 import { navigateBack } from './actions/navigation';
 
-const app = reduxifyNavigator(MainRoutes, 'root');
+const app = reduxifyNavigator(AppNavigator, 'root');
 
 const mapStateToProps = ({ nav }) => ({
   state: nav,

@@ -8,7 +8,7 @@ import {
   NAVIGATE_RESET,
 } from '../../constants';
 import tracking from '../tracking';
-import { trackableScreens } from '../../AppRoutes';
+import { trackableScreens } from '../../routes';
 import { buildTrackingObj } from '../../utils/common';
 import { SEARCH_SCREEN } from '../../containers/SearchPeopleScreen';
 import { trackState } from '../../actions/analytics';
