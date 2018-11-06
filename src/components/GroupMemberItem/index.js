@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 
 import { Flex, Text, Touchable, Dot } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
+import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -59,6 +60,16 @@ GroupMemberItem.propTypes = {
     contact_count: PropTypes.number,
     uncontacted_count: PropTypes.number,
   }).isRequired,
+  myOrgPermissions: PropTypes.object.isRequired,
+  personOrgPermissions: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
   isUserCreatedOrg: PropTypes.bool,
 };
+
+const mapStateToProps = (_, { person, organization })({
+  personOrgPermissions: orgPermissionSelector(null, {
+    person,
+    organization,
+  }),
+  isUserCreatedOrg: organization.user_created,
+});

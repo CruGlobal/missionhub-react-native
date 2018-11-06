@@ -72,11 +72,12 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization } = this.props;
+    const { organization, myOrgPermissions } = this.props;
     return (
       <GroupMemberItem
-        isUserCreatedOrg={organization.user_created}
+        organization={organization}
         person={item}
+        myOrgPermissions={myOrgPermissions}
         onSelect={this.handleSelect}
       />
     );
