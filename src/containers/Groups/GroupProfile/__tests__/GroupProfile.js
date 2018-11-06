@@ -60,11 +60,20 @@ const orgWithImage = {
   community_photo_url:
     'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
 };
-const store = createMockStore({
+const storeObj = {
   organizations: {
     all: [organization],
   },
-});
+  auth: {
+    person: {
+      id: '123',
+      organizational_permissions: [
+        { organization_id: orgId, permission_id: ORG_PERMISSIONS.ADMIN },
+      ],
+    },
+  },
+};
+const store = createMockStore(storeObj);
 
 common.copyText = jest.fn();
 organizationSelector.mockReturnValue(organization);
@@ -97,6 +106,24 @@ describe('GroupProfile', () => {
         navigation={createMockNavState({ organization: orgWithImage })}
       />,
       store,
+    );
+  });
+
+  it('renders without edit button', () => {
+    const store2 = createMockStore({
+      ...storeObj,
+      auth: {
+        person: {
+          ...storeObj.auth.person,
+          organizational_permissions: [
+            { organization_id: orgId, permission_id: ORG_PERMISSIONS.USER },
+          ],
+        },
+      },
+    });
+    testSnapshotShallow(
+      <GroupProfile navigation={createMockNavState({ organization })} />,
+      store2,
     );
   });
 

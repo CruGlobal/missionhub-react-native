@@ -26,6 +26,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
 
 import styles from './styles';
+import { orgPermissionSelector } from '../../../selectors/people';
 
 @translate('groupProfile')
 class GroupProfile extends Component {
@@ -112,7 +113,7 @@ class GroupProfile extends Component {
   }
 
   render() {
-    const { t, organization, membersLength, owner } = this.props;
+    const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -227,15 +228,19 @@ class GroupProfile extends Component {
               onPress={this.navigateBack}
             />
           </Flex>
-          <Flex value={1} align="end" pointerEvents="box-none">
-            <Button
-              style={styles.editBtn}
-              buttonTextStyle={styles.btnText}
-              onPress={this.handleEdit}
-              text={editing ? t('done').toUpperCase() : t('edit').toUpperCase()}
-              type="transparent"
-            />
-          </Flex>
+          {canEdit ? (
+            <Flex value={1} align="end" pointerEvents="box-none">
+              <Button
+                style={styles.editBtn}
+                buttonTextStyle={styles.btnText}
+                onPress={this.handleEdit}
+                text={
+                  editing ? t('done').toUpperCase() : t('edit').toUpperCase()
+                }
+                type="transparent"
+              />
+            </Flex>
+          ) : null}
         </Flex>
       </SafeAreaView>
     );
@@ -246,7 +251,7 @@ GroupProfile.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ organizations }, { navigation }) => {
+const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const organization = (navigation.state.params || {}).organization;
   const selectorOrg = organizationSelector(
     { organizations },
@@ -260,10 +265,21 @@ const mapStateToProps = ({ organizations }, { navigation }) => {
         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN,
     ),
   );
+  const myOrgPerm =
+    auth &&
+    organization &&
+    organization.id &&
+    orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    });
+  const canEdit =
+    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     membersLength: members.length,
     owner: owner || {},
     organization: selectorOrg,
+    canEdit,
   };
 };
 
