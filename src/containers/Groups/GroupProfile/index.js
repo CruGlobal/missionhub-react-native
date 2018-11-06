@@ -18,12 +18,14 @@ import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
 import { copyText } from '../../../utils/common';
 import { navigateBack } from '../../../actions/navigation';
-import { updateOrganization } from '../../../actions/organizations';
+import {
+  updateOrganization,
+  getMyCommunities,
+} from '../../../actions/organizations';
+import { organizationSelector } from '../../../selectors/organizations';
+import { ORG_PERMISSIONS } from '../../../constants';
 
 import styles from './styles';
-import { organizationSelector } from '../../../selectors/organizations';
-import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS } from '../../../constants';
 
 @translate('groupProfile')
 class GroupProfile extends Component {
@@ -42,7 +44,9 @@ class GroupProfile extends Component {
       name: didNameChange ? name : undefined,
       imageData,
     };
-    dispatch(updateOrganization(organization.id, data));
+    dispatch(updateOrganization(organization.id, data)).then(() => {
+      dispatch(getMyCommunities());
+    });
   };
 
   ref = c => (this.nameInput = c);
@@ -208,15 +212,20 @@ class GroupProfile extends Component {
             <Text style={styles.info}>{t('info')}</Text>
           </Flex>
         </ScrollView>
-        <Flex direction="row" align="center" style={styles.topNav}>
-          <Flex value={1} align="start">
+        <Flex
+          direction="row"
+          align="center"
+          style={styles.topNav}
+          pointerEvents="box-none"
+        >
+          <Flex value={1} align="start" pointerEvents="box-none">
             <IconButton
               name="deleteIcon"
               type="MissionHub"
               onPress={this.navigateBack}
             />
           </Flex>
-          <Flex value={1} align="end">
+          <Flex value={1} align="end" pointerEvents="box-none">
             <Button
               style={styles.editBtn}
               buttonTextStyle={styles.btnText}

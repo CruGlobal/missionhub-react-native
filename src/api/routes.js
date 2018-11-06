@@ -1,4 +1,4 @@
-import { URL_ENCODED } from '../constants';
+import { URL_ENCODED, URL_FORM_DATA } from '../constants';
 
 import { API_URL, THE_KEY_URL } from './utils';
 
@@ -151,8 +151,7 @@ export default {
     method: 'put',
     extra: {
       stringify: false,
-      // headers: { 'Content-Type': 'multipart/form-data' },
-      headers: { 'Content-Type': false },
+      headers: { 'Content-Type': URL_FORM_DATA },
     },
   },
   GET_GROUP_CELEBRATE_FEED: {

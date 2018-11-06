@@ -69,6 +69,7 @@ export const CANNOT_EDIT_FIRST_NAME =
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
+export const URL_FORM_DATA = 'multipart/form-data';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
 
 export const CASEY = 'casey';

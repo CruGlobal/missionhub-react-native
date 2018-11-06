@@ -86,7 +86,7 @@ function defaultObject(method, obj = {}, data) {
   if (data) {
     newObj.body = obj.stringify === false ? data : JSON.stringify(data);
   }
-  delete obj.stringify;
+  delete newObj.stringify;
 
   return newObj;
 }
@@ -94,7 +94,7 @@ function defaultObject(method, obj = {}, data) {
 export default function request(type, url, query, data, extra) {
   const newUrl = createUrl(url, query);
   const newObject = defaultObject(type, extra, data);
-  LOG('REQUEST', newObject.method, newUrl, newObject);
+  APILOG('REQUEST', newObject.method, newUrl, newObject);
 
   return fetch(newUrl, newObject).then(handleResponse);
 }

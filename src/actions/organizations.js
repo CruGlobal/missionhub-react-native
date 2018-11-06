@@ -341,7 +341,7 @@ export function updateOrganizationImage(orgId, imageData) {
 
     const data = new FormData();
 
-    data.append('data[attributes][community_photo_url]', {
+    data.append('data[attributes][community_photo]', {
       uri: imageData.uri,
       type: imageData.fileType,
       name: imageData.fileName,
