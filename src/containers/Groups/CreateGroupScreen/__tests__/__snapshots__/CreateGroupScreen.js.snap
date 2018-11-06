@@ -22396,7 +22396,9 @@ Choose a person in People view and add some new steps.",
   "ref": [Function],
   "refs": Object {},
   "state": Object {
-    "imageUri": "testuri",
+    "imageData": Object {
+      "uri": "testuri",
+    },
     "name": "",
   },
   "updater": Updater {
@@ -44667,7 +44669,9 @@ Choose a person in People view and add some new steps.",
       />,
       "_instance": [Circular],
       "_newState": Object {
-        "imageUri": "testuri",
+        "imageData": Object {
+          "uri": "testuri",
+        },
         "name": "",
       },
       "_rendered": <Component

@@ -351,7 +351,7 @@ export function updateOrganizationImage(orgId, imageData) {
   };
 }
 
-export function addNewOrganization(name) {
+export function addNewOrganization(name, imageData) {
   return dispatch => {
     if (!name) {
       return Promise.reject(
@@ -368,6 +368,15 @@ export function addNewOrganization(name) {
       },
     };
     const query = {};
-    return dispatch(callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData));
+    return dispatch(
+      callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
+    ).then(results => {
+      if (imageData) {
+        // After the org is created, update the image with the image data passed in
+        const newOrgId = results.response.id;
+        dispatch(updateOrganizationImage(newOrgId, imageData));
+      }
+      return results;
+    });
   };
 }

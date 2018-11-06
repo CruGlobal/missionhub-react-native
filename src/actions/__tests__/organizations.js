@@ -462,7 +462,7 @@ describe('addNewOrganization', () => {
   const apiResponse = { type: 'api response' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(apiResponse);
+    callApi.mockReturnValue(() => Promise.resolve(apiResponse));
   });
 
   it('adds organization with name', () => {
