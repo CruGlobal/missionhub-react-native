@@ -24,9 +24,9 @@ import {
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
+import { orgPermissionSelector } from '../../../selectors/people';
 
 import styles from './styles';
-import { orgPermissionSelector } from '../../../selectors/people';
 
 @translate('groupProfile')
 class GroupProfile extends Component {
