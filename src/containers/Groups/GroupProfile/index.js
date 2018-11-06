@@ -29,7 +29,7 @@ import styles from './styles';
 
 @translate('groupProfile')
 class GroupProfile extends Component {
-  state = { editing: false, name: '' };
+  state = { editing: false, name: '', imageData: null };
 
   save = () => {
     const { dispatch, organization } = this.props;
@@ -61,10 +61,12 @@ class GroupProfile extends Component {
 
   handleNewCode = () => {
     // TODO: Handle generating a new code
+    return 'new code';
   };
 
   handleNewLink = () => {
     // TODO: Handle generating a new code
+    return 'new link';
   };
 
   handleEdit = () => {

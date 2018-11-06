@@ -330,7 +330,6 @@ export function updateOrganization(orgId, data) {
   };
 }
 
-// Error with RN 0.54 & 0.55 while uploading images: https://github.com/facebook/react-native/issues/18818
 export function updateOrganizationImage(orgId, imageData) {
   return dispatch => {
     if (!imageData) {

@@ -1,0 +1,1168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupProfile renders correctly 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#282828",
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#005A7F",
+        "borderRadius": 4,
+        "minHeight": 400.2,
+        "position": "relative",
+        "width": 750,
+      }
+    }
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 32,
+            "letterSpacing": 0.25,
+          }
+        }
+      >
+        Test Organization
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Owner
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          Test Admin 1
+        </MyText>
+      </Flex>
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Created
+        </MyText>
+        <Translate(DateComponent)
+          date="2018-11-06T12:00:00Z"
+          format="LL"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        />
+      </Flex>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Members
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          2
+        </MyText>
+      </Flex>
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Code
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 32,
+            }
+          }
+        >
+          333-333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Link
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "marginRight": 5,
+            }
+          }
+        >
+          https://www.missionhub.com/333333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#A0A2A6",
+            "width": "75%",
+          }
+        }
+      >
+        Anyone who has this code or link will be able to join your group.
+      </MyText>
+    </Flex>
+  </ScrollView>
+  <Flex
+    align="center"
+    direction="row"
+    pointerEvents="box-none"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingRight": 20,
+        "paddingTop": 25,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Flex
+      align="start"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="end"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        text="EDIT"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
+</SafeAreaView>
+`;
+
+exports[`GroupProfile renders editing state 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#282828",
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#005A7F",
+        "borderRadius": 4,
+        "minHeight": 400.2,
+        "position": "relative",
+        "width": 750,
+      }
+    }
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 32,
+            "letterSpacing": 0.25,
+          }
+        }
+      >
+        Test Organization
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Owner
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          Test Admin 1
+        </MyText>
+      </Flex>
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Created
+        </MyText>
+        <Translate(DateComponent)
+          date="2018-11-06T12:00:00Z"
+          format="LL"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        />
+      </Flex>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Members
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          2
+        </MyText>
+      </Flex>
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Code
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 32,
+            }
+          }
+        >
+          333-333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Link
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "marginRight": 5,
+            }
+          }
+        >
+          https://www.missionhub.com/333333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#A0A2A6",
+            "width": "75%",
+          }
+        }
+      >
+        Anyone who has this code or link will be able to join your group.
+      </MyText>
+    </Flex>
+  </ScrollView>
+  <Flex
+    align="center"
+    direction="row"
+    pointerEvents="box-none"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingRight": 20,
+        "paddingTop": 25,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Flex
+      align="start"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="end"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        text="EDIT"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
+</SafeAreaView>
+`;
+
+exports[`GroupProfile renders with image 1`] = `
+<SafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#282828",
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <Flex
+    align="center"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "#005A7F",
+        "borderRadius": 4,
+        "minHeight": 400.2,
+        "position": "relative",
+        "width": 750,
+      }
+    }
+  />
+  <ScrollView
+    keyboardShouldPersistTaps="handled"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 32,
+            "letterSpacing": 0.25,
+          }
+        }
+      >
+        Test Organization
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Owner
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          Test Admin 1
+        </MyText>
+      </Flex>
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Created
+        </MyText>
+        <Translate(DateComponent)
+          date="2018-11-06T12:00:00Z"
+          format="LL"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        />
+      </Flex>
+    </Flex>
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Members
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 12,
+            }
+          }
+        >
+          2
+        </MyText>
+      </Flex>
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Code
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 32,
+            }
+          }
+        >
+          333-333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Flex
+        direction="column"
+        value={1}
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+            }
+          }
+        >
+          Community Link
+        </MyText>
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "marginRight": 5,
+            }
+          }
+        >
+          https://www.missionhub.com/333333
+        </MyText>
+      </Flex>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 15,
+            "paddingHorizontal": 20,
+            "paddingVertical": 7,
+          }
+        }
+        text="COPY"
+        type="transparent"
+      />
+    </Flex>
+    <Separator
+      style={
+        Object {
+          "marginVertical": 5,
+        }
+      }
+    />
+    <Flex
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "marginHorizontal": 20,
+          "marginVertical": 10,
+        }
+      }
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#A0A2A6",
+            "width": "75%",
+          }
+        }
+      >
+        Anyone who has this code or link will be able to join your group.
+      </MyText>
+    </Flex>
+  </ScrollView>
+  <Flex
+    align="center"
+    direction="row"
+    pointerEvents="box-none"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.05)",
+        "left": 0,
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingRight": 20,
+        "paddingTop": 25,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Flex
+      align="start"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    </Flex>
+    <Flex
+      align="end"
+      pointerEvents="box-none"
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        text="EDIT"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
+</SafeAreaView>
+`;

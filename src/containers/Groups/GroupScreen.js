@@ -78,7 +78,7 @@ export class GroupScreen extends Component {
         name="addContactIcon"
         type="MissionHub"
         size={24}
-        onPress={this.handleProfile}
+        onPress={this.handleAddContact}
       />
     ) : (
       <IconButton

@@ -11,6 +11,7 @@ import { MAIN_TABS } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
 import { navigatePush, navigateReset } from '../../../actions/navigation';
+import { GROUP_PROFILE } from '../GroupProfile';
 
 jest.mock('../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
@@ -19,6 +20,7 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 
 const organization = { id: '5', name: 'Test  Org', user_created: false };
+const userOrg = { ...organization, user_created: true };
 
 describe('GroupScreen', () => {
   const createHeader = org => (
@@ -34,7 +36,7 @@ describe('GroupScreen', () => {
   });
 
   it('should render header correctly for user_created org', () => {
-    testSnapshotShallow(createHeader({ ...organization, user_created: true }));
+    testSnapshotShallow(createHeader(userOrg));
   });
 
   it('should render Cru Community tabs correctly', () => {
@@ -60,6 +62,23 @@ describe('GroupScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
       onComplete: expect.anything(),
       organization,
+    });
+  });
+
+  it('should handle profile button correctly', () => {
+    const instance = renderShallow(
+      <GroupScreen
+        navigation={createMockNavState({
+          organization: userOrg,
+        })}
+        store={createMockStore()}
+      />,
+    ).instance();
+
+    instance.handleProfile();
+
+    expect(navigatePush).toHaveBeenCalledWith(GROUP_PROFILE, {
+      organization: userOrg,
     });
   });
 
