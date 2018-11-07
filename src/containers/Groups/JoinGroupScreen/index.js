@@ -16,7 +16,6 @@ import {
   IconButton,
   Button,
 } from '../../../components/common';
-import { DigitInput } from '../../../components/DigitInput';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
@@ -109,7 +108,11 @@ class JoinGroupScreen extends Component {
             {this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
-            <DigitInput />
+            <Input
+              style={styles.input}
+              onChangeText={this.onChangeCode}
+              maxLength={6}
+            />
           </Flex>
           <KeyboardAvoidingView
             keyboardVerticalOffset={theme.buttonHeight}
@@ -120,7 +123,7 @@ class JoinGroupScreen extends Component {
         <Flex align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={this.createCommunity}
+            onPress={this.onSearch}
             text={t('search').toUpperCase()}
             style={styles.searchButton}
           />
