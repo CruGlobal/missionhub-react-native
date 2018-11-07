@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Text, Touchable, Dot } from '../common';
+import { Flex, Text, Touchable, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { orgIsUserCreated } from '../../utils/common';
@@ -14,43 +14,35 @@ import styles from './styles';
 class GroupMemberItem extends Component {
   handleSelect = () => this.props.onSelect(this.props.person);
 
-  renderContent() {
-    const { person, t, isUserCreatedOrg } = this.props;
+  render() {
+    const { onSelect, person, t, isUserCreatedOrg } = this.props;
 
     return (
-      <Flex justify="center" direction="row" style={styles.row}>
-        <Flex value={1} direction="column">
-          <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-          {!isUserCreatedOrg ? (
-            <Flex align="center" direction="row" style={styles.detailsWrap}>
-              <Text style={styles.assigned}>
-                {t('numAssigned', { number: person.contact_count || 0 })}
-              </Text>
-              {person.uncontacted_count ? (
-                <Fragment>
-                  <Dot style={styles.assigned} />
-                  <Text style={styles.uncontacted}>
-                    {t('numUncontacted', { number: person.uncontacted_count })}
-                  </Text>
-                </Fragment>
-              ) : null}
-            </Flex>
-          ) : null}
+      <Card onPress={this.handleSelect} style={styles.card}>
+        <Flex justify="center" direction="row" style={styles.row}>
+          <Flex value={1} direction="column">
+            <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
+            {!isUserCreatedOrg ? (
+              <Flex align="center" direction="row" style={styles.detailsWrap}>
+                <Text style={styles.assigned}>
+                  {t('numAssigned', { number: person.contact_count || 0 })}
+                </Text>
+                {person.uncontacted_count ? (
+                  <Fragment>
+                    <Dot style={styles.assigned} />
+                    <Text style={styles.uncontacted}>
+                      {t('numUncontacted', {
+                        number: person.uncontacted_count,
+                      })}
+                    </Text>
+                  </Fragment>
+                ) : null}
+              </Flex>
+            ) : null}
+          </Flex>
+          <MemberOptionsMenu />
         </Flex>
-        <MemberOptionsMenu />
-      </Flex>
-    );
-  }
-
-  render() {
-    const { onSelect } = this.props;
-
-    return onSelect ? (
-      <Touchable onPress={this.handleSelect} highlight={true}>
-        {this.renderContent()}
-      </Touchable>
-    ) : (
-      this.renderContent()
+      </Card>
     );
   }
 }

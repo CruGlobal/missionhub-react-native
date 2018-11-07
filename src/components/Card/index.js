@@ -14,16 +14,15 @@ export default class Card extends Component {
 
   render() {
     const { style, onPress, ...rest } = this.props;
-    if (onPress) {
-      return (
-        <Touchable
-          ref={this.ref}
-          {...rest}
-          onPress={onPress}
-          style={[styles.card, style]}
-        />
-      );
-    }
-    return <View ref={this.ref} {...rest} style={[styles.card, style]} />;
+    return onPress ? (
+      <Touchable
+        ref={this.ref}
+        {...rest}
+        onPress={onPress}
+        style={[styles.card, style]}
+      />
+    ) : (
+      <View ref={this.ref} {...rest} style={[styles.card, style]} />
+    );
   }
 }

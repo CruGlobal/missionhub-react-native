@@ -93,7 +93,7 @@ class Members extends Component {
           data={members}
           ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
-          style={styles.flatList}
+          style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={
             <RefreshControl

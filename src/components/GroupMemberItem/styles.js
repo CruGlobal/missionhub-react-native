@@ -3,11 +3,17 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
+  card: {
+    marginHorizontal: 16,
+    marginVertical: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.white,
+  },
   row: {
     paddingVertical: 16,
     paddingLeft: 24,
     paddingRight: 13,
-    width: theme.fullWidth,
     backgroundColor: theme.white,
     borderBottomColor: theme.separatorColor,
     borderBottomWidth: theme.separatorHeight,

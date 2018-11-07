@@ -42,7 +42,7 @@ class ContactItem extends Component {
         {this.renderContent()}
       </Touchable>
     ) : (
-      <Flex>{this.renderContent()}</Flex>
+      this.renderContent()
     );
   }
 }
