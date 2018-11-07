@@ -31,6 +31,15 @@ it('render unassigned contact', () => {
   );
 });
 
+it('render without touchable', () => {
+  testSnapshotShallow(
+    <ContactItem
+      organization={organization}
+      contact={{ ...contact, reverse_contact_assignments: [] }}
+    />,
+  );
+});
+
 it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
