@@ -80,7 +80,7 @@ exports[`should render joined challenge correctly 1`] = `
             "paddingRight": 10,
           }
         }
-        text="COMPLETE"
+        text="I DID IT"
         type="transparent"
       />
     }
