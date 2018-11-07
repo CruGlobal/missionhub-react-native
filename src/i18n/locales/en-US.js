@@ -93,6 +93,7 @@ export default {
     contactUnassignment:
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
     assignToMe: 'Assign to me',
+    copyMessage: 'Copied',
   },
   error: {
     error: 'Error',
