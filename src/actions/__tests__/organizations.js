@@ -20,6 +20,7 @@ import {
   getMyCommunities,
   addNewOrganization,
   updateOrganization,
+  updateOrganizationImage,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -487,6 +488,25 @@ describe('updateOrganization', () => {
       },
     },
   };
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('update organization with name', () => {
+    store.dispatch(updateOrganization(orgId, { name }));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_ORGANIZATION,
+      { orgId },
+      nameBodyData,
+    );
+  });
+});
+
+describe('updateOrganizationImage', () => {
+  const orgId = '123';
   const imageBodyData = new FormData();
   const testImageData = {
     uri: 'testuri',
@@ -504,34 +524,9 @@ describe('updateOrganization', () => {
     callApi.mockReturnValue(apiResponse);
   });
 
-  it('update organization with name', () => {
-    store.dispatch(updateOrganization(orgId, { name }));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_ORGANIZATION,
-      { orgId },
-      nameBodyData,
-    );
-  });
   it('update organization image', () => {
-    store.dispatch(updateOrganization(orgId, { imageData: testImageData }));
+    store.dispatch(updateOrganizationImage(orgId, testImageData));
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_ORGANIZATION_IMAGE,
-      { orgId },
-      imageBodyData,
-    );
-  });
-  it('update organization name and image', () => {
-    store.dispatch(
-      updateOrganization(orgId, { name, imageData: testImageData }),
-    );
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_ORGANIZATION,
-      { orgId },
-      nameBodyData,
-    );
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ORGANIZATION_IMAGE,
       { orgId },

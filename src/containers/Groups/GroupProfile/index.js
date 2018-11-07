@@ -21,6 +21,7 @@ import { navigateBack } from '../../../actions/navigation';
 import {
   updateOrganization,
   getMyCommunities,
+  updateOrganizationImage,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -32,7 +33,7 @@ import styles from './styles';
 class GroupProfile extends Component {
   state = { editing: false, name: '', imageData: null };
 
-  save = () => {
+  save = async () => {
     const { dispatch, organization } = this.props;
     const { imageData, name } = this.state;
 
@@ -41,16 +42,14 @@ class GroupProfile extends Component {
       // Nothing changed, dont update
       return;
     }
-    const data = {
-      name: didNameChange ? name : undefined,
-      imageData,
-    };
-    dispatch(updateOrganization(organization.id, data)).then(() => {
-      dispatch(getMyCommunities());
-    });
+    if (didNameChange) {
+      await dispatch(updateOrganization(organization.id, { name }));
+    }
+    if (imageData) {
+      await dispatch(updateOrganizationImage(organization.id, imageData));
+    }
+    await dispatch(getMyCommunities());
   };
-
-  ref = c => (this.nameInput = c);
 
   copyCode = () => copyText(this.props.organization.id);
 
@@ -122,7 +121,6 @@ class GroupProfile extends Component {
           {editing ? (
             <Flex direction="row" align="center" style={styles.rowWrap}>
               <Input
-                ref={this.ref}
                 onChangeText={this.handleChangeName}
                 value={name}
                 autoFocus={true}
@@ -131,7 +129,6 @@ class GroupProfile extends Component {
                 returnKeyType="done"
                 style={styles.input}
                 blurOnSubmit={true}
-                placeholder=""
                 underlineColorAndroid={theme.transparent}
               />
             </Flex>
@@ -252,27 +249,23 @@ GroupProfile.propTypes = {
 };
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const organization = (navigation.state.params || {}).organization;
+  const { organization } = navigation.state.params || {};
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
-  const members = (selectorOrg || {}).members || [];
-  const owner = members.find(p =>
-    (p.organizational_permissions || []).find(
+  const { members = [] } = selectorOrg || {};
+  const owner = members.find(({ organizational_permissions = [] }) =>
+    organizational_permissions.find(
       orgPermission =>
         orgPermission.organization_id === organization.id &&
         orgPermission.permission_id === ORG_PERMISSIONS.ADMIN,
     ),
   );
-  const myOrgPerm =
-    auth &&
-    organization &&
-    organization.id &&
-    orgPermissionSelector(null, {
-      person: auth.person,
-      organization: { id: organization.id },
-    });
+  const myOrgPerm = orgPermissionSelector(null, {
+    person: auth.person,
+    organization: { id: organization.id },
+  });
   const canEdit =
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {

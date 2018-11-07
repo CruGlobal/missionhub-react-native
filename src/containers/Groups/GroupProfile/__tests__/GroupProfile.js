@@ -9,7 +9,10 @@ import {
   createMockStore,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
-import { updateOrganization } from '../../../../actions/organizations';
+import {
+  updateOrganization,
+  updateOrganizationImage,
+} from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS } from '../../../../constants';
 import * as common from '../../../../utils/common';
@@ -21,6 +24,7 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
+  updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
   getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
 }));
 jest.mock('../../../../selectors/organizations');
@@ -230,15 +234,6 @@ describe('GroupProfile', () => {
   });
 
   it('handle navigate back', () => {
-    // Could not get this to grab the right props from the <IconButton> component
-    // const component = buildScreen();
-    // component
-    //   .childAt(2)
-    //   .childAt(0)
-    //   .childAt(1)
-    //   .props()
-    //   .onPress();
-
     const instance = buildScreenInstance();
     instance.navigateBack();
 
@@ -268,10 +263,7 @@ describe('GroupProfile', () => {
     // Press the "Done" button
     component.instance().handleEdit();
 
-    expect(updateOrganization).toHaveBeenCalledWith(orgId, {
-      name,
-      imageData: null,
-    });
+    expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
   });
 
   it('handles save with image change', () => {
@@ -285,10 +277,7 @@ describe('GroupProfile', () => {
     // Press the "Done" button
     component.instance().handleEdit();
 
-    expect(updateOrganization).toHaveBeenCalledWith(orgId, {
-      name: undefined,
-      imageData: data,
-    });
+    expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
   });
 
   it('handles save with image and name change', () => {
@@ -305,9 +294,7 @@ describe('GroupProfile', () => {
     // Press the "Done" button
     component.instance().handleEdit();
 
-    expect(updateOrganization).toHaveBeenCalledWith(orgId, {
-      name,
-      imageData: data,
-    });
+    expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
+    expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
   });
 });

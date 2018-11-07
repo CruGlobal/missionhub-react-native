@@ -4,7 +4,7 @@ exports[`GroupProfile renders correctly 1`] = `
 <SafeAreaView
   style={
     Object {
-      "backgroundColor": "#282828",
+      "backgroundColor": "#505256",
       "flex": 1,
       "position": "relative",
     }
@@ -393,7 +393,7 @@ exports[`GroupProfile renders editing state 1`] = `
 <SafeAreaView
   style={
     Object {
-      "backgroundColor": "#282828",
+      "backgroundColor": "#505256",
       "flex": 1,
       "position": "relative",
     }
@@ -782,7 +782,7 @@ exports[`GroupProfile renders with image 1`] = `
 <SafeAreaView
   style={
     Object {
-      "backgroundColor": "#282828",
+      "backgroundColor": "#505256",
       "flex": 1,
       "position": "relative",
     }
@@ -1171,7 +1171,7 @@ exports[`GroupProfile renders without edit button 1`] = `
 <SafeAreaView
   style={
     Object {
-      "backgroundColor": "#282828",
+      "backgroundColor": "#505256",
       "flex": 1,
       "position": "relative",
     }

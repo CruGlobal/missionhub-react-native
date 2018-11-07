@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#282828', // TODO: Get the right color
+    backgroundColor: theme.grey,
     position: 'relative',
   },
   topNav: {

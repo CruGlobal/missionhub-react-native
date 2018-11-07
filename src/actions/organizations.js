@@ -308,25 +308,16 @@ export function updateOrganization(orgId, data) {
         `Invalid Data from updateOrganization: no data passed in`,
       );
     }
-    const promises = [];
-    if (data.imageData) {
-      promises.push(dispatch(updateOrganizationImage(orgId, data.imageData)));
-    }
-    if (data.name) {
-      const bodyData = {
-        data: {
-          type: 'organization',
-          attributes: {
-            name: data.name,
-          },
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name: data.name,
         },
-      };
-      const query = { orgId };
-      promises.push(
-        dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData)),
-      );
-    }
-    return Promise.all(promises);
+      },
+    };
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
   };
 }
 
@@ -334,7 +325,7 @@ export function updateOrganizationImage(orgId, imageData) {
   return dispatch => {
     if (!imageData) {
       return Promise.reject(
-        `Invalid Data from updateOrganization: no data passed in`,
+        `Invalid Data from updateOrganizationImage: no image data passed in`,
       );
     }
 
@@ -352,7 +343,7 @@ export function updateOrganizationImage(orgId, imageData) {
 }
 
 export function addNewOrganization(name, imageData) {
-  return dispatch => {
+  return async dispatch => {
     if (!name) {
       return Promise.reject(
         `Invalid Data from addNewOrganization: no org name passed in`,
@@ -368,15 +359,14 @@ export function addNewOrganization(name, imageData) {
       },
     };
     const query = {};
-    return dispatch(
+    const results = await dispatch(
       callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
-    ).then(results => {
-      if (imageData) {
-        // After the org is created, update the image with the image data passed in
-        const newOrgId = results.response.id;
-        dispatch(updateOrganizationImage(newOrgId, imageData));
-      }
-      return results;
-    });
+    );
+    if (imageData) {
+      // After the org is created, update the image with the image data passed in
+      const newOrgId = results.response.id;
+      dispatch(updateOrganizationImage(newOrgId, imageData));
+    }
+    return results;
   };
 }
