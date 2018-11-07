@@ -18,8 +18,8 @@ class GroupMemberItem extends Component {
     const { onSelect, person, t, isUserCreatedOrg } = this.props;
 
     return (
-      <Card onPress={this.handleSelect} style={styles.card}>
-        <Flex justify="center" direction="row" style={styles.row}>
+      <Card onPress={this.handleSelect}>
+        <Flex justify="center" direction="row" style={styles.content}>
           <Flex value={1} direction="column">
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
             {!isUserCreatedOrg ? (
