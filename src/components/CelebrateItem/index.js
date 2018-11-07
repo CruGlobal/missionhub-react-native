@@ -16,6 +16,8 @@ import {
   CELEBRATEABLE_TYPES,
   ACTIONS,
 } from '../../constants';
+import { navigatePush } from '../../actions/navigation';
+import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
@@ -28,6 +30,21 @@ class CelebrateItem extends Component {
     const { event, onToggleLike, dispatch } = this.props;
     onToggleLike(event.id, event.liked);
     !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
+  };
+
+  onPressChallengeLink = () => {
+    const { dispatch, event } = this.props;
+    const {
+      adjective_attribute_value: challengeId,
+      organization: { id: orgId },
+    } = event;
+
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId,
+        orgId,
+      }),
+    );
   };
 
   renderMessage() {
@@ -140,7 +157,7 @@ class CelebrateItem extends Component {
   }
 
   renderChallengeLink() {
-    const { t, event } = this.props;
+    const { event } = this.props;
     const { acceptedCommunityChallenge } = CELEBRATEABLE_TYPES;
     const { celebrateable_type, object_description } = event;
 
@@ -149,6 +166,7 @@ class CelebrateItem extends Component {
         <Button
           type="transparent"
           text={object_description}
+          onPress={this.onPressChallengeLink}
           style={styles.challengeLinkButton}
           buttonTextStyle={styles.challengeLinkText}
         />
