@@ -1,46 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`with onSelect prop render 0 assigned 1`] = `
-<TouchableIOS
-  highlight={true}
+<Card
   onPress={[Function]}
 >
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
         "paddingLeft": 24,
         "paddingRight": 13,
         "paddingVertical": 16,
-        "width": 750,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      FULL NAME
-    </MyText>
     <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "marginTop": 1,
-        }
-      }
+      direction="column"
+      value={1}
     >
       <MyText
         accessible={true}
@@ -48,82 +25,84 @@ exports[`with onSelect prop render 0 assigned 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "color": "#B2B0B2",
-            "fontSize": 14,
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
           }
         }
       >
-        0 Assigned
+        FULL NAME
       </MyText>
-      <React.Fragment>
-        <Dot
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
           }
-        />
+        }
+      >
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#FF5532",
+              "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
         >
-          3 Uncontacted
+          0 Assigned
         </MyText>
-      </React.Fragment>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
     </Flex>
+    <Translate(MemberOptionsMenu) />
   </Flex>
-</TouchableIOS>
+</Card>
 `;
 
 exports[`with onSelect prop render 0 uncontacted 1`] = `
-<TouchableIOS
-  highlight={true}
+<Card
   onPress={[Function]}
 >
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
         "paddingLeft": 24,
         "paddingRight": 13,
         "paddingVertical": 16,
-        "width": 750,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      FULL NAME
-    </MyText>
     <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "marginTop": 1,
-        }
-      }
+      direction="column"
+      value={1}
     >
       <MyText
         accessible={true}
@@ -131,212 +110,294 @@ exports[`with onSelect prop render 0 uncontacted 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "color": "#B2B0B2",
-            "fontSize": 14,
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
           }
         }
       >
-        5 Assigned
+        FULL NAME
       </MyText>
-    </Flex>
-  </Flex>
-</TouchableIOS>
-`;
-
-exports[`with onSelect prop render for user created org 1`] = `
-<TouchableIOS
-  highlight={true}
-  onPress={[Function]}
->
-  <Flex
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
-        "width": 750,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      FULL NAME
-    </MyText>
-  </Flex>
-</TouchableIOS>
-`;
-
-exports[`with onSelect prop render member 1`] = `
-<TouchableIOS
-  highlight={true}
-  onPress={[Function]}
->
-  <Flex
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderBottomColor": "#E6E8EC",
-        "borderBottomWidth": 1,
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
-        "width": 750,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#007398",
-          "fontSize": 16,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      FULL NAME
-    </MyText>
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "marginTop": 1,
-        }
-      }
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Flex
+        align="center"
+        direction="row"
         style={
           Object {
-            "color": "#B2B0B2",
-            "fontSize": 14,
+            "marginTop": 1,
           }
         }
       >
-        5 Assigned
-      </MyText>
-      <React.Fragment>
-        <Dot
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        />
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#FF5532",
+              "color": "#B2B0B2",
               "fontSize": 14,
             }
           }
         >
-          3 Uncontacted
+          5 Assigned
         </MyText>
-      </React.Fragment>
+      </Flex>
     </Flex>
+    <Translate(MemberOptionsMenu) />
   </Flex>
-</TouchableIOS>
+</Card>
 `;
 
-exports[`without onSelect prop renders 1`] = `
-<Flex
-  justify="center"
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "paddingLeft": 24,
-      "paddingRight": 13,
-      "paddingVertical": 16,
-      "width": 750,
-    }
-  }
+exports[`with onSelect prop render for user created org 1`] = `
+<Card
+  onPress={[Function]}
 >
-  <MyText
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#007398",
-        "fontSize": 16,
-        "fontWeight": "bold",
-      }
-    }
-  >
-    FULL NAME
-  </MyText>
   <Flex
-    align="center"
     direction="row"
+    justify="center"
     style={
       Object {
-        "marginTop": 1,
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#B2B0B2",
-          "fontSize": 14,
-        }
-      }
+    <Flex
+      direction="column"
+      value={1}
     >
-      5 Assigned
-    </MyText>
-    <React.Fragment>
-      <Dot
-        style={
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 14,
-          }
-        }
-      />
       <MyText
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
         style={
           Object {
-            "color": "#FF5532",
-            "fontSize": 14,
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
           }
         }
       >
-        3 Uncontacted
+        FULL NAME
       </MyText>
-    </React.Fragment>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+    <Translate(MemberOptionsMenu) />
   </Flex>
-</Flex>
+</Card>
+`;
+
+exports[`with onSelect prop render member 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+    <Translate(MemberOptionsMenu) />
+  </Flex>
+</Card>
+`;
+
+exports[`without onSelect prop renders 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+    <Translate(MemberOptionsMenu) />
+  </Flex>
+</Card>
 `;

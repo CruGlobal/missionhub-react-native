@@ -6,11 +6,15 @@ exports[`ShareSurveyMenu renders share survey menu 1`] = `
     Array [
       Object {
         "onPress": [Function],
-        "text": "Share Survey",
+        "text": "Make Admin",
       },
       Object {
         "onPress": [Function],
-        "text": "Take Survey",
+        "text": "Make Owner",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Remove Member",
       },
     ]
   }
@@ -24,20 +28,18 @@ exports[`ShareSurveyMenu renders share survey menu in header 1`] = `
     Array [
       Object {
         "onPress": [Function],
-        "text": "Share Survey",
+        "text": "Make Admin",
       },
       Object {
         "onPress": [Function],
-        "text": "Take Survey",
+        "text": "Make Owner",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Remove Member",
       },
     ]
   }
-  iconProps={
-    Object {
-      "style": Object {
-        "color": "#ffffff",
-      },
-    }
-  }
+  iconProps={Object {}}
 />
 `;

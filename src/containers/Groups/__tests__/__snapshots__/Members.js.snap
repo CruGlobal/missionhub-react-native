@@ -1,9 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Members calls render item 1`] = `
-<Translate(GroupMemberItem)
-  isUserCreatedOrg={undefined}
+<Connect(Translate(GroupMemberItem))
+  myOrgPermissions={
+    Object {
+      "organization_id": "1",
+      "permission_id": 4,
+    }
+  }
   onSelect={[Function]}
+  organization={
+    Object {
+      "id": "1",
+      "name": "Test Org",
+    }
+  }
   person={
     Object {
       "contact_assignments": Array [],
@@ -57,8 +68,9 @@ exports[`Members should mount with send invite 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
+        "paddingVertical": 8,
       }
     }
     updateCellsBatchingPeriod={50}
@@ -132,8 +144,9 @@ exports[`Members should render correctly 1`] = `
     scrollEventThrottle={50}
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#E6E8EC",
         "flex": 1,
+        "paddingVertical": 8,
       }
     }
     updateCellsBatchingPeriod={50}
