@@ -1,28 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShareSurveyMenu renders share survey menu 1`] = `
-<Translate(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Make Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Make Owner",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  iconProps={Object {}}
-/>
-`;
-
-exports[`ShareSurveyMenu renders share survey menu in header 1`] = `
+exports[`MemberOptionsMenu renders member options menu 1`] = `
 <Translate(PopupMenu)
   actions={
     Array [
