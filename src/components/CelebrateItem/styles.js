@@ -38,4 +38,13 @@ export default StyleSheet.create({
     fontSize: 14,
     color: theme.textColor,
   },
+  challengeLinkButton: {
+    marginTop: 4,
+  },
+  challengeLinkText: {
+    fontSize: 14,
+    fontWeight: '400',
+    letterSpacing: 0,
+    color: theme.primaryColor,
+  },
 });

@@ -461,8 +461,8 @@ export default {
     addedContact: '{{initiator}} added a {{receiverStage}} person.',
     somethingCoolHappened:
       '{{initiator}} saw something cool happen with someone.',
-    challengeAccepted: '{{initiator}} accepted a Challenge',
-    challengeCompleted: '{{initiator}} completed a Challenge',
+    challengeAccepted: '{{initiator}} accepted a Challenge:',
+    challengeCompleted: '{{initiator}} completed a Challenge:',
   },
   challengeFeeds: {
     past: 'Past Challenges',

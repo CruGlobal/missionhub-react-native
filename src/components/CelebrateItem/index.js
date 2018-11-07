@@ -139,6 +139,23 @@ class CelebrateItem extends Component {
     }
   }
 
+  renderChallengeLink() {
+    const { t, event } = this.props;
+    const { acceptedCommunityChallenge } = CELEBRATEABLE_TYPES;
+    const { celebrateable_type, object_description } = event;
+
+    return celebrateable_type === acceptedCommunityChallenge ? (
+      <Flex direction="row">
+        <Button
+          type="transparent"
+          text={object_description}
+          style={styles.challengeLinkButton}
+          buttonTextStyle={styles.challengeLinkText}
+        />
+      </Flex>
+    ) : null;
+  }
+
   render() {
     const { myId, event } = this.props;
     const {
@@ -161,6 +178,7 @@ class CelebrateItem extends Component {
               format={'LT'}
             />
             <Text style={styles.description}>{this.renderMessage()}</Text>
+            {this.renderChallengeLink()}
           </Flex>
           <Flex direction={'column'} align="start">
             <Flex direction={'row'} align="center">
