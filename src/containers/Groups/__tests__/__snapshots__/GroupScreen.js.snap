@@ -88,7 +88,13 @@ exports[`GroupScreen should render header correctly for user_created org 1`] = `
       type="MissionHub"
     />
   }
-  right={null}
+  right={
+    <IconButton
+      name="moreIcon"
+      onPress={[Function]}
+      type="MissionHub"
+    />
+  }
   shadow={false}
   title="Test  Org"
 />

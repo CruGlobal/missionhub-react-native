@@ -82,10 +82,10 @@ describe('CreateGroupScreen', () => {
   it('should update the image', () => {
     const component = buildScreenInstance();
 
-    const uri = 'testuri';
-    component.handleImageChange({ uri });
+    const data = { uri: 'testuri' };
+    component.handleImageChange(data);
 
-    expect(component.state.imageUri).toEqual(uri);
+    expect(component.state.imageData).toEqual(data);
     expect(component).toMatchSnapshot();
   });
 
@@ -131,7 +131,7 @@ describe('CreateGroupScreen', () => {
       .onPress();
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
-    expect(addNewOrganization).toHaveBeenCalledWith(name);
+    expect(addNewOrganization).toHaveBeenCalledWith(name, null);
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
@@ -155,7 +155,33 @@ describe('CreateGroupScreen', () => {
       .onPress();
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
-    expect(addNewOrganization).toHaveBeenCalledWith(name);
+    expect(addNewOrganization).toHaveBeenCalledWith(name, null);
+    expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
+    expect(getMyCommunities).toHaveBeenCalled();
+    expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
+      organization: org,
+    });
+  });
+
+  it('should call create community with org added to redux and image passed in', async () => {
+    Keyboard.dismiss = jest.fn();
+    const component = buildScreen();
+    const name = 'Tester';
+    component.setState({ name });
+    const data = { uri: 'testuri' };
+    component.instance().handleImageChange(data);
+
+    const org = { id: mockNewId };
+    organizationSelector.mockReturnValue(org);
+
+    await component
+      .childAt(2)
+      .childAt(0)
+      .props()
+      .onPress();
+
+    expect(Keyboard.dismiss).toHaveBeenCalled();
+    expect(addNewOrganization).toHaveBeenCalledWith(name, data);
     expect(store.dispatch).toHaveBeenCalledWith(mockAddNewOrg);
     expect(getMyCommunities).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {

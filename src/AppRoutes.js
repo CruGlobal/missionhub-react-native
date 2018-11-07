@@ -136,6 +136,7 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
+import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -484,6 +485,7 @@ export const MainStackRoutes = createStackNavigator(
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
+    [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,

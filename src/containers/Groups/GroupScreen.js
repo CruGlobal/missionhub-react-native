@@ -21,6 +21,7 @@ import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
+import { GROUP_PROFILE } from './GroupProfile';
 
 @connect()
 export class GroupScreen extends Component {
@@ -59,6 +60,13 @@ export class GroupScreen extends Component {
     );
   };
 
+  handleProfile = () => {
+    const { dispatch } = this.props;
+    const { organization } = this.state;
+
+    dispatch(navigatePush(GROUP_PROFILE, { organization }));
+  };
+
   back = () => {
     this.props.dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
@@ -72,7 +80,13 @@ export class GroupScreen extends Component {
         size={24}
         onPress={this.handleAddContact}
       />
-    ) : null;
+    ) : (
+      <IconButton
+        name="moreIcon"
+        type="MissionHub"
+        onPress={this.handleProfile}
+      />
+    );
   }
 
   render() {

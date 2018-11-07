@@ -20,6 +20,7 @@ it('selects image', () => {
   const mockResponse = {
     fileSize: 1,
     fileName: 'test.file',
+    fileType: 'image/jpeg',
     width: 500,
     height: 500,
     isVertical: false,
@@ -30,6 +31,44 @@ it('selects image', () => {
   component.props().onPress();
 
   expect(props.onSelectImage).toHaveBeenCalledWith(mockResponse);
+});
+
+it('selects image without type and parses out png', () => {
+  const mockResponse = {
+    fileSize: 1,
+    fileName: 'test.file',
+    width: 500,
+    height: 500,
+    isVertical: false,
+    uri: 'testuri.png',
+  };
+  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
+  const component = renderShallow(<ImagePicker {...props} />);
+  component.props().onPress();
+
+  expect(props.onSelectImage).toHaveBeenCalledWith({
+    ...mockResponse,
+    fileType: 'image/png',
+  });
+});
+
+it('selects image without type and parses out png', () => {
+  const mockResponse = {
+    fileSize: 1,
+    fileName: 'test.file',
+    width: 500,
+    height: 500,
+    isVertical: false,
+    uri: 'testuri.jpg',
+  };
+  RNImagePicker.showImagePicker = jest.fn((a, b) => b(mockResponse));
+  const component = renderShallow(<ImagePicker {...props} />);
+  component.props().onPress();
+
+  expect(props.onSelectImage).toHaveBeenCalledWith({
+    ...mockResponse,
+    fileType: 'image/jpeg',
+  });
 });
 
 it('error selecting image', () => {

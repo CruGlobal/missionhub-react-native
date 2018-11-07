@@ -1,4 +1,4 @@
-import { URL_ENCODED } from '../constants';
+import { URL_ENCODED, URL_FORM_DATA } from '../constants';
 
 import { API_URL, THE_KEY_URL } from './utils';
 
@@ -141,6 +141,18 @@ export default {
   ADD_NEW_ORGANIZATION: {
     endpoint: ORG_URL,
     method: 'post',
+  },
+  UPDATE_ORGANIZATION: {
+    endpoint: `${ORG_URL}/:orgId`,
+    method: 'put',
+  },
+  UPDATE_ORGANIZATION_IMAGE: {
+    endpoint: `${ORG_URL}/:orgId`,
+    method: 'put',
+    extra: {
+      stringify: false,
+      headers: { 'Content-Type': URL_FORM_DATA },
+    },
   },
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,

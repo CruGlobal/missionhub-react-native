@@ -39,20 +39,21 @@ import styles from './styles';
 class CreateGroupScreen extends Component {
   state = {
     name: '',
-    imageUri: null,
+    imageData: null,
   };
 
   onChangeText = text => this.setState({ name: text });
 
   createCommunity = async () => {
     const { dispatch } = this.props;
+    const { name, imageData } = this.state;
     Keyboard.dismiss();
-    const text = (this.state.name || '').trim();
+    const text = (name || '').trim();
     if (!text) {
       return Promise.resolve();
     }
 
-    const results = await dispatch(addNewOrganization(text));
+    const results = await dispatch(addNewOrganization(text, imageData));
     const newOrgId = results.response.id;
     // Load the list of communities
     await dispatch(getMyCommunities());
@@ -72,19 +73,19 @@ class CreateGroupScreen extends Component {
     }
   };
 
-  handleImageChange = data => this.setState({ imageUri: data.uri });
+  handleImageChange = data => this.setState({ imageData: data });
 
   navigateBack = () => this.props.dispatch(navigateBack());
 
   ref = c => (this.nameInput = c);
 
   renderImage() {
-    const { imageUri } = this.state;
-    if (imageUri) {
+    const { imageData } = this.state;
+    if (imageData) {
       return (
         <Image
           resizeMode="cover"
-          source={{ uri: imageUri }}
+          source={{ uri: imageData.uri }}
           style={styles.image}
         />
       );
@@ -127,7 +128,7 @@ class CreateGroupScreen extends Component {
               <Input
                 ref={this.ref}
                 onChangeText={this.onChangeText}
-                value={this.state.name}
+                value={name}
                 autoFocus={true}
                 autoCorrect={true}
                 selectionColor={theme.white}
