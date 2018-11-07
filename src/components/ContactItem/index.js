@@ -9,28 +9,40 @@ import styles from './styles';
 @translate('groupItem')
 class ContactItem extends Component {
   handleSelect = () => {
-    this.props.onSelect(this.props.contact);
+    const { onSelect, contact } = this.props;
+    onSelect && onSelect(contact);
   };
-  render() {
+
+  renderContent() {
     const { contact, organization, t } = this.props;
     const isAssigned = (contact.reverse_contact_assignments || []).find(
       c => c.organization && c.organization.id === organization.id,
     );
 
     return (
-      <Touchable onPress={this.handleSelect} highlight={true}>
-        <Flex align="center" direction="row" style={styles.row}>
-          <Flex value={1} justify="center" direction="column">
-            <Text style={styles.name}>
-              {contact.first_name}
-              {contact.last_name ? ` ${contact.last_name}` : null}
-            </Text>
-          </Flex>
-          {isAssigned ? null : (
-            <Text style={styles.unassigned}>{t('unassigned')}</Text>
-          )}
+      <Flex align="center" direction="row" style={styles.row}>
+        <Flex value={1} justify="center" direction="column">
+          <Text style={styles.name}>
+            {contact.first_name}
+            {contact.last_name ? ` ${contact.last_name}` : null}
+          </Text>
         </Flex>
+        {isAssigned ? null : (
+          <Text style={styles.unassigned}>{t('unassigned')}</Text>
+        )}
+      </Flex>
+    );
+  }
+
+  render() {
+    const { onSelect } = this.props;
+
+    return onSelect ? (
+      <Touchable onPress={this.handleSelect} highlight={true}>
+        {this.renderContent()}
       </Touchable>
+    ) : (
+      <Flex>{this.renderContent()}</Flex>
     );
   }
 }
@@ -43,7 +55,7 @@ ContactItem.propTypes = {
     reverse_contact_assignments: PropTypes.array.isRequired,
   }).isRequired,
   organization: PropTypes.object.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  onSelect: PropTypes.func,
 };
 
 export default ContactItem;
