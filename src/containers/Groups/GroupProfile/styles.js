@@ -77,7 +77,7 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: 32,
     color: theme.white,
-    textAlign: 'center',
+    textAlign: 'left',
     borderBottomWidth: 0,
     letterSpacing: 0.25,
     paddingVertical: 0,
