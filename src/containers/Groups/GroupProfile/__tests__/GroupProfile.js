@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-native';
 
 import GroupProfile from '..';
 
@@ -8,13 +9,14 @@ import {
   testSnapshotShallow,
   createMockStore,
 } from '../../../../../testUtils';
-import { navigateBack } from '../../../../actions/navigation';
+import { navigateBack, navigateReset } from '../../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
+  deleteOrganization,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ORG_PERMISSIONS } from '../../../../constants';
+import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
 import * as common from '../../../../utils/common';
 
 jest.mock('../../../../actions/navigation', () => ({
@@ -26,8 +28,11 @@ jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
   updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
   getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
+  deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
 }));
 jest.mock('../../../../selectors/organizations');
+
+Alert.alert = jest.fn();
 
 const orgId = '123';
 const organization = {
@@ -140,6 +145,7 @@ describe('GroupProfile', () => {
       .childAt(0)
       .props()
       .onPress();
+    component.update();
 
     expect(component.instance().state).toEqual({
       editing: true,
@@ -296,5 +302,46 @@ describe('GroupProfile', () => {
 
     expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
+  });
+
+  it('handles check delete organization', () => {
+    const component = buildScreen();
+
+    // Press the "Edit" button
+    component.instance().handleEdit();
+    component.update();
+
+    component
+      .childAt(1)
+      .childAt(0)
+      .childAt(1)
+      .props()
+      .actions[0].onPress();
+
+    expect(Alert.alert).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.any(String),
+      [
+        {
+          text: expect.any(String),
+          style: 'cancel',
+        },
+        {
+          text: expect.any(String),
+          style: 'destructive',
+          onPress: expect.any(Function),
+        },
+      ],
+    );
+  });
+
+  it('handles delete organization', async () => {
+    const instance = buildScreenInstance();
+
+    await instance.deleteOrg();
+    expect(deleteOrganization).toHaveBeenCalledWith(orgId);
+    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
+      startTab: 'groups',
+    });
   });
 });

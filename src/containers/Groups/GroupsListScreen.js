@@ -27,6 +27,11 @@ import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 class GroupsListScreen extends Component {
   state = { refreshing: false };
 
+  componentDidMount() {
+    // Always load groups when this tab mounts
+    this.loadGroups();
+  }
+
   loadGroups = () => this.props.dispatch(getMyCommunities());
 
   handleRefresh = () => refresh(this, this.loadGroups);

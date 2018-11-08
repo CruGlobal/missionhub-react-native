@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Image, ScrollView } from 'react-native';
+import { Alert, SafeAreaView, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -17,15 +17,17 @@ import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
 import { copyText } from '../../../utils/common';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
   getMyCommunities,
   updateOrganizationImage,
+  deleteOrganization,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ORG_PERMISSIONS } from '../../../constants';
+import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
+import PopupMenu from '../../../components/PopupMenu';
 
 import styles from './styles';
 
@@ -67,6 +69,27 @@ class GroupProfile extends Component {
   handleNewLink = () => {
     // TODO: Handle generating a new code
     return 'new link';
+  };
+
+  deleteOrg = async () => {
+    const { dispatch, organization } = this.props;
+    await dispatch(deleteOrganization(organization.id));
+    dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+  };
+
+  checkDeleteOrg = () => {
+    const { t } = this.props;
+    Alert.alert(t('deleteCommunity'), t('cannotBeUndone'), [
+      {
+        text: t('cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('yes'),
+        style: 'destructive',
+        onPress: this.deleteOrg,
+      },
+    ]);
   };
 
   handleEdit = () => {
@@ -131,6 +154,18 @@ class GroupProfile extends Component {
                 blurOnSubmit={true}
                 underlineColorAndroid={theme.transparent}
               />
+              <PopupMenu
+                actions={[
+                  {
+                    text: t('delete'),
+                    onPress: this.checkDeleteOrg,
+                    destructive: true,
+                  },
+                ]}
+                size={20}
+                iconProps={{ style: styles.menu }}
+              />
+              ;
             </Flex>
           ) : (
             <Flex direction="row" align="center" style={styles.rowWrap}>
@@ -161,7 +196,10 @@ class GroupProfile extends Component {
           <Flex direction="row" align="center" style={styles.rowWrap}>
             <Flex value={1} direction="column">
               <Text style={styles.label}>{t('code')}</Text>
-              <Text style={styles.codeText}>333-333</Text>
+              <Text style={styles.codeText}>
+                333-333
+                {/* TODO: PUT IN RIGHT CODE */}
+              </Text>
             </Flex>
             {editing ? (
               <Button
@@ -187,6 +225,7 @@ class GroupProfile extends Component {
               <Text style={styles.label}>{t('link')}</Text>
               <Text style={styles.linkText}>
                 https://www.missionhub.com/333333
+                {/* TODO: PUT IN RIGHT LINK */}
               </Text>
             </Flex>
             {editing ? (

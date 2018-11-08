@@ -399,19 +399,43 @@ exports[`GroupProfile renders editing state 1`] = `
     }
   }
 >
-  <Flex
-    align="center"
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "#005A7F",
-        "borderRadius": 4,
-        "minHeight": 400.2,
-        "position": "relative",
-        "width": 750,
+  <Translate(ImagePicker)
+    onSelectImage={[Function]}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Object {
+          "backgroundColor": "#005A7F",
+          "borderRadius": 4,
+          "minHeight": 400.2,
+          "position": "relative",
+          "width": 750,
+        }
       }
-    }
-  />
+    >
+      <Flex
+        align="center"
+        justify="center"
+        style={
+          Object {
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/cameraIcon.png",
+            }
+          }
+        />
+      </Flex>
+    </Flex>
+  </Translate(ImagePicker)>
   <ScrollView
     keyboardShouldPersistTaps="handled"
     style={
@@ -430,20 +454,48 @@ exports[`GroupProfile renders editing state 1`] = `
         }
       }
     >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      <Input
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        onChangeText={[Function]}
+        returnKeyType="done"
+        selectionColor="#ffffff"
         style={
           Object {
+            "borderBottomWidth": 0,
             "color": "#ffffff",
+            "flex": 1,
             "fontSize": 32,
             "letterSpacing": 0.25,
+            "paddingVertical": 0,
+            "textAlign": "center",
           }
         }
-      >
-        Test Organization
-      </MyText>
+        underlineColorAndroid="transparent"
+        value="Test Organization"
+      />
+      <Translate(PopupMenu)
+        actions={
+          Array [
+            Object {
+              "destructive": true,
+              "onPress": [Function],
+              "text": "Delete",
+            },
+          ]
+        }
+        iconProps={
+          Object {
+            "style": Object {
+              "color": "#ffffff",
+              "marginLeft": 15,
+            },
+          }
+        }
+        size={20}
+      />
+      ;
     </Flex>
     <Flex
       align="center"
@@ -614,14 +666,19 @@ exports[`GroupProfile renders editing state 1`] = `
         }
         onPress={[Function]}
         style={
-          Object {
-            "backgroundColor": "#52C5DC",
-            "borderRadius": 15,
-            "paddingHorizontal": 20,
-            "paddingVertical": 7,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#52C5DC",
+              "borderRadius": 15,
+              "paddingHorizontal": 20,
+              "paddingVertical": 7,
+            },
+            Object {
+              "backgroundColor": "#FF5532",
+            },
+          ]
         }
-        text="COPY"
+        text="NEW CODE"
         type="transparent"
       />
     </Flex>
@@ -684,14 +741,19 @@ exports[`GroupProfile renders editing state 1`] = `
         }
         onPress={[Function]}
         style={
-          Object {
-            "backgroundColor": "#52C5DC",
-            "borderRadius": 15,
-            "paddingHorizontal": 20,
-            "paddingVertical": 7,
-          }
+          Array [
+            Object {
+              "backgroundColor": "#52C5DC",
+              "borderRadius": 15,
+              "paddingHorizontal": 20,
+              "paddingVertical": 7,
+            },
+            Object {
+              "backgroundColor": "#FF5532",
+            },
+          ]
         }
-        text="COPY"
+        text="NEW LINK"
         type="transparent"
       />
     </Flex>
@@ -770,7 +832,7 @@ exports[`GroupProfile renders editing state 1`] = `
           }
         }
         onPress={[Function]}
-        text="EDIT"
+        text="DONE"
         type="transparent"
       />
     </Flex>

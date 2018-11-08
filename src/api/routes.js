@@ -154,6 +154,10 @@ export default {
       headers: { 'Content-Type': URL_FORM_DATA },
     },
   },
+  DELETE_ORGANIZATION: {
+    endpoint: `${ORG_URL}/:orgId`,
+    method: 'delete',
+  },
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },

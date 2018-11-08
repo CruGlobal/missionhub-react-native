@@ -122,6 +122,13 @@ describe('GroupsListScreen', () => {
     expect(getMyCommunities).toHaveBeenCalled();
   });
 
+  it('should load groups on mount', () => {
+    const instance = component.instance();
+    instance.loadGroups = jest.fn();
+    instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+  });
+
   it('should refresh the list', () => {
     const instance = component.instance();
     common.refresh = jest.fn();

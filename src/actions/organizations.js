@@ -370,3 +370,10 @@ export function addNewOrganization(name, imageData) {
     return results;
   };
 }
+
+export function deleteOrganization(orgId) {
+  return dispatch => {
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
+  };
+}
