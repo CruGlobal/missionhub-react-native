@@ -95,8 +95,8 @@ export class ChallengeDetailScreen extends Component {
     dispatch(joinChallenge(challenge, orgId));
   };
 
-  editChallenge = () => {
-    const { orgId, dispatch, challenge } = this.props;
+  editChallenge = challenge => {
+    const { orgId, dispatch } = this.props;
     dispatch(updateChallenge(challenge, orgId));
   };
 
@@ -106,8 +106,8 @@ export class ChallengeDetailScreen extends Component {
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge,
-        onComplete: challenge => {
-          this.editChallenge(challenge);
+        onComplete: updatedChallenge => {
+          this.editChallenge(updatedChallenge);
           dispatch(navigateBack());
         },
       }),
