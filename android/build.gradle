@@ -20,11 +20,9 @@ ext.grgit = org.ajoberstar.grgit.Grgit.open()
 
 allprojects {
     repositories {
-        mavenLocal()
+        google()
         jcenter()
-        maven {
-            url 'https://maven.google.com'
-        }
+        mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
