@@ -508,7 +508,7 @@ it('loads members for org with paging', () => {
         },
         organization_id: orgId,
         filters: {
-          permissions: 'admin,user',
+          permissions: 'owner,admin,user',
         },
         include: 'contact_assignments,organizational_permissions',
       },
