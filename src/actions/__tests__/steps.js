@@ -313,7 +313,7 @@ describe('complete challenge', () => {
   });
 
   it('completes step for personal ministry', async () => {
-    const noOrgStep = { ...step, organization: null };
+    const noOrgStep = { ...step, organization: undefined };
     await store.dispatch(completeStep(noOrgStep, screen));
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_MY_CHALLENGES,
