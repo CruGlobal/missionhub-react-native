@@ -68,7 +68,7 @@ export function addNewInteraction(
       }),
     );
     dispatch(reloadJourney(personId, organizationId));
-    dispatch(refreshImpact());
+    dispatch(refreshImpact(organizationId));
     dispatch(reloadGroupCelebrateFeed(organizationId));
 
     return response;
