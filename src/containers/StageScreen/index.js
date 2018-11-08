@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Image, Keyboard } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
 import { Flex, Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
@@ -15,15 +16,24 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import { getStages } from '../../actions/stages';
 import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
-import { buildTrackingObj, disableBack } from '../../utils/common';
+import {
+  buildTrackingObj,
+  disableBack,
+  getStageIndex,
+} from '../../utils/common';
 import {
   ACTIONS,
   PERSON_VIEWED_STAGE_CHANGED,
   SELF_VIEWED_STAGE_CHANGED,
 } from '../../constants';
+import { selectMyStage } from '../../actions/selectStage';
+import {
+  contactAssignmentSelector,
+  isMeSelector,
+  personSelector,
+} from '../../selectors/people';
 
 import styles from './styles';
-import { translate } from 'react-i18next';
 
 const screenMargin = 60;
 const sliderWidth = theme.fullWidth;
@@ -36,7 +46,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
 const fallbackIndex = 0;
 
 @translate('selectStage')
-class PathwayStageScreen extends Component {
+class StageScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -71,11 +81,23 @@ class PathwayStageScreen extends Component {
     }
   }
 
-  setStage = (stage, isAlreadySelected) => {
-    if (!this.props.enableBackButton) {
+  setStage = async (stage, isAlreadySelected) => {
+    const { dispatch, next, enableBackButton, isMe } = this.props;
+
+    if (!enableBackButton) {
       disableBack.remove();
     }
-    this.props.onSelect(stage, isAlreadySelected);
+
+    if (!isAlreadySelected) {
+      if (isMe) {
+        await this.props.dispatch(selectMyStage(stage.id));
+      } else {
+        debugger;
+        // TODO: obliterate
+        this.props.onSelect(stage, isAlreadySelected);
+      }
+    }
+    dispatch(next({ stage, isMe }));
 
     const action = this.props.isMe
       ? ACTIONS.SELF_STAGE_SELECTED
@@ -100,12 +122,7 @@ class PathwayStageScreen extends Component {
     const { dispatch, trackAsOnboarding, isMe } = this.props;
 
     const section = trackAsOnboarding ? 'onboarding' : 'people';
-    // Yes the trackAsOnboarding part is weird. Keeping the historical decision in order to not break analytics reports
-    const subsection = isMe
-      ? 'self'
-      : trackAsOnboarding
-        ? 'add person'
-        : 'person';
+    const subsection = isMe ? 'self' : 'person';
 
     const trackingObj = buildTrackingObj(
       `${section} : ${subsection} : stage : ${number}`,
@@ -185,17 +202,28 @@ class PathwayStageScreen extends Component {
   }
 }
 
-PathwayStageScreen.propTypes = {
+StageScreen.propTypes = {
+  stages: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  isMe: PropTypes.bool.isRequired,
   firstItem: PropTypes.number,
-  enableBackButton: PropTypes.bool,
   trackAsOnboarding: PropTypes.bool,
 };
 
-const mapStateToProps = ({ stages, auth }, { person }) => ({
-  stages: stages.stages,
-  isMe: person.id === auth.person.id,
-});
+const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
+  const { personId, orgId } = navigation.state.params || {};
 
-export default connect(mapStateToProps)(PathwayStageScreen);
+  const person = personSelector({ people }, { personId, orgId });
+  const { pathway_stage_id } =
+    contactAssignmentSelector({ auth }, { person, orgId }) || {};
+
+  return {
+    stages: stages.stages,
+    person,
+    isMe: isMeSelector({ auth }, { personId }),
+    firstItem: getStageIndex(stages.stages, pathway_stage_id),
+  };
+};
+
+export default connect(mapStateToProps)(StageScreen);
+export const STAGE_SCREEN = 'nav/STAGE';

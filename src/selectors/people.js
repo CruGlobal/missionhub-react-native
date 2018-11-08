@@ -87,6 +87,12 @@ export const personSelector = createSelector(
   },
 );
 
+export const isMeSelector = createSelector(
+  ({ auth }) => auth.person.id,
+  (_, { personId }) => personId,
+  (authPersonId, personId) => personId === authPersonId,
+);
+
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
   (_, { orgId }) => orgId,

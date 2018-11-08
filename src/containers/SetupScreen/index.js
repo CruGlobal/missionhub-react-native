@@ -4,17 +4,16 @@ import { View, Keyboard } from 'react-native';
 import { translate } from 'react-i18next';
 
 import { Button, Text, Flex, Input } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
 import {
   createMyPerson,
   firstNameChanged,
   lastNameChanged,
 } from '../../actions/onboardingProfile';
-import { GET_STARTED_SCREEN } from '../GetStartedScreen';
 import { disableBack } from '../../utils/common';
+import { getMe } from '../../actions/person';
 
 import styles from './styles';
-import { getMe } from '../../actions/person';
+import { getMyOrganizations } from '../../actions/organizations';
 
 @translate('setup')
 class SetupScreen extends Component {
@@ -33,9 +32,10 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
 
       await dispatch(createMyPerson(firstName, lastName));
-      const person = await dispatch(getMe('', true));
+      const { personId } = await dispatch(getMe('', true));
+      await dispatch(getMyOrganizations());
       disableBack.remove();
-      dispatch(next({ person }));
+      dispatch(next({ personId }));
     }
   };
 

@@ -7,6 +7,7 @@ import theme from '../../theme';
 import { disableBack } from '../../utils/common';
 
 import styles from './styles';
+import { personSelector } from '../../selectors/people';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
@@ -19,12 +20,12 @@ class GetStartedScreen extends Component {
   }
 
   navigateNext = () => {
-    const { dispatch, next, person } = this.props;
+    const { dispatch, next, personId } = this.props;
     disableBack.remove();
 
     dispatch(
       next({
-        person,
+        personId,
         enableBackButton: false,
       }),
     );
@@ -56,9 +57,13 @@ class GetStartedScreen extends Component {
   }
 }
 
-const mapStateToProps = (_, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = ({ people }, { navigation }) => {
+  const { personId } = navigation.state.params || {};
+
+  return {
+    person: personSelector({ people }, { personId }),
+  };
+};
 
 export default connect(mapStateToProps)(GetStartedScreen);
 export const GET_STARTED_SCREEN = 'nav/GET_STARTED';

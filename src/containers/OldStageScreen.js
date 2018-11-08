@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { navigateBack, navigatePush } from '../actions/navigation';
 import { selectMyStage } from '../actions/selectStage';
 
-import PathwayStageScreen from './PathwayStageScreen';
+import PathwayStageScreen from './StageScreen';
 import { STAGE_SUCCESS_SCREEN } from './StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from './SelectMyStepScreen';
 

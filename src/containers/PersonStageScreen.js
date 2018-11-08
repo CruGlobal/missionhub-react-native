@@ -13,7 +13,7 @@ import { completeOnboarding } from '../actions/onboardingProfile';
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
 import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
-import PathwayStageScreen from './PathwayStageScreen';
+import PathwayStageScreen from './StageScreen';
 
 @translate('selectStage')
 class PersonStageScreen extends Component {
@@ -91,10 +91,12 @@ class PersonStageScreen extends Component {
         this.complete(stage);
       } else {
         this.props.contactAssignmentId
-          ? await this.props.dispatch(
+          ? // Update existing contact assignment
+            await this.props.dispatch(
               updateUserStage(this.props.contactAssignmentId, stage.id),
             )
-          : await this.props.dispatch(
+          : // Create new contact assignment
+            await this.props.dispatch(
               selectPersonStage(
                 this.props.contactId || this.props.personId,
                 this.props.myId,

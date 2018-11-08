@@ -22,8 +22,6 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import NotificationOffScreen from '../containers/NotificationOffScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 import StageScreen from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
-import PersonStageScreen from '../containers/PersonStageScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../containers/PersonSelectStepScreen';
 import PersonSelectStepScreen from '../containers/PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -32,35 +30,50 @@ import { navigatePush } from '../actions/navigation';
 
 export const ONBOARDING_FLOW = 'nav/ONBOARDING_FLOW';
 
-const nextActionCreator = action => nextScreen => props =>
-  action(nextScreen, props);
+const wrapNextScreen = (WrappedComponent, nextScreen, extraProps = {}) =>
+  wrapNextAction(
+    WrappedComponent,
+    props => navigatePush(nextScreen, props),
+    extraProps,
+  );
 
-const navigateToScreen = nextActionCreator(navigatePush);
+const wrapNextAction = (WrappedComponent, nextAction, extraProps = {}) =>
+  wrapProps(WrappedComponent, {
+    ...extraProps,
+    next: nextAction,
+  });
 
-const wrapNext = (
-  WrappedComponent,
-  nextScreen,
-  extraProps = {},
-  customAction = navigateToScreen,
-) => props => <WrappedComponent {...props} next={customAction(nextScreen)} />;
+const wrapProps = (WrappedComponent, extraProps = {}) => props => (
+  <WrappedComponent {...props} {...extraProps} />
+);
 
 export const OnboardingScreens = {
   [WELCOME_SCREEN]: {
-    screen: wrapNext(WelcomeScreen, SETUP_SCREEN),
+    screen: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
     tracking: buildTrackingObj('onboarding : welcome', 'onboarding'),
   },
   [SETUP_SCREEN]: {
-    screen: wrapNext(SetupScreen, GET_STARTED_SCREEN),
+    screen: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
     tracking: buildTrackingObj('onboarding : name', 'onboarding'),
   },
   [GET_STARTED_SCREEN]: {
-    screen: wrapNext(GetStartedScreen, STAGE_SCREEN),
+    screen: wrapNextScreen(GetStartedScreen, STAGE_SCREEN),
     tracking: buildTrackingObj('onboarding : get started', 'onboarding'),
   },
   [STAGE_SCREEN]: {
-    screen: wrapNext(StageScreen, STAGE_SUCCESS_SCREEN, {
-      trackAsOnboarding: true,
-    }),
+    screen: wrapNextAction(
+      StageScreen,
+      ({ isMe, ...props }) => dispatch =>
+        dispatch(
+          navigatePush(
+            isMe ? STAGE_SUCCESS_SCREEN : PERSON_SELECT_STEP_SCREEN,
+            props,
+          ),
+        ),
+      {
+        trackAsOnboarding: true,
+      },
+    ),
     tracking: buildTrackingObj(
       'onboarding : self : choose my stage',
       'onboarding',
@@ -100,9 +113,6 @@ export const OnboardingScreens = {
       'add person',
     ),
   },
-  [PERSON_STAGE_SCREEN]: {
-    screen: PersonStageScreen,
-  },
   [PERSON_SELECT_STEP_SCREEN]: {
     screen: PersonSelectStepScreen,
   },
@@ -125,27 +135,9 @@ export const OnboardingScreens = {
   [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
 };
 
-const OnboardingStackNavigator = createStackNavigator(OnboardingScreens, {
+export const OnboardingNavigator = createStackNavigator(OnboardingScreens, {
   initialRouteName: WELCOME_SCREEN,
   navigationOptions: {
     header: null,
   },
 });
-
-export class OnboardingNavigator extends React.Component {
-  static router = {
-    ...OnboardingStackNavigator.router,
-    getStateForAction: (action, lastState) => {
-      // check for custom actions and return a different navigation state.
-      return OnboardingStackNavigator.router.getStateForAction(
-        action,
-        lastState,
-      );
-    },
-  };
-  render() {
-    const { navigation } = this.props;
-
-    return <OnboardingStackNavigator navigation={navigation} />;
-  }
-}
