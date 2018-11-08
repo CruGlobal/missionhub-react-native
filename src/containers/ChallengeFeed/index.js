@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import {
@@ -14,6 +13,7 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
+import { isAdminOrOwner } from '../../utils/common';
 
 import styles from './styles';
 
@@ -126,17 +126,14 @@ ChallengeFeed.propTypes = {
 
 const mapStateToProps = ({ auth }, { organization }) => {
   const myOrgPerm =
-    auth &&
     organization &&
     organization.id &&
     orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
     });
-  const canEditChallenges =
-    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
-    canEditChallenges,
+    canEditChallenges: isAdminOrOwner(myOrgPerm),
     myId: auth.person.id,
   };
 };

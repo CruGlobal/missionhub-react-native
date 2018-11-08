@@ -5,8 +5,8 @@ import {
   orgIsPersonalMinistry,
   orgIsUserCreated,
   orgIsCru,
-  isMissionhubUser,
-  isAdminForOrg,
+  hasOrgPermissions,
+  isAdminOrOwner,
   openMainMenu,
   getIconName,
   shuffleArray,
@@ -96,33 +96,39 @@ describe('orgIsCru', () => {
   });
 });
 
-describe('isMissionhubUser', () => {
+describe('hasOrgPermissions', () => {
   it('should return true for admins', () => {
-    expect(isMissionhubUser({ permission_id: 1 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(hasOrgPermissions({ permission_id: 3 })).toEqual(true);
   });
   it('should return true for users', () => {
-    expect(isMissionhubUser({ permission_id: 4 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 4 })).toEqual(true);
   });
   it('should return false for contacts', () => {
-    expect(isMissionhubUser({ permission_id: 2 })).toEqual(false);
+    expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isMissionhubUser()).toEqual(false);
+    expect(hasOrgPermissions()).toEqual(false);
   });
 });
 
-describe('isAdminForOrg', () => {
+describe('isAdminOrOwner', () => {
   it('should return true for admins', () => {
-    expect(isAdminForOrg({ permission_id: 1 })).toEqual(true);
+    expect(isAdminOrOwner({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(isAdminOrOwner({ permission_id: 3 })).toEqual(true);
   });
   it('should return false for users', () => {
-    expect(isAdminForOrg({ permission_id: 4 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 4 })).toEqual(false);
   });
   it('should return false for contacts', () => {
-    expect(isAdminForOrg({ permission_id: 2 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isAdminForOrg()).toEqual(false);
+    expect(isAdminOrOwner()).toEqual(false);
   });
 });
 
