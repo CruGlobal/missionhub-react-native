@@ -176,13 +176,10 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     c => c.person && c.person.id === myId,
   );
 
-  const myOrgPerm =
-    auth &&
-    orgId &&
-    orgPermissionSelector(null, {
-      person: auth.person,
-      organization: { id: orgId },
-    });
+  const myOrgPerm = orgPermissionSelector(null, {
+    person: auth.person,
+    organization: { id: orgId },
+  });
   const canEditChallenges =
     myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
 
