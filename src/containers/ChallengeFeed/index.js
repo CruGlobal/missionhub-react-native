@@ -35,7 +35,6 @@ class ChallengeFeed extends Component {
       item={item}
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
-      onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
       onSelect={this.handleSelectRow}
       acceptedChallenge={this.getAcceptedChallenge(item)}
     />
