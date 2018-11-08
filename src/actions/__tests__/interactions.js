@@ -65,7 +65,6 @@ describe('add comment', () => {
       ACTIONS.INTERACTION.name,
       { [interaction.tracking]: null },
     );
-    mockFnWithParams(impact, 'refreshImpact', refreshImpactResult);
     reloadGroupCelebrateFeed.mockReturnValue(celebrationFeedResult);
   });
 
@@ -98,6 +97,8 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
+      mockFnWithParams(impact, 'refreshImpact', refreshImpactResult, undefined);
+
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
       await store.dispatch(addNewInteraction(personId, interaction, comment));
@@ -147,6 +148,7 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
+      mockFnWithParams(impact, 'refreshImpact', refreshImpactResult, orgId);
       mockApi(action, REQUESTS.ADD_NEW_INTERACTION, {}, expectedBody);
 
       await store.dispatch(
