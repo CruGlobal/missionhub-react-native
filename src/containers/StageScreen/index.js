@@ -203,7 +203,7 @@ class StageScreen extends Component {
 }
 
 StageScreen.propTypes = {
-  stages: PropTypes.object.isRequired,
+  stages: PropTypes.array.isRequired,
   person: PropTypes.object.isRequired,
   isMe: PropTypes.bool.isRequired,
   firstItem: PropTypes.number,

@@ -31,9 +31,12 @@ import { navigatePush } from '../actions/navigation';
 export const ONBOARDING_FLOW = 'nav/ONBOARDING_FLOW';
 
 const wrapNextScreen = (WrappedComponent, nextScreen, extraProps = {}) =>
+  wrapNextScreenFn(WrappedComponent, () => nextScreen, extraProps);
+
+const wrapNextScreenFn = (WrappedComponent, fn, extraProps = {}) =>
   wrapNextAction(
     WrappedComponent,
-    props => navigatePush(nextScreen, props),
+    props => navigatePush(fn(props), props),
     extraProps,
   );
 
@@ -61,15 +64,9 @@ export const OnboardingScreens = {
     tracking: buildTrackingObj('onboarding : get started', 'onboarding'),
   },
   [STAGE_SCREEN]: {
-    screen: wrapNextAction(
+    screen: wrapNextScreenFn(
       StageScreen,
-      ({ isMe, ...props }) => dispatch =>
-        dispatch(
-          navigatePush(
-            isMe ? STAGE_SUCCESS_SCREEN : PERSON_SELECT_STEP_SCREEN,
-            props,
-          ),
-        ),
+      ({ isMe }) => (isMe ? STAGE_SUCCESS_SCREEN : PERSON_SELECT_STEP_SCREEN),
       {
         trackAsOnboarding: true,
       },

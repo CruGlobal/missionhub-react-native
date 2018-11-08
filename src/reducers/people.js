@@ -16,6 +16,11 @@ const initialState = {
 
 export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
+    case REQUESTS.GET_ME.SUCCESS:
+      const person = action.results.response;
+
+      return loadPeople(state, [person], 'personal');
+
     case LOAD_PERSON_DETAILS:
       const orgId = action.orgId || 'personal';
       const org = action.org || {};
@@ -35,6 +40,7 @@ export default function peopleReducer(state = initialState, action) {
           },
         },
       };
+
     case UPDATE_PERSON_ATTRIBUTES:
       return {
         ...state,
@@ -43,6 +49,7 @@ export default function peopleReducer(state = initialState, action) {
           action.updatedPersonAttributes,
         ),
       };
+
     case DELETE_PERSON:
       return {
         ...state,
@@ -52,28 +59,31 @@ export default function peopleReducer(state = initialState, action) {
           action.personOrgId,
         ),
       };
+
     case GET_ORGANIZATION_PEOPLE:
-      return loadPeople(state, action);
+      return loadPeople(state, action.response, action.orgId);
+
     case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
       return loadContactsFromSteps(state, action);
+
     case LOGOUT:
       return initialState;
+
     case PEOPLE_WITH_ORG_SECTIONS:
       return {
         ...state,
         allByOrg: action.orgs,
       };
+
     default:
       return state;
   }
 }
 
-function loadPeople(state, action) {
-  const { response, orgId } = action;
-
+function loadPeople(state, people, orgId) {
   const org = state.allByOrg[orgId] || {};
   const allPeople = org.people || {};
-  response.forEach(person => {
+  people.forEach(person => {
     const existing = allPeople[person.id];
     allPeople[person.id] = existing ? { ...existing, ...person } : person;
   });

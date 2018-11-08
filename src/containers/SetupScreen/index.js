@@ -32,7 +32,7 @@ class SetupScreen extends Component {
       Keyboard.dismiss();
 
       await dispatch(createMyPerson(firstName, lastName));
-      const { personId } = await dispatch(getMe('', true));
+      const { id: personId } = await dispatch(getMe('', true));
       await dispatch(getMyOrganizations());
       disableBack.remove();
       dispatch(next({ personId }));

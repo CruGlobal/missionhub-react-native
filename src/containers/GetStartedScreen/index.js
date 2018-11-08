@@ -20,12 +20,12 @@ class GetStartedScreen extends Component {
   }
 
   navigateNext = () => {
-    const { dispatch, next, personId } = this.props;
+    const { dispatch, next, person } = this.props;
     disableBack.remove();
 
     dispatch(
       next({
-        personId,
+        personId: person.id,
         enableBackButton: false,
       }),
     );
