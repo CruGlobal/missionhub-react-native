@@ -81,20 +81,6 @@ export class ChallengeDetailScreen extends Component {
     this.props.dispatch(navigateBack());
   };
 
-  handleComplete = () => {
-    const { orgId, dispatch, challenge } = this.props;
-    const accepted_challenge = this.getAcceptedChallenge(challenge);
-    if (!accepted_challenge) {
-      return;
-    }
-    dispatch(completeChallenge(accepted_challenge, orgId));
-  };
-
-  handleJoin = () => {
-    const { orgId, dispatch, challenge } = this.props;
-    dispatch(joinChallenge(challenge, orgId));
-  };
-
   editChallenge = challenge => {
     const { orgId, dispatch } = this.props;
     dispatch(updateChallenge(challenge, orgId));
@@ -112,6 +98,20 @@ export class ChallengeDetailScreen extends Component {
         },
       }),
     );
+  };
+
+  handleJoin = () => {
+    const { orgId, dispatch, challenge } = this.props;
+    dispatch(joinChallenge(challenge, orgId));
+  };
+
+  handleComplete = () => {
+    const { orgId, dispatch, challenge } = this.props;
+    const accepted_challenge = this.getAcceptedChallenge(challenge);
+    if (!accepted_challenge) {
+      return;
+    }
+    dispatch(completeChallenge(accepted_challenge, orgId));
   };
 
   render() {
