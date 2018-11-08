@@ -64,7 +64,7 @@ exports[`isContact with contact assignment does not render status button if cont
 </Flex>
 `;
 
-exports[`isContact with contact assignment renders no contact buttons for User-Created Org 1`] = `
+exports[`isContact with contact assignment renders no contact buttons if not Cru Org 1`] = `
 <Flex>
   <Connect(Translate(AssignToMeButton))
     organization={
