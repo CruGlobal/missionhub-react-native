@@ -7,10 +7,13 @@ import {
   INTERACTION_TYPES,
 } from '../../src/constants';
 import CelebrateItem from '../../src/components/CelebrateItem';
+import { CHALLENGE_DETAIL_SCREEN } from '../../src/containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../src/actions/analytics';
+import { navigatePush } from '../../src/actions/navigation';
 import { testSnapshotShallow, renderShallow } from '../../testUtils';
 
 jest.mock('../../src/actions/analytics');
+jest.mock('../../src/actions/navigation');
 
 const mockStore = configureStore();
 let store;
@@ -164,6 +167,7 @@ describe('CelebrateItem', () => {
         ...baseEvent,
         celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
+        object_description: 'Invite a friend to church',
       };
       testEvent(event);
     });
@@ -174,6 +178,7 @@ describe('CelebrateItem', () => {
         celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
         changed_attribute_name:
           CELEBRATEABLE_TYPES.challengeItemTypes.completed,
+        object_description: 'Invite a friend to church',
       };
       testEvent(event);
     });
@@ -231,5 +236,44 @@ describe('onPressLikeIcon', () => {
     );
     expect(trackActionWithoutData).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
+  });
+});
+
+describe('onPressChallengeLink', () => {
+  it('navigates to challenge detail screen', () => {
+    const challengeId = '123';
+    const orgId = '111';
+
+    const navigateResponse = { type: 'navigate push' };
+    navigatePush.mockReturnValue(navigateResponse);
+
+    event = {
+      id: '1',
+      subject_person_name: 'John Smith',
+      subject_person: {
+        id: otherId,
+      },
+      changed_attribute_value: '2004-04-04 00:00:00 UTC',
+      likes_count: 0,
+      liked: true,
+      organization: { id: orgId },
+      celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+      changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
+      adjective_attribute_value: challengeId,
+      object_description: 'Invite a friend to church',
+    };
+
+    const instance = renderShallow(
+      <CelebrateItem event={event} myId={myId} onToggleLike={jest.fn()} />,
+      store,
+    ).instance();
+
+    instance.onPressChallengeLink();
+
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      challengeId,
+      orgId,
+    });
+    expect(store.getActions()).toEqual([navigateResponse]);
   });
 });

@@ -118,7 +118,6 @@ exports[`renders item 1`] = `
     }
   }
   onComplete={[Function]}
-  onEdit={[Function]}
   onJoin={[Function]}
   onSelect={[Function]}
 />

@@ -5,14 +5,22 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
-import { navigateBack } from '../../actions/navigation';
-import { getChallenge } from '../../actions/challenges';
+import { navigateBack, navigatePush } from '../../actions/navigation';
+import {
+  getChallenge,
+  completeChallenge,
+  joinChallenge,
+  updateChallenge,
+} from '../../actions/challenges';
 import { IconButton, Button } from '../../components/common';
 import Header from '../Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
+import { orgPermissionSelector } from '../../selectors/people';
+import { ORG_PERMISSIONS } from '../../constants';
+import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 
 import styles from './styles';
 
@@ -63,20 +71,47 @@ export class ChallengeDetailScreen extends Component {
     dispatch(getChallenge(challenge.id));
   }
 
+  getAcceptedChallenge({ accepted_community_challenges }) {
+    return accepted_community_challenges.find(
+      c => c.person && c.person.id === this.props.myId,
+    );
+  }
+
   handleCancel = () => {
     this.props.dispatch(navigateBack());
   };
+
+  editChallenge = challenge => {
+    const { orgId, dispatch } = this.props;
+    dispatch(updateChallenge(challenge, orgId));
+  };
+
   handleEdit = () => {
-    const { challenge, onEdit } = this.props;
-    onEdit && onEdit(challenge);
+    const { dispatch, challenge } = this.props;
+    dispatch(
+      navigatePush(ADD_CHALLENGE_SCREEN, {
+        isEdit: true,
+        challenge,
+        onComplete: updatedChallenge => {
+          this.editChallenge(updatedChallenge);
+          dispatch(navigateBack());
+        },
+      }),
+    );
   };
+
   handleJoin = () => {
-    const { challenge, onJoin } = this.props;
-    onJoin(challenge);
+    const { orgId, dispatch, challenge } = this.props;
+    dispatch(joinChallenge(challenge, orgId));
   };
+
   handleComplete = () => {
-    const { challenge, onComplete } = this.props;
-    onComplete(challenge);
+    const { orgId, dispatch, challenge } = this.props;
+    const accepted_challenge = this.getAcceptedChallenge(challenge);
+    if (!accepted_challenge) {
+      return;
+    }
+    dispatch(completeChallenge(accepted_challenge, orgId));
   };
 
   render() {
@@ -123,17 +158,13 @@ export class ChallengeDetailScreen extends Component {
 
 ChallengeDetailScreen.propTypes = {
   challenge: PropTypes.object.isRequired,
-  onComplete: PropTypes.func.isRequired,
-  onJoin: PropTypes.func.isRequired,
-  onEdit: PropTypes.func,
   canEditChallenges: PropTypes.bool.isRequired,
-  acceptedChallenge: PropTypes.object.isRequired,
+  acceptedChallenge: PropTypes.object,
 };
 
 export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
-  const challengeId = navParams.challengeId;
-  const orgId = navParams.orgId;
+  const { challengeId, orgId } = navParams;
   const myId = auth.person.id;
 
   const selectorChallenge = communityChallengeSelector(
@@ -145,10 +176,19 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     c => c.person && c.person.id === myId,
   );
 
+  const myOrgPerm = orgPermissionSelector(null, {
+    person: auth.person,
+    organization: { id: orgId },
+  });
+  const canEditChallenges =
+    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
+
   return {
     ...navParams,
+    myId,
     challenge: selectorChallenge,
     acceptedChallenge,
+    canEditChallenges,
   };
 };
 

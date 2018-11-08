@@ -4,10 +4,8 @@ import thunk from 'redux-thunk';
 
 import ChallengeFeed from '../../src/containers/ChallengeFeed';
 import { renderShallow } from '../../testUtils';
-import { ORG_PERMISSIONS } from '../../src/constants';
 import * as navigation from '../../src/actions/navigation';
 import * as challenges from '../../src/actions/challenges';
-import { ADD_CHALLENGE_SCREEN } from '../../src/containers/AddChallengeScreen';
 import { CHALLENGE_DETAIL_SCREEN } from '../../src/containers/ChallengeDetailScreen';
 
 jest.mock('../../src/actions/challenges', () => ({
@@ -26,9 +24,6 @@ const store = configureStore([thunk])({
   auth: {
     person: {
       id: myId,
-      organizational_permissions: [
-        { organization_id: '456', permission_id: ORG_PERMISSIONS.ADMIN },
-      ],
     },
   },
 });
@@ -138,16 +133,6 @@ describe('item action methods', () => {
       organization.id,
     );
   });
-  it('calls handleEdit', () => {
-    const challenge = { id: '1', end_date: date };
-    item.props.onEdit(challenge);
-
-    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
-      isEdit: true,
-      challenge,
-      onComplete: expect.any(Function),
-    });
-  });
 });
 
 it('renders section header', () => {
@@ -190,16 +175,6 @@ it('calls handleRefreshing', () => {
   expect(props.refreshCallback).toHaveBeenCalled();
 });
 
-it('calls editChallenge', () => {
-  const instance = component.instance();
-  const challenge = { id: '1' };
-  instance.editChallenge(challenge);
-  expect(challenges.updateChallenge).toHaveBeenCalledWith(
-    challenge,
-    organization.id,
-  );
-});
-
 it('calls handleSelectRow', () => {
   const instance = component.instance();
   const challenge = { id: '1', accepted_community_challenges };
@@ -209,10 +184,6 @@ it('calls handleSelectRow', () => {
     {
       challengeId: challenge.id,
       orgId: organization.id,
-      canEditChallenges: true,
-      onJoin: instance.handleJoin,
-      onComplete: instance.handleComplete,
-      onEdit: instance.handleEdit,
     },
   );
 });

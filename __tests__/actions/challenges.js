@@ -71,7 +71,7 @@ describe('getGroupChallengeFeed', () => {
         offset: DEFAULT_PAGE_LIMIT * currentPage,
       },
       filters: { organization_ids: orgId },
-      sort: '-created_at',
+      sort: '-active,-created_at',
     });
     expect(store.getActions()).toEqual([apiResult]);
   });
@@ -108,7 +108,7 @@ describe('reloadGroupChallengeFeed', () => {
         offset: DEFAULT_PAGE_LIMIT * 0,
       },
       filters: { organization_ids: orgId },
-      sort: '-created_at',
+      sort: '-active,-created_at',
     });
     expect(store.getActions()).toEqual([resetResult, apiResult]);
   });

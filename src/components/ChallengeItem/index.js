@@ -9,10 +9,6 @@ import styles from './styles';
 
 @translate('challengeFeeds')
 class ChallengeItem extends Component {
-  handleEdit = () => {
-    const { item, onEdit } = this.props;
-    onEdit && onEdit(item);
-  };
   handleJoin = () => {
     const { item, onJoin } = this.props;
     onJoin(item);
@@ -81,7 +77,6 @@ ChallengeItem.propTypes = {
   item: PropTypes.object.isRequired,
   onComplete: PropTypes.func.isRequired,
   onJoin: PropTypes.func.isRequired,
-  onEdit: PropTypes.func,
   onSelect: PropTypes.func,
   acceptedChallenge: PropTypes.object,
 };
