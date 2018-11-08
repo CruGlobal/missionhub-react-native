@@ -169,7 +169,7 @@ export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
     include: 'organizational_permissions',

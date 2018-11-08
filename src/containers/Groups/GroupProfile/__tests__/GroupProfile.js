@@ -42,21 +42,32 @@ const organization = {
   members: [
     {
       id: '1',
-      full_name: 'Test Admin 1',
+      full_name: 'Test Owner 1',
       organizational_permissions: [
         {
           id: 'orgPerm1',
+          organization_id: orgId,
+          permission_id: ORG_PERMISSIONS.OWNER,
+        },
+      ],
+    },
+    {
+      id: '2',
+      full_name: 'Test Admin 2',
+      organizational_permissions: [
+        {
+          id: 'orgPerm2',
           organization_id: orgId,
           permission_id: ORG_PERMISSIONS.ADMIN,
         },
       ],
     },
     {
-      id: '2',
-      full_name: 'Test User 2',
+      id: '3',
+      full_name: 'Test User 3',
       organizational_permissions: [
         {
-          id: 'orgPerm2',
+          id: 'orgPerm3',
           organization_id: orgId,
           permission_id: ORG_PERMISSIONS.USER,
         },

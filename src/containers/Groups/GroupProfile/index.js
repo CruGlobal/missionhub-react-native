@@ -298,15 +298,17 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     organizational_permissions.find(
       orgPermission =>
         orgPermission.organization_id === organization.id &&
-        orgPermission.permission_id === ORG_PERMISSIONS.ADMIN,
+        orgPermission.permission_id === ORG_PERMISSIONS.OWNER,
     ),
   );
-  const myOrgPerm = orgPermissionSelector(null, {
-    person: auth.person,
-    organization: { id: organization.id },
-  });
+  const myOrgPerm =
+    orgPermissionSelector(null, {
+      person: auth.person,
+      organization: { id: organization.id },
+    }) || {};
   const canEdit =
-    myOrgPerm && myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
+    myOrgPerm.permission_id === ORG_PERMISSIONS.OWNER ||
+    myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
   return {
     membersLength: members.length,
     owner: owner || {},

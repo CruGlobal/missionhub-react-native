@@ -218,7 +218,7 @@ describe('getOrganizationMembers', () => {
   const orgId = '123';
   const query = {
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
     include: 'organizational_permissions',
