@@ -132,9 +132,7 @@ class AddContactFields extends Component {
 
     const selectedOrgPermId = orgPermission.permission_id;
     // Email is required if the new person is going to be a user or admin for an organization
-    const isEmailRequired =
-      selectedOrgPermId === ORG_PERMISSIONS.USER ||
-      selectedOrgPermId === ORG_PERMISSIONS.ADMIN;
+    const isEmailRequired = hasOrgPermissions(orgPermission);
 
     // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
     const personHasOrgPermission = hasOrgPermissions(personOrgPermission);
