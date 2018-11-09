@@ -126,6 +126,7 @@ export default {
   },
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
+    haveCode: 'I Have a Community Code',
     tryNow: 'Try it now',
     emailSignUp: 'Sign up with Email',
     signIn: 'Sign In',
