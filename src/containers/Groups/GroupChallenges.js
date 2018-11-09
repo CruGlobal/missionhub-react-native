@@ -12,12 +12,11 @@ import {
 } from '../../actions/challenges';
 import { Flex, Button } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
-import { refresh } from '../../utils/common';
+import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 
 @translate('groupsChallenge')
 export class GroupChallenges extends Component {
@@ -87,8 +86,7 @@ export class GroupChallenges extends Component {
             refreshing={refreshing}
           />
         )}
-        {myOrgPermissions &&
-        myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+        {isAdminOrOwner(myOrgPermissions) ? (
           <Flex align="stretch" justify="end">
             <Button
               type="secondary"

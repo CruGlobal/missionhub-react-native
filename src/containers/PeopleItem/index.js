@@ -7,7 +7,7 @@ import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
 import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
-import { isMissionhubUser, orgIsCru } from '../../utils/common';
+import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 
 import styles from './styles';
 
@@ -84,7 +84,7 @@ export class PeopleItem extends Component {
         o => o.organization_id === organization.id,
       );
       if (personOrgPermissions) {
-        if (isMissionhubUser(personOrgPermissions)) {
+        if (hasOrgPermissions(personOrgPermissions)) {
           status = '';
         } else {
           status = personOrgPermissions.followup_status || '';

@@ -16,7 +16,7 @@ import {
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
-import { copyText } from '../../../utils/common';
+import { copyText, isAdminOrOwner } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
@@ -301,19 +301,15 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
         orgPermission.permission_id === ORG_PERMISSIONS.OWNER,
     ),
   );
-  const myOrgPerm =
-    orgPermissionSelector(null, {
-      person: auth.person,
-      organization: { id: organization.id },
-    }) || {};
-  const canEdit =
-    myOrgPerm.permission_id === ORG_PERMISSIONS.OWNER ||
-    myOrgPerm.permission_id === ORG_PERMISSIONS.ADMIN;
+  const myOrgPerm = orgPermissionSelector(null, {
+    person: auth.person,
+    organization: { id: organization.id },
+  });
   return {
     membersLength: members.length,
     owner: owner || {},
     organization: selectorOrg,
-    canEdit,
+    canEdit: isAdminOrOwner(myOrgPerm),
   };
 };
 
