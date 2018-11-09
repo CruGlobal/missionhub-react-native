@@ -75,6 +75,8 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
+    yes: 'Yes',
+    no: 'No',
     copy: 'Copy',
     edit: 'Edit',
     done: 'Done',
@@ -630,5 +632,7 @@ export default {
     newCode: 'New Code',
     newLink: 'New Link',
     info: 'Anyone who has this code or link will be able to join your group.',
+    deleteCommunity: 'Delete Community?',
+    cannotBeUndone: 'This cannot be undone',
   },
 };

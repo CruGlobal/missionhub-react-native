@@ -74,12 +74,17 @@ export default StyleSheet.create({
     marginRight: 5,
   },
   input: {
+    flex: 1,
     fontSize: 32,
     color: theme.white,
-    textAlign: 'center',
+    textAlign: 'left',
     borderBottomWidth: 0,
     letterSpacing: 0.25,
     paddingVertical: 0,
+  },
+  menu: {
+    marginLeft: 15,
+    color: theme.white,
   },
   btn: {
     paddingVertical: 7,

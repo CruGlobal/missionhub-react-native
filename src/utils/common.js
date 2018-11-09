@@ -84,18 +84,18 @@ export const orgIsUserCreated = org => !!(org && org.user_created);
 export const orgIsCru = org =>
   org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
 
-const MHUB_PERMISSIONS = [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.USER];
-export const isMissionhubUser = orgPermission =>
+const MHUB_PERMISSIONS = [
+  ORG_PERMISSIONS.OWNER,
+  ORG_PERMISSIONS.ADMIN,
+  ORG_PERMISSIONS.USER,
+];
+export const hasOrgPermissions = orgPermission =>
   !!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission_id);
-export const isAdminForOrg = orgPermission =>
-  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.ADMIN;
-export function isMemberForOrg(orgPermission) {
-  return (
-    !!orgPermission &&
-    (orgPermission.permission_id === ORG_PERMISSIONS.ADMIN ||
-      orgPermission.permission_id === ORG_PERMISSIONS.USER)
+export const isAdminOrOwner = orgPermission =>
+  !!orgPermission &&
+  [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
+    orgPermission.permission_id,
   );
-}
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 

@@ -169,7 +169,7 @@ export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
     include: 'organizational_permissions',
@@ -368,5 +368,12 @@ export function addNewOrganization(name, imageData) {
       dispatch(updateOrganizationImage(newOrgId, imageData));
     }
     return results;
+  };
+}
+
+export function deleteOrganization(orgId) {
+  return dispatch => {
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
   };
 }
