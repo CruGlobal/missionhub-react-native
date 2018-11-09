@@ -14,7 +14,6 @@ export default StyleSheet.create({
   },
   imageWrap: {
     marginTop: 5,
-    marginHorizontal: 20,
     minHeight: theme.fullHeight * 0.3,
   },
   text: {

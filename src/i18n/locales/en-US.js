@@ -556,6 +556,8 @@ export default {
     unassigned: 'Unassigned',
     numUncontacted: '{{number}} Uncontacted',
     numMembers: '{{number}} Members',
+    owner: '{{name}} (Owner)',
+    join: 'Join',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',

@@ -16,6 +16,7 @@ import {
   IconButton,
   Button,
 } from '../../../components/common';
+import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
@@ -28,6 +29,7 @@ import styles from './styles';
 class JoinGroupScreen extends Component {
   state = {
     code: '',
+    community: undefined,
   };
 
   onChangeCode = code => this.setState({ code: code.toUpperCase() });
@@ -40,6 +42,15 @@ class JoinGroupScreen extends Component {
     }
 
     // TODO: search community by code
+    this.setState({
+      community: {
+        name: 'Test Community',
+        owner: 'Roge',
+        contactReport: {
+          membersCount: 17,
+        },
+      },
+    });
   };
 
   joinCommunity = () => {
@@ -70,9 +81,15 @@ class JoinGroupScreen extends Component {
     );
   }
 
+  renderGroupCard() {
+    const { community } = this.state;
+
+    return <GroupCardItem group={community} onJoin={this.joinCommunity} />;
+  }
+
   render() {
     const { t } = this.props;
-    const { code } = this.state;
+    const { code, community } = this.state;
 
     return (
       <View style={styles.container}>
@@ -89,7 +106,7 @@ class JoinGroupScreen extends Component {
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
           <Flex align="center" justify="end" style={styles.imageWrap}>
-            {this.renderStart()}
+            {community ? this.renderGroupCard() : this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
             <Input
