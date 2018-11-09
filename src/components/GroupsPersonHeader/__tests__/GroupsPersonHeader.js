@@ -16,7 +16,7 @@ import {
 } from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../../containers/StatusSelectScreen';
-import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreen';
+import { PERSON_STAGE_SCREEN } from '../../../containers/PersonStageScreenOld';
 import { STAGE_SCREEN } from '../../../containers/StageScreen';
 import { openCommunicationLink } from '../../../actions/misc';
 

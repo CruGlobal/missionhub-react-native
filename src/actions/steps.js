@@ -17,7 +17,7 @@ import {
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreen';
+import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreenOld';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';

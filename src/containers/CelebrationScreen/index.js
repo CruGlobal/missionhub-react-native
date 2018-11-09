@@ -4,19 +4,12 @@ import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
-import { MAIN_TABS } from '../../constants';
 import { isAndroid, disableBack } from '../../utils/common';
 
 import styles from './styles';
 
 class CelebrationScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.timeoutId = null;
-
-    this.startTimer = this.startTimer.bind(this);
-  }
+  timeoutId = null;
 
   componentDidMount() {
     disableBack.add();
@@ -27,22 +20,17 @@ class CelebrationScreen extends Component {
     disableBack.remove();
   }
 
-  startTimer() {
+  startTimer = () => {
     clearTimeout(this.timeoutId);
-    this.timeoutId = setTimeout(
-      () => this.navigateToNext(),
-      isAndroid ? 2880 : 3350,
-    );
-  }
+    this.timeoutId = setTimeout(this.navigateToNext, isAndroid ? 2880 : 3350);
+  };
 
-  navigateToNext() {
+  navigateToNext = () => {
+    const { dispatch, next } = this.props;
+
     disableBack.remove();
-    if (this.props.onComplete) {
-      this.props.onComplete();
-    } else {
-      this.props.dispatch(navigatePush(MAIN_TABS));
-    }
-  }
+    dispatch(next());
+  };
 
   static shuffleGif() {
     const id = Math.floor(Math.random() * 6);
@@ -87,12 +75,8 @@ class CelebrationScreen extends Component {
 }
 
 CelebrationScreen.propTypes = {
-  onComplete: PropTypes.func,
+  next: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
-
-export default connect(mapStateToProps)(CelebrationScreen);
+export default connect()(CelebrationScreen);
 export const CELEBRATION_SCREEN = 'nav/CELEBRATION';

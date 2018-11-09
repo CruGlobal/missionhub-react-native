@@ -17,6 +17,7 @@ const initialState = {
 export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
     case REQUESTS.GET_ME.SUCCESS:
+    case REQUESTS.ADD_NEW_PERSON.SUCCESS:
       const person = action.results.response;
 
       return loadPeople(state, [person], 'personal');

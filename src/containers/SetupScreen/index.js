@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import { View, Keyboard } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { View, Keyboard, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Button, Text, Flex, Input } from '../../components/common';
-import { createMyPerson } from '../../actions/onboardingProfile';
+import { createMyPerson, createPerson } from '../../actions/onboardingProfile';
 import { disableBack } from '../../utils/common';
-import { getMe } from '../../actions/person';
+import { getMe, updatePerson } from '../../actions/person';
+import { trackActionWithoutData } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
 @translate('setup')
 class SetupScreen extends Component {
-  state = { firstName: '', lastName: '' };
+  state = { id: '', firstName: '', lastName: '' };
 
   componentDidMount() {
     disableBack.add();
@@ -23,18 +25,40 @@ class SetupScreen extends Component {
     disableBack.remove();
   }
 
-  saveAndGoToGetStarted = async () => {
-    const { dispatch, next } = this.props;
-    const { firstName, lastName } = this.state;
+  save = async () => {
+    const { dispatch, next, me, isMe } = this.props;
+    const { id, firstName, lastName } = this.state;
 
-    if (firstName) {
-      Keyboard.dismiss();
+    if (!firstName) {
+      return;
+    }
 
+    Keyboard.dismiss();
+
+    if (isMe) {
       await dispatch(createMyPerson(firstName, lastName));
       const { id: personId } = await dispatch(getMe());
-      disableBack.remove();
-      dispatch(next({ personId }));
+      dispatch(next({ personId, isMe }));
+    } else {
+      if (id) {
+        await dispatch(
+          updatePerson({
+            id,
+            firstName,
+            lastName,
+          }),
+        );
+        dispatch(next({ personId: id, isMe }));
+      } else {
+        const { response: person } = await dispatch(
+          createPerson(firstName, lastName, me.id),
+        );
+        dispatch(next({ personId: person.id, isMe }));
+        dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+        this.setState({ id: person.id });
+      }
     }
+    disableBack.remove();
   };
 
   updateFirstName = t => this.setState({ firstName: t });
@@ -46,28 +70,35 @@ class SetupScreen extends Component {
   onSubmitEditing = () => this.lastName.focus();
 
   render() {
-    const { t } = this.props;
+    const { t, isMe } = this.props;
     const { firstName, lastName } = this.state;
 
     return (
       <View style={styles.container}>
         <Flex value={1} />
-        <Flex value={2} style={{ alignItems: 'center' }}>
-          <Text type="header" style={styles.header}>
-            {t('firstThing')}
-          </Text>
-          <Text type="header" style={styles.headerTwo}>
-            {t('namePrompt')}
-          </Text>
+        <Flex value={2} align="center">
+          {isMe ? (
+            <Fragment>
+              <Text type="header" style={styles.header}>
+                {t('firstThing')}
+              </Text>
+              <Text type="header" style={styles.headerTwo}>
+                {t('namePrompt')}
+              </Text>
+            </Fragment>
+          ) : (
+            <Image source={require('../../../assets/images/add_someone.png')} />
+          )}
         </Flex>
 
         <Flex value={3} style={{ padding: 30 }}>
           <View>
             <Text style={styles.label}>
-              {t('profileLabels.firstNameRequired')}
+              {isMe
+                ? t('profileLabels.firstNameRequired')
+                : t('profileLabels.firstNameNickname')}
             </Text>
             <Input
-              ref={this.firstNameRef}
               onChangeText={this.updateFirstName}
               value={firstName}
               autoFocus={true}
@@ -85,7 +116,11 @@ class SetupScreen extends Component {
               onChangeText={this.updateLastName}
               value={lastName}
               returnKeyType="next"
-              placeholder={t('profileLabels.lastName')}
+              placeholder={
+                isMe
+                  ? t('profileLabels.lastName')
+                  : t('profileLabels.lastNameOptional')
+              }
               placeholderTextColor="white"
               blurOnSubmit={true}
             />
@@ -95,7 +130,7 @@ class SetupScreen extends Component {
         <Flex value={1} align="stretch" justify="end">
           <Button
             type="secondary"
-            onPress={this.saveAndGoToGetStarted}
+            onPress={this.save}
             text={t('next').toUpperCase()}
           />
         </Flex>
@@ -106,7 +141,17 @@ class SetupScreen extends Component {
 
 SetupScreen.propTypes = {
   next: PropTypes.func.isRequired,
+  isMe: PropTypes.bool,
 };
 
-export default connect()(SetupScreen);
+const mapStateToProps = ({ auth }, { navigation }) => {
+  const { isMe } = navigation.state.params || {};
+
+  return {
+    isMe,
+    me: auth.person,
+  };
+};
+
+export default connect(mapStateToProps)(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';

@@ -11,7 +11,7 @@ import {
 import PeopleItem from '..';
 
 import { navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
+import { PERSON_STAGE_SCREEN } from '../../PersonStageScreenOld';
 import { orgIsCru, isMissionhubUser } from '../../../utils/common';
 
 const myId = '1';

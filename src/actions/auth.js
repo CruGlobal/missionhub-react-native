@@ -23,7 +23,6 @@ import {
   getMyOrganizations,
   getOrganizationsContactReports,
 } from './organizations';
-import { resetPerson } from './onboardingProfile';
 
 export function openKeyURL(baseURL, onReturn, upgradeAccount = false) {
   return dispatch => {
@@ -200,7 +199,6 @@ export function loadHome() {
     dispatch(getOrganizationsContactReports());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(resetPerson());
     await dispatch(getMySteps());
     dispatch(showReminderOnLoad());
   };

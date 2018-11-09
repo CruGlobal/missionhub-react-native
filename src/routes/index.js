@@ -12,34 +12,11 @@ import PeopleScreen from '../containers/PeopleScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from '../containers/AddChallengeScreen';
-import WelcomeScreen, { WELCOME_SCREEN } from '../containers/WelcomeScreen';
-import SetupScreen, { SETUP_SCREEN } from '../containers/SetupScreen';
-import GetStartedScreen, {
-  GET_STARTED_SCREEN,
-} from '../containers/GetStartedScreen';
-import StageScreen, {
-  STAGE_SCREEN,
-  STAGE_ONBOARDING_SCREEN,
-} from '../containers/StageScreen';
-import StageSuccessScreen, {
-  STAGE_SUCCESS_SCREEN,
-} from '../containers/StageSuccessScreen';
-import AddSomeoneScreen, {
-  ADD_SOMEONE_SCREEN,
-} from '../containers/AddSomeoneScreen';
+import StageScreen, { STAGE_SCREEN } from '../containers/StageScreen';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../containers/AddContactScreen';
-import NotificationPrimerScreen, {
-  NOTIFICATION_PRIMER_SCREEN,
-} from '../containers/NotificationPrimerScreen';
 import ImpactScreen from '../containers/ImpactScreen';
-import SetupPersonScreen, {
-  SETUP_PERSON_SCREEN,
-} from '../containers/SetupPersonScreen';
-import PersonStageScreen, {
-  PERSON_STAGE_SCREEN,
-} from '../containers/PersonStageScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../containers/CelebrationScreen';
@@ -52,9 +29,6 @@ import SearchPeopleFilterScreen, {
 import SearchPeopleFilterRefineScreen, {
   SEARCH_REFINE_SCREEN,
 } from '../containers/SearchPeopleFilterRefineScreen';
-import NotificationOffScreen, {
-  NOTIFICATION_OFF_SCREEN,
-} from '../containers/NotificationOffScreen';
 import {
   ContactPersonScreen,
   IsUserCreatedMemberPersonScreen,
@@ -128,6 +102,8 @@ import {
   OnboardingNavigator,
   OnboardingScreens,
 } from './onboarding';
+import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
+import NotificationOffScreen from '../containers/NotificationOffScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -356,13 +332,18 @@ export const trackableScreens = {
 const MainStackRoutes = createStackNavigator(
   {
     ...screens,
-
     [ADD_CONTACT_SCREEN]: {
       screen: AddContactScreen,
       tracking: buildTrackingObj('people : add person', 'people', 'add person'),
     },
-    [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
-
+    [NOTIFICATION_OFF_SCREEN]: {
+      screen: NotificationOffScreen,
+      tracking: buildTrackingObj(
+        'menu : notifications : off',
+        'menu',
+        'notifications',
+      ),
+    },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [STAGE_SCREEN]: {
@@ -394,6 +375,12 @@ const MainStackRoutes = createStackNavigator(
     },
   },
 );
+
+export const trackableScreens = {
+  [AUTHENTICATION_FLOW]: AuthenticationScreens,
+  [ONBOARDING_FLOW]: OnboardingScreens,
+  [MAIN_TABS]: 'something',
+};
 
 export const AppNavigator = createSwitchNavigator({
   [AUTHENTICATION_FLOW]: AuthenticationNavigator,

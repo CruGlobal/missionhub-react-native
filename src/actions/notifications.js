@@ -21,7 +21,7 @@ import { navigatePush, navigateBack, navigateReset } from './navigation';
 import callApi from './api';
 import { REQUESTS } from './api';
 
-export function showReminderScreen(descriptionText) {
+export function showReminderScreen(triggeredBy) {
   return (dispatch, getState) => {
     const { pushDevice, requestedNativePermissions } = getState().notifications;
 
@@ -45,8 +45,8 @@ export function showReminderScreen(descriptionText) {
         // If none of the other cases hit, show allow/not allow page
         dispatch(
           navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            onComplete: () => dispatch(navigateBack()),
-            descriptionText,
+            next: () => navigateBack(),
+            triggeredBy,
           }),
         );
       }
@@ -59,9 +59,7 @@ export function showReminderOnLoad() {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
       if (hasReminderStepsSelector({ steps: getState().steps })) {
-        dispatch(
-          showReminderScreen(i18next.t('notificationPrimer:loginDescription')),
-        );
+        dispatch(showReminderScreen('login'));
       }
     }
   };

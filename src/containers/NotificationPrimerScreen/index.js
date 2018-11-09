@@ -13,29 +13,38 @@ import styles from './styles';
 
 @translate('notificationPrimer')
 class NotificationPrimerScreen extends Component {
-  constructor(props) {
-    super(props);
+  notNow = () => {
+    const { dispatch, next } = this.props;
+    dispatch(next());
+    dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
+  };
 
-    this.allow = this.allow.bind(this);
-    this.notNow = this.notNow.bind(this);
-  }
+  allow = async () => {
+    const { dispatch, next } = this.props;
 
-  notNow() {
-    this.props.onComplete();
-    this.props.dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
-  }
-
-  async allow() {
     try {
-      await this.props.dispatch(requestNativePermissions());
+      await dispatch(requestNativePermissions());
     } finally {
-      this.props.onComplete();
+      dispatch(next());
     }
-    this.props.dispatch(trackActionWithoutData(ACTIONS.ALLOW));
-  }
+    dispatch(trackActionWithoutData(ACTIONS.ALLOW));
+  };
+
+  descriptionText = () => {
+    const { t, triggeredBy } = this.props;
+
+    switch (triggeredBy) {
+      case 'stepFocus':
+        return t('notificationPrimer:focusDescription');
+      case 'login':
+        return t('notificationPrimer:loginDescription');
+      default:
+        return t('notificationPrimer:onboardingDescription');
+    }
+  };
 
   render() {
-    const { t, descriptionText } = this.props;
+    const { t } = this.props;
     return (
       <Flex style={styles.container}>
         <Flex value={0.3} />
@@ -46,7 +55,7 @@ class NotificationPrimerScreen extends Component {
             />
           </Flex>
           <Flex value={0.6} align="center" justify="center">
-            <Text style={styles.text}>{descriptionText}</Text>
+            <Text style={styles.text}>{this.descriptionText()}</Text>
           </Flex>
           <Flex value={1} align="center" justify="center">
             <Button
@@ -73,12 +82,15 @@ class NotificationPrimerScreen extends Component {
 }
 
 NotificationPrimerScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
+  next: PropTypes.func.isRequired,
+  triggeredBy: PropTypes.string,
 };
 
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
+const mapStateToProps = (reduxState, { navigation }) => {
+  const { triggeredBy } = navigation.state.params || {};
+
+  return { triggeredBy };
+};
 
 export default connect(mapStateToProps)(NotificationPrimerScreen);
 export const NOTIFICATION_PRIMER_SCREEN = 'nav/NOTIFICATION_PRIMER';

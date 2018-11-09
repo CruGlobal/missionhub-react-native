@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import { buildTrackingObj } from '../utils/common';
-import { navigatePush } from '../actions/navigation';
+import { navigate, navigatePush } from '../actions/navigation';
 import WelcomeScreen, { WELCOME_SCREEN } from '../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../containers/SetupScreen';
 import GetStartedScreen, {
@@ -19,18 +19,13 @@ import AddStepScreen, { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from '../containers/AddSomeoneScreen';
-import SetupPersonScreen, {
-  SETUP_PERSON_SCREEN,
-} from '../containers/SetupPersonScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from '../containers/NotificationPrimerScreen';
-import NotificationOffScreen, {
-  NOTIFICATION_OFF_SCREEN,
-} from '../containers/NotificationOffScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../containers/CelebrationScreen';
+import { MAIN_TABS } from '../constants';
 
 export const ONBOARDING_FLOW = 'nav/ONBOARDING_FLOW';
 
@@ -60,7 +55,11 @@ export const OnboardingScreens = {
     tracking: buildTrackingObj('onboarding : welcome', 'onboarding'),
   },
   [SETUP_SCREEN]: {
-    screen: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
+    screen: wrapNextScreenFn(
+      SetupScreen,
+      // TODO: do we have to split these into seperate screen names to be able to look up tracking info?
+      ({ isMe }) => (isMe ? GET_STARTED_SCREEN : STAGE_SCREEN),
+    ),
     tracking: buildTrackingObj('onboarding : name', 'onboarding'),
   },
   [GET_STARTED_SCREEN]: {
@@ -106,38 +105,26 @@ export const OnboardingScreens = {
   },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   [ADD_SOMEONE_SCREEN]: {
-    screen: AddSomeoneScreen,
+    screen: wrapNextScreen(AddSomeoneScreen, SETUP_SCREEN),
     tracking: buildTrackingObj(
       'onboarding : add person',
       'onboarding',
       'add person',
     ),
   },
-  [SETUP_PERSON_SCREEN]: {
-    screen: SetupPersonScreen,
-    tracking: buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
-  },
   [NOTIFICATION_PRIMER_SCREEN]: {
-    screen: NotificationPrimerScreen,
+    screen: wrapNextScreen(NotificationPrimerScreen, CELEBRATION_SCREEN),
     tracking: buildTrackingObj(
       'menu : notifications : permissions',
       'menu',
       'notifications',
     ),
   },
-  [NOTIFICATION_OFF_SCREEN]: {
-    screen: NotificationOffScreen,
-    tracking: buildTrackingObj(
-      'menu : notifications : off',
-      'menu',
-      'notifications',
+  [CELEBRATION_SCREEN]: {
+    screen: wrapNextAction(CelebrationScreen, () => dispatch =>
+      dispatch(navigate(MAIN_TABS)),
     ),
   },
-  [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
 };
 
 export const OnboardingNavigator = createStackNavigator(OnboardingScreens, {

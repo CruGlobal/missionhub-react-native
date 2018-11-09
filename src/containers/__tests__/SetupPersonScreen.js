@@ -82,20 +82,20 @@ describe('setup person screen methods', () => {
   });
 
   it('saves and creates person', () => {
-    component.saveAndGoToGetStarted();
+    component.save();
 
     expect(profile.createPerson).toHaveBeenCalledTimes(1);
   });
 
   it('saves and updates person', () => {
     component.setState({ personId: 1 });
-    component.saveAndGoToGetStarted();
+    component.save();
 
     expect(profile.updateOnboardingPerson).toHaveBeenCalledTimes(1);
   });
 
   it('tracks an action', async () => {
-    await component.saveAndGoToGetStarted();
+    await component.save();
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PERSON_ADDED);
     expect(store.getActions()).toEqual([trackActionResult, navigationResult]);

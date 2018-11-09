@@ -22,7 +22,11 @@ import {
   PERSON_VIEWED_STAGE_CHANGED,
   SELF_VIEWED_STAGE_CHANGED,
 } from '../../constants';
-import { selectMyStage } from '../../actions/selectStage';
+import {
+  selectMyStage,
+  selectPersonStage,
+  updateUserStage,
+} from '../../actions/selectStage';
 import {
   contactAssignmentSelector,
   isMeSelector,
@@ -42,23 +46,17 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
 
 @translate('selectStage')
 class StageScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      scrollPosition: 0,
-    };
-
-    this.renderStage = this.renderStage.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.handleSnapToItem = this.handleSnapToItem.bind(this);
-  }
+  state = {
+    scrollPosition: 0,
+  };
 
   async componentWillMount() {
-    await this.props.dispatch(getStages());
+    const { dispatch, currentStage = {} } = this.props;
 
-    this.trackStageState(this.props.currentStage.id);
     Keyboard.dismiss();
+    const { response: stages } = await dispatch(getStages());
+
+    this.trackStageState(currentStage.id || stages[0].id);
   }
 
   componentDidMount() {
@@ -81,6 +79,7 @@ class StageScreen extends Component {
       person,
       isMe,
       orgId,
+      contactAssignmentId,
     } = this.props;
 
     if (!enableBackButton) {
@@ -91,9 +90,15 @@ class StageScreen extends Component {
       if (isMe) {
         await dispatch(selectMyStage(stage.id));
       } else {
-        debugger;
-        // TODO: obliterate
-        this.props.onSelect(stage, isAlreadySelected);
+        contactAssignmentId
+          ? // Update existing contact assignment
+            await this.props.dispatch(
+              updateUserStage(contactAssignmentId, stage.id),
+            )
+          : // Create new contact assignment
+            await this.props.dispatch(
+              selectPersonStage(person.id, stage.id, orgId),
+            );
       }
     }
     dispatch(next({ personId: person.id, isMe, stageId: stage.id, orgId }));
@@ -109,13 +114,13 @@ class StageScreen extends Component {
     );
   };
 
-  handleScroll(e) {
+  handleScroll = e => {
     this.setState({ scrollPosition: e.nativeEvent.contentOffset.x });
-  }
+  };
 
-  handleSnapToItem(index) {
+  handleSnapToItem = index => {
     this.trackStageState(this.props.stages[index].id);
-  }
+  };
 
   trackStageState(number) {
     const { dispatch, trackAsOnboarding, isMe } = this.props;
@@ -137,7 +142,7 @@ class StageScreen extends Component {
     dispatch(trackState(trackingObj));
   }
 
-  renderStage({ item, index }) {
+  renderStage = ({ item, index }) => {
     const { t, currentStage, isMe } = this.props;
     const isActive = item === currentStage;
     const buttonText = isMe ? t('iAmHere') : t('here');
@@ -161,7 +166,7 @@ class StageScreen extends Component {
         />
       </View>
     );
-  }
+  };
 
   render() {
     const {
@@ -214,6 +219,8 @@ StageScreen.propTypes = {
   stages: PropTypes.array.isRequired,
   person: PropTypes.object.isRequired,
   isMe: PropTypes.bool.isRequired,
+  orgId: PropTypes.string,
+  contactAssignmentId: PropTypes.string,
   currentStage: PropTypes.object,
 };
 
@@ -221,7 +228,7 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
   const { personId, orgId } = navigation.state.params || {};
 
   const person = personSelector({ people }, { personId, orgId });
-  const { pathway_stage_id } =
+  const { id: contactAssignmentId, pathway_stage_id } =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
   return {
@@ -229,6 +236,7 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
     person,
     isMe: isMeSelector({ auth }, { personId }),
     orgId,
+    contactAssignmentId,
     currentStage: stageSelector({ stages }, { stageId: pathway_stage_id }),
   };
 };

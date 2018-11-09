@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreen';
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';

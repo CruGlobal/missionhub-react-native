@@ -31,7 +31,7 @@ class WelcomeScreen extends Component {
     // Remove the back handler when moving forward
     disableBack.remove();
 
-    dispatch(next());
+    dispatch(next({ isMe: true }));
   };
 
   render() {

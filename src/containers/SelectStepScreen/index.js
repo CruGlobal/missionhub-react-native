@@ -155,11 +155,11 @@ class SelectStepScreen extends Component {
   };
 
   saveAllSteps = async () => {
-    const { dispatch, person, orgId, onComplete } = this.props;
+    const { dispatch, next, person, isMe, orgId } = this.props;
     const selectedSteps = this.filterSelected();
 
     await dispatch(addSteps(selectedSteps, person.id, orgId));
-    onComplete(); // TODO: replace with next() // TODO: store ids in onboarding reducer, at least the ones that need to be restored on navigationInit
+    dispatch(next({ personId: person.id, isMe, orgId }));
   };
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));

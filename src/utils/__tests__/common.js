@@ -18,7 +18,6 @@ import {
   getAssignedToName,
   getPersonPhoneNumber,
   getPersonEmailAddress,
-  getStageIndex,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 

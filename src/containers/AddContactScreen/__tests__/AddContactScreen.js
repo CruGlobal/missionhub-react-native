@@ -15,7 +15,7 @@ import { updatePerson } from '../../../actions/person';
 import * as organizations from '../../../actions/organizations';
 import * as person from '../../../actions/person';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../PersonStageScreen';
+import { PERSON_STAGE_SCREEN } from '../../PersonStageScreenOld';
 import { ORG_PERMISSIONS, CANNOT_EDIT_FIRST_NAME } from '../../../constants';
 
 const me = { id: 99 };

@@ -11,7 +11,6 @@ import { ACTIONS, PERSON_VIEWED_STAGE_CHANGED } from '../constants';
 import { completeOnboarding } from '../actions/onboardingProfile';
 
 import { NOTIFICATION_PRIMER_SCREEN } from './NotificationPrimerScreen';
-import { PERSON_SELECT_STEP_SCREEN } from './PersonSelectStepScreen';
 import { CELEBRATION_SCREEN } from './CelebrationScreen';
 import PathwayStageScreen from './StageScreen';
 

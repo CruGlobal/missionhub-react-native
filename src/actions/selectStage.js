@@ -44,12 +44,7 @@ export function updateUserStage(contactAssignmentId, stageId) {
   };
 }
 
-export function selectPersonStage(
-  personId,
-  assignedToId,
-  pathwayStageId,
-  orgId,
-) {
+export function selectPersonStage(personId, pathwayStageId, orgId) {
   const data = {
     data: {
       type: 'contact_assignment',
@@ -58,12 +53,6 @@ export function selectPersonStage(
           data: {
             type: 'person',
             id: personId,
-          },
-        },
-        assigned_to: {
-          data: {
-            type: 'person',
-            id: assignedToId,
           },
         },
         organization: {
