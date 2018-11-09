@@ -9,14 +9,6 @@ import createSwitchNavigator from 'react-navigation/src/navigators/createSwitchN
 
 import StepsScreen from '../containers/StepsScreen';
 import PeopleScreen from '../containers/PeopleScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
-} from '../containers/SelectMyStepScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../containers/PersonSelectStepScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from '../containers/AddChallengeScreen';
@@ -371,17 +363,7 @@ const MainStackRoutes = createStackNavigator(
     },
     [STAGE_ONBOARDING_SCREEN]: { screen: StageScreen },
 
-    [SELECT_MY_STEP_SCREEN]: {
-      screen: SelectMyStepScreen,
-      tracking: buildTrackingObj(
-        'people : self : steps : add',
-        'people',
-        'self',
-        'steps',
-      ),
-    },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
-    [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [STAGE_SCREEN]: {
       screen: StageScreen,

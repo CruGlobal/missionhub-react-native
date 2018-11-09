@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
 import { disableBack } from '../../utils/common';
+import { personSelector } from '../../selectors/people';
 
 import styles from './styles';
-import { personSelector } from '../../selectors/people';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
@@ -26,7 +27,7 @@ class GetStartedScreen extends Component {
     dispatch(
       next({
         personId: person.id,
-        enableBackButton: false,
+        enableBackButton: false, // TODO: do we need this?
       }),
     );
   };
@@ -56,6 +57,11 @@ class GetStartedScreen extends Component {
     );
   }
 }
+
+GetStartedScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+  person: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = ({ people }, { navigation }) => {
   const { personId } = navigation.state.params || {};

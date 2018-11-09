@@ -1,32 +1,36 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
-import { WELCOME_SCREEN } from '../containers/WelcomeScreen';
-import WelcomeScreen from '../containers/WelcomeScreen';
 import { buildTrackingObj } from '../utils/common';
-import { SETUP_SCREEN } from '../containers/SetupScreen';
-import SetupScreen from '../containers/SetupScreen';
-import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
-import GetStartedScreen from '../containers/GetStartedScreen';
-import { STAGE_SUCCESS_SCREEN } from '../containers/StageSuccessScreen';
-import StageSuccessScreen from '../containers/StageSuccessScreen';
-import { SELECT_MY_STEP_SCREEN } from '../containers/SelectMyStepScreen';
-import SelectMyStepScreen from '../containers/SelectMyStepScreen';
-import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
-import AddSomeoneScreen from '../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../containers/SetupPersonScreen';
-import SetupPersonScreen from '../containers/SetupPersonScreen';
-import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
-import NotificationPrimerScreen from '../containers/NotificationPrimerScreen';
-import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import NotificationOffScreen from '../containers/NotificationOffScreen';
-import { STAGE_SCREEN } from '../containers/StageScreen';
-import StageScreen from '../containers/StageScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../containers/PersonSelectStepScreen';
-import PersonSelectStepScreen from '../containers/PersonSelectStepScreen';
-import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import CelebrationScreen from '../containers/CelebrationScreen';
 import { navigatePush } from '../actions/navigation';
+import WelcomeScreen, { WELCOME_SCREEN } from '../containers/WelcomeScreen';
+import SetupScreen, { SETUP_SCREEN } from '../containers/SetupScreen';
+import GetStartedScreen, {
+  GET_STARTED_SCREEN,
+} from '../containers/GetStartedScreen';
+import StageScreen, { STAGE_SCREEN } from '../containers/StageScreen';
+import StageSuccessScreen, {
+  STAGE_SUCCESS_SCREEN,
+} from '../containers/StageSuccessScreen';
+import SelectStepScreen, {
+  SELECT_STEP_SCREEN,
+} from '../containers/SelectStepScreen';
+import AddStepScreen, { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
+import AddSomeoneScreen, {
+  ADD_SOMEONE_SCREEN,
+} from '../containers/AddSomeoneScreen';
+import SetupPersonScreen, {
+  SETUP_PERSON_SCREEN,
+} from '../containers/SetupPersonScreen';
+import NotificationPrimerScreen, {
+  NOTIFICATION_PRIMER_SCREEN,
+} from '../containers/NotificationPrimerScreen';
+import NotificationOffScreen, {
+  NOTIFICATION_OFF_SCREEN,
+} from '../containers/NotificationOffScreen';
+import CelebrationScreen, {
+  CELEBRATION_SCREEN,
+} from '../containers/CelebrationScreen';
 
 export const ONBOARDING_FLOW = 'nav/ONBOARDING_FLOW';
 
@@ -66,7 +70,7 @@ export const OnboardingScreens = {
   [STAGE_SCREEN]: {
     screen: wrapNextScreenFn(
       StageScreen,
-      ({ isMe }) => (isMe ? STAGE_SUCCESS_SCREEN : PERSON_SELECT_STEP_SCREEN),
+      ({ isMe }) => (isMe ? STAGE_SUCCESS_SCREEN : SELECT_STEP_SCREEN),
       {
         trackAsOnboarding: true,
       },
@@ -78,15 +82,21 @@ export const OnboardingScreens = {
     ),
   },
   [STAGE_SUCCESS_SCREEN]: {
-    screen: StageSuccessScreen,
+    screen: wrapNextScreen(StageSuccessScreen, SELECT_STEP_SCREEN),
     tracking: buildTrackingObj(
       'onboarding : self : choose my steps',
       'onboarding',
       'self',
     ),
   },
-  [SELECT_MY_STEP_SCREEN]: {
-    screen: SelectMyStepScreen,
+  [SELECT_STEP_SCREEN]: {
+    screen: wrapNextScreenFn(
+      SelectStepScreen,
+      ({ isMe }) => (isMe ? ADD_SOMEONE_SCREEN : NOTIFICATION_PRIMER_SCREEN),
+      {
+        trackAsOnboarding: true,
+      },
+    ),
     tracking: buildTrackingObj(
       'onboarding : self : steps : add',
       'onboarding',
@@ -94,6 +104,7 @@ export const OnboardingScreens = {
       'steps',
     ),
   },
+  [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   [ADD_SOMEONE_SCREEN]: {
     screen: AddSomeoneScreen,
     tracking: buildTrackingObj(
@@ -109,9 +120,6 @@ export const OnboardingScreens = {
       'onboarding',
       'add person',
     ),
-  },
-  [PERSON_SELECT_STEP_SCREEN]: {
-    screen: PersonSelectStepScreen,
   },
   [NOTIFICATION_PRIMER_SCREEN]: {
     screen: NotificationPrimerScreen,

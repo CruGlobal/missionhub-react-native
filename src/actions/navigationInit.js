@@ -4,12 +4,9 @@ import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';
 
-export function initialRoute({ auth, personProfile, people }) {
+export function initialRoute({ auth, people }) {
   if (auth && isAuthenticated(auth)) {
-    if (
-      personProfile.hasCompletedOnboarding ||
-      hasContactWithPathwayStage(auth.person.id, people)
-    ) {
+    if (hasContactWithPathwayStage(auth.person.id, people)) {
       return MAIN_TABS;
     }
 

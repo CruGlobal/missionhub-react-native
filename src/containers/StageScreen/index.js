@@ -16,11 +16,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import { getStages } from '../../actions/stages';
 import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
-import {
-  buildTrackingObj,
-  disableBack,
-  getStageIndex,
-} from '../../utils/common';
+import { buildTrackingObj, disableBack } from '../../utils/common';
 import {
   ACTIONS,
   PERSON_VIEWED_STAGE_CHANGED,
@@ -32,6 +28,7 @@ import {
   isMeSelector,
   personSelector,
 } from '../../selectors/people';
+import { stageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -42,8 +39,6 @@ const stageMargin = theme.fullWidth / 30;
 const overScrollMargin = 120;
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING];
-
-const fallbackIndex = 0;
 
 @translate('selectStage')
 class StageScreen extends Component {
@@ -62,10 +57,7 @@ class StageScreen extends Component {
   async componentWillMount() {
     await this.props.dispatch(getStages());
 
-    const initialIndex = this.props.firstItem
-      ? this.props.firstItem
-      : fallbackIndex;
-    this.trackStageState(this.props.stages[initialIndex].id);
+    this.trackStageState(this.props.currentStage.id);
     Keyboard.dismiss();
   }
 
@@ -82,7 +74,14 @@ class StageScreen extends Component {
   }
 
   setStage = async (stage, isAlreadySelected) => {
-    const { dispatch, next, enableBackButton, isMe } = this.props;
+    const {
+      dispatch,
+      next,
+      enableBackButton,
+      person,
+      isMe,
+      orgId,
+    } = this.props;
 
     if (!enableBackButton) {
       disableBack.remove();
@@ -90,19 +89,19 @@ class StageScreen extends Component {
 
     if (!isAlreadySelected) {
       if (isMe) {
-        await this.props.dispatch(selectMyStage(stage.id));
+        await dispatch(selectMyStage(stage.id));
       } else {
         debugger;
         // TODO: obliterate
         this.props.onSelect(stage, isAlreadySelected);
       }
     }
-    dispatch(next({ stage, isMe }));
+    dispatch(next({ personId: person.id, isMe, stageId: stage.id, orgId }));
 
-    const action = this.props.isMe
+    const action = isMe
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
-    this.props.dispatch(
+    dispatch(
       trackAction(action.name, {
         [action.key]: stage.id,
         [ACTIONS.STAGE_SELECTED.key]: null,
@@ -139,8 +138,8 @@ class StageScreen extends Component {
   }
 
   renderStage({ item, index }) {
-    const { t, firstItem, isMe } = this.props;
-    const isActive = firstItem && firstItem === index;
+    const { t, currentStage, isMe } = this.props;
+    const isActive = item === currentStage;
     const buttonText = isMe ? t('iAmHere') : t('here');
 
     return (
@@ -165,7 +164,14 @@ class StageScreen extends Component {
   }
 
   render() {
-    const { t, person, isMe, firstItem, stages } = this.props;
+    const {
+      t,
+      person,
+      isMe,
+      stages,
+      currentStage,
+      enableBackButton,
+    } = this.props;
 
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
@@ -176,7 +182,7 @@ class StageScreen extends Component {
           source={LANDSCAPE}
           style={[styles.footerImage, { left: leftMargin }]}
         />
-        {this.props.enableBackButton ? <BackButton absolute={true} /> : null}
+        {enableBackButton ? <BackButton absolute={true} /> : null}
         <Text style={styles.title}>
           {isMe
             ? t('meQuestion', { name: person.first_name })
@@ -184,7 +190,7 @@ class StageScreen extends Component {
         </Text>
         {this.props.stages ? (
           <Carousel
-            firstItem={firstItem || fallbackIndex}
+            firstItem={stages.indexOf(currentStage)}
             data={stages}
             inactiveSlideOpacity={1}
             inactiveSlideScale={1}
@@ -203,11 +209,12 @@ class StageScreen extends Component {
 }
 
 StageScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+  trackAsOnboarding: PropTypes.bool,
   stages: PropTypes.array.isRequired,
   person: PropTypes.object.isRequired,
   isMe: PropTypes.bool.isRequired,
-  firstItem: PropTypes.number,
-  trackAsOnboarding: PropTypes.bool,
+  currentStage: PropTypes.object,
 };
 
 const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
@@ -221,7 +228,8 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
     stages: stages.stages,
     person,
     isMe: isMeSelector({ auth }, { personId }),
-    firstItem: getStageIndex(stages.stages, pathway_stage_id),
+    orgId,
+    currentStage: stageSelector({ stages }, { stageId: pathway_stage_id }),
   };
 };
 

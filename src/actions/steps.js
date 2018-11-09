@@ -91,7 +91,7 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addSteps(steps, receiverId, organization) {
+export function addSteps(steps, receiverId, orgId) {
   return dispatch => {
     const query = {
       person_id: receiverId,
@@ -101,9 +101,7 @@ export function addSteps(steps, receiverId, organization) {
       attributes: {
         title: s.body,
         challenge_suggestion_id: s && isCustomStep(s) ? null : (s || {}).id,
-        ...(organization && organization.id !== 'personal'
-          ? { organization_id: organization.id }
-          : {}),
+        ...(orgId !== 'personal' ? { organization_id: orgId } : {}),
       },
     }));
 

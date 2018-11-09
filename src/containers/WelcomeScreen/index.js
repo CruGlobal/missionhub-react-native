@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
@@ -57,6 +58,10 @@ class WelcomeScreen extends Component {
     );
   }
 }
+
+WelcomeScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+};
 
 export default connect()(WelcomeScreen);
 export const WELCOME_SCREEN = 'nav/WELCOME';

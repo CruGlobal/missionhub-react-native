@@ -13,9 +13,14 @@ import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import { disableBack, shuffleArray } from '../../utils/common';
+import {
+  buildTrackingObj,
+  disableBack,
+  shuffleArray,
+} from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
+import { isMeSelector, personSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -28,37 +33,39 @@ class SelectStepScreen extends Component {
       steps: [],
       addedSteps: [],
       suggestions: [],
-      contact: null,
+      person: null,
       suggestionIndex: 0,
     };
   }
 
   insertName(steps) {
+    const { person } = this.props;
+
     return steps.map(step => ({
       ...step,
-      body: step.body.replace(
-        '<<name>>',
-        this.props.contactName
-          ? this.props.contactName
-          : this.props.personFirstName,
-      ),
+      body: step.body.replace('<<name>>', person.first_name),
     }));
   }
 
   async componentDidMount() {
-    const { dispatch, isMe, contactStageId } = this.props;
-    let { suggestions } = this.props;
-    if (!this.props.enableBackButton) {
+    const {
+      dispatch,
+      isMe,
+      stageId,
+      suggestions,
+      enableBackButton,
+    } = this.props;
+    if (!enableBackButton) {
       disableBack.add();
     }
 
+    let newSuggestions;
+
     if (!suggestions) {
-      const { response } = await dispatch(
-        getStepSuggestions(isMe, contactStageId),
-      );
-      suggestions = response;
+      const { response } = await dispatch(getStepSuggestions(isMe, stageId));
+      newSuggestions = response;
     }
-    this.setState({ suggestions: shuffleArray(suggestions) });
+    this.setState({ suggestions: shuffleArray(newSuggestions || suggestions) });
 
     this.handleLoadSteps();
   }
@@ -70,7 +77,7 @@ class SelectStepScreen extends Component {
   }
 
   handleLoadSteps = () => {
-    const { suggestionIndex } = this.state;
+    const { suggestionIndex, steps } = this.state;
     const { suggestions, isMe } = this.props;
 
     if (suggestionIndex >= suggestions.length) {
@@ -89,7 +96,7 @@ class SelectStepScreen extends Component {
     }
 
     this.setState({
-      steps: [...this.state.steps, ...newSuggestions],
+      steps: [...steps, ...newSuggestions],
       suggestionIndex: suggestionIndexMax,
     });
   };
@@ -106,31 +113,38 @@ class SelectStepScreen extends Component {
   };
 
   handleCreateStep = () => {
-    if (this.props.contact) {
-      this.setState({ contact: this.props.contact });
-    }
-    if (!this.props.enableBackButton) {
+    const { dispatch, isMe, enableBackButton, trackAsOnboarding } = this.props;
+    const { steps, addedSteps } = this.state;
+
+    if (!enableBackButton) {
       disableBack.remove();
     }
-    this.props.dispatch(
+
+    const section = trackAsOnboarding ? 'onboarding' : 'people';
+    const subsection = isMe ? 'self' : 'person';
+
+    dispatch(
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
-        trackingObj: this.props.createStepTracking,
+        trackingObj: buildTrackingObj(
+          `${section} : ${subsection} : steps : create`,
+          section,
+          subsection,
+          'steps',
+        ),
         onComplete: newStepText => {
-          const addedSteps = this.state.addedSteps;
-
           const newStep = {
             id: uuidv4(),
             body: newStepText,
             selected: true,
             locale: i18next.language,
             challenge_type: CUSTOM_STEP_TYPE,
-            self_step: this.props.myId === this.props.receiverId,
+            self_step: isMe,
           };
 
           this.setState({
-            steps: this.state.steps.concat([newStep]),
-            addedSteps: addedSteps.concat([newStep]),
+            steps: [...steps, newStep],
+            addedSteps: [...addedSteps, newStep],
           });
           if (this.stepsList && this.stepsList.onScrollToEnd) {
             this.stepsList.onScrollToEnd();
@@ -141,31 +155,32 @@ class SelectStepScreen extends Component {
   };
 
   saveAllSteps = async () => {
-    const { dispatch, receiverId, organization, onComplete } = this.props;
+    const { dispatch, person, orgId, onComplete } = this.props;
     const selectedSteps = this.filterSelected();
 
-    await dispatch(addSteps(selectedSteps, receiverId, organization));
-    onComplete();
+    await dispatch(addSteps(selectedSteps, person.id, orgId));
+    onComplete(); // TODO: replace with next() // TODO: store ids in onboarding reducer, at least the ones that need to be restored on navigationInit
   };
 
   navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
 
   renderBackButton() {
-    const { enableBackButton, contact } = this.props;
+    const { enableBackButton, person } = this.props;
     return enableBackButton ? (
       <BackButton
-        customNavigate={
-          contact || this.state.contact
-            ? undefined
-            : this.navigateBackTwoScreens
-        }
+        // TODO: fix. person is always present now
+        // customNavigate={
+        //   contact || this.state.contact
+        //     ? undefined
+        //     : this.navigateBackTwoScreens
+        // }
         absolute={true}
       />
     ) : null;
   }
 
   renderTitle() {
-    const { t } = this.props;
+    const { t, person, isMe } = this.props;
 
     return (
       <Flex
@@ -178,7 +193,11 @@ class SelectStepScreen extends Component {
         <Text type="header" style={styles.headerTitle}>
           {t('stepsOfFaith')}
         </Text>
-        <Text style={styles.headerText}>{this.props.headerText}</Text>
+        <Text style={styles.headerText}>
+          {isMe
+            ? t('meHeader')
+            : t('personHeader', { name: person.first_name })}
+        </Text>
       </Flex>
     );
   }
@@ -243,23 +262,29 @@ class SelectStepScreen extends Component {
 }
 
 SelectStepScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
-  createStepTracking: PropTypes.object.isRequired,
-  personFirstName: PropTypes.string,
-  contact: PropTypes.object,
-  receiverId: PropTypes.string,
-  enableBackButton: PropTypes.bool,
-  organization: PropTypes.object,
-  contactStageId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
+  person: PropTypes.object.isRequired,
   isMe: PropTypes.bool.isRequired,
+  orgId: PropTypes.string,
+  stageId: PropTypes.string.isRequired,
+  suggestions: PropTypes.array, // This component loads this into redux so it may not be available at first
 };
 
-export const mapStateToProps = ({ auth, steps }, { isMe, contactStageId }) => ({
-  myId: auth.person.id,
-  suggestions: isMe
-    ? steps.suggestedForMe[contactStageId]
-    : steps.suggestedForOthers[contactStageId],
-});
+export const mapStateToProps = ({ auth, people, steps }, { navigation }) => {
+  const { personId, orgId, stageId } = navigation.state.params || {};
+
+  const person = personSelector({ people }, { personId, orgId });
+  const isMe = isMeSelector({ auth }, { personId });
+
+  return {
+    person,
+    isMe,
+    orgId,
+    stageId,
+    suggestions: isMe
+      ? steps.suggestedForMe[stageId]
+      : steps.suggestedForOthers[stageId],
+  };
+};
 
 export default connect(mapStateToProps)(SelectStepScreen);
+export const SELECT_STEP_SCREEN = 'nav/SELECT_STEP_SCREEN';

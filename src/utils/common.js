@@ -247,12 +247,6 @@ export function getPersonEmailAddress(person) {
     : null;
 }
 
-export function getStageIndex(stages, stageId) {
-  const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
-
-  return index === -1 ? undefined : index;
-}
-
 // iOS and Android handle the keyboard show event differently
 // https://facebook.github.io/react-native/docs/keyboard#addlistener
 export function keyboardShow(handler) {

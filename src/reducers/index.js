@@ -2,8 +2,6 @@ import { combineReducers } from 'redux';
 
 import auth from './auth';
 import nav from './nav';
-import profile from './profile';
-import personProfile from './personProfile';
 import stages from './stages';
 import steps from './steps';
 import organizations from './organizations';
@@ -32,8 +30,6 @@ export default combineReducers({
   notifications,
   organizations,
   people,
-  personProfile,
-  profile,
   stages,
   steps,
   surveys,

@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
+import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Button, Text, Flex, Input } from '../../components/common';
-import {
-  createMyPerson,
-  firstNameChanged,
-  lastNameChanged,
-} from '../../actions/onboardingProfile';
+import { createMyPerson } from '../../actions/onboardingProfile';
 import { disableBack } from '../../utils/common';
 import { getMe } from '../../actions/person';
 
 import styles from './styles';
-import { getMyOrganizations } from '../../actions/organizations';
 
 @translate('setup')
 class SetupScreen extends Component {
+  state = { firstName: '', lastName: '' };
+
   componentDidMount() {
     disableBack.add();
   }
@@ -26,24 +24,22 @@ class SetupScreen extends Component {
   }
 
   saveAndGoToGetStarted = async () => {
-    const { dispatch, next, firstName, lastName } = this.props;
+    const { dispatch, next } = this.props;
+    const { firstName, lastName } = this.state;
 
     if (firstName) {
       Keyboard.dismiss();
 
       await dispatch(createMyPerson(firstName, lastName));
-      const { id: personId } = await dispatch(getMe('', true));
-      await dispatch(getMyOrganizations());
+      const { id: personId } = await dispatch(getMe());
       disableBack.remove();
       dispatch(next({ personId }));
     }
   };
 
-  updateFirstName = t => this.props.dispatch(firstNameChanged(t));
+  updateFirstName = t => this.setState({ firstName: t });
 
-  updateLastName = t => this.props.dispatch(lastNameChanged(t));
-
-  firstNameRef = c => (this.firstName = c);
+  updateLastName = t => this.setState({ lastName: t });
 
   lastNameRef = c => (this.lastName = c);
 
@@ -51,6 +47,7 @@ class SetupScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const { firstName, lastName } = this.state;
 
     return (
       <View style={styles.container}>
@@ -72,7 +69,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.firstNameRef}
               onChangeText={this.updateFirstName}
-              value={this.props.firstName}
+              value={firstName}
               autoFocus={true}
               returnKeyType="next"
               blurOnSubmit={false}
@@ -86,7 +83,7 @@ class SetupScreen extends Component {
             <Input
               ref={this.lastNameRef}
               onChangeText={this.updateLastName}
-              value={this.props.lastName}
+              value={lastName}
               returnKeyType="next"
               placeholder={t('profileLabels.lastName')}
               placeholderTextColor="white"
@@ -107,10 +104,9 @@ class SetupScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => ({
-  firstName: profile.firstName,
-  lastName: profile.lastName,
-});
+SetupScreen.propTypes = {
+  next: PropTypes.func.isRequired,
+};
 
-export default connect(mapStateToProps)(SetupScreen);
+export default connect()(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';

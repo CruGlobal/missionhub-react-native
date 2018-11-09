@@ -26,15 +26,13 @@ import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 
-export function getMe(extraInclude, overrideInclude = false) {
+export function getMe(extraInclude) {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
-  const include = overrideInclude
-    ? extraInclude
-    : extraInclude
-      ? `${personInclude},${extraInclude}`
-      : personInclude;
+  const include = extraInclude
+    ? `${personInclude},${extraInclude}`
+    : personInclude;
 
   return async dispatch => {
     const { response: person } = await dispatch(

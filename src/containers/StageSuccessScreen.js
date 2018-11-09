@@ -5,13 +5,10 @@ import { connect } from 'react-redux';
 
 import { navigatePush } from '../actions/navigation';
 import { disableBack } from '../utils/common';
+import { personSelector } from '../selectors/people';
+import { stageSelector } from '../selectors/stages';
 
 import IconMessageScreen from './IconMessageScreen/index';
-import {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
-  SELECT_MY_STEP_SCREEN,
-} from './SelectMyStepScreen';
-import { ADD_SOMEONE_SCREEN } from './AddSomeoneScreen';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
@@ -23,33 +20,23 @@ class StageSuccessScreen extends Component {
     disableBack.remove();
   }
 
-  handleNavigate = () => {
-    this.props.dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-  };
-
   handleNavigateToStep = () => {
+    const { dispatch, next, person, stage } = this.props;
+
     disableBack.remove();
-    this.props.dispatch(
-      navigatePush(SELECT_MY_STEP_SCREEN, {
-        onboarding: true,
-        contactStage: this.props.selectedStage,
-        onSaveNewSteps: this.handleNavigate,
-        enableBackButton: false,
-      }),
-    );
+    dispatch(next({ personId: person.id, stageId: stage.id }));
   };
 
   getMessage() {
-    const { t } = this.props;
+    const { t, stage, person } = this.props;
 
     let followUpText =
-      this.props.selectedStage &&
-      this.props.selectedStage.self_followup_description
-        ? this.props.selectedStage.self_followup_description
+      stage && stage.self_followup_description
+        ? stage.self_followup_description
         : t('backupMessage');
     followUpText = followUpText.replace(
       '<<user>>',
-      this.props.firstName ? this.props.firstName : t('friend'),
+      person.first_name || t('friend'),
     );
     return followUpText;
   }
@@ -69,13 +56,19 @@ class StageSuccessScreen extends Component {
 }
 
 StageSuccessScreen.propTypes = {
-  selectedStage: PropTypes.object,
+  next: PropTypes.func.isRequired,
+  person: PropTypes.object.isRequired,
+  stage: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ profile }, { navigation }) => ({
-  ...(navigation.state.params || {}),
-  firstName: profile.firstName,
-});
+const mapStateToProps = ({ people, stages }, { navigation }) => {
+  const { personId, stageId } = navigation.state.params || {};
+
+  return {
+    person: personSelector({ people }, { personId }),
+    stage: stageSelector({ stages }, { stageId }),
+  };
+};
 
 export default connect(mapStateToProps)(StageSuccessScreen);
 export const STAGE_SUCCESS_SCREEN = 'nav/STAGE_SUCCESS';
