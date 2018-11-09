@@ -86,7 +86,7 @@ function defaultObject(method, obj = {}, data) {
   if (data) {
     newObj.body = obj.stringify === false ? data : JSON.stringify(data);
   }
-  delete obj.stringify;
+  delete newObj.stringify;
 
   return newObj;
 }

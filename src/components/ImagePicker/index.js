@@ -16,6 +16,13 @@ const DEFAULT_OPTIONS = {
   noData: true, // photos only - disables the base64 `data` field from being generated (greatly improves performance on large photos)
 };
 
+function getType(response) {
+  if (response.uri.toLowerCase().includes('.png')) {
+    return 'image/png';
+  }
+  return 'image/jpeg';
+}
+
 @translate('imagePicker')
 class ImagePicker extends Component {
   selectImage = () => {
@@ -50,6 +57,7 @@ class ImagePicker extends Component {
           // imageBinary: `data:image/jpeg;base64,${response.data}`,
           fileSize: response.fileSize,
           fileName: response.fileName,
+          fileType: response.type || getType(response),
           width: response.width,
           height: response.height,
           isVertical: response.isVertical,

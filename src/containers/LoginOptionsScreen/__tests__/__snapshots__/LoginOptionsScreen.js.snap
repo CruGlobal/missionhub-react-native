@@ -769,7 +769,7 @@ exports[`renders correctly with upgrade 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -890,7 +890,7 @@ exports[`renders correctly with upgrade 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -1428,7 +1428,7 @@ exports[`renders correctly without upgrade 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}
@@ -1549,7 +1549,7 @@ exports[`renders correctly without upgrade 1`] = `
                   ]
                 }
               >
-                
+                
               </Text>
               <Text
                 accessible={true}

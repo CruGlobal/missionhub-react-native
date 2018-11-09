@@ -16,7 +16,6 @@ import { ACTIONS } from '../../../constants';
 import {
   showReminderScreen,
   showWelcomeNotification,
-  toast,
 } from '../../../actions/notifications';
 import {
   completeStepReminder,
@@ -94,6 +93,8 @@ const propsWithoutSteps = {
   steps: [],
   dispatch,
 };
+
+common.toast = jest.fn();
 
 describe('StepsScreen', () => {
   beforeEach(() => {
@@ -225,7 +226,7 @@ describe('StepsScreen', () => {
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
-      expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
+      expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).toHaveBeenCalledWith(
         i18next.t('notificationPrimer:focusDescription'),
@@ -244,7 +245,7 @@ describe('StepsScreen', () => {
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
-      expect(toast).toHaveBeenCalledWith('✔ Reminder Added');
+      expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
       expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
       expect(showReminderScreen).not.toHaveBeenCalled();
       expect(showWelcomeNotification).toHaveBeenCalled();
@@ -261,7 +262,7 @@ describe('StepsScreen', () => {
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.STEP_PRIORITIZED,
       );
-      expect(toast).not.toHaveBeenCalled();
+      expect(common.toast).not.toHaveBeenCalled();
       expect(setStepFocus).not.toHaveBeenCalled();
       expect(showReminderScreen).not.toHaveBeenCalled();
       expect(showWelcomeNotification).not.toHaveBeenCalled();

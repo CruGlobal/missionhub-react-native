@@ -136,6 +136,7 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
+import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -200,7 +201,7 @@ const tabs = {
   ),
 };
 
-const createTabs = (tabKey, tabPath) => {
+const createTabs = (tabKey, tabPath, initialRouteName) => {
   return createBottomTabNavigator(
     {
       StepsTab: tabs.StepsTab,
@@ -231,6 +232,7 @@ const createTabs = (tabKey, tabPath) => {
         PeopleTab: '/people',
         [tabKey]: tabPath,
       },
+      initialRouteName,
     },
   );
 };
@@ -238,6 +240,12 @@ const createTabs = (tabKey, tabPath) => {
 export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
 
 export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
+// Create another set of tabs with a different default tab
+export const MainTabBarGroupsStartGroups = createTabs(
+  GROUPS_TAB,
+  '/groups',
+  GROUPS_TAB,
+);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   createDrawerNavigator(
@@ -477,6 +485,7 @@ export const MainStackRoutes = createStackNavigator(
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
+    [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,

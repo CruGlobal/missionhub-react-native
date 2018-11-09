@@ -1,5 +1,11 @@
 import moment from 'moment';
-import { BackHandler, Platform, Keyboard } from 'react-native';
+import {
+  ToastAndroid,
+  BackHandler,
+  Platform,
+  Keyboard,
+  Clipboard,
+} from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import * as DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
@@ -12,6 +18,7 @@ import {
   INTERACTION_TYPES,
   DEFAULT_PAGE_LIMIT,
 } from '../constants';
+import i18n from '../i18n';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -271,4 +278,17 @@ export function keyboardHide(handler) {
 
 export function getSurveyUrl(surveyId) {
   return `${Config.SURVEY_URL}${surveyId}`;
+}
+
+export function toast(text, duration) {
+  if (isAndroid) {
+    const toastDuration =
+      duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
+    ToastAndroid.show(text, toastDuration);
+  }
+}
+
+export function copyText(string) {
+  Clipboard.setString(string);
+  toast(i18n.t('copyMessage'));
 }
