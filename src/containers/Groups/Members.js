@@ -71,11 +71,12 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, myOrgPermissions } = this.props;
+    const { organization, myOrgPermissions, myId } = this.props;
     return (
       <GroupMemberItem
         organization={organization}
         person={item}
+        myId={myId}
         myOrgPermissions={myOrgPermissions}
         onSelect={this.handleSelect}
       />
@@ -134,6 +135,7 @@ const mapStateToProps = ({ auth, organizations }, { organization }) => {
   return {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
+    myId: auth.person.id,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },

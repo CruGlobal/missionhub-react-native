@@ -20,6 +20,7 @@ class GroupMemberItem extends Component {
       person,
       t,
       isUserCreatedOrg,
+      myId,
       myOrgPermissions,
       personOrgPermissions,
     } = this.props;
@@ -48,6 +49,8 @@ class GroupMemberItem extends Component {
             ) : null}
           </Flex>
           <MemberOptionsMenu
+            myId={myId}
+            personId={person.id}
             myOrgPermissions={myOrgPermissions}
             personOrgPermissions={personOrgPermissions}
           />
@@ -64,6 +67,7 @@ GroupMemberItem.propTypes = {
     contact_count: PropTypes.number,
     uncontacted_count: PropTypes.number,
   }).isRequired,
+  myId: PropTypes.string.isRequired,
   myOrgPermissions: PropTypes.object.isRequired,
   personOrgPermissions: PropTypes.object.isRequired,
   onSelect: PropTypes.func,

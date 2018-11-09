@@ -4,7 +4,7 @@ import { Share, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 
 import PopupMenu from '../PopupMenu';
-import { getSurveyUrl } from '../../utils/common';
+import { getSurveyUrl, isAdminOrOwner, isOwner } from '../../utils/common';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -29,13 +29,19 @@ class MemberOptionsMenu extends Component {
   };
 
   render() {
-    const { t, header } = this.props;
+    const {
+      t,
+      myId,
+      personId,
+      myOrgPermissions,
+      personOrgPermissions,
+    } = this.props;
 
-    const personIsMe = false;
-    const iAmAdmin = true;
-    const iAmOwner = true;
-    const personIsAdmin = false;
-    const personIsOwner = false;
+    const personIsMe = myId === personId;
+    const iAmAdmin = isAdminOrOwner(myOrgPermissions);
+    const iAmOwner = isOwner(myOrgPermissions);
+    const personIsAdmin = isAdminOrOwner(personOrgPermissions);
+    const personIsOwner = isOwner(personOrgPermissions);
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
@@ -76,5 +82,12 @@ class MemberOptionsMenu extends Component {
     return <PopupMenu {...props} />;
   }
 }
+
+MemberOptionsMenu.propTypes = {
+  myId: PropTypes.string.isRequired,
+  personId: PropTypes.string.isRequired,
+  myOrgPermissions: PropTypes.object.isRequired,
+  personOrgPermissions: PropTypes.object.isRequired,
+};
 
 export default MemberOptionsMenu;
