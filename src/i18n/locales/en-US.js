@@ -511,7 +511,9 @@ export default {
     invite: 'Send Invite',
   },
   groupMemberOptions: {
+    leaveCommunity: 'Leave Community',
     makeAdmin: 'Make Admin',
+    removeAdmin: 'Remove Admin',
     makeOwner: 'Make Owner',
     removeMember: 'Remove Member',
   },

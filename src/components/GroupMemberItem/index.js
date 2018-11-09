@@ -15,7 +15,14 @@ class GroupMemberItem extends Component {
   handleSelect = () => this.props.onSelect(this.props.person);
 
   render() {
-    const { onSelect, person, t, isUserCreatedOrg } = this.props;
+    const {
+      onSelect,
+      person,
+      t,
+      isUserCreatedOrg,
+      myOrgPermissions,
+      personOrgPermissions,
+    } = this.props;
 
     return (
       <Card onPress={this.handleSelect}>
@@ -40,7 +47,10 @@ class GroupMemberItem extends Component {
               </Flex>
             ) : null}
           </Flex>
-          <MemberOptionsMenu />
+          <MemberOptionsMenu
+            myOrgPermissions={myOrgPermissions}
+            personOrgPermissions={personOrgPermissions}
+          />
         </Flex>
       </Card>
     );
