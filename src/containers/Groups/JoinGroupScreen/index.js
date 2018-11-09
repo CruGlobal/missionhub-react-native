@@ -28,14 +28,13 @@ import styles from './styles';
 class JoinGroupScreen extends Component {
   state = {
     code: '',
-    imageUri: null,
   };
 
-  onChangeCode = code => this.setState({ code });
+  onChangeCode = code => this.setState({ code: code.toUpperCase() });
 
   onSearch = () => {
     Keyboard.dismiss();
-    const text = (this.state.name || '').trim();
+    const text = (this.state.code || '').trim();
     if (!text) {
       return;
     }
@@ -48,25 +47,9 @@ class JoinGroupScreen extends Component {
     // TODO: join community
   };
 
-  handleImageChange = data => this.setState({ imageUri: data.uri });
-
   navigateBack = () => this.props.dispatch(navigateBack());
 
   ref = c => (this.nameInput = c);
-
-  renderImage() {
-    const { imageUri } = this.state;
-    if (imageUri) {
-      return (
-        <Image
-          resizeMode="cover"
-          source={{ uri: imageUri }}
-          style={styles.image}
-        />
-      );
-    }
-    return <Image source={CAMERA_ICON} />;
-  }
 
   renderStart() {
     const { t } = this.props;
@@ -89,6 +72,7 @@ class JoinGroupScreen extends Component {
 
   render() {
     const { t } = this.props;
+    const { code } = this.state;
 
     return (
       <View style={styles.container}>
@@ -112,6 +96,7 @@ class JoinGroupScreen extends Component {
               style={styles.input}
               onChangeText={this.onChangeCode}
               maxLength={6}
+              value={code}
             />
           </Flex>
           <KeyboardAvoidingView
