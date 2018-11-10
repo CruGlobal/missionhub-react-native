@@ -85,7 +85,7 @@ function getNextTrackState(action) {
     return trackedRoute.tracking;
   } else if (action.type === DrawerActions.OPEN_DRAWER) {
     if (action.drawer === MAIN_MENU_DRAWER) {
-      return buildTrackingObj('menu', 'menu');
+      return buildTrackingObj(['menu']);
     }
   } else if (action.params && action.params.trackingObj) {
     //todo test trackingObj is ignored if screen is in trackableScreens

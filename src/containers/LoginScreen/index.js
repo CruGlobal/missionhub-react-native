@@ -83,7 +83,7 @@ class LoginScreen extends Component {
 
   trackSplashState(index) {
     const { dispatch } = this.props;
-    const trackingObj = buildTrackingObj(`splash : ${index}`, 'splash');
+    const trackingObj = buildTrackingObj(['splash'], index);
 
     dispatch({ type: LOGIN_TAB_CHANGED, newActiveTab: trackingObj });
     dispatch(trackState(trackingObj));

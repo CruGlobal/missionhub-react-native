@@ -155,12 +155,7 @@ export class SearchPeopleFilterScreen extends Component {
         title: item.text,
         options,
         filters: this.state.filters,
-        trackingObj: buildTrackingObj(
-          `search : refine : ${item.id}`,
-          'search',
-          'refine',
-          item.id,
-        ),
+        trackingObj: buildTrackingObj(['search', 'refine'], item.id),
       }),
     );
     this.setState({ selectedFilterId: item.id });

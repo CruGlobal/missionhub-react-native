@@ -91,12 +91,7 @@ export class SurveyContactsFilter extends Component {
         title: item.text,
         options,
         filters,
-        trackingObj: buildTrackingObj(
-          `search : refine : ${item.id}`,
-          'search',
-          'refine',
-          item.id,
-        ),
+        trackingObj: buildTrackingObj(['search', 'refine'], item.id),
       }),
     );
 

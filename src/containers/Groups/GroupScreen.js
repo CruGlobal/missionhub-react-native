@@ -165,38 +165,18 @@ export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {
-    tracking: buildTrackingObj(
-      'communities : group : celebrate',
-      'communities',
-      'community',
-    ),
+    tracking: buildTrackingObj(['communities', 'community'], 'celebrate'),
   },
   [GROUP_MEMBERS]: {
-    tracking: buildTrackingObj(
-      'communities : group : members',
-      'communities',
-      'community',
-    ),
+    tracking: buildTrackingObj(['communities', 'community'], 'members'),
   },
   [GROUP_IMPACT]: {
-    tracking: buildTrackingObj(
-      'communities : group : impact',
-      'communities',
-      'community',
-    ),
+    tracking: buildTrackingObj(['communities', 'community'], 'impact'),
   },
   [GROUP_CONTACTS]: {
-    tracking: buildTrackingObj(
-      'communities : group : contacts',
-      'communities',
-      'community',
-    ),
+    tracking: buildTrackingObj(['communities', 'community'], 'contacts'),
   },
   [GROUP_SURVEYS]: {
-    tracking: buildTrackingObj(
-      'communities : group : surveys',
-      'communities',
-      'community',
-    ),
+    tracking: buildTrackingObj(['communities', 'community'], 'surveys'),
   },
 };

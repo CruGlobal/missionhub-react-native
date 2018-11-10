@@ -41,22 +41,22 @@ const MEMBER_CELEBRATE = 'nav/MEMBER_CELEBRATE';
 const MEMBERS_ASSIGNED_CONTACTS = 'nav/MEMBER_ASSIGNED_CONTACTS';
 export const ALL_PERSON_TAB_ROUTES = {
   [PERSON_STEPS]: {
-    tracking: buildTrackingObj('person : steps', 'person'),
+    tracking: buildTrackingObj(['person'], 'steps'),
   },
   [PERSON_NOTES]: {
-    tracking: buildTrackingObj('person : notes', 'person'),
+    tracking: buildTrackingObj(['person'], 'notes'),
   },
   [PERSON_JOURNEY]: {
-    tracking: buildTrackingObj('person : journey', 'person'),
+    tracking: buildTrackingObj(['person'], 'journey'),
   },
   [MEMBER_IMPACT]: {
-    tracking: buildTrackingObj('person : impact', 'person'),
+    tracking: buildTrackingObj(['person'], 'impact'),
   },
   [MEMBER_CELEBRATE]: {
-    tracking: buildTrackingObj('person : celebrate', 'person'),
+    tracking: buildTrackingObj(['person'], 'celebrate'),
   },
   [MEMBERS_ASSIGNED_CONTACTS]: {
-    tracking: buildTrackingObj('person : assigned contacts', 'person'),
+    tracking: buildTrackingObj(['person'], 'assigned contacts'),
   },
 };
 

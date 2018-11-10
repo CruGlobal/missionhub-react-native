@@ -140,28 +140,20 @@ const buildTrackedScreen = (screen, tracking, navOptions) => {
   };
 };
 
-export const stepsTab = buildTrackingObj('steps', 'steps');
+export const stepsTab = buildTrackingObj(['steps']);
 const tabs = {
   [STEPS_TAB]: buildTrackedScreen(StepsScreen, stepsTab, {
     tabBarLabel: navItem('steps'),
   }),
-  [PEOPLE_TAB]: buildTrackedScreen(
-    PeopleScreen,
-    buildTrackingObj('people', 'people'),
-    {
-      tabBarLabel: navItem('people'),
-    },
-  ),
-  [IMPACT_TAB]: buildTrackedScreen(
-    ImpactScreen,
-    buildTrackingObj('impact', 'impact'),
-    {
-      tabBarLabel: navItem('impact'),
-    },
-  ),
+  [PEOPLE_TAB]: buildTrackedScreen(PeopleScreen, buildTrackingObj(['people']), {
+    tabBarLabel: navItem('people'),
+  }),
+  [IMPACT_TAB]: buildTrackedScreen(ImpactScreen, buildTrackingObj(['impact']), {
+    tabBarLabel: navItem('impact'),
+  }),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
-    buildTrackingObj('groups', 'groups'),
+    buildTrackingObj(['groups']),
     {
       tabBarLabel: navItem('groups'),
     },
@@ -234,74 +226,58 @@ const buildPersonScreenRoute = screen =>
         backBehavior: 'none', // We're handling it on our own
       },
     ),
-    buildTrackingObj('person', 'person'),
+    buildTrackingObj(['person']),
     { gesturesEnabled: isAndroid ? false : true },
   );
 
 const screens = {
   [SEARCH_SCREEN]: buildTrackedScreen(
     SearchPeopleScreen,
-    buildTrackingObj('search', 'search'),
+    buildTrackingObj(['search']),
     { gesturesEnabled: true },
   ),
   [SEARCH_FILTER_SCREEN]: buildTrackedScreen(
     SearchPeopleFilterScreen,
-    buildTrackingObj('search : refine', 'search', 'refine'),
+    buildTrackingObj(['search', 'refine']),
     { gesturesEnabled: true },
   ),
   [GROUP_SCREEN]: buildTrackedScreen(
     groupScreenTabNavigator,
-    buildTrackingObj('communities : community', 'communities', 'community'),
+    buildTrackingObj(['communities', 'community']),
   ),
   [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
     userCreatedScreenTabNavigator,
-    buildTrackingObj('communities : community', 'communities', 'community'),
+    buildTrackingObj(['communities', 'community']),
   ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
     SurveyContacts,
-    buildTrackingObj(
-      'communities : community : survey contacts',
-      'communities',
-      'community',
-    ),
+    buildTrackingObj(['communities', 'community'], 'survey contacts'),
     {
       gesturesEnabled: true,
     },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
-    buildTrackingObj(
-      'communities : community : survey contacts filer',
-      'communities',
-      'community',
-    ),
+    buildTrackingObj(['communities', 'community'], 'survey contacts filer'),
     { gesturesEnabled: true },
   ),
   [SEARCH_QUESTIONS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyQuestionsFilter,
-    buildTrackingObj(
-      'communities : community : questions filter',
-      'communities',
-      'community',
-    ),
+    buildTrackingObj(['communities', 'community'], 'questions filter'),
     {
       gesturesEnabled: true,
     },
   ),
   [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     ContactsFilter,
-    buildTrackingObj(
-      'communities : community : contacts filter',
-      'communities',
-      'community',
-    ),
+    buildTrackingObj(['communities', 'community'], 'contacts filter'),
     {
       gesturesEnabled: true,
     },
   ),
   [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
     UnassignedPersonScreen,
-    buildTrackingObj('person : unassigned', 'person'),
+    buildTrackingObj(['person'], 'unassigned'),
     { gesturesEnabled: true },
   ),
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
@@ -320,29 +296,25 @@ const screens = {
   [MAIN_TABS]: MAIN_TABS_SCREEN,
 };
 
-export const trackableScreens = {
-  ...screens,
-  ...tabs,
-  ...GROUP_TABS,
-  ...ALL_PERSON_TAB_ROUTES,
-  ...AuthenticationScreens,
-  ...OnboardingScreens,
-};
+// export const trackableScreens = {
+//   ...screens,
+//   ...tabs,
+//   ...GROUP_TABS,
+//   ...ALL_PERSON_TAB_ROUTES,
+//   ...AuthenticationScreens,
+//   ...OnboardingScreens,
+// };
 
 const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [ADD_CONTACT_SCREEN]: {
       screen: AddContactScreen,
-      tracking: buildTrackingObj('people : add person', 'people', 'add person'),
+      tracking: buildTrackingObj(['people'], 'add person'),
     },
     [NOTIFICATION_OFF_SCREEN]: {
       screen: NotificationOffScreen,
-      tracking: buildTrackingObj(
-        'menu : notifications : off',
-        'menu',
-        'notifications',
-      ),
+      tracking: buildTrackingObj(['menu', 'notifications'], 'off'),
     },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },

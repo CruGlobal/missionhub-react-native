@@ -126,12 +126,7 @@ class SelectStepScreen extends Component {
     dispatch(
       navigatePush(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
-        trackingObj: buildTrackingObj(
-          `${section} : ${subsection} : steps : create`,
-          section,
-          subsection,
-          'steps',
-        ),
+        trackingObj: buildTrackingObj([section, subsection, 'steps'], 'create'),
         onComplete: newStepText => {
           const newStep = {
             id: uuidv4(),

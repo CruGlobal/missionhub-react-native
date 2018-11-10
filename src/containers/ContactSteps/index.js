@@ -83,12 +83,7 @@ class ContactSteps extends Component {
     const { dispatch, person, organization, isMe } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
     const trackingParams = {
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
+      trackingObj: buildTrackingObj(['people', 'person', 'steps'], 'add'),
     };
 
     if (isMe) {
@@ -114,10 +109,8 @@ class ContactSteps extends Component {
             this.handleSaveNewSteps();
           },
           createStepTracking: buildTrackingObj(
-            `people : ${subsection} : steps : create`,
-            'people',
-            subsection,
-            'steps',
+            ['people', '${subsection}', 'steps'],
+            'create',
           ),
         }),
       );

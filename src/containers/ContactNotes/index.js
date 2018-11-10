@@ -78,15 +78,7 @@ export class ContactNotes extends Component {
         this.notesInput.focus();
       });
       this.props.dispatch(
-        trackState(
-          buildTrackingObj(
-            'people : person : notes : edit',
-            'people',
-            'person',
-            'notes',
-            'edit',
-          ),
-        ),
+        trackState(buildTrackingObj(['people', 'person', 'notes'], 'edit')),
       );
     }
   }

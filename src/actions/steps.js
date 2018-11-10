@@ -205,10 +205,8 @@ function challengeCompleteAction(step, screen) {
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
             trackingObj: buildTrackingObj(
-              `people : ${subsection} : steps : complete comment`,
-              'people',
-              subsection,
-              'steps',
+              ['people', subsection, 'steps'],
+              'complete comment',
             ),
             type: STEP_NOTE,
             onComplete: text => {
@@ -228,10 +226,8 @@ function challengeCompleteAction(step, screen) {
               const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
               const subsection = isMe ? 'self' : 'person';
               const celebrationTrackingObj = buildTrackingObj(
-                `people : ${subsection} : steps : gif`,
-                'people',
-                subsection,
-                'steps',
+                ['people', subsection, 'steps'],
+                'gif',
               );
 
               if (count % 3 === 0) {

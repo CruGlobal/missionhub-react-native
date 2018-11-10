@@ -34,12 +34,7 @@ export class SurveyQuestionsFilter extends Component {
         title: t('titleAnswers'),
         options: (isString(options) && this.props[options]) || options,
         filters: (filters.answers && filters.answers[id]) || {},
-        trackingObj: buildTrackingObj(
-          `search : refine : ${id}`,
-          'search',
-          'refine',
-          id,
-        ),
+        trackingObj: buildTrackingObj(['search', 'refine'], id),
       }),
     );
     this.setState({ selectedFilterId: id });

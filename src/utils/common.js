@@ -35,11 +35,11 @@ export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
 export const openMainMenu = () =>
   DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER });
-export const buildTrackingObj = (name, section, subsection, level3) => ({
-  name,
-  section,
-  subsection,
-  level3,
+export const buildTrackingObj = (pieces, event) => ({
+  name: [...pieces, ...(event ? [event] : [])].join(' : '),
+  section: pieces[0],
+  subsection: pieces[1],
+  level3: pieces[2],
 });
 
 export const isFunction = fn => typeof fn === 'function';

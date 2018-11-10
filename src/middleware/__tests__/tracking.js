@@ -71,7 +71,7 @@ describe('navigate forward', () => {
 
       store.dispatch(navigationAction);
 
-      expect(trackState).toHaveBeenCalledWith(buildTrackingObj('menu', 'menu'));
+      expect(trackState).toHaveBeenCalledWith(buildTrackingObj(['menu']));
       expect(store.getActions()).toEqual([navigationAction, trackStateResult]);
     });
   });

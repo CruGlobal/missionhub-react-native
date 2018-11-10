@@ -64,12 +64,7 @@ const mockContactAssignment = {
   id: 333,
 };
 
-const trackingObj = buildTrackingObj(
-  'people : person : steps : add',
-  'people',
-  'person',
-  'steps',
-);
+const trackingObj = buildTrackingObj(['people', 'person', 'steps'], 'add');
 
 getContactSteps.mockReturnValue({ response: steps });
 
@@ -213,10 +208,8 @@ describe('handleCreateStep', () => {
       organization: undefined,
       onSaveNewSteps: expect.any(Function),
       createStepTracking: buildTrackingObj(
-        'people : person : steps : create',
-        'people',
-        'person',
-        'steps',
+        ['people', 'person', 'steps'],
+        'create',
       ),
       trackingObj,
     });

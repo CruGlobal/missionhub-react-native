@@ -52,7 +52,7 @@ const wrapProps = (WrappedComponent, extraProps = {}) => props => (
 export const OnboardingScreens = {
   [WELCOME_SCREEN]: {
     screen: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-    tracking: buildTrackingObj('onboarding : welcome', 'onboarding'),
+    tracking: buildTrackingObj(['onboarding'], 'welcome'),
   },
   [SETUP_SCREEN]: {
     screen: wrapNextScreenFn(
@@ -60,11 +60,11 @@ export const OnboardingScreens = {
       // TODO: do we have to split these into seperate screen names to be able to look up tracking info?
       ({ isMe }) => (isMe ? GET_STARTED_SCREEN : STAGE_SCREEN),
     ),
-    tracking: buildTrackingObj('onboarding : name', 'onboarding'),
+    tracking: buildTrackingObj(['onboarding'], 'name'),
   },
   [GET_STARTED_SCREEN]: {
     screen: wrapNextScreen(GetStartedScreen, STAGE_SCREEN),
-    tracking: buildTrackingObj('onboarding : get started', 'onboarding'),
+    tracking: buildTrackingObj(['onboarding'], 'get started'),
   },
   [STAGE_SCREEN]: {
     screen: wrapNextScreenFn(
@@ -74,19 +74,11 @@ export const OnboardingScreens = {
         trackAsOnboarding: true,
       },
     ),
-    tracking: buildTrackingObj(
-      'onboarding : self : choose my stage',
-      'onboarding',
-      'self',
-    ),
+    tracking: buildTrackingObj(['onboarding', 'self'], 'choose my stage'),
   },
   [STAGE_SUCCESS_SCREEN]: {
     screen: wrapNextScreen(StageSuccessScreen, SELECT_STEP_SCREEN),
-    tracking: buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
+    tracking: buildTrackingObj(['onboarding', 'self'], 'choose my steps'),
   },
   [SELECT_STEP_SCREEN]: {
     screen: wrapNextScreenFn(
@@ -96,29 +88,16 @@ export const OnboardingScreens = {
         trackAsOnboarding: true,
       },
     ),
-    tracking: buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
+    tracking: buildTrackingObj(['onboarding', 'self', 'steps'], 'add'),
   },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   [ADD_SOMEONE_SCREEN]: {
     screen: wrapNextScreen(AddSomeoneScreen, SETUP_SCREEN),
-    tracking: buildTrackingObj(
-      'onboarding : add person',
-      'onboarding',
-      'add person',
-    ),
+    tracking: buildTrackingObj(['onboarding'], 'add person'),
   },
   [NOTIFICATION_PRIMER_SCREEN]: {
     screen: wrapNextScreen(NotificationPrimerScreen, CELEBRATION_SCREEN),
-    tracking: buildTrackingObj(
-      'menu : notifications : permissions',
-      'menu',
-      'notifications',
-    ),
+    tracking: buildTrackingObj(['menu', 'notifications'], 'permissions'),
   },
   [CELEBRATION_SCREEN]: {
     screen: wrapNextAction(CelebrationScreen, () => dispatch =>

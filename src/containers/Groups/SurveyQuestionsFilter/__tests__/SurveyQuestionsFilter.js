@@ -75,12 +75,7 @@ describe('SurveyQuestionsFilter', () => {
         title: instance.props.t('titleAnswers'),
         options: item.options,
         filters: instance.state.filters,
-        trackingObj: buildTrackingObj(
-          `search : refine : ${item.id}`,
-          'search',
-          'refine',
-          item.id,
-        ),
+        trackingObj: buildTrackingObj(['search', 'refine'], item.id),
       });
       expect(trackSearchFilter).toHaveBeenCalledWith(item.id);
     });

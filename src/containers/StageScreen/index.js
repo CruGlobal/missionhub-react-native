@@ -129,10 +129,8 @@ class StageScreen extends Component {
     const subsection = isMe ? 'self' : 'person';
 
     const trackingObj = buildTrackingObj(
-      `${section} : ${subsection} : stage : ${number}`,
-      section,
-      subsection,
-      'stage',
+      [section, subsection, 'stage'],
+      number,
     );
 
     dispatch({

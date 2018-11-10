@@ -48,12 +48,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
         navigatePush(SEARCH_REFINE_SCREEN, {
           onFilter: this.handleFilterSelect,
           options: item.drilldown,
-          trackingObj: buildTrackingObj(
-            `search : refine : ${item.id}`,
-            'search',
-            'refine',
-            item.id,
-          ),
+          trackingObj: buildTrackingObj(['search', 'refine'], item.id),
         }),
       );
 

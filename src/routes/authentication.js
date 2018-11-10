@@ -14,15 +14,15 @@ export const AuthenticationScreens = {
   [LOGIN_SCREEN]: { screen: LoginScreen },
   [LOGIN_OPTIONS_SCREEN]: {
     screen: LoginOptionsScreen,
-    tracking: buildTrackingObj('auth', 'auth'),
+    tracking: buildTrackingObj(['auth']),
   },
   [KEY_LOGIN_SCREEN]: {
     screen: KeyLoginScreen,
-    tracking: buildTrackingObj('auth : sign in', 'auth'),
+    tracking: buildTrackingObj(['auth'], 'sign in'),
   },
   [MFA_CODE_SCREEN]: {
     screen: MFACodeScreen,
-    tracking: buildTrackingObj('auth : verification', 'auth'),
+    tracking: buildTrackingObj(['auth'], 'verification'),
   },
 };
 
