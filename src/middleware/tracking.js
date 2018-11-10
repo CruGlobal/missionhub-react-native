@@ -17,12 +17,10 @@ import {
 import { buildTrackingObj } from '../utils/common';
 import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreenOld';
 
 export default function tracking({ dispatch, getState }) {
   return next => action => {
     let newState;
-    const returnValue = next(action);
     const { nav: navState, auth: authState, tabs: tabsState } = getState();
 
     switch (action.type) {
@@ -54,7 +52,8 @@ export default function tracking({ dispatch, getState }) {
           break;
         }
 
-        if (topRoute.routeName === PERSON_STAGE_SCREEN) {
+        // TODO: reconcile activePersonStageTab and activeSelfStageTab. may need to look for isMe prop
+        if (topRoute.routeName === STAGE_SCREEN) {
           newState = tabsState.activePersonStageTab;
           break;
         }
@@ -73,7 +72,7 @@ export default function tracking({ dispatch, getState }) {
     }
 
     newState && dispatch(trackState(newState));
-    return returnValue;
+    return next(action);
   };
 }
 

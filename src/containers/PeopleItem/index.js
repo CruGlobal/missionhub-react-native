@@ -6,7 +6,6 @@ import { translate } from 'react-i18next';
 import { Flex, Text, Touchable, Icon } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { getMyPeople } from '../../actions/people';
-import { PERSON_STAGE_SCREEN } from '../PersonStageScreenOld';
 import { isMissionhubUser, orgIsCru } from '../../utils/common';
 
 import styles from './styles';

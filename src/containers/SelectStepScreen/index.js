@@ -7,17 +7,13 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import i18next from 'i18next';
 import uuidv4 from 'uuid/v4';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { getStepSuggestions, addSteps } from '../../actions/steps';
 import StepsList from '../../components/StepsList';
 import { Flex, Text, Button, Icon } from '../../components/common';
 import BackButton from '../BackButton';
 import { ADD_STEP_SCREEN } from '../AddStepScreen';
-import {
-  buildTrackingObj,
-  disableBack,
-  shuffleArray,
-} from '../../utils/common';
+import { buildTrackingObj, shuffleArray } from '../../utils/common';
 import { CREATE_STEP, CUSTOM_STEP_TYPE } from '../../constants';
 import theme from '../../theme';
 import { isMeSelector, personSelector } from '../../selectors/people';
@@ -26,17 +22,13 @@ import styles from './styles';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      steps: [],
-      addedSteps: [],
-      suggestions: [],
-      person: null,
-      suggestionIndex: 0,
-    };
-  }
+  state = {
+    steps: [],
+    addedSteps: [],
+    suggestions: [],
+    person: null,
+    suggestionIndex: 0,
+  };
 
   insertName(steps) {
     const { person } = this.props;
@@ -48,16 +40,7 @@ class SelectStepScreen extends Component {
   }
 
   async componentDidMount() {
-    const {
-      dispatch,
-      isMe,
-      stageId,
-      suggestions,
-      enableBackButton,
-    } = this.props;
-    if (!enableBackButton) {
-      disableBack.add();
-    }
+    const { dispatch, isMe, stageId, suggestions } = this.props;
 
     let newSuggestions;
 
@@ -68,12 +51,6 @@ class SelectStepScreen extends Component {
     this.setState({ suggestions: shuffleArray(newSuggestions || suggestions) });
 
     this.handleLoadSteps();
-  }
-
-  componentWillUnmount() {
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
   }
 
   handleLoadSteps = () => {
@@ -113,12 +90,8 @@ class SelectStepScreen extends Component {
   };
 
   handleCreateStep = () => {
-    const { dispatch, isMe, enableBackButton, trackAsOnboarding } = this.props;
+    const { dispatch, isMe, trackAsOnboarding } = this.props;
     const { steps, addedSteps } = this.state;
-
-    if (!enableBackButton) {
-      disableBack.remove();
-    }
 
     const section = trackAsOnboarding ? 'onboarding' : 'people';
     const subsection = isMe ? 'self' : 'person';
@@ -156,23 +129,6 @@ class SelectStepScreen extends Component {
     await dispatch(addSteps(selectedSteps, person.id, orgId));
     dispatch(next({ personId: person.id, isMe, orgId }));
   };
-
-  navigateBackTwoScreens = () => this.props.dispatch(navigateBack(2));
-
-  renderBackButton() {
-    const { enableBackButton, person } = this.props;
-    return enableBackButton ? (
-      <BackButton
-        // TODO: fix. person is always present now
-        // customNavigate={
-        //   contact || this.state.contact
-        //     ? undefined
-        //     : this.navigateBackTwoScreens
-        // }
-        absolute={true}
-      />
-    ) : null;
-  }
 
   renderTitle() {
     const { t, person, isMe } = this.props;
@@ -250,7 +206,7 @@ class SelectStepScreen extends Component {
           />
         </ParallaxScrollView>
         {this.renderSaveButton()}
-        {this.renderBackButton()}
+        <BackButton absolute={true} />
       </Flex>
     );
   }

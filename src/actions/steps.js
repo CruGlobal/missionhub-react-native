@@ -12,12 +12,11 @@ import {
   formatApiDate,
   getAnalyticsSubsection,
   isCustomStep,
-  getStageIndex,
 } from '../utils/common';
 import { ADD_STEP_SCREEN } from '../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { STAGE_SCREEN } from '../containers/StageScreen';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreenOld';
+import { personSelector } from '../selectors/people';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
@@ -91,20 +90,40 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addSteps(steps, receiverId, orgId) {
-  return dispatch => {
-    const query = {
-      person_id: receiverId,
-    };
-    const newSteps = steps.map(s => ({
-      type: 'accepted_challenge',
-      attributes: {
-        title: s.body,
-        challenge_suggestion_id: s && isCustomStep(s) ? null : (s || {}).id,
-        ...(orgId !== 'personal' ? { organization_id: orgId } : {}),
-      },
-    }));
+export function addSteps(steps, personId, orgId = 'personal') {
+  return (dispatch, getState) => {
+    const { people } = getState();
+    const { received_challenges = [] } = personSelector(
+      { people },
+      { personId, orgId },
+    );
 
+    const newSteps = steps
+      // Filter out steps that have already been added. Needed to allow back navigation through onboarding screens.
+      .filter(
+        (step = {}) =>
+          !(isCustomStep(step)
+            ? received_challenges.find(
+                ({ challenge_suggestion, title }) =>
+                  !challenge_suggestion && title === step.body,
+              )
+            : received_challenges.find(
+                ({ challenge_suggestion }) =>
+                  challenge_suggestion && challenge_suggestion.id === step.id,
+              )),
+      )
+      .map((step = {}) => ({
+        type: 'accepted_challenge',
+        attributes: {
+          title: step.body,
+          challenge_suggestion_id: isCustomStep(step) ? null : step.id,
+          ...(orgId !== 'personal' ? { organization_id: orgId } : {}),
+        },
+      }));
+
+    const query = {
+      person_id: personId,
+    };
     const data = {
       included: newSteps,
       include: 'received_challenges',

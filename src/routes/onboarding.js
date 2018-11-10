@@ -27,8 +27,6 @@ import CelebrationScreen, {
 } from '../containers/CelebrationScreen';
 import { MAIN_TABS } from '../constants';
 
-export const ONBOARDING_FLOW = 'nav/ONBOARDING_FLOW';
-
 const wrapNextScreen = (WrappedComponent, nextScreen, extraProps = {}) =>
   wrapNextScreenFn(WrappedComponent, () => nextScreen, extraProps);
 
@@ -57,7 +55,6 @@ export const OnboardingScreens = {
   [SETUP_SCREEN]: {
     screen: wrapNextScreenFn(
       SetupScreen,
-      // TODO: do we have to split these into seperate screen names to be able to look up tracking info?
       ({ isMe }) => (isMe ? GET_STARTED_SCREEN : STAGE_SCREEN),
     ),
     tracking: buildTrackingObj(['onboarding'], 'name'),
@@ -74,11 +71,11 @@ export const OnboardingScreens = {
         trackAsOnboarding: true,
       },
     ),
-    tracking: buildTrackingObj(['onboarding', 'self'], 'choose my stage'),
+    tracking: buildTrackingObj(['onboarding'], 'choose stage'),
   },
   [STAGE_SUCCESS_SCREEN]: {
     screen: wrapNextScreen(StageSuccessScreen, SELECT_STEP_SCREEN),
-    tracking: buildTrackingObj(['onboarding', 'self'], 'choose my steps'),
+    tracking: buildTrackingObj(['onboarding', 'self'], 'chose stage'),
   },
   [SELECT_STEP_SCREEN]: {
     screen: wrapNextScreenFn(
@@ -88,7 +85,7 @@ export const OnboardingScreens = {
         trackAsOnboarding: true,
       },
     ),
-    tracking: buildTrackingObj(['onboarding', 'self', 'steps'], 'add'),
+    tracking: buildTrackingObj(['onboarding', 'steps'], 'add'),
   },
   [ADD_STEP_SCREEN]: { screen: AddStepScreen },
   [ADD_SOMEONE_SCREEN]: {
@@ -103,11 +100,11 @@ export const OnboardingScreens = {
     screen: wrapNextAction(CelebrationScreen, () => dispatch =>
       dispatch(navigate(MAIN_TABS)),
     ),
+    navigationOptions: { gesturesEnabled: false },
   },
 };
 
 export const OnboardingNavigator = createStackNavigator(OnboardingScreens, {
-  initialRouteName: WELCOME_SCREEN,
   navigationOptions: {
     header: null,
   },

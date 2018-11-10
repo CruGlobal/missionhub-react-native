@@ -7,12 +7,12 @@ import randomString from 'random-string';
 import i18next from 'i18next';
 
 import { THE_KEY_CLIENT_ID, LOGOUT, FIRST_TIME, OPEN_URL } from '../constants';
-import { LOGIN_SCREEN } from '../containers/LoginScreen';
 import { LOGIN_OPTIONS_SCREEN } from '../containers/LoginOptionsScreen';
 import { THE_KEY_URL } from '../api/utils';
 import { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
+import { AUTHENTICATION_FLOW } from '../routes/constants';
 
-import { navigateReset, navigatePush } from './navigation';
+import { navigate, navigateReset, navigatePush } from './navigation';
 import { getMe } from './person';
 import { deletePushToken, showReminderOnLoad } from './notifications';
 import { getStagesIfNotExists } from './stages';
@@ -145,7 +145,7 @@ export function logout(forcedLogout = false) {
     dispatch(
       forcedLogout
         ? navigateReset(KEY_LOGIN_SCREEN, { forcedLogout })
-        : navigateReset(LOGIN_SCREEN),
+        : navigate(AUTHENTICATION_FLOW),
     );
   };
 }

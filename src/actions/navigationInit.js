@@ -1,5 +1,5 @@
 import { isAuthenticated } from '../utils/common';
-import { AUTHENTICATION_FLOW } from '../routes/authentication';
+import { AUTHENTICATION_FLOW } from '../routes/constants';
 import { ADD_SOMEONE_SCREEN } from '../containers/AddSomeoneScreen';
 import { GET_STARTED_SCREEN } from '../containers/GetStartedScreen';
 import { MAIN_TABS } from '../constants';

@@ -5,29 +5,23 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
-import { disableBack } from '../../utils/common';
 import { personSelector } from '../../selectors/people';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
 @translate('getStarted')
 class GetStartedScreen extends Component {
-  componentDidMount() {
-    disableBack.add();
-  }
+  componentDidMount() {}
 
-  componentWillUnmount() {
-    disableBack.remove();
-  }
+  componentWillUnmount() {}
 
   navigateNext = () => {
     const { dispatch, next, person } = this.props;
-    disableBack.remove();
 
     dispatch(
       next({
         personId: person.id,
-        enableBackButton: false, // TODO: do we need this?
       }),
     );
   };
@@ -53,6 +47,7 @@ class GetStartedScreen extends Component {
             style={{ width: theme.fullWidth }}
           />
         </Flex>
+        <BackButton absolute={true} />
       </Flex>
     );
   }

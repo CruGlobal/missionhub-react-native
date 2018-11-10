@@ -11,65 +11,55 @@ import {
   Icon,
   LoadingWheel,
 } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
+import { navigate, navigatePush } from '../../actions/navigation';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
-import { WELCOME_SCREEN } from '../WelcomeScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
+import { ONBOARDING_FLOW } from '../../routes/constants';
 
 import styles from './styles';
 
 @translate('loginOptions')
 class LoginOptionsScreen extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    activeSlide: 0,
+    isLoading: false,
+  };
 
-    this.state = {
-      activeSlide: 0,
-      isLoading: false,
-    };
+  login = () => {
+    const { dispatch, upgradeAccount } = this.props;
 
-    this.login = this.login.bind(this);
-    this.tryItNow = this.tryItNow.bind(this);
-    this.emailSignUp = this.emailSignUp.bind(this);
-  }
+    dispatch(
+      navigatePush(KEY_LOGIN_SCREEN, {
+        upgradeAccount: upgradeAccount,
+      }),
+    );
+  };
 
-  login() {
-    this.navigateToNext(KEY_LOGIN_SCREEN, {
-      upgradeAccount: this.props.upgradeAccount,
-    });
-  }
+  tryItNow = () => {
+    const { dispatch } = this.props;
 
-  tryItNow() {
-    this.props.dispatch(firstTime());
-    this.navigateToNext(WELCOME_SCREEN);
-  }
-
-  navigateToNext(nextScreen, props = {}) {
-    this.props.dispatch(navigatePush(nextScreen, props));
-  }
+    dispatch(firstTime());
+    dispatch(navigate(ONBOARDING_FLOW));
+  };
 
   startLoad = () => {
     this.setState({ isLoading: true });
   };
 
-  emailSignUp() {
-    this.props.dispatch(
-      openKeyURL(
-        'login?action=signup',
-        this.startLoad,
-        this.props.upgradeAccount,
-      ),
-    );
-  }
+  emailSignUp = () => {
+    const { dispatch, upgradeAccount } = this.props;
+
+    dispatch(openKeyURL('login?action=signup', this.startLoad, upgradeAccount));
+  };
 
   facebookLogin = () => {
     const { dispatch, upgradeAccount } = this.props;
     dispatch(
       facebookLoginWithUsernamePassword(
-        upgradeAccount || false,
+        upgradeAccount,
         this.startLoad,
         onSuccessfulLogin,
       ),

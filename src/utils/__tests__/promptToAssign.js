@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 
-import { promptToAssign } from '../promptToAssign';
+import { promptToAssign } from '../prompt';
 import i18n from '../../i18n';
 
 jest.mock('../../i18n');

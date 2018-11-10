@@ -8,7 +8,7 @@ import { updateAnalyticsContext } from './analytics';
 const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
 export function facebookLoginWithUsernamePassword(
-  isUpgrade,
+  isUpgrade = false,
   startLoad,
   onComplete,
 ) {

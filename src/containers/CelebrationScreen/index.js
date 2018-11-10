@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
+import { AndroidBackHandler } from 'react-navigation-backhandler';
 
 import { Flex } from '../../components/common';
 import { isAndroid, disableBack } from '../../utils/common';
@@ -11,13 +12,8 @@ import styles from './styles';
 class CelebrationScreen extends Component {
   timeoutId = null;
 
-  componentDidMount() {
-    disableBack.add();
-  }
-
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
-    disableBack.remove();
   }
 
   startTimer = () => {
@@ -28,7 +24,6 @@ class CelebrationScreen extends Component {
   navigateToNext = () => {
     const { dispatch, next } = this.props;
 
-    disableBack.remove();
     dispatch(next());
   };
 
@@ -56,6 +51,8 @@ class CelebrationScreen extends Component {
     }
   }
 
+  onBackPress = () => true; // Return true to disable back button
+
   render() {
     const { gifId } = this.props;
 
@@ -69,6 +66,7 @@ class CelebrationScreen extends Component {
           style={styles.gif}
           onLoad={this.startTimer}
         />
+        <AndroidBackHandler onBackPress={this.onBackPress} />
       </Flex>
     );
   }

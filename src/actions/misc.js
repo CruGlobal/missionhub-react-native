@@ -1,7 +1,6 @@
 import { Linking } from 'react-native';
 
 import { contactAssignmentSelector } from '../selectors/people';
-import { PERSON_STAGE_SCREEN } from '../containers/PersonStageScreenOld';
 import { STAGE_SCREEN } from '../containers/StageScreen';
 
 import { trackActionWithoutData } from './analytics';

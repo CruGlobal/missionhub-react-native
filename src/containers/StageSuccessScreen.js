@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import { connect } from 'react-redux';
 
-import { navigatePush } from '../actions/navigation';
-import { disableBack } from '../utils/common';
 import { personSelector } from '../selectors/people';
 import { stageSelector } from '../selectors/stages';
 
@@ -12,18 +10,9 @@ import IconMessageScreen from './IconMessageScreen/index';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
-  componentDidMount() {
-    disableBack.add();
-  }
-
-  componentWillUnmount() {
-    disableBack.remove();
-  }
-
   handleNavigateToStep = () => {
     const { dispatch, next, person, stage } = this.props;
 
-    disableBack.remove();
     dispatch(next({ personId: person.id, stageId: stage.id }));
   };
 

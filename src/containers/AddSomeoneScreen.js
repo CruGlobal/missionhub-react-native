@@ -3,24 +3,13 @@ import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import { disableBack } from '../utils/common';
-
 import IconMessageScreen from './IconMessageScreen';
 
 @translate('addContact')
 class AddSomeoneScreen extends Component {
-  componentDidMount() {
-    disableBack.add();
-  }
-
-  componentWillUnmount() {
-    disableBack.remove();
-  }
-
   handleNavigate = () => {
     const { dispatch, next } = this.props;
 
-    disableBack.remove();
     dispatch(next());
     Keyboard.dismiss();
   };

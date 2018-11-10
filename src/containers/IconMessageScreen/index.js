@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text, Button } from '../../components/common';
 import theme from '../../theme';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
@@ -27,6 +28,7 @@ class IconMessageScreen extends Component {
             style={{ width: theme.fullWidth }}
           />
         </Flex>
+        <BackButton absolute={true} />
       </Flex>
     );
   }

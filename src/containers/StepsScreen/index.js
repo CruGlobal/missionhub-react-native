@@ -367,3 +367,4 @@ export const mapStateToProps = ({ steps, people, notifications, swipe }) => ({
 });
 
 export default connect(mapStateToProps)(StepsScreen);
+export const STEPS_SCREEN = 'nav/STEPS_SCREEN';

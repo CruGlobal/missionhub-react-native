@@ -6,24 +6,16 @@ import PropTypes from 'prop-types';
 
 import { Button, Text, Flex, Input } from '../../components/common';
 import { createMyPerson, createPerson } from '../../actions/onboardingProfile';
-import { disableBack } from '../../utils/common';
 import { getMe, updatePerson } from '../../actions/person';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
 @translate('setup')
 class SetupScreen extends Component {
   state = { id: '', firstName: '', lastName: '' };
-
-  componentDidMount() {
-    disableBack.add();
-  }
-
-  componentWillUnmount() {
-    disableBack.remove();
-  }
 
   save = async () => {
     const { dispatch, next, me, isMe } = this.props;
@@ -35,30 +27,30 @@ class SetupScreen extends Component {
 
     Keyboard.dismiss();
 
-    if (isMe) {
+    if (id) {
+      await dispatch(
+        updatePerson({
+          id,
+          firstName,
+          lastName,
+        }),
+      );
+      dispatch(next({ personId: id, isMe }));
+    } else if (isMe) {
       await dispatch(createMyPerson(firstName, lastName));
       const { id: personId } = await dispatch(getMe());
+
       dispatch(next({ personId, isMe }));
+      this.setState({ id: personId });
     } else {
-      if (id) {
-        await dispatch(
-          updatePerson({
-            id,
-            firstName,
-            lastName,
-          }),
-        );
-        dispatch(next({ personId: id, isMe }));
-      } else {
-        const { response: person } = await dispatch(
-          createPerson(firstName, lastName, me.id),
-        );
-        dispatch(next({ personId: person.id, isMe }));
-        dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-        this.setState({ id: person.id });
-      }
+      const { response: person } = await dispatch(
+        createPerson(firstName, lastName, me.id),
+      );
+
+      dispatch(next({ personId: person.id, isMe }));
+      this.setState({ id: person.id });
+      dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
     }
-    disableBack.remove();
   };
 
   updateFirstName = t => this.setState({ firstName: t });
@@ -134,6 +126,7 @@ class SetupScreen extends Component {
             text={t('next').toUpperCase()}
           />
         </Flex>
+        <BackButton absolute={true} />
       </View>
     );
   }

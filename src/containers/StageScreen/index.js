@@ -16,7 +16,7 @@ import GUIDING from '../../../assets/images/guidingIcon.png';
 import { getStages } from '../../actions/stages';
 import theme from '../../theme';
 import { trackAction, trackState } from '../../actions/analytics';
-import { buildTrackingObj, disableBack } from '../../utils/common';
+import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
   PERSON_VIEWED_STAGE_CHANGED,
@@ -59,32 +59,15 @@ class StageScreen extends Component {
     this.trackStageState(currentStage.id || stages[0].id);
   }
 
-  componentDidMount() {
-    if (!this.props.enableBackButton) {
-      disableBack.add();
-    }
-  }
-
-  componentWillUnmount() {
-    if (!this.props.enableBackButton) {
-      disableBack.remove();
-    }
-  }
-
   setStage = async (stage, isAlreadySelected) => {
     const {
       dispatch,
       next,
-      enableBackButton,
       person,
       isMe,
       orgId,
       contactAssignmentId,
     } = this.props;
-
-    if (!enableBackButton) {
-      disableBack.remove();
-    }
 
     if (!isAlreadySelected) {
       if (isMe) {
@@ -167,14 +150,7 @@ class StageScreen extends Component {
   };
 
   render() {
-    const {
-      t,
-      person,
-      isMe,
-      stages,
-      currentStage,
-      enableBackButton,
-    } = this.props;
+    const { t, person, isMe, stages, currentStage } = this.props;
 
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
@@ -185,7 +161,7 @@ class StageScreen extends Component {
           source={LANDSCAPE}
           style={[styles.footerImage, { left: leftMargin }]}
         />
-        {enableBackButton ? <BackButton absolute={true} /> : null}
+        <BackButton absolute={true} />
         <Text style={styles.title}>
           {isMe
             ? t('meQuestion', { name: person.first_name })
@@ -226,16 +202,22 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
   const { personId, orgId } = navigation.state.params || {};
 
   const person = personSelector({ people }, { personId, orgId });
+
+  const isMe = isMeSelector({ auth }, { personId });
+
   const { id: contactAssignmentId, pathway_stage_id } =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
   return {
     stages: stages.stages,
     person,
-    isMe: isMeSelector({ auth }, { personId }),
+    isMe,
     orgId,
     contactAssignmentId,
-    currentStage: stageSelector({ stages }, { stageId: pathway_stage_id }),
+    currentStage: stageSelector(
+      { stages },
+      { stageId: isMe ? auth.person.user.pathway_stage_id : pathway_stage_id },
+    ),
   };
 };
 

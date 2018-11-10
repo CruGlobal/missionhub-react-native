@@ -8,6 +8,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import BackButton from '../BackButton';
 
 import styles from './styles';
 
@@ -76,6 +77,7 @@ class NotificationPrimerScreen extends Component {
           </Flex>
         </Flex>
         <Flex value={0.3} />
+        <BackButton absolute={true} />
       </Flex>
     );
   }

@@ -2,36 +2,46 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { AndroidBackHandler } from 'react-navigation-backhandler';
 
-import { navigatePush } from '../../actions/navigation';
 import theme from '../../theme';
 import { Flex, Text, Button } from '../../components/common';
-import { SETUP_SCREEN } from '../SetupScreen';
-import { disableBack } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
+import BackButton from '../BackButton';
+import { prompt } from '../../utils/prompt';
+import { logout } from '../../actions/auth';
 
 import styles from './styles';
 
 @translate('welcome')
 class WelcomeScreen extends Component {
   componentDidMount() {
-    disableBack.add();
-
     this.props.dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-  }
-
-  componentWillUnmount() {
-    disableBack.remove();
   }
 
   navigateToNext = () => {
     const { dispatch, next } = this.props;
 
-    // Remove the back handler when moving forward
-    disableBack.remove();
-
     dispatch(next({ isMe: true }));
+  };
+
+  handleBackAction = () => {
+    this.promptToLogout();
+    return true; // Don't perform normal back action
+  };
+
+  promptToLogout = async () => {
+    const { dispatch, t } = this.props;
+    if (
+      await prompt({
+        title: t('goBackAlert.title'),
+        description: t('goBackAlert.description'),
+        actionLabel: t('goBackAlert.action'),
+      })
+    ) {
+      dispatch(logout());
+    }
   };
 
   render() {
@@ -54,6 +64,8 @@ class WelcomeScreen extends Component {
             style={{ width: theme.fullWidth }}
           />
         </Flex>
+        <BackButton absolute={true} customNavigate={this.handleBackAction} />
+        <AndroidBackHandler onBackPress={this.handleBackAction} />
       </Flex>
     );
   }

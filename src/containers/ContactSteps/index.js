@@ -17,7 +17,7 @@ import StepItem from '../../components/StepItem';
 import RowSwipeable from '../../components/RowSwipeable';
 import NULL from '../../../assets/images/footprints.png';
 import { buildTrackingObj, getAnalyticsSubsection } from '../../utils/common';
-import { promptToAssign } from '../../utils/promptToAssign';
+import { promptToAssign } from '../../utils/prompt';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,

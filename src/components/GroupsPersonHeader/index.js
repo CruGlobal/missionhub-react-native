@@ -7,13 +7,11 @@ import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
 import { navigatePush } from '../../actions/navigation';
-import { PERSON_STAGE_SCREEN } from '../../containers/PersonStageScreenOld';
 import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { ACTIONS } from '../../constants';
 import {
   getPersonEmailAddress,
   getPersonPhoneNumber,
-  getStageIndex,
 } from '../../utils/common';
 import AssignToMeButton from '../AssignToMeButton/index';
 import CenteredIconButtonWithText from '../CenteredIconButtonWithText';

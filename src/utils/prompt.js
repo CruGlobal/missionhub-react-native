@@ -2,19 +2,30 @@ import { Alert } from 'react-native';
 
 import i18n from '../i18n';
 
-export function promptToAssign() {
+export const promptToAssign = () =>
+  prompt({
+    title: i18n.t('assignAlert:question'),
+    description: i18n.t('assignAlert:sentence'),
+  });
+
+export function prompt({
+  title,
+  description,
+  cancelLabel = i18n.t('cancel'),
+  actionLabel = i18n.t('continue'),
+}) {
   return new Promise(resolve =>
     Alert.alert(
-      i18n.t('assignAlert:question'),
-      i18n.t('assignAlert:sentence'),
+      title,
+      description,
       [
         {
-          text: i18n.t('cancel'),
+          text: cancelLabel,
           style: 'cancel',
           onPress: () => resolve(false),
         },
         {
-          text: i18n.t('continue'),
+          text: actionLabel,
           style: 'default',
           onPress: () => {
             resolve(true);

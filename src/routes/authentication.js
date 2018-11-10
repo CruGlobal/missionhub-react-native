@@ -8,8 +8,6 @@ import LoginOptionsScreen, {
 import KeyLoginScreen, { KEY_LOGIN_SCREEN } from '../containers/KeyLoginScreen';
 import MFACodeScreen, { MFA_CODE_SCREEN } from '../containers/MFACodeScreen';
 
-export const AUTHENTICATION_FLOW = 'nav/AUTHENTICATION_FLOW';
-
 export const AuthenticationScreens = {
   [LOGIN_SCREEN]: { screen: LoginScreen },
   [LOGIN_OPTIONS_SCREEN]: {
@@ -29,7 +27,6 @@ export const AuthenticationScreens = {
 export const AuthenticationNavigator = createStackNavigator(
   AuthenticationScreens,
   {
-    initialRouteName: LOGIN_SCREEN,
     navigationOptions: {
       header: null,
     },
