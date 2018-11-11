@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { Flex, Text, Touchable, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
-import { orgIsUserCreated } from '../../utils/common';
+import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 
 import styles from './styles';
 
@@ -21,9 +21,14 @@ class GroupMemberItem extends Component {
       t,
       isUserCreatedOrg,
       myId,
-      myOrgPermissions,
-      personOrgPermissions,
+      iAmAdmin,
+      iAmOwner,
+      personIsAdmin,
+      personIsOwner,
     } = this.props;
+
+    const isMe = person.id === myId;
+    const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
     return (
       <Card onPress={this.handleSelect}>
@@ -51,8 +56,10 @@ class GroupMemberItem extends Component {
           <MemberOptionsMenu
             myId={myId}
             personId={person.id}
-            myOrgPermissions={myOrgPermissions}
-            personOrgPermissions={personOrgPermissions}
+            iAmAdmin={iAmAdmin}
+            iAmOwner={iAmOwner}
+            personIsAdmin={personIsAdmin}
+            personIsOwner={personIsOwner}
           />
         </Flex>
       </Card>
@@ -69,17 +76,22 @@ GroupMemberItem.propTypes = {
   }).isRequired,
   myId: PropTypes.string.isRequired,
   myOrgPermissions: PropTypes.object.isRequired,
-  personOrgPermissions: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
-  isUserCreatedOrg: PropTypes.bool,
 };
 
-const mapStateToProps = (_, { person, organization }) => ({
-  personOrgPermissions: orgPermissionSelector(null, {
+const mapStateToProps = (_, { person, myOrgPermissions, organization }) => {
+  const personOrgPermissions = orgPermissionSelector(null, {
     person,
     organization,
-  }),
-  isUserCreatedOrg: orgIsUserCreated(organization),
-});
+  });
+
+  return {
+    iAmAdmin: isAdminOrOwner(myOrgPermissions),
+    iAmOwner: isOwner(myOrgPermissions),
+    personIsAdmin: isAdminOrOwner(personOrgPermissions),
+    personIsOwner: isOwner(personOrgPermissions),
+    isUserCreatedOrg: orgIsUserCreated(organization),
+  };
+};
 
 export default connect(mapStateToProps)(GroupMemberItem);

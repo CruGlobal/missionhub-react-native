@@ -33,15 +33,13 @@ class MemberOptionsMenu extends Component {
       t,
       myId,
       personId,
-      myOrgPermissions,
-      personOrgPermissions,
+      iAmAdmin,
+      iAmOwner,
+      personIsAdmin,
+      personIsOwner,
     } = this.props;
 
     const personIsMe = myId === personId;
-    const iAmAdmin = isAdminOrOwner(myOrgPermissions);
-    const iAmOwner = isOwner(myOrgPermissions);
-    const personIsAdmin = isAdminOrOwner(personOrgPermissions);
-    const personIsOwner = isOwner(personOrgPermissions);
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
@@ -76,8 +74,10 @@ class MemberOptionsMenu extends Component {
 MemberOptionsMenu.propTypes = {
   myId: PropTypes.string.isRequired,
   personId: PropTypes.string.isRequired,
-  myOrgPermissions: PropTypes.object.isRequired,
-  personOrgPermissions: PropTypes.object.isRequired,
+  iAmAdmin: PropTypes.bool,
+  iAmOwner: PropTypes.bool,
+  personIsAdmin: PropTypes.bool,
+  personIsOWner: PropTypes.bool,
 };
 
 export default MemberOptionsMenu;
