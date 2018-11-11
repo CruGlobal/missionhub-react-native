@@ -53,14 +53,16 @@ class GroupMemberItem extends Component {
               </Flex>
             ) : null}
           </Flex>
-          <MemberOptionsMenu
-            myId={myId}
-            personId={person.id}
-            iAmAdmin={iAmAdmin}
-            iAmOwner={iAmOwner}
-            personIsAdmin={personIsAdmin}
-            personIsOwner={personIsOwner}
-          />
+          {showOptionsMenu ? (
+            <MemberOptionsMenu
+              myId={myId}
+              personId={person.id}
+              iAmAdmin={iAmAdmin}
+              iAmOwner={iAmOwner}
+              personIsAdmin={personIsAdmin}
+              personIsOwner={personIsOwner}
+            />
+          ) : null}
         </Flex>
       </Card>
     );
