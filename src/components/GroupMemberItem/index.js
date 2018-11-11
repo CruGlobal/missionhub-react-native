@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { Flex, Text, Touchable, Dot, Card } from '../common';
+import { Flex, Text, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
@@ -12,11 +12,13 @@ import styles from './styles';
 
 @translate('groupItem')
 class GroupMemberItem extends Component {
-  handleSelect = () => this.props.onSelect(this.props.person);
+  handleSelect = () => {
+    const { onSelect, person } = this.props;
+    onSelect && onSelect(person);
+  };
 
   render() {
     const {
-      onSelect,
       person,
       t,
       isUserCreatedOrg,
@@ -60,7 +62,6 @@ class GroupMemberItem extends Component {
               iAmAdmin={iAmAdmin}
               iAmOwner={iAmOwner}
               personIsAdmin={personIsAdmin}
-              personIsOwner={personIsOwner}
             />
           ) : null}
         </Flex>

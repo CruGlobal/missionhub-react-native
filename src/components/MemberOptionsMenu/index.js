@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Share, Linking } from 'react-native';
 import { translate } from 'react-i18next';
 
 import PopupMenu from '../PopupMenu';
-import { getSurveyUrl, isAdminOrOwner, isOwner } from '../../utils/common';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -29,15 +27,7 @@ class MemberOptionsMenu extends Component {
   };
 
   render() {
-    const {
-      t,
-      myId,
-      personId,
-      iAmAdmin,
-      iAmOwner,
-      personIsAdmin,
-      personIsOwner,
-    } = this.props;
+    const { t, myId, personId, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
 
     const personIsMe = myId === personId;
 
@@ -77,7 +67,6 @@ MemberOptionsMenu.propTypes = {
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,
-  personIsOWner: PropTypes.bool,
 };
 
 export default MemberOptionsMenu;

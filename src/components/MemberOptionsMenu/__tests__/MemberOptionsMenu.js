@@ -1,9 +1,8 @@
 import React from 'react';
-import { Share, Linking } from 'react-native';
 
 import MemberOptionsMenu from '..';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { testSnapshotShallow } from '../../../../testUtils';
 
 const props = {
   survey: { id: '1', title: 'test' },
