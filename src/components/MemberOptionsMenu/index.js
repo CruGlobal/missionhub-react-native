@@ -51,31 +51,21 @@ class MemberOptionsMenu extends Component {
 
     const props = {
       actions: [
-        ...[
-          showLeaveCommunity
-            ? { text: t('leaveCommunity'), onPress: this.leaveCommunity }
-            : {},
-        ],
-        ...[
-          showMakeAdmin
-            ? { text: t('makeAdmin'), onPress: this.makeAdmin }
-            : {},
-        ],
-        ...[
-          showRemoveAdmin
-            ? { text: t('removeAdmin'), onPress: this.removeAdmin }
-            : {},
-        ],
-        ...[
-          showMakeOwner
-            ? { text: t('makeOwner'), onPress: this.makeOwner }
-            : {},
-        ],
-        ...[
-          showRemoveMember
-            ? { text: t('removeMember'), onPress: this.removeMember }
-            : {},
-        ],
+        ...(showLeaveCommunity
+          ? [{ text: t('leaveCommunity'), onPress: this.leaveCommunity }]
+          : []),
+        ...(showMakeAdmin
+          ? [{ text: t('makeAdmin'), onPress: this.makeAdmin }]
+          : []),
+        ...(showRemoveAdmin
+          ? [{ text: t('removeAdmin'), onPress: this.removeAdmin }]
+          : []),
+        ...(showMakeOwner
+          ? [{ text: t('makeOwner'), onPress: this.makeOwner }]
+          : []),
+        ...(showRemoveMember
+          ? [{ text: t('removeMember'), onPress: this.removeMember }]
+          : []),
       ],
       iconProps: {},
     };
