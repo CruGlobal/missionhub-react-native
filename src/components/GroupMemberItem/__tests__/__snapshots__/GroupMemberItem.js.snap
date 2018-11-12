@@ -1,6 +1,356 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with onSelect prop render 0 assigned 1`] = `
+exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render MemberOptionsMenu should not render menu if person is owner 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render MemberOptionsMenu should render menu if I am admin and person is not owner 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+    <Translate(MemberOptionsMenu)
+      iAmAdmin={true}
+      iAmOwner={false}
+      myId="1"
+      personId="123"
+      personIsAdmin={false}
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 24,
+        "paddingRight": 13,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 14,
+            }
+          }
+        >
+          5 Assigned
+        </MyText>
+        <React.Fragment>
+          <Dot
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          />
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            3 Uncontacted
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+    <Translate(MemberOptionsMenu)
+      iAmAdmin={false}
+      iAmOwner={false}
+      myId="1"
+      personId="1"
+      personIsAdmin={false}
+    />
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count cru org should render 0 assigned 1`] = `
 <Card
   onPress={[Function]}
 >
@@ -80,12 +430,11 @@ exports[`with onSelect prop render 0 assigned 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu) />
   </Flex>
 </Card>
 `;
 
-exports[`with onSelect prop render 0 uncontacted 1`] = `
+exports[`render contacts count cru org should render 0 uncontacted 1`] = `
 <Card
   onPress={[Function]}
 >
@@ -142,97 +491,11 @@ exports[`with onSelect prop render 0 uncontacted 1`] = `
         </MyText>
       </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu) />
   </Flex>
 </Card>
 `;
 
-exports[`with onSelect prop render for user created org 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
-      }
-    }
-  >
-    <Flex
-      direction="column"
-      value={1}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "fontWeight": "bold",
-          }
-        }
-      >
-        FULL NAME
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "marginTop": 1,
-          }
-        }
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#FF5532",
-                "fontSize": 14,
-              }
-            }
-          >
-            3 Uncontacted
-          </MyText>
-        </React.Fragment>
-      </Flex>
-    </Flex>
-    <Translate(MemberOptionsMenu) />
-  </Flex>
-</Card>
-`;
-
-exports[`with onSelect prop render member 1`] = `
+exports[`render contacts count cru org should render assigned and uncontacted 1`] = `
 <Card
   onPress={[Function]}
 >
@@ -312,12 +575,11 @@ exports[`with onSelect prop render member 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu) />
   </Flex>
 </Card>
 `;
 
-exports[`without onSelect prop renders 1`] = `
+exports[`render contacts count user created org should not render contacts count 1`] = `
 <Card
   onPress={[Function]}
 >
@@ -350,54 +612,7 @@ exports[`without onSelect prop renders 1`] = `
       >
         FULL NAME
       </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        style={
-          Object {
-            "marginTop": 1,
-          }
-        }
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#FF5532",
-                "fontSize": 14,
-              }
-            }
-          >
-            3 Uncontacted
-          </MyText>
-        </React.Fragment>
-      </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu) />
   </Flex>
 </Card>
 `;

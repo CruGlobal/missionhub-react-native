@@ -44,20 +44,20 @@ describe('render contacts count', () => {
     it('should render assigned and uncontacted', () => {
       testSnapshotShallow(<GroupMemberItem {...props} />);
     });
-  });
 
-  it('should render 0 assigned', () => {
-    const newMember = { ...member, contact_count: 0 };
-    testSnapshotShallow(
-      <GroupMemberItem {...{ ...props, person: newMember }} />,
-    );
-  });
+    it('should render 0 assigned', () => {
+      const newMember = { ...member, contact_count: 0 };
+      testSnapshotShallow(
+        <GroupMemberItem {...{ ...props, person: newMember }} />,
+      );
+    });
 
-  it('should render 0 uncontacted', () => {
-    const newMember = { ...member, uncontacted_count: 0 };
-    testSnapshotShallow(
-      <GroupMemberItem {...{ ...props, person: newMember }} />,
-    );
+    it('should render 0 uncontacted', () => {
+      const newMember = { ...member, uncontacted_count: 0 };
+      testSnapshotShallow(
+        <GroupMemberItem {...{ ...props, person: newMember }} />,
+      );
+    });
   });
 });
 
@@ -73,14 +73,6 @@ describe('render MemberOptionsMenu', () => {
   const ownerPermissions = {
     ...orgPermission,
     permission_id: ORG_PERMISSIONS.OWNER,
-  };
-
-  const props = {
-    onSelect: jest.mock(),
-    person: member,
-    myOrgPermissions: memberPermissions,
-    myId,
-    organization,
   };
 
   it('should render menu if person is me', () => {
@@ -111,24 +103,14 @@ describe('render MemberOptionsMenu', () => {
   });
 });
 
-describe('with onSelect prop', () => {
-  it('render member', () => {});
-
+describe('onSelect', () => {
   it('calls onSelect prop', () => {
     const onSelect = jest.fn();
 
-    renderShallow(
-      <GroupMemberItem onSelect={onSelect} person={member} myId={myId} />,
-    )
+    renderShallow(<GroupMemberItem {...{ ...props, onSelect }} />)
       .instance()
       .handleSelect();
 
     expect(onSelect).toHaveBeenCalled();
-  });
-});
-
-describe('without onSelect prop', () => {
-  it('renders', () => {
-    testSnapshotShallow(<GroupMemberItem onSelect={null} person={member} />);
   });
 });
