@@ -77,6 +77,7 @@ GroupMemberItem.propTypes = {
     contact_count: PropTypes.number,
     uncontacted_count: PropTypes.number,
   }).isRequired,
+  organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
   myOrgPermissions: PropTypes.object.isRequired,
   onSelect: PropTypes.func,

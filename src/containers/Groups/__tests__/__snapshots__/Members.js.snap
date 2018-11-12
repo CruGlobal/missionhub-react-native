@@ -2,6 +2,7 @@
 
 exports[`Members calls render item 1`] = `
 <Connect(Translate(GroupMemberItem))
+  myId="111"
   myOrgPermissions={
     Object {
       "organization_id": "1",
