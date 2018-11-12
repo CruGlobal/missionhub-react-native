@@ -1,5 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`GroupCardItem renders for join screen 1`] = `
+<Card
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "width": "100%",
+      }
+    }
+  />
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "padding": 13,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <Flex
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        7 Members  ·  Roge (Owner)
+      </MyText>
+    </Flex>
+    <Flex
+      direction="column"
+      justify="center"
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#FF5532",
+              "borderRadius": 12,
+              "margin": 5,
+              "paddingHorizontal": 20,
+              "paddingVertical": 5,
+            },
+          ]
+        }
+        text="JOIN"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
+</Card>
+`;
+
 exports[`GroupCardItem renders user created group 1`] = `
 <Card
   onPress={[Function]}
@@ -28,6 +131,7 @@ exports[`GroupCardItem renders user created group 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -40,31 +144,35 @@ exports[`GroupCardItem renders user created group 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    />
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      />
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -97,6 +205,7 @@ exports[`GroupCardItem renders with all report counts 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -109,33 +218,37 @@ exports[`GroupCardItem renders with all report counts 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    >
-      768 Contacts   ·   13 Unassigned
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        768 Contacts   ·   13 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -168,6 +281,7 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -180,33 +294,37 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    >
-      768 Contacts   ·   0 Unassigned
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        768 Contacts   ·   0 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -239,6 +357,7 @@ exports[`GroupCardItem renders with image url 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -251,31 +370,37 @@ exports[`GroupCardItem renders with image url 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    />
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 Contacts   ·   0 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -308,6 +433,7 @@ exports[`GroupCardItem renders with no report counts 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -320,33 +446,37 @@ exports[`GroupCardItem renders with no report counts 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    >
-      0 Contacts   ·   0 Unassigned
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 Contacts   ·   0 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -379,6 +509,7 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -391,31 +522,35 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    />
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      />
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -448,6 +583,7 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
     }
   />
   <Flex
+    direction="row"
     justify="center"
     style={
       Object {
@@ -460,33 +596,37 @@ exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
       }
     }
   >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
+    <Flex
+      value={1}
     >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
         }
-      }
-    >
-      0 Contacts   ·   13 Unassigned
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 Contacts   ·   13 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;

@@ -4,6 +4,7 @@ import { Linking } from 'react-native';
 import { Provider } from 'react-redux';
 
 import LoginOptionsScreen from '..';
+import { JOIN_GROUP_SCREEN } from '../../Groups/JoinGroupScreen';
 
 import {
   createMockStore,
@@ -12,6 +13,7 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import * as auth from '../../../actions/auth';
+import { navigatePush } from '../../../actions/navigation';
 
 let store;
 
@@ -21,7 +23,9 @@ jest.mock('../../../actions/auth', () => ({
   firstTime: jest.fn(),
   openKeyURL: jest.fn(),
 }));
-jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
+}));
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: {
     logInWithReadPermissions: jest
@@ -83,6 +87,11 @@ describe('a login button is clicked', () => {
   it('try it now to be called', () => {
     screen.find({ name: 'tryItNowButton' }).simulate('press');
     expect(store.dispatch).toHaveBeenCalledTimes(2);
+  });
+
+  it('community code button to be called', () => {
+    screen.find({ name: 'communityCodeButton' }).simulate('press');
+    expect(navigatePush).toHaveBeenCalledWith(JOIN_GROUP_SCREEN, {});
   });
 
   it('navigate next to be called', () => {

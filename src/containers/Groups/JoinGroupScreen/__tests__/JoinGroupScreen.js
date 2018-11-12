@@ -2,7 +2,7 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import configureStore from 'redux-mock-store';
 
-import CreateGroupScreen from '..';
+import JoinGroupScreen from '..';
 
 import {
   renderShallow,
@@ -20,7 +20,7 @@ const store = mockStore();
 
 function buildScreen(props) {
   return renderShallow(
-    <CreateGroupScreen navigation={createMockNavState()} {...props} />,
+    <JoinGroupScreen navigation={createMockNavState()} {...props} />,
     store,
   );
 }
@@ -30,33 +30,30 @@ function buildScreenInstance(props) {
 }
 
 describe('CreateGroupScreen', () => {
-  it('renders correctly', () => {
+  it('renders start correctly', () => {
     testSnapshotShallow(
-      <CreateGroupScreen navigation={createMockNavState()} />,
+      <JoinGroupScreen navigation={createMockNavState()} />,
       store,
     );
   });
 
-  it('should update the state', () => {
-    const component = buildScreenInstance();
+  it('renders group card correctly', () => {
+    const component = buildScreen();
+    component.setState({ community: { id: '1' } });
+    component.update();
 
-    const name = 'test';
-    component.onChangeText(name);
-
-    expect(component.state.name).toEqual(name);
-  });
-
-  it('should update the image', () => {
-    const component = buildScreenInstance();
-
-    const uri = 'testuri';
-    component.handleImageChange({ uri });
-
-    expect(component.state.imageUri).toEqual(uri);
     expect(component).toMatchSnapshot();
   });
 
-  it('should call create community', () => {
+  it('renders error correctly', () => {
+    const component = buildScreen();
+    component.setState({ error: 'error message' });
+    component.update();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should call onSearch', () => {
     Keyboard.dismiss = jest.fn();
     const component = buildScreen();
     component
@@ -65,8 +62,7 @@ describe('CreateGroupScreen', () => {
       .props()
       .onPress();
 
-    expect(Keyboard.dismiss).toHaveBeenCalled();
-    // TODO: Expect more to happen when the API call is implemented
+    expect(component.instance().onSearch).toHaveBeenCalled();
   });
 
   it('should call navigate back', () => {
@@ -81,6 +77,6 @@ describe('CreateGroupScreen', () => {
     const instance = buildScreenInstance();
     const ref = 'test';
     instance.ref(ref);
-    expect(instance.nameInput).toEqual(ref);
+    expect(instance.codeInput).toEqual(ref);
   });
 });
