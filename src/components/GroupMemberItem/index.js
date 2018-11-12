@@ -11,23 +11,40 @@ import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 import styles from './styles';
 
 @translate('groupItem')
-class GroupMemberItem extends Component {
+export default class GroupMemberItem extends Component {
+  constructor(props) {
+    super(props);
+
+    const { person, myOrgPermissions, organization } = props;
+
+    const personOrgPermissions = orgPermissionSelector(null, {
+      person,
+      organization,
+    });
+
+    this.state = {
+      iAmAdmin: isAdminOrOwner(myOrgPermissions),
+      iAmOwner: isOwner(myOrgPermissions),
+      personIsAdmin: isAdminOrOwner(personOrgPermissions),
+      personIsOwner: isOwner(personOrgPermissions),
+      isUserCreatedOrg: orgIsUserCreated(organization),
+    };
+  }
+
   handleSelect = () => {
     const { onSelect, person } = this.props;
     onSelect && onSelect(person);
   };
 
   render() {
+    const { person, t, myId } = this.props;
     const {
-      person,
-      t,
-      isUserCreatedOrg,
-      myId,
       iAmAdmin,
       iAmOwner,
       personIsAdmin,
       personIsOwner,
-    } = this.props;
+      isUserCreatedOrg,
+    } = this.state;
 
     const isMe = person.id === myId;
     const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
@@ -82,20 +99,3 @@ GroupMemberItem.propTypes = {
   myOrgPermissions: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
 };
-
-const mapStateToProps = (_, { person, myOrgPermissions, organization }) => {
-  const personOrgPermissions = orgPermissionSelector(null, {
-    person,
-    organization,
-  });
-
-  return {
-    iAmAdmin: isAdminOrOwner(myOrgPermissions),
-    iAmOwner: isOwner(myOrgPermissions),
-    personIsAdmin: isAdminOrOwner(personOrgPermissions),
-    personIsOwner: isOwner(personOrgPermissions),
-    isUserCreatedOrg: orgIsUserCreated(organization),
-  };
-};
-
-export default connect(mapStateToProps)(GroupMemberItem);
