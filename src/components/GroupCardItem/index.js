@@ -49,9 +49,12 @@ export default class GroupCardItem extends Component {
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
             <Text style={styles.groupNumber}>
               {onJoin
-                ? `${t('numMembers', { number: membersCount })} . ${t('owner', {
-                    name: owner,
-                  })}`
+                ? `${t('numMembers', { number: membersCount })}  ·  ${t(
+                    'owner',
+                    {
+                      name: owner,
+                    },
+                  )}`
                 : isUserCreated
                   ? '' /*t('numMembers', { number: membersCount })*/
                   : `${t('numContacts', { number: contactsCount })}   ·   ${t(

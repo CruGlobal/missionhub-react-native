@@ -29,6 +29,7 @@ import styles from './styles';
 class JoinGroupScreen extends Component {
   state = {
     code: '',
+    errorMessage: '',
     community: undefined,
   };
 
@@ -37,12 +38,17 @@ class JoinGroupScreen extends Component {
   onSearch = () => {
     Keyboard.dismiss();
     const text = (this.state.code || '').trim();
-    if (!text) {
+    if (!text || text.length < 6) {
+      this.setState({
+        errorMessage: this.props.t('communityNotFound'),
+        community: undefined,
+      });
       return;
     }
 
     // TODO: search community by code
     this.setState({
+      errorMessage: '',
       community: {
         name: 'Test Community',
         owner: 'Roge',
@@ -73,10 +79,10 @@ class JoinGroupScreen extends Component {
   }
 
   renderError() {
-    const { t } = this.props;
+    const { errorMessage } = this.state;
     return (
       <Flex align="center" justify="center">
-        <Text style={styles.text}>{t('communityNotFound')}</Text>
+        <Text style={styles.text}>{errorMessage}</Text>
       </Flex>
     );
   }
@@ -89,7 +95,7 @@ class JoinGroupScreen extends Component {
 
   render() {
     const { t } = this.props;
-    const { code, community } = this.state;
+    const { code, errorMessage, community } = this.state;
 
     return (
       <View style={styles.container}>
@@ -106,7 +112,11 @@ class JoinGroupScreen extends Component {
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
           <Flex align="center" justify="end" style={styles.imageWrap}>
-            {community ? this.renderGroupCard() : this.renderStart()}
+            {errorMessage
+              ? this.renderError()
+              : community
+                ? this.renderGroupCard()
+                : this.renderStart()}
           </Flex>
           <Flex style={styles.fieldWrap}>
             <Input
