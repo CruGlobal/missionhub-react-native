@@ -33,7 +33,12 @@ class JoinGroupScreen extends Component {
     community: undefined,
   };
 
-  onChangeCode = code => this.setState({ code: code.toUpperCase() });
+  onChangeCode = async code => {
+    await this.setState({ code: code.toUpperCase() });
+    if (code.length >= 6) {
+      this.onSearch();
+    }
+  };
 
   onSearch = () => {
     const {
