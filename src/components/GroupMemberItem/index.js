@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
