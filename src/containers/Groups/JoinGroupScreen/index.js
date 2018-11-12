@@ -36,11 +36,18 @@ class JoinGroupScreen extends Component {
   onChangeCode = code => this.setState({ code: code.toUpperCase() });
 
   onSearch = () => {
-    Keyboard.dismiss();
-    const text = (this.state.code || '').trim();
+    const {
+      codeInput,
+      state: { code },
+      props: { t },
+    } = this;
+
+    codeInput.focus();
+
+    const text = (code || '').trim();
     if (!text || text.length < 6) {
       this.setState({
-        errorMessage: this.props.t('communityNotFound'),
+        errorMessage: t('communityNotFound'),
         community: undefined,
       });
       return;
@@ -66,7 +73,7 @@ class JoinGroupScreen extends Component {
 
   navigateBack = () => this.props.dispatch(navigateBack());
 
-  ref = c => (this.nameInput = c);
+  ref = c => (this.codeInput = c);
 
   renderStart() {
     const { t } = this.props;
@@ -120,10 +127,13 @@ class JoinGroupScreen extends Component {
           </Flex>
           <Flex style={styles.fieldWrap}>
             <Input
+              ref={this.ref}
               style={styles.input}
               onChangeText={this.onChangeCode}
               maxLength={6}
               value={code}
+              autoFocus={true}
+              blurOnSubmit={false}
             />
           </Flex>
           <KeyboardAvoidingView
