@@ -7,23 +7,23 @@ import PopupMenu from '../PopupMenu';
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = () => {
-    console.log('Leave Community');
+    //TODO: leave community
   };
 
   makeAdmin = () => {
-    console.log('Make Admin');
+    //TODO: make admin
   };
 
   removeAdmin = () => {
-    console.log('Remove Admin');
+    //TODO: remove admin
   };
 
   makeOwner = () => {
-    console.log('Make Owner');
+    //TODO: make owner
   };
 
   removeMember = () => {
-    console.log('Remove Member');
+    //TODO: remove member
   };
 
   render() {
