@@ -108,7 +108,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        imageUrl:
+        community_photo_url:
           'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
       },
     };

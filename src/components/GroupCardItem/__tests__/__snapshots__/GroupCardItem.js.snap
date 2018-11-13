@@ -162,15 +162,6 @@ exports[`GroupCardItem renders user created group 1`] = `
 exports[`GroupCardItem renders with all report counts 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
