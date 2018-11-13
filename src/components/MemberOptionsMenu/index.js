@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
@@ -26,10 +27,37 @@ class MemberOptionsMenu extends Component {
     //TODO: remove member
   };
 
-  render() {
-    const { t, myId, personId, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
+  createOption = (optionName, optionMethod, hasDescription) => {
+    const {
+      t,
+      person: { full_name: personName },
+      organization: { name: communityName },
+    } = this.props;
 
-    const personIsMe = myId === personId;
+    const onPress = () => {
+      Alert.alert(
+        t(`${optionName}.modalTitle`, { personName, communityName }),
+        hasDescription ? t(`${optionName}.modalDescription`) : null,
+        [
+          {
+            text: t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: t(`${optionName}.confirmButtonText`),
+            onPress: optionMethod,
+          },
+        ],
+      );
+    };
+
+    return [{ text: t(`${optionName}.optionTitle`), onPress }];
+  };
+
+  render() {
+    const { t, myId, person, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
+
+    const personIsMe = myId === person.id;
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
@@ -40,19 +68,19 @@ class MemberOptionsMenu extends Component {
     const props = {
       actions: [
         ...(showLeaveCommunity
-          ? [{ text: t('leaveCommunity'), onPress: this.leaveCommunity }]
+          ? this.createOption('leaveCommunity', this.leaveCommunity)
           : []),
         ...(showMakeAdmin
-          ? [{ text: t('makeAdmin'), onPress: this.makeAdmin }]
+          ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
         ...(showRemoveAdmin
-          ? [{ text: t('removeAdmin'), onPress: this.removeAdmin }]
+          ? this.createOption('removeAdmin', this.removeAdmin)
           : []),
         ...(showMakeOwner
-          ? [{ text: t('makeOwner'), onPress: this.makeOwner }]
+          ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
         ...(showRemoveMember
-          ? [{ text: t('removeMember'), onPress: this.removeMember }]
+          ? this.createOption('removeMember', this.removeMember)
           : []),
       ],
       iconProps: {},
@@ -63,7 +91,8 @@ class MemberOptionsMenu extends Component {
 
 MemberOptionsMenu.propTypes = {
   myId: PropTypes.string.isRequired,
-  personId: PropTypes.string.isRequired,
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,

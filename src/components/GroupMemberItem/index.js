@@ -36,7 +36,7 @@ export default class GroupMemberItem extends Component {
   };
 
   render() {
-    const { person, t, myId } = this.props;
+    const { t, myId, person, organization } = this.props;
     const {
       iAmAdmin,
       iAmOwner,
@@ -74,7 +74,8 @@ export default class GroupMemberItem extends Component {
           {showOptionsMenu ? (
             <MemberOptionsMenu
               myId={myId}
-              personId={person.id}
+              person={person}
+              organization={organization}
               iAmAdmin={iAmAdmin}
               iAmOwner={iAmOwner}
               personIsAdmin={personIsAdmin}
