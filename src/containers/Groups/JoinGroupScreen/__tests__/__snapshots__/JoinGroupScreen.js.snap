@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateGroupScreen onSearch should set community after entering 6th digit 1`] = `
+exports[`JoinGroupScreen onSearch should set community after entering 6th digit 1`] = `
 Object {
   "code": "123456",
   "community": Object {
@@ -14,7 +14,7 @@ Object {
 }
 `;
 
-exports[`CreateGroupScreen onSearch should set community if input has 6 digits 1`] = `
+exports[`JoinGroupScreen onSearch should set community if input has 6 digits 1`] = `
 Object {
   "code": "123456",
   "community": Object {
@@ -28,7 +28,7 @@ Object {
 }
 `;
 
-exports[`CreateGroupScreen onSearch should set error if input has < 6 digits 1`] = `
+exports[`JoinGroupScreen onSearch should set error if input has < 6 digits 1`] = `
 Object {
   "code": "123",
   "community": undefined,
@@ -37,7 +37,7 @@ Double check your code.",
 }
 `;
 
-exports[`CreateGroupScreen renders error correctly 1`] = `
+exports[`JoinGroupScreen renders error correctly 1`] = `
 <Component
   style={
     Object {
@@ -159,7 +159,7 @@ exports[`CreateGroupScreen renders error correctly 1`] = `
 </Component>
 `;
 
-exports[`CreateGroupScreen renders group card correctly 1`] = `
+exports[`JoinGroupScreen renders group card correctly 1`] = `
 <Component
   style={
     Object {
@@ -261,7 +261,7 @@ exports[`CreateGroupScreen renders group card correctly 1`] = `
 </Component>
 `;
 
-exports[`CreateGroupScreen renders start correctly 1`] = `
+exports[`JoinGroupScreen renders start correctly 1`] = `
 <Component
   style={
     Object {
