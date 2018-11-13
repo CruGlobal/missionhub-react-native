@@ -518,7 +518,7 @@ export default {
   groupMemberOptions: {
     leaveCommunity: 'Leave Community',
     ownerLeaveCommunityErrorMessage:
-      'In order to leave this community you must assign a new owner to {{orgName}}',
+      'You must assign a new owner to {{orgName}} before you go',
     makeAdmin: 'Make Admin',
     removeAdmin: 'Remove Admin',
     makeOwner: 'Make Owner',
