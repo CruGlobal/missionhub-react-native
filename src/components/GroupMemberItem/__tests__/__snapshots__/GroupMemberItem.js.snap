@@ -252,6 +252,12 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       iAmAdmin={true}
       iAmOwner={false}
       myId="1"
+      organization={
+        Object {
+          "id": "1234",
+          "user_created": false,
+        }
+      }
       personId="123"
       personIsAdmin={false}
     />
@@ -343,6 +349,12 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       iAmAdmin={false}
       iAmOwner={false}
       myId="1"
+      organization={
+        Object {
+          "id": "1234",
+          "user_created": false,
+        }
+      }
       personId="1"
       personIsAdmin={false}
     />

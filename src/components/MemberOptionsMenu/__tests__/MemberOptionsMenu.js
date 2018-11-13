@@ -1,8 +1,10 @@
 import React from 'react';
+import { Alert } from 'react-native';
+import i18next from 'i18next';
 
 import MemberOptionsMenu from '..';
 
-import { testSnapshotShallow } from '../../../../testUtils';
+import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
 const myId = '1';
 const otherId = '2';
@@ -14,15 +16,32 @@ const test = () => {
 };
 
 describe('MemberOptionsMenu', () => {
-  it('renders for me', () => {
+  describe('for me, as owner', () => {
     props = {
       myId,
       personId: myId,
       iAmAdmin: false,
-      iAmOwner: false,
+      iAmOwner: true,
       personIsAdmin: false,
+      organization: { name: "Roge's org" },
     };
-    test();
+
+    it('renders correctly', () => test());
+
+    it('shows an alert message if I attempt to leave', () => {
+      Alert.alert = jest.fn();
+      const screen = renderShallow(<MemberOptionsMenu {...props} />);
+
+      screen.props().actions[0].onPress();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('groupMemberOptions:ownerLeaveCommunityErrorMessage', {
+          orgName: props.organization.name,
+        }),
+        null,
+        { text: i18next.t('ok') },
+      );
+    });
   });
 
   it('renders for admin looking at member', () => {
@@ -32,6 +51,7 @@ describe('MemberOptionsMenu', () => {
       iAmAdmin: true,
       iAmOwner: false,
       personIsAdmin: false,
+      organization: { name: "Roge's org" },
     };
     test();
   });
@@ -43,6 +63,7 @@ describe('MemberOptionsMenu', () => {
       iAmAdmin: true,
       iAmOwner: false,
       personIsAdmin: true,
+      organization: { name: "Roge's org" },
     };
     test();
   });
@@ -54,6 +75,7 @@ describe('MemberOptionsMenu', () => {
       iAmAdmin: true,
       iAmOwner: true,
       personIsAdmin: false,
+      organization: { name: "Roge's org" },
     };
     test();
   });
@@ -65,6 +87,7 @@ describe('MemberOptionsMenu', () => {
       iAmAdmin: true,
       iAmOwner: true,
       personIsAdmin: true,
+      organization: { name: "Roge's org" },
     };
     test();
   });
