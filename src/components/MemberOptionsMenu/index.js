@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import PopupMenu from '../PopupMenu';
+import { makeAdmin } from '../../actions/person';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -12,7 +14,8 @@ class MemberOptionsMenu extends Component {
   };
 
   makeAdmin = () => {
-    //TODO: make admin
+    const { dispatch, person, personOrgPermissions } = this.props;
+    dispatch(makeAdmin(person, personOrgPermissions.id));
   };
 
   removeAdmin = () => {
@@ -93,9 +96,10 @@ MemberOptionsMenu.propTypes = {
   myId: PropTypes.string.isRequired,
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
+  personOrgPermission: PropTypes.object.isRequired,
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,
 };
 
-export default MemberOptionsMenu;
+export default connect()(MemberOptionsMenu);

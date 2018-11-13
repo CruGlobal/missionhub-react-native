@@ -27,6 +27,7 @@ export default class GroupMemberItem extends Component {
       personIsAdmin: isAdminOrOwner(personOrgPermissions),
       personIsOwner: isOwner(personOrgPermissions),
       isUserCreatedOrg: orgIsUserCreated(organization),
+      personOrgPermissions,
     };
   }
 
@@ -43,6 +44,7 @@ export default class GroupMemberItem extends Component {
       personIsAdmin,
       personIsOwner,
       isUserCreatedOrg,
+      personOrgPermissions,
     } = this.state;
 
     const isMe = person.id === myId;
@@ -76,6 +78,7 @@ export default class GroupMemberItem extends Component {
               myId={myId}
               person={person}
               organization={organization}
+              personOrgPermissions={personOrgPermissions}
               iAmAdmin={iAmAdmin}
               iAmOwner={iAmOwner}
               personIsAdmin={personIsAdmin}

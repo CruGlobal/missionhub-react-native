@@ -13,6 +13,7 @@ import {
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
+  ORG_PERMISSIONS,
 } from '../constants';
 import { hasOrgPermissions, exists } from '../utils/common';
 import {
@@ -236,6 +237,48 @@ export function updatePerson(data) {
     );
 
     return results;
+  };
+}
+
+export function makeAdmin(person, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(person, orgPermissionId, ORG_PERMISSIONS.ADMIN),
+    );
+}
+
+export function updateOrgPermission(person, orgPermissionId, permissionLevel) {
+  return async dispatch => {
+    const data = {
+      data: {
+        type: 'person',
+      },
+      included: [
+        {
+          id: orgPermissionId,
+          type: 'organizational_permission',
+          attributes: {
+            permission_id: permissionLevel,
+          },
+        },
+      ],
+    };
+    const { response } = await dispatch(
+      callApi(REQUESTS.UPDATE_PERSON, { personId: person.id }, data),
+    );
+    console.log(response);
+
+    return response;
+    /*return dispatch(
+      updatePersonAttributes(person.id, {
+        organizational_permissions: person.organizational_permissions.map(
+          orgPermission =>
+            orgPermission.id === orgPermissionId
+              ? { ...orgPermission, permission_id: permissionLevels }
+              : orgPermission,
+        ),
+      }),
+    );*/
   };
 }
 
