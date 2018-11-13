@@ -13,6 +13,8 @@ class MemberOptionsMenu extends Component {
     if (iAmOwner) {
       Alert.alert(
         t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
+        null,
+        { text: t('ok') },
       );
       return;
     }
