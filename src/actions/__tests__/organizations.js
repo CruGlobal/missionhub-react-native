@@ -22,6 +22,7 @@ import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
+  generateNewCode,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -548,6 +549,23 @@ describe('deleteOrganization', () => {
     store.dispatch(deleteOrganization(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_ORGANIZATION, {
+      orgId,
+    });
+  });
+});
+
+describe('generateNewCode', () => {
+  const orgId = '123';
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('get new code for organization', () => {
+    store.dispatch(generateNewCode(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
       orgId,
     });
   });

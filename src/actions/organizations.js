@@ -377,3 +377,9 @@ export function deleteOrganization(orgId) {
     return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
   };
 }
+
+export function generateNewCode(orgId) {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }));
+  };
+}

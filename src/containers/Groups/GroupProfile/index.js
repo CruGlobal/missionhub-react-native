@@ -16,13 +16,15 @@ import {
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
-import { copyText, isAdminOrOwner } from '../../../utils/common';
+import { copyText, isAdminOrOwner, isOwner } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
   getMyCommunities,
   updateOrganizationImage,
   deleteOrganization,
+  generateNewCode,
+  getOrganizationMembers,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
@@ -34,6 +36,12 @@ import styles from './styles';
 @translate('groupProfile')
 class GroupProfile extends Component {
   state = { editing: false, name: '', imageData: null };
+
+  reloadOrgs = async () => {
+    const { dispatch, organization } = this.props;
+    await dispatch(getMyCommunities());
+    await dispatch(getOrganizationMembers(organization.id));
+  };
 
   save = async () => {
     const { dispatch, organization } = this.props;
@@ -50,10 +58,10 @@ class GroupProfile extends Component {
     if (imageData) {
       await dispatch(updateOrganizationImage(organization.id, imageData));
     }
-    await dispatch(getMyCommunities());
+    await this.reloadOrgs();
   };
 
-  copyCode = () => copyText(this.props.organization.id);
+  copyCode = () => copyText(this.props.organization.community_code);
 
   copyUrl = () => copyText(this.props.organization.id);
 
@@ -61,9 +69,11 @@ class GroupProfile extends Component {
 
   handleChangeName = t => this.setState({ name: t });
 
-  handleNewCode = () => {
-    // TODO: Handle generating a new code
-    return 'new code';
+  handleNewCode = async () => {
+    const { dispatch, organization } = this.props;
+    await dispatch(generateNewCode(organization.id));
+    await this.reloadOrgs();
+    this.handleEdit();
   };
 
   handleNewLink = () => {
@@ -135,7 +145,14 @@ class GroupProfile extends Component {
   }
 
   render() {
-    const { t, organization, membersLength, owner, canEdit } = this.props;
+    const {
+      t,
+      organization,
+      membersLength,
+      owner,
+      canEdit,
+      isOwner,
+    } = this.props;
     const { editing, name } = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -196,12 +213,9 @@ class GroupProfile extends Component {
           <Flex direction="row" align="center" style={styles.rowWrap}>
             <Flex value={1} direction="column">
               <Text style={styles.label}>{t('code')}</Text>
-              <Text style={styles.codeText}>
-                333-333
-                {/* TODO: PUT IN RIGHT CODE */}
-              </Text>
+              <Text style={styles.codeText}>{organization.community_code}</Text>
             </Flex>
-            {editing ? (
+            {editing && isOwner ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -228,7 +242,7 @@ class GroupProfile extends Component {
                 {/* TODO: PUT IN RIGHT LINK */}
               </Text>
             </Flex>
-            {editing ? (
+            {editing && isOwner ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -310,6 +324,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     owner: owner || {},
     organization: selectorOrg,
     canEdit: isAdminOrOwner(myOrgPerm),
+    isOwner: isOwner(myOrgPerm),
   };
 };
 

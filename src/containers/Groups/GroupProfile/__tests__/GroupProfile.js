@@ -14,6 +14,7 @@ import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
+  generateNewCode,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
@@ -28,7 +29,9 @@ jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
   updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
   getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
+  getOrganizationMembers: jest.fn(() => ({ type: 'get org members' })),
   deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
+  generateNewCode: jest.fn(() => ({ type: 'new code' })),
 }));
 jest.mock('../../../../selectors/organizations');
 
@@ -88,7 +91,7 @@ const storeObj = {
     person: {
       id: '123',
       organizational_permissions: [
-        { organization_id: orgId, permission_id: ORG_PERMISSIONS.ADMIN },
+        { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
       ],
     },
   },
@@ -196,19 +199,24 @@ describe('GroupProfile', () => {
     expect(component.instance().state.name).toBe(text);
   });
 
-  it('handle new code', () => {
+  it('handle new code', async () => {
     const component = buildScreen();
+    const instance = component.instance();
     // Press the "Edit" button
-    component.instance().handleEdit();
+    instance.reloadOrgs = jest.fn();
+    instance.handleEdit();
     component.update();
-    const result = component
+    instance.handleEdit = jest.fn();
+    await component
       .childAt(1)
       .childAt(4)
       .childAt(1)
       .props()
       .onPress();
 
-    expect(result).toBe('new code');
+    expect(generateNewCode).toHaveBeenCalledWith(orgId);
+    expect(instance.reloadOrgs).toHaveBeenCalled();
+    expect(instance.handleEdit).toHaveBeenCalled();
   });
 
   it('handle new link', () => {

@@ -169,6 +169,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
   },
+  ORGANIZATION_NEW_CODE: {
+    endpoint: `${ORG_URL}/:orgId/generate_code`,
+    method: 'put',
+  },
   GET_GROUP_CHALLENGE_FEED: {
     endpoint: GROUP_CHALLENGE_URL,
   },
