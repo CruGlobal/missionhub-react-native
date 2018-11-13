@@ -30,8 +30,8 @@ export default class GroupCardItem extends Component {
     // TODO: Need to pull this info from the contactReport once the API supports it
     // const membersCount = 100;
     let source;
-    if (group.imageUrl) {
-      source = { url: group.imageUrl };
+    if (group.community_photo_url) {
+      source = { url: group.community_photo_url };
     } else if (isUserCreated) {
       source = DEFAULT_USER_COMMUNITY_IMAGE;
     } else {

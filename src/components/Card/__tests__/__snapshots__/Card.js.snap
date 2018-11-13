@@ -5,8 +5,13 @@ exports[`render card 1`] = `
   style={
     Array [
       Object {
-        "borderRadius": 5,
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
         "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
         "shadowColor": "#000000",
         "shadowOffset": Object {
           "height": 2,
@@ -26,8 +31,13 @@ exports[`render card with children 1`] = `
   style={
     Array [
       Object {
-        "borderRadius": 5,
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
         "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
         "shadowColor": "#000000",
         "shadowOffset": Object {
           "height": 2,
@@ -60,8 +70,13 @@ exports[`render touchable card 1`] = `
   style={
     Array [
       Object {
-        "borderRadius": 5,
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
         "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
         "shadowColor": "#000000",
         "shadowOffset": Object {
           "height": 2,
@@ -84,8 +99,13 @@ exports[`render touchable card with children 1`] = `
   style={
     Array [
       Object {
-        "borderRadius": 5,
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
         "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
         "shadowColor": "#000000",
         "shadowOffset": Object {
           "height": 2,

@@ -17,7 +17,6 @@ import {
   personSelector,
 } from '../../selectors/people';
 import {
-  isMissionhubUser,
   showAssignButton,
   showUnassignButton,
   showDeleteButton,
@@ -158,8 +157,7 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
     personIsCurrentUser: navigation.state.params.person.id === auth.person.id,
     myId: auth.person.id,
     contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
-    orgPermission: orgPermission,
-    isMissionhubUser: isMissionhubUser(orgPermission),
+    orgPermission,
   };
 };
 

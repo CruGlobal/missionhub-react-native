@@ -18,7 +18,7 @@ jest.mock('../../../selectors/people');
 const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
-const store = createMockStore();
+const store = createMockStore({ auth: { person: {} } });
 function buildScreen(props, builtStore) {
   return renderShallow(
     <AddContactFields onUpdateData={jest.fn()} {...props} />,
@@ -70,7 +70,7 @@ it('renders jean with organization view correctly', () => {
       }}
       organization={{ id: '1' }}
     />,
-    mockStore(),
+    mockStore({ auth: { person: {} } }),
   );
 });
 

@@ -9,6 +9,11 @@ export default StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 4,
-    borderRadius: 5,
+    borderRadius: 8,
+    marginHorizontal: 16,
+    marginVertical: 8,
+    flexDirection: 'row',
+    backgroundColor: theme.white,
+    alignItems: 'center',
   },
 });

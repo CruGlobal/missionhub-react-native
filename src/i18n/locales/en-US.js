@@ -75,6 +75,10 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
+    yes: 'Yes',
+    no: 'No',
+    copy: 'Copy',
+    edit: 'Edit',
     done: 'Done',
     next: 'Next',
     ok: 'Ok',
@@ -91,6 +95,7 @@ export default {
     contactUnassignment:
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
     assignToMe: 'Assign to me',
+    copyMessage: 'Copied',
   },
   error: {
     error: 'Error',
@@ -511,6 +516,13 @@ export default {
   groupsMembers: {
     invite: 'Send Invite',
   },
+  groupMemberOptions: {
+    leaveCommunity: 'Leave Community',
+    makeAdmin: 'Make Admin',
+    removeAdmin: 'Remove Admin',
+    makeOwner: 'Make Owner',
+    removeMember: 'Remove Member',
+  },
   groupsImpact: {
     title: '',
   },
@@ -620,5 +632,17 @@ export default {
     errorHeader: 'Error',
     errorBody:
       'There was an error processing your request. Please try again later.',
+  },
+  groupProfile: {
+    owner: 'Owner',
+    created: 'Created',
+    members: 'Members',
+    code: 'Community Code',
+    link: 'Community Link',
+    newCode: 'New Code',
+    newLink: 'New Link',
+    info: 'Anyone who has this code or link will be able to join your group.',
+    deleteCommunity: 'Delete Community?',
+    cannotBeUndone: 'This cannot be undone',
   },
 };

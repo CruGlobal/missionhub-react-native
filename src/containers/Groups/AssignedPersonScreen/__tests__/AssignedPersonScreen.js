@@ -85,7 +85,7 @@ beforeEach(() => {
 describe('Contact', () => {
   it('should provide necessary props', () => {
     organizationSelector.mockReturnValue(undefined);
-    common.communityIsCru.mockReturnValue(true);
+    common.orgIsCru.mockReturnValue(true);
 
     expect(mapStateToProps(store, nav)).toEqual({
       organization,
@@ -96,7 +96,7 @@ describe('Contact', () => {
       myStageId: pathwayStage.id,
       isCruOrg: true,
     });
-    expect(common.communityIsCru).toHaveBeenCalledWith(organization);
+    expect(common.orgIsCru).toHaveBeenCalledWith(organization);
   });
 
   it('should render AssignedPersonScreen correctly without stage', () => {

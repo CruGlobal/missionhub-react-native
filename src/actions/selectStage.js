@@ -38,7 +38,7 @@ export function updateUserStage(contactAssignmentId, stageId) {
     const personId = person && person.id;
     const orgId = organization && organization.id;
 
-    dispatch(refreshImpact());
+    dispatch(refreshImpact(orgId));
     dispatch(getPersonDetails(personId, orgId));
     return response;
   };
@@ -87,7 +87,7 @@ export function selectPersonStage(
       callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
     );
 
-    dispatch(refreshImpact());
+    dispatch(refreshImpact(orgId));
     dispatch(getPersonDetails(personId, orgId));
     return response;
   };

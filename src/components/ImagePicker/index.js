@@ -16,6 +16,13 @@ const DEFAULT_OPTIONS = {
   noData: true, // photos only - disables the base64 `data` field from being generated (greatly improves performance on large photos)
 };
 
+function getType(response) {
+  if (response.uri.toLowerCase().includes('.png')) {
+    return 'image/png';
+  }
+  return 'image/jpeg';
+}
+
 @translate('imagePicker')
 class ImagePicker extends Component {
   selectImage = () => {
@@ -46,14 +53,22 @@ class ImagePicker extends Component {
         // You can display the image using either data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true };
 
+        const uri = response.uri;
+        let fileName = response.fileName;
+        // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
+        // create a new file name with the right extension
+        if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
+          fileName = `${new Date().valueOf()}.jpg`;
+        }
         const payload = {
           // imageBinary: `data:image/jpeg;base64,${response.data}`,
           fileSize: response.fileSize,
-          fileName: response.fileName,
+          fileName,
+          fileType: response.type || getType(response),
           width: response.width,
           height: response.height,
           isVertical: response.isVertical,
-          uri: response.uri,
+          uri,
         };
         onSelectImage(payload);
       }

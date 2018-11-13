@@ -14,7 +14,7 @@ import {
   ACTIONS,
   LOAD_PERSON_DETAILS,
 } from '../constants';
-import { isMemberForOrg, exists } from '../utils/common';
+import { hasOrgPermissions, exists } from '../utils/common';
 import {
   personSelector,
   orgPermissionSelector,
@@ -370,7 +370,7 @@ export function getPersonScreenRoute(
 ) {
   const isMe = person.id === mePerson.id;
 
-  const isMember = isMemberForOrg(
+  const isMember = hasOrgPermissions(
     orgPermissionSelector(null, {
       person: person,
       organization,

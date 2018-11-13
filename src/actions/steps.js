@@ -203,7 +203,7 @@ function challengeCompleteAction(step, screen) {
         const subsection = getAnalyticsSubsection(step.receiver.id, myId);
 
         dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
-        dispatch(refreshImpact());
+        dispatch(refreshImpact(step.organization && step.organization.id));
         dispatch(
           navigatePush(ADD_STEP_SCREEN, {
             trackingObj: buildTrackingObj(

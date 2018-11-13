@@ -18,10 +18,16 @@ import {
   getOrganizationMembersNextPage,
   addNewPerson,
   getMyCommunities,
+  addNewOrganization,
+  updateOrganization,
+  updateOrganizationImage,
+  deleteOrganization,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
+
+global.FormData = require('FormData');
 
 const myId = '1';
 
@@ -212,7 +218,7 @@ describe('getOrganizationMembers', () => {
   const orgId = '123';
   const query = {
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
     include: 'organizational_permissions',
@@ -441,5 +447,108 @@ describe('getMyCommunities', () => {
     // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
     expect(actions[2]).toEqual(response);
     expect(actions[3].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
+  });
+});
+
+describe('addNewOrganization', () => {
+  const name = 'Fred';
+  const bodyData = {
+    data: {
+      type: 'organization',
+      attributes: {
+        name,
+        user_created: true,
+      },
+    },
+  };
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(() => Promise.resolve(apiResponse));
+  });
+
+  it('adds organization with name', () => {
+    store.dispatch(addNewOrganization(name));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_NEW_ORGANIZATION,
+      {},
+      bodyData,
+    );
+  });
+});
+
+describe('updateOrganization', () => {
+  const name = 'Fred';
+  const orgId = '123';
+  const nameBodyData = {
+    data: {
+      type: 'organization',
+      attributes: {
+        name,
+      },
+    },
+  };
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('update organization with name', () => {
+    store.dispatch(updateOrganization(orgId, { name }));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_ORGANIZATION,
+      { orgId },
+      nameBodyData,
+    );
+  });
+});
+
+describe('updateOrganizationImage', () => {
+  const orgId = '123';
+  const imageBodyData = new FormData();
+  const testImageData = {
+    uri: 'testuri',
+    fileType: 'image/jpeg',
+    fileName: 'filename',
+  };
+  imageBodyData.append('data[attributes][community_photo]', {
+    uri: testImageData.uri,
+    type: testImageData.fileType,
+    name: testImageData.fileName,
+  });
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('update organization image', () => {
+    store.dispatch(updateOrganizationImage(orgId, testImageData));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_ORGANIZATION_IMAGE,
+      { orgId },
+      imageBodyData,
+    );
+  });
+});
+
+describe('deleteOrganization', () => {
+  const orgId = '123';
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('delete organization', () => {
+    store.dispatch(deleteOrganization(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_ORGANIZATION, {
+      orgId,
+    });
   });
 });

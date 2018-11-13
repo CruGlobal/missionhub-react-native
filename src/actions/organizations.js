@@ -169,7 +169,7 @@ export function getOrganizationMembers(orgId, query = {}) {
   const newQuery = {
     ...query,
     filters: {
-      permissions: 'admin,user',
+      permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
     include: 'organizational_permissions',
@@ -248,7 +248,7 @@ export function addNewPerson(data) {
     } = getState().auth;
     if (!data || !data.firstName) {
       return Promise.reject(
-        `Invalid Data from addNewContact: no data or no firstName passed in`,
+        `Invalid Data from addNewPerson: no data or no firstName passed in`,
       );
     }
     const included = [];
@@ -298,5 +298,82 @@ export function addNewPerson(data) {
     };
     const query = {};
     return dispatch(callApi(REQUESTS.ADD_NEW_PERSON, query, bodyData));
+  };
+}
+
+export function updateOrganization(orgId, data) {
+  return dispatch => {
+    if (!data) {
+      return Promise.reject(
+        `Invalid Data from updateOrganization: no data passed in`,
+      );
+    }
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name: data.name,
+        },
+      },
+    };
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+  };
+}
+
+export function updateOrganizationImage(orgId, imageData) {
+  return dispatch => {
+    if (!imageData) {
+      return Promise.reject(
+        `Invalid Data from updateOrganizationImage: no image data passed in`,
+      );
+    }
+
+    const data = new FormData();
+
+    data.append('data[attributes][community_photo]', {
+      uri: imageData.uri,
+      type: imageData.fileType,
+      name: imageData.fileName,
+    });
+    return dispatch(
+      callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
+    );
+  };
+}
+
+export function addNewOrganization(name, imageData) {
+  return async dispatch => {
+    if (!name) {
+      return Promise.reject(
+        `Invalid Data from addNewOrganization: no org name passed in`,
+      );
+    }
+    const bodyData = {
+      data: {
+        type: 'organization',
+        attributes: {
+          name,
+          user_created: true,
+        },
+      },
+    };
+    const query = {};
+    const results = await dispatch(
+      callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
+    );
+    if (imageData) {
+      // After the org is created, update the image with the image data passed in
+      const newOrgId = results.response.id;
+      dispatch(updateOrganizationImage(newOrgId, imageData));
+    }
+    return results;
+  };
+}
+
+export function deleteOrganization(orgId) {
+  return dispatch => {
+    const query = { orgId };
+    return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
   };
 }

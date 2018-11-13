@@ -1,4 +1,4 @@
-import { ToastAndroid, PushNotificationIOS } from 'react-native';
+import { PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 import Config from 'react-native-config';
 import i18next from 'i18next';
@@ -201,15 +201,5 @@ export function showWelcomeNotification() {
     dispatch({
       type: DISABLE_WELCOME_NOTIFICATION,
     });
-  };
-}
-
-export function toast(text, duration) {
-  return () => {
-    if (isAndroid) {
-      const toastDuration =
-        duration === 'long' ? ToastAndroid.LONG : ToastAndroid.SHORT;
-      ToastAndroid.show(text, toastDuration);
-    }
   };
 }

@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { refresh, isAdminOrOwner } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -17,7 +17,6 @@ import { organizationSelector } from '../../selectors/organizations';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -72,11 +71,13 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization } = this.props;
+    const { organization, myOrgPermissions, myId } = this.props;
     return (
       <GroupMemberItem
-        isUserCreatedOrg={organization.user_created}
+        organization={organization}
         person={item}
+        myId={myId}
+        myOrgPermissions={myOrgPermissions}
         onSelect={this.handleSelect}
       />
     );
@@ -92,7 +93,7 @@ class Members extends Component {
           data={members}
           ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
-          style={styles.flatList}
+          style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
@@ -108,8 +109,7 @@ class Members extends Component {
             )
           }
         />
-        {myOrgPermissions &&
-        myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+        {isAdminOrOwner(myOrgPermissions) ? (
           <Flex align="stretch" justify="end">
             <Button
               type="secondary"
@@ -135,6 +135,7 @@ const mapStateToProps = ({ auth, organizations }, { organization }) => {
   return {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
+    myId: auth.person.id,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
