@@ -6,14 +6,19 @@ import { FlatList } from 'react-native';
 
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
-import GroupMemberItem from '../../components/GroupMemberItem';
+import ContactItem from '../../components/ContactItem';
 import { personSelector } from '../../selectors/people';
+
+import styles from './styles';
 
 @translate('memberContacts')
 class MemberContacts extends Component {
   state = { refreshing: false };
 
-  renderItem = ({ item }) => <GroupMemberItem person={item.person} />;
+  renderItem = ({ item }) => {
+    const { organization } = this.props;
+    return <ContactItem contact={item.person} organization={organization} />;
+  };
 
   keyExtractor = p => p.id;
 
@@ -25,6 +30,7 @@ class MemberContacts extends Component {
         data={contactAssignments}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
+        style={styles.flatList}
       />
     );
   }
@@ -57,6 +63,7 @@ MemberContacts.propTypes = {
     id: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
   }).isRequired,
+  organization: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ people }, { person, organization }) => {

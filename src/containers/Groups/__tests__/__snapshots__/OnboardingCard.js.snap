@@ -7,6 +7,8 @@ exports[`OnboardingCard render celebrate card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -108,6 +110,8 @@ exports[`OnboardingCard render contacts card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -209,6 +213,8 @@ exports[`OnboardingCard render impact card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -310,6 +316,8 @@ exports[`OnboardingCard render members card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }
@@ -411,6 +419,8 @@ exports[`OnboardingCard render surveys card 1`] = `
       "backgroundColor": "#ffffff",
       "borderRadius": 0,
       "marginBottom": 5,
+      "marginHorizontal": 0,
+      "marginVertical": 0,
       "position": "relative",
     }
   }

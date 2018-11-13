@@ -7,6 +7,7 @@ import {
   orgIsCru,
   hasOrgPermissions,
   isAdminOrOwner,
+  isOwner,
   openMainMenu,
   getIconName,
   shuffleArray,
@@ -129,6 +130,24 @@ describe('isAdminOrOwner', () => {
   });
   it('should return false if there is no org permission', () => {
     expect(isAdminOrOwner()).toEqual(false);
+  });
+});
+
+describe('isOwner', () => {
+  it('should return false for admins', () => {
+    expect(isOwner({ permission_id: 1 })).toEqual(false);
+  });
+  it('should return true for owners', () => {
+    expect(isOwner({ permission_id: 3 })).toEqual(true);
+  });
+  it('should return false for users', () => {
+    expect(isOwner({ permission_id: 4 })).toEqual(false);
+  });
+  it('should return false for contacts', () => {
+    expect(isOwner({ permission_id: 2 })).toEqual(false);
+  });
+  it('should return false if there is no org permission', () => {
+    expect(isOwner()).toEqual(false);
   });
 });
 

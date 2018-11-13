@@ -21,6 +21,8 @@ export default StyleSheet.create({
     position: 'relative',
     backgroundColor: theme.white,
     borderRadius: 0,
+    marginHorizontal: 0,
+    marginVertical: 0,
     marginBottom: 5,
   },
   onboardingContainer: {
