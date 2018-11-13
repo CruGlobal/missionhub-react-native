@@ -342,6 +342,23 @@ export function updateOrganizationImage(orgId, imageData) {
   };
 }
 
+export function transferOrgOwnership(orgId, person_id) {
+  return dispatch => {
+    return dispatch(
+      callApi(
+        REQUESTS.TRANSFER_ORG_OWNERSHIP,
+        { orgId },
+        {
+          data: {
+            type: 'organization_ownership_transfer',
+            attributes: { person_id },
+          },
+        },
+      ),
+    );
+  };
+}
+
 export function addNewOrganization(name, imageData) {
   return async dispatch => {
     if (!name) {

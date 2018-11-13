@@ -18,6 +18,7 @@ import {
   getOrganizationMembersNextPage,
   addNewPerson,
   getMyCommunities,
+  transferOrgOwnership,
   addNewOrganization,
   updateOrganization,
   updateOrganizationImage,
@@ -447,6 +448,29 @@ describe('getMyCommunities', () => {
     // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
     expect(actions[2]).toEqual(response);
     expect(actions[3].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
+  });
+});
+
+describe('transferOrgOwnership', () => {
+  const apiResponse = { type: 'api response' };
+  const orgId = '10292342';
+  const person_id = '251689461';
+
+  beforeEach(() => callApi.mockReturnValue(() => Promise.resolve(apiResponse)));
+
+  it('transfers org ownership', () => {
+    store.dispatch(transferOrgOwnership(orgId, person_id));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.TRANSFER_ORG_OWNERSHIP,
+      { orgId },
+      {
+        data: {
+          type: 'organization_ownership_transfer',
+          attributes: { person_id },
+        },
+      },
+    );
   });
 });
 
