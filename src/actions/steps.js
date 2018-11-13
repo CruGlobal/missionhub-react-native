@@ -20,11 +20,12 @@ import { personSelector } from '../selectors/people';
 
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
-import { navigatePush, navigateBack } from './navigation';
+import { navigate } from './navigation';
 import callApi, { REQUESTS } from './api';
 import { trackAction, trackStepsAdded } from './analytics';
 import { reloadJourney } from './journey';
 import { reloadGroupCelebrateFeed } from './celebration';
+import { COMPLETE_STEP_FLOW } from '../routes/constants';
 
 export function getStepSuggestions(isMe, contactStageId) {
   return dispatch => {
@@ -167,9 +168,9 @@ export function setStepFocus(step, isFocus) {
   };
 }
 
-export function updateChallengeNote(step, note) {
+export function updateChallengeNote(stepId, note) {
   return dispatch => {
-    const query = { challenge_id: step.id };
+    const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
 
     return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
@@ -208,129 +209,30 @@ function buildChallengeData(attributes) {
 }
 
 function challengeCompleteAction(step, screen) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const query = { challenge_id: step.id };
     const data = buildChallengeData({ completed_at: formatApiDate() });
     const {
       person: { id: myId },
     } = getState().auth;
 
-    return dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data)).then(
-      challengeCompleteResult => {
-        const subsection = getAnalyticsSubsection(step.receiver.id, myId);
+    await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
 
-        dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
-        dispatch(refreshImpact());
-        dispatch(
-          navigatePush(ADD_STEP_SCREEN, {
-            trackingObj: buildTrackingObj(
-              ['people', subsection, 'steps'],
-              'complete comment',
-            ),
-            type: STEP_NOTE,
-            onComplete: text => {
-              if (text) {
-                dispatch(updateChallengeNote(step, text)).then(() =>
-                  dispatch(
-                    trackAction(ACTIONS.INTERACTION.name, {
-                      [ACTIONS.INTERACTION.COMMENT]: null,
-                    }),
-                  ),
-                );
-              }
+    dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
+    dispatch(refreshImpact());
 
-              const count = getState().steps.userStepCount[step.receiver.id];
-              const isMe = myId === `${step.receiver.id}`;
+    dispatch(
+      navigate(ADD_STEP_SCREEN, {
+        personId: step.receiver.id,
+        orgId: step.organization && step.organization.id,
+        stepId: step.id,
+      }),
+    );
 
-              const nextStageScreen = isMe ? STAGE_SCREEN : PERSON_STAGE_SCREEN;
-              const subsection = isMe ? 'self' : 'person';
-              const celebrationTrackingObj = buildTrackingObj(
-                ['people', subsection, 'steps'],
-                'gif',
-              );
-
-              if (count % 3 === 0) {
-                dispatch(
-                  getPersonDetails(
-                    step.receiver.id,
-                    step.organization && step.organization.id,
-                  ),
-                ).then(personDetailResults => {
-                  const assignment = (
-                    personDetailResults.person.reverse_contact_assignments || []
-                  ).find(
-                    a =>
-                      a && a.assigned_to
-                        ? `${a.assigned_to.id}` === myId
-                        : false,
-                  );
-
-                  const firstItemIndex = getStageIndex(
-                    getState().stages.stages,
-                    assignment && assignment.pathway_stage_id,
-                  );
-
-                  const stageProps = {
-                    section: 'people',
-                    subsection: subsection,
-                    onComplete: () => {
-                      dispatch(
-                        navigatePush(CELEBRATION_SCREEN, {
-                          onComplete: () => {
-                            dispatch(navigateBack(3));
-                          },
-                          trackingObj: celebrationTrackingObj,
-                        }),
-                      );
-
-                      dispatch(
-                        reloadJourney(
-                          step.receiver.id,
-                          step.organization && step.organization.id,
-                        ),
-                      );
-                    },
-                    contactId: isMe ? myId : step.receiver.id,
-                    firstItem: firstItemIndex,
-                    enableBackButton: false,
-                    noNav: true,
-                    // TODO: make this prop a flag that gets passed
-                    questionText: isMe
-                      ? i18next.t('selectStage:completed3StepsMe')
-                      : i18next.t('selectStage:completed3Steps', {
-                          name: step.receiver.first_name,
-                        }),
-                  };
-                  if (!isMe) {
-                    stageProps.contactAssignmentId =
-                      assignment && assignment.id;
-                    stageProps.name = step.receiver.first_name;
-                  }
-
-                  dispatch(navigatePush(nextStageScreen, stageProps));
-                });
-              } else {
-                dispatch(
-                  navigatePush(CELEBRATION_SCREEN, {
-                    onComplete: () => {
-                      dispatch(navigateBack(2));
-                    },
-                    trackingObj: celebrationTrackingObj,
-                  }),
-                );
-              }
-            },
-          }),
-        );
-
-        dispatch(
-          trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, {
-            [ACTIONS.STEP_COMPLETED.key]: null,
-          }),
-        );
-
-        return challengeCompleteResult;
-      },
+    dispatch(
+      trackAction(`${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`, {
+        [ACTIONS.STEP_COMPLETED.key]: null,
+      }),
     );
   };
 }

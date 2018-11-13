@@ -55,7 +55,6 @@ export default class GroupsPersonHeader extends Component {
             );
             dispatch(loadStepsAndJourney(person, organization));
           },
-          firstItem: getStageIndex(stages, myStageId),
           contactId: person.id,
           section: 'people',
           subsection: 'self',
@@ -75,10 +74,6 @@ export default class GroupsPersonHeader extends Component {
       stages,
     } = this.props;
 
-    const firstItemIndex =
-      contactAssignment &&
-      getStageIndex(stages, contactAssignment.pathway_stage_id);
-
     const onClick = () =>
       dispatch(
         navigatePush(PERSON_STAGE_SCREEN, {
@@ -97,7 +92,6 @@ export default class GroupsPersonHeader extends Component {
               : dispatch(getPersonDetails(person.id, organization.id));
             dispatch(loadStepsAndJourney(person, organization));
           },
-          firstItem: firstItemIndex,
           name: person.first_name,
           contactId: person.id,
           contactAssignmentId: contactAssignment && contactAssignment.id,

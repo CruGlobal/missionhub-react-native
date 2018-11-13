@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { Alert } from 'react-native';
-import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
@@ -22,35 +20,29 @@ import {
   showUnassignButton,
   showDeleteButton,
 } from '../../utils/common';
+import { prompt } from '../../utils/prompt';
 
 @translate('contactSideMenu')
 class PersonSideMenu extends Component {
   onSubmitReason = () => this.props.dispatch(navigateBack(2));
 
   deleteContact() {
-    return () => {
-      const { t, dispatch, person } = this.props;
-      Alert.alert(
-        t('deleteQuestion', {
-          name: person.first_name,
-        }),
-        t('deleteSentence'),
-        [
-          {
-            text: t('cancel'),
-            style: 'cancel',
-          },
-          {
-            text: t('delete'),
-            style: 'destructive',
-            onPress: () => {
-              this.deleteOnUnmount = true;
-              dispatch(DrawerActions.closeDrawer());
-              dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
-            },
-          },
-        ],
-      );
+    return async () => {
+      const { t, dispatch, person, navigation } = this.props;
+      if (
+        await prompt({
+          title: t('deleteQuestion', {
+            name: person.first_name,
+          }),
+          description: t('deleteSentence'),
+          actionLabel: t('delete'),
+          actionDestructive: true,
+        })
+      ) {
+        this.deleteOnUnmount = true;
+        navigation.closeDrawer();
+        dispatch(navigateBack()); // Navigate back since the contact is no longer in our list
+      }
     };
   }
 
@@ -71,6 +63,7 @@ class PersonSideMenu extends Component {
     const {
       t,
       dispatch,
+      navigation,
       isCruOrg,
       personIsCurrentUser,
       myId,
@@ -133,7 +126,7 @@ class PersonSideMenu extends Component {
         : null,
     ].filter(Boolean);
 
-    return <SideMenu menuItems={menuItems} />;
+    return <SideMenu menuItems={menuItems} navigation={navigation} />;
   }
 }
 

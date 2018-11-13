@@ -20,14 +20,14 @@ export class SideMenu extends Component {
 
   onBackPress = () => {
     if (this.props.isOpen) {
-      this.props.dispatch(DrawerActions.closeDrawer());
+      this.props.navigation.closeDrawer();
       return true;
     }
 
     return false;
   };
 
-  closeDrawer = () => this.props.dispatch(DrawerActions.closeDrawer());
+  closeDrawer = () => this.props.navigation.closeDrawer();
 
   render() {
     const { menuItems } = this.props;

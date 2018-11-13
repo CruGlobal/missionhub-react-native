@@ -13,6 +13,7 @@ export function prompt({
   description,
   cancelLabel = i18n.t('cancel'),
   actionLabel = i18n.t('continue'),
+  actionDestructive = false,
 }) {
   return new Promise(resolve =>
     Alert.alert(
@@ -26,7 +27,7 @@ export function prompt({
         },
         {
           text: actionLabel,
-          style: 'default',
+          style: actionDestructive ? 'destructive' : 'default',
           onPress: () => {
             resolve(true);
           },

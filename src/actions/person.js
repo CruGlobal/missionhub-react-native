@@ -24,7 +24,7 @@ import { organizationSelector } from '../selectors/organizations';
 
 import callApi, { REQUESTS } from './api';
 import { trackActionWithoutData } from './analytics';
-import { navigatePush } from './navigation';
+import { navigate } from './navigation';
 
 export function getMe(extraInclude) {
   const personInclude =
@@ -345,7 +345,7 @@ export function navToPersonScreen(person, org, props = {}) {
     const authPerson = auth.person;
 
     dispatch(
-      navigatePush(
+      navigate(
         getPersonScreenRoute(
           authPerson,
           selectorPerson,
@@ -357,6 +357,7 @@ export function navToPersonScreen(person, org, props = {}) {
           person: selectorPerson,
           organization: selectorOrg,
         },
+        'nav/PERSON_STEPS', // TODO: remove if not needed
       ),
     );
   };

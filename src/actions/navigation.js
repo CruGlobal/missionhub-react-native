@@ -1,11 +1,17 @@
 import { NavigationActions, StackActions } from 'react-navigation';
 
-export function navigate(screen, props = {}) {
+export function navigate(screen, props = {}, subScreen) {
   return dispatch => {
     dispatch(
       NavigationActions.navigate({
         routeName: screen,
         params: props,
+        ...(subScreen
+          ? {
+              routeName: subScreen,
+              params: { ...props },
+            }
+          : {}),
       }),
     );
   };

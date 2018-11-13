@@ -35,6 +35,7 @@ import {
 import { stageSelector } from '../../selectors/stages';
 
 import styles from './styles';
+import i18next from 'i18next';
 
 const screenMargin = 60;
 const sliderWidth = theme.fullWidth;
@@ -150,7 +151,14 @@ class StageScreen extends Component {
   };
 
   render() {
-    const { t, person, isMe, stages, currentStage } = this.props;
+    const {
+      t,
+      person,
+      isMe,
+      stages,
+      currentStage,
+      completed3Steps,
+    } = this.props;
 
     const leftMargin = this.state.scrollPosition / -1 - overScrollMargin;
 
@@ -163,9 +171,15 @@ class StageScreen extends Component {
         />
         <BackButton absolute={true} />
         <Text style={styles.title}>
-          {isMe
-            ? t('meQuestion', { name: person.first_name })
-            : t('personQuestion', { name: person.first_name })}
+          {completed3Steps
+            ? isMe
+              ? i18next.t('selectStage:completed3StepsMe')
+              : i18next.t('selectStage:completed3Steps', {
+                  name: person.first_name,
+                })
+            : isMe
+              ? t('meQuestion', { name: person.first_name })
+              : t('personQuestion', { name: person.first_name })}
         </Text>
         {this.props.stages ? (
           <Carousel
@@ -196,6 +210,7 @@ StageScreen.propTypes = {
   orgId: PropTypes.string,
   contactAssignmentId: PropTypes.string,
   currentStage: PropTypes.object,
+  completed3Steps: PropTypes.bool,
 };
 
 const mapStateToProps = ({ people, stages, auth }, { navigation }) => {

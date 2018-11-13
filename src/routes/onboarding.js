@@ -1,8 +1,7 @@
-import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import { buildTrackingObj } from '../utils/common';
-import { navigate, navigatePush } from '../actions/navigation';
+import { navigate } from '../actions/navigation';
 import WelcomeScreen, { WELCOME_SCREEN } from '../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../containers/SetupScreen';
 import GetStartedScreen, {
@@ -27,25 +26,7 @@ import CelebrationScreen, {
 } from '../containers/CelebrationScreen';
 import { MAIN_TABS } from '../constants';
 
-const wrapNextScreen = (WrappedComponent, nextScreen, extraProps = {}) =>
-  wrapNextScreenFn(WrappedComponent, () => nextScreen, extraProps);
-
-const wrapNextScreenFn = (WrappedComponent, fn, extraProps = {}) =>
-  wrapNextAction(
-    WrappedComponent,
-    props => navigatePush(fn(props), props),
-    extraProps,
-  );
-
-const wrapNextAction = (WrappedComponent, nextAction, extraProps = {}) =>
-  wrapProps(WrappedComponent, {
-    ...extraProps,
-    next: nextAction,
-  });
-
-const wrapProps = (WrappedComponent, extraProps = {}) => props => (
-  <WrappedComponent {...props} {...extraProps} />
-);
+import { wrapNextAction, wrapNextScreen, wrapNextScreenFn } from './helpers';
 
 export const OnboardingScreens = {
   [WELCOME_SCREEN]: {

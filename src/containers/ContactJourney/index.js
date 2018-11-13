@@ -73,7 +73,7 @@ class ContactJourney extends Component {
     const { editingInteraction } = this.state;
     const action =
       editingInteraction._type === 'accepted_challenge'
-        ? updateChallengeNote(editingInteraction, text)
+        ? updateChallengeNote(editingInteraction.id, text)
         : editComment(editingInteraction, text);
 
     this.props.dispatch(action).then(() => {

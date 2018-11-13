@@ -189,9 +189,7 @@ export class AssignedPersonScreen extends Component {
   };
 
   openDrawer = () => {
-    this.props.dispatch(
-      DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }),
-    );
+    this.props.navigation.openDrawer({ drawer: PERSON_MENU_DRAWER });
   };
 
   render() {
