@@ -516,6 +516,8 @@ export default {
     invite: 'Send Invite',
   },
   groupMemberOptions: {
+    ownerLeaveCommunityErrorMessage:
+      'You must assign a new owner to {{orgName}} before you go',
     leaveCommunity: {
       optionTitle: 'Leave Community',
       modalTitle: 'Are you sure you want to leave {{communityName}}?',

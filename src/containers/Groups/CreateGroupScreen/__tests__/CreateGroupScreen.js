@@ -80,13 +80,14 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should update the image', () => {
-    const component = buildScreenInstance();
+    const screen = buildScreen();
+    const component = screen.instance();
 
     const data = { uri: 'testuri' };
     component.handleImageChange(data);
 
     expect(component.state.imageData).toEqual(data);
-    expect(component).toMatchSnapshot();
+    expect(screen.update()).toMatchSnapshot();
   });
 
   it('should call navigate back', () => {
