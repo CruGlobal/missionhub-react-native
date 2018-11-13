@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
+import { Alert } from 'react-native';
 
 import PopupMenu from '../PopupMenu';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = () => {
-    //TODO: leave community
+    const { t, iAmOwner, organization } = this.props;
+
+    if (iAmOwner) {
+      Alert.alert(
+        t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
+      );
+      return;
+    }
   };
 
   makeAdmin = () => {
@@ -67,6 +75,7 @@ MemberOptionsMenu.propTypes = {
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,
+  organization: PropTypes.object.isRequired,
 };
 
 export default MemberOptionsMenu;

@@ -36,7 +36,7 @@ export default class GroupMemberItem extends Component {
   };
 
   render() {
-    const { person, t, myId } = this.props;
+    const { person, t, myId, organization } = this.props;
     const {
       iAmAdmin,
       iAmOwner,
@@ -78,6 +78,7 @@ export default class GroupMemberItem extends Component {
               iAmAdmin={iAmAdmin}
               iAmOwner={iAmOwner}
               personIsAdmin={personIsAdmin}
+              organization={organization}
             />
           ) : null}
         </Flex>
