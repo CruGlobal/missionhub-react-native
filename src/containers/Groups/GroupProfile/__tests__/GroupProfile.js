@@ -15,6 +15,8 @@ import {
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
+  getMyCommunities,
+  getOrganizationMembers,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
@@ -323,7 +325,15 @@ describe('GroupProfile', () => {
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
   });
 
-  it('handles check delete organization', () => {
+  it('handles reloading an organization with members', async () => {
+    const component = buildScreen();
+    await component.instance().reloadOrgs();
+
+    expect(getMyCommunities).toHaveBeenCalledWith();
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
+  });
+
+  it('handles delete organization', () => {
     const component = buildScreen();
 
     // Press the "Edit" button
