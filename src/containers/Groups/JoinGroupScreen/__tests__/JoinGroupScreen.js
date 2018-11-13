@@ -1,5 +1,4 @@
 import React from 'react';
-import { Keyboard } from 'react-native';
 import configureStore from 'redux-mock-store';
 
 import JoinGroupScreen from '..';
@@ -29,7 +28,7 @@ function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
 
-describe('CreateGroupScreen', () => {
+describe('JoinGroupScreen', () => {
   it('renders start correctly', () => {
     testSnapshotShallow(
       <JoinGroupScreen navigation={createMockNavState()} />,
@@ -53,16 +52,60 @@ describe('CreateGroupScreen', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should call onSearch', () => {
-    Keyboard.dismiss = jest.fn();
-    const component = buildScreen();
-    component
-      .childAt(2)
-      .childAt(0)
-      .props()
-      .onPress();
+  describe('onSearch', () => {
+    //tests for temporary implementation of onSearch
+    //if input has 6 digits, community added to state
+    //otherwise, error added to state
+    it('should set error if input has < 6 digits', () => {
+      const component = buildScreen();
 
-    expect(component.instance().onSearch).toHaveBeenCalled();
+      component.instance().codeInput = { focus: jest.fn() };
+
+      component
+        .find('Input')
+        .props()
+        .onChangeText('123');
+
+      component
+        .childAt(2)
+        .childAt(0)
+        .props()
+        .onPress();
+
+      expect(component.instance().state).toMatchSnapshot();
+    });
+
+    it('should set community if input has 6 digits', () => {
+      const component = buildScreen();
+
+      component.instance().codeInput = { focus: jest.fn() };
+
+      component
+        .find('Input')
+        .props()
+        .onChangeText('123456');
+
+      component
+        .childAt(2)
+        .childAt(0)
+        .props()
+        .onPress();
+
+      expect(component.instance().state).toMatchSnapshot();
+    });
+
+    it('should set community after entering 6th digit', async () => {
+      const component = buildScreen();
+
+      component.instance().codeInput = { focus: jest.fn() };
+
+      await component
+        .find('Input')
+        .props()
+        .onChangeText('123456');
+
+      expect(component.instance().state).toMatchSnapshot();
+    });
   });
 
   it('should call navigate back', () => {

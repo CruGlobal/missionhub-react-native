@@ -4,8 +4,8 @@ import { Linking } from 'react-native';
 import { Provider } from 'react-redux';
 
 import LoginOptionsScreen from '..';
-import { JOIN_GROUP_SCREEN } from '../../Groups/JoinGroupScreen';
 
+import { JOIN_GROUP_SCREEN } from '../../Groups/JoinGroupScreen';
 import {
   createMockStore,
   testSnapshot,

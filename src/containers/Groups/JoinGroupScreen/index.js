@@ -21,7 +21,6 @@ import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
-import ImagePicker from '../../../components/ImagePicker';
 
 import styles from './styles';
 
