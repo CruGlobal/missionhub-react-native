@@ -71,11 +71,13 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization } = this.props;
+    const { organization, myOrgPermissions, myId } = this.props;
     return (
       <GroupMemberItem
-        isUserCreatedOrg={organization.user_created}
+        organization={organization}
         person={item}
+        myId={myId}
+        myOrgPermissions={myOrgPermissions}
         onSelect={this.handleSelect}
       />
     );
@@ -91,7 +93,7 @@ class Members extends Component {
           data={members}
           ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
-          style={styles.flatList}
+          style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
@@ -133,6 +135,7 @@ const mapStateToProps = ({ auth, organizations }, { organization }) => {
   return {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
+    myId: auth.person.id,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },

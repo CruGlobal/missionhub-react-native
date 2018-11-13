@@ -34,7 +34,7 @@ export default class GroupCardItem extends Component {
     }
 
     return (
-      <Card onPress={this.handlePress} style={styles.card}>
+      <Card onPress={this.handlePress}>
         <Image source={source} resizeMode="cover" style={styles.image} />
         <Flex justify="center" style={styles.infoWrap}>
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>

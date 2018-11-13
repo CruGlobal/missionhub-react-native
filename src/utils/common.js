@@ -96,6 +96,8 @@ export const isAdminOrOwner = orgPermission =>
   [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
     orgPermission.permission_id,
   );
+export const isOwner = orgPermission =>
+  !!orgPermission && orgPermission.permission_id === ORG_PERMISSIONS.OWNER;
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 

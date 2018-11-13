@@ -79,6 +79,7 @@ it('renders an item', () => {
       {...props}
       store={store}
       person={personWithContactAssignments}
+      organization={organization}
     />,
   );
 

@@ -22,14 +22,25 @@ exports[`renders a list 1`] = `
   onEndReachedThreshold={2}
   renderItem={[Function]}
   scrollEventThrottle={50}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+    }
+  }
   updateCellsBatchingPeriod={50}
   windowSize={21}
 />
 `;
 
 exports[`renders an item 1`] = `
-<Translate(GroupMemberItem)
-  person={Object {}}
+<Translate(ContactItem)
+  contact={Object {}}
+  organization={
+    Object {
+      "id": "100",
+      "name": "Roge's org",
+    }
+  }
 />
 `;
 

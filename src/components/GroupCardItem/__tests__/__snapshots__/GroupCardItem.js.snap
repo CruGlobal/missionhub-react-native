@@ -3,15 +3,6 @@
 exports[`GroupCardItem renders user created group 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -72,15 +63,6 @@ exports[`GroupCardItem renders user created group 1`] = `
 exports[`GroupCardItem renders with all report counts 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -143,15 +125,6 @@ exports[`GroupCardItem renders with all report counts 1`] = `
 exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -214,15 +187,6 @@ exports[`GroupCardItem renders with contacts, no unassigned 1`] = `
 exports[`GroupCardItem renders with image url 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -283,15 +247,6 @@ exports[`GroupCardItem renders with image url 1`] = `
 exports[`GroupCardItem renders with no report counts 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -354,15 +309,6 @@ exports[`GroupCardItem renders with no report counts 1`] = `
 exports[`GroupCardItem renders with no report counts for user created org 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
@@ -423,15 +369,6 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
 exports[`GroupCardItem renders with unassigned, no contacts 1`] = `
 <Card
   onPress={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-    }
-  }
 >
   <Image
     resizeMode="cover"
