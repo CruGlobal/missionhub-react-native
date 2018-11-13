@@ -211,7 +211,9 @@ exports[`GroupProfile renders correctly 1`] = `
               "fontSize": 32,
             }
           }
-        />
+        >
+          333333
+        </MyText>
       </Flex>
       <Button
         buttonTextStyle={
@@ -650,7 +652,9 @@ exports[`GroupProfile renders editing state 1`] = `
               "fontSize": 32,
             }
           }
-        />
+        >
+          333333
+        </MyText>
       </Flex>
       <Button
         buttonTextStyle={
@@ -1047,7 +1051,9 @@ exports[`GroupProfile renders with image 1`] = `
               "fontSize": 32,
             }
           }
-        />
+        >
+          333333
+        </MyText>
       </Flex>
       <Button
         buttonTextStyle={
@@ -1434,7 +1440,9 @@ exports[`GroupProfile renders without edit button 1`] = `
               "fontSize": 32,
             }
           }
-        />
+        >
+          333333
+        </MyText>
       </Flex>
       <Button
         buttonTextStyle={
