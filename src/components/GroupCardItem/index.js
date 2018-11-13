@@ -20,7 +20,7 @@ export default class GroupCardItem extends Component {
   render() {
     const { t, group } = this.props;
     const isUserCreated = group.user_created;
-    const { contactsCount = 0, unassignedCount = 0 } =
+    const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
       group.contactReport || {};
     // TODO: Need to pull this info from the contactReport once the API supports it
     // const membersCount = 100;
@@ -40,10 +40,10 @@ export default class GroupCardItem extends Component {
           <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
           <Text style={styles.groupNumber}>
             {isUserCreated
-              ? '' /*t('numMembers', { number: membersCount })*/
-              : `${t('numContacts', { number: contactsCount })}   ·   ${t(
+              ? t('numMembers', { count: memberCount })
+              : `${t('numContacts', { count: contactsCount })}   ·   ${t(
                   'numUnassigned',
-                  { number: unassignedCount },
+                  { count: unassignedCount },
                 )}`}
           </Text>
         </Flex>
