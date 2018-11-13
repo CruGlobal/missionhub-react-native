@@ -304,7 +304,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     organization: { id: organization.id },
   });
   return {
-    membersLength: contactReport.memberCount,
+    membersLength: contactReport.memberCount || 0,
     owner: owner || {},
     organization: selectorOrg,
     canEdit: isAdminOrOwner(myOrgPerm),
