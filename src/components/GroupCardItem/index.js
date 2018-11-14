@@ -25,10 +25,8 @@ export default class GroupCardItem extends Component {
     const { t, group, onPress, onJoin } = this.props;
     const isUserCreated = group.user_created;
     const owner = group.owner;
-    const { contactsCount = 0, unassignedCount = 0, membersCount = 0 } =
+    const { contactsCount = 0, unassignedCount = 0, memberCount = 0 } =
       group.contactReport || {};
-    // TODO: Need to pull this info from the contactReport once the API supports it
-    // const membersCount = 100;
     let source;
     if (group.community_photo_url) {
       source = { url: group.community_photo_url };
@@ -49,17 +47,14 @@ export default class GroupCardItem extends Component {
             <Text style={styles.groupName}>{group.name.toUpperCase()}</Text>
             <Text style={styles.groupNumber}>
               {onJoin
-                ? `${t('numMembers', { number: membersCount })}  ·  ${t(
-                    'owner',
-                    {
-                      name: owner,
-                    },
-                  )}`
+                ? `${t('numMembers', { count: memberCount })}  ·  ${t('owner', {
+                    name: owner,
+                  })}`
                 : isUserCreated
                   ? t('numMembers', { count: memberCount })
-                  : `${t('numContacts', { number: contactsCount })}   ·   ${t(
+                  : `${t('numContacts', { count: contactsCount })}   ·   ${t(
                       'numUnassigned',
-                      { number: unassignedCount },
+                      { count: unassignedCount },
                     )}`}
             </Text>
           </Flex>

@@ -104,24 +104,30 @@ describe('GroupCardItem', () => {
   });
 
   it('renders user created group with member count', () => {
-    group = {
-      ...group,
-      contactReport: {
-        memberCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          memberCount,
+        },
+        user_created: true,
       },
-      user_created: true,
     };
 
     test();
   });
 
   it('renders user created group with singular member count', () => {
-    group = {
-      ...group,
-      contactReport: {
-        memberCount: 1,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          memberCount: 1,
+        },
+        user_created: true,
       },
-      user_created: true,
     };
 
     test();
@@ -146,7 +152,7 @@ describe('GroupCardItem', () => {
       group: {
         ...group,
         contactReport: {
-          membersCount,
+          memberCount,
         },
         owner: 'Roge',
       },

@@ -60,7 +60,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
           }
         }
       >
-        7 Members  ·  Roge (Owner)
+        5 Members  ·  Roge (Owner)
       </MyText>
     </Flex>
     <Flex
@@ -90,130 +90,6 @@ exports[`GroupCardItem renders for join screen 1`] = `
         type="transparent"
       />
     </Flex>
-  </Flex>
-</Card>
-`;
-
-exports[`GroupCardItem renders user created group with member count 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
-    }
-  />
-  <Flex
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.6)",
-        "bottom": 0,
-        "left": 0,
-        "padding": 13,
-        "position": "absolute",
-        "right": 0,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
-        }
-      }
-    >
-      5 Members
-    </MyText>
-  </Flex>
-</Card>
-`;
-
-exports[`GroupCardItem renders user created group with singular member count 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "testUri": "../../../assets/images/impactBackground.png",
-      }
-    }
-    style={
-      Object {
-        "height": 200,
-        "width": "100%",
-      }
-    }
-  />
-  <Flex
-    justify="center"
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.6)",
-        "bottom": 0,
-        "left": 0,
-        "padding": 13,
-        "position": "absolute",
-        "right": 0,
-      }
-    }
-  >
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      GROUP NAME
-    </MyText>
-    <MyText
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 12,
-        }
-      }
-    >
-      1 Member
-    </MyText>
   </Flex>
 </Card>
 `;
@@ -277,7 +153,143 @@ exports[`GroupCardItem renders user created group 1`] = `
             "fontSize": 12,
           }
         }
-      />
+      >
+        0 Members
+      </MyText>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`GroupCardItem renders user created group with member count 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "width": "100%",
+      }
+    }
+  />
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "padding": 13,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <Flex
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        5 Members
+      </MyText>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`GroupCardItem renders user created group with singular member count 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../assets/images/impactBackground.png",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "width": "100%",
+      }
+    }
+  />
+  <Flex
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "padding": 13,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <Flex
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        1 Member
+      </MyText>
     </Flex>
   </Flex>
 </Card>
@@ -463,10 +475,23 @@ exports[`GroupCardItem renders with image url 1`] = `
             "fontWeight": "bold",
           }
         }
-      }
-    >
-      1 Member
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 Contacts   ·   0 Unassigned
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
@@ -584,10 +609,23 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
             "fontWeight": "bold",
           }
         }
-      }
-    >
-      0 Members
-    </MyText>
+      >
+        GROUP NAME
+      </MyText>
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+          }
+        }
+      >
+        0 Members
+      </MyText>
+    </Flex>
   </Flex>
 </Card>
 `;
