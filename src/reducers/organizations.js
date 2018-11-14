@@ -7,6 +7,7 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -155,6 +156,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case UPDATE_PERSON_ATTRIBUTES:
+      return updateAllPersonInstances(action, state);
     case LOGOUT:
       return initialState;
     default:
@@ -181,6 +184,29 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateAllPersonInstances(action, state, replace = false) {
+  const { updatedPersonAttributes: updatedPerson } = action;
+  return {
+    ...state,
+    all: state.all.map(
+      org =>
+        org.members
+          ? {
+              ...org,
+              members: org.members.map(
+                m =>
+                  m.id === updatedPerson.id
+                    ? replace
+                      ? updatedPerson
+                      : { ...m, ...updatedPerson }
+                    : m,
+              ),
+            }
+          : org,
+    ),
   };
 }
 
