@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
 import PopupMenu from '../PopupMenu';
-import { makeAdmin } from '../../actions/person';
+import { makeAdmin, removeAdmin } from '../../actions/person';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -19,7 +19,8 @@ class MemberOptionsMenu extends Component {
   };
 
   removeAdmin = () => {
-    //TODO: remove admin
+    const { dispatch, person, personOrgPermission } = this.props;
+    dispatch(removeAdmin(person.id, personOrgPermission.id));
   };
 
   makeOwner = () => {
