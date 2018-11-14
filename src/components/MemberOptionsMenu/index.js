@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
-import { Alert } from 'react-native';
 
 import PopupMenu from '../PopupMenu';
 import { makeAdmin } from '../../actions/person';
@@ -11,16 +10,7 @@ import { makeAdmin } from '../../actions/person';
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = () => {
-    const { t, iAmOwner, organization } = this.props;
-
-    if (iAmOwner) {
-      Alert.alert(
-        t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
-        null,
-        { text: t('ok') },
-      );
-      return;
-    }
+    //TODO: leave community
   };
 
   makeAdmin = () => {
@@ -38,6 +28,23 @@ class MemberOptionsMenu extends Component {
 
   removeMember = () => {
     //TODO: remove member
+  };
+
+  canLeaveCommunity = () => {
+    const { t, iAmOwner, organization } = this.props;
+
+    if (iAmOwner) {
+      const onPress = () => {
+        Alert.alert(
+          t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
+          null,
+          { text: t('ok') },
+        );
+      };
+      return [{ text: t(`leaveCommunity.optionTitle`), onPress }];
+    }
+
+    return this.createOption('leaveCommunity', this.leaveCommunity);
   };
 
   createOption = (optionName, optionMethod, hasDescription) => {
@@ -80,9 +87,7 @@ class MemberOptionsMenu extends Component {
 
     const props = {
       actions: [
-        ...(showLeaveCommunity
-          ? this.createOption('leaveCommunity', this.leaveCommunity)
-          : []),
+        ...(showLeaveCommunity ? this.canLeaveCommunity() : []),
         ...(showMakeAdmin
           ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
@@ -110,7 +115,6 @@ MemberOptionsMenu.propTypes = {
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,
-  organization: PropTypes.object.isRequired,
 };
 
 export default connect()(MemberOptionsMenu);
