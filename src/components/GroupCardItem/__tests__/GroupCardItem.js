@@ -6,7 +6,7 @@ import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 
 const contactsCount = 768;
 const unassignedCount = 13;
-const membersCount = 7;
+const memberCount = 5;
 
 const group = {
   name: 'Group Name',
@@ -98,6 +98,30 @@ describe('GroupCardItem', () => {
         ...group,
         user_created: true,
       },
+    };
+
+    test();
+  });
+
+  it('renders user created group with member count', () => {
+    group = {
+      ...group,
+      contactReport: {
+        memberCount,
+      },
+      user_created: true,
+    };
+
+    test();
+  });
+
+  it('renders user created group with singular member count', () => {
+    group = {
+      ...group,
+      contactReport: {
+        memberCount: 1,
+      },
+      user_created: true,
     };
 
     test();

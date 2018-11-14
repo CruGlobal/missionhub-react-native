@@ -56,7 +56,7 @@ export default class GroupCardItem extends Component {
                     },
                   )}`
                 : isUserCreated
-                  ? '' /*t('numMembers', { number: membersCount })*/
+                  ? t('numMembers', { count: memberCount })
                   : `${t('numContacts', { number: contactsCount })}   ·   ${t(
                       'numUnassigned',
                       { number: unassignedCount },
