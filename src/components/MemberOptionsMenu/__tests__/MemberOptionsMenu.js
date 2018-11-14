@@ -5,12 +5,15 @@ import i18next from 'i18next';
 import MemberOptionsMenu from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { transferOrgOwnership } from '../../../actions/organizations';
+
+jest.mock('../../../actions/organizations.js');
 
 const myId = '1';
 const otherId = '2';
+const organization = { name: "Roge's org", id: '08747283423' };
 
 const person = { full_name: 'Roge' };
-const organization = { name: "Roge's org" };
 
 let props;
 
@@ -20,8 +23,8 @@ const test = () => {
 
 describe('MemberOptionsMenu', () => {
   describe('for me, as owner', () => {
-    it('renders correctly', () => {
-      props = {
+    beforeEach(() =>
+      (props = {
         myId,
         person: {
           ...person,
@@ -31,24 +34,11 @@ describe('MemberOptionsMenu', () => {
         iAmOwner: true,
         personIsAdmin: false,
         organization,
-      };
+      }));
 
-      test();
-    });
+    it('renders correctly', () => test());
 
     it('shows an alert message if I attempt to leave', () => {
-      props = {
-        myId,
-        person: {
-          ...person,
-          id: myId,
-        },
-        iAmAdmin: false,
-        iAmOwner: true,
-        personIsAdmin: false,
-        organization,
-      };
-
       Alert.alert = jest.fn();
       const screen = renderShallow(<MemberOptionsMenu {...props} />);
 
@@ -56,7 +46,7 @@ describe('MemberOptionsMenu', () => {
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:ownerLeaveCommunityErrorMessage', {
-          orgName: props.organization.name,
+          orgName: organization.name,
         }),
         null,
         { text: i18next.t('ok') },
@@ -94,19 +84,33 @@ describe('MemberOptionsMenu', () => {
     test();
   });
 
-  it('renders for owner looking at member', () => {
-    props = {
-      myId,
-      person: {
-        ...person,
-        id: otherId,
-      },
-      iAmAdmin: true,
-      iAmOwner: true,
-      personIsAdmin: false,
-      organization,
-    };
-    test();
+  describe(' looking at member, when I am owner', () => {
+    beforeEach(() =>
+      (props = {
+        myId,
+        person: {
+          ...person,
+          id: otherId,
+        },
+        iAmAdmin: true,
+        iAmOwner: true,
+        personIsAdmin: false,
+        organization,
+      }));
+
+    it('renders correctly', () => test());
+
+    it('transfers ownership', () => {
+      transferOrgOwnership.mockReturnValue({ type: 'transferred ownership' });
+      const screen = renderShallow(<MemberOptionsMenu {...props} />);
+
+      screen.instance().makeOwner();
+
+      expect(transferOrgOwnership).toHaveBeenCalledWith(
+        organization.id,
+        otherId,
+      );
+    });
   });
 
   it('renders for owner looking at admin', () => {

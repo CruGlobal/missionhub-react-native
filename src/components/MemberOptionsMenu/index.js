@@ -4,6 +4,7 @@ import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
 import { makeAdmin } from '../../actions/person';
 
@@ -23,7 +24,9 @@ class MemberOptionsMenu extends Component {
   };
 
   makeOwner = () => {
-    //TODO: make owner
+    const { dispatch, organization, person } = this.props;
+
+    dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
   removeMember = () => {
