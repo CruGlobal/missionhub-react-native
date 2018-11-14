@@ -36,6 +36,8 @@ export default class GroupCardItem extends Component {
       source = DEFAULT_MISSIONHUB_IMAGE;
     }
 
+    //not passing a value for onPress to Card makes the card unclickable.
+    //In some cases we want to prevent clicking on GroupCardItem.
     return (
       <Card
         onPress={onPress ? this.handlePress : undefined}
