@@ -20,11 +20,9 @@ import { copyText, isAdminOrOwner, isOwner } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
-  getMyCommunities,
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
-  getOrganizationMembers,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
@@ -36,12 +34,6 @@ import styles from './styles';
 @translate('groupProfile')
 class GroupProfile extends Component {
   state = { editing: false, name: '', imageData: null };
-
-  reloadOrgs = async () => {
-    const { dispatch, organization } = this.props;
-    await dispatch(getMyCommunities());
-    await dispatch(getOrganizationMembers(organization.id));
-  };
 
   save = async () => {
     const { dispatch, organization } = this.props;
@@ -58,7 +50,6 @@ class GroupProfile extends Component {
     if (imageData) {
       await dispatch(updateOrganizationImage(organization.id, imageData));
     }
-    await this.reloadOrgs();
   };
 
   copyCode = () => copyText(this.props.organization.community_code);
@@ -72,8 +63,6 @@ class GroupProfile extends Component {
   handleNewCode = async () => {
     const { dispatch, organization } = this.props;
     await dispatch(generateNewCode(organization.id));
-    await this.reloadOrgs();
-    this.handleEdit();
   };
 
   handleNewLink = () => {

@@ -15,8 +15,6 @@ import {
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
-  getMyCommunities,
-  getOrganizationMembers,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
@@ -30,8 +28,6 @@ jest.mock('../../../../actions/navigation', () => ({
 jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
   updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
-  getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
-  getOrganizationMembers: jest.fn(() => ({ type: 'get org members' })),
   deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
   generateNewCode: jest.fn(() => ({ type: 'new code' })),
 }));
@@ -206,10 +202,8 @@ describe('GroupProfile', () => {
     const component = buildScreen();
     const instance = component.instance();
     // Press the "Edit" button
-    instance.reloadOrgs = jest.fn();
     instance.handleEdit();
     component.update();
-    instance.handleEdit = jest.fn();
     await component
       .childAt(1)
       .childAt(4)
@@ -218,8 +212,6 @@ describe('GroupProfile', () => {
       .onPress();
 
     expect(generateNewCode).toHaveBeenCalledWith(orgId);
-    expect(instance.reloadOrgs).toHaveBeenCalled();
-    expect(instance.handleEdit).toHaveBeenCalled();
   });
 
   it('handle new link', () => {
@@ -324,14 +316,6 @@ describe('GroupProfile', () => {
 
     expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
-  });
-
-  it('handles reloading an organization with members', async () => {
-    const component = buildScreen();
-    await component.instance().reloadOrgs();
-
-    expect(getMyCommunities).toHaveBeenCalledWith();
-    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
   it('handles delete organization', () => {
