@@ -13,6 +13,7 @@ import {
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
+  ORG_PERMISSIONS,
 } from '../constants';
 import { hasOrgPermissions, exists } from '../utils/common';
 import {
@@ -236,6 +237,30 @@ export function updatePerson(data) {
     );
 
     return results;
+  };
+}
+
+export function makeAdmin(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
+    );
+}
+
+export function updateOrgPermission(
+  personId,
+  orgPermissionId,
+  permissionLevel,
+) {
+  return dispatch => {
+    const data = {
+      id: personId,
+      orgPermission: {
+        id: orgPermissionId,
+        permission_id: permissionLevel,
+      },
+    };
+    return dispatch(updatePerson(data));
   };
 }
 

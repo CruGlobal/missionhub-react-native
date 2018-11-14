@@ -9,6 +9,9 @@ import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 const myId = '1';
 const otherId = '2';
 
+const person = { full_name: 'Roge' };
+const organization = { name: "Roge's org" };
+
 let props;
 
 const test = () => {
@@ -17,18 +20,35 @@ const test = () => {
 
 describe('MemberOptionsMenu', () => {
   describe('for me, as owner', () => {
-    props = {
-      myId,
-      personId: myId,
-      iAmAdmin: false,
-      iAmOwner: true,
-      personIsAdmin: false,
-      organization: { name: "Roge's org" },
-    };
+    it('renders correctly', () => {
+      props = {
+        myId,
+        person: {
+          ...person,
+          id: myId,
+        },
+        iAmAdmin: false,
+        iAmOwner: true,
+        personIsAdmin: false,
+        organization,
+      };
 
-    it('renders correctly', () => test());
+      test();
+    });
 
     it('shows an alert message if I attempt to leave', () => {
+      props = {
+        myId,
+        person: {
+          ...person,
+          id: myId,
+        },
+        iAmAdmin: false,
+        iAmOwner: true,
+        personIsAdmin: false,
+        organization,
+      };
+
       Alert.alert = jest.fn();
       const screen = renderShallow(<MemberOptionsMenu {...props} />);
 
@@ -47,11 +67,14 @@ describe('MemberOptionsMenu', () => {
   it('renders for admin looking at member', () => {
     props = {
       myId,
-      personId: otherId,
+      person: {
+        ...person,
+        id: otherId,
+      },
       iAmAdmin: true,
       iAmOwner: false,
       personIsAdmin: false,
-      organization: { name: "Roge's org" },
+      organization,
     };
     test();
   });
@@ -59,11 +82,14 @@ describe('MemberOptionsMenu', () => {
   it('renders for admin looking at admin', () => {
     props = {
       myId,
-      personId: otherId,
+      person: {
+        ...person,
+        id: otherId,
+      },
       iAmAdmin: true,
       iAmOwner: false,
       personIsAdmin: true,
-      organization: { name: "Roge's org" },
+      organization,
     };
     test();
   });
@@ -71,11 +97,14 @@ describe('MemberOptionsMenu', () => {
   it('renders for owner looking at member', () => {
     props = {
       myId,
-      personId: otherId,
+      person: {
+        ...person,
+        id: otherId,
+      },
       iAmAdmin: true,
       iAmOwner: true,
       personIsAdmin: false,
-      organization: { name: "Roge's org" },
+      organization,
     };
     test();
   });
@@ -83,12 +112,61 @@ describe('MemberOptionsMenu', () => {
   it('renders for owner looking at admin', () => {
     props = {
       myId,
-      personId: otherId,
+      person: {
+        ...person,
+        id: otherId,
+      },
       iAmAdmin: true,
       iAmOwner: true,
       personIsAdmin: true,
-      organization: { name: "Roge's org" },
+      organization,
     };
     test();
+  });
+});
+
+describe('confirm screen', () => {
+  Alert.alert = jest.fn();
+
+  beforeEach(() => {
+    Alert.alert.mockClear();
+  });
+
+  describe('Make Admin', () => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: otherId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+    };
+
+    const component = renderShallow(<MemberOptionsMenu {...props} />);
+
+    it('displays confirm screen', () => {
+      component.props().actions[0].onPress();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('groupMemberOptions:makeAdmin:modalTitle', {
+          personName: person.full_name,
+          communityName: organization.name,
+        }),
+        i18next.t('groupMemberOptions:makeAdmin:modalDescription'),
+        [
+          {
+            text: i18next.t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: i18next.t('groupMemberOptions:makeAdmin:confirmButtonText'),
+            onPress: expect.any(Function),
+          },
+        ],
+      );
+    });
   });
 });
