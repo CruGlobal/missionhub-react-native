@@ -248,12 +248,31 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
         </React.Fragment>
       </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu)
+    <Connect(Translate(MemberOptionsMenu))
       iAmAdmin={true}
       iAmOwner={false}
       myId="1"
-      personId="123"
+      organization={
+        Object {
+          "id": "1234",
+          "user_created": false,
+        }
+      }
+      person={
+        Object {
+          "contact_count": 5,
+          "full_name": "Full Name",
+          "id": "123",
+          "uncontacted_count": 3,
+        }
+      }
       personIsAdmin={false}
+      personOrgPermission={
+        Object {
+          "id": "111",
+          "permission_id": 4,
+        }
+      }
     />
   </Flex>
 </Card>
@@ -339,12 +358,31 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
         </React.Fragment>
       </Flex>
     </Flex>
-    <Translate(MemberOptionsMenu)
+    <Connect(Translate(MemberOptionsMenu))
       iAmAdmin={false}
       iAmOwner={false}
       myId="1"
-      personId="1"
+      organization={
+        Object {
+          "id": "1234",
+          "user_created": false,
+        }
+      }
+      person={
+        Object {
+          "contact_count": 5,
+          "full_name": "Full Name",
+          "id": "1",
+          "uncontacted_count": 3,
+        }
+      }
       personIsAdmin={false}
+      personOrgPermission={
+        Object {
+          "id": "111",
+          "permission_id": 4,
+        }
+      }
     />
   </Flex>
 </Card>

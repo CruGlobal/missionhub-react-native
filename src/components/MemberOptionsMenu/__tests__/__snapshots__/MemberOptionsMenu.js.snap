@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
+<Translate(PopupMenu)
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Leave Community",
+      },
+    ]
+  }
+  iconProps={Object {}}
+/>
+`;
+
 exports[`MemberOptionsMenu renders for admin looking at admin 1`] = `
 <Translate(PopupMenu)
   actions={
@@ -29,20 +43,6 @@ exports[`MemberOptionsMenu renders for admin looking at member 1`] = `
       Object {
         "onPress": [Function],
         "text": "Remove Member",
-      },
-    ]
-  }
-  iconProps={Object {}}
-/>
-`;
-
-exports[`MemberOptionsMenu renders for me 1`] = `
-<Translate(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Leave Community",
       },
     ]
   }

@@ -25,7 +25,7 @@ const organization = { id: '1234', user_created: false };
 const props = {
   onSelect: jest.mock(),
   person: member,
-  myOrgPermissions: orgPermission,
+  myOrgPermission: orgPermission,
   myId,
   organization,
 };
@@ -86,14 +86,14 @@ describe('render MemberOptionsMenu', () => {
   it('should render menu if I am admin and person is not owner', () => {
     orgPermissionSelector.mockReturnValue(memberPermissions);
     testSnapshotShallow(
-      <GroupMemberItem {...{ ...props, myOrgPermissions: adminPermissions }} />,
+      <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
     );
   });
 
   it('should not render menu if person is owner', () => {
     orgPermissionSelector.mockReturnValue(ownerPermissions);
     testSnapshotShallow(
-      <GroupMemberItem {...{ ...props, myOrgPermissions: adminPermissions }} />,
+      <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
     );
   });
 
