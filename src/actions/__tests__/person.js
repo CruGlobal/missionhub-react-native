@@ -11,6 +11,7 @@ import {
   getMe,
   getPersonDetails,
   updateFollowupStatus,
+  archiveOrgPermission,
   updatePerson,
   createContactAssignment,
   deleteContactAssignment,
@@ -38,6 +39,7 @@ import {
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { organizationSelector } from '../../selectors/organizations';
+import MockDate from 'mockdate';
 
 jest.mock('../api');
 jest.mock('../navigation');
@@ -240,6 +242,40 @@ describe('updatePerson', () => {
             id: 3,
             type: 'phone_number',
             attributes: { number: '1234567890' },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('archiveOrgPermission', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+  const date = '2018-01-01';
+  MockDate.set(date);
+
+  it('sends a request with archive_date set', () => {
+    store.dispatch(archiveOrgPermission(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include:
+          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              archive_date: new Date(date).toISOString(),
+            },
           },
         ],
       },
