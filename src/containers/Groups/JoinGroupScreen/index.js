@@ -161,9 +161,5 @@ class JoinGroupScreen extends Component {
 
 JoinGroupScreen.propTypes = {};
 
-const mapStateToProps = (state, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
-
-export default connect(mapStateToProps)(JoinGroupScreen);
+export default connect()(JoinGroupScreen);
 export const JOIN_GROUP_SCREEN = 'nav/JOIN_GROUP_SCREEN';
