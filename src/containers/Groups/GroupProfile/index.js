@@ -292,11 +292,9 @@ GroupProfile.propTypes = {
 
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const { organization } = navigation.state.params || {};
-  const selectorOrg = organizationSelector(
-    { organizations },
-    { orgId: organization.id },
-  );
-  const { members = [] } = selectorOrg || {};
+  const selectorOrg =
+    organizationSelector({ organizations }, { orgId: organization.id }) || {};
+  const { members = [], contactReport = {} } = selectorOrg;
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
       orgPermission =>
@@ -309,7 +307,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     organization: { id: organization.id },
   });
   return {
-    membersLength: members.length,
+    membersLength: contactReport.memberCount || 0,
     owner: owner || {},
     organization: selectorOrg,
     canEdit: isAdminOrOwner(myOrgPerm),

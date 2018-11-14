@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MemberOptionsMenu  looking at member, when I am owner renders correctly 1`] = `
+<Translate(PopupMenu)
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Make Admin",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Make Owner",
+      },
+      Object {
+        "onPress": [Function],
+        "text": "Remove Member",
+      },
+    ]
+  }
+  iconProps={Object {}}
+/>
+`;
+
+exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
+<Translate(PopupMenu)
+  actions={
+    Array [
+      Object {
+        "onPress": [Function],
+        "text": "Leave Community",
+      },
+    ]
+  }
+  iconProps={Object {}}
+/>
+`;
+
 exports[`MemberOptionsMenu renders for admin looking at admin 1`] = `
 <Translate(PopupMenu)
   actions={
@@ -36,20 +72,6 @@ exports[`MemberOptionsMenu renders for admin looking at member 1`] = `
 />
 `;
 
-exports[`MemberOptionsMenu renders for me 1`] = `
-<Translate(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Leave Community",
-      },
-    ]
-  }
-  iconProps={Object {}}
-/>
-`;
-
 exports[`MemberOptionsMenu renders for owner looking at admin 1`] = `
 <Translate(PopupMenu)
   actions={
@@ -57,28 +79,6 @@ exports[`MemberOptionsMenu renders for owner looking at admin 1`] = `
       Object {
         "onPress": [Function],
         "text": "Remove Admin",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Make Owner",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Remove Member",
-      },
-    ]
-  }
-  iconProps={Object {}}
-/>
-`;
-
-exports[`MemberOptionsMenu renders for owner looking at member 1`] = `
-<Translate(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Make Admin",
       },
       Object {
         "onPress": [Function],

@@ -158,6 +158,10 @@ export default {
     endpoint: `${ORG_URL}/:orgId`,
     method: 'delete',
   },
+  TRANSFER_ORG_OWNERSHIP: {
+    endpoint: `${ORG_URL}/:orgId/transfer_ownership`,
+    method: 'put',
+  },
   GET_GROUP_CELEBRATE_FEED: {
     endpoint: `${ORG_URL}/:orgId/celebration_items`,
   },

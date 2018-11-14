@@ -68,6 +68,7 @@ export function getOrganizationsContactReports() {
         contactsCount: r.contact_count,
         unassignedCount: r.unassigned_count,
         uncontactedCount: r.uncontacted_count,
+        memberCount: r.member_count,
       })),
     });
     return response;
@@ -338,6 +339,23 @@ export function updateOrganizationImage(orgId, imageData) {
     });
     return dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
+    );
+  };
+}
+
+export function transferOrgOwnership(orgId, person_id) {
+  return dispatch => {
+    return dispatch(
+      callApi(
+        REQUESTS.TRANSFER_ORG_OWNERSHIP,
+        { orgId },
+        {
+          data: {
+            type: 'organization_ownership_transfer',
+            attributes: { person_id },
+          },
+        },
+      ),
     );
   };
 }

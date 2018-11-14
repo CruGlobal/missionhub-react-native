@@ -41,6 +41,7 @@ const organization = {
   community_code: '333333',
   name: 'Test Organization',
   created_at: '2018-11-06T12:00:00Z',
+  contactReport: { memberCount: 3 },
   members: [
     {
       id: '1',

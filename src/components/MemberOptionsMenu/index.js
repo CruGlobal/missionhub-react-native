@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
+import { makeAdmin } from '../../actions/person';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -11,7 +15,8 @@ class MemberOptionsMenu extends Component {
   };
 
   makeAdmin = () => {
-    //TODO: make admin
+    const { dispatch, person, personOrgPermission } = this.props;
+    dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
   removeAdmin = () => {
@@ -19,17 +24,63 @@ class MemberOptionsMenu extends Component {
   };
 
   makeOwner = () => {
-    //TODO: make owner
+    const { dispatch, organization, person } = this.props;
+
+    dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
   removeMember = () => {
     //TODO: remove member
   };
 
-  render() {
-    const { t, myId, personId, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
+  canLeaveCommunity = () => {
+    const { t, iAmOwner, organization } = this.props;
 
-    const personIsMe = myId === personId;
+    if (iAmOwner) {
+      const onPress = () => {
+        Alert.alert(
+          t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
+          null,
+          { text: t('ok') },
+        );
+      };
+      return [{ text: t(`leaveCommunity.optionTitle`), onPress }];
+    }
+
+    return this.createOption('leaveCommunity', this.leaveCommunity);
+  };
+
+  createOption = (optionName, optionMethod, hasDescription) => {
+    const {
+      t,
+      person: { full_name: personName },
+      organization: { name: communityName },
+    } = this.props;
+
+    const onPress = () => {
+      Alert.alert(
+        t(`${optionName}.modalTitle`, { personName, communityName }),
+        hasDescription ? t(`${optionName}.modalDescription`) : null,
+        [
+          {
+            text: t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: t(`${optionName}.confirmButtonText`),
+            onPress: optionMethod,
+          },
+        ],
+      );
+    };
+
+    return [{ text: t(`${optionName}.optionTitle`), onPress }];
+  };
+
+  render() {
+    const { myId, person, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
+
+    const personIsMe = myId === person.id;
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
@@ -39,20 +90,18 @@ class MemberOptionsMenu extends Component {
 
     const props = {
       actions: [
-        ...(showLeaveCommunity
-          ? [{ text: t('leaveCommunity'), onPress: this.leaveCommunity }]
-          : []),
+        ...(showLeaveCommunity ? this.canLeaveCommunity() : []),
         ...(showMakeAdmin
-          ? [{ text: t('makeAdmin'), onPress: this.makeAdmin }]
+          ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
         ...(showRemoveAdmin
-          ? [{ text: t('removeAdmin'), onPress: this.removeAdmin }]
+          ? this.createOption('removeAdmin', this.removeAdmin)
           : []),
         ...(showMakeOwner
-          ? [{ text: t('makeOwner'), onPress: this.makeOwner }]
+          ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
         ...(showRemoveMember
-          ? [{ text: t('removeMember'), onPress: this.removeMember }]
+          ? this.createOption('removeMember', this.removeMember)
           : []),
       ],
       iconProps: {},
@@ -63,10 +112,12 @@ class MemberOptionsMenu extends Component {
 
 MemberOptionsMenu.propTypes = {
   myId: PropTypes.string.isRequired,
-  personId: PropTypes.string.isRequired,
+  person: PropTypes.object.isRequired,
+  organization: PropTypes.object.isRequired,
+  personOrgPermission: PropTypes.object.isRequired,
   iAmAdmin: PropTypes.bool,
   iAmOwner: PropTypes.bool,
   personIsAdmin: PropTypes.bool,
 };
 
-export default MemberOptionsMenu;
+export default connect()(MemberOptionsMenu);

@@ -516,11 +516,37 @@ export default {
     invite: 'Send Invite',
   },
   groupMemberOptions: {
-    leaveCommunity: 'Leave Community',
-    makeAdmin: 'Make Admin',
-    removeAdmin: 'Remove Admin',
-    makeOwner: 'Make Owner',
-    removeMember: 'Remove Member',
+    ownerLeaveCommunityErrorMessage:
+      'You must assign a new owner to {{orgName}} before you go',
+    leaveCommunity: {
+      optionTitle: 'Leave Community',
+      modalTitle: 'Are you sure you want to leave {{communityName}}?',
+      confirmButtonText: 'OK',
+    },
+    makeAdmin: {
+      optionTitle: 'Make Admin',
+      modalTitle: 'Want to make {{personName}} an admin?',
+      modalDescription:
+        'Admins can remove members, promote members to admins, and create challenges.',
+      confirmButtonText: 'Yes',
+    },
+    removeAdmin: {
+      optionTitle: 'Remove Admin',
+      modalTitle: 'Remove {{personName}} as admin?',
+      confirmButtonText: 'Remove',
+    },
+    makeOwner: {
+      optionTitle: 'Make Owner',
+      modalTitle: 'Make {{personName}} the owner?',
+      modalDescription:
+        'You will lose ownership of this community but would still have admin privileges',
+      confirmButtonText: 'Yes',
+    },
+    removeMember: {
+      optionTitle: 'Remove Member',
+      modalTitle: 'Remove {{personName}} from {{communityName}}?',
+      confirmButtonText: 'Remove',
+    },
   },
   groupsImpact: {
     title: '',
@@ -562,12 +588,14 @@ export default {
     note: '{{initiator}} added a note about {{receiver}}',
   },
   groupItem: {
-    numContacts: '{{number}} Contacts',
-    numAssigned: '{{number}} Assigned',
-    numUnassigned: '{{number}} Unassigned',
+    numContacts: '{{count}} Contact',
+    numContacts_plural: '{{count}} Contacts',
+    numAssigned: '{{count}} Assigned',
+    numUnassigned: '{{count}} Unassigned',
     unassigned: 'Unassigned',
-    numUncontacted: '{{number}} Uncontacted',
-    numMembers: '{{number}} Members',
+    numUncontacted: '{{count}} Uncontacted',
+    numMembers: '{{count}} Member',
+    numMembers_plural: '{{count}} Members',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
