@@ -1,5 +1,6 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
+import MockDate from 'mockdate';
 
 import {
   ACTIONS,
@@ -39,7 +40,6 @@ import {
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { organizationSelector } from '../../selectors/organizations';
-import MockDate from 'mockdate';
 
 jest.mock('../api');
 jest.mock('../navigation');
