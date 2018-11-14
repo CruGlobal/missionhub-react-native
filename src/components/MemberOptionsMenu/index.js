@@ -15,7 +15,7 @@ class MemberOptionsMenu extends Component {
 
   makeAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
-    dispatch(makeAdmin(person, personOrgPermission.id));
+    dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
   removeAdmin = () => {

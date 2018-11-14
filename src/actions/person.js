@@ -240,45 +240,27 @@ export function updatePerson(data) {
   };
 }
 
-export function makeAdmin(person, orgPermissionId) {
+export function makeAdmin(personId, orgPermissionId) {
   return dispatch =>
     dispatch(
-      updateOrgPermission(person, orgPermissionId, ORG_PERMISSIONS.ADMIN),
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
     );
 }
 
-export function updateOrgPermission(person, orgPermissionId, permissionLevel) {
+export function updateOrgPermission(
+  personId,
+  orgPermissionId,
+  permissionLevel,
+) {
   return async dispatch => {
     const data = {
-      data: {
-        type: 'person',
+      id: personId,
+      orgPermission: {
+        id: orgPermissionId,
+        permission_id: permissionLevel,
       },
-      included: [
-        {
-          id: orgPermissionId,
-          type: 'organizational_permission',
-          attributes: {
-            permission_id: permissionLevel,
-          },
-        },
-      ],
     };
-    const { response } = await dispatch(
-      callApi(REQUESTS.UPDATE_PERSON, { personId: person.id }, data),
-    );
-    console.log(response);
-
-    return response;
-    /*return dispatch(
-      updatePersonAttributes(person.id, {
-        organizational_permissions: person.organizational_permissions.map(
-          orgPermission =>
-            orgPermission.id === orgPermissionId
-              ? { ...orgPermission, permission_id: permissionLevels }
-              : orgPermission,
-        ),
-      }),
-    );*/
+    return dispatch(updatePerson(data));
   };
 }
 
