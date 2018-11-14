@@ -15,9 +15,9 @@ export const StepsTabScreens = {
     screen: StepsScreen,
     tracking: buildTrackingObj(['steps']),
   },
+  // TODO: move personScreens into switch navigator and keep only the needed screens. Currently struggling to navigate to them with props if nested there
+  ...personScreens,
   StepsScreenChildNavigators: createSwitchNavigator({
-    [CONTACT_PERSON_SCREEN]: personScreens[CONTACT_PERSON_SCREEN],
-    [ME_PERSONAL_PERSON_SCREEN]: personScreens[ME_PERSONAL_PERSON_SCREEN],
     [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
   }),
 };

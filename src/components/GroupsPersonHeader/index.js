@@ -6,7 +6,7 @@ import uuidv4 from 'uuid/v4';
 import { STATUS_SELECT_SCREEN } from '../../containers/StatusSelectScreen';
 import { getPersonDetails, updatePersonAttributes } from '../../actions/person';
 import { loadStepsAndJourney } from '../../actions/misc';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STAGE_SCREEN } from '../../containers/StageScreen';
 import { ACTIONS } from '../../constants';
 import {
@@ -42,23 +42,22 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getSelfStageButton() {
-    const { dispatch, person, organization, myStageId, stages } = this.props;
+    const { dispatch, person, organization, myStageId } = this.props;
 
     const onClick = () =>
       dispatch(
         navigatePush(STAGE_SCREEN, {
-          onComplete: stage => {
+          personId: person.id,
+          orgId: organization.id,
+          next: ({ stageId }) => dispatch => {
             dispatch(
               updatePersonAttributes(person.id, {
-                user: { pathway_stage_id: stage.id },
+                user: { pathway_stage_id: stageId },
               }),
             );
             dispatch(loadStepsAndJourney(person, organization));
+            dispatch(navigateBack());
           },
-          contactId: person.id,
-          section: 'people',
-          subsection: 'self',
-          enableBackButton: true,
         }),
       );
 
@@ -66,38 +65,29 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getPersonStageButton() {
-    const {
-      contactAssignment,
-      dispatch,
-      person,
-      organization,
-      stages,
-    } = this.props;
+    const { contactAssignment, dispatch, person, organization } = this.props;
 
     const onClick = () =>
       dispatch(
-        navigatePush(PERSON_STAGE_SCREEN, {
-          onComplete: stage => {
+        navigatePush(STAGE_SCREEN, {
+          next: ({ stageId }) => dispatch => {
             contactAssignment
               ? dispatch(
                   updatePersonAttributes(person.id, {
                     reverse_contact_assignments: person.reverse_contact_assignments.map(
                       assignment =>
                         assignment.id === contactAssignment.id
-                          ? { ...assignment, pathway_stage_id: stage.id }
+                          ? { ...assignment, pathway_stage_id: stageId }
                           : assignment,
                     ),
                   }),
                 )
               : dispatch(getPersonDetails(person.id, organization.id));
             dispatch(loadStepsAndJourney(person, organization));
+            dispatch(navigateBack());
           },
-          name: person.first_name,
-          contactId: person.id,
-          contactAssignmentId: contactAssignment && contactAssignment.id,
+          personId: person.id,
           orgId: organization.id,
-          section: 'people',
-          subsection: 'person',
         }),
       );
 

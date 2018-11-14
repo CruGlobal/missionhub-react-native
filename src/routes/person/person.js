@@ -27,25 +27,10 @@ import { STAGE_SUCCESS_SCREEN } from '../../containers/StageSuccessScreen';
 import { SELECT_STEP_SCREEN } from '../../containers/SelectStepScreen';
 import { wrapNextScreenFn } from '../helpers';
 
-const buildPersonScreenRoutes = (screenName, screen) =>
+const buildPersonScreenRoutes = screen =>
   createDrawerNavigator(
     {
-      Main: createStackNavigator(
-        {
-          [screenName]: { screen },
-          [STAGE_SCREEN]: {
-            screen: wrapNextScreenFn(StageScreen, ({ isMe }) => {
-              debugger;
-            }),
-            tracking: buildTrackingObj(['person'], 'choose stage'),
-          },
-        },
-        {
-          navigationOptions: {
-            header: null,
-          },
-        },
-      ),
+      Main: screen,
     },
     {
       contentComponent: PersonSideMenu,
@@ -64,32 +49,26 @@ export const personScreens = {
     tracking: buildTrackingObj(['person'], 'unassigned'),
     navigationOptions: { gesturesEnabled: true },
   },
-  [CONTACT_PERSON_SCREEN]: buildPersonScreenRoutes(
-    CONTACT_PERSON_SCREEN,
-    ContactPersonScreen,
-  ),
+  [CONTACT_PERSON_SCREEN]: buildPersonScreenRoutes(ContactPersonScreen),
   [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoutes(
-    IS_USER_CREATED_MEMBER_PERSON_SCREEN,
     IsUserCreatedMemberPersonScreen,
   ),
   [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoutes(
-    IS_GROUPS_MEMBER_PERSON_SCREEN,
     IsGroupsMemberPersonScreen,
   ),
-  [MEMBER_PERSON_SCREEN]: buildPersonScreenRoutes(
-    MEMBER_PERSON_SCREEN,
-    MemberPersonScreen,
-  ),
-  [ME_PERSONAL_PERSON_SCREEN]: buildPersonScreenRoutes(
-    ME_PERSONAL_PERSON_SCREEN,
-    MePersonalPersonScreen,
-  ),
+  [MEMBER_PERSON_SCREEN]: buildPersonScreenRoutes(MemberPersonScreen),
+  [ME_PERSONAL_PERSON_SCREEN]: buildPersonScreenRoutes(MePersonalPersonScreen),
   [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoutes(
-    IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
     IsGroupsMeCommunityPersonScreen,
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoutes(
-    ME_COMMUNITY_PERSON_SCREEN,
     MeCommunityPersonScreen,
   ),
+
+  [STAGE_SCREEN]: {
+    screen: wrapNextScreenFn(StageScreen, ({ isMe }) => {
+      debugger;
+    }),
+    tracking: buildTrackingObj(['person'], 'choose stage'),
+  },
 };

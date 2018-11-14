@@ -221,6 +221,7 @@ function challengeCompleteAction(step, screen) {
     dispatch({ type: COMPLETED_STEP_COUNT, userId: step.receiver.id });
     dispatch(refreshImpact());
 
+    // TODO: see if we can dispatch COMPLETE_STEP_FLOW directly (the parent navigator) and have it initialize the default route with props
     dispatch(
       navigate(ADD_STEP_SCREEN, {
         personId: step.receiver.id,

@@ -21,15 +21,17 @@ import {
   EXPIRED_ACCESS_TOKEN,
   INVALID_ACCESS_TOKEN,
   INVALID_GRANT,
+  MAIN_TABS,
   NETWORK_REQUEST_FAILED,
 } from './constants';
 import { isAndroid } from './utils/common';
 import { initialRoute } from './actions/navigationInit';
-import { navigatePush } from './actions/navigation';
+import { navigate, navigatePush } from './actions/navigation';
 import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 
 import { PersistGate } from 'redux-persist/integration/react';
+import { STEPS_SCREEN } from './containers/StepsScreen';
 
 @codePush({
   deploymentKey: isAndroid
@@ -50,6 +52,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     // store.dispatch(navigatePush(initialRoute(store.getState())));
+    store.dispatch(navigate(STEPS_SCREEN));
     store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);

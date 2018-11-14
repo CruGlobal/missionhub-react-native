@@ -1,17 +1,11 @@
 import { NavigationActions, StackActions } from 'react-navigation';
 
-export function navigate(screen, props = {}, subScreen) {
+export function navigate(screen, props = {}) {
   return dispatch => {
     dispatch(
       NavigationActions.navigate({
         routeName: screen,
         params: props,
-        ...(subScreen
-          ? {
-              routeName: subScreen,
-              params: { ...props },
-            }
-          : {}),
       }),
     );
   };
@@ -28,12 +22,12 @@ export function navigatePush(screen, props = {}) {
   };
 }
 
-export function navigateBack(times) {
+export function navigateBack(times, key) {
   return dispatch => {
     if (times && times > 1) {
       dispatch(StackActions.pop({ n: times, immediate: true }));
     } else {
-      dispatch(NavigationActions.back());
+      dispatch(NavigationActions.back(key ? { key } : undefined));
     }
   };
 }

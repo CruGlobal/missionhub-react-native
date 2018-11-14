@@ -8,7 +8,11 @@ import { wrapNextAction } from '../../helpers';
 import { ACTIONS, STEP_NOTE } from '../../../constants';
 import { trackAction } from '../../../actions/analytics';
 import { updateChallengeNote } from '../../../actions/steps';
-import { navigate, navigatePush } from '../../../actions/navigation';
+import {
+  navigate,
+  navigatePush,
+  navigateBack,
+} from '../../../actions/navigation';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../../containers/CelebrationScreen';
@@ -61,7 +65,7 @@ export const CompleteStepFlowScreens = {
   },
   [CELEBRATION_SCREEN]: {
     screen: wrapNextAction(CelebrationScreen, () => dispatch =>
-      dispatch(navigate(STEPS_SCREEN)),
+      dispatch(navigateBack(1, null)),
     ),
     trackingObj: buildTrackingObj(['people', 'person', 'steps'], 'gif'), // TODO: use - const subsection = getAnalyticsSubsection(step.receiver.id, myId);
   },

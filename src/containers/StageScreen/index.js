@@ -214,7 +214,7 @@ StageScreen.propTypes = {
 };
 
 const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
-  const { personId, orgId } = navigation.state.params || {};
+  const { personId, orgId, next } = navigation.state.params || {};
 
   const person = personSelector({ people }, { personId, orgId });
 
@@ -224,6 +224,7 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
   return {
+    ...(next ? { next } : {}),
     stages: stages.stages,
     person,
     isMe,
