@@ -71,13 +71,13 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, myOrgPermissions, myId } = this.props;
+    const { organization, myOrgPermission, myId } = this.props;
     return (
       <GroupMemberItem
         organization={organization}
         person={item}
         myId={myId}
-        myOrgPermissions={myOrgPermissions}
+        myOrgPermission={myOrgPermission}
         onSelect={this.handleSelect}
       />
     );
@@ -86,7 +86,7 @@ class Members extends Component {
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 
   render() {
-    const { t, members, pagination, myOrgPermissions } = this.props;
+    const { t, members, pagination, myOrgPermission } = this.props;
     return (
       <Flex value={1}>
         <FlatList
@@ -109,7 +109,7 @@ class Members extends Component {
             )
           }
         />
-        {isAdminOrOwner(myOrgPermissions) ? (
+        {isAdminOrOwner(myOrgPermission) ? (
           <Flex align="stretch" justify="end">
             <Button
               type="secondary"
@@ -136,7 +136,7 @@ const mapStateToProps = ({ auth, organizations }, { organization }) => {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
     myId: auth.person.id,
-    myOrgPermissions: orgPermissionSelector(null, {
+    myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
     }),

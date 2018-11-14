@@ -267,7 +267,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
         }
       }
       personIsAdmin={false}
-      personOrgPermissions={
+      personOrgPermission={
         Object {
           "id": "111",
           "permission_id": 4,
@@ -377,7 +377,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
         }
       }
       personIsAdmin={false}
-      personOrgPermissions={
+      personOrgPermission={
         Object {
           "id": "111",
           "permission_id": 4,

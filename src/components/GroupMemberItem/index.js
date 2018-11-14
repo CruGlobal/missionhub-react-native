@@ -14,20 +14,20 @@ export default class GroupMemberItem extends Component {
   constructor(props) {
     super(props);
 
-    const { person, myOrgPermissions, organization } = props;
+    const { person, myOrgPermission, organization } = props;
 
-    const personOrgPermissions = orgPermissionSelector(null, {
+    const personOrgPermission = orgPermissionSelector(null, {
       person,
       organization,
     });
 
     this.state = {
-      iAmAdmin: isAdminOrOwner(myOrgPermissions),
-      iAmOwner: isOwner(myOrgPermissions),
-      personIsAdmin: isAdminOrOwner(personOrgPermissions),
-      personIsOwner: isOwner(personOrgPermissions),
+      iAmAdmin: isAdminOrOwner(myOrgPermission),
+      iAmOwner: isOwner(myOrgPermission),
+      personIsAdmin: isAdminOrOwner(personOrgPermission),
+      personIsOwner: isOwner(personOrgPermission),
       isUserCreatedOrg: orgIsUserCreated(organization),
-      personOrgPermissions,
+      personOrgPermission,
     };
   }
 
@@ -44,7 +44,7 @@ export default class GroupMemberItem extends Component {
       personIsAdmin,
       personIsOwner,
       isUserCreatedOrg,
-      personOrgPermissions,
+      personOrgPermission,
     } = this.state;
 
     const isMe = person.id === myId;
@@ -78,7 +78,7 @@ export default class GroupMemberItem extends Component {
               myId={myId}
               person={person}
               organization={organization}
-              personOrgPermissions={personOrgPermissions}
+              personOrgPermission={personOrgPermission}
               iAmAdmin={iAmAdmin}
               iAmOwner={iAmOwner}
               personIsAdmin={personIsAdmin}
@@ -99,6 +99,6 @@ GroupMemberItem.propTypes = {
   }).isRequired,
   organization: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
-  myOrgPermissions: PropTypes.object.isRequired,
+  myOrgPermission: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
 };
