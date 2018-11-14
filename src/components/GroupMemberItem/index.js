@@ -87,10 +87,7 @@ GroupMemberItem.propTypes = {
   onSelect: PropTypes.func,
 };
 
-const mapStateToProps = (
-  { people },
-  { person, organization, myOrgPermission },
-) => {
+const mapStateToProps = (_, { person, organization, myOrgPermission }) => {
   const personOrgPermission = orgPermissionSelector(null, {
     person,
     organization,
