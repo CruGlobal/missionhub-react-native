@@ -252,7 +252,7 @@ export function updateOrgPermission(
   orgPermissionId,
   permissionLevel,
 ) {
-  return async dispatch => {
+  return dispatch => {
     const data = {
       id: personId,
       orgPermission: {

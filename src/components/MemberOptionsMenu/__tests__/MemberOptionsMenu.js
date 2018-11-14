@@ -148,7 +148,6 @@ describe('confirm screen', () => {
     const component = renderShallow(<MemberOptionsMenu {...props} />);
 
     it('displays confirm screen', () => {
-      const makeAdminMethod = component.makeAdmin;
       component.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(

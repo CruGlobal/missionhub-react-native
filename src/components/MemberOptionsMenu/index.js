@@ -75,7 +75,7 @@ class MemberOptionsMenu extends Component {
   };
 
   render() {
-    const { t, myId, person, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
+    const { myId, person, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
 
     const personIsMe = myId === person.id;
 
