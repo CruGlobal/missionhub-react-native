@@ -631,3 +631,55 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     expect(state.all[0].challengeItems).toEqual([]);
   });
 });
+
+describe('update organization in line', () => {
+  const orgId = '1';
+  const org = {
+    id: orgId,
+    name: 'old name',
+    community_photo_url: 'old photo url',
+    community_code: 'old code',
+  };
+  it('updates the organization name', () => {
+    const name = 'new name';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.UPDATE_ORGANIZATION.SUCCESS,
+        results: {
+          response: { ...org, name },
+        },
+      },
+    );
+
+    expect(state.all[0].name).toEqual(name);
+  });
+  it('updates the organization photo url', () => {
+    const community_photo_url = 'new photo url';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS,
+        results: {
+          response: { ...org, community_photo_url },
+        },
+      },
+    );
+
+    expect(state.all[0].community_photo_url).toEqual(community_photo_url);
+  });
+  it('updates the organization code', () => {
+    const community_code = 'new code';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS,
+        results: {
+          response: { ...org, community_code },
+        },
+      },
+    );
+
+    expect(state.all[0].community_code).toEqual(community_code);
+  });
+});
