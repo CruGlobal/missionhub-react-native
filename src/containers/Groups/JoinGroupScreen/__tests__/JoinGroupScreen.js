@@ -9,6 +9,7 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
+import * as organizations from '../../../../actions/organizations';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'test' })),
@@ -99,12 +100,23 @@ describe('JoinGroupScreen', () => {
 
       component.instance().codeInput = { focus: jest.fn() };
 
+      const community = {
+        id: '123',
+        name: 'Org Name',
+        owner: { first_name: 'Owner' },
+        contactReport: { memberCount: 2 },
+      };
+      organizations.lookupOrgCommunityCode = jest.fn(() =>
+        Promise.resolve(community),
+      );
+
       component
         .find('Input')
         .props()
         .onChangeText('123456');
 
       expect(component.instance().state).toMatchSnapshot();
+      expect(organizations.lookupOrgCommunityCode).toHaveBeenCalled();
     });
   });
 

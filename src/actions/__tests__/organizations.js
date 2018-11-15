@@ -23,6 +23,7 @@ import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
+  lookupOrgCommunityCode,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -574,5 +575,37 @@ describe('deleteOrganization', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_ORGANIZATION, {
       orgId,
     });
+  });
+});
+
+describe('lookupOrgCommunityCode', () => {
+  const code = '123456';
+  const orgId = '123';
+  const query = { filters: { community_code: code } };
+  const ownerQuery = {
+    filters: {
+      permissions: 'owner',
+      organization_ids: orgId,
+    },
+  };
+  const reportQuery = {
+    organization_ids: orgId,
+    period: 'P1W',
+  };
+
+  const response = [{ id: orgId }];
+  const apiResponse = { type: 'successful', response };
+
+  it('look up community by code', async () => {
+    callApi.mockReturnValue(apiResponse);
+
+    await store.dispatch(lookupOrgCommunityCode(code));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY, query);
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
+      reportQuery,
+    );
   });
 });

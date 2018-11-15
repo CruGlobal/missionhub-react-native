@@ -21,6 +21,7 @@ import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
+import { lookupOrgCommunityCode } from '../../../actions/organizations';
 
 import styles from './styles';
 
@@ -40,35 +41,34 @@ class JoinGroupScreen extends Component {
     });
   };
 
-  onSearch = () => {
+  onSearch = async () => {
     const {
       codeInput,
       state: { code },
-      props: { t },
+      props: { t, dispatch },
     } = this;
 
     codeInput.focus();
 
+    const errorState = {
+      errorMessage: t('communityNotFound'),
+      community: undefined,
+    };
+
     const text = (code || '').trim();
     if (!text || text.length < 6) {
-      this.setState({
-        errorMessage: t('communityNotFound'),
-        community: undefined,
-      });
+      this.setState(errorState);
       return;
     }
 
-    // TODO: search community by code
-    this.setState({
-      errorMessage: '',
-      community: {
-        name: 'Test Community',
-        owner: 'Roge',
-        contactReport: {
-          membersCount: 17,
-        },
-      },
-    });
+    const org = await dispatch(lookupOrgCommunityCode(text));
+
+    if (!org) {
+      this.setState(errorState);
+      return;
+    }
+
+    this.setState({ errorMessage: '', community: org });
   };
 
   joinCommunity = () => {
@@ -135,6 +135,7 @@ class JoinGroupScreen extends Component {
               ref={this.ref}
               style={styles.input}
               onChangeText={this.onChangeCode}
+              selectionColor={theme.white}
               maxLength={6}
               value={code}
               autoFocus={true}

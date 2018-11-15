@@ -138,6 +138,9 @@ export default {
   GET_ORGANIZATIONS: {
     endpoint: ORG_URL,
   },
+  LOOKUP_COMMUNITY: {
+    endpoint: ORG_URL,
+  },
   ADD_NEW_ORGANIZATION: {
     endpoint: ORG_URL,
     method: 'post',

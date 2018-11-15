@@ -3,13 +3,7 @@
 exports[`JoinGroupScreen onSearch should set community after entering 6th digit 1`] = `
 Object {
   "code": "123456",
-  "community": Object {
-    "contactReport": Object {
-      "membersCount": 17,
-    },
-    "name": "Test Community",
-    "owner": "Roge",
-  },
+  "community": undefined,
   "errorMessage": "",
 }
 `;
@@ -17,13 +11,7 @@ Object {
 exports[`JoinGroupScreen onSearch should set community if input has 6 digits 1`] = `
 Object {
   "code": "123456",
-  "community": Object {
-    "contactReport": Object {
-      "membersCount": 17,
-    },
-    "name": "Test Community",
-    "owner": "Roge",
-  },
+  "community": undefined,
   "errorMessage": "",
 }
 `;
@@ -120,6 +108,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",
@@ -222,6 +211,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",
@@ -344,6 +334,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         blurOnSubmit={false}
         maxLength={6}
         onChangeText={[Function]}
+        selectionColor="#ffffff"
         style={
           Object {
             "color": "#ffffff",

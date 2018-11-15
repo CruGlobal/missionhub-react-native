@@ -395,3 +395,48 @@ export function deleteOrganization(orgId) {
     return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
   };
 }
+
+export function lookupOrgCommunityCode(code) {
+  return async dispatch => {
+    const query = { filters: { community_code: code } };
+    const { response } = await dispatch(
+      callApi(REQUESTS.LOOKUP_COMMUNITY, query),
+    );
+
+    if (response.length === 0) {
+      return null;
+    }
+    const org = response[0];
+
+    // get the owner information and append it to the org
+    const ownerQuery = {
+      filters: {
+        permissions: 'owner',
+        organization_ids: org.id,
+      },
+    };
+    const { response: ownerResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, ownerQuery),
+    );
+    org.owner = ownerResponse[0];
+
+    // get the report information and append it to the org
+    const reportQuery = {
+      organization_ids: org.id,
+      period: 'P1W',
+    };
+    const { response: reports } = await dispatch(
+      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
+    );
+
+    const report = reports[0] || {};
+    org.contactReport = {
+      contactsCount: report.contact_count,
+      unassignedCount: report.unassigned_count,
+      uncontactedCount: report.uncontacted_count,
+      memberCount: report.member_count,
+    };
+
+    return org;
+  };
+}
