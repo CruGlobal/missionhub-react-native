@@ -226,3 +226,37 @@ describe('Leave Community', () => {
     );
   });
 });
+
+describe('Remove from Community', () => {
+  const archiveOrgPermissionResult = { type: 'archived permission' };
+
+  beforeEach(() => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: otherId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+      personOrgPermission,
+    };
+
+    store = mockStore();
+  });
+
+  it("sends api request to archive person's permission", async () => {
+    archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().removeFromCommunity();
+
+    expect(store.getActions()).toEqual([archiveOrgPermissionResult]);
+    expect(archiveOrgPermission).toHaveBeenCalledWith(
+      otherId,
+      personOrgPermission.id,
+    );
+  });
+});

@@ -93,7 +93,7 @@ class MemberOptionsMenu extends Component {
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
     const showRemoveAdmin = !personIsMe && iAmAdmin && personIsAdmin;
     const showMakeOwner = !personIsMe && iAmOwner;
-    const showRemoveMember = !personIsMe && iAmAdmin;
+    const showRemoveFromCommunity = !personIsMe && iAmAdmin;
 
     const props = {
       actions: [
@@ -107,7 +107,7 @@ class MemberOptionsMenu extends Component {
         ...(showMakeOwner
           ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
-        ...(showRemoveMember
+        ...(showRemoveFromCommunity
           ? this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
