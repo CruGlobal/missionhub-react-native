@@ -131,6 +131,7 @@ export default {
   },
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
+    haveCode: 'I Have a Community Code',
     tryNow: 'Try it now',
     emailSignUp: 'Sign up with Email',
     signIn: 'Sign In',
@@ -596,10 +597,19 @@ export default {
     numUncontacted: '{{count}} Uncontacted',
     numMembers: '{{count}} Member',
     numMembers_plural: '{{count}} Members',
+    owner: '{{name}} (Owner)',
+    join: 'Join',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
     name: 'Community Name',
+  },
+  groupsJoinGroup: {
+    joinCommunity: 'Join a Community',
+    enterCode: 'Enter your Community Code',
+    search: 'Search',
+    communityNotFound:
+      "Sorry, we couldn't find your community.\nDouble check your code.",
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',

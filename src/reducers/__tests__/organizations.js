@@ -7,6 +7,7 @@ import {
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
   UPDATE_PERSON_ATTRIBUTES,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../../constants';
 
 const org1Id = '123';
@@ -684,4 +685,43 @@ it('should update attributes of a member in all orgs ', () => {
       members: [person1New],
     },
   ]);
+});
+
+describe('REMOVE_ORGANIZATION_MEMBER', () => {
+  it('should remove member', () => {
+    const personId = '2542342';
+    const orgId = '980789879';
+    const otherPerson = { id: '42324' };
+    const initialState = {
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson, { id: personId }],
+        },
+      ],
+    };
+
+    const result = organizations(initialState, {
+      type: REMOVE_ORGANIZATION_MEMBER,
+      personId,
+      orgId,
+    });
+
+    expect(result).toEqual({
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson],
+        },
+      ],
+    });
+  });
 });

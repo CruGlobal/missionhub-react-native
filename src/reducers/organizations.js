@@ -8,6 +8,7 @@ import {
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
   UPDATE_PERSON_ATTRIBUTES,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -158,6 +159,18 @@ function organizationsReducer(state = initialState, action) {
       };
     case UPDATE_PERSON_ATTRIBUTES:
       return updateAllPersonInstances(action, state);
+    case REMOVE_ORGANIZATION_MEMBER:
+      const { personId, orgId } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === orgId
+              ? { ...o, members: o.members.filter(m => m.id !== personId) }
+              : o,
+        ),
+      };
     case LOGOUT:
       return initialState;
     default:
