@@ -42,14 +42,14 @@ class GroupMemberItem extends Component {
             {!isUserCreatedOrg ? (
               <Flex align="center" direction="row" style={styles.detailsWrap}>
                 <Text style={styles.assigned}>
-                  {t('numAssigned', { number: person.contact_count || 0 })}
+                  {t('numAssigned', { count: person.contact_count || 0 })}
                 </Text>
                 {person.uncontacted_count ? (
                   <Fragment>
                     <Dot style={styles.assigned} />
                     <Text style={styles.uncontacted}>
                       {t('numUncontacted', {
-                        number: person.uncontacted_count,
+                        count: person.uncontacted_count,
                       })}
                     </Text>
                   </Fragment>

@@ -4,13 +4,20 @@ import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
+import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
-import { makeAdmin, removeAdmin } from '../../actions/person';
+import { makeAdmin, removeAdmin, archiveOrgPermission } from '../../actions/person';
+import { navigateBack } from '../../actions/navigation';
+import { getMyCommunities } from '../../actions/organizations';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
-  leaveCommunity = () => {
-    //TODO: leave community
+  leaveCommunity = async () => {
+    const { dispatch, person, personOrgPermission } = this.props;
+
+    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+    dispatch(getMyCommunities());
+    dispatch(navigateBack());
   };
 
   makeAdmin = () => {
@@ -24,7 +31,9 @@ class MemberOptionsMenu extends Component {
   };
 
   makeOwner = () => {
-    //TODO: make owner
+    const { dispatch, organization, person } = this.props;
+
+    dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
   removeMember = () => {

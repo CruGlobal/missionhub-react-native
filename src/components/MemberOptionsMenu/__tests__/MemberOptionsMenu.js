@@ -1,18 +1,33 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18next from 'i18next';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import MemberOptionsMenu from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import {
+  transferOrgOwnership,
+  getMyCommunities,
+} from '../../../actions/organizations';
+import { archiveOrgPermission } from '../../../actions/person';
+import { navigateBack } from '../../../actions/navigation';
+
+jest.mock('../../../actions/organizations.js');
+jest.mock('../../../actions/person.js');
+jest.mock('../../../actions/navigation.js');
 
 const myId = '1';
 const otherId = '2';
+const organization = { name: "Roge's org", id: '08747283423' };
+const personOrgPermission = { id: '25234234' };
 
 const person = { full_name: 'Roge' };
-const organization = { name: "Roge's org" };
+const mockStore = configureStore([thunk]);
 
 let props;
+let store;
 
 const test = () => {
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
@@ -20,8 +35,8 @@ const test = () => {
 
 describe('MemberOptionsMenu', () => {
   describe('for me, as owner', () => {
-    it('renders correctly', () => {
-      props = {
+    beforeEach(() =>
+      (props = {
         myId,
         person: {
           ...person,
@@ -31,24 +46,11 @@ describe('MemberOptionsMenu', () => {
         iAmOwner: true,
         personIsAdmin: false,
         organization,
-      };
+      }));
 
-      test();
-    });
+    it('renders correctly', () => test());
 
     it('shows an alert message if I attempt to leave', () => {
-      props = {
-        myId,
-        person: {
-          ...person,
-          id: myId,
-        },
-        iAmAdmin: false,
-        iAmOwner: true,
-        personIsAdmin: false,
-        organization,
-      };
-
       Alert.alert = jest.fn();
       const screen = renderShallow(<MemberOptionsMenu {...props} />);
 
@@ -56,7 +58,7 @@ describe('MemberOptionsMenu', () => {
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:ownerLeaveCommunityErrorMessage', {
-          orgName: props.organization.name,
+          orgName: organization.name,
         }),
         null,
         { text: i18next.t('ok') },
@@ -94,19 +96,33 @@ describe('MemberOptionsMenu', () => {
     test();
   });
 
-  it('renders for owner looking at member', () => {
-    props = {
-      myId,
-      person: {
-        ...person,
-        id: otherId,
-      },
-      iAmAdmin: true,
-      iAmOwner: true,
-      personIsAdmin: false,
-      organization,
-    };
-    test();
+  describe(' looking at member, when I am owner', () => {
+    beforeEach(() =>
+      (props = {
+        myId,
+        person: {
+          ...person,
+          id: otherId,
+        },
+        iAmAdmin: true,
+        iAmOwner: true,
+        personIsAdmin: false,
+        organization,
+      }));
+
+    it('renders correctly', () => test());
+
+    it('transfers ownership', () => {
+      transferOrgOwnership.mockReturnValue({ type: 'transferred ownership' });
+      const screen = renderShallow(<MemberOptionsMenu {...props} />);
+
+      screen.instance().makeOwner();
+
+      expect(transferOrgOwnership).toHaveBeenCalledWith(
+        organization.id,
+        otherId,
+      );
+    });
   });
 
   it('renders for owner looking at admin', () => {
@@ -130,9 +146,7 @@ describe('confirm screen', () => {
 
   beforeEach(() => {
     Alert.alert.mockClear();
-  });
 
-  describe('Make Admin', () => {
     props = {
       myId,
       person: {
@@ -144,10 +158,12 @@ describe('confirm screen', () => {
       personIsAdmin: false,
       organization,
     };
+  });
 
-    const component = renderShallow(<MemberOptionsMenu {...props} />);
-
+  describe('Make Admin', () => {
     it('displays confirm screen', () => {
+      const component = renderShallow(<MemberOptionsMenu {...props} />);
+
       component.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -168,5 +184,45 @@ describe('confirm screen', () => {
         ],
       );
     });
+  });
+});
+
+describe('Leave Community', () => {
+  const getMyCommunitiesResult = { type: 'got communities' };
+  const navigateBackResult = { type: 'navigated back' };
+
+  beforeEach(() => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: myId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+      personOrgPermission,
+    };
+
+    store = mockStore();
+  });
+
+  it('sends api request to archive my permission', async () => {
+    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
+    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+    navigateBack.mockReturnValue(navigateBackResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().leaveCommunity();
+
+    expect(store.getActions()).toEqual([
+      getMyCommunitiesResult,
+      navigateBackResult,
+    ]);
+    expect(archiveOrgPermission).toHaveBeenCalledWith(
+      myId,
+      personOrgPermission.id,
+    );
   });
 });
