@@ -14,7 +14,7 @@ import {
 } from '../../../actions/organizations';
 import {
   makeAdmin,
-  removeAdmin,
+  removeAsAdmin,
   archiveOrgPermission,
 } from '../../../actions/person';
 import { navigateBack } from '../../../actions/navigation';
@@ -207,9 +207,9 @@ describe('confirm screen', () => {
     });
   });
 
-  describe('Remove Admin', () => {
+  describe('Remove As Admin', () => {
     const removeAdminResponse = { type: 'remove admin' };
-    removeAdmin.mockReturnValue(removeAdminResponse);
+    removeAsAdmin.mockReturnValue(removeAdminResponse);
 
     beforeEach(() => {
       props = {
@@ -252,10 +252,13 @@ describe('confirm screen', () => {
     });
 
     it('calls removeAdmin action', async () => {
-      await screen.instance().removeAdmin();
+      await screen.instance().removeAsAdmin();
 
       expect(store.getActions()).toEqual([removeAdminResponse]);
-      expect(removeAdmin).toHaveBeenCalledWith(otherId, personOrgPermission.id);
+      expect(removeAsAdmin).toHaveBeenCalledWith(
+        otherId,
+        personOrgPermission.id,
+      );
     });
   });
 });

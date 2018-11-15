@@ -8,7 +8,7 @@ import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
 import {
   makeAdmin,
-  removeAdmin,
+  removeAsAdmin,
   archiveOrgPermission,
 } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
@@ -32,9 +32,9 @@ class MemberOptionsMenu extends Component {
     dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
-  removeAdmin = () => {
+  removeAsAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
-    dispatch(removeAdmin(person.id, personOrgPermission.id));
+    dispatch(removeAsAdmin(person.id, personOrgPermission.id));
   };
 
   makeOwner = () => {
@@ -101,7 +101,7 @@ class MemberOptionsMenu extends Component {
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
-    const showRemoveAdmin = !personIsMe && iAmAdmin && personIsAdmin;
+    const showRemoveAsAdmin = !personIsMe && iAmAdmin && personIsAdmin;
     const showMakeOwner = !personIsMe && iAmOwner;
     const showRemoveFromCommunity = !personIsMe && iAmAdmin;
 
@@ -111,8 +111,8 @@ class MemberOptionsMenu extends Component {
         ...(showMakeAdmin
           ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
-        ...(showRemoveAdmin
-          ? this.createOption('removeAdmin', this.removeAdmin)
+        ...(showRemoveAsAdmin
+          ? this.createOption('removeAdmin', this.removeAsAdmin)
           : []),
         ...(showMakeOwner
           ? this.createOption('makeOwner', this.makeOwner, true)

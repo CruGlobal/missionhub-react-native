@@ -15,7 +15,7 @@ import {
   archiveOrgPermission,
   updatePerson,
   makeAdmin,
-  removeAdmin,
+  removeAsAdmin,
   updateOrgPermission,
   createContactAssignment,
   deleteContactAssignment,
@@ -283,12 +283,12 @@ describe('makeAdmin', () => {
   });
 });
 
-describe('removeAdmin', () => {
+describe('removeAsAdmin', () => {
   const personId = '24234234';
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', () => {
-    store.dispatch(removeAdmin(personId, orgPermissionId));
+    store.dispatch(removeAsAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
