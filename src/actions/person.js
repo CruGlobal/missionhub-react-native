@@ -258,6 +258,13 @@ export function makeAdmin(personId, orgPermissionId) {
     );
 }
 
+export function removeAsAdmin(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
+    );
+}
+
 export function updateOrgPermission(
   personId,
   orgPermissionId,

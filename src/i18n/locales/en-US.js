@@ -532,7 +532,7 @@ export default {
       confirmButtonText: 'Yes',
     },
     removeAdmin: {
-      optionTitle: 'Remove Admin',
+      optionTitle: 'Remove as Admin',
       modalTitle: 'Remove {{personName}} as admin?',
       confirmButtonText: 'Remove',
     },

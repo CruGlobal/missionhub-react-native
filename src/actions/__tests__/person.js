@@ -14,6 +14,9 @@ import {
   updateFollowupStatus,
   archiveOrgPermission,
   updatePerson,
+  makeAdmin,
+  removeAsAdmin,
+  updateOrgPermission,
   createContactAssignment,
   deleteContactAssignment,
   getPersonJourneyDetails,
@@ -249,6 +252,102 @@ describe('updatePerson', () => {
   });
 });
 
+describe('makeAdmin', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(makeAdmin(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('removeAsAdmin', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(removeAsAdmin(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('updateOrgPermission', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+  const permissionLevel = ORG_PERMISSIONS.USER;
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(
+      updateOrgPermission(personId, orgPermissionId, permissionLevel),
+    );
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: permissionLevel,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
 describe('archiveOrgPermission', () => {
   const personId = '24234234';
   const orgPermissionId = '78978998';
@@ -262,8 +361,7 @@ describe('archiveOrgPermission', () => {
       REQUESTS.UPDATE_PERSON,
       {
         personId: personId,
-        include:
-          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+        include: expectedIncludeWithContactAssignmentPerson,
       },
       {
         data: {
