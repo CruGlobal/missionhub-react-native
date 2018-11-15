@@ -4,6 +4,7 @@ import {
   GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -393,5 +394,13 @@ export function deleteOrganization(orgId) {
   return dispatch => {
     const query = { orgId };
     return dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
+  };
+}
+
+export function removeOrganizationMember(personId, orgId) {
+  return {
+    type: REMOVE_ORGANIZATION_MEMBER,
+    personId,
+    orgId,
   };
 }
