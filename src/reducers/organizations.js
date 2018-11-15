@@ -187,7 +187,7 @@ function toggleCelebrationLike(action, state, liked) {
   };
 }
 
-function updateAllPersonInstances(action, state, replace = false) {
+function updateAllPersonInstances(action, state) {
   const { updatedPersonAttributes: updatedPerson } = action;
   return {
     ...state,
@@ -198,11 +198,7 @@ function updateAllPersonInstances(action, state, replace = false) {
               ...org,
               members: org.members.map(
                 m =>
-                  m.id === updatedPerson.id
-                    ? replace
-                      ? updatedPerson
-                      : { ...m, ...updatedPerson }
-                    : m,
+                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
               ),
             }
           : org,
