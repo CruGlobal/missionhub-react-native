@@ -6,12 +6,18 @@ import { translate } from 'react-i18next';
 
 import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
-import { makeAdmin } from '../../actions/person';
+import { makeAdmin, archiveOrgPermission } from '../../actions/person';
+import { navigateBack } from '../../actions/navigation';
+import { getMyCommunities } from '../../actions/organizations';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
-  leaveCommunity = () => {
-    //TODO: leave community
+  leaveCommunity = async () => {
+    const { dispatch, person, personOrgPermission } = this.props;
+
+    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+    dispatch(getMyCommunities());
+    dispatch(navigateBack());
   };
 
   makeAdmin = () => {

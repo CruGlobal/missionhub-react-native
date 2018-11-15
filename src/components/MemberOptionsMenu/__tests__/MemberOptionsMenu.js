@@ -1,21 +1,33 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18next from 'i18next';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import MemberOptionsMenu from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import { transferOrgOwnership } from '../../../actions/organizations';
+import {
+  transferOrgOwnership,
+  getMyCommunities,
+} from '../../../actions/organizations';
+import { archiveOrgPermission } from '../../../actions/person';
+import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../actions/organizations.js');
+jest.mock('../../../actions/person.js');
+jest.mock('../../../actions/navigation.js');
 
 const myId = '1';
 const otherId = '2';
 const organization = { name: "Roge's org", id: '08747283423' };
+const personOrgPermission = { id: '25234234' };
 
 const person = { full_name: 'Roge' };
+const mockStore = configureStore([thunk]);
 
 let props;
+let store;
 
 const test = () => {
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
@@ -134,9 +146,7 @@ describe('confirm screen', () => {
 
   beforeEach(() => {
     Alert.alert.mockClear();
-  });
 
-  describe('Make Admin', () => {
     props = {
       myId,
       person: {
@@ -148,10 +158,12 @@ describe('confirm screen', () => {
       personIsAdmin: false,
       organization,
     };
+  });
 
-    const component = renderShallow(<MemberOptionsMenu {...props} />);
-
+  describe('Make Admin', () => {
     it('displays confirm screen', () => {
+      const component = renderShallow(<MemberOptionsMenu {...props} />);
+
       component.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -172,5 +184,45 @@ describe('confirm screen', () => {
         ],
       );
     });
+  });
+});
+
+describe('Leave Community', () => {
+  const getMyCommunitiesResult = { type: 'got communities' };
+  const navigateBackResult = { type: 'navigated back' };
+
+  beforeEach(() => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: myId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+      personOrgPermission,
+    };
+
+    store = mockStore();
+  });
+
+  it('sends api request to archive my permission', async () => {
+    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
+    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+    navigateBack.mockReturnValue(navigateBackResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().leaveCommunity();
+
+    expect(store.getActions()).toEqual([
+      getMyCommunitiesResult,
+      navigateBackResult,
+    ]);
+    expect(archiveOrgPermission).toHaveBeenCalledWith(
+      myId,
+      personOrgPermission.id,
+    );
   });
 });
