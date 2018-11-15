@@ -35,8 +35,9 @@ class MemberOptionsMenu extends Component {
     dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
-  removeMember = () => {
-    //TODO: remove member
+  removeFromCommunity = () => {
+    const { dispatch, person, personOrgPermission } = this.props;
+    dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
   };
 
   canLeaveCommunity = () => {
@@ -107,7 +108,7 @@ class MemberOptionsMenu extends Component {
           ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
         ...(showRemoveMember
-          ? this.createOption('removeMember', this.removeMember)
+          ? this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
       iconProps: {},
