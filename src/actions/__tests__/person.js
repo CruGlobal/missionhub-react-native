@@ -263,8 +263,7 @@ describe('makeAdmin', () => {
       REQUESTS.UPDATE_PERSON,
       {
         personId: personId,
-        include:
-          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+        include: expectedIncludeWithContactAssignmentPerson,
       },
       {
         data: {
@@ -289,14 +288,13 @@ describe('removeAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', () => {
-    store.dispatch(removeAdmin(personId, orgPermissionId));
+    store.dispatch(makeAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       {
         personId: personId,
-        include:
-          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+        include: expectedIncludeWithContactAssignmentPerson,
       },
       {
         data: {
@@ -307,7 +305,7 @@ describe('removeAdmin', () => {
             id: orgPermissionId,
             type: 'organizational_permission',
             attributes: {
-              permission_id: ORG_PERMISSIONS.USER,
+              permission_id: ORG_PERMISSIONS.ADMIN,
             },
           },
         ],
@@ -330,8 +328,7 @@ describe('updateOrgPermission', () => {
       REQUESTS.UPDATE_PERSON,
       {
         personId: personId,
-        include:
-          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+        include: expectedIncludeWithContactAssignmentPerson,
       },
       {
         data: {
@@ -364,8 +361,7 @@ describe('archiveOrgPermission', () => {
       REQUESTS.UPDATE_PERSON,
       {
         personId: personId,
-        include:
-          'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user',
+        include: expectedIncludeWithContactAssignmentPerson,
       },
       {
         data: {
