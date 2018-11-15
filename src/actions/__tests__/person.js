@@ -288,7 +288,7 @@ describe('removeAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', () => {
-    store.dispatch(makeAdmin(personId, orgPermissionId));
+    store.dispatch(removeAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
@@ -305,7 +305,7 @@ describe('removeAdmin', () => {
             id: orgPermissionId,
             type: 'organizational_permission',
             attributes: {
-              permission_id: ORG_PERMISSIONS.ADMIN,
+              permission_id: ORG_PERMISSIONS.USER,
             },
           },
         ],
