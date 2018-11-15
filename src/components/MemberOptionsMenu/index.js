@@ -6,7 +6,11 @@ import { translate } from 'react-i18next';
 
 import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
-import { makeAdmin, removeAdmin, archiveOrgPermission } from '../../actions/person';
+import {
+  makeAdmin,
+  removeAdmin,
+  archiveOrgPermission,
+} from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
 import { getMyCommunities } from '../../actions/organizations';
 
