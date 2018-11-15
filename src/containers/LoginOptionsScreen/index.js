@@ -16,6 +16,7 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { LINKS } from '../../constants';
 import { KEY_LOGIN_SCREEN } from '../KeyLoginScreen';
 import { WELCOME_SCREEN } from '../WelcomeScreen';
+import { JOIN_GROUP_SCREEN } from '../Groups/JoinGroupScreen';
 import { onSuccessfulLogin } from '../../actions/login';
 import { facebookLoginWithUsernamePassword } from '../../actions/facebook';
 
@@ -41,6 +42,10 @@ class LoginOptionsScreen extends Component {
       upgradeAccount: this.props.upgradeAccount,
     });
   }
+
+  navToJoinGroup = () => {
+    this.navigateToNext(JOIN_GROUP_SCREEN);
+  };
 
   tryItNow() {
     this.props.dispatch(firstTime());
@@ -139,6 +144,14 @@ class LoginOptionsScreen extends Component {
                   </Text>
                 </Flex>
               </Button>
+              <Button
+                name={'communityCodeButton'}
+                pill={true}
+                onPress={this.navToJoinGroup}
+                text={t('haveCode').toUpperCase()}
+                style={styles.tryButton}
+                buttonTextStyle={styles.buttonText}
+              />
               {upgradeAccount ? null : (
                 <Button
                   name={'tryItNowButton'}

@@ -8,14 +8,20 @@ const contactsCount = 768;
 const unassignedCount = 13;
 const memberCount = 5;
 
-let group = {
+const group = {
   name: 'Group Name',
   contactReport: {},
   user_created: false,
 };
 
+let props = {
+  group,
+  onPress: jest.fn(),
+  onJoin: undefined,
+};
+
 const test = () => {
-  testSnapshotShallow(<GroupCardItem group={group} />);
+  testSnapshotShallow(<GroupCardItem {...props} />);
 };
 
 describe('GroupCardItem', () => {
@@ -24,93 +30,133 @@ describe('GroupCardItem', () => {
   });
 
   it('renders with no report counts for user created org', () => {
-    group = {
-      ...group,
-      contactReport: {
-        contactsCount,
-        unassignedCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          contactsCount,
+          unassignedCount,
+        },
+        user_created: true,
       },
-      user_created: true,
     };
 
     test();
   });
 
   it('renders with all report counts', () => {
-    group = {
-      ...group,
-      contactReport: {
-        contactsCount,
-        unassignedCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          contactsCount,
+          unassignedCount,
+        },
+        user_created: false,
       },
-      user_created: false,
     };
 
     test();
   });
 
   it('renders with unassigned, no contacts', () => {
-    group = {
-      ...group,
-      contactReport: {
-        unassignedCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          unassignedCount,
+        },
+        user_created: false,
       },
-      user_created: false,
     };
 
     test();
   });
 
   it('renders with contacts, no unassigned', () => {
-    group = {
-      ...group,
-      contactReport: {
-        contactsCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          contactsCount,
+        },
+        user_created: false,
       },
-      user_created: false,
     };
 
     test();
   });
 
   it('renders user created group', () => {
-    group = {
-      ...group,
-      user_created: true,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        user_created: true,
+      },
     };
 
     test();
   });
 
   it('renders user created group with member count', () => {
-    group = {
-      ...group,
-      contactReport: {
-        memberCount,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          memberCount,
+        },
+        user_created: true,
       },
-      user_created: true,
     };
 
     test();
   });
 
   it('renders user created group with singular member count', () => {
-    group = {
-      ...group,
-      contactReport: {
-        memberCount: 1,
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          memberCount: 1,
+        },
+        user_created: true,
       },
-      user_created: true,
     };
 
     test();
   });
 
   it('renders with image url', () => {
-    group = {
-      ...group,
-      community_photo_url:
-        'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
+    props = {
+      ...props,
+      group: {
+        ...group,
+        community_photo_url:
+          'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
+      },
+    };
+
+    test();
+  });
+
+  it('renders for join screen', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        contactReport: {
+          memberCount,
+        },
+        owner: 'Roge',
+      },
+      onJoin: jest.fn(),
     };
 
     test();
@@ -125,5 +171,20 @@ describe('GroupCardItem', () => {
     component.simulate('press');
 
     expect(onPress).toHaveBeenCalled();
+  });
+
+  it('calls props.onJoin when pressed', () => {
+    const onJoin = jest.fn();
+    const component = renderShallow(
+      <GroupCardItem group={group} onJoin={onJoin} />,
+    );
+
+    component
+      .childAt(1)
+      .childAt(1)
+      .childAt(0)
+      .simulate('press');
+
+    expect(onJoin).toHaveBeenCalled();
   });
 });

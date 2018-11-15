@@ -24,4 +24,15 @@ export default StyleSheet.create({
     fontSize: 12,
     color: theme.white,
   },
+  joinButton: {
+    backgroundColor: theme.red,
+    borderRadius: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    margin: 5,
+  },
+  joinButtonText: {
+    fontSize: 14,
+    color: theme.white,
+  },
 });
