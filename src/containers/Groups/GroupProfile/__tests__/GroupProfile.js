@@ -199,19 +199,22 @@ describe('GroupProfile', () => {
     expect(component.instance().state.name).toBe(text);
   });
 
-  it('handle new code', async () => {
+  it('handle new code', () => {
     const component = buildScreen();
     const instance = component.instance();
     // Press the "Edit" button
     instance.handleEdit();
     component.update();
-    await component
+    component
       .childAt(1)
       .childAt(4)
       .childAt(1)
       .props()
       .onPress();
 
+    expect(Alert.alert).toHaveBeenCalled();
+    //Manually call onPress
+    Alert.alert.mock.calls[0][2][1].onPress();
     expect(generateNewCode).toHaveBeenCalledWith(orgId);
   });
 

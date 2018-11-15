@@ -60,9 +60,19 @@ class GroupProfile extends Component {
 
   handleChangeName = t => this.setState({ name: t });
 
-  handleNewCode = async () => {
-    const { dispatch, organization } = this.props;
-    await dispatch(generateNewCode(organization.id));
+  changeCode = async () => {};
+
+  handleNewCode = () => {
+    const { t, dispatch, organization } = this.props;
+    Alert.alert(t('createNewCode'), t('cannotBeUndone'), [
+      { text: t('cancel'), style: 'cancel' },
+      {
+        text: t('yes'),
+        onPress: () => {
+          dispatch(generateNewCode(organization.id));
+        },
+      },
+    ]);
   };
 
   handleNewLink = () => {

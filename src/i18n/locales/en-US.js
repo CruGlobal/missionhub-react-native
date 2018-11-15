@@ -661,6 +661,7 @@ export default {
     newLink: 'New Link',
     info: 'Anyone who has this code or link will be able to join your group.',
     deleteCommunity: 'Delete Community?',
+    createNewCode: 'Are you sure you want to create a new Community Code?',
     cannotBeUndone: 'This cannot be undone',
   },
 };
