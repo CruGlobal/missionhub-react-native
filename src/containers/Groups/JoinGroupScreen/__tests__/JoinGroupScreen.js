@@ -94,12 +94,12 @@ describe('JoinGroupScreen', () => {
       expect(component.instance().state).toMatchSnapshot();
     });
 
-    it('should set community after entering 6th digit', async () => {
+    it('should set community after entering 6th digit', () => {
       const component = buildScreen();
 
       component.instance().codeInput = { focus: jest.fn() };
 
-      await component
+      component
         .find('Input')
         .props()
         .onChangeText('123456');
