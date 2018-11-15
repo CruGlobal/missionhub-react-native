@@ -10,6 +10,7 @@ import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
   transferOrgOwnership,
   getMyCommunities,
+  removeOrganizationMember,
 } from '../../../actions/organizations';
 import { archiveOrgPermission } from '../../../actions/person';
 import { navigateBack } from '../../../actions/navigation';
@@ -229,6 +230,7 @@ describe('Leave Community', () => {
 
 describe('Remove from Community', () => {
   const archiveOrgPermissionResult = { type: 'archived permission' };
+  const removePersonResult = { type: 'removed person' };
 
   beforeEach(() => {
     props = {
@@ -249,14 +251,22 @@ describe('Remove from Community', () => {
 
   it("sends api request to archive person's permission", async () => {
     archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
+    removeOrganizationMember.mockReturnValue(removePersonResult);
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
     await screen.instance().removeFromCommunity();
 
-    expect(store.getActions()).toEqual([archiveOrgPermissionResult]);
+    expect(store.getActions()).toEqual([
+      archiveOrgPermissionResult,
+      removePersonResult,
+    ]);
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       otherId,
       personOrgPermission.id,
+    );
+    expect(removeOrganizationMember).toHaveBeenCalledWith(
+      otherId,
+      organization.id,
     );
   });
 });

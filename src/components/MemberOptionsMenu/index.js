@@ -8,7 +8,10 @@ import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
 import { makeAdmin, archiveOrgPermission } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
-import { getMyCommunities } from '../../actions/organizations';
+import {
+  getMyCommunities,
+  removeOrganizationMember,
+} from '../../actions/organizations';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
@@ -35,9 +38,11 @@ class MemberOptionsMenu extends Component {
     dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
-  removeFromCommunity = () => {
-    const { dispatch, person, personOrgPermission } = this.props;
-    dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+  removeFromCommunity = async () => {
+    const { dispatch, person, personOrgPermission, organization } = this.props;
+
+    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+    dispatch(removeOrganizationMember(person.id, organization.id));
   };
 
   canLeaveCommunity = () => {
