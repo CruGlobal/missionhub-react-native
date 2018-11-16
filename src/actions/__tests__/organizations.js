@@ -26,6 +26,7 @@ import {
   deleteOrganization,
   generateNewCode,
   removeOrganizationMember,
+  generateNewLink,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -592,6 +593,23 @@ describe('generateNewCode', () => {
     store.dispatch(generateNewCode(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
+      orgId,
+    });
+  });
+});
+
+describe('generateNewLink', () => {
+  const orgId = '123';
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('get new url for organization', () => {
+    store.dispatch(generateNewLink(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_LINK, {
       orgId,
     });
   });

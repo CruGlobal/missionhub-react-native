@@ -220,29 +220,21 @@ describe('GroupProfile', () => {
 
   it('handle new link', () => {
     const component = buildScreen();
+    const instance = component.instance();
     // Press the "Edit" button
-    component.instance().handleEdit();
+    instance.handleEdit();
     component.update();
-    const result = component
+    component
       .childAt(1)
       .childAt(6)
       .childAt(1)
       .props()
       .onPress();
 
-    expect(result).toBe('new link');
-  });
-
-  it('handle copy code', () => {
-    const component = buildScreen();
-    component
-      .childAt(1)
-      .childAt(4)
-      .childAt(1)
-      .props()
-      .onPress();
-
-    expect(common.copyText).toHaveBeenCalled();
+    expect(Alert.alert).toHaveBeenCalled();
+    //Manually call onPress
+    Alert.alert.mock.calls[0][2][1].onPress();
+    expect(generateNewCode).toHaveBeenCalledWith(orgId);
   });
 
   it('handle copy link', () => {
