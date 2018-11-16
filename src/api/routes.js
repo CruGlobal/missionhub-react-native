@@ -159,7 +159,7 @@ export default {
     method: 'delete',
   },
   TRANSFER_ORG_OWNERSHIP: {
-    endpoint: `${ORG_URL}/:orgId/transfer_ownership`,
+    endpoint: `${ORG_URL}/:orgId/community_owner`,
     method: 'put',
   },
   GET_GROUP_CELEBRATE_FEED: {
