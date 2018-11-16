@@ -15,6 +15,7 @@ import {
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
+  generateNewLink,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
@@ -30,6 +31,7 @@ jest.mock('../../../../actions/organizations', () => ({
   updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
   deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
   generateNewCode: jest.fn(() => ({ type: 'new code' })),
+  generateNewLink: jest.fn(() => ({ type: 'new link' })),
 }));
 jest.mock('../../../../selectors/organizations');
 
@@ -233,8 +235,20 @@ describe('GroupProfile', () => {
 
     expect(Alert.alert).toHaveBeenCalled();
     //Manually call onPress
-    Alert.alert.mock.calls[0][2][1].onPress();
-    expect(generateNewCode).toHaveBeenCalledWith(orgId);
+    Alert.alert.mock.calls[1][2][1].onPress();
+    expect(generateNewLink).toHaveBeenCalledWith(orgId);
+  });
+
+  it('handle copy code', () => {
+    const component = buildScreen();
+    component
+      .childAt(1)
+      .childAt(4)
+      .childAt(1)
+      .props()
+      .onPress();
+
+    expect(common.copyText).toHaveBeenCalled();
   });
 
   it('handle copy link', () => {
