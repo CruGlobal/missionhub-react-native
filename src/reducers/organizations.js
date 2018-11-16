@@ -157,6 +157,28 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
+    case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
+      const {
+        results: { response: updatedOrgResponse },
+      } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === updatedOrgResponse.id
+              ? {
+                  ...o,
+                  // Update certain fields from the response
+                  name: updatedOrgResponse.name,
+                  community_photo_url: updatedOrgResponse.community_photo_url,
+                  community_code: updatedOrgResponse.community_code,
+                }
+              : o,
+        ),
+      };
     case UPDATE_PERSON_ATTRIBUTES:
       return updateAllPersonInstances(action, state);
     case REMOVE_ORGANIZATION_MEMBER:

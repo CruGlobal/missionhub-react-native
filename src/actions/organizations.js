@@ -397,6 +397,12 @@ export function deleteOrganization(orgId) {
   };
 }
 
+export function generateNewCode(orgId) {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }));
+  };
+}
+
 export function removeOrganizationMember(personId, orgId) {
   return {
     type: REMOVE_ORGANIZATION_MEMBER,

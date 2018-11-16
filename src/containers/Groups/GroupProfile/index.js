@@ -16,13 +16,13 @@ import {
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
-import { copyText, isAdminOrOwner } from '../../../utils/common';
+import { copyText, isAdminOrOwner, isOwner } from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
-  getMyCommunities,
   updateOrganizationImage,
   deleteOrganization,
+  generateNewCode,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
@@ -50,10 +50,9 @@ class GroupProfile extends Component {
     if (imageData) {
       await dispatch(updateOrganizationImage(organization.id, imageData));
     }
-    await dispatch(getMyCommunities());
   };
 
-  copyCode = () => copyText(this.props.organization.id);
+  copyCode = () => copyText(this.props.organization.community_code);
 
   copyUrl = () => copyText(this.props.organization.id);
 
@@ -62,8 +61,16 @@ class GroupProfile extends Component {
   handleChangeName = t => this.setState({ name: t });
 
   handleNewCode = () => {
-    // TODO: Handle generating a new code
-    return 'new code';
+    const { t, dispatch, organization } = this.props;
+    Alert.alert(t('createNewCode'), t('cannotBeUndone'), [
+      { text: t('cancel'), style: 'cancel' },
+      {
+        text: t('yes'),
+        onPress: () => {
+          dispatch(generateNewCode(organization.id));
+        },
+      },
+    ]);
   };
 
   handleNewLink = () => {
@@ -135,7 +142,14 @@ class GroupProfile extends Component {
   }
 
   render() {
-    const { t, organization, membersLength, owner, canEdit } = this.props;
+    const {
+      t,
+      organization,
+      membersLength,
+      owner,
+      canEdit,
+      isOwner,
+    } = this.props;
     const { editing, name } = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -196,12 +210,9 @@ class GroupProfile extends Component {
           <Flex direction="row" align="center" style={styles.rowWrap}>
             <Flex value={1} direction="column">
               <Text style={styles.label}>{t('code')}</Text>
-              <Text style={styles.codeText}>
-                333-333
-                {/* TODO: PUT IN RIGHT CODE */}
-              </Text>
+              <Text style={styles.codeText}>{organization.community_code}</Text>
             </Flex>
-            {editing ? (
+            {editing && isOwner ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -228,7 +239,7 @@ class GroupProfile extends Component {
                 {/* TODO: PUT IN RIGHT LINK */}
               </Text>
             </Flex>
-            {editing ? (
+            {editing && isOwner ? (
               <Button
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
@@ -308,6 +319,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     owner: owner || {},
     organization: selectorOrg,
     canEdit: isAdminOrOwner(myOrgPerm),
+    isOwner: isOwner(myOrgPerm),
   };
 };
 
