@@ -160,6 +160,7 @@ function organizationsReducer(state = initialState, action) {
     case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
     case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
     case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS:
       const {
         results: { response: updatedOrgResponse },
       } = action;
@@ -175,6 +176,7 @@ function organizationsReducer(state = initialState, action) {
                   name: updatedOrgResponse.name,
                   community_photo_url: updatedOrgResponse.community_photo_url,
                   community_code: updatedOrgResponse.community_code,
+                  community_url: updatedOrgResponse.community_url,
                 }
               : o,
         ),

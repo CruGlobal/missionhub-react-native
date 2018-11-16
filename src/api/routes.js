@@ -159,7 +159,7 @@ export default {
     method: 'delete',
   },
   TRANSFER_ORG_OWNERSHIP: {
-    endpoint: `${ORG_URL}/:orgId/transfer_ownership`,
+    endpoint: `${ORG_URL}/:orgId/community_owner`,
     method: 'put',
   },
   GET_GROUP_CELEBRATE_FEED: {
@@ -174,7 +174,11 @@ export default {
     method: 'delete',
   },
   ORGANIZATION_NEW_CODE: {
-    endpoint: `${ORG_URL}/:orgId/generate_code`,
+    endpoint: `${ORG_URL}/:orgId/community_code`,
+    method: 'put',
+  },
+  ORGANIZATION_NEW_LINK: {
+    endpoint: `${ORG_URL}/:orgId/community_url`,
     method: 'put',
   },
   GET_GROUP_CHALLENGE_FEED: {

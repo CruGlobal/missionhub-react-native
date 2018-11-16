@@ -282,6 +282,10 @@ export function getSurveyUrl(surveyId) {
   return `${Config.SURVEY_URL}${surveyId}`;
 }
 
+export function getCommunityUrl(link) {
+  return `${Config.COMMUNITY_URL}${link}`;
+}
+
 export function toast(text, duration) {
   if (isAndroid) {
     const toastDuration =

@@ -403,6 +403,12 @@ export function generateNewCode(orgId) {
   };
 }
 
+export function generateNewLink(orgId) {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }));
+  };
+}
+
 export function removeOrganizationMember(personId, orgId) {
   return {
     type: REMOVE_ORGANIZATION_MEMBER,
