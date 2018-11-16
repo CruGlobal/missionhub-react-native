@@ -5,9 +5,12 @@ import {
 
 import callApi, { REQUESTS } from './api';
 
-export function refreshImpact() {
+export function refreshImpact(orgId) {
   return dispatch => {
     dispatch(getImpactSummary('me'));
+    if (orgId) {
+      dispatch(getImpactSummary(undefined, orgId));
+    }
     return dispatch(getImpactSummary());
   };
 }

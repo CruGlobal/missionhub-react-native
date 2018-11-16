@@ -16,8 +16,69 @@ exports[`GroupsListScreen should render correctly 1`] = `
         type="MissionHub"
       />
     }
+    shadow={false}
     title="COMMUNITIES"
   />
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#005A7F",
+              "justifyContent": "center",
+              "paddingVertical": 13,
+            },
+            Object {
+              "borderRightColor": "#007398",
+              "borderRightWidth": 1,
+            },
+          ]
+        }
+        text="JOIN A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "justifyContent": "center",
+            "paddingVertical": 13,
+          }
+        }
+        text="CREATE A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
   <ScrollView
     contentContainerStyle={
       Object {
@@ -43,10 +104,12 @@ exports[`GroupsListScreen should render correctly 1`] = `
       data={
         Array [
           Object {
+            "contactReport": Object {},
             "id": "1",
             "name": "Test Org 1",
           },
           Object {
+            "contactReport": Object {},
             "id": "2",
             "name": "Test Org 2",
             "user_created": true,
@@ -117,8 +180,69 @@ exports[`should render null state 1`] = `
         type="MissionHub"
       />
     }
+    shadow={false}
     title="COMMUNITIES"
   />
+  <Flex
+    direction="row"
+  >
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#005A7F",
+              "justifyContent": "center",
+              "paddingVertical": 13,
+            },
+            Object {
+              "borderRightColor": "#007398",
+              "borderRightWidth": 1,
+            },
+          ]
+        }
+        text="JOIN A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+    <Flex
+      value={1}
+    >
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 12,
+            "fontWeight": "bold",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#005A7F",
+            "justifyContent": "center",
+            "paddingVertical": 13,
+          }
+        }
+        text="CREATE A COMMUNITY"
+        type="transparent"
+      />
+    </Flex>
+  </Flex>
   <ScrollView
     contentContainerStyle={
       Object {
@@ -144,10 +268,12 @@ exports[`should render null state 1`] = `
       data={
         Array [
           Object {
+            "contactReport": Object {},
             "id": "1",
             "name": "Test Org 1",
           },
           Object {
+            "contactReport": Object {},
             "id": "2",
             "name": "Test Org 2",
             "user_created": true,

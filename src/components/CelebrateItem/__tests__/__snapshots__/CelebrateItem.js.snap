@@ -1,22 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CelebrateItem message renders accepted challenge event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -108,22 +100,14 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
 `;
 
 exports[`CelebrateItem message renders completed challenge event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -215,22 +199,14 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
 `;
 
 exports[`CelebrateItem message renders other interaction event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -322,22 +298,14 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
 `;
 
 exports[`CelebrateItem message renders personal decision interaction event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -429,22 +397,14 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
 `;
 
 exports[`CelebrateItem message renders something cool happened event 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -536,22 +496,14 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
 `;
 
 exports[`CelebrateItem message renders step of faith event with stage 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -643,22 +595,14 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
 `;
 
 exports[`CelebrateItem message renders step of faith event without stage 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -750,22 +694,14 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -855,22 +791,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count=0 1
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -962,22 +890,14 @@ exports[`CelebrateItem renders event for subject=me, liked=false, like count>0 1
 `;
 
 exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1069,22 +989,14 @@ exports[`CelebrateItem renders event for subject=me, liked=true, like count>0 1`
 `;
 
 exports[`CelebrateItem renders event for subject=other, liked=false, like count=0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex
@@ -1174,22 +1086,14 @@ exports[`CelebrateItem renders event for subject=other, liked=false, like count=
 `;
 
 exports[`CelebrateItem renders event for subject=other, liked=true, like count>0 1`] = `
-<Card
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#E6E8EC",
-      "borderBottomWidth": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 8,
-      "padding": 16,
-    }
-  }
->
+<Card>
   <Flex
     direction="row"
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
     value={1}
   >
     <Flex

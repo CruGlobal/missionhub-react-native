@@ -3,14 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  row: {
+  content: {
     paddingVertical: 16,
     paddingLeft: 24,
     paddingRight: 13,
-    width: theme.fullWidth,
-    backgroundColor: theme.white,
-    borderBottomColor: theme.separatorColor,
-    borderBottomWidth: theme.separatorHeight,
   },
   detailsWrap: {
     marginTop: 1,

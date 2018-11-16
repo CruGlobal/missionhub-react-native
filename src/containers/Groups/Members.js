@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh } from '../../utils/common';
+import { refresh, isAdminOrOwner } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -15,7 +15,6 @@ import {
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
-import { ORG_PERMISSIONS } from '../../constants';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -60,11 +59,13 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization } = this.props;
+    const { organization, myOrgPermission, myId } = this.props;
     return (
       <GroupMemberItem
-        isUserCreatedOrg={organization.user_created}
+        organization={organization}
         person={item}
+        myId={myId}
+        myOrgPermission={myOrgPermission}
         onSelect={this.handleSelect}
       />
     );
@@ -73,14 +74,14 @@ class Members extends Component {
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 
   render() {
-    const { t, members, pagination, myOrgPermissions } = this.props;
+    const { t, members, pagination, myOrgPermission } = this.props;
     return (
       <Flex value={1}>
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
           keyExtractor={this.keyExtractor}
-          style={styles.flatList}
+          style={styles.cardList}
           renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
@@ -96,8 +97,7 @@ class Members extends Component {
             )
           }
         />
-        {myOrgPermissions &&
-        myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+        {isAdminOrOwner(myOrgPermission) ? (
           <Flex align="stretch" justify="end">
             <Button
               type="secondary"
@@ -123,7 +123,8 @@ const mapStateToProps = ({ auth, organizations }, { organization }) => {
   return {
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
-    myOrgPermissions: orgPermissionSelector(null, {
+    myId: auth.person.id,
+    myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
     }),

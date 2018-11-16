@@ -151,8 +151,8 @@ class CelebrateItem extends Component {
     const displayLikeCount = likes_count > 0 && subject_person.id === myId;
 
     return (
-      <Card style={styles.card}>
-        <Flex value={1} direction={'row'}>
+      <Card>
+        <Flex value={1} direction={'row'} style={styles.content}>
           <Flex value={1} direction={'column'}>
             <Text style={styles.name}>{subject_person_name.toUpperCase()}</Text>
             <DateComponent

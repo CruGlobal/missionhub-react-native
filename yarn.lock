@@ -7256,6 +7256,11 @@ react-native-fbsdk@^0.8.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
+react-native-image-picker@^0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.27.1.tgz#32877c667e8c2713466fe178a6c7dd648e6cb5d3"
+  integrity sha512-LuEt5I9TFe3+lfN8E9geuN2OOgnld0QmeHRPTCV+mzkT5zASsoibNIUItt6WQBWG4nXC/90aufQYZn92i3lTxw==
+
 "react-native-omniture@https://github.com/CruGlobal/react-native-omniture":
   version "0.0.1"
   resolved "https://github.com/CruGlobal/react-native-omniture#d52d0637e0bb758bff92c3896dd7b07e37be6239"

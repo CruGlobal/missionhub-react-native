@@ -7,6 +7,8 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -155,6 +157,42 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
+    case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
+      const {
+        results: { response: updatedOrgResponse },
+      } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === updatedOrgResponse.id
+              ? {
+                  ...o,
+                  // Update certain fields from the response
+                  name: updatedOrgResponse.name,
+                  community_photo_url: updatedOrgResponse.community_photo_url,
+                  community_code: updatedOrgResponse.community_code,
+                }
+              : o,
+        ),
+      };
+    case UPDATE_PERSON_ATTRIBUTES:
+      return updateAllPersonInstances(action, state);
+    case REMOVE_ORGANIZATION_MEMBER:
+      const { personId, orgId } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === orgId
+              ? { ...o, members: o.members.filter(m => m.id !== personId) }
+              : o,
+        ),
+      };
     case LOGOUT:
       return initialState;
     default:
@@ -181,6 +219,25 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateAllPersonInstances(action, state) {
+  const { updatedPersonAttributes: updatedPerson } = action;
+  return {
+    ...state,
+    all: state.all.map(
+      org =>
+        org.members
+          ? {
+              ...org,
+              members: org.members.map(
+                m =>
+                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
+              ),
+            }
+          : org,
+    ),
   };
 }
 

@@ -22,6 +22,7 @@ export const LOAD_PERSON_DETAILS = 'app/LOAD_PERSON_DETAILS';
 export const LOAD_ORGANIZATIONS = 'app/LOAD_ORGANIZATIONS';
 export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
+export const REMOVE_ORGANIZATION_MEMBER = 'app/REMOVE_ORGANIZATION_MEMBER';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
 export const UPDATE_PEOPLE_INTERACTION_REPORT =
   'app/UPDATE_PEOPLE_INTERACTION_REPORT';
@@ -69,6 +70,7 @@ export const CANNOT_EDIT_FIRST_NAME =
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';
+export const URL_FORM_DATA = 'multipart/form-data';
 export const THE_KEY_CLIENT_ID = Config.THE_KEY_CLIENT_ID;
 
 export const CASEY = 'casey';
@@ -89,6 +91,7 @@ export const ORG_PERMISSIONS = {
   ADMIN: 1,
   USER: 4,
   CONTACT: 2,
+  OWNER: 3,
 };
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 

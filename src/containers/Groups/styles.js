@@ -21,6 +21,8 @@ export default StyleSheet.create({
     position: 'relative',
     backgroundColor: theme.white,
     borderRadius: 0,
+    marginHorizontal: 0,
+    marginVertical: 0,
     marginBottom: 5,
   },
   onboardingContainer: {
@@ -51,5 +53,21 @@ export default StyleSheet.create({
   onboardingIcon: {
     fontSize: 12,
     color: theme.primaryColor,
+  },
+  blockBtn: {
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 13,
+    backgroundColor: theme.accentColor,
+  },
+  blockBtnBorderRight: {
+    borderRightWidth: 1,
+    borderRightColor: theme.primaryColor,
+  },
+  blockBtnText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: theme.white,
   },
 });

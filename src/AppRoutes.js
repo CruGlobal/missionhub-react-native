@@ -121,6 +121,12 @@ import SurveyQuestionsFilter, {
 import ContactsFilter, {
   SEARCH_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/ContactsFilter';
+import JoinGroupScreen, {
+  JOIN_GROUP_SCREEN,
+} from './containers/Groups/JoinGroupScreen';
+import CreateGroupScreen, {
+  CREATE_GROUP_SCREEN,
+} from './containers/Groups/CreateGroupScreen';
 import StatusSelect, {
   STATUS_SELECT_SCREEN,
 } from './containers/StatusSelectScreen';
@@ -130,6 +136,7 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
+import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -194,7 +201,7 @@ const tabs = {
   ),
 };
 
-const createTabs = (tabKey, tabPath) => {
+const createTabs = (tabKey, tabPath, initialRouteName) => {
   return createBottomTabNavigator(
     {
       StepsTab: tabs.StepsTab,
@@ -225,6 +232,7 @@ const createTabs = (tabKey, tabPath) => {
         PeopleTab: '/people',
         [tabKey]: tabPath,
       },
+      initialRouteName,
     },
   );
 };
@@ -232,6 +240,12 @@ const createTabs = (tabKey, tabPath) => {
 export const MainTabBar = createTabs(IMPACT_TAB, '/impact');
 
 export const MainTabBarGroups = createTabs(GROUPS_TAB, '/groups');
+// Create another set of tabs with a different default tab
+export const MainTabBarGroupsStartGroups = createTabs(
+  GROUPS_TAB,
+  '/groups',
+  GROUPS_TAB,
+);
 
 export const MAIN_TABS_SCREEN = buildTrackedScreen(
   createDrawerNavigator(
@@ -364,9 +378,7 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
@@ -384,9 +396,7 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
   ),
   [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     ContactsFilter,
@@ -395,9 +405,17 @@ const screens = {
       'communities',
       'community',
     ),
-    {
-      gesturesEnabled: true,
-    },
+    { gesturesEnabled: true },
+  ),
+  [JOIN_GROUP_SCREEN]: buildTrackedScreen(
+    JoinGroupScreen,
+    buildTrackingObj('communities : join', 'communities', 'join'),
+    { gesturesEnabled: true },
+  ),
+  [CREATE_GROUP_SCREEN]: buildTrackedScreen(
+    CreateGroupScreen,
+    buildTrackingObj('communities : create', 'communities', 'create'),
+    { gesturesEnabled: true },
   ),
   [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
     UnassignedPersonScreen,
@@ -467,6 +485,7 @@ export const MainStackRoutes = createStackNavigator(
       screen: StatusReason,
       navigationOptions: { gesturesEnabled: true },
     },
+    [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,

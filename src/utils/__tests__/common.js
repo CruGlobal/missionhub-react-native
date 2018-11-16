@@ -2,9 +2,12 @@ import { DrawerActions } from 'react-navigation';
 
 import {
   userIsJean,
-  communityIsCru,
-  isMissionhubUser,
-  isAdminForOrg,
+  orgIsPersonalMinistry,
+  orgIsUserCreated,
+  orgIsCru,
+  hasOrgPermissions,
+  isAdminOrOwner,
+  isOwner,
   openMainMenu,
   getIconName,
   shuffleArray,
@@ -45,45 +48,106 @@ describe('userIsJean', () => {
   });
 });
 
-describe('communityIsCru', () => {
-  it('returns false for personal ministry', () => {
-    expect(communityIsCru({ id: 'personal' })).toEqual(false);
+describe('orgIsPersonalMinistry', () => {
+  it('returns true for empty org', () => {
+    expect(orgIsPersonalMinistry({})).toEqual(true);
+  });
+  it('returns true for personal ministry', () => {
+    expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
   });
   it('returns false for user-created community', () => {
-    expect(communityIsCru({ id: '1', user_created: true })).toEqual(false);
+    expect(orgIsPersonalMinistry({ id: '1', user_created: true })).toEqual(
+      false,
+    );
+  });
+  it('returns false for cru community', () => {
+    expect(orgIsPersonalMinistry({ id: '1', user_created: false })).toEqual(
+      false,
+    );
+  });
+});
+
+describe('orgIsUserCreated', () => {
+  it('returns false for empty org', () => {
+    expect(orgIsUserCreated({})).toEqual(false);
+  });
+  it('returns false for personal ministry', () => {
+    expect(orgIsUserCreated({ id: 'personal' })).toEqual(false);
+  });
+  it('returns true for user-created community', () => {
+    expect(orgIsUserCreated({ id: '1', user_created: true })).toEqual(true);
+  });
+  it('returns false for cru community', () => {
+    expect(orgIsUserCreated({ id: '1', user_created: false })).toEqual(false);
+  });
+});
+
+describe('orgIsCru', () => {
+  it('returns false for empty org', () => {
+    expect(orgIsCru({})).toEqual(false);
+  });
+  it('returns false for personal ministry', () => {
+    expect(orgIsCru({ id: 'personal' })).toEqual(false);
+  });
+  it('returns false for user-created community', () => {
+    expect(orgIsCru({ id: '1', user_created: true })).toEqual(false);
   });
   it('returns true for cru community', () => {
-    expect(communityIsCru({ id: '1', user_created: false })).toEqual(true);
+    expect(orgIsCru({ id: '1', user_created: false })).toEqual(true);
   });
 });
 
-describe('isMissionhubUser', () => {
+describe('hasOrgPermissions', () => {
   it('should return true for admins', () => {
-    expect(isMissionhubUser({ permission_id: 1 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(hasOrgPermissions({ permission_id: 3 })).toEqual(true);
   });
   it('should return true for users', () => {
-    expect(isMissionhubUser({ permission_id: 4 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: 4 })).toEqual(true);
   });
   it('should return false for contacts', () => {
-    expect(isMissionhubUser({ permission_id: 2 })).toEqual(false);
+    expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isMissionhubUser()).toEqual(false);
+    expect(hasOrgPermissions()).toEqual(false);
   });
 });
 
-describe('isAdminForOrg', () => {
+describe('isAdminOrOwner', () => {
   it('should return true for admins', () => {
-    expect(isAdminForOrg({ permission_id: 1 })).toEqual(true);
+    expect(isAdminOrOwner({ permission_id: 1 })).toEqual(true);
+  });
+  it('should return true for owners', () => {
+    expect(isAdminOrOwner({ permission_id: 3 })).toEqual(true);
   });
   it('should return false for users', () => {
-    expect(isAdminForOrg({ permission_id: 4 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 4 })).toEqual(false);
   });
   it('should return false for contacts', () => {
-    expect(isAdminForOrg({ permission_id: 2 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    expect(isAdminForOrg()).toEqual(false);
+    expect(isAdminOrOwner()).toEqual(false);
+  });
+});
+
+describe('isOwner', () => {
+  it('should return false for admins', () => {
+    expect(isOwner({ permission_id: 1 })).toEqual(false);
+  });
+  it('should return true for owners', () => {
+    expect(isOwner({ permission_id: 3 })).toEqual(true);
+  });
+  it('should return false for users', () => {
+    expect(isOwner({ permission_id: 4 })).toEqual(false);
+  });
+  it('should return false for contacts', () => {
+    expect(isOwner({ permission_id: 2 })).toEqual(false);
+  });
+  it('should return false if there is no org permission', () => {
+    expect(isOwner()).toEqual(false);
   });
 });
 

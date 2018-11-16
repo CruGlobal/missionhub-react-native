@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders image picker 1`] = `
+<TouchableOpacity
+  activeOpacity={0.75}
+  onPress={[Function]}
+>
+  <Component />
+</TouchableOpacity>
+`;

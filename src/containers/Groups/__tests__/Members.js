@@ -31,6 +31,7 @@ const members = [
 ];
 
 const orgId = '1';
+const myId = '111';
 
 const store = createMockStore({
   organizations: {
@@ -44,6 +45,7 @@ const store = createMockStore({
   },
   auth: {
     person: {
+      id: myId,
       organizational_permissions: [
         {
           organization_id: orgId,

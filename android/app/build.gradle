@@ -118,7 +118,7 @@ android {
         applicationId "com.missionhub"
         minSdkVersion 16
         targetSdkVersion 26
-        versionName "4.2.6"
+        versionName "4.2.7"
         versionCode grgit.log(includes:['HEAD']).size() + 363
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -157,6 +157,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-picker')
     compile project(':react-native-view-overflow')
     compile project(':react-native-code-push')
     compile project(':react-native-config')

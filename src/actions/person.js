@@ -13,8 +13,9 @@ import {
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
+  ORG_PERMISSIONS,
 } from '../constants';
-import { isMemberForOrg, exists } from '../utils/common';
+import { hasOrgPermissions, exists } from '../utils/common';
 import {
   personSelector,
   orgPermissionSelector,
@@ -209,6 +210,17 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission && data.orgPermission.archive_date
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        archive_date: data.orgPermission.archive_date,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
@@ -237,6 +249,50 @@ export function updatePerson(data) {
 
     return results;
   };
+}
+
+export function makeAdmin(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
+    );
+}
+
+export function removeAsAdmin(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
+    );
+}
+
+export function updateOrgPermission(
+  personId,
+  orgPermissionId,
+  permissionLevel,
+) {
+  return dispatch => {
+    const data = {
+      id: personId,
+      orgPermission: {
+        id: orgPermissionId,
+        permission_id: permissionLevel,
+      },
+    };
+    return dispatch(updatePerson(data));
+  };
+}
+
+export function archiveOrgPermission(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updatePerson({
+        id: personId,
+        orgPermission: {
+          id: orgPermissionId,
+          archive_date: new Date().toISOString(),
+        },
+      }),
+    );
 }
 
 export function updateFollowupStatus(person, orgPermissionId, status) {
@@ -370,7 +426,7 @@ export function getPersonScreenRoute(
 ) {
   const isMe = person.id === mePerson.id;
 
-  const isMember = isMemberForOrg(
+  const isMember = hasOrgPermissions(
     orgPermissionSelector(null, {
       person: person,
       organization,

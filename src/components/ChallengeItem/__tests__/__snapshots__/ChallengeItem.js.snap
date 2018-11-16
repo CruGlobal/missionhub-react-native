@@ -5,9 +5,7 @@ exports[`render active and joined and completed challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -134,9 +132,7 @@ exports[`render active and joined challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -265,9 +261,7 @@ exports[`render active and joined challenge item with edit 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -418,9 +412,7 @@ exports[`render active challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -549,9 +541,7 @@ exports[`render active challenge item with edit 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -702,9 +692,7 @@ exports[`render past and joined and completed challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -831,9 +819,7 @@ exports[`render past and joined challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >
@@ -945,9 +931,7 @@ exports[`render past challenge item 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
-      "marginVertical": 5,
+      "flexDirection": "column",
     }
   }
 >

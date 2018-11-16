@@ -34,6 +34,25 @@ describe('refreshImpact', () => {
     });
     expect(store.getActions()).toEqual([apiResponse, apiResponse]);
   });
+
+  it('should get my impact and global impact with org', async () => {
+    const orgId = '123';
+    await store.dispatch(refreshImpact(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
+      person_id: 'me',
+      organization_id: undefined,
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
+      person_id: undefined,
+      organization_id: orgId,
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
+      person_id: undefined,
+      organization_id: undefined,
+    });
+    expect(store.getActions()).toEqual([apiResponse, apiResponse, apiResponse]);
+  });
 });
 
 describe('getImpactSummary', () => {

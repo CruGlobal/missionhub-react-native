@@ -75,6 +75,10 @@ export default {
       yesterday: 'Yesterday',
     },
     steps: {},
+    yes: 'Yes',
+    no: 'No',
+    copy: 'Copy',
+    edit: 'Edit',
     done: 'Done',
     next: 'Next',
     ok: 'Ok',
@@ -91,6 +95,7 @@ export default {
     contactUnassignment:
       '{{assignedContactName}} was unassigned from {{assignedToName}}',
     assignToMe: 'Assign to me',
+    copyMessage: 'Copied',
   },
   error: {
     error: 'Error',
@@ -126,6 +131,7 @@ export default {
   },
   loginOptions: {
     facebookSignup: 'Sign up with Facebook',
+    haveCode: 'I Have a Community Code',
     tryNow: 'Try it now',
     emailSignUp: 'Sign up with Email',
     signIn: 'Sign In',
@@ -444,6 +450,8 @@ export default {
   groupsList: {
     header: 'Communities',
     groupsNull: 'Your communities will show up here.',
+    joinCommunity: 'Join a Community',
+    createCommunity: 'Create a Community',
   },
   celebrateFeeds: {
     title: '',
@@ -509,6 +517,39 @@ export default {
     invite: 'Send Invite',
     sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
   },
+  groupMemberOptions: {
+    ownerLeaveCommunityErrorMessage:
+      'You must assign a new owner to {{orgName}} before you go',
+    leaveCommunity: {
+      optionTitle: 'Leave Community',
+      modalTitle: 'Are you sure you want to leave {{communityName}}?',
+      confirmButtonText: 'OK',
+    },
+    makeAdmin: {
+      optionTitle: 'Make Admin',
+      modalTitle: 'Want to make {{personName}} an admin?',
+      modalDescription:
+        'Admins can remove members, promote members to admins, and create challenges.',
+      confirmButtonText: 'Yes',
+    },
+    removeAdmin: {
+      optionTitle: 'Remove as Admin',
+      modalTitle: 'Remove {{personName}} as admin?',
+      confirmButtonText: 'Remove',
+    },
+    makeOwner: {
+      optionTitle: 'Make Owner',
+      modalTitle: 'Make {{personName}} the owner?',
+      modalDescription:
+        'You will lose ownership of this community but would still have admin privileges',
+      confirmButtonText: 'Yes',
+    },
+    removeMember: {
+      optionTitle: 'Remove Member',
+      modalTitle: 'Remove {{personName}} from {{communityName}}?',
+      confirmButtonText: 'Remove',
+    },
+  },
   groupsImpact: {
     title: '',
   },
@@ -549,11 +590,27 @@ export default {
     note: '{{initiator}} added a note about {{receiver}}',
   },
   groupItem: {
-    numContacts: '{{number}} Contacts',
-    numAssigned: '{{number}} Assigned',
-    numUnassigned: '{{number}} Unassigned',
+    numContacts: '{{count}} Contact',
+    numContacts_plural: '{{count}} Contacts',
+    numAssigned: '{{count}} Assigned',
+    numUnassigned: '{{count}} Unassigned',
     unassigned: 'Unassigned',
-    numUncontacted: '{{number}} Uncontacted',
+    numUncontacted: '{{count}} Uncontacted',
+    numMembers: '{{count}} Member',
+    numMembers_plural: '{{count}} Members',
+    owner: '{{name}} (Owner)',
+    join: 'Join',
+  },
+  groupsCreateGroup: {
+    createCommunity: 'Create Community',
+    name: 'Community Name',
+  },
+  groupsJoinGroup: {
+    joinCommunity: 'Join a Community',
+    enterCode: 'Enter your Community Code',
+    search: 'Search',
+    communityNotFound:
+      "Sorry, we couldn't find your community.\nDouble check your code.",
   },
   shareSurveyMenu: {
     shareMessage: '{{name}} {{url}}',
@@ -590,5 +647,32 @@ export default {
     done: 'Done',
     placeholder: 'Admin note',
     important: `Anything important the admins at {{organization}} should know?`,
+  },
+  imagePicker: {
+    selectImage: 'Select Image',
+    cancel: 'Cancel',
+    takePhoto: 'Take Photo',
+    chooseFromLibrary: 'Choose from Library...',
+    deniedTitle: 'Permission Denied',
+    deniedText:
+      'To be able to take pictures with your camera and choose images from your library.',
+    reTryTitle: 'Re-Try',
+    okTitle: `I'm sure`,
+    errorHeader: 'Error',
+    errorBody:
+      'There was an error processing your request. Please try again later.',
+  },
+  groupProfile: {
+    owner: 'Owner',
+    created: 'Created',
+    members: 'Members',
+    code: 'Community Code',
+    link: 'Community Link',
+    newCode: 'New Code',
+    newLink: 'New Link',
+    info: 'Anyone who has this code or link will be able to join your group.',
+    deleteCommunity: 'Delete Community?',
+    createNewCode: 'Are you sure you want to create a new Community Code?',
+    cannotBeUndone: 'This cannot be undone',
   },
 };

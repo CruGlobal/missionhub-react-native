@@ -6,7 +6,12 @@ import { translate } from 'react-i18next';
 import { communitiesSelector } from '../../selectors/organizations';
 import Header from '../../containers/Header';
 import GroupCardItem from '../../components/GroupCardItem';
-import { IconButton, RefreshControl } from '../../components/common';
+import {
+  IconButton,
+  RefreshControl,
+  Button,
+  Flex,
+} from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { openMainMenu, refresh } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
@@ -15,10 +20,17 @@ import { getMyCommunities } from '../../actions/organizations';
 
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
+import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
+import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 
 @translate('groupsList')
 class GroupsListScreen extends Component {
   state = { refreshing: false };
+
+  componentDidMount() {
+    // Always load groups when this tab mounts
+    this.loadGroups();
+  }
 
   loadGroups = () => this.props.dispatch(getMyCommunities());
 
@@ -36,6 +48,14 @@ class GroupsListScreen extends Component {
   };
 
   openMainMenu = () => this.props.dispatch(openMainMenu());
+
+  join = () => {
+    this.props.dispatch(navigatePush(JOIN_GROUP_SCREEN));
+  };
+
+  create = () => {
+    this.props.dispatch(navigatePush(CREATE_GROUP_SCREEN));
+  };
 
   keyExtractor = i => i.id;
 
@@ -80,7 +100,28 @@ class GroupsListScreen extends Component {
             />
           }
           title={t('header').toUpperCase()}
+          shadow={false}
         />
+        <Flex direction="row">
+          <Flex value={1}>
+            <Button
+              type="transparent"
+              style={[styles.blockBtn, styles.blockBtnBorderRight]}
+              buttonTextStyle={styles.blockBtnText}
+              text={t('joinCommunity').toUpperCase()}
+              onPress={this.join}
+            />
+          </Flex>
+          <Flex value={1}>
+            <Button
+              type="transparent"
+              style={styles.blockBtn}
+              buttonTextStyle={styles.blockBtnText}
+              text={t('createCommunity').toUpperCase()}
+              onPress={this.create}
+            />
+          </Flex>
+        </Flex>
         <ScrollView
           contentContainerStyle={{ flex: 1 }}
           refreshControl={

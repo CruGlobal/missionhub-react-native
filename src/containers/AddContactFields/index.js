@@ -11,6 +11,8 @@ import theme from '../../theme';
 import {
   getPersonEmailAddress,
   getPersonPhoneNumber,
+  isAdminOrOwner,
+  hasOrgPermissions,
 } from '../../utils/common';
 
 import styles from './styles';
@@ -39,9 +41,8 @@ class AddContactFields extends Component {
     // If there is no person passed in, we are creating a new one
     if (!person) {
       if (isJean && organization && organization.id) {
-        const myOrgPermId = myOrgPermissions && myOrgPermissions.permission_id;
         // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
-        if (isGroupInvite && myOrgPermId === ORG_PERMISSIONS.ADMIN) {
+        if (isGroupInvite && isAdminOrOwner(myOrgPermissions)) {
           this.updateField('orgPermission', {
             ...(orgPermission || {}),
             permission_id: ORG_PERMISSIONS.USER,
@@ -131,15 +132,10 @@ class AddContactFields extends Component {
 
     const selectedOrgPermId = orgPermission.permission_id;
     // Email is required if the new person is going to be a user or admin for an organization
-    const isEmailRequired =
-      selectedOrgPermId === ORG_PERMISSIONS.USER ||
-      selectedOrgPermId === ORG_PERMISSIONS.ADMIN;
+    const isEmailRequired = hasOrgPermissions(orgPermission);
 
     // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
-    const personHasOrgPermission =
-      personOrgPermission &&
-      (personOrgPermission.permission_id === ORG_PERMISSIONS.USER ||
-        personOrgPermission.permission_id === ORG_PERMISSIONS.ADMIN);
+    const personHasOrgPermission = hasOrgPermissions(personOrgPermission);
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
@@ -251,10 +247,7 @@ class AddContactFields extends Component {
                       label={t('profileLabels.contact')}
                     />
                   ) : null}
-                  {myOrgPermissions &&
-                  (myOrgPermissions.permission_id === ORG_PERMISSIONS.USER ||
-                    myOrgPermissions.permission_id ===
-                      ORG_PERMISSIONS.ADMIN) ? (
+                  {hasOrgPermissions(myOrgPermissions) ? (
                     <RadioButton
                       style={styles.radioButton}
                       pressProps={[ORG_PERMISSIONS.USER]}
@@ -263,8 +256,7 @@ class AddContactFields extends Component {
                       label={t('profileLabels.user')}
                     />
                   ) : null}
-                  {myOrgPermissions &&
-                  myOrgPermissions.permission_id === ORG_PERMISSIONS.ADMIN ? (
+                  {isAdminOrOwner(myOrgPermissions) ? (
                     <RadioButton
                       style={styles.radioButton}
                       pressProps={[ORG_PERMISSIONS.ADMIN]}
@@ -291,7 +283,6 @@ AddContactFields.propTypes = {
 
 const mapStateToProps = ({ auth }, { person, organization }) => ({
   myOrgPermissions:
-    auth &&
     organization &&
     organization.id &&
     orgPermissionSelector(null, {

@@ -3,34 +3,36 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    paddingRight: 30,
+  image: {
+    width: '100%',
+    height: 200,
   },
-  card: {
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 13,
-    backgroundColor: theme.white,
-    borderBottomColor: theme.separatorColor,
-    borderBottomWidth: theme.separatorHeight,
-    marginVertical: 8,
+  infoWrap: {
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: 13,
   },
   groupName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    color: theme.primaryColor,
+    color: theme.white,
   },
-  contactRow: {
-    paddingTop: 4,
-  },
-  contacts: {
+  groupNumber: {
     fontSize: 12,
-    color: theme.grey1,
+    color: theme.white,
   },
-  unassigned: {
-    fontSize: 12,
-    color: theme.red,
+  joinButton: {
+    backgroundColor: theme.red,
+    borderRadius: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    margin: 5,
+  },
+  joinButtonText: {
+    fontSize: 14,
+    color: theme.white,
   },
 });
