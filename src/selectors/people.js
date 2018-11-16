@@ -93,6 +93,7 @@ export const isMeSelector = createSelector(
   (authPersonId, personId) => personId === authPersonId,
 );
 
+// TODO: refactor contactAssignmentSelector to only need personId
 export const contactAssignmentSelector = createSelector(
   (_, { person }) => person,
   (_, { orgId }) => orgId,

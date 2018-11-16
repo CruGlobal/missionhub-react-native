@@ -52,7 +52,7 @@ export default class App extends Component {
   onBeforeLift = () => {
     this.checkOldAppToken();
     // store.dispatch(navigatePush(initialRoute(store.getState())));
-    store.dispatch(navigate(STEPS_SCREEN));
+    // store.dispatch(navigate(STEPS_SCREEN));
     store.dispatch(configureNotificationHandler());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);

@@ -15,39 +15,7 @@ import CelebrationScreen, {
 import StageScreen, { STAGE_SCREEN } from '../../../containers/StageScreen';
 import { reloadJourney } from '../../../actions/journey';
 
-export const CompleteStepFlowScreens = {
-  [ADD_STEP_SCREEN]: {
-    screen: wrapNextAction(
-      AddStepScreen,
-      ({ personId, orgId, stepId, text }) => async (dispatch, getState) => {
-        if (text) {
-          await dispatch(updateChallengeNote(stepId, text));
-          dispatch(
-            trackAction(ACTIONS.INTERACTION.name, {
-              [ACTIONS.INTERACTION.COMMENT]: null,
-            }),
-          );
-        }
-
-        // If completed 3 steps with a given person
-        if (getState().steps.userStepCount[personId] % 3 === 0) {
-          dispatch(
-            navigatePush(STAGE_SCREEN, {
-              personId,
-              orgId,
-            }),
-          );
-        } else {
-          dispatch(navigatePush(CELEBRATION_SCREEN));
-        }
-      },
-      { type: STEP_NOTE },
-    ),
-    trackingObj: buildTrackingObj(
-      ['people', 'person', 'steps'], // TODO: use - const subsection = getAnalyticsSubsection(step.receiver.id, myId);
-      'complete comment',
-    ),
-  },
+export const StageStepFlowScreens = {
   [STAGE_SCREEN]: {
     screen: wrapNextAction(
       StageScreen,
@@ -66,8 +34,8 @@ export const CompleteStepFlowScreens = {
   },
 };
 
-export const CompleteStepFlowNavigator = createStackNavigator(
-  CompleteStepFlowScreens,
+export const StageStepFlowNavigator = createStackNavigator(
+  StageStepFlowScreens,
   {
     navigationOptions: {
       header: null,

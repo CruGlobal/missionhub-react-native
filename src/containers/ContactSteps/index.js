@@ -28,6 +28,7 @@ import { personSelector } from '../../selectors/people';
 import { CONTACT_STEPS } from '../../constants';
 
 import styles from './styles';
+import { SELECT_STEP_SCREEN } from '../SelectStepScreen';
 
 @translate('contactSteps')
 class ContactSteps extends Component {
@@ -68,6 +69,7 @@ class ContactSteps extends Component {
   handleNavToStage() {
     const { dispatch, person, contactAssignment, organization } = this.props;
 
+    // TODO: point to stage and step flow
     return dispatch(
       navigateToStageScreen(
         false,
@@ -80,41 +82,25 @@ class ContactSteps extends Component {
   }
 
   handleNavToSteps() {
-    const { dispatch, person, organization, isMe } = this.props;
+    const { dispatch, person, organization } = this.props;
     const subsection = getAnalyticsSubsection(person.id, this.props.myId);
     const trackingParams = {
-      trackingObj: buildTrackingObj(['people', 'person', 'steps'], 'add'),
+      trackingObj: buildTrackingObj(
+        ['people', `${subsection}`, 'steps'],
+        'add',
+      ),
     };
 
-    if (isMe) {
-      dispatch(
-        navigatePush(SELECT_MY_STEP_SCREEN, {
-          ...trackingParams,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
-          enableBackButton: true,
-          organization,
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          ...trackingParams,
-          contactName: person.first_name,
-          contactId: person.id,
-          contact: person,
-          organization,
-          onSaveNewSteps: () => {
-            this.handleSaveNewSteps();
-          },
-          createStepTracking: buildTrackingObj(
-            ['people', '${subsection}', 'steps'],
-            'create',
-          ),
-        }),
-      );
-    }
+    dispatch(
+      navigatePush(SELECT_STEP_SCREEN, {
+        ...trackingParams,
+        personId: person.id,
+        orgId: organization.id,
+        next: () => () => {
+          this.handleSaveNewSteps();
+        },
+      }),
+    );
   }
 
   async handleAssign() {
@@ -229,7 +215,7 @@ const mapStateToProps = (
     showBump: swipe.stepsContact,
     myId: auth.person.id,
     steps:
-      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [],
+      steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || [], // TODO: move to selector
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },

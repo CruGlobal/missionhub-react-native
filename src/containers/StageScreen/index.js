@@ -32,7 +32,7 @@ import {
   isMeSelector,
   personSelector,
 } from '../../selectors/people';
-import { stageSelector } from '../../selectors/stages';
+import { stageIdSelector, stageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 import i18next from 'i18next';
@@ -85,7 +85,7 @@ class StageScreen extends Component {
             );
       }
     }
-    dispatch(next({ personId: person.id, isMe, stageId: stage.id, orgId }));
+    dispatch(next({ personId: person.id, isMe, orgId }));
 
     const action = isMe
       ? ACTIONS.SELF_STAGE_SELECTED
@@ -220,11 +220,11 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
 
   const isMe = isMeSelector({ auth }, { personId });
 
-  const { id: contactAssignmentId, pathway_stage_id } =
+  const { id: contactAssignmentId } =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
   return {
-    ...(next ? { next } : {}),
+    ...(next ? { next } : {}), // TODO: Can we refactor this to only provide next by the router wrapping functions?
     stages: stages.stages,
     person,
     isMe,
@@ -232,7 +232,7 @@ const mapStateToProps = ({ people, stages, auth }, { navigation }) => {
     contactAssignmentId,
     currentStage: stageSelector(
       { stages },
-      { stageId: isMe ? auth.person.user.pathway_stage_id : pathway_stage_id },
+      { stageId: stageIdSelector({ auth }, { personId, person }) },
     ),
   };
 };

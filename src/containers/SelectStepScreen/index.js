@@ -19,6 +19,7 @@ import theme from '../../theme';
 import { isMeSelector, personSelector } from '../../selectors/people';
 
 import styles from './styles';
+import { stageIdSelector } from '../../selectors/stages';
 
 @translate('selectStep')
 class SelectStepScreen extends Component {
@@ -221,12 +222,15 @@ SelectStepScreen.propTypes = {
 };
 
 export const mapStateToProps = ({ auth, people, steps }, { navigation }) => {
-  const { personId, orgId, stageId } = navigation.state.params || {};
+  const { personId, orgId, next } = navigation.state.params || {};
 
   const person = personSelector({ people }, { personId, orgId });
   const isMe = isMeSelector({ auth }, { personId });
 
+  const stageId = stageIdSelector({ auth }, { person, personId, orgId });
+
   return {
+    ...(next ? { next } : {}), // TODO: Can we refactor this to only provide next by the router wrapping functions?
     person,
     isMe,
     orgId,

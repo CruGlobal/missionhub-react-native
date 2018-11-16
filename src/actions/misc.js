@@ -79,6 +79,7 @@ export function assignContactAndPickStage(person, organization) {
       ),
     );
 
+    // TODO: point to stage and step flow
     dispatch(
       navigatePush(PERSON_STAGE_SCREEN, {
         contactId: resultPerson.id,

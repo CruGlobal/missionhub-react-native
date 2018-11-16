@@ -4,16 +4,16 @@ import { translate } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { personSelector } from '../selectors/people';
-import { stageSelector } from '../selectors/stages';
+import { stageIdSelector, stageSelector } from '../selectors/stages';
 
 import IconMessageScreen from './IconMessageScreen/index';
 
 @translate('stageSuccess')
 class StageSuccessScreen extends Component {
   handleNavigateToStep = () => {
-    const { dispatch, next, person, stage } = this.props;
+    const { dispatch, next, person, orgId } = this.props;
 
-    dispatch(next({ personId: person.id, stageId: stage.id }));
+    dispatch(next({ personId: person.id, orgId }));
   };
 
   getMessage() {
@@ -48,14 +48,21 @@ StageSuccessScreen.propTypes = {
   next: PropTypes.func.isRequired,
   person: PropTypes.object.isRequired,
   stage: PropTypes.object.isRequired,
+  orgId: PropTypes.string,
 };
 
-const mapStateToProps = ({ people, stages }, { navigation }) => {
-  const { personId, stageId } = navigation.state.params || {};
+const mapStateToProps = ({ auth, people, stages }, { navigation }) => {
+  const { personId, orgId } = navigation.state.params || {};
+
+  const person = personSelector({ people }, { personId });
 
   return {
-    person: personSelector({ people }, { personId }),
-    stage: stageSelector({ stages }, { stageId }),
+    person,
+    stage: stageSelector(
+      { stages },
+      { stageId: stageIdSelector({ auth }, { personId, person }) },
+    ),
+    orgId,
   };
 };
 
