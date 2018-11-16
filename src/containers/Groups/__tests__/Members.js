@@ -14,6 +14,7 @@ import {
   getOrganizationMembersNextPage,
 } from '../../../actions/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
+import i18n from '../../../i18n';
 
 jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
@@ -187,11 +188,13 @@ describe('Members', () => {
   });
 
   it('calls invite', () => {
+    const url = '123';
     const store2 = createMockStore({
       organizations: {
         all: [
           {
             id: orgId,
+            community_url: url,
             members,
           },
         ],
@@ -213,12 +216,16 @@ describe('Members', () => {
       store2,
     );
     Share.share = jest.fn();
+    common.getCommunityUrl = jest.fn(() => url);
     component
       .childAt(1)
       .childAt(0)
       .props()
       .onPress();
-    expect(Share.share).toHaveBeenCalled();
+
+    expect(Share.share).toHaveBeenCalledWith({
+      message: i18n.t('groupsMembers:sendInviteMessage', { url }),
+    });
   });
 
   it('renderHeader match snapshot', () => {

@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh, isAdminOrOwner } from '../../utils/common';
+import { refresh, isAdminOrOwner, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -53,8 +53,8 @@ class Members extends Component {
   keyExtractor = i => i.id;
 
   handleInvite = () => {
-    const { t } = this.props;
-    const url = `https://www.missionhub.com/join/${'123456'}`;
+    const { t, organization } = this.props;
+    const url = getCommunityUrl(organization.community_url);
     Share.share({ message: t('sendInviteMessage', { url }) });
   };
 
