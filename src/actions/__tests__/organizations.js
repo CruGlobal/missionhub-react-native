@@ -8,6 +8,7 @@ import {
   GET_ORGANIZATION_PEOPLE,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import {
@@ -24,6 +25,7 @@ import {
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
+  removeOrganizationMember,
 } from '../organizations';
 
 jest.mock('../../selectors/organizations');
@@ -590,6 +592,19 @@ describe('generateNewCode', () => {
     store.dispatch(generateNewCode(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
+      orgId,
+    });
+  });
+});
+
+describe('removeOrganizationMember', () => {
+  const personId = '234234';
+  const orgId = '48973546';
+
+  it('creates the correct action', () => {
+    expect(removeOrganizationMember(personId, orgId)).toEqual({
+      type: REMOVE_ORGANIZATION_MEMBER,
+      personId,
       orgId,
     });
   });

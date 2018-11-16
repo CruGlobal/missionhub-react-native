@@ -6,6 +6,8 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../../constants';
 
 const org1Id = '123';
@@ -681,5 +683,97 @@ describe('update organization in line', () => {
     );
 
     expect(state.all[0].community_code).toEqual(community_code);
+  });
+});
+
+it('should update attributes of a member in all orgs ', () => {
+  const orgPermission1 = { id: '7777', permission_id: '1' };
+  const orgPermission2 = { id: '8888', permission_id: '1' };
+  const orgPermission3 = { id: '9999', permission_id: '1' };
+  const orgPermission1New = { ...orgPermission1, permission_id: '2' };
+
+  const person1 = {
+    id: '111',
+    organizational_permissions: [orgPermission1, orgPermission2],
+  };
+  const person2 = {
+    id: '222',
+    organizational_permissions: [orgPermission3],
+  };
+  const person1New = {
+    ...person1,
+    organizational_permissions: [orgPermission1New, orgPermission2],
+  };
+
+  const state = organizations(
+    {
+      all: [
+        {
+          id: org1Id,
+          members: [person1, person2],
+        },
+        {
+          id: org2Id,
+          members: [person1],
+        },
+      ],
+    },
+    {
+      type: UPDATE_PERSON_ATTRIBUTES,
+      updatedPersonAttributes: {
+        id: person1.id,
+        organizational_permissions: [orgPermission1New, orgPermission2],
+      },
+    },
+  );
+
+  expect(state.all).toEqual([
+    {
+      id: org1Id,
+      members: [person1New, person2],
+    },
+    {
+      id: org2Id,
+      members: [person1New],
+    },
+  ]);
+});
+
+describe('REMOVE_ORGANIZATION_MEMBER', () => {
+  it('should remove member', () => {
+    const personId = '2542342';
+    const orgId = '980789879';
+    const otherPerson = { id: '42324' };
+    const initialState = {
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson, { id: personId }],
+        },
+      ],
+    };
+
+    const result = organizations(initialState, {
+      type: REMOVE_ORGANIZATION_MEMBER,
+      personId,
+      orgId,
+    });
+
+    expect(result).toEqual({
+      all: [
+        {
+          id: '1',
+          members: [{ id: personId }],
+        },
+        {
+          id: orgId,
+          members: [otherPerson],
+        },
+      ],
+    });
   });
 });

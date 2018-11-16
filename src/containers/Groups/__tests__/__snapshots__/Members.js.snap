@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Members calls render item 1`] = `
-<Translate(GroupMemberItem)
+<Connect(Translate(GroupMemberItem))
   myId="111"
   myOrgPermission={
     Object {

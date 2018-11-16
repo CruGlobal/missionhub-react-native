@@ -1,5 +1,6 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
+import MockDate from 'mockdate';
 
 import {
   ACTIONS,
@@ -11,7 +12,11 @@ import {
   getMe,
   getPersonDetails,
   updateFollowupStatus,
+  archiveOrgPermission,
   updatePerson,
+  makeAdmin,
+  removeAsAdmin,
+  updateOrgPermission,
   createContactAssignment,
   deleteContactAssignment,
   getPersonJourneyDetails,
@@ -240,6 +245,135 @@ describe('updatePerson', () => {
             id: 3,
             type: 'phone_number',
             attributes: { number: '1234567890' },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('makeAdmin', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(makeAdmin(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: ORG_PERMISSIONS.ADMIN,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('removeAsAdmin', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(removeAsAdmin(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('updateOrgPermission', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+  const permissionLevel = ORG_PERMISSIONS.USER;
+
+  it('sends a request with org permission level set', () => {
+    store.dispatch(
+      updateOrgPermission(personId, orgPermissionId, permissionLevel),
+    );
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              permission_id: permissionLevel,
+            },
+          },
+        ],
+      },
+    );
+  });
+});
+
+describe('archiveOrgPermission', () => {
+  const personId = '24234234';
+  const orgPermissionId = '78978998';
+  const date = '2018-01-01';
+  MockDate.set(date);
+
+  it('sends a request with archive_date set', () => {
+    store.dispatch(archiveOrgPermission(personId, orgPermissionId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_PERSON,
+      {
+        personId: personId,
+        include: expectedIncludeWithContactAssignmentPerson,
+      },
+      {
+        data: {
+          type: 'person',
+        },
+        included: [
+          {
+            id: orgPermissionId,
+            type: 'organizational_permission',
+            attributes: {
+              archive_date: new Date(date).toISOString(),
+            },
           },
         ],
       },

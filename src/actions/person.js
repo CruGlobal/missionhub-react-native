@@ -210,6 +210,17 @@ export function updatePerson(data) {
                     },
                   ]
                 : []),
+              ...(data.orgPermission && data.orgPermission.archive_date
+                ? [
+                    {
+                      type: 'organizational_permission',
+                      id: data.orgPermission.id,
+                      attributes: {
+                        archive_date: data.orgPermission.archive_date,
+                      },
+                    },
+                  ]
+                : []),
             ],
           }
         : {}),
@@ -247,6 +258,13 @@ export function makeAdmin(personId, orgPermissionId) {
     );
 }
 
+export function removeAsAdmin(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
+    );
+}
+
 export function updateOrgPermission(
   personId,
   orgPermissionId,
@@ -262,6 +280,19 @@ export function updateOrgPermission(
     };
     return dispatch(updatePerson(data));
   };
+}
+
+export function archiveOrgPermission(personId, orgPermissionId) {
+  return dispatch =>
+    dispatch(
+      updatePerson({
+        id: personId,
+        orgPermission: {
+          id: orgPermissionId,
+          archive_date: new Date().toISOString(),
+        },
+      }),
+    );
 }
 
 export function updateFollowupStatus(person, orgPermissionId, status) {
