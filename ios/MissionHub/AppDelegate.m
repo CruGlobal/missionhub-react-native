@@ -18,6 +18,7 @@
 #import <React/RCTLinkingManager.h>
 
 #import "ADBMobile.h"
+@import Firebase;
 
 const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
@@ -36,6 +37,8 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
   [Fabric with:@[[Crashlytics class]]];
+  
+  [FIRApp configure]; // Firebase
 
   if (@available(iOS 10, *)) {
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
