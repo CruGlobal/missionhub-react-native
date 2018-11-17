@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "208966923006",
+    "firebase_url": "https://missionhub-188818.firebaseio.com",
+    "project_id": "missionhub-188818",
+    "storage_bucket": "missionhub-188818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208966923006:android:6a45e2915b3143ab",
+        "android_client_info": {
+          "package_name": "com.missionhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEfJM3xxYB15LExkyjSumDtINqU7pA86s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208966923006:android:621b496055cfc8a2",
+        "android_client_info": {
+          "package_name": "com.missionhub.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEfJM3xxYB15LExkyjSumDtINqU7pA86s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
