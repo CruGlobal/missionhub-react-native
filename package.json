@@ -53,6 +53,7 @@
     "react-native-device-info": "^0.21.5",
     "react-native-fabric": "^0.5.1",
     "react-native-fbsdk": "^0.8.0",
+    "react-native-firebase": "^5.1.0",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
     "react-native-parallax-scroll-view": "^0.21.0",
     "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
