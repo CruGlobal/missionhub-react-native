@@ -8,6 +8,7 @@ import android.content.Context;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
 import com.entria.views.RNViewOverflowPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.microsoft.codepush.react.CodePush;
@@ -56,6 +57,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseLinksPackage(),
             new RNViewOverflowPackage(),
             new RNDeviceInfo(),
             new CodePush("", getApplicationContext(), BuildConfig.DEBUG),
