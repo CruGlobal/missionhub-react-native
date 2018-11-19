@@ -4,9 +4,9 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   content: {
-    paddingVertical: 16,
-    paddingLeft: 24,
-    paddingRight: 13,
+    paddingVertical: 10,
+    paddingLeft: 16,
+    paddingRight: 0,
   },
   detailsWrap: {
     marginTop: 1,
