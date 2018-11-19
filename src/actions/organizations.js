@@ -7,6 +7,7 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
+import { getMe, getPersonDetails } from '../actions/person';
 
 import callApi, { REQUESTS } from './api';
 
@@ -345,8 +346,8 @@ export function updateOrganizationImage(orgId, imageData) {
 }
 
 export function transferOrgOwnership(orgId, person_id) {
-  return dispatch => {
-    return dispatch(
+  return async dispatch => {
+    const { response } = await dispatch(
       callApi(
         REQUESTS.TRANSFER_ORG_OWNERSHIP,
         { orgId },
@@ -358,6 +359,10 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+    dispatch(getMe());
+    dispatch(getPersonDetails(person_id, orgId));
+
+    return response;
   };
 }
 
