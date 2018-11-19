@@ -112,7 +112,7 @@ export const mapStateToProps = ({ auth, organizations }, { organization }) => {
 
   return {
     challengeItems,
-    pagination: selectorOrg.challengePagination,
+    pagination: selectorOrg && selectorOrg.challengePagination,
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
