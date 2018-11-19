@@ -5,6 +5,7 @@ import {
   mapStateToProps,
   CHALLENGE_DETAIL_TABS,
 } from '..';
+
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';

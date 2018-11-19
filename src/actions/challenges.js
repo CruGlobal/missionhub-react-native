@@ -89,7 +89,7 @@ export function createChallenge(challenge, orgId) {
   };
 }
 
-export function updateChallenge(challenge, orgId) {
+export function updateChallenge(challenge) {
   const challenge_id = challenge.id;
 
   if (!challenge || !challenge_id) {
