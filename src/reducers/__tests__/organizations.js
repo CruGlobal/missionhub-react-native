@@ -684,6 +684,20 @@ describe('update organization in line', () => {
 
     expect(state.all[0].community_code).toEqual(community_code);
   });
+  it('updates the organization url', () => {
+    const community_url = 'new url';
+    const state = organizations(
+      { all: [org] },
+      {
+        type: REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS,
+        results: {
+          response: { ...org, community_url },
+        },
+      },
+    );
+
+    expect(state.all[0].community_url).toEqual(community_url);
+  });
 });
 
 it('should update attributes of a member in all orgs ', () => {

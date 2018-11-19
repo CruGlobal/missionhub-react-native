@@ -16,13 +16,19 @@ import {
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import ImagePicker from '../../../components/ImagePicker';
 import theme from '../../../theme';
-import { copyText, isAdminOrOwner, isOwner } from '../../../utils/common';
+import {
+  copyText,
+  isAdminOrOwner,
+  isOwner,
+  getCommunityUrl,
+} from '../../../utils/common';
 import { navigateBack, navigateReset } from '../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
+  generateNewLink,
 } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
@@ -54,7 +60,8 @@ class GroupProfile extends Component {
 
   copyCode = () => copyText(this.props.organization.community_code);
 
-  copyUrl = () => copyText(this.props.organization.id);
+  copyUrl = () =>
+    copyText(getCommunityUrl(this.props.organization.community_url));
 
   navigateBack = () => this.props.dispatch(navigateBack());
 
@@ -74,8 +81,16 @@ class GroupProfile extends Component {
   };
 
   handleNewLink = () => {
-    // TODO: Handle generating a new code
-    return 'new link';
+    const { t, dispatch, organization } = this.props;
+    Alert.alert(t('createNewLink'), t('cannotBeUndone'), [
+      { text: t('cancel'), style: 'cancel' },
+      {
+        text: t('yes'),
+        onPress: () => {
+          dispatch(generateNewLink(organization.id));
+        },
+      },
+    ]);
   };
 
   deleteOrg = async () => {
@@ -235,8 +250,7 @@ class GroupProfile extends Component {
             <Flex value={1} direction="column">
               <Text style={styles.label}>{t('link')}</Text>
               <Text style={styles.linkText}>
-                https://www.missionhub.com/333333
-                {/* TODO: PUT IN RIGHT LINK */}
+                {getCommunityUrl(organization.community_url)}
               </Text>
             </Flex>
             {editing && isOwner ? (
