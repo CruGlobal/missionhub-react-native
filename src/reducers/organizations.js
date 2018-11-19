@@ -7,6 +7,7 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_CHALLENGE,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -155,7 +156,7 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
-    case REQUESTS.GET_GROUP_CHALLENGE.SUCCESS:
+    case UPDATE_CHALLENGE:
       return updateChallenge(action, state);
     case LOGOUT:
       return initialState;
@@ -187,10 +188,7 @@ function toggleCelebrationLike(action, state, liked) {
 }
 
 function updateChallenge(action, state) {
-  const {
-    query: { challenge_id },
-    results: { response: challenge },
-  } = action;
+  const { challenge } = action;
   const orgId =
     (challenge.organization && challenge.organization.id) || undefined;
 
@@ -203,7 +201,7 @@ function updateChallenge(action, state) {
               ? {
                   ...o,
                   challengeItems: o.challengeItems.map(
-                    c => (c.id === challenge_id ? { ...c, ...challenge } : c),
+                    c => (c.id === challenge.id ? { ...c, ...challenge } : c),
                   ),
                 }
               : o,

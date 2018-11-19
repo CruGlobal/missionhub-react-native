@@ -160,7 +160,7 @@ export default {
     method: 'put',
   },
   UPDATE_GROUP_CHALLENGE: {
-    endpoint: `${GROUP_CHALLENGE_URL}:challengeId`,
+    endpoint: `${GROUP_CHALLENGE_URL}:challenge_id`,
     method: 'put',
   },
   CREATE_GROUP_CHALLENGE: {
