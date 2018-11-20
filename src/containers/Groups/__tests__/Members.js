@@ -39,11 +39,12 @@ const members = [
 const orgId = '1';
 const myId = '111';
 
+const organization = { id: orgId, name: 'Test Org' };
 const store = createMockStore({
   organizations: {
     all: [
       {
-        id: orgId,
+        ...organization,
         members,
       },
     ],
@@ -62,8 +63,6 @@ const store = createMockStore({
   },
   swipe: { groupInviteInfo: true },
 });
-
-const organization = { id: '1', name: 'Test Org' };
 
 beforeEach(() => {
   navToPersonScreen.mockClear();
@@ -168,7 +167,10 @@ describe('Members', () => {
 
     listItem.props.onSelect(member);
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(member, organization);
+    expect(navToPersonScreen).toHaveBeenCalledWith(member, {
+      ...organization,
+      members,
+    });
   });
 
   it('should handleLoadMore correctly', () => {
