@@ -515,6 +515,7 @@ export default {
   },
   groupsMembers: {
     invite: 'Send Invite',
+    sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:

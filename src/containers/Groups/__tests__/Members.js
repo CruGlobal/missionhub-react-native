@@ -1,4 +1,5 @@
 import React from 'react';
+import { Share } from 'react-native';
 
 import Members from '../Members';
 import {
@@ -12,9 +13,8 @@ import {
   getOrganizationMembers,
   getOrganizationMembersNextPage,
 } from '../../../actions/organizations';
-import * as navigation from '../../../actions/navigation';
-import { ADD_CONTACT_SCREEN } from '../../AddContactScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
+import i18n from '../../../i18n';
 
 jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
@@ -188,11 +188,13 @@ describe('Members', () => {
   });
 
   it('calls invite', () => {
+    const url = '123';
     const store2 = createMockStore({
       organizations: {
         all: [
           {
             id: orgId,
+            community_url: url,
             members,
           },
         ],
@@ -213,16 +215,16 @@ describe('Members', () => {
       <Members organization={organization} />,
       store2,
     );
-    navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
+    Share.share = jest.fn();
+    common.getCommunityUrl = jest.fn(() => url);
     component
       .childAt(1)
       .childAt(0)
       .props()
       .onPress();
-    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CONTACT_SCREEN, {
-      organization,
-      isInvite: true,
-      onComplete: expect.any(Function),
+
+    expect(Share.share).toHaveBeenCalledWith({
+      message: i18n.t('groupsMembers:sendInviteMessage', { url }),
     });
   });
 

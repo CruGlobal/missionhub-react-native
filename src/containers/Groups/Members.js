@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { Share, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh, isAdminOrOwner } from '../../utils/common';
+import { refresh, isAdminOrOwner, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -14,8 +14,6 @@ import {
 } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import { ADD_CONTACT_SCREEN } from '../AddContactScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
@@ -55,19 +53,9 @@ class Members extends Component {
   keyExtractor = i => i.id;
 
   handleInvite = () => {
-    const { dispatch, organization } = this.props;
-
-    dispatch(
-      navigatePush(ADD_CONTACT_SCREEN, {
-        organization,
-        isInvite: true,
-        onComplete: () => {
-          dispatch(navigateBack());
-          // refresh the members list after creating a new person
-          this.load();
-        },
-      }),
-    );
+    const { t, organization } = this.props;
+    const url = getCommunityUrl(organization.community_url);
+    Share.share({ message: t('sendInviteMessage', { url }) });
   };
 
   renderItem = ({ item }) => {
