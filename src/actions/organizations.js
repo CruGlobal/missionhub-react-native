@@ -7,8 +7,8 @@ import {
   REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
-import { getMe, getPersonDetails } from '../actions/person';
 
+import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {

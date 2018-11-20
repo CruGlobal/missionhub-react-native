@@ -28,9 +28,11 @@ import {
   removeOrganizationMember,
   generateNewLink,
 } from '../organizations';
+import { getMe, getPersonDetails } from '../person';
 
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
+jest.mock('../person');
 
 global.FormData = require('FormData');
 
@@ -457,13 +459,19 @@ describe('getMyCommunities', () => {
 
 describe('transferOrgOwnership', () => {
   const apiResponse = { type: 'api response' };
+  const getMeResponse = { type: 'get me response' };
+  const getPersonResponse = { type: 'get person response' };
   const orgId = '10292342';
   const person_id = '251689461';
 
-  beforeEach(() => callApi.mockReturnValue(() => Promise.resolve(apiResponse)));
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+    getMe.mockReturnValue(getMeResponse);
+    getPersonDetails.mockReturnValue(getPersonResponse);
+  });
 
-  it('transfers org ownership', () => {
-    store.dispatch(transferOrgOwnership(orgId, person_id));
+  it('transfers org ownership', async () => {
+    await store.dispatch(transferOrgOwnership(orgId, person_id));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.TRANSFER_ORG_OWNERSHIP,
@@ -475,6 +483,14 @@ describe('transferOrgOwnership', () => {
         },
       },
     );
+    expect(getMe).toHaveBeenCalledWith();
+    expect(getPersonDetails).toHaveBeenCalledWith(person_id, orgId);
+
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      getMeResponse,
+      getPersonResponse,
+    ]);
   });
 });
 
@@ -490,19 +506,24 @@ describe('addNewOrganization', () => {
     },
   };
   const apiResponse = { type: 'api response' };
+  const getMeResponse = { type: 'get me response' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(() => Promise.resolve(apiResponse));
+    callApi.mockReturnValue(apiResponse);
+    getMe.mockReturnValue(getMeResponse);
   });
 
-  it('adds organization with name', () => {
-    store.dispatch(addNewOrganization(name));
+  it('adds organization with name', async () => {
+    await store.dispatch(addNewOrganization(name));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
       bodyData,
     );
+    expect(getMe).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([apiResponse, getMeResponse]);
   });
 });
 
