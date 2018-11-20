@@ -5,6 +5,7 @@ import {
   SWIPE_REMINDER_STEPS_REMINDER,
   SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
+  GROUP_INVITE_INFO,
 } from '../../constants';
 import { GROUP_ONBOARDING_TYPES } from '../../containers/Groups/OnboardingCard';
 
@@ -109,4 +110,14 @@ it('doesnt update group onboarding', () => {
     value: false,
   });
   expect(state).toBe(state);
+});
+
+it('updates group invite info', () => {
+  const state = swipe(
+    {},
+    {
+      type: GROUP_INVITE_INFO,
+    },
+  );
+  expect(state.groupInviteInfo).toBe(false);
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Share, FlatList } from 'react-native';
+import { Alert, Share, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ import {
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
+import { removeGroupInviteInfo } from '../../actions/swipe';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -52,10 +53,16 @@ class Members extends Component {
 
   keyExtractor = i => i.id;
 
-  handleInvite = () => {
-    const { t, organization } = this.props;
+  handleInvite = async () => {
+    const { t, organization, groupInviteInfo, dispatch } = this.props;
     const url = getCommunityUrl(organization.community_url);
-    Share.share({ message: t('sendInviteMessage', { url }) });
+    const { action } = await Share.share({
+      message: t('sendInviteMessage', { url }),
+    });
+    Alert.alert('', t('invited', { orgName: organization.name }));
+    if (groupInviteInfo && action === Share.sharedAction) {
+      dispatch(removeGroupInviteInfo());
+    }
   };
 
   renderItem = ({ item }) => {
@@ -115,12 +122,13 @@ Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ auth, organizations }, { organization }) => {
+const mapStateToProps = ({ auth, organizations, swipe }, { organization }) => {
   const selectorOrg = organizationSelector(
     { organizations },
     { orgId: organization.id },
   );
   return {
+    groupInviteInfo: swipe.groupInviteInfo,
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
     myId: auth.person.id,
