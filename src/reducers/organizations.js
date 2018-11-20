@@ -186,6 +186,8 @@ function organizationsReducer(state = initialState, action) {
       return updateAllPersonInstances(action.updatedPersonAttributes, state);
     case LOAD_PERSON_DETAILS:
       return updateAllPersonInstances(action.person, state);
+    case REQUESTS.GET_ME.SUCCESS:
+      return updateAllPersonInstances(action.results.response, state);
     case REMOVE_ORGANIZATION_MEMBER:
       const { personId, orgId } = action;
 
