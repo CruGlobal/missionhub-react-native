@@ -59,8 +59,8 @@ class Members extends Component {
     const { action } = await Share.share({
       message: t('sendInviteMessage', { url }),
     });
-    Alert.alert('', t('invited', { orgName: organization.name }));
     if (groupInviteInfo && action === Share.sharedAction) {
+      Alert.alert('', t('invited', { orgName: organization.name }));
       dispatch(removeGroupInviteInfo());
     }
   };
