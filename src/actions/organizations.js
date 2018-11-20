@@ -359,6 +359,8 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+
+    // After transfer, update auth person and other person with new org permissions
     dispatch(getMe());
     dispatch(getPersonDetails(person_id, orgId));
 
@@ -391,6 +393,9 @@ export function addNewOrganization(name, imageData) {
       const newOrgId = results.response.id;
       dispatch(updateOrganizationImage(newOrgId, imageData));
     }
+    // After the org is created, update auth person with new org permissions
+    dispatch(getMe());
+
     return results;
   };
 }
