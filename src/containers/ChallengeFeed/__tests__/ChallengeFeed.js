@@ -3,12 +3,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import ChallengeFeed from '..';
+
 import { renderShallow } from '../../../../testUtils';
-import { ORG_PERMISSIONS } from '../../../constants';
 import * as navigation from '../../../actions/navigation';
 import * as challenges from '../../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../ChallengeDetailScreen';
-import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 
 jest.mock('../../../actions/challenges', () => ({
   completeChallenge: jest.fn(() => ({ type: 'complete' })),

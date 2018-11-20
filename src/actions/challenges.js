@@ -1,6 +1,7 @@
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
+import { UPDATE_CHALLENGE } from '../constants';
 
 import callApi, { REQUESTS } from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
@@ -88,14 +89,17 @@ export function createChallenge(challenge, orgId) {
   };
 }
 
-export function updateChallenge(challenge, orgId) {
-  if (!challenge || !challenge.id) {
+export function updateChallenge(challenge) {
+  if (!challenge) {
     return Promise.reject(
       `Invalid Data from updateChallenge: no challenge passed in`,
     );
   }
+
+  const challenge_id = challenge.id;
+
   const query = {
-    challengeId: challenge.id,
+    challenge_id,
   };
   const attributes = {};
   if (challenge.title) {
@@ -106,18 +110,37 @@ export function updateChallenge(challenge, orgId) {
   }
   const bodyData = { data: { attributes } };
   return async dispatch => {
-    await dispatch(callApi(REQUESTS.UPDATE_GROUP_CHALLENGE, query, bodyData));
-    return dispatch(reloadGroupChallengeFeed(orgId));
+    const { response } = await dispatch(
+      callApi(REQUESTS.UPDATE_GROUP_CHALLENGE, query, bodyData),
+    );
+    return dispatch({
+      type: UPDATE_CHALLENGE,
+      challenge: {
+        id: challenge_id,
+        organization: response.organization,
+        title: response.title,
+        end_date: response.end_date,
+      },
+    });
   };
 }
 
 export function getChallenge(challenge_id) {
-  return dispatch => {
+  return async dispatch => {
     const query = {
       challenge_id,
       include: 'accepted_community_challenges.person.full_name',
     };
 
-    return dispatch(callApi(REQUESTS.GET_GROUP_CHALLENGE, query));
+    const { response } = await dispatch(
+      callApi(REQUESTS.GET_GROUP_CHALLENGE, query),
+    );
+    return dispatch({
+      type: UPDATE_CHALLENGE,
+      challenge: {
+        id: challenge_id,
+        ...response,
+      },
+    });
   };
 }

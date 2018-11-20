@@ -1,12 +1,13 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
+import CelebrateItem from '..';
+
 import {
   ACTIONS,
   CELEBRATEABLE_TYPES,
   INTERACTION_TYPES,
 } from '../../../constants';
-import CelebrateItem from '..';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';

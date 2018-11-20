@@ -6,6 +6,7 @@ import {
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_CHALLENGE,
 } from '../../constants';
 
 const org1Id = '123';
@@ -632,7 +633,7 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
   });
 });
 
-describe('REQUESTS.GET_GROUP_CHALLENGE.SUCCESS', () => {
+describe('UPDATE_CHALLENGE', () => {
   const orgId = '111';
   const organization = { id: orgId };
   const challenge_id = '1';
@@ -667,13 +668,8 @@ describe('REQUESTS.GET_GROUP_CHALLENGE.SUCCESS', () => {
       ],
     },
     {
-      type: REQUESTS.GET_GROUP_CHALLENGE.SUCCESS,
-      query: {
-        challenge_id,
-      },
-      results: {
-        response: challengeNew,
-      },
+      type: UPDATE_CHALLENGE,
+      challenge: challengeNew,
     },
   );
 
