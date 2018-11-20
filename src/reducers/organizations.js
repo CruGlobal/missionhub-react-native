@@ -8,6 +8,7 @@ import {
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
   UPDATE_PERSON_ATTRIBUTES,
+  LOAD_PERSON_DETAILS,
   REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
@@ -182,7 +183,11 @@ function organizationsReducer(state = initialState, action) {
         ),
       };
     case UPDATE_PERSON_ATTRIBUTES:
-      return updateAllPersonInstances(action, state);
+      return updateAllPersonInstances(action.updatedPersonAttributes, state);
+    case LOAD_PERSON_DETAILS:
+      return updateAllPersonInstances(action.person, state);
+    case REQUESTS.GET_ME.SUCCESS:
+      return updateAllPersonInstances(action.results.response, state);
     case REMOVE_ORGANIZATION_MEMBER:
       const { personId, orgId } = action;
 
@@ -224,8 +229,7 @@ function toggleCelebrationLike(action, state, liked) {
   };
 }
 
-function updateAllPersonInstances(action, state) {
-  const { updatedPersonAttributes: updatedPerson } = action;
+function updateAllPersonInstances(updatedPerson, state) {
   return {
     ...state,
     all: state.all.map(

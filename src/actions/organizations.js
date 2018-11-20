@@ -8,6 +8,7 @@ import {
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
+import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
@@ -345,8 +346,8 @@ export function updateOrganizationImage(orgId, imageData) {
 }
 
 export function transferOrgOwnership(orgId, person_id) {
-  return dispatch => {
-    return dispatch(
+  return async dispatch => {
+    const { response } = await dispatch(
       callApi(
         REQUESTS.TRANSFER_ORG_OWNERSHIP,
         { orgId },
@@ -358,6 +359,12 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+
+    // After transfer, update auth person and other person with new org permissions
+    dispatch(getMe());
+    dispatch(getPersonDetails(person_id, orgId));
+
+    return response;
   };
 }
 
@@ -386,6 +393,9 @@ export function addNewOrganization(name, imageData) {
       const newOrgId = results.response.id;
       dispatch(updateOrganizationImage(newOrgId, imageData));
     }
+    // After the org is created, update auth person with new org permissions
+    dispatch(getMe());
+
     return results;
   };
 }
