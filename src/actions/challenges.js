@@ -90,13 +90,14 @@ export function createChallenge(challenge, orgId) {
 }
 
 export function updateChallenge(challenge) {
-  const challenge_id = challenge.id;
-
-  if (!challenge || !challenge_id) {
+  if (!challenge) {
     return Promise.reject(
       `Invalid Data from updateChallenge: no challenge passed in`,
     );
   }
+
+  const challenge_id = challenge.id;
+
   const query = {
     challenge_id,
   };
