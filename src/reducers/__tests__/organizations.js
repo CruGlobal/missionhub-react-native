@@ -742,6 +742,17 @@ describe('UPDATE_PERSON_ATTRIBUTES', () => {
         },
       },
     );
+
+    expect(state.all).toEqual([
+      {
+        id: org1Id,
+        members: [person1New, person2],
+      },
+      {
+        id: org2Id,
+        members: [person1New],
+      },
+    ]);
   });
 });
 
