@@ -1,5 +1,5 @@
 import React from 'react';
-import { Share } from 'react-native';
+import { Alert, Share } from 'react-native';
 
 import Members from '../Members';
 import {
@@ -15,6 +15,7 @@ import {
 } from '../../../actions/organizations';
 import { ORG_PERMISSIONS } from '../../../constants';
 import i18n from '../../../i18n';
+import { removeGroupInviteInfo } from '../../../actions/swipe';
 
 jest.mock('../../../actions/organizations', () => ({
   getOrganizationMembers: jest.fn(() => ({ type: 'test' })),
@@ -23,7 +24,11 @@ jest.mock('../../../actions/organizations', () => ({
 jest.mock('../../../actions/person', () => ({
   navToPersonScreen: jest.fn(() => ({ type: 'test' })),
 }));
+jest.mock('../../../actions/swipe', () => ({
+  removeGroupInviteInfo: jest.fn(() => ({ type: 'remove group invite info' })),
+}));
 common.refresh = jest.fn();
+Alert.alert = jest.fn();
 
 const members = [
   { id: '1', full_name: 'Test User 1', contact_assignments: [] },
@@ -55,6 +60,7 @@ const store = createMockStore({
       ],
     },
   },
+  swipe: { groupInviteInfo: true },
 });
 
 const organization = { id: '1', name: 'Test Org' };
@@ -91,6 +97,7 @@ describe('Members', () => {
           ],
         },
       },
+      swipe: { groupInviteInfo: true },
     });
     testSnapshotShallow(component, store2);
   });
@@ -116,6 +123,7 @@ describe('Members', () => {
           ],
         },
       },
+      swipe: { groupInviteInfo: true },
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
@@ -143,6 +151,7 @@ describe('Members', () => {
           ],
         },
       },
+      swipe: { groupInviteInfo: true },
     });
     const instance = renderShallow(component, store2).instance();
     instance.componentDidMount();
@@ -187,17 +196,11 @@ describe('Members', () => {
     expect(renderedItem).toMatchSnapshot();
   });
 
-  it('calls invite', () => {
+  it('calls invite', async () => {
     const url = '123';
     const store2 = createMockStore({
       organizations: {
-        all: [
-          {
-            id: orgId,
-            community_url: url,
-            members,
-          },
-        ],
+        all: [{ ...organization, community_url: url, members }],
         membersPagination: { hasNextPage: true },
       },
       auth: {
@@ -210,14 +213,15 @@ describe('Members', () => {
           ],
         },
       },
+      swipe: { groupInviteInfo: true },
     });
     const component = renderShallow(
       <Members organization={organization} />,
       store2,
     );
-    Share.share = jest.fn();
+    Share.share = jest.fn(() => ({ action: Share.sharedAction }));
     common.getCommunityUrl = jest.fn(() => url);
-    component
+    await component
       .childAt(1)
       .childAt(0)
       .props()
@@ -226,6 +230,11 @@ describe('Members', () => {
     expect(Share.share).toHaveBeenCalledWith({
       message: i18n.t('groupsMembers:sendInviteMessage', { url }),
     });
+    expect(Alert.alert).toHaveBeenCalledWith(
+      '',
+      i18n.t('groupsMembers:invited', { orgName: organization.name }),
+    );
+    expect(removeGroupInviteInfo).toHaveBeenCalled();
   });
 
   it('renderHeader match snapshot', () => {
