@@ -5,13 +5,14 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -89,13 +90,14 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -173,13 +175,14 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -283,13 +286,14 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -393,13 +397,14 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -477,13 +482,14 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -538,13 +544,14 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -622,13 +629,14 @@ exports[`render contacts count user created org should not render contacts count
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
