@@ -19,6 +19,12 @@ exports[`MemberOptionsMenu  looking at member, when I am owner renders correctly
     ]
   }
   iconProps={Object {}}
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
 />
 `;
 
@@ -33,6 +39,12 @@ exports[`MemberOptionsMenu for me, as owner renders correctly 1`] = `
     ]
   }
   iconProps={Object {}}
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
 />
 `;
 
@@ -51,6 +63,12 @@ exports[`MemberOptionsMenu renders for admin looking at admin 1`] = `
     ]
   }
   iconProps={Object {}}
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
 />
 `;
 
@@ -69,6 +87,12 @@ exports[`MemberOptionsMenu renders for admin looking at member 1`] = `
     ]
   }
   iconProps={Object {}}
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
 />
 `;
 
@@ -91,5 +115,11 @@ exports[`MemberOptionsMenu renders for owner looking at admin 1`] = `
     ]
   }
   iconProps={Object {}}
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
 />
 `;

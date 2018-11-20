@@ -17,6 +17,8 @@ import {
   removeOrganizationMember,
 } from '../../actions/organizations';
 
+import styles from './styles';
+
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   leaveCommunity = async () => {
@@ -122,6 +124,7 @@ class MemberOptionsMenu extends Component {
           : []),
       ],
       iconProps: {},
+      style: styles.container,
     };
     return <PopupMenu {...props} />;
   }
