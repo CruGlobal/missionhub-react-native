@@ -176,6 +176,17 @@ describe('CelebrateItem', () => {
       };
       testEvent(event);
     });
+
+    it('renders created community event', () => {
+      event = {
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.createdCommunity,
+        organization: {
+          name: 'Celebration Community',
+        },
+      };
+      testEvent(event);
+    });
   });
 });
 
