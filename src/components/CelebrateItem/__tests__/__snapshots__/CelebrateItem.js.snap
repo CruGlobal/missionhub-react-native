@@ -50,7 +50,7 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        John accepted a Challenge
+        John S. accepted a Challenge
       </MyText>
     </Flex>
     <Flex
@@ -149,7 +149,7 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        John completed a Challenge
+        John S. completed a Challenge
       </MyText>
     </Flex>
     <Flex
@@ -248,7 +248,7 @@ exports[`CelebrateItem message renders other interaction event 1`] = `
           }
         }
       >
-        John had a Spiritual Conversation.
+        John S. had a Spiritual Conversation.
       </MyText>
     </Flex>
     <Flex
@@ -347,7 +347,7 @@ exports[`CelebrateItem message renders personal decision interaction event 1`] =
           }
         }
       >
-        John saw someone make a Personal Decision.
+        John S. saw someone make a Personal Decision.
       </MyText>
     </Flex>
     <Flex
@@ -446,7 +446,7 @@ exports[`CelebrateItem message renders something cool happened event 1`] = `
           }
         }
       >
-        John saw something cool happen with someone.
+        John S. saw something cool happen with someone.
       </MyText>
     </Flex>
     <Flex
@@ -545,7 +545,7 @@ exports[`CelebrateItem message renders step of faith event with stage 1`] = `
           }
         }
       >
-        John completed a Step of Faith with a Forgiven person.
+        John S. completed a Step of Faith with a Forgiven person.
       </MyText>
     </Flex>
     <Flex
@@ -644,7 +644,7 @@ exports[`CelebrateItem message renders step of faith event without stage 1`] = `
           }
         }
       >
-        John completed a Step of Faith with someone.
+        John S. completed a Step of Faith with someone.
       </MyText>
     </Flex>
     <Flex
