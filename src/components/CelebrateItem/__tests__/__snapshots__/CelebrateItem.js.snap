@@ -58,8 +58,30 @@ exports[`CelebrateItem message renders accepted challenge event 1`] = `
           }
         }
       >
-        John accepted a Challenge
+        John accepted a Challenge:
       </MyText>
+      <Flex
+        direction="row"
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#007398",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+            }
+          }
+          onPress={[Function]}
+          style={
+            Object {
+              "marginTop": 4,
+            }
+          }
+          text="Invite a friend to church"
+          type="transparent"
+        />
+      </Flex>
     </Flex>
     <Flex
       align="start"
@@ -165,8 +187,30 @@ exports[`CelebrateItem message renders completed challenge event 1`] = `
           }
         }
       >
-        John completed a Challenge
+        John completed a Challenge:
       </MyText>
+      <Flex
+        direction="row"
+      >
+        <Button
+          buttonTextStyle={
+            Object {
+              "color": "#007398",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+            }
+          }
+          onPress={[Function]}
+          style={
+            Object {
+              "marginTop": 4,
+            }
+          }
+          text="Invite a friend to church"
+          type="transparent"
+        />
+      </Flex>
     </Flex>
     <Flex
       align="start"

@@ -30,7 +30,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person1",
-            "days_remaining": 14,
             "end_date": "2018-09-06T14:13:21Z",
             "id": "1",
             "organization_id": "456",
@@ -48,7 +47,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person2",
-            "days_remaining": 14,
             "end_date": "2018-09-06T14:13:21Z",
             "id": "2",
             "organization_id": "456",
@@ -71,12 +69,10 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "accepted_count": 5,
             "completed_count": 0,
             "creator_id": "person3",
-            "days_remaining": 0,
             "end_date": "2018-09-06T14:13:21Z",
             "id": "3",
             "organization_id": "456",
             "title": "Invite Smeagol over for fresh fish",
-            "total_days": 7,
           },
           Object {
             "accepted_community_challenges": Array [
@@ -90,12 +86,10 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "accepted_count": 5,
             "completed_count": 3,
             "creator_id": "person4",
-            "days_remaining": 0,
             "end_date": "2018-09-06T14:13:21Z",
             "id": "4",
             "organization_id": "456",
             "title": "Who can wear the ring the longest.",
-            "total_days": 7,
           },
         ],
         "title": "Past Challenges",
@@ -117,7 +111,6 @@ exports[`renders item 1`] = `
       "accepted_count": 5,
       "completed_count": 3,
       "creator_id": "person1",
-      "days_remaining": 14,
       "end_date": "2018-09-06T14:13:21Z",
       "id": "1",
       "organization_id": "456",
@@ -125,8 +118,8 @@ exports[`renders item 1`] = `
     }
   }
   onComplete={[Function]}
-  onEdit={[Function]}
   onJoin={[Function]}
+  onSelect={[Function]}
 />
 `;
 

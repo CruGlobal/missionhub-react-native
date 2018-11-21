@@ -6,126 +6,93 @@ exports[`render active and joined and completed challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          7 Days Left
-        </MyText>
-        <Dot
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
-            }
-          }
-        />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
-      </Flex>
-    </Flex>
-    <Flex
-      align="end"
-      justify="center"
+      }
       value={1}
     >
       <Flex
-        value={0}
+        direction="column"
+        value={5}
       >
-        <Icon
-          name="checkIcon"
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "color": "#44E4AB",
-              "fontSize": 20,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
-          type="MissionHub"
+        >
+          Read "There and Back Again"
+        </MyText>
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": false,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
+          style={
+            Object {
+              "paddingTop": 8,
+            }
+          }
         />
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      >
+        <Flex
+          value={0}
+        >
+          <Icon
+            name="checkIcon"
+            style={
+              Object {
+                "color": "#44E4AB",
+                "fontSize": 20,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
     </Flex>
-  </Flex>
+  </Button>
 </Card>
 `;
 
@@ -135,43 +102,34 @@ exports[`render active and joined challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
         <MyText
           accessible={true}
@@ -179,67 +137,43 @@ exports[`render active and joined challenge item 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          7 Days Left
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": false,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
   <Button
     buttonTextStyle={
       Object {
@@ -266,133 +200,78 @@ exports[`render active and joined challenge item with edit 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
-        <React.Fragment>
-          <Button
-            buttonTextStyle={
-              Object {
-                "color": "#52C5DC",
-                "fontSize": 11,
-              }
-            }
-            onPress={[Function]}
-            text="Edit"
-            type="transparent"
-          />
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-        </React.Fragment>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          7 Days Left
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": false,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
   <Button
     buttonTextStyle={
       Object {
@@ -419,43 +298,34 @@ exports[`render active challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
         <MyText
           accessible={true}
@@ -463,67 +333,43 @@ exports[`render active challenge item 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          7 Days Left
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": false,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
   <Button
     buttonTextStyle={
       Object {
@@ -550,133 +396,78 @@ exports[`render active challenge item with edit 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
-        <React.Fragment>
-          <Button
-            buttonTextStyle={
-              Object {
-                "color": "#52C5DC",
-                "fontSize": 11,
-              }
-            }
-            onPress={[Function]}
-            text="Edit"
-            type="transparent"
-          />
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-        </React.Fragment>
         <MyText
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          7 Days Left
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": false,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
   <Button
     buttonTextStyle={
       Object {
@@ -703,126 +494,93 @@ exports[`render past and joined and completed challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
-      <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
-      >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          22 Day Challenge
-        </MyText>
-        <Dot
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
-            }
-          }
-        />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
-      </Flex>
-    </Flex>
-    <Flex
-      align="end"
-      justify="center"
+      }
       value={1}
     >
       <Flex
-        value={0}
+        direction="column"
+        value={5}
       >
-        <Icon
-          name="checkIcon"
+        <MyText
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
           style={
             Object {
-              "color": "#44E4AB",
-              "fontSize": 20,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
-          type="MissionHub"
+        >
+          Read "There and Back Again"
+        </MyText>
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": true,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
+          style={
+            Object {
+              "paddingTop": 8,
+            }
+          }
         />
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      >
+        <Flex
+          value={0}
+        >
+          <Icon
+            name="checkIcon"
+            style={
+              Object {
+                "color": "#44E4AB",
+                "fontSize": 20,
+              }
+            }
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
     </Flex>
-  </Flex>
+  </Button>
 </Card>
 `;
 
@@ -832,43 +590,34 @@ exports[`render past and joined challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
         <MyText
           accessible={true}
@@ -876,67 +625,43 @@ exports[`render past and joined challenge item 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          22 Day Challenge
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-22",
+              "id": "1",
+              "isPast": true,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
 </Card>
 `;
 
@@ -946,43 +671,34 @@ exports[`render past challenge item 1`] = `
     Object {
       "alignItems": "stretch",
       "backgroundColor": "#ffffff",
-      "marginHorizontal": 16,
+      "borderRadius": 8,
+      "marginHorizontal": 20,
       "marginVertical": 5,
     }
   }
 >
-  <Flex
-    align="center"
-    direction="row"
+  <Button
+    onPress={[Function]}
     style={
       Object {
-        "padding": 16,
+        "flex": 1,
       }
     }
-    value={1}
+    type="transparent"
   >
     <Flex
-      direction="column"
-      value={5}
-    >
-      <MyText
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 16,
-            "marginBottom": 3,
-          }
+      align="center"
+      direction="row"
+      style={
+        Object {
+          "padding": 20,
         }
-      >
-        Read "There and Back Again"
-      </MyText>
+      }
+      value={1}
+    >
       <Flex
-        align="center"
-        direction="row"
-        wrap="wrap"
+        direction="column"
+        value={5}
       >
         <MyText
           accessible={true}
@@ -990,66 +706,42 @@ exports[`render past challenge item 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
+              "color": "#007398",
+              "fontSize": 16,
+              "marginBottom": 3,
             }
           }
         >
-          10 Day Challenge
+          Read "There and Back Again"
         </MyText>
-        <Dot
+        <Translate(ChallengeStats)
+          challenge={
+            Object {
+              "accepted_count": 5,
+              "completed_count": 3,
+              "created_at": "2018-09-01T12:00:00Z",
+              "creator_id": "person1",
+              "end_date": "2018-09-10T23:59:59.999Z",
+              "id": "1",
+              "isPast": true,
+              "organization_id": "456",
+              "title": "Read \\"There and Back Again\\"",
+            }
+          }
+          small={true}
           style={
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-              "fontWeight": "bold",
+              "paddingTop": 8,
             }
           }
         />
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 11,
-            }
-          }
-        >
-          5 Accepted
-        </MyText>
-        <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-                "fontWeight": "bold",
-              }
-            }
-          />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 11,
-              }
-            }
-          >
-            3 Completed
-          </MyText>
-        </React.Fragment>
       </Flex>
+      <Flex
+        align="end"
+        justify="center"
+        value={1}
+      />
     </Flex>
-    <Flex
-      align="end"
-      justify="center"
-      value={1}
-    />
-  </Flex>
+  </Button>
 </Card>
 `;

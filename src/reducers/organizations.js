@@ -7,6 +7,7 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_CHALLENGE,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -155,6 +156,8 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case UPDATE_CHALLENGE:
+      return updateChallenge(action, state);
     case LOGOUT:
       return initialState;
     default:
@@ -181,6 +184,29 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateChallenge(action, state) {
+  const { challenge } = action;
+  const orgId =
+    (challenge.organization && challenge.organization.id) || undefined;
+
+  return {
+    ...state,
+    all: orgId
+      ? state.all.map(
+          o =>
+            o.id === orgId
+              ? {
+                  ...o,
+                  challengeItems: o.challengeItems.map(
+                    c => (c.id === challenge.id ? { ...c, ...challenge } : c),
+                  ),
+                }
+              : o,
+        )
+      : state.all,
   };
 }
 
