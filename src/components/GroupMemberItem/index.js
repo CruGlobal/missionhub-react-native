@@ -109,8 +109,6 @@ class GroupMemberItem extends Component {
     const isMe = person.id === me.id;
     const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
-    const permissionText = this.orgPermissionText();
-
     return (
       <Card onPress={this.handleSelect}>
         <Flex

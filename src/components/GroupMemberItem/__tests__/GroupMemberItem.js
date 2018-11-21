@@ -12,13 +12,16 @@ import GroupMemberItem from '..';
 
 jest.mock('../../../selectors/people');
 
+const stage = {
+  id: 1,
+  name: 'Uninterested',
+};
+
 const myId = '1';
 const me = {
   id: myId,
   full_name: 'Me',
-  stage: {
-    name: 'Guiding',
-  },
+  stage,
 };
 
 const member = {
@@ -28,10 +31,26 @@ const member = {
   uncontacted_count: 3,
 };
 
-const orgPermission = { id: '111', permission_id: ORG_PERMISSIONS.USER };
-orgPermissionSelector.mockReturnValue(orgPermission);
+const orgPermission = { id: '111' };
+
+const memberPermissions = {
+  ...orgPermission,
+  permission_id: ORG_PERMISSIONS.USER,
+};
+const adminPermissions = {
+  ...orgPermission,
+  permission_id: ORG_PERMISSIONS.ADMIN,
+};
+const ownerPermissions = {
+  ...orgPermission,
+  permission_id: ORG_PERMISSIONS.OWNER,
+};
 
 const organization = { id: '1234', user_created: false };
+
+const reverse_contact_assignments = [
+  { id: '555', assigned_to: { id: myId }, pathway_stage_id: stage.id },
+];
 
 const props = {
   onSelect: jest.mock(),
@@ -47,27 +66,79 @@ const store = createMockStore({
   },
   stages: {
     stagesObj: {
-      1: {
-        name: 'Uninterested',
-      },
+      [`${stage.id}`]: stage,
     },
   },
+});
+
+beforeEach(() => {
+  orgPermissionSelector.mockReturnValue(memberPermissions);
 });
 
 describe('render contacts count', () => {
   describe('user created org', () => {
     const newOrg = { ...organization, user_created: true };
 
-    it('should render no stage, user permissions', () => {
+    it('should render no stage, member permissions', () => {
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
         store,
       );
     });
 
-    it('should render stage, user permissions', () => {
+    it('should render no stage, admin permissions', () => {
+      orgPermissionSelector.mockReturnValue(adminPermissions);
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        store,
+      );
+    });
+
+    it('should render no stage, owner permissions', () => {
+      orgPermissionSelector.mockReturnValue(ownerPermissions);
+      testSnapshotShallow(
+        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        store,
+      );
+    });
+
+    it('should render stage, member permissions', () => {
+      const newMember = {
+        ...member,
+        reverse_contact_assignments,
+      };
+      testSnapshotShallow(
+        <GroupMemberItem
+          {...{ ...props, organization: newOrg, person: newMember }}
+        />,
+        store,
+      );
+    });
+
+    it('should render stage, admin permissions', () => {
+      const newMember = {
+        ...member,
+        reverse_contact_assignments,
+      };
+      orgPermissionSelector.mockReturnValue(adminPermissions);
+      testSnapshotShallow(
+        <GroupMemberItem
+          {...{ ...props, organization: newOrg, person: newMember }}
+        />,
+        store,
+      );
+    });
+
+    it('should render stage, owner permissions', () => {
+      const newMember = {
+        ...member,
+        reverse_contact_assignments,
+      };
+      orgPermissionSelector.mockReturnValue(ownerPermissions);
+      testSnapshotShallow(
+        <GroupMemberItem
+          {...{ ...props, organization: newOrg, person: newMember }}
+        />,
         store,
       );
     });
@@ -97,19 +168,6 @@ describe('render contacts count', () => {
 });
 
 describe('render MemberOptionsMenu', () => {
-  const memberPermissions = {
-    ...orgPermission,
-    permission_id: ORG_PERMISSIONS.USER,
-  };
-  const adminPermissions = {
-    ...orgPermission,
-    permission_id: ORG_PERMISSIONS.ADMIN,
-  };
-  const ownerPermissions = {
-    ...orgPermission,
-    permission_id: ORG_PERMISSIONS.OWNER,
-  };
-
   it('should render menu if person is me', () => {
     orgPermissionSelector.mockReturnValue(memberPermissions);
     const newMember = { ...member, id: myId };

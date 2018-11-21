@@ -66,7 +66,7 @@ class Members extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, myOrgPermission, myId } = this.props;
+    const { organization, myOrgPermission } = this.props;
     return (
       <GroupMemberItem
         organization={organization}
