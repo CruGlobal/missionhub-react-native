@@ -13,6 +13,23 @@ exports[`Members calls render item 1`] = `
   organization={
     Object {
       "id": "1",
+      "members": Array [
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
+        },
+      ],
       "name": "Test Org",
     }
   }

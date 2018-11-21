@@ -136,6 +136,7 @@ const mapStateToProps = ({ auth, organizations, swipe }, { organization }) => {
       person: auth.person,
       organization: { id: organization.id },
     }),
+    organization: selectorOrg || organization,
   };
 };
 
