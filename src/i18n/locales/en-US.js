@@ -602,6 +602,7 @@ export default {
     numMembers_plural: '{{count}} Members',
     owner: '{{name}} (Owner)',
     join: 'Join',
+    selectStage: 'Select Stage',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',

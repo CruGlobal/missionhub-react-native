@@ -34,7 +34,7 @@ class GroupMemberItem extends Component {
   render() {
     const {
       t,
-      myId,
+      me,
       person,
       organization,
       iAmAdmin,
@@ -43,10 +43,31 @@ class GroupMemberItem extends Component {
       personIsOwner,
       isUserCreatedOrg,
       personOrgPermission,
+      stagesObj,
     } = this.props;
 
-    const isMe = person.id === myId;
+    const isMe = person.id === me.id;
     const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
+
+    let stage = null;
+
+    const contactAssignments = person.reverse_contact_assignments || [];
+    if (isMe) {
+      stage = me.stage;
+    } else if (stagesObj) {
+      const contactAssignment = contactAssignments.find(
+        a => a.assigned_to.id === me.id,
+      );
+      if (
+        contactAssignment &&
+        contactAssignment.pathway_stage_id &&
+        stagesObj[`${contactAssignment.pathway_stage_id}`]
+      ) {
+        stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
+      }
+    }
+
+    const permissionText = this.orgPermissionText();
 
     return (
       <Card onPress={this.handleSelect}>
@@ -60,16 +81,30 @@ class GroupMemberItem extends Component {
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
             <Flex align="center" direction="row" style={styles.detailsWrap}>
               {isUserCreatedOrg ? (
-                <Text style={styles.assigned}>{this.orgPermissionText()}</Text>
+                <Fragment>
+                  {stage ? (
+                    <Text style={styles.detailText}>{stage.name}</Text>
+                  ) : (
+                    <Text style={styles.detailTextRed}>{t('selectStage')}</Text>
+                  )}
+                  {permissionText ? (
+                    <Fragment>
+                      <Dot style={styles.detailText} />
+                      <Text style={styles.detailText}>
+                        {this.orgPermissionText()}
+                      </Text>
+                    </Fragment>
+                  ) : null}
+                </Fragment>
               ) : (
                 <Fragment>
-                  <Text style={styles.assigned}>
+                  <Text style={styles.detailText}>
                     {t('numAssigned', { count: person.contact_count || 0 })}
                   </Text>
                   {person.uncontacted_count ? (
                     <Fragment>
-                      <Dot style={styles.assigned} />
-                      <Text style={styles.uncontacted}>
+                      <Dot style={styles.detailText} />
+                      <Text style={styles.detailTextRed}>
                         {t('numUncontacted', {
                           count: person.uncontacted_count,
                         })}
@@ -82,7 +117,7 @@ class GroupMemberItem extends Component {
           </Flex>
           {showOptionsMenu ? (
             <MemberOptionsMenu
-              myId={myId}
+              myId={me.id}
               person={person}
               organization={organization}
               personOrgPermission={personOrgPermission}
@@ -105,18 +140,22 @@ GroupMemberItem.propTypes = {
     uncontacted_count: PropTypes.number,
   }).isRequired,
   organization: PropTypes.object.isRequired,
-  myId: PropTypes.string.isRequired,
   myOrgPermission: PropTypes.object.isRequired,
   onSelect: PropTypes.func,
 };
 
-const mapStateToProps = (_, { person, organization, myOrgPermission }) => {
+const mapStateToProps = (
+  { auth, stages },
+  { person, organization, myOrgPermission },
+) => {
   const personOrgPermission = orgPermissionSelector(null, {
     person,
     organization,
   });
 
   return {
+    me: auth.person,
+    stagesObj: stages.stagesObj,
     iAmAdmin: isAdminOrOwner(myOrgPermission),
     iAmOwner: isOwner(myOrgPermission),
     personIsAdmin: isAdminOrOwner(personOrgPermission),

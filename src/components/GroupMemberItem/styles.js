@@ -16,11 +16,11 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.primaryColor,
   },
-  assigned: {
+  detailText: {
     fontSize: 14,
     color: theme.grey1,
   },
-  uncontacted: {
+  detailTextRed: {
     fontSize: 14,
     color: theme.red,
   },

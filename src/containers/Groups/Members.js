@@ -71,7 +71,6 @@ class Members extends Component {
       <GroupMemberItem
         organization={organization}
         person={item}
-        myId={myId}
         myOrgPermission={myOrgPermission}
         onSelect={this.handleSelect}
       />
