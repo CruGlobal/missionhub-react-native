@@ -3,32 +3,77 @@ import moment from 'moment';
 
 import i18n from '../i18n';
 
+import { organizationSelector } from './organizations';
+
 export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
   challengeItems => {
-    const sections = [
+    const { currentItems, pastItems } = challengeItems.reduce(
+      ({ currentItems, pastItems }, item) => {
+        const isPast = challengeIsPast(item);
+        return {
+          currentItems: [
+            ...currentItems,
+            ...(isPast ? [] : [{ ...item, isPast: false }]),
+          ],
+          pastItems: [
+            ...pastItems,
+            ...(isPast ? [{ ...item, isPast: true }] : []),
+          ],
+        };
+      },
+      { currentItems: [], pastItems: [] },
+    );
+
+    return [
       {
         title: '',
-        data: [],
+        data: currentItems,
       },
       {
         title: i18n.t('challengeFeeds:past'),
-        data: [],
+        data: pastItems,
       },
     ];
-
-    const today = moment().endOf('day');
-    challengeItems.forEach(item => {
-      // Make sure we get the end of the day from the given
-      const endDate = moment(item.end_date).endOf('day');
-      // Check if the end date is AFTER today (in the future)
-      if (endDate.diff(today, 'days') >= 0) {
-        sections[0].data.push({ ...item, isPast: false });
-      } else {
-        sections[1].data.push({ ...item, isPast: true });
-      }
-    });
-
-    return sections;
   },
 );
+
+export const communityChallengeSelector = createSelector(
+  ({ organizations }, { orgId }) =>
+    organizationSelector({ organizations }, { orgId }),
+  (_, { challengeId }) => challengeId,
+  (org, challengeId) => {
+    const challenge = org.challengeItems.find(c => c.id === challengeId);
+    return challenge && { ...challenge, isPast: challengeIsPast(challenge) };
+  },
+);
+
+export const acceptedChallengesSelector = createSelector(
+  ({ acceptedChallenges }) => acceptedChallenges,
+  acceptedChallenges => {
+    const sortedAcceptances = acceptedChallenges.reduce(
+      ({ joined, completed }, item) => {
+        const isPlaceHolder = item.person._placeHolder;
+        const isCompleted = item.completed_at;
+
+        return {
+          joined: [...joined, ...(!isPlaceHolder ? [item] : [])],
+          completed: [
+            ...completed,
+            ...(!isPlaceHolder && isCompleted ? [item] : []),
+          ],
+        };
+      },
+      { joined: [], completed: [] },
+    );
+
+    return sortedAcceptances;
+  },
+);
+
+const challengeIsPast = challenge => {
+  const today = moment().endOf('day');
+  const endDate = moment(challenge.end_date).endOf('day');
+  // Check if the end date is AFTER today (in the future)
+  return endDate.diff(today, 'days') < 0;
+};
