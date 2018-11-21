@@ -121,7 +121,7 @@ class GroupMemberItem extends Component {
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
             <Flex align="center" direction="row" style={styles.detailsWrap}>
               {isUserCreatedOrg
-                ? this.renderUserCreatedDetails()
+                ? this.renderUserCreatedDetails(isMe)
                 : this.renderCruDetails()}
             </Flex>
           </Flex>
