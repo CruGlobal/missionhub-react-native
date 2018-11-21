@@ -14,7 +14,7 @@ const test = async ({
   auth,
   initialLink,
   expectedActions,
-  deepLink = 'https://mhub.cc/c/1234567890123456',
+  deepLink = 'https://missionhub.com/c/1234567890123456',
 }) => {
   firebase.links.mockReturnValue({
     getInitialLink: initialLink
@@ -90,7 +90,7 @@ describe('setupFirebaseDynamicLinks', () => {
     });
     it('should ignore a link with the wrong domain', async () => {
       await test({
-        deepLink: 'https://missionhub.com/c/1234567890123456',
+        deepLink: 'https://mhub.cc/c/1234567890123456',
         expectedActions: [],
       });
       await test({
@@ -100,23 +100,23 @@ describe('setupFirebaseDynamicLinks', () => {
     });
     it('should ignore a link with the wrong path', async () => {
       await test({
-        deepLink: 'https://mhub.cc/s/1234567890123456',
+        deepLink: 'https://missionhub.com/s/1234567890123456',
         expectedActions: [],
       });
       test({
-        deepLink: 'https://mhub.cc/1234567890123456',
+        deepLink: 'https://missionhub.com/1234567890123456',
         expectedActions: [],
       });
     });
     it('should ignore a link using http', async () => {
       await test({
-        deepLink: 'http://mhub.cc/c/1234567890123456',
+        deepLink: 'http://missionhub.com/c/1234567890123456',
         expectedActions: [],
       });
     });
     it('should ignore a link with too short of a code', async () => {
       await test({
-        deepLink: 'https://mhub.cc/c/123456789012345',
+        deepLink: 'https://missionhub.com/c/123456789012345',
         expectedActions: [],
       });
     });
