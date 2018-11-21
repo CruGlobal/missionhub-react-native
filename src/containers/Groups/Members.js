@@ -130,7 +130,6 @@ const mapStateToProps = ({ auth, organizations, swipe }, { organization }) => {
     groupInviteInfo: swipe.groupInviteInfo,
     members: (selectorOrg || {}).members || [],
     pagination: organizations.membersPagination,
-    myId: auth.person.id,
     myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },

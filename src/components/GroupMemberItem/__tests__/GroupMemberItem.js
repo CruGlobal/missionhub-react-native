@@ -2,13 +2,24 @@ import React from 'react';
 
 import { ORG_PERMISSIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import {
+  renderShallow,
+  testSnapshotShallow,
+  createMockStore,
+} from '../../../../testUtils';
 
 import GroupMemberItem from '..';
 
 jest.mock('../../../selectors/people');
 
 const myId = '1';
+const me = {
+  id: myId,
+  full_name: 'Me',
+  stage: {
+    name: 'Guiding',
+  },
+};
 
 const member = {
   id: '123',
@@ -30,25 +41,48 @@ const props = {
   organization,
 };
 
+const store = createMockStore({
+  auth: {
+    person: me,
+  },
+  stages: {
+    stagesObj: {
+      1: {
+        name: 'Uninterested',
+      },
+    },
+  },
+});
+
 describe('render contacts count', () => {
   describe('user created org', () => {
     const newOrg = { ...organization, user_created: true };
-    it('should not render contacts count', () => {
+
+    it('should render no stage, user permissions', () => {
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        store,
+      );
+    });
+
+    it('should render stage, user permissions', () => {
+      testSnapshotShallow(
+        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        store,
       );
     });
   });
 
   describe('cru org', () => {
     it('should render assigned and uncontacted', () => {
-      testSnapshotShallow(<GroupMemberItem {...props} />);
+      testSnapshotShallow(<GroupMemberItem {...props} />, store);
     });
 
     it('should render 0 assigned', () => {
       const newMember = { ...member, contact_count: 0 };
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, person: newMember }} />,
+        store,
       );
     });
 
@@ -56,6 +90,7 @@ describe('render contacts count', () => {
       const newMember = { ...member, uncontacted_count: 0 };
       testSnapshotShallow(
         <GroupMemberItem {...{ ...props, person: newMember }} />,
+        store,
       );
     });
   });
@@ -80,6 +115,7 @@ describe('render MemberOptionsMenu', () => {
     const newMember = { ...member, id: myId };
     testSnapshotShallow(
       <GroupMemberItem {...{ ...props, person: newMember }} />,
+      store,
     );
   });
 
@@ -87,6 +123,7 @@ describe('render MemberOptionsMenu', () => {
     orgPermissionSelector.mockReturnValue(memberPermissions);
     testSnapshotShallow(
       <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
+      store,
     );
   });
 
@@ -94,12 +131,13 @@ describe('render MemberOptionsMenu', () => {
     orgPermissionSelector.mockReturnValue(ownerPermissions);
     testSnapshotShallow(
       <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
+      store,
     );
   });
 
   it('should not render menu if I am member', () => {
     orgPermissionSelector.mockReturnValue(memberPermissions);
-    testSnapshotShallow(<GroupMemberItem {...props} />);
+    testSnapshotShallow(<GroupMemberItem {...props} />, store);
   });
 });
 
@@ -107,7 +145,7 @@ describe('onSelect', () => {
   it('calls onSelect prop', () => {
     const onSelect = jest.fn();
 
-    renderShallow(<GroupMemberItem {...{ ...props, onSelect }} />)
+    renderShallow(<GroupMemberItem {...{ ...props, onSelect }} />, store)
       .instance()
       .handleSelect();
 

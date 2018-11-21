@@ -228,7 +228,7 @@ describe('getOrganizationMembers', () => {
       permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions',
+    include: 'organizational_permissions,reverse_contact_assignments',
   };
   const members = [
     {
