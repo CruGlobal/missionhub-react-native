@@ -38,9 +38,13 @@ class CelebrateItem extends Component {
       acceptedCommunityChallenge,
       createdCommunity,
     } = CELEBRATEABLE_TYPES;
-    const { adjective_attribute_value, changed_attribute_name } = event;
+    const {
+      adjective_attribute_value,
+      changed_attribute_name,
+      subject_person: { first_name, last_name },
+    } = event;
 
-    const name = event.subject_person_name.split(' ')[0];
+    const name = `${first_name}${last_name ? ` ${last_name[0]}.` : ''}`;
 
     switch (event.celebrateable_type) {
       case completedStep:
