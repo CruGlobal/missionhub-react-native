@@ -203,7 +203,7 @@ class GroupProfile extends Component {
           )}
           <Flex direction="row" align="center" style={styles.rowWrap}>
             <Flex value={1} direction="column">
-              <Text style={styles.label}>{t('owner')}</Text>
+              <Text style={styles.label}>{t('profileLabels.owner')}</Text>
               <Text style={styles.text}>{owner.full_name}</Text>
             </Flex>
             <Flex value={1} direction="column">

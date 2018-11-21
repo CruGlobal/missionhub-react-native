@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
+import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -15,6 +16,19 @@ class GroupMemberItem extends Component {
   handleSelect = () => {
     const { onSelect, person } = this.props;
     onSelect && onSelect(person);
+  };
+
+  orgPermissionText = () => {
+    const { t, personOrgPermission } = this.props;
+
+    switch (personOrgPermission.permission_id) {
+      case ORG_PERMISSIONS.ADMIN:
+        return t('profileLabels.admin');
+      case ORG_PERMISSIONS.OWNER:
+        return t('profileLabels.owner');
+      default:
+        return '';
+    }
   };
 
   render() {
@@ -44,23 +58,27 @@ class GroupMemberItem extends Component {
         >
           <Flex value={1} direction="column">
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
-            {!isUserCreatedOrg ? (
-              <Flex align="center" direction="row" style={styles.detailsWrap}>
-                <Text style={styles.assigned}>
-                  {t('numAssigned', { count: person.contact_count || 0 })}
-                </Text>
-                {person.uncontacted_count ? (
-                  <Fragment>
-                    <Dot style={styles.assigned} />
-                    <Text style={styles.uncontacted}>
-                      {t('numUncontacted', {
-                        count: person.uncontacted_count,
-                      })}
-                    </Text>
-                  </Fragment>
-                ) : null}
-              </Flex>
-            ) : null}
+            <Flex align="center" direction="row" style={styles.detailsWrap}>
+              {isUserCreatedOrg ? (
+                <Text style={styles.assigned}>{this.orgPermissionText()}</Text>
+              ) : (
+                <Fragment>
+                  <Text style={styles.assigned}>
+                    {t('numAssigned', { count: person.contact_count || 0 })}
+                  </Text>
+                  {person.uncontacted_count ? (
+                    <Fragment>
+                      <Dot style={styles.assigned} />
+                      <Text style={styles.uncontacted}>
+                        {t('numUncontacted', {
+                          count: person.uncontacted_count,
+                        })}
+                      </Text>
+                    </Fragment>
+                  ) : null}
+                </Fragment>
+              )}
+            </Flex>
           </Flex>
           {showOptionsMenu ? (
             <MemberOptionsMenu
