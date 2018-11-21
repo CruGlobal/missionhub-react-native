@@ -31,23 +31,8 @@ class GroupMemberItem extends Component {
     }
   };
 
-  render() {
-    const {
-      t,
-      me,
-      person,
-      organization,
-      iAmAdmin,
-      iAmOwner,
-      personIsAdmin,
-      personIsOwner,
-      isUserCreatedOrg,
-      personOrgPermission,
-      stagesObj,
-    } = this.props;
-
-    const isMe = person.id === me.id;
-    const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
+  renderUserCreatedDetails = isMe => {
+    const { t, stagesObj, me, person } = this.props;
 
     let stage = null;
 
@@ -70,6 +55,63 @@ class GroupMemberItem extends Component {
     const permissionText = this.orgPermissionText();
 
     return (
+      <Fragment>
+        {stage ? (
+          <Text style={styles.detailText}>{stage.name}</Text>
+        ) : (
+          <Text style={styles.detailTextRed}>{t('selectStage')}</Text>
+        )}
+        {permissionText ? (
+          <Fragment>
+            <Dot style={styles.detailText} />
+            <Text style={styles.detailText}>{this.orgPermissionText()}</Text>
+          </Fragment>
+        ) : null}
+      </Fragment>
+    );
+  };
+
+  renderCruDetails = () => {
+    const { t, person } = this.props;
+
+    return (
+      <Fragment>
+        <Text style={styles.detailText}>
+          {t('numAssigned', { count: person.contact_count || 0 })}
+        </Text>
+        {person.uncontacted_count ? (
+          <Fragment>
+            <Dot style={styles.detailText} />
+            <Text style={styles.detailTextRed}>
+              {t('numUncontacted', {
+                count: person.uncontacted_count,
+              })}
+            </Text>
+          </Fragment>
+        ) : null}
+      </Fragment>
+    );
+  };
+
+  render() {
+    const {
+      me,
+      person,
+      organization,
+      iAmAdmin,
+      iAmOwner,
+      personIsAdmin,
+      personIsOwner,
+      isUserCreatedOrg,
+      personOrgPermission,
+    } = this.props;
+
+    const isMe = person.id === me.id;
+    const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
+
+    const permissionText = this.orgPermissionText();
+
+    return (
       <Card onPress={this.handleSelect}>
         <Flex
           justify="center"
@@ -80,39 +122,9 @@ class GroupMemberItem extends Component {
           <Flex value={1} direction="column">
             <Text style={styles.name}>{person.full_name.toUpperCase()}</Text>
             <Flex align="center" direction="row" style={styles.detailsWrap}>
-              {isUserCreatedOrg ? (
-                <Fragment>
-                  {stage ? (
-                    <Text style={styles.detailText}>{stage.name}</Text>
-                  ) : (
-                    <Text style={styles.detailTextRed}>{t('selectStage')}</Text>
-                  )}
-                  {permissionText ? (
-                    <Fragment>
-                      <Dot style={styles.detailText} />
-                      <Text style={styles.detailText}>
-                        {this.orgPermissionText()}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                </Fragment>
-              ) : (
-                <Fragment>
-                  <Text style={styles.detailText}>
-                    {t('numAssigned', { count: person.contact_count || 0 })}
-                  </Text>
-                  {person.uncontacted_count ? (
-                    <Fragment>
-                      <Dot style={styles.detailText} />
-                      <Text style={styles.detailTextRed}>
-                        {t('numUncontacted', {
-                          count: person.uncontacted_count,
-                        })}
-                      </Text>
-                    </Fragment>
-                  ) : null}
-                </Fragment>
-              )}
+              {isUserCreatedOrg
+                ? this.renderUserCreatedDetails()
+                : this.renderCruDetails()}
             </Flex>
           </Flex>
           {showOptionsMenu ? (
