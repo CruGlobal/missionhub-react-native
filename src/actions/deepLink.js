@@ -11,7 +11,7 @@ export const setupFirebaseDynamicLinks = () => (dispatch, getState) => {
     .then(onFirebaseLink(dispatch, getState));
 };
 
-const joinCommunityUrlRegex = /^https:\/\/mhub.cc\/c\/([A-Za-z0-9-_]{16,})$/;
+const joinCommunityUrlRegex = /^https:\/\/missionhub.com\/c\/([A-Za-z0-9-_]{16,})$/;
 
 const onFirebaseLink = (dispatch, getState) => url => {
   if (!url) {
