@@ -72,7 +72,7 @@ class CreateGroupScreen extends Component {
     } else {
       dispatch(navigatePush(USER_CREATED_GROUP_SCREEN, { organization }));
       dispatch(
-        trackAction(ACTIONS.SELECT_COMMUNITY, {
+        trackAction(ACTIONS.SELECT_COMMUNITY.name, {
           [ACTIONS.SELECT_COMMUNITY.CREATE]: null,
         }),
       );

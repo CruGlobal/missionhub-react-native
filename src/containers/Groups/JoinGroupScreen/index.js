@@ -75,7 +75,7 @@ class JoinGroupScreen extends Component {
     Keyboard.dismiss();
     // TODO: join community
     /*dispatch(
-      trackAction(ACTIONS.SELECT_COMMUNITY, {
+      trackAction(ACTIONS.SELECT_COMMUNITY.name, {
         [ACTIONS.SELECT_COMMUNITY.JOIN]: null,
       }),
     );*/

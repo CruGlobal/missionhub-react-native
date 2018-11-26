@@ -13,6 +13,7 @@ import {
   Flex,
 } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
+import { trackAction } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
@@ -22,6 +23,7 @@ import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
 import { JOIN_GROUP_SCREEN } from './JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
+import { ACTIONS } from '../../constants';
 
 @translate('groupsList')
 class GroupsListScreen extends Component {
@@ -37,7 +39,8 @@ class GroupsListScreen extends Component {
   handleRefresh = () => refresh(this, this.loadGroups);
 
   handlePress = organization => {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       navigatePush(
         organization.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
         {
@@ -46,7 +49,7 @@ class GroupsListScreen extends Component {
       ),
     );
     dispatch(
-      trackAction(ACTIONS.SELECT_COMMUNITY, {
+      trackAction(ACTIONS.SELECT_COMMUNITY.name, {
         [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
       }),
     );

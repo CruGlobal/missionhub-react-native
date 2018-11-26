@@ -5,19 +5,18 @@ import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
+import { trackAction } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { ACTIONS } from '../../../constants';
 
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../actions/navigation', () => ({
-  navigatePush: jest.fn(() => ({ type: 'test' })),
-}));
-jest.mock('../../../actions/organizations', () => ({
-  getMyCommunities: jest.fn(() => ({ type: 'test' })),
-}));
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/analytics');
 
 const mockStore = configureStore();
 const organizations = {
@@ -38,7 +37,12 @@ const organizations = {
 const auth = {};
 const store = mockStore({ organizations, auth });
 
-communitiesSelector.mockReturnValue(organizations.all);
+beforeEach(() => {
+  navigatePush.mockReturnValue({ type: 'test' });
+  getMyCommunities.mockReturnValue({ type: 'test' });
+  trackAction.mockReturnValue({ type: 'test' });
+  communitiesSelector.mockReturnValue(organizations.all);
+});
 
 it('should render null state', () => {
   const component = renderShallow(
@@ -73,6 +77,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.SELECT_COMMUNITY.name, {
+        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
+      });
     });
 
     it('navigates to user created org screen', () => {
@@ -90,6 +97,9 @@ describe('GroupsListScreen', () => {
       expect(communitiesSelector).toHaveBeenCalledWith({
         organizations,
         auth,
+      });
+      expect(trackAction).toHaveBeenCalledWith(ACTIONS.SELECT_COMMUNITY.name, {
+        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
       });
     });
   });
