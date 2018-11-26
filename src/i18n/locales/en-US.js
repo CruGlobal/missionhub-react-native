@@ -19,6 +19,7 @@ export default {
       member: 'Member',
       user: 'User',
       admin: 'Admin',
+      owner: 'Owner',
     },
     gender: {
       male: 'Male',
@@ -601,6 +602,7 @@ export default {
     numMembers_plural: '{{count}} Members',
     owner: '{{name}} (Owner)',
     join: 'Join',
+    selectStage: 'Select Stage',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
@@ -664,7 +666,6 @@ export default {
       'There was an error processing your request. Please try again later.',
   },
   groupProfile: {
-    owner: 'Owner',
     created: 'Created',
     members: 'Members',
     code: 'Community Code',

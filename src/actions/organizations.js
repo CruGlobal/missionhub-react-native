@@ -175,7 +175,7 @@ export function getOrganizationMembers(orgId, query = {}) {
       permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions',
+    include: 'organizational_permissions,reverse_contact_assignments',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
