@@ -36,10 +36,15 @@ class CelebrateItem extends Component {
       completedInteraction,
       completedStep,
       acceptedCommunityChallenge,
+      createdCommunity,
     } = CELEBRATEABLE_TYPES;
-    const { adjective_attribute_value, changed_attribute_name } = event;
+    const {
+      adjective_attribute_value,
+      changed_attribute_name,
+      subject_person: { first_name, last_name },
+    } = event;
 
-    const name = event.subject_person_name.split(' ')[0];
+    const name = `${first_name}${last_name ? ` ${last_name[0]}.` : ''}`;
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -48,7 +53,16 @@ class CelebrateItem extends Component {
         return this.buildInteractionMessage(t, adjective_attribute_value, name);
       case acceptedCommunityChallenge:
         return this.buildChallengeMessage(t, changed_attribute_name, name);
+      case createdCommunity:
+        return this.buildCreateCommunityMessage(t, event, name);
     }
+  }
+
+  buildCreateCommunityMessage(t, event, name) {
+    const {
+      organization: { name: communityName },
+    } = event;
+    return t('communityCreated', { initiator: name, communityName });
   }
 
   buildChallengeMessage(t, type, name) {

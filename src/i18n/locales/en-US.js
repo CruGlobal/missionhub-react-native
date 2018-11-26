@@ -472,6 +472,7 @@ export default {
       '{{initiator}} saw something cool happen with someone.',
     challengeAccepted: '{{initiator}} accepted a Challenge',
     challengeCompleted: '{{initiator}} completed a Challenge',
+    communityCreated: '{{initiator}} created {{communityName}}!',
   },
   challengeFeeds: {
     past: 'Past Challenges',

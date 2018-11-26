@@ -326,4 +326,5 @@ export const CELEBRATEABLE_TYPES = {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
+  createdCommunity: 'organization',
 };
