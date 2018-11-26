@@ -237,6 +237,12 @@ export const ACTIONS = {
     name: 'Assigned to Me',
     key: 'cru.assignedtome',
   },
+  SELECT_COMMUNITY: {
+    name: 'Community Selected',
+    SELECT: 'cru.selectcommunities',
+    CREATE: 'cru.createcommunities',
+    JOIN: 'cru.joincommunities',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';

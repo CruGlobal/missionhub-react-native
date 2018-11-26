@@ -45,6 +45,11 @@ class GroupsListScreen extends Component {
         },
       ),
     );
+    dispatch(
+      trackAction(ACTIONS.SELECT_COMMUNITY, {
+        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
+      }),
+    );
   };
 
   openMainMenu = () => this.props.dispatch(openMainMenu());

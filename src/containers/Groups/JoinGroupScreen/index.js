@@ -74,6 +74,11 @@ class JoinGroupScreen extends Component {
   joinCommunity = () => {
     Keyboard.dismiss();
     // TODO: join community
+    /*dispatch(
+      trackAction(ACTIONS.SELECT_COMMUNITY, {
+        [ACTIONS.SELECT_COMMUNITY.JOIN]: null,
+      }),
+    );*/
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());
