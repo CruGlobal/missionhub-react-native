@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Flex, RefreshControl, Button } from '../../components/common';
-import { refresh, isAdminOrOwner, getCommunityUrl } from '../../utils/common';
+import { refresh, getCommunityUrl } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
@@ -81,7 +81,7 @@ class Members extends Component {
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 
   render() {
-    const { t, members, pagination, myOrgPermission } = this.props;
+    const { t, members, pagination } = this.props;
     return (
       <Flex value={1}>
         <FlatList
@@ -104,15 +104,13 @@ class Members extends Component {
             )
           }
         />
-        {isAdminOrOwner(myOrgPermission) ? (
-          <Flex align="stretch" justify="end">
-            <Button
-              type="secondary"
-              onPress={this.handleInvite}
-              text={t('invite').toUpperCase()}
-            />
-          </Flex>
-        ) : null}
+        <Flex align="stretch" justify="end">
+          <Button
+            type="secondary"
+            onPress={this.handleInvite}
+            text={t('invite').toUpperCase()}
+          />
+        </Flex>
       </Flex>
     );
   }

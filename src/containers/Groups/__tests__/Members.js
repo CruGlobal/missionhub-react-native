@@ -75,32 +75,6 @@ describe('Members', () => {
     testSnapshotShallow(component, store);
   });
 
-  it('should mount with send invite', () => {
-    const store2 = createMockStore({
-      organizations: {
-        all: [
-          {
-            id: '1',
-            members: [],
-          },
-        ],
-        membersPagination: { hasNextPage: true },
-      },
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: orgId,
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-      swipe: { groupInviteInfo: true },
-    });
-    testSnapshotShallow(component, store2);
-  });
-
   it('should mount correctly', () => {
     const store2 = createMockStore({
       organizations: {
