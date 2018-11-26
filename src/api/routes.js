@@ -162,7 +162,7 @@ export default {
     method: 'delete',
   },
   TRANSFER_ORG_OWNERSHIP: {
-    endpoint: `${ORG_URL}/:orgId/transfer_ownership`,
+    endpoint: `${ORG_URL}/:orgId/community_owner`,
     method: 'put',
   },
   GET_GROUP_CELEBRATE_FEED: {
@@ -175,6 +175,14 @@ export default {
   UNLIKE_CELEBRATE_ITEM: {
     endpoint: `${ORG_URL}/:orgId/celebration_items/:eventId/like`,
     method: 'delete',
+  },
+  ORGANIZATION_NEW_CODE: {
+    endpoint: `${ORG_URL}/:orgId/community_code`,
+    method: 'put',
+  },
+  ORGANIZATION_NEW_LINK: {
+    endpoint: `${ORG_URL}/:orgId/community_url`,
+    method: 'put',
   },
   GET_GROUP_CHALLENGE_FEED: {
     endpoint: GROUP_CHALLENGE_URL,

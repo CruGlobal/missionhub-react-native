@@ -6,12 +6,27 @@ import { translate } from 'react-i18next';
 
 import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
-import { makeAdmin } from '../../actions/person';
+import {
+  makeAdmin,
+  removeAsAdmin,
+  archiveOrgPermission,
+} from '../../actions/person';
+import { navigateBack } from '../../actions/navigation';
+import {
+  getMyCommunities,
+  removeOrganizationMember,
+} from '../../actions/organizations';
+
+import styles from './styles';
 
 @translate('groupMemberOptions')
 class MemberOptionsMenu extends Component {
-  leaveCommunity = () => {
-    //TODO: leave community
+  leaveCommunity = async () => {
+    const { dispatch, person, personOrgPermission } = this.props;
+
+    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+    dispatch(getMyCommunities());
+    dispatch(navigateBack());
   };
 
   makeAdmin = () => {
@@ -19,8 +34,9 @@ class MemberOptionsMenu extends Component {
     dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
-  removeAdmin = () => {
-    //TODO: remove admin
+  removeAsAdmin = () => {
+    const { dispatch, person, personOrgPermission } = this.props;
+    dispatch(removeAsAdmin(person.id, personOrgPermission.id));
   };
 
   makeOwner = () => {
@@ -29,8 +45,11 @@ class MemberOptionsMenu extends Component {
     dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
-  removeMember = () => {
-    //TODO: remove member
+  removeFromCommunity = async () => {
+    const { dispatch, person, personOrgPermission, organization } = this.props;
+
+    await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
+    dispatch(removeOrganizationMember(person.id, organization.id));
   };
 
   canLeaveCommunity = () => {
@@ -84,9 +103,9 @@ class MemberOptionsMenu extends Component {
 
     const showLeaveCommunity = personIsMe;
     const showMakeAdmin = !personIsMe && iAmAdmin && !personIsAdmin;
-    const showRemoveAdmin = !personIsMe && iAmAdmin && personIsAdmin;
+    const showRemoveAsAdmin = !personIsMe && iAmAdmin && personIsAdmin;
     const showMakeOwner = !personIsMe && iAmOwner;
-    const showRemoveMember = !personIsMe && iAmAdmin;
+    const showRemoveFromCommunity = !personIsMe && iAmAdmin;
 
     const props = {
       actions: [
@@ -94,17 +113,18 @@ class MemberOptionsMenu extends Component {
         ...(showMakeAdmin
           ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
-        ...(showRemoveAdmin
-          ? this.createOption('removeAdmin', this.removeAdmin)
+        ...(showRemoveAsAdmin
+          ? this.createOption('removeAdmin', this.removeAsAdmin)
           : []),
         ...(showMakeOwner
           ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
-        ...(showRemoveMember
-          ? this.createOption('removeMember', this.removeMember)
+        ...(showRemoveFromCommunity
+          ? this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
       iconProps: {},
+      style: styles.container,
     };
     return <PopupMenu {...props} />;
   }

@@ -19,6 +19,7 @@ export default {
       member: 'Member',
       user: 'User',
       admin: 'Admin',
+      owner: 'Owner',
     },
     gender: {
       male: 'Male',
@@ -515,6 +516,8 @@ export default {
   },
   groupsMembers: {
     invite: 'Send Invite',
+    sendInviteMessage: 'Join me on MissionHub. Click here to join: {{url}}',
+    invited: `Anyone you've invited to {{orgName}} will show up here when they join.`,
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:
@@ -532,7 +535,7 @@ export default {
       confirmButtonText: 'Yes',
     },
     removeAdmin: {
-      optionTitle: 'Remove Admin',
+      optionTitle: 'Remove as Admin',
       modalTitle: 'Remove {{personName}} as admin?',
       confirmButtonText: 'Remove',
     },
@@ -599,6 +602,7 @@ export default {
     numMembers_plural: '{{count}} Members',
     owner: '{{name}} (Owner)',
     join: 'Join',
+    selectStage: 'Select Stage',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
@@ -662,7 +666,6 @@ export default {
       'There was an error processing your request. Please try again later.',
   },
   groupProfile: {
-    owner: 'Owner',
     created: 'Created',
     members: 'Members',
     code: 'Community Code',
@@ -671,6 +674,8 @@ export default {
     newLink: 'New Link',
     info: 'Anyone who has this code or link will be able to join your group.',
     deleteCommunity: 'Delete Community?',
+    createNewCode: 'Are you sure you want to create a new Community Code?',
+    createNewLink: 'Are you sure you want to create a new Community Link?',
     cannotBeUndone: 'This cannot be undone',
   },
 };

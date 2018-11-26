@@ -5,6 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   card: {
     alignItems: 'stretch',
+    flexDirection: 'column',
   },
   content: {
     padding: 16,

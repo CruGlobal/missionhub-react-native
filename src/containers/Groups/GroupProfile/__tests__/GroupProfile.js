@@ -14,6 +14,8 @@ import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
+  generateNewCode,
+  generateNewLink,
 } from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
@@ -27,8 +29,9 @@ jest.mock('../../../../actions/navigation', () => ({
 jest.mock('../../../../actions/organizations', () => ({
   updateOrganization: jest.fn(() => ({ type: 'update org' })),
   updateOrganizationImage: jest.fn(() => ({ type: 'update org image' })),
-  getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
   deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
+  generateNewCode: jest.fn(() => ({ type: 'new code' })),
+  generateNewLink: jest.fn(() => ({ type: 'new link' })),
 }));
 jest.mock('../../../../selectors/organizations');
 
@@ -37,6 +40,7 @@ Alert.alert = jest.fn();
 const orgId = '123';
 const organization = {
   id: orgId,
+  community_code: '333333',
   name: 'Test Organization',
   created_at: '2018-11-06T12:00:00Z',
   contactReport: { memberCount: 3 },
@@ -89,7 +93,7 @@ const storeObj = {
     person: {
       id: '123',
       organizational_permissions: [
-        { organization_id: orgId, permission_id: ORG_PERMISSIONS.ADMIN },
+        { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
       ],
     },
   },
@@ -199,32 +203,40 @@ describe('GroupProfile', () => {
 
   it('handle new code', () => {
     const component = buildScreen();
+    const instance = component.instance();
     // Press the "Edit" button
-    component.instance().handleEdit();
+    instance.handleEdit();
     component.update();
-    const result = component
+    component
       .childAt(1)
       .childAt(4)
       .childAt(1)
       .props()
       .onPress();
 
-    expect(result).toBe('new code');
+    expect(Alert.alert).toHaveBeenCalled();
+    //Manually call onPress
+    Alert.alert.mock.calls[0][2][1].onPress();
+    expect(generateNewCode).toHaveBeenCalledWith(orgId);
   });
 
   it('handle new link', () => {
     const component = buildScreen();
+    const instance = component.instance();
     // Press the "Edit" button
-    component.instance().handleEdit();
+    instance.handleEdit();
     component.update();
-    const result = component
+    component
       .childAt(1)
       .childAt(6)
       .childAt(1)
       .props()
       .onPress();
 
-    expect(result).toBe('new link');
+    expect(Alert.alert).toHaveBeenCalled();
+    //Manually call onPress
+    Alert.alert.mock.calls[1][2][1].onPress();
+    expect(generateNewLink).toHaveBeenCalledWith(orgId);
   });
 
   it('handle copy code', () => {
@@ -316,7 +328,7 @@ describe('GroupProfile', () => {
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
   });
 
-  it('handles check delete organization', () => {
+  it('handles delete organization', () => {
     const component = buildScreen();
 
     // Press the "Edit" button

@@ -8,6 +8,7 @@ import {
   GET_ORGANIZATION_PEOPLE,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
 import {
@@ -24,10 +25,15 @@ import {
   updateOrganizationImage,
   deleteOrganization,
   lookupOrgCommunityCode,
+  generateNewCode,
+  removeOrganizationMember,
+  generateNewLink,
 } from '../organizations';
+import { getMe, getPersonDetails } from '../person';
 
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
+jest.mock('../person');
 
 global.FormData = require('FormData');
 
@@ -223,7 +229,7 @@ describe('getOrganizationMembers', () => {
       permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions',
+    include: 'organizational_permissions,reverse_contact_assignments',
   };
   const members = [
     {
@@ -454,13 +460,19 @@ describe('getMyCommunities', () => {
 
 describe('transferOrgOwnership', () => {
   const apiResponse = { type: 'api response' };
+  const getMeResponse = { type: 'get me response' };
+  const getPersonResponse = { type: 'get person response' };
   const orgId = '10292342';
   const person_id = '251689461';
 
-  beforeEach(() => callApi.mockReturnValue(() => Promise.resolve(apiResponse)));
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+    getMe.mockReturnValue(getMeResponse);
+    getPersonDetails.mockReturnValue(getPersonResponse);
+  });
 
-  it('transfers org ownership', () => {
-    store.dispatch(transferOrgOwnership(orgId, person_id));
+  it('transfers org ownership', async () => {
+    await store.dispatch(transferOrgOwnership(orgId, person_id));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.TRANSFER_ORG_OWNERSHIP,
@@ -472,6 +484,14 @@ describe('transferOrgOwnership', () => {
         },
       },
     );
+    expect(getMe).toHaveBeenCalledWith();
+    expect(getPersonDetails).toHaveBeenCalledWith(person_id, orgId);
+
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      getMeResponse,
+      getPersonResponse,
+    ]);
   });
 });
 
@@ -487,19 +507,24 @@ describe('addNewOrganization', () => {
     },
   };
   const apiResponse = { type: 'api response' };
+  const getMeResponse = { type: 'get me response' };
 
   beforeEach(() => {
-    callApi.mockReturnValue(() => Promise.resolve(apiResponse));
+    callApi.mockReturnValue(apiResponse);
+    getMe.mockReturnValue(getMeResponse);
   });
 
-  it('adds organization with name', () => {
-    store.dispatch(addNewOrganization(name));
+  it('adds organization with name', async () => {
+    await store.dispatch(addNewOrganization(name));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
       bodyData,
     );
+    expect(getMe).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([apiResponse, getMeResponse]);
   });
 });
 
@@ -607,5 +632,52 @@ describe('lookupOrgCommunityCode', () => {
       REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
       reportQuery,
     );
+  });
+});
+
+describe('generateNewCode', () => {
+  const orgId = '123';
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('get new code for organization', () => {
+    store.dispatch(generateNewCode(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
+      orgId,
+    });
+  });
+});
+
+describe('generateNewLink', () => {
+  const orgId = '123';
+  const apiResponse = { type: 'api response' };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(apiResponse);
+  });
+
+  it('get new url for organization', () => {
+    store.dispatch(generateNewLink(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_LINK, {
+      orgId,
+    });
+  });
+});
+
+describe('removeOrganizationMember', () => {
+  const personId = '234234';
+  const orgId = '48973546';
+
+  it('creates the correct action', () => {
+    expect(removeOrganizationMember(personId, orgId)).toEqual({
+      type: REMOVE_ORGANIZATION_MEMBER,
+      personId,
+      orgId,
+    });
   });
 });

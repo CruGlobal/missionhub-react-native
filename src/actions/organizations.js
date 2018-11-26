@@ -4,9 +4,11 @@ import {
   GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
+import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
 
 const getOrganizationsQuery = {
@@ -173,7 +175,7 @@ export function getOrganizationMembers(orgId, query = {}) {
       permissions: 'owner,admin,user',
       organization_ids: orgId,
     },
-    include: 'organizational_permissions',
+    include: 'organizational_permissions,reverse_contact_assignments',
   };
   return async dispatch => {
     const { response: members, meta } = await dispatch(
@@ -344,8 +346,8 @@ export function updateOrganizationImage(orgId, imageData) {
 }
 
 export function transferOrgOwnership(orgId, person_id) {
-  return dispatch => {
-    return dispatch(
+  return async dispatch => {
+    const { response } = await dispatch(
       callApi(
         REQUESTS.TRANSFER_ORG_OWNERSHIP,
         { orgId },
@@ -357,6 +359,12 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+
+    // After transfer, update auth person and other person with new org permissions
+    dispatch(getMe());
+    dispatch(getPersonDetails(person_id, orgId));
+
+    return response;
   };
 }
 
@@ -385,6 +393,9 @@ export function addNewOrganization(name, imageData) {
       const newOrgId = results.response.id;
       dispatch(updateOrganizationImage(newOrgId, imageData));
     }
+    // After the org is created, update auth person with new org permissions
+    dispatch(getMe());
+
     return results;
   };
 }
@@ -438,5 +449,25 @@ export function lookupOrgCommunityCode(code) {
     };
 
     return org;
+  };
+}
+
+export function generateNewCode(orgId) {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }));
+  };
+}
+
+export function generateNewLink(orgId) {
+  return dispatch => {
+    return dispatch(callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }));
+  };
+}
+
+export function removeOrganizationMember(personId, orgId) {
+  return {
+    type: REMOVE_ORGANIZATION_MEMBER,
+    personId,
+    orgId,
   };
 }

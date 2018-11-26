@@ -4,9 +4,9 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   content: {
-    paddingVertical: 16,
-    paddingLeft: 24,
-    paddingRight: 13,
+    paddingVertical: 10,
+    paddingLeft: 16,
+    paddingRight: 0,
   },
   detailsWrap: {
     marginTop: 1,
@@ -16,11 +16,11 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: theme.primaryColor,
   },
-  assigned: {
+  detailText: {
     fontSize: 14,
     color: theme.grey1,
   },
-  uncontacted: {
+  detailTextRed: {
     fontSize: 14,
     color: theme.red,
   },

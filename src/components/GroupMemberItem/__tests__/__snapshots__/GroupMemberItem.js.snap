@@ -5,13 +5,14 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -42,41 +43,43 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            5 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -89,13 +92,14 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -126,41 +130,43 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            5 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -173,13 +179,14 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -210,41 +217,43 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            5 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -283,13 +292,14 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -320,41 +330,43 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            5 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -393,13 +405,14 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -430,41 +443,43 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          0 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            0 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -477,13 +492,14 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -514,19 +530,21 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
             }
-          }
-        >
-          5 Assigned
-        </MyText>
+          >
+            5 Assigned
+          </MyText>
+        </React.Fragment>
       </Flex>
     </Flex>
   </Flex>
@@ -538,13 +556,14 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -575,41 +594,43 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
           }
         }
       >
-        <MyText
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
         <React.Fragment>
-          <Dot
-            style={
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 14,
-              }
-            }
-          />
           <MyText
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
             style={
               Object {
-                "color": "#FF5532",
+                "color": "#B2B0B2",
                 "fontSize": 14,
               }
             }
           >
-            3 Uncontacted
+            5 Assigned
           </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#FF5532",
+                  "fontSize": 14,
+                }
+              }
+            >
+              3 Uncontacted
+            </MyText>
+          </React.Fragment>
         </React.Fragment>
       </Flex>
     </Flex>
@@ -617,18 +638,19 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
 </Card>
 `;
 
-exports[`render contacts count user created org should not render contacts count 1`] = `
+exports[`render contacts count user created org should render no stage, admin permissions 1`] = `
 <Card
   onPress={[Function]}
 >
   <Flex
+    align="center"
     direction="row"
     justify="center"
     style={
       Object {
-        "paddingLeft": 24,
-        "paddingRight": 13,
-        "paddingVertical": 16,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
       }
     }
   >
@@ -650,6 +672,443 @@ exports[`render contacts count user created org should not render contacts count
       >
         FULL NAME
       </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            Select Stage
+          </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Admin
+            </MyText>
+          </React.Fragment>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count user created org should render no stage, member permissions 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            Select Stage
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count user created org should render no stage, owner permissions 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              }
+            }
+          >
+            Select Stage
+          </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Owner
+            </MyText>
+          </React.Fragment>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count user created org should render stage, admin permissions 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          >
+            Uninterested
+          </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Admin
+            </MyText>
+          </React.Fragment>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count user created org should render stage, member permissions 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          >
+            Uninterested
+          </MyText>
+        </React.Fragment>
+      </Flex>
+    </Flex>
+  </Flex>
+</Card>
+`;
+
+exports[`render contacts count user created org should render stage, owner permissions 1`] = `
+<Card
+  onPress={[Function]}
+>
+  <Flex
+    align="center"
+    direction="row"
+    justify="center"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 0,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Flex
+      direction="column"
+      value={1}
+    >
+      <MyText
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        FULL NAME
+      </MyText>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "marginTop": 1,
+          }
+        }
+      >
+        <React.Fragment>
+          <MyText
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              }
+            }
+          >
+            Uninterested
+          </MyText>
+          <React.Fragment>
+            <Dot
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            />
+            <MyText
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Owner
+            </MyText>
+          </React.Fragment>
+        </React.Fragment>
+      </Flex>
     </Flex>
   </Flex>
 </Card>

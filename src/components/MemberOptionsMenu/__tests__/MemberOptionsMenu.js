@@ -1,21 +1,38 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18next from 'i18next';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import MemberOptionsMenu from '..';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import { transferOrgOwnership } from '../../../actions/organizations';
+import {
+  transferOrgOwnership,
+  getMyCommunities,
+  removeOrganizationMember,
+} from '../../../actions/organizations';
+import {
+  makeAdmin,
+  removeAsAdmin,
+  archiveOrgPermission,
+} from '../../../actions/person';
+import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../actions/organizations.js');
+jest.mock('../../../actions/person.js');
+jest.mock('../../../actions/navigation.js');
 
 const myId = '1';
 const otherId = '2';
 const organization = { name: "Roge's org", id: '08747283423' };
+const personOrgPermission = { id: '25234234' };
 
 const person = { full_name: 'Roge' };
+const mockStore = configureStore([thunk]);
 
 let props;
+let store;
 
 const test = () => {
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
@@ -132,27 +149,36 @@ describe('MemberOptionsMenu', () => {
 describe('confirm screen', () => {
   Alert.alert = jest.fn();
 
+  let screen;
+
   beforeEach(() => {
     Alert.alert.mockClear();
   });
 
   describe('Make Admin', () => {
-    props = {
-      myId,
-      person: {
-        ...person,
-        id: otherId,
-      },
-      iAmAdmin: true,
-      iAmOwner: false,
-      personIsAdmin: false,
-      organization,
-    };
+    const makeAdminResponse = { type: 'make admin' };
+    makeAdmin.mockReturnValue(makeAdminResponse);
 
-    const component = renderShallow(<MemberOptionsMenu {...props} />);
+    beforeEach(() => {
+      props = {
+        myId,
+        person: {
+          ...person,
+          id: otherId,
+        },
+        iAmAdmin: true,
+        iAmOwner: false,
+        personIsAdmin: false,
+        organization,
+        personOrgPermission,
+      };
+
+      store = mockStore();
+      screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+    });
 
     it('displays confirm screen', () => {
-      component.props().actions[0].onPress();
+      screen.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:makeAdmin:modalTitle', {
@@ -172,5 +198,150 @@ describe('confirm screen', () => {
         ],
       );
     });
+
+    it('calls makeAdmin action', async () => {
+      await screen.instance().makeAdmin();
+
+      expect(store.getActions()).toEqual([makeAdminResponse]);
+      expect(makeAdmin).toHaveBeenCalledWith(otherId, personOrgPermission.id);
+    });
+  });
+
+  describe('Remove As Admin', () => {
+    const removeAdminResponse = { type: 'remove admin' };
+    removeAsAdmin.mockReturnValue(removeAdminResponse);
+
+    beforeEach(() => {
+      props = {
+        myId,
+        person: {
+          ...person,
+          id: otherId,
+        },
+        iAmAdmin: true,
+        iAmOwner: false,
+        personIsAdmin: true,
+        organization,
+        personOrgPermission,
+      };
+
+      store = mockStore();
+      screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+    });
+
+    it('displays confirm screen', () => {
+      screen.props().actions[0].onPress();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18next.t('groupMemberOptions:removeAdmin:modalTitle', {
+          personName: person.full_name,
+          communityName: organization.name,
+        }),
+        null,
+        [
+          {
+            text: i18next.t('cancel'),
+            style: 'cancel',
+          },
+          {
+            text: i18next.t('groupMemberOptions:removeAdmin:confirmButtonText'),
+            onPress: expect.any(Function),
+          },
+        ],
+      );
+    });
+
+    it('calls removeAdmin action', async () => {
+      await screen.instance().removeAsAdmin();
+
+      expect(store.getActions()).toEqual([removeAdminResponse]);
+      expect(removeAsAdmin).toHaveBeenCalledWith(
+        otherId,
+        personOrgPermission.id,
+      );
+    });
+  });
+});
+
+describe('Leave Community', () => {
+  const getMyCommunitiesResult = { type: 'got communities' };
+  const navigateBackResult = { type: 'navigated back' };
+
+  beforeEach(() => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: myId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+      personOrgPermission,
+    };
+
+    store = mockStore();
+  });
+
+  it('sends api request to archive my permission', async () => {
+    archiveOrgPermission.mockReturnValue(() => Promise.resolve());
+    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+    navigateBack.mockReturnValue(navigateBackResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().leaveCommunity();
+
+    expect(store.getActions()).toEqual([
+      getMyCommunitiesResult,
+      navigateBackResult,
+    ]);
+    expect(archiveOrgPermission).toHaveBeenCalledWith(
+      myId,
+      personOrgPermission.id,
+    );
+  });
+});
+
+describe('Remove from Community', () => {
+  const archiveOrgPermissionResult = { type: 'archived permission' };
+  const removePersonResult = { type: 'removed person' };
+
+  beforeEach(() => {
+    props = {
+      myId,
+      person: {
+        ...person,
+        id: otherId,
+      },
+      iAmAdmin: true,
+      iAmOwner: false,
+      personIsAdmin: false,
+      organization,
+      personOrgPermission,
+    };
+
+    store = mockStore();
+  });
+
+  it("sends api request to archive person's permission", async () => {
+    archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
+    removeOrganizationMember.mockReturnValue(removePersonResult);
+    const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
+
+    await screen.instance().removeFromCommunity();
+
+    expect(store.getActions()).toEqual([
+      archiveOrgPermissionResult,
+      removePersonResult,
+    ]);
+    expect(archiveOrgPermission).toHaveBeenCalledWith(
+      otherId,
+      personOrgPermission.id,
+    );
+    expect(removeOrganizationMember).toHaveBeenCalledWith(
+      otherId,
+      organization.id,
+    );
   });
 });

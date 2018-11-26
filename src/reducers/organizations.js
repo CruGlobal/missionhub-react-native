@@ -7,6 +7,9 @@ import {
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
+  UPDATE_PERSON_ATTRIBUTES,
+  LOAD_PERSON_DETAILS,
+  REMOVE_ORGANIZATION_MEMBER,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -155,6 +158,48 @@ function organizationsReducer(state = initialState, action) {
           : state.all,
         membersPagination: getPagination(action, allMembers.length),
       };
+    case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
+    case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS:
+      const {
+        results: { response: updatedOrgResponse },
+      } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === updatedOrgResponse.id
+              ? {
+                  ...o,
+                  // Update certain fields from the response
+                  name: updatedOrgResponse.name,
+                  community_photo_url: updatedOrgResponse.community_photo_url,
+                  community_code: updatedOrgResponse.community_code,
+                  community_url: updatedOrgResponse.community_url,
+                }
+              : o,
+        ),
+      };
+    case UPDATE_PERSON_ATTRIBUTES:
+      return updateAllPersonInstances(action.updatedPersonAttributes, state);
+    case LOAD_PERSON_DETAILS:
+      return updateAllPersonInstances(action.person, state);
+    case REQUESTS.GET_ME.SUCCESS:
+      return updateAllPersonInstances(action.results.response, state);
+    case REMOVE_ORGANIZATION_MEMBER:
+      const { personId, orgId } = action;
+
+      return {
+        ...state,
+        all: state.all.map(
+          o =>
+            o.id === orgId
+              ? { ...o, members: o.members.filter(m => m.id !== personId) }
+              : o,
+        ),
+      };
     case LOGOUT:
       return initialState;
     default:
@@ -181,6 +226,24 @@ function toggleCelebrationLike(action, state, liked) {
   return {
     ...state,
     all: state.all.map(o => (o.id === query.orgId ? newOrg : o)),
+  };
+}
+
+function updateAllPersonInstances(updatedPerson, state) {
+  return {
+    ...state,
+    all: state.all.map(
+      org =>
+        org.members
+          ? {
+              ...org,
+              members: org.members.map(
+                m =>
+                  m.id === updatedPerson.id ? { ...m, ...updatedPerson } : m,
+              ),
+            }
+          : org,
+    ),
   };
 }
 

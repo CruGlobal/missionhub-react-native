@@ -212,7 +212,7 @@ exports[`GroupProfile renders correctly 1`] = `
             }
           }
         >
-          333-333
+          333333
         </MyText>
       </Flex>
       <Button
@@ -282,7 +282,7 @@ exports[`GroupProfile renders correctly 1`] = `
             }
           }
         >
-          https://www.missionhub.com/333333
+          undefinedundefined
         </MyText>
       </Flex>
       <Button
@@ -653,7 +653,7 @@ exports[`GroupProfile renders editing state 1`] = `
             }
           }
         >
-          333-333
+          333333
         </MyText>
       </Flex>
       <Button
@@ -728,7 +728,7 @@ exports[`GroupProfile renders editing state 1`] = `
             }
           }
         >
-          https://www.missionhub.com/333333
+          undefinedundefined
         </MyText>
       </Flex>
       <Button
@@ -1052,7 +1052,7 @@ exports[`GroupProfile renders with image 1`] = `
             }
           }
         >
-          333-333
+          333333
         </MyText>
       </Flex>
       <Button
@@ -1122,7 +1122,7 @@ exports[`GroupProfile renders with image 1`] = `
             }
           }
         >
-          https://www.missionhub.com/333333
+          undefinedundefined
         </MyText>
       </Flex>
       <Button
@@ -1441,7 +1441,7 @@ exports[`GroupProfile renders without edit button 1`] = `
             }
           }
         >
-          333-333
+          333333
         </MyText>
       </Flex>
       <Button
@@ -1511,7 +1511,7 @@ exports[`GroupProfile renders without edit button 1`] = `
             }
           }
         >
-          https://www.missionhub.com/333333
+          undefinedundefined
         </MyText>
       </Flex>
       <Button
