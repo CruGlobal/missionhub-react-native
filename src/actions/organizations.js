@@ -5,6 +5,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   REMOVE_ORGANIZATION_MEMBER,
+  ORG_PERMISSIONS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
@@ -409,15 +410,15 @@ export function deleteOrganization(orgId) {
 
 export function lookupOrgCommunityCode(code) {
   return async dispatch => {
-    const query = { filters: { community_code: code } };
+    const query = { community_code: code };
     const { response } = await dispatch(
-      callApi(REQUESTS.LOOKUP_COMMUNITY, query),
+      callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
     );
 
-    if (response.length === 0) {
+    if (!response || !response.id) {
       return null;
     }
-    const org = response[0];
+    const org = response;
 
     // get the owner information and append it to the org
     const ownerQuery = {
@@ -449,6 +450,36 @@ export function lookupOrgCommunityCode(code) {
     };
 
     return org;
+  };
+}
+
+export function joinCommunity(orgId, code, url) {
+  return (dispatch, getState) => {
+    const myId = getState().auth.person.id;
+    const attributes = {
+      organization_id: orgId,
+      permission_id: ORG_PERMISSIONS.USER,
+    };
+    if (code) {
+      attributes.community_code = code;
+    } else if (url) {
+      attributes.community_url = url;
+    } else {
+      return Promise.reject(
+        `Invalid Data from joinCommunity: must pass in a code or url`,
+      );
+    }
+    // This can be done through onboarding, so it's possible we won't have a person_id.
+    if (myId) {
+      attributes.person_id = myId;
+    }
+    const bodyData = {
+      data: {
+        type: 'organizational_permission',
+        attributes,
+      },
+    };
+    return dispatch(callApi(REQUESTS.JOIN_COMMUNITY, {}, bodyData));
   };
 }
 

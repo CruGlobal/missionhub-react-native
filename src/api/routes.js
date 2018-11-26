@@ -138,8 +138,14 @@ export default {
   GET_ORGANIZATIONS: {
     endpoint: ORG_URL,
   },
-  LOOKUP_COMMUNITY: {
-    endpoint: ORG_URL,
+  LOOKUP_COMMUNITY_CODE: {
+    endpoint: `${ORG_URL}/find_by_code`,
+    anonymous: true,
+  },
+  JOIN_COMMUNITY: {
+    endpoint: `${API_URL}organizational_permissions`,
+    anonymous: true,
+    method: 'post',
   },
   ADD_NEW_ORGANIZATION: {
     endpoint: ORG_URL,

@@ -191,7 +191,15 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       <Translate(GroupCardItem)
         group={
           Object {
-            "id": "1",
+            "community_code": "123456",
+            "contactReport": Object {
+              "memberCount": 2,
+            },
+            "id": "123",
+            "name": "Org Name",
+            "owner": Object {
+              "first_name": "Owner",
+            },
           }
         }
         onJoin={[Function]}

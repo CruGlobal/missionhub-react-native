@@ -20,8 +20,12 @@ import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
-import { navigateBack } from '../../../actions/navigation';
-import { lookupOrgCommunityCode } from '../../../actions/organizations';
+import { navigateBack, navigateReset } from '../../../actions/navigation';
+import {
+  lookupOrgCommunityCode,
+  joinCommunity,
+} from '../../../actions/organizations';
+import { MAIN_TABS } from '../../../constants';
 
 import styles from './styles';
 
@@ -71,9 +75,14 @@ class JoinGroupScreen extends Component {
     this.setState({ errorMessage: '', community: org });
   };
 
-  joinCommunity = () => {
+  joinCommunity = async () => {
+    const { dispatch } = this.props;
+    const { community } = this.state;
     Keyboard.dismiss();
-    // TODO: join community
+
+    await dispatch(joinCommunity(community.id, community.community_code));
+
+    dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());

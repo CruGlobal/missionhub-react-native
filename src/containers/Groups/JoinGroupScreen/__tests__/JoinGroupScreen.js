@@ -8,15 +8,25 @@ import {
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../../testUtils';
-import { navigateBack } from '../../../../actions/navigation';
+import { navigateBack, navigateReset } from '../../../../actions/navigation';
 import * as organizations from '../../../../actions/organizations';
+import { MAIN_TABS } from '../../../../constants';
 
 jest.mock('../../../../actions/navigation', () => ({
-  navigateBack: jest.fn(() => ({ type: 'test' })),
+  navigateBack: jest.fn(() => ({ type: 'back' })),
+  navigateReset: jest.fn(() => ({ type: 'reset' })),
 }));
 
 const mockStore = configureStore();
 const store = mockStore();
+
+const mockCommunity = {
+  id: '123',
+  community_code: '123456',
+  name: 'Org Name',
+  owner: { first_name: 'Owner' },
+  contactReport: { memberCount: 2 },
+};
 
 function buildScreen(props) {
   return renderShallow(
@@ -39,7 +49,7 @@ describe('JoinGroupScreen', () => {
 
   it('renders group card correctly', () => {
     const component = buildScreen();
-    component.setState({ community: { id: '1' } });
+    component.setState({ community: mockCommunity });
     component.update();
 
     expect(component).toMatchSnapshot();
@@ -100,14 +110,8 @@ describe('JoinGroupScreen', () => {
 
       component.instance().codeInput = { focus: jest.fn() };
 
-      const community = {
-        id: '123',
-        name: 'Org Name',
-        owner: { first_name: 'Owner' },
-        contactReport: { memberCount: 2 },
-      };
       organizations.lookupOrgCommunityCode = jest.fn(() =>
-        Promise.resolve(community),
+        Promise.resolve(mockCommunity),
       );
 
       component
@@ -117,6 +121,29 @@ describe('JoinGroupScreen', () => {
 
       expect(component.instance().state).toMatchSnapshot();
       expect(organizations.lookupOrgCommunityCode).toHaveBeenCalled();
+    });
+  });
+
+  it('should join community', async () => {
+    const component = buildScreen();
+
+    component.setState({ community: mockCommunity });
+    component.update();
+
+    organizations.joinCommunity = jest.fn(() => ({ type: 'join' }));
+    await component
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onJoin();
+
+    expect(organizations.joinCommunity).toHaveBeenCalledWith(
+      mockCommunity.id,
+      mockCommunity.community_code,
+    );
+    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
+      startTab: 'groups',
     });
   });
 
