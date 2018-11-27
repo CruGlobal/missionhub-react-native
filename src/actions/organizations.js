@@ -390,10 +390,13 @@ export function addNewOrganization(name, imageData) {
     const results = await dispatch(
       callApi(REQUESTS.ADD_NEW_ORGANIZATION, query, bodyData),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CREATE_COMMUNITY));
+
     if (imageData) {
       // After the org is created, update the image with the image data passed in
       const newOrgId = results.response.id;
       dispatch(updateOrganizationImage(newOrgId, imageData));
+      dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
     }
     // After the org is created, update auth person with new org permissions
     dispatch(getMe());

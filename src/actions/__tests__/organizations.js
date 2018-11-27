@@ -500,6 +500,7 @@ describe('transferOrgOwnership', () => {
 });
 
 describe('addNewOrganization', () => {
+  const orgId = '123';
   const name = 'Fred';
   const bodyData = {
     data: {
@@ -510,25 +511,81 @@ describe('addNewOrganization', () => {
       },
     },
   };
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: { id: orgId } };
   const getMeResponse = { type: 'get me response' };
+  const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
+    jest.clearAllMocks();
     callApi.mockReturnValue(apiResponse);
     getMe.mockReturnValue(getMeResponse);
+    trackActionWithoutData.mockReturnValue(trackActionResponse);
   });
 
   it('adds organization with name', async () => {
     await store.dispatch(addNewOrganization(name));
 
+    expect(callApi).toHaveBeenCalledTimes(1);
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.ADD_NEW_ORGANIZATION,
       {},
       bodyData,
     );
+    expect(trackActionWithoutData).toHaveBeenCalledTimes(1);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CREATE_COMMUNITY,
+    );
     expect(getMe).toHaveBeenCalledWith();
 
-    expect(store.getActions()).toEqual([apiResponse, getMeResponse]);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      getMeResponse,
+    ]);
+  });
+
+  it('adds organization with name and image', async () => {
+    const imageBodyData = new FormData();
+    const testImageData = {
+      uri: 'testuri',
+      fileType: 'image/jpeg',
+      fileName: 'filename',
+    };
+    imageBodyData.append('data[attributes][community_photo]', {
+      uri: testImageData.uri,
+      type: testImageData.fileType,
+      name: testImageData.fileName,
+    });
+
+    await store.dispatch(addNewOrganization(name, testImageData));
+
+    expect(callApi).toHaveBeenCalledTimes(2);
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ADD_NEW_ORGANIZATION,
+      {},
+      bodyData,
+    );
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_ORGANIZATION_IMAGE,
+      { orgId },
+      imageBodyData,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledTimes(2);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CREATE_COMMUNITY,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ADD_COMMUNITY_PHOTO,
+    );
+    expect(getMe).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      apiResponse,
+      trackActionResponse,
+      getMeResponse,
+    ]);
   });
 });
 

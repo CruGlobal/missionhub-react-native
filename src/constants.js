@@ -257,6 +257,14 @@ export const ACTIONS = {
     name: 'Join Community With Code',
     key: 'cru.codejoin',
   },
+  ADD_COMMUNITY_PHOTO: {
+    name: 'Add Photo for Community',
+    key: 'cru.communityphoto',
+  },
+  CREATE_COMMUNITY: {
+    name: 'Create Community',
+    key: 'communitycreate',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
