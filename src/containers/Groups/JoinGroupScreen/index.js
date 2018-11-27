@@ -25,8 +25,9 @@ import {
   lookupOrgCommunityCode,
   joinCommunity,
 } from '../../../actions/organizations';
-import { MAIN_TABS } from '../../../constants';
+import { MAIN_TABS, ACTIONS } from '../../../constants';
 import { setScrollGroups } from '../../../actions/swipe';
+import { trackActionWithoutData } from '../../../actions/analytics';
 
 import styles from './styles';
 
@@ -86,6 +87,7 @@ class JoinGroupScreen extends Component {
     Keyboard.dismiss();
 
     await dispatch(joinCommunity(community.id, community.community_code));
+    dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
 
     dispatch(setScrollGroups());
     dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));

@@ -9,11 +9,12 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack, navigateReset } from '../../../../actions/navigation';
-import { MAIN_TABS } from '../../../../constants';
+import { MAIN_TABS, ACTIONS } from '../../../../constants';
 import {
   lookupOrgCommunityCode,
   joinCommunity,
 } from '../../../../actions/organizations';
+import { trackActionWithoutData } from '../../../../actions/analytics';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
@@ -30,6 +31,9 @@ jest.mock('../../../../actions/organizations', () => ({
     name: 'test',
     contactReport: {},
   })),
+}));
+jest.mock('../../../../actions/analytics', () => ({
+  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
 
 const mockStore = configureStore();
@@ -130,6 +134,9 @@ describe('JoinGroupScreen', () => {
     expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
       startTab: 'groups',
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_JOINED_COMMUNITY,
+    );
   });
 
   it('should call navigate back', () => {

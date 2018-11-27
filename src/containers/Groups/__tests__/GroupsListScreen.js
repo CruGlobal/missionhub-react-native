@@ -5,12 +5,14 @@ import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
 import { resetScrollGroups } from '../../../actions/swipe';
+import { ACTIONS } from '../../../constants';
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/navigation', () => ({
@@ -22,6 +24,7 @@ jest.mock('../../../actions/organizations', () => ({
 jest.mock('../../../actions/swipe', () => ({
   resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
 }));
+jest.mock('../../../actions/analytics');
 
 const mockStore = configureStore();
 const organizations = {
@@ -43,7 +46,12 @@ const auth = {};
 const swipe = {};
 const store = mockStore({ organizations, auth, swipe });
 
-communitiesSelector.mockReturnValue(organizations.all);
+beforeEach(() => {
+  navigatePush.mockReturnValue({ type: 'test' });
+  getMyCommunities.mockReturnValue({ type: 'test' });
+  trackActionWithoutData.mockReturnValue({ type: 'test' });
+  communitiesSelector.mockReturnValue(organizations.all);
+});
 
 it('should render null state', () => {
   const component = renderShallow(
@@ -78,6 +86,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
 
     it('navigates to user created org screen', () => {
@@ -96,6 +107,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
   });
 

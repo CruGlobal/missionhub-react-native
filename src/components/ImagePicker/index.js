@@ -54,7 +54,7 @@ class ImagePicker extends Component {
         // const source = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true };
 
         const uri = response.uri;
-        let fileName = response.fileName;
+        let fileName = response.fileName || '';
         // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
         // create a new file name with the right extension
         if (uri.includes('.jpg') && !fileName.includes('.jpg')) {
