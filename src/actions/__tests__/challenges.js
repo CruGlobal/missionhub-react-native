@@ -9,6 +9,7 @@ import {
   createChallenge,
   updateChallenge,
 } from '../challenges';
+import { trackActionWithoutData } from '../analytics';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import callApi, { REQUESTS } from '../api';
 import {

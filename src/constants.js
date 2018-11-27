@@ -263,7 +263,23 @@ export const ACTIONS = {
   },
   CREATE_COMMUNITY: {
     name: 'Create Community',
-    key: 'communitycreate',
+    key: 'cru.communitycreate',
+  },
+  CHALLENGE_CREATED: {
+    name: 'Challenge Created',
+    key: 'cru.challengecreated',
+  },
+  CHALLENGE_JOINED: {
+    name: 'Challenge Joined',
+    key: 'cru.challengejoined',
+  },
+  CHALLENGE_COMPLETED: {
+    name: 'Challenge Completed',
+    key: 'cru.challengecompleted',
+  },
+  CHALLENGE_DETAIL: {
+    name: 'Challenge Detail View',
+    key: 'cru.challengedetail',
   },
 };
 
