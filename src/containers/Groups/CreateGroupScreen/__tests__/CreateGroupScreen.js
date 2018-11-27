@@ -18,9 +18,10 @@ import {
   getMyCommunities,
   addNewOrganization,
 } from '../../../../actions/organizations';
+import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { MAIN_TABS } from '../../../../constants';
+import { MAIN_TABS, ACTIONS } from '../../../../constants';
 import { USER_CREATED_GROUP_SCREEN } from '../../GroupScreen';
 
 const mockNewId = '123';
@@ -29,6 +30,7 @@ const mockAddNewOrg = {
   response: { id: mockNewId },
 };
 
+jest.mock('../../../../actions/analytics');
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigatePush: jest.fn(() => ({ type: 'push' })),
@@ -162,6 +164,9 @@ describe('CreateGroupScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_CREATED_COMMUNITY,
+    );
   });
 
   it('should call create community with org added to redux and image passed in', async () => {
