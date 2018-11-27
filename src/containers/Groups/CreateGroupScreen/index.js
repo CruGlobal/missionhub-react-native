@@ -29,7 +29,7 @@ import {
   addNewOrganization,
   getMyCommunities,
 } from '../../../actions/organizations';
-import { trackAction } from '../../../actions/analytics';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { MAIN_TABS, ACTIONS } from '../../../constants';
@@ -71,11 +71,7 @@ class CreateGroupScreen extends Component {
       dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
     } else {
       dispatch(navigatePush(USER_CREATED_GROUP_SCREEN, { organization }));
-      dispatch(
-        trackAction(ACTIONS.SELECT_COMMUNITY.name, {
-          [ACTIONS.SELECT_COMMUNITY.CREATE]: null,
-        }),
-      );
+      dispatch(trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY));
     }
   };
 

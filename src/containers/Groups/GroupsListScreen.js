@@ -13,7 +13,7 @@ import {
   Flex,
 } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
-import { trackAction } from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, refresh } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
@@ -48,11 +48,7 @@ class GroupsListScreen extends Component {
         },
       ),
     );
-    dispatch(
-      trackAction(ACTIONS.SELECT_COMMUNITY.name, {
-        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
-      }),
-    );
+    dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
   openMainMenu = () => this.props.dispatch(openMainMenu());
