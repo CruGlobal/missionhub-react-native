@@ -7,7 +7,9 @@ import ChallengeFeed from '..';
 import { renderShallow } from '../../../../testUtils';
 import * as navigation from '../../../actions/navigation';
 import * as challenges from '../../../actions/challenges';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../../ChallengeDetailScreen';
+import { ACTIONS } from '../../../constants';
 
 jest.mock('../../../actions/challenges', () => ({
   completeChallenge: jest.fn(() => ({ type: 'complete' })),
@@ -18,6 +20,7 @@ jest.mock('../../../actions/challenges', () => ({
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'push' })),
 }));
+jest.mock('../../../actions/analytics');
 
 const myId = '123';
 const organization = { id: '456' };
@@ -177,6 +180,8 @@ it('calls handleRefreshing', () => {
 });
 
 it('calls handleSelectRow', () => {
+  trackActionWithoutData.mockReturnValue({ type: 'track action' });
+
   const instance = component.instance();
   const challenge = { id: '1', accepted_community_challenges };
   instance.handleSelectRow(challenge);
@@ -187,4 +192,5 @@ it('calls handleSelectRow', () => {
       orgId: organization.id,
     },
   );
+  expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.CHALLENGE_DETAIL);
 });

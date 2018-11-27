@@ -17,6 +17,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
   UPDATE_CHALLENGE,
+  ACTIONS,
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import * as common from '../../utils/common';
@@ -25,6 +26,7 @@ import { navigatePush } from '../navigation';
 jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../celebration');
+jest.mock('../analytics');
 
 const fakeDate = '2018-09-06T14:13:21Z';
 common.formatApiDate = jest.fn(() => fakeDate);
@@ -35,6 +37,7 @@ const apiResult = { type: 'done' };
 const navigateResult = { type: 'has navigated' };
 const celebrateResult = { type: 'reloaded celebrate feed' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
+const trackActionResult = { type: 'track action' };
 
 const createStore = configureStore([thunk]);
 let store;
@@ -61,6 +64,7 @@ beforeEach(() => {
   callApi.mockReturnValue(apiResult);
   navigatePush.mockReturnValue(navigateResult);
   reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
+  trackActionWithoutData.mockReturnValue(trackActionResult);
 });
 
 describe('getGroupChallengeFeed', () => {
@@ -138,10 +142,14 @@ describe('completeChallenge', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
       onComplete: expect.anything(),
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CHALLENGE_COMPLETED,
+    );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
     expect(store.getActions()).toEqual([
       apiResult,
       navigateResult,
+      trackActionResult,
       resetResult,
       apiResult,
       celebrateResult,
@@ -170,10 +178,14 @@ describe('joinChallenge', () => {
       onComplete: expect.anything(),
       gifId: 0,
     });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CHALLENGE_JOINED,
+    );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
     expect(store.getActions()).toEqual([
       apiResult,
       navigateResult,
+      trackActionResult,
       resetResult,
       apiResult,
       celebrateResult,
@@ -204,7 +216,15 @@ describe('createChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CHALLENGE_CREATED,
+    );
+    expect(store.getActions()).toEqual([
+      apiResult,
+      trackActionResult,
+      resetResult,
+      apiResult,
+    ]);
   });
 });
 

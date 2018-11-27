@@ -12,8 +12,10 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { isAdminOrOwner } from '../../utils/common';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
+import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -87,6 +89,7 @@ class ChallengeFeed extends Component {
         orgId: organization.id,
       }),
     );
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
   };
 
   render() {
