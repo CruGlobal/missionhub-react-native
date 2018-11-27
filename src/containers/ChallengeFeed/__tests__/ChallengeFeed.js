@@ -5,10 +5,9 @@ import thunk from 'redux-thunk';
 import ChallengeFeed from '..';
 
 import { renderShallow } from '../../../../testUtils';
-import { ORG_PERMISSIONS } from '../../../constants';
 import * as navigation from '../../../actions/navigation';
 import * as challenges from '../../../actions/challenges';
-import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
+import { CHALLENGE_DETAIL_SCREEN } from '../../ChallengeDetailScreen';
 
 jest.mock('../../../actions/challenges', () => ({
   completeChallenge: jest.fn(() => ({ type: 'complete' })),
@@ -26,9 +25,6 @@ const store = configureStore([thunk])({
   auth: {
     person: {
       id: myId,
-      organizational_permissions: [
-        { organization_id: '456', permission_id: ORG_PERMISSIONS.ADMIN },
-      ],
     },
   },
 });
@@ -52,7 +48,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 14,
         accepted_community_challenges: [],
       },
       {
@@ -63,7 +58,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 14,
         accepted_community_challenges,
       },
     ],
@@ -79,8 +73,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 0,
-        days_remaining: 0,
-        total_days: 7,
         accepted_community_challenges,
       },
       {
@@ -91,8 +83,6 @@ const challengeItems = [
         end_date: date,
         accepted_count: 5,
         completed_count: 3,
-        days_remaining: 0,
-        total_days: 7,
         accepted_community_challenges,
       },
     ],
@@ -107,6 +97,7 @@ const props = {
 };
 
 beforeEach(() => {
+  jest.clearAllMocks();
   component = renderShallow(
     <ChallengeFeed
       {...props}
@@ -142,16 +133,6 @@ describe('item action methods', () => {
       challenge,
       organization.id,
     );
-  });
-  it('calls handleEdit', () => {
-    const challenge = { id: '1', end_date: date };
-    item.props.onEdit(challenge);
-
-    expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
-      isEdit: true,
-      challenge,
-      onComplete: expect.any(Function),
-    });
   });
 });
 
@@ -195,12 +176,15 @@ it('calls handleRefreshing', () => {
   expect(props.refreshCallback).toHaveBeenCalled();
 });
 
-it('calls editChallenge', () => {
+it('calls handleSelectRow', () => {
   const instance = component.instance();
-  const challenge = { id: '1' };
-  instance.editChallenge(challenge);
-  expect(challenges.updateChallenge).toHaveBeenCalledWith(
-    challenge,
-    organization.id,
+  const challenge = { id: '1', accepted_community_challenges };
+  instance.handleSelectRow(challenge);
+  expect(navigation.navigatePush).toHaveBeenCalledWith(
+    CHALLENGE_DETAIL_SCREEN,
+    {
+      challengeId: challenge.id,
+      orgId: organization.id,
+    },
   );
 });
