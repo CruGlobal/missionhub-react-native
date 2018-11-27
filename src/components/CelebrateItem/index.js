@@ -16,6 +16,8 @@ import {
   CELEBRATEABLE_TYPES,
   ACTIONS,
 } from '../../constants';
+import { navigatePush } from '../../actions/navigation';
+import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
@@ -30,16 +32,36 @@ class CelebrateItem extends Component {
     !event.liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
   };
 
+  onPressChallengeLink = () => {
+    const { dispatch, event } = this.props;
+    const {
+      adjective_attribute_value: challengeId,
+      organization: { id: orgId },
+    } = event;
+
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId,
+        orgId,
+      }),
+    );
+  };
+
   renderMessage() {
     const { t, event } = this.props;
     const {
       completedInteraction,
       completedStep,
       acceptedCommunityChallenge,
+      createdCommunity,
     } = CELEBRATEABLE_TYPES;
-    const { adjective_attribute_value, changed_attribute_name } = event;
+    const {
+      adjective_attribute_value,
+      changed_attribute_name,
+      subject_person: { first_name, last_name },
+    } = event;
 
-    const name = event.subject_person_name.split(' ')[0];
+    const name = `${first_name}${last_name ? ` ${last_name[0]}.` : ''}`;
 
     switch (event.celebrateable_type) {
       case completedStep:
@@ -48,7 +70,16 @@ class CelebrateItem extends Component {
         return this.buildInteractionMessage(t, adjective_attribute_value, name);
       case acceptedCommunityChallenge:
         return this.buildChallengeMessage(t, changed_attribute_name, name);
+      case createdCommunity:
+        return this.buildCreateCommunityMessage(t, event, name);
     }
+  }
+
+  buildCreateCommunityMessage(t, event, name) {
+    const {
+      organization: { name: communityName },
+    } = event;
+    return t('communityCreated', { initiator: name, communityName });
   }
 
   buildChallengeMessage(t, type, name) {
@@ -139,6 +170,24 @@ class CelebrateItem extends Component {
     }
   }
 
+  renderChallengeLink() {
+    const { event } = this.props;
+    const { acceptedCommunityChallenge } = CELEBRATEABLE_TYPES;
+    const { celebrateable_type, object_description } = event;
+
+    return celebrateable_type === acceptedCommunityChallenge ? (
+      <Flex direction="row">
+        <Button
+          type="transparent"
+          text={object_description}
+          onPress={this.onPressChallengeLink}
+          style={styles.challengeLinkButton}
+          buttonTextStyle={styles.challengeLinkText}
+        />
+      </Flex>
+    ) : null;
+  }
+
   render() {
     const { myId, event } = this.props;
     const {
@@ -161,6 +210,7 @@ class CelebrateItem extends Component {
               format={'LT'}
             />
             <Text style={styles.description}>{this.renderMessage()}</Text>
+            {this.renderChallengeLink()}
           </Flex>
           <Flex direction={'column'} align="start">
             <Flex direction={'row'} align="center">

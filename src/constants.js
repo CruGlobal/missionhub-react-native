@@ -34,6 +34,7 @@ export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
+export const UPDATE_CHALLENGE = 'app/UPDATE_CHALLENGE';
 export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
 export const REQUEST_NOTIFICATIONS = 'app/REQUEST_NOTIFICATIONS';
 export const LOAD_HOME_NOTIFICATION_REMINDER =
@@ -326,4 +327,5 @@ export const CELEBRATEABLE_TYPES = {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
+  createdCommunity: 'organization',
 };

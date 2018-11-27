@@ -92,6 +92,18 @@ Array [
     "date": "2017-01-01 00:00:00 UTC",
     "id": 5,
   },
+  Object {
+    "data": Array [
+      Object {
+        "celebrateable_type": "organization",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:02:00 UTC",
+        "id": "10",
+      },
+    ],
+    "date": "2016-12-25 00:02:00 UTC",
+    "id": 6,
+  },
 ]
 `;
 
@@ -186,6 +198,18 @@ Array [
     ],
     "date": "2017-01-01 00:00:00 UTC",
     "id": 5,
+  },
+  Object {
+    "data": Array [
+      Object {
+        "celebrateable_type": "organization",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:02:00 UTC",
+        "id": "10",
+      },
+    ],
+    "date": "2016-12-25 00:02:00 UTC",
+    "id": 6,
   },
 ]
 `;

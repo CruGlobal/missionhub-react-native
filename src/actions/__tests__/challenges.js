@@ -8,12 +8,14 @@ import {
   joinChallenge,
   createChallenge,
   updateChallenge,
+  getChallenge,
 } from '../challenges';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import callApi, { REQUESTS } from '../api';
 import {
   DEFAULT_PAGE_LIMIT,
   RESET_CHALLENGE_PAGINATION,
+  UPDATE_CHALLENGE,
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import * as common from '../../utils/common';
@@ -70,7 +72,7 @@ describe('getGroupChallengeFeed', () => {
         offset: DEFAULT_PAGE_LIMIT * currentPage,
       },
       filters: { organization_ids: orgId },
-      sort: '-created_at',
+      sort: '-active,-created_at',
     });
     expect(store.getActions()).toEqual([apiResult]);
   });
@@ -107,7 +109,7 @@ describe('reloadGroupChallengeFeed', () => {
         offset: DEFAULT_PAGE_LIMIT * 0,
       },
       filters: { organization_ids: orgId },
-      sort: '-created_at',
+      sort: '-active,-created_at',
     });
     expect(store.getActions()).toEqual([resetResult, apiResult]);
   });
@@ -206,16 +208,45 @@ describe('createChallenge', () => {
 });
 
 describe('updateChallenge', () => {
+  const challenge_id = '1';
+  const responseOrganization = { id: orgId };
+  const responseTitle = 'response title';
+  const responseDate = '2018-11-19T14:13:21Z';
+  const updateChallengeResult = {
+    type: 'api response',
+    response: {
+      id: challenge_id,
+      organization: responseOrganization,
+      title: responseTitle,
+      end_date: responseDate,
+      accepted_community_challenges: [],
+    },
+  };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(updateChallengeResult);
+  });
+
+  const updateAction = {
+    type: UPDATE_CHALLENGE,
+    challenge: {
+      id: challenge_id,
+      organization: responseOrganization,
+      title: responseTitle,
+      end_date: responseDate,
+    },
+  };
+
   it('updates a challenge with a new title', async () => {
     const item = {
-      id: '1',
+      id: challenge_id,
       title: 'Challenge Title',
     };
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      { challengeId: item.id },
+      { challenge_id: item.id },
       {
         data: {
           attributes: {
@@ -224,18 +255,18 @@ describe('updateChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
   it('updates a challenge with a new date', async () => {
     const item = {
-      id: '1',
+      id: challenge_id,
       date: fakeDate,
     };
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      { challengeId: item.id },
+      { challenge_id: item.id },
       {
         data: {
           attributes: {
@@ -244,11 +275,11 @@ describe('updateChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
   it('updates a challenge with a new title and date', async () => {
     const item = {
-      id: '1',
+      id: challenge_id,
       title: 'Challenge Title',
       date: fakeDate,
     };
@@ -256,7 +287,7 @@ describe('updateChallenge', () => {
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_GROUP_CHALLENGE,
-      { challengeId: item.id },
+      { challenge_id: item.id },
       {
         data: {
           attributes: {
@@ -266,6 +297,37 @@ describe('updateChallenge', () => {
         },
       },
     );
-    expect(store.getActions()).toEqual([apiResult, resetResult, apiResult]);
+    expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
+  });
+});
+
+describe('getChallenge', () => {
+  const challenge_id = '111';
+  const getChallengeResult = {
+    type: 'api response',
+    response: {
+      id: challenge_id,
+      accepted_community_challenges: [],
+    },
+  };
+
+  beforeEach(() => {
+    callApi.mockReturnValue(getChallengeResult);
+  });
+
+  it('gets challenge by id', async () => {
+    await store.dispatch(getChallenge(challenge_id));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE, {
+      challenge_id,
+      include: 'accepted_community_challenges.person.full_name',
+    });
+    expect(store.getActions()).toEqual([
+      getChallengeResult,
+      {
+        type: UPDATE_CHALLENGE,
+        challenge: getChallengeResult.response,
+      },
+    ]);
   });
 });
