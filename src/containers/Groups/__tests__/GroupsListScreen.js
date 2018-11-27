@@ -5,7 +5,7 @@ import GroupsListScreen from '../GroupsListScreen';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyCommunities } from '../../../actions/organizations';
-import { trackAction } from '../../../actions/analytics';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { communitiesSelector } from '../../../selectors/organizations';
 import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
@@ -40,7 +40,7 @@ const store = mockStore({ organizations, auth });
 beforeEach(() => {
   navigatePush.mockReturnValue({ type: 'test' });
   getMyCommunities.mockReturnValue({ type: 'test' });
-  trackAction.mockReturnValue({ type: 'test' });
+  trackActionWithoutData.mockReturnValue({ type: 'test' });
   communitiesSelector.mockReturnValue(organizations.all);
 });
 
@@ -77,9 +77,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.SELECT_COMMUNITY.name, {
-        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
-      });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
 
     it('navigates to user created org screen', () => {
@@ -98,9 +98,9 @@ describe('GroupsListScreen', () => {
         organizations,
         auth,
       });
-      expect(trackAction).toHaveBeenCalledWith(ACTIONS.SELECT_COMMUNITY.name, {
-        [ACTIONS.SELECT_COMMUNITY.SELECT]: null,
-      });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.SELECT_COMMUNITY,
+      );
     });
   });
 

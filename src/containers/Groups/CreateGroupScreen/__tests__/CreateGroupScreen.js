@@ -18,7 +18,7 @@ import {
   getMyCommunities,
   addNewOrganization,
 } from '../../../../actions/organizations';
-import { trackAction } from '../../../../actions/analytics';
+import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { MAIN_TABS, ACTIONS } from '../../../../constants';
@@ -164,9 +164,9 @@ describe('CreateGroupScreen', () => {
     expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
       organization: org,
     });
-    expect(trackAction).toHaveBeenCalledWith(ACTIONS.SELECT_COMMUNITY.name, {
-      [ACTIONS.SELECT_COMMUNITY.CREATE]: null,
-    });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SELECT_CREATED_COMMUNITY,
+    );
   });
 
   it('should call create community with org added to redux and image passed in', async () => {
