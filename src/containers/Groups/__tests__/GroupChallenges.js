@@ -32,7 +32,6 @@ const challenge1 = {
   end_date: date,
   accepted_count: 5,
   completed_count: 3,
-  days_remaining: 14,
 };
 const challenge2 = {
   id: '2',
@@ -42,7 +41,6 @@ const challenge2 = {
   end_date: date,
   accepted_count: 5,
   completed_count: 3,
-  days_remaining: 0,
 };
 
 const challengePagination = {

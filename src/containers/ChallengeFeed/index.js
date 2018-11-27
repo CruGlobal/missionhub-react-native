@@ -7,13 +7,13 @@ import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import { orgPermissionSelector } from '../../selectors/people';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import {
   completeChallenge,
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
 import { isAdminOrOwner } from '../../utils/common';
+import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 
 import styles from './styles';
 
@@ -41,7 +41,7 @@ class ChallengeFeed extends Component {
       item={item}
       onComplete={this.handleComplete}
       onJoin={this.handleJoin}
-      onEdit={this.props.canEditChallenges ? this.handleEdit : undefined}
+      onSelect={this.handleSelectRow}
       acceptedChallenge={this.getAcceptedChallenge(item)}
     />
   );
@@ -79,21 +79,12 @@ class ChallengeFeed extends Component {
     dispatch(joinChallenge(challenge, organization.id));
   };
 
-  editChallenge = challenge => {
-    const { organization, dispatch } = this.props;
-    dispatch(updateChallenge(challenge, organization.id));
-  };
-
-  handleEdit = item => {
-    const { dispatch } = this.props;
+  handleSelectRow = challenge => {
+    const { dispatch, organization } = this.props;
     dispatch(
-      navigatePush(ADD_CHALLENGE_SCREEN, {
-        isEdit: true,
-        challenge: item,
-        onComplete: challenge => {
-          this.editChallenge(challenge);
-          dispatch(navigateBack());
-        },
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId: challenge.id,
+        orgId: organization.id,
       }),
     );
   };
@@ -124,17 +115,8 @@ ChallengeFeed.propTypes = {
   refreshing: PropTypes.bool,
 };
 
-const mapStateToProps = ({ auth }, { organization }) => {
-  const myOrgPerm =
-    organization &&
-    organization.id &&
-    orgPermissionSelector(null, {
-      person: auth.person,
-      organization: { id: organization.id },
-    });
-  return {
-    canEditChallenges: isAdminOrOwner(myOrgPerm),
-    myId: auth.person.id,
-  };
-};
+const mapStateToProps = ({ auth }) => ({
+  myId: auth.person.id,
+});
+
 export default connect(mapStateToProps)(ChallengeFeed);

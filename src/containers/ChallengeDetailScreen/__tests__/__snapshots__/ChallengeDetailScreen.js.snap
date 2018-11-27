@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render completed challenge correctly 1`] = `
+<Component>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={null}
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Translate(ChallengeDetailHeader)
+    canEditChallenges={true}
+    challenge={
+      Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
+        "end_date": "2018-09-22",
+        "id": "1",
+        "isPast": false,
+        "title": "Read \\"There and Back Again\\"",
+      }
+    }
+    onEdit={[Function]}
+  />
+</Component>
+`;
+
+exports[`should render joined challenge correctly 1`] = `
+<Component>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 10,
+          }
+        }
+        text="I DID IT"
+        type="transparent"
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Translate(ChallengeDetailHeader)
+    canEditChallenges={true}
+    challenge={
+      Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
+        "end_date": "2018-09-22",
+        "id": "1",
+        "isPast": false,
+        "title": "Read \\"There and Back Again\\"",
+      }
+    }
+    onEdit={[Function]}
+  />
+</Component>
+`;
+
+exports[`should render tabs correctly 1`] = `
+Array [
+  Object {
+    "component": [Function],
+    "name": "Joined",
+    "navigationAction": "nav/CHALLENGE_JOINED",
+  },
+  Object {
+    "component": [Function],
+    "name": "Completed",
+    "navigationAction": "nav/CHALLENGE_COMPLETED",
+  },
+]
+`;
+
+exports[`should render unjoined challenge correctly 1`] = `
+<Component>
+  <Connect(Header)
+    left={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#007398",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 10,
+          }
+        }
+        text="JOIN"
+        type="transparent"
+      />
+    }
+    shadow={false}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  />
+  <Translate(ChallengeDetailHeader)
+    canEditChallenges={true}
+    challenge={
+      Object {
+        "accepted_community_challenges": Array [
+          Object {
+            "id": "a1",
+            "person": Object {
+              "id": "1111",
+            },
+          },
+        ],
+        "end_date": "2018-09-22",
+        "id": "1",
+        "isPast": false,
+        "title": "Read \\"There and Back Again\\"",
+      }
+    }
+    onEdit={[Function]}
+  />
+</Component>
+`;

@@ -48,6 +48,24 @@ it('should render correctly', () => {
   expect(component).toMatchSnapshot();
 });
 
+it('should render light version correctly', () => {
+  const component = testSnapshotShallow(
+    <SwipeTabMenu
+      tabs={tabs}
+      navigation={{ state: { index: 0 } }}
+      isLight={true}
+    />,
+  );
+
+  // Render update from manual onLayout callback with new rendered element size
+  component
+    .instance()
+    .onLayoutMenuItem({ nativeEvent: { layout: { width: 80 } } });
+  component.update();
+
+  expect(component).toMatchSnapshot();
+});
+
 it('should render second tab based off of previousIndex', () => {
   // Navigation state may have just been changed to 0 but we should render with an offset since we will be transitioning from tab 1
   const component = renderShallow(

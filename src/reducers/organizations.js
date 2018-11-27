@@ -10,6 +10,7 @@ import {
   UPDATE_PERSON_ATTRIBUTES,
   LOAD_PERSON_DETAILS,
   REMOVE_ORGANIZATION_MEMBER,
+  UPDATE_CHALLENGE,
 } from '../constants';
 import { REQUESTS } from '../actions/api';
 import { getPagination } from '../utils/common';
@@ -200,6 +201,8 @@ function organizationsReducer(state = initialState, action) {
               : o,
         ),
       };
+    case UPDATE_CHALLENGE:
+      return updateChallenge(action, state);
     case LOGOUT:
       return initialState;
     default:
@@ -244,6 +247,29 @@ function updateAllPersonInstances(updatedPerson, state) {
             }
           : org,
     ),
+  };
+}
+
+function updateChallenge(action, state) {
+  const { challenge } = action;
+  const orgId =
+    (challenge.organization && challenge.organization.id) || undefined;
+
+  return {
+    ...state,
+    all: orgId
+      ? state.all.map(
+          o =>
+            o.id === orgId
+              ? {
+                  ...o,
+                  challengeItems: o.challengeItems.map(
+                    c => (c.id === challenge.id ? { ...c, ...challenge } : c),
+                  ),
+                }
+              : o,
+        )
+      : state.all,
   };
 }
 
