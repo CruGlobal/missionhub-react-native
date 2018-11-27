@@ -26,6 +26,7 @@ import {
   joinCommunity,
 } from '../../../actions/organizations';
 import { MAIN_TABS } from '../../../constants';
+import { setScrollGroups } from '../../../actions/swipe';
 
 import styles from './styles';
 
@@ -65,14 +66,18 @@ class JoinGroupScreen extends Component {
       return;
     }
 
-    const org = await dispatch(lookupOrgCommunityCode(text));
+    try {
+      const org = await dispatch(lookupOrgCommunityCode(text));
 
-    if (!org) {
+      if (!org) {
+        this.setState(errorState);
+        return;
+      }
+      this.setState({ errorMessage: '', community: org });
+    } catch (e) {
       this.setState(errorState);
       return;
     }
-
-    this.setState({ errorMessage: '', community: org });
   };
 
   joinCommunity = async () => {
@@ -82,6 +87,7 @@ class JoinGroupScreen extends Component {
 
     await dispatch(joinCommunity(community.id, community.community_code));
 
+    dispatch(setScrollGroups());
     dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
 

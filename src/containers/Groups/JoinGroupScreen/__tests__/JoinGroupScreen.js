@@ -9,12 +9,27 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack, navigateReset } from '../../../../actions/navigation';
-import * as organizations from '../../../../actions/organizations';
 import { MAIN_TABS } from '../../../../constants';
+import {
+  lookupOrgCommunityCode,
+  joinCommunity,
+} from '../../../../actions/organizations';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
   navigateReset: jest.fn(() => ({ type: 'reset' })),
+}));
+jest.mock('../../../../actions/organizations', () => ({
+  lookupOrgCommunityCode: jest.fn(() => ({
+    type: 'lookup',
+    name: 'test',
+    contactReport: {},
+  })),
+  joinCommunity: jest.fn(() => ({
+    type: 'join',
+    name: 'test',
+    contactReport: {},
+  })),
 }));
 
 const mockStore = configureStore();
@@ -67,60 +82,31 @@ describe('JoinGroupScreen', () => {
     //tests for temporary implementation of onSearch
     //if input has 6 digits, community added to state
     //otherwise, error added to state
-    it('should set error if input has < 6 digits', () => {
+    it('should set error if input has < 6 digits', async () => {
       const component = buildScreen();
 
       component.instance().codeInput = { focus: jest.fn() };
 
-      component
+      await component
         .find('Input')
         .props()
         .onChangeText('123');
 
-      component
-        .childAt(2)
-        .childAt(0)
-        .props()
-        .onPress();
-
       expect(component.instance().state).toMatchSnapshot();
     });
 
-    it('should set community if input has 6 digits', () => {
+    it('should set community after entering 6th digit', async () => {
       const component = buildScreen();
 
       component.instance().codeInput = { focus: jest.fn() };
 
-      component
-        .find('Input')
-        .props()
-        .onChangeText('123456');
-
-      component
-        .childAt(2)
-        .childAt(0)
-        .props()
-        .onPress();
-
-      expect(component.instance().state).toMatchSnapshot();
-    });
-
-    it('should set community after entering 6th digit', () => {
-      const component = buildScreen();
-
-      component.instance().codeInput = { focus: jest.fn() };
-
-      organizations.lookupOrgCommunityCode = jest.fn(() =>
-        Promise.resolve(mockCommunity),
-      );
-
-      component
+      await component
         .find('Input')
         .props()
         .onChangeText('123456');
 
       expect(component.instance().state).toMatchSnapshot();
-      expect(organizations.lookupOrgCommunityCode).toHaveBeenCalled();
+      expect(lookupOrgCommunityCode).toHaveBeenCalled();
     });
   });
 
@@ -130,7 +116,6 @@ describe('JoinGroupScreen', () => {
     component.setState({ community: mockCommunity });
     component.update();
 
-    organizations.joinCommunity = jest.fn(() => ({ type: 'join' }));
     await component
       .childAt(1)
       .childAt(0)
@@ -138,7 +123,7 @@ describe('JoinGroupScreen', () => {
       .props()
       .onJoin();
 
-    expect(organizations.joinCommunity).toHaveBeenCalledWith(
+    expect(joinCommunity).toHaveBeenCalledWith(
       mockCommunity.id,
       mockCommunity.community_code,
     );

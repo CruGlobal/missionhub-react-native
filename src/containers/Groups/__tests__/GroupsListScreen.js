@@ -10,6 +10,7 @@ import * as common from '../../../utils/common';
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from '../GroupScreen';
 import { JOIN_GROUP_SCREEN } from '../JoinGroupScreen';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
+import { resetScrollGroups } from '../../../actions/swipe';
 
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/navigation', () => ({
@@ -17,6 +18,9 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 jest.mock('../../../actions/organizations', () => ({
   getMyCommunities: jest.fn(() => ({ type: 'test' })),
+}));
+jest.mock('../../../actions/swipe', () => ({
+  resetScrollGroups: jest.fn(() => ({ type: 'reset' })),
 }));
 
 const mockStore = configureStore();
@@ -36,14 +40,15 @@ const organizations = {
   ],
 };
 const auth = {};
-const store = mockStore({ organizations, auth });
+const swipe = {};
+const store = mockStore({ organizations, auth, swipe });
 
 communitiesSelector.mockReturnValue(organizations.all);
 
 it('should render null state', () => {
   const component = renderShallow(
     <GroupsListScreen />,
-    mockStore({ organizations: { all: [] }, auth }),
+    mockStore({ organizations: { all: [] }, auth, swipe }),
   );
   expect(component).toMatchSnapshot();
 });
@@ -122,11 +127,27 @@ describe('GroupsListScreen', () => {
     expect(getMyCommunities).toHaveBeenCalled();
   });
 
-  it('should load groups on mount', () => {
+  it('should load groups on mount', async () => {
     const instance = component.instance();
     instance.loadGroups = jest.fn();
-    instance.componentDidMount();
+    await instance.componentDidMount();
     expect(instance.loadGroups).toHaveBeenCalled();
+  });
+
+  it('should load groups and scroll to bottom on mount', async () => {
+    const store = mockStore({
+      organizations,
+      auth,
+      swipe: { groupScrollOnMount: true },
+    });
+    component = renderShallow(<GroupsListScreen />, store);
+    const instance = component.instance();
+    instance.flatList = { scrollToEnd: jest.fn() };
+    instance.loadGroups = jest.fn();
+    await instance.componentDidMount();
+    expect(instance.loadGroups).toHaveBeenCalled();
+    expect(resetScrollGroups).toHaveBeenCalled();
+    expect(instance.flatList.scrollToEnd).toHaveBeenCalled();
   });
 
   it('should refresh the list', () => {

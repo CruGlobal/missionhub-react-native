@@ -17,6 +17,7 @@ import { openMainMenu, refresh } from '../../utils/common';
 import NULL from '../../../assets/images/MemberContacts.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import { getMyCommunities } from '../../actions/organizations';
+import { resetScrollGroups } from '../../actions/swipe';
 
 import { GROUP_SCREEN, USER_CREATED_GROUP_SCREEN } from './GroupScreen';
 import styles from './styles';
@@ -27,9 +28,14 @@ import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 class GroupsListScreen extends Component {
   state = { refreshing: false };
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { scrollOnLoad, dispatch } = this.props;
     // Always load groups when this tab mounts
-    this.loadGroups();
+    await this.loadGroups();
+    if (scrollOnLoad) {
+      this.flatList && this.flatList.scrollToEnd();
+      dispatch(resetScrollGroups());
+    }
   }
 
   loadGroups = () => this.props.dispatch(getMyCommunities());
@@ -63,6 +69,8 @@ class GroupsListScreen extends Component {
     <GroupCardItem group={item} onPress={this.handlePress} />
   );
 
+  refList = c => (this.flatList = c);
+
   renderNull() {
     const { t } = this.props;
 
@@ -78,6 +86,7 @@ class GroupsListScreen extends Component {
   renderList() {
     return (
       <FlatList
+        ref={this.refList}
         style={styles.cardList}
         data={this.props.orgs}
         keyExtractor={this.keyExtractor}
@@ -138,8 +147,9 @@ class GroupsListScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ organizations, auth }) => ({
+const mapStateToProps = ({ organizations, auth, swipe }) => ({
   orgs: communitiesSelector({ organizations, auth }),
+  scrollOnLoad: swipe.groupScrollOnMount,
 });
 
 export default connect(mapStateToProps)(GroupsListScreen);

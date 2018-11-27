@@ -5,6 +5,7 @@ import {
   SWIPE_REMINDER_JOURNEY,
   GROUP_INVITE_INFO,
   GROUP_ONBOARDING_CARD,
+  GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../constants';
 
 export function removeSwipeStepsHome() {
@@ -24,4 +25,10 @@ export function removeGroupOnboardingCard(target) {
 }
 export function removeGroupInviteInfo() {
   return { type: GROUP_INVITE_INFO };
+}
+export function setScrollGroups() {
+  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: true };
+}
+export function resetScrollGroups() {
+  return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: false };
 }

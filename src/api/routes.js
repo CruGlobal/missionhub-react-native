@@ -29,6 +29,8 @@ export default {
   // 'PLANETS': {
   //   method: 'get', (defaults to get)
   //   anonymous: false, (defaults to false)
+  //   Put the access token on if it exists, otherwise ignore it
+  //   anonymousOptional: false, (defaults to false)
   //   endpoint: 'planets/1',
   //   (returns true if it's good or a string with the error message)
   //   beforeCall(query, data) {
@@ -140,11 +142,11 @@ export default {
   },
   LOOKUP_COMMUNITY_CODE: {
     endpoint: `${ORG_URL}/find_by_code`,
-    anonymous: true,
+    anonymousOptional: true,
   },
   JOIN_COMMUNITY: {
     endpoint: `${API_URL}organizational_permissions`,
-    anonymous: true,
+    anonymousOptional: true,
     method: 'post',
   },
   ADD_NEW_ORGANIZATION: {
