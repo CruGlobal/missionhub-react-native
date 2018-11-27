@@ -5,15 +5,9 @@ import PropTypes from 'prop-types';
 
 import { Flex, Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
-import { orgPermissionSelector } from '../../selectors/people';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import {
-  completeChallenge,
-  joinChallenge,
-  updateChallenge,
-} from '../../actions/challenges';
+import { navigatePush } from '../../actions/navigation';
+import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { isAdminOrOwner } from '../../utils/common';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS } from '../../constants';
 
