@@ -30,8 +30,9 @@ import {
   generateNewCode,
   generateNewLink,
 } from '../../../actions/organizations';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ORG_PERMISSIONS, MAIN_TABS } from '../../../constants';
+import { ORG_PERMISSIONS, MAIN_TABS, ACTIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 
@@ -58,7 +59,10 @@ class GroupProfile extends Component {
     }
   };
 
-  copyCode = () => copyText(this.props.organization.community_code);
+  copyCode = () => {
+    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_COMMUNITY_CODE));
+    copyText(this.props.organization.community_code);
+  };
 
   copyUrl = () =>
     copyText(getCommunityUrl(this.props.organization.community_url));
@@ -95,6 +99,7 @@ class GroupProfile extends Component {
 
   deleteOrg = async () => {
     const { dispatch, organization } = this.props;
+    dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
     await dispatch(deleteOrganization(organization.id));
     dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
   };
@@ -120,6 +125,7 @@ class GroupProfile extends Component {
       this.setState({ editing: false });
     } else {
       this.setState({ editing: true, name: this.props.organization.name });
+      this.props.dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_EDIT));
     }
   };
 

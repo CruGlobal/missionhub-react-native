@@ -302,6 +302,30 @@ export const ACTIONS = {
     name: 'Leave Community',
     key: 'cru.membersleave',
   },
+  COMMUNITY_EDIT: {
+    name: 'Editting Community',
+    key: 'cru.communityedit',
+  },
+  COPY_CODE: {
+    name: 'Copy Community Code',
+    key: 'cru.copycode',
+  },
+  COPY_INVITE_URL: {
+    name: 'Copy Community Invite URL',
+    key: 'cru.copyinviteurl',
+  },
+  NEW_CODE: {
+    name: 'New Community Code',
+    key: 'cru.newcode',
+  },
+  NEW_INVITE_URL: {
+    name: 'New Community Invite URL',
+    key: 'cru.newinviteurl',
+  },
+  COMMUNITY_DELETE: {
+    name: 'Delete Community',
+    key: 'cru.communitydelete',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
