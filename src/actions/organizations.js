@@ -431,15 +431,3 @@ export function removeOrganizationMember(personId, orgId) {
     orgId,
   };
 }
-
-export function searchCommunityWithCode() {
-  return dispatch => {
-    return dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
-  };
-}
-
-export function joinCommunityWithCode() {
-  return dispatch => {
-    return dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
-  };
-}

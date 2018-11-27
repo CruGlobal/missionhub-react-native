@@ -29,8 +29,6 @@ import {
   generateNewCode,
   removeOrganizationMember,
   generateNewLink,
-  searchCommunityWithCode,
-  joinCommunityWithCode,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 
@@ -708,31 +706,5 @@ describe('removeOrganizationMember', () => {
       personId,
       orgId,
     });
-  });
-});
-
-describe('searchCommunityWithCode', () => {
-  const trackActionResponse = { type: 'track action' };
-  trackActionWithoutData.mockReturnValue(trackActionResponse);
-
-  it('searches for community', () => {
-    store.dispatch(searchCommunityWithCode());
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
-    );
-  });
-});
-
-describe('joinCommunityWithCode', () => {
-  const trackActionResponse = { type: 'track action' };
-  trackActionWithoutData.mockReturnValue(trackActionResponse);
-
-  it('joins community', () => {
-    store.dispatch(joinCommunityWithCode());
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
-    );
   });
 });

@@ -21,6 +21,8 @@ import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
+//import { trackActionWithoutData } from '../../../actions/analytics';
+//import { ACTIONS } from '../../../constants';
 
 import styles from './styles';
 
@@ -46,6 +48,7 @@ class JoinGroupScreen extends Component {
       state: { code },
       props: { t },
     } = this;
+    /*dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));*/
 
     codeInput.focus();
 
@@ -74,9 +77,10 @@ class JoinGroupScreen extends Component {
   joinCommunity = () => {
     Keyboard.dismiss();
     // TODO: join community
-    /*dispatch(
-      trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY),
-    );*/
+    //trackAction for joining community
+    /*dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));*/
+    //trackAction for entering community that was just joined
+    /*dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));*/
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());
