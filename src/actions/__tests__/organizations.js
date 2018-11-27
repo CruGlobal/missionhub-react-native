@@ -9,8 +9,10 @@ import {
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
   REMOVE_ORGANIZATION_MEMBER,
+  ACTIONS,
 } from '../../constants';
 import callApi, { REQUESTS } from '../api';
+import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
   getOrganizationsContactReports,
@@ -27,9 +29,12 @@ import {
   generateNewCode,
   removeOrganizationMember,
   generateNewLink,
+  searchCommunityWithCode,
+  joinCommunityWithCode,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 
+jest.mock('../analytics');
 jest.mock('../../selectors/organizations');
 jest.mock('../api');
 jest.mock('../person');
@@ -646,5 +651,31 @@ describe('removeOrganizationMember', () => {
       personId,
       orgId,
     });
+  });
+});
+
+describe('searchCommunityWithCode', () => {
+  const trackActionResponse = { type: 'track action' };
+  trackActionWithoutData.mockReturnValue(trackActionResponse);
+
+  it('searches for community', () => {
+    store.dispatch(searchCommunityWithCode());
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.SEARCH_COMMUNITY_WITH_CODE,
+    );
+  });
+});
+
+describe('joinCommunityWithCode', () => {
+  const trackActionResponse = { type: 'track action' };
+  trackActionWithoutData.mockReturnValue(trackActionResponse);
+
+  it('joins community', () => {
+    store.dispatch(joinCommunityWithCode());
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.JOIN_COMMUNITY_WITH_CODE,
+    );
   });
 });

@@ -5,11 +5,13 @@ import {
   DEFAULT_PAGE_LIMIT,
   LOAD_ORGANIZATIONS,
   REMOVE_ORGANIZATION_MEMBER,
+  ACTIONS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 
 import { getMe, getPersonDetails } from './person';
 import callApi, { REQUESTS } from './api';
+import { trackActionWithoutData } from './analytics';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -424,5 +426,17 @@ export function removeOrganizationMember(personId, orgId) {
     type: REMOVE_ORGANIZATION_MEMBER,
     personId,
     orgId,
+  };
+}
+
+export function searchCommunityWithCode() {
+  return dispatch => {
+    return dispatch(trackActionWithoutData(ACTIONS.SEARCH_COMMUNITY_WITH_CODE));
+  };
+}
+
+export function joinCommunityWithCode() {
+  return dispatch => {
+    return dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
   };
 }

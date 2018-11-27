@@ -249,6 +249,14 @@ export const ACTIONS = {
     name: 'Community Selected After Join',
     key: 'cru.joincommunities',
   },
+  SEARCH_COMMUNITY_WITH_CODE: {
+    name: 'Search for Community With Code',
+    key: 'cru.codesearch',
+  },
+  JOIN_COMMUNITY_WITH_CODE: {
+    name: 'Join Community With Code',
+    key: 'cru.codejoin',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
