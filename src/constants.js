@@ -239,15 +239,15 @@ export const ACTIONS = {
   },
   SELECT_COMMUNITY: {
     name: 'Community Selected',
-    SELECT: 'cru.selectcommunities',
+    key: 'cru.selectcommunities',
   },
   SELECT_CREATED_COMMUNITY: {
     name: 'Community Selected After Create',
-    CREATE: 'cru.createcommunities',
+    key: 'cru.createcommunities',
   },
   SELECT_JOINED_COMMUNITY: {
     name: 'Community Selected After Join',
-    JOIN: 'cru.joincommunities',
+    key: 'cru.joincommunities',
   },
 };
 
