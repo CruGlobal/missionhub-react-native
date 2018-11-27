@@ -282,6 +282,26 @@ export const ACTIONS = {
     name: 'Challenge Detail View',
     key: 'cru.challengedetail',
   },
+  MANAGE_MAKE_ADMIN: {
+    name: 'Make Admin',
+    key: 'cru.membersmakeadmin',
+  },
+  MANAGE_MAKE_OWNER: {
+    name: 'Make Owner',
+    key: 'cru.membersmakeowner',
+  },
+  MANAGE_REMOVE_ADMIN: {
+    name: 'Remove Admin',
+    key: 'cru.membersremoveadmin',
+  },
+  MANAGE_REMOVE_MEMBER: {
+    name: 'Remove Member',
+    key: 'cru.membersremovemember',
+  },
+  MANAGE_LEAVE_COMMUNITY: {
+    name: 'Leave Community',
+    key: 'cru.membersleave',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
