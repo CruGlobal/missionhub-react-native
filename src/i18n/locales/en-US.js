@@ -608,6 +608,7 @@ export default {
     owner: '{{name}} (Owner)',
     join: 'Join',
     selectStage: 'Select Stage',
+    privateGroup: 'Private Group',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',

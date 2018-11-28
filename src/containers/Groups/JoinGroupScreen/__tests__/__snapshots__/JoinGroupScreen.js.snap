@@ -4,7 +4,6 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
 Object {
   "code": "123456",
   "community": Object {
-    "contactReport": Object {},
     "name": "test",
     "type": "lookup",
   },

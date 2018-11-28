@@ -32,12 +32,10 @@ const organizations = {
     {
       id: '1',
       name: 'Test Org 1',
-      contactReport: {},
     },
     {
       id: '2',
       name: 'Test Org 2',
-      contactReport: {},
       user_created: true,
     },
   ],
@@ -130,7 +128,7 @@ describe('GroupsListScreen', () => {
   it('should render item', () => {
     const instance = component.instance();
     const renderedItem = instance.renderItem({
-      item: { id: '1', name: 'test', contactReport: {} },
+      item: { id: '1', name: 'test' },
     });
     expect(renderedItem).toMatchSnapshot();
   });

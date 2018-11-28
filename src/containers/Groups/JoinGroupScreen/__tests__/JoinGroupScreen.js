@@ -24,12 +24,10 @@ jest.mock('../../../../actions/organizations', () => ({
   lookupOrgCommunityCode: jest.fn(() => ({
     type: 'lookup',
     name: 'test',
-    contactReport: {},
   })),
   joinCommunity: jest.fn(() => ({
     type: 'join',
     name: 'test',
-    contactReport: {},
   })),
 }));
 jest.mock('../../../../actions/analytics', () => ({

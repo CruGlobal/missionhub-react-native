@@ -60,23 +60,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
           }
         }
       >
-        5 Members
-        <React.Fragment>
-          <Dot />
-          <MyText
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-              }
-            }
-          >
-            Roge  (Owner)
-          </MyText>
-        </React.Fragment>
+        Roge  (Owner)
       </MyText>
     </Flex>
     <Flex

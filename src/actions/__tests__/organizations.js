@@ -615,10 +615,6 @@ describe('lookupOrgCommunityCode', () => {
       organization_ids: orgId,
     },
   };
-  const reportQuery = {
-    organization_ids: orgId,
-    period: 'P1W',
-  };
 
   const response = { id: orgId };
   const apiResponse = { type: 'successful', response };
@@ -630,10 +626,6 @@ describe('lookupOrgCommunityCode', () => {
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      reportQuery,
-    );
   });
 });
 

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -31,19 +31,15 @@ export default class GroupCardItem extends Component {
     if (onJoin) {
       return (
         <Text style={styles.groupNumber}>
-          {t('numMembers', { count: memberCount })}
-          {owner ? (
-            <Fragment>
-              <Dot />
-              <Text style={styles.groupNumber}>
-                {t('owner', {
-                  name: `${owner.first_name} ${(owner.last_name || '').charAt(
-                    0,
-                  )}`,
-                })}
-              </Text>
-            </Fragment>
-          ) : null}
+          {owner
+            ? t('owner', {
+                name: `${owner.first_name} ${(owner.last_name || '').charAt(
+                  0,
+                )}`,
+              })
+            : group.user_created
+              ? t('privateGroup')
+              : ''}
         </Text>
       );
     }
@@ -108,7 +104,7 @@ GroupCardItem.propTypes = {
   group: PropTypes.shape({
     name: PropTypes.string.isRequired,
     owner: PropTypes.object,
-    contactReport: PropTypes.object.isRequired,
+    contactReport: PropTypes.object,
     user_created: PropTypes.bool,
   }).isRequired,
   onPress: PropTypes.func,

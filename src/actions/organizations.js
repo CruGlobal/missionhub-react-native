@@ -432,22 +432,24 @@ export function lookupOrgCommunityCode(code) {
     );
     org.owner = ownerResponse[0];
 
+    // No need to get member count anymore since it's an authenticated route
+    // Leaving this code here in case we change that route to be unauthenticated
     // get the report information and append it to the org
-    const reportQuery = {
-      organization_ids: org.id,
-      period: 'P1W',
-    };
-    const { response: reports } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
-    );
+    // const reportQuery = {
+    //   organization_ids: org.id,
+    //   period: 'P1W',
+    // };
+    // const { response: reports } = await dispatch(
+    //   callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, reportQuery),
+    // );
 
-    const report = reports[0] || {};
-    org.contactReport = {
-      contactsCount: report.contact_count,
-      unassignedCount: report.unassigned_count,
-      uncontactedCount: report.uncontacted_count,
-      memberCount: report.member_count,
-    };
+    // const report = reports[0] || {};
+    // org.contactReport = {
+    //   contactsCount: report.contact_count,
+    //   unassignedCount: report.unassigned_count,
+    //   uncontactedCount: report.uncontacted_count,
+    //   memberCount: report.member_count,
+    // };
 
     return org;
   };
