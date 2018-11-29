@@ -159,7 +159,6 @@ describe('GroupProfile', () => {
 
   describe('edit screen', () => {
     let component;
-    let instance;
 
     beforeEach(() => {
       jest.clearAllMocks();
