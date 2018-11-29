@@ -9,12 +9,8 @@ import {
   createMockNavState,
   testSnapshotShallow,
 } from '../../../../../testUtils';
-import { navigateBack, navigateReset } from '../../../../actions/navigation';
-import {
-  MAIN_TABS,
-  ACTIONS,
-  ERROR_PERSON_PART_OF_ORG,
-} from '../../../../constants';
+import { navigateBack } from '../../../../actions/navigation';
+import { ACTIONS, ERROR_PERSON_PART_OF_ORG } from '../../../../constants';
 import {
   lookupOrgCommunityCode,
   joinCommunity,
@@ -50,9 +46,15 @@ const mockCommunity = {
   contactReport: { memberCount: 2 },
 };
 
+const mockNext = jest.fn(() => ({ type: 'nextTest' }));
+
 function buildScreen(props) {
   return renderShallow(
-    <JoinGroupScreen navigation={createMockNavState()} {...props} />,
+    <JoinGroupScreen
+      navigation={createMockNavState()}
+      {...props}
+      next={mockNext}
+    />,
     store,
   );
 }
@@ -138,9 +140,7 @@ describe('JoinGroupScreen', () => {
       mockCommunity.id,
       mockCommunity.community_code,
     );
-    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
-      startTab: 'groups',
-    });
+    expect(mockNext).toHaveBeenCalled();
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );

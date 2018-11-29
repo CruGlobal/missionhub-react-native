@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import {
   Flex,
@@ -20,16 +21,12 @@ import GroupCardItem from '../../../components/GroupCardItem';
 import Header from '../../Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
-import { navigateBack, navigateReset } from '../../../actions/navigation';
+import { navigateBack } from '../../../actions/navigation';
 import {
   lookupOrgCommunityCode,
   joinCommunity,
 } from '../../../actions/organizations';
-import {
-  MAIN_TABS,
-  ACTIONS,
-  ERROR_PERSON_PART_OF_ORG,
-} from '../../../constants';
+import { ACTIONS, ERROR_PERSON_PART_OF_ORG } from '../../../constants';
 import { setScrollGroups } from '../../../actions/swipe';
 import { trackActionWithoutData } from '../../../actions/analytics';
 
@@ -110,11 +107,11 @@ class JoinGroupScreen extends Component {
   };
 
   joined = () => {
-    const { dispatch } = this.props;
+    const { dispatch, next } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
 
     dispatch(setScrollGroups());
-    dispatch(navigateReset(MAIN_TABS, { startTab: 'groups' }));
+    dispatch(next());
   };
 
   navigateBack = () => this.props.dispatch(navigateBack());
@@ -202,7 +199,9 @@ class JoinGroupScreen extends Component {
   }
 }
 
-JoinGroupScreen.propTypes = {};
+JoinGroupScreen.propTypes = {
+  next: PropTypes.func,
+};
 
 export default connect()(JoinGroupScreen);
 export const JOIN_GROUP_SCREEN = 'nav/JOIN_GROUP_SCREEN';
