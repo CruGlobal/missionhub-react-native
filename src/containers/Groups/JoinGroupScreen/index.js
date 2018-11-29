@@ -103,6 +103,8 @@ class JoinGroupScreen extends Component {
         error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
       ) {
         this.joined();
+      } else {
+        throw error;
       }
     }
   };
