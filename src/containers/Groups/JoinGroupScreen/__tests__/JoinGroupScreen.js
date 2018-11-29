@@ -1,5 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import JoinGroupScreen from '..';
 
@@ -9,7 +10,11 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack, navigateReset } from '../../../../actions/navigation';
-import { MAIN_TABS, ACTIONS } from '../../../../constants';
+import {
+  MAIN_TABS,
+  ACTIONS,
+  ERROR_PERSON_PART_OF_ORG,
+} from '../../../../constants';
 import {
   lookupOrgCommunityCode,
   joinCommunity,
@@ -34,8 +39,8 @@ jest.mock('../../../../actions/analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
 
-const mockStore = configureStore();
-const store = mockStore();
+const mockStore = configureStore([thunk]);
+let store = mockStore();
 
 const mockCommunity = {
   id: '123',
@@ -55,6 +60,10 @@ function buildScreen(props) {
 function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
+
+beforeEach(() => {
+  store = mockStore();
+});
 
 describe('JoinGroupScreen', () => {
   it('renders start correctly', () => {
@@ -135,6 +144,64 @@ describe('JoinGroupScreen', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );
+  });
+
+  it('should join community with error code already present', async () => {
+    const component = buildScreen();
+    const instance = component.instance();
+
+    instance.joined = jest.fn();
+
+    component.setState({ community: mockCommunity });
+    component.update();
+
+    joinCommunity.mockImplementation(() => {
+      return async () =>
+        await Promise.reject({
+          apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
+        });
+    });
+
+    await component
+      .childAt(1)
+      .childAt(0)
+      .childAt(0)
+      .props()
+      .onJoin();
+
+    expect(joinCommunity).toHaveBeenCalledWith(
+      mockCommunity.id,
+      mockCommunity.community_code,
+    );
+    expect(instance.joined).toHaveBeenCalled();
+  });
+
+  it('should join community with error code unknown error', async () => {
+    const component = buildScreen();
+    const instance = component.instance();
+
+    instance.joined = jest.fn();
+
+    component.setState({ community: mockCommunity });
+    component.update();
+
+    const someError = {
+      apiError: { errors: [{ detail: 'some error' }] },
+    };
+    joinCommunity.mockImplementation(() => {
+      return async () => await Promise.reject(someError);
+    });
+
+    try {
+      await component
+        .childAt(1)
+        .childAt(0)
+        .childAt(0)
+        .props()
+        .onJoin();
+    } catch (e) {
+      expect(e).toEqual(someError);
+    }
   });
 
   it('should call navigate back', () => {

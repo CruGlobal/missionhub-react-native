@@ -627,6 +627,14 @@ describe('lookupOrgCommunityCode', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, ownerQuery);
   });
+
+  it('look up community by code no org returned', async () => {
+    callApi.mockReturnValue({ type: 'error' });
+
+    const result = await store.dispatch(lookupOrgCommunityCode(code));
+
+    expect(result).toBe(null);
+  });
 });
 
 describe('joinCommunity', () => {
