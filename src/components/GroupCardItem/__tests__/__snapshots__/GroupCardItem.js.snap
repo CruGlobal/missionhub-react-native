@@ -60,7 +60,7 @@ exports[`GroupCardItem renders for join screen 1`] = `
           }
         }
       >
-        Roge  (Owner)
+        Roge (Owner)
       </MyText>
     </Flex>
     <Flex

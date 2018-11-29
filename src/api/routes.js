@@ -2,19 +2,19 @@ import { URL_ENCODED, URL_FORM_DATA } from '../constants';
 
 import { API_URL, THE_KEY_URL } from './utils';
 
-const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth/`;
+const THE_KEY_OAUTH_URL = `${THE_KEY_URL}api/oauth`;
 
-const CHALLENGES_URL = `${API_URL}challenges/`;
-const GROUP_CHALLENGE_URL = `${API_URL}community_challenges/`;
-const GROUP_ACCEPTED_CHALLENGE_URL = `${API_URL}accepted_community_challenges/`;
+const CHALLENGES_URL = `${API_URL}/challenges`;
+const GROUP_CHALLENGE_URL = `${API_URL}/community_challenges`;
+const GROUP_ACCEPTED_CHALLENGE_URL = `${API_URL}/accepted_community_challenges`;
 
-const AUTH_URL = `${API_URL}auth/`;
-const PEOPLE_URL = `${API_URL}people/`;
-const SURVEY_URL = `${API_URL}surveys`;
-const ORG_URL = `${API_URL}organizations`;
+const AUTH_URL = `${API_URL}/auth`;
+const PEOPLE_URL = `${API_URL}/people`;
+const SURVEY_URL = `${API_URL}/surveys`;
+const ORG_URL = `${API_URL}/organizations`;
 
 const KEY_TOKEN = {
-  endpoint: `${THE_KEY_OAUTH_URL}token`,
+  endpoint: `${THE_KEY_OAUTH_URL}/token`,
   method: 'post',
   extra: {
     stringify: false,
@@ -53,7 +53,7 @@ export default {
   KEY_LOGIN: KEY_TOKEN,
   KEY_REFRESH_TOKEN: KEY_TOKEN,
   KEY_GET_TICKET: {
-    endpoint: `${THE_KEY_OAUTH_URL}ticket?service=${AUTH_URL}thekey`,
+    endpoint: `${THE_KEY_OAUTH_URL}/ticket?service=${AUTH_URL}/thekey`,
     method: 'get',
     extra: {
       stringify: false,
@@ -61,72 +61,72 @@ export default {
     useJsonDataApiStore: false,
   },
   TICKET_LOGIN: {
-    endpoint: `${AUTH_URL}thekey`,
+    endpoint: `${AUTH_URL}/thekey`,
     method: 'post',
     useJsonDataApiStore: false,
   },
   FACEBOOK_LOGIN: {
-    endpoint: `${AUTH_URL}facebook`,
+    endpoint: `${AUTH_URL}/facebook`,
     method: 'post',
     useJsonDataApiStore: false,
     anonymous: true,
   },
   GET_ME: {
-    endpoint: `${PEOPLE_URL}me`,
+    endpoint: `${PEOPLE_URL}/me`,
   },
   GET_PERSON: {
-    endpoint: `${PEOPLE_URL}:person_id`,
+    endpoint: `${PEOPLE_URL}/:person_id`,
   },
   GET_PERSON_FEED: {
-    endpoint: `${API_URL}person_feed`,
+    endpoint: `${API_URL}/person_feed`,
   },
   GET_STAGES: {
-    endpoint: `${API_URL}pathway_stages`,
+    endpoint: `${API_URL}/pathway_stages`,
     anonymous: true,
   },
   GET_CHALLENGE_SUGGESTIONS: {
-    endpoint: `${API_URL}challenge_suggestions`,
+    endpoint: `${API_URL}/challenge_suggestions`,
     anonymous: true,
   },
   ADD_CHALLENGES: {
-    endpoint: `${PEOPLE_URL}:person_id`,
+    endpoint: `${PEOPLE_URL}/:person_id`,
     method: 'put',
   },
   GET_MY_CHALLENGES: {
     endpoint: CHALLENGES_URL,
   },
   DELETE_CHALLENGE: {
-    endpoint: `${CHALLENGES_URL}:challenge_id`,
+    endpoint: `${CHALLENGES_URL}/:challenge_id`,
     method: 'delete',
   },
   GET_CHALLENGES_BY_FILTER: {
     endpoint: CHALLENGES_URL,
   },
   CHALLENGE_COMPLETE: {
-    endpoint: `${CHALLENGES_URL}:challenge_id`,
+    endpoint: `${CHALLENGES_URL}/:challenge_id`,
     method: 'put',
   },
   CHALLENGE_SET_FOCUS: {
-    endpoint: `${CHALLENGES_URL}:challenge_id`,
+    endpoint: `${CHALLENGES_URL}/:challenge_id`,
     method: 'put',
   },
   GET_PEOPLE_LIST: {
     endpoint: PEOPLE_URL,
   },
   CREATE_MY_PERSON: {
-    endpoint: `${AUTH_URL}client_token`,
+    endpoint: `${AUTH_URL}/client_token`,
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
   },
   REFRESH_ANONYMOUS_LOGIN: {
-    endpoint: `${AUTH_URL}client_token`,
+    endpoint: `${AUTH_URL}/client_token`,
     method: 'post',
     anonymous: true,
     useJsonDataApiStore: false,
   },
   UPDATE_ME_USER: {
-    endpoint: `${API_URL}users/me`,
+    endpoint: `${API_URL}/users/me`,
     method: 'put',
   },
   ADD_NEW_PERSON: {
@@ -134,7 +134,7 @@ export default {
     method: 'post',
   },
   UPDATE_PERSON: {
-    endpoint: `${PEOPLE_URL}:personId`,
+    endpoint: `${PEOPLE_URL}/:personId`,
     method: 'put',
   },
   GET_ORGANIZATIONS: {
@@ -145,7 +145,7 @@ export default {
     anonymousOptional: true,
   },
   JOIN_COMMUNITY: {
-    endpoint: `${API_URL}organizational_permissions`,
+    endpoint: `${API_URL}/organizational_permissions`,
     anonymousOptional: true,
     method: 'post',
   },
@@ -200,22 +200,22 @@ export default {
     method: 'post',
   },
   COMPLETE_GROUP_CHALLENGE: {
-    endpoint: `${GROUP_ACCEPTED_CHALLENGE_URL}:challengeId`,
+    endpoint: `${GROUP_ACCEPTED_CHALLENGE_URL}/:challengeId`,
     method: 'put',
   },
   UPDATE_GROUP_CHALLENGE: {
-    endpoint: `${GROUP_CHALLENGE_URL}:challenge_id`,
+    endpoint: `${GROUP_CHALLENGE_URL}/:challenge_id`,
     method: 'put',
   },
   CREATE_GROUP_CHALLENGE: {
-    endpoint: `${GROUP_CHALLENGE_URL}`,
+    endpoint: GROUP_CHALLENGE_URL,
     method: 'post',
   },
   GET_GROUP_CHALLENGE: {
-    endpoint: `${GROUP_CHALLENGE_URL}:challenge_id`,
+    endpoint: `${GROUP_CHALLENGE_URL}/:challenge_id`,
   },
   GET_MY_GROUPS: {
-    endpoint: `${API_URL}groups`,
+    endpoint: `${API_URL}/groups`,
   },
   GET_SURVEY_QUESTIONS: {
     endpoint: `${SURVEY_URL}/:surveyId/questions`,
@@ -234,57 +234,57 @@ export default {
     endpoint: `${ORG_URL}/:orgId`,
   },
   GET_IMPACT_SUMMARY: {
-    endpoint: `${API_URL}reports/impact`,
+    endpoint: `${API_URL}/reports/impact`,
   },
   GET_PEOPLE_INTERACTIONS_REPORT: {
-    endpoint: `${API_URL}reports/people`,
+    endpoint: `${API_URL}/reports/people`,
   },
   GET_ORGANIZATION_INTERACTIONS_REPORT: {
-    endpoint: `${API_URL}reports/organizations`,
+    endpoint: `${API_URL}/reports/organizations`,
   },
   SET_PUSH_TOKEN: {
-    endpoint: `${API_URL}push_notification_device_tokens`,
+    endpoint: `${API_URL}/push_notification_device_tokens`,
     method: 'post',
   },
   DELETE_PUSH_TOKEN: {
-    endpoint: `${API_URL}push_notification_device_tokens/:deviceId`,
+    endpoint: `${API_URL}/push_notification_device_tokens/:deviceId`,
     method: 'delete',
   },
   CREATE_CONTACT_ASSIGNMENT: {
-    endpoint: `${API_URL}contact_assignments`,
+    endpoint: `${API_URL}/contact_assignments`,
     method: 'post',
   },
   UPDATE_CONTACT_ASSIGNMENT: {
-    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    endpoint: `${API_URL}/contact_assignments/:contactAssignmentId`,
     method: 'put',
   },
   DELETE_CONTACT_ASSIGNMENT: {
-    endpoint: `${API_URL}contact_assignments/:contactAssignmentId`,
+    endpoint: `${API_URL}/contact_assignments/:contactAssignmentId`,
     method: 'delete',
   },
   ADD_NEW_INTERACTION: {
-    endpoint: `${API_URL}interactions`,
+    endpoint: `${API_URL}/interactions`,
     method: 'post',
   },
   EDIT_COMMENT: {
-    endpoint: `${API_URL}interactions/:interactionId`,
+    endpoint: `${API_URL}/interactions/:interactionId`,
     method: 'put',
   },
   SEARCH: {
-    endpoint: `${API_URL}search`,
+    endpoint: `${API_URL}/search`,
   },
   ADD_PERSON_NOTE: {
-    endpoint: `${API_URL}person_notes`,
+    endpoint: `${API_URL}/person_notes`,
     method: 'post',
   },
   UPDATE_PERSON_NOTE: {
-    endpoint: `${API_URL}person_notes/:noteId`,
+    endpoint: `${API_URL}/person_notes/:noteId`,
     method: 'put',
   },
   GET_PERSON_NOTE: {
-    endpoint: `${PEOPLE_URL}:person_id`,
+    endpoint: `${PEOPLE_URL}/:person_id`,
   },
   GET_ANSWER_SHEETS: {
-    endpoint: `${API_URL}answer_sheets`,
+    endpoint: `${API_URL}/answer_sheets`,
   },
 };

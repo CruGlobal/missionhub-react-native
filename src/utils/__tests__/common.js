@@ -20,6 +20,7 @@ import {
   getPersonPhoneNumber,
   getPersonEmailAddress,
   getStageIndex,
+  getFirstNameAndLastInitial,
 } from '../common';
 import { MAIN_MENU_DRAWER, DEFAULT_PAGE_LIMIT } from '../../constants';
 
@@ -446,4 +447,13 @@ describe('getStageIndex', () => {
 
   it('returns undefined if not found', () =>
     expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
+});
+
+describe('getFirstNameAndLastInitial', () => {
+  it('get first and last name', () =>
+    expect(getFirstNameAndLastInitial('First', 'Last')).toEqual('First L'));
+  it('get first and last name without names', () =>
+    expect(getFirstNameAndLastInitial()).toEqual(''));
+  it('get first and last name without last name', () =>
+    expect(getFirstNameAndLastInitial('First')).toEqual('First'));
 });

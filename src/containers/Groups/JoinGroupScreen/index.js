@@ -25,7 +25,11 @@ import {
   lookupOrgCommunityCode,
   joinCommunity,
 } from '../../../actions/organizations';
-import { MAIN_TABS, ACTIONS } from '../../../constants';
+import {
+  MAIN_TABS,
+  ACTIONS,
+  ERROR_PERSON_PART_OF_ORG,
+} from '../../../constants';
 import { setScrollGroups } from '../../../actions/swipe';
 import { trackActionWithoutData } from '../../../actions/analytics';
 
@@ -86,7 +90,25 @@ class JoinGroupScreen extends Component {
     const { community } = this.state;
     Keyboard.dismiss();
 
-    await dispatch(joinCommunity(community.id, community.community_code));
+    try {
+      await dispatch(joinCommunity(community.id, community.community_code));
+      this.joined();
+    } catch (error) {
+      // If the user is already part of the organization, just continue like normal
+      if (
+        error &&
+        error.apiError &&
+        error.apiError.errors &&
+        error.apiError.errors[0] &&
+        error.apiError.errors[0].detail === ERROR_PERSON_PART_OF_ORG
+      ) {
+        this.joined();
+      }
+    }
+  };
+
+  joined = () => {
+    const { dispatch } = this.props;
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
 
     dispatch(setScrollGroups());

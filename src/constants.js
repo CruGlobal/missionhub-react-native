@@ -70,6 +70,8 @@ export const INVALID_GRANT = 'invalid_grant';
 export const NETWORK_REQUEST_FAILED = 'Network request failed';
 export const CANNOT_EDIT_FIRST_NAME =
   'You are not allowed to edit first names of other MissionHub users';
+export const ERROR_PERSON_PART_OF_ORG =
+  'this person already has permissions on this organization';
 export const MFA_REQUIRED = 'mfa_required';
 
 export const URL_ENCODED = 'application/x-www-form-urlencoded';

@@ -8,6 +8,7 @@ import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.pn
 // TODO: Need the correct default image for user created communities
 import DEFAULT_USER_COMMUNITY_IMAGE from '../../../assets/images/impactBackground.png';
 import Dot from '../Dot';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 
 import styles from './styles';
 
@@ -33,9 +34,10 @@ export default class GroupCardItem extends Component {
         <Text style={styles.groupNumber}>
           {owner
             ? t('owner', {
-                name: `${owner.first_name} ${(owner.last_name || '').charAt(
-                  0,
-                )}`,
+                name: getFirstNameAndLastInitial(
+                  owner.first_name,
+                  owner.last_name,
+                ),
               })
             : group.user_created
               ? t('privateGroup')

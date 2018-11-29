@@ -411,26 +411,14 @@ export function deleteOrganization(orgId) {
 export function lookupOrgCommunityCode(code) {
   return async dispatch => {
     const query = { community_code: code };
-    const { response } = await dispatch(
+    const { response: org } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
     );
-
-    if (!response || !response.id) {
+    if (!org || !org.id) {
       return null;
     }
-    const org = response;
 
-    // get the owner information and append it to the org
-    const ownerQuery = {
-      filters: {
-        permissions: 'owner',
-        organization_ids: org.id,
-      },
-    };
-    const { response: ownerResponse } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, ownerQuery),
-    );
-    org.owner = ownerResponse[0];
+    const orgWithOwner = await dispatch(getOwner(org));
 
     // No need to get member count anymore since it's an authenticated route
     // Leaving this code here in case we change that route to be unauthenticated
@@ -451,7 +439,24 @@ export function lookupOrgCommunityCode(code) {
     //   memberCount: report.member_count,
     // };
 
-    return org;
+    return orgWithOwner;
+  };
+}
+
+function getOwner(org) {
+  return async dispatch => {
+    // get the owner information and append it to the org
+    const ownerQuery = {
+      filters: {
+        permissions: 'owner',
+        organization_ids: org.id,
+      },
+    };
+    const { response: ownerResponse } = await dispatch(
+      callApi(REQUESTS.GET_PEOPLE_LIST, ownerQuery),
+    );
+    org.owner = ownerResponse[0];
+    return { ...org, owner: ownerResponse[0] };
   };
 }
 

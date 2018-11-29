@@ -21,6 +21,7 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen'
 import { trackActionWithoutData } from '../../actions/analytics';
 import GREY_HEART from '../../../assets/images/heart-grey.png';
 import BLUE_HEART from '../../../assets/images/heart-blue.png';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 
 import styles from './styles';
 
@@ -61,7 +62,7 @@ class CelebrateItem extends Component {
       subject_person: { first_name, last_name },
     } = event;
 
-    const name = `${first_name}${last_name ? ` ${last_name[0]}.` : ''}`;
+    const name = `${getFirstNameAndLastInitial(first_name, last_name)}.`;
 
     switch (event.celebrateable_type) {
       case completedStep:
