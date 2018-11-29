@@ -60,12 +60,14 @@ class GroupProfile extends Component {
   };
 
   copyCode = () => {
-    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_COMMUNITY_CODE));
+    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_CODE));
     copyText(this.props.organization.community_code);
   };
 
-  copyUrl = () =>
+  copyUrl = () => {
+    this.props.dispatch(trackActionWithoutData(ACTIONS.COPY_INVITE_URL));
     copyText(getCommunityUrl(this.props.organization.community_url));
+  };
 
   navigateBack = () => this.props.dispatch(navigateBack());
 
@@ -78,6 +80,7 @@ class GroupProfile extends Component {
       {
         text: t('yes'),
         onPress: () => {
+          this.props.dispatch(trackActionWithoutData(ACTIONS.NEW_CODE));
           dispatch(generateNewCode(organization.id));
         },
       },
@@ -91,6 +94,7 @@ class GroupProfile extends Component {
       {
         text: t('yes'),
         onPress: () => {
+          this.props.dispatch(trackActionWithoutData(ACTIONS.NEW_INVITE_URL));
           dispatch(generateNewLink(organization.id));
         },
       },

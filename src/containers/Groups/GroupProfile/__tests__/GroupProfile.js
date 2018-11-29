@@ -17,8 +17,9 @@ import {
   generateNewCode,
   generateNewLink,
 } from '../../../../actions/organizations';
+import { trackActionWithoutData } from '../../../../actions/analytics';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ORG_PERMISSIONS, MAIN_TABS } from '../../../../constants';
+import { ORG_PERMISSIONS, MAIN_TABS, ACTIONS } from '../../../../constants';
 import * as common from '../../../../utils/common';
 
 jest.mock('../../../../actions/navigation', () => ({
@@ -32,6 +33,9 @@ jest.mock('../../../../actions/organizations', () => ({
   deleteOrganization: jest.fn(() => ({ type: 'delete org' })),
   generateNewCode: jest.fn(() => ({ type: 'new code' })),
   generateNewLink: jest.fn(() => ({ type: 'new link' })),
+}));
+jest.mock('../../../../actions/analytics', () => ({
+  trackActionWithoutData: jest.fn(() => ({ type: 'Track Action' })),
 }));
 jest.mock('../../../../selectors/organizations');
 
@@ -80,6 +84,7 @@ const organization = {
     },
   ],
 };
+
 const orgWithImage = {
   ...organization,
   community_photo_url:
@@ -152,91 +157,124 @@ describe('GroupProfile', () => {
     );
   });
 
-  it('renders editing state', () => {
-    const component = buildScreen();
-    // Press the "Edit" button
-    component
-      .childAt(2)
-      .childAt(1)
-      .childAt(0)
-      .props()
-      .onPress();
-    component.update();
+  describe('edit screen', () => {
+    let component;
+    let instance;
 
-    expect(component.instance().state).toEqual({
-      editing: true,
-      name: organization.name,
-      imageData: null,
+    beforeEach(() => {
+      jest.clearAllMocks();
+
+      component = buildScreen();
+      // Press the "Edit" button
+      component
+        .childAt(2)
+        .childAt(1)
+        .childAt(0)
+        .props()
+        .onPress();
+      component.update();
     });
-    expect(component).toMatchSnapshot();
-  });
 
-  it('handle image change', () => {
-    const component = buildScreen();
-    // Press the "Edit" button
-    component.instance().handleEdit();
-    component.update();
-    const data = { uri: 'testuri' };
-    component
-      .childAt(0)
-      .props()
-      .onSelectImage(data);
+    it('renders editing state', () => {
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.COMMUNITY_EDIT,
+      );
+      expect(component.instance().state).toEqual({
+        editing: true,
+        name: organization.name,
+        imageData: null,
+      });
+      expect(component).toMatchSnapshot();
+    });
 
-    expect(component.instance().state.imageData).toBe(data);
-  });
+    it('handle image change', () => {
+      const data = { uri: 'testuri' };
+      component
+        .childAt(0)
+        .props()
+        .onSelectImage(data);
 
-  it('handle name change', () => {
-    const component = buildScreen();
-    // Press the "Edit" button
-    component.instance().handleEdit();
-    component.update();
-    const text = 'new name';
-    component
-      .childAt(1)
-      .childAt(0)
-      .childAt(0)
-      .props()
-      .onChangeText(text);
+      expect(component.instance().state.imageData).toBe(data);
+    });
 
-    expect(component.instance().state.name).toBe(text);
-  });
+    it('handle name change', () => {
+      const text = 'new name';
+      component
+        .childAt(1)
+        .childAt(0)
+        .childAt(0)
+        .props()
+        .onChangeText(text);
 
-  it('handle new code', () => {
-    const component = buildScreen();
-    const instance = component.instance();
-    // Press the "Edit" button
-    instance.handleEdit();
-    component.update();
-    component
-      .childAt(1)
-      .childAt(4)
-      .childAt(1)
-      .props()
-      .onPress();
+      expect(component.instance().state.name).toBe(text);
+    });
 
-    expect(Alert.alert).toHaveBeenCalled();
-    //Manually call onPress
-    Alert.alert.mock.calls[0][2][1].onPress();
-    expect(generateNewCode).toHaveBeenCalledWith(orgId);
-  });
+    it('handle new code', () => {
+      component
+        .childAt(1)
+        .childAt(4)
+        .childAt(1)
+        .props()
+        .onPress();
 
-  it('handle new link', () => {
-    const component = buildScreen();
-    const instance = component.instance();
-    // Press the "Edit" button
-    instance.handleEdit();
-    component.update();
-    component
-      .childAt(1)
-      .childAt(6)
-      .childAt(1)
-      .props()
-      .onPress();
+      expect(Alert.alert).toHaveBeenCalled();
+      //Manually call onPress
+      Alert.alert.mock.calls[0][2][1].onPress();
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NEW_CODE);
+      expect(generateNewCode).toHaveBeenCalledWith(orgId);
+    });
 
-    expect(Alert.alert).toHaveBeenCalled();
-    //Manually call onPress
-    Alert.alert.mock.calls[1][2][1].onPress();
-    expect(generateNewLink).toHaveBeenCalledWith(orgId);
+    it('handle new link', () => {
+      component
+        .childAt(1)
+        .childAt(6)
+        .childAt(1)
+        .props()
+        .onPress();
+
+      expect(Alert.alert).toHaveBeenCalled();
+      //Manually call onPress
+      Alert.alert.mock.calls[0][2][1].onPress();
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.NEW_INVITE_URL,
+      );
+      expect(generateNewLink).toHaveBeenCalledWith(orgId);
+    });
+
+    it('handles delete organization', async () => {
+      component
+        .childAt(1)
+        .childAt(0)
+        .childAt(1)
+        .props()
+        .actions[0].onPress();
+
+      expect(Alert.alert).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.any(String),
+        [
+          {
+            text: expect.any(String),
+            style: 'cancel',
+          },
+          {
+            text: expect.any(String),
+            style: 'destructive',
+            onPress: expect.any(Function),
+          },
+        ],
+      );
+
+      await Alert.alert.mock.calls[0][2][1].onPress();
+
+      expect(trackActionWithoutData).toHaveBeenCalledWith(
+        ACTIONS.COMMUNITY_DELETE,
+      );
+      expect(deleteOrganization).toHaveBeenCalledWith(orgId);
+      expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
+        startTab: 'groups',
+      });
+    });
   });
 
   it('handle copy code', () => {
@@ -248,6 +286,7 @@ describe('GroupProfile', () => {
       .props()
       .onPress();
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.COPY_CODE);
     expect(common.copyText).toHaveBeenCalled();
   });
 
@@ -260,6 +299,9 @@ describe('GroupProfile', () => {
       .props()
       .onPress();
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.COPY_INVITE_URL,
+    );
     expect(common.copyText).toHaveBeenCalled();
   });
 
@@ -326,46 +368,5 @@ describe('GroupProfile', () => {
 
     expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
-  });
-
-  it('handles delete organization', () => {
-    const component = buildScreen();
-
-    // Press the "Edit" button
-    component.instance().handleEdit();
-    component.update();
-
-    component
-      .childAt(1)
-      .childAt(0)
-      .childAt(1)
-      .props()
-      .actions[0].onPress();
-
-    expect(Alert.alert).toHaveBeenCalledWith(
-      expect.any(String),
-      expect.any(String),
-      [
-        {
-          text: expect.any(String),
-          style: 'cancel',
-        },
-        {
-          text: expect.any(String),
-          style: 'destructive',
-          onPress: expect.any(Function),
-        },
-      ],
-    );
-  });
-
-  it('handles delete organization', async () => {
-    const instance = buildScreenInstance();
-
-    await instance.deleteOrg();
-    expect(deleteOrganization).toHaveBeenCalledWith(orgId);
-    expect(navigateReset).toHaveBeenCalledWith(MAIN_TABS, {
-      startTab: 'groups',
-    });
   });
 });
