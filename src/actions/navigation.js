@@ -28,6 +28,7 @@ export function navigateReset(screen, props = {}) {
     dispatch(
       StackActions.reset({
         index: 0,
+        key: null, // Reset root stack navigator
         actions: [
           NavigationActions.navigate({ routeName: screen, params: props }),
         ],

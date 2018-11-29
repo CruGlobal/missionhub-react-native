@@ -1,0 +1,1 @@
+export const CREATE_GROUP_FLOW = 'nav/CREATE_GROUP_FLOW';
