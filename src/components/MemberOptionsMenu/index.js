@@ -16,8 +16,6 @@ import {
   getMyCommunities,
   removeOrganizationMember,
 } from '../../actions/organizations';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
 
 import styles from './styles';
 
@@ -26,7 +24,6 @@ class MemberOptionsMenu extends Component {
   leaveCommunity = async () => {
     const { dispatch, person, personOrgPermission } = this.props;
 
-    dispatch(trackActionWithoutData(ACTIONS.MANAGE_LEAVE_COMMUNITY));
     await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
     dispatch(getMyCommunities());
     dispatch(navigateBack());
@@ -35,28 +32,24 @@ class MemberOptionsMenu extends Component {
   makeAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
 
-    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_ADMIN));
     dispatch(makeAdmin(person.id, personOrgPermission.id));
   };
 
   removeAsAdmin = () => {
     const { dispatch, person, personOrgPermission } = this.props;
 
-    dispatch(trackActionWithoutData(ACTIONS.MANAGE_REMOVE_ADMIN));
     dispatch(removeAsAdmin(person.id, personOrgPermission.id));
   };
 
   makeOwner = () => {
     const { dispatch, organization, person } = this.props;
 
-    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_OWNER));
     dispatch(transferOrgOwnership(organization.id, person.id));
   };
 
   removeFromCommunity = async () => {
     const { dispatch, person, personOrgPermission, organization } = this.props;
 
-    dispatch(trackActionWithoutData(ACTIONS.MANAGE_REMOVE_MEMBER));
     await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
     dispatch(removeOrganizationMember(person.id, organization.id));
   };

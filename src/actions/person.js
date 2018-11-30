@@ -252,17 +252,25 @@ export function updatePerson(data) {
 }
 
 export function makeAdmin(personId, orgPermissionId) {
-  return dispatch =>
-    dispatch(
+  return async dispatch => {
+    const results = await dispatch(
       updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
     );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_ADMIN));
+
+    return results;
+  };
 }
 
 export function removeAsAdmin(personId, orgPermissionId) {
-  return dispatch =>
-    dispatch(
+  return async dispatch => {
+    const results = await dispatch(
       updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
     );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_REMOVE_ADMIN));
+
+    return results;
+  };
 }
 
 export function updateOrgPermission(
@@ -283,8 +291,8 @@ export function updateOrgPermission(
 }
 
 export function archiveOrgPermission(personId, orgPermissionId) {
-  return dispatch =>
-    dispatch(
+  return async (dispatch, getState) => {
+    const results = dispatch(
       updatePerson({
         id: personId,
         orgPermission: {
@@ -293,6 +301,18 @@ export function archiveOrgPermission(personId, orgPermissionId) {
         },
       }),
     );
+
+    const myId = getState().auth.person.id;
+    dispatch(
+      trackActionWithoutData(
+        personId === myId
+          ? ACTIONS.MANAGE_LEAVE_COMMUNITY
+          : ACTIONS.MANAGE_REMOVE_MEMBER,
+      ),
+    );
+
+    return results;
+  };
 }
 
 export function updateFollowupStatus(person, orgPermissionId, status) {

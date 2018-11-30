@@ -361,6 +361,7 @@ export function transferOrgOwnership(orgId, person_id) {
         },
       ),
     );
+    dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_OWNER));
 
     // After transfer, update auth person and other person with new org permissions
     dispatch(getMe());
@@ -395,7 +396,7 @@ export function addNewOrganization(name, imageData) {
     if (imageData) {
       // After the org is created, update the image with the image data passed in
       const newOrgId = results.response.id;
-      dispatch(updateOrganizationImage(newOrgId, imageData));
+      await dispatch(updateOrganizationImage(newOrgId, imageData));
       dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
     }
     // After the org is created, update auth person with new org permissions
