@@ -94,7 +94,6 @@ class JoinGroupScreen extends Component {
       await dispatch(joinCommunity(community.id, community.community_code));
       this.joined();
     } catch (error) {
-      // console.log('error', error);
       // If the user is already part of the organization, just continue like normal
       if (
         error &&
